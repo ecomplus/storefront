@@ -1,2 +1,2 @@
 # storefront-app
-Vue PWA with cart, checkout and account pages
+Vue PWA with shopping cart, checkout and account pages
