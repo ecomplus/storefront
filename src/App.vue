@@ -6,6 +6,16 @@
 </template>
 
 <script>
+import Vue from 'vue'
+// set globally
+// prevent 'is not defined' error
+window.Vue = Vue
+// E-Com Plus storefront libraries
+import EcomIo from 'ecomplus-sdk'
+window.EcomIo = EcomIo
+require('ecomplus-passport-client')
+require('ecomplus-render')
+
 export default {
   name: 'App'
 }
