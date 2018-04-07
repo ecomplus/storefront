@@ -3,10 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
-// Vuex Centralized State Management
-// https://vuex.vuejs.org/en/
-import Vuex from 'vuex'
+import store from './store'
 
 // Element UI kit
 // http://element.eleme.io
@@ -18,8 +15,6 @@ import VueI18n from 'vue-i18n'
 import en from 'element-ui/lib/locale/lang/en'
 import br from 'element-ui/lib/locale/lang/pt-br'
 
-// setup Vuex
-Vue.use(Vuex)
 // setup Element UI fully
 Vue.use(ElementUI)
 // i18n
@@ -34,6 +29,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

@@ -21,6 +21,7 @@ window.EcomIo = EcomIo
 // E-Com Plus storefront libraries
 require('ecomplus-passport-client')
 require('ecomplus-render')
+Ecom.init()
 
 export default {
   name: 'App'
