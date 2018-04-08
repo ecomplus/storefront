@@ -1,31 +1,22 @@
 <template>
-  <el-container id="app">
-    <el-header class="st-header">
+  <el-container id="app" class="_ecom-store" data-store="1004">
+    <el-header class="cart-header">
       <header-bar/>
     </el-header>
-    <el-main>
+    <el-main class="cart-main">
       <router-view/>
     </el-main>
-    <el-footer>Footer</el-footer>
+    <el-footer class="cart-footer">
+      Footer
+    </el-footer>
   </el-container>
 </template>
 
 <script>
 // layout components
 import HeaderBar from '@/components/layout/HeaderBar'
-
-import Vue from 'vue'
 // E-Com Plus JS SDK
 import EcomIo from 'ecomplus-sdk'
-
-// set globally
-// prevent 'is not defined' error
-window.Vue = Vue
-window.EcomIo = EcomIo
-// E-Com Plus storefront libraries
-require('ecomplus-passport-client')
-require('ecomplus-render')
-Ecom.init()
 
 export default {
   name: 'App',
@@ -47,8 +38,12 @@ body {
   font-weight: 400;
   padding: 0;
   margin: 0;
+  background: $--color-white;
 }
-.st-header {
+.cart-header {
+  background: $--border-color-lighter;
+}
+.cart-footer {
   background: $--border-color-extra-light;
 }
 </style>
