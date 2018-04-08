@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "ecomplus-passport-client": "^0.1.1",
-    "ecomplus-sdk": "^1.6.3",
+    "ecomplus-sdk": "^1.7.0",
     "element-theme-chalk": "^2.3.3",
     "element-ui": "^2.3.3",
     "normalize.css": "^8.0.0",
