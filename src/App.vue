@@ -1,15 +1,19 @@
 <template>
   <el-container id="app">
     <el-header>
-      <img src="./assets/logo.png">
+      <header-bar/>
     </el-header>
     <el-main>
       <router-view/>
     </el-main>
+    <el-footer>Footer</el-footer>
   </el-container>
 </template>
 
 <script>
+// layout components
+import HeaderBar from '@/components/layout/HeaderBar'
+
 import Vue from 'vue'
 // E-Com Plus JS SDK
 import EcomIo from 'ecomplus-sdk'
@@ -24,7 +28,10 @@ require('ecomplus-render')
 Ecom.init()
 
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    HeaderBar
+  }
 }
 </script>
 
