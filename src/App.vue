@@ -1,6 +1,6 @@
 <template>
   <el-container id="app">
-    <el-header>
+    <el-header class="st-header">
       <header-bar/>
     </el-header>
     <el-main>
@@ -37,6 +37,8 @@ export default {
 
 <style lang="scss">
 @import '../node_modules/normalize.css/normalize.css';
+// Element UI theme variables
+@import '../node_modules/element-theme-chalk/src/common/var.scss';
 
 body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -45,5 +47,8 @@ body {
   font-weight: 400;
   padding: 0;
   margin: 0;
+}
+.st-header {
+  background: $--border-color-extra-light;
 }
 </style>

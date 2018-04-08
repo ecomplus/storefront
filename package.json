@@ -13,6 +13,7 @@
     "ecomplus-passport-client": "^0.1.1",
     "ecomplus-render": "^1.10.2",
     "ecomplus-sdk": "^1.6.3",
+    "element-theme-chalk": "^2.3.3",
     "element-ui": "^2.3.3",
     "normalize.css": "^8.0.0",
     "vue": "^2.5.2",
