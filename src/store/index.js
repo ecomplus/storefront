@@ -3,6 +3,7 @@ import Vue from 'vue'
 // Vuex Centralized State Management
 // https://vuex.vuejs.org/en/
 import Vuex from 'vuex'
+import shop from './modules/shop'
 import cart from './modules/cart'
 import products from './modules/products'
 import customer from './modules/customer'
@@ -29,6 +30,7 @@ if (debug) {
 
 export default new Vuex.Store({
   modules: {
+    shop,
     cart,
     products,
     customer
