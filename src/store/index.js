@@ -28,7 +28,37 @@ if (debug) {
   EcomIo.init(initCallback)
 }
 
-export default new Vuex.Store({
+// global namespace
+// define common getters, mutations and actions
+
+const mutations = {
+  init (state, payload) {
+    let module = payload.module
+    // reset entire state body
+    state[module].body = { ...state[module].body, ...payload.body }
+  }
+}
+
+const actions = {
+  init ({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // merge payload
+        let body = {
+          name: 'Hello Vuex'
+        }
+        payload = { ...payload, body }
+        // call mutation to change state
+        commit('init', payload)
+        resolve()
+      }, 1000)
+    })
+  }
+}
+
+let store = new Vuex.Store({
+  mutations,
+  actions,
   modules: {
     shop,
     cart,
@@ -38,3 +68,9 @@ export default new Vuex.Store({
   strict: debug,
   plugins: debug ? [ createLogger() ] : []
 })
+
+store.dispatch('init', {
+  module: 'shop'
+})
+
+export default store
