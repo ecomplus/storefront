@@ -8,34 +8,35 @@ import cart from './modules/cart'
 import products from './modules/products'
 import customer from './modules/customer'
 import createLogger from 'vuex/dist/logger'
-
-// E-Com Plus SDK JS
-import EcomIo from 'ecomplus-sdk'
+// abstractions for making API requests
+import api from './../api'
 
 // setup Vuex
 Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
 
+const modules = {
+  shop,
+  cart,
+  products,
+  customer
+}
+
 const initCallback = () => {
-  console.log('x')
+  // init modules
+  console.log('init')
 }
-if (debug) {
-  // test
-  EcomIo.init(initCallback, 1004, '5a99b7e338f4774795b90773')
-} else {
-  // production
-  EcomIo.init(initCallback)
-}
+api.init(debug, initCallback)
 
 // global namespace
 // define common getters, mutations and actions
 
 const mutations = {
   init (state, payload) {
-    let module = payload.module
-    // reset entire state body
-    state[module].body = { ...state[module].body, ...payload.body }
+    state = state[payload.module]
+    // reset entire module state body
+    state.body = { ...state.body, ...payload.body }
   }
 }
 
@@ -56,21 +57,10 @@ const actions = {
   }
 }
 
-let store = new Vuex.Store({
+export default new Vuex.Store({
   mutations,
   actions,
-  modules: {
-    shop,
-    cart,
-    products,
-    customer
-  },
+  modules,
   strict: debug,
   plugins: debug ? [ createLogger() ] : []
 })
-
-store.dispatch('init', {
-  module: 'shop'
-})
-
-export default store
