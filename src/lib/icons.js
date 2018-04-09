@@ -3,7 +3,6 @@
 import fontawesome from '@fortawesome/fontawesome'
 
 // choose icons
-import faUser from '@fortawesome/fontawesome-free-solid/faUser'
 import faAngleLeft from '@fortawesome/fontawesome-free-solid/faAngleLeft'
 import faAngleRight from '@fortawesome/fontawesome-free-solid/faAngleRight'
 import faAngleDown from '@fortawesome/fontawesome-free-solid/faAngleDown'
@@ -12,6 +11,7 @@ import faCheck from '@fortawesome/fontawesome-free-solid/faCheck'
 import faPlus from '@fortawesome/fontawesome-free-solid/faPlus'
 import faTimes from '@fortawesome/fontawesome-free-solid/faTimes'
 import faListUl from '@fortawesome/fontawesome-free-solid/faListUl'
+import faUserCircle from '@fortawesome/fontawesome-free-solid/faUserCircle'
 import faLock from '@fortawesome/fontawesome-free-solid/faLock'
 import faCommentAlt from '@fortawesome/fontawesome-free-solid/faCommentAlt'
 import faShoppingBag from '@fortawesome/fontawesome-free-solid/faShoppingBag'
@@ -21,7 +21,6 @@ import faHome from '@fortawesome/fontawesome-free-solid/faHome'
 
 // setup icons to library
 fontawesome.library.add(
-  faUser,
   faAngleLeft,
   faAngleRight,
   faAngleDown,
@@ -30,6 +29,7 @@ fontawesome.library.add(
   faPlus,
   faTimes,
   faListUl,
+  faUserCircle,
   faLock,
   faCommentAlt,
   faShoppingBag,
