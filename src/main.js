@@ -17,11 +17,6 @@ import ptBr from 'element-ui/lib/locale/lang/pt-br'
 // custom dictionary
 import dictionary from './lib/dictionary'
 
-// Font Awesome Icons
-import './lib/icons'
-import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
-Vue.component('a-icon', FontAwesomeIcon)
-
 // setup Element UI fully
 Vue.use(ElementUI)
 // i18n

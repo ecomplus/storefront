@@ -6,10 +6,10 @@
     </h1>
     <div class="_topbar-info">
       <div class="_info-mail">
-        <a-icon icon="angle-left" /> {{ shop.contact_email }}
+        {{ shop.contact_email }}
       </div>
       <div class="_info-secure">
-        {{ $t('info.secure') }}
+        <i class="el-icon-success"></i> {{ $t('info.secure') }}
       </div>
     </div>
   </div>
