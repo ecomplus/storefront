@@ -1,9 +1,17 @@
 <template>
-  <div class="_top-bar">
+  <div class="_topbar">
     <img v-if="shop.logo.url" :src="shop.logo.url" :alt="shop.name" class="_logo" />
     <h1 v-else class="_title">
       {{ shop.name }}
     </h1>
+    <div class="_topbar-info">
+      <div class="_info-mail">
+        {{ shop.contact_email }}
+      </div>
+      <div class="_info-secure">
+        {{ $t('info.secure') }}
+      </div>
+    </div>
   </div>
 </template>
 

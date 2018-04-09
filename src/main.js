@@ -12,16 +12,18 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 // internationalization
 import VueI18n from 'vue-i18n'
-import en from 'element-ui/lib/locale/lang/en'
-import br from 'element-ui/lib/locale/lang/pt-br'
+import enUs from 'element-ui/lib/locale/lang/en'
+import ptBr from 'element-ui/lib/locale/lang/pt-br'
+// custom dictionary
+import dictionary from './lib/dictionary'
 
 // setup Element UI fully
 Vue.use(ElementUI)
 // i18n
 Vue.use(VueI18n)
 Vue.config.lang = 'pt_br'
-Vue.locale('en_us', en)
-Vue.locale('pt_br', br)
+Vue.locale('en_us', { ...enUs, ...dictionary.enUs })
+Vue.locale('pt_br', { ...ptBr, ...dictionary.ptBr })
 
 Vue.config.productionTip = false
 
