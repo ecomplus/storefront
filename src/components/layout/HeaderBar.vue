@@ -1,7 +1,10 @@
 <template>
   <el-row :gutter="20">
     <el-col :span="4">
-      {{ shop.name }}
+      <img v-if="shop.logo.url" :src="shop.logo.url" :alt="shop.name" />
+      <h1 v-else>
+        {{ shop.name }}
+      </h1>
     </el-col>
   </el-row>
 </template>
