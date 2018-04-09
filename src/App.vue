@@ -50,12 +50,12 @@ img {
 
 // theming
 ._header {
-  background: $--border-color-lighter;
+  background: $--border-color-extra-light;
 }
 ._header > * {
   height: 100%;
 }
 ._footer {
-  background: $--border-color-extra-light;
+  background: $--border-color-lighter;
 }
 </style>

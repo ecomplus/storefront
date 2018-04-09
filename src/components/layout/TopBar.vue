@@ -1,5 +1,5 @@
 <template>
-  <div id="_top-bar">
+  <div class="_top-bar">
     <img v-if="shop.logo.url" :src="shop.logo.url" :alt="shop.name" class="_logo" />
     <h1 v-else class="_title">
       {{ shop.name }}
