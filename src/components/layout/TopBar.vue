@@ -59,6 +59,5 @@ export default {
 }
 ._info-secure > i {
   margin-left: 5px;
-  font-size: 20px;
 }
 </style>
