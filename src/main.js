@@ -19,7 +19,7 @@ import br from 'element-ui/lib/locale/lang/pt-br'
 Vue.use(ElementUI)
 // i18n
 Vue.use(VueI18n)
-Vue.config.lang = 'en_us'
+Vue.config.lang = 'pt_br'
 Vue.locale('en_us', en)
 Vue.locale('pt_br', br)
 
