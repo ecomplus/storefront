@@ -16,6 +16,38 @@ Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
 
+// global namespace
+// define common getters, mutations and actions
+
+const mutations = {
+  init (state, payload) {
+    let body = state[payload.module].body
+    let Body = payload.body
+    // reset entire module state body
+    // ensure to not write new (unused) properties
+    Object.keys(Body).forEach((key) => {
+      if (key in body) {
+        body[key] = Body[key]
+      }
+    })
+  }
+}
+
+const actions = {
+  init ({ commit }, payload) {
+    // get body from API
+    let get = api.get[payload.module]
+    if (get) {
+      get((body) => {
+        // merge payload
+        payload = { ...payload, body }
+        // call mutation to change state
+        commit('init', payload)
+      })
+    }
+  }
+}
+
 const modules = {
   shop,
   cart,
@@ -23,44 +55,24 @@ const modules = {
   customer
 }
 
-const initCallback = () => {
-  // init modules
-  console.log('init')
-}
-api.init(debug, initCallback)
-
-// global namespace
-// define common getters, mutations and actions
-
-const mutations = {
-  init (state, payload) {
-    state = state[payload.module]
-    // reset entire module state body
-    state.body = { ...state.body, ...payload.body }
-  }
-}
-
-const actions = {
-  init ({ commit }, payload) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        // merge payload
-        let body = {
-          name: 'Hello Vuex'
-        }
-        payload = { ...payload, body }
-        // call mutation to change state
-        commit('init', payload)
-        resolve()
-      }, 1000)
-    })
-  }
-}
-
-export default new Vuex.Store({
+const store = new Vuex.Store({
   mutations,
   actions,
   modules,
   strict: debug,
   plugins: debug ? [ createLogger() ] : []
 })
+
+const initCallback = () => {
+  // init modules
+  for (let module in modules) {
+    if (modules.hasOwnProperty(module)) {
+      store.dispatch('init', {
+        module
+      })
+    }
+  }
+}
+api.init(debug, initCallback)
+
+export default store
