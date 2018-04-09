@@ -1,0 +1,39 @@
+// Font Awesome Icons
+// https://fontawesome.com/how-to-use/use-with-node-js
+import fontawesome from '@fortawesome/fontawesome'
+
+// choose icons
+import faUser from '@fortawesome/fontawesome-free-solid/faUser'
+import faAngleLeft from '@fortawesome/fontawesome-free-solid/faAngleLeft'
+import faAngleRight from '@fortawesome/fontawesome-free-solid/faAngleRight'
+import faAngleDown from '@fortawesome/fontawesome-free-solid/faAngleDown'
+import faAngleUp from '@fortawesome/fontawesome-free-solid/faAngleUp'
+import faCheck from '@fortawesome/fontawesome-free-solid/faCheck'
+import faPlus from '@fortawesome/fontawesome-free-solid/faPlus'
+import faTimes from '@fortawesome/fontawesome-free-solid/faTimes'
+import faListUl from '@fortawesome/fontawesome-free-solid/faListUl'
+import faLock from '@fortawesome/fontawesome-free-solid/faLock'
+import faCommentAlt from '@fortawesome/fontawesome-free-solid/faCommentAlt'
+import faShoppingBag from '@fortawesome/fontawesome-free-solid/faShoppingBag'
+import faTruck from '@fortawesome/fontawesome-free-solid/faTruck'
+import faCreditCard from '@fortawesome/fontawesome-free-solid/faCreditCard'
+import faHome from '@fortawesome/fontawesome-free-solid/faHome'
+
+// setup icons to library
+fontawesome.library.add(
+  faUser,
+  faAngleLeft,
+  faAngleRight,
+  faAngleDown,
+  faAngleUp,
+  faCheck,
+  faPlus,
+  faTimes,
+  faListUl,
+  faLock,
+  faCommentAlt,
+  faShoppingBag,
+  faTruck,
+  faCreditCard,
+  faHome
+)

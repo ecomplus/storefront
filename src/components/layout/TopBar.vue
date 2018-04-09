@@ -6,7 +6,7 @@
     </h1>
     <div class="_topbar-info">
       <div class="_info-mail">
-        {{ shop.contact_email }}
+        <a-icon icon="angle-left" /> {{ shop.contact_email }}
       </div>
       <div class="_info-secure">
         {{ $t('info.secure') }}
