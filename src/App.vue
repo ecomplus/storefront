@@ -1,12 +1,12 @@
 <template>
-  <el-container id="app" class="_ecom-store" data-store="1004">
-    <el-header class="cart-header">
-      <header-bar/>
+  <el-container id="app">
+    <el-header class="_header">
+      <top-bar/>
     </el-header>
-    <el-main class="cart-main">
+    <el-main class="_main">
       <router-view/>
     </el-main>
-    <el-footer class="cart-footer">
+    <el-footer class="_footer">
       Footer
     </el-footer>
   </el-container>
@@ -14,14 +14,14 @@
 
 <script>
 // layout components
-import HeaderBar from '@/components/layout/HeaderBar'
+import TopBar from '@/components/layout/TopBar'
 // E-Com Plus JS SDK
 import EcomIo from 'ecomplus-sdk'
 
 export default {
   name: 'App',
   components: {
-    HeaderBar
+    TopBar
   }
 }
 </script>
@@ -31,6 +31,7 @@ export default {
 // Element UI theme variables
 @import '../node_modules/element-theme-chalk/src/common/var.scss';
 
+// general styles
 body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
@@ -40,10 +41,21 @@ body {
   margin: 0;
   background: $--color-white;
 }
-.cart-header {
+div,
+img {
+  max-height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+// theming
+._header {
   background: $--border-color-lighter;
 }
-.cart-footer {
+._header > * {
+  height: 100%;
+}
+._footer {
   background: $--border-color-extra-light;
 }
 </style>
