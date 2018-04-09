@@ -1,12 +1,12 @@
 export default {
   enUs: {
     info: {
-      secure: '100% safe environment'
+      secure: 'Safe environment'
     }
   },
   ptBr: {
     info: {
-      secure: 'Ambiente 100% seguro'
+      secure: 'Ambiente seguro'
     }
   }
 }
