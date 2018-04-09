@@ -1,6 +1,6 @@
 <template>
   <el-container id="app">
-    <el-header class="_header">
+    <el-header class="_header" height="100px">
       <top-bar/>
     </el-header>
     <el-main class="_main">
@@ -34,12 +34,13 @@ export default {
 // general styles
 body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 16px;
+  font-size: $--font-size-base;
+  color: $--color-text-regular;
   line-height: 1.3;
   font-weight: 400;
   padding: 0;
   margin: 0;
-  background: $--color-white;
+  background: $--border-color-extra-light;
 }
 div,
 img {
@@ -47,15 +48,27 @@ img {
   padding: 0;
   margin: 0;
 }
+* {
+  box-sizing: border-box;
+}
 
 // theming
+#app > * {
+  padding: $--main-padding;
+}
+._main,
 ._header {
-  background: $--border-color-extra-light;
+  background: $--fill-base;
 }
-._header > * {
+._header {
+  box-shadow: $--box-shadow-base;
+  z-index: 1;
+}
+._footer, {
+  border-top: 5px $--border-style-base $--border-color-base;
+}
+._header > *,
+._footer > * {
   height: 100%;
-}
-._footer {
-  background: $--border-color-lighter;
 }
 </style>
