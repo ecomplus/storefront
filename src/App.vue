@@ -66,9 +66,10 @@ h5, h6, p {
 }
 
 // theming
+._header,
 ._main,
 ._footer {
-  padding: 20px;
+  padding: $--main-padding;
 }
 ._main,
 ._header {
@@ -78,7 +79,6 @@ h5, h6, p {
   box-shadow: $--box-shadow-base;
   position: relative;
   z-index: 9;
-  padding: 15px 20px;
 }
 ._footer, {
   border-top: 5px $--border-style-base $--border-color-base;

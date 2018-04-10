@@ -3,9 +3,9 @@
     <el-row type="flex" align="middle">
       <el-col :span="14" :xs="19" class="_store">
         <img v-if="shop.logo.url" :src="shop.logo.url" :alt="shop.name" class="_logo" />
-        <h1 v-else class="_title">
+        <h2 v-else class="_title">
           {{ shop.name }}
-        </h1>
+        </h2>
       </el-col>
       <el-col :span="10" :xs="5">
         <el-row type="flex" align="middle" justify="end">
@@ -56,10 +56,14 @@ export default {
 ._logo {
   max-height: 70px;
 }
+._title {
+  white-space: nowrap;
+}
 ._user {
   text-align: right;
   position: relative;
   width: auto;
+  background: $--fill-base;
 }
 ._user-popover {
   text-align: right;
