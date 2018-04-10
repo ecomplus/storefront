@@ -1,15 +1,15 @@
 <template>
-  <el-container id="app">
-    <el-header class="_header" height="100px">
+  <div id="app">
+    <div class="_header">
       <top-bar/>
-    </el-header>
-    <el-main class="_main">
+    </div>
+    <div class="_main">
       <router-view/>
-    </el-main>
-    <el-footer class="_footer">
+    </div>
+    <div class="_footer">
       Footer
-    </el-footer>
-  </el-container>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -53,8 +53,9 @@ img {
 }
 
 // theming
-#app > * {
-  padding: $--main-padding;
+._main,
+._footer {
+  padding: 20px;
 }
 ._main,
 ._header {
@@ -62,7 +63,9 @@ img {
 }
 ._header {
   box-shadow: $--box-shadow-base;
-  z-index: 1;
+  position: relative;
+  z-index: 9;
+  padding: 15px 20px;
 }
 ._footer, {
   border-top: 5px $--border-style-base $--border-color-base;
