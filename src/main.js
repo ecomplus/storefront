@@ -34,7 +34,8 @@ Vue.locale('pt_br', { ...ptBr, ...dictionary.ptBr })
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
+// set Vue instance globally
+window.App = new Vue({
   el: '#app',
   router,
   store,

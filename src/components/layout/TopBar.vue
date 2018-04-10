@@ -15,7 +15,7 @@
               placement="top-end"
               title="Title"
               width="200"
-              trigger="hover"
+              trigger="click"
               content="This is content">
             </el-popover>
             <a-icon icon="user-circle" v-popover:popuser class="_user-icon"></a-icon>
