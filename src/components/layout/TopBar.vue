@@ -45,7 +45,7 @@ export default {
   text-align: right;
   line-height: 1;
   font-size: 14px;
-  margin-top: 5px;
+  margin-top: 7px;
   width: 450px;
   max-width: 70%;
 }
@@ -53,8 +53,8 @@ export default {
   color: $--color-text-secondary;
 }
 ._info-secure {
-  height: 30px;
   font-size: 16px;
+  margin-bottom: 10px;
   color: $--color-success;
 }
 ._info-secure > i {

@@ -33,7 +33,7 @@ export default {
 
 // general styles
 body {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: $--font-size-base;
   color: $--color-text-regular;
   line-height: 1.3;
