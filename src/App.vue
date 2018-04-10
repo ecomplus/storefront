@@ -36,17 +36,30 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: $--font-size-base;
   color: $--color-text-regular;
-  line-height: 1.3;
   font-weight: 400;
   padding: 0;
-  margin: 0;
   background: $--border-color-extra-light;
 }
-div,
-img {
+div, img {
   max-height: 100%;
   padding: 0;
   margin: 0;
+}
+h2 {
+  font-size: 1.6em;
+  margin: 0.536em 0;
+}
+h3 {
+  font-size: 1.4em;
+  margin: 0.469em 0;
+}
+h3, h4 {
+  font-size: $--font-size-large;
+  margin: 15px 0;
+}
+h5, h6, p {
+  display: block;
+  margin: 0 0 10px 0;
 }
 * {
   box-sizing: border-box;

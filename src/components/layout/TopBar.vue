@@ -10,13 +10,13 @@
       <el-col :span="10" :xs="5">
         <el-row type="flex" align="middle" justify="end">
           <div class="_user">
-            <el-popover
-              ref="popuser"
-              placement="top-end"
-              title="Title"
-              width="200"
-              trigger="click"
-              content="This is content">
+            <el-popover ref="popuser" placement="top-end" trigger="click">
+              <div class="_user-popover">
+                <p>Olá <b>visitante</b></p>
+                <el-button size="mini" type="primary" @click="">
+                  Identifique-se
+                </el-button>
+              </div>
             </el-popover>
             <a-icon icon="user-circle" v-popover:popuser class="_user-icon"></a-icon>
           </div>
@@ -60,6 +60,9 @@ export default {
   text-align: right;
   position: relative;
   width: auto;
+}
+._user-popover {
+  text-align: right;
 }
 ._user-icon {
   font-size: 30px;
