@@ -1,23 +1,35 @@
 <template>
   <div class="_topbar">
     <el-row type="flex" align="middle">
-      <el-col :span="14" :xs="21" class="_store">
+      <el-col :span="14" :xs="19" class="_store">
         <img v-if="shop.logo.url" :src="shop.logo.url" :alt="shop.name" class="_logo" />
         <h1 v-else class="_title">
           {{ shop.name }}
         </h1>
       </el-col>
-      <el-col :span="5" class="_user">
-        <el-tag type="info">Olá visitante</el-tag>
-      </el-col>
-      <el-col :span="5" class="_topbar-info hidden-xs-only">
-        <div class="_info-secure">
-          {{ $t('info.secure') }}
-          <i class="el-icon-success"></i>
-        </div>
-        <div class="_info-email">
-          {{ shop.contact_email }}
-        </div>
+      <el-col :span="10" :xs="5">
+        <el-row type="flex" align="middle" justify="end">
+          <div class="_user">
+            <el-popover
+              ref="popuser"
+              placement="top-end"
+              title="Title"
+              width="200"
+              trigger="hover"
+              content="This is content">
+            </el-popover>
+            <a-icon icon="user-circle" v-popover:popuser class="_user-icon"></a-icon>
+          </div>
+          <div class="_topbar-info hidden-xs-only">
+            <div class="_info-secure">
+              {{ $t('info.secure') }}
+              <a-icon icon="lock" class="_secure-icon"></a-icon>
+            </div>
+            <div class="_info-email">
+              {{ shop.contact_email }}
+            </div>
+          </div>
+        </el-row>
       </el-col>
     </el-row>
   </div>
@@ -38,16 +50,31 @@ export default {
 // Element UI theme variables
 @import '../../../node_modules/element-theme-chalk/src/common/var.scss';
 
+._store {
+  padding-right: 10px;
+}
 ._logo {
   max-height: 70px;
 }
 ._user {
   text-align: right;
+  position: relative;
+  width: auto;
+}
+._user-icon {
+  font-size: 30px;
+  color: $--color-text-placeholder;
+  transition: .1s;
+  cursor: pointer;
+}
+._user-icon:hover {
+  color: $--color-text-secondary;
 }
 ._topbar-info {
+  padding-left: 40px;
   text-align: right;
   line-height: 1;
-  max-width: 70%;
+  width: auto;
 }
 ._info-email {
   color: $--color-text-secondary;
@@ -57,7 +84,7 @@ export default {
   margin-bottom: 10px;
   color: $--color-success;
 }
-._info-secure > i {
+._secure-icon {
   margin-left: 5px;
 }
 </style>
