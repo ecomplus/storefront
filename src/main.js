@@ -17,6 +17,7 @@ import enUs from 'element-ui/lib/locale/lang/en'
 import ptBr from 'element-ui/lib/locale/lang/pt-br'
 // custom dictionary
 import dictionary from './lib/dictionary'
+import { DEFAULT_LANG } from '@/lib/constants'
 
 // Font Awesome Icons
 import './lib/icons'
@@ -27,7 +28,7 @@ Vue.component('a-icon', FontAwesomeIcon)
 Vue.use(ElementUI)
 // i18n
 Vue.use(VueI18n)
-Vue.config.lang = 'pt_br'
+Vue.config.lang = DEFAULT_LANG
 Vue.locale('en_us', { ...enUs, ...dictionary.enUs })
 Vue.locale('pt_br', { ...ptBr, ...dictionary.ptBr })
 
