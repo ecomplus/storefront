@@ -21,10 +21,10 @@
             <a-icon icon="user-circle" v-popover:popuser class="_user-icon"></a-icon>
           </div>
           <div class="_topbar-info hidden-xs-only">
-            <div class="_info-secure">
+            <el-tag type="success" class="_info-secure">
               {{ $t('info.secure') }}
               <a-icon icon="lock" class="_secure-icon"></a-icon>
-            </div>
+            </el-tag>
             <div class="_info-email">
               {{ shop.contact_email }}
             </div>
@@ -80,11 +80,12 @@ export default {
   width: auto;
 }
 ._info-email {
+  font-size: $--font-size-small;
   color: $--color-text-secondary;
 }
 ._info-secure {
-  font-size: 16px;
-  margin-bottom: 10px;
+  font-size: $--font-size-base;
+  margin-bottom: 8px;
   color: $--color-success;
 }
 ._secure-icon {
