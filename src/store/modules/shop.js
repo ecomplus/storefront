@@ -2,7 +2,7 @@
 // https://ecomstore.docs.apiary.io/#reference/stores
 const state = {
   body: {
-    name: 'Test',
+    name: null,
     contact_email: null,
     logo: {},
     languages: []
