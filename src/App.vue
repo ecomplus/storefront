@@ -39,6 +39,8 @@ body {
   font-weight: 400;
   padding: 0;
   background: $--border-color-extra-light;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
 }
 div, img {
   max-height: 100%;
