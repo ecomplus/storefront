@@ -45,17 +45,25 @@ const Callback = (callback) => {
 }
 
 const get = {
-  shop: (callback) => {
+  shop (callback) {
     EcomIo.getStore(Callback(callback))
   },
-  customer: (callback) => {
+  customer (callback) {
     if (EcomPassport.isLogged()) {
       // customer already identified
     }
   }
 }
 
+const session = {
+  login () {
+    // start OAuth login flow
+    EcomPassport.loginPopup()
+  }
+}
+
 export default {
   init,
+  session,
   get
 }

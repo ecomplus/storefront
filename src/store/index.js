@@ -52,6 +52,15 @@ const actions = {
   }
 }
 
+// setup session methods
+// customer authentication
+for (let action in api.session) {
+  let method = api.session[action]
+  if (method) {
+    actions[action] = method
+  }
+}
+
 const modules = {
   shop,
   cart,

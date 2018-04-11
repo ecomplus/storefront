@@ -12,10 +12,27 @@
           <div class="_user">
             <el-popover ref="popuser" placement="top-end" trigger="click">
               <div class="_user-popover">
-                <p>Olá <b>visitante</b></p>
-                <el-button size="mini" type="primary" @click="">
-                  Identifique-se
-                </el-button>
+                <p>
+                  <span class="_user-hi">
+                    {{ $t('session.hi') }}
+                  </span>
+                  <b class="_user-name">
+                    {{ customer._id ? customer.display_name : $t('session.visitor') }}
+                  </b>
+                </p>
+                <span v-if="customer._id" class="_user-logged">
+                  <el-button size="mini" type="info" class="_user-account">
+                    {{ $t('session.account') }}
+                  </el-button>
+                  <el-button size="mini" type="danger" @click="logout" class="_user-logout">
+                    {{ $t('session.logout') }}
+                  </el-button>
+                </span>
+                <span v-else class="_user-visitor">
+                  <el-button size="mini" type="primary" @click="login" class="_user-login">
+                    {{ $t('session.identify') }}
+                  </el-button>
+                </span>
               </div>
             </el-popover>
             <a-icon icon="user-circle" v-popover:popuser class="_user-icon"></a-icon>
@@ -36,12 +53,16 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'TopBar',
   computed: mapGetters([
-    'shop'
+    'shop',
+    'customer'
+  ]),
+  methods: mapActions([
+    'login'
   ])
 }
 </script>
