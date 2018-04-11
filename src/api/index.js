@@ -47,6 +47,11 @@ const Callback = (callback) => {
 const get = {
   shop: (callback) => {
     EcomIo.getStore(Callback(callback))
+  },
+  customer: (callback) => {
+    if (EcomPassport.isLogged()) {
+      // customer already identified
+    }
   }
 }
 
