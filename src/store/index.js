@@ -9,7 +9,7 @@ import products from './modules/products'
 import customer from './modules/customer'
 import createLogger from 'vuex/dist/logger'
 // abstractions for making API requests
-import api from './../api'
+import api from '@/api'
 
 // setup Vuex
 Vue.use(Vuex)
@@ -34,16 +34,20 @@ const mutations = {
 }
 
 const actions = {
-  init ({ commit }, payload) {
+  init ({ commit, state }, payload) {
     // get body from API
-    let get = api.get[payload.module]
+    let module = payload.module
+    let get = api.get[module]
     if (get) {
-      get((body) => {
+      let callback = (body) => {
         // merge payload
         payload = { ...payload, body }
         // call mutation to change state
         commit('init', payload)
-      })
+      }
+      let resourceId = state[module].body._id
+      // call API
+      get(callback, resourceId)
     }
   }
 }
