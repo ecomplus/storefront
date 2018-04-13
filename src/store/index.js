@@ -47,6 +47,16 @@ const mutations = {
     } else {
       state.loading++
     }
+  },
+
+  // setup session synchronous methods
+  logout (state) {
+    let customer = state.customer.body
+    if (customer.display_name) {
+      // unset customer info
+      customer._id = null
+      customer.display_name = null
+    }
   }
 }
 
@@ -70,7 +80,6 @@ const actions = {
 
   // setup session methods
   // customer authentication
-
   login ({ commit }) {
     let callback = (body) => {
       if (typeof body === 'object' && body !== null) {
@@ -87,9 +96,6 @@ const actions = {
     commit('triggerLoading', true)
     // pass to passport API
     api.session.login(callback)
-  },
-
-  logout () {
   }
 }
 

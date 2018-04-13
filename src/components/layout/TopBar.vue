@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'TopBar',
@@ -61,10 +61,14 @@ export default {
     'shop',
     'customer'
   ]),
-  methods: mapActions([
-    'login',
-    'logout'
-  ])
+  methods: {
+    ...mapActions([
+      'login'
+    ]),
+    ...mapMutations([
+      'logout'
+    ])
+  }
 }
 </script>
 
