@@ -19,6 +19,10 @@ const debug = process.env.NODE_ENV !== 'production'
 // global namespace
 // define common getters, mutations and actions
 
+const state = {
+  loading: 0
+}
+
 const mutations = {
   init (state, payload) {
     let body = state[payload.module].body
@@ -30,6 +34,19 @@ const mutations = {
         body[key] = Body[key]
       }
     })
+  },
+
+  triggerLoading (state, payload) {
+    // count opened async processes
+    if (!payload) {
+      if (state.loading <= 0) {
+        // should not be less than zero
+        return
+      }
+      state.loading--
+    } else {
+      state.loading++
+    }
   }
 }
 
@@ -49,15 +66,32 @@ const actions = {
       // call API
       get(callback, resourceId)
     }
-  }
-}
+  },
 
-// setup session methods
-// customer authentication
-for (let action in api.session) {
-  let method = api.session[action]
-  if (method) {
-    actions[action] = method
+  // setup session methods
+  // customer authentication
+
+  login ({ commit }) {
+    let callback = (session) => {
+      if (typeof session === 'object' && session !== null) {
+        if (session.customer) {
+          // call mutation changing customer info
+          commit('init', {
+            module: 'customer',
+            body: session.customer
+          })
+        }
+      }
+      // hide loading
+      commit('triggerLoading', false)
+    }
+    // show loading spinner
+    commit('triggerLoading', true)
+    // pass to passport API
+    api.session.login(callback)
+  },
+
+  logout () {
   }
 }
 
@@ -69,6 +103,7 @@ const modules = {
 }
 
 const store = new Vuex.Store({
+  state,
   mutations,
   actions,
   modules,

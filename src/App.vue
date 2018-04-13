@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-loading="loading">
     <div class="_header">
       <top-bar/>
     </div>
@@ -13,16 +13,21 @@
 </template>
 
 <script>
-// layout components
-import TopBar from '@/components/layout/TopBar'
 // E-Com Plus JS SDK
 import EcomIo from 'ecomplus-sdk'
+// base layout components
+import TopBar from '@/components/layout/TopBar'
+// from Vuex store
+import { mapState } from 'vuex'
 
 export default {
   name: 'App',
   components: {
     TopBar
-  }
+  },
+  computed: mapState([
+    'loading'
+  ])
 }
 </script>
 
@@ -88,5 +93,10 @@ h5, h6, p {
 ._header > *,
 ._footer > * {
   height: 100%;
+}
+
+// classes from Element UI
+.el-loading-mask {
+  z-index: 3000;
 }
 </style>

@@ -56,9 +56,9 @@ const get = {
 }
 
 const session = {
-  login () {
+  login (callback) {
     // start OAuth login flow
-    EcomPassport.loginPopup()
+    EcomPassport.loginPopup(callback)
   }
 }
 

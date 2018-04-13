@@ -17,7 +17,7 @@
                     {{ $t('session.hi') }}
                   </span>
                   <b class="_user-name">
-                    {{ customer._id ? customer.display_name : $t('session.visitor') }}
+                    {{ customer.display_name || $t('session.visitor') }}
                   </b>
                 </p>
                 <span v-if="customer._id" class="_user-logged">
@@ -62,7 +62,8 @@ export default {
     'customer'
   ]),
   methods: mapActions([
-    'login'
+    'login',
+    'logout'
   ])
 }
 </script>
