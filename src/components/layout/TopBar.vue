@@ -92,7 +92,8 @@ export default {
   background: $--fill-base;
 }
 ._user-popover {
-  text-align: right;
+  text-align: center;
+  min-width: 180px;
 }
 ._user-icon {
   font-size: 30px;
