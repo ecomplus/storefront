@@ -72,15 +72,13 @@ const actions = {
   // customer authentication
 
   login ({ commit }) {
-    let callback = (session) => {
-      if (typeof session === 'object' && session !== null) {
-        if (session.customer) {
-          // call mutation changing customer info
-          commit('init', {
-            module: 'customer',
-            body: session.customer
-          })
-        }
+    let callback = (customer) => {
+      if (typeof customer === 'object' && customer !== null) {
+        // call mutation changing customer info
+        commit('init', {
+          module: 'customer',
+          body: customer
+        })
       }
       // hide loading
       commit('triggerLoading', false)
