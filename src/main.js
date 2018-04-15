@@ -38,14 +38,8 @@ Vue.config.productionTip = false
 // set Vue instance globally
 window.App = new Vue({
   el: '#app',
-  data: {
-    html: {
-      start: null,
-      end: null
-    }
-  },
   router,
   store,
   components: { App },
-  template: '<App :html="html"/>'
+  template: '<App/>'
 })
