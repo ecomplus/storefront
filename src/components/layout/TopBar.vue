@@ -98,7 +98,8 @@ export default {
 ._user-icon {
   font-size: 30px;
   color: $--color-text-placeholder;
-  transition: .1s;
+  -webkit-transition: $--color-transition-base;
+  transition: $--color-transition-base;
   cursor: pointer;
 }
 ._user-icon:hover {

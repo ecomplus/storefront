@@ -36,7 +36,7 @@ export default {
 // general styles
 body {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: $--font-size-base;
+  font-size: $--font-size-small;
   color: $--color-text-regular;
   font-weight: 400;
   padding: 0;
@@ -48,6 +48,14 @@ div, img {
   max-height: 100%;
   padding: 0;
   margin: 0;
+}
+#app {
+  padding: 0;
+  font-size: $--font-size-base;
+}
+body > div,
+#app > div {
+  padding: $--main-padding;
 }
 h2 {
   font-size: 1.6em;
@@ -65,15 +73,23 @@ h5, h6, p {
   display: block;
   margin: 0 0 10px 0;
 }
+a {
+  text-decoration: none;
+  color: $--color-text-primary;
+  -webkit-transition: $--color-transition-base;
+  transition: $--color-transition-base;
+}
+#app a {
+  color: $--link-color;
+}
+a:hover {
+  color: $--link-hover-color !important;
+}
 * {
   box-sizing: border-box;
 }
 
 // theming
-._header,
-._main {
-  padding: $--main-padding;
-}
 ._main,
 ._header {
   background: $--fill-base;
