@@ -1,5 +1,6 @@
 <template>
   <div id="app" v-loading="loading">
+    <div v-html="html.start" data-html="start"></div>
     <div class="_header">
       <top-bar/>
     </div>
@@ -9,6 +10,7 @@
     <div class="_footer">
       Footer
     </div>
+    <div v-html="html.end" data-html="end"></div>
   </div>
 </template>
 
@@ -22,6 +24,7 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'App',
+  props: [ 'html' ],
   components: {
     TopBar
   },
