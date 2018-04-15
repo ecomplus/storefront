@@ -43,6 +43,8 @@ body {
   background: $--border-color-extra-light;
   overflow-y: scroll !important;
   overflow-x: hidden !important;
+  -webkit-transition: $--fade-linear-transition;
+  transition: $--fade-linear-transition;
 }
 div, img {
   max-height: 100%;
@@ -98,6 +100,7 @@ a:hover {
   box-shadow: $--box-shadow-base;
   position: relative;
   z-index: 9;
+  height: 113px;
 }
 ._main {
   border-bottom: 5px $--border-style-base $--border-color-base;
