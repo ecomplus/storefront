@@ -4,9 +4,12 @@ const state = {
   body: {
     _id: null,
     locale: null,
+    main_email: null,
     accepts_marketing: false,
     display_name: null,
-    gender: null
+    birth_date: {},
+    gender: null,
+    photos: []
   }
 }
 
