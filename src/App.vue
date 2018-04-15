@@ -6,9 +6,6 @@
     <div class="_main">
       <router-view/>
     </div>
-    <div class="_footer">
-      Footer
-    </div>
   </div>
 </template>
 
@@ -74,8 +71,7 @@ h5, h6, p {
 
 // theming
 ._header,
-._main,
-._footer {
+._main {
   padding: $--main-padding;
 }
 ._main,
@@ -87,11 +83,10 @@ h5, h6, p {
   position: relative;
   z-index: 9;
 }
-._footer, {
-  border-top: 5px $--border-style-base $--border-color-base;
+._main {
+  border-bottom: 5px $--border-style-base $--border-color-base;
 }
-._header > *,
-._footer > * {
+._header > * {
   height: 100%;
 }
 
