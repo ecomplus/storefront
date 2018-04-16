@@ -1,5 +1,9 @@
 <template>
   <div class="_cart">
+    <h1>
+      Carrinho
+      <small>2 itens</small>
+    </h1>
   </div>
 </template>
 

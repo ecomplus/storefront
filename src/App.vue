@@ -51,13 +51,21 @@ div, img {
   padding: 0;
   margin: 0;
 }
-#app {
-  padding: 0;
-  font-size: $--font-size-base;
-}
 body > div,
 #app > div {
   padding: $--main-padding;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+#app {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  font-size: $--font-size-base;
+  background: $--fill-base;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
 }
 h2 {
   font-size: 1.6em;
@@ -67,11 +75,12 @@ h3 {
   font-size: 1.4em;
   margin: 0.469em 0;
 }
-h3, h4 {
+h4 {
   font-size: $--font-size-large;
   margin: 15px 0;
 }
 h5, h6, p {
+  font-weight: 400;
   display: block;
   margin: 0 0 10px 0;
 }
@@ -87,15 +96,23 @@ a {
 a:hover {
   color: $--link-hover-color !important;
 }
+small {
+  font-weight: 400;
+}
+h1 > small {
+  display: block;
+  margin-left: 4px;
+  font-size: 58%;
+}
+h1 > small::before {
+  opacity: .3;
+  content: "-- ";
+}
 * {
   box-sizing: border-box;
 }
 
 // theming
-._main,
-._header {
-  background: $--fill-base;
-}
 ._header {
   box-shadow: $--box-shadow-base;
   position: relative;
