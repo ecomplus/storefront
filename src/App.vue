@@ -48,6 +48,7 @@ body {
 }
 div, img {
   max-height: 100%;
+  max-width: 100%;
   padding: 0;
   margin: 0;
 }
