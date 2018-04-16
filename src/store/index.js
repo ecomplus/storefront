@@ -124,6 +124,8 @@ const initCallback = () => {
       })
     }
   }
+  // show body
+  document.getElementsByTagName('body')[0].style.opacity = 1
 }
 api.init(debug, initCallback)
 
