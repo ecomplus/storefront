@@ -5,10 +5,10 @@
       <small>2 itens</small>
     </h1>
     <div class="_cart-content">
-      <el-row :gutter="20">
+      <el-row>
         <el-col :span="18" class="_items">
-          <div class="_item">
-            <el-row :gutter="15">
+          <div class="_item" v-for="n in 2">
+            <el-row>
               <el-col :span="4" class="_item-image">
                 <img src="https://cea.vteximg.com.br/arquivos/ids/2692924-200-240/Polo-Masculina-em-Piquet-Listrada-Manga-Curta-Azul-Marinho-9115127-Azul_Marinho_1.jpg?v=636578442433670000" />
               </el-col>
@@ -31,12 +31,44 @@
                     R$ 59,00
                   </div>
                 </el-row>
-                <h4 class="_item-title">Produto</h4>
+                <div class="_item-gift">
+                  <el-checkbox>
+                    <a-icon icon="gift"></a-icon> Embrulhar para presente
+                  </el-checkbox>
+                </div>
+                <h4 class="_item-title">
+                  <small class="_item-sku">#AJBKJBN7</small>
+                  Produto Jaju Kv Iosbbk Ik
+                </h4>
               </el-col>
             </el-row>
           </div>
         </el-col>
-        <el-col :span="6" class="_cart-total">
+        <el-col :span="6" class="_cart-info">
+          <div class="_cart-values">
+            <el-row>
+              <el-col :span="12" class="_cart-subtotal">
+                <small>Subtotal</small>
+                R$ 500,00
+              </el-col>
+              <el-col :span="12" class="_cart-freigth">
+                <small>Frete</small>
+                R$ 70,00
+              </el-col>
+            </el-row>
+            <div class="_cart-coupon-label">Cupom de desconto</div>
+            <el-input placeholder="Código do cupom" class="_cart-coupon">
+              <el-button slot="append">Adicionar</el-button>
+            </el-input>
+          </div>
+          <div class="_cart-total">
+            <small>Total</small>
+            R$ 570,00
+          </div>
+          <el-button type="success" class="_cart-buy">
+            <a-icon icon="check" class="_buy-icon"></a-icon>
+            Fechar pedido
+          </el-button>
         </el-col>
       </el-row>
     </div>
@@ -58,17 +90,20 @@ export default {
 // Element UI theme variables
 @import '../../../node_modules/element-theme-chalk/src/common/var.scss';
 
-._item,
-._cart-total {
-  padding-top: $--card-padding;
-  border-top: $--border-width-base $--border-style-base $--border-color-extra-light;
+._item {
+  padding: $--card-padding 0;
+  border-top: 1px dashed $--border-color-light;
+  margin-right: $--card-padding;
+}
+._item:not(:last-child) {
+  border-bottom: none;
+}
+._item-image {
+  padding-right: $--card-padding;
 }
 ._item-image > img {
   border-radius: $--border-radius-small;
   border: $--border-base;
-}
-._item-info {
-  font-size: $--font-size-large;
 }
 ._item-values > * {
   display: inline-block;
@@ -82,7 +117,51 @@ export default {
   text-align: right;
   margin: -4px 0 0 10px;
 }
+._item-price,
+._item-total,
+._cart-buy {
+  font-size: $--font-size-large;
+}
 ._item-remove {
   margin-left: 10px;
+}
+._item-gift {
+  margin-top: 10px;
+}
+._item-sku {
+  color: $--color-text-secondary;
+  font-size: 12px;
+  display: block;
+  margin-bottom: 2px;
+}
+._cart-info {
+  text-align: right;
+  font-size: $--font-size-large;
+}
+._cart-info > * {
+  padding: $--card-padding;
+}
+._cart-info small {
+  display: block;
+  color: $--color-text-secondary;
+}
+._cart-values {
+  background: $--border-color-extra-light;
+  border-radius: $--border-radius-base;
+}
+._cart-total {
+  font-weight: 600;
+}
+._cart-buy {
+  width: 100%;
+  font-weight: 600;
+}
+._buy-icon {
+  margin-right: 10px;
+}
+._cart-coupon-label {
+  font-size: $--font-size-base;
+  color: $--color-text-primary;
+  margin: 15px 0 10px 0;
 }
 </style>

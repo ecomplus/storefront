@@ -18,6 +18,7 @@ import faShoppingBag from '@fortawesome/fontawesome-free-solid/faShoppingBag'
 import faTruck from '@fortawesome/fontawesome-free-solid/faTruck'
 import faCreditCard from '@fortawesome/fontawesome-free-solid/faCreditCard'
 import faHome from '@fortawesome/fontawesome-free-solid/faHome'
+import faGift from '@fortawesome/fontawesome-free-solid/faGift'
 
 // setup icons to library
 fontawesome.library.add(
@@ -35,5 +36,6 @@ fontawesome.library.add(
   faShoppingBag,
   faTruck,
   faCreditCard,
-  faHome
+  faHome,
+  faGift
 )
