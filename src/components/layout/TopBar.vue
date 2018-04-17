@@ -7,6 +7,7 @@
           {{ shop.name }}
         </h2>
       </el-col>
+
       <el-col :span="10" :xs="5">
         <el-row type="flex" align="middle" justify="end">
           <div class="_user">
@@ -37,6 +38,7 @@
             </el-popover>
             <a-icon icon="user-circle" v-popover:popuser class="_user-icon"></a-icon>
           </div>
+
           <div class="_topbar-info hidden-xs-only">
             <el-tag type="success" class="_info-secure">
               {{ $t('info.secure') }}

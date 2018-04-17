@@ -4,6 +4,7 @@
       Carrinho
       <small>2 itens</small>
     </h1>
+
     <div class="_cart-content">
       <el-row>
         <el-col :span="18" class="_items">
@@ -44,6 +45,7 @@
             </el-row>
           </div>
         </el-col>
+
         <el-col :span="6" class="_cart-info">
           <div class="_cart-values">
             <el-row>
@@ -56,6 +58,7 @@
                 R$ 70,00
               </el-col>
             </el-row>
+
             <el-popover ref="popzip" trigger="click" width="240">
               <div class="_cart-zip-popover">
                 <el-input placeholder="CEP" class="_cart-zip" size="small">
@@ -69,6 +72,7 @@
                 <a-icon icon="truck"></a-icon>
               </a>
             </div>
+
             <el-popover ref="popcoupon" trigger="click" width="300">
               <div class="_cart-coupon-popover">
                 <el-input placeholder="Código do cupom" class="_cart-coupon" size="small">
@@ -80,6 +84,7 @@
               <a href="javascript:;" v-popover:popcoupon>Adicionar cupom de desconto</a>
             </div>
           </div>
+
           <div class="_cart-total">
             <small>Total</small>
             R$ 570,00
