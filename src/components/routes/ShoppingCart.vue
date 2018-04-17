@@ -56,10 +56,29 @@
                 R$ 70,00
               </el-col>
             </el-row>
-            <div class="_cart-coupon-label">Cupom de desconto</div>
-            <el-input placeholder="Código do cupom" class="_cart-coupon">
-              <el-button slot="append">Adicionar</el-button>
-            </el-input>
+            <el-popover ref="popzip" trigger="click" width="240">
+              <div class="_cart-zip-popover">
+                <el-input placeholder="CEP" class="_cart-zip" size="small">
+                  <el-button slot="append">Calcular</el-button>
+                </el-input>
+              </div>
+            </el-popover>
+            <div class="_cart-zip-trigger">
+              <a href="javascript:;" v-popover:popzip>
+                Calcular frete
+                <a-icon icon="truck"></a-icon>
+              </a>
+            </div>
+            <el-popover ref="popcoupon" trigger="click" width="300">
+              <div class="_cart-coupon-popover">
+                <el-input placeholder="Código do cupom" class="_cart-coupon" size="small">
+                  <el-button slot="append">Adicionar</el-button>
+                </el-input>
+              </div>
+            </el-popover>
+            <div class="_cart-coupon-trigger">
+              <a href="javascript:;" v-popover:popcoupon>Adicionar cupom de desconto</a>
+            </div>
           </div>
           <div class="_cart-total">
             <small>Total</small>
@@ -159,9 +178,11 @@ export default {
 ._buy-icon {
   margin-right: 10px;
 }
-._cart-coupon-label {
-  font-size: $--font-size-base;
-  color: $--color-text-primary;
-  margin: 15px 0 10px 0;
+._cart-zip-trigger,
+._cart-coupon-trigger {
+  font-size: 85%;
+}
+._cart-zip-trigger {
+  margin: 10px 0 5px 0;
 }
 </style>
