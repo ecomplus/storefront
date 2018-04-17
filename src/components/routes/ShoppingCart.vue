@@ -81,7 +81,17 @@
               </div>
             </el-popover>
             <div class="_cart-coupon-trigger">
-              <a href="javascript:;" v-popover:popcoupon>Adicionar cupom de desconto</a>
+              <!--
+              <small>Desconto:</small> <b>R$ 50,00</b>
+              <el-tooltip content="Cupom de desconto" placement="top">
+                <a href="javascript:;" v-popover:popcoupon>
+                  <a-icon icon="ticket-alt"></a-icon>
+                </a>
+              </el-tooltip>
+              -->
+              <a href="javascript:;" v-popover:popcoupon>
+                Adicionar cupom de desconto
+              </a>
             </div>
           </div>
 
@@ -186,6 +196,9 @@ export default {
 ._cart-zip-trigger,
 ._cart-coupon-trigger {
   font-size: 85%;
+}
+._cart-coupon-trigger small {
+  display: inline-block;
 }
 ._cart-zip-trigger {
   margin: 10px 0 5px 0;

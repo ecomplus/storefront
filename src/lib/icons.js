@@ -19,6 +19,8 @@ import faTruck from '@fortawesome/fontawesome-free-solid/faTruck'
 import faCreditCard from '@fortawesome/fontawesome-free-solid/faCreditCard'
 import faHome from '@fortawesome/fontawesome-free-solid/faHome'
 import faGift from '@fortawesome/fontawesome-free-solid/faGift'
+import faEdit from '@fortawesome/fontawesome-free-solid/faEdit'
+import faTicketAlt from '@fortawesome/fontawesome-free-solid/faTicketAlt'
 
 // setup icons to library
 fontawesome.library.add(
@@ -37,5 +39,7 @@ fontawesome.library.add(
   faTruck,
   faCreditCard,
   faHome,
-  faGift
+  faGift,
+  faEdit,
+  faTicketAlt
 )
