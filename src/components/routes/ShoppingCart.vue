@@ -25,7 +25,7 @@
       <div class="_cart-content">
         <el-row>
           <el-col :span="18" class="_items">
-            <div class="_item" v-for="n in 2">
+            <div class="_item" v-for="item in items">
               <el-row>
                 <el-col :span="4" class="_item-image">
                   <img src="https://cea.vteximg.com.br/arquivos/ids/2692924-200-240/Polo-Masculina-em-Piquet-Listrada-Manga-Curta-Azul-Marinho-9115127-Azul_Marinho_1.jpg?v=636578442433670000" />
@@ -132,9 +132,24 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'ShoppingCart',
-  computed: mapGetters([
-    'cart'
-  ])
+  computed: {
+    ...mapGetters([
+      'cart',
+      'products'
+    ]),
+
+    items () {
+      let items = []
+      for (let i = 0; i < this.cart.items.length; i++) {
+        let item = this.cart.items[i]
+        items.push({
+          Product: {},
+          ...item
+        })
+      }
+      return items
+    }
+  }
 }
 </script>
 
