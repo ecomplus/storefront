@@ -1,11 +1,10 @@
 // initial state
 const state = {
-  body: {
-  }
+  list: []
 }
 
 const getters = {
-  products: state => state.body
+  products: state => state.list
 }
 
 export default {
