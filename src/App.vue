@@ -102,7 +102,7 @@ small {
 }
 h1 > small {
   display: block;
-  margin-left: 3px;
+  margin-left: 1px;
   font-size: 58%;
   opacity: .7;
 }

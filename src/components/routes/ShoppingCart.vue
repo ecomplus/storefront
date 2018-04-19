@@ -1,8 +1,16 @@
 <template>
   <div class="_cart">
     <h1 class="_cart-title">
-      Carrinho
-      <small>2 itens</small>
+      {{ $t('cart.title') }}
+      <small v-if="!cart.items.length">
+        {{ $t('cart.empty') }}
+      </small>
+      <small v-else-if="cart.items.length === 1">
+        1 {{ $t('cart.item') }}
+      </small>
+      <small v-else>
+        {{ cart.items.length + ' ' + $t('cart.items') }}
+      </small>
     </h1>
 
     <div class="_cart-content">

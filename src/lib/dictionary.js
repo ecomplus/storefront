@@ -9,8 +9,15 @@ export default {
     },
     info: {
       secure: 'Safe environment'
+    },
+    cart: {
+      title: 'Cart',
+      item: 'item',
+      items: 'items',
+      empty: 'Your shopping cart is empty'
     }
   },
+
   ptBr: {
     session: {
       hi: 'Olá',
@@ -21,6 +28,12 @@ export default {
     },
     info: {
       secure: 'Ambiente seguro'
+    },
+    cart: {
+      title: 'Carrinho',
+      item: 'item',
+      items: 'itens',
+      empty: 'Seu carrinho está vazio'
     }
   }
 }
