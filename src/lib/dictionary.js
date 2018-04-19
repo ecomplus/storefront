@@ -12,9 +12,12 @@ export default {
     },
     cart: {
       title: 'Cart',
-      item: 'item',
+      oneItem: 'One item',
       items: 'items',
-      empty: 'Your shopping cart is empty'
+      empty: 'Your shopping cart is empty',
+      continueShopping: 'Browse the store to continue shopping',
+      chooseProducts: 'Choose products',
+      close: 'Close order'
     }
   },
 
@@ -31,9 +34,12 @@ export default {
     },
     cart: {
       title: 'Carrinho',
-      item: 'item',
+      oneItem: 'Um item',
       items: 'itens',
-      empty: 'Seu carrinho está vazio'
+      empty: 'Seu carrinho de compras está vazio',
+      continueShopping: 'Navegue pela loja para continuar comprando',
+      chooseProducts: 'Escolher produtos',
+      close: 'Fechar pedido'
     }
   }
 }

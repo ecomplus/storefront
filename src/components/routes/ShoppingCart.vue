@@ -1,118 +1,128 @@
 <template>
   <div class="_cart">
-    <h1 class="_cart-title">
-      {{ $t('cart.title') }}
-      <small v-if="!cart.items.length">
-        {{ $t('cart.empty') }}
-      </small>
-      <small v-else-if="cart.items.length === 1">
-        1 {{ $t('cart.item') }}
-      </small>
-      <small v-else>
-        {{ cart.items.length + ' ' + $t('cart.items') }}
-      </small>
-    </h1>
+    <div v-if="!cart.items.length" class="_cart-empty">
+      <h1 class="_cart-title">
+        {{ $t('cart.title') }}
+        <small>{{ $t('cart.empty') }}</small>
+      </h1>
+      <div class="_cart-continue-shopping">
+        {{ $t('cart.continueShopping') }}.
+        <a href="/">{{ $t('cart.chooseProducts') }}</a>
+      </div>
+    </div>
 
-    <div class="_cart-content">
-      <el-row>
-        <el-col :span="18" class="_items">
-          <div class="_item" v-for="n in 2">
-            <el-row>
-              <el-col :span="4" class="_item-image">
-                <img src="https://cea.vteximg.com.br/arquivos/ids/2692924-200-240/Polo-Masculina-em-Piquet-Listrada-Manga-Curta-Azul-Marinho-9115127-Azul_Marinho_1.jpg?v=636578442433670000" />
-              </el-col>
-              <el-col :span="20" class="_item-info">
-                <el-row type="flex" align="middle" justify="space-between">
-                  <div class="_item-values">
-                    <span class="_item-quantity">
-                      <el-input-number :min="1" :max="10" size="small"></el-input-number>
-                    </span>
-                    <span class="_item-remove">
-                      <el-button type="danger" size="small">
-                        <a-icon icon="times"></a-icon>
-                      </el-button>
-                    </span>
-                    <span class="_item-price">
+    <div v-else class="_cart-with-items">
+      <h1 class="_cart-title">
+        {{ $t('cart.title') }}
+        <small v-if="cart.items.length === 1">
+          {{ $t('cart.oneItem') }}
+        </small>
+        <small v-else>
+          {{ cart.items.length + ' ' + $t('cart.items') }}
+        </small>
+      </h1>
+
+      <div class="_cart-content">
+        <el-row>
+          <el-col :span="18" class="_items">
+            <div class="_item" v-for="n in 2">
+              <el-row>
+                <el-col :span="4" class="_item-image">
+                  <img src="https://cea.vteximg.com.br/arquivos/ids/2692924-200-240/Polo-Masculina-em-Piquet-Listrada-Manga-Curta-Azul-Marinho-9115127-Azul_Marinho_1.jpg?v=636578442433670000" />
+                </el-col>
+                <el-col :span="20" class="_item-info">
+                  <el-row type="flex" align="middle" justify="space-between">
+                    <div class="_item-values">
+                      <span class="_item-quantity">
+                        <el-input-number :min="1" :max="10" size="small"></el-input-number>
+                      </span>
+                      <span class="_item-remove">
+                        <el-button type="danger" size="small">
+                          <a-icon icon="times"></a-icon>
+                        </el-button>
+                      </span>
+                      <span class="_item-price">
+                        R$ 59,00
+                      </span>
+                    </div>
+                    <div class="_item-total">
                       R$ 59,00
-                    </span>
+                    </div>
+                  </el-row>
+                  <div class="_item-gift">
+                    <el-checkbox>
+                      <a-icon icon="gift"></a-icon> Embrulhar para presente
+                    </el-checkbox>
                   </div>
-                  <div class="_item-total">
-                    R$ 59,00
-                  </div>
-                </el-row>
-                <div class="_item-gift">
-                  <el-checkbox>
-                    <a-icon icon="gift"></a-icon> Embrulhar para presente
-                  </el-checkbox>
+                  <h4 class="_item-title">
+                    <small class="_item-sku">#AJBKJBN7</small>
+                    Produto Jaju Kv Iosbbk Ik
+                  </h4>
+                </el-col>
+              </el-row>
+            </div>
+          </el-col>
+
+          <el-col :span="6" class="_cart-info">
+            <div class="_cart-values">
+              <el-row>
+                <el-col :span="12" class="_cart-subtotal">
+                  <small>Subtotal</small>
+                  R$ 500,00
+                </el-col>
+                <el-col :span="12" class="_cart-freigth">
+                  <small>Frete</small>
+                  R$ 70,00
+                </el-col>
+              </el-row>
+
+              <el-popover ref="popzip" trigger="click" width="240">
+                <div class="_cart-zip-popover">
+                  <el-input placeholder="CEP" class="_cart-zip" size="small">
+                    <el-button slot="append">Calcular</el-button>
+                  </el-input>
                 </div>
-                <h4 class="_item-title">
-                  <small class="_item-sku">#AJBKJBN7</small>
-                  Produto Jaju Kv Iosbbk Ik
-                </h4>
-              </el-col>
-            </el-row>
-          </div>
-        </el-col>
-
-        <el-col :span="6" class="_cart-info">
-          <div class="_cart-values">
-            <el-row>
-              <el-col :span="12" class="_cart-subtotal">
-                <small>Subtotal</small>
-                R$ 500,00
-              </el-col>
-              <el-col :span="12" class="_cart-freigth">
-                <small>Frete</small>
-                R$ 70,00
-              </el-col>
-            </el-row>
-
-            <el-popover ref="popzip" trigger="click" width="240">
-              <div class="_cart-zip-popover">
-                <el-input placeholder="CEP" class="_cart-zip" size="small">
-                  <el-button slot="append">Calcular</el-button>
-                </el-input>
-              </div>
-            </el-popover>
-            <div class="_cart-zip-trigger">
-              <a href="javascript:;" v-popover:popzip>
-                Calcular frete
-                <a-icon icon="truck"></a-icon>
-              </a>
-            </div>
-
-            <el-popover ref="popcoupon" trigger="click" width="300">
-              <div class="_cart-coupon-popover">
-                <el-input placeholder="Código do cupom" class="_cart-coupon" size="small">
-                  <el-button slot="append">Adicionar</el-button>
-                </el-input>
-              </div>
-            </el-popover>
-            <div class="_cart-coupon-trigger">
-              <!--
-              <small>Desconto:</small> <b>R$ 50,00</b>
-              <el-tooltip content="Cupom de desconto" placement="top">
-                <a href="javascript:;" v-popover:popcoupon>
-                  <a-icon icon="ticket-alt"></a-icon>
+              </el-popover>
+              <div class="_cart-zip-trigger">
+                <a href="javascript:;" v-popover:popzip>
+                  Calcular frete
+                  <a-icon icon="truck"></a-icon>
                 </a>
-              </el-tooltip>
-              -->
-              <a href="javascript:;" v-popover:popcoupon>
-                Adicionar cupom de desconto
-              </a>
-            </div>
-          </div>
+              </div>
 
-          <div class="_cart-total">
-            <small>Total</small>
-            R$ 570,00
-          </div>
-          <el-button type="success" class="_cart-buy">
-            <a-icon icon="check" class="_buy-icon"></a-icon>
-            Fechar pedido
-          </el-button>
-        </el-col>
-      </el-row>
+              <el-popover ref="popcoupon" trigger="click" width="300">
+                <div class="_cart-coupon-popover">
+                  <el-input placeholder="Código do cupom" class="_cart-coupon" size="small">
+                    <el-button slot="append">Adicionar</el-button>
+                  </el-input>
+                </div>
+              </el-popover>
+              <div class="_cart-coupon-trigger">
+                <!--
+                <small>Desconto:</small> <b>R$ 50,00</b>
+                <el-tooltip content="Cupom de desconto" placement="top">
+                  <a href="javascript:;" v-popover:popcoupon>
+                    <a-icon icon="ticket-alt"></a-icon>
+                  </a>
+                </el-tooltip>
+                -->
+                <a href="javascript:;" v-popover:popcoupon>
+                  Adicionar cupom de desconto
+                </a>
+              </div>
+            </div>
+
+            <div class="_cart-total">
+              <small>Total</small>
+              R$ 570,00
+            </div>
+            <el-button type="success" class="_cart-buy">
+              <a-icon icon="check" class="_buy-icon"></a-icon>
+              {{ $t('cart.close') }}
+            </el-button>
+          </el-col>
+        </el-row>
+      </div>
     </div>
   </div>
 </template>
@@ -210,5 +220,11 @@ export default {
 }
 ._cart-zip-trigger {
   margin: 10px 0 5px 0;
+}
+._cart-continue-shopping {
+  font-size: $--font-size-large;
+  text-align: center;
+  padding: $--card-padding;
+  background: $--border-color-extra-light;
 }
 </style>
