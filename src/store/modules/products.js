@@ -1,10 +1,14 @@
 // initial state
 const state = {
-  list: []
+  all: []
 }
 
 const getters = {
-  products: state => state.list
+  products: state => state.all,
+  // find product by ID
+  getProduct: (state) => (id) => {
+    return state.all.find(product => product._id === id)
+  }
 }
 
 export default {

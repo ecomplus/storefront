@@ -135,7 +135,7 @@ export default {
   computed: {
     ...mapGetters([
       'cart',
-      'products'
+      'getProduct'
     ]),
 
     items () {
@@ -143,7 +143,7 @@ export default {
       for (let i = 0; i < this.cart.items.length; i++) {
         let item = this.cart.items[i]
         items.push({
-          Product: {},
+          @product: getProduct(item.product_id),
           ...item
         })
       }
