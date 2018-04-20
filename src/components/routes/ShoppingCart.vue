@@ -128,27 +128,47 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
+
+const computed = {
+  // return cart items with product body
+  items () {
+    let items = []
+    // items list from cart
+    let list = this.cart.items
+    for (let i = 0; i < list.length; i++) {
+      let item = list.items[i]
+      let id = item.product_id
+      // get product body by ID
+      let Product = this.productById(id)
+      // init product if necessary
+      if (!Product._id) {
+        this.initProduct({ id })
+      }
+      items.push({
+        ...item,
+        Product
+      })
+    }
+    return items
+  }
+}
 
 export default {
   name: 'ShoppingCart',
   computed: {
     ...mapGetters([
-      'cart',
-      'getProduct'
+      'cart'
     ]),
-
-    items () {
-      let items = []
-      for (let i = 0; i < this.cart.items.length; i++) {
-        let item = this.cart.items[i]
-        items.push({
-          @product: getProduct(item.product_id),
-          ...item
-        })
-      }
-      return items
-    }
+    ...computed
+  },
+  method: {
+    ...mapGetters([
+      'productById'
+    ]),
+    ...mapActions([
+      'initProduct'
+    ])
   }
 }
 </script>

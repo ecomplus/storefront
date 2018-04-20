@@ -52,6 +52,9 @@ const get = {
     if (EcomPassport.isLogged()) {
       // customer already identified
     }
+  },
+  product (callback, id) {
+    EcomIo.getProduct(Callback(callback), id)
   }
 }
 
