@@ -28,13 +28,18 @@
             <div class="_item" v-for="item in items">
               <el-row>
                 <el-col :span="4" class="_item-image">
-                  <img src="https://cea.vteximg.com.br/arquivos/ids/2692924-200-240/Polo-Masculina-em-Piquet-Listrada-Manga-Curta-Azul-Marinho-9115127-Azul_Marinho_1.jpg?v=636578442433670000" />
+                  <img v-if="item.Product.pictures.length" :src="itemImage(item)" />
                 </el-col>
                 <el-col :span="20" class="_item-info">
                   <el-row type="flex" align="middle" justify="space-between">
                     <div class="_item-values">
                       <span class="_item-quantity">
-                        <el-input-number :min="1" :max="10" size="small"></el-input-number>
+                        <el-input-number
+                          size="small"
+                          :value="item.quantity"
+                          :min="item.Product.min_quantity"
+                          :max="item.Product.quantity">
+                        </el-input-number>
                       </span>
                       <span class="_item-remove">
                         <el-button type="danger" size="small">
@@ -42,21 +47,22 @@
                         </el-button>
                       </span>
                       <span class="_item-price">
-                        R$ 59,00
+                        {{ item.Product.currency_symbol + ' ' + itemPrice(item) }}
                       </span>
                     </div>
                     <div class="_item-total">
-                      R$ 59,00
+                      {{ item.Product.currency_symbol + ' ' + itemTotalPrice(item) }}
                     </div>
                   </el-row>
                   <div class="_item-gift">
                     <el-checkbox>
-                      <a-icon icon="gift"></a-icon> Embrulhar para presente
+                      <a-icon icon="gift"></a-icon>
+                      {{ $t('cart.giftWrap') }}
                     </el-checkbox>
                   </div>
                   <h4 class="_item-title">
-                    <small class="_item-sku">#AJBKJBN7</small>
-                    Produto Jaju Kv Iosbbk Ik
+                    <small class="_item-sku">{{ itemSku(item) }}</small>
+                    {{ itemName(item) }}
                   </h4>
                 </el-col>
               </el-row>
@@ -154,6 +160,13 @@ const computed = {
   }
 }
 
+const methods = {
+  itemImage (item) {
+    // get item picture source
+    // check for variation first
+  }
+}
+
 export default {
   name: 'ShoppingCart',
   computed: {
@@ -162,13 +175,14 @@ export default {
     ]),
     ...computed
   },
-  method: {
+  methods: {
     ...mapGetters([
       'productById'
     ]),
     ...mapActions([
       'initProduct'
-    ])
+    ]),
+    ...methods
   }
 }
 </script>
@@ -188,7 +202,7 @@ export default {
 ._item-image {
   padding-right: $--card-padding;
 }
-._item-image > img {
+._item-image img {
   border-radius: $--border-radius-small;
   border: $--border-base;
 }

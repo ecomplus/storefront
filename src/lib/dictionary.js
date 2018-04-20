@@ -17,7 +17,8 @@ export default {
       empty: 'Your shopping cart is empty',
       continueShopping: 'Browse the store to continue shopping',
       chooseProducts: 'Choose products',
-      close: 'Close order'
+      close: 'Close order',
+      giftWrap: 'Gift-wrap'
     }
   },
 
@@ -39,7 +40,8 @@ export default {
       empty: 'Seu carrinho de compras está vazio',
       continueShopping: 'Navegue pela loja para continuar comprando',
       chooseProducts: 'Escolher produtos',
-      close: 'Fechar pedido'
+      close: 'Fechar pedido',
+      giftWrap: 'Embrulhar para presente'
     }
   }
 }
