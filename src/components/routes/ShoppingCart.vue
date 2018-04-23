@@ -25,10 +25,10 @@
       <div class="_cart-content">
         <el-row>
           <el-col :span="18" class="_items">
-            <div class="_item" v-for="item in items">
+            <div class="_item" v-for="item in cart.items">
               <el-row>
                 <el-col :span="4" class="_item-image">
-                  <img v-if="item.Product.pictures.length" :src="itemImage(item)" />
+                  <img v-if="item.picture && item.picture.normal" :src="item.picture.normal.url" />
                 </el-col>
                 <el-col :span="20" class="_item-info">
                   <el-row type="flex" align="middle" justify="space-between">
@@ -37,8 +37,8 @@
                         <el-input-number
                           size="small"
                           :value="item.quantity"
-                          :min="item.Product.min_quantity"
-                          :max="item.Product.quantity">
+                          :min="item.min_quantity"
+                          :max="item.max_quantity">
                         </el-input-number>
                       </span>
                       <span class="_item-remove">
@@ -47,11 +47,11 @@
                         </el-button>
                       </span>
                       <span class="_item-price">
-                        {{ item.Product.currency_symbol + ' ' + itemPrice(item) }}
+                        {{ item.currency_symbol + ' ' + item.price }}
                       </span>
                     </div>
                     <div class="_item-total">
-                      {{ item.Product.currency_symbol + ' ' + itemTotalPrice(item) }}
+                      {{ item.currency_symbol + ' ' + (item.price * item.quantity) }}
                     </div>
                   </el-row>
                   <div class="_item-gift">
@@ -61,8 +61,8 @@
                     </el-checkbox>
                   </div>
                   <h4 class="_item-title">
-                    <small class="_item-sku">{{ itemSku(item) }}</small>
-                    {{ itemName(item) }}
+                    <small class="_item-sku">{{ item.sku }}</small>
+                    {{ item.name }}
                   </h4>
                 </el-col>
               </el-row>
@@ -136,45 +136,11 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 
-const computed = {
-  // return cart items with product body
-  items () {
-    let items = []
-    // items list from cart
-    let list = this.cart.items
-    for (let i = 0; i < list.length; i++) {
-      let item = list.items[i]
-      let id = item.product_id
-      // get product body by ID
-      let Product = this.productById(id)
-      // init product if necessary
-      if (!Product._id) {
-        this.initProduct({ id })
-      }
-      items.push({
-        ...item,
-        Product
-      })
-    }
-    return items
-  }
-}
-
-const methods = {
-  itemImage (item) {
-    // get item picture source
-    // check for variation first
-  }
-}
-
 export default {
   name: 'ShoppingCart',
-  computed: {
-    ...mapGetters([
-      'cart'
-    ]),
-    ...computed
-  },
+  computed: mapGetters([
+    'cart'
+  ]),
   methods: {
     ...mapGetters([
       'productById'
