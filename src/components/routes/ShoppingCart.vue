@@ -147,8 +147,7 @@ export default {
     ]),
     ...mapActions([
       'initProduct'
-    ]),
-    ...methods
+    ])
   }
 }
 </script>
