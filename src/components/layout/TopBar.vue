@@ -103,10 +103,12 @@ export default {
 ._user-popover {
   text-align: center;
 }
-._user-logged button {
+._user-popover button {
   display: block;
-  margin-bottom: 10px;
   width: 100%;
+}
+._user-logged button {
+  margin-bottom: 10px;
 }
 ._user-logout {
   display: block;

@@ -49,9 +49,8 @@ const get = {
     EcomIo.getStore(Callback(callback))
   },
   customer (callback) {
-    if (EcomPassport.isLogged()) {
-      // customer already identified
-    }
+    // synchronous method with Passport
+    Callback(callback)(null, EcomPassport.customerObject())
   },
   product (callback, id) {
     EcomIo.getProduct(Callback(callback), id)
