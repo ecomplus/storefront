@@ -11,7 +11,7 @@
       <el-col :span="10" :xs="5">
         <el-row type="flex" align="middle" justify="end">
           <div class="_user">
-            <el-popover ref="popuser" placement="top-end" trigger="click">
+            <el-popover ref="popuser" width="180" placement="bottom-end" trigger="hover">
               <div class="_user-popover">
                 <p>
                   <span class="_user-hi">
@@ -22,12 +22,19 @@
                   </b>
                 </p>
                 <span v-if="customer._id" class="_user-logged">
-                  <el-button size="mini" type="info" class="_user-account">
-                    {{ $t('session.account') }}
-                  </el-button>
-                  <el-button size="mini" type="danger" @click="logout" class="_user-logout">
-                    {{ $t('session.logout') }}
-                  </el-button>
+                  <div>
+                    <el-button size="mini" class="_user-account">
+                      {{ $t('session.account') }}
+                    </el-button>
+                  </div>
+                  <div>
+                    <el-button size="mini" class="_user-orders">
+                      {{ $t('session.orders') }}
+                    </el-button>
+                  </div>
+                  <a href="javascript:;" @click="logout" class="_user-logout">
+                    {{ $t('session.isNotYou') + '? ' + $t('session.logout') }}
+                  </a>
                 </span>
                 <span v-else class="_user-visitor">
                   <el-button size="mini" type="primary" @click="login" class="_user-login">
@@ -95,7 +102,16 @@ export default {
 }
 ._user-popover {
   text-align: center;
-  min-width: 180px;
+}
+._user-logged button {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+}
+._user-logout {
+  display: block;
+  color: $--color-danger;
+  font-size: $--font-size-small;
 }
 ._user-icon {
   font-size: 30px;

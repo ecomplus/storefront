@@ -5,7 +5,9 @@ export default {
       identify: 'Identify yourself',
       visitor: 'Visitor',
       logout: 'Logout',
-      account: 'My account'
+      isNotYou: 'Is not you',
+      account: 'My account',
+      orders: 'My orders'
     },
     info: {
       secure: 'Safe environment'
@@ -28,7 +30,9 @@ export default {
       identify: 'Identifique-se',
       visitor: 'Visitante',
       logout: 'Sair',
-      account: 'Minha conta'
+      isNotYou: 'Não é você',
+      account: 'Minha conta',
+      orders: 'Meus pedidos'
     },
     info: {
       secure: 'Ambiente seguro'
