@@ -23,14 +23,18 @@
                 </p>
                 <span v-if="customer._id" class="_user-logged">
                   <div>
-                    <el-button size="mini" class="_user-account">
-                      {{ $t('session.account') }}
-                    </el-button>
+                    <router-link to="/account">
+                      <el-button size="mini" class="_user-account">
+                        {{ $t('session.account') }}
+                      </el-button>
+                    </router-link>
                   </div>
                   <div>
-                    <el-button size="mini" class="_user-orders">
-                      {{ $t('session.orders') }}
-                    </el-button>
+                    <router-link to="/orders">
+                      <el-button size="mini" class="_user-orders">
+                        {{ $t('session.orders') }}
+                      </el-button>
+                    </router-link>
                   </div>
                   <a href="javascript:;" @click="logout" class="_user-logout">
                     {{ $t('session.isNotYou') + '? ' + $t('session.logout') }}
