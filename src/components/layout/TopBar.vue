@@ -1,15 +1,19 @@
 <template>
   <div class="_topbar">
     <el-row type="flex" align="middle">
-      <el-col :span="14" :xs="19" class="_store">
+      <el-col :span="14" :xs="17" class="_store">
         <img v-if="shop.logo.url" :src="shop.logo.url" :alt="shop.name" class="_logo" />
         <h2 v-else class="_title">
           {{ shop.name }}
         </h2>
       </el-col>
 
-      <el-col :span="10" :xs="5">
+      <el-col :span="10" :xs="7">
         <el-row type="flex" align="middle" justify="end">
+          <router-link to="/">
+            <a-icon icon="shopping-bag" class="_cart-icon"></a-icon>
+          </router-link>
+
           <div class="_user">
             <el-popover ref="popuser" width="180" placement="bottom-end" trigger="hover">
               <div class="_user-popover">
@@ -99,6 +103,7 @@ export default {
   white-space: nowrap;
 }
 ._user {
+  margin-left: 20px;
   text-align: right;
   position: relative;
   width: auto;
@@ -119,12 +124,21 @@ export default {
   color: $--color-danger;
   font-size: $--font-size-small;
 }
+._cart-icon,
 ._user-icon {
   font-size: 30px;
-  color: $--color-text-placeholder;
   -webkit-transition: $--color-transition-base;
   transition: $--color-transition-base;
   cursor: pointer;
+}
+._cart-icon {
+  color: $--color-primary-light-5;
+}
+._cart-icon:hover {
+  color: $--color-primary-light-3;
+}
+._user-icon {
+  color: $--color-text-placeholder;
 }
 ._user-icon:hover {
   color: $--color-text-secondary;
