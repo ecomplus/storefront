@@ -29,6 +29,7 @@ export default {
 </script>
 
 <style lang="scss">
+// CSS fixer
 @import '../node_modules/normalize.css/normalize.css';
 // Element UI theme variables
 @import '../node_modules/element-theme-chalk/src/common/var.scss';
@@ -87,15 +88,16 @@ h5, h6, p {
 }
 a {
   text-decoration: none;
-  color: $--color-text-primary;
-  -webkit-transition: $--color-transition-base;
-  transition: $--color-transition-base;
-}
-#app a {
   color: $--link-color;
 }
+#credits a {
+  color: $--color-text-primary;
+}
+#credits a:hover {
+  color: #37003c;
+}
 a:hover {
-  color: $--link-hover-color !important;
+  color: $--link-hover-color;
 }
 small {
   font-weight: 400;
@@ -108,6 +110,10 @@ h1 > small {
 }
 * {
   box-sizing: border-box;
+}
+a, button, div, span, img {
+  -webkit-transition: $--color-transition-base;
+  transition: $--color-transition-base;
 }
 
 // theming
