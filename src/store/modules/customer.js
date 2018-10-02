@@ -24,7 +24,24 @@ const state = {
 }
 
 const getters = {
-  customer: state => state.body
+  customer: state => state.body,
+
+  // get customer full name string
+  customerName: (state) => {
+    let nameObj = state.body.name
+    let name = ''
+    if (nameObj && nameObj.given_name) {
+      // first name is the only required
+      name += nameObj.given_name
+      if (nameObj.hasOwnProperty('middle_name')) {
+        name += ' ' + nameObj.middle_name
+      }
+      if (nameObj.hasOwnProperty('family_name')) {
+        name += ' ' + nameObj.family_name
+      }
+    }
+    return name
+  }
 }
 
 export default {

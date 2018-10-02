@@ -26,7 +26,18 @@ export default {
       registration: 'Registration',
       orders: 'Orders',
       addresses: 'Addresses',
-      unloggedMsg: 'You must be logged to see your account settings'
+      unloggedMsg: 'You must be logged to see your account settings',
+      fullName: 'Full name',
+      email: 'Email',
+      nickname: 'Nickname',
+      registrationType: 'Registration type',
+      juridical: 'Legal person',
+      physical: 'Physical person',
+      juridicalDoc: 'Document number',
+      physicalDoc: 'Document number'
+    },
+    validate: {
+      required: 'Required field'
     }
   },
 
@@ -57,7 +68,18 @@ export default {
       registration: 'Cadastro',
       orders: 'Pedidos',
       addresses: 'Endereços',
-      unloggedMsg: 'Você precisa estar logado para ver as configurações da sua conta'
+      unloggedMsg: 'Você precisa estar logado para ver as configurações da sua conta',
+      fullName: 'Nome completo',
+      email: 'E-mail',
+      nickname: 'Apelido',
+      registrationType: 'Tipo de registro',
+      juridical: 'Pessoa física',
+      physical: 'Pessoa jurídica',
+      juridicalDoc: 'CNPJ',
+      physicalDoc: 'CPF'
+    },
+    validate: {
+      required: 'Campo obrigatório'
     }
   }
 }
