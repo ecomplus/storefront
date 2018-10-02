@@ -21,6 +21,12 @@ export default {
       chooseProducts: 'Choose products',
       close: 'Close order',
       giftWrap: 'Gift-wrap'
+    },
+    account: {
+      registration: 'Registration',
+      orders: 'Orders',
+      addresses: 'Addresses',
+      unloggedMsg: 'You must be logged to see your account settings'
     }
   },
 
@@ -46,6 +52,12 @@ export default {
       chooseProducts: 'Escolher produtos',
       close: 'Fechar pedido',
       giftWrap: 'Embrulhar para presente'
+    },
+    account: {
+      registration: 'Cadastro',
+      orders: 'Pedidos',
+      addresses: 'Endereços',
+      unloggedMsg: 'Você precisa estar logado para ver as configurações da sua conta'
     }
   }
 }
