@@ -1,5 +1,6 @@
 <template>
   <div class="_orders">
+    {{ $t('session.orders') }}
   </div>
 </template>
 
@@ -18,5 +19,5 @@ export default {
 
 <style lang="scss">
 // Element UI theme variables
-@import '../../../node_modules/element-theme-chalk/src/common/var.scss';
+@import '../../../../node_modules/element-theme-chalk/src/common/var.scss';
 </style>

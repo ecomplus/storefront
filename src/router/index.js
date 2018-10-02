@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import ShoppingCart from '@/components/routes/ShoppingCart'
 import MyAccount from '@/components/routes/MyAccount'
-import MyOrders from '@/components/routes/MyOrders'
+import RegistrationForm from '@/components/routes/account/RegistrationForm'
+import OrdersList from '@/components/routes/account/OrdersList'
 
 Vue.use(Router)
 
@@ -10,18 +11,24 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'ShoppingCart',
+      name: 'cart',
       component: ShoppingCart
     },
     {
       path: '/account',
-      name: 'MyAccount',
-      component: MyAccount
-    },
-    {
-      path: '/orders',
-      name: 'MyOrders',
-      component: MyOrders
+      component: MyAccount,
+      children: [
+        {
+          path: '',
+          name: 'account',
+          component: RegistrationForm
+        },
+        {
+          path: 'orders',
+          name: 'orders',
+          component: OrdersList
+        }
+      ]
     }
   ]
 })

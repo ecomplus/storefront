@@ -10,7 +10,7 @@
 
       <el-col :span="10" :xs="7">
         <el-row type="flex" align="middle" justify="end">
-          <router-link to="/">
+          <router-link :to="{ name: 'cart' }">
             <a-icon icon="shopping-bag" class="_cart-icon"></a-icon>
           </router-link>
 
@@ -27,14 +27,14 @@
                 </p>
                 <span v-if="customer._id" class="_user-logged">
                   <div>
-                    <router-link to="/account">
+                    <router-link :to="{ name: 'account' }">
                       <el-button size="mini" class="_user-account">
                         {{ $t('session.account') }}
                       </el-button>
                     </router-link>
                   </div>
                   <div>
-                    <router-link to="/orders">
+                    <router-link :to="{ name: 'orders' }">
                       <el-button size="mini" class="_user-orders">
                         {{ $t('session.orders') }}
                       </el-button>
