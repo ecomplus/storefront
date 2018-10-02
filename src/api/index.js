@@ -23,7 +23,7 @@ const init = (debug, initCallback) => {
 
   if (debug) {
     // test
-    EcomIo.init(callback, 1004, '5a99b7e338f4774795b90773')
+    EcomIo.init(callback, 1011, '5b1abe30a4d4531b8fe40725')
   } else {
     // production
     EcomIo.init(callback)
@@ -49,8 +49,8 @@ const get = {
     EcomIo.getStore(Callback(callback))
   },
   customer (callback) {
-    // synchronous method with Passport
-    Callback(callback)(null, EcomPassport.customerObject())
+    // GET customer from Passport REST API
+    EcomPassport.api('me.json', 'GET', null, Callback(callback))
   },
   product (callback, id) {
     EcomIo.getProduct(Callback(callback), id)

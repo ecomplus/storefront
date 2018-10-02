@@ -13,7 +13,7 @@
     "@fortawesome/fontawesome": "^1.1.5",
     "@fortawesome/fontawesome-free-solid": "^5.0.10",
     "@fortawesome/vue-fontawesome": "^0.0.22",
-    "ecomplus-passport-client": "^0.4.0",
+    "ecomplus-passport-client": "^0.6.0",
     "ecomplus-sdk": "^1.11.0",
     "element-theme-chalk": "^2.4.8",
     "element-ui": "^2.4.8",
