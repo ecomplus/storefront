@@ -24,8 +24,8 @@ export default {
   data() {
     return {
       form: {
-        name: this.$store.getters.customerName,
-        nickname: this.$store.getters.customer.display_name
+        // declare form empty
+        // further update with computed values
       },
       rules: {
         name: [
@@ -38,6 +38,7 @@ export default {
     }
   },
   computed: mapGetters([
+    'customerName',
     'customer'
   ]),
   methods: {
@@ -50,6 +51,15 @@ export default {
           return false
         }
       })
+    }
+  },
+  created() {
+    // update data with computed
+    var body = this.customer
+    this.form = {
+      name: this.customerName,
+      nickname: body.display_name,
+      type: body.registry_type
     }
   }
 }

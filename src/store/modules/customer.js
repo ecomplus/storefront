@@ -26,7 +26,7 @@ const state = {
 const getters = {
   customer: state => state.body,
 
-  // get customer full name string
+  // get customer full name
   customerName: (state) => {
     let nameObj = state.body.name
     let name = ''
@@ -37,9 +37,11 @@ const getters = {
         name += ' ' + nameObj.middle_name
       }
       if (nameObj.hasOwnProperty('family_name')) {
+        // last name
         name += ' ' + nameObj.family_name
       }
     }
+    // return concatenated string
     return name
   }
 }
