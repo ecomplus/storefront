@@ -1,5 +1,5 @@
 <template>
-  <el-form ref="form" :model="form" :rules="rules" class="_account-form" label-width="140px">
+  <el-form ref="form" :model="form" :rules="rules" class="_account-form">
     <el-form-item :label="$t('account.fullName')" prop="name">
       <el-input v-model="form.name"></el-input>
     </el-form-item>
@@ -8,6 +8,41 @@
     </el-form-item>
     <el-form-item :label="$t('account.nickname')" prop="nickname">
       <el-input v-model="form.nickname"></el-input>
+    </el-form-item>
+    <el-form-item :label="$t('account.gender')">
+      <el-radio-group v-model="form.gender">
+        <el-radio border label="f">
+          {{ $t('account.female') }}
+        </el-radio>
+        <el-radio border label="m">
+          {{ $t('account.male') }}
+        </el-radio>
+        <el-radio border label="x">
+          {{ $t('account.genderX') }}
+        </el-radio>
+      </el-radio-group>
+    </el-form-item>
+    <el-form-item :label="$t('account.birth')">
+      <el-date-picker
+        v-if="$lang === 'pt_br'"
+        type="date"
+        v-model="form.birth"
+        placeholder="31/02/1994"
+        format="dd/MM/yyyy"
+        value-format="yyyy-MM-dd">
+      </el-date-picker>
+      <el-date-picker
+        v-else
+        type="date"
+        v-model="form.birth"
+        placeholder="1994-02-31">
+      </el-date-picker>
+    </el-form-item>
+    <el-form-item :label="$t('account.contactPhone')">
+      <el-input v-model="form.phone"></el-input>
+    </el-form-item>
+    <el-form-item :label="$t('account.cellphone')">
+      <el-input v-model="form.cellphone"></el-input>
     </el-form-item>
 
     <el-form-item :label="$t('account.registrationType')">
@@ -74,6 +109,8 @@ export default {
     this.form = {
       name: this.customerName,
       nickname: body.display_name,
+      gender: body.gender,
+      birth: null,
       // default is physical
       type: (body.registry_type || 'p')
     }

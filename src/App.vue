@@ -134,4 +134,40 @@ a, button, div, span, img {
 .el-loading-mask {
   z-index: 3000;
 }
+@media (max-width: 991px) {
+  .el-date-picker {
+    display: none;
+  }
+}
+@media (max-width: 575px) {
+  .el-radio-group > .el-radio {
+    display: block;
+    width: 100%;
+  }
+  .el-radio-group > .el-radio + .el-radio.is-bordered {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .el-form-item > label {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .el-form-item > .el-form-item__label {
+    line-height: 1;
+    text-align: left;
+  }
+  .el-form-item > div {
+    margin-left: 0;
+    display: block;
+  }
+}
+@media (min-width: 576px) {
+  .el-form-item > label {
+    width: 200px;
+  }
+  .el-form-item > div {
+    margin-left: 200px;
+  }
+}
 </style>
