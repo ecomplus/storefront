@@ -50,8 +50,8 @@ Vue.directive('mask', {
 })
 
 /* eslint-disable no-new */
-// set Vue instance globally
-window.App = new Vue({
+// set Vue instance
+new Vue({
   el: '#app',
   router,
   store,
