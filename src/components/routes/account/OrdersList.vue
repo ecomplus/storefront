@@ -9,9 +9,11 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'MyOrders',
+
   computed: mapGetters([
     'customer'
   ]),
+
   methods: {
   }
 }

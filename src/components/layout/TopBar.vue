@@ -74,10 +74,12 @@ import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'TopBar',
+
   computed: mapGetters([
     'shop',
     'customer'
   ]),
+
   methods: {
     ...mapActions([
       'login'

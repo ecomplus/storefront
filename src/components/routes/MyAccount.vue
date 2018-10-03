@@ -37,9 +37,11 @@ import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'MyAccount',
+
   computed: mapGetters([
     'customer'
   ]),
+
   methods: {
     ...mapActions([
       'login'

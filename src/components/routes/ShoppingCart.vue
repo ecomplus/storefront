@@ -138,9 +138,11 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'ShoppingCart',
+
   computed: mapGetters([
     'cart'
   ]),
+
   methods: {
     ...mapGetters([
       'productById'

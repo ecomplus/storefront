@@ -10,6 +10,17 @@
       <el-input v-model="form.nickname"></el-input>
     </el-form-item>
 
+    <el-form-item :label="$t('account.registrationType')">
+      <el-radio-group v-model="form.type">
+        <el-radio border label="p">
+          {{ $t('account.physical') }}
+        </el-radio>
+        <el-radio border label="j">
+          {{ $t('account.juridical') }}
+        </el-radio>
+      </el-radio-group>
+    </el-form-item>
+
     <el-form-item size="large">
       <el-button type="primary" @click="submitForm">Create</el-button>
     </el-form-item>
@@ -21,11 +32,12 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'RegistrationForm',
-  data() {
+
+  data () {
     return {
       form: {
         // declare form empty
-        // further update with computed values
+        // further preset with computed values
       },
       rules: {
         name: [
@@ -37,12 +49,14 @@ export default {
       }
     }
   },
+
   computed: mapGetters([
     'customerName',
     'customer'
   ]),
+
   methods: {
-    submitForm() {
+    submitForm () {
       this.$refs.form.validate((valid) => {
         if (valid) {
           alert('submit!')
@@ -53,13 +67,15 @@ export default {
       })
     }
   },
-  created() {
+
+  created () {
     // update data with computed
     var body = this.customer
     this.form = {
       name: this.customerName,
       nickname: body.display_name,
-      type: body.registry_type
+      // default is physical
+      type: (body.registry_type || 'p')
     }
   }
 }
