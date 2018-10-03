@@ -26,13 +26,18 @@ Vue.component('a-icon', FontAwesomeIcon)
 
 // setup Element UI fully
 Vue.use(ElementUI)
-// i18n
+// setup i18n
 Vue.use(VueI18n)
-Vue.config.lang = DEFAULT_LANG
 Vue.locale('en_us', { ...enUs, ...dictionary.enUs })
 Vue.locale('pt_br', { ...ptBr, ...dictionary.ptBr })
-
-Vue.config.productionTip = false
+let locale = (lang) => {
+  // change language
+  Vue.config.lang = lang
+  Vue.prototype.$lang = lang
+}
+Vue.prototype.$locale = locale
+// preset default language
+locale(DEFAULT_LANG)
 
 /* eslint-disable no-new */
 // set Vue instance globally
