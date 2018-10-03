@@ -11,9 +11,6 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'element-ui/lib/theme-chalk/display.css'
 
-// custom additional plugins
-import Inputmask from 'inputmask'
-
 // internationalization
 import VueI18n from 'vue-i18n'
 import enUs from 'element-ui/lib/locale/lang/en'
@@ -21,6 +18,9 @@ import ptBr from 'element-ui/lib/locale/lang/pt-br'
 // custom dictionary
 import dictionary from './lib/dictionary'
 import { DEFAULT_LANG } from '@/lib/constants'
+
+// custom additional plugins
+import Inputmask from 'inputmask'
 
 // Font Awesome Icons
 import './lib/icons'
