@@ -11,6 +11,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'element-ui/lib/theme-chalk/display.css'
 
+// custom additional plugins
+import Inputmask from 'inputmask'
+
 // internationalization
 import VueI18n from 'vue-i18n'
 import enUs from 'element-ui/lib/locale/lang/en'
@@ -38,6 +41,13 @@ let locale = (lang) => {
 Vue.prototype.$locale = locale
 // preset default language
 locale(DEFAULT_LANG)
+
+// handle form inputs masking
+Vue.directive('mask', {
+  bind: function (el, binding) {
+    Inputmask(binding.value).mask(el.getElementsByTagName('INPUT')[0])
+  }
+})
 
 /* eslint-disable no-new */
 // set Vue instance globally

@@ -17,6 +17,7 @@
     "ecomplus-sdk": "^1.11.0",
     "element-theme-chalk": "^2.4.8",
     "element-ui": "^2.4.8",
+    "inputmask": "^4.0.2",
     "normalize.css": "^8.0.0",
     "vue": "^2.5.17",
     "vue-i18n": "5.x",

@@ -9,6 +9,7 @@
     <el-form-item :label="$t('account.nickname')" prop="nickname">
       <el-input v-model="form.nickname"></el-input>
     </el-form-item>
+
     <el-form-item :label="$t('account.gender')">
       <el-radio-group v-model="form.gender">
         <el-radio border label="f">
@@ -22,7 +23,8 @@
         </el-radio>
       </el-radio-group>
     </el-form-item>
-    <el-form-item :label="$t('account.birth')">
+
+    <el-form-item :label="$t('account.birth')" prop="birth">
       <el-date-picker
         v-if="$lang === 'pt_br'"
         type="date"
@@ -38,11 +40,12 @@
         placeholder="1994-02-31">
       </el-date-picker>
     </el-form-item>
-    <el-form-item :label="$t('account.contactPhone')">
-      <el-input v-model="form.phone"></el-input>
+
+    <el-form-item :label="$t('account.contactPhone')" prop="phone">
+      <el-input v-model="form.phone" type="tel"></el-input>
     </el-form-item>
     <el-form-item :label="$t('account.cellphone')">
-      <el-input v-model="form.cellphone"></el-input>
+      <el-input v-model="form.cellphone" type="tel"></el-input>
     </el-form-item>
 
     <el-form-item :label="$t('account.registrationType')">
@@ -54,6 +57,12 @@
           {{ $t('account.juridical') }}
         </el-radio>
       </el-radio-group>
+    </el-form-item>
+    <el-form-item :label="$t('account.juridicalDoc')" prop="doc" v-if="form.type === 'j'">
+      <el-input v-model="form.doc"></el-input>
+    </el-form-item>
+    <el-form-item :label="$t('account.physicalDoc')" prop="doc" v-else>
+      <el-input v-model="form.doc"></el-input>
     </el-form-item>
 
     <el-form-item size="large">
@@ -69,19 +78,19 @@ export default {
   name: 'RegistrationForm',
 
   data () {
+    // handle required form fields
+    let rules = {}
+    let required = [ 'name', 'nickname', 'phone', 'birth' ]
+    for (let i = 0; i < required.length; i++) {
+      let label = required[i]
+      rules[label] = { required: true, message: this.$t('validate.required') }
+    }
     return {
       form: {
         // declare form empty
         // further preset with computed values
       },
-      rules: {
-        name: [
-          { required: true, message: this.$t('validate.required') }
-        ],
-        nickname: [
-          { required: true, message: this.$t('validate.required') }
-        ]
-      }
+      rules: rules
     }
   },
 
@@ -105,7 +114,7 @@ export default {
 
   created () {
     // update data with computed
-    var body = this.customer
+    let body = this.customer
     this.form = {
       name: this.customerName,
       nickname: body.display_name,
