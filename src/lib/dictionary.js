@@ -38,10 +38,10 @@ export default {
       contactPhone: 'Phone for contact',
       cellphone: 'Cell phone (optional)',
       registrationType: 'Registration type',
-      juridical: 'Legal person',
-      physical: 'Physical person',
-      juridicalDoc: 'Document number',
-      physicalDoc: 'Document number'
+      businessRegistry: 'Legal person',
+      personalRegistry: 'Physical person',
+      businessDoc: 'Document number',
+      personalDoc: 'Document number'
     },
     validate: {
       required: 'Required field'
@@ -87,10 +87,10 @@ export default {
       contactPhone: 'Telefone para contato',
       cellphone: 'Telefone celular (optional)',
       registrationType: 'Tipo de registro',
-      juridical: 'Pessoa física',
-      physical: 'Pessoa jurídica',
-      juridicalDoc: 'CNPJ',
-      physicalDoc: 'CPF'
+      businessRegistry: 'Pessoa jurídica',
+      personalRegistry: 'Pessoa física',
+      businessDoc: 'CNPJ',
+      personalDoc: 'CPF'
     },
     validate: {
       required: 'Campo obrigatório'

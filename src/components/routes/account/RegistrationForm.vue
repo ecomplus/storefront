@@ -42,27 +42,39 @@
     </el-form-item>
 
     <el-form-item :label="$t('account.contactPhone')" prop="phone">
-      <el-input v-model="form.phone" type="tel"></el-input>
+      <el-input v-model="form.phone" type="tel" v-mask="phoneMask"></el-input>
     </el-form-item>
     <el-form-item :label="$t('account.cellphone')">
-      <el-input v-model="form.cellphone" type="tel"></el-input>
+      <el-input v-model="form.cellphone" type="tel" v-mask="phoneMask"></el-input>
     </el-form-item>
 
     <el-form-item :label="$t('account.registrationType')">
       <el-radio-group v-model="form.type">
         <el-radio border label="p">
-          {{ $t('account.physical') }}
+          {{ $t('account.personalRegistry') }}
         </el-radio>
         <el-radio border label="j">
-          {{ $t('account.juridical') }}
+          {{ $t('account.businessRegistry') }}
         </el-radio>
       </el-radio-group>
     </el-form-item>
-    <el-form-item :label="$t('account.juridicalDoc')" prop="doc" v-if="form.type === 'j'">
-      <el-input v-model="form.doc"></el-input>
+    <el-form-item :label="$t('account.businessDoc')" prop="doc" v-show="form.type === 'j'">
+      <el-input
+        v-if="$lang === 'pt_br'"
+        v-model="form.doc"
+        v-mask="'99.999.999/9999-99'"
+        type="tel">
+      </el-input>
+      <el-input v-else v-model="form.doc" type="tel"></el-input>
     </el-form-item>
-    <el-form-item :label="$t('account.physicalDoc')" prop="doc" v-else>
-      <el-input v-model="form.doc"></el-input>
+    <el-form-item :label="$t('account.personalDoc')" prop="doc" v-show="form.type !== 'j'">
+      <el-input
+        v-if="$lang === 'pt_br'"
+        v-model="form.doc"
+        v-mask="'999.999.999-99'"
+        type="tel">
+      </el-input>
+      <el-input v-else v-model="form.doc" type="tel"></el-input>
     </el-form-item>
 
     <el-form-item size="large">
@@ -80,7 +92,7 @@ export default {
   data () {
     // handle required form fields
     let rules = {}
-    let required = [ 'name', 'nickname', 'phone', 'birth' ]
+    let required = [ 'name', 'nickname', 'phone', 'birth', 'doc' ]
     for (let i = 0; i < required.length; i++) {
       let label = required[i]
       rules[label] = { required: true, message: this.$t('validate.required') }
@@ -90,7 +102,13 @@ export default {
         // declare form empty
         // further preset with computed values
       },
-      rules: rules
+      rules: rules,
+      phoneMask: [
+        // array of phone number formats
+        '(99) 9999-9999',
+        '(99) 9 9999-9999',
+        '+99 9999999[9][9][9][9][9][9]'
+      ]
     }
   },
 
