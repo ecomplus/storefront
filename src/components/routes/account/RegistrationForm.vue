@@ -113,8 +113,9 @@ export default {
   },
 
   computed: mapGetters([
+    'customer',
     'customerName',
-    'customer'
+    'parseCustomerName'
   ]),
 
   methods: {
@@ -123,11 +124,18 @@ export default {
     ]),
     submitForm () {
       this.$refs.form.validate((valid) => {
-        this.editCustomer({
-          display_name: this.form.nickname
-        })
         if (valid) {
-          alert('submit!')
+          // valid form data
+          let data = this.form
+          // update customer
+          this.editCustomer({
+            ...this.parseCustomerName(data.name),
+            display_name: data.nickname,
+            gender: data.gender,
+            // birth_date: data.birth,
+            registry_type: data.type,
+            doc_number: data.doc.replace(/[\D]/g, '')
+          })
         } else {
           console.log('error submit!!')
           return false

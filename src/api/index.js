@@ -66,7 +66,6 @@ Api.set = {
   // authentication middleware with Passport REST API
   // request are passed to Store API
   customer (body, callback) {
-    console.log(body)
     EcomPassport.api('me.json', 'PATCH', body, Callback(callback))
   }
 }

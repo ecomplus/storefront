@@ -40,7 +40,7 @@ const getters = {
   customer: state => state.body,
 
   // get customer full name
-  customerName: (state) => {
+  customerName (state) {
     let nameObj = state.body.name
     let name = ''
     if (nameObj && nameObj.given_name) {
@@ -56,6 +56,28 @@ const getters = {
     }
     // return concatenated string
     return name
+  },
+
+  // parse full name string to name object
+  parseCustomerName: () => (nameString) => {
+    let names = nameString.split(/\s+/)
+    let nameObj = {}
+    if (names.length) {
+      // first name
+      nameObj.given_name = names.shift()
+      if (names.length) {
+        // last name from last array element
+        nameObj.family_name = names.pop()
+        if (names.length) {
+          // rest of names on middle
+          nameObj.middle_name = ''
+          for (let i = 0; i < names.length; i++) {
+            nameObj.middle_name += ' ' + names[i]
+          }
+        }
+      }
+    }
+    return { name: nameObj }
   }
 }
 
