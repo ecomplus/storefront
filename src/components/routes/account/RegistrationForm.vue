@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'RegistrationForm',
@@ -118,8 +118,14 @@ export default {
   ]),
 
   methods: {
+    ...mapActions([
+      'editCustomer'
+    ]),
     submitForm () {
       this.$refs.form.validate((valid) => {
+        this.editCustomer({
+          display_name: this.form.nickname
+        })
         if (valid) {
           alert('submit!')
         } else {

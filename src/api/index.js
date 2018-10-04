@@ -6,7 +6,11 @@ import EcomIo from 'ecomplus-sdk'
 import EcomPassport from 'ecomplus-passport-client'
 import { DEFAULT_LANG } from '@/lib/constants'
 
-const init = (debug, initCallback) => {
+// declare main object
+// container for exported methods
+const Api = {}
+
+Api.init = (debug, initCallback) => {
   // parse callback
   let callback = Callback((body) => {
     // init passport
@@ -44,7 +48,7 @@ const Callback = (callback) => {
   }
 }
 
-const get = {
+Api.get = {
   shop (callback) {
     EcomIo.getStore(Callback(callback))
   },
@@ -57,15 +61,27 @@ const get = {
   }
 }
 
-const session = {
+Api.set = {
+  // modifications requests
+  // authentication middleware with Passport REST API
+  // request are passed to Store API
+  customer (body, callback) {
+    console.log(body)
+    EcomPassport.api('me.json', 'PATCH', body, Callback(callback))
+  }
+}
+
+Api.session = {
   login (callback) {
     // start OAuth login flow
     EcomPassport.loginPopup(callback)
   }
 }
 
-export default {
+export default Api
+export const {
   init,
   session,
-  get
-}
+  get,
+  set
+} = Api

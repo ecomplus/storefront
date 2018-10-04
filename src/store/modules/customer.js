@@ -1,3 +1,6 @@
+// abstractions for making API requests
+import { set } from '@/api'
+
 // initial state
 // https://developers.e-com.plus/docs/api/#/store/customers
 const state = {
@@ -20,6 +23,16 @@ const state = {
     corporate_name: null,
     addresses: [],
     orders: []
+  }
+}
+
+const mutations = {
+  // reset customer body object
+  editCustomer (state, payload) {
+    state.body = {
+      ...state.body,
+      ...payload.body
+    }
   }
 }
 
@@ -46,7 +59,19 @@ const getters = {
   }
 }
 
+const actions = {
+  // update customer object
+  editCustomer ({ commit }, payload) {
+    commit('editCustomer', { body: payload })
+    // API request
+    // send customer body object
+    set.customer(payload)
+  }
+}
+
 export default {
   state,
-  getters
+  getters,
+  mutations,
+  actions
 }

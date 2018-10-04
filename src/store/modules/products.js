@@ -1,5 +1,5 @@
 // abstractions for making API requests
-import api from '@/api'
+import { get } from '@/api'
 
 // initial state
 // array of products objects
@@ -74,7 +74,7 @@ const actions = {
     let callback = (body) => {
       commit('initProduct', { id, body })
     }
-    api.get.product(callback, id)
+    get.product(callback, id)
   }
 }
 
