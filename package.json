@@ -10,6 +10,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@brazilian-utils/is-valid-cnpj": "^0.1.11",
+    "@brazilian-utils/is-valid-cpf": "^0.1.11",
     "@fortawesome/fontawesome": "^1.1.5",
     "@fortawesome/fontawesome-free-solid": "^5.0.10",
     "@fortawesome/vue-fontawesome": "^0.0.22",

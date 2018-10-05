@@ -81,6 +81,8 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import isValidCpf from '@brazilian-utils/is-valid-cpf'
+import isValidCnpj from '@brazilian-utils/is-valid-cnpj'
 
 export default {
   name: 'RegistrationForm',
@@ -104,6 +106,7 @@ export default {
         cb(new Error(this.$t('validate.mask')))
       }
     }
+
     // handle required form fields
     ;[ 'name', 'nickname', 'phone', 'birth', 'doc' ].forEach((label) => {
       addRule(label, { required: true, message: this.$t('validate.required') })
@@ -116,6 +119,7 @@ export default {
     ;[ 'name', 'nickname' ].forEach((label) => {
       addRule(label, { min: 3, message: this.$t('validate.minLength'), trigger: 'blur' })
     })
+
     return {
       form: {
         // declare form empty
@@ -146,11 +150,33 @@ export default {
     ...mapActions([
       'editCustomer'
     ]),
+
     submitForm () {
       this.$refs.form.validate((valid) => {
+        let data = this.form
+        let notify
+        // check customer document number
+        if (this.$lang === 'pt_br') {
+          if (data.type !== 'j') {
+            // personal registry
+            if (!isValidCpf(data.doc)) {
+              // invalid personal document number
+              notify = this.$t('account.personalDoc')
+              valid = false
+            }
+          } else if (!isValidCnpj(data.doc)) {
+            // invalid business document
+            notify = this.$t('account.businessDoc')
+            valid = false
+          }
+        }
+        if (notify) {
+          // complete notification message
+          notify += this.$t('validate.isInvalid')
+        }
+
         if (valid) {
           // valid form data
-          let data = this.form
           // update customer
           this.editCustomer({
             ...this.parseCustomerName(data.name),
@@ -162,6 +188,12 @@ export default {
             doc_number: data.doc.replace(/[\D]/g, '')
           })
         } else {
+          // show notification
+          this.$message({
+            showClose: true,
+            message: (notify || this.$t('validate.invalidForm')),
+            type: 'warning'
+          })
           return false
         }
       })

@@ -136,6 +136,7 @@ const initCallback = () => {
   // show body
   document.getElementsByTagName('body')[0].style.opacity = 1
 }
+
 // setup API
 api.init(debug, initCallback)
 
