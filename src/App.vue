@@ -134,7 +134,7 @@ a, button, div, span, img {
 .el-loading-mask {
   z-index: 3000;
 }
-@media (max-width: 991px) {
+@media (max-height: 450px), (max-width: 991px) {
   .el-date-picker {
     display: none;
   }
@@ -164,10 +164,10 @@ a, button, div, span, img {
 }
 @media (min-width: 576px) {
   .el-form-item > label {
-    width: 200px;
+    width: 210px;
   }
   .el-form-item > div {
-    margin-left: 200px;
+    margin-left: 210px;
   }
 }
 </style>

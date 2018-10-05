@@ -44,7 +44,7 @@
     <el-form-item :label="$t('account.contactPhone')" prop="phone">
       <el-input v-model="form.phone" type="tel" v-mask="phoneMask"></el-input>
     </el-form-item>
-    <el-form-item :label="$t('account.cellphone')">
+    <el-form-item :label="$t('account.cellphone')" prop="cellphone">
       <el-input v-model="form.cellphone" type="tel" v-mask="phoneMask"></el-input>
     </el-form-item>
 
@@ -60,21 +60,17 @@
     </el-form-item>
     <el-form-item :label="$t('account.businessDoc')" prop="doc" v-show="form.type === 'j'">
       <el-input
-        v-if="$lang === 'pt_br'"
         v-model="form.doc"
-        v-mask="'99.999.999/9999-99'"
+        v-mask="$lang !== 'pt_br' ? '9{5,19}' : '99.999.999/9999-99'"
         type="tel">
       </el-input>
-      <el-input v-else v-model="form.doc" type="tel"></el-input>
     </el-form-item>
     <el-form-item :label="$t('account.personalDoc')" prop="doc" v-show="form.type !== 'j'">
       <el-input
-        v-if="$lang === 'pt_br'"
         v-model="form.doc"
-        v-mask="'999.999.999-99'"
+        v-mask="$lang !== 'pt_br' ? '9{5,19}' : '999.999.999-99'"
         type="tel">
       </el-input>
-      <el-input v-else v-model="form.doc" type="tel"></el-input>
     </el-form-item>
 
     <el-form-item size="large">
@@ -107,7 +103,8 @@ export default {
         // array of phone number formats
         '(99) 9999-9999',
         '(99) 9 9999-9999',
-        '+99 9999999[9][9][9][9][9][9]'
+        // generic for international phone numbers
+        '+99[9] 99999[9{1,10}]'
       ]
     }
   },
@@ -115,7 +112,11 @@ export default {
   computed: mapGetters([
     'customer',
     'customerName',
-    'parseCustomerName'
+    'parseCustomerName',
+    'customerBirth',
+    'parseCustomerBirth',
+    'customerPhones',
+    'parseCustomerPhones'
   ]),
 
   methods: {
@@ -132,12 +133,12 @@ export default {
             ...this.parseCustomerName(data.name),
             display_name: data.nickname,
             gender: data.gender,
-            // birth_date: data.birth,
+            ...this.parseCustomerBirth(data.birth),
+            ...this.parseCustomerPhones([ data.phone, data.cellphone ]),
             registry_type: data.type,
             doc_number: data.doc.replace(/[\D]/g, '')
           })
         } else {
-          console.log('error submit!!')
           return false
         }
       })
@@ -147,13 +148,18 @@ export default {
   created () {
     // update data with computed
     let body = this.customer
+    let phones = this.customerPhones
     this.form = {
       name: this.customerName,
       nickname: body.display_name,
       gender: body.gender,
-      birth: null,
+      phone: phones[0],
+      // optional last phone number
+      cellphone: phones.length > 1 ? phones[phones.length - 1] : '',
+      birth: this.customerBirth,
       // default is physical
-      type: (body.registry_type || 'p')
+      type: body.registry_type,
+      doc: this.customer.doc_number
     }
   }
 }
@@ -164,7 +170,7 @@ export default {
 @import '../../../../node_modules/element-theme-chalk/src/common/var.scss';
 
 ._account-form {
-  max-width: 700px;
+  max-width: 710px;
   margin: 0 auto;
 }
 </style>

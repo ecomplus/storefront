@@ -85,7 +85,7 @@ export default {
       genderX: 'Outro',
       birth: 'Data de nascimento',
       contactPhone: 'Telefone para contato',
-      cellphone: 'Telefone celular (optional)',
+      cellphone: 'Segundo telefone (opcional)',
       registrationType: 'Tipo de registro',
       businessRegistry: 'Pessoa jurídica',
       personalRegistry: 'Pessoa física',
