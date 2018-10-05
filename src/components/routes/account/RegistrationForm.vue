@@ -86,13 +86,36 @@ export default {
   name: 'RegistrationForm',
 
   data () {
-    // handle required form fields
+    // setup form validation rules
     let rules = {}
-    let required = [ 'name', 'nickname', 'phone', 'birth', 'doc' ]
-    for (let i = 0; i < required.length; i++) {
-      let label = required[i]
-      rules[label] = { required: true, message: this.$t('validate.required') }
+    let addRule = (label, rule) => {
+      if (!rules.hasOwnProperty(label)) {
+        // preset array
+        rules[label] = []
+      }
+      rules[label].push(rule)
     }
+    // custom validation for masked inputs
+    let checkMask = (rule, value, cb) => {
+      if (value.indexOf('_') === -1) {
+        // mask matched
+        cb()
+      } else {
+        cb(new Error(this.$t('validate.mask')))
+      }
+    }
+    // handle required form fields
+    ;[ 'name', 'nickname', 'phone', 'birth', 'doc' ].forEach((label) => {
+      addRule(label, { required: true, message: this.$t('validate.required') })
+    })
+    // handle marked inputs validation
+    ;[ 'phone', 'cellphone', 'doc' ].forEach((label) => {
+      addRule(label, { validator: checkMask, trigger: 'blur' })
+    })
+    // handle min fields length
+    ;[ 'name', 'nickname' ].forEach((label) => {
+      addRule(label, { min: 3, message: this.$t('validate.minLength'), trigger: 'blur' })
+    })
     return {
       form: {
         // declare form empty

@@ -44,7 +44,9 @@ export default {
       personalDoc: 'Document number'
     },
     validate: {
-      required: 'Required field'
+      required: 'Required field',
+      minLength: 'Text must contain more characters',
+      mask: 'Wrong format, please check'
     }
   },
 
@@ -93,7 +95,9 @@ export default {
       personalDoc: 'CPF'
     },
     validate: {
-      required: 'Campo obrigatório'
+      required: 'Campo obrigatório',
+      minLength: 'O texto deve conter mais caracteres',
+      mask: 'Formato incorreto, por favor revise'
     }
   }
 }
