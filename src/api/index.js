@@ -34,16 +34,42 @@ Api.init = (debug, initCallback) => {
   }
 }
 
+let handlerBefore
+Api.before = (callback) => {
+  // run function before methods
+  handlerBefore = callback
+}
+
+let handlerAfter
+Api.after = (callback) => {
+  // run callback function after methods
+  handlerAfter = callback
+}
+
 const Callback = (callback) => {
+  if (handlerBefore) {
+    handlerBefore()
+  }
+
   // check response, then callback
   return (err, body) => {
+    if (!body && !(err instanceof Error)) {
+      body = Object.assign({}, err)
+      // unset err object
+      err = null
+    }
     if (!err) {
       if (typeof callback === 'function') {
+        // success callback
         callback(body)
       }
     } else {
       // TODO: treat error
       console.error(err)
+    }
+    if (handlerAfter) {
+      // general callback
+      handlerAfter(err, body)
     }
   }
 }
@@ -73,7 +99,7 @@ Api.set = {
 Api.session = {
   login (callback) {
     // start OAuth login flow
-    EcomPassport.loginPopup(callback)
+    EcomPassport.loginPopup(Callback(callback))
   }
 }
 

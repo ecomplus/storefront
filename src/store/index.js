@@ -89,11 +89,7 @@ const actions = {
           body
         })
       }
-      // hide loading
-      commit('triggerLoading', false)
     }
-    // show loading spinner
-    commit('triggerLoading', true)
     // pass to passport API
     api.session.login(callback)
   }
@@ -116,6 +112,19 @@ const store = new Vuex.Store({
 })
 
 const initCallback = () => {
+  // set configs for API methods
+  api.before(() => {
+    // show loading spinner
+    store.commit('triggerLoading', true)
+  })
+  api.after((err) => {
+    // hide loading
+    store.commit('triggerLoading', false)
+    if (err) {
+      console.error(err.message)
+    }
+  })
+
   // init modules
   for (let module in modules) {
     if (modules.hasOwnProperty(module)) {
@@ -127,6 +136,7 @@ const initCallback = () => {
   // show body
   document.getElementsByTagName('body')[0].style.opacity = 1
 }
+// setup API
 api.init(debug, initCallback)
 
 export default store
