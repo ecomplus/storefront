@@ -1,5 +1,8 @@
 export default {
   enUs: {
+    general: {
+      save: 'Save'
+    },
     session: {
       hi: 'Hello',
       identify: 'Identify yourself',
@@ -51,6 +54,9 @@ export default {
   },
 
   ptBr: {
+    general: {
+      save: 'Salvar'
+    },
     session: {
       hi: 'Olá',
       identify: 'Identifique-se',

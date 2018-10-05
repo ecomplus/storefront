@@ -74,7 +74,7 @@
     </el-form-item>
 
     <el-form-item size="large">
-      <el-button type="primary" @click="submitForm">Create</el-button>
+      <el-button type="primary" @click="submitForm">{{ $t('general.save') }}</el-button>
     </el-form-item>
   </el-form>
 </template>
