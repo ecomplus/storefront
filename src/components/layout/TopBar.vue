@@ -15,7 +15,7 @@
           </router-link>
 
           <div class="_user">
-            <el-popover ref="popuser" width="180" placement="bottom-end" trigger="hover">
+            <el-popover ref="popuser" width="180" placement="bottom-end" trigger="click">
               <div class="_user-popover">
                 <p>
                   <span class="_user-hi">

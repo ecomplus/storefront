@@ -83,11 +83,8 @@ const actions = {
   login ({ commit }) {
     let callback = (body) => {
       if (typeof body === 'object' && body !== null) {
-        // call mutation changing customer info
-        commit('init', {
-          module: 'customer',
-          body
-        })
+        // update customer info
+        store.dispatch('init', { module: 'customer' })
       }
     }
     // pass to passport API
@@ -125,14 +122,11 @@ const initCallback = () => {
     }
   })
 
-  // init modules
-  for (let module in modules) {
-    if (modules.hasOwnProperty(module)) {
-      store.dispatch('init', {
-        module
-      })
-    }
-  }
+  // init startup modules
+  // get store info
+  store.dispatch('init', { module: 'shop' })
+  // get customer data
+  store.dispatch('init', { module: 'customer' })
   // show body
   document.getElementsByTagName('body')[0].style.opacity = 1
 }

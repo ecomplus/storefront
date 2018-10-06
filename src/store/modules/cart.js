@@ -7,11 +7,26 @@ const state = {
   }
 }
 
+const mutations = {
+  // reset cart body object
+  editCart (state, payload) {
+    state.body = {
+      ...state.body,
+      ...payload.body
+    }
+  },
+
+  // load cart from client storage
+  loadCart (state) {
+  }
+}
+
 const getters = {
   cart: state => state.body
 }
 
 export default {
   state,
-  getters
+  getters,
+  mutations
 }

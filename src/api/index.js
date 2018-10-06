@@ -79,11 +79,21 @@ Api.get = {
     EcomIo.getStore(Callback(callback))
   },
   customer (callback) {
-    // GET customer from Passport REST API
-    EcomPassport.api('me.json', 'GET', null, Callback(callback))
+    let cb = Callback(callback)
+    if (EcomPassport.isLogged()) {
+      // GET customer from Passport REST API
+      EcomPassport.api('me.json', 'GET', null, cb)
+    } else {
+      // no customer session
+      // return empty customer body
+      cb(null, {})
+    }
   },
   product (callback, id) {
     EcomIo.getProduct(Callback(callback), id)
+  },
+  cart (callback, id) {
+    EcomIo.getCart(Callback(callback), id)
   }
 }
 

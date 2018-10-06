@@ -10,9 +10,13 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/cart/:id?',
       name: 'cart',
       component: ShoppingCart
+    },
+    {
+      path: '/checkout/:id?',
+      name: 'checkout'
     },
     {
       path: '/account',
@@ -29,6 +33,10 @@ export default new Router({
           component: OrdersList
         }
       ]
+    },
+    {
+      path: '/:id?',
+      redirect: { name: 'cart' }
     }
   ]
 })
