@@ -110,7 +110,8 @@ Api.session = {
   login (callback) {
     // start OAuth login flow
     EcomPassport.loginPopup(Callback(callback))
-  }
+  },
+  logout: EcomPassport.logout
 }
 
 export default Api
