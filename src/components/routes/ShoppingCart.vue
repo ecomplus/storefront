@@ -148,8 +148,14 @@ export default {
       'productById'
     ]),
     ...mapActions([
-      'initProduct'
+      'initProduct',
+      'loadCart'
     ])
+  },
+
+  created () {
+    // load cart data
+    this.loadCart({ id: this.$route.params.id })
   }
 }
 </script>
