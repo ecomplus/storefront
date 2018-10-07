@@ -4,7 +4,7 @@ import EcomIo from 'ecomplus-sdk'
 // E-Com Plus Passport JS Client
 // https://github.com/ecomclub/ecomplus-passport-client
 import EcomPassport from 'ecomplus-passport-client'
-import { DEFAULT_LANG } from '@/lib/constants'
+import { DEFAULT_LANG, STORE_ID, STORE_OBJECT_ID } from '@/lib/constants'
 
 // declare main object
 // container for exported methods
@@ -30,7 +30,7 @@ Api.init = (debug, initCallback) => {
     EcomIo.init(callback, 1011, '5b1abe30a4d4531b8fe40725')
   } else {
     // production
-    EcomIo.init(callback)
+    EcomIo.init(callback, STORE_ID, STORE_OBJECT_ID)
   }
 }
 
