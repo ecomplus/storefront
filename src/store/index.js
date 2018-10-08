@@ -63,34 +63,41 @@ const mutations = {
 }
 
 const actions = {
-  init ({ commit, state }, payload) {
+  // create action for API requests
+  api ({ commit }, [ method, module, arg ]) {
+    // show loading spinner
+    commit('triggerLoading', true)
+    return api[method][module](arg).finally(() => {
+      // hide loading
+      commit('triggerLoading', false)
+    })
+  },
+
+  // initialize modules
+  init ({ commit, state, dispatch }, payload) {
     // get body from API
     let module = payload.module
-    let get = api.get[module]
-    if (get) {
-      let callback = (body) => {
+    if (api.get.hasOwnProperty(module)) {
+      // call API
+      dispatch('api', [ 'get', module, state[module].body._id ]).then(body => {
         // merge payload
         payload = { ...payload, body }
         // call mutation to change state
         commit('init', payload)
-      }
-      let resourceId = state[module].body._id
-      // call API
-      get(callback, resourceId)
+      })
     }
   },
 
   // setup session methods
   // customer authentication
-  login ({ commit }) {
-    let callback = (body) => {
+  login ({ commit, dispatch }) {
+    // pass to passport API
+    return dispatch('api', [ 'session', 'login' ]).then(body => {
       if (typeof body === 'object' && body !== null) {
         // update customer info
-        store.dispatch('init', { module: 'customer' })
+        dispatch('init', { module: 'customer' })
       }
-    }
-    // pass to passport API
-    api.session.login(callback)
+    })
   }
 }
 
@@ -110,20 +117,8 @@ const store = new Vuex.Store({
   plugins: debug ? [ createLogger() ] : []
 })
 
-const initCallback = () => {
-  // set configs for API methods
-  api.before(() => {
-    // show loading spinner
-    store.commit('triggerLoading', true)
-  })
-  api.after((err) => {
-    // hide loading
-    store.commit('triggerLoading', false)
-    if (err) {
-      console.error(err.message)
-    }
-  })
-
+// setup API
+api.init(debug).then(() => {
   // init startup modules
   // get store info
   store.dispatch('init', { module: 'shop' })
@@ -131,9 +126,6 @@ const initCallback = () => {
   store.dispatch('init', { module: 'customer' })
   // show body
   document.getElementsByTagName('body')[0].style.opacity = 1
-}
-
-// setup API
-api.init(debug, initCallback)
+})
 
 export default store

@@ -1,6 +1,4 @@
-// abstractions for making API requests
-import { get } from '@/api'
-
+const module = 'product'
 // initial state
 // array of products objects
 // https://ecomstore.docs.apiary.io/#reference/products
@@ -37,6 +35,7 @@ const mutations = {
         break
       }
     }
+
     if (body) {
       let Body = payload.body
       // ensure to not write new (unused) properties
@@ -66,15 +65,14 @@ const getters = {
 
 const actions = {
   // init specific product object
-  initProduct ({ commit }, payload) {
+  initProduct ({ commit, dispatch }, payload) {
     // check if product is already loaded
     let id = payload.id
     commit('addProduct', payload)
     // API request
-    let callback = (body) => {
+    return dispatch('api', [ 'get', module, id ], { root: true }).then(body => {
       commit('initProduct', { id, body })
-    }
-    get.product(callback, id)
+    })
   }
 }
 

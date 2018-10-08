@@ -1,6 +1,4 @@
-// abstractions for making API requests
-import { get } from '@/api'
-
+const module = 'cart'
 // initial state
 // https://developers.e-com.plus/docs/api/#/store/carts
 const state = {
@@ -26,40 +24,67 @@ const getters = {
 
 const actions = {
   // load cart body object
-  loadCart ({ commit, state }, payload) {
+  loadCart ({ commit, state, dispatch }, payload) {
     let id = payload.id
+    let update = body => {
+      commit('editCart', { body })
+      dispatch('fixCartItems')
+    }
     // test with current state body
-    let body = state.body
+    let { items } = state.body
+
     if (id) {
-      if (body._id !== id) {
-        // try to get from Store API with cart ID
-        // API request
-        let callback = (body) => {
-          commit('editCart', { body })
-        }
-        get.cart(callback, id)
-      }
-    } else if (!body.items.length) {
+      // try to get from Store API with cart ID
+      dispatch('api', [ 'get', module, id ], { root: true }).then(update)
+    } else if (!items.length) {
       // try to load JSON from client storage
       let db = window.localStorage
       if (db) {
         let json = db.getItem('cart')
         if (json) {
-          let body
+          let items
           try {
-            body = JSON.parse(json)
+            let obj = JSON.parse(json)
+            items = obj.items
           } catch (e) {
             console.error('Invalid stored cart JSON', e)
             return
           }
-          if (typeof body === 'object' && Array.isArray(body.items)) {
-            // valid JSON data
+
+          if (Array.isArray(items)) {
+            // save only items
+            let body = {
+              items: []
+            }
+            // generate base Object ID for cart items
+            let objectId = ('1' + Date.now()).padEnd(24, '0')
+            for (let i = 0; i < items.length; i++) {
+              let item = items[i]
+              if (typeof item === 'object' && item !== null && item.product_id && item.quantity) {
+                body.items.push(Object.assign(item, {
+                  _id: objectId.substring(0, 24 - i.toString().length) + i,
+                  // force some properties for security
+                  keep_item_quantity: false,
+                  keep_item_price: false
+                }))
+              }
+            }
             // update cart
-            commit('editCart', { body })
+            update(body)
           }
         }
       }
     }
+  },
+
+  // handle products data and update cart items
+  fixCartItems ({ commit, state, dispatch }) {
+    state.body.items.forEach((item) => {
+      dispatch('initProduct', { id: item.product_id }, { root: true }).then(() => {
+        // success, valid product
+        console.log(item.product_id)
+      })
+    })
   }
 }
 

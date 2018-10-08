@@ -1,6 +1,4 @@
-// abstractions for making API requests
-import { set } from '@/api'
-
+const module = 'customer'
 // initial state
 // https://developers.e-com.plus/docs/api/#/store/customers
 const state = {
@@ -165,6 +163,7 @@ const getters = {
           // no country code
           phoneNumber = phoneString
         }
+
         if (phoneNumber !== '') {
           // save number string with digits only
           obj.number = phoneNumber.replace(/[\D]/g, '')
@@ -172,6 +171,7 @@ const getters = {
         }
       }
     })
+
     // returns phones array ready for customer body
     return { phones: phoneObjs }
   }
@@ -179,11 +179,11 @@ const getters = {
 
 const actions = {
   // update customer object
-  editCustomer ({ commit }, payload) {
+  editCustomer ({ commit, dispatch }, payload) {
     commit('editCustomer', { body: payload })
     // API request
     // send customer body object
-    set.customer(payload)
+    return dispatch('api', [ 'set', module, payload ], { root: true })
   }
 }
 

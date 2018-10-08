@@ -10,9 +10,36 @@ import { DEFAULT_LANG, STORE_ID, STORE_OBJECT_ID } from '@/lib/constants'
 // container for exported methods
 const Api = {}
 
-Api.init = (debug, initCallback) => {
-  // parse callback
-  let callback = Callback((body) => {
+const promise = fn => {
+  return new Promise((resolve, reject) => {
+    fn((err, body) => {
+      if (!body && !(err instanceof Error)) {
+        body = Object.assign({}, err)
+        // unset err object
+        err = null
+      }
+      if (!err) {
+        // success
+        resolve(body)
+      } else {
+        // @TODO: treat error
+        reject(err)
+      }
+    })
+  })
+}
+
+Api.init = debug => {
+  let fn
+  if (debug) {
+    // test
+    fn = cb => EcomIo.init(cb, 1011, '5b1abe30a4d4531b8fe40725')
+  } else {
+    // production
+    fn = cb => EcomIo.init(cb, STORE_ID, STORE_OBJECT_ID)
+  }
+
+  return promise(fn).then(body => {
     // init passport
     let lang
     if (body.default_lang) {
@@ -21,65 +48,12 @@ Api.init = (debug, initCallback) => {
       lang = DEFAULT_LANG
     }
     EcomPassport.init(body.store_id, lang)
-    // finally, call initCallback
-    initCallback(body)
   })
-
-  if (debug) {
-    // test
-    EcomIo.init(callback, 1011, '5b1abe30a4d4531b8fe40725')
-  } else {
-    // production
-    EcomIo.init(callback, STORE_ID, STORE_OBJECT_ID)
-  }
-}
-
-let handlerBefore
-Api.before = (callback) => {
-  // run function before methods
-  handlerBefore = callback
-}
-
-let handlerAfter
-Api.after = (callback) => {
-  // run callback function after methods
-  handlerAfter = callback
-}
-
-const Callback = (callback) => {
-  if (handlerBefore) {
-    handlerBefore()
-  }
-
-  // check response, then callback
-  return (err, body) => {
-    if (!body && !(err instanceof Error)) {
-      body = Object.assign({}, err)
-      // unset err object
-      err = null
-    }
-    if (!err) {
-      if (typeof callback === 'function') {
-        // success callback
-        callback(body)
-      }
-    } else {
-      // TODO: treat error
-      console.error(err)
-    }
-    if (handlerAfter) {
-      // general callback
-      handlerAfter(err, body)
-    }
-  }
 }
 
 Api.get = {
-  shop (callback) {
-    EcomIo.getStore(Callback(callback))
-  },
-  customer (callback) {
-    let cb = Callback(callback)
+  shop: () => promise(cb => EcomIo.getStore(cb)),
+  customer: () => promise(cb => {
     if (EcomPassport.isLogged()) {
       // GET customer from Passport REST API
       EcomPassport.api('me.json', 'GET', null, cb)
@@ -88,36 +62,22 @@ Api.get = {
       // return empty customer body
       cb(null, {})
     }
-  },
-  product (callback, id) {
-    EcomIo.getProduct(Callback(callback), id)
-  },
-  cart (callback, id) {
-    EcomIo.getCart(Callback(callback), id)
-  }
+  }),
+  product: id => promise(cb => EcomIo.getProduct(cb, id)),
+  cart: id => promise(cb => EcomIo.getCart(cb, id))
 }
 
 Api.set = {
   // modifications requests
   // authentication middleware with Passport REST API
   // request are passed to Store API
-  customer (body, callback) {
-    EcomPassport.api('me.json', 'PATCH', body, Callback(callback))
-  }
+  customer: body => promise(cb => EcomPassport.api('me.json', 'PATCH', body, cb))
 }
 
 Api.session = {
-  login (callback) {
-    // start OAuth login flow
-    EcomPassport.loginPopup(Callback(callback))
-  },
+  // start OAuth login flow
+  login: () => promise(EcomPassport.loginPopup),
   logout: EcomPassport.logout
 }
 
 export default Api
-export const {
-  init,
-  session,
-  get,
-  set
-} = Api

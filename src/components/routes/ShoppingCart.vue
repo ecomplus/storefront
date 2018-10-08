@@ -148,7 +148,6 @@ export default {
       'productById'
     ]),
     ...mapActions([
-      'initProduct',
       'loadCart'
     ])
   },
