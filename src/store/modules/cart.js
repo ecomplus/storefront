@@ -10,21 +10,51 @@ const state = {
 
 const mutations = {
   // reset cart body object
-  editCart (state, payload) {
+  editCart (state, { body }) {
     state.body = {
       ...state.body,
-      ...payload.body
+      ...body
     }
   },
 
-  // remove item from cart
-  removeCartItem (state, payload) {
-    state.body.items.splice(payload.index, 1)
+  // find item by ID and remove from cart
+  removeCartItemById (state, { id }) {
+    state.body.items.forEach((item, index, items) => {
+      if (item._id === id) {
+        // found
+        items.splice(index, 1)
+        return false
+      }
+    })
+  },
+
+  // edit specific cart item
+  editCartItem (state, { id, body }) {
+    state.body.items.forEach((item, index) => {
+      if (item._id === id) {
+        // found
+        item = {
+          ...item,
+          ...body
+        }
+        return false
+      }
+    })
   }
 }
 
 const getters = {
-  cart: state => state.body
+  cart: state => state.body,
+
+  // map cart items with product body
+  items (state, rootGetters) {
+    return state.body.items.map((item) => {
+      return {
+        ...item,
+        ...{ product: rootGetters.productById(item.product_id) }
+      }
+    })
+  }
 }
 
 const actions = {
@@ -86,14 +116,10 @@ const actions = {
   fixCartItems ({ commit, state, dispatch }) {
     state.body.items.forEach((item, index) => {
       dispatch('initProduct', { id: item.product_id }, { root: true })
-        .then(() => {
-          // success, valid product
-          console.log(item.product_id)
-        })
         .catch(() => {
-          // product not found
+          // probably product not found
           // remove from cart
-          commit('removeCartItem', { index })
+          commit('removeCartItemById', { id: item._id })
         })
     })
   }

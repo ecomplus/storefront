@@ -1,3 +1,5 @@
+import { DEFAULT_CURRENCY, DEFAULT_CURRENCY_SYMBOL } from '@/lib/constants'
+
 const module = 'product'
 // initial state
 // array of products objects
@@ -18,7 +20,9 @@ const mutations = {
       i18n: {},
       slug: null,
       available: true,
-      visible: true
+      visible: true,
+      currency_id: DEFAULT_CURRENCY,
+      currency_symbol: DEFAULT_CURRENCY_SYMBOL
     })
   },
 
@@ -52,7 +56,7 @@ const getters = {
   products: state => state.all,
 
   // find product by ID from stored list
-  productById: (state) => (id) => {
+  productById: state => id => {
     let product = state.all.find(product => product._id === id)
     if (product.length) {
       // returns product body from array
