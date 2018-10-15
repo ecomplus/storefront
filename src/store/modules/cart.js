@@ -26,20 +26,6 @@ const mutations = {
         return false
       }
     })
-  },
-
-  // edit specific cart item
-  editCartItem (state, { id, body }) {
-    state.body.items.forEach((item, index) => {
-      if (item._id === id) {
-        // found
-        item = {
-          ...item,
-          ...body
-        }
-        return false
-      }
-    })
   }
 }
 
