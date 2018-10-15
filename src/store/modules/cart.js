@@ -15,6 +15,11 @@ const mutations = {
       ...state.body,
       ...payload.body
     }
+  },
+
+  // remove item from cart
+  removeCartItem (state, payload) {
+    state.body.items.splice(payload.index, 1)
   }
 }
 
@@ -79,11 +84,17 @@ const actions = {
 
   // handle products data and update cart items
   fixCartItems ({ commit, state, dispatch }) {
-    state.body.items.forEach((item) => {
-      dispatch('initProduct', { id: item.product_id }, { root: true }).then(() => {
-        // success, valid product
-        console.log(item.product_id)
-      })
+    state.body.items.forEach((item, index) => {
+      dispatch('initProduct', { id: item.product_id }, { root: true })
+        .then(() => {
+          // success, valid product
+          console.log(item.product_id)
+        })
+        .catch(() => {
+          // product not found
+          // remove from cart
+          commit('removeCartItem', { index })
+        })
     })
   }
 }
