@@ -27,8 +27,10 @@
           <el-col :span="18" class="_items">
             <div class="_item" v-for="item in cart.items">
               <el-row>
-                <el-col :span="4" class="_item-image">
-                  <img v-if="item.picture && item.picture.normal" :src="item.picture.normal.url" />
+                <el-col :span="4" class="_item-image" v-if="item.picture">
+                  <img v-if="item.picture.normal" :src="item.picture.normal.url" />
+                  <img v-else-if="Object.keys(item.picture).length"
+                    :src="item.picture[Object.keys(item.picture)[0]].url" />
                 </el-col>
                 <el-col :span="20" class="_item-info">
                   <el-row type="flex" align="middle" justify="space-between">
@@ -36,7 +38,7 @@
                       <span class="_item-quantity">
                         <el-input-number
                           size="small"
-                          :value="item.quantity"
+                          v-model="item.quantity"
                           :min="item.min_quantity"
                           :max="item.max_quantity">
                         </el-input-number>
@@ -47,11 +49,11 @@
                         </el-button>
                       </span>
                       <span class="_item-price">
-                        {{ item.currency_symbol + ' ' + item.price }}
+                        {{ formatMoney(item.price, item.currency_id) }}
                       </span>
                     </div>
                     <div class="_item-total">
-                      {{ item.currency_symbol + ' ' + (item.price * item.quantity) }}
+                      {{ formatMoney((item.price * item.quantity), item.currency_id) }}
                     </div>
                   </el-row>
                   <div class="_item-gift">
@@ -146,7 +148,8 @@ export default {
   },
 
   computed: mapGetters([
-    'cart'
+    'cart',
+    'formatMoney'
   ]),
 
   methods: {

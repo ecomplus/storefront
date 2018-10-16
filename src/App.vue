@@ -59,6 +59,10 @@ body > div,
   max-width: 1250px;
   margin: 0 auto;
 }
+#app > ._main {
+  padding-top: $--main-padding * 1.5;
+  padding-bottom: $--main-padding * 3;
+}
 #app {
   width: 100%;
   max-width: none;

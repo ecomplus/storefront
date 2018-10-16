@@ -1,3 +1,5 @@
+import { DEFAULT_CURRENCY, DEFAULT_LANG } from '@/lib/constants'
+
 const module = 'cart'
 // initial state
 // https://developers.e-com.plus/docs/api/#/store/carts
@@ -101,7 +103,21 @@ const mutations = {
 }
 
 const getters = {
-  cart: state => state.body
+  cart: state => state.body,
+
+  // auxiliary functions
+  formatMoney: state => (price, currency = DEFAULT_CURRENCY, lang = DEFAULT_LANG) => {
+    // format pt-BR, en-US
+    lang = lang.replace('_', '-')
+    var priceString
+    try {
+      priceString = price.toLocaleString(lang, { style: 'currency', currency: currency })
+    } catch (e) {
+      // fallback
+      priceString = price
+    }
+    return priceString
+  }
 }
 
 const actions = {
@@ -176,7 +192,9 @@ const actions = {
     let promises = []
     state.body.items.forEach((item) => {
       let id = item.product_id
-      let product = rootGetters.productById(id)
+      // abstraction to get product data
+      let Product = () => rootGetters.productById(id)
+      let product = Product()
       let promise
 
       if (product.hasOwnProperty('_id')) {
@@ -191,19 +209,19 @@ const actions = {
         })
       } else {
         // try to setup current product
-        promise = dispatch('initProduct', { id }, { root: true }).then(body => {
+        promise = dispatch('initProduct', { id }, { root: true }).then(() => {
           // product data goes out of date
           // shedule removal
           setTimeout(() => {
-            commit('removeProduct', { id: body._id }, { root: true })
+            commit('removeProduct', { id: Product()._id }, { root: true })
           }, 5 * 60000)
         })
       }
 
       promise
-        .then(body => {
+        .then(() => {
           // valid product
-          commit('fixCartItem', { id: item._id, product: { ...body } })
+          commit('fixCartItem', { id: item._id, product: { ...Product() } })
         })
         .catch(() => {
           // probably product not found

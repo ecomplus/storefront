@@ -22,7 +22,13 @@ const mutations = {
       available: true,
       visible: true,
       currency_id: DEFAULT_CURRENCY,
-      currency_symbol: DEFAULT_CURRENCY_SYMBOL
+      currency_symbol: DEFAULT_CURRENCY_SYMBOL,
+      price: null,
+      pictures: [],
+      picture_id: null,
+      quantity: 9999,
+      min_quantity: 0,
+      variations: []
     })
   },
 
@@ -30,7 +36,7 @@ const mutations = {
   initProduct (state, payload) {
     // find product
     let id = payload.id
-    let body = {}
+    let body
     for (let i = 0; i < state.all.length; i++) {
       let product = state.all[i]
       if (product._id === id) {
@@ -43,7 +49,7 @@ const mutations = {
     if (body) {
       let Body = payload.body
       // ensure to not write new (unused) properties
-      Object.keys(Body).forEach((key) => {
+      Object.keys(Body).forEach(key => {
         if (key in body) {
           body[key] = Body[key]
         }
