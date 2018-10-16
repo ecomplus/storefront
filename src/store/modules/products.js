@@ -49,6 +49,16 @@ const mutations = {
         }
       })
     }
+  },
+
+  // delete product from list by ID
+  removeProduct (state, { id }) {
+    state.all.forEach((product, index, list) => {
+      if (product._id === id) {
+        // found
+        list.splice(index, 1)
+      }
+    })
   }
 }
 
@@ -58,9 +68,9 @@ const getters = {
   // find product by ID from stored list
   productById: state => id => {
     let product = state.all.find(product => product._id === id)
-    if (product.length) {
+    if (product !== undefined) {
       // returns product body from array
-      return product[0]
+      return product
     } else {
       return {}
     }

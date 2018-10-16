@@ -140,8 +140,7 @@ export default {
   name: 'ShoppingCart',
 
   computed: mapGetters([
-    'cart',
-    'items'
+    'cart'
   ]),
 
   methods: {
@@ -152,8 +151,9 @@ export default {
 
   created () {
     // load cart data
-    this.loadCart({ id: this.$route.params.id })
-    console.log(this.items)
+    this.loadCart({ id: this.$route.params.id }).then(() => {
+      console.log('CART DONE')
+    })
   }
 }
 </script>

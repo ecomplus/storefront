@@ -18,7 +18,7 @@ const mutations = {
   },
 
   // find item by ID and remove from cart
-  removeCartItemById (state, { id }) {
+  removeCartItem (state, { id }) {
     state.body.items.forEach((item, index, items) => {
       if (item._id === id) {
         // found
@@ -30,26 +30,17 @@ const mutations = {
 }
 
 const getters = {
-  cart: state => state.body,
-
-  // map cart items with product body
-  items (state, rootGetters) {
-    return state.body.items.map((item) => {
-      return {
-        ...item,
-        ...{ product: rootGetters.productById(item.product_id) }
-      }
-    })
-  }
+  cart: state => state.body
 }
 
 const actions = {
   // load cart body object
   loadCart ({ commit, state, dispatch }, payload) {
+    let promises = []
     let id = payload.id
     let update = body => {
       commit('editCart', { body })
-      dispatch('fixCartItems')
+      promises.push(dispatch('fixCartItems'))
     }
     // test with current state body
     let { items } = state.body
@@ -94,20 +85,67 @@ const actions = {
             update(body)
           }
         }
+      } else {
+        promises.push(new Promise((resolve, reject) => {
+          reject(new Error('Can\'t access HTML5 localStorage'))
+        }))
       }
     }
+
+    if (!promises.length) {
+      // cart already loaded
+      // force resolve
+      promises.push(new Promise(resolve => { resolve() }))
+    }
+    return promises
   },
 
   // handle products data and update cart items
-  fixCartItems ({ commit, state, dispatch }) {
-    state.body.items.forEach((item, index) => {
-      dispatch('initProduct', { id: item.product_id }, { root: true })
+  fixCartItems ({ commit, state, dispatch, rootGetters }) {
+    let promises = []
+    state.body.items.forEach((item) => {
+      let id = item.product_id
+      let product = rootGetters.productById(id)
+      let promise
+
+      if (product.hasOwnProperty('_id')) {
+        promise = new Promise((resolve, reject) => {
+          if (product.sku) {
+            // found
+            resolve(product)
+          } else {
+            // should not goes here
+            reject(new Error('Invalid product'))
+          }
+        })
+      } else {
+        // try to setup current product
+        promise = dispatch('initProduct', { id }, { root: true }).then(body => {
+          // product data goes out of date
+          // shedule removal
+          setTimeout(() => {
+            commit('removeProduct', { id: body._id }, { root: true })
+          }, 30000)
+        })
+      }
+
+      promise
+        .then(product => {
+          // valid product
+          commit('fixCartItem', { id: item._id, product })
+        })
         .catch(() => {
           // probably product not found
           // remove from cart
-          commit('removeCartItemById', { id: item._id })
+          commit('removeCartItem', { id: item._id })
         })
+      promises.push(promise)
     })
+    return promises
+  },
+
+  // treat and fix specific cart item
+  fixCartItem ({ commit }, payload) {
   }
 }
 
