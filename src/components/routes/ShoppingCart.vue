@@ -1,6 +1,6 @@
 <template>
   <div class="_cart">
-    <div v-if="!cart.items.length" class="_cart-empty">
+    <div v-if="!cart.items.length || !loaded" class="_cart-empty">
       <h1 class="_cart-title">
         {{ $t('cart.title') }}
         <small>{{ $t('cart.empty') }}</small>
@@ -139,6 +139,12 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'ShoppingCart',
 
+  data () {
+    return {
+      loaded: false
+    }
+  },
+
   computed: mapGetters([
     'cart'
   ]),
@@ -151,8 +157,10 @@ export default {
 
   created () {
     // load cart data
-    this.loadCart({ id: this.$route.params.id }).then(() => {
-      console.log('CART DONE')
+    this.loadCart({ id: this.$route.params.id }).finally(() => {
+      setTimeout(() => {
+        this.loaded = true
+      }, 200)
     })
   }
 }

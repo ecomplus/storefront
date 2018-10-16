@@ -17,12 +17,83 @@ const mutations = {
     }
   },
 
-  // find item by ID and remove from cart
-  removeCartItem (state, { id }) {
+  // find item by ID and remove or edit
+  fixCartItem (state, { id, product, remove }) {
     state.body.items.forEach((item, index, items) => {
       if (item._id === id) {
         // found
-        items.splice(index, 1)
+        if (product) {
+          if (item.variation_id) {
+            // search product variation
+            let variation
+            if (product.variations) {
+              variation = product.variations.find(variation => variation._id === item.variation_id)
+            }
+            if (!variation) {
+              // variation not found
+              // force to unavailable
+              product.available = false
+            } else {
+              // merge variation body to product body
+              Object.assign(product, variation)
+              if (variation.picture && product.pictures) {
+                let picture = product.pictures.find(picture => picture._id === variation.picture)
+                if (picture) {
+                  // set variation picture as first
+                  product.pictures[0] = picture
+                }
+              }
+            }
+          }
+
+          if (product.available) {
+            // fix cart item data
+            item.sku = product.sku
+            if (!item.name) {
+              item.name = product.name
+            }
+            if (!item.picture || !Object.keys(item.picture).length) {
+              if (product.hasOwnProperty('pictures') && product.pictures.length) {
+                // use first product picture
+                item.picture = product.pictures[0]
+                delete item.picture._id
+                delete item.picture.tag
+              }
+            }
+
+            // update prices and quantities
+            if (!item.keep_item_price && product.hasOwnProperty('price')) {
+              item.price = product.price
+              item.currency_id = product.currency_id
+              item.currency_symbol = product.currency_symbol
+            }
+            if (!item.keep_item_quantity) {
+              if (product.hasOwnProperty('quantity')) {
+                item.max_quantity = product.quantity
+                if (item.quantity > item.max_quantity) {
+                  // fix current in cart quantity to max value
+                  item.quantity = item.max_quantity
+                }
+              }
+              if (product.hasOwnProperty('min_quantity')) {
+                item.min_quantity = product.min_quantity
+                if (item.quantity < item.min_quantity) {
+                  // fix quantity to min value
+                  item.quantity = item.min_quantity
+                }
+              }
+            }
+          } else {
+            // product unavailable to sell
+            remove = true
+          }
+        }
+
+        if (remove) {
+          // remove cart item
+          items.splice(index, 1)
+        }
+        // exit loop
         return false
       }
     })
@@ -36,11 +107,11 @@ const getters = {
 const actions = {
   // load cart body object
   loadCart ({ commit, state, dispatch }, payload) {
-    let promises = []
+    let promise
     let id = payload.id
     let update = body => {
       commit('editCart', { body })
-      promises.push(dispatch('fixCartItems'))
+      promise = dispatch('fixCartItems')
     }
     // test with current state body
     let { items } = state.body
@@ -86,18 +157,18 @@ const actions = {
           }
         }
       } else {
-        promises.push(new Promise((resolve, reject) => {
-          reject(new Error('Can\'t access HTML5 localStorage'))
-        }))
+        promise = Promise().reject(new Error('Can\'t access HTML5 localStorage'))
       }
     }
 
-    if (!promises.length) {
-      // cart already loaded
+    if (!promise) {
+      // fallback for cart already loaded
       // force resolve
-      promises.push(new Promise(resolve => { resolve() }))
+      promise = Promise.resolve()
     }
-    return promises
+    return promise.then(() => {
+      console.log('CART LOADED')
+    })
   },
 
   // handle products data and update cart items
@@ -125,27 +196,28 @@ const actions = {
           // shedule removal
           setTimeout(() => {
             commit('removeProduct', { id: body._id }, { root: true })
-          }, 30000)
+          }, 5 * 60000)
         })
       }
 
       promise
-        .then(product => {
+        .then(body => {
           // valid product
-          commit('fixCartItem', { id: item._id, product })
+          commit('fixCartItem', { id: item._id, product: { ...body } })
         })
         .catch(() => {
           // probably product not found
           // remove from cart
-          commit('removeCartItem', { id: item._id })
+          commit('fixCartItem', { id: item._id, remove: true })
         })
       promises.push(promise)
     })
-    return promises
-  },
 
-  // treat and fix specific cart item
-  fixCartItem ({ commit }, payload) {
+    return Promise.all(promises).finally(() => {
+      console.log('CART ITEMS')
+    }).catch(e => {
+      // ignore error
+    })
   }
 }
 
