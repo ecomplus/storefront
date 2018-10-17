@@ -28,7 +28,8 @@ const mutations = {
       picture_id: null,
       quantity: 9999,
       min_quantity: 0,
-      variations: []
+      variations: [],
+      gift_wraps: []
     })
   },
 

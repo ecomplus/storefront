@@ -25,10 +25,7 @@ const mutations = {
         if (product) {
           if (item.variation_id) {
             // search product variation
-            let variation
-            if (product.variations) {
-              variation = product.variations.find(variation => variation._id === item.variation_id)
-            }
+            let variation = product.variations.find(variation => variation._id === item.variation_id)
             if (!variation) {
               // variation not found
               // force to unavailable
@@ -36,8 +33,8 @@ const mutations = {
             } else {
               // merge variation body to product body
               Object.assign(product, variation)
-              if (variation.picture && product.pictures) {
-                let picture = product.pictures.find(picture => picture._id === variation.picture)
+              if (variation.picture_id) {
+                let picture = product.pictures.find(({ _id }) => _id === variation.picture_id)
                 if (picture) {
                   // set variation picture as first
                   product.pictures[0] = picture
@@ -53,7 +50,7 @@ const mutations = {
               item.name = product.name
             }
             if (!item.picture || !Object.keys(item.picture).length) {
-              if (product.hasOwnProperty('pictures') && product.pictures.length) {
+              if (product.pictures.length) {
                 // use first product picture
                 item.picture = product.pictures[0]
                 delete item.picture._id
@@ -62,27 +59,24 @@ const mutations = {
             }
 
             // update prices and quantities
-            if (!item.keep_item_price && product.hasOwnProperty('price')) {
+            if (!item.keep_item_price) {
               item.price = product.price
               item.currency_id = product.currency_id
               item.currency_symbol = product.currency_symbol
             }
             if (!item.keep_item_quantity) {
-              if (product.hasOwnProperty('quantity')) {
-                item.max_quantity = product.quantity
-                if (item.quantity > item.max_quantity) {
-                  // fix current in cart quantity to max value
-                  item.quantity = item.max_quantity
-                }
+              item.max_quantity = product.quantity
+              if (item.quantity > item.max_quantity) {
+                // fix current in cart quantity to max value
+                item.quantity = item.max_quantity
               }
-              if (product.hasOwnProperty('min_quantity')) {
-                item.min_quantity = product.min_quantity
-                if (item.quantity < item.min_quantity) {
-                  // fix quantity to min value
-                  item.quantity = item.min_quantity
-                }
+              item.min_quantity = product.min_quantity
+              if (item.quantity < item.min_quantity) {
+                // fix quantity to min value
+                item.quantity = item.min_quantity
               }
             }
+            // @TODO: handle gift wrap
           } else {
             // product unavailable to sell
             remove = true
