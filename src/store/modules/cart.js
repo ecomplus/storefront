@@ -109,14 +109,7 @@ const mutations = {
 
   // remove item by item object
   removeCartItem (state, { item }) {
-    state.body.items.forEach(({ _id }, index, items) => {
-      if (_id === item._id) {
-        // found
-        // remove item
-        items.splice(index, 1)
-        return false
-      }
-    })
+    mutations.fixCartItem(state, { id: item._id, remove: true })
   }
 }
 

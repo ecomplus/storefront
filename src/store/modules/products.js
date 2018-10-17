@@ -33,25 +33,14 @@ const mutations = {
   },
 
   // reset entire product body
-  initProduct (state, payload) {
+  initProduct (state, { id, body }) {
     // find product
-    let id = payload.id
-    let body
-    for (let i = 0; i < state.all.length; i++) {
-      let product = state.all[i]
-      if (product._id === id) {
-        // found
-        body = product
-        break
-      }
-    }
-
-    if (body) {
-      let Body = payload.body
+    let product = getters.productById(state)(id)
+    if (product._id) {
       // ensure to not write new (unused) properties
-      Object.keys(Body).forEach(key => {
-        if (key in body) {
-          body[key] = Body[key]
+      Object.keys(body).forEach(key => {
+        if (key in product) {
+          product[key] = body[key]
         }
       })
     }
