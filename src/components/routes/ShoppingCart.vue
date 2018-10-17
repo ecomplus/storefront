@@ -38,13 +38,14 @@
                       <span class="_item-quantity">
                         <el-input-number
                           size="small"
-                          v-model="item.quantity"
+                          :value="item.quantity"
                           :min="item.min_quantity"
-                          :max="item.max_quantity">
+                          :max="item.max_quantity"
+                          @change="qnt => { setCartItemQnt({ item, qnt }) }">
                         </el-input-number>
                       </span>
                       <span class="_item-remove">
-                        <el-button type="danger" size="small">
+                        <el-button type="danger" size="small" @click="() => { removeCartItem({ item }) }">
                           <a-icon icon="times"></a-icon>
                         </el-button>
                       </span>
@@ -136,7 +137,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'ShoppingCart',
@@ -155,6 +156,10 @@ export default {
   methods: {
     ...mapActions([
       'loadCart'
+    ]),
+    ...mapMutations([
+      'setCartItemQnt',
+      'removeCartItem'
     ])
   },
 

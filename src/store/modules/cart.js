@@ -1,5 +1,3 @@
-import { DEFAULT_CURRENCY, DEFAULT_LANG } from '@/lib/constants'
-
 const module = 'cart'
 // initial state
 // https://developers.e-com.plus/docs/api/#/store/carts
@@ -99,25 +97,31 @@ const mutations = {
         return false
       }
     })
+  },
+
+  // change cart item quantity by item object
+  setCartItemQnt (state, { item, qnt }) {
+    item = state.body.items.find(({ _id }) => _id === item._id)
+    if (item) {
+      item.quantity = qnt
+    }
+  },
+
+  // remove item by item object
+  removeCartItem (state, { item }) {
+    state.body.items.forEach(({ _id }, index, items) => {
+      if (_id === item._id) {
+        // found
+        // remove item
+        items.splice(index, 1)
+        return false
+      }
+    })
   }
 }
 
 const getters = {
-  cart: state => state.body,
-
-  // auxiliary functions
-  formatMoney: state => (price, currency = DEFAULT_CURRENCY, lang = DEFAULT_LANG) => {
-    // format pt-BR, en-US
-    lang = lang.replace('_', '-')
-    var priceString
-    try {
-      priceString = price.toLocaleString(lang, { style: 'currency', currency: currency })
-    } catch (e) {
-      // fallback
-      priceString = price
-    }
-    return priceString
-  }
+  cart: state => state.body
 }
 
 const actions = {
