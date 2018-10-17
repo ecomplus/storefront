@@ -24,18 +24,18 @@
 
       <div class="_cart-content">
         <el-row>
-          <el-col :span="18" class="_items">
+          <el-col :span="18" :sm="16" :xs="24" class="_items">
             <div class="_item" v-for="item in cart.items">
               <el-row>
-                <el-col :span="4" class="_item-image" v-if="item.picture">
+                <el-col :span="4" :sm="6" :xs="8" class="_item-image" v-if="item.picture">
                   <img v-if="item.picture.normal" :src="item.picture.normal.url" />
                   <img v-else-if="Object.keys(item.picture).length"
                     :src="item.picture[Object.keys(item.picture)[0]].url" />
                 </el-col>
-                <el-col :span="20" class="_item-info">
+                <el-col :span="20" :sm="18" :xs="16" class="_item-info">
                   <el-row type="flex" align="middle" justify="space-between">
-                    <div class="_item-values">
-                      <span class="_item-quantity">
+                    <div class="_item-control">
+                      <div class="_item-quantity">
                         <el-input-number
                           size="small"
                           :value="item.quantity"
@@ -43,24 +43,33 @@
                           :max="item.max_quantity"
                           @change="qnt => { setCartItemQnt({ item, qnt }) }">
                         </el-input-number>
-                      </span>
-                      <span class="_item-remove">
-                        <el-button type="danger" size="small" @click="() => { removeCartItem({ item }) }">
-                          <a-icon icon="times"></a-icon>
-                        </el-button>
-                      </span>
-                      <span class="_item-price">
-                        {{ formatMoney(item.price, item.currency_id) }}
-                      </span>
+                      </div>
+                      <div class="_item-remove">
+                        <a href="javascript:;" @click="() => { removeCartItem({ item }) }">
+                          {{ $t('cart.removeItem') }}
+                        </a>
+                      </div>
+                    </div>
+                    <div class="_item-price">
+                      {{ formatMoney(item.price, item.currency_id) }}
                     </div>
                     <div class="_item-total">
                       {{ formatMoney((item.price * item.quantity), item.currency_id) }}
                     </div>
                   </el-row>
-                  <div class="_item-gift">
-                    <el-checkbox>
+                  <div class="_item-gift" v-if="item._product.gift_wraps.length === 1">
+                    <el-checkbox :checked="(item.gift_wrap && item.gift_wrap.label)">
                       <a-icon icon="gift"></a-icon>
                       {{ $t('cart.giftWrap') }}
+                    </el-checkbox>
+                  </div>
+                  <div class="_item-gift" v-else-if="item._product.gift_wraps.length">
+                    <el-checkbox v-for="gift in item._product.gift_wraps"
+                      :checked="(item.gift_wrap && item.gift_wrap.label === gift.label)"
+                      :true-label="gift.label"
+                      :key="gift.label">
+                      <a-icon icon="gift"></a-icon>
+                      {{ $t('cart.giftWrap') + ' - ' + gift.label }}
                     </el-checkbox>
                   </div>
                   <h4 class="_item-title">
@@ -72,7 +81,7 @@
             </div>
           </el-col>
 
-          <el-col :span="6" class="_cart-info">
+          <el-col :span="6" :sm="8" :xs="24" class="_cart-info">
             <div class="_cart-values">
               <el-row>
                 <el-col :span="12" class="_cart-subtotal">
@@ -193,34 +202,58 @@ export default {
   border-radius: $--border-radius-small;
   border: $--border-base;
 }
-._item-values > * {
-  display: inline-block;
-}
 ._item-price {
   color: $--color-text-secondary;
-  margin-left: 20px;
 }
 ._item-total {
   color: $--color-text-primary;
   text-align: right;
-  margin: -4px 0 0 10px;
+  margin-left: 10px;
 }
 ._item-price,
 ._item-total,
 ._cart-buy {
   font-size: $--font-size-large;
 }
+._item-quantity {
+  margin-right: 10px;
+}
 ._item-remove {
-  margin-left: 10px;
+  margin-top: 5px;
+  width: 100%;
+  text-align: center;
+  text-transform: lowercase;
+}
+._item-remove > a {
+  color: $--color-danger;
 }
 ._item-gift {
   margin-top: 10px;
+}
+._item-title {
+  margin-top: 20px;
 }
 ._item-sku {
   color: $--color-text-secondary;
   font-size: 12px;
   display: block;
   margin-bottom: 2px;
+}
+@media (max-width: 575px) {
+  ._item-info > div {
+    display: block;
+  }
+  ._item-remove,
+  ._item-quantity {
+    width: auto;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  ._item-price,
+  ._item-total {
+    display: inline-block;
+    width: 45%;
+  }
 }
 ._cart-info {
   text-align: right;

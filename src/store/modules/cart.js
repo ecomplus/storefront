@@ -19,7 +19,9 @@ const mutations = {
 
   // find item by ID and remove or edit
   fixCartItem (state, { id, product, remove }) {
-    state.body.items.forEach((item, index, items) => {
+    let items = state.body.items
+    for (let i = 0; i < items.length; i++) {
+      let item = items[i]
       if (item._id === id) {
         // found
         if (product) {
@@ -76,7 +78,35 @@ const mutations = {
                 item.quantity = item.min_quantity
               }
             }
-            // @TODO: handle gift wrap
+
+            // handle gift wrap
+            if (typeof item.gift_wrap === 'object' && item.gift_wrap !== null) {
+              // search gift wrap by label on product data
+              let gift = product.gift_wraps.find(({ label }) => label === item.gift_wrap.label)
+              if (gift) {
+                // replace item gift object
+                item.gift_wrap = gift
+              } else {
+                // not a valid gift label
+                delete item.gift_wrap
+              }
+            }
+
+            // save product properties that can be changed on item object
+            item._product = {}
+            ;[
+              /* @TODO: treat properties
+              'variations',
+              'customizations',
+              'loyalty_points',
+              'progressive_discount',
+              'buy_together',
+              ...
+              */
+              'gift_wraps'
+            ].forEach(prop => {
+              item._product[prop] = product[prop]
+            })
           } else {
             // product unavailable to sell
             remove = true
@@ -85,12 +115,11 @@ const mutations = {
 
         if (remove) {
           // remove cart item
-          items.splice(index, 1)
+          items.splice(i, 1)
         }
-        // exit loop
-        return false
+        break
       }
-    })
+    }
   },
 
   // change cart item quantity by item object
