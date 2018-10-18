@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import ShoppingCart from '@/components/routes/ShoppingCart'
+import CheckoutApp from '@/components/routes/CheckoutApp'
 import MyAccount from '@/components/routes/MyAccount'
 import RegistrationForm from '@/components/routes/account/RegistrationForm'
 import OrdersList from '@/components/routes/account/OrdersList'
@@ -16,7 +17,8 @@ export default new Router({
     },
     {
       path: '/checkout/:id?',
-      name: 'checkout'
+      name: 'checkout',
+      component: CheckoutApp
     },
     {
       path: '/account',
