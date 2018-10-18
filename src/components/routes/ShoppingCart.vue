@@ -24,15 +24,15 @@
 
       <div class="_cart-content">
         <el-row>
-          <el-col :span="18" :sm="16" :xs="24" class="_items">
+          <el-col :md="17" :sm="16" :xs="24" class="_items">
             <div class="_item" v-for="item in cart.items">
               <el-row>
-                <el-col :span="4" :sm="6" :xs="8" class="_item-image" v-if="item.picture">
+                <el-col :md="4" :sm="6" :xs="8" class="_item-image" v-if="item.picture">
                   <img v-if="item.picture.normal" :src="item.picture.normal.url" />
                   <img v-else-if="Object.keys(item.picture).length"
                     :src="item.picture[Object.keys(item.picture)[0]].url" />
                 </el-col>
-                <el-col :span="20" :sm="18" :xs="16" class="_item-info">
+                <el-col :md="20" :sm="18" :xs="16" class="_item-info">
                   <el-row type="flex" align="middle" justify="space-between">
                     <div class="_item-control">
                       <div class="_item-quantity">
@@ -81,29 +81,29 @@
             </div>
           </el-col>
 
-          <el-col :span="6" :sm="8" :xs="24" class="_cart-info">
+          <el-col :md="7" :sm="8" :xs="24" class="_cart-info">
             <div class="_cart-values">
               <el-row>
                 <el-col :span="12" class="_cart-subtotal">
-                  <small>Subtotal</small>
-                  R$ 500,00
+                  <small>{{ $t('cart.subtotal') }}</small>
+                  {{ formatMoney(cart.subtotal) }}
                 </el-col>
                 <el-col :span="12" class="_cart-freigth">
-                  <small>Frete</small>
-                  R$ 70,00
+                  <small>{{ $t('cart.freight') }}</small>
+                  {{ checkout.freight_calculed ? formatMoney(checkout.freight) : '-' }}
                 </el-col>
               </el-row>
 
               <el-popover ref="popzip" trigger="click" width="240">
                 <div class="_cart-zip-popover">
                   <el-input placeholder="CEP" class="_cart-zip" size="small">
-                    <el-button slot="append">Calcular</el-button>
+                    <el-button slot="append">{{ $t('general.calculate') }}</el-button>
                   </el-input>
                 </div>
               </el-popover>
               <div class="_cart-zip-trigger">
                 <a href="javascript:;" v-popover:popzip>
-                  Calcular frete
+                  {{ $t('cart.calculateFreight') }}
                   <a-icon icon="truck"></a-icon>
                 </a>
               </div>
@@ -111,7 +111,7 @@
               <el-popover ref="popcoupon" trigger="click" width="300">
                 <div class="_cart-coupon-popover">
                   <el-input placeholder="Código do cupom" class="_cart-coupon" size="small">
-                    <el-button slot="append">Adicionar</el-button>
+                    <el-button slot="append">{{ $t('general.add') }}</el-button>
                   </el-input>
                 </div>
               </el-popover>
@@ -125,14 +125,14 @@
                 </el-tooltip>
                 -->
                 <a href="javascript:;" v-popover:popcoupon>
-                  Adicionar cupom de desconto
+                  {{ $t('cart.addDiscountCoupon') }}
                 </a>
               </div>
             </div>
 
             <div class="_cart-total">
-              <small>Total</small>
-              R$ 570,00
+              <small>{{ $t('cart.total') }}</small>
+              {{ formatMoney(checkout.total) }}
             </div>
             <el-button type="success" class="_cart-buy">
               <a-icon icon="check" class="_buy-icon"></a-icon>
@@ -159,6 +159,7 @@ export default {
 
   computed: mapGetters([
     'cart',
+    'checkout',
     'formatMoney'
   ]),
 
@@ -215,7 +216,7 @@ export default {
 ._cart-buy {
   font-size: $--font-size-large;
 }
-._item-quantity {
+._item-control {
   margin-right: 10px;
 }
 ._item-remove {
@@ -231,11 +232,11 @@ export default {
   margin-top: 10px;
 }
 ._item-title {
-  margin-top: 20px;
+  margin-top: $--card-padding;
 }
 ._item-sku {
   color: $--color-text-secondary;
-  font-size: 12px;
+  font-size: 70%;
   display: block;
   margin-bottom: 2px;
 }
@@ -247,7 +248,10 @@ export default {
   ._item-quantity {
     width: auto;
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: $--card-padding;
+  }
+  ._item-quantity {
+    margin-right: 10px;
   }
   ._item-price,
   ._item-total {

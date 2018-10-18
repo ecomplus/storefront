@@ -1,7 +1,9 @@
 export default {
   enUs: {
     general: {
-      save: 'Save'
+      save: 'Save',
+      calculate: 'Calculate',
+      add: 'Add'
     },
     session: {
       hi: 'Hello',
@@ -23,8 +25,13 @@ export default {
       empty: 'Your shopping cart is empty',
       continueShopping: 'Browse the store to continue shopping',
       chooseProducts: 'Choose products',
+      subtotal: 'Subtotal',
+      total: 'Total',
+      freight: 'Freight',
+      calculateFreight: 'Calculate freight',
       close: 'Close order',
-      giftWrap: 'Gift-wrap'
+      giftWrap: 'Gift-wrap',
+      addDiscountCoupon: 'Add discount coupon'
     },
     account: {
       registration: 'Registration',
@@ -58,7 +65,9 @@ export default {
 
   ptBr: {
     general: {
-      save: 'Salvar'
+      save: 'Salvar',
+      calculate: 'Calcular',
+      add: 'Adicionar'
     },
     session: {
       hi: 'Olá',
@@ -80,8 +89,13 @@ export default {
       empty: 'Seu carrinho de compras está vazio',
       continueShopping: 'Navegue pela loja para continuar comprando',
       chooseProducts: 'Escolher produtos',
+      subtotal: 'Subtotal',
+      total: 'Total',
+      freight: 'Frete',
+      calculateFreight: 'Calcular frete',
       close: 'Fechar pedido',
-      giftWrap: 'Embrulhar para presente'
+      giftWrap: 'Embrulhar para presente',
+      addDiscountCoupon: 'Adicionar cupom de desconto'
     },
     account: {
       registration: 'Cadastro',

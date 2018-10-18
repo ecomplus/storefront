@@ -5,6 +5,12 @@ const state = {
   body: {
     _id: null,
     items: []
+  },
+  checkout: {
+    freight: 0,
+    discount: 0,
+    total: 0,
+    freight_calculed: false
   }
 }
 
@@ -15,6 +21,17 @@ const mutations = {
       ...state.body,
       ...body
     }
+  },
+
+  // fix cart subtotal value
+  fixCartSubtotal (state) {
+    let total = 0
+    state.body.items.forEach(item => {
+      total += item.price * item.quantity
+    })
+    state.body.subtotal = total
+    // also update total value
+    state.checkout.total = getters.checkoutValue(state)
   },
 
   // find item by ID and remove or edit
@@ -128,16 +145,20 @@ const mutations = {
     if (item) {
       item.quantity = qnt
     }
+    mutations.fixCartSubtotal(state)
   },
 
   // remove item by item object
   removeCartItem (state, { item }) {
     mutations.fixCartItem(state, { id: item._id, remove: true })
+    mutations.fixCartSubtotal(state)
   }
 }
 
 const getters = {
-  cart: state => state.body
+  cart: state => state.body,
+  checkout: state => state.checkout,
+  checkoutValue: ({ body, checkout }) => body.subtotal + checkout.freight - checkout.discount
 }
 
 const actions = {
@@ -202,9 +223,7 @@ const actions = {
       // force resolve
       promise = Promise.resolve()
     }
-    return promise.then(() => {
-      console.log('CART LOADED')
-    })
+    return promise
   },
 
   // handle products data and update cart items
@@ -238,8 +257,8 @@ const actions = {
         })
       }
 
-      promise
-        .then(() => {
+      promises.push(new Promise(resolve => {
+        promise.then(() => {
           // valid product
           commit('fixCartItem', { id: item._id, product: { ...Product() } })
         })
@@ -248,13 +267,12 @@ const actions = {
           // remove from cart
           commit('fixCartItem', { id: item._id, remove: true })
         })
-      promises.push(promise)
+        .finally(resolve)
+      }))
     })
 
-    return Promise.all(promises).finally(() => {
-      console.log('CART ITEMS')
-    }).catch(e => {
-      // ignore error
+    return Promise.all(promises).then(() => {
+      commit('fixCartSubtotal')
     })
   }
 }
