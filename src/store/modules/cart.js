@@ -275,6 +275,7 @@ const actions = {
 
     return Promise.all(promises).then(() => {
       commit('fixCartSubtotal')
+      dispatch('saveCart')
     })
   },
 

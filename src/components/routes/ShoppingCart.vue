@@ -41,7 +41,7 @@
                           :value="item.quantity"
                           :min="item.min_quantity"
                           :max="item.max_quantity"
-                          @change="qnt => { setCartItemQnt({ item, qnt }) }">
+                          @change="qnt => { itemQnt({ item, qnt }) }">
                         </el-input-number>
                       </div>
                       <div class="_item-remove">
@@ -153,7 +153,8 @@ export default {
 
   data () {
     return {
-      loaded: false
+      loaded: false,
+      saveCartTimeout: null
     }
   },
 
@@ -165,12 +166,26 @@ export default {
 
   methods: {
     ...mapActions([
-      'loadCart'
+      'loadCart',
+      'saveCart'
     ]),
     ...mapMutations([
       'setCartItemQnt',
       'removeCartItem'
-    ])
+    ]),
+
+    itemQnt (payload) {
+      // handle item quantity changes
+      this.setCartItemQnt(payload)
+      // delay cart saving to prevent doing this multiple at the 'same time'
+      if (this.saveCartTimeout) {
+        clearTimeout(this.saveCartTimeout)
+      }
+      this.saveCartTimeout = setTimeout(() => {
+        // update stored cart body
+        this.saveCart()
+      }, 2000)
+    }
   },
 
   created () {
