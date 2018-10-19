@@ -21,6 +21,7 @@ import { DEFAULT_LANG } from '@/lib/constants'
 
 // custom additional plugins
 import Inputmask from 'inputmask'
+import VueSticky from 'vue-sticky'
 
 // Font Awesome Icons
 import './lib/icons'
@@ -42,12 +43,13 @@ Vue.prototype.$locale = locale
 // preset default language
 locale(DEFAULT_LANG)
 
-// handle form inputs masking
+// handle directives for plugins
 Vue.directive('mask', {
   bind: function (el, binding) {
     Inputmask(binding.value).mask(el.getElementsByTagName('INPUT')[0])
   }
 })
+Vue.directive('sticky', VueSticky)
 
 /* eslint-disable no-new */
 // set Vue instance

@@ -86,7 +86,7 @@
               </div>
             </el-col>
 
-            <el-col :md="7" :sm="8" :xs="24" class="_cart-info">
+            <el-col :md="7" :sm="8" :xs="24" class="_cart-info" v-sticky="{ zIndex: 99, stickyTop: 20 }">
               <div class="_cart-values">
                 <el-row>
                   <el-col :span="12" class="_cart-subtotal">

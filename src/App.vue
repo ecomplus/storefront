@@ -12,8 +12,6 @@
 </template>
 
 <script>
-// E-Com Plus JS SDK
-import EcomIo from 'ecomplus-sdk'
 // base layout components
 import TopBar from '@/components/layout/TopBar'
 // from Vuex store
