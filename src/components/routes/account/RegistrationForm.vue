@@ -4,7 +4,8 @@
       <el-input v-model="form.name"></el-input>
     </el-form-item>
     <el-form-item :label="$t('account.email')">
-      <el-input :value="customer.main_email" :disabled="true"></el-input>
+      <el-input v-if="customer._id" :value="form.email" :disabled="true"></el-input>
+      <el-input v-else v-model="form.email" ></el-input>
     </el-form-item>
     <el-form-item :label="$t('account.nickname')" prop="nickname">
       <el-input v-model="form.nickname"></el-input>
@@ -181,6 +182,7 @@ export default {
           this.editCustomer({
             ...this.parseCustomerName(data.name),
             display_name: data.nickname,
+            main_email: data.email,
             gender: data.gender,
             ...this.parseCustomerBirth(data.birth),
             ...this.parseCustomerPhones([ data.phone, data.cellphone ]),
@@ -205,6 +207,7 @@ export default {
     let body = this.customer
     let phones = this.customerPhones
     this.form = {
+      email: body.main_email,
       name: this.customerName,
       nickname: body.display_name,
       gender: body.gender,

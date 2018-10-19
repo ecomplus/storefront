@@ -5,6 +5,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import shop from './modules/shop'
 import cart from './modules/cart'
+import checkout from './modules/checkout'
 import products from './modules/products'
 import customer from './modules/customer'
 import createLogger from 'vuex/dist/logger'
@@ -121,6 +122,7 @@ const getters = {
 const modules = {
   shop,
   cart,
+  checkout,
   products,
   customer
 }

@@ -5,12 +5,6 @@ const state = {
   body: {
     _id: null,
     items: []
-  },
-  checkout: {
-    freight: 0,
-    discount: 0,
-    total: 0,
-    freight_calculed: false
   }
 }
 
@@ -23,15 +17,17 @@ const mutations = {
     }
   },
 
-  // fix cart subtotal value
-  fixCartSubtotal (state) {
-    let total = 0
-    state.body.items.forEach(item => {
-      total += item.price * item.quantity
-    })
-    state.body.subtotal = total
-    // also update total value
-    state.checkout.total = getters.checkoutValue(state)
+  // update cart subtotal value
+  setCartSubtotal (state, value) {
+    state.body.subtotal = value
+  },
+
+  // edit cart item quantity by item object
+  setCartItemQnt (state, { item, qnt }) {
+    item = state.body.items.find(({ _id }) => _id === item._id)
+    if (item) {
+      item.quantity = qnt
+    }
   },
 
   // find item by ID and remove or edit
@@ -138,28 +134,11 @@ const mutations = {
         break
       }
     }
-  },
-
-  // change cart item quantity by item object
-  setCartItemQnt (state, { item, qnt }) {
-    item = state.body.items.find(({ _id }) => _id === item._id)
-    if (item) {
-      item.quantity = qnt
-    }
-    mutations.fixCartSubtotal(state)
-  },
-
-  // remove item by item object
-  removeCartItem (state, { item }) {
-    mutations.fixCartItem(state, { id: item._id, remove: true })
-    mutations.fixCartSubtotal(state)
   }
 }
 
 const getters = {
-  cart: state => state.body,
-  checkout: state => state.checkout,
-  checkoutValue: ({ body, checkout }) => body.subtotal + checkout.freight - checkout.discount
+  cart: state => state.body
 }
 
 const actions = {
@@ -287,7 +266,7 @@ const actions = {
     })
 
     return Promise.all(promises).then(() => {
-      commit('fixCartSubtotal')
+      dispatch('fixCartSubtotal')
       dispatch('saveCart')
     })
   },
@@ -313,6 +292,29 @@ const actions = {
       }
       resolve()
     })
+  },
+
+  // fix cart subtotal value
+  fixCartSubtotal ({ state, commit, dispatch }) {
+    let total = 0
+    state.body.items.forEach(item => {
+      total += item.price * item.quantity
+    })
+    commit('setCartSubtotal', total)
+    // also update checkout total value
+    dispatch('fixCheckoutTotal', {}, { root: true })
+  },
+
+  // change cart item quantity by item object and update subtotal
+  setCartItemQnt ({ state, commit, dispatch }, payload) {
+    commit('setCartItemQnt', payload)
+    dispatch('fixCartSubtotal')
+  },
+
+  // remove item by item object
+  removeCartItem ({ commit, dispatch }, payload) {
+    commit('fixCartItem', { id: payload.item._id, remove: true })
+    dispatch('fixCartSubtotal')
   }
 }
 

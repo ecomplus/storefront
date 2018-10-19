@@ -179,11 +179,15 @@ const getters = {
 
 const actions = {
   // update customer object
-  editCustomer ({ commit, dispatch }, payload) {
+  editCustomer ({ state, commit, dispatch }, payload) {
     commit('editCustomer', { body: payload })
-    // API request
-    // send customer body object
-    return dispatch('api', [ 'set', module, payload ], { root: true })
+    if (state.body._id) {
+      // API request
+      // send customer body object
+      return dispatch('api', [ 'set', module, payload ], { root: true })
+    } else {
+      return Promise.resolve()
+    }
   }
 }
 

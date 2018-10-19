@@ -153,7 +153,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapMutations } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'ShoppingCart',
@@ -174,9 +174,7 @@ export default {
   methods: {
     ...mapActions([
       'loadCart',
-      'saveCart'
-    ]),
-    ...mapMutations([
+      'saveCart',
       'setCartItemQnt',
       'removeCartItem'
     ]),
