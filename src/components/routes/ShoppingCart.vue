@@ -28,9 +28,11 @@
             <div class="_item" v-for="item in cart.items">
               <el-row>
                 <el-col :md="4" :sm="6" :xs="8" class="_item-image" v-if="item.picture">
-                  <img v-if="item.picture.normal" :src="item.picture.normal.url" />
-                  <img v-else-if="Object.keys(item.picture).length"
-                    :src="item.picture[Object.keys(item.picture)[0]].url" />
+                  <a :href="item._product.slug">
+                    <img v-if="item.picture.normal" :src="item.picture.normal.url" />
+                    <img v-else-if="Object.keys(item.picture).length"
+                      :src="item.picture[Object.keys(item.picture)[0]].url" />
+                  </a>
                 </el-col>
                 <el-col :md="20" :sm="18" :xs="16" class="_item-info">
                   <el-row type="flex" align="middle" justify="space-between">
@@ -74,7 +76,7 @@
                   </div>
                   <h4 class="_item-title">
                     <small class="_item-sku">{{ item.sku }}</small>
-                    {{ item.name }}
+                    <a :href="item._product.slug">{{ item.name }}</a>
                   </h4>
                 </el-col>
               </el-row>
@@ -254,6 +256,9 @@ export default {
   font-size: 70%;
   display: block;
   margin-bottom: 2px;
+}
+._item-title a {
+  color: inherit;
 }
 @media (max-width: 575px) {
   ._item-info > div {

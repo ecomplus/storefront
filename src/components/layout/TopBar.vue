@@ -2,10 +2,12 @@
   <div class="_topbar">
     <el-row type="flex" align="middle">
       <el-col :sm="14" :xs="17" class="_store">
-        <img v-if="shop.logo.url" :src="shop.logo.url" :alt="shop.name" class="_logo" />
-        <h2 v-else class="_title">
-          {{ shop.name }}
-        </h2>
+        <a href="/">
+          <img v-if="shop.logo.url" :src="shop.logo.url" :alt="shop.name" class="_logo" />
+          <h2 v-else class="_title">
+            {{ shop.name }}
+          </h2>
+        </a>
       </el-col>
 
       <el-col :sm="10" :xs="7">

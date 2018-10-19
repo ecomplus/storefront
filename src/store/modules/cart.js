@@ -112,6 +112,8 @@ const mutations = {
             // save product properties that can be changed on item object
             item._product = {}
             ;[
+              'slug',
+              'gift_wraps'
               /* @TODO: treat properties
               'variations',
               'customizations',
@@ -120,7 +122,6 @@ const mutations = {
               'buy_together',
               ...
               */
-              'gift_wraps'
             ].forEach(prop => {
               item._product[prop] = product[prop]
             })
