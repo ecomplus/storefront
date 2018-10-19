@@ -4,7 +4,9 @@
       <top-bar/>
     </div>
     <div class="_main">
-      <router-view/>
+      <transition name="fade">
+        <router-view/>
+      </transition>
     </div>
   </div>
 </template>
@@ -129,6 +131,7 @@ a, button, div, span, img {
 }
 ._main {
   border-bottom: 5px $--border-style-base $--border-color-base;
+  min-height: calc(100vh - 113px);
 }
 ._header > * {
   height: 100%;
@@ -173,5 +176,19 @@ a, button, div, span, img {
   .el-form-item > div {
     margin-left: 210px;
   }
+}
+
+// fade transition effects
+.fade-enter-active,
+.fade-leave-active {
+  transition-property: opacity;
+  transition-duration: .25s;
+}
+.fade-enter-active {
+  transition-delay: .25s;
+}
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
 }
 </style>

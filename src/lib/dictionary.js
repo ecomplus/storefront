@@ -3,6 +3,7 @@ export default {
     general: {
       save: 'Save',
       calculate: 'Calculate',
+      toCalculate: 'to calculate',
       add: 'Add'
     },
     session: {
@@ -67,6 +68,7 @@ export default {
     general: {
       save: 'Salvar',
       calculate: 'Calcular',
+      toCalculate: 'a calcular',
       add: 'Adicionar'
     },
     session: {
