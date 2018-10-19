@@ -28,7 +28,7 @@
             <div class="_item" v-for="item in cart.items">
               <el-row>
                 <el-col :md="4" :sm="6" :xs="8" class="_item-image" v-if="item.picture">
-                  <a :href="item._product.slug">
+                  <a :href="'/' + item._product.slug">
                     <img v-if="item.picture.normal" :src="item.picture.normal.url" />
                     <img v-else-if="Object.keys(item.picture).length"
                       :src="item.picture[Object.keys(item.picture)[0]].url" />
@@ -76,7 +76,7 @@
                   </div>
                   <h4 class="_item-title">
                     <small class="_item-sku">{{ item.sku }}</small>
-                    <a :href="item._product.slug">{{ item.name }}</a>
+                    <a :href="'/' + item._product.slug">{{ item.name }}</a>
                   </h4>
                 </el-col>
               </el-row>

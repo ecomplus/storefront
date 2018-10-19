@@ -283,10 +283,21 @@ const actions = {
   // save cart JSON asynchronously
   saveCart ({ state }) {
     return new Promise(resolve => {
+      let cart = {
+        ...state.body,
+        // map items without product object
+        // valid for API cart schema
+        items: state.body.items.map(obj => {
+          let item = { ...obj }
+          delete item._product
+          return item
+        })
+      }
+
       // try to update local storage
       let db = window.localStorage
       if (db) {
-        db.setItem('cart', JSON.stringify(state.body))
+        db.setItem('cart', JSON.stringify(cart))
       }
       resolve()
     })
