@@ -136,7 +136,7 @@
               <small>{{ $t('cart.total') }}</small>
               {{ formatMoney(checkout.total) }}
             </div>
-            <el-button type="success" class="_cart-buy">
+            <el-button type="success" class="_cart-buy" @click="goToCheckout">
               <a-icon icon="check" class="_buy-icon"></a-icon>
               {{ $t('cart.close') }}
             </el-button>
@@ -187,6 +187,11 @@ export default {
         // update stored cart body
         this.saveCart()
       }, 2000)
+    },
+
+    goToCheckout () {
+      // redirect to checkout
+      this.$router.push({ name: 'checkout' })
     }
   },
 

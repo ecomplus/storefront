@@ -166,64 +166,73 @@ const actions = {
   // load cart body object
   loadCart ({ commit, state, dispatch }, payload) {
     return new Promise((resolve, reject) => {
-      let id = payload.id
-      let update = body => {
-        commit('editCart', { body })
+      new Promise((resolve, reject) => {
+        let id = payload.id
+        // test with current state body
+        let { items } = state.body
+
+        if (id) {
+          // try to get from Store API with cart ID
+          dispatch('api', [ 'get', module, id ], { root: true }).then(resolve).catch(reject)
+          return
+        } else if (!items.length) {
+          // try to load JSON from client storage
+          let db = window.localStorage
+          if (db) {
+            let json = db.getItem('cart')
+            if (json) {
+              let items
+              try {
+                let obj = JSON.parse(json)
+                items = obj.items
+              } catch (err) {
+                reject(err)
+                return
+              }
+
+              if (Array.isArray(items)) {
+                // save only items
+                let body = {
+                  items: []
+                }
+                // generate base Object ID for cart items
+                let objectId = ('1' + Date.now()).padEnd(24, '0')
+                for (let i = 0; i < items.length; i++) {
+                  let item = items[i]
+                  if (typeof item === 'object' && item !== null && item.product_id && item.quantity) {
+                    body.items.push(Object.assign(item, {
+                      _id: objectId.substring(0, 24 - i.toString().length) + i,
+                      // force some properties for security
+                      keep_item_quantity: false,
+                      keep_item_price: false
+                    }))
+                  }
+                }
+                // update cart
+                resolve(body)
+                return
+              }
+            }
+          } else {
+            reject(new Error('Can\'t access HTML5 localStorage'))
+            return
+          }
+        }
+
+        // fallback for cart already loaded or no cart
+        // force resolve
+        resolve()
+      })
+
+      .catch(reject).then(body => {
+        // update body and proceed to fix cart items
+        if (body) {
+          commit('editCart', { body })
+        }
         dispatch('fixCartItems').finally(() => {
           resolve()
         })
-      }
-      // test with current state body
-      let { items } = state.body
-
-      if (id) {
-        // try to get from Store API with cart ID
-        dispatch('api', [ 'get', module, id ], { root: true }).then(update)
-      } else if (!items.length) {
-        // try to load JSON from client storage
-        let db = window.localStorage
-        if (db) {
-          let json = db.getItem('cart')
-          if (json) {
-            let items
-            try {
-              let obj = JSON.parse(json)
-              items = obj.items
-            } catch (err) {
-              reject(err)
-            }
-
-            if (Array.isArray(items)) {
-              // save only items
-              let body = {
-                items: []
-              }
-              // generate base Object ID for cart items
-              let objectId = ('1' + Date.now()).padEnd(24, '0')
-              for (let i = 0; i < items.length; i++) {
-                let item = items[i]
-                if (typeof item === 'object' && item !== null && item.product_id && item.quantity) {
-                  body.items.push(Object.assign(item, {
-                    _id: objectId.substring(0, 24 - i.toString().length) + i,
-                    // force some properties for security
-                    keep_item_quantity: false,
-                    keep_item_price: false
-                  }))
-                }
-              }
-              // update cart
-              update(body)
-              return
-            }
-          }
-
-          // fallback for cart already loaded or no cart
-          // force resolve
-          resolve()
-        } else {
-          reject(new Error('Can\'t access HTML5 localStorage'))
-        }
-      }
+      })
     }).catch(err => {
       console.error('Error loading cart:', err)
     })
@@ -246,7 +255,7 @@ const actions = {
             resolve(product)
           } else {
             // should not goes here
-            reject(new Error('Invalid product'))
+            reject(new Error('Invalid product #' + id))
           }
         })
       } else {
@@ -265,10 +274,13 @@ const actions = {
           // valid product
           commit('fixCartItem', { id: item._id, product: { ...Product() } })
         })
-        .catch(() => {
+        .catch(err => {
           // probably product not found
           // remove from cart
           commit('fixCartItem', { id: item._id, remove: true })
+          if (err) {
+            console.error('Error fixing cart items:', err)
+          }
         })
         .finally(resolve)
       }))
