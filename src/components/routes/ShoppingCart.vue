@@ -56,9 +56,11 @@
                         </div>
                       </div>
                       <div class="_item-price">
+                        <small>{{ $t('cart.price') }}</small>
                         {{ formatMoney(item.price, item.currency_id) }}
                       </div>
                       <div class="_item-total">
+                        <small>{{ $t('cart.total') }}</small>
                         {{ formatMoney((item.price * item.quantity), item.currency_id) }}
                       </div>
                     </el-row>
@@ -228,6 +230,7 @@ export default {
 }
 ._item-price {
   color: $--color-text-secondary;
+  text-align: right;
 }
 ._item-total {
   color: $--color-text-primary;
@@ -238,6 +241,11 @@ export default {
 ._item-total,
 ._cart-buy {
   font-size: $--font-size-large;
+}
+._item-price small,
+._item-total small {
+  display: block;
+  opacity: .7;
 }
 ._item-control {
   margin-right: 10px;
