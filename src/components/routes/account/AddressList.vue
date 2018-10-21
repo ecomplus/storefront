@@ -1,6 +1,6 @@
 <template>
-  <div class="_orders">
-    {{ $t('session.orders') }}
+  <div class="_addresses">
+    {{ $t('account.addresses') }}
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'OrdersList',
+  name: 'AddressList',
 
   computed: mapGetters([
     'customer'

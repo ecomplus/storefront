@@ -11,13 +11,15 @@
         </small>
       </h1>
 
-      <el-tabs class="_account-tabs">
-        <el-tab-pane :label="$t('account.registration')"></el-tab-pane>
-        <el-tab-pane :label="$t('account.addresses')"></el-tab-pane>
-        <el-tab-pane :label="$t('account.orders')"></el-tab-pane>
+      <el-tabs :value="$route.name" class="_account-tabs" @tab-click="changeTab">
+        <el-tab-pane :label="$t('account.registration')" name="account"></el-tab-pane>
+        <el-tab-pane :label="$t('account.addresses')" name="addresses"></el-tab-pane>
+        <el-tab-pane :label="$t('account.orders')" name="orders"></el-tab-pane>
       </el-tabs>
 
-      <router-view></router-view>
+      <transition name="fade">
+        <router-view/>
+      </transition>
     </div>
 
     <div v-else class="_account-unlogged">
@@ -49,7 +51,12 @@ export default {
     ]),
     ...mapMutations([
       'logout'
-    ])
+    ]),
+
+    changeTab (tab) {
+      // redirect to current tab
+      this.$router.push({ name: tab.name })
+    }
   }
 }
 </script>

@@ -4,6 +4,7 @@ import ShoppingCart from '@/components/routes/ShoppingCart'
 import CheckoutApp from '@/components/routes/CheckoutApp'
 import MyAccount from '@/components/routes/MyAccount'
 import RegistrationForm from '@/components/routes/account/RegistrationForm'
+import AddressList from '@/components/routes/account/AddressList'
 import OrdersList from '@/components/routes/account/OrdersList'
 
 Vue.use(Router)
@@ -28,6 +29,11 @@ export default new Router({
           path: '',
           name: 'account',
           component: RegistrationForm
+        },
+        {
+          path: 'addresses',
+          name: 'addresses',
+          component: AddressList
         },
         {
           path: 'orders',
