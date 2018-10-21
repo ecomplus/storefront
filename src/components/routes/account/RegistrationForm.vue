@@ -75,7 +75,9 @@
     </el-form-item>
 
     <el-form-item size="large">
-      <el-button type="primary" @click="submitForm">{{ $t('general.save') }}</el-button>
+      <el-button type="primary" @click="submitForm">
+        {{ buttonText || $t('general.save') }}
+      </el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -87,7 +89,11 @@ import isValidCnpj from '@brazilian-utils/is-valid-cnpj'
 
 export default {
   name: 'RegistrationForm',
-  props: [ 'short' ],
+
+  props: [
+    'short',
+    'buttonText'
+  ],
 
   data () {
     // setup form validation rules

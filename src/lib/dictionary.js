@@ -35,6 +35,11 @@ export default {
       giftWrap: 'Gift-wrap',
       addDiscountCoupon: 'Add discount coupon'
     },
+    checkout: {
+      title: 'Checkout',
+      back: 'back to cart',
+      goToShipping: 'Proceed to shipping'
+    },
     account: {
       registration: 'Registration',
       orders: 'Orders',
@@ -100,6 +105,11 @@ export default {
       close: 'Fechar pedido',
       giftWrap: 'Embrulhar para presente',
       addDiscountCoupon: 'Adicionar cupom de desconto'
+    },
+    checkout: {
+      title: 'Finalizar pedido',
+      back: 'voltar ao carrinho',
+      goToShipping: 'Prosseguir para entrega'
     },
     account: {
       registration: 'Cadastro',
