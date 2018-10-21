@@ -1,7 +1,9 @@
 <template>
   <div id="app" v-loading="loading">
     <div class="_header">
-      <top-bar/>
+      <div class="_navbar">
+        <top-bar/>
+      </div>
     </div>
     <div class="_main">
       <transition name="fade">
@@ -55,7 +57,8 @@ div, img {
   margin: 0;
 }
 body > div,
-#app > div {
+._navbar,
+._main {
   padding: $--main-padding;
   max-width: 1250px;
   margin: 0 auto;
@@ -138,7 +141,8 @@ a, button, div, span, img {
   border-bottom: 5px $--border-style-base $--border-color-base;
   min-height: calc(100vh - 113px);
 }
-._header > * {
+._navbar,
+._navbar > div {
   height: 100%;
 }
 

@@ -12,19 +12,19 @@
 
     <el-row :gutter="20">
       <el-col :md="17" :sm="16" :xs="24">
-        <div class="_checkout-steps">
-          <div class="_checkout-identification">
-            <el-steps :active="activeStep" align-center>
-              <el-step :title="$t('checkout.identification')"></el-step>
-              <el-step :title="$t('checkout.shipping')"></el-step>
-              <el-step :title="$t('checkout.payment')"></el-step>
-              <el-step :title="$t('checkout.confirmation')">
-                <template slot="icon">
-                  <a-icon icon="check-circle" class="_confirmation-icon"></a-icon>
-                </template>
-              </el-step>
-            </el-steps>
+        <div class="_checkout-content">
+          <el-steps :active="activeStep" align-center class="_checkout-steps">
+            <el-step :title="$t('checkout.identification')"></el-step>
+            <el-step :title="$t('checkout.shipping')"></el-step>
+            <el-step :title="$t('checkout.payment')"></el-step>
+            <el-step :title="$t('checkout.confirmation')">
+              <template slot="icon">
+                <a-icon icon="check-circle" class="_confirmation-icon"></a-icon>
+              </template>
+            </el-step>
+          </el-steps>
 
+          <div class="_checkout-identification">
             <h2 id="identification">
               {{ $t('account.registration') }}
               <small v-if="!isCustomerLogged">
@@ -82,25 +82,22 @@ export default {
 // Element UI theme variables
 @import '../../../node_modules/element-theme-chalk/src/common/var.scss';
 
-._checkout-steps {
+._checkout-content {
   border-radius: $--border-radius-base;
-  padding: 0 $--card-padding * 1.5;
+  padding: $--card-padding $--card-padding * 1.5;
   border: $--border-base;
 }
 @media (max-width: 575px) {
-  ._checkout-steps {
-    padding: 0 $--card-padding;
+  ._checkout-content {
+    padding-right: $--card-padding;
+    padding-left: $--card-padding;
   }
 }
-._checkout-steps > div {
-  padding: $--card-padding 0;
-  border-bottom: $--border-base;
-}
-._checkout-steps > div:last-child {
-  border-bottom: none;
-}
-._checkout-steps > div h2 {
+._checkout-content h2 {
   text-align: center;
+}
+._checkout-steps {
+  padding-bottom: $--card-padding * .25;
 }
 ._confirmation-icon {
   color: lighten($--color-success, 25%);
