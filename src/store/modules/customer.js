@@ -100,22 +100,23 @@ const getters = {
 
   // parse birth date string to object
   parseCustomerBirth: () => (dateString) => {
-    let dates = dateString.match(/^(\d{4})-(\d{2})-(\d{2})$/)
-    if (Array.isArray(dates)) {
-      // returns complete birth date object
-      return {
-        birth_date: {
-          // yyyy-mm-dd
-          // parse strings to numbers
-          year: parseInt(dates[1], 10),
-          month: parseInt(dates[2], 10),
-          day: parseInt(dates[3], 10)
+    if (typeof dateString === 'string') {
+      let dates = dateString.match(/^(\d{4})-(\d{2})-(\d{2})$/)
+      if (Array.isArray(dates)) {
+        // returns complete birth date object
+        return {
+          birth_date: {
+            // yyyy-mm-dd
+            // parse strings to numbers
+            year: parseInt(dates[1], 10),
+            month: parseInt(dates[2], 10),
+            day: parseInt(dates[3], 10)
+          }
         }
       }
-    } else {
-      // returns empty birth date
-      return { birth_date: {} }
     }
+    // returns empty birth date
+    return { birth_date: {} }
   },
 
   // get customer array of phones string

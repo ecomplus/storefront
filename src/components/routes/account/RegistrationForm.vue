@@ -3,15 +3,15 @@
     <el-form-item :label="$t('account.fullName')" prop="name">
       <el-input v-model="form.name"></el-input>
     </el-form-item>
-    <el-form-item :label="$t('account.email')">
+    <el-form-item :label="$t('account.email')" prop="email">
       <el-input v-if="customer._id" :value="form.email" :disabled="true"></el-input>
-      <el-input v-else v-model="form.email" ></el-input>
+      <el-input v-else v-model="form.email"></el-input>
     </el-form-item>
-    <el-form-item :label="$t('account.nickname')" prop="nickname">
+    <el-form-item v-if="!short" :label="$t('account.nickname')" prop="nickname">
       <el-input v-model="form.nickname"></el-input>
     </el-form-item>
 
-    <el-form-item :label="$t('account.gender')">
+    <el-form-item v-if="!short" :label="$t('account.gender')">
       <el-radio-group v-model="form.gender">
         <el-radio border label="f">
           {{ $t('account.female') }}
@@ -25,7 +25,7 @@
       </el-radio-group>
     </el-form-item>
 
-    <el-form-item :label="$t('account.birth')" prop="birth">
+    <el-form-item v-if="!short" :label="$t('account.birth')" prop="birth">
       <el-date-picker
         v-if="$lang === 'pt_br'"
         type="date"
@@ -45,7 +45,7 @@
     <el-form-item :label="$t('account.contactPhone')" prop="phone">
       <el-input v-model="form.phone" type="tel" v-mask="phoneMask"></el-input>
     </el-form-item>
-    <el-form-item :label="$t('account.cellphone')" prop="cellphone">
+    <el-form-item v-if="!short" :label="$t('account.cellphone')" prop="cellphone">
       <el-input v-model="form.cellphone" type="tel" v-mask="phoneMask"></el-input>
     </el-form-item>
 
@@ -87,6 +87,7 @@ import isValidCnpj from '@brazilian-utils/is-valid-cnpj'
 
 export default {
   name: 'RegistrationForm',
+  props: [ 'short' ],
 
   data () {
     // setup form validation rules
@@ -109,7 +110,7 @@ export default {
     }
 
     // handle required form fields
-    ;[ 'name', 'nickname', 'phone', 'birth', 'doc' ].forEach((label) => {
+    ;[ 'name', 'email', 'phone', 'doc' ].forEach((label) => {
       addRule(label, { required: true, message: this.$t('validate.required') })
     })
     // handle marked inputs validation
@@ -179,16 +180,21 @@ export default {
         if (valid) {
           // valid form data
           // update customer
-          this.editCustomer({
+          let body = {
             ...this.parseCustomerName(data.name),
-            display_name: data.nickname,
+            display_name: data.nickname.trim(),
             main_email: data.email,
             gender: data.gender,
             ...this.parseCustomerBirth(data.birth),
             ...this.parseCustomerPhones([ data.phone, data.cellphone ]),
             registry_type: data.type,
             doc_number: data.doc.replace(/[\D]/g, '')
-          })
+          }
+          if (body.display_name === '') {
+            // set nickname with customer first name
+            body.display_name = body.name.given_name
+          }
+          this.editCustomer(body)
         } else {
           // show notification
           this.$message({
@@ -209,7 +215,7 @@ export default {
     this.form = {
       email: body.main_email,
       name: this.customerName,
-      nickname: body.display_name,
+      nickname: body.display_name || '',
       gender: body.gender,
       phone: phones[0],
       // optional last phone number

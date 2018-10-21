@@ -54,11 +54,9 @@ const mutations = {
   // setup session synchronous methods
   logout (state) {
     let customer = state.customer.body
-    if (customer.display_name) {
-      // unset customer info
-      customer._id = null
-      customer.display_name = null
-    }
+    // unset customer info
+    customer._id = null
+    customer.display_name = null
     // clear session
     api.session.logout()
   }
