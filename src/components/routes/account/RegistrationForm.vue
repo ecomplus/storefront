@@ -174,7 +174,7 @@ export default {
         cellphone: phones.length > 1 ? phones[phones.length - 1] : '',
         birth: this.customerBirth,
         // default is physical
-        type: body.registry_type,
+        type: body.registry_type || 'p',
         doc: this.customer.doc_number
       }
     },
@@ -240,12 +240,10 @@ export default {
   },
 
   watch: {
-    isCustomerLogged (isLogged) {
-      if (isLogged) {
-        // login done
-        // update form data
-        this.setupFormData()
-      }
+    isCustomerLogged () {
+      // login or logout done
+      // update form data
+      this.setupFormData()
     }
   }
 }

@@ -55,9 +55,20 @@ const mutations = {
   logout (state) {
     let customer = state.customer.body
     // unset customer info
-    customer._id = null
-    customer.display_name = null
-    customer.main_email = null
+    for (let prop in customer) {
+      switch (typeof customer[prop]) {
+        case 'string':
+          customer[prop] = null
+          break
+        case 'object':
+          if (Array.isArray(customer[prop])) {
+            customer[prop] = []
+          } else if (customer[prop]) {
+            customer[prop] = {}
+          }
+          break
+      }
+    }
     // clear session
     api.session.logout()
   }
