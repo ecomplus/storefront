@@ -324,10 +324,10 @@ export default {
 }
 ._cart-buy {
   width: 100%;
-  font-weight: 600;
 }
 ._buy-icon {
   margin-right: 10px;
+  color: $--color-success-light;
 }
 ._cart-zip-trigger,
 ._cart-coupon-trigger {

@@ -46,6 +46,7 @@ body {
   overflow-x: hidden !important;
   -webkit-transition: $--fade-linear-transition;
   transition: $--fade-linear-transition;
+  line-height: 1.25;
 }
 div, img {
   max-height: 100%;
