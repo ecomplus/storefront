@@ -61,7 +61,6 @@ body > div,
   margin: 0 auto;
 }
 #app > ._main {
-  padding-top: $--main-padding * 1.5;
   padding-bottom: $--main-padding * 3;
 }
 #app {
@@ -112,6 +111,13 @@ h1 > small {
   margin-left: 1px;
   font-size: 58%;
   opacity: .7;
+}
+h2 > small,
+h3 > small {
+  margin-left: 3px;
+  font-size: 68%;
+  opacity: .8;
+  display: inline-block;
 }
 * {
   box-sizing: border-box;
@@ -166,6 +172,9 @@ a, button, div, span, img {
   .el-form-item > div {
     margin-left: 0;
     display: block;
+  }
+  .el-step__title {
+    font-size: 65%;
   }
 }
 @media (min-width: 576px) {

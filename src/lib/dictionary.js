@@ -4,7 +4,8 @@ export default {
       save: 'Save',
       calculate: 'Calculate',
       toCalculate: 'to calculate',
-      add: 'Add'
+      add: 'Add',
+      proceed: 'Proceed'
     },
     session: {
       hi: 'Hello',
@@ -12,6 +13,7 @@ export default {
       visitor: 'Visitor',
       logout: 'Logout',
       isNotYou: 'Is not you',
+      haveAccount: 'Already have an account',
       account: 'My account',
       orders: 'My orders'
     },
@@ -38,7 +40,11 @@ export default {
     checkout: {
       title: 'Checkout',
       back: 'back to cart',
-      goToShipping: 'Proceed to shipping'
+      goToCheckout: 'Proceed to shipping',
+      identification: 'Identification',
+      shipping: 'Shipping',
+      payment: 'Payment',
+      confirmation: 'Thanks'
     },
     account: {
       registration: 'Registration',
@@ -75,7 +81,8 @@ export default {
       save: 'Salvar',
       calculate: 'Calcular',
       toCalculate: 'a calcular',
-      add: 'Adicionar'
+      add: 'Adicionar',
+      proceed: 'Prosseguir'
     },
     session: {
       hi: 'Olá',
@@ -83,6 +90,7 @@ export default {
       visitor: 'Visitante',
       logout: 'Sair',
       isNotYou: 'Não é você',
+      haveAccount: 'Já possui uma conta',
       account: 'Minha conta',
       orders: 'Meus pedidos'
     },
@@ -109,7 +117,11 @@ export default {
     checkout: {
       title: 'Finalizar pedido',
       back: 'voltar ao carrinho',
-      goToShipping: 'Prosseguir para entrega'
+      goToCheckout: 'Prosseguir para entrega',
+      identification: 'Identificação',
+      shipping: 'Entrega',
+      payment: 'Pagamento',
+      confirmation: 'Obrigado'
     },
     account: {
       registration: 'Cadastro',

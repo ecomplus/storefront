@@ -37,6 +37,8 @@ const mutations = {
 
 const getters = {
   customer: state => state.body,
+  customerEmail: state => state.body.main_email,
+  isCustomerLogged: state => !!(state.body._id),
 
   // get customer full name
   customerName (state) {

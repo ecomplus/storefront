@@ -4,7 +4,7 @@
       <el-input v-model="form.name"></el-input>
     </el-form-item>
     <el-form-item :label="$t('account.email')" prop="email">
-      <el-input v-if="customer._id" :value="form.email" :disabled="true"></el-input>
+      <el-input v-if="isCustomerLogged" :value="form.email" :disabled="true"></el-input>
       <el-input v-else v-model="form.email"></el-input>
     </el-form-item>
     <el-form-item v-if="!short" :label="$t('account.nickname')" prop="nickname">
@@ -146,6 +146,7 @@ export default {
 
   computed: mapGetters([
     'customer',
+    'isCustomerLogged',
     'customerName',
     'parseCustomerName',
     'customerBirth',
@@ -158,6 +159,25 @@ export default {
     ...mapActions([
       'editCustomer'
     ]),
+
+    setupFormData () {
+      // update data with computed
+      let body = this.customer
+      let phones = this.customerPhones
+      this.form = {
+        email: body.main_email,
+        name: this.customerName,
+        nickname: body.display_name || '',
+        gender: body.gender,
+        phone: phones[0],
+        // optional last phone number
+        cellphone: phones.length > 1 ? phones[phones.length - 1] : '',
+        birth: this.customerBirth,
+        // default is physical
+        type: body.registry_type,
+        doc: this.customer.doc_number
+      }
+    },
 
     submitForm () {
       this.$refs.form.validate((valid) => {
@@ -215,21 +235,17 @@ export default {
   },
 
   created () {
-    // update data with computed
-    let body = this.customer
-    let phones = this.customerPhones
-    this.form = {
-      email: body.main_email,
-      name: this.customerName,
-      nickname: body.display_name || '',
-      gender: body.gender,
-      phone: phones[0],
-      // optional last phone number
-      cellphone: phones.length > 1 ? phones[phones.length - 1] : '',
-      birth: this.customerBirth,
-      // default is physical
-      type: body.registry_type,
-      doc: this.customer.doc_number
+    // setup form on component ready
+    this.setupFormData()
+  },
+
+  watch: {
+    isCustomerLogged (isLogged) {
+      if (isLogged) {
+        // login done
+        // update form data
+        this.setupFormData()
+      }
     }
   }
 }

@@ -27,7 +27,7 @@
                     {{ customer.display_name || $t('session.visitor') }}
                   </b>
                 </p>
-                <span v-if="customer._id" class="_user-logged">
+                <span v-if="isCustomerLogged" class="_user-logged">
                   <div>
                     <router-link :to="{ name: 'account' }">
                       <el-button size="mini" class="_user-account">
@@ -79,7 +79,8 @@ export default {
 
   computed: mapGetters([
     'shop',
-    'customer'
+    'customer',
+    'isCustomerLogged'
   ]),
 
   methods: {

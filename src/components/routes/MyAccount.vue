@@ -1,6 +1,6 @@
 <template>
   <div class="_account">
-    <div v-if="customer._id" class="_account-logged">
+    <div v-if="isCustomerLogged" class="_account-logged">
       <h1 class="_account-title">
         {{ $t('session.hi') + ' ' + customer.display_name }}
         <small>
@@ -39,7 +39,8 @@ export default {
   name: 'MyAccount',
 
   computed: mapGetters([
-    'customer'
+    'customer',
+    'isCustomerLogged'
   ]),
 
   methods: {

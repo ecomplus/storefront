@@ -57,6 +57,7 @@ const mutations = {
     // unset customer info
     customer._id = null
     customer.display_name = null
+    customer.main_email = null
     // clear session
     api.session.logout()
   }
