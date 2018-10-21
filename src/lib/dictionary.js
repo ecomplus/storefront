@@ -69,6 +69,7 @@ export default {
     },
     validate: {
       required: 'Required field',
+      number: 'Place a valid number',
       minLength: 'Text must contain more characters',
       mask: 'Wrong format, please check',
       invalidForm: 'Invalid form data, please check and resend',
@@ -146,6 +147,7 @@ export default {
     },
     validate: {
       required: 'Campo obrigatório',
+      number: 'Digite apenas números',
       minLength: 'O texto deve conter mais caracteres',
       mask: 'Formato incorreto, por favor revise',
       invalidForm: 'Os dados do formulário estão inválidos, por favor verifique',

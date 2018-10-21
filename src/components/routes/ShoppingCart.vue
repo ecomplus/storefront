@@ -156,6 +156,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import { formatMoney } from '@/lib/utils'
 
 export default {
   name: 'ShoppingCart',
@@ -170,8 +171,7 @@ export default {
   computed: mapGetters([
     'cart',
     'checkout',
-    'customer',
-    'formatMoney'
+    'customer'
   ]),
 
   methods: {
@@ -182,6 +182,7 @@ export default {
       'removeCartItem',
       'login'
     ]),
+    formatMoney,
 
     itemQnt (payload) {
       // handle item quantity changes

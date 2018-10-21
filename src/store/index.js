@@ -11,7 +11,6 @@ import customer from './modules/customer'
 import createLogger from 'vuex/dist/logger'
 // abstractions for making API requests
 import api from '@/api'
-import { DEFAULT_CURRENCY, DEFAULT_LANG } from '@/lib/constants'
 
 // setup Vuex
 Vue.use(Vuex)
@@ -113,22 +112,6 @@ const actions = {
   }
 }
 
-// auxiliary functions
-const getters = {
-  formatMoney: state => (price, currency = DEFAULT_CURRENCY, lang = DEFAULT_LANG) => {
-    // format pt-BR, en-US
-    lang = lang.replace('_', '-')
-    var priceString
-    try {
-      priceString = price.toLocaleString(lang, { style: 'currency', currency: currency })
-    } catch (e) {
-      // fallback
-      priceString = price
-    }
-    return priceString
-  }
-}
-
 const modules = {
   shop,
   cart,
@@ -139,7 +122,6 @@ const modules = {
 
 const store = new Vuex.Store({
   state,
-  getters,
   mutations,
   actions,
   modules,

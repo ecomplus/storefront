@@ -84,6 +84,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import { addRule, checkMask } from '@/lib/utils'
 import isValidCpf from '@brazilian-utils/is-valid-cpf'
 import isValidCnpj from '@brazilian-utils/is-valid-cnpj'
 
@@ -98,34 +99,17 @@ export default {
   data () {
     // setup form validation rules
     let rules = {}
-    let addRule = (label, rule) => {
-      if (!rules.hasOwnProperty(label)) {
-        // preset array
-        rules[label] = []
-      }
-      rules[label].push(rule)
-    }
-    // custom validation for masked inputs
-    let checkMask = (rule, value, cb) => {
-      if (value.indexOf('_') === -1) {
-        // mask matched
-        cb()
-      } else {
-        cb(new Error(this.$t('validate.mask')))
-      }
-    }
-
     // handle required form fields
     ;[ 'name', 'email', 'phone', 'doc' ].forEach((label) => {
-      addRule(label, { required: true, message: this.$t('validate.required') })
+      addRule(label, { required: true, message: this.$t('validate.required') }, rules)
     })
     // handle marked inputs validation
     ;[ 'phone', 'cellphone', 'doc' ].forEach((label) => {
-      addRule(label, { validator: checkMask, trigger: 'blur' })
+      addRule(label, { validator: checkMask, trigger: 'blur' }, rules)
     })
     // handle min fields length
     ;[ 'name', 'nickname' ].forEach((label) => {
-      addRule(label, { min: 3, message: this.$t('validate.minLength'), trigger: 'blur' })
+      addRule(label, { min: 3, message: this.$t('validate.minLength'), trigger: 'blur' }, rules)
     })
 
     return {
