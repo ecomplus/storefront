@@ -27,8 +27,13 @@
           <div class="_checkout-identification">
             <h2 id="identification">
               {{ $t('account.registration') }}
-              <small v-if="!isCustomerLogged">
-                <a href="javascript:;" @click="login">{{ $t('session.haveAccount') }}?</a>
+              <small>
+                <a v-if="!isCustomerLogged" href="javascript:;" @click="login" class="_checkout-login">
+                  {{ $t('session.haveAccount') }}?
+                </a>
+                <a v-else href="javascript:;" @click="logout" class="_checkout-logout">
+                  {{ $t('session.isNotYou') }}?
+                </a>
               </small>
             </h2>
             <registration-form :short="true" :buttonText="$t('checkout.goToCheckout')"/>
@@ -43,7 +48,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 import RegistrationForm from '@/components/routes/account/RegistrationForm'
 
 export default {
@@ -67,6 +72,9 @@ export default {
   methods: {
     ...mapActions([
       'login'
+    ]),
+    ...mapMutations([
+      'logout'
     ])
   },
 
@@ -101,5 +109,8 @@ export default {
 }
 ._confirmation-icon {
   color: lighten($--color-success, 25%);
+}
+._checkout-logout {
+  color: $--color-danger;
 }
 </style>
