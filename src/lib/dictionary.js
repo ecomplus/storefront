@@ -69,7 +69,16 @@ export default {
     },
     address: {
       recipient: 'Recipient',
-      zip: 'ZIP code'
+      zip: 'ZIP code',
+      street: 'Address (street)',
+      number: 'Number',
+      noNumber: 'No number',
+      complement: 'Complement',
+      reference: 'Reference information',
+      borough: 'Borough',
+      city: 'City',
+      province: 'Province code',
+      country: 'Country'
     },
     validate: {
       required: 'Required field',
@@ -151,7 +160,16 @@ export default {
     },
     address: {
       recipient: 'Destinatário',
-      zip: 'CEP'
+      zip: 'CEP',
+      street: 'Rua ou logradouro',
+      number: 'Número',
+      noNumber: 'Sem número',
+      complement: 'Complemento',
+      reference: 'Ponto de referência',
+      borough: 'Bairro',
+      city: 'Cidade',
+      province: 'Estado (UF)',
+      country: 'País'
     },
     validate: {
       required: 'Campo obrigatório',

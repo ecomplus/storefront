@@ -10,14 +10,59 @@
             v-if="$lang === 'pt_br'"
             v-model="form.zip"
             v-mask="'99999-999'"
-            @change="handleZip"
+            v-on-keyup="handleZip"
             class="__input-sm"></el-input>
           <el-input v-else v-model="form.zip" class="__input-sm"></el-input>
         </el-form-item>
 
         <transition name="fade">
-          <div v-if="zipReady">
-          </div>
+          <span v-if="zipReady">
+            <el-form-item :label="$t('address.number')" prop="number">
+              <el-col :span="8">
+                <el-input
+                  v-model="form.number" v-mask="[ '9{1,7}', '-' ]"
+                  :disabled="noNumber"></el-input>
+              </el-col>
+              <el-col :offset="1" :span="15">
+                <el-checkbox v-model="noNumber" @change="() => { form.number = noNumber ? '-' : '' }">
+                  {{ $t('address.noNumber') }}
+                </el-checkbox>
+              </el-col>
+            </el-form-item>
+            <el-form-item :label="$t('address.complement')" prop="complement">
+              <el-input v-model="form.complement" class="__input-sm"></el-input>
+            </el-form-item>
+            <el-form-item :label="$t('address.reference')" prop="reference">
+              <el-input v-model="form.reference"></el-input>
+            </el-form-item>
+
+            <el-form-item :label="$t('address.street')" prop="street">
+              <el-input v-model="form.street" :disabled="addressFromZip"></el-input>
+            </el-form-item>
+            <el-form-item :label="$t('address.borough')" prop="borough">
+              <el-input v-model="form.borough" :disabled="boroughFromZip"></el-input>
+            </el-form-item>
+            <el-form-item :label="$t('address.city')" prop="city">
+              <el-input v-model="form.city" :disabled="addressFromZip"></el-input>
+            </el-form-item>
+            <el-form-item :label="$t('address.province')" prop="province">
+              <el-input v-model="form.province" :disabled="addressFromZip" class="__input-sm"></el-input>
+            </el-form-item>
+
+            <el-form-item v-if="$lang !== 'pt_br'" :label="$t('address.country')" prop="country">
+              <el-input
+                v-model="form.country"
+                v-mask="'AA'"
+                class="__input-sm"
+                placeholder="US"></el-input>
+            </el-form-item>
+
+            <el-form-item size="large">
+              <el-button type="primary" @click="submitForm">
+                {{ buttonText || $t('general.save') }}
+              </el-button>
+            </el-form-item>
+          </span>
         </transition>
       </el-form>
     </transition>
@@ -31,21 +76,26 @@ import { addRule, checkMask } from '@/lib/utils'
 export default {
   name: 'AddressList',
 
+  props: [ 'buttonText' ],
+
   data () {
     // setup form validation rules
     let rules = {}
     // handle required form fields
-    ;[ 'name', 'zip', 'province_code', 'city', 'borough', 'street', 'number' ].forEach(label => {
+    ;[ 'name', 'zip', 'province', 'city', 'street', 'number' ].forEach(label => {
       addRule(label, { required: true, message: this.$t('validate.required') }, rules)
     })
     // handle marked inputs validation
-    addRule('zip', { validator: checkMask(this.$t('validate.mask')), trigger: 'blur' }, rules)
-    // handle type number validation
-    addRule('number', { type: 'number', message: this.$t('validate.number'), trigger: 'blur' }, rules)
+    ;[ 'zip', 'country', 'number' ].forEach(label => {
+      addRule(label, { validator: checkMask(this.$t('validate.mask')), trigger: 'blur' }, rules)
+    })
 
     return {
       newAddress: false,
       zipReady: false,
+      noNumber: false,
+      addressFromZip: false,
+      boroughFromZip: false,
       form: {
         // declare form empty for further reset
       },
@@ -67,35 +117,69 @@ export default {
       // reset form object
       this.form = {
         zip: '',
-        province_code: '',
+        province: '',
         city: '',
         borough: '',
         street: '',
-        number: null,
+        number: '',
+        complement: '',
+        reference: '',
+        country: '',
         name: this.customerName
       }
       // show new address form
       this.newAddress = true
-      // BR zip code is handled asynchronously
-      this.zipReady = (this.$lang !== 'pt_br')
+      this.addressFromZip = false
+      // handle ZIP code only for BR CEP
+      this.zipReady = !(this.$lang === 'pt_br')
     },
 
     handleZip () {
-      let zip = this.form.zip
-      if (this.$lang === 'pt_br' && /\d{5}-?\d{3}/.test(zip)) {
-        // valid BR CEP
-        // get address info by ZIP code from ViaCEP webservice
-        fetch('https://viacep.com.br/ws/' + zip + '/json/').then(response => {
-          console.log(response)
-        })
-        .catch(err => {
-          console.log('There has been a problem with your fetch operation: ' + error.message)
-        })
+      let vm = this
+      let zip = vm.form.zip
+      if (this.$lang === 'pt_br') {
+        if (/\d{5}-?\d{3}/.test(zip)) {
+          // valid BR CEP
+          // get address info by ZIP code from ViaCEP webservice
+          fetch('https://viacep.com.br/ws/' + zip + '/json/').then(response => {
+            return response.json()
+          }).catch(e => {
+            // enable inputs manual edition
+            vm.addressFromZip = vm.boroughFromZip = false
+          })
+
+          // on success fill form and disable fields manual edition
+          .then(data => {
+            // update form fields
+            let form = vm.form
+            form.province = data.uf
+            form.city = data.localidade
+            form.street = data.logradouro
+            // disable fields edition
+            vm.addressFromZip = true
+            if (data.bairro && data.bairro !== '') {
+              form.borough = data.bairro
+              vm.boroughFromZip = true
+            } else {
+              vm.boroughFromZip = false
+            }
+            // show fields
+            vm.zipReady = true
+          })
+        } else {
+          // incomplete CEP
+          vm.zipReady = false
+        }
       }
+    },
+
+    submitForm () {
+      this.$refs.form.validate((valid) => {
+      })
     }
   },
 
-  created () {
+  mounted () {
     if (!this.customer.addresses.length) {
       // start creating the first address
       this.addAddress()

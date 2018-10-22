@@ -45,11 +45,17 @@ locale(DEFAULT_LANG)
 
 // handle directives for plugins
 Vue.directive('mask', {
-  bind: function (el, binding) {
-    Inputmask(binding.value).mask(el.getElementsByTagName('INPUT')[0])
+  bind (el, { value }) {
+    Inputmask(value).mask(el.getElementsByTagName('INPUT')[0])
   }
 })
 Vue.directive('sticky', VueSticky)
+// handle keyup for children input element
+Vue.directive('on-keyup', {
+  bind (el, { value }) {
+    el.getElementsByTagName('INPUT')[0].onkeyup = value
+  }
+})
 
 /* eslint-disable no-new */
 // set Vue instance
