@@ -32,7 +32,7 @@
                   {{ $t('session.haveAccount') }}?
                 </a>
                 <a v-else href="javascript:;" @click="logout" class="_checkout-logout">
-                  {{ $t('session.isNotYou') }}?
+                  {{ $t('session.isNotYou') + '? ' + $t('session.logout') }}
                 </a>
               </small>
             </h2>

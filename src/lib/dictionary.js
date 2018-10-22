@@ -67,6 +67,10 @@ export default {
       businessDoc: 'Document number',
       personalDoc: 'Document number'
     },
+    address: {
+      recipient: 'Recipient',
+      zip: 'ZIP code'
+    },
     validate: {
       required: 'Required field',
       number: 'Place a valid number',
@@ -144,6 +148,10 @@ export default {
       personalRegistry: 'Pessoa física',
       businessDoc: 'CNPJ',
       personalDoc: 'CPF'
+    },
+    address: {
+      recipient: 'Destinatário',
+      zip: 'CEP'
     },
     validate: {
       required: 'Campo obrigatório',

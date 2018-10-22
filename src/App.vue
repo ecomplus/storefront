@@ -146,6 +146,16 @@ a, button, div, span, img {
   height: 100%;
 }
 
+// utility classes
+.__input-sm {
+  width: 100%;
+  max-width: 220px;
+}
+.__form-sm {
+  max-width: 710px;
+  margin: 0 auto;
+}
+
 // classes from Element UI
 .el-loading-mask {
   z-index: 3000;
@@ -156,6 +166,9 @@ a, button, div, span, img {
   }
 }
 @media (max-width: 575px) {
+  .el-step__title {
+    font-size: 65%;
+  }
   .el-radio-group > .el-radio {
     display: block;
     width: 100%;
@@ -164,28 +177,25 @@ a, button, div, span, img {
     margin-left: 0;
     margin-top: 10px;
   }
-  .el-form-item > label {
+  .__form-sm .el-form-item > label {
     display: block;
     width: 100%;
     margin-bottom: 10px;
   }
-  .el-form-item > .el-form-item__label {
+  .__form-sm .el-form-item > .el-form-item__label {
     line-height: 1;
     text-align: left;
   }
-  .el-form-item > div {
+  .__form-sm .el-form-item > div {
     margin-left: 0;
     display: block;
   }
-  .el-step__title {
-    font-size: 65%;
-  }
 }
 @media (min-width: 576px) {
-  .el-form-item > label {
+  .__form-sm .el-form-item > label {
     width: 210px;
   }
-  .el-form-item > div {
+  .__form-sm .el-form-item > div {
     margin-left: 210px;
   }
 }

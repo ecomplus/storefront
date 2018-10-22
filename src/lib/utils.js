@@ -12,12 +12,14 @@ export function addRule (label, rule, rules) {
 }
 
 // custom validation for masked inputs
-export function checkMask (rule, value, cb) {
-  if (value.indexOf('_') === -1) {
-    // mask matched
-    cb()
-  } else {
-    cb(new Error(this.$t('validate.mask')))
+export function checkMask (errMsg) {
+  return (rule, value, cb) => {
+    if (value.indexOf('_') === -1) {
+      // mask matched
+      cb()
+    } else {
+      cb(new Error(errMsg))
+    }
   }
 }
 

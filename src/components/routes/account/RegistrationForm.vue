@@ -1,5 +1,5 @@
 <template>
-  <el-form ref="form" :model="form" :rules="rules" class="_account-form">
+  <el-form ref="form" :model="form" :rules="rules" class="_account-form __form-sm">
     <el-form-item :label="$t('account.fullName')" prop="name">
       <el-input v-model="form.name"></el-input>
     </el-form-item>
@@ -8,7 +8,7 @@
       <el-input v-else v-model="form.email"></el-input>
     </el-form-item>
     <el-form-item v-if="!short" :label="$t('account.nickname')" prop="nickname">
-      <el-input v-model="form.nickname"></el-input>
+      <el-input v-model="form.nickname" class="__input-sm"></el-input>
     </el-form-item>
 
     <el-form-item v-if="!short" :label="$t('account.gender')">
@@ -43,10 +43,10 @@
     </el-form-item>
 
     <el-form-item :label="$t('account.contactPhone')" prop="phone">
-      <el-input v-model="form.phone" type="tel" v-mask="phoneMask"></el-input>
+      <el-input v-model="form.phone" type="tel" v-mask="phoneMask" class="__input-sm"></el-input>
     </el-form-item>
     <el-form-item v-if="!short" :label="$t('account.cellphone')" prop="cellphone">
-      <el-input v-model="form.cellphone" type="tel" v-mask="phoneMask"></el-input>
+      <el-input v-model="form.cellphone" type="tel" v-mask="phoneMask" class="__input-sm"></el-input>
     </el-form-item>
 
     <el-form-item :label="$t('account.registrationType')">
@@ -63,14 +63,16 @@
       <el-input
         v-model="form.doc"
         v-mask="$lang !== 'pt_br' ? '9{5,19}' : '99.999.999/9999-99'"
-        type="tel">
+        type="tel"
+        class="__input-sm">
       </el-input>
     </el-form-item>
     <el-form-item :label="$t('account.personalDoc')" prop="doc" v-show="form.type !== 'j'">
       <el-input
         v-model="form.doc"
         v-mask="$lang !== 'pt_br' ? '9{5,19}' : '999.999.999-99'"
-        type="tel">
+        type="tel"
+        class="__input-sm">
       </el-input>
     </el-form-item>
 
@@ -105,7 +107,7 @@ export default {
     })
     // handle marked inputs validation
     ;[ 'phone', 'cellphone', 'doc' ].forEach((label) => {
-      addRule(label, { validator: checkMask, trigger: 'blur' }, rules)
+      addRule(label, { validator: checkMask(this.$t('validate.mask')), trigger: 'blur' }, rules)
     })
     // handle min fields length
     ;[ 'name', 'nickname' ].forEach((label) => {
@@ -117,7 +119,7 @@ export default {
         // declare form empty
         // further preset with computed values
       },
-      rules: rules,
+      rules,
       phoneMask: [
         // array of phone number formats
         '(99) 9999-9999',
@@ -232,13 +234,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-// Element UI theme variables
-@import '../../../../node_modules/element-theme-chalk/src/common/var.scss';
-
-._account-form {
-  max-width: 710px;
-  margin: 0 auto;
-}
-</style>
