@@ -7,7 +7,7 @@
         </el-form-item>
         <el-form-item :label="$t('address.zip')" prop="zip">
           <el-input
-            v-if="$lang === 'pt_br'"
+            v-if="$country === 'br'"
             v-model="form.zip"
             v-mask="'99999-999'"
             v-on-keyup="handleZip"
@@ -49,7 +49,7 @@
               <el-input v-model="form.province" :disabled="addressFromZip" class="__input-sm"></el-input>
             </el-form-item>
 
-            <el-form-item v-if="$lang !== 'pt_br'" :label="$t('address.country')" prop="country">
+            <el-form-item v-if="$country !== 'br'" :label="$t('address.country')" prop="country">
               <el-input
                 v-model="form.country"
                 v-mask="'AA'"
@@ -131,13 +131,13 @@ export default {
       this.newAddress = true
       this.addressFromZip = false
       // handle ZIP code only for BR CEP
-      this.zipReady = !(this.$lang === 'pt_br')
+      this.zipReady = !(this.$country === 'br')
     },
 
     handleZip () {
       let vm = this
       let zip = vm.form.zip
-      if (this.$lang === 'pt_br') {
+      if (this.$country === 'br') {
         if (/\d{5}-?\d{3}/.test(zip)) {
           // valid BR CEP
           // get address info by ZIP code from ViaCEP webservice

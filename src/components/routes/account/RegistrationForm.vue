@@ -27,7 +27,7 @@
 
     <el-form-item v-if="!short" :label="$t('account.birth')" prop="birth">
       <el-date-picker
-        v-if="$lang === 'pt_br'"
+        v-if="$country === 'br'"
         type="date"
         v-model="form.birth"
         placeholder="31/02/1994"
@@ -62,7 +62,7 @@
     <el-form-item :label="$t('account.businessDoc')" prop="doc" v-show="form.type === 'j'">
       <el-input
         v-model="form.doc"
-        v-mask="$lang !== 'pt_br' ? '9{5,19}' : '99.999.999/9999-99'"
+        v-mask="$country !== 'br' ? '9{5,19}' : '99.999.999/9999-99'"
         type="tel"
         class="__input-sm">
       </el-input>
@@ -70,7 +70,7 @@
     <el-form-item :label="$t('account.personalDoc')" prop="doc" v-show="form.type !== 'j'">
       <el-input
         v-model="form.doc"
-        v-mask="$lang !== 'pt_br' ? '9{5,19}' : '999.999.999-99'"
+        v-mask="$country !== 'br' ? '9{5,19}' : '999.999.999-99'"
         type="tel"
         class="__input-sm">
       </el-input>
@@ -170,7 +170,7 @@ export default {
         let data = this.form
         let notify
         // check customer document number
-        if (this.$lang === 'pt_br') {
+        if (this.$country === 'br') {
           if (data.type !== 'j') {
             // personal registry
             if (!isValidCpf(data.doc)) {
