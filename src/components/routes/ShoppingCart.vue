@@ -89,63 +89,65 @@
             </el-col>
 
             <el-col :md="7" :sm="8" :xs="24" class="_cart-info" v-sticky="{ zIndex: 99, stickyTop: 20 }">
-              <div class="_cart-values">
-                <el-row>
-                  <el-col :span="12" class="_cart-subtotal">
-                    <small>{{ $t('cart.subtotal') }}</small>
-                    {{ formatMoney(cart.subtotal) }}
-                  </el-col>
-                  <el-col :span="12" class="_cart-freigth">
-                    <small>{{ $t('cart.freight') }}</small>
-                    {{ checkout.freight_calculed ?
-                      formatMoney(checkout.freight) : $t('general.toCalculate') }}
-                  </el-col>
-                </el-row>
+              <el-card shadow="never">
+                <div class="_cart-values">
+                  <el-row>
+                    <el-col :span="12" class="_cart-subtotal">
+                      <small>{{ $t('cart.subtotal') }}</small>
+                      {{ formatMoney(cart.subtotal) }}
+                    </el-col>
+                    <el-col :span="12" class="_cart-freigth">
+                      <small>{{ $t('cart.freight') }}</small>
+                      {{ checkout.freight_calculed ?
+                        formatMoney(checkout.freight) : $t('general.toCalculate') }}
+                    </el-col>
+                  </el-row>
 
-                <el-popover ref="popzip" trigger="click" width="240">
-                  <div class="_cart-zip-popover">
-                    <el-input placeholder="CEP" class="_cart-zip" size="small">
-                      <el-button slot="append">{{ $t('general.calculate') }}</el-button>
-                    </el-input>
-                  </div>
-                </el-popover>
-                <div class="_cart-zip-trigger">
-                  <a href="javascript:;" v-popover:popzip>
-                    {{ $t('cart.calculateFreight') }}
-                    <a-icon icon="truck"></a-icon>
-                  </a>
-                </div>
-
-                <el-popover ref="popcoupon" trigger="click" width="300">
-                  <div class="_cart-coupon-popover">
-                    <el-input placeholder="Código do cupom" class="_cart-coupon" size="small">
-                      <el-button slot="append">{{ $t('general.add') }}</el-button>
-                    </el-input>
-                  </div>
-                </el-popover>
-                <div class="_cart-coupon-trigger">
-                  <!--
-                  <small>Desconto:</small> <b>R$ 50,00</b>
-                  <el-tooltip content="Cupom de desconto" placement="top">
-                    <a href="javascript:;" v-popover:popcoupon>
-                      <a-icon icon="ticket-alt"></a-icon>
+                  <el-popover ref="popzip" trigger="click" width="240">
+                    <div class="_cart-zip-popover">
+                      <el-input placeholder="CEP" class="_cart-zip" size="small">
+                        <el-button slot="append">{{ $t('general.calculate') }}</el-button>
+                      </el-input>
+                    </div>
+                  </el-popover>
+                  <div class="_cart-zip-trigger">
+                    <a href="javascript:;" v-popover:popzip>
+                      {{ $t('cart.calculateFreight') }}
+                      <a-icon icon="truck"></a-icon>
                     </a>
-                  </el-tooltip>
-                  -->
-                  <a href="javascript:;" v-popover:popcoupon>
-                    {{ $t('cart.addDiscountCoupon') }}
-                  </a>
-                </div>
-              </div>
+                  </div>
 
-              <div class="_cart-total">
-                <small>{{ $t('cart.total') }}</small>
-                {{ formatMoney(checkout.total) }}
-              </div>
-              <el-button type="success" class="_cart-buy" @click="goToCheckout">
-                <a-icon icon="check" class="_buy-icon"></a-icon>
-                {{ $t('cart.close') }}
-              </el-button>
+                  <el-popover ref="popcoupon" trigger="click" width="300">
+                    <div class="_cart-coupon-popover">
+                      <el-input placeholder="Código do cupom" class="_cart-coupon" size="small">
+                        <el-button slot="append">{{ $t('general.add') }}</el-button>
+                      </el-input>
+                    </div>
+                  </el-popover>
+                  <div class="_cart-coupon-trigger">
+                    <!--
+                    <small>Desconto:</small> <b>R$ 50,00</b>
+                    <el-tooltip content="Cupom de desconto" placement="top">
+                      <a href="javascript:;" v-popover:popcoupon>
+                        <a-icon icon="ticket-alt"></a-icon>
+                      </a>
+                    </el-tooltip>
+                    -->
+                    <a href="javascript:;" v-popover:popcoupon>
+                      {{ $t('cart.addDiscountCoupon') }}
+                    </a>
+                  </div>
+                </div>
+
+                <div class="_cart-total">
+                  <small>{{ $t('cart.total') }}</small>
+                  {{ formatMoney(checkout.total) }}
+                </div>
+                <el-button type="success" class="_cart-buy __btn-block" @click="goToCheckout">
+                  <a-icon icon="check" class="_buy-icon"></a-icon>
+                  {{ $t('cart.close') }}
+                </el-button>
+              </el-card>
             </el-col>
           </el-row>
         </div>
@@ -245,8 +247,7 @@ export default {
   margin-left: 10px;
 }
 ._item-price,
-._item-total,
-._cart-buy {
+._item-total {
   font-size: $--font-size-large;
 }
 ._item-price small,
@@ -309,22 +310,18 @@ export default {
   text-align: right;
   font-size: $--font-size-large;
 }
-._cart-info > * {
-  padding: $--card-padding;
-}
 ._cart-info small {
   display: block;
   color: $--color-text-secondary;
 }
 ._cart-values {
-  background: $--border-color-extra-light;
-  border-radius: $--border-radius-base;
+  padding-bottom: $--card-padding;
+  margin-bottom: $--card-padding;
+  border-bottom: $--border-base;
 }
 ._cart-total {
   font-weight: 600;
-}
-._cart-buy {
-  width: 100%;
+  margin-bottom: $--card-padding * .5;
 }
 ._buy-icon {
   margin-right: 10px;

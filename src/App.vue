@@ -155,6 +155,12 @@ a, button, div, span, img {
   max-width: 710px;
   margin: 0 auto;
 }
+.__btn-block {
+  padding-top: $--card-padding;
+  padding-bottom: $--card-padding;
+  width: 100%;
+  font-size: $--font-size-large;
+}
 
 // classes from Element UI
 .el-loading-mask {

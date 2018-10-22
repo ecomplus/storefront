@@ -11,7 +11,7 @@
     </h1>
 
     <el-row :gutter="20">
-      <el-col :md="17" :sm="16" :xs="24">
+      <el-col :md="17" :sm="24" :xs="24">
         <div class="_checkout-content">
           <el-steps :active="activeStep" align-center class="_checkout-steps">
             <el-step :title="$t('checkout.identification')"></el-step>
@@ -40,8 +40,9 @@
           </div>
         </div>
       </el-col>
-      <el-col :md="7" :sm="8" :xs="24" class="_summary" v-sticky="{ zIndex: 99, stickyTop: 20 }">
-        <div></div>
+      <el-col :md="7" :sm="24" :xs="24" class="_summary" v-sticky="{ zIndex: 99, stickyTop: 20 }">
+        <el-card shadow="never">
+        </el-card>
       </el-col>
     </el-row>
   </div>
@@ -91,14 +92,13 @@ export default {
 @import '../../../node_modules/element-theme-chalk/src/common/var.scss';
 
 ._checkout-content {
-  border-radius: $--border-radius-base;
-  padding: $--card-padding $--card-padding * 1.5;
-  border: $--border-base;
+  padding: ($--card-padding * .5) ($--card-padding * 1.5) 0 ($--card-padding * 1.5);
 }
-@media (max-width: 575px) {
+@media (max-width: 992px) {
   ._checkout-content {
-    padding-right: $--card-padding;
-    padding-left: $--card-padding;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: $--card-padding;
   }
 }
 ._checkout-content h2 {
