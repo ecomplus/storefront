@@ -3,7 +3,7 @@
     <transition name="fade">
       <el-form
         key="address-form"
-        v-if="newAddress"
+        v-if="showForm"
         ref="form"
         :model="form"
         :rules="rules"
@@ -75,10 +75,50 @@
         </transition>
       </el-form>
 
-      <el-button key="address-button" v-else type="primary" @click="addAddress">
-        <a-icon icon="plus" class="__icon-mr"></a-icon>
-        {{ $t('address.addAddress') }}
-      </el-button>
+      <div key="address-list" v-else class="_address-list">
+        <el-card shadow="never" class="_address" v-for="address in customer.addresses" :key="address._id">
+          <el-row>
+            <el-col :sm="10" :xs="24" class="_address-options">
+              <p class="_address-select">
+                <el-checkbox :checked="address.default">
+                  {{ $t('address.selectAddress') }}
+                </el-checkbox>
+              </p>
+              <el-button type="info" size="mini" class="_address-edit">
+                <a-icon icon="edit" class="__icon-mr"></a-icon>
+                {{ $t('general.edit') }}
+              </el-button>
+              <el-button type="danger" size="mini" class="_address-remove">
+                <a-icon icon="trash"></a-icon>
+              </el-button>
+            </el-col>
+
+            <el-col :sm="14" :xs="24" class="_address-info">
+              <div class="_address-recipient">
+                {{ address.name }}
+              </div>
+              <span v-if="address.line_address" class="_address-line">
+                {{ address.line_address }}
+              </span>
+              <span v-else-if="address.street" class="_address-line">
+                {{ address.street }},
+                {{ (address.number || $t('address.noNumber')) + (address.borough ? ', ' + address.borough : '') }}
+              </span>
+              <span v-if="address.city" class="_address-city">
+                {{ address.city + ' / ' + (address.province_code || address.province) }}
+              </span>
+              <el-tag class="_address-zip" type="info">
+                {{ address.zip }}
+              </el-tag>
+            </el-col>
+          </el-row>
+        </el-card>
+
+        <el-button type="primary" @click="addAddress">
+          <a-icon icon="plus" class="__icon-mr"></a-icon>
+          {{ $t('address.addAddress') }}
+        </el-button>
+      </div>
     </transition>
   </div>
 </template>
@@ -105,7 +145,7 @@ export default {
     })
 
     return {
-      newAddress: false,
+      showForm: false,
       zipReady: false,
       zipLoading: false,
       noNumber: false,
@@ -120,7 +160,7 @@ export default {
 
   computed: mapGetters([
     'customer',
-    'customerName'
+    'customerHasAddress'
   ]),
 
   methods: {
@@ -140,10 +180,10 @@ export default {
         complement: '',
         reference: '',
         country: '',
-        name: this.customerName
+        name: this.customer.name.given_name
       }
       // show new address form
-      this.newAddress = true
+      this.showForm = true
       this.addressFromZip = false
       // handle ZIP code only for BR CEP
       this.zipReady = !(this.$country === 'br')
@@ -249,10 +289,50 @@ export default {
   },
 
   mounted () {
-    if (!this.customer.addresses.length) {
+    if (!this.customerHasAddress) {
       // start creating the first address
       this.addAddress()
     }
   }
 }
 </script>
+
+<style lang="scss">
+// Element UI theme variables
+@import '../../../../node_modules/element-theme-chalk/src/common/var.scss';
+
+._address {
+  margin-bottom: $--card-padding;
+}
+._address-info {
+  text-align: right;
+}
+._address-recipient {
+  color: $--color-text-secondary;
+  margin-bottom: .25rem;
+}
+._address-city,
+._address-zip {
+  display: inline-block;
+  margin-left: .5rem;
+}
+._address-city,
+._address-zip,
+._address-line {
+  margin-top: .27rem;
+}
+._address-city {
+  color: $--color-text-regular;
+}
+@media (max-width: 767px) {
+  ._address-options {
+    margin-bottom: $--card-padding * .5;
+  }
+}
+@media (max-width: 575px) {
+  ._address-line,
+  ._address-city {
+    display: block;
+  }
+}
+</style>

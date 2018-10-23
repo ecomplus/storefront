@@ -168,6 +168,11 @@ a, button, div, span, img {
   width: 100%;
   font-size: $--font-size-large;
 }
+.__box {
+  background: darken($--fill-base, 2.5%);
+  border-top: 2px $--border-style-base $--border-color-lighter;
+  padding: $--card-padding;
+}
 
 // classes from Element UI
 .el-loading-mask {

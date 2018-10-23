@@ -2,6 +2,7 @@ export default {
   enUs: {
     general: {
       save: 'Save',
+      edit: 'Edit',
       calculate: 'Calculate',
       toCalculate: 'to calculate',
       add: 'Add',
@@ -79,7 +80,8 @@ export default {
       city: 'City',
       province: 'Province code',
       country: 'Country',
-      addAddress: 'New address'
+      addAddress: 'New address',
+      selectAddress: 'Select address for shipping'
     },
     validate: {
       required: 'Required field',
@@ -94,6 +96,7 @@ export default {
   ptBr: {
     general: {
       save: 'Salvar',
+      edit: 'Editar',
       calculate: 'Calcular',
       toCalculate: 'a calcular',
       add: 'Adicionar',
@@ -171,7 +174,8 @@ export default {
       city: 'Cidade',
       province: 'Estado (UF)',
       country: 'País',
-      addAddress: 'Novo endereço'
+      addAddress: 'Novo endereço',
+      selectAddress: 'Selecionar endereço para entrega'
     },
     validate: {
       required: 'Campo obrigatório',

@@ -8,7 +8,7 @@
           {{ $t('cart.title') }}
           <small>{{ $t('cart.empty') }}</small>
         </h1>
-        <div class="_cart-continue-shopping">
+        <div class="_cart-continue-shopping __box">
           {{ $t('cart.continueShopping') }}.
           <a href="/">{{ $t('cart.chooseProducts') }}</a>
         </div>
@@ -89,7 +89,7 @@
             </el-col>
 
             <el-col :md="7" :sm="8" :xs="24" class="_cart-info" v-sticky="{ zIndex: 99, stickyTop: 20 }">
-              <el-card shadow="never">
+              <div class="__box">
                 <div class="_cart-values">
                   <el-row>
                     <el-col :span="12" class="_cart-subtotal">
@@ -147,7 +147,7 @@
                   <a-icon icon="check" class="_buy-icon"></a-icon>
                   {{ $t('cart.close') }}
                 </el-button>
-              </el-card>
+              </div>
             </el-col>
           </el-row>
         </div>
@@ -340,7 +340,5 @@ export default {
 ._cart-continue-shopping {
   font-size: $--font-size-large;
   text-align: center;
-  padding: $--card-padding;
-  background: $--border-color-extra-light;
 }
 </style>

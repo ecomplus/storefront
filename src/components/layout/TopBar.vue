@@ -1,6 +1,6 @@
 <template>
   <div class="_topbar">
-    <el-row type="flex" align="middle">
+    <el-row type="flex" align="middle" class="_topbar-row">
       <el-col :sm="14" :xs="17" class="_store">
         <a href="/">
           <img v-if="shop.logo.url" :src="shop.logo.url" :alt="shop.name" class="_logo" />
@@ -98,6 +98,9 @@ export default {
 // Element UI theme variables
 @import '../../../node_modules/element-theme-chalk/src/common/var.scss';
 
+._topbar-row {
+  height: 100%;
+}
 ._store {
   padding-right: 10px;
 }
