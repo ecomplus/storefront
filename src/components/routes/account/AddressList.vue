@@ -88,7 +88,7 @@
                   {{ $t('address.selectAddress') }}
                 </el-checkbox>
               </p>
-              <el-button type="info" size="mini" class="_address-edit">
+              <el-button type="info" size="mini" class="_address-edit" @click="editAddress(address)">
                 <a-icon icon="edit" class="__icon-mr"></a-icon>
                 {{ $t('general.edit') }}
               </el-button>
@@ -176,7 +176,7 @@ export default {
 
   methods: {
     ...mapActions([
-      'addCustomerAddress',
+      'setCustomerAddress',
       'removeCustomerAddress',
       'chooseCustomerAddress'
     ]),
@@ -184,6 +184,7 @@ export default {
     addAddress () {
       // reset form object
       this.form = {
+        id: null,
         zip: '',
         province: '',
         city: '',
@@ -195,11 +196,37 @@ export default {
         country: '',
         name: this.customerName
       }
-      // show new address form
+      this.setupForm()
+    },
+
+    setupForm () {
+      // show address form
       this.showForm = true
       this.addressFromZip = false
       // handle ZIP code only for BR CEP
-      this.zipReady = !(this.$country === 'br')
+      this.zipReady = !(this.$country === 'br' && this.form.street === '')
+    },
+
+    editAddress (address) {
+      // update form data with current addres object
+      this.form = {
+        id: address._id,
+        zip: address.zip,
+        province: address.province_code || address.province || '',
+        city: address.city || '',
+        borough: address.borough || '',
+        street: address.street || '',
+        number: address.number || '',
+        complement: address.complement || '',
+        reference: address.reference || '',
+        country: address.country || '',
+        name: address.name
+      }
+      if (!address.number) {
+        // address without street number
+        this.noNumber = true
+      }
+      this.setupForm()
     },
 
     handleZip () {
@@ -253,8 +280,8 @@ export default {
           let data = this.form
           // update customer with new address
           let address = {
-            // random Object ID
-            _id: ('5' + Date.now()).padEnd(24, '0'),
+            // random Object ID if undefined or null
+            _id: data.id || ('5' + Date.now()).padEnd(24, '0'),
             zip: data.zip,
             name: data.name.trim(),
             street: data.street.trim(),
@@ -287,7 +314,7 @@ export default {
           }
 
           // save new address on customer addresses list
-          this.addCustomerAddress(address).then(() => {
+          this.setCustomerAddress(address).then(() => {
             // show addresses list
             this.showForm = false
           })

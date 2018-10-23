@@ -196,14 +196,18 @@ const actions = {
     }
   },
 
-  // add address to list and update customer object
-  addCustomerAddress ({ state, dispatch }, payload) {
+  // edit or add address to list and update customer object
+  setCustomerAddress ({ state, dispatch }, payload) {
     let addresses = [{
       ...payload,
       default: true
     }]
     // copy array from state
-    state.body.addresses.forEach(address => addresses.push({ ...address, default: false }))
+    state.body.addresses.forEach(address => {
+      if (payload._id !== address._id) {
+        addresses.push({ ...address, default: false })
+      }
+    })
     return dispatch('editCustomer', { addresses })
   },
 
@@ -213,7 +217,7 @@ const actions = {
     // copy array from state without removed address
     state.body.addresses.forEach(address => {
       if (address._id !== payload._id) {
-        addresses.push({ ...address, default: false })
+        addresses.push({ ...address })
       }
     })
     if (payload.default && addresses.length) {
