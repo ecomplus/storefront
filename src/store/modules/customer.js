@@ -37,8 +37,11 @@ const mutations = {
 
 const getters = {
   customer: state => state.body,
+
+  // auxiliary maps
   customerEmail: state => state.body.main_email,
   isCustomerLogged: state => !!(state.body._id),
+  customerHasAddress: state => !!(state.body.addresses.length),
 
   // get customer full name
   customerName (state) {
@@ -191,6 +194,17 @@ const actions = {
     } else {
       return Promise.resolve()
     }
+  },
+
+  // add address to list and update customer object
+  addCustomerAddress ({ state, dispatch }, payload) {
+    let addresses = [{
+      ...payload,
+      default: true
+    }]
+    // copy array from state
+    state.body.addresses.forEach(address => addresses.push({ ...address, default: false }))
+    return dispatch('editCustomer', { addresses })
   }
 }
 

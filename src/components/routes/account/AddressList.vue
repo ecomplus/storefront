@@ -110,7 +110,7 @@ export default {
 
   methods: {
     ...mapActions([
-      'editCustomer'
+      'addCustomerAddress'
     ]),
 
     addAddress () {
@@ -175,6 +175,55 @@ export default {
 
     submitForm () {
       this.$refs.form.validate((valid) => {
+        if (valid) {
+          // valid form data
+          let data = this.form
+          // update customer with new address
+          let address = {
+            // random Object ID
+            _id: ('5' + Date.now()).padEnd(24, '0'),
+            zip: data.zip,
+            name: data.name.trim(),
+            street: data.street.trim(),
+            number: parseInt(data.number, 10),
+            complement: data.complement.trim(),
+            near_to: data.reference.trim(),
+            borough: data.borough.trim(),
+            city: data.city.trim(),
+            country_code: data.country.trim()
+          }
+
+          // optional properties
+          if (data.province !== '') {
+            if (/^[A-Z]{2}$/.test(data.province)) {
+              address.province_code = data.province
+            } else {
+              // full province name
+              address.province = data.province
+            }
+          }
+          if (address.number <= 0 || isNaN(address.number)) {
+            // invalid number
+            delete address.number
+          }
+          // remove empty properties
+          for (let prop in address) {
+            if (address[prop] === '') {
+              delete address[prop]
+            }
+          }
+
+          // save new address on customer addresses list
+          this.addCustomerAddress(address)
+        } else {
+          // show notification
+          this.$message({
+            showClose: true,
+            message: this.$t('validate.invalidForm'),
+            type: 'warning'
+          })
+          return false
+        }
       })
     }
   },
@@ -187,8 +236,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-// Element UI theme variables
-@import '../../../../node_modules/element-theme-chalk/src/common/var.scss';
-</style>
