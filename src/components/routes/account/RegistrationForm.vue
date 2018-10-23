@@ -78,6 +78,7 @@
 
     <el-form-item size="large">
       <el-button type="primary" @click="submitForm">
+        <a-icon icon="check" class="__icon-mr"></a-icon>
         {{ buttonText || $t('general.save') }}
       </el-button>
     </el-form-item>

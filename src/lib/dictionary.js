@@ -78,7 +78,8 @@ export default {
       borough: 'Borough',
       city: 'City',
       province: 'Province code',
-      country: 'Country'
+      country: 'Country',
+      addAddress: 'New address'
     },
     validate: {
       required: 'Required field',
@@ -169,7 +170,8 @@ export default {
       borough: 'Bairro',
       city: 'Cidade',
       province: 'Estado (UF)',
-      country: 'País'
+      country: 'País',
+      addAddress: 'Novo endereço'
     },
     validate: {
       required: 'Campo obrigatório',

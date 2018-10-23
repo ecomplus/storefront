@@ -147,6 +147,13 @@ a, button, div, span, img {
 }
 
 // utility classes
+.__py {
+  padding-bottom: $--card-padding;
+  padding-top: $--card-padding;
+}
+.__icon-mr {
+  margin-right: $--card-padding * .22;
+}
 .__input-sm {
   width: 100%;
   max-width: 220px;

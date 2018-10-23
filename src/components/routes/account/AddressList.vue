@@ -1,7 +1,13 @@
 <template>
   <div class="_addresses">
     <transition name="fade">
-      <el-form v-if="newAddress" ref="form" :model="form" :rules="rules" class="_address-form __form-sm">
+      <el-form
+        key="address-form"
+        v-if="newAddress"
+        ref="form"
+        :model="form"
+        :rules="rules"
+        class="_address-form __form-sm">
         <el-form-item :label="$t('address.recipient')" prop="name">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
@@ -16,7 +22,7 @@
         </el-form-item>
 
         <transition name="fade">
-          <span v-if="zipReady">
+          <span key="zip-ready" v-if="zipReady">
             <el-form-item :label="$t('address.number')" prop="number">
               <el-col :span="8">
                 <el-input
@@ -59,12 +65,20 @@
 
             <el-form-item size="large">
               <el-button type="primary" @click="submitForm">
+                <a-icon icon="check" class="__icon-mr"></a-icon>
                 {{ buttonText || $t('general.save') }}
               </el-button>
             </el-form-item>
           </span>
+
+          <div key="zip-loading" v-else v-loading="zipLoading" class="__py"></div>
         </transition>
       </el-form>
+
+      <el-button key="address-button" v-else type="primary" @click="addAddress">
+        <a-icon icon="plus" class="__icon-mr"></a-icon>
+        {{ $t('address.addAddress') }}
+      </el-button>
     </transition>
   </div>
 </template>
@@ -93,6 +107,7 @@ export default {
     return {
       newAddress: false,
       zipReady: false,
+      zipLoading: false,
       noNumber: false,
       addressFromZip: false,
       boroughFromZip: false,
@@ -140,12 +155,17 @@ export default {
       if (this.$country === 'br') {
         if (/\d{5}-?\d{3}/.test(zip)) {
           // valid BR CEP
+          // show loading spinner
+          vm.zipLoading = true
           // get address info by ZIP code from ViaCEP webservice
           fetch('https://viacep.com.br/ws/' + zip + '/json/').then(response => {
             return response.json()
           }).catch(e => {
             // enable inputs manual edition
             vm.addressFromZip = vm.boroughFromZip = false
+          }).finally(() => {
+            // hide loading spinner
+            vm.zipLoading = false
           })
 
           // on success fill form and disable fields manual edition
