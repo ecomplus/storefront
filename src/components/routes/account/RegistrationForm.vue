@@ -207,7 +207,15 @@ export default {
             // set nickname with customer first name
             body.display_name = body.name.given_name
           }
-          this.editCustomer(body)
+
+          // update customer and notify confirmation
+          this.editCustomer(body).then(() => {
+            this.$message({
+              showClose: true,
+              message: this.$t('general.success'),
+              type: 'success'
+            })
+          })
         } else {
           // show notification
           this.$message({

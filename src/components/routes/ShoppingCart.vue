@@ -28,7 +28,7 @@
         <div class="_cart-content">
           <el-row>
             <el-col :md="17" :sm="16" :xs="24" class="_items">
-              <div class="_item" v-for="item in cart.items">
+              <div class="_item" v-for="item in cart.items" :key="item._id">
                 <el-row>
                   <el-col :md="4" :sm="6" :xs="8" class="_item-image" v-if="item.picture">
                     <a :href="'/' + item._product.slug">
@@ -71,7 +71,8 @@
                       </el-checkbox>
                     </div>
                     <div class="_item-gift" v-else-if="item._product.gift_wraps.length">
-                      <el-checkbox v-for="gift in item._product.gift_wraps"
+                      <el-checkbox
+                        v-for="gift in item._product.gift_wraps"
                         :checked="(item.gift_wrap && item.gift_wrap.label === gift.label)"
                         :true-label="gift.label"
                         :key="gift.label">

@@ -76,11 +76,15 @@
       </el-form>
 
       <div key="address-list" v-else class="_address-list">
-        <el-card shadow="never" class="_address" v-for="address in customer.addresses" :key="address._id">
+        <el-card
+          v-for="address in customer.addresses"
+          :key="address._id + address.default.toString()"
+          shadow="never"
+          class="_address">
           <el-row>
             <el-col :sm="10" :xs="24" class="_address-options">
               <p class="_address-select">
-                <el-checkbox :checked="address.default">
+                <el-checkbox :checked="address.default" @change="chooseCustomerAddress(address)">
                   {{ $t('address.selectAddress') }}
                 </el-checkbox>
               </p>
@@ -88,7 +92,11 @@
                 <a-icon icon="edit" class="__icon-mr"></a-icon>
                 {{ $t('general.edit') }}
               </el-button>
-              <el-button type="danger" size="mini" class="_address-remove">
+              <el-button
+                type="danger"
+                size="mini"
+                class="_address-remove"
+                @click="removeCustomerAddress(address)">
                 <a-icon icon="trash"></a-icon>
               </el-button>
             </el-col>
@@ -101,8 +109,10 @@
                 {{ address.line_address }}
               </span>
               <span v-else-if="address.street" class="_address-line">
-                {{ address.street }},
-                {{ (address.number || $t('address.noNumber')) + (address.borough ? ', ' + address.borough : '') }}
+                {{ address.street + ', ' +
+                  (address.number || $t('address.noNumber')) +
+                  (address.complement ? ' - ' + address.complement : '') +
+                  (address.borough ? ', ' + address.borough : '') }}
               </span>
               <span v-if="address.city" class="_address-city">
                 {{ address.city + ' / ' + (address.province_code || address.province) }}
@@ -160,12 +170,15 @@ export default {
 
   computed: mapGetters([
     'customer',
-    'customerHasAddress'
+    'customerHasAddress',
+    'customerName'
   ]),
 
   methods: {
     ...mapActions([
-      'addCustomerAddress'
+      'addCustomerAddress',
+      'removeCustomerAddress',
+      'chooseCustomerAddress'
     ]),
 
     addAddress () {
@@ -180,7 +193,7 @@ export default {
         complement: '',
         reference: '',
         country: '',
-        name: this.customer.name.given_name
+        name: this.customerName
       }
       // show new address form
       this.showForm = true
@@ -274,7 +287,10 @@ export default {
           }
 
           // save new address on customer addresses list
-          this.addCustomerAddress(address)
+          this.addCustomerAddress(address).then(() => {
+            // show addresses list
+            this.showForm = false
+          })
         } else {
           // show notification
           this.$message({
@@ -292,6 +308,16 @@ export default {
     if (!this.customerHasAddress) {
       // start creating the first address
       this.addAddress()
+    }
+  },
+
+  watch: {
+    customerHasAddress (hasAddress) {
+      if (!hasAddress) {
+        // all addresses delete
+        // should create new one
+        this.addAddress()
+      }
     }
   }
 }

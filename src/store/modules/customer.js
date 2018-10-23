@@ -205,6 +205,32 @@ const actions = {
     // copy array from state
     state.body.addresses.forEach(address => addresses.push({ ...address, default: false }))
     return dispatch('editCustomer', { addresses })
+  },
+
+  // remove address from list
+  removeCustomerAddress ({ state, dispatch }, payload) {
+    let addresses = []
+    // copy array from state without removed address
+    state.body.addresses.forEach(address => {
+      if (address._id !== payload._id) {
+        addresses.push({ ...address, default: false })
+      }
+    })
+    if (payload.default && addresses.length) {
+      // set the first keeped address as default
+      addresses[0].default = true
+    }
+    return dispatch('editCustomer', { addresses })
+  },
+
+  // set the default address from customer list
+  chooseCustomerAddress ({ state, dispatch }, payload) {
+    let addresses = []
+    // copy array from state and set default
+    state.body.addresses.forEach(address => {
+      addresses.push({ ...address, default: payload._id === address._id })
+    })
+    return dispatch('editCustomer', { addresses })
   }
 }
 

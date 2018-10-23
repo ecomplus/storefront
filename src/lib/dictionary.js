@@ -6,7 +6,8 @@ export default {
       calculate: 'Calculate',
       toCalculate: 'to calculate',
       add: 'Add',
-      proceed: 'Proceed'
+      proceed: 'Proceed',
+      success: 'Changes saved successfully'
     },
     session: {
       hi: 'Hello',
@@ -100,7 +101,8 @@ export default {
       calculate: 'Calcular',
       toCalculate: 'a calcular',
       add: 'Adicionar',
-      proceed: 'Prosseguir'
+      proceed: 'Prosseguir',
+      success: 'Alterações salvas com sucesso'
     },
     session: {
       hi: 'Olá',
