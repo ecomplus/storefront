@@ -14,7 +14,7 @@ export function addRule (label, rule, rules) {
 // custom validation for masked inputs
 export function checkMask (errMsg) {
   return (rule, value, cb) => {
-    if (value.indexOf('_') === -1) {
+    if (typeof value === 'string' && value.indexOf('_') === -1) {
       // mask matched
       cb()
     } else {

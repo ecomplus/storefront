@@ -216,7 +216,6 @@ export default {
         city: address.city || '',
         borough: address.borough || '',
         street: address.street || '',
-        number: address.number || '',
         complement: address.complement || '',
         reference: address.reference || '',
         country: address.country || '',
@@ -225,6 +224,10 @@ export default {
       if (!address.number) {
         // address without street number
         this.noNumber = true
+        this.form.number = ''
+      } else {
+        // parse number to string
+        this.form.number = address.number.toString()
       }
       this.setupForm()
     },
