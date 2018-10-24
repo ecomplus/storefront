@@ -41,8 +41,8 @@
         </div>
       </el-col>
       <el-col :md="7" :sm="24" :xs="24" class="_summary" v-sticky="{ zIndex: 99, stickyTop: 20 }">
-        <el-card shadow="never">
-        </el-card>
+        <div class="__box">
+        </div>
       </el-col>
     </el-row>
   </div>
@@ -67,6 +67,7 @@ export default {
 
   computed: mapGetters([
     'customerEmail',
+    'customerAddressId',
     'isCustomerLogged'
   ]),
 
@@ -76,12 +77,35 @@ export default {
     ]),
     ...mapMutations([
       'logout'
-    ])
+    ]),
+
+    updateStep () {
+      // update current checkout step
+      if (this.customerEmail) {
+        if (this.customerAddressId) {
+          // payment
+          this.activeStep = 2
+        } else {
+          // shipping
+          this.activeStep = 1
+        }
+      } else {
+        // identify
+        this.activeStep = 0
+      }
+    }
+  },
+
+  created () {
+    this.updateStep()
   },
 
   watch: {
     customerEmail () {
-      console.log(1)
+      this.updateStep()
+    },
+    customerAddressId () {
+      this.updateStep()
     }
   }
 }

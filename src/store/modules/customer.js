@@ -62,6 +62,17 @@ const getters = {
     return name
   },
 
+  // map customer default address Object ID
+  customerAddressId (state) {
+    let address = state.body.addresses.find(addr => addr.default === true)
+    if (address) {
+      return address._id
+    } else {
+      // any address
+      return null
+    }
+  },
+
   // parse full name string to name object
   parseCustomerName: () => (nameString) => {
     let names = nameString.split(/\s+/)
