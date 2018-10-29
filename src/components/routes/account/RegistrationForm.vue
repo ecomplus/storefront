@@ -96,7 +96,8 @@ export default {
 
   props: [
     'short',
-    'buttonText'
+    'buttonText',
+    'skipNotify'
   ],
 
   data () {
@@ -210,11 +211,13 @@ export default {
 
           // update customer and notify confirmation
           this.editCustomer(body).then(() => {
-            this.$message({
-              showClose: true,
-              message: this.$t('general.success'),
-              type: 'success'
-            })
+            if (!this.skipNotify) {
+              this.$message({
+                showClose: true,
+                message: this.$t('general.success'),
+                type: 'success'
+              })
+            }
           })
         } else {
           // show notification

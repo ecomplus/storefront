@@ -61,7 +61,10 @@
             </a>
           </small>
         </h2>
-        <registration-form :short="true" :buttonText="$t('checkout.goToCheckout')"/>
+        <registration-form
+          :short="true"
+          :buttonText="$t('checkout.goToCheckout')"
+          :skipNotify="true"/>
       </div>
 
       <div class="_checkout-shipping" v-else-if="activeStep === 1">
@@ -94,6 +97,7 @@ export default {
   },
 
   computed: mapGetters([
+    'customerUpdate',
     'customerEmail',
     'customerAddressId',
     'isCustomerLogged'
@@ -129,10 +133,7 @@ export default {
   },
 
   watch: {
-    customerEmail () {
-      this.updateStep()
-    },
-    customerAddressId () {
+    customerUpdate () {
       this.updateStep()
     }
   }

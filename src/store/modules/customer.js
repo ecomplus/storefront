@@ -22,7 +22,8 @@ const state = {
     corporate_name: null,
     addresses: [],
     orders: []
-  }
+  },
+  update: null
 }
 
 const mutations = {
@@ -32,6 +33,8 @@ const mutations = {
       ...state.body,
       ...payload.body
     }
+    // mark last update
+    state.update = Date.now()
   }
 }
 
@@ -39,6 +42,7 @@ const getters = {
   customer: state => state.body,
 
   // auxiliary maps
+  customerUpdate: state => state.update,
   customerEmail: state => state.body.main_email,
   isCustomerLogged: state => !!(state.body._id),
   customerHasAddress: state => !!(state.body.addresses.length),
