@@ -75,7 +75,7 @@
         </transition>
       </el-form>
 
-      <div key="address-list" v-else class="_address-list">
+      <div key="address-list" v-else class="_address-list __container-sm">
         <el-card
           v-for="address in customer.addresses"
           :key="address._id + address.default.toString()"

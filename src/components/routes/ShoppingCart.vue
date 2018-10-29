@@ -104,31 +104,21 @@
                     </el-col>
                   </el-row>
 
-                  <el-popover ref="popzip" trigger="click" width="240">
-                    <div class="_cart-zip-popover">
-                      <el-input placeholder="CEP" class="_cart-zip" size="small">
-                        <el-button slot="append">{{ $t('general.calculate') }}</el-button>
-                      </el-input>
-                    </div>
-                  </el-popover>
-                  <div class="_cart-zip-trigger">
-                    <a href="javascript:;" v-popover:popzip>
+                  <div class="_cart-shipping">
+                    <small class="_cart-shipping-label">
                       {{ $t('cart.calculateFreight') }}
-                      <a-icon icon="truck"></a-icon>
-                    </a>
-                  </div>
-
-                  <el-popover ref="popcoupon" trigger="click" width="300">
-                    <div class="_cart-coupon-popover">
-                      <el-input placeholder="Código do cupom" class="_cart-coupon" size="small">
-                        <el-button slot="append">{{ $t('general.add') }}</el-button>
-                      </el-input>
-                    </div>
-                  </el-popover>
-                  <div class="_cart-coupon-trigger">
-                    <a href="javascript:;" v-popover:popcoupon>
-                      {{ $t('cart.addDiscountCoupon') }}
-                    </a>
+                    </small>
+                    <el-input
+                      v-model="shippingZip"
+                      v-mask="$country === 'br' ? '99999-999' : ''"
+                      size="small"
+                      class="__input-sm"
+                      maxlength="30">
+                      <el-button slot="append">
+                        <a-icon icon="truck"></a-icon>
+                      </el-button>
+                    </el-input>
+                    <shipping-services/>
                   </div>
                 </div>
 
@@ -140,6 +130,7 @@
                   <a-icon icon="check" class="_buy-icon"></a-icon>
                   {{ $t('cart.close') }}
                 </el-button>
+                <discount-coupon/>
               </div>
             </el-col>
           </el-row>
@@ -152,13 +143,21 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import { formatMoney } from '@/lib/utils'
+import DiscountCoupon from '@/components/routes/cart/DiscountCoupon'
+import ShippingServices from '@/components/routes/cart/ShippingServices'
 
 export default {
   name: 'ShoppingCart',
 
+  components: {
+    DiscountCoupon,
+    ShippingServices
+  },
+
   data () {
     return {
       loaded: false,
+      shippingZip: '',
       saveCartTimeout: null
     }
   },
@@ -208,6 +207,8 @@ export default {
     this.loadCart({ id: this.$route.params.id }).finally(() => {
       this.loaded = true
     })
+    // preset zip from checkout state
+    this.shippingZip = this.checkout.shipping.zip
   }
 }
 </script>
@@ -313,23 +314,21 @@ export default {
   margin-bottom: $--card-padding;
   border-bottom: $--border-base;
 }
+._cart-shipping {
+  margin-top: $--card-padding * .5;
+}
+._cart-shipping-label {
+  margin-bottom: .35rem;
+}
 ._cart-total {
   font-weight: 600;
-  margin-bottom: $--card-padding;
+}
+._cart-buy {
+  margin: $--card-padding * .5 0;
 }
 ._buy-icon {
   margin-right: 10px;
   color: $--color-success-light;
-}
-._cart-zip-trigger,
-._cart-coupon-trigger {
-  font-size: 85%;
-}
-._cart-coupon-trigger small {
-  display: inline-block;
-}
-._cart-zip-trigger {
-  margin: 10px 0 5px 0;
 }
 ._cart-continue-shopping {
   font-size: $--font-size-large;

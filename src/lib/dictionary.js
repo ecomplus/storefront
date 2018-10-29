@@ -37,6 +37,7 @@ export default {
       calculateFreight: 'Calculate freight',
       close: 'Close order',
       giftWrap: 'Gift-wrap',
+      discountCoupon: 'Discount coupon',
       addDiscountCoupon: 'Add discount coupon'
     },
     checkout: {
@@ -129,9 +130,10 @@ export default {
       subtotal: 'Subtotal',
       total: 'Total',
       freight: 'Frete',
-      calculateFreight: 'Calcular frete',
+      calculateFreight: 'Calcular frete e prazo',
       close: 'Fechar pedido',
       giftWrap: 'Embrulhar para presente',
+      discountCoupon: 'Cupom de desconto',
       addDiscountCoupon: 'Adicionar cupom de desconto'
     },
     checkout: {

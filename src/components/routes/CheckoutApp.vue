@@ -10,53 +10,81 @@
       </small>
     </h1>
 
-    <el-row :gutter="20">
-      <el-col :md="17" :sm="24" :xs="24">
-        <div class="_checkout-content">
-          <el-steps :active="activeStep" align-center class="_checkout-steps">
-            <el-step :title="$t('checkout.identification')"></el-step>
-            <el-step :title="$t('checkout.shipping')"></el-step>
-            <el-step :title="$t('checkout.payment')"></el-step>
-            <el-step :title="$t('checkout.confirmation')">
-              <template slot="icon">
-                <a-icon icon="check-circle" class="_confirmation-icon"></a-icon>
-              </template>
-            </el-step>
-          </el-steps>
+    <div class="_checkout-content">
+      <el-steps :active="activeStep" align-center class="_checkout-steps">
+        <el-step>
+          <template slot="title">
+            <span v-if="activeStep === 0">
+              {{ $t('checkout.identification') }}
+            </span>
+            <a v-else href="javascript:;" @click="activeStep = 0">
+              {{ $t('checkout.identification') }}
+            </a>
+          </template>
+        </el-step>
+        <el-step>
+          <template slot="title">
+            <span v-if="activeStep <= 1">
+              {{ $t('checkout.shipping') }}
+            </span>
+            <a v-else href="javascript:;" @click="activeStep = 1">
+              {{ $t('checkout.shipping') }}
+            </a>
+          </template>
+        </el-step>
+        <el-step>
+          <template slot="title">
+            <span v-if="activeStep <= 2">
+              {{ $t('checkout.payment') }}
+            </span>
+            <a v-else href="javascript:;" @click="activeStep = 2">
+              {{ $t('checkout.payment') }}
+            </a>
+          </template>
+        </el-step>
+        <el-step :title="$t('checkout.confirmation')">
+          <template slot="icon">
+            <a-icon icon="check-circle" class="_confirmation-icon"></a-icon>
+          </template>
+        </el-step>
+      </el-steps>
 
-          <div class="_checkout-identification">
-            <h2 id="identification">
-              {{ $t('account.registration') }}
-              <small>
-                <a v-if="!isCustomerLogged" href="javascript:;" @click="login" class="_checkout-login">
-                  {{ $t('session.haveAccount') }}?
-                </a>
-                <a v-else href="javascript:;" @click="logout" class="_checkout-logout">
-                  {{ $t('session.isNotYou') + '? ' + $t('session.logout') }}
-                </a>
-              </small>
-            </h2>
-            <registration-form :short="true" :buttonText="$t('checkout.goToCheckout')"/>
-          </div>
-        </div>
-      </el-col>
-      <el-col :md="7" :sm="24" :xs="24" class="_summary" v-sticky="{ zIndex: 99, stickyTop: 20 }">
-        <div class="__box">
-        </div>
-      </el-col>
-    </el-row>
+      <div class="_checkout-identification" v-if="activeStep === 0">
+        <h2 id="identification">
+          {{ $t('account.registration') }}
+          <small>
+            <a v-if="!isCustomerLogged" href="javascript:;" @click="login" class="_checkout-login">
+              {{ $t('session.haveAccount') }}?
+            </a>
+            <a v-else href="javascript:;" @click="logout" class="_checkout-logout">
+              {{ $t('session.isNotYou') + '? ' + $t('session.logout') }}
+            </a>
+          </small>
+        </h2>
+        <registration-form :short="true" :buttonText="$t('checkout.goToCheckout')"/>
+      </div>
+
+      <div class="_checkout-shipping" v-else-if="activeStep === 1">
+        <h2 id="shipping">
+          {{ $t('checkout.shipping') }}
+        </h2>
+        <address-list/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
 import RegistrationForm from '@/components/routes/account/RegistrationForm'
+import AddressList from '@/components/routes/account/AddressList'
 
 export default {
   name: 'CheckoutApp',
 
   components: {
-    RegistrationForm
+    RegistrationForm,
+    AddressList
   },
 
   data () {

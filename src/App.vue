@@ -158,7 +158,8 @@ a, button, div, span, img {
   width: 100%;
   max-width: 220px;
 }
-.__form-sm {
+.__form-sm,
+.__container-sm {
   max-width: 710px;
   margin: 0 auto;
 }

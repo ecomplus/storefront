@@ -12,7 +12,7 @@ const state = {
     }
   },
   shipping: {
-    zip: null,
+    zip: '',
     services: [{
       // sample only
       label: 'PAC',
