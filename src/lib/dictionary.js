@@ -44,8 +44,10 @@ export default {
       title: 'Checkout',
       back: 'back to cart',
       goToCheckout: 'Proceed to shipping',
+      goToPayment: 'Proceed to payment',
       identification: 'Identification',
       shipping: 'Shipping',
+      shippingAddress: 'Shipping address',
       payment: 'Payment',
       confirmation: 'Thanks'
     },
@@ -140,8 +142,10 @@ export default {
       title: 'Finalizar pedido',
       back: 'voltar ao carrinho',
       goToCheckout: 'Prosseguir para entrega',
+      goToPayment: 'Prosseguir para pagamento',
       identification: 'Identificação',
       shipping: 'Entrega',
+      shippingAddress: 'Endereço de entrega',
       payment: 'Pagamento',
       confirmation: 'Obrigado'
     },

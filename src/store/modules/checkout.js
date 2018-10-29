@@ -45,6 +45,9 @@ const mutations = {
 const getters = {
   checkout: state => state,
 
+  // auxiliary maps
+  checkoutShippingZip: state => state.shipping.zip,
+
   // map selected shipping service and payment method objects
   checkoutShippingService: state => state.shipping.services.find(option => option.selected === true),
   checkoutPaymentMethod: state => state.payment.gateways.find(option => option.selected === true)

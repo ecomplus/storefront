@@ -69,9 +69,9 @@
 
       <div class="_checkout-shipping" v-else-if="activeStep === 1">
         <h2 id="shipping">
-          {{ $t('checkout.shipping') }}
+          {{ $t('checkout.shippingAddress') }}
         </h2>
-        <address-list/>
+        <address-list :buttonText="$t('checkout.goToPayment')"/>
       </div>
     </div>
   </div>

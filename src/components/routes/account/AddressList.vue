@@ -92,13 +92,9 @@
                 <a-icon icon="edit" class="__icon-mr"></a-icon>
                 {{ $t('general.edit') }}
               </el-button>
-              <el-button
-                type="danger"
-                size="mini"
-                class="_address-remove"
-                @click="removeCustomerAddress(address)">
+              <a href="javascript:;" class="_address-remove" @click="removeCustomerAddress(address)">
                 <a-icon icon="trash"></a-icon>
-              </el-button>
+              </a>
             </el-col>
 
             <el-col :sm="14" :xs="24" class="_address-info">
@@ -117,9 +113,9 @@
               <span v-if="address.city" class="_address-city">
                 {{ address.city + ' / ' + (address.province_code || address.province) }}
               </span>
-              <el-tag class="_address-zip" type="info">
+              <div class="_address-zip">
                 {{ address.zip }}
-              </el-tag>
+              </div>
             </el-col>
           </el-row>
         </el-card>
@@ -365,20 +361,26 @@ export default {
 }
 ._address-recipient {
   color: $--color-text-secondary;
-  margin-bottom: .25rem;
 }
-._address-city,
-._address-zip {
+._address-city {
   display: inline-block;
   margin-left: .5rem;
+}
+._address-zip {
+  font-weight: 600;
+  display: block;
 }
 ._address-city,
 ._address-zip,
 ._address-line {
-  margin-top: .27rem;
+  margin-top: .4rem;
 }
 ._address-city {
   color: $--color-text-regular;
+}
+a._address-remove {
+  color: $--color-danger;
+  margin: 0 .7rem;
 }
 @media (max-width: 767px) {
   ._address-options {
