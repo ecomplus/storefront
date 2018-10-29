@@ -1,26 +1,60 @@
 // initial state
 const state = {
-  freight: 0,
-  discount: 0,
-  total: 0,
-  freight_calculed: false
+  amount: {
+    freight: 0,
+    discount: 0,
+    total: 0
+  },
+  discount: {
+    coupon: {
+      name: '',
+      value: 0
+    }
+  },
+  shipping: {
+    zip: null,
+    services: [{
+      // sample only
+      label: 'PAC',
+      carrier: 'Correios',
+      service_name: 'PAC',
+      shipping_line: {
+        total_price: 10,
+        posting_deadline: 3,
+        delivery_time: 5
+      }
+    }]
+  },
+  payment: {
+    gateways: []
+  }
 }
 
 const mutations = {
+  // reset checkout object
+  editCheckout (state, payload) {
+    Object.assign(state, payload)
+  },
+
   // update checkout total value
   setCheckoutTotal (state, value) {
-    state.total = value
+    state.amount.total = value
   }
 }
 
 const getters = {
-  checkout: state => state
+  checkout: state => state,
+
+  // map selected shipping service and payment method objects
+  checkoutShippingService: state => state.shipping.services.find(option => option.selected === true),
+  checkoutPaymentMethod: state => state.payment.gateways.find(option => option.selected === true)
 }
 
 const actions = {
   // recalculate checkout total value
   fixCheckoutTotal ({ commit, state, rootGetters }) {
-    commit('setCheckoutTotal', rootGetters.cart.subtotal + state.freight - state.discount)
+    let { freight, discount } = state.amount
+    commit('setCheckoutTotal', rootGetters.cart.subtotal + freight - discount)
   }
 }
 

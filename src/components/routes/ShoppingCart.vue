@@ -99,8 +99,8 @@
                     </el-col>
                     <el-col :span="12" class="_cart-freigth">
                       <small>{{ $t('cart.freight') }}</small>
-                      {{ checkout.freight_calculed ?
-                        formatMoney(checkout.freight) : $t('general.toCalculate') }}
+                      {{ checkoutShippingService ?
+                        formatMoney(checkout.amount.freight) : $t('general.toCalculate') }}
                     </el-col>
                   </el-row>
 
@@ -126,14 +126,6 @@
                     </div>
                   </el-popover>
                   <div class="_cart-coupon-trigger">
-                    <!--
-                    <small>Desconto:</small> <b>R$ 50,00</b>
-                    <el-tooltip content="Cupom de desconto" placement="top">
-                      <a href="javascript:;" v-popover:popcoupon>
-                        <a-icon icon="ticket-alt"></a-icon>
-                      </a>
-                    </el-tooltip>
-                    -->
                     <a href="javascript:;" v-popover:popcoupon>
                       {{ $t('cart.addDiscountCoupon') }}
                     </a>
@@ -142,7 +134,7 @@
 
                 <div class="_cart-total">
                   <small>{{ $t('cart.total') }}</small>
-                  {{ formatMoney(checkout.total) }}
+                  {{ formatMoney(checkout.amount.total) }}
                 </div>
                 <el-button type="success" class="_cart-buy __btn-block" @click="goToCheckout">
                   <a-icon icon="check" class="_buy-icon"></a-icon>
@@ -174,6 +166,7 @@ export default {
   computed: mapGetters([
     'cart',
     'checkout',
+    'checkoutShippingService',
     'customer'
   ]),
 
@@ -322,7 +315,7 @@ export default {
 }
 ._cart-total {
   font-weight: 600;
-  margin-bottom: $--card-padding * .5;
+  margin-bottom: $--card-padding;
 }
 ._buy-icon {
   margin-right: 10px;
