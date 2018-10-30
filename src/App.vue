@@ -230,6 +230,9 @@ a, button, div, span, img {
 }
 .fade-enter,
 .fade-leave-active {
-  opacity: 0
+  opacity: 0;
+}
+.fade-leave-to {
+  display: none;
 }
 </style>
