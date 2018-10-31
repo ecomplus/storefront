@@ -48,6 +48,7 @@ export default {
       identification: 'Identification',
       shipping: 'Shipping',
       shippingAddress: 'Shipping address',
+      changeAddress: 'Change shipping address',
       payment: 'Payment',
       confirmation: 'Thanks'
     },
@@ -158,6 +159,7 @@ export default {
       identification: 'Identificação',
       shipping: 'Entrega',
       shippingAddress: 'Endereço de entrega',
+      changeAddress: 'Alterar endereço de entrega',
       payment: 'Pagamento',
       confirmation: 'Obrigado'
     },

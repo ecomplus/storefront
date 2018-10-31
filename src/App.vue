@@ -173,6 +173,12 @@ a, button, div, span, img {
   background: darken($--fill-base, 2.5%);
   border-top: 2px $--border-style-base $--border-color-lighter;
   padding: $--card-padding;
+  text-align: right;
+  font-size: $--font-size-large;
+}
+.__box small {
+  display: block;
+  color: $--color-text-secondary;
 }
 
 // classes from Element UI

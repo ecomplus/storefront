@@ -78,8 +78,8 @@ export default {
 @import '../../../../node_modules/element-theme-chalk/src/common/var.scss';
 
 ._shipping {
-  margin-top: $--card-padding * .5;
   font-size: $--font-size-base;
+  text-align: right;
 }
 ._shipping-service {
   display: block;

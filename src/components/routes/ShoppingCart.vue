@@ -306,14 +306,6 @@ export default {
     margin-right: $--card-padding;
   }
 }
-._cart-info {
-  text-align: right;
-  font-size: $--font-size-large;
-}
-._cart-info small {
-  display: block;
-  color: $--color-text-secondary;
-}
 ._cart-values {
   padding-bottom: $--card-padding;
   margin-bottom: $--card-padding;
@@ -325,6 +317,7 @@ export default {
 ._cart-shipping-zip {
   width: 100%;
   max-width: 170px;
+  margin-bottom: $--card-padding * .5;
 }
 ._cart-shipping-label {
   margin-bottom: .35rem;
@@ -340,7 +333,6 @@ export default {
   color: $--color-success-light;
 }
 ._cart-continue-shopping {
-  font-size: $--font-size-large;
   text-align: center;
 }
 </style>

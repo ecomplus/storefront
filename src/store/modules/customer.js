@@ -66,11 +66,11 @@ const getters = {
     return name
   },
 
-  // map customer default address Object ID
-  customerAddressId (state) {
+  // map customer default address object
+  customerAddress (state) {
     let address = state.body.addresses.find(addr => addr.default === true)
     if (address) {
-      return address._id
+      return address
     } else {
       // any address
       return null

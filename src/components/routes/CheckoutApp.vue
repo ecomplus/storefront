@@ -24,7 +24,7 @@
         </el-step>
         <el-step>
           <template slot="title">
-            <span v-if="activeStep <= 1">
+            <span v-if="activeStep === 1 || !customerEmail">
               {{ $t('checkout.shipping') }}
             </span>
             <a v-else href="javascript:;" @click="activeStep = 1">
@@ -34,7 +34,7 @@
         </el-step>
         <el-step>
           <template slot="title">
-            <span v-if="activeStep <= 2">
+            <span v-if="activeStep === 2 || !customerAddress">
               {{ $t('checkout.payment') }}
             </span>
             <a v-else href="javascript:;" @click="activeStep = 2">
@@ -73,6 +73,53 @@
         </h2>
         <address-list :buttonText="$t('checkout.goToPayment')"/>
       </div>
+
+      <div class="_checkout-payment" v-else-if="activeStep === 2">
+        <el-row id="payment">
+          <el-col :md="17" :sm="16" :xs="24">
+            <el-card shadow="never" class="_invoice">
+              <el-row>
+                <el-col :span="11" class="_invoice-address hidden-sm-and-down">
+                  <p class="_invoice-address-title">
+                    {{ $t('checkout.shippingAddress') }}
+                  </p>
+                  <div>{{ customerAddress.name }}</div>
+                  <div v-if="customerAddress.line_address">
+                    {{ customerAddress.line_address }}
+                  </div>
+                  <div v-else-if="customerAddress.street">
+                    {{ customerAddress.street + ', ' +
+                      (customerAddress.number || $t('customerAddress.noNumber')) }}
+                    <span v-if="customerAddress.complement">
+                      - {{ customerAddress.complement }}
+                    </span>
+                  </div>
+                  <div v-if="customerAddress.borough">
+                    {{ customerAddress.borough }}
+                  </div>
+                  <div v-if="customerAddress.city">
+                    {{ customerAddress.city + ' / ' +
+                      (customerAddress.province_code || customerAddress.province) }}
+                  </div>
+                  <p>{{ $t('address.zip') + ' ' + customerAddress.zip }}</p>
+                  <a href="javascript:;" @click="activeStep = 1" class="_invoice-address-change">
+                    <a-icon icon="edit"></a-icon>
+                    {{ $t('checkout.changeAddress') }}
+                  </a>
+                </el-col>
+
+                <el-col :md="13" :span="24">
+                  <shipping-services/>
+                </el-col>
+              </el-row>
+            </el-card>
+          </el-col>
+          <el-col :md="7" :sm="8" :xs="24" class="_summary" v-sticky="{ zIndex: 99, stickyTop: 20 }">
+            <div class="__box">
+            </div>
+          </el-col>
+        </el-row>
+      </div>
     </div>
   </div>
 </template>
@@ -81,13 +128,15 @@
 import { mapGetters, mapActions, mapMutations } from 'vuex'
 import RegistrationForm from '@/components/routes/account/RegistrationForm'
 import AddressList from '@/components/routes/account/AddressList'
+import ShippingServices from '@/components/routes/cart/ShippingServices'
 
 export default {
   name: 'CheckoutApp',
 
   components: {
     RegistrationForm,
-    AddressList
+    AddressList,
+    ShippingServices
   },
 
   data () {
@@ -99,7 +148,7 @@ export default {
   computed: mapGetters([
     'customerUpdate',
     'customerEmail',
-    'customerAddressId',
+    'customerAddress',
     'isCustomerLogged'
   ]),
 
@@ -114,7 +163,7 @@ export default {
     updateStep () {
       // update current checkout step
       if (this.customerEmail) {
-        if (this.customerAddressId) {
+        if (this.customerAddress) {
           // payment
           this.activeStep = 2
         } else {
@@ -150,14 +199,7 @@ export default {
 @import '../../../node_modules/element-theme-chalk/src/common/var.scss';
 
 ._checkout-content {
-  padding: ($--card-padding * .5) ($--card-padding * 1.5) 0 ($--card-padding * 1.5);
-}
-@media (max-width: 992px) {
-  ._checkout-content {
-    padding-right: 0;
-    padding-left: 0;
-    padding-bottom: $--card-padding;
-  }
+  padding-top: $--card-padding * .5;
 }
 ._checkout-content h2 {
   text-align: center;
@@ -170,5 +212,23 @@ export default {
 }
 ._checkout-logout {
   color: $--color-danger;
+}
+._checkout-payment {
+  margin-top: $--card-padding * 1.3;
+}
+._invoice {
+  margin-right: $--card-padding;
+}
+@media (max-width: 767px) {
+  ._invoice {
+    margin-right: 0;
+    margin-bottom: $--card-padding;
+  }
+}
+._invoice-address-title {
+  font-weight: 600;
+}
+._invoice-address-change {
+  margin-top: .5rem;
 }
 </style>
