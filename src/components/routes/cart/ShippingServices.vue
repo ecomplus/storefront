@@ -4,14 +4,14 @@
       <div v-if="!servicesLoading" key="shipping-services" class="_shipping-services">
         <div
           class="_shipping-service"
-          v-for="service in shippingServices"
-          :key="service.label + service.selected.toString()"
+          v-for="(service, index) in shippingServices"
+          :key="index + service.selected.toString()"
           :class="{ '_shipping-selected': service.selected }"
-          @click="() => { }">
+          @click="selectShippingService(index)">
           <a-icon v-if="service.selected" icon="shipping-fast" class="_shipping-icon"></a-icon>
           <span class="_shipping-deadline">
-            {{ service.shipping_line.posting_deadline.days + service.shipping_line.delivery_time.days }}
-            {{ service.shipping_line.posting_deadline.working_days ?
+            {{ $t('shipping.upTo') + ' ' + shippingServiceTime(service) }}
+            {{ !shippingServiceWorkingDays(service) ?
               $t('shipping.days') : $t('shipping.workingDays') }}
           </span>
           <span class="_shipping-freight">
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 import { formatMoney } from '@/lib/utils'
 
 export default {
@@ -46,10 +46,15 @@ export default {
 
   computed: mapGetters([
     'shippingServices',
-    'checkoutZip'
+    'checkoutZip',
+    'shippingServiceTime',
+    'shippingServiceWorkingDays'
   ]),
 
   methods: {
+    ...mapMutations([
+      'selectShippingService'
+    ]),
     ...mapActions([
       'initShippingServices'
     ]),
@@ -85,13 +90,18 @@ export default {
   overflow: hidden;
   cursor: pointer;
   transition: $--all-transition;
+  position: relative;
 }
 ._shipping-service:first-child {
   margin-top: 0;
 }
 ._shipping-icon {
+  position: absolute;
+  top: 50%;
+  margin-top: -($--font-size-base / 2);
+  line-height: 1;
+  left: $--card-padding * .6;
   color: rgba($--color-success, .6);
-  margin-right: .3rem;
 }
 ._shipping-label {
   display: inline-block;

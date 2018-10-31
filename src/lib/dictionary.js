@@ -53,6 +53,7 @@ export default {
     },
     shipping: {
       loading: 'Loading shipping methods',
+      upTo: 'up to',
       days: 'days',
       workingDays: 'working days'
     },
@@ -145,6 +146,7 @@ export default {
     },
     shipping: {
       loading: 'Carregando formas de envio',
+      upTo: 'até',
       days: 'dias',
       workingDays: 'dias úteis'
     },

@@ -68,6 +68,13 @@ const mutations = {
   // update shipping zip code
   setCheckoutZip (state, value) {
     state.shipping.zip = value
+  },
+
+  // mark selected shipping service from list
+  selectShippingService (state, value) {
+    state.shipping.services.forEach((service, index) => {
+      service.selected = index === value
+    })
   }
 }
 
@@ -80,7 +87,38 @@ const getters = {
 
   // map selected shipping service and payment method objects
   checkoutShipping: state => state.shipping.services.find(option => option.selected === true),
-  checkoutPayment: state => state.payment.gateways.find(option => option.selected === true)
+  checkoutPayment: state => state.payment.gateways.find(option => option.selected === true),
+
+  // calculate total time with delivery and posting deadline
+  shippingServiceTime: state => service => {
+    let shipping = service.shipping_line
+    let days
+    if (shipping.posting_deadline) {
+      // start days with deadline for posting
+      days = shipping.posting_deadline.days
+    } else {
+      days = 0
+    }
+    if (shipping.delivery_time) {
+      // sum delivery time
+      days += shipping.delivery_time.days
+    }
+    return days
+  },
+
+  // whether shipping time is calculated with working days
+  shippingServiceWorkingDays: state => service => {
+    let shipping = service.shipping_line
+    // returns true if any deadline uses working days
+    if (shipping.posting_deadline && shipping.posting_deadline.working_days) {
+      return true
+    }
+    if (shipping.delivery_time && shipping.delivery_time.working_days) {
+      return true
+    }
+    // default not working days
+    return false
+  }
 }
 
 const actions = {
