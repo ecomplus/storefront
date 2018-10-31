@@ -73,8 +73,9 @@ body > div,
   font-size: $--font-size-base;
   background: $--fill-base;
 }
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
+  display: block;
 }
 h2 {
   font-size: 1.7em;
@@ -88,7 +89,15 @@ h4 {
   font-size: $--font-size-large;
   margin: 12px 0;
 }
-h5, h6, p {
+h5 {
+  font-size: $--font-size-base;
+  margin: 10px 0;
+}
+h6 {
+  font-size: $--font-size-small;
+  margin: 8px 0;
+}
+p {
   font-weight: 400;
   display: block;
   margin: 0 0 10px 0;
