@@ -112,6 +112,7 @@
                       size="small"
                       v-model="shippingZip"
                       v-mask="$country === 'br' ? '99999-999' : ''"
+                      v-on-key-enter="() => { setCheckoutZip(shippingZip) }"
                       class="_cart-shipping-zip"
                       maxlength="30">
                       <el-button slot="append" @click="setCheckoutZip(shippingZip)">

@@ -56,6 +56,15 @@ Vue.directive('on-keyup', {
     el.getElementsByTagName('INPUT')[0].onkeyup = value
   }
 })
+Vue.directive('on-key-enter', {
+  bind (el, { value }) {
+    el.getElementsByTagName('INPUT')[0].onkeyup = e => {
+      if ((e.which || e.keyCode) === 13) {
+        value(e)
+      }
+    }
+  }
+})
 
 /* eslint-disable no-new */
 // set Vue instance
