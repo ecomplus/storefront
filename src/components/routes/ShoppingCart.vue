@@ -57,11 +57,11 @@
                       </div>
                       <div class="_item-price">
                         <small>{{ $t('cart.price') }}</small>
-                        {{ formatMoney(item.price, item.currency_id) }}
+                        {{ formatMoney(item.final_price, item.currency_id) }}
                       </div>
                       <div class="_item-total">
                         <small>{{ $t('cart.total') }}</small>
-                        {{ formatMoney((item.price * item.quantity), item.currency_id) }}
+                        {{ formatMoney((item.final_price * item.quantity), item.currency_id) }}
                       </div>
                     </el-row>
                     <div class="_item-gift" v-if="item._product.gift_wraps.length === 1">

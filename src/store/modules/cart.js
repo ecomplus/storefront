@@ -73,12 +73,34 @@ const mutations = {
               }
             }
 
-            // update prices and quantities
+            // update item prices
             if (!item.keep_item_price) {
-              item.price = product.price
+              item.price = (function () {
+                if (product.hasOwnProperty('base_price')) {
+                  if (!product.hasOwnProperty('price')) {
+                    // has base price defined only
+                    return product.base_price
+                  } else if (product.price_effective_date) {
+                    // check promotion time
+                    let now = new Date()
+                    let { start, end } = product.price_effective_date
+                    if ((start && new Date(start) > now) || (end && new Date(end) < now)) {
+                      // promotional price invalid by date
+                      return product.base_price
+                    }
+                  }
+                }
+                // sale price by default
+                return product.price
+              }())
+              // use product currency if any
               item.currency_id = product.currency_id
               item.currency_symbol = product.currency_symbol
             }
+            // final price is initially equal to item price
+            item.final_price = item.price
+
+            // update current quantity and limits
             if (!item.keep_item_quantity) {
               item.max_quantity = product.quantity
               if (item.quantity > item.max_quantity) {
@@ -298,7 +320,7 @@ const actions = {
   fixCartSubtotal ({ state, commit, dispatch }) {
     let total = 0
     state.body.items.forEach(item => {
-      total += item.price * item.quantity
+      total += item.final_price * item.quantity
     })
     commit('setCartSubtotal', total)
     // also update checkout total value
