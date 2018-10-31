@@ -19,10 +19,34 @@ const state = {
       carrier: 'Correios',
       service_name: 'PAC',
       shipping_line: {
+        total_price: 7,
+        posting_deadline: {
+          days: 3,
+          working_days: true
+        },
+        delivery_time: {
+          days: 10,
+          working_days: true
+        }
+      },
+      selected: false
+    }, {
+      // sample only
+      label: 'SEDEX',
+      carrier: 'Correios',
+      service_name: 'SEDEX',
+      shipping_line: {
         total_price: 10,
-        posting_deadline: 3,
-        delivery_time: 5
-      }
+        posting_deadline: {
+          days: 3,
+          working_days: true
+        },
+        delivery_time: {
+          days: 5,
+          working_days: true
+        }
+      },
+      selected: false
     }]
   },
   payment: {
@@ -39,6 +63,11 @@ const mutations = {
   // update checkout total value
   setCheckoutTotal (state, value) {
     state.amount.total = value
+  },
+
+  // update shipping zip code
+  setCheckoutZip (state, value) {
+    state.shipping.zip = value
   }
 }
 
@@ -46,11 +75,12 @@ const getters = {
   checkout: state => state,
 
   // auxiliary maps
-  checkoutShippingZip: state => state.shipping.zip,
+  checkoutZip: state => state.shipping.zip,
+  shippingServices: state => state.shipping.services,
 
   // map selected shipping service and payment method objects
-  checkoutShippingService: state => state.shipping.services.find(option => option.selected === true),
-  checkoutPaymentMethod: state => state.payment.gateways.find(option => option.selected === true)
+  checkoutShipping: state => state.shipping.services.find(option => option.selected === true),
+  checkoutPayment: state => state.payment.gateways.find(option => option.selected === true)
 }
 
 const actions = {
@@ -58,6 +88,20 @@ const actions = {
   fixCheckoutTotal ({ commit, state, rootGetters }) {
     let { freight, discount } = state.amount
     commit('setCheckoutTotal', rootGetters.cart.subtotal + freight - discount)
+  },
+
+  // update shipping services list
+  initShippingServices ({ commit }) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve()
+      }, 400)
+    })
+  },
+
+  // update payment gateway options list
+  initPaymentGateways ({ commit }) {
+    return Promise.resolve()
   }
 }
 

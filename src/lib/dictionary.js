@@ -51,6 +51,11 @@ export default {
       payment: 'Payment',
       confirmation: 'Thanks'
     },
+    shipping: {
+      loading: 'Loading shipping methods',
+      days: 'days',
+      workingDays: 'working days'
+    },
     account: {
       registration: 'Registration',
       orders: 'Orders',
@@ -137,6 +142,11 @@ export default {
       giftWrap: 'Embrulhar para presente',
       discountCoupon: 'Cupom de desconto',
       addDiscountCoupon: 'Adicionar cupom de desconto'
+    },
+    shipping: {
+      loading: 'Carregando formas de envio',
+      days: 'dias',
+      workingDays: 'dias úteis'
     },
     checkout: {
       title: 'Finalizar pedido',

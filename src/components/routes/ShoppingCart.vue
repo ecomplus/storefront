@@ -99,7 +99,7 @@
                     </el-col>
                     <el-col :span="12" class="_cart-freigth">
                       <small>{{ $t('cart.freight') }}</small>
-                      {{ checkoutShippingService ?
+                      {{ checkoutShipping ?
                         formatMoney(checkout.amount.freight) : $t('general.toCalculate') }}
                     </el-col>
                   </el-row>
@@ -109,12 +109,12 @@
                       {{ $t('cart.calculateFreight') }}
                     </small>
                     <el-input
+                      size="small"
                       v-model="shippingZip"
                       v-mask="$country === 'br' ? '99999-999' : ''"
-                      size="small"
-                      class="__input-sm"
+                      class="_cart-shipping-zip"
                       maxlength="30">
-                      <el-button slot="append">
+                      <el-button slot="append" @click="setCheckoutZip(shippingZip)">
                         <a-icon icon="truck"></a-icon>
                       </el-button>
                     </el-input>
@@ -141,7 +141,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 import { formatMoney } from '@/lib/utils'
 import DiscountCoupon from '@/components/routes/cart/DiscountCoupon'
 import ShippingServices from '@/components/routes/cart/ShippingServices'
@@ -165,11 +165,15 @@ export default {
   computed: mapGetters([
     'cart',
     'checkout',
-    'checkoutShippingService',
+    'checkoutShipping',
+    'checkoutZip',
     'customer'
   ]),
 
   methods: {
+    ...mapMutations([
+      'setCheckoutZip'
+    ]),
     ...mapActions([
       'loadCart',
       'saveCart',
@@ -208,7 +212,7 @@ export default {
       this.loaded = true
     })
     // preset zip from checkout state
-    this.shippingZip = this.checkout.shipping.zip
+    this.shippingZip = this.checkoutZip
   }
 }
 </script>
@@ -316,6 +320,10 @@ export default {
 }
 ._cart-shipping {
   margin-top: $--card-padding * .5;
+}
+._cart-shipping-zip {
+  width: 100%;
+  max-width: 170px;
 }
 ._cart-shipping-label {
   margin-bottom: .35rem;

@@ -16,12 +16,14 @@ import faLock from '@fortawesome/fontawesome-free-solid/faLock'
 import faCommentAlt from '@fortawesome/fontawesome-free-solid/faCommentAlt'
 import faShoppingBag from '@fortawesome/fontawesome-free-solid/faShoppingBag'
 import faTruck from '@fortawesome/fontawesome-free-solid/faTruck'
+import faShippingFast from '@fortawesome/fontawesome-free-solid/faShippingFast'
 import faCreditCard from '@fortawesome/fontawesome-free-solid/faCreditCard'
 import faHome from '@fortawesome/fontawesome-free-solid/faHome'
 import faGift from '@fortawesome/fontawesome-free-solid/faGift'
 import faEdit from '@fortawesome/fontawesome-free-solid/faEdit'
 import faTrash from '@fortawesome/fontawesome-free-solid/faTrash'
 import faCheckCircle from '@fortawesome/fontawesome-free-solid/faCheckCircle'
+import faCircleNotch from '@fortawesome/fontawesome-free-solid/faCircleNotch'
 
 // setup icons to library
 fontawesome.library.add(
@@ -38,10 +40,12 @@ fontawesome.library.add(
   faCommentAlt,
   faShoppingBag,
   faTruck,
+  faShippingFast,
   faCreditCard,
   faHome,
   faGift,
   faEdit,
   faTrash,
-  faCheckCircle
+  faCheckCircle,
+  faCircleNotch
 )
