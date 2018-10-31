@@ -73,7 +73,16 @@ const mutations = {
   // mark selected shipping service from list
   selectShippingService (state, value) {
     state.shipping.services.forEach((service, index) => {
-      service.selected = index === value
+      if (index === value) {
+        service.selected = true
+        // update checkout freight and total value
+        let { amount } = state
+        amount.total -= amount.freight
+        amount.freight = service.shipping_line.total_price
+        amount.total += amount.freight
+      } else {
+        service.selected = false
+      }
     })
   }
 }
