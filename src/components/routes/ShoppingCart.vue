@@ -127,11 +127,13 @@
                   <small>{{ $t('cart.total') }}</small>
                   {{ formatMoney(checkout.amount.total) }}
                 </div>
-                <el-button type="success" class="_cart-buy __btn-block" @click="goToCheckout">
-                  <a-icon icon="check" class="_buy-icon"></a-icon>
-                  {{ $t('cart.close') }}
-                </el-button>
-                <discount-coupon/>
+                <div class="_cart-submit">
+                  <el-button type="success" class="_cart-buy __btn-block" @click="goToCheckout">
+                    <a-icon icon="check" class="_buy-icon"></a-icon>
+                    {{ $t('cart.close') }}
+                  </el-button>
+                  <discount-coupon/>
+                </div>
               </div>
             </el-col>
           </el-row>
@@ -324,6 +326,9 @@ export default {
 }
 ._cart-total {
   font-weight: 600;
+}
+._cart-submit {
+  text-align: center;
 }
 ._cart-buy {
   margin: $--card-padding * .5 0;

@@ -25,9 +25,10 @@ export default {
 // Element UI theme variables
 @import '../../../../node_modules/element-theme-chalk/src/common/var.scss';
 
+._coupon {
+  display: inline-block;
+}
 ._coupon-trigger {
   font-size: $--font-size-base;
-  display: block;
-  text-align: center;
 }
 </style>

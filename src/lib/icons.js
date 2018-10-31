@@ -24,6 +24,7 @@ import faEdit from '@fortawesome/fontawesome-free-solid/faEdit'
 import faTrash from '@fortawesome/fontawesome-free-solid/faTrash'
 import faCheckCircle from '@fortawesome/fontawesome-free-solid/faCheckCircle'
 import faCircleNotch from '@fortawesome/fontawesome-free-solid/faCircleNotch'
+import faTicketAlt from '@fortawesome/fontawesome-free-solid/faTicketAlt'
 
 // setup icons to library
 fontawesome.library.add(
@@ -47,5 +48,6 @@ fontawesome.library.add(
   faEdit,
   faTrash,
   faCheckCircle,
-  faCircleNotch
+  faCircleNotch,
+  faTicketAlt
 )

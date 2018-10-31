@@ -78,7 +78,7 @@
         <el-row id="payment">
           <el-col :md="17" :sm="16" :xs="24">
             <el-card shadow="never" class="_invoice">
-              <el-row>
+              <el-row class="_invoice-shipping">
                 <el-col :span="11" class="_invoice-address hidden-sm-and-down">
                   <p class="_invoice-address-title">
                     {{ $t('checkout.shippingAddress') }}
@@ -109,11 +109,29 @@
                 </el-col>
 
                 <el-col :md="13" :span="24">
+                  <p class="_invoice-shipping-title">
+                    {{ $t('checkout.shippingMethods') }}
+                  </p>
                   <shipping-services/>
                 </el-col>
               </el-row>
+
+              <div class="_invoice-coupon">
+                <h5 class="_invoice-coupon-title">
+                  <a-icon icon="ticket-alt" class="__icon-mr"></a-icon>
+                  {{ $t('checkout.haveCoupon') }}
+                </h5>
+                <discount-coupon/>
+              </div>
+
+              <div class="_invoice-payment">
+                <h2 class="_invoice-payment-title">
+                  {{ $t('checkout.paymentMethods') }}
+                </h2>
+              </div>
             </el-card>
           </el-col>
+
           <el-col :md="7" :sm="8" :xs="24" class="_summary" v-sticky="{ zIndex: 99, stickyTop: 20 }">
             <div class="__box">
             </div>
@@ -129,6 +147,7 @@ import { mapGetters, mapActions, mapMutations } from 'vuex'
 import RegistrationForm from '@/components/routes/account/RegistrationForm'
 import AddressList from '@/components/routes/account/AddressList'
 import ShippingServices from '@/components/routes/cart/ShippingServices'
+import DiscountCoupon from '@/components/routes/cart/DiscountCoupon'
 
 export default {
   name: 'CheckoutApp',
@@ -136,7 +155,8 @@ export default {
   components: {
     RegistrationForm,
     AddressList,
-    ShippingServices
+    ShippingServices,
+    DiscountCoupon
   },
 
   data () {
@@ -225,10 +245,30 @@ export default {
     margin-bottom: $--card-padding;
   }
 }
-._invoice-address-title {
+._invoice-address {
+  padding-right: $--card-padding;
+}
+._invoice-address-title,
+._invoice-shipping-title {
   font-weight: 600;
+}
+._invoice-shipping-title {
+  text-align: right;
 }
 ._invoice-address-change {
   margin-top: .5rem;
+}
+._invoice-coupon {
+  padding: $--card-padding 0;
+  margin-bottom: $--card-padding;
+  border-bottom: $--border-base;
+}
+._invoice-coupon-title {
+  display: inline-block;
+  margin-right: .25rem;
+}
+._invoice-payment ._invoice-payment-title {
+  margin-top: $--card-padding;
+  text-align: left;
 }
 </style>

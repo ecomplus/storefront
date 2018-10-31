@@ -49,8 +49,11 @@ export default {
       shipping: 'Shipping',
       shippingAddress: 'Shipping address',
       changeAddress: 'Change shipping address',
+      shippingMethods: 'Shipping options',
       payment: 'Payment',
-      confirmation: 'Thanks'
+      paymentMethods: 'Payment methods',
+      confirmation: 'Thanks',
+      haveCoupon: 'Do you have a coupon?'
     },
     shipping: {
       loading: 'Loading shipping methods',
@@ -160,8 +163,11 @@ export default {
       shipping: 'Entrega',
       shippingAddress: 'Endereço de entrega',
       changeAddress: 'Alterar endereço de entrega',
+      shippingMethods: 'Opções de envio',
       payment: 'Pagamento',
-      confirmation: 'Obrigado'
+      paymentMethods: 'Formas de pagamento',
+      confirmation: 'Obrigado',
+      haveCoupon: 'Possui cupom ou vale?'
     },
     account: {
       registration: 'Cadastro',
