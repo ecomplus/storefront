@@ -133,7 +133,12 @@ export default {
   },
 
   watch: {
+    customerEmail () {
+      // customer logged or unlogged
+      this.updateStep()
+    },
     customerUpdate () {
+      // handle customer body object edited
       this.updateStep()
     }
   }
