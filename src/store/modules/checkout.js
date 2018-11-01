@@ -12,6 +12,8 @@ const state = {
     }
   },
   shipping: {
+    loading: false,
+    error: {},
     zip: '',
     services: [{
       // sample only
@@ -70,8 +72,13 @@ const mutations = {
     state.shipping.zip = value
   },
 
+  // update shipping services loading state
+  toggleShippingLoading (state) {
+    state.shipping.loading = !state.shipping.loading
+  },
+
   // mark selected shipping service from list
-  selectShippingService (state, value) {
+  selectShippingService (state, value = 0) {
     state.shipping.services.forEach((service, index) => {
       if (index === value) {
         service.selected = true
@@ -93,6 +100,8 @@ const getters = {
   // auxiliary maps
   checkoutZip: state => state.shipping.zip,
   shippingServices: state => state.shipping.services,
+  shippingLoading: state => state.shipping.loading,
+  shippingLoadError: state => state.shipping.error.code,
 
   // map selected shipping service and payment method objects
   checkoutShipping: state => state.shipping.services.find(option => option.selected === true),
@@ -139,13 +148,26 @@ const actions = {
 
   // update shipping services list
   initShippingServices ({ commit }) {
+    // mark loading
+    commit('toggleShippingLoading')
     return new Promise(resolve => {
-      // select the first shipping option
-      commit('selectShippingService', 0)
       setTimeout(() => {
         resolve()
       }, 400)
+    }).then(() => {
+      // select one shipping option
+      commit('selectShippingService')
+    }).finally(() => {
+      // loaded
+      commit('toggleShippingLoading')
     })
+  },
+
+  // update shipping zip code and services
+  setCheckoutZip ({ commit, dispatch }, payload) {
+    commit('setCheckoutZip', payload)
+    // load shipping services
+    return dispatch('initShippingServices')
   },
 
   // update payment gateway options list

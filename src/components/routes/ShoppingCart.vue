@@ -155,7 +155,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { formatMoney } from '@/lib/utils'
 import DiscountCoupon from '@/components/routes/cart/DiscountCoupon'
 import ShippingServices from '@/components/routes/cart/ShippingServices'
@@ -185,14 +185,12 @@ export default {
   ]),
 
   methods: {
-    ...mapMutations([
-      'setCheckoutZip'
-    ]),
     ...mapActions([
       'loadCart',
       'saveCart',
       'setCartItemQnt',
       'removeCartItem',
+      'setCheckoutZip',
       'login'
     ]),
     formatMoney,

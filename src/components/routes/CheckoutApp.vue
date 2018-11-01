@@ -210,11 +210,11 @@ export default {
   methods: {
     ...mapActions([
       'loadCart',
+      'setCheckoutZip',
       'initPaymentGateways',
       'login'
     ]),
     ...mapMutations([
-      'setCheckoutZip',
       'logout'
     ]),
     formatMoney,

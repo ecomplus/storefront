@@ -1,7 +1,7 @@
 <template>
   <div class="_shipping">
     <transition name="fade">
-      <div v-if="!servicesLoading" key="shipping-services" class="_shipping-services">
+      <div v-if="!shippingLoading" key="shipping-services" class="_shipping-services">
         <div
           class="_shipping-service"
           v-for="(service, index) in shippingServices"
@@ -32,43 +32,42 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import { formatMoney } from '@/lib/utils'
 
 export default {
   name: 'ShippingServices',
 
-  data () {
-    return {
-      servicesLoading: false
-    }
-  },
-
   computed: mapGetters([
     'shippingServices',
     'checkoutZip',
     'shippingServiceTime',
-    'shippingServiceWorkingDays'
+    'shippingServiceWorkingDays',
+    'shippingLoading',
+    'shippingLoadError'
   ]),
 
   methods: {
     ...mapMutations([
       'selectShippingService'
     ]),
-    ...mapActions([
-      'initShippingServices'
-    ]),
-    formatMoney
+    formatMoney,
+
+    loadError () {
+      if (this.shippingLoadError) {
+        // alert
+      }
+    }
   },
 
   watch: {
-    checkoutZip () {
-      // update shipping services options
-      this.servicesLoading = true
-      this.initShippingServices().finally(() => {
-        this.servicesLoading = false
-      })
+    shippingLoadError () {
+      this.loadError()
     }
+  },
+
+  mounted () {
+    this.loadError()
   }
 }
 </script>
