@@ -140,6 +140,8 @@ const actions = {
   // update shipping services list
   initShippingServices ({ commit }) {
     return new Promise(resolve => {
+      // select the first shipping option
+      commit('selectShippingService', 0)
       setTimeout(() => {
         resolve()
       }, 400)
