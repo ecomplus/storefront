@@ -67,18 +67,12 @@ const getters = {
   },
 
   // map customer default address object
-  customerAddress (state) {
-    let address = state.body.addresses.find(addr => addr.default === true)
-    if (address) {
-      return address
-    } else {
-      // any address
-      return null
-    }
-  },
+  customerAddress: state => state.body.addresses.find(addr => addr.default === true),
+  // map customer address object by zip code
+  findCustomerAddress: state => zip => state.body.addresses.find(addr => addr.zip === zip),
 
   // parse full name string to name object
-  parseCustomerName: () => (nameString) => {
+  parseCustomerName: () => nameString => {
     let names = nameString.split(/\s+/)
     let nameObj = {}
     if (names.length) {

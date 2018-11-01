@@ -71,7 +71,7 @@
         <h2 id="shipping">
           {{ $t('checkout.shippingAddress') }}
         </h2>
-        <address-list :buttonText="$t('checkout.goToPayment')"/>
+        <address-list :buttonText="$t('checkout.goToPayment')" :zip="checkoutZip"/>
       </div>
 
       <div class="_checkout-payment" v-else-if="activeStep === 2">
@@ -222,7 +222,7 @@ export default {
     updateStep () {
       // update current checkout step
       if (this.customerEmail) {
-        if (this.customerAddress) {
+        if (this.customerAddress && this.customerAddress.zip === this.checkoutZip) {
           // ready for payment
           this.activeStep = 2
 

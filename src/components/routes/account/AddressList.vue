@@ -136,7 +136,10 @@ import { addRule, checkMask } from '@/lib/utils'
 export default {
   name: 'AddressList',
 
-  props: [ 'buttonText' ],
+  props: [
+    'buttonText',
+    'zip'
+  ],
 
   data () {
     // setup form validation rules
@@ -167,7 +170,8 @@ export default {
   computed: mapGetters([
     'customer',
     'customerHasAddress',
-    'customerName'
+    'customerName',
+    'findCustomerAddress'
   ]),
 
   methods: {
@@ -177,11 +181,11 @@ export default {
       'chooseCustomerAddress'
     ]),
 
-    addAddress () {
+    addAddress (zip = '') {
       // reset form object
       this.form = {
         id: null,
-        zip: '',
+        zip: zip,
         province: '',
         city: '',
         borough: '',
@@ -193,6 +197,9 @@ export default {
         name: this.customerName
       }
       this.setupForm()
+      if (zip) {
+        this.handleZip()
+      }
     },
 
     setupForm () {
@@ -236,34 +243,40 @@ export default {
           // valid BR CEP
           // show loading spinner
           vm.zipLoading = true
+          let zipNotFound = () => {
+            // enable inputs manual edition
+            vm.addressFromZip = vm.boroughFromZip = false
+          }
+
           // get address info by ZIP code from ViaCEP webservice
           fetch('https://viacep.com.br/ws/' + zip + '/json/').then(response => {
             return response.json()
-          }).catch(e => {
-            // enable inputs manual edition
-            vm.addressFromZip = vm.boroughFromZip = false
-          }).finally(() => {
+          }).catch(zipNotFound).finally(() => {
             // hide loading spinner
             vm.zipLoading = false
+            // show fields
+            vm.zipReady = true
           })
 
           // on success fill form and disable fields manual edition
           .then(data => {
-            // update form fields
-            let form = vm.form
-            form.province = data.uf
-            form.city = data.localidade
-            form.street = data.logradouro
-            // disable fields edition
-            vm.addressFromZip = true
-            if (data.bairro && data.bairro !== '') {
-              form.borough = data.bairro
-              vm.boroughFromZip = true
+            if (data.uf) {
+              // update form fields
+              let form = vm.form
+              form.province = data.uf
+              form.city = data.localidade
+              form.street = data.logradouro
+              // disable fields edition
+              vm.addressFromZip = true
+              if (data.bairro && data.bairro !== '') {
+                form.borough = data.bairro
+                vm.boroughFromZip = true
+              } else {
+                vm.boroughFromZip = false
+              }
             } else {
-              vm.boroughFromZip = false
+              zipNotFound()
             }
-            // show fields
-            vm.zipReady = true
           })
         } else {
           // incomplete CEP
@@ -331,7 +344,16 @@ export default {
   },
 
   mounted () {
-    if (!this.customerHasAddress) {
+    if (this.zip) {
+      // try to find customer address
+      let address = this.findCustomerAddress(this.zip)
+      if (address) {
+        this.setCustomerAddress(address)
+      } else {
+        // new address with passed zip
+        this.addAddress(this.zip)
+      }
+    } else if (!this.customerHasAddress) {
       // start creating the first address
       this.addAddress()
     }
