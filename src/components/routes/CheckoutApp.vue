@@ -227,11 +227,12 @@ export default {
           this.activeStep = 2
 
           // update checkout shipping address
-          this.setCheckoutZip(this.customerAddress.zip)
-          // load payment methods
-          this.initPaymentGateways().catch(err => {
-            // alert
-          }).then(() => this.checkoutLoading = false)
+          this.setCheckoutZip(this.customerAddress.zip).then(() => {
+            // load payment methods
+            this.initPaymentGateways().catch(err => {
+              // alert
+            }).then(() => this.checkoutLoading = false)
+          })
         } else {
           // shipping
           this.activeStep = 1
