@@ -138,22 +138,22 @@
             <el-col :md="7" :sm="8" :xs="24" class="_summary" v-sticky="{ zIndex: 99, stickyTop: 20 }">
               <div class="__box">
                 <el-row>
-                  <el-col :span="12" class="_summary-subtotal">
+                  <el-col :md="12" :sm="24" :xs="12" class="_summary-subtotal">
                     <small>{{ $t('cart.subtotal') }}</small>
                     {{ formatMoney(cart.subtotal) }}
                   </el-col>
-                  <el-col :span="12" class="_summary-freigth">
+                  <el-col :md="12" :sm="24" :xs="12" class="_summary-freigth">
                     <small>{{ $t('cart.freight') }}</small>
                     {{ formatMoney(checkout.amount.freight) }}
                   </el-col>
                 </el-row>
 
                 <el-row v-if="checkout.amount.discunt">
-                  <el-col :span="12" class="_summary-discount">
+                  <el-col :md="12" :sm="24" :xs="12" class="_summary-discount">
                     <small>{{ $t('cart.discount') }}</small>
                     {{ formatMoney(checkout.amount.discunt) }}
                   </el-col>
-                  <el-col :span="12" class="_summary-total">
+                  <el-col :md="12" :sm="24" :xs="12" class="_summary-total">
                     <small>{{ $t('cart.total') }}</small>
                     {{ formatMoney(checkout.amount.total) }}
                   </el-col>
@@ -223,7 +223,7 @@ export default {
     updateStep () {
       // update current checkout step
       if (this.customerEmail) {
-        if (this.customerAddress && this.customerAddress.zip === this.shippingZip) {
+        if (this.customerAddress && (!this.shippingZip || this.customerAddress.zip === this.shippingZip)) {
           // ready for payment
           this.activeStep = 2
 
@@ -251,7 +251,9 @@ export default {
       this.cartLoading = false
     })
     // setup current zip code
-    this.shippingZip = this.checkoutZip
+    if (this.checkoutZip !== '') {
+      this.shippingZip = this.checkoutZip
+    }
   },
 
   mounted () {

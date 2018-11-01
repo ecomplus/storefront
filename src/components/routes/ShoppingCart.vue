@@ -93,11 +93,11 @@
               <div class="__box">
                 <div class="_cart-values">
                   <el-row>
-                    <el-col :span="12" class="_cart-subtotal">
+                    <el-col :md="12" :sm="24" :xs="12" class="_cart-subtotal">
                       <small>{{ $t('cart.subtotal') }}</small>
                       {{ formatMoney(cart.subtotal) }}
                     </el-col>
-                    <el-col :span="12" class="_cart-freigth">
+                    <el-col :md="12" :sm="24" :xs="12" class="_cart-freigth">
                       <small>{{ $t('cart.freight') }}</small>
                       {{ checkoutShipping ?
                         formatMoney(checkout.amount.freight) : $t('general.toCalculate') }}
@@ -124,11 +124,11 @@
                 </div>
 
                 <el-row v-if="checkout.amount.discunt">
-                  <el-col :span="12" class="_cart-discount">
+                  <el-col :md="12" :sm="24" :xs="12" class="_cart-discount">
                     <small>{{ $t('cart.discount') }}</small>
                     {{ formatMoney(checkout.amount.discunt) }}
                   </el-col>
-                  <el-col :span="12" class="_cart-total">
+                  <el-col :md="12" :sm="24" :xs="12" class="_cart-total">
                     <small>{{ $t('cart.total') }}</small>
                     {{ formatMoney(checkout.amount.total) }}
                   </el-col>
@@ -322,8 +322,10 @@ export default {
   margin-bottom: $--card-padding;
   border-bottom: $--border-base;
 }
-._cart-shipping {
-  margin-top: $--card-padding * .5;
+._cart-subtotal,
+._cart-freigth,
+._cart-discount {
+  margin-bottom: $--card-padding * .5;
 }
 ._cart-shipping-zip {
   width: 100%;
