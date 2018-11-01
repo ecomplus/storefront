@@ -164,10 +164,13 @@ const actions = {
   },
 
   // update shipping zip code and services
-  setCheckoutZip ({ commit, dispatch }, payload) {
-    commit('setCheckoutZip', payload)
-    // load shipping services
-    return dispatch('initShippingServices')
+  setCheckoutZip ({ commit, dispatch, getters }, value) {
+    // check if zip is changed
+    if (getters.checkoutZip !== value) {
+      commit('setCheckoutZip', value)
+      // load shipping services
+      dispatch('initShippingServices')
+    }
   },
 
   // update payment gateway options list
