@@ -178,8 +178,8 @@ const actions = {
         commit('setCheckoutZip', value)
         // load shipping services
         dispatch('initShippingServices')
-        // reload asynchronously
-        commit('updateShippingTimer', setTimeout(load, 5 * 60000))
+        // reload asynchronously with big timeout
+        commit('updateShippingTimer', setTimeout(load, 30 * 60000))
       }
       load()
       // check scheduled services reload
