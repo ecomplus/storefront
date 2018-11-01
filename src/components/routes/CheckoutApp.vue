@@ -71,7 +71,7 @@
         <h2 id="shipping">
           {{ $t('checkout.shippingAddress') }}
         </h2>
-        <address-list :buttonText="$t('checkout.goToPayment')" :zip="checkoutZip"/>
+        <address-list :buttonText="$t('checkout.goToPayment')" :zip="shippingZip"/>
       </div>
 
       <div class="_checkout-payment" v-else-if="activeStep === 2">
@@ -191,6 +191,7 @@ export default {
 
   data () {
     return {
+      shippingZip: null,
       cartLoading: true,
       checkoutLoading: false,
       activeStep: 0
@@ -222,7 +223,7 @@ export default {
     updateStep () {
       // update current checkout step
       if (this.customerEmail) {
-        if (this.customerAddress && this.customerAddress.zip === this.checkoutZip) {
+        if (this.customerAddress && this.customerAddress.zip === this.shippingZip) {
           // ready for payment
           this.activeStep = 2
 
@@ -249,6 +250,8 @@ export default {
     this.loadCart({ id: this.$route.params.id }).finally(() => {
       this.cartLoading = false
     })
+    // setup current zip code
+    this.shippingZip = this.checkoutZip
   },
 
   mounted () {
@@ -263,7 +266,12 @@ export default {
       // customer logged or unlogged
       this.updateStep()
     },
+
     customerUpdate () {
+      // check if shipping address has changed
+      if (this.customerAddress && this.customerAddress.zip !== this.shippingZip) {
+        this.shippingZip = this.customerAddress.zip
+      }
       // handle customer body object edited
       this.updateStep()
     }

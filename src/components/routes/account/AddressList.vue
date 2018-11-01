@@ -348,7 +348,10 @@ export default {
       // try to find customer address
       let address = this.findCustomerAddress(this.zip)
       if (address) {
-        this.setCustomerAddress(address)
+        // check if found address is not already selected as default
+        if (!address.default) {
+          this.setCustomerAddress(address)
+        }
       } else {
         // new address with passed zip
         this.addAddress(this.zip)
