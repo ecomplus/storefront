@@ -134,6 +134,31 @@
 
           <el-col :md="7" :sm="8" :xs="24" class="_summary" v-sticky="{ zIndex: 99, stickyTop: 20 }">
             <div class="__box">
+              <el-row>
+                <el-col :span="12" class="_summary-subtotal">
+                  <small>{{ $t('cart.subtotal') }}</small>
+                  {{ formatMoney(cart.subtotal) }}
+                </el-col>
+                <el-col :span="12" class="_summary-freigth">
+                  <small>{{ $t('cart.freight') }}</small>
+                  {{ formatMoney(checkout.amount.freight) }}
+                </el-col>
+              </el-row>
+
+              <el-row v-if="checkout.amount.discunt">
+                <el-col :span="12" class="_summary-discount">
+                  <small>{{ $t('cart.discount') }}</small>
+                  {{ formatMoney(checkout.amount.discunt) }}
+                </el-col>
+                <el-col :span="12" class="_summary-total">
+                  <small>{{ $t('cart.total') }}</small>
+                  {{ formatMoney(checkout.amount.total) }}
+                </el-col>
+              </el-row>
+              <div v-else class="_summary-total">
+                <small>{{ $t('cart.total') }}</small>
+                {{ formatMoney(checkout.amount.total) }}
+              </div>
             </div>
           </el-col>
         </el-row>
@@ -144,6 +169,7 @@
 
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
+import { formatMoney } from '@/lib/utils'
 import RegistrationForm from '@/components/routes/account/RegistrationForm'
 import AddressList from '@/components/routes/account/AddressList'
 import ShippingServices from '@/components/routes/cart/ShippingServices'
@@ -161,11 +187,14 @@ export default {
 
   data () {
     return {
+      loaded: false,
       activeStep: 0
     }
   },
 
   computed: mapGetters([
+    'cart',
+    'checkout',
     'customerUpdate',
     'customerEmail',
     'customerAddress',
@@ -179,6 +208,7 @@ export default {
     ...mapMutations([
       'logout'
     ]),
+    formatMoney,
 
     updateStep () {
       // update current checkout step
@@ -198,6 +228,11 @@ export default {
   },
 
   created () {
+    // reload cart data
+    this.loadCart({ id: this.$route.params.id }).finally(() => {
+      this.loaded = true
+    })
+    // go to correct checkout step
     this.updateStep()
   },
 
@@ -270,5 +305,9 @@ export default {
 ._invoice-payment ._invoice-payment-title {
   margin-top: $--card-padding;
   text-align: left;
+}
+._summary-subtotal,
+._summary-freigth {
+  margin-bottom: $--card-padding * .6;
 }
 </style>

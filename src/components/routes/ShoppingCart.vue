@@ -123,10 +123,21 @@
                   </div>
                 </div>
 
-                <div class="_cart-total">
+                <el-row v-if="checkout.amount.discunt">
+                  <el-col :span="12" class="_cart-discount">
+                    <small>{{ $t('cart.discount') }}</small>
+                    {{ formatMoney(checkout.amount.discunt) }}
+                  </el-col>
+                  <el-col :span="12" class="_cart-total">
+                    <small>{{ $t('cart.total') }}</small>
+                    {{ formatMoney(checkout.amount.total) }}
+                  </el-col>
+                </el-row>
+                <div v-else class="_cart-total">
                   <small>{{ $t('cart.total') }}</small>
                   {{ formatMoney(checkout.amount.total) }}
                 </div>
+
                 <div class="_cart-submit">
                   <el-button type="success" class="_cart-buy __btn-block" @click="goToCheckout">
                     <a-icon icon="check" class="_buy-icon"></a-icon>
