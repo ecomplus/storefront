@@ -76,7 +76,7 @@
 
       <div class="_checkout-payment" v-else-if="activeStep === 2">
         <transition name="fade">
-          <div key="checkout-loading" v-if="!loaded" class="_checkout-loading"></div>
+          <div key="checkout-loading" v-if="cartLoading || checkoutLoading" class="_checkout-loading"></div>
 
           <el-row key="checkout-payment" v-else id="payment">
             <el-col :md="17" :sm="16" :xs="24">
@@ -191,7 +191,8 @@ export default {
 
   data () {
     return {
-      loaded: false,
+      cartLoading: true,
+      checkoutLoading: false,
       activeStep: 0
     }
   },
@@ -199,6 +200,7 @@ export default {
   computed: mapGetters([
     'cart',
     'checkout',
+    'checkoutZip',
     'customerUpdate',
     'customerEmail',
     'customerAddress',
@@ -208,9 +210,11 @@ export default {
   methods: {
     ...mapActions([
       'loadCart',
+      'initPaymentGateways',
       'login'
     ]),
     ...mapMutations([
+      'setCheckoutZip',
       'logout'
     ]),
     formatMoney,
@@ -219,8 +223,15 @@ export default {
       // update current checkout step
       if (this.customerEmail) {
         if (this.customerAddress) {
-          // payment
+          // ready for payment
           this.activeStep = 2
+
+          // update checkout shipping address
+          this.setCheckoutZip(this.customerAddress.zip)
+          // load payment methods
+          this.initPaymentGateways().catch(err => {
+            // alert
+          }).then(() => this.checkoutLoading = false)
         } else {
           // shipping
           this.activeStep = 1
@@ -235,10 +246,15 @@ export default {
   created () {
     // reload cart data
     this.loadCart({ id: this.$route.params.id }).finally(() => {
-      this.loaded = true
+      this.cartLoading = false
     })
-    // go to correct checkout step
-    this.updateStep()
+  },
+
+  mounted () {
+    this.$nextTick(() => {
+      // starts going to correct checkout step
+      this.updateStep()
+    })
   },
 
   watch: {
