@@ -13,6 +13,7 @@ const state = {
   },
   shipping: {
     loading: false,
+    timer: null,
     error: {},
     zip: '',
     services: [{
@@ -70,6 +71,11 @@ const mutations = {
   // update shipping zip code
   setCheckoutZip (state, value) {
     state.shipping.zip = value
+  },
+
+  // controls timer to update shipping services asynchronously
+  updateShippingTimer (state, value) {
+    state.shipping.timer = value
   },
 
   // update shipping services loading state
@@ -164,12 +170,22 @@ const actions = {
   },
 
   // update shipping zip code and services
-  setCheckoutZip ({ commit, dispatch, getters }, value) {
+  setCheckoutZip ({ commit, dispatch, state }, value) {
     // check if zip is changed
-    if (getters.checkoutZip !== value) {
-      commit('setCheckoutZip', value)
-      // load shipping services
-      dispatch('initShippingServices')
+    let { zip, timer } = state.shipping
+    if (zip !== value) {
+      let load = () => {
+        commit('setCheckoutZip', value)
+        // load shipping services
+        dispatch('initShippingServices')
+        // reload asynchronously
+        if (timer) {
+          // clear last timer
+          clearTimeout(timer)
+        }
+        commit('updateShippingTimer', setTimeout(load, 5 * 60000))
+      }
+      load()
     }
   },
 
