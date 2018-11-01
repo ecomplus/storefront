@@ -179,13 +179,14 @@ const actions = {
         // load shipping services
         dispatch('initShippingServices')
         // reload asynchronously
-        if (timer) {
-          // clear last timer
-          clearTimeout(timer)
-        }
         commit('updateShippingTimer', setTimeout(load, 5 * 60000))
       }
       load()
+      // check scheduled services reload
+      if (timer) {
+        // clear last timer
+        clearTimeout(timer)
+      }
     }
   },
 
