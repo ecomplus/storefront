@@ -310,4 +310,8 @@ export default {
 ._summary-freigth {
   margin-bottom: $--card-padding * .6;
 }
+._summary-total {
+  font-weight: 600;
+  color: $--color-text-primary;
+}
 </style>
