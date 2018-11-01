@@ -55,7 +55,20 @@ export default {
 
     loadError () {
       if (this.shippingLoadError) {
-        // alert
+        // show alert notification
+        if (this.shippingLoadError === 'INVALID_ZIP') {
+          this.$message({
+            showClose: true,
+            message: this.$t('shipping.invalidZip'),
+            type: 'warning'
+          })
+        } else {
+          // API or client error
+          this.$message({
+            message: this.$t('shipping.loadError'),
+            type: 'error'
+          })
+        }
       }
     }
   },
