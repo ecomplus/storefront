@@ -37,6 +37,7 @@
                         :src="item.picture[Object.keys(item.picture)[0]].url" />
                     </a>
                   </el-col>
+
                   <el-col :md="20" :sm="18" :xs="16" class="_item-info">
                     <el-row type="flex" align="middle" justify="space-between">
                       <div class="_item-control">
@@ -64,6 +65,7 @@
                         {{ formatMoney((item.final_price * item.quantity), item.currency_id) }}
                       </div>
                     </el-row>
+
                     <div class="_item-gift" v-if="item._product.gift_wraps.length === 1">
                       <el-checkbox :checked="(item.gift_wrap && item.gift_wrap.label)">
                         <a-icon icon="gift"></a-icon>
@@ -81,8 +83,8 @@
                       </el-checkbox>
                     </div>
                     <h4 class="_item-title">
-                      <small class="_item-sku">{{ item.sku }}</small>
                       <a :href="'/' + item._product.slug">{{ item.name }}</a>
+                      <small class="_item-sku">{{ $t('cart.code') }}: {{ item.sku }}</small>
                     </h4>
                   </el-col>
                 </el-row>
@@ -283,10 +285,11 @@ export default {
 }
 ._item-title {
   margin-top: $--card-padding;
+  margin-bottom: 0;
 }
 ._item-sku {
   color: $--color-text-secondary;
-  font-size: 70%;
+  font-size: $--font-size-base * .85;
   display: block;
   margin-bottom: 2px;
 }
