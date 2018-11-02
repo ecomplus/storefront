@@ -131,6 +131,27 @@
                   <h2 class="_invoice-payment-title">
                     {{ $t('checkout.paymentMethods') }}
                   </h2>
+
+                  <el-tabs type="border-card" shadow="never">
+                    <el-tab-pane>
+                      <span slot="label">
+                        <a-icon icon="credit-card" class="__icon-mr"></a-icon> Route
+                      </span>
+                      Route
+                    </el-tab-pane>
+                    <el-tab-pane>
+                      <span slot="label">
+                        <a-icon icon="barcode" class="__icon-mr"></a-icon> Config
+                      </span>
+                      Config
+                    </el-tab-pane>
+                    <el-tab-pane>
+                      <span slot="label">
+                        <a-icon icon="receipt" class="__icon-mr"></a-icon> Task
+                      </span>
+                      Task
+                    </el-tab-pane>
+                  </el-tabs>
                 </div>
               </el-card>
             </el-col>
@@ -252,6 +273,7 @@ export default {
           this.activeStep = 2
 
           // update checkout shipping address
+          this.checkoutLoading = true
           this.setCheckoutZip(this.customerAddress.zip).then(() => {
             // load payment methods
             this.initPaymentGateways().catch(err => {
