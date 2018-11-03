@@ -18,7 +18,6 @@ import faShoppingBag from '@fortawesome/fontawesome-free-solid/faShoppingBag'
 import faTruck from '@fortawesome/fontawesome-free-solid/faTruck'
 import faShippingFast from '@fortawesome/fontawesome-free-solid/faShippingFast'
 import faCreditCard from '@fortawesome/fontawesome-free-solid/faCreditCard'
-import faReceipt from '@fortawesome/fontawesome-free-solid/faReceipt'
 import faBarcode from '@fortawesome/fontawesome-free-solid/faBarcode'
 import faHome from '@fortawesome/fontawesome-free-solid/faHome'
 import faGift from '@fortawesome/fontawesome-free-solid/faGift'
@@ -45,7 +44,6 @@ fontawesome.library.add(
   faTruck,
   faShippingFast,
   faCreditCard,
-  faReceipt,
   faBarcode,
   faHome,
   faGift,

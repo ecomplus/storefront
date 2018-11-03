@@ -16,8 +16,8 @@ const state = {
     timer: null,
     error: {},
     zip: '',
+    // mock options for sample only
     services: [{
-      // sample only
       label: 'PAC',
       carrier: 'Correios',
       service_name: 'PAC',
@@ -34,7 +34,6 @@ const state = {
       },
       selected: false
     }, {
-      // sample only
       label: 'SEDEX',
       carrier: 'Correios',
       service_name: 'SEDEX',
@@ -53,7 +52,57 @@ const state = {
     }]
   },
   payment: {
-    gateways: []
+    // mock options for sample only
+    gateways: [{
+      icon: 'https://www.icon.com/icon.png',
+      installment_options: [{
+        number: 12,
+        tax: true,
+        value: 111.375
+      }, {
+        number: 6,
+        tax: false,
+        value: 202.5
+      }],
+      intermediator: {
+        code: 'wirecard',
+        link: 'https://www.wirecard.com.br',
+        name: 'Wirecard'
+      },
+      label: 'Cartão Credito',
+      payment_method: {
+        code: 'credit_card',
+        name: 'Cartão Credito'
+      },
+      payment_url: 'https://www.wiredcard.com.br/payment',
+      type: 'payment'
+    }, {
+      intermediator: {
+        code: 'wirecard',
+        link: 'https://www.wirecard.com.br',
+        name: 'Wirecard'
+      },
+      label: 'Boleto Bancário',
+      payment_method: {
+        code: 'banking_billet',
+        name: 'Boleto Bancário'
+      },
+      payment_url: 'https://www.wiredcard.com.br/payment',
+      type: 'payment'
+    }, {
+      intermediator: {
+        'code': 'wirecard',
+        'link': 'https://www.wirecard.com.br',
+        'name': 'Wirecard'
+      },
+      label: 'Débito Online',
+      payment_method: {
+        'code': 'online_bank_debit',
+        'name': 'Débito Online'
+      },
+      payment_url: 'https://www.wiredcard.com.br/payment',
+      type: 'payment'
+    }]
   }
 }
 
@@ -108,6 +157,7 @@ const getters = {
   shippingServices: state => state.shipping.services,
   shippingLoading: state => state.shipping.loading,
   shippingLoadError: state => state.shipping.error.code,
+  paymentGateways: state => state.payment.gateways,
 
   // map selected shipping service and payment method objects
   checkoutShipping: state => state.shipping.services.find(option => option.selected === true),

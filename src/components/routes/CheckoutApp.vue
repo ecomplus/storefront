@@ -145,12 +145,7 @@
                       </span>
                       Config
                     </el-tab-pane>
-                    <el-tab-pane>
-                      <span slot="label">
-                        <a-icon icon="receipt" class="__icon-mr"></a-icon> Task
-                      </span>
-                      Task
-                    </el-tab-pane>
+                    <el-tab-pane label="Task">Task</el-tab-pane>
                   </el-tabs>
                 </div>
               </el-card>
