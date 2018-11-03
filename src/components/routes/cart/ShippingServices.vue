@@ -1,6 +1,6 @@
 <template>
   <div class="_shipping">
-    <transition name="fade">
+    <el-collapse-transition>
       <div v-if="!shippingLoading" key="shipping-services" class="_shipping-services">
         <div
           class="_shipping-service"
@@ -27,7 +27,7 @@
         <a-icon class="_shipping-loading-icon __icon-mr" icon="circle-notch" spin></a-icon>
         {{ $t('shipping.loading') }}
       </div>
-    </transition>
+    </el-collapse-transition>
   </div>
 </template>
 
