@@ -133,19 +133,18 @@
                   </h2>
 
                   <el-tabs type="border-card" shadow="never">
-                    <el-tab-pane>
+                    <el-tab-pane
+                      v-for="(gateway, index) in paymentGateways"
+                      :key="index + gateway.label">
                       <span slot="label">
-                        <a-icon icon="credit-card" class="__icon-mr"></a-icon> Route
+                        <a-icon v-if="gateway.payment_method.code === 'credit_card'"
+                          icon="credit-card" class="__icon-mr"></a-icon>
+                        <a-icon v-else-if="gateway.payment_method.code === 'banking_billet'"
+                          icon="barcode" class="__icon-mr"></a-icon>
+                        {{ gateway.label }}
                       </span>
-                      Route
+                      {{ gateway.label }}
                     </el-tab-pane>
-                    <el-tab-pane>
-                      <span slot="label">
-                        <a-icon icon="barcode" class="__icon-mr"></a-icon> Config
-                      </span>
-                      Config
-                    </el-tab-pane>
-                    <el-tab-pane label="Task">Task</el-tab-pane>
                   </el-tabs>
                 </div>
               </el-card>
@@ -245,7 +244,8 @@ export default {
     'customerUpdate',
     'customerEmail',
     'customerAddress',
-    'isCustomerLogged'
+    'isCustomerLogged',
+    'paymentGateways'
   ]),
 
   methods: {

@@ -69,10 +69,10 @@ const state = {
         link: 'https://www.wirecard.com.br',
         name: 'Wirecard'
       },
-      label: 'Cartão Credito',
+      label: 'Cartão de credito',
       payment_method: {
         code: 'credit_card',
-        name: 'Cartão Credito'
+        name: 'Cartão de crédito'
       },
       payment_url: 'https://www.wiredcard.com.br/payment',
       type: 'payment'
@@ -82,10 +82,10 @@ const state = {
         link: 'https://www.wirecard.com.br',
         name: 'Wirecard'
       },
-      label: 'Boleto Bancário',
+      label: 'Boleto bancário',
       payment_method: {
         code: 'banking_billet',
-        name: 'Boleto Bancário'
+        name: 'Boleto bancário'
       },
       payment_url: 'https://www.wiredcard.com.br/payment',
       type: 'payment'
@@ -95,10 +95,10 @@ const state = {
         'link': 'https://www.wirecard.com.br',
         'name': 'Wirecard'
       },
-      label: 'Débito Online',
+      label: 'Débito online',
       payment_method: {
         'code': 'online_bank_debit',
-        'name': 'Débito Online'
+        'name': 'Débito online'
       },
       payment_url: 'https://www.wiredcard.com.br/payment',
       type: 'payment'
