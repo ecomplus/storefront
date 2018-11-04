@@ -192,8 +192,7 @@ export default {
       'saveCart',
       'setCartItemQnt',
       'removeCartItem',
-      'setCheckoutZip',
-      'login'
+      'setCheckoutZip'
     ]),
     formatMoney,
 
@@ -211,10 +210,6 @@ export default {
     },
 
     goToCheckout () {
-      // start login flow if customer no customer info
-      if (!this.customer.main_email) {
-        this.login()
-      }
       // redirect to checkout
       this.$router.push({ name: 'checkout' })
     }
