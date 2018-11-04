@@ -50,18 +50,10 @@ export default {
           '9{4} 9{4} 9{4}[ 9{1,4}][ 9{1,3}]'
         ],
         definitions: {
-          'G': {
-            validator: '[124-9]'
-          },
-          '3': {
-            validator: '[3]'
-          },
-          'A': {
-            validator: '[47]'
-          },
-          'D': {
-            validator: '[0689]'
-          }
+          'G': { validator: '[124-9]' },
+          '3': { validator: '[3]' },
+          'A': { validator: '[47]' },
+          'D': { validator: '[0689]' }
         }
       }
     }
