@@ -58,6 +58,13 @@ export default {
       confirmation: 'Thanks',
       haveCoupon: 'Do you have a coupon?'
     },
+    card: {
+      number: 'Card number',
+      name: 'Name on card',
+      validate: 'Valid thru',
+      securityCode: 'Security code',
+      installment: 'Installment'
+    },
     shipping: {
       loading: 'Loading shipping methods',
       upTo: 'up to',
@@ -178,6 +185,13 @@ export default {
       paymentMethods: 'Formas de pagamento',
       confirmation: 'Obrigado',
       haveCoupon: 'Possui cupom ou vale?'
+    },
+    card: {
+      number: 'Número do cartão',
+      name: 'Nome impresso no cartão',
+      validate: 'Validade',
+      securityCode: 'Código de segurança',
+      installment: 'Parcelar em'
     },
     account: {
       registration: 'Cadastro',

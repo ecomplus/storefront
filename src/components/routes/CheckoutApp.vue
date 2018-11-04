@@ -143,7 +143,8 @@
                           icon="barcode" class="__icon-mr"></a-icon>
                         {{ gateway.label }}
                       </span>
-                      {{ gateway.label }}
+                      <credit-card v-if="gateway.payment_method.code === 'credit_card'"/>
+                      <span v-else>{{ gateway.label }}</span>
                     </el-tab-pane>
                   </el-tabs>
                 </div>
@@ -154,7 +155,7 @@
               <div class="__box">
                 <div class="_summary-items">
                   <div class="_summary-item" v-for="item in cart.items" :key="item._id">
-                    <el-row>
+                    <el-row type="flex" align="middle" justify="end">
                       <el-col :span="18" class="_summary-item-info">
                         <div class="_summary-item-title">
                           <a :href="'/' + item._product.slug" target="_blank">
@@ -217,6 +218,7 @@ import RegistrationForm from '@/components/routes/account/RegistrationForm'
 import AddressList from '@/components/routes/account/AddressList'
 import ShippingServices from '@/components/routes/cart/ShippingServices'
 import DiscountCoupon from '@/components/routes/cart/DiscountCoupon'
+import CreditCard from '@/components/routes/checkout/CreditCard'
 
 export default {
   name: 'CheckoutApp',
@@ -225,7 +227,8 @@ export default {
     RegistrationForm,
     AddressList,
     ShippingServices,
-    DiscountCoupon
+    DiscountCoupon,
+    CreditCard
   },
 
   data () {
