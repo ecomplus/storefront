@@ -70,7 +70,10 @@ export default {
       cvvHelpAmex: '4 digits in front of the card.',
       invalidMonth: 'Check the card month',
       invalidYear: 'Check the card year',
-      monthPast: 'Validity month expired this year'
+      monthPast: 'Validity month expired this year',
+      cvvInvalid: 'Must be 3 or 4 digits',
+      cvvInvalidNonAmex: 'Must have 3 digits',
+      cvvInvalidAmex: 'Must have 4 digits'
     },
     shipping: {
       loading: 'Loading shipping methods',
@@ -206,8 +209,9 @@ export default {
       invalidMonth: 'Verifique o mês do cartão',
       invalidYear: 'Verifique o ano do cartão',
       monthPast: 'Mês de validade expirado este ano',
-      cvvInvalidNonAmex: 'Número de 3 dígitos',
-      cvvInvalidAmex: 'Número de 4 dígitos'
+      cvvInvalid: 'Deve ter 3 ou 4 dígitos',
+      cvvInvalidNonAmex: 'Deve possuir 3 dígitos',
+      cvvInvalidAmex: 'Deve possuir 4 dígitos'
     },
     account: {
       registration: 'Cadastro',

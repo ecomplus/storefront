@@ -112,6 +112,9 @@ export default {
           } else {
             cb(new Error(this.$t('card.cvvInvalidAmex')))
           }
+        } else if (value.replace(/\D/g, '').length < 3) {
+          // code always invalid for any card brand
+          cb(new Error(this.$t('card.cvvInvalid')))
         }
       },
       trigger: 'blur'
