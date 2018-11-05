@@ -1,9 +1,9 @@
 <template>
-  <el-form ref="form" :model="form" :rules="rules" class="_credit-card __form-sm">
+  <el-form ref="form" :model="form" :rules="rules" class="_creditcard __form-sm">
     <el-form-item :label="$t('card.number')" prop="number">
       <el-input v-model="form.number" v-mask="cardMask" v-on-keyup="getBrand"></el-input>
     </el-form-item>
-    <div class="_cc-icons">
+    <div class="_creditcard-icons">
       <i v-for="brand in brands" :class="[ brand, { active: activeBrand === brand }]"></i>
     </div>
 
@@ -17,8 +17,24 @@
         placeholder="02 / 22"
         class="__input-sm"></el-input>
     </el-form-item>
+
     <el-form-item :label="$t('card.securityCode')" prop="cvv">
-      <el-input v-model="form.cvv" v-mask="'9{3,4}'" placeholder="123" class="__input-sm"></el-input>
+      <el-input v-model="form.cvv" v-mask="'9{3,4}'" placeholder="123" class="__input-sm">
+        <template slot="append">
+          <el-popover
+            placement="top"
+            width="200"
+            trigger="click">
+            <el-button slot="reference">
+              <a-icon icon="question-circle"></a-icon>
+            </el-button>
+            <div class="_creditcard-cvv-help">
+              <p>{{ $t('card.cvvHelp') }}</p>
+              <img src="../../../../static/cvv.png"/>
+            </div>
+          </el-popover>
+        </template>
+      </el-input>
     </el-form-item>
   </el-form>
 </template>
@@ -92,14 +108,14 @@ export default {
 // Element UI theme variables
 @import '../../../../node_modules/element-theme-chalk/src/common/var.scss';
 
-._credit-card {
+._creditcard {
   max-width: 550px;
 }
-._cc-icons {
+._creditcard-icons {
   margin: -$--card-padding * .75 auto $--card-padding * .75 auto;
   text-align: center;
 }
-._cc-icons i {
+._creditcard-icons i {
   width: 40px;
   height: 25px;
   background-image: url('../../../../static/payments.png');
@@ -109,28 +125,31 @@ export default {
   transition: $--fade-linear-transition;
   opacity: .4;
 }
-._cc-icons i.active {
+._creditcard-icons i.active {
   opacity: 1;
 }
-._cc-icons .visa {
+._creditcard-icons .visa {
   background-position: 0 0;
 }
-._cc-icons .mastercard {
+._creditcard-icons .mastercard {
   background-position: 0 -50px;
 }
-._cc-icons .hipercard {
+._creditcard-icons .hipercard {
   background-position: 0 -125px;
 }
-._cc-icons .hiper {
+._creditcard-icons .hiper {
   background-position: 0 -150px;
 }
-._cc-icons .elo {
+._creditcard-icons .elo {
   background-position: 0 -175px;
 }
-._cc-icons .diners-club {
+._creditcard-icons .diners-club {
   background-position: 0 -200px;
 }
-._cc-icons .american-express {
+._creditcard-icons .american-express {
   background-position: 0 -375px;
+}
+._creditcard-cvv-help {
+  text-align: left;
 }
 </style>

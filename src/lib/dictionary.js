@@ -63,7 +63,8 @@ export default {
       name: 'Name on card',
       validate: 'Valid thru',
       securityCode: 'Security code',
-      installment: 'Installment'
+      installment: 'Installment',
+      cvvHelp: '3 or 4 digit number, usually on back of card. In front of American Express cards.'
     },
     shipping: {
       loading: 'Loading shipping methods',
@@ -191,7 +192,8 @@ export default {
       name: 'Nome impresso no cartão',
       validate: 'Validade',
       securityCode: 'Código de segurança',
-      installment: 'Parcelar em'
+      installment: 'Parcelar em',
+      cvvHelp: 'Último número de 3 ou 4 dígitos no verso do cartão. Na frente em cartões American Express.'
     },
     account: {
       registration: 'Cadastro',
