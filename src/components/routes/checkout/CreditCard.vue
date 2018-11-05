@@ -1,9 +1,15 @@
 <template>
   <el-form ref="form" :model="form" :rules="rules" class="_credit-card __form-sm">
     <el-form-item :label="$t('card.number')" prop="number">
-      <el-input v-model="form.number" v-mask="cardMask"></el-input>
+      <el-input v-model="form.number" v-mask="cardMask" v-on-keyup="getBrand"></el-input>
     </el-form-item>
+    <div class="_cc-icons">
+      <i v-for="brand in brands" :class="[ brand, { active: activeBrand === brand }]"></i>
+    </div>
 
+    <el-form-item :label="$t('card.name')" prop="name">
+      <el-input v-model="form.name"></el-input>
+    </el-form-item>
     <el-form-item :label="$t('card.validate')" prop="validate">
       <el-input
         v-model="form.validate"
@@ -11,17 +17,15 @@
         placeholder="02 / 22"
         class="__input-sm"></el-input>
     </el-form-item>
-
-    <el-form-item :label="$t('card.name')" prop="name">
-      <el-input v-model="form.name"></el-input>
-    </el-form-item>
     <el-form-item :label="$t('card.securityCode')" prop="cvv">
-      <el-input v-model="form.cvv" v-mask="'9{3,4}'" placeholder="123"></el-input>
+      <el-input v-model="form.cvv" v-mask="'9{3,4}'" placeholder="123" class="__input-sm"></el-input>
     </el-form-item>
   </el-form>
 </template>
 
 <script>
+import cardValidator from 'card-validator'
+
 export default {
   name: 'CreditCard',
 
@@ -30,6 +34,16 @@ export default {
     let rules = {}
 
     return {
+      brands: [
+        'visa',
+        'mastercard',
+        'american-express',
+        'elo',
+        'diners-club',
+        'hiper',
+        'hipercard'
+      ],
+      activeBrand: '',
       form: {
         number: '',
         name: '',
@@ -60,6 +74,16 @@ export default {
   },
 
   methods: {
+    getBrand () {
+      // get card brand from number
+      let valid = cardValidator.number(this.form.number.replace(/\D/g, ''))
+      if (valid.isPotentiallyValid && valid.card) {
+        this.activeBrand = valid.card.type
+      } else {
+        // unset last active brand
+        this.activeBrand = ''
+      }
+    }
   }
 }
 </script>
@@ -70,5 +94,43 @@ export default {
 
 ._credit-card {
   max-width: 550px;
+}
+._cc-icons {
+  margin: -$--card-padding * .75 auto $--card-padding * .75 auto;
+  text-align: center;
+}
+._cc-icons i {
+  width: 40px;
+  height: 25px;
+  background-image: url('../../../../static/payments.png');
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin: 3px 3px 0 0;
+  transition: $--fade-linear-transition;
+  opacity: .4;
+}
+._cc-icons i.active {
+  opacity: 1;
+}
+._cc-icons .visa {
+  background-position: 0 0;
+}
+._cc-icons .mastercard {
+  background-position: 0 -50px;
+}
+._cc-icons .hipercard {
+  background-position: 0 -125px;
+}
+._cc-icons .hiper {
+  background-position: 0 -150px;
+}
+._cc-icons .elo {
+  background-position: 0 -175px;
+}
+._cc-icons .diners-club {
+  background-position: 0 -200px;
+}
+._cc-icons .american-express {
+  background-position: 0 -375px;
 }
 </style>
