@@ -22,6 +22,7 @@ import { DEFAULT_LANG, DEFAULT_COUNTRY_CODE } from '@/lib/constants'
 // custom additional plugins
 import Inputmask from 'inputmask'
 import VueSticky from 'vue-sticky'
+import creditCardType from 'credit-card-type'
 
 // Font Awesome Icons
 import './lib/icons'
@@ -74,4 +75,20 @@ new Vue({
   store,
   components: { App },
   template: '<App/>'
+})
+
+// handle credit card types
+// https://github.com/braintree/credit-card-type
+creditCardType.addCard({
+  niceType: 'Hipercard',
+  type: 'hipercard',
+  patterns: [
+    606282
+  ],
+  gaps: [4, 8, 12],
+  lengths: [16],
+  code: {
+    name: 'CVV',
+    size: 3
+  }
 })
