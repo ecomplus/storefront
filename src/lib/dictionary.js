@@ -61,10 +61,16 @@ export default {
     card: {
       number: 'Card number',
       name: 'Name on card',
+      fullNameAlert: 'Holder full name as on card',
       validate: 'Valid thru',
       securityCode: 'Security code',
       installment: 'Installment',
-      cvvHelp: '3 or 4 digit number, usually on back of card. In front of American Express cards.'
+      cvvHelp: '3 or 4 digit number, usually on back of card. In front of American Express cards.',
+      cvvHelpNonAmex: '3 last digits behind the card.',
+      cvvHelpAmex: '4 digits in front of the card.',
+      invalidMonth: 'Check the card month',
+      invalidYear: 'Check the card year',
+      monthPast: 'Validity month expired this year'
     },
     shipping: {
       loading: 'Loading shipping methods',
@@ -190,10 +196,18 @@ export default {
     card: {
       number: 'Número do cartão',
       name: 'Nome impresso no cartão',
+      fullNameAlert: 'Nome completo do titular como no cartão',
       validate: 'Validade',
       securityCode: 'Código de segurança',
       installment: 'Parcelar em',
-      cvvHelp: 'Último número de 3 ou 4 dígitos no verso do cartão. Na frente em cartões American Express.'
+      cvvHelp: '3 ou 4 dígitos, geralmente no verso do cartão. Na frente em cartões American Express.',
+      cvvHelpNonAmex: 'Três últimos dígitos atrás do cartão.',
+      cvvHelpAmex: 'Quatro dígitos na frente do cartão.',
+      invalidMonth: 'Verifique o mês do cartão',
+      invalidYear: 'Verifique o ano do cartão',
+      monthPast: 'Mês de validade expirado este ano',
+      cvvInvalidNonAmex: 'Número de 3 dígitos',
+      cvvInvalidAmex: 'Número de 4 dígitos'
     },
     account: {
       registration: 'Cadastro',

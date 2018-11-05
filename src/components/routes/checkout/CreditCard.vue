@@ -23,14 +23,21 @@
         <template slot="append">
           <el-popover
             placement="top"
-            width="200"
+            width="180"
             trigger="click">
             <el-button slot="reference">
               <a-icon icon="question-circle"></a-icon>
             </el-button>
-            <div class="_creditcard-cvv-help">
-              <p>{{ $t('card.cvvHelp') }}</p>
-              <img src="../../../../static/cvv.png"/>
+            <div class="_creditcard-cvv-help" v-if="activeBrand === ''">
+              {{ $t('card.cvvHelp') }}
+            </div>
+            <div class="_creditcard-cvv-help" v-else-if="activeBrand === 'american-express'">
+              <p>{{ $t('card.cvvHelpAmex') }}</p>
+              <div class="_creditcard-cvv-imgs"><div class="amex"></div></div>
+            </div>
+            <div class="_creditcard-cvv-help" v-else>
+              <p>{{ $t('card.cvvHelpNonAmex') }}</p>
+              <div class="_creditcard-cvv-imgs"><div class="non-amex"></div></div>
             </div>
           </el-popover>
         </template>
@@ -41,6 +48,7 @@
 
 <script>
 import cardValidator from 'card-validator'
+import { addRule } from '@/lib/utils'
 
 export default {
   name: 'CreditCard',
@@ -48,6 +56,66 @@ export default {
   data () {
     // setup form validation rules
     let rules = {}
+    // handle required form fields
+    ;[ 'number', 'name', 'validate', 'cvv' ].forEach((label) => {
+      addRule(label, { required: true, message: this.$t('validate.required') }, rules)
+    })
+    // min field length for holder name
+    addRule('name', { min: 3, message: this.$t('card.fullNameAlert'), trigger: 'blur' }, rules)
+
+    // mark if card number is trusted validated
+    addRule('number', {
+      validator: (rule, value, cb) => {
+        if (this.validatedNumber) {
+          // card number confirmed as valid
+          cb()
+        }
+      }
+    }, rules)
+
+    // check date format and expiration
+    addRule('validate', {
+      validator: (rule, value, cb) => {
+        if (cardValidator.expirationDate(value).isValid) {
+          // date valid and not expired
+          cb()
+        } else {
+          let [ month, year ]  = value.split(' / ')
+          if (!cardValidator.expirationMonth(month).isValid) {
+            cb(new Error(this.$t('card.invalidMonth')))
+          } else if (!cardValidator.expirationYear(year).isValid) {
+            cb(new Error(this.$t('card.invalidYear')))
+          } else {
+            // month past on current year
+            cb(new Error(this.$t('card.monthPast')))
+          }
+        }
+      },
+      trigger: 'blur'
+    }, rules)
+
+    // validate CVV or CID code
+    addRule('cvv', {
+      validator: (rule, value, cb) => {
+        // need card brand to validate CVV
+        if (this.activeBrand !== '') {
+          if (this.activeBrand !== 'american-express') {
+            if (cardValidator.cvv(value).isValid) {
+              // valid 3 digits CVV
+              cb()
+            } else {
+              cb(new Error(this.$t('card.cvvInvalidNonAmex')))
+            }
+          } else if (cardValidator.cvv(value, 4).isValid) {
+            // valid Amex CID with 4 digits
+            cb()
+          } else {
+            cb(new Error(this.$t('card.cvvInvalidAmex')))
+          }
+        }
+      },
+      trigger: 'blur'
+    }, rules)
 
     return {
       brands: [
@@ -60,10 +128,12 @@ export default {
         'hipercard'
       ],
       activeBrand: '',
+      validatedNumber: false,
       form: {
         number: '',
         name: '',
-        validate: ''
+        validate: '',
+        cvv: ''
       },
       rules,
       cardMask: {
@@ -91,10 +161,23 @@ export default {
 
   methods: {
     getBrand () {
+      // preset invalid
+      this.validatedNumber = false
       // get card brand from number
       let valid = cardValidator.number(this.form.number.replace(/\D/g, ''))
       if (valid.isPotentiallyValid && valid.card) {
-        this.activeBrand = valid.card.type
+        let brand = valid.card.type
+        if (this.activeBrand !== brand) {
+          // brand changed
+          this.activeBrand = brand
+          if (this.form.cvv !== '') {
+            // must revalidate CVV
+            this.$refs.form.validateField('cvv')
+          }
+        }
+        if (valid.isValid) {
+          this.validatedNumber = true
+        }
       } else {
         // unset last active brand
         this.activeBrand = ''
@@ -112,7 +195,7 @@ export default {
   max-width: 550px;
 }
 ._creditcard-icons {
-  margin: -$--card-padding * .75 auto $--card-padding * .75 auto;
+  margin: -$--card-padding * .25 auto $--card-padding auto;
   text-align: center;
 }
 ._creditcard-icons i {
@@ -151,5 +234,19 @@ export default {
 }
 ._creditcard-cvv-help {
   text-align: left;
+}
+._creditcard-cvv-imgs div {
+  width: 150px;
+  height: 93px;
+  background-image: url('../../../../static/cvv.png');
+  background-repeat: no-repeat;
+  display: block;
+  margin: 0 auto;
+}
+._creditcard-cvv-imgs .non-amex {
+  background-position: 0 0;
+}
+._creditcard-cvv-imgs .amex {
+  background-position: 0 -93px;
 }
 </style>
