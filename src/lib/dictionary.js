@@ -74,7 +74,8 @@ export default {
       cvvInvalid: 'Must be 3 or 4 digits',
       cvvInvalidNonAmex: 'Must have 3 digits',
       cvvInvalidAmex: 'Must have 4 digits',
-      holderDoc: 'Holder document number'
+      holderDoc: 'Holder document number',
+      sameAddress: 'Billing address is the same as the delivery address'
     },
     shipping: {
       loading: 'Loading shipping methods',
@@ -118,7 +119,8 @@ export default {
       province: 'Province code',
       country: 'Country',
       addAddress: 'New address',
-      selectAddress: 'Select address for shipping'
+      selectAddress: 'Select address for shipping',
+      list: 'Address list'
     },
     validate: {
       required: 'Required field',
@@ -213,7 +215,8 @@ export default {
       cvvInvalid: 'Deve ter 3 ou 4 dígitos',
       cvvInvalidNonAmex: 'Deve possuir 3 dígitos',
       cvvInvalidAmex: 'Deve possuir 4 dígitos',
-      holderDoc: 'CPF/CNPJ do titular'
+      holderDoc: 'CPF/CNPJ do titular',
+      sameAddress: 'O endereço da fatura do cartão é o mesmo da entrega'
     },
     account: {
       registration: 'Cadastro',
@@ -249,7 +252,8 @@ export default {
       province: 'Estado (UF)',
       country: 'País',
       addAddress: 'Novo endereço',
-      selectAddress: 'Selecionar endereço para entrega'
+      selectAddress: 'Selecionar endereço para entrega',
+      list: 'Lista de endereços'
     },
     validate: {
       required: 'Campo obrigatório',

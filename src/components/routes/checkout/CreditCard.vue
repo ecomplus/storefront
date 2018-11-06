@@ -62,6 +62,16 @@
         class="__input-sm">
       </el-input>
     </el-form-item>
+
+    <el-form-item size="mini">
+      <el-checkbox :checked="true">{{ $t('card.sameAddress') }}</el-checkbox>
+    </el-form-item>
+    <el-form-item size="large">
+      <el-button type="success" @click="() => {}">
+        <a-icon icon="check" class="__icon-mr"></a-icon>
+        {{ buttonText || $t('general.save') }}
+      </el-button>
+    </el-form-item>
   </el-form>
 </template>
 
