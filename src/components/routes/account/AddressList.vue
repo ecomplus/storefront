@@ -11,20 +11,21 @@
         <el-form-item :label="$t('address.recipient')" prop="name">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
-        <el-form-item :label="$t('address.zip')" prop="zip">
+        <el-form-item v-if="$country === 'br'" prop="zip">
+          <template slot="label">
+            {{ $t('address.zip') }}
+            <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/default.cfm" target="_blank">
+              <a-icon icon="question-circle"></a-icon>
+            </a>
+          </template>
           <el-input
-            v-if="$country === 'br'"
             v-model="form.zip"
             v-mask="'99999-999'"
             v-on-keyup="handleZip"
-            class="__input-sm">
-            <template slot="append">
-              <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/default.cfm" target="_blank">
-                <a-icon icon="question-circle"></a-icon>
-              </a>
-            </template>
-          </el-input>
-          <el-input v-else v-model="form.zip" class="__input-sm"></el-input>
+            class="__input-sm"></el-input>
+        </el-form-item>
+        <el-form-item v-else :label="$t('address.zip')" prop="zip">
+          <el-input v-model="form.zip" class="__input-sm"></el-input>
         </el-form-item>
 
         <transition name="fade">
@@ -187,11 +188,11 @@ export default {
       'chooseCustomerAddress'
     ]),
 
-    addAddress (zip = '') {
+    addAddress (zip) {
       // reset form object
       this.form = {
         id: null,
-        zip: zip,
+        zip: typeof zip === 'string' ? zip : '',
         province: '',
         city: '',
         borough: '',
