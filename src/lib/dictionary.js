@@ -73,7 +73,8 @@ export default {
       monthPast: 'Validity month expired this year',
       cvvInvalid: 'Must be 3 or 4 digits',
       cvvInvalidNonAmex: 'Must have 3 digits',
-      cvvInvalidAmex: 'Must have 4 digits'
+      cvvInvalidAmex: 'Must have 4 digits',
+      holderDoc: 'Holder document number'
     },
     shipping: {
       loading: 'Loading shipping methods',
@@ -211,7 +212,8 @@ export default {
       monthPast: 'Mês de validade expirado este ano',
       cvvInvalid: 'Deve ter 3 ou 4 dígitos',
       cvvInvalidNonAmex: 'Deve possuir 3 dígitos',
-      cvvInvalidAmex: 'Deve possuir 4 dígitos'
+      cvvInvalidAmex: 'Deve possuir 4 dígitos',
+      holderDoc: 'CPF/CNPJ do titular'
     },
     account: {
       registration: 'Cadastro',

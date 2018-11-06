@@ -107,7 +107,7 @@ export default {
     ;[ 'name', 'email', 'phone', 'doc' ].forEach((label) => {
       addRule(label, { required: true, message: this.$t('validate.required') }, rules)
     })
-    // handle marked inputs validation
+    // handle masked inputs validation
     ;[ 'phone', 'cellphone', 'doc' ].forEach((label) => {
       addRule(label, { validator: checkMask(this.$t('validate.mask')), trigger: 'blur' }, rules)
     })

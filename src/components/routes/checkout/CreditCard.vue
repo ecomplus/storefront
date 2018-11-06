@@ -1,17 +1,22 @@
 <template>
   <el-form ref="form" :model="form" :rules="rules" class="_creditcard __form-sm">
     <el-form-item :label="$t('card.number')" prop="number">
-      <el-input v-model="form.number" v-mask="cardMask" v-on-keyup="getBrand"></el-input>
+      <el-input
+        type="tel"
+        v-model="form.number"
+        v-mask="cardMask"
+        v-on-keyup="getBrand"></el-input>
     </el-form-item>
     <div class="_creditcard-icons">
       <i v-for="brand in brands" :class="[ brand, { active: activeBrand === brand }]"></i>
     </div>
 
     <el-form-item :label="$t('card.name')" prop="name">
-      <el-input v-model="form.name"></el-input>
+      <el-input v-model="form.name" ref="name"></el-input>
     </el-form-item>
     <el-form-item :label="$t('card.validate')" prop="validate">
       <el-input
+        type="tel"
         v-model="form.validate"
         v-mask="'99 / 99'"
         placeholder="02 / 22"
@@ -19,7 +24,12 @@
     </el-form-item>
 
     <el-form-item :label="$t('card.securityCode')" prop="cvv">
-      <el-input v-model="form.cvv" v-mask="'9{3,4}'" placeholder="123" class="__input-sm">
+      <el-input
+        type="tel"
+        v-model="form.cvv"
+        v-mask="'9{3,4}'"
+        placeholder="123"
+        class="__input-sm">
         <template slot="append">
           <el-popover
             placement="top"
@@ -43,25 +53,41 @@
         </template>
       </el-input>
     </el-form-item>
+
+    <el-form-item :label="$t('card.holderDoc')" prop="doc">
+      <el-input
+        v-model="form.doc"
+        v-mask="$country !== 'br' ? '9{5,19}' : brDocMask"
+        type="tel"
+        class="__input-sm">
+      </el-input>
+    </el-form-item>
   </el-form>
 </template>
 
 <script>
 import cardValidator from 'card-validator'
-import { addRule } from '@/lib/utils'
+import { addRule, checkMask } from '@/lib/utils'
 
 export default {
   name: 'CreditCard',
+
+  props: [
+    'checkHolder',
+    'holderDoc'
+  ],
 
   data () {
     // setup form validation rules
     let rules = {}
     // handle required form fields
-    ;[ 'number', 'name', 'validate', 'cvv' ].forEach((label) => {
+    ;[ 'number', 'name', 'validate', 'cvv', 'doc' ].forEach((label) => {
       addRule(label, { required: true, message: this.$t('validate.required') }, rules)
     })
     // min field length for holder name
     addRule('name', { min: 3, message: this.$t('card.fullNameAlert'), trigger: 'blur' }, rules)
+    // validate document number mask
+    addRule('doc', { validator: checkMask(this.$t('validate.mask')), trigger: 'blur' }, rules)
 
     // mark if card number is trusted validated
     addRule('number', {
@@ -136,9 +162,11 @@ export default {
         number: '',
         name: '',
         validate: '',
-        cvv: ''
+        cvv: '',
+        doc: ''
       },
       rules,
+
       cardMask: {
         mask: [
           // array of cc number formats
@@ -158,7 +186,14 @@ export default {
           'A': { validator: '[47]' },
           'D': { validator: '[0689]' }
         }
-      }
+      },
+
+      brDocMask: [
+        // personal doc
+        '999.999.999-99',
+        // business doc
+        '99.999.999/9999-99'
+      ]
     }
   },
 
@@ -184,6 +219,28 @@ export default {
       } else {
         // unset last active brand
         this.activeBrand = ''
+      }
+    }
+  },
+
+  mounted () {
+    if (this.holderDoc) {
+      // preset holder document number
+      let data = this.form
+      if (this.checkHolder) {
+        this.$refs.name.handleChange = () => {
+          // compare first name
+          let name = data.name.replace(/(\s.*)/, '')
+          if (name.localeCompare(this.checkHolder, 'en', { sensitivity: 'base' }) === 0) {
+            // holder name matched
+            data.doc = this.holderDoc
+          } else if (data.doc = this.holderDoc) {
+            // reset doc field
+            data.doc = ''
+          }
+        }
+      } else {
+        data.doc = this.holderDoc
       }
     }
   }
