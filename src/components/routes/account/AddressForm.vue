@@ -219,10 +219,9 @@ export default {
           // show notification
           this.$message({
             showClose: true,
-            message: this.$t('validate.invalidForm'),
+            message: this.$t('address.invalidForm'),
             type: 'warning'
           })
-          return false
         }
       })
     }
