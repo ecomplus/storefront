@@ -64,12 +64,17 @@
     </el-form-item>
 
     <el-form-item size="mini">
-      <el-checkbox :checked="true">{{ $t('card.sameAddress') }}</el-checkbox>
+      <el-checkbox v-model="sameAddress">
+        {{ $t('card.sameAddress') }}
+      </el-checkbox>
     </el-form-item>
+    <el-collapse-transition>
+      <address-form key="address-form" v-if="!sameAddress"/>
+    </el-collapse-transition>
     <el-form-item size="large">
       <el-button type="success" @click="() => {}">
         <a-icon icon="check" class="__icon-mr"></a-icon>
-        {{ buttonText || $t('general.save') }}
+        {{ $t('general.save') }}
       </el-button>
     </el-form-item>
   </el-form>
@@ -78,9 +83,14 @@
 <script>
 import cardValidator from 'card-validator'
 import { addRule, checkMask } from '@/lib/utils'
+import AddressForm from '@/components/routes/account/AddressForm'
 
 export default {
   name: 'CreditCard',
+
+  components: {
+    AddressForm
+  },
 
   props: [
     'checkHolder',
@@ -176,6 +186,7 @@ export default {
         doc: ''
       },
       rules,
+      sameAddress: true,
 
       cardMask: {
         mask: [
