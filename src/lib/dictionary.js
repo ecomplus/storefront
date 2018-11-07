@@ -75,7 +75,9 @@ export default {
       cvvInvalidNonAmex: 'Must have 3 digits',
       cvvInvalidAmex: 'Must have 4 digits',
       holderDoc: 'Holder document number',
-      sameAddress: 'Billing address is the same as delivery address'
+      sameAddress: 'Billing address is the same as delivery address',
+      checkout: 'Checkout',
+      invalidForm: 'Credit card info is incomplete or invalid, please check'
     },
     shipping: {
       loading: 'Loading shipping methods',
@@ -217,7 +219,9 @@ export default {
       cvvInvalidNonAmex: 'Deve possuir 3 dígitos',
       cvvInvalidAmex: 'Deve possuir 4 dígitos',
       holderDoc: 'CPF/CNPJ do titular',
-      sameAddress: 'O endereço da fatura é o mesmo da entrega'
+      sameAddress: 'O endereço da fatura é o mesmo da entrega',
+      checkout: 'Finalizar compra',
+      invalidForm: 'Dados do cartão incompletos ou inválidos, por favor verifique'
     },
     account: {
       registration: 'Cadastro',

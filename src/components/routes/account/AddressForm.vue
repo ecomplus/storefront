@@ -5,7 +5,7 @@
     :model="form"
     :rules="rules"
     class="_address-form __form-sm">
-    <el-form-item :label="$t('address.recipient')" prop="name">
+    <el-form-item :label="$t('address.recipient')" prop="name" v-if="!noRecipient">
       <el-input v-model="form.name"></el-input>
     </el-form-item>
 
@@ -74,7 +74,7 @@
             placeholder="US"></el-input>
         </el-form-item>
 
-        <el-form-item size="large">
+        <el-form-item size="large" v-if="!noButton">
           <el-button type="primary" @click="submitForm">
             <a-icon icon="check" class="__icon-mr"></a-icon>
             {{ buttonText || $t('general.save') }}
@@ -92,8 +92,10 @@ export default {
   name: 'AddressForm',
 
   props: [
+    'noButton',
     'buttonText',
     'zip',
+    'noRecipient',
     'recipient'
   ],
 
@@ -101,7 +103,11 @@ export default {
     // setup form validation rules
     let rules = {}
     // handle required form fields
-    ;[ 'name', 'zip', 'province', 'city', 'street', 'number' ].forEach(label => {
+    let required = [ 'zip', 'province', 'city', 'street', 'number' ]
+    if (!this.noRecipient) {
+      required.unshift('name')
+    }
+    required.forEach(label => {
       addRule(label, { required: true, message: this.$t('validate.required') }, rules)
     })
     // handle marked inputs validation
