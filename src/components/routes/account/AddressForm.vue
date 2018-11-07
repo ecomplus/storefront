@@ -8,25 +8,32 @@
     <el-form-item :label="$t('address.recipient')" prop="name">
       <el-input v-model="form.name"></el-input>
     </el-form-item>
+
     <el-form-item v-if="$country === 'br'" prop="zip">
       <template slot="label">
         {{ $t('address.zip') }}
-        <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/default.cfm" target="_blank">
-          <a-icon icon="question-circle"></a-icon>
-        </a>
       </template>
       <el-input
         v-model="form.zip"
         v-mask="'99999-999'"
         v-on-keyup="handleZip"
-        class="__input-sm"></el-input>
+        class="__input-sm">
+        <template slot="append">
+          <a v-if="!zipLoading"
+            href="http://www.buscacep.correios.com.br/sistemas/buscacep/default.cfm"
+            target="_blank">
+            <a-icon icon="question-circle"></a-icon>
+          </a>
+          <a-icon v-else icon="circle-notch" spin></a-icon>
+        </template>
+      </el-input>
     </el-form-item>
     <el-form-item v-else :label="$t('address.zip')" prop="zip">
       <el-input v-model="form.zip" class="__input-sm"></el-input>
     </el-form-item>
 
-    <transition name="fade">
-      <span key="zip-ready" v-if="zipReady">
+    <el-collapse-transition>
+      <div key="zip-ready" v-if="zipReady">
         <el-form-item :label="$t('address.number')" prop="number">
           <el-col :span="8">
             <el-input
@@ -73,10 +80,8 @@
             {{ buttonText || $t('general.save') }}
           </el-button>
         </el-form-item>
-      </span>
-
-      <div key="zip-loading" v-else v-loading="zipLoading" class="__py"></div>
-    </transition>
+      </div>
+    </el-collapse-transition>
   </el-form>
 </template>
 
