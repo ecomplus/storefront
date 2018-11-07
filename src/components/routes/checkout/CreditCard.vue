@@ -54,7 +54,7 @@
       </el-input>
     </el-form-item>
 
-    <el-form-item :label="$t('card.holderDoc')" prop="doc">
+    <el-form-item v-if="!skipHolderDoc" :label="$t('card.holderDoc')" prop="doc">
       <el-input
         v-model="form.doc"
         v-mask="$country !== 'br' ? '9{5,19}' : brDocMask"
@@ -102,7 +102,8 @@ export default {
 
   props: [
     'checkHolder',
-    'holderDoc'
+    'holderDoc',
+    'skipHolderDoc'
   ],
 
   data () {
@@ -114,8 +115,10 @@ export default {
     })
     // min field length for holder name
     addRule('name', { min: 3, message: this.$t('card.fullNameAlert'), trigger: 'blur' }, rules)
-    // validate document number mask
-    addRule('doc', { validator: checkMask(this.$t('validate.mask')), trigger: 'blur' }, rules)
+    if (!this.skipHolderDoc) {
+      // validate document number mask
+      addRule('doc', { validator: checkMask(this.$t('validate.mask')), trigger: 'blur' }, rules)
+    }
 
     // mark if card number is trusted validated
     addRule('number', {
@@ -299,7 +302,7 @@ export default {
   },
 
   mounted () {
-    if (this.holderDoc) {
+    if (this.holderDoc && !this.skipHolderDoc) {
       // preset holder document number
       let data = this.form
       if (this.checkHolder) {
