@@ -120,7 +120,8 @@ export default {
       country: 'Country',
       addAddress: 'New address',
       selectAddress: 'Select address for shipping',
-      list: 'Address list'
+      list: 'Address list',
+      invalidForm: 'Address is incomplete or invalid, please check'
     },
     validate: {
       required: 'Required field',
@@ -253,7 +254,8 @@ export default {
       country: 'País',
       addAddress: 'Novo endereço',
       selectAddress: 'Selecionar endereço para entrega',
-      list: 'Lista de endereços'
+      list: 'Lista de endereços',
+      invalidForm: 'O endereço está incompleto ou inválido, por favor verifique'
     },
     validate: {
       required: 'Campo obrigatório',
