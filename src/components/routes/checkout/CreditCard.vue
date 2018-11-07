@@ -64,19 +64,13 @@
     </el-form-item>
 
     <el-form-item size="mini">
-      <el-checkbox v-model="sameAddress">
+      <el-checkbox v-model="sameAddress" class="_creditcard-same-address">
         {{ $t('card.sameAddress') }}
       </el-checkbox>
     </el-form-item>
     <el-collapse-transition>
       <address-form key="address-form" v-if="!sameAddress"/>
     </el-collapse-transition>
-    <el-form-item size="large">
-      <el-button type="success" @click="() => {}">
-        <a-icon icon="check" class="__icon-mr"></a-icon>
-        {{ $t('general.save') }}
-      </el-button>
-    </el-form-item>
   </el-form>
 </template>
 
@@ -241,6 +235,23 @@ export default {
         // unset last active brand
         this.activeBrand = ''
       }
+    },
+
+    submitForm () {
+      this.$refs.form.validate((valid) => {
+        if (valid) {
+          // valid form data
+          // handle submit
+          this.$emit('submit-form', this.form)
+        } else {
+          // show notification
+          this.$message({
+            showClose: true,
+            message: this.$t('card.invalidForm'),
+            type: 'warning'
+          })
+        }
+      })
     }
   },
 
@@ -329,5 +340,8 @@ export default {
 }
 ._creditcard-cvv-imgs .amex {
   background-position: 0 -93px;
+}
+._creditcard-same-address {
+  white-space: normal;
 }
 </style>

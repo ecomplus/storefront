@@ -145,6 +145,13 @@
                       </span>
                       <credit-card v-if="gateway.payment_method.code === 'credit_card'"/>
                       <span v-else>{{ gateway.label }}</span>
+
+                      <div class="_invoice-pay">
+                        <el-button type="success" @click="() => {}" class="__btn-block">
+                          <a-icon icon="check" class="__icon-mr"></a-icon>
+                          {{ $t('general.save') }}
+                        </el-button>
+                      </div>
                     </el-tab-pane>
                   </el-tabs>
                 </div>
@@ -381,6 +388,10 @@ export default {
 ._invoice-payment ._invoice-payment-title {
   margin-top: $--card-padding;
   text-align: left;
+}
+._invoice-pay {
+  max-width: 450px;
+  margin: 0 auto;
 }
 ._summary-subtotal,
 ._summary-freigth {
