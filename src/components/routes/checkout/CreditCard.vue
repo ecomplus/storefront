@@ -73,12 +73,16 @@
         key="address-form"
         ref="address"
         v-if="!sameAddress"
+        @submit-form="(data) => { submitForm(data) }"
         :noButton="true"
         :noRecipient="true"/>
     </el-collapse-transition>
 
     <el-form-item size="large">
-      <el-button type="success" @click="submitForm" class="_creditcard-pay __btn-block">
+      <el-button
+        type="success"
+        @click="() => { submitForm() }"
+        class="_creditcard-pay __btn-block">
         <a-icon icon="lock" class="__icon-mr"></a-icon>
         {{ $t('card.checkout') }}
       </el-button>
@@ -254,50 +258,55 @@ export default {
       }
     },
 
-    submitForm () {
-      this.$refs.form.validate((valid) => {
-        let notify
-        if (valid) {
-          // validated from form rules
-          let data = this.form
-          // check document number
-          if (data.doc.length !== 18) {
-            if (!isValidCnpj(data.doc)) {
-              // invalid business document
-              notify = this.$t('account.businessDoc')
+    submitForm (address) {
+      if (!this.sameAddress && (!address || !address.zip)) {
+        // submit address form first and wait for address data
+        this.$refs.address.submitForm()
+      } else {
+        this.$refs.form.validate((valid) => {
+          let notify
+          if (valid) {
+            // validated from form rules
+            let data = this.form
+            // check document number
+            if (data.doc.length !== 18) {
+              if (!isValidCnpj(data.doc)) {
+                // invalid business document
+                notify = this.$t('account.businessDoc')
+              }
+            } else if (!isValidCpf(data.doc)) {
+              // invalid personal document number
+              notify = this.$t('account.personalDoc')
             }
-          } else if (!isValidCpf(data.doc)) {
-            // invalid personal document number
-            notify = this.$t('account.personalDoc')
+
+            if (!notify) {
+              // check credit card number
+              let valid = cardValidator.number(data.number)
+              if (valid.isValid) {
+                // handle submit
+                this.$emit('submit-form', data)
+                return
+              } else if (valid.isPotentiallyValid) {
+                // not sure
+              } else {
+                // invalid card number
+                notify = this.$t('card.number')
+              }
+            }
           }
 
-          if (!notify) {
-            // check credit card number
-            let valid = cardValidator.number(data.number)
-            if (valid.isValid) {
-              // handle submit
-              this.$emit('submit-form', data)
-              return
-            } else if (valid.isPotentiallyValid) {
-              // not sure
-            } else {
-              // invalid card number
-              notify = this.$t('card.number')
-            }
+          if (notify) {
+            // complete notification message
+            notify += this.$t('validate.isInvalid')
           }
-        }
-
-        if (notify) {
-          // complete notification message
-          notify += this.$t('validate.isInvalid')
-        }
-        // show notification
-        this.$message({
-          showClose: true,
-          message: notify || this.$t('card.invalidForm'),
-          type: 'warning'
+          // show notification
+          this.$message({
+            showClose: true,
+            message: notify || this.$t('card.invalidForm'),
+            type: 'warning'
+          })
         })
-      })
+      }
     }
   },
 
