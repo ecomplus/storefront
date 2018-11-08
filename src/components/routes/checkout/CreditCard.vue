@@ -14,6 +14,35 @@
     <el-form-item :label="$t('card.name')" prop="name">
       <el-input v-model="form.name" ref="name"></el-input>
     </el-form-item>
+    <el-collapse-transition>
+      <div key="holder-info" v-if="!hideHolderFields">
+        <el-form-item :label="$t('account.birth')" prop="birth">
+          <el-date-picker
+            v-if="$country === 'br'"
+            type="date"
+            v-model="form.birth"
+            placeholder="31/02/1994"
+            format="dd/MM/yyyy"
+            value-format="yyyy-MM-dd">
+          </el-date-picker>
+          <el-date-picker
+            v-else
+            type="date"
+            v-model="form.birth"
+            placeholder="1994-02-31">
+          </el-date-picker>
+        </el-form-item>
+        <el-form-item :label="$t('card.holderDoc')" prop="doc">
+          <el-input
+            v-model="form.doc"
+            v-mask="$country !== 'br' ? '9{5,19}' : brDocMask"
+            type="tel"
+            class="__input-sm">
+          </el-input>
+        </el-form-item>
+      </div>
+    </el-collapse-transition>
+
     <el-form-item :label="$t('card.validate')" prop="validate">
       <el-input
         type="tel"
@@ -22,7 +51,6 @@
         placeholder="02 / 22"
         class="__input-sm"></el-input>
     </el-form-item>
-
     <el-form-item :label="$t('card.securityCode')" prop="cvv">
       <el-input
         type="tel"
@@ -51,15 +79,6 @@
             </div>
           </el-popover>
         </template>
-      </el-input>
-    </el-form-item>
-
-    <el-form-item v-if="!skipHolderDoc" :label="$t('card.holderDoc')" prop="doc">
-      <el-input
-        v-model="form.doc"
-        v-mask="$country !== 'br' ? '9{5,19}' : brDocMask"
-        type="tel"
-        class="__input-sm">
       </el-input>
     </el-form-item>
 
@@ -106,20 +125,19 @@ export default {
 
   props: [
     'checkHolder',
-    'holderDoc',
-    'skipHolderDoc'
+    'skipHolderInfo'
   ],
 
   data () {
     // setup form validation rules
     let rules = {}
     // handle required form fields
-    ;[ 'number', 'name', 'validate', 'cvv', 'doc' ].forEach((label) => {
+    ;[ 'number', 'name', 'validate', 'cvv' ].forEach((label) => {
       addRule(label, { required: true, message: this.$t('validate.required') }, rules)
     })
     // min field length for holder name
     addRule('name', { min: 3, message: this.$t('card.fullNameAlert'), trigger: 'blur' }, rules)
-    if (!this.skipHolderDoc) {
+    if (!this.skipHolderInfo) {
       // validate document number mask
       addRule('doc', { validator: checkMask(this.$t('validate.mask')), trigger: 'blur' }, rules)
     }
@@ -198,10 +216,13 @@ export default {
         name: '',
         validate: '',
         cvv: '',
+        birth: '',
         doc: ''
       },
       rules,
       sameAddress: true,
+      sameHolder: false,
+      hideHolderFields: (this.skipHolderInfo || this.checkHolder),
 
       cardMask: {
         mask: [
@@ -311,23 +332,23 @@ export default {
   },
 
   mounted () {
-    if (this.holderDoc && !this.skipHolderDoc) {
-      // preset holder document number
-      let data = this.form
-      if (this.checkHolder) {
-        this.$refs.name.handleChange = () => {
-          // compare first name
-          let name = data.name.replace(/(\s.*)/, '')
-          if (name.localeCompare(this.checkHolder, 'en', { sensitivity: 'base' }) === 0) {
-            // holder name matched
-            data.doc = this.holderDoc
-          } else if (data.doc = this.holderDoc) {
-            // reset doc field
-            data.doc = ''
-          }
+    if (!this.skipHolderInfo && this.checkHolder) {
+      // compare holder name with customer name
+      this.$refs.name.handleChange = () => {
+        let data = this.form
+        // compare first name
+        let name = data.name.trim()
+        if (name === '') {
+          // ampty holder name
+          this.hideHolderFields = true
+        } else if (name.localeCompare(this.checkHolder, 'en', { sensitivity: 'base' }) === 0) {
+          // holder name matched
+          this.hideHolderFields = true
+          // reset doc and birth fields
+          data.doc = data.birth = ''
+        } else {
+          this.hideHolderFields = false
         }
-      } else {
-        data.doc = this.holderDoc
       }
     }
   }
