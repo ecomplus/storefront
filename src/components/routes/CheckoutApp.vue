@@ -131,7 +131,6 @@
                   <h2 class="_invoice-payment-title">
                     {{ $t('checkout.paymentMethods') }}
                   </h2>
-
                   <el-tabs type="border-card" shadow="never">
                     <el-tab-pane
                       v-for="(gateway, index) in paymentGateways"

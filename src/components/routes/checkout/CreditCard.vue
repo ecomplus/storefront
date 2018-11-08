@@ -1,6 +1,10 @@
 <template>
   <el-form ref="form" :model="form" :rules="rules" class="_creditcard __form-sm">
-    <el-form-item :label="$t('card.number')" prop="number">
+    <el-form-item
+      :label="$t('card.number')"
+      prop="number"
+      class="_creditcard-number"
+      :class="{ '_creditcard-valid': validatedNumber }">
       <el-input
         type="tel"
         v-model="form.number"
@@ -175,14 +179,18 @@ export default {
       addRule('doc', { validator: checkMask(this.$t('validate.mask')), trigger: 'blur' }, rules)
     }
 
-    // mark if card number is trusted validated
+    // check if card number is at least potentially valid
     addRule('number', {
       validator: (rule, value, cb) => {
-        if (this.validatedNumber) {
-          // card number confirmed as valid
+        if (cardValidator.number(value).isPotentiallyValid) {
+          // can be valid
           cb()
+        } else {
+          // number not valid at all
+          cb(new Error(this.$t('card.number') + ' ' + this.$t('validate.isInvalid')))
         }
-      }
+      },
+      trigger: 'blur'
     }, rules)
 
     // check date format and expiration
@@ -316,7 +324,7 @@ export default {
       }
     },
 
-    submitForm (address) {
+    submitForm (address, confirmed) {
       if (!this.sameAddress && (!address || !address.zip)) {
         // submit address form first and wait for address data
         this.$refs.address.submitForm()
@@ -326,26 +334,38 @@ export default {
           if (valid) {
             // validated from form rules
             let data = this.form
-            // check document number
-            if (data.doc.length !== 18) {
-              if (!isValidCnpj(data.doc)) {
-                // invalid business document
-                notify = this.$t('account.businessDoc')
+            if (data.doc !== '') {
+              // check document number
+              if (data.doc.length !== 18) {
+                if (!isValidCnpj(data.doc)) {
+                  // invalid business document
+                  notify = this.$t('account.businessDoc')
+                }
+              } else if (!isValidCpf(data.doc)) {
+                // invalid personal document number
+                notify = this.$t('account.personalDoc')
               }
-            } else if (!isValidCpf(data.doc)) {
-              // invalid personal document number
-              notify = this.$t('account.personalDoc')
             }
 
             if (!notify) {
               // check credit card number
               let valid = cardValidator.number(data.number)
-              if (valid.isValid) {
+              if (valid.isValid || confirmed === true) {
                 // handle submit
-                this.$emit('submit-form', data)
+                this.$emit('submit-form', Object.assign(data, { address }))
                 return
               } else if (valid.isPotentiallyValid) {
                 // not sure
+                // must confirm number
+                this.$confirm(this.$t('card.potentiallyValid'), data.number, {
+                  cancelButtonText: this.$t('card.confirmNumber'),
+                  confirmButtonText: this.$t('card.editNumber'),
+                  type: 'info'
+                }).catch(() => {
+                  // ignore and submit again
+                  this.submitForm(address, true)
+                })
+                return
               } else {
                 // invalid card number
                 notify = this.$t('card.number')
@@ -398,6 +418,15 @@ export default {
 
 ._creditcard {
   max-width: 550px;
+}
+._creditcard-number.is-success input {
+  border-color: $--border-color-hover !important;
+}
+._creditcard-number:not(.is-error) input:focus {
+  border-color: $--color-primary !important;
+}
+._creditcard-number._creditcard-valid input {
+  border-color: $--color-success !important;
 }
 ._creditcard-icons {
   margin: -$--card-padding * .25 auto $--card-padding auto;

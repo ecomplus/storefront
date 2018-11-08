@@ -42,7 +42,7 @@ body {
   font-size: $--font-size-small;
   color: $--color-text-regular;
   font-weight: 400;
-  padding: 0;
+  padding: 0 !important;
   background: $--border-color-extra-light;
   overflow-y: scroll !important;
   overflow-x: hidden !important;
@@ -242,6 +242,13 @@ body > div.el-select-dropdown .el-scrollbar__wrap {
 }
 body > div.el-select-dropdown .el-select-dropdown__wrap {
   margin: 0 !important;
+}
+// fix promp container
+body > div.el-message-box__wrapper,
+body > div.v-modal {
+  padding: 0;
+  margin: 0;
+  max-width: none;
 }
 
 // fade transition effects

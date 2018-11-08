@@ -80,7 +80,10 @@ export default {
       holderDoc: 'Holder document number',
       sameAddress: 'Billing address is the same as delivery address',
       checkout: 'Checkout',
-      invalidForm: 'Credit card info is incomplete or invalid, please check'
+      invalidForm: 'Credit card info is incomplete or invalid, please check',
+      editNumber: 'Edit card number',
+      confirmNumber: 'Confirm number',
+      potentiallyValid: 'The card number appears to be incorrect, please check typing errors'
     },
     shipping: {
       loading: 'Loading shipping methods',
@@ -227,7 +230,10 @@ export default {
       holderDoc: 'CPF/CNPJ do titular',
       sameAddress: 'O endereço da fatura é o mesmo da entrega',
       checkout: 'Finalizar compra',
-      invalidForm: 'Dados do cartão incompletos ou inválidos, por favor verifique'
+      invalidForm: 'Dados do cartão incompletos ou inválidos, por favor verifique',
+      editNumber: 'Editar número do cartão',
+      confirmNumber: 'Confirmar número',
+      potentiallyValid: 'O número do cartão parece estar incorreto, por favor verifique erros de digitação'
     },
     account: {
       registration: 'Cadastro',
