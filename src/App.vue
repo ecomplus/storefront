@@ -233,6 +233,16 @@ a, button, div, span, img {
     margin-left: 210px;
   }
 }
+// fix select element popper
+body > div.el-select-dropdown {
+  padding: 0;
+}
+body > div.el-select-dropdown .el-scrollbar__wrap {
+  overflow: auto;
+}
+body > div.el-select-dropdown .el-select-dropdown__wrap {
+  margin: 0 !important;
+}
 
 // fade transition effects
 .fade-enter-active,

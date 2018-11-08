@@ -82,6 +82,25 @@
       </el-input>
     </el-form-item>
 
+    <el-form-item
+      v-if="handleInstallments"
+      :label="$t('card.installment')"
+      prop="installment">
+      <el-select
+        v-model="form.installment"
+        class="__input-sm"
+        :placeholder="$t('card.installmentNumber')">
+        <el-option
+          v-for="option in handleInstallments"
+          :key="option.number"
+          :label="option.number + 'x' +
+            $t('general.of') + formatMoney(option.value) +
+            (option.tax ? '' : ' ' + $t('card.interestFree'))"
+          :value="option.number">
+        </el-option>
+      </el-select>
+    </el-form-item>
+
     <el-form-item size="mini">
       <el-checkbox v-model="sameAddress" class="_creditcard-same-address">
         {{ $t('card.sameAddress') }}
@@ -114,7 +133,7 @@ import AddressForm from '@/components/routes/account/AddressForm'
 import cardValidator from 'card-validator'
 import isValidCpf from '@brazilian-utils/is-valid-cpf'
 import isValidCnpj from '@brazilian-utils/is-valid-cnpj'
-import { addRule, checkMask } from '@/lib/utils'
+import { addRule, checkMask, formatMoney, compareStrings } from '@/lib/utils'
 
 export default {
   name: 'CreditCard',
@@ -125,14 +144,28 @@ export default {
 
   props: [
     'checkHolder',
-    'skipHolderInfo'
+    'skipHolderInfo',
+    'installmentOptions'
   ],
 
   data () {
+    // require instalment number if options are defined
+    let handleInstallments
+    if (this.installmentOptions && this.installmentOptions.length) {
+      handleInstallments = this.installmentOptions.concat().sort((a, b) => {
+        // sort installment options by number
+        return a.number - b.number
+      })
+    }
+
     // setup form validation rules
     let rules = {}
     // handle required form fields
-    ;[ 'number', 'name', 'validate', 'cvv' ].forEach((label) => {
+    let required = [ 'number', 'name', 'validate', 'cvv' ]
+    if (handleInstallments) {
+      required.push('installment')
+    }
+    required.forEach((label) => {
       addRule(label, { required: true, message: this.$t('validate.required') }, rules)
     })
     // min field length for holder name
@@ -217,12 +250,14 @@ export default {
         validate: '',
         cvv: '',
         birth: '',
-        doc: ''
+        doc: '',
+        installment: ''
       },
       rules,
       sameAddress: true,
       sameHolder: false,
-      hideHolderFields: (this.skipHolderInfo || this.checkHolder),
+      hideHolderFields: !!(this.skipHolderInfo || this.checkHolder),
+      handleInstallments,
 
       cardMask: {
         mask: [
@@ -255,6 +290,8 @@ export default {
   },
 
   methods: {
+    formatMoney,
+
     getBrand () {
       // preset invalid
       this.validatedNumber = false
@@ -341,7 +378,7 @@ export default {
         if (name === '') {
           // ampty holder name
           this.hideHolderFields = true
-        } else if (name.localeCompare(this.checkHolder, 'en', { sensitivity: 'base' }) === 0) {
+        } else if (compareStrings(this.checkHolder, name.replace(/(\s.*)/, ''))) {
           // holder name matched
           this.hideHolderFields = true
           // reset doc and birth fields

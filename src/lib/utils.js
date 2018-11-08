@@ -36,3 +36,9 @@ export function formatMoney (price, currency = DEFAULT_CURRENCY, lang = DEFAULT_
   }
   return priceString
 }
+
+// compare strings without accents
+export function compareStrings (base, compare) {
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
+  return base.localeCompare(compare, 'en', { sensitivity: 'base' }) === 0
+}

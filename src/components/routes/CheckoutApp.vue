@@ -146,7 +146,8 @@
                       <credit-card
                         v-if="gateway.payment_method.code === 'credit_card'"
                         :skipHolderDoc="gateway.skip_holder_info"
-                        :checkHolder="checkCustomerName"/>
+                        :checkHolder="checkCustomerName"
+                        :installmentOptions="gateway.installment_options"/>
                       <span v-else>{{ gateway.label }}</span>
                     </el-tab-pane>
                   </el-tabs>

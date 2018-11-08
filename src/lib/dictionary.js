@@ -7,7 +7,8 @@ export default {
       toCalculate: 'to calculate',
       add: 'Add',
       proceed: 'Proceed',
-      success: 'Changes saved successfully'
+      success: 'Changes saved successfully',
+      of: ' of '
     },
     session: {
       hi: 'Hello',
@@ -65,6 +66,8 @@ export default {
       validate: 'Card valid thru',
       securityCode: 'Security code',
       installment: 'Installment',
+      installmentNumber: 'Number of installments',
+      interestFree: 'interest-free',
       cvvHelp: '3 or 4 digit number, usually on back of card. In front of American Express cards.',
       cvvHelpNonAmex: '3 last digits behind the card.',
       cvvHelpAmex: '4 digits in front of the card.',
@@ -143,7 +146,8 @@ export default {
       toCalculate: 'a calcular',
       add: 'Adicionar',
       proceed: 'Prosseguir',
-      success: 'Alterações salvas com sucesso'
+      success: 'Alterações salvas com sucesso',
+      of: ' de '
     },
     session: {
       hi: 'Olá',
@@ -209,6 +213,8 @@ export default {
       validate: 'Validade do cartão',
       securityCode: 'Código de segurança',
       installment: 'Parcelar em',
+      installmentNumber: 'Número de parcelas',
+      interestFree: 'sem juros',
       cvvHelp: '3 ou 4 dígitos, geralmente no verso do cartão. Na frente em cartões American Express.',
       cvvHelpNonAmex: 'Três últimos dígitos atrás do cartão.',
       cvvHelpAmex: 'Quatro dígitos na frente do cartão.',
