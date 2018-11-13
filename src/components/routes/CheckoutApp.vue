@@ -216,7 +216,7 @@
 
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
-import { formatMoney } from '@/lib/utils'
+import { formatMoney, updateTitle } from '@/lib/utils'
 import RegistrationForm from '@/components/routes/account/RegistrationForm'
 import AddressList from '@/components/routes/account/AddressList'
 import ShippingServices from '@/components/routes/cart/ShippingServices'
@@ -253,7 +253,8 @@ export default {
       'customerEmail',
       'customerAddress',
       'isCustomerLogged',
-      'paymentGateways'
+      'paymentGateways',
+      'shopName'
     ]),
 
     checkCustomerName () {
@@ -316,6 +317,8 @@ export default {
     if (this.checkoutZip !== '') {
       this.shippingZip = this.checkoutZip
     }
+    // update header title
+    updateTitle(this.$t('checkout.title'), this.shopName)
   },
 
   mounted () {

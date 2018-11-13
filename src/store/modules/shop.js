@@ -10,7 +10,10 @@ const state = {
 }
 
 const getters = {
-  shop: state => state.body
+  shop: state => state.body,
+
+  // auxiliary maps
+  shopName: state => state.body.name
 }
 
 export default {

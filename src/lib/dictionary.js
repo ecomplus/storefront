@@ -24,7 +24,7 @@ export default {
       secure: 'Safe environment'
     },
     cart: {
-      title: 'Cart',
+      title: 'Shopping cart',
       oneItem: 'One item',
       items: 'items',
       removeItem: 'Remove',
@@ -166,7 +166,7 @@ export default {
       secure: 'Ambiente seguro'
     },
     cart: {
-      title: 'Carrinho',
+      title: 'Carrinho de compras',
       oneItem: 'Um item',
       items: 'itens',
       removeItem: 'Remover',

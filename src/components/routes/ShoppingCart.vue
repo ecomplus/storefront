@@ -158,7 +158,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { formatMoney } from '@/lib/utils'
+import { formatMoney, updateTitle } from '@/lib/utils'
 import DiscountCoupon from '@/components/routes/cart/DiscountCoupon'
 import ShippingServices from '@/components/routes/cart/ShippingServices'
 
@@ -183,7 +183,8 @@ export default {
     'checkout',
     'checkoutShipping',
     'checkoutZip',
-    'customer'
+    'customer',
+    'shopName'
   ]),
 
   methods: {
@@ -222,6 +223,8 @@ export default {
     })
     // preset zip from checkout state
     this.shippingZip = this.checkoutZip
+    // update header title
+    updateTitle(this.$t('cart.title'), this.shopName)
   }
 }
 </script>

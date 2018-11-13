@@ -17,16 +17,32 @@
 // base layout components
 import TopBar from '@/components/layout/TopBar'
 // from Vuex store
-import { mapState } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
+// auxiliary functions
+import { updateTitle } from '@/lib/utils'
 
 export default {
   name: 'App',
   components: {
     TopBar
   },
-  computed: mapState([
-    'loading'
-  ])
+
+  computed: {
+    ...mapState([
+      'loading'
+    ]),
+    ...mapGetters([
+      'shopName'
+    ])
+  },
+
+  watch: {
+    shopName (name) {
+      // shop info loaded
+      // update document title
+      updateTitle(null, name)
+    }
+  }
 }
 </script>
 

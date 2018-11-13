@@ -38,13 +38,15 @@
 
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
+import { updateTitle } from '@/lib/utils'
 
 export default {
   name: 'MyAccount',
 
   computed: mapGetters([
     'customer',
-    'isCustomerLogged'
+    'isCustomerLogged',
+    'shopName'
   ]),
 
   methods: {
@@ -59,6 +61,11 @@ export default {
       // redirect to current tab
       this.$router.push({ name: tab.name })
     }
+  },
+
+  created () {
+    // update header title
+    updateTitle(this.$t('session.account'), this.shopName)
   }
 }
 </script>

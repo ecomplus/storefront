@@ -42,3 +42,18 @@ export function compareStrings (base, compare) {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
   return base.localeCompare(compare, 'en', { sensitivity: 'base' }) === 0
 }
+
+// update page title header
+export function updateTitle (title, subtitle) {
+  // global document
+  if (typeof document === 'object' && document !== null) {
+    if (!title) {
+      // get current title
+      title = document.title || ''
+    }
+    if (subtitle) {
+      title += ' · ' + subtitle
+    }
+    document.title = title
+  }
+}
