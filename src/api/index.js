@@ -80,4 +80,11 @@ Api.session = {
   logout: EcomPassport.logout
 }
 
+Api.modules = {
+  // some methods from Modules API
+  shipping: body => promise(cb => EcomIo.calculateShipping(cb, body)),
+  payment: body => promise(cb => EcomIo.listPayments(cb, body)),
+  checkout: body => promise(cb => EcomIo.checkout(cb, body))
+}
+
 export default Api

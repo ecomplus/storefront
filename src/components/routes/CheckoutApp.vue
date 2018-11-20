@@ -142,12 +142,24 @@
                           icon="barcode" class="__icon-mr"></a-icon>
                         {{ gateway.label }}
                       </span>
+                      <p class="_invoice-payment-text" v-if="gateway.text">
+                        {{ gateway.text }}
+                      </p>
+
                       <credit-card
                         v-if="gateway.payment_method.code === 'credit_card'"
                         :skipHolderDoc="gateway.skip_holder_info"
                         :checkHolder="checkCustomerName"
-                        :installmentOptions="gateway.installment_options"/>
-                      <span v-else>{{ gateway.label }}</span>
+                        :installmentOptions="gateway.installment_options"
+                        @submit-form="(data) => { checkout(data) }"/>
+                      <span v-else>
+                        <el-button type="success" @click="() => { checkout() }" class="_invoice-pay">
+                          {{ gateway.payment_method.code === 'banking_billet' ?
+                            $t('checkout.bankingBillet') : $t('card.checkout') }}
+                        </el-button>
+                      </span>
+
+                      <img v-if="gateway.icon" :src="gateway.icon" class="_invoice-payment-icon"/>
                     </el-tab-pane>
                   </el-tabs>
                 </div>
@@ -305,6 +317,9 @@ export default {
         // identify
         this.activeStep = 0
       }
+    },
+
+    checkout (paymentData) {
     }
   },
 
@@ -402,6 +417,18 @@ export default {
 ._invoice-payment ._invoice-payment-title {
   margin-top: $--card-padding;
   text-align: left;
+}
+._invoice-payment-text {
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
+}
+._invoice-payment-icon {
+  margin: 0 auto;
+}
+._invoice-pay {
+  padding: $--card-padding $--card-padding * 2;
+  font-size: $--font-size-large;
 }
 ._summary-subtotal,
 ._summary-freigth {
