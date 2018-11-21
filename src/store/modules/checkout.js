@@ -261,8 +261,36 @@ const actions = {
         subtotal: rootGetters.cart.subtotal
       }
     }
-    return dispatch('api', [ 'module', 'payment', body ], { root: true }).then(() => {
+    return dispatch('api', [ 'module', 'payment', body ], { root: true }).then(result => {
       // save payment gateways
+      console.log(result)
+    })
+  },
+
+  // handle checkout
+  doCheckout ({ dispatch, getters, rootGetters }, payload) {
+    // checkout from Modules API
+    // https://apx-mods.e-com.plus/api/v1/@checkout/schema.json?store_id=100
+    let body = {
+      items: rootGetters.extendedCartItems,
+      shipping: {
+        ...getters.checkoutShipping,
+        to: payload.shippingAddress
+      },
+      payment: {
+        ...getters.checkoutPayment,
+        buyer: payload.buyer,
+        ...payload.paymentData
+      },
+      amount: {
+        ...state.amount,
+        subtotal: rootGetters.cart.subtotal
+      }
+    }
+
+    return dispatch('api', [ 'module', 'payment', body ], { root: true }).then(order => {
+      // handle response with order body
+      console.log(order)
     })
   }
 }

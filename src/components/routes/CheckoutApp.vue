@@ -151,9 +151,9 @@
                         :skipHolderDoc="gateway.skip_holder_info"
                         :checkHolder="checkCustomerName"
                         :installmentOptions="gateway.installment_options"
-                        @submit-form="(data) => { checkout(data) }"/>
+                        @submit-form="(data) => { doCheckout(data) }"/>
                       <span v-else>
-                        <el-button type="success" @click="() => { checkout() }" class="_invoice-pay">
+                        <el-button type="success" @click="() => { doCheckout() }" class="_invoice-pay">
                           {{ gateway.payment_method.code === 'banking_billet' ?
                             $t('checkout.bankingBillet') : $t('card.checkout') }}
                         </el-button>
@@ -319,7 +319,10 @@ export default {
       }
     },
 
-    checkout (paymentData) {
+    doCheckout (paymentData) {
+      if (!paymentData) {
+
+      }
     }
   },
 
@@ -327,7 +330,13 @@ export default {
     // reload cart data
     this.loadCart({ id: this.$route.params.id }).finally(() => {
       this.cartLoading = false
+      if (!this.cart.items.length) {
+        // empty cart
+        // back to shopping cart
+        this.$router.push({ name: 'cart' })
+      }
     })
+
     // setup current zip code
     if (this.checkoutZip !== '') {
       this.shippingZip = this.checkoutZip
