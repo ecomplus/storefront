@@ -29,6 +29,9 @@ const promise = fn => {
   })
 }
 
+// wait API ready
+export const wait = Promise
+
 Api.init = debug => {
   let fn
   if (debug) {
@@ -49,11 +52,9 @@ Api.init = debug => {
     }
     EcomPassport.init(body.store_id, lang)
     // resolve as Store ID is ready
-    Api.wait.resolve()
+    wait.resolve()
   })
 }
-
-Api.wait = new Promise()
 
 Api.get = {
   shop: () => promise(cb => EcomIo.getStore(cb)),
