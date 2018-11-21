@@ -8,8 +8,6 @@ import store from './store'
 // Element UI kit
 // http://element.eleme.io
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-import 'element-ui/lib/theme-chalk/display.css'
 
 // internationalization
 import VueI18n from 'vue-i18n'

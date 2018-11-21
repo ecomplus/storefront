@@ -51,6 +51,9 @@ export default {
 @import '../node_modules/normalize.css/normalize.css';
 // Element UI theme variables
 @import '../node_modules/element-theme-chalk/src/common/var.scss';
+// Components CSS
+@import '../node_modules/element-ui/lib/theme-chalk/index.css';
+@import '../node_modules/element-ui/lib/theme-chalk/display.css';
 
 // general styles
 body {
