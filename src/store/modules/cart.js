@@ -198,6 +198,7 @@ const actions = {
         if (id) {
           // try to get from Store API with cart ID
           wait.then(() => {
+            console.log(1)
             dispatch('api', [ 'get', module, id ], { root: true }).then(resolve).catch(reject)
           })
           return

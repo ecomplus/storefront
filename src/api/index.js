@@ -30,31 +30,31 @@ const promise = fn => {
 }
 
 // wait API ready
-export const wait = Promise
-
-Api.init = debug => {
-  let fn
-  if (debug) {
-    // test
-    fn = cb => EcomIo.init(cb, 1011, '5b1abe30a4d4531b8fe40725')
-  } else {
-    // production
-    fn = cb => EcomIo.init(cb, STORE_ID, STORE_OBJECT_ID)
-  }
-
-  return promise(fn).then(body => {
-    // init passport
-    let lang
-    if (body.default_lang) {
-      lang = body.default_lang
+export let wait = new Promise(resolve => {
+  Api.init = debug => {
+    let fn
+    if (debug) {
+      // test
+      fn = cb => EcomIo.init(cb, 1011, '5b1abe30a4d4531b8fe40725')
     } else {
-      lang = DEFAULT_LANG
+      // production
+      fn = cb => EcomIo.init(cb, STORE_ID, STORE_OBJECT_ID)
     }
-    EcomPassport.init(body.store_id, lang)
-    // resolve as Store ID is ready
-    wait.resolve()
-  })
-}
+
+    return promise(fn).then(body => {
+      // init passport
+      let lang
+      if (body.default_lang) {
+        lang = body.default_lang
+      } else {
+        lang = DEFAULT_LANG
+      }
+      EcomPassport.init(body.store_id, lang)
+      // resolve as Store ID is ready
+      resolve()
+    })
+  }
+})
 
 Api.get = {
   shop: () => promise(cb => EcomIo.getStore(cb)),
