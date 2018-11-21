@@ -48,8 +48,12 @@ Api.init = debug => {
       lang = DEFAULT_LANG
     }
     EcomPassport.init(body.store_id, lang)
+    // resolve as Store ID is ready
+    Api.wait.resolve()
   })
 }
+
+Api.wait = new Promise()
 
 Api.get = {
   shop: () => promise(cb => EcomIo.getStore(cb)),

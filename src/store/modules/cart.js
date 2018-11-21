@@ -1,3 +1,6 @@
+// abstractions for making API requests
+import { wait } from '@/api'
+
 const module = 'cart'
 // initial state
 // https://developers.e-com.plus/docs/api/#/store/carts
@@ -194,7 +197,9 @@ const actions = {
 
         if (id) {
           // try to get from Store API with cart ID
-          dispatch('api', [ 'get', module, id ], { root: true }).then(resolve).catch(reject)
+          wait.then(() => {
+            dispatch('api', [ 'get', module, id ], { root: true }).then(resolve).catch(reject)
+          })
           return
         } else if (!items.length) {
           // try to load JSON from client storage
