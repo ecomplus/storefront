@@ -203,14 +203,20 @@ const actions = {
   },
 
   // update shipping services list
-  initShippingServices ({ commit }) {
+  initShippingServices ({ state, commit, dispatch, rootGetters }) {
     // mark loading
     commit('toggleShippingLoading')
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve()
-      }, 400)
-    }).then(() => {
+
+    // get shipping options from Modules API
+    // https://apx-mods.e-com.plus/api/v1/calculate_shipping/schema.json?store_id=100
+    let body = {
+      items: rootGetters.extendedCartItems,
+      to: {
+        zip: state.shipping.zip
+      },
+      subtotal: rootGetters.cart.subtotal
+    }
+    return dispatch('api', [ 'module', 'shipping', body ], { root: true }).then(() => {
       // select one shipping option
       commit('selectShippingService')
     }).finally(() => {
@@ -248,8 +254,19 @@ const actions = {
   },
 
   // update payment gateway options list
-  initPaymentGateways ({ commit }) {
-    return Promise.resolve()
+  initPaymentGateways ({ state, commit, dispatch, rootGetters }) {
+    // list payments options from Modules API
+    // https://apx-mods.e-com.plus/api/v1/list_payments/schema.json?store_id=100
+    let body = {
+      items: rootGetters.extendedCartItems,
+      amount: {
+        ...state.amount,
+        subtotal: rootGetters.cart.subtotal
+      }
+    }
+    return dispatch('api', [ 'module', 'payment', body ], { root: true }).then(() => {
+      // save payment gateways
+    })
   }
 }
 

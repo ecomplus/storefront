@@ -4,7 +4,8 @@ const module = 'cart'
 const state = {
   body: {
     _id: null,
-    items: []
+    items: [],
+    subtotal: 0
   }
 }
 
@@ -127,11 +128,13 @@ const mutations = {
               }
             }
 
-            // save product properties that can be changed on item object
+            // save product properties that can be changed or handled on item object
             item._product = {}
             ;[
               'slug',
-              'gift_wraps'
+              'gift_wraps',
+              'dimensions',
+              'weight'
               /* @TODO: treat properties
               'variations',
               'customizations',
@@ -160,7 +163,24 @@ const mutations = {
 }
 
 const getters = {
-  cart: state => state.body
+  cart: state => state.body,
+
+  // map items with body extended from products data
+  extendedCartItems: state => {
+    return state.body.items.map(item => {
+      // merge item with product data
+      let extendedItem = { ...item._product, ...item }
+      // remove empty and not used objects
+      delete extendedItem._product
+      for (let prop in extendedItem) {
+        let obj = extendedItem[prop]
+        if (typeof obj === 'object' && obj !== null && !Object.keys(obj).length) {
+          delete extendedItem[prop]
+        }
+      }
+      return extendedItem
+    })
+  }
 }
 
 const actions = {

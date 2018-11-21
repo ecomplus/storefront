@@ -29,7 +29,9 @@ const mutations = {
       quantity: 9999,
       min_quantity: 0,
       variations: [],
-      gift_wraps: []
+      gift_wraps: [],
+      dimensions: {},
+      weight: {}
     })
   },
 
