@@ -195,6 +195,8 @@ const actions = {
         // test with current state body
         let { items } = state.body
 
+        console.log(items, id)
+
         if (id && /^[a-f0-9]{24}$/.test(id)) {
           // try to get from Store API with cart ID
           wait.then(() => {
