@@ -16,40 +16,7 @@ const state = {
     timer: null,
     error: {},
     zip: '',
-    // mock options for sample only
-    services: [{
-      label: 'PAC',
-      carrier: 'Correios',
-      service_name: 'PAC',
-      shipping_line: {
-        total_price: 7,
-        posting_deadline: {
-          days: 3,
-          working_days: true
-        },
-        delivery_time: {
-          days: 10,
-          working_days: true
-        }
-      },
-      selected: false
-    }, {
-      label: 'SEDEX',
-      carrier: 'Correios',
-      service_name: 'SEDEX',
-      shipping_line: {
-        total_price: 10,
-        posting_deadline: {
-          days: 3,
-          working_days: true
-        },
-        delivery_time: {
-          days: 5,
-          working_days: true
-        }
-      },
-      selected: false
-    }]
+    services: []
   },
   payment: {
     // mock options for sample only
@@ -146,6 +113,11 @@ const mutations = {
         service.selected = false
       }
     })
+  },
+
+  // reset available shipping services
+  setShippingServices (state, services) {
+    state.shipping.services = services
   }
 }
 
@@ -216,7 +188,32 @@ const actions = {
       },
       subtotal: rootGetters.cart.subtotal
     }
-    return dispatch('api', [ 'module', 'shipping', body ], { root: true }).then(() => {
+
+    // call module endpoint
+    return dispatch('api', [ 'module', 'shipping', body ], { root: true }).then(body => {
+      // update available shipping services
+      let services = []
+      body.result.forEach(result => {
+        if (result.validated) {
+          result.response.shipping_services.forEach(service => {
+            let serviceObj = {
+              app_id: result.app_id,
+              selected: false,
+              ...service
+            }
+            // fix shipping line
+            let line = serviceObj.shipping_line
+            if (line && line.price && !line.total_price) {
+              // set total price same as price
+              line.total_price = line.price
+            }
+            services.push(serviceObj)
+          })
+        }
+      })
+
+      // handle shipping methods state change
+      commit('setShippingServices', services)
       // select one shipping option
       commit('selectShippingService')
     }).finally(() => {

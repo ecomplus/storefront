@@ -121,12 +121,14 @@ export default {
 }
 ._shipping-label::before {
   content: ' / ';
-}
-._shipping-deadline {
-  font-weight: 600;
+  font-size: $--font-size-small;
 }
 ._shipping-freight::before {
   content: ' - ';
+  font-size: $--font-size-small;
+}
+._shipping-selected ._shipping-deadline {
+  font-weight: 600;
 }
 ._shipping-selected,
 ._shipping-service:hover {
