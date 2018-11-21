@@ -207,6 +207,7 @@ const actions = {
           let db = window.localStorage
           if (db) {
             let json = db.getItem('cart')
+            console.log(json)
             if (json) {
               let items
               try {
