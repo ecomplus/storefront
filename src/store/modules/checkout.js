@@ -312,7 +312,7 @@ const actions = {
         transaction.installments_number = installment
       }
       if (number && cvv && name && hash) {
-        transaction.credir_card = {
+        transaction.credit_card = {
           holder_name: payload.name,
           last_digits: payload.number.slice(-4),
           save: true,
