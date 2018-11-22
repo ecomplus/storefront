@@ -59,7 +59,10 @@ export default {
       confirmation: 'Thanks',
       haveCoupon: 'Do you have a coupon?',
       bankingBillet: 'Generate billet',
-      printBillet: 'Print billet'
+      printBillet: 'Print billet',
+      redirectToPayment: 'Redirect to payment',
+      orderCreated: 'Order created',
+      doPaymentText: 'Please finalize the payment to confirm your purchase'
     },
     card: {
       number: 'Card number',
@@ -212,7 +215,10 @@ export default {
       confirmation: 'Obrigado',
       haveCoupon: 'Possui cupom ou vale?',
       bankingBillet: 'Gerar boleto',
-      printBillet: 'Imprimir boleto'
+      printBillet: 'Imprimir boleto',
+      redirectToPayment: 'Efetuar pagamento',
+      orderCreated: 'Recebemos seu pedido',
+      doPaymentText: 'Por favor finalize o pagamento para confirmar sua compra'
     },
     card: {
       number: 'Número do cartão',

@@ -269,6 +269,7 @@ export default {
       'customerPhones',
       'isCustomerLogged',
       'paymentGateways',
+      'checkoutPayment',
       'shopName'
     ]),
 
@@ -337,7 +338,44 @@ export default {
     },
 
     doCheckout (paymentData) {
-      this.handleCheckout(paymentData)
+      this.handleCheckout(paymentData).then({ order, transaction } => {
+        // payment confirmation modal
+        if (transaction.payment_link) {
+          let payText, payLink
+          if (this.checkoutPayment.payment_method.code === 'banking_billet') {
+            payText = this.$t('checkout.printBillet')
+          } else {
+            payText = this.$t('checkout.redirectToPayment')
+          }
+          if (transaction.banking_billet && transaction.banking_billet.link) {
+            payLink = transaction.banking_billet.link
+          } else {
+            payLink = transaction.payment_link
+          }
+
+          this.$alert(this.$t('checkout.doPaymentText'), this.$t('checkout.orderCreated'), {
+            confirmButtonText: payText,
+            callback: action => {
+              // redirect to payment
+              window.open(payLink, '_blank')
+            }
+          })
+        } else {
+          this.$message({
+            type: 'success',
+            message: `action: ${ action }`
+          })
+        }
+      })
+
+      .catch(e => {
+        // show notification
+        this.$message({
+          showClose: true,
+          message: this.$t('checkout.orderCreated'),
+          type: 'danger'
+        })
+      })
     }
   },
 

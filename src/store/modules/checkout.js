@@ -341,23 +341,15 @@ const actions = {
     }
 
     return dispatch('api', [ 'module', 'checkout', body ], { root: true }).then(response => {
-      // handle response with order body
+      // handle response with order and transaction body
       let { transaction } = response
       // console.log(order)
       if (transaction.redirect_to_payment && transaction.payment_link) {
         // redirect payment links
         window.location = transaction.payment_link
       }
-    })
-
-    .catch(err => {
+    }).catch(err => {
       console.error(err)
-      // show notification
-      this.$message({
-        showClose: true,
-        message: this.$t('checkout.printBillet'),
-        type: 'danger'
-      })
     })
   }
 }
