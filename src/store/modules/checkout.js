@@ -312,6 +312,10 @@ const actions = {
         transaction.installments_number = installment
       }
       if (number && cvv && name && hash) {
+        if (typeof cvv === 'string') {
+          // CVV must be integer
+          cvv = parseInt(cvv, 10)
+        }
         transaction.credit_card = {
           holder_name: payload.name,
           last_digits: payload.number.slice(-4),
