@@ -58,7 +58,8 @@ export default {
       paymentMethods: 'Payment methods',
       confirmation: 'Thanks',
       haveCoupon: 'Do you have a coupon?',
-      bankingBillet: 'Generate billet'
+      bankingBillet: 'Generate billet',
+      printBillet: 'Print billet'
     },
     card: {
       number: 'Card number',
@@ -210,7 +211,8 @@ export default {
       paymentMethods: 'Formas de pagamento',
       confirmation: 'Obrigado',
       haveCoupon: 'Possui cupom ou vale?',
-      bankingBillet: 'Gerar boleto'
+      bankingBillet: 'Gerar boleto',
+      printBillet: 'Imprimir boleto'
     },
     card: {
       number: 'Número do cartão',

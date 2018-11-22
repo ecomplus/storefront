@@ -346,12 +346,7 @@ export default {
             let data = this.form
             if (data.doc !== '') {
               // check document number
-              if (data.doc.length !== 18) {
-                if (!isValidCnpj(data.doc)) {
-                  // invalid business document
-                  notify = this.$t('account.businessDoc')
-                }
-              } else if (!isValidCpf(data.doc)) {
+              if (!isValidCnpj(data.doc) && !isValidCpf(data.doc)) {
                 // invalid personal document number
                 notify = this.$t('account.personalDoc')
               }

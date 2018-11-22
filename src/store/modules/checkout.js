@@ -328,7 +328,7 @@ const actions = {
       if (name && doc) {
         transaction.payer = {
           fullname: name,
-          doc_number: doc
+          doc_number: doc.replace(/\D/g, '')
         }
         if (birth) {
           // same birth date object as customer
@@ -340,11 +340,24 @@ const actions = {
       transaction.billing_address = rootGetters.customerAddress
     }
 
-    return dispatch('api', [ 'module', 'checkout', body ], { root: true }).then(order => {
+    return dispatch('api', [ 'module', 'checkout', body ], { root: true }).then(response => {
       // handle response with order body
-      console.log(order)
-    }).catch(err => {
+      let { transaction } = response
+      // console.log(order)
+      if (transaction.redirect_to_payment && transaction.payment_link) {
+        // redirect payment links
+        window.location = transaction.payment_link
+      }
+    })
+
+    .catch(err => {
       console.error(err)
+      // show notification
+      this.$message({
+        showClose: true,
+        message: this.$t('checkout.printBillet'),
+        type: 'danger'
+      })
     })
   }
 }
