@@ -338,7 +338,7 @@ export default {
     },
 
     doCheckout (paymentData) {
-      this.handleCheckout(paymentData).then({ order, transaction } => {
+      this.handleCheckout(paymentData).then(({ order, transaction }) => {
         // payment confirmation modal
         if (transaction.payment_link) {
           let payText, payLink
