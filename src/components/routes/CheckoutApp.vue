@@ -131,10 +131,11 @@
                   <h2 class="_invoice-payment-title">
                     {{ $t('checkout.paymentMethods') }}
                   </h2>
-                  <el-tabs type="border-card" shadow="never">
+                  <el-tabs type="border-card" shadow="never" @tab-click="changePayment">
                     <el-tab-pane
                       v-for="(gateway, index) in paymentGateways"
-                      :key="index + gateway.label">
+                      :key="index + gateway.label"
+                      :data-index="index">
                       <span slot="label">
                         <a-icon v-if="gateway.payment_method.code === 'credit_card'"
                           icon="credit-card" class="__icon-mr"></a-icon>
@@ -151,7 +152,8 @@
                         :skipHolderDoc="gateway.skip_holder_info"
                         :checkHolder="checkCustomerName"
                         :installmentOptions="gateway.installment_options"
-                        @submit-form="(data) => { doCheckout(data) }"/>
+                        :jsClient="gateway.js_client"
+                        @submit-form="data => { doCheckout(data) }"/>
                       <span v-else>
                         <el-button type="success" @click="() => { doCheckout() }" class="_invoice-pay">
                           {{ gateway.payment_method.code === 'banking_billet' ?
@@ -286,11 +288,13 @@ export default {
     ...mapActions([
       'loadCart',
       'setCheckoutZip',
+      'handleCheckout',
       'initPaymentGateways',
       'login'
     ]),
     ...mapMutations([
-      'logout'
+      'logout',
+      'selectPaymentGateway'
     ]),
     formatMoney,
 
@@ -307,7 +311,10 @@ export default {
             // load payment methods
             this.initPaymentGateways().catch(err => {
               // alert
-            }).then(() => this.checkoutLoading = false)
+            }).then(() => {
+              this.selectPaymentGateway()
+              this.checkoutLoading = false
+            })
           })
         } else {
           // shipping
@@ -319,10 +326,12 @@ export default {
       }
     },
 
-    doCheckout (paymentData) {
-      if (!paymentData) {
+    changePayment ({ $el }) {
+      this.selectPaymentGateway(parseInt($el.dataset.index, 10))
+    },
 
-      }
+    doCheckout (paymentData) {
+      this.handleCheckout(paymentData)
     }
   },
 

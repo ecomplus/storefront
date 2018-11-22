@@ -19,57 +19,7 @@ const state = {
     services: []
   },
   payment: {
-    // mock options for sample only
-    gateways: [{
-      icon: 'https://www.icon.com/icon.png',
-      installment_options: [{
-        number: 12,
-        tax: true,
-        value: 111.375
-      }, {
-        number: 6,
-        tax: false,
-        value: 202.5
-      }],
-      intermediator: {
-        code: 'wirecard',
-        link: 'https://www.wirecard.com.br',
-        name: 'Wirecard'
-      },
-      label: 'Cartão de credito',
-      payment_method: {
-        code: 'credit_card',
-        name: 'Cartão de crédito'
-      },
-      payment_url: 'https://www.wiredcard.com.br/payment',
-      type: 'payment'
-    }, {
-      intermediator: {
-        code: 'wirecard',
-        link: 'https://www.wirecard.com.br',
-        name: 'Wirecard'
-      },
-      label: 'Boleto bancário',
-      payment_method: {
-        code: 'banking_billet',
-        name: 'Boleto bancário'
-      },
-      payment_url: 'https://www.wiredcard.com.br/payment',
-      type: 'payment'
-    }, {
-      intermediator: {
-        'code': 'wirecard',
-        'link': 'https://www.wirecard.com.br',
-        'name': 'Wirecard'
-      },
-      label: 'Débito online',
-      payment_method: {
-        'code': 'online_bank_debit',
-        'name': 'Débito online'
-      },
-      payment_url: 'https://www.wiredcard.com.br/payment',
-      type: 'payment'
-    }]
+    gateways: []
   }
 }
 
@@ -115,9 +65,31 @@ const mutations = {
     })
   },
 
+  // mark selected payment gateway from list
+  selectPaymentGateway (state, value = 0) {
+    state.payment.gateways.forEach((gateway, index) => {
+      if (index === value) {
+        gateway.selected = true
+        let { discount } = gateway
+        if (discount) {
+          // discount by payment method
+          // update checkout discount and total value
+          // TODO: handle discount
+        }
+      } else {
+        gateway.selected = false
+      }
+    })
+  },
+
   // reset available shipping services
   setShippingServices (state, services) {
     state.shipping.services = services
+  },
+
+  // reset available payment gateways
+  setPaymentGateways (state, gateways) {
+    state.payment.gateways = gateways
   }
 }
 
@@ -261,36 +233,113 @@ const actions = {
         subtotal: rootGetters.cart.subtotal
       }
     }
-    return dispatch('api', [ 'module', 'payment', body ], { root: true }).then(result => {
-      // save payment gateways
-      console.log(result)
+
+    // call module endpoint
+    return dispatch('api', [ 'module', 'payment', body ], { root: true }).then(body => {
+      // update available shipping services
+      let gateways = []
+      body.result.forEach(result => {
+        if (result.validated) {
+          result.response.payment_gateways.forEach(gateway => {
+            gateways.push({
+              app_id: result.app_id,
+              selected: false,
+              ...gateway
+            })
+          })
+        }
+      })
+
+      // handle payment methods state change
+      commit('setPaymentGateways', gateways)
     })
   },
 
-  // handle checkout
-  doCheckout ({ dispatch, getters, rootGetters }, payload) {
+  // handle checkout request
+  handleCheckout ({ dispatch, getters, rootGetters }, payload) {
     // checkout from Modules API
     // https://apx-mods.e-com.plus/api/v1/@checkout/schema.json?store_id=100
+    let customer = { ...rootGetters.customer }
+    // remove null properties from customer
+    for (let prop in customer) {
+      if (customer.hasOwnProperty(prop) && customer[prop] === null) {
+        delete customer[prop]
+      }
+    }
+
+    // setup transaction body
+    let transaction = {
+      ...getters.checkoutPayment,
+      buyer: {
+        email: rootGetters.customerEmail,
+        fullname: rootGetters.customerName
+      }
+    }
+    // copy info from customer to buyer object
+    ;[
+      'inscription_number',
+      'inscription_type',
+      'doc_number',
+      'doc_country',
+      'registry_type',
+      'birth_date',
+      'gender'
+    ].forEach(prop => {
+      let value = rootGetters.customer[prop]
+      if (value) {
+        transaction.buyer[prop] = value
+      }
+    })
+    if (rootGetters.customer.phones.length) {
+      transaction.buyer.phone = rootGetters.customer.phones[0]
+    }
+
+    // checkout request body
     let body = {
       items: rootGetters.extendedCartItems,
       shipping: {
         ...getters.checkoutShipping,
-        to: payload.shippingAddress
+        to: rootGetters.customerAddress
       },
-      payment: {
-        ...getters.checkoutPayment,
-        buyer: payload.buyer,
-        ...payload.paymentData
-      },
-      amount: {
-        ...state.amount,
-        subtotal: rootGetters.cart.subtotal
+      transaction,
+      customer
+    }
+
+    // treat credit card payment data
+    if (payload) {
+      let { number, name, hash, cvv, doc, birth, installment, address } = payload
+      if (installment) {
+        transaction.installments_number = installment
+      }
+      if (number && cvv && name && hash) {
+        transaction.credir_card = {
+          holder_name: payload.name,
+          last_digits: payload.number.slice(-4),
+          save: true,
+          hash,
+          cvv
+        }
+      }
+      if (address) {
+        transaction.billing_address = address
+      }
+      if (name && doc) {
+        transaction.payer = {
+          fullname: name,
+          doc_number: doc
+        }
+        if (birth) {
+          // same birth date object as customer
+          transaction.payer.birth_date = rootGetters.parseCustomerBirth(birth).birth_date
+        }
       }
     }
 
-    return dispatch('api', [ 'module', 'payment', body ], { root: true }).then(order => {
+    return dispatch('api', [ 'module', 'checkout', body ], { root: true }).then(order => {
       // handle response with order body
       console.log(order)
+    }).catch(err => {
+      console.error(err)
     })
   }
 }

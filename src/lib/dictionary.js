@@ -84,7 +84,8 @@ export default {
       invalidForm: 'Credit card info is incomplete or invalid, please check',
       editNumber: 'Edit card number',
       confirmNumber: 'Confirm number',
-      potentiallyValid: 'The card number appears to be incorrect, please check typing errors'
+      potentiallyValid: 'The card number appears to be incorrect, please check typing errors',
+      atSight: 'at sight'
     },
     shipping: {
       loading: 'Loading shipping methods',
@@ -235,7 +236,8 @@ export default {
       invalidForm: 'Dados do cartão incompletos ou inválidos, por favor verifique',
       editNumber: 'Editar número do cartão',
       confirmNumber: 'Confirmar número',
-      potentiallyValid: 'O número do cartão parece estar incorreto, por favor verifique erros de digitação'
+      potentiallyValid: 'O número do cartão parece estar incorreto, por favor verifique erros de digitação',
+      atSight: 'à vista'
     },
     account: {
       registration: 'Cadastro',

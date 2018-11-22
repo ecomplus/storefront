@@ -95,6 +95,10 @@
         class="__input-sm"
         :placeholder="$t('card.installmentNumber')">
         <el-option
+          :label="formatMoney(checkout.amount.total) + ' ' + $t('card.atSight')"
+          :value="1">
+        </el-option>
+        <el-option
           v-for="option in handleInstallments"
           :key="option.number"
           :label="option.number + 'x' +
@@ -137,6 +141,7 @@ import AddressForm from '@/components/routes/account/AddressForm'
 import cardValidator from 'card-validator'
 import isValidCpf from '@brazilian-utils/is-valid-cpf'
 import isValidCnpj from '@brazilian-utils/is-valid-cnpj'
+import { mapGetters } from 'vuex'
 import { addRule, checkMask, formatMoney, compareStrings } from '@/lib/utils'
 
 export default {
@@ -149,8 +154,13 @@ export default {
   props: [
     'checkHolder',
     'skipHolderInfo',
-    'installmentOptions'
+    'installmentOptions',
+    'jsClient'
   ],
+
+  computed: mapGetters([
+    'checkout'
+  ]),
 
   data () {
     // require instalment number if options are defined
@@ -200,7 +210,7 @@ export default {
           // date valid and not expired
           cb()
         } else {
-          let [ month, year ]  = value.split(' / ')
+          let [ month, year ] = value.split(' / ')
           if (!cardValidator.expirationMonth(month).isValid) {
             cb(new Error(this.$t('card.invalidMonth')))
           } else if (!cardValidator.expirationYear(year).isValid) {
@@ -351,8 +361,45 @@ export default {
               // check credit card number
               let valid = cardValidator.number(data.number)
               if (valid.isValid || confirmed === true) {
-                // handle submit
-                this.$emit('submit-form', Object.assign(data, { address }))
+                let hash
+                new Promise(resolve => {
+                  if (this.jsClient) {
+                    this.jsClient.loaded.then(() => {
+                      let cardHash = this.jsClient.cc_hash
+                      if (cardHash) {
+                        let fn = window[cardHash.function]
+                        if (typeof fn === 'function') {
+                          let [ month, year ] = data.validate.split(' / ')
+                          // generate hash with card data
+                          let cardData = {
+                            name: data.name,
+                            doc: data.doc,
+                            number: data.number,
+                            cvc: data.cvv,
+                            month,
+                            year
+                          }
+
+                          if (!cardHash.is_promise) {
+                            hash = fn(cardData)
+                          } else {
+                            fn(cardData).then(token => {
+                              hash = token
+                              resolve()
+                            })
+                            return
+                          }
+                        }
+                      }
+                      resolve()
+                    })
+                  } else {
+                    resolve()
+                  }
+                }).then(() => {
+                  // handle submit
+                  this.$emit('submit-form', Object.assign(data, { address, hash }))
+                })
                 return
               } else if (valid.isPotentiallyValid) {
                 // not sure
@@ -407,6 +454,29 @@ export default {
           this.hideHolderFields = false
         }
       }
+    }
+
+    if (this.jsClient) {
+      // load gateway JS
+      let script = document.createElement('script')
+      script.async = true
+      script.defer = true
+      this.jsClient.loaded = new Promise(resolve => {
+        script.onload = () => {
+          resolve()
+          // run js client onload expression
+          let expression = this.jsClient.onload_expression
+          if (expression) {
+            try {
+              eval(expression)
+            } catch (err) {
+              console.error(err, expression)
+            }
+          }
+        }
+      })
+      script.setAttribute('src', this.jsClient.script_uri)
+      document.head.appendChild(script)
     }
   }
 }

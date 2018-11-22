@@ -25,7 +25,7 @@
       </el-radio-group>
     </el-form-item>
 
-    <el-form-item v-if="!short" :label="$t('account.birth')" prop="birth">
+    <el-form-item :label="$t('account.birth')" prop="birth">
       <el-date-picker
         v-if="$country === 'br'"
         type="date"
@@ -104,7 +104,7 @@ export default {
     // setup form validation rules
     let rules = {}
     // handle required form fields
-    ;[ 'name', 'email', 'phone', 'doc' ].forEach((label) => {
+    ;[ 'name', 'email', 'phone', 'doc', 'birth' ].forEach((label) => {
       addRule(label, { required: true, message: this.$t('validate.required') }, rules)
     })
     // handle masked inputs validation
