@@ -324,7 +324,14 @@ const actions = {
           cvv
         }
       }
-      transaction.billing_address = address || rootGetters.customerAddress
+
+      // require address
+      // try billing address or send shipping address
+      if (address && address.zip) {
+        transaction.billing_address = address
+      } else {
+        transaction.billing_address = rootGetters.customerAddress
+      }
       if (name && doc) {
         transaction.payer = {
           fullname: name,
@@ -338,6 +345,11 @@ const actions = {
     } else {
       // send customer address
       transaction.billing_address = rootGetters.customerAddress
+    }
+
+    // type fixes
+    if (typeof transaction.billing_address.number === 'string') {
+      transaction.billing_address.number = parseInt(transaction.billing_address.number, 10)
     }
 
     return dispatch('api', [ 'module', 'checkout', body ], { root: true }).then(response => {
