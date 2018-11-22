@@ -335,6 +335,9 @@ const actions = {
           transaction.payer.birth_date = rootGetters.parseCustomerBirth(birth).birth_date
         }
       }
+    } else {
+      // send customer address
+      transaction.billing_address = rootGetters.customerAddress
     }
 
     return dispatch('api', [ 'module', 'checkout', body ], { root: true }).then(order => {
