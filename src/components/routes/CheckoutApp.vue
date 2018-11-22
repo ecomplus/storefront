@@ -24,7 +24,7 @@
         </el-step>
         <el-step>
           <template slot="title">
-            <span v-if="activeStep === 1 || !customerEmail">
+            <span v-if="activeStep === 1 || !buyerReady">
               {{ $t('checkout.shipping') }}
             </span>
             <a v-else href="javascript:;" @click="activeStep = 1">
@@ -266,6 +266,7 @@ export default {
       'customerUpdate',
       'customerEmail',
       'customerAddress',
+      'customerPhones',
       'isCustomerLogged',
       'paymentGateways',
       'shopName'
@@ -281,6 +282,11 @@ export default {
       }
       // accept any
       return null
+    },
+
+    buyerReady () {
+      // check if there is all needed buyer info
+      return (this.customerEmail && this.checkCustomerName && this.customerPhones.length)
     }
   },
 
@@ -300,7 +306,7 @@ export default {
 
     updateStep () {
       // update current checkout step
-      if (this.customerEmail) {
+      if (this.buyerReady) {
         if (this.customerAddress && (!this.shippingZip || this.customerAddress.zip === this.shippingZip)) {
           // ready for payment
           this.activeStep = 2

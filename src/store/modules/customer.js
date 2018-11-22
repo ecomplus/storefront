@@ -195,7 +195,13 @@ const getters = {
 const actions = {
   // update customer object
   editCustomer ({ state, commit, dispatch }, payload) {
-    commit('editCustomer', { body: payload })
+    commit('editCustomer', { body: { ...payload } })
+    // clear null properties
+    for (var field in payload) {
+      if (payload.hasOwnProperty(field) && payload[field] === null) {
+        delete payload[field]
+      }
+    }
     if (state.body._id) {
       // API request
       // send customer body object

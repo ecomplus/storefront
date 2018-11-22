@@ -320,9 +320,7 @@ const actions = {
           cvv
         }
       }
-      if (address) {
-        transaction.billing_address = address
-      }
+      transaction.billing_address = address || rootGetters.customerAddress
       if (name && doc) {
         transaction.payer = {
           fullname: name,
