@@ -360,6 +360,7 @@ const actions = {
         // redirect payment links
         window.location = transaction.payment_link
       }
+      return Promise.resolve(response)
     }).catch(err => {
       console.error(err)
     })

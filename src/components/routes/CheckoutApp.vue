@@ -340,7 +340,7 @@ export default {
     doCheckout (paymentData) {
       this.handleCheckout(paymentData).then(({ order, transaction }) => {
         // payment confirmation modal
-        if (transaction.payment_link) {
+        if (transaction.payment_link || transaction.banking_billet) {
           let payText, payLink
           if (this.checkoutPayment.payment_method.code === 'banking_billet') {
             payText = this.$t('checkout.printBillet')
