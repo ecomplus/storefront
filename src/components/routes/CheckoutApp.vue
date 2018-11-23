@@ -341,11 +341,16 @@ export default {
       this.handleCheckout(paymentData).then(({ order, transaction }) => {
         // payment confirmation modal
         if (transaction.payment_link || transaction.banking_billet) {
-          let payText, payLink
+          let payHtml, payLink
           if (this.checkoutPayment.payment_method.code === 'banking_billet') {
-            payText = this.$t('checkout.printBillet')
+            payHtml = this.$t('checkout.printBillet')
+            let code = transaction.banking_billet.code
+            if (code) {
+              // highlight ticket code
+              payHtml = '<strong>' + code + '</strong><br/>' + payHtml
+            }
           } else {
-            payText = this.$t('checkout.redirectToPayment')
+            payHtml = this.$t('checkout.redirectToPayment')
           }
           if (transaction.banking_billet && transaction.banking_billet.link) {
             payLink = transaction.banking_billet.link
@@ -354,7 +359,8 @@ export default {
           }
 
           this.$alert(this.$t('checkout.doPaymentText'), this.$t('checkout.orderCreated'), {
-            confirmButtonText: payText,
+            confirmButtonText: payHtml,
+            dangerouslyUseHTMLString: true,
             callback: action => {
               // redirect to payment
               window.open(payLink, '_blank')
@@ -363,7 +369,7 @@ export default {
         } else {
           this.$message({
             type: 'success',
-            message: `action: ${ action }`
+            message: this.$t('checkout.orderCreated')
           })
         }
       })
