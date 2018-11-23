@@ -342,7 +342,7 @@ const actions = {
   },
 
   // fix cart subtotal value
-  fixCartSubtotal ({ state, commit, dispatch }) {
+  fixCartSubtotal ({ state, commit, dispatch, rootGetters }) {
     let total = 0
     state.body.items.forEach(item => {
       total += item.final_price * item.quantity
@@ -350,10 +350,14 @@ const actions = {
     commit('setCartSubtotal', total)
     // also update checkout total value
     dispatch('fixCheckoutTotal', {}, { root: true })
+    dispatch('saveCart')
+    if (rootGetters.checkoutShipping) {
+      dispatch('initShippingServices', null, { root: true })
+    }
   },
 
   // change cart item quantity by item object and update subtotal
-  setCartItemQnt ({ state, commit, dispatch }, payload) {
+  setCartItemQnt ({ commit, dispatch }, payload) {
     commit('setCartItemQnt', payload)
     dispatch('fixCartSubtotal')
   },
