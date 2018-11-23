@@ -269,7 +269,6 @@ export default {
       'customerPhones',
       'isCustomerLogged',
       'paymentGateways',
-      'checkoutPayment',
       'shopName'
     ]),
 
@@ -341,16 +340,12 @@ export default {
       this.handleCheckout(paymentData).then(({ order, transaction }) => {
         // payment confirmation modal
         if (transaction.payment_link || transaction.banking_billet) {
-          let payHtml, payLink
-          if (this.checkoutPayment.payment_method.code === 'banking_billet') {
-            payHtml = this.$t('checkout.printBillet')
-            let code = transaction.banking_billet.code
-            if (code) {
-              // highlight ticket code
-              payHtml = '<strong>' + code + '</strong><br/>' + payHtml
-            }
+          let payText, payLink, payCode
+          if (transaction.banking_billet) {
+            payText = this.$t('checkout.printBillet')
+            payCode = transaction.banking_billet.code
           } else {
-            payHtml = this.$t('checkout.redirectToPayment')
+            payText = this.$t('checkout.redirectToPayment')
           }
           if (transaction.banking_billet && transaction.banking_billet.link) {
             payLink = transaction.banking_billet.link
@@ -358,9 +353,17 @@ export default {
             payLink = transaction.payment_link
           }
 
-          this.$alert(this.$t('checkout.doPaymentText'), this.$t('checkout.orderCreated'), {
-            confirmButtonText: payHtml,
+          // modal HTML content
+          let payHtml = '<p>' + this.$t('checkout.doPaymentText') + '</p>'
+          if (payCode) {
+            // highlight ticket code
+            payHtml += '<br>' + this.$t('checkout.ticketCode') + ':' +
+                       '<br><strong>' + payCode + '</strong>'
+          }
+          this.$alert(payHtml, this.$t('checkout.orderCreated'), {
             dangerouslyUseHTMLString: true,
+            showClose: false,
+            confirmButtonText: payText,
             callback: action => {
               // redirect to payment
               window.open(payLink, '_blank')

@@ -62,7 +62,8 @@ export default {
       printBillet: 'Print billet',
       redirectToPayment: 'Redirect to payment',
       orderCreated: 'Order created',
-      doPaymentText: 'Please finalize the payment to confirm your purchase'
+      doPaymentText: 'Please finalize the payment to confirm your purchase',
+      ticketCode: 'Ticket code'
     },
     card: {
       number: 'Card number',
@@ -218,7 +219,8 @@ export default {
       printBillet: 'Imprimir boleto',
       redirectToPayment: 'Efetuar pagamento',
       orderCreated: 'Recebemos seu pedido',
-      doPaymentText: 'Por favor finalize o pagamento para confirmar sua compra'
+      doPaymentText: 'Por favor finalize o pagamento para confirmar sua compra',
+      ticketCode: 'Código de barras do boleto'
     },
     card: {
       number: 'Número do cartão',
