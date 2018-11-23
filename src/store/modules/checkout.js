@@ -197,29 +197,21 @@ const actions = {
   // update shipping zip code and services
   setCheckoutZip ({ commit, dispatch, state }, value) {
     // check if zip is changed
-    let { zip, timer, error } = state.shipping
-    if (zip !== value) {
-      let load = () => {
-        commit('setCheckoutZip', value)
-        // reload asynchronously with big timeout
-        commit('updateShippingTimer', setTimeout(load, 30 * 60000))
-        // load shipping services
-        return dispatch('initShippingServices')
-      }
-      // check scheduled services reload
-      if (timer) {
-        // clear last timer
-        clearTimeout(timer)
-      }
-
-      // start loading and returns respective promise
-      return load()
-    } else if (!error.code) {
-      // already loaded for this zip code
-      return Promise.resolve()
-    } else {
-      return Promise.reject(error.object)
+    let { timer } = state.shipping
+    let load = () => {
+      commit('setCheckoutZip', value)
+      // reload asynchronously with big timeout
+      commit('updateShippingTimer', setTimeout(load, 30 * 60000))
+      // load shipping services
+      return dispatch('initShippingServices')
     }
+    // check scheduled services reload
+    if (timer) {
+      // clear last timer
+      clearTimeout(timer)
+    }
+    // start loading and returns respective promise
+    return load()
   },
 
   // update payment gateway options list

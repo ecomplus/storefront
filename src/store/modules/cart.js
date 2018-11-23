@@ -350,6 +350,7 @@ const actions = {
     commit('setCartSubtotal', total)
     // also update checkout total value
     dispatch('fixCheckoutTotal', {}, { root: true })
+    // update stored cart
     dispatch('saveCart')
     if (rootGetters.checkoutShipping) {
       dispatch('initShippingServices', null, { root: true })
