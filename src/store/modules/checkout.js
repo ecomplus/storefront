@@ -20,7 +20,8 @@ const state = {
   },
   payment: {
     gateways: []
-  }
+  },
+  order: {}
 }
 
 const mutations = {
@@ -349,13 +350,15 @@ const actions = {
       // call checkout module
       dispatch('api', [ 'module', 'checkout', body ], { root: true }).then(response => {
         // handle response with order and transaction body
-        let { transaction } = response
+        let { order, transaction } = response
         // console.log(order)
         if (transaction.redirect_to_payment && transaction.payment_link) {
           // redirect current window to payment link
           window.location = transaction.payment_link
         } else {
           resolve(response)
+          // save created order object
+          dispatch('saveOrder', order, { root: true })
         }
       })
 
