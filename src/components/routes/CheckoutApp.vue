@@ -388,6 +388,7 @@ export default {
       })
 
       .catch(e => {
+        // unknown checkout error
         // show notification
         this.$message({
           showClose: true,

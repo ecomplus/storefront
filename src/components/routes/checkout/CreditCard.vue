@@ -2,12 +2,12 @@
   <el-form ref="form" :model="form" :rules="rules" class="_creditcard __form-sm">
     <el-form-item
       :label="$t('card.number')"
-      prop="number"
+      prop="bin"
       class="_creditcard-number"
       :class="{ '_creditcard-valid': validatedNumber }">
       <el-input
         type="tel"
-        v-model="form.number"
+        v-model="form.bin"
         v-mask="cardMask"
         v-on-keyup="getBrand"></el-input>
     </el-form-item>
@@ -175,7 +175,7 @@ export default {
     // setup form validation rules
     let rules = {}
     // handle required form fields
-    let required = [ 'number', 'name', 'validate', 'cvv' ]
+    let required = [ 'bin', 'name', 'validate', 'cvv' ]
     if (handleInstallments) {
       required.push('installment')
     }
@@ -190,7 +190,7 @@ export default {
     }
 
     // check if card number is at least potentially valid
-    addRule('number', {
+    addRule('bin', {
       validator: (rule, value, cb) => {
         if (cardValidator.number(value).isPotentiallyValid) {
           // can be valid
@@ -263,7 +263,7 @@ export default {
       activeBrand: '',
       validatedNumber: false,
       form: {
-        number: '',
+        bin: '',
         name: '',
         validate: '',
         cvv: '',
@@ -314,7 +314,7 @@ export default {
       // preset invalid
       this.validatedNumber = false
       // get card brand from number
-      let valid = cardValidator.number(this.form.number.replace(/\D/g, ''))
+      let valid = cardValidator.number(this.form.bin.replace(/\D/g, ''))
       if (valid.isPotentiallyValid && valid.card) {
         let brand = valid.card.type
         if (this.activeBrand !== brand) {
@@ -354,7 +354,7 @@ export default {
 
             if (!notify) {
               // check credit card number
-              let valid = cardValidator.number(data.number)
+              let valid = cardValidator.number(data.bin)
               if (valid.isValid || confirmed === true) {
                 let hash
                 new Promise(resolve => {
@@ -369,7 +369,7 @@ export default {
                           let cardData = {
                             name: data.name,
                             doc: data.doc,
-                            number: data.number,
+                            number: data.bin,
                             cvc: data.cvv,
                             month,
                             year
@@ -398,8 +398,8 @@ export default {
                 return
               } else if (valid.isPotentiallyValid) {
                 // not sure
-                // must confirm number
-                this.$confirm(this.$t('card.potentiallyValid'), data.number, {
+                // must confirm card number
+                this.$confirm(this.$t('card.potentiallyValid'), data.bin, {
                   cancelButtonText: this.$t('card.confirmNumber'),
                   confirmButtonText: this.$t('card.editNumber'),
                   type: 'info'
