@@ -35,7 +35,7 @@ export let wait = new Promise(resolve => {
     let fn
     if (debug) {
       // test
-      fn = cb => EcomIo.init(cb, 1017, '5bc035d22707d825d174c2c2')
+      fn = cb => EcomIo.init(cb, 1011, '5b1abe30a4d4531b8fe40725')
     } else {
       // production
       fn = cb => EcomIo.init(cb, STORE_ID, STORE_OBJECT_ID)
