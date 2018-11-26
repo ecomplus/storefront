@@ -374,9 +374,11 @@ export default {
             }
           })
         } else if (transaction.status && transaction.status.current === 'unauthorized') {
+          // invalid credit card probably
           this.$message({
-            type: 'success',
-            message: this.$t('checkout.orderCreated')
+            showClose: true,
+            message: this.$t('checkout.unauthorized'),
+            type: 'warning'
           })
         } else {
           // payment done

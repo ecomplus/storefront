@@ -63,6 +63,7 @@ export default {
       redirectToPayment: 'Redirect to payment',
       orderCreated: 'Order created',
       orderError: 'We had an error saving your order, please try again',
+      unauthorized: 'Unauthorized payment, please check the data and try again',
       doPaymentText: 'Please finalize the payment to confirm your purchase',
       ticketCode: 'Ticket code'
     },
@@ -221,6 +222,7 @@ export default {
       redirectToPayment: 'Efetuar pagamento',
       orderCreated: 'Recebemos seu pedido',
       orderError: 'Ocorreu um erro ao salvar seu pedido, por favor tente novamente',
+      unauthorized: 'Pagamento não autorizado, por favor confira os dados e tente novamente',
       doPaymentText: 'Por favor finalize o pagamento para confirmar sua compra',
       ticketCode: 'Código de barras do boleto'
     },
