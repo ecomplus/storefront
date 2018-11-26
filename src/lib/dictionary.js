@@ -62,6 +62,7 @@ export default {
       printBillet: 'Print billet',
       redirectToPayment: 'Redirect to payment',
       orderCreated: 'Order created',
+      orderError: 'We had an error saving your order, please try again',
       doPaymentText: 'Please finalize the payment to confirm your purchase',
       ticketCode: 'Ticket code'
     },
@@ -219,6 +220,7 @@ export default {
       printBillet: 'Imprimir boleto',
       redirectToPayment: 'Efetuar pagamento',
       orderCreated: 'Recebemos seu pedido',
+      orderError: 'Ocorreu um erro ao salvar seu pedido, por favor tente novamente',
       doPaymentText: 'Por favor finalize o pagamento para confirmar sua compra',
       ticketCode: 'Código de barras do boleto'
     },

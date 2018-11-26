@@ -344,17 +344,27 @@ const actions = {
       transaction.billing_address.number = parseInt(transaction.billing_address.number, 10)
     }
 
-    return dispatch('api', [ 'module', 'checkout', body ], { root: true }).then(response => {
-      // handle response with order and transaction body
-      let { transaction } = response
-      // console.log(order)
-      if (transaction.redirect_to_payment && transaction.payment_link) {
-        // redirect payment links
-        window.location = transaction.payment_link
-      }
-      return Promise.resolve(response)
-    }).catch(err => {
-      console.error(err)
+    // return new promise to treat API response first
+    return new Promise((resolve, reject) => {
+      // call checkout module
+      dispatch('api', [ 'module', 'checkout', body ], { root: true }).then(response => {
+        // handle response with order and transaction body
+        let { transaction } = response
+        // console.log(order)
+        if (transaction.redirect_to_payment && transaction.payment_link) {
+          // redirect current window to payment link
+          window.location = transaction.payment_link
+        } else {
+          resolve(response)
+        }
+      })
+
+      .catch(err => {
+        // cannot handle checkout
+        console.error(err)
+        // delay to reject
+        setTimeout(() => reject(err), 600)
+      })
     })
   }
 }

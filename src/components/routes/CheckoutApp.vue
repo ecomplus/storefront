@@ -338,8 +338,9 @@ export default {
 
     doCheckout (paymentData) {
       this.handleCheckout(paymentData).then(({ transaction }) => {
-        // payment confirmation modal
         if (transaction.payment_link || transaction.banking_billet) {
+          // payment confirmation modal
+          // buyer must proceed to external payment page
           let payText, payLink, payCode
           if (transaction.banking_billet) {
             payText = this.$t('checkout.printBillet')
@@ -360,20 +361,27 @@ export default {
             payHtml += '<br>' + this.$t('checkout.ticketCode') + ':' +
                        '<br><strong>' + payCode + '</strong>'
           }
+
           this.$alert(payHtml, this.$t('checkout.orderCreated'), {
             dangerouslyUseHTMLString: true,
             showClose: false,
             confirmButtonText: payText,
             callback: action => {
-              // redirect to payment
+              // new tab with payment link
               window.open(payLink, '_blank')
+              // redirect to confirmation
+              this.$router.push({ name: 'confirmation' })
             }
           })
-        } else {
+        } else if (transaction.status && transaction.status.current === 'unauthorized') {
           this.$message({
             type: 'success',
             message: this.$t('checkout.orderCreated')
           })
+        } else {
+          // payment done
+          // only redirect to confirmation
+          this.$router.push({ name: 'confirmation' })
         }
       })
 
@@ -381,7 +389,7 @@ export default {
         // show notification
         this.$message({
           showClose: true,
-          message: this.$t('checkout.orderCreated'),
+          message: this.$t('checkout.orderError'),
           type: 'danger'
         })
       })
