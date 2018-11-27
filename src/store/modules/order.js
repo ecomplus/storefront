@@ -15,13 +15,18 @@ const getters = {
 
 const actions = {
   // save new order object
-  saveOrder ({ commit }, body) {
+  saveOrder ({ dispatch, commit }, body) {
     // call mutation to setup state
     commit('init', { module, body }, { root: true })
+    dispatch('storeOrder')
+  },
+
+  // save order object on local storage for further load
+  storeOrder ({ getters }) {
     // try to save order on local storage
     let db = window.localStorage
     if (db) {
-      db.setItem('order', JSON.stringify(body))
+      db.setItem('order', JSON.stringify(getters.order))
     }
   },
 
