@@ -110,17 +110,19 @@
                     <small class="_cart-shipping-label">
                       {{ $t('cart.calculateFreight') }}
                     </small>
-                    <el-input
-                      size="small"
-                      v-model="shippingZip"
-                      v-mask="$country === 'br' ? '99999-999' : ''"
-                      v-on-key-enter="() => { setCheckoutZip(shippingZip) }"
-                      class="_cart-shipping-zip"
-                      maxlength="30">
-                      <el-button slot="append" @click="setCheckoutZip(shippingZip)">
-                        <a-icon icon="truck"></a-icon>
-                      </el-button>
-                    </el-input>
+                    <div class="_cart-shipping-zip-container">
+                      <el-input
+                        size="small"
+                        v-model="shippingZip"
+                        v-mask="$country === 'br' ? '99999-999' : ''"
+                        v-on-key-enter="() => { setCheckoutZip(shippingZip) }"
+                        class="_cart-shipping-zip"
+                        maxlength="30">
+                        <el-button slot="append" @click="setCheckoutZip(shippingZip)">
+                          <a-icon icon="truck"></a-icon>
+                        </el-button>
+                      </el-input>
+                    </div>
                     <shipping-services/>
                   </div>
                 </div>
@@ -327,6 +329,11 @@ export default {
 ._cart-freigth,
 ._cart-discount {
   margin-bottom: $--card-padding * .5;
+}
+._cart-shipping-zip-container {
+  display: table;
+  padding: 0;
+  margin-left: auto;
 }
 ._cart-shipping-zip {
   width: 100%;

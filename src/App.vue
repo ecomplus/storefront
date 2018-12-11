@@ -213,7 +213,7 @@ a, button, div, span, img {
 .el-loading-mask {
   z-index: 3000;
 }
-@media (max-height: 450px), (max-width: 991px) {
+@media (max-height: 800px), (max-width: 991px) {
   .el-date-picker {
     display: none;
   }
