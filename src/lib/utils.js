@@ -23,11 +23,27 @@ export function checkMask (errMsg) {
   }
 }
 
+// custom validation for date input
+export function checkDate (errMsg) {
+  return (rule, value, cb) => {
+    if (typeof value === 'string') {
+      // check date
+      let d = new Date(value)
+      if (!isNaN(d)) {
+        // valid date string
+        cb()
+        return
+      }
+    }
+    cb(new Error(errMsg))
+  }
+}
+
 // parse number to string with money format
 export function formatMoney (price, currency = DEFAULT_CURRENCY, lang = DEFAULT_LANG) {
   // format pt-BR, en-US
   lang = lang.replace('_', '-')
-  var priceString
+  let priceString
   try {
     priceString = price.toLocaleString(lang, { style: 'currency', currency: currency })
   } catch (e) {
@@ -35,6 +51,12 @@ export function formatMoney (price, currency = DEFAULT_CURRENCY, lang = DEFAULT_
     priceString = price
   }
   return priceString
+}
+
+// parse date string to ISO format
+export function formatDate (date) {
+  // yyyy-mm-dd
+  return new Date(date).toISOString().substr(0, 10)
 }
 
 // compare strings without accents
