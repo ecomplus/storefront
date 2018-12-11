@@ -145,6 +145,7 @@ export default {
       number: 'Place a valid number',
       minLength: 'Text must contain more characters',
       mask: 'Wrong format, please check',
+      date: 'Invalid date, please check',
       invalidForm: 'Invalid form data, please check and resend',
       isInvalid: ' is invalid, please check'
     }
@@ -296,6 +297,7 @@ export default {
       number: 'Digite apenas números',
       minLength: 'O texto deve conter mais caracteres',
       mask: 'Formato incorreto, por favor revise',
+      date: 'Data inválida, por favor verifique',
       invalidForm: 'Os dados do formulário estão inválidos, por favor verifique',
       isInvalid: ' informado é inválido, favor verificar'
     }

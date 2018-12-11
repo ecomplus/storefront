@@ -1,6 +1,6 @@
 /* Auxiliary functions */
 
-import { DEFAULT_CURRENCY, DEFAULT_LANG } from '@/lib/constants'
+import { DEFAULT_CURRENCY, DEFAULT_LANG, DEFAULT_COUNTRY_CODE } from '@/lib/constants'
 
 // handle form validation rules
 export function addRule (label, rule, rules) {
@@ -28,11 +28,14 @@ export function checkDate (errMsg) {
   return (rule, value, cb) => {
     if (typeof value === 'string') {
       // check date
-      let d = new Date(value)
-      if (!isNaN(d)) {
-        // valid date string
-        cb()
-        return
+      let date = isoDate(value, true)
+      if (!isNaN(date)) {
+        let year = date.getFullYear()
+        if (year > 1900 && year < new Date().getFullYear()) {
+          // valid date string
+          cb()
+          return
+        }
       }
     }
     cb(new Error(errMsg))
@@ -54,9 +57,31 @@ export function formatMoney (price, currency = DEFAULT_CURRENCY, lang = DEFAULT_
 }
 
 // parse date string to ISO format
-export function formatDate (date) {
+export function isoDate (dateString, getObject = false) {
+  let [ d, m, y ] = dateString.split('/')
+  if (d && m && y) {
+    // parse to date short format
+    // dd/mm/yy(yy)?
+    dateString = m + '/' + d + '/' + y
+  }
+  let date = new Date(dateString)
+  if (getObject) {
+    return date
+  }
   // yyyy-mm-dd
-  return new Date(date).toISOString().substr(0, 10)
+  return date.toISOString().substr(0, 10)
+}
+
+// parse ISO date string to country format
+export function formatDate (isoDateString, country = DEFAULT_COUNTRY_CODE) {
+  if (country === 'br') {
+    let [ y, m, d ] = isoDateString.split('-')
+    if (d && m && y) {
+      // dd/mm/yyy
+      return d + '/' + m + '/' + y
+    }
+  }
+  return isoDateString
 }
 
 // compare strings without accents

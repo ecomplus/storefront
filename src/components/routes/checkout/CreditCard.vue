@@ -21,20 +21,12 @@
     <el-collapse-transition>
       <div key="holder-info" v-if="!hideHolderFields">
         <el-form-item :label="$t('account.birth')" prop="birth">
-          <el-date-picker
-            v-if="$country === 'br'"
-            type="date"
+          <el-input
             v-model="form.birth"
-            placeholder="31/02/1994"
-            format="dd/MM/yyyy"
-            value-format="yyyy-MM-dd">
-          </el-date-picker>
-          <el-date-picker
-            v-else
-            type="date"
-            v-model="form.birth"
-            placeholder="1994-02-31">
-          </el-date-picker>
+            v-mask="$country !== 'br' ? '9999-99-99' : '99/99/9{2,4}'"
+            type="tel"
+            class="__input-sm">
+          </el-input>
         </el-form-item>
         <el-form-item :label="$t('card.holderDoc')" prop="doc">
           <el-input
@@ -142,7 +134,7 @@ import cardValidator from 'card-validator'
 import isValidCpf from '@brazilian-utils/is-valid-cpf'
 import isValidCnpj from '@brazilian-utils/is-valid-cnpj'
 import { mapGetters } from 'vuex'
-import { addRule, checkMask, formatMoney, compareStrings } from '@/lib/utils'
+import { addRule, checkMask, checkDate, isoDate, formatMoney, compareStrings } from '@/lib/utils'
 
 export default {
   name: 'CreditCard',
@@ -185,8 +177,12 @@ export default {
     // min field length for holder name
     addRule('name', { min: 3, message: this.$t('card.fullNameAlert'), trigger: 'blur' }, rules)
     if (!this.skipHolderInfo) {
-      // validate document number mask
-      addRule('doc', { validator: checkMask(this.$t('validate.mask')), trigger: 'blur' }, rules)
+      // handle masked inputs validation
+      ;[ 'doc', 'birth'  ].forEach((label) => {
+        addRule(label, { validator: checkMask(this.$t('validate.mask')), trigger: 'blur' }, rules)
+      })
+      // handle date validation
+      addRule('birth', { validator: checkDate(this.$t('validate.date')), trigger: 'blur' }, rules)
     }
 
     // check if card number is at least potentially valid
@@ -344,12 +340,18 @@ export default {
           if (valid) {
             // validated from form rules
             let data = this.form
-            if (data.doc !== '') {
+
+            let { birth, doc } = data
+            if (doc !== '') {
               // check document number
-              if (!isValidCnpj(data.doc) && !isValidCpf(data.doc)) {
+              if (!isValidCnpj(doc) && !isValidCpf(doc)) {
                 // invalid personal document number
                 notify = this.$t('account.personalDoc')
               }
+            }
+            if (birth !== '') {
+              // parse birth date string to ISO format
+              data.birth = isoDate(birth)
             }
 
             if (!notify) {

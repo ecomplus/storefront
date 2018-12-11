@@ -26,20 +26,12 @@
     </el-form-item>
 
     <el-form-item :label="$t('account.birth')" prop="birth">
-      <el-date-picker
-        v-if="$country === 'br'"
-        type="date"
+      <el-input
         v-model="form.birth"
-        placeholder="31/02/1994"
-        format="dd/MM/yyyy"
-        value-format="yyyy-MM-dd">
-      </el-date-picker>
-      <el-date-picker
-        v-else
-        type="date"
-        v-model="form.birth"
-        placeholder="1994-02-31">
-      </el-date-picker>
+        v-mask="$country !== 'br' ? '9999-99-99' : '99/99/9{2,4}'"
+        type="tel"
+        class="__input-sm">
+      </el-input>
     </el-form-item>
 
     <el-form-item :label="$t('account.contactPhone')" prop="phone">
@@ -87,7 +79,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { addRule, checkMask } from '@/lib/utils'
+import { addRule, checkMask, checkDate, formatDate, isoDate } from '@/lib/utils'
 import isValidCpf from '@brazilian-utils/is-valid-cpf'
 import isValidCnpj from '@brazilian-utils/is-valid-cnpj'
 
@@ -108,13 +100,15 @@ export default {
       addRule(label, { required: true, message: this.$t('validate.required') }, rules)
     })
     // handle masked inputs validation
-    ;[ 'phone', 'cellphone', 'doc' ].forEach((label) => {
+    ;[ 'phone', 'cellphone', 'doc', 'birth'  ].forEach((label) => {
       addRule(label, { validator: checkMask(this.$t('validate.mask')), trigger: 'blur' }, rules)
     })
     // handle min fields length
     ;[ 'name', 'nickname' ].forEach((label) => {
       addRule(label, { min: 3, message: this.$t('validate.minLength'), trigger: 'blur' }, rules)
     })
+    // handle date validation
+    addRule('birth', { validator: checkDate(this.$t('validate.date')), trigger: 'blur' }, rules)
 
     return {
       form: {
@@ -160,7 +154,7 @@ export default {
         phone: phones[0],
         // optional last phone number
         cellphone: phones.length > 1 ? phones[phones.length - 1] : '',
-        birth: this.customerBirth,
+        birth: formatDate(this.customerBirth),
         // default is physical
         type: body.registry_type || 'p',
         doc: this.customer.doc_number
@@ -199,7 +193,7 @@ export default {
             display_name: data.nickname.trim(),
             main_email: data.email,
             gender: data.gender,
-            ...this.parseCustomerBirth(data.birth),
+            ...this.parseCustomerBirth(isoDate(data.birth)),
             ...this.parseCustomerPhones([ data.phone, data.cellphone ]),
             registry_type: data.type,
             doc_number: data.doc.replace(/[\D]/g, '')
