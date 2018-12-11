@@ -300,18 +300,18 @@ const actions = {
 
     // treat credit card payment data
     if (payload) {
-      let { number, name, hash, cvv, doc, birth, installment, address } = payload
+      let { bin, name, hash, cvv, doc, birth, installment, address } = payload
       if (installment) {
         transaction.installments_number = installment
       }
-      if (number && cvv && name && hash) {
+      if (bin && cvv && name && hash) {
         if (typeof cvv === 'string') {
           // CVV must be integer
           cvv = parseInt(cvv, 10)
         }
         transaction.credit_card = {
-          holder_name: payload.name,
-          last_digits: payload.number.slice(-4),
+          holder_name: name,
+          last_digits: bin.slice(-4),
           save: true,
           hash,
           cvv
