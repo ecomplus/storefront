@@ -12,6 +12,7 @@ const state = {
     }
   },
   shipping: {
+    update: null,
     loading: false,
     timer: null,
     error: {},
@@ -86,6 +87,8 @@ const mutations = {
   // reset available shipping services
   setShippingServices (state, services) {
     state.shipping.services = services
+    // mark last update
+    state.shipping.update = Date.now()
   },
 
   // reset available payment gateways
@@ -99,6 +102,7 @@ const getters = {
 
   // auxiliary maps
   checkoutZip: state => state.shipping.zip,
+  shippingUpdate: state => state.shipping.update,
   shippingServices: state => state.shipping.services,
   shippingLoading: state => state.shipping.loading,
   shippingLoadError: state => state.shipping.error.code,

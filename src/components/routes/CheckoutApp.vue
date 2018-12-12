@@ -472,7 +472,7 @@ export default {
 }
 ._checkout-loading-icon {
   font-size: 50px;
-  margin-bottom: $--card-padding;
+  margin: $--card-padding * 2.5 0 $--card-padding 0;
   color: $--color-primary;
 }
 ._checkout-payment {

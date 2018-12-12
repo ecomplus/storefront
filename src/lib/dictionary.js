@@ -101,7 +101,8 @@ export default {
       days: 'days',
       workingDays: 'working days',
       invalidZip: 'Shipping unavailable for this ZIP code',
-      loadError: 'Cannot load shipping services, please try again in few seconds'
+      loadError: 'Cannot load shipping services, please try again in few seconds',
+      empty: 'No shipping options, please check the ZIP code or try again later'
     },
     account: {
       registration: 'Registration',
@@ -203,7 +204,8 @@ export default {
       days: 'dias',
       workingDays: 'dias úteis',
       invalidZip: 'Entrega indisponível para este CEP',
-      loadError: 'Não foi possível carregar serviços de frete, tente novamente em alguns segundos'
+      loadError: 'Não foi possível carregar serviços de frete, tente novamente em alguns segundos',
+      empty: 'Sem opções de envio, por favor verifique o CEP ou tente novamente mais tarde'
     },
     checkout: {
       title: 'Finalizar pedido',

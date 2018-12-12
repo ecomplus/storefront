@@ -2,24 +2,30 @@
   <div class="_shipping">
     <el-collapse-transition>
       <div v-if="!shippingLoading" key="shipping-services" class="_shipping-services">
-        <div
-          class="_shipping-service"
-          v-for="(service, index) in shippingServices"
-          :key="index + service.selected.toString()"
-          :class="{ '_shipping-selected': service.selected }"
-          @click="selectShippingService(index)">
-          <a-icon v-if="service.selected" icon="shipping-fast" class="_shipping-icon"></a-icon>
-          <span class="_shipping-deadline">
-            {{ $t('shipping.upTo') + ' ' + shippingServiceTime(service) }}
-            {{ !shippingServiceWorkingDays(service) ?
-              $t('shipping.days') : $t('shipping.workingDays') }}
-          </span>
-          <span class="_shipping-freight">
-            {{ formatMoney(service.shipping_line.total_price) }}
-          </span>
-          <span class="_shipping-label">
-            {{ service.label }}
-          </span>
+        <div v-if="shippingServices.length">
+          <div
+            class="_shipping-service"
+            v-for="(service, index) in shippingServices"
+            :key="index + service.selected.toString()"
+            :class="{ '_shipping-selected': service.selected }"
+            @click="selectShippingService(index)">
+            <a-icon v-if="service.selected" icon="shipping-fast" class="_shipping-icon"></a-icon>
+            <span class="_shipping-deadline">
+              {{ $t('shipping.upTo') + ' ' + shippingServiceTime(service) }}
+              {{ !shippingServiceWorkingDays(service) ?
+                $t('shipping.days') : $t('shipping.workingDays') }}
+            </span>
+            <span class="_shipping-freight">
+              {{ formatMoney(service.shipping_line.total_price) }}
+            </span>
+            <span class="_shipping-label">
+              {{ service.label }}
+            </span>
+          </div>
+        </div>
+
+        <div v-else class="_shipping-empty">
+          {{ $t('shipping.empty') }}
         </div>
       </div>
 
