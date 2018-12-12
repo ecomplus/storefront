@@ -12,9 +12,7 @@ const state = {
     }
   },
   shipping: {
-    update: null,
     loading: false,
-    timer: null,
     error: {},
     zip: '',
     services: []
@@ -39,11 +37,6 @@ const mutations = {
   // update shipping zip code
   setCheckoutZip (state, value) {
     state.shipping.zip = value
-  },
-
-  // controls timer to update shipping services asynchronously
-  updateShippingTimer (state, value) {
-    state.shipping.timer = value
   },
 
   // update shipping services loading state
@@ -87,8 +80,6 @@ const mutations = {
   // reset available shipping services
   setShippingServices (state, services) {
     state.shipping.services = services
-    // mark last update
-    state.shipping.update = Date.now()
   },
 
   // reset available payment gateways
@@ -102,7 +93,6 @@ const getters = {
 
   // auxiliary maps
   checkoutZip: state => state.shipping.zip,
-  shippingUpdate: state => state.shipping.update,
   shippingServices: state => state.shipping.services,
   shippingLoading: state => state.shipping.loading,
   shippingLoadError: state => state.shipping.error.code,
@@ -201,22 +191,9 @@ const actions = {
 
   // update shipping zip code and services
   setCheckoutZip ({ commit, dispatch, state }, value) {
-    // check if zip is changed
-    let { timer } = state.shipping
-    let load = () => {
-      commit('setCheckoutZip', value)
-      // reload asynchronously with big timeout
-      commit('updateShippingTimer', setTimeout(load, 30 * 60000))
-      // load shipping services
-      return dispatch('initShippingServices')
-    }
-    // check scheduled services reload
-    if (timer) {
-      // clear last timer
-      clearTimeout(timer)
-    }
-    // start loading and returns respective promise
-    return load()
+    commit('setCheckoutZip', value)
+    // start loading shipping services and returns respective promise
+    return dispatch('initShippingServices')
   },
 
   // update payment gateway options list

@@ -24,7 +24,7 @@
           </div>
         </div>
 
-        <div v-else class="_shipping-empty">
+        <div v-else-if="checkoutZip !== ''" class="_shipping-empty">
           {{ $t('shipping.empty') }}
         </div>
       </div>

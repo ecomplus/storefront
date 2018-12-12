@@ -310,21 +310,11 @@ export default {
     updateStep () {
       // update current checkout step
       if (this.buyerReady) {
-        if (this.customerAddress && (!this.shippingZip || this.customerAddress.zip === this.shippingZip)) {
+        if (this.customerAddress && this.shippingZip) {
           // ready for payment
           this.activeStep = 2
-
-          // update checkout shipping address
-          this.checkoutLoading = true
-          this.setCheckoutZip(this.customerAddress.zip).then(() => {
-            // load payment methods
-            this.initPaymentGateways().catch(err => {
-              // alert
-            }).then(() => {
-              this.selectPaymentGateway()
-              this.checkoutLoading = false
-            })
-          })
+          // update shipping and payment methods
+          this.prepareCheckout()
         } else {
           // shipping
           this.activeStep = 1
@@ -333,6 +323,36 @@ export default {
         // identify
         this.activeStep = 0
       }
+    },
+
+    prepareCheckout () {
+      if (!this.cartLoading) {
+        this.checkoutLoading = true
+        // update checkout shipping address and methods
+        this.setCheckoutZip(this.shippingZip)
+
+        .then(() => {
+          // load payment methods
+          return this.initPaymentGateways().then(() => {
+            this.selectPaymentGateway()
+            this.checkoutLoading = false
+          })
+        })
+
+        .catch(err => {
+          // alert
+        })
+      }
+    },
+
+    handleCustomer () {
+      // treat customer logged/unlogged or edited events
+      // check if shipping address has changed
+      if (this.customerAddress && this.customerAddress.zip !== this.shippingZip) {
+        this.shippingZip = this.customerAddress.zip
+      }
+      // update current checkout step with new customer info
+      this.updateStep()
     },
 
     changePayment ({ $el }) {
@@ -410,6 +430,9 @@ export default {
         // empty cart
         // back to shopping cart
         this.$router.push({ name: 'cart' })
+      } else {
+        // update checkout step after cart loaded
+        this.updateStep()
       }
     })
 
@@ -430,17 +453,11 @@ export default {
 
   watch: {
     customerEmail () {
-      // customer logged or unlogged
-      this.updateStep()
+      this.handleCustomer()
     },
 
     customerUpdate () {
-      // check if shipping address has changed
-      if (this.customerAddress && this.customerAddress.zip !== this.shippingZip) {
-        this.shippingZip = this.customerAddress.zip
-      }
-      // handle customer body object edited
-      this.updateStep()
+      this.handleCustomer()
     }
   }
 }
@@ -466,13 +483,13 @@ export default {
   color: $--color-danger;
 }
 ._checkout-loading {
-  padding: $--card-padding;
+  padding: $--card-padding * 6 0;
   text-align: center;
   font-size: $--font-size-large;
 }
 ._checkout-loading-icon {
   font-size: 50px;
-  margin: $--card-padding * 2.5 0 $--card-padding 0;
+  margin-bottom: $--card-padding;
   color: $--color-primary;
 }
 ._checkout-payment {
