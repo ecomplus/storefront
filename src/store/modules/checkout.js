@@ -94,6 +94,7 @@ const getters = {
   // auxiliary maps
   checkoutZip: state => state.shipping.zip,
   shippingServices: state => state.shipping.services,
+  shippingAvailable: state => Boolean(state.shipping.services.length),
   shippingLoading: state => state.shipping.loading,
   shippingLoadError: state => state.shipping.error.code,
   paymentGateways: state => state.payment.gateways,

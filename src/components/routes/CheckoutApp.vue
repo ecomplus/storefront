@@ -134,7 +134,11 @@
                   <h2 class="_invoice-payment-title">
                     {{ $t('checkout.paymentMethods') }}
                   </h2>
-                  <el-tabs type="border-card" shadow="never" @tab-click="changePayment">
+                  <el-tabs
+                    v-if="paymentGateways.length"
+                    type="border-card"
+                    shadow="never"
+                    @tab-click="changePayment">
                     <el-tab-pane
                       v-for="(gateway, index) in paymentGateways"
                       :key="index + gateway.label"
@@ -167,6 +171,10 @@
                       <img v-if="gateway.icon" :src="gateway.icon" class="_invoice-payment-icon"/>
                     </el-tab-pane>
                   </el-tabs>
+
+                  <div v-else class="_invoice-payment-empty">
+                    {{ $t('checkout.paymentEmpty') }}
+                  </div>
                 </div>
               </el-card>
             </el-col>
@@ -271,6 +279,7 @@ export default {
       'customerAddress',
       'customerPhones',
       'isCustomerLogged',
+      'shippingAvailable',
       'paymentGateways',
       'shopName'
     ]),
@@ -332,11 +341,22 @@ export default {
         this.setCheckoutZip(this.shippingZip)
 
         .then(() => {
-          // load payment methods
-          return this.initPaymentGateways().then(() => {
-            this.selectPaymentGateway()
-            this.checkoutLoading = false
-          })
+          if (this.shippingAvailable) {
+            // load payment methods
+            return this.initPaymentGateways().then(() => {
+              this.selectPaymentGateway()
+              this.checkoutLoading = false
+            })
+          } else {
+            // no shipping methods
+            this.$message({
+              showClose: true,
+              message: this.$t('shipping.empty'),
+              type: 'warning'
+            })
+            // back to select shipping address
+            this.activeStep = 1
+          }
         })
 
         .catch(err => {
