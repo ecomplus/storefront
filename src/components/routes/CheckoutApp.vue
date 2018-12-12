@@ -76,7 +76,10 @@
 
       <div class="_checkout-payment" v-else-if="activeStep === 2">
         <transition name="fade">
-          <div key="checkout-loading" v-if="cartLoading || checkoutLoading" class="_checkout-loading"></div>
+          <div key="checkout-loading" v-if="cartLoading || checkoutLoading" class="_checkout-loading">
+            <a-icon class="_checkout-loading-icon" icon="circle-notch" spin></a-icon>
+            <div>{{ $t('checkout.loadingGateways') }}</div>
+          </div>
 
           <el-row key="checkout-payment" v-else id="payment">
             <el-col :md="17" :sm="16" :xs="24">
@@ -461,6 +464,16 @@ export default {
 }
 ._checkout-logout {
   color: $--color-danger;
+}
+._checkout-loading {
+  padding: $--card-padding;
+  text-align: center;
+  font-size: $--font-size-large;
+}
+._checkout-loading-icon {
+  font-size: 50px;
+  margin-bottom: $--card-padding;
+  color: $--color-primary;
 }
 ._checkout-payment {
   margin-top: $--card-padding * 1.3;
