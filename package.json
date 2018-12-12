@@ -23,6 +23,7 @@
     "inputmask": "^4.0.4",
     "normalize.css": "^8.0.1",
     "vue": "^2.5.20",
+    "vue-clipboard2": "^0.2.1",
     "vue-i18n": "5.x",
     "vue-router": "^3.0.2",
     "vue-sticky": "^3.3.4",

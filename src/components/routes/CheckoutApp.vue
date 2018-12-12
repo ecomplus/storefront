@@ -242,6 +242,7 @@
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
 import { formatMoney, updateTitle } from '@/lib/utils'
+import VueClipboard from 'vue-clipboard2'
 import RegistrationForm from '@/components/routes/account/RegistrationForm'
 import AddressList from '@/components/routes/account/AddressList'
 import ShippingServices from '@/components/routes/cart/ShippingServices'
@@ -360,7 +361,10 @@ export default {
         })
 
         .catch(err => {
-          // alert
+          console.error(err)
+          // alert error and reload current page
+          alert(this.$t('general.error'))
+          setTimeout(() => location.reload(), 1000)
         })
       }
     },

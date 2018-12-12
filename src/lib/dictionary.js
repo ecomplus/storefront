@@ -8,6 +8,7 @@ export default {
       add: 'Add',
       proceed: 'Proceed',
       success: 'Changes saved successfully',
+      error: 'An unexpected error has occurred, the page will refresh in a moment',
       of: ' of '
     },
     session: {
@@ -163,6 +164,7 @@ export default {
       add: 'Adicionar',
       proceed: 'Prosseguir',
       success: 'Alterações salvas com sucesso',
+      error: 'Ocorreu um erro inesperado, a página será atualizada em instantes',
       of: ' de '
     },
     session: {
