@@ -58,6 +58,8 @@ export let wait = new Promise(resolve => {
 
 Api.get = {
   shop: () => promise(cb => EcomIo.getStore(cb)),
+  product: id => promise(cb => EcomIo.getProduct(cb, id)),
+  cart: id => promise(cb => EcomIo.getCart(cb, id)),
   customer: () => promise(cb => {
     if (EcomPassport.isLogged()) {
       // GET customer from Passport REST API
@@ -68,8 +70,7 @@ Api.get = {
       cb(null, {})
     }
   }),
-  product: id => promise(cb => EcomIo.getProduct(cb, id)),
-  cart: id => promise(cb => EcomIo.getCart(cb, id))
+  order: id => promise(cb => EcomPassport.api('/orders/' + id + '.json', 'GET', null, cb))
 }
 
 Api.set = {
