@@ -242,7 +242,6 @@
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
 import { formatMoney, updateTitle } from '@/lib/utils'
-import VueClipboard from 'vue-clipboard2'
 import RegistrationForm from '@/components/routes/account/RegistrationForm'
 import AddressList from '@/components/routes/account/AddressList'
 import ShippingServices from '@/components/routes/cart/ShippingServices'
@@ -385,6 +384,20 @@ export default {
 
     doCheckout (paymentData) {
       this.handleCheckout(paymentData).then(({ transaction }) => {
+        if (transaction.status && transaction.status.current === 'unauthorized') {
+          // invalid credit card probably
+          this.$message({
+            showClose: true,
+            message: this.$t('checkout.unauthorized'),
+            type: 'warning'
+          })
+        } else {
+          // payment done
+          // only redirect to confirmation
+          this.$router.push({ name: 'confirmation' })
+        }
+        return
+
         if (transaction.payment_link || transaction.banking_billet) {
           // payment confirmation modal
           // buyer must proceed to external payment page
@@ -455,8 +468,8 @@ export default {
         // back to shopping cart
         this.$router.push({ name: 'cart' })
       } else {
-        // update checkout step after cart loaded
-        this.updateStep()
+        // check if customer already logged and goes to correct checkout step
+        this.handleCustomer()
       }
     })
 
@@ -466,13 +479,6 @@ export default {
     }
     // update header title
     updateTitle(this.$t('checkout.title'), this.shopName)
-  },
-
-  mounted () {
-    this.$nextTick(() => {
-      // starts going to correct checkout step
-      this.updateStep()
-    })
   },
 
   watch: {
