@@ -396,55 +396,6 @@ export default {
           // only redirect to confirmation
           this.$router.push({ name: 'confirmation' })
         }
-        return
-
-        if (transaction.payment_link || transaction.banking_billet) {
-          // payment confirmation modal
-          // buyer must proceed to external payment page
-          let payText, payLink, payCode
-          if (transaction.banking_billet) {
-            payText = this.$t('checkout.printBillet')
-            payCode = transaction.banking_billet.code
-          } else {
-            payText = this.$t('checkout.redirectToPayment')
-          }
-          if (transaction.banking_billet && transaction.banking_billet.link) {
-            payLink = transaction.banking_billet.link
-          } else {
-            payLink = transaction.payment_link
-          }
-
-          // modal HTML content
-          let payHtml = '<p>' + this.$t('checkout.doPaymentText') + '</p>'
-          if (payCode) {
-            // highlight ticket code
-            payHtml += '<br>' + this.$t('checkout.ticketCode') + ':' +
-                       '<br><strong>' + payCode + '</strong>'
-          }
-
-          this.$alert(payHtml, this.$t('checkout.orderCreated'), {
-            dangerouslyUseHTMLString: true,
-            showClose: false,
-            confirmButtonText: payText,
-            callback: action => {
-              // new tab with payment link
-              window.open(payLink, '_blank')
-              // redirect to confirmation
-              this.$router.push({ name: 'confirmation' })
-            }
-          })
-        } else if (transaction.status && transaction.status.current === 'unauthorized') {
-          // invalid credit card probably
-          this.$message({
-            showClose: true,
-            message: this.$t('checkout.unauthorized'),
-            type: 'warning'
-          })
-        } else {
-          // payment done
-          // only redirect to confirmation
-          this.$router.push({ name: 'confirmation' })
-        }
       })
 
       .catch(e => {

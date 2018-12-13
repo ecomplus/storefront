@@ -19,8 +19,7 @@ const state = {
   },
   payment: {
     gateways: []
-  },
-  order: {}
+  }
 }
 
 const mutations = {
@@ -338,9 +337,10 @@ const actions = {
           // redirect current window to payment link
           window.location = transaction.payment_link
         } else {
-          resolve(response)
           // save created order object
-          dispatch('saveOrder', order, { root: true })
+          dispatch('saveOrder', order, { root: true }).finally(() => {
+            resolve(response)
+          })
         }
       })
 
