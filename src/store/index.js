@@ -6,6 +6,7 @@ import Vuex from 'vuex'
 import shop from './modules/shop'
 import cart from './modules/cart'
 import checkout from './modules/checkout'
+import order from './modules/order'
 import products from './modules/products'
 import customer from './modules/customer'
 import createLogger from 'vuex/dist/logger'
@@ -90,7 +91,7 @@ const actions = {
     let module = payload.module
     if (api.get.hasOwnProperty(module)) {
       // call API
-      dispatch('api', [ 'get', module, state[module].body._id ]).then(body => {
+      return dispatch('api', [ 'get', module, state[module].body._id ]).then(body => {
         // merge payload
         payload = { ...payload, body }
         // call mutation to change state
@@ -116,6 +117,7 @@ const modules = {
   shop,
   cart,
   checkout,
+  order,
   products,
   customer
 }
