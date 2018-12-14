@@ -1,7 +1,12 @@
 <template>
   <div class="_order-confirmation">
     <transition name="fade">
-      <div key="order-loading" v-if="!order.status" class="_order-loading"></div>
+      <div key="order-loading" v-if="!order.status" class="_order-loading">
+        <div v-if="!loading" class="__loading">
+          <a-icon class="__loading-icon" icon="circle-notch" spin></a-icon>
+          <div>{{ $t('general.loading') }}</div>
+        </div>
+      </div>
 
       <div key="order-loaded" v-else class="_order-loaded">
         <h1 class="_order-title">
@@ -39,16 +44,21 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapState } from 'vuex'
 import VueClipboard from 'vue-clipboard2'
 
 export default {
   name: 'OrderConfirmation',
 
-  computed: mapGetters([
-    'order',
-    'orderTransaction'
-  ]),
+  computed: {
+    ...mapGetters([
+      'order',
+      'orderTransaction'
+    ]),
+    ...mapState([
+      'loading'
+    ])
+  },
 
   methods: {
     ...mapActions([
@@ -79,4 +89,6 @@ export default {
 </script>
 
 <style lang="scss">
+// Element UI theme variables
+@import '../../../node_modules/element-theme-chalk/src/common/var.scss';
 </style>

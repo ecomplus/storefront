@@ -208,6 +208,16 @@ a, button, div, span, img {
   display: block;
   color: $--color-text-secondary;
 }
+.__loading {
+  padding: $--card-padding * 6 0;
+  text-align: center;
+  font-size: $--font-size-large;
+}
+.__loading-icon {
+  font-size: 50px;
+  margin-bottom: $--card-padding;
+  color: $--color-primary;
+}
 
 // classes from Element UI
 .el-loading-mask {

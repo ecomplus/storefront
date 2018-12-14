@@ -8,6 +8,7 @@ export default {
       add: 'Add',
       proceed: 'Proceed',
       success: 'Changes saved successfully',
+      loading: 'Loading data',
       error: 'An unexpected error has occurred, the page will refresh in a moment',
       of: ' of '
     },
@@ -164,6 +165,7 @@ export default {
       add: 'Adicionar',
       proceed: 'Prosseguir',
       success: 'Alterações salvas com sucesso',
+      loading: 'Carregando dados',
       error: 'Ocorreu um erro inesperado, a página será atualizada em instantes',
       of: ' de '
     },
