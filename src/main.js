@@ -20,6 +20,7 @@ import { DEFAULT_LANG, DEFAULT_COUNTRY_CODE } from '@/lib/constants'
 // custom additional plugins
 import Inputmask from 'inputmask'
 import VueSticky from 'vue-sticky'
+import VueClipboard from 'vue-clipboard2'
 import creditCardType from 'credit-card-type'
 
 // Font Awesome Icons
@@ -64,6 +65,9 @@ Vue.directive('on-key-enter', {
     }
   }
 })
+// setup copy to clipboard tool
+VueClipboard.config.autoSetContainer = true
+Vue.use(VueClipboard)
 
 /* eslint-disable no-new */
 // set Vue instance

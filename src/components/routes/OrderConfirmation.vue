@@ -22,6 +22,11 @@
               <br><strong>{{ orderTransaction.banking_billet.code }}</strong>
             </p>
             <el-button
+              type="primary"
+              @click="() => toClipboard(orderTransaction.banking_billet.code)">
+              {{ $t('checkout.copyCode') }}
+            </el-button>
+            <el-button
               v-if="orderTransaction.banking_billet.link"
               type="primary"
               @click="() => link(orderTransaction.banking_billet.link)">
@@ -45,7 +50,6 @@
 
 <script>
 import { mapGetters, mapActions, mapState } from 'vuex'
-import VueClipboard from 'vue-clipboard2'
 
 export default {
   name: 'OrderConfirmation',
@@ -67,6 +71,16 @@ export default {
 
     link (url) {
       window.open(url, '_blank')
+    },
+
+    toClipboard (text) {
+      this.$copyText(text).then((e) => {
+        alert('Copied')
+        console.log(e)
+      }, (e) => {
+        alert('Can not copy')
+        console.log(e)
+      })
     }
   },
 
