@@ -100,6 +100,8 @@ export default {
       ticketCode: 'Ticket code',
       printBillet: 'Print billet',
       copyCode: 'Copy code',
+      copyError: 'Error copying to clipboard, please copy above code manually',
+      codeCopied: 'Code copied to clipboard',
       redirectToPayment: 'Redirect to payment'
     },
     shipping: {
@@ -270,6 +272,8 @@ export default {
       ticketCode: 'Código de barras do boleto',
       printBillet: 'Imprimir boleto',
       copyCode: 'Copiar código',
+      copyError: 'Erro ao copiar para a área de transferência, por favor copie o código acima manualmente',
+      codeCopied: 'Código copiado para a área de transferência',
       redirectToPayment: 'Efetuar pagamento'
     },
     account: {

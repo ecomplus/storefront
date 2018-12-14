@@ -75,12 +75,20 @@ export default {
     },
 
     toClipboard (text) {
-      this.$copyText(text).then((e) => {
-        alert('Copied')
-        console.log(e)
-      }, (e) => {
-        alert('Can not copy')
-        console.log(e)
+      this.$copyText(text).then(() => {
+        this.$message({
+          message: this.$t('order.codeCopied'),
+          type: 'success',
+          duration: 1500
+        })
+      }, err => {
+        // cannot handle copy
+        console.error(err)
+        this.$message({
+          showClose: true,
+          message: this.$t('order.copyError'),
+          type: 'warning'
+        })
       })
     }
   },
