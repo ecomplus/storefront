@@ -1,5 +1,5 @@
 <template>
-  <div class="_order-confirmation">
+  <div class="_order">
     <transition name="fade">
       <div key="order-loading" v-if="!order.status" class="_order-loading">
         <div v-if="!loading" class="__loading">
@@ -9,40 +9,41 @@
       </div>
 
       <div key="order-loaded" v-else class="_order-loaded">
-        <h1 class="_order-title">
-          {{ $t('checkout.orderCreated') }}
-          <small>#{{ order.number }}</small>
-        </h1>
+        <div class="_order-info">
+          <h4>
+            {{ $t('order.number') }}:
+            <span class="_order-number">#{{ order.number }}</span>
+          </h4>
 
-        <el-card shadow="never" class="_order-info">
           <div v-if="orderTransaction.banking_billet" class="_order-billet">
-            <p>{{ $t('checkout.doPaymentText') }}</p>
+            <p>{{ $t('order.doPaymentText') }}</p>
             <p>
-              {{ $t('checkout.ticketCode') }}:
+              {{ $t('order.ticketCode') }}:
               <br><strong>{{ orderTransaction.banking_billet.code }}</strong>
             </p>
             <el-button
-              type="primary"
               @click="() => toClipboard(orderTransaction.banking_billet.code)">
-              {{ $t('checkout.copyCode') }}
+              <a-icon icon="copy" class="__icon-mr"></a-icon>
+              {{ $t('order.copyCode') }}
             </el-button>
             <el-button
               v-if="orderTransaction.banking_billet.link"
               type="primary"
               @click="() => link(orderTransaction.banking_billet.link)">
-              {{ $t('checkout.printBillet') }}
+              <a-icon icon="print" class="__icon-mr"></a-icon>
+              {{ $t('order.printBillet') }}
             </el-button>
           </div>
 
           <div v-else-if="orderTransaction.payment_link" class="_order-redirect">
-            <p>{{ $t('checkout.doPaymentText') }}</p>
+            <p>{{ $t('order.doPaymentText') }}</p>
             <el-button
               type="success"
               @click="() => link(orderTransaction.payment_link)">
-              {{ $t('checkout.redirectToPayment') }}
+              {{ $t('order.redirectToPayment') }}
             </el-button>
           </div>
-        </el-card>
+        </div>
       </div>
     </transition>
   </div>
@@ -52,7 +53,7 @@
 import { mapGetters, mapActions, mapState } from 'vuex'
 
 export default {
-  name: 'OrderConfirmation',
+  name: 'OrderInfo',
 
   computed: {
     ...mapGetters([
@@ -101,8 +102,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-// Element UI theme variables
-@import '../../../node_modules/element-theme-chalk/src/common/var.scss';
-</style>

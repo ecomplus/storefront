@@ -63,14 +63,9 @@ export default {
       confirmation: 'Thanks',
       haveCoupon: 'Do you have a coupon?',
       bankingBillet: 'Generate billet',
-      printBillet: 'Print billet',
-      copyCode: 'Copy code',
-      redirectToPayment: 'Redirect to payment',
       orderCreated: 'Order created',
       orderError: 'We had an error saving your order, please try again',
-      unauthorized: 'Unauthorized payment, please check the data and try again',
-      doPaymentText: 'Please finalize the payment to confirm your purchase',
-      ticketCode: 'Ticket code'
+      unauthorized: 'Unauthorized payment, please check the data and try again'
     },
     card: {
       number: 'Card number',
@@ -98,6 +93,14 @@ export default {
       confirmNumber: 'Confirm number',
       potentiallyValid: 'The card number appears to be incorrect, please check typing errors',
       atSight: 'at sight'
+    },
+    order: {
+      number: 'Order number',
+      doPaymentText: 'Please finalize the payment to confirm your purchase',
+      ticketCode: 'Ticket code',
+      printBillet: 'Print billet',
+      copyCode: 'Copy code',
+      redirectToPayment: 'Redirect to payment'
     },
     shipping: {
       loading: 'Loading shipping methods',
@@ -230,14 +233,9 @@ export default {
       confirmation: 'Obrigado',
       haveCoupon: 'Possui cupom ou vale?',
       bankingBillet: 'Gerar boleto',
-      printBillet: 'Imprimir boleto',
-      copyCode: 'Copiar código',
-      redirectToPayment: 'Efetuar pagamento',
       orderCreated: 'Recebemos seu pedido',
       orderError: 'Ocorreu um erro ao salvar seu pedido, por favor tente novamente',
-      unauthorized: 'Pagamento não autorizado, por favor confira os dados e tente novamente',
-      doPaymentText: 'Por favor finalize o pagamento para confirmar sua compra',
-      ticketCode: 'Código de barras do boleto'
+      unauthorized: 'Pagamento não autorizado, por favor confira os dados e tente novamente'
     },
     card: {
       number: 'Número do cartão',
@@ -265,6 +263,14 @@ export default {
       confirmNumber: 'Confirmar número',
       potentiallyValid: 'O número do cartão parece estar incorreto, por favor verifique erros de digitação',
       atSight: 'à vista'
+    },
+    order: {
+      number: 'Número do pedido',
+      doPaymentText: 'Por favor finalize o pagamento para confirmar sua compra',
+      ticketCode: 'Código de barras do boleto',
+      printBillet: 'Imprimir boleto',
+      copyCode: 'Copiar código',
+      redirectToPayment: 'Efetuar pagamento'
     },
     account: {
       registration: 'Cadastro',

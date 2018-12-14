@@ -14,7 +14,7 @@
       <el-steps :active="activeStep" align-center class="_checkout-steps">
         <el-step>
           <template slot="title">
-            <span v-if="activeStep === 0">
+            <span v-if="activeStep === 0 || activeStep === 3">
               {{ $t('checkout.identification') }}
             </span>
             <a v-else href="javascript:;" @click="activeStep = 0">
@@ -24,7 +24,7 @@
         </el-step>
         <el-step>
           <template slot="title">
-            <span v-if="activeStep === 1 || !buyerReady">
+            <span v-if="activeStep === 1 || activeStep === 3 || !buyerReady">
               {{ $t('checkout.shipping') }}
             </span>
             <a v-else href="javascript:;" @click="activeStep = 1">
@@ -34,7 +34,7 @@
         </el-step>
         <el-step>
           <template slot="title">
-            <span v-if="activeStep === 2 || !customerAddress">
+            <span v-if="activeStep === 2 || activeStep === 3 || !customerAddress">
               {{ $t('checkout.payment') }}
             </span>
             <a v-else href="javascript:;" @click="activeStep = 2">
@@ -74,7 +74,7 @@
         <address-list :buttonText="$t('checkout.goToPayment')" :zip="shippingZip"/>
       </div>
 
-      <div class="_checkout-payment" v-else-if="activeStep === 2">
+      <div class="_checkout-payment" v-else-if="activeStep >= 2">
         <transition name="fade">
           <div
             key="checkout-loading"
@@ -86,7 +86,7 @@
 
           <el-row key="checkout-payment" v-else id="payment">
             <el-col :md="17" :sm="16" :xs="24">
-              <el-card shadow="never" class="_invoice">
+              <el-card shadow="never" class="_invoice" v-if="activeStep === 2">
                 <el-row class="_invoice-shipping">
                   <el-col :span="11" class="_invoice-address hidden-sm-and-down">
                     <p class="_invoice-address-title">
@@ -180,6 +180,14 @@
                   </div>
                 </div>
               </el-card>
+
+              <el-card shadow="never" class="_confirmation" v-else>
+                <h1 id="confirmation">
+                  <a-icon icon="check" class="__icon-mr"></a-icon>
+                  {{ $t('checkout.orderCreated') }}
+                </h1>
+                <order-info></order-info>
+              </el-card>
             </el-col>
 
             <el-col :md="7" :sm="8" :xs="24" class="_summary" v-sticky="{ zIndex: 99, stickyTop: 20 }">
@@ -250,6 +258,7 @@ import AddressList from '@/components/routes/account/AddressList'
 import ShippingServices from '@/components/routes/cart/ShippingServices'
 import DiscountCoupon from '@/components/routes/cart/DiscountCoupon'
 import CreditCard from '@/components/routes/checkout/CreditCard'
+import OrderInfo from '@/components/routes/account/OrderInfo'
 
 export default {
   name: 'CheckoutApp',
@@ -259,7 +268,8 @@ export default {
     AddressList,
     ShippingServices,
     DiscountCoupon,
-    CreditCard
+    CreditCard,
+    OrderInfo
   },
 
   data () {
@@ -396,13 +406,14 @@ export default {
           })
         } else {
           // payment done
-          // only redirect to confirmation
-          this.$router.push({ name: 'confirmation' })
+          // show confirmation tab
+          this.activeStep = 3
         }
       })
 
-      .catch(e => {
+      .catch(err => {
         // unknown checkout error
+        console.log(err)
         // show notification
         this.$message({
           showClose: true,
@@ -469,11 +480,13 @@ export default {
 ._checkout-payment {
   margin-top: $--card-padding * 1.3;
 }
-._invoice {
+._invoice,
+._confirmation {
   margin-right: $--card-padding;
 }
 @media (max-width: 767px) {
-  ._invoice {
+  ._invoice,
+  ._confirmation {
     margin-right: 0;
     margin-bottom: $--card-padding;
   }
@@ -554,5 +567,9 @@ export default {
 ._summary-item-price {
   display: inline-block;
   color: $--color-text-secondary;
+}
+._confirmation h1 {
+  color: $--color-success;
+  margin-top: 0;
 }
 </style>
