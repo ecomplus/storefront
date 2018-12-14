@@ -10,10 +10,10 @@
 
       <div key="order-loaded" v-else class="_order-loaded">
         <div class="_order-info">
-          <h4>
+          <h5>
             {{ $t('order.number') }}:
             <span class="_order-number">#{{ order.number }}</span>
-          </h4>
+          </h5>
 
           <div v-if="orderTransaction.banking_billet" class="_order-billet">
             <p>{{ $t('order.doPaymentText') }}</p>
@@ -42,6 +42,13 @@
               @click="() => link(orderTransaction.payment_link)">
               {{ $t('order.redirectToPayment') }}
             </el-button>
+          </div>
+
+          <div class="_order-status">
+            {{ $t('order.status') }}:
+            <strong :class="'_order-status-' + order.status">
+              {{ $t('order.' + order.status) }}
+            </strong>
           </div>
         </div>
       </div>
@@ -110,3 +117,30 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+// Element UI theme variables
+@import '../../../../node_modules/element-theme-chalk/src/common/var.scss';
+
+._order-info h5 {
+  color: $--color-text-secondary;
+}
+._order-number {
+  color: $--color-text-primary;
+}
+._order-status {
+  padding-top: $--card-padding;
+  margin-top: $--card-padding;
+  border-top: $--border-base;
+  font-size: $--font-size-large;
+}
+._order-status-open {
+  color: $--color-warning;
+}
+._order-status-closed {
+  color: $--color-success;
+}
+._order-status-cancelled {
+  color: $--color-danger;
+}
+</style>

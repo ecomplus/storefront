@@ -102,7 +102,11 @@ export default {
       copyCode: 'Copy code',
       copyError: 'Error copying to clipboard, please copy above code manually',
       codeCopied: 'Code copied to clipboard',
-      redirectToPayment: 'Redirect to payment'
+      redirectToPayment: 'Redirect to payment',
+      status: 'Order status',
+      open: 'Opane',
+      closed: 'Finalized',
+      cancelled: 'Cancelled'
     },
     shipping: {
       loading: 'Loading shipping methods',
@@ -274,7 +278,11 @@ export default {
       copyCode: 'Copiar código',
       copyError: 'Erro ao copiar para a área de transferência, por favor copie o código acima manualmente',
       codeCopied: 'Código copiado para a área de transferência',
-      redirectToPayment: 'Efetuar pagamento'
+      redirectToPayment: 'Efetuar pagamento',
+      status: 'Situação do pedido',
+      open: 'Aberto',
+      closed: 'Finalizado',
+      cancelled: 'Cancelado'
     },
     account: {
       registration: 'Cadastro',
