@@ -52,33 +52,35 @@
               <div :class="'_financial-status _financial-status-' + orderFinancialStatus">
                 {{ $t('order.financialStatus.' + orderFinancialStatus) }}
               </div>
-              <p class="_order-payment-value">
-                {{ order.payment_method_label }}:
-                <strong v-if="orderTransaction.installments && orderTransaction.installments.value">
-                  {{ orderTransaction.installments.number }}x
-                  {{ $t('general.of') }}
-                  {{ formatMoney(orderTransaction.installments.value) }}
-                </strong>
-                <strong v-else>
-                  1x {{ $t('general.of') }}
-                  {{ formatMoney(order.amount.total) }}
-                </strong>
-              </p>
+              <div v-for="transaction in order.transactions">
+                <p class="_order-payment-value">
+                  {{ order.payment_method_label }}:
+                  <strong v-if="transaction.installments && transaction.installments.value">
+                    {{ transaction.installments.number }}x
+                    {{ $t('general.of') }}
+                    {{ formatMoney(transaction.installments.value) }}
+                  </strong>
+                  <strong v-else>
+                    1x {{ $t('general.of') }}
+                    {{ formatMoney(transaction.amount || order.amount.total) }}
+                  </strong>
+                </p>
 
-              <span v-if="orderTransaction.intermediator">
-                <div
-                  class="_order-transaction-code"
-                  v-if="orderTransaction.intermediator.transaction_code">
-                  {{ $t('order.transactionCode') }}:
-                  {{ orderTransaction.intermediator.transaction_code }}
-                </div>
-                <div
-                  class="_order-transaction-reference"
-                  v-if="orderTransaction.intermediator.transaction_reference">
-                  {{ $t('order.transactionReference') }}:
-                  {{ orderTransaction.intermediator.transaction_reference }}
-                </div>
-              </span>
+                <span v-if="transaction.intermediator">
+                  <div
+                    class="_order-transaction-code"
+                    v-if="transaction.intermediator.transaction_code">
+                    {{ $t('order.transactionCode') }}:
+                    {{ transaction.intermediator.transaction_code }}
+                  </div>
+                  <div
+                    class="_order-transaction-reference"
+                    v-if="transaction.intermediator.transaction_reference">
+                    {{ $t('order.transactionReference') }}:
+                    {{ transaction.intermediator.transaction_reference }}
+                  </div>
+                </span>
+              </div>
             </el-col>
 
             <el-col :md="12" :span="24" class="_order-shipping" v-if="orderFulfillmentStatus">
