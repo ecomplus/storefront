@@ -92,7 +92,7 @@
 
 <script>
 import { mapGetters, mapActions, mapState } from 'vuex'
-import { formatMoney, updateTitle } from '@/lib/utils'
+import { formatMoney } from '@/lib/utils'
 
 export default {
   name: 'OrderInfo',
