@@ -14,6 +14,9 @@
             {{ $t('order.number') }}:
             <span class="_order-number">#{{ order.number }}</span>
           </h5>
+          <div :class="'_order-status _order-status-' + order.status">
+            {{ $t('order.' + order.status) }}
+          </div>
 
           <div v-if="orderTransaction.banking_billet" class="_order-billet">
             <p>{{ $t('order.doPaymentText') }}</p>
@@ -44,12 +47,43 @@
             </el-button>
           </div>
 
-          <div class="_order-status">
-            {{ $t('order.status') }}:
-            <strong :class="'_order-status-' + order.status">
-              {{ $t('order.' + order.status) }}
-            </strong>
-          </div>
+          <el-row class="_order-fulfillment">
+            <el-col :md="12" :span="24" class="_order-payment">
+              <div :class="'_financial-status _financial-status-' + orderFinancialStatus">
+                {{ $t('order.financialStatus.' + orderFinancialStatus) }}
+              </div>
+              <p class="_order-payment-value">
+                {{ order.payment_method_label }}:
+                <strong v-if="orderTransaction.installments && orderTransaction.installments.value">
+                  {{ orderTransaction.installments.number }}x
+                  {{ $t('general.of') }}
+                  {{ formatMoney(orderTransaction.installments.value) }}
+                </strong>
+                <strong v-else>
+                  1x {{ $t('general.of') }}
+                  {{ formatMoney(order.amount.total) }}
+                </strong>
+              </p>
+
+              <span v-if="orderTransaction.intermediator">
+                <div
+                  class="_order-transaction-code"
+                  v-if="orderTransaction.intermediator.transaction_code">
+                  {{ $t('order.transactionCode') }}:
+                  {{ orderTransaction.intermediator.transaction_code }}
+                </div>
+                <div
+                  class="_order-transaction-reference"
+                  v-if="orderTransaction.intermediator.transaction_reference">
+                  {{ $t('order.transactionReference') }}:
+                  {{ orderTransaction.intermediator.transaction_reference }}
+                </div>
+              </span>
+            </el-col>
+
+            <el-col :md="12" :span="24" class="_order-shipping" v-if="orderFulfillmentStatus">
+            </el-col>
+          </el-row>
         </div>
       </div>
     </transition>
@@ -58,6 +92,7 @@
 
 <script>
 import { mapGetters, mapActions, mapState } from 'vuex'
+import { formatMoney, updateTitle } from '@/lib/utils'
 
 export default {
   name: 'OrderInfo',
@@ -65,7 +100,9 @@ export default {
   computed: {
     ...mapGetters([
       'order',
-      'orderTransaction'
+      'orderTransaction',
+      'orderFinancialStatus',
+      'orderFulfillmentStatus'
     ]),
     ...mapState([
       'loading'
@@ -76,6 +113,7 @@ export default {
     ...mapActions([
       'loadOrder'
     ]),
+    formatMoney,
 
     link (url) {
       window.open(url, '_blank')
@@ -129,18 +167,38 @@ export default {
   color: $--color-text-primary;
 }
 ._order-status {
-  padding-top: $--card-padding;
-  margin-top: $--card-padding;
-  border-top: $--border-base;
   font-size: $--font-size-large;
+  margin-bottom: $--card-padding;
 }
-._order-status-open {
+._financial-status,
+._fulfillment-status {
+  font-size: $--font-size-large;
+  margin-bottom: $--card-padding * .5;
+}
+._order-status-open,
+._financial-status-pending,
+._financial-status-under_analysis {
   color: $--color-warning;
 }
-._order-status-closed {
+._order-status-closed,
+._financial-status-paid {
   color: $--color-success;
 }
-._order-status-cancelled {
+._order-status-cancelled,
+._financial-status-unauthorized,
+._financial-status-in_dispute,
+._financial-status-voided {
   color: $--color-danger;
+}
+._order-fulfillment {
+  margin-top: $--card-padding;
+  border-top: $--border-base;
+  padding-top: $--card-padding;
+}
+._order-transaction-code,
+._order-transaction-reference {
+  margin-top: .25rem;
+  font-size: $--font-size-small;
+  color: $--color-text-secondary;
 }
 </style>

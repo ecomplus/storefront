@@ -103,9 +103,8 @@ export default {
       copyError: 'Error copying to clipboard, please copy above code manually',
       codeCopied: 'Code copied to clipboard',
       redirectToPayment: 'Redirect to payment',
-      status: 'Order status',
-      open: 'Opane',
-      closed: 'Finalized',
+      open: 'Open order',
+      closed: 'Finalized order',
       cancelled: 'Cancelled'
     },
     shipping: {
@@ -279,10 +278,24 @@ export default {
       copyError: 'Erro ao copiar para a área de transferência, por favor copie o código acima manualmente',
       codeCopied: 'Código copiado para a área de transferência',
       redirectToPayment: 'Efetuar pagamento',
-      status: 'Situação do pedido',
-      open: 'Aberto',
-      closed: 'Finalizado',
-      cancelled: 'Cancelado'
+      open: 'Pedido aberto',
+      closed: 'Pedido finalizado',
+      cancelled: 'Cancelado',
+      transactionCode: 'Código da transação',
+      transactionReference: 'Código da referência',
+      financialStatus: {
+        pending: 'Pagamento pendente',
+        under_analysis: 'Pagamento em análise',
+        authorized: 'Pagamento autorizado',
+        unauthorized: 'Pagamento não autorizado',
+        partially_paid: 'Parcialmente pago',
+        paid: 'Pago',
+        in_dispute: 'Pagamento em disputa',
+        partially_refunded: 'Pagamento parcialmente devolvido',
+        refunded: 'Pagamento devolvido',
+        voided: 'Pagamento cancelado',
+        unknown: 'Situação do pagamento desconhecida'
+      }
     },
     account: {
       registration: 'Cadastro',
