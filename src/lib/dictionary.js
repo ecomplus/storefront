@@ -105,7 +105,22 @@ export default {
       redirectToPayment: 'Redirect to payment',
       open: 'Open order',
       closed: 'Finalized order',
-      cancelled: 'Cancelled'
+      cancelled: 'Cancelled',
+      transactionCode: 'Transaction code',
+      transactionReference: 'Reference code',
+      financialStatus: {
+        pending: 'Pending payment',
+        under_analysis: 'Payment under analysis',
+        authorized: 'Authorized payment',
+        unauthorized: 'Unauthorized payment',
+        partially_paid: 'Partially paid',
+        paid: 'Paid',
+        in_dispute: 'Payment in dispute',
+        partially_refunded: 'Payment partially refunded',
+        refunded: 'Payment refunded',
+        voided: 'Payment voided',
+        unknown: 'Unknown payment status'
+      }
     },
     shipping: {
       loading: 'Loading shipping methods',
