@@ -408,6 +408,8 @@ export default {
           // payment done
           // show confirmation tab
           this.activeStep = 3
+          // update header title
+          updateTitle('✓ ' + this.$t('checkout.orderCreated'), this.shopName)
         }
       })
 
