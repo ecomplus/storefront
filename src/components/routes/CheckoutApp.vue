@@ -14,7 +14,7 @@
       <el-steps :active="activeStep" align-center class="_checkout-steps">
         <el-step>
           <template slot="title">
-            <span v-if="activeStep === 0 || activeStep === 3">
+            <span v-if="activeStep === 0 || activeStep >= 3">
               {{ $t('checkout.identification') }}
             </span>
             <a v-else href="javascript:;" @click="activeStep = 0">
@@ -24,7 +24,7 @@
         </el-step>
         <el-step>
           <template slot="title">
-            <span v-if="activeStep === 1 || activeStep === 3 || !buyerReady">
+            <span v-if="activeStep === 1 || activeStep >= 3 || !buyerReady">
               {{ $t('checkout.shipping') }}
             </span>
             <a v-else href="javascript:;" @click="activeStep = 1">
@@ -34,7 +34,7 @@
         </el-step>
         <el-step>
           <template slot="title">
-            <span v-if="activeStep === 2 || activeStep === 3 || !customerAddress">
+            <span v-if="activeStep === 2 || activeStep >= 3 || !customerAddress">
               {{ $t('checkout.payment') }}
             </span>
             <a v-else href="javascript:;" @click="activeStep = 2">
@@ -42,9 +42,17 @@
             </a>
           </template>
         </el-step>
-        <el-step :title="$t('checkout.confirmation')">
+        <el-step>
           <template slot="icon">
             <a-icon icon="check-circle" class="_confirmation-icon"></a-icon>
+          </template>
+          <template slot="title">
+            <span v-if="activeStep < 3">
+              {{ $t('checkout.confirmation') }}
+            </span>
+            <strong v-else class="_confirmation-text">
+              {{ $t('checkout.confirmation') }}
+            </strong>
           </template>
         </el-step>
       </el-steps>
@@ -407,7 +415,7 @@ export default {
         } else {
           // payment done
           // show confirmation tab
-          this.activeStep = 3
+          this.activeStep = 4
           // update header title
           updateTitle('✓ ' + this.$t('checkout.orderCreated'), this.shopName)
         }
@@ -475,6 +483,9 @@ export default {
 }
 ._confirmation-icon {
   color: lighten($--color-success, 25%);
+}
+._confirmation-text {
+  color: lighten($--color-success, 15%);
 }
 ._checkout-logout {
   color: $--color-danger;
