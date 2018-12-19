@@ -335,7 +335,6 @@ export default {
       'isCustomerLogged',
       'shippingAvailable',
       'paymentGateways',
-      'paymentUpdate',
       'shopName'
     ]),
 

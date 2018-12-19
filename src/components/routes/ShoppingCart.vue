@@ -135,11 +135,30 @@
                   <el-col :md="12" :sm="24" :xs="12" class="_cart-total">
                     <small>{{ $t('cart.total') }}</small>
                     {{ formatMoney(checkout.amount.total) }}
+                    <small v-if="paymentDefaults && paymentDefaults.installments">
+                      {{ $t('general.upTo') + paymentDefaults.installments }}x
+                      {{ $t('cart.interestFree') }}
+                    </small>
                   </el-col>
                 </el-row>
+
                 <div v-else class="_cart-total">
                   <small>{{ $t('cart.total') }}</small>
                   {{ formatMoney(checkout.amount.total) }}
+                  <small v-if="paymentDefaults.installments">
+                    {{ $t('general.upTo') + paymentDefaults.installments }}x
+                    {{ $t('general.of') + formatMoney(checkout.amount.total / paymentDefaults.installments) }}
+                    {{ $t('cart.interestFree') }}
+                  </small>
+                  <small v-if="paymentDefaults.discount && paymentDefaults.discount.value">
+                    <span v-if="paymentDefaults.discount.label && paymentDefaults.discount.label !== ''">
+                      {{ $t('general.or') + formatMoney(discountOption()) }}
+                      {{ $t('general.on') + paymentDefaults.discount.label }}
+                    </span>
+                    <span v-else>
+                      {{ $t('general.or') + $t('general.upTo') + formatMoney(discountOption()) }}
+                    </span>
+                  </small>
                 </div>
 
                 <div class="_cart-submit">
@@ -185,6 +204,9 @@ export default {
     'checkout',
     'checkoutShipping',
     'checkoutZip',
+    'paymentGateways',
+    'paymentDefaults',
+    'calculateDiscount',
     'customer',
     'shopName'
   ]),
@@ -195,7 +217,8 @@ export default {
       'saveCart',
       'setCartItemQnt',
       'removeCartItem',
-      'setCheckoutZip'
+      'setCheckoutZip',
+      'initPaymentGateways'
     ]),
     formatMoney,
 
@@ -210,6 +233,16 @@ export default {
         // update stored cart body
         this.saveCart()
       }, 2000)
+    },
+
+    discountOption () {
+      // calculate total value with default payment discount option
+      let amount = {
+        ...this.checkout.amount,
+        subtotal: this.cart.subtotal
+      }
+      let { discount } = this.paymentDefaults
+      return amount.total - this.calculateDiscount({ amount, discount })
     },
 
     goToCheckout () {
@@ -227,6 +260,13 @@ export default {
     this.shippingZip = this.checkoutZip
     // update header title
     updateTitle(this.$t('cart.title'), this.shopName)
+  },
+
+  mounted () {
+    if (!this.paymentGateways.length) {
+      // get payment options on background
+      setTimeout(this.initPaymentGateways, 400)
+    }
   }
 }
 </script>

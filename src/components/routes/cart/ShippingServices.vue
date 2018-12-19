@@ -11,7 +11,7 @@
             @click="selectShippingService(index)">
             <a-icon v-if="service.selected" icon="shipping-fast" class="_shipping-icon"></a-icon>
             <span class="_shipping-deadline">
-              {{ $t('shipping.upTo') + ' ' + shippingServiceTime(service) }}
+              {{ $t('general.upTo') + shippingServiceTime(service) }}
               {{ !shippingServiceWorkingDays(service) ?
                 $t('shipping.days') : $t('shipping.workingDays') }}
             </span>

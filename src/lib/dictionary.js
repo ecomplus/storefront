@@ -10,8 +10,10 @@ export default {
       success: 'Changes saved successfully',
       loading: 'Loading data',
       error: 'An unexpected error has occurred, the page will refresh in a moment',
+      upTo: ' up to ',
       of: ' of ',
-      on: ' on '
+      on: ' on ',
+      or: ' or '
     },
     session: {
       hi: 'Hello',
@@ -45,7 +47,8 @@ export default {
       close: 'Close order',
       giftWrap: 'Gift-wrap',
       discountCoupon: 'Discount coupon',
-      addDiscountCoupon: 'Add discount coupon'
+      addDiscountCoupon: 'Add discount coupon',
+      interestFree: ''
     },
     checkout: {
       title: 'Checkout',
@@ -127,7 +130,6 @@ export default {
     },
     shipping: {
       loading: 'Loading shipping methods',
-      upTo: 'up to',
       days: 'days',
       workingDays: 'working days',
       invalidZip: 'Shipping unavailable for this ZIP code',
@@ -194,8 +196,10 @@ export default {
       success: 'Alterações salvas com sucesso',
       loading: 'Carregando dados',
       error: 'Ocorreu um erro inesperado, a página será atualizada em instantes',
+      upTo: ' até ',
       of: ' de ',
-      on: ' no '
+      on: ' no ',
+      or: ' ou '
     },
     session: {
       hi: 'Olá',
@@ -229,11 +233,11 @@ export default {
       close: 'Fechar pedido',
       giftWrap: 'Embrulhar para presente',
       discountCoupon: 'Cupom de desconto',
-      addDiscountCoupon: 'Adicionar cupom de desconto'
+      addDiscountCoupon: 'Adicionar cupom de desconto',
+      interestFree: 's/ juros'
     },
     shipping: {
       loading: 'Carregando formas de envio',
-      upTo: 'até',
       days: 'dias',
       workingDays: 'dias úteis',
       invalidZip: 'Entrega indisponível para este CEP',

@@ -18,7 +18,13 @@ const state = {
     services: []
   },
   payment: {
-    gateways: []
+    gateways: [],
+    defaults: {
+      installments: 0,
+      discount: {
+        value: 0
+      }
+    }
   }
 }
 
@@ -79,6 +85,14 @@ const mutations = {
   // reset available payment gateways
   setPaymentGateways (state, gateways) {
     state.payment.gateways = gateways
+  },
+
+  // reset payment default discount and installments options
+  setPaymentDefaults (state, { installments, discount }) {
+    state.payment.defaults = {
+      installments: installments || 0,
+      discount: discount || { value: 10, type: 'percentage', label: 'Boleto bancário' }
+    }
   }
 }
 
@@ -92,6 +106,7 @@ const getters = {
   shippingLoading: state => state.shipping.loading,
   shippingLoadError: state => state.shipping.error.code,
   paymentGateways: state => state.payment.gateways,
+  paymentDefaults: state => state.payment.defaults,
 
   // map selected shipping service and payment method objects
   checkoutShipping: state => state.shipping.services.find(option => option.selected === true),
@@ -126,6 +141,23 @@ const getters = {
     }
     // default not working days
     return false
+  },
+
+  // calculate discount value by discount and amount objects
+  calculateDiscount: () => ({ amount, discount }) => {
+    if (discount) {
+      let maxDiscount = amount[discount.apply_at || 'total']
+      if (maxDiscount) {
+        let { type, value } = discount
+        if (type === 'percentage') {
+          return maxDiscount * value / 100
+        } else {
+          return value <= maxDiscount ? value : maxDiscount
+        }
+      }
+    }
+    // default for no discount
+    return 0
   }
 }
 
@@ -143,16 +175,11 @@ const actions = {
       // check fiscount by payment method
       let { discount } = getters.checkoutPayment
       if (discount) {
-        let applyAt = discount.apply_at
-        let maxDiscount = (applyAt === 'subtotal' ? rootGetters.cart : state.amount)[applyAt]
-        if (maxDiscount) {
-          let { type, value } = discount
-          if (type === 'percentage') {
-            discountValue = maxDiscount * value / 100
-          } else {
-            discountValue = value <= maxDiscount ? value : maxDiscount
-          }
+        let amount = {
+          ...state.amount,
+          subtotal: rootGetters.cart.subtotal
         }
+        discountValue = getters.calculateDiscount({ amount, discount })
       }
     }
     // update current checkout discount value
@@ -233,12 +260,18 @@ const actions = {
       let gateways = []
       body.result.forEach(result => {
         if (result.validated) {
-          result.response.payment_gateways.forEach(gateway => {
+          let { response } = result
+          response.payment_gateways.forEach(gateway => {
             gateways.push({
               app_id: result.app_id,
               selected: false,
               ...gateway
             })
+          })
+          // save default interest free installments and discount option
+          commit('setPaymentDefaults', {
+            installments: response.interest_free_installments,
+            discount: response.discount_option
           })
         }
       })
