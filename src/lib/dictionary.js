@@ -48,7 +48,8 @@ export default {
       giftWrap: 'Gift-wrap',
       discountCoupon: 'Discount coupon',
       addDiscountCoupon: 'Add discount coupon',
-      interestFree: ''
+      interestFree: '',
+      withDiscount: 'with discount'
     },
     checkout: {
       title: 'Checkout',
@@ -234,7 +235,8 @@ export default {
       giftWrap: 'Embrulhar para presente',
       discountCoupon: 'Cupom de desconto',
       addDiscountCoupon: 'Adicionar cupom de desconto',
-      interestFree: 's/ juros'
+      interestFree: 's/ juros',
+      withDiscount: 'com desconto'
     },
     shipping: {
       loading: 'Carregando formas de envio',

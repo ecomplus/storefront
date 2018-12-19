@@ -150,13 +150,14 @@
                     {{ $t('general.of') + formatMoney(checkout.amount.total / paymentDefaults.installments) }}
                     {{ $t('cart.interestFree') }}
                   </small>
-                  <small v-if="paymentDefaults.discount && paymentDefaults.discount.value">
+                  <small v-if="discountOption()">
+                    {{ $t('general.or') }}
+                    {{ formatMoney(checkout.amount.total - discountOption()) }}
                     <span v-if="paymentDefaults.discount.label && paymentDefaults.discount.label !== ''">
-                      {{ $t('general.or') + formatMoney(discountOption()) }}
                       {{ $t('general.on') + paymentDefaults.discount.label }}
                     </span>
                     <span v-else>
-                      {{ $t('general.or') + $t('general.upTo') + formatMoney(discountOption()) }}
+                      {{ $t('cart.withDiscount') }}
                     </span>
                   </small>
                 </div>
@@ -242,7 +243,7 @@ export default {
         subtotal: this.cart.subtotal
       }
       let { discount } = this.paymentDefaults
-      return amount.total - this.calculateDiscount({ amount, discount })
+      return this.calculateDiscount({ amount, discount })
     },
 
     goToCheckout () {
