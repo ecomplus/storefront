@@ -268,10 +268,10 @@
                   </el-col>
                 </el-row>
 
-                <el-row v-if="checkout.amount.discunt">
+                <el-row v-if="checkout.amount.discount">
                   <el-col :md="12" :sm="24" :xs="12" class="_summary-discount">
                     <small>{{ $t('cart.discount') }}</small>
-                    {{ formatMoney(checkout.amount.discunt) }}
+                    {{ formatMoney(checkout.amount.discount) }}
                   </el-col>
                   <el-col :md="12" :sm="24" :xs="12" class="_summary-total">
                     <small>{{ $t('cart.total') }}</small>
@@ -335,6 +335,7 @@ export default {
       'isCustomerLogged',
       'shippingAvailable',
       'paymentGateways',
+      'paymentUpdate',
       'shopName'
     ]),
 
@@ -362,6 +363,7 @@ export default {
       'setCheckoutZip',
       'handleCheckout',
       'initPaymentGateways',
+      'fixCheckoutDiscount',
       'login'
     ]),
     ...mapMutations([
@@ -398,7 +400,7 @@ export default {
           if (this.shippingAvailable) {
             // load payment methods
             return this.initPaymentGateways().then(() => {
-              this.selectPaymentGateway()
+              this.changePayment()
               this.checkoutLoading = false
             })
           } else {
@@ -432,8 +434,24 @@ export default {
       this.updateStep()
     },
 
-    changePayment ({ $el }) {
-      this.selectPaymentGateway(parseInt($el.dataset.index, 10))
+    changePayment (payload) {
+      let index = 0
+      if (payload) {
+        switch (typeof payload) {
+          case 'object':
+            // element clicked
+            let { $el } = payload
+            if ($el) {
+              index = parseInt($el.dataset.index, 10)
+            }
+            break
+          case 'number':
+            index = payload
+        }
+      }
+      this.selectPaymentGateway(index)
+      // update checkout values after payment method changed
+      this.fixCheckoutDiscount()
     },
 
     doCheckout (paymentData) {
@@ -497,6 +515,13 @@ export default {
     customerUpdate () {
       this.handleCustomer()
     }
+  },
+
+  beforeRouteLeave (to, from, next) {
+    // unset chosen payment method before redirect
+    this.changePayment(-1)
+    // proceed router navigation
+    next()
   }
 }
 </script>

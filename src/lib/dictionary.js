@@ -10,7 +10,8 @@ export default {
       success: 'Changes saved successfully',
       loading: 'Loading data',
       error: 'An unexpected error has occurred, the page will refresh in a moment',
-      of: ' of '
+      of: ' of ',
+      on: ' on '
     },
     session: {
       hi: 'Hello',
@@ -193,7 +194,8 @@ export default {
       success: 'Alterações salvas com sucesso',
       loading: 'Carregando dados',
       error: 'Ocorreu um erro inesperado, a página será atualizada em instantes',
-      of: ' de '
+      of: ' de ',
+      on: ' no '
     },
     session: {
       hi: 'Olá',

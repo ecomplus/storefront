@@ -18,7 +18,8 @@ const state = {
     services: []
   },
   payment: {
-    gateways: []
+    gateways: [],
+    update: null
   }
 }
 
@@ -31,6 +32,11 @@ const mutations = {
   // update checkout total value
   setCheckoutTotal (state, value) {
     state.amount.total = value
+  },
+
+  // update checkout discount value
+  setCheckoutDiscount (state, value) {
+    state.amount.discount = value
   },
 
   // update shipping zip code
@@ -61,19 +67,12 @@ const mutations = {
 
   // mark selected payment gateway from list
   selectPaymentGateway (state, value = 0) {
-    state.payment.gateways.forEach((gateway, index) => {
-      if (index === value) {
-        gateway.selected = true
-        let { discount } = gateway
-        if (discount) {
-          // discount by payment method
-          // update checkout discount and total value
-          // TODO: handle discount
-        }
-      } else {
-        gateway.selected = false
-      }
+    let { payment } = state
+    payment.gateways.forEach((gateway, index) => {
+      gateway.selected = (index === value)
     })
+    // mark last update
+    payment.update = Date.now()
   },
 
   // reset available shipping services
@@ -97,6 +96,7 @@ const getters = {
   shippingLoading: state => state.shipping.loading,
   shippingLoadError: state => state.shipping.error.code,
   paymentGateways: state => state.payment.gateways,
+  paymentUpdate: state => state.payment.update,
 
   // map selected shipping service and payment method objects
   checkoutShipping: state => state.shipping.services.find(option => option.selected === true),
@@ -139,6 +139,30 @@ const actions = {
   fixCheckoutTotal ({ commit, state, rootGetters }) {
     let { freight, discount } = state.amount
     commit('setCheckoutTotal', rootGetters.cart.subtotal + freight - discount)
+  },
+
+  // check discounts and update total value
+  fixCheckoutDiscount ({ state, commit, dispatch, getters, rootGetters }) {
+    let discountValue = 0
+    if (getters.checkoutPayment) {
+      // check fiscount by payment method
+      let { discount } = getters.checkoutPayment
+      if (discount) {
+        let applyAt = discount.apply_at
+        let maxDiscount = (applyAt === 'subtotal' ? rootGetters.cart : state.amount)[applyAt]
+        if (maxDiscount) {
+          let { type, value } = discount
+          if (type === 'percentage') {
+            discountValue = maxDiscount * value / 100
+          } else {
+            discountValue = value <= maxDiscount ? value : maxDiscount
+          }
+        }
+      }
+    }
+    // update current checkout discount value
+    commit('setCheckoutDiscount', discountValue)
+    dispatch('fixCheckoutTotal')
   },
 
   // update shipping services list

@@ -127,10 +127,10 @@
                   </div>
                 </div>
 
-                <el-row v-if="checkout.amount.discunt">
+                <el-row v-if="checkout.amount.discount">
                   <el-col :md="12" :sm="24" :xs="12" class="_cart-discount">
                     <small>{{ $t('cart.discount') }}</small>
-                    {{ formatMoney(checkout.amount.discunt) }}
+                    {{ formatMoney(checkout.amount.discount) }}
                   </el-col>
                   <el-col :md="12" :sm="24" :xs="12" class="_cart-total">
                     <small>{{ $t('cart.total') }}</small>
