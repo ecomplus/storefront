@@ -18,8 +18,7 @@ const state = {
     services: []
   },
   payment: {
-    gateways: [],
-    update: null
+    gateways: []
   }
 }
 
@@ -67,12 +66,9 @@ const mutations = {
 
   // mark selected payment gateway from list
   selectPaymentGateway (state, value = 0) {
-    let { payment } = state
-    payment.gateways.forEach((gateway, index) => {
+    state.payment.gateways.forEach((gateway, index) => {
       gateway.selected = (index === value)
     })
-    // mark last update
-    payment.update = Date.now()
   },
 
   // reset available shipping services
@@ -96,7 +92,6 @@ const getters = {
   shippingLoading: state => state.shipping.loading,
   shippingLoadError: state => state.shipping.error.code,
   paymentGateways: state => state.payment.gateways,
-  paymentUpdate: state => state.payment.update,
 
   // map selected shipping service and payment method objects
   checkoutShipping: state => state.shipping.services.find(option => option.selected === true),

@@ -77,12 +77,17 @@ const mutations = {
 const actions = {
   // create action for API requests
   api ({ commit }, [ method, module, arg ]) {
-    // show loading spinner
-    commit('triggerLoading', true)
-    return api[method][module](arg).finally(() => {
-      // hide loading
-      commit('triggerLoading', false)
-    })
+    let promise = api[method][module](arg)
+    // methods for payment and shipping toggles spinner only at checkout
+    if (method !== 'module' || window.location.hash.substr(2, 8) === 'checkout') {
+      // show loading spinner
+      commit('triggerLoading', true)
+      promise.finally(() => {
+        // hide spinner
+        commit('triggerLoading', false)
+      })
+    }
+    return promise
   },
 
   // initialize modules
