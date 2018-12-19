@@ -154,15 +154,43 @@
                       v-for="(gateway, index) in paymentGateways"
                       :key="index + gateway.label"
                       :data-index="index">
+
                       <span slot="label">
-                        <a-icon v-if="gateway.payment_method.code === 'credit_card'"
+                        <el-tag
+                          type="success"
+                          size="mini"
+                          v-if="gateway.discount && gateway.discount.value > 0"
+                          class="__icon-mr">
+                          <span v-if="gateway.discount.type === 'percentage'">
+                            -{{ gateway.discount.value }}%
+                          </span>
+                          <span v-else>
+                            -{{ formatMoney(gateway.discount.value) }}
+                          </span>
+                        </el-tag>
+                        <a-icon v-else-if="gateway.payment_method.code === 'credit_card'"
                           icon="credit-card" class="__icon-mr"></a-icon>
                         <a-icon v-else-if="gateway.payment_method.code === 'banking_billet'"
                           icon="barcode" class="__icon-mr"></a-icon>
                         {{ gateway.label }}
                       </span>
+
                       <p class="_invoice-payment-text" v-if="gateway.text">
                         {{ gateway.text }}
+                      </p>
+                      <p
+                        class="_invoice-payment-discount"
+                        v-if="gateway.discount && gateway.discount.value > 0">
+                        <span v-if="gateway.discount.type === 'percentage'">
+                          {{ gateway.discount.value }}%
+                        </span>
+                        <span v-else>
+                          {{ formatMoney(gateway.discount.value) }}
+                        </span>
+                        {{ $t('checkout.ofDiscount') }}
+                        <span v-if="gateway.discount.apply_at === 'freight'">
+                          {{ $t('checkout.onFreight') }}
+                        </span>
                       </p>
 
                       <credit-card
@@ -171,15 +199,20 @@
                         :checkHolder="checkCustomerName"
                         :installmentOptions="gateway.installment_options"
                         :jsClient="gateway.js_client"
+                        :stampImg="gateway.icon"
                         @submit-form="data => { doCheckout(data) }"/>
                       <span v-else>
+                        <p class="_invoice-payment-value">
+                          {{ $t('cart.total') }}:
+                          <strong>{{ formatMoney(checkout.amount.total) }}</strong>
+                        </p>
                         <el-button type="success" @click="() => { doCheckout() }" class="_invoice-pay">
+                          <a-icon icon="check" class="__icon-mr"></a-icon>
                           {{ gateway.payment_method.code === 'banking_billet' ?
                             $t('checkout.bankingBillet') : $t('card.checkout') }}
                         </el-button>
+                        <img v-if="gateway.icon" :src="gateway.icon" class="_invoice-payment-icon"/>
                       </span>
-
-                      <img v-if="gateway.icon" :src="gateway.icon" class="_invoice-payment-icon"/>
                     </el-tab-pane>
                   </el-tabs>
 
@@ -536,7 +569,15 @@ export default {
   text-align: center;
 }
 ._invoice-payment-icon {
-  margin: 0 auto;
+  display: block;
+  margin: $--card-padding * .75 auto;
+}
+._invoice-payment-discount {
+  color: $--color-success;
+  font-size: $--font-size-large;
+}
+._invoice-payment-value {
+  color: $--color-text-primary;
 }
 ._invoice-pay {
   padding: $--card-padding $--card-padding * 2;

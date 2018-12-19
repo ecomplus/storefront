@@ -124,6 +124,7 @@
         <a-icon icon="lock" class="__icon-mr"></a-icon>
         {{ $t('card.checkout') }}
       </el-button>
+      <img v-if="stampImg" :src="stampImg" class="_creditcard-stamp"/>
     </el-form-item>
   </el-form>
 </template>
@@ -147,7 +148,8 @@ export default {
     'checkHolder',
     'skipHolderInfo',
     'installmentOptions',
-    'jsClient'
+    'jsClient',
+    'stampImg'
   ],
 
   computed: mapGetters([
@@ -552,5 +554,9 @@ export default {
 }
 ._creditcard-same-address {
   white-space: normal;
+}
+._creditcard-stamp {
+  margin-top: $--card-padding * .75;
+  display: block;
 }
 </style>
