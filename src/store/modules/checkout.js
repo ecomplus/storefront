@@ -91,7 +91,7 @@ const mutations = {
   setPaymentDefaults (state, { installments, discount }) {
     state.payment.defaults = {
       installments: installments || 0,
-      discount: discount || { value: 10, type: 'percentage', label: 'Boleto bancário' }
+      discount: discount || { value: 0 }
     }
   }
 }
