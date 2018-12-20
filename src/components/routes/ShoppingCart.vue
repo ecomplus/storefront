@@ -254,20 +254,18 @@ export default {
 
   created () {
     // load cart data
-    this.loadCart({ id: this.$route.params.id }).finally(() => {
+    this.loadCart({ id: this.$route.params.id }).then(() => {
+      if (!this.paymentGateways.length) {
+        // get payment options on background
+        setTimeout(this.initPaymentGateways, 200)
+      }
+    }).finally(() => {
       this.loaded = true
     })
     // preset zip from checkout state
     this.shippingZip = this.checkoutZip
     // update header title
     updateTitle(this.$t('cart.title'), this.shopName)
-  },
-
-  mounted () {
-    if (!this.paymentGateways.length) {
-      // get payment options on background
-      setTimeout(this.initPaymentGateways, 400)
-    }
   }
 }
 </script>

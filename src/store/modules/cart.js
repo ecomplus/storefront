@@ -171,17 +171,21 @@ const getters = {
   // map items with body extended from products data
   extendedCartItems: state => {
     return state.body.items.map(item => {
-      // merge item with product data
-      let extendedItem = { ...item._product, ...item }
-      // remove empty and not used objects
-      delete extendedItem._product
-      for (let prop in extendedItem) {
-        let obj = extendedItem[prop]
-        if (typeof obj === 'object' && obj !== null && !Object.keys(obj).length) {
-          delete extendedItem[prop]
+      if (item._product) {
+        // merge item with product data
+        let extendedItem = { ...item._product, ...item }
+        // remove empty and not used objects
+        delete extendedItem._product
+        for (let prop in extendedItem) {
+          let obj = extendedItem[prop]
+          if (typeof obj === 'object' && obj !== null && !Object.keys(obj).length) {
+            delete extendedItem[prop]
+          }
         }
+        return extendedItem
+      } else {
+        return item
       }
-      return extendedItem
     })
   }
 }
