@@ -176,7 +176,7 @@
                       </span>
 
                       <p class="_invoice-payment-text" v-if="gateway.text">
-                        {{ gateway.text }}
+                        <span v-html="gateway.text"></span>
                       </p>
                       <p
                         class="_invoice-payment-discount"
