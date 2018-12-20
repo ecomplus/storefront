@@ -54,7 +54,7 @@
               </div>
               <div v-for="transaction in order.transactions">
                 <p class="_order-payment-value">
-                  {{ order.payment_method_label }}:
+                  {{ transaction.payment_method.name || order.payment_method_label }}:
                   <strong v-if="transaction.installments && transaction.installments.value">
                     {{ transaction.installments.number }}x
                     {{ $t('general.of') }}
@@ -83,7 +83,29 @@
               </div>
             </el-col>
 
-            <el-col :md="12" :span="24" class="_order-shipping" v-if="orderFulfillmentStatus">
+            <el-col :md="12" :span="24" class="_order-shipping">
+              <div
+                v-if="orderFulfillmentStatus"
+                :class="'_fulfillment-status _fulfillment-status-' + orderFulfillmentStatus">
+                {{ $t('order.fulfillmentStatus.' + orderFulfillmentStatus) }}
+              </div>
+              <div v-for="shipping in order.shipping_lines">
+                <div v-if="shipping.status">
+                  <!-- handle fullfilment status -->
+                </div>
+                <div v-else-if="shipping.posting_deadline" class="_order-shipping-deadline">
+                  {{ $t('order.willBePosted').replace('$', shipping.posting_deadline.days) }}
+                  <span v-if="shipping.posting_deadline.working_days">
+                    {{ $t('shipping.workingDays') }}
+                  </span>
+                  <span v-else>
+                    {{ $t('shipping.days') }}
+                  </span>
+                  <span v-if="shipping.posting_deadline.after_approval">
+                    {{ $t('order.afterApproval') }}
+                  </span>
+                </div>
+              </div>
             </el-col>
           </el-row>
         </div>

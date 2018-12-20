@@ -127,7 +127,10 @@ export default {
         refunded: 'Payment refunded',
         voided: 'Payment voided',
         unknown: 'Unknown payment status'
-      }
+      },
+      fulfillmentStatus: {},
+      willBePosted: 'The products will be posted in up to $',
+      afterApproval: 'after payment approval'
     },
     shipping: {
       loading: 'Loading shipping methods',
@@ -324,7 +327,10 @@ export default {
         refunded: 'Pagamento devolvido',
         voided: 'Pagamento cancelado',
         unknown: 'Situação do pagamento desconhecida'
-      }
+      },
+      fulfillmentStatus: {},
+      willBePosted: 'Os produtos serão postados em até $',
+      afterApproval: 'após a aprovação do pagamento'
     },
     account: {
       registration: 'Cadastro',
