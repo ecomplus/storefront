@@ -15,7 +15,8 @@ const state = {
     loading: false,
     error: {},
     zip: '',
-    services: []
+    services: [],
+    free: 0
   },
   payment: {
     gateways: [],
@@ -82,17 +83,19 @@ const mutations = {
     state.shipping.services = services
   },
 
+  // reset free shipping from subtotal value
+  setShippingFree (state, value) {
+    state.shipping.free = value
+  },
+
   // reset available payment gateways
   setPaymentGateways (state, gateways) {
     state.payment.gateways = gateways
   },
 
   // reset payment default discount and installments options
-  setPaymentDefaults (state, { installments, discount }) {
-    state.payment.defaults = {
-      installments: installments || 0,
-      discount: discount || { value: 0 }
-    }
+  setPaymentDefaults (state, defaults) {
+    Object.assign(state.payment.defaults, defaults)
   }
 }
 
@@ -105,6 +108,7 @@ const getters = {
   shippingAvailable: state => Boolean(state.shipping.services.length),
   shippingLoading: state => state.shipping.loading,
   shippingLoadError: state => state.shipping.error.code,
+  shippingFreeFrom: state => state.shipping.free,
   paymentGateways: state => state.payment.gateways,
   paymentDefaults: state => state.payment.defaults,
 
@@ -206,9 +210,11 @@ const actions = {
     return dispatch('api', [ 'module', 'shipping', body ], { root: true }).then(body => {
       // update available shipping services
       let services = []
+      let freeShipping = 0
       body.result.forEach(result => {
         if (result.validated) {
-          result.response.shipping_services.forEach(service => {
+          let { response } = result
+          response.shipping_services.forEach(service => {
             let serviceObj = {
               app_id: result.app_id,
               selected: false,
@@ -222,11 +228,19 @@ const actions = {
             }
             services.push(serviceObj)
           })
+
+          // save free shipping from value option
+          let freeOption = result.free_shipping_from_value
+          if (freeOption && (!freeShipping || freeShipping > freeOption)) {
+            freeShipping = freeOption
+          }
         }
       })
 
       // handle shipping methods state change
       commit('setShippingServices', services)
+      // handle shipping free from value state change
+      commit('setShippingFree', freeShipping)
       // select one shipping option
       commit('selectShippingService')
     }).finally(() => {
@@ -258,6 +272,13 @@ const actions = {
     return dispatch('api', [ 'module', 'payment', body ], { root: true }).then(body => {
       // update available shipping services
       let gateways = []
+      // update payment default discount and free installments options
+      let defaults = {
+        installments: 0,
+        discount: {
+          value: 0
+        }
+      }
       body.result.forEach(result => {
         if (result.validated) {
           let { response } = result
@@ -268,16 +289,23 @@ const actions = {
               ...gateway
             })
           })
+
           // save default interest free installments and discount option
-          commit('setPaymentDefaults', {
-            installments: response.interest_free_installments,
-            discount: response.discount_option
-          })
+          let installments = response.interest_free_installments
+          let discount = response.discount_option
+          if (installments > defaults.installments) {
+            defaults.installments = installments
+          }
+          if (discount && discount.value > defaults.discount.value) {
+            defaults.discount = discount
+          }
         }
       })
 
       // handle payment methods state change
       commit('setPaymentGateways', gateways)
+      // handle payment default options state change
+      commit('setPaymentDefaults', defaults)
     })
   },
 

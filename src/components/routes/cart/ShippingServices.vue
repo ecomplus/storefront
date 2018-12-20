@@ -50,7 +50,8 @@ export default {
     'shippingServiceTime',
     'shippingServiceWorkingDays',
     'shippingLoading',
-    'shippingLoadError'
+    'shippingLoadError',
+    'cart'
   ]),
 
   methods: {
