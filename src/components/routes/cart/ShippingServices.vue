@@ -22,6 +22,10 @@
               {{ service.label }}
             </span>
           </div>
+
+          <div v-if="shippingFreeFrom">
+            Free shipping from {{ formatMoney(shippingFreeFrom) }}
+          </div>
         </div>
 
         <div v-else-if="checkoutZip !== ''" class="_shipping-empty">
@@ -51,6 +55,7 @@ export default {
     'shippingServiceWorkingDays',
     'shippingLoading',
     'shippingLoadError',
+    'shippingFreeFrom',
     'cart'
   ]),
 

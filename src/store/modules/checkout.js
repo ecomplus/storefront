@@ -230,7 +230,7 @@ const actions = {
           })
 
           // save free shipping from value option
-          let freeOption = result.free_shipping_from_value
+          let freeOption = response.free_shipping_from_value
           if (freeOption && (!freeShipping || freeShipping > freeOption)) {
             freeShipping = freeOption
           }
