@@ -23,8 +23,10 @@
             </span>
           </div>
 
-          <div v-if="shippingFreeFrom">
-            Free shipping from {{ formatMoney(shippingFreeFrom) }}
+          <div
+            v-if="shippingFreeFrom && shippingFreeFrom > cart.subtotal"
+            class="_shipping-free-from">
+            {{ $t('shipping.missingToFree').replace('$', formatMoney(shippingFreeFrom - cart.subtotal)) }}
           </div>
         </div>
 
@@ -152,5 +154,13 @@ export default {
 }
 ._shipping-loading-icon {
   color: $--color-primary;
+}
+._shipping-free-from {
+  margin-top: $--card-padding * .5;
+  background: $--color-success-lighter;
+  border-radius: $--tag-border-radius;
+  border-top: 1px dashed $--color-success;
+  color: $--color-success;
+  padding: $--card-padding * .5;
 }
 </style>

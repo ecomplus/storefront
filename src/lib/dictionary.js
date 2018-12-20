@@ -135,7 +135,8 @@ export default {
       workingDays: 'working days',
       invalidZip: 'Shipping unavailable for this ZIP code',
       loadError: 'Cannot load shipping services, please try again in few seconds',
-      empty: 'No shipping options, please check the ZIP code or try again later'
+      empty: 'No shipping options, please check the ZIP code or try again later',
+      missingToFree: 'Missing $ in products to earn free shipping'
     },
     account: {
       registration: 'Registration',
@@ -244,7 +245,8 @@ export default {
       workingDays: 'dias úteis',
       invalidZip: 'Entrega indisponível para este CEP',
       loadError: 'Não foi possível carregar serviços de frete, tente novamente em alguns segundos',
-      empty: 'Sem opções de envio, por favor verifique o CEP ou tente novamente mais tarde'
+      empty: 'Sem opções de envio, por favor verifique o CEP ou tente novamente mais tarde',
+      missingToFree: 'Faltam $ em produtos para ganhar entrega grátis'
     },
     checkout: {
       title: 'Finalizar pedido',
