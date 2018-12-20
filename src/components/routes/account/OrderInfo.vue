@@ -94,8 +94,8 @@
                   <!-- handle fullfilment status -->
                 </div>
                 <div v-else-if="shipping.posting_deadline" class="_order-shipping-deadline">
-                  {{ $t('order.willBePosted').replace('$', shipping.posting_deadline.days) }}
-                  <span v-if="shipping.posting_deadline.working_days">
+                  {{ $t('order.willReceive').replace('$', shippingServiceTime(shipping)) }}
+                  <span v-if="shippingServiceTime(shipping)">
                     {{ $t('shipping.workingDays') }}
                   </span>
                   <span v-else>
@@ -126,7 +126,9 @@ export default {
       'order',
       'orderTransaction',
       'orderFinancialStatus',
-      'orderFulfillmentStatus'
+      'orderFulfillmentStatus',
+      'shippingServiceWorkingDays',
+      'shippingServiceTime'
     ]),
     ...mapState([
       'loading'

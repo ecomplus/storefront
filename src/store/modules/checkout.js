@@ -118,7 +118,7 @@ const getters = {
 
   // calculate total time with delivery and posting deadline
   shippingServiceTime: state => service => {
-    let shipping = service.shipping_line
+    let shipping = service.shipping_line || service
     let days
     if (shipping.posting_deadline) {
       // start days with deadline for posting
@@ -135,7 +135,7 @@ const getters = {
 
   // whether shipping time is calculated with working days
   shippingServiceWorkingDays: state => service => {
-    let shipping = service.shipping_line
+    let shipping = service.shipping_line || service
     // returns true if any deadline uses working days
     if (shipping.posting_deadline && shipping.posting_deadline.working_days) {
       return true

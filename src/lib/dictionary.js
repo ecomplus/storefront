@@ -129,7 +129,7 @@ export default {
         unknown: 'Unknown payment status'
       },
       fulfillmentStatus: {},
-      willBePosted: 'The products will be posted in up to $',
+      willReceive: 'You\'ll receive the products in up to $',
       afterApproval: 'after payment approval'
     },
     shipping: {
@@ -329,7 +329,7 @@ export default {
         unknown: 'Situação do pagamento desconhecida'
       },
       fulfillmentStatus: {},
-      willBePosted: 'Os produtos serão postados em até $',
+      willReceive: 'Você receberá os produtos em até $',
       afterApproval: 'após a aprovação do pagamento'
     },
     account: {
