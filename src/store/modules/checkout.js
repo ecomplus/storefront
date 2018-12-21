@@ -222,7 +222,7 @@ const actions = {
             }
             // fix shipping line
             let line = serviceObj.shipping_line
-            if (line && line.price && !line.total_price) {
+            if (line && line.price && typeof line.total_price !== 'number') {
               // set total price same as price
               line.total_price = line.price
             }

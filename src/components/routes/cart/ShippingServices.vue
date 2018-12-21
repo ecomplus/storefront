@@ -15,8 +15,11 @@
               {{ !shippingServiceWorkingDays(service) ?
                 $t('shipping.days') : $t('shipping.workingDays') }}
             </span>
-            <span class="_shipping-freight">
+            <span class="_shipping-freight" v-if="service.shipping_line.total_price">
               {{ formatMoney(service.shipping_line.total_price) }}
+            </span>
+            <span class="_shipping-freight" v-else>
+              {{ $t('shipping.free') }}
             </span>
             <span class="_shipping-label">
               {{ service.label }}
