@@ -91,6 +91,16 @@ const actions = {
       }
       return dispatch('saveOrder', order)
     }
+  },
+
+  // update order data on background
+  updateOrder ({ dispatch }) {
+    // read order object from Store API and save again
+    let payload = {
+      module,
+      background: true
+    }
+    dispatch('init', payload, { root: true })
   }
 }
 

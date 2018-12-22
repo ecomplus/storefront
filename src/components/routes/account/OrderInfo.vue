@@ -121,6 +121,12 @@ import { formatMoney } from '@/lib/utils'
 export default {
   name: 'OrderInfo',
 
+  data () {
+    return {
+      orderUpdateTimer: null
+    }
+  },
+
   computed: {
     ...mapGetters([
       'order',
@@ -137,7 +143,8 @@ export default {
 
   methods: {
     ...mapActions([
-      'loadOrder'
+      'loadOrder',
+      'updateOrder'
     ]),
     formatMoney,
 
@@ -178,6 +185,13 @@ export default {
         })
       }
     }, 800)
+    // update order data on each 5 seconds
+    this.orderUpdateTimer = setInterval(this.updateOrder, 5 * 1000)
+  },
+
+  beforeDestroy () {
+    // unset order update interval function
+    clearInterval(this.orderUpdateTimer)
   }
 }
 </script>

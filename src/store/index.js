@@ -76,16 +76,25 @@ const mutations = {
 
 const actions = {
   // create action for API requests
-  api ({ commit }, [ method, module, arg ]) {
+  api ({ commit }, payload) {
+    let [
+      method,
+      module,
+      arg,
+      background
+    ] = payload
+    // handle promise from API lib
     let promise = api[method][module](arg)
     // methods for payment and shipping toggles spinner only at checkout
     if (method !== 'module' || window.location.hash.substr(2, 8) === 'checkout') {
-      // show loading spinner
-      commit('triggerLoading', true)
-      promise.finally(() => {
-        // hide spinner
-        commit('triggerLoading', false)
-      })
+      if (!background) {
+        // show loading spinner
+        commit('triggerLoading', true)
+        promise.finally(() => {
+          // hide spinner
+          commit('triggerLoading', false)
+        })
+      }
     }
     return promise
   },
@@ -96,7 +105,13 @@ const actions = {
     let module = payload.module
     if (api.get.hasOwnProperty(module)) {
       // call API
-      return dispatch('api', [ 'get', module, state[module].body._id ]).then(body => {
+      let apiArgs = [
+        'get',
+        module,
+        state[module].body._id,
+        payload.background
+      ]
+      return dispatch('api', apiArgs).then(body => {
         // merge payload
         payload = { ...payload, body }
         // call mutation to change state
