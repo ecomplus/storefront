@@ -128,7 +128,19 @@ export default {
         voided: 'Payment voided',
         unknown: 'Unknown payment status'
       },
-      fulfillmentStatus: {},
+      fulfillmentStatus: {
+        invoice_issued: 'Invoice issued',
+        in_production: 'In production',
+        in_separation: 'In separation',
+        ready_for_shipping: 'Ready for shipping',
+        partially_shippend: 'Partially shippend',
+        shipped: 'Shipped',
+        partially_delivered: 'Partially delivered',
+        delivered: 'Delivered',
+        returned_for_exchange: 'Returned for exchange',
+        received_for_exchange: 'Received for exchange',
+        returned: 'Returned'
+      },
       willReceive: 'You\'ll receive the products in up to $',
       afterApproval: 'after payment approval'
     },
@@ -330,7 +342,19 @@ export default {
         voided: 'Pagamento cancelado',
         unknown: 'Situação do pagamento desconhecida'
       },
-      fulfillmentStatus: {},
+      fulfillmentStatus: {
+        invoice_issued: 'Nota fiscal emitida',
+        in_production: 'Em produção',
+        in_separation: 'Em separação',
+        ready_for_shipping: 'Preparado para envio',
+        partially_shippend: 'Parcialmente enviado',
+        shipped: 'Pedido enviado',
+        partially_delivered: 'Parcialmente entregue',
+        delivered: 'Entregue',
+        returned_for_exchange: 'Devolvido para troca',
+        received_for_exchange: 'Em processo de troca',
+        returned: 'Devolvido'
+      },
       willReceive: 'Você receberá os produtos em até $',
       afterApproval: 'após a aprovação do pagamento'
     },
