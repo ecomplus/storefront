@@ -185,8 +185,8 @@ export default {
         })
       }
     }, 800)
-    // update order data on each 5 seconds
-    this.orderUpdateTimer = setInterval(this.updateOrder, 5 * 1000)
+    // update order data on each 8 seconds
+    this.orderUpdateTimer = setInterval(this.updateOrder, 8 * 1000)
   },
 
   beforeDestroy () {
