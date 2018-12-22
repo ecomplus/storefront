@@ -317,6 +317,7 @@ export default {
     return {
       shippingZip: null,
       cartLoading: true,
+      cartReloadTimer: null,
       checkoutLoading: false,
       activeStep: 0
     }
@@ -485,18 +486,23 @@ export default {
   },
 
   created () {
-    // reload cart data
-    this.loadCart({ id: this.$route.params.id }).finally(() => {
-      this.cartLoading = false
-      if (!this.cart.items.length) {
-        // empty cart
-        // back to shopping cart
-        this.$router.push({ name: 'cart' })
-      } else {
-        // check if customer already logged and goes to correct checkout step
-        this.handleCustomer()
-      }
-    })
+    let loadCart = () => {
+      // reload cart data
+      this.loadCart({ id: this.$route.params.id }).finally(() => {
+        this.cartLoading = false
+        if (!this.cart.items.length) {
+          // empty cart
+          // back to shopping cart
+          this.$router.push({ name: 'cart' })
+        } else {
+          // check if customer already logged and goes to correct checkout step
+          this.handleCustomer()
+        }
+      })
+    }
+    loadCart()
+    // reload on each 30 minutes
+    this.cartReloadTimer = setInterval(loadCart, 1800 * 1000)
 
     // setup current zip code
     if (this.checkoutZip !== '') {
@@ -519,6 +525,8 @@ export default {
   beforeRouteLeave (to, from, next) {
     // unset chosen payment method before redirect
     this.changePayment(-1)
+    // unset cart reload interval function
+    clearInterval(this.cartReloadTimer)
     // proceed router navigation
     next()
   }
