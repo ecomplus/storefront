@@ -336,6 +336,7 @@ export default {
       'isCustomerLogged',
       'shippingAvailable',
       'paymentGateways',
+      'orderFinancialStatus',
       'shopName'
     ]),
 
@@ -522,6 +523,31 @@ export default {
 
     customerUpdate () {
       this.handleCustomer()
+    },
+
+    orderFinancialStatus (current) {
+      setTimeout(() => {
+        if (this.activeStep === 4) {
+          // on confirmation tab
+          // check if payment was updated to refused
+          switch (current) {
+            case 'unauthorized':
+            case 'voided':
+              // alert order cancelled
+              this.$alert(this.$t('checkout.paymentRefused'), this.$t('checkout.orderCancelled'), {
+                type: 'warning',
+                confirmButtonText: this.$t('checkout.backToPayment'),
+                callback: action => {
+                  // back to payment
+                  this.activeStep = 3
+                }
+              })
+              // reset header title
+              updateTitle(this.$t('checkout.title'), this.shopName)
+              break
+          }
+        }
+      }, 200)
     }
   },
 

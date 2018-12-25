@@ -72,7 +72,10 @@ export default {
       bankingBillet: 'Generate billet',
       orderCreated: 'Order created',
       orderError: 'We had an error saving your order, please try again',
-      unauthorized: 'Unauthorized payment, please check the data and try again'
+      unauthorized: 'Unauthorized payment, please check the data and try again',
+      orderCancelled: 'Order cancelled',
+      paymentRefused: 'Payment declined by operator, please review the data and finalize a new purchase',
+      backToPayment: 'Return to payment'
     },
     card: {
       number: 'Card number',
@@ -289,7 +292,10 @@ export default {
       bankingBillet: 'Gerar boleto',
       orderCreated: 'Recebemos seu pedido',
       orderError: 'Ocorreu um erro ao salvar seu pedido, por favor tente novamente',
-      unauthorized: 'Pagamento não autorizado, por favor confira os dados e tente novamente'
+      unauthorized: 'Pagamento não autorizado, por favor confira os dados e tente novamente',
+      orderCancelled: 'Pedido cancelado',
+      paymentRefused: 'Pagamento recusado pela operadora, por favor revise os dados e finalize uma nova compra',
+      backToPayment: 'Retornar para pagamento'
     },
     card: {
       number: 'Número do cartão',
