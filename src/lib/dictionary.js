@@ -142,7 +142,10 @@ export default {
         returned: 'Returned'
       },
       willReceive: 'You\'ll receive the products in up to $',
-      afterApproval: 'after payment approval'
+      afterApproval: 'after payment approval',
+      postingDeadline: 'Posting deadline',
+      deliveryTime: 'Delivery time',
+      deliveryEstimate: 'Delivery estimate'
     },
     shipping: {
       loading: 'Loading shipping methods',
@@ -356,7 +359,10 @@ export default {
         returned: 'Devolvido'
       },
       willReceive: 'Você receberá os produtos em até $',
-      afterApproval: 'após a aprovação do pagamento'
+      afterApproval: 'após a aprovação do pagamento',
+      postingDeadline: 'Prazo para postagem',
+      deliveryTime: 'Prazo de entrega',
+      deliveryEstimate: 'Estimativa de entrega'
     },
     account: {
       registration: 'Cadastro',
