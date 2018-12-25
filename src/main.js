@@ -15,7 +15,7 @@ import enUs from 'element-ui/lib/locale/lang/en'
 import ptBr from 'element-ui/lib/locale/lang/pt-br'
 // custom dictionary
 import dictionary from './lib/dictionary'
-import { DEFAULT_LANG, DEFAULT_COUNTRY_CODE } from '@/lib/constants'
+import { DEFAULT_LANG, DEFAULT_COUNTRY_CODE, DEFAULT_CURRENCY } from '@/lib/constants'
 
 // custom additional plugins
 import Inputmask from 'inputmask'
@@ -34,14 +34,21 @@ Vue.use(ElementUI)
 Vue.use(VueI18n)
 Vue.locale('en_us', { ...enUs, ...dictionary.enUs })
 Vue.locale('pt_br', { ...ptBr, ...dictionary.ptBr })
-let locale = (lang, country) => {
-  // change language
-  Vue.config.lang = Vue.prototype.$lang = lang
-  Vue.prototype.$country = country
+let locale = (lang, country, currency) => {
+  // handle internationalization
+  if (lang) {
+    Vue.config.lang = Vue.prototype.$lang = lang
+  }
+  if (country) {
+    Vue.prototype.$country = country
+  }
+  if (currency) {
+    Vue.prototype.$currency = currency
+  }
 }
 Vue.prototype.$locale = locale
 // preset default language
-locale(DEFAULT_LANG, DEFAULT_COUNTRY_CODE)
+locale(DEFAULT_LANG, DEFAULT_COUNTRY_CODE, DEFAULT_CURRENCY)
 
 // handle directives for plugins
 Vue.directive('mask', {
