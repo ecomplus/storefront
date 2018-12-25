@@ -31,7 +31,7 @@ const getters = {
   orderTransaction: state => state.body.transactions[0],
 
   // map current order financial status
-  orderFinancialStatus: ({ body }) => {
+  orderFinancialStatus ({ body }) {
     let status = body.financial_status.current
     if (status) {
       return status
@@ -47,7 +47,7 @@ const getters = {
   },
 
   // map current order fulfillment status
-  orderFulfillmentStatus: ({ body }) => {
+  orderFulfillmentStatus ({ body }) {
     let status = body.fulfillment_status.current
     if (status) {
       return status
@@ -59,6 +59,66 @@ const getters = {
       }
     }
     return null
+  },
+
+  // check if order shipping line still with pending delivery
+  shippingDeliveryPending: state => shipping => {
+    if (shipping.status) {
+      switch (shipping.status.current) {
+        case 'delivered':
+        case 'returned_for_exchange':
+        case 'received_for_exchange':
+        case 'returned':
+          return false
+      }
+    }
+    return true
+  },
+
+  // returns delivery estimate date with order shipping line deadlines
+  shippingDeliveryDate: state => shipping => {
+    // base date is when order was paid
+    let paymentsHistory = state.body.payments_history
+    if (paymentsHistory) {
+      let records = paymentsHistory.find(({ status }) => status === 'paid')
+      if (records.length) {
+        let dateString
+        // get the last status update timestamp
+        records.forEach(record => {
+          if (!dateString || dateString < record.date_time) {
+            dateString = record.date_time
+          }
+        })
+
+        // mount date object to return
+        let date = new Date(dateString)
+        let addDays = deadline => {
+          let days = deadline.days
+          if (deadline.working_days) {
+            // get day of week as a number
+            let dow = date.getDay()
+            // also count weekend days
+            // https://gist.github.com/psdtohtml5/7000529
+            days += ((dow === 6 ? 2 : +!dow) + (Math.floor((days - 1 + (dow % 6 || 1)) / 5) * 2))
+          }
+          date.setDate(date.getDate() + days)
+        }
+
+        if (!shipping.status || shipping.status.current !== 'shipped') {
+          // add posting deadline
+          if (shipping.posting_deadline) {
+            addDays(shipping.posting_deadline)
+          }
+        }
+        if (shipping.delivery_time) {
+          // add delivery time
+          addDays(shipping.delivery_time)
+        }
+        return date
+      }
+    }
+    // unexpedted current payment status or shipping status
+    return new Date()
   }
 }
 

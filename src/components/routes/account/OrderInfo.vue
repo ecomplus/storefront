@@ -89,7 +89,10 @@
                 :class="'_fulfillment-status _fulfillment-status-' + orderFulfillmentStatus">
                 {{ $t('order.fulfillmentStatus.' + orderFulfillmentStatus) }}
               </div>
-              <div v-for="shipping in order.shipping_lines" class="_order-shipping-info">
+              <div
+                v-for="shipping in order.shipping_lines"
+                v-if="shippingDeliveryPending(shipping)"
+                class="_order-shipping-info">
                 <div
                   v-if="!shipping.status && orderFinancialStatus !== 'paid'"
                   class="_order-shipping-deadline">
@@ -106,9 +109,11 @@
                 </div>
 
                 <div
-                  v-else-if="orderFinancialStatus === 'paid' && Date.now() >= deliveryDate(shipping).getTime()"
+                  v-else-if="orderFinancialStatus === 'paid' &&
+                    Date.now() > shippingDeliveryDate(shipping).getTime()"
                   class="_order-delivery-estimate">
                   {{ $t('order.deliveryEstimate') }}:
+                  {{ formatDate(shippingDeliveryDate(shipping).toISOString()) }}
                 </div>
 
                 <div v-else>
@@ -165,7 +170,9 @@ export default {
       'orderFinancialStatus',
       'orderFulfillmentStatus',
       'shippingServiceWorkingDays',
-      'shippingServiceTime'
+      'shippingServiceTime',
+      'shippingDeliveryPending',
+      'shippingDeliveryDate'
     ]),
     ...mapState([
       'loading'
@@ -180,6 +187,10 @@ export default {
 
     formatMoney (value) {
       return formatMoney(value, this.$currency, this.$lang)
+    },
+
+    formatDate (dateString) {
+      return formatDate(dateString, this.$country)
     },
 
     link (url) {
@@ -202,10 +213,6 @@ export default {
           type: 'warning'
         })
       })
-    },
-
-    deliveryDate () {
-      return formatDate(new Date(), this.$country)
     }
   },
 
