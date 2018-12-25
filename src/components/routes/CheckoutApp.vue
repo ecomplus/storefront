@@ -370,7 +370,10 @@ export default {
       'logout',
       'selectPaymentGateway'
     ]),
-    formatMoney,
+
+    formatMoney (value) {
+      return formatMoney(value, this.$currency, this.$lang)
+    },
 
     updateStep () {
       // update current checkout step

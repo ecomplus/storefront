@@ -68,7 +68,10 @@ export default {
     ...mapMutations([
       'selectShippingService'
     ]),
-    formatMoney,
+
+    formatMoney (value) {
+      return formatMoney(value, this.$currency, this.$lang)
+    },
 
     loadError () {
       if (this.shippingLoadError) {

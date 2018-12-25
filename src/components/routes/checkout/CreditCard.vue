@@ -306,7 +306,9 @@ export default {
   },
 
   methods: {
-    formatMoney,
+    formatMoney (value) {
+      return formatMoney(value, this.$currency, this.$lang)
+    },
 
     getBrand () {
       // preset invalid

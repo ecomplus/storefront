@@ -154,7 +154,7 @@ export default {
         phone: phones[0],
         // optional last phone number
         cellphone: phones.length > 1 ? phones[phones.length - 1] : '',
-        birth: formatDate(this.customerBirth),
+        birth: formatDate(this.customerBirth, this.$country),
         // default is physical
         type: body.registry_type || 'p',
         doc: this.customer.doc_number

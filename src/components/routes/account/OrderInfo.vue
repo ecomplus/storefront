@@ -89,21 +89,52 @@
                 :class="'_fulfillment-status _fulfillment-status-' + orderFulfillmentStatus">
                 {{ $t('order.fulfillmentStatus.' + orderFulfillmentStatus) }}
               </div>
-              <div v-for="shipping in order.shipping_lines">
-                <div v-if="shipping.status">
-                  <!-- handle fullfilment status -->
-                </div>
-                <div v-else-if="shipping.posting_deadline" class="_order-shipping-deadline">
+              <div v-for="shipping in order.shipping_lines" class="_order-shipping-info">
+                <div
+                  v-if="!shipping.status && orderFinancialStatus !== 'paid'"
+                  class="_order-shipping-deadline">
                   {{ $t('order.willReceive').replace('$', shippingServiceTime(shipping)) }}
-                  <span v-if="shippingServiceTime(shipping)">
+                  <span v-if="shippingServiceWorkingDays(shipping)">
                     {{ $t('shipping.workingDays') }}
                   </span>
                   <span v-else>
                     {{ $t('shipping.days') }}
                   </span>
-                  <span v-if="shipping.posting_deadline.after_approval">
+                  <span v-if="shipping.posting_deadline && shipping.posting_deadline.after_approval">
                     {{ $t('order.afterApproval') }}
                   </span>
+                </div>
+
+                <div
+                  v-else-if="orderFinancialStatus === 'paid' && Date.now() >= deliveryDate(shipping).getTime()"
+                  class="_order-delivery-estimate">
+                  {{ $t('order.deliveryEstimate') }}:
+                </div>
+
+                <div v-else>
+                  <div v-if="shipping.posting_deadline">
+                    {{ $t('order.postingDeadline') }}:
+                    {{ shipping.posting_deadline.days }}
+                    <span v-if="shipping.posting_deadline.working_days">
+                      {{ $t('shipping.workingDays') }}
+                    </span>
+                    <span v-else>
+                      {{ $t('shipping.days') }}
+                    </span>
+                    <span v-if="orderFinancialStatus !== 'paid' && shipping.posting_deadline.after_approval">
+                      {{ $t('order.afterApproval') }}
+                    </span>
+                  </div>
+                  <div v-if="shipping.delivery_time">
+                    {{ $t('order.deliveryTime') }}:
+                    {{ shipping.delivery_time.days }}
+                    <span v-if="shipping.delivery_time.working_days">
+                      {{ $t('shipping.workingDays') }}
+                    </span>
+                    <span v-else>
+                      {{ $t('shipping.days') }}
+                    </span>
+                  </div>
                 </div>
               </div>
             </el-col>
@@ -116,7 +147,7 @@
 
 <script>
 import { mapGetters, mapActions, mapState } from 'vuex'
-import { formatMoney } from '@/lib/utils'
+import { formatMoney, formatDate } from '@/lib/utils'
 
 export default {
   name: 'OrderInfo',
@@ -146,7 +177,10 @@ export default {
       'loadOrder',
       'updateOrder'
     ]),
-    formatMoney,
+
+    formatMoney (value) {
+      return formatMoney(value, this.$currency, this.$lang)
+    },
 
     link (url) {
       window.open(url, '_blank')
@@ -168,6 +202,10 @@ export default {
           type: 'warning'
         })
       })
+    },
+
+    deliveryDate () {
+      return formatDate(new Date(), this.$country)
     }
   },
 

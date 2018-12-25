@@ -221,7 +221,10 @@ export default {
       'setCheckoutZip',
       'initPaymentGateways'
     ]),
-    formatMoney,
+
+    formatMoney (value) {
+      return formatMoney(value, this.$currency, this.$lang)
+    },
 
     itemQnt (payload) {
       // handle item quantity changes
