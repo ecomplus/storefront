@@ -82,7 +82,7 @@ Api.set = {
 
 Api.session = {
   // start OAuth login flow
-  login: () => promise(EcomPassport.loginPopup),
+  login: enableSkip => promise(cb => EcomPassport.loginPopup(cb, enableSkip)),
   logout: EcomPassport.logout
 }
 
