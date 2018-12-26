@@ -539,7 +539,7 @@ export default {
                 confirmButtonText: this.$t('checkout.backToPayment'),
                 callback: action => {
                   // back to payment
-                  this.activeStep = 3
+                  this.activeStep = 2
                 }
               })
               // reset header title
