@@ -208,7 +208,7 @@ export default {
     'paymentGateways',
     'paymentDefaults',
     'calculateDiscount',
-    'customer',
+    'customerEmail',
     'shopName'
   ]),
 
@@ -219,7 +219,8 @@ export default {
       'setCartItemQnt',
       'removeCartItem',
       'setCheckoutZip',
-      'initPaymentGateways'
+      'initPaymentGateways',
+      'login'
     ]),
 
     formatMoney (value) {
@@ -250,6 +251,11 @@ export default {
     },
 
     goToCheckout () {
+      if (!this.customerEmail) {
+        // customer unlogged
+        // show login popup with skip option
+        this.login(true)
+      }
       // redirect to checkout
       this.$router.push({ name: 'checkout' })
     }

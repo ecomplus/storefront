@@ -122,9 +122,9 @@ const actions = {
 
   // setup session methods
   // customer authentication
-  login ({ commit, dispatch }) {
+  login ({ commit, dispatch }, enableSkip) {
     // pass to passport API
-    return dispatch('api', [ 'session', 'login' ]).then(body => {
+    return dispatch('api', [ 'session', 'login', enableSkip ]).then(body => {
       if (typeof body === 'object' && body !== null) {
         // update customer info
         dispatch('init', { module: 'customer' })
