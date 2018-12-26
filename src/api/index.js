@@ -70,7 +70,8 @@ Api.get = {
       cb(null, {})
     }
   }),
-  order: id => promise(cb => EcomPassport.api('/orders/' + id + '.json', 'GET', null, cb))
+  order: id => promise(cb => EcomPassport.api('/orders/' + id + '.json', 'GET', null, cb)),
+  orderInfo: id => promise(cb => EcomIo.getOrder(cb, id))
 }
 
 Api.set = {

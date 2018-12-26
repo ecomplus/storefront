@@ -35,6 +35,17 @@ const mutations = {
     }
     // mark last update
     state.update = Date.now()
+  },
+
+  // reset specific order object from list
+  editCustomerOrder (state, payload) {
+    let orders = state.body.orders
+    for (let i = 0; i < orders.length; i++) {
+      if (orders[i]._id === payload._id) {
+        orders[i] = payload
+        break
+      }
+    }
   }
 }
 
@@ -250,6 +261,32 @@ const actions = {
       addresses.push({ ...address, default: payload._id === address._id })
     })
     return dispatch('editCustomer', { addresses })
+  },
+
+  // load status of customer orders
+  loadOrders ({ state, commit, dispatch }, payload) {
+    let promises = []
+    // handle loop with pagination
+    let { from, size } = payload
+    state.body.orders.slice(from, from + size).forEach((order, index) => {
+      // get public order data from Store API
+      let promise = new Promise(resolve => {
+        // delay to prevent 503 error
+        setTimeout(() => {
+          dispatch('api', [ 'get', 'orderInfo', order._id ], { root: true }).then(data => {
+            // update state of current order object
+            commit('editCustomerOrder', {
+              ...order,
+              status: data.status,
+              financial_status: data.financial_status,
+              fulfillment_status: data.fulfillment_status
+            })
+          }).finally(resolve)
+        }, 100 * index)
+      })
+      promises.push(promise)
+    })
+    return Promise.all(promises)
   }
 }
 
