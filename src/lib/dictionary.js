@@ -148,7 +148,8 @@ export default {
       afterApproval: 'after payment approval',
       postingDeadline: 'Posting deadline',
       deliveryTime: 'Delivery time',
-      deliveryEstimate: 'Delivery estimate'
+      deliveryEstimate: 'Delivery estimate',
+      see: 'See order'
     },
     shipping: {
       loading: 'Loading shipping methods',
@@ -368,7 +369,8 @@ export default {
       afterApproval: 'após a aprovação do pagamento',
       postingDeadline: 'Prazo para postagem',
       deliveryTime: 'Prazo de entrega',
-      deliveryEstimate: 'Estimativa de entrega'
+      deliveryEstimate: 'Estimativa de entrega',
+      see: 'Ver pedido'
     },
     account: {
       registration: 'Cadastro',

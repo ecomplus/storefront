@@ -74,6 +74,7 @@ export function isoDate (dateString, getObject = false) {
 
 // parse ISO date string to country format
 export function formatDate (isoDateString, country = DEFAULT_COUNTRY_CODE) {
+  isoDateString = isoDateString.split('T')[0]
   if (country === 'br') {
     let [ y, m, d ] = isoDateString.split('-')
     if (d && m && y) {

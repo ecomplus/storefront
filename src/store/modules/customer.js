@@ -264,7 +264,7 @@ const actions = {
   },
 
   // load status of customer orders
-  loadOrders ({ state, commit, dispatch }, payload) {
+  loadCustomerOrders ({ state, commit, dispatch }, payload) {
     let promises = []
     // handle loop with pagination
     let { from, size } = payload
