@@ -361,6 +361,7 @@ export default {
   methods: {
     ...mapActions([
       'loadCart',
+      'clearCart',
       'setCheckoutZip',
       'handleCheckout',
       'initPaymentGateways',
@@ -527,7 +528,7 @@ export default {
 
     orderFinancialStatus (current) {
       setTimeout(() => {
-        if (this.activeStep === 4) {
+        if (this.activeStep >= 3) {
           // on confirmation tab
           // check if payment was updated to refused
           switch (current) {
@@ -556,8 +557,14 @@ export default {
     this.changePayment(-1)
     // unset cart reload interval function
     clearInterval(this.cartReloadTimer)
-    // proceed router navigation
-    next()
+    // clear cart if checkout was already done
+    if (this.activeStep >= 3) {
+      // unset current shopping cart before routing
+      this.clearCart().finally(next)
+    } else {
+      // proceed router navigation
+      next()
+    }
   }
 }
 </script>

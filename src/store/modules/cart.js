@@ -371,6 +371,19 @@ const actions = {
   removeCartItem ({ commit, dispatch }, payload) {
     commit('fixCartItem', { id: payload.item._id, remove: true })
     dispatch('fixCartSubtotal')
+  },
+
+  // unset current shopping cart
+  clearCart ({ commit, dispatch }) {
+    // reset state
+    let body = {
+      _id: null,
+      items: [],
+      subtotal: 0
+    }
+    commit('editCart', { body })
+    // save empty cart to local storage
+    return dispatch('saveCart')
   }
 }
 
