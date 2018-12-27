@@ -442,18 +442,21 @@ const actions = {
             resolve(response)
           })
 
-          // save order info on cookie
-          let data = {}
-          // copy some properties from order object
-          ;[ '_id', 'number', 'created_at', 'amount' ].forEach(prop => {
-            data[prop] = order[prop]
+          .then(() => {
+            // save order info on cookie
+            let order = rootGetters.order
+            let data = {}
+            // copy some properties from order object
+            ;[ '_id', 'number', 'created_at', 'amount' ].forEach(prop => {
+              data[prop] = order[prop]
+            })
+            let ordersList = getters.checkoutOrders
+            ordersList.push({
+              order: data,
+              email: rootGetters.customerEmail
+            })
+            setCookie(cookieName, JSON.stringify(ordersList), 120)
           })
-          let ordersList = getters.checkoutOrders
-          ordersList.push({
-            order: data,
-            email: rootGetters.customerEmail
-          })
-          setCookie(cookieName, JSON.stringify(ordersList), 120)
         }
       })
 
