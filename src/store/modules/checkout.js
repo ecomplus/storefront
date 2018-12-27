@@ -1,4 +1,6 @@
+// work with cookies to store new orders info
 import { getCookie, setCookie } from '@/lib/utils'
+const cookieName = '_checkout_orders'
 
 // initial state
 const state = {
@@ -164,6 +166,22 @@ const getters = {
     }
     // default for no discount
     return 0
+  },
+
+  // return last saved checkout orders
+  checkoutOrders () {
+    // try to get list from cookies
+    let json = getCookie(cookieName)
+    let ordersList
+    try {
+      ordersList = JSON.parse(json)
+    } catch (e) {
+      // ignore
+    }
+    if (!Array.isArray(ordersList)) {
+      ordersList = []
+    }
+    return ordersList
   }
 }
 
@@ -425,22 +443,12 @@ const actions = {
           })
 
           // save order info on cookie
-          let cookieName = '_checkout_orders'
-          let json = getCookie(cookieName)
-          let ordersList
-          try {
-            ordersList = JSON.parse(json)
-          } catch (e) {
-            // ignore
-          }
-          if (!Array.isArray(ordersList)) {
-            ordersList = []
-          }
           let data = {}
           // copy some properties from order object
           ;[ '_id', 'number', 'created_at', 'amount' ].forEach(prop => {
             data[prop] = order[prop]
           })
+          let ordersList = getters.checkoutOrders
           ordersList.push({
             order: data,
             email: rootGetters.customerEmail
