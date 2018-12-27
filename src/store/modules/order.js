@@ -131,36 +131,33 @@ const getters = {
 }
 
 const actions = {
-  // save new order object
-  saveOrder ({ dispatch, commit, rootGetters }, payload) {
+  // get and save order body
+  loadOrder ({ state, commit, dispatch, rootGetters }, payload) {
+    let background = !!(payload && payload.background)
     if (rootGetters.isCustomerLogged) {
-      // customer logged
-      // call mutation to setup state
-      commit('setOrderId', payload._id)
-      // read full order object from Store API and save
-      return dispatch('init', { module }, { root: true })
+      // authenticated request with customer logged
+      return dispatch('init', { module, background }, { root: true })
     } else {
-      // save the received payload only
-      commit('editOrder', { body: payload })
-      return Promise.resolve(payload)
+      // get only the public order data
+      let apiArgs = [ 'get', 'orderInfo', state.body._id, background ]
+      return dispatch('api', apiArgs, { root: true }).then(body => {
+        // update state of order object
+        commit('editOrder', { body })
+      })
     }
+  },
+
+  // save new order object
+  saveOrder ({ commit, dispatch }, payload) {
+    // call mutation to setup state
+    commit('setOrderId', payload._id)
+    return dispatch('loadOrder')
   },
 
   // update order data on background
   updateOrder ({ state, commit, dispatch, rootGetters }) {
     // read order object from Store API and save again
-    let background = true
-    if (rootGetters.isCustomerLogged) {
-      // authenticated request with customer logged
-      dispatch('init', { module, background }, { root: true })
-    } else {
-      // get only the public order data
-      let apiArgs = [ 'get', 'orderInfo', state.body._id, background ]
-      dispatch('api', apiArgs, { root: true }).then(body => {
-        // update state of order object
-        commit('editOrder', { body })
-      })
-    }
+    return dispatch('loadOrder', { background: true })
   }
 }
 
