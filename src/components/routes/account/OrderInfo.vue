@@ -181,7 +181,6 @@ export default {
 
   methods: {
     ...mapActions([
-      'loadOrder',
       'updateOrder'
     ]),
 
@@ -220,14 +219,9 @@ export default {
     let { order } = this
     setTimeout(() => {
       if (!order.number) {
-        // try to load order info
-        this.loadOrder().finally(() => {
-          if (!order.number) {
-            // no order
-            // back to shopping cart
-            this.$router.push({ name: 'cart' })
-          }
-        })
+        // no order
+        // back to shopping cart
+        this.$router.push({ name: 'cart' })
       }
     }, 800)
     // update order data on each 8 seconds

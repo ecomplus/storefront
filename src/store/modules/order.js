@@ -127,30 +127,8 @@ const actions = {
   saveOrder ({ dispatch, commit }, payload) {
     // call mutation to setup state
     commit('setOrderId', payload._id)
-    // try to save order ID on local storage
-    let db = window.localStorage
-    if (db) {
-      db.setItem('order', JSON.stringify(payload))
-    }
     // read full order object from Store API and save
     return dispatch('init', { module }, { root: true })
-  },
-
-  // load order info when undefined
-  loadOrder ({ dispatch }) {
-    // try to setup order from local storage
-    let db = window.localStorage
-    if (db) {
-      let json = db.getItem('order')
-      let order
-      try {
-        order = JSON.parse(json)
-      } catch (err) {
-        // ignore
-        return
-      }
-      return dispatch('saveOrder', order)
-    }
   },
 
   // update order data on background
