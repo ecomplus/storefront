@@ -1,3 +1,5 @@
+import { getCookie, setCookie } from '@/lib/utils'
+
 // initial state
 const state = {
   amount: {
@@ -422,7 +424,28 @@ const actions = {
             resolve(response)
           })
 
-          // try to save order info on cookie
+          // save order info on cookie
+          let cookieName = '_checkout_orders'
+          let json = getCookie(cookieName)
+          let ordersList
+          try {
+            ordersList = JSON.parse(json)
+          } catch (e) {
+            // ignore
+          }
+          if (!Array.isArray(ordersList)) {
+            ordersList = []
+          }
+          let data = {}
+          // copy some properties from order object
+          ;[ '_id', 'number', 'created_at', 'amount' ].forEach(prop => {
+            data[prop] = order[prop]
+          })
+          ordersList.push({
+            order: data,
+            email: rootGetters.customerEmail
+          })
+          setCookie(cookieName, JSON.stringify(ordersList), 120)
         }
       })
 
