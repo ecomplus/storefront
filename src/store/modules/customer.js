@@ -263,6 +263,23 @@ const actions = {
     return dispatch('editCustomer', { addresses })
   },
 
+  // fix customer orders list
+  fixCustomerOrders ({ state, getters, commit, rootGetters }) {
+    let orders = state.body.orders.concat()
+    // check for new orders
+    rootGetters.checkoutOrders.forEach(({ order, email }) => {
+      if (email === getters.customerEmail && !orders.find(({ _id }) => _id === order._id)) {
+        // add order to list
+        orders.push(order)
+      }
+    })
+    // sort orders by number descending
+    orders.sort((a, b) => !b.number || a.number < b.number)
+    let body = { orders }
+    commit('editCustomer', { body })
+    return Promise.resolve()
+  },
+
   // load status of customer orders
   loadCustomerOrders ({ state, commit, dispatch }, payload) {
     let promises = []

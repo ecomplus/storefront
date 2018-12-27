@@ -48,13 +48,14 @@ export default {
   data () {
     return {
       loaded: false,
-      page: 1,
+      page: 0,
       rows: []
     }
   },
 
   methods: {
     ...mapActions([
+      'fixCustomerOrders',
       'loadCustomerOrders'
     ]),
 
@@ -68,18 +69,17 @@ export default {
   },
 
   created () {
-    let orders = this.customer.orders
-    let size = 10
-    // start at the end of the list
-    let from = orders.length - this.page * size
-    // load orders info with pagination
-    this.loadCustomerOrders({ from, size }).finally(() => {
-      setTimeout(() => {
-        this.rows = orders.slice(from, from + size)
-        // sort orders by number desc
-        .concat().sort((a, b) => !a.number || a.number < b.number)
-        this.loaded = true
-      }, 200)
+    // fix orders list first
+    this.fixCustomerOrders().finally(() => {
+      let size = 10
+      let from = this.page * size
+      // load orders info with pagination
+      this.loadCustomerOrders({ from, size }).finally(() => {
+        setTimeout(() => {
+          this.rows = this.customer.orders.slice(from, from + size)
+          this.loaded = true
+        }, 200)
+      })
     })
   }
 }
