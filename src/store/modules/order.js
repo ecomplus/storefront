@@ -142,6 +142,7 @@ const actions = {
     } else {
       // save the received payload only
       commit('editOrder', { body: payload })
+      return Promise.resolve(payload)
     }
   },
 
