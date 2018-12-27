@@ -421,6 +421,8 @@ const actions = {
           dispatch('saveOrder', order, { root: true }).finally(() => {
             resolve(response)
           })
+
+          // try to save order info on cookie
         }
       })
 

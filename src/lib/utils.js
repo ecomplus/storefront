@@ -105,3 +105,16 @@ export function updateTitle (title, subtitle) {
     document.title = title
   }
 }
+
+// set value of a cookie by name
+export function setCookie (name, value, seconds) {
+  let d = new Date()
+  d.setTime(d.getTime() + 1000 * seconds)
+  document.cookie = name + '=' + value + ';path=/;expires=' + d.toGMTString()
+}
+
+// abstraction to read a specific cookie value
+export function getCookie (name) {
+  let v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)')
+  return v ? v[2] : null
+}
