@@ -151,13 +151,21 @@ const store = new Vuex.Store({
   plugins: debug ? [ createLogger() ] : []
 })
 
+const setupData = background => {
+  // try to get store and customer info from Store API
+  ;[ 'shop', 'customer' ].forEach(module => {
+    store.dispatch('init', { module, background })
+  })
+}
+
 // setup API
 api.init(debug).then(() => {
   // init startup modules
-  // get store info
-  store.dispatch('init', { module: 'shop' })
-  // get customer data
-  store.dispatch('init', { module: 'customer' })
+  setupData()
+  // reload on background on each 5 minutes interval
+  setInterval(() => {
+    setupData(true)
+  }, 5 * 60 * 1000)
   // show body
   document.getElementsByTagName('body')[0].style.opacity = 1
 })
