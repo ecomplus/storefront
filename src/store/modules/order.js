@@ -133,7 +133,7 @@ const getters = {
 const actions = {
   // save new order object
   saveOrder ({ dispatch, commit, rootGetters }, payload) {
-    if (rootGetters.customerEmail) {
+    if (rootGetters.isCustomerLogged) {
       // customer logged
       // call mutation to setup state
       commit('setOrderId', payload._id)
@@ -150,7 +150,7 @@ const actions = {
   updateOrder ({ state, commit, dispatch, rootGetters }) {
     // read order object from Store API and save again
     let background = true
-    if (rootGetters.customerEmail) {
+    if (rootGetters.isCustomerLogged) {
       // authenticated request with customer logged
       dispatch('init', { module, background }, { root: true })
     } else {
