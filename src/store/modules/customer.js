@@ -275,12 +275,7 @@ const actions = {
         setTimeout(() => {
           dispatch('api', [ 'get', 'orderInfo', order._id ], { root: true }).then(data => {
             // update state of current order object
-            commit('editCustomerOrder', {
-              ...order,
-              status: data.status,
-              financial_status: data.financial_status,
-              fulfillment_status: data.fulfillment_status
-            })
+            commit('editCustomerOrder', { ...order, ...data })
           }).finally(resolve)
         }, 100 * index)
       })
