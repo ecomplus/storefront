@@ -66,6 +66,17 @@
                   </strong>
                 </p>
 
+                <p v-if="transaction.credit_card" class="_order-credit-card">
+                  {{ transaction.credit_card.company }}
+                  <span v-if="transaction.credit_card.last_digits">
+                    <span v-if="!transaction.credit_card.company">
+                      {{ $t('card.number') }}
+                    </span>
+                    {{ $t('card.finishedIn') }}
+                    {{ transaction.credit_card.last_digits }}
+                  </span>
+                </p>
+
                 <span v-if="transaction.intermediator">
                   <div
                     class="_order-transaction-code"
@@ -140,6 +151,24 @@
                       {{ $t('shipping.days') }}
                     </span>
                   </div>
+                </div>
+
+                <div class="_order-shipping-address">
+                  <h5>
+                    <a-icon icon="map-marker-alt" class="__icon-mr"></a-icon>
+                    {{ $t('checkout.shippingAddress') }}
+                  </h5>
+                  <p v-if="shipping.to.name">
+                    {{ $t('address.recipient') + ': ' + shipping.to.name }}
+                  </p>
+                  {{ shipping.to.street + ', ' +
+                    (shipping.to.number || $t('shipping.to.noNumber')) +
+                    (shipping.to.complement ? ' - ' + shipping.to.complement : '') +
+                    (shipping.to.borough ? ', ' + shipping.to.borough : '') }}
+                  <div v-if="shipping.to.city">
+                    {{ shipping.to.city + ' / ' + (shipping.to.province_code || shipping.to.province) }}
+                  </div>
+                  <br>{{ shipping.to.zip }}
                 </div>
               </div>
             </el-col>

@@ -102,7 +102,8 @@ export default {
       editNumber: 'Edit card number',
       confirmNumber: 'Confirm number',
       potentiallyValid: 'The card number appears to be incorrect, please check typing errors',
-      atSight: 'at sight'
+      atSight: 'at sight',
+      finishedIn: 'finished in'
     },
     order: {
       number: 'Order number',
@@ -323,7 +324,8 @@ export default {
       editNumber: 'Editar número do cartão',
       confirmNumber: 'Confirmar número',
       potentiallyValid: 'O número do cartão parece estar incorreto, por favor verifique erros de digitação',
-      atSight: 'à vista'
+      atSight: 'à vista',
+      finishedIn: 'terminado em'
     },
     order: {
       number: 'Número do pedido',

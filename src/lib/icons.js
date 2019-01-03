@@ -29,6 +29,7 @@ import faTicketAlt from '@fortawesome/fontawesome-free-solid/faTicketAlt'
 import faQuestionCircle from '@fortawesome/fontawesome-free-solid/faQuestionCircle'
 import faPrint from '@fortawesome/fontawesome-free-solid/faPrint'
 import faCopy from '@fortawesome/fontawesome-free-solid/faCopy'
+import faMapMarkerAlt from '@fortawesome/fontawesome-free-solid/faMapMarkerAlt'
 
 // setup icons to library
 fontawesome.library.add(
@@ -57,5 +58,6 @@ fontawesome.library.add(
   faTicketAlt,
   faQuestionCircle,
   faPrint,
-  faCopy
+  faCopy,
+  faMapMarkerAlt
 )
