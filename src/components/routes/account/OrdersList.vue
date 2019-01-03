@@ -2,6 +2,14 @@
   <div class="_orders __container-sm">
     <transition name="fade">
       <div v-if="$route.params.number" key="specific-order">
+        <el-button
+          type="info"
+          size="mini"
+          class="_order-list-back"
+          @click="() => showList()">
+          <a-icon icon="angle-left" class="__icon-mr"></a-icon>
+          {{ $t('session.orders') }}
+        </el-button>
         <order-info></order-info>
       </div>
 
@@ -44,6 +52,7 @@
           layout="prev, pager, next"
           :total="customer.orders.length"
           :page-size="pageSize"
+          :current-page="page + 1"
           @current-change="updatePage">
         </el-pagination>
       </div>
@@ -54,7 +63,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import { formatMoney, formatDate } from '@/lib/utils'
-import OrderInfo from '@/components/routes/account/OrderInfo'
+import OrderInfo from '@/components/routes/order/OrderInfo'
 
 export default {
   name: 'OrdersList',
@@ -170,5 +179,8 @@ export default {
 }
 ._order-list-status-cancelled {
   color: $--color-danger;
+}
+._order-list-back {
+  margin-bottom: $--card-padding;
 }
 </style>

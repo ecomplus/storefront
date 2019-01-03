@@ -299,7 +299,7 @@ import AddressList from '@/components/routes/account/AddressList'
 import ShippingServices from '@/components/routes/cart/ShippingServices'
 import DiscountCoupon from '@/components/routes/cart/DiscountCoupon'
 import CreditCard from '@/components/routes/checkout/CreditCard'
-import OrderInfo from '@/components/routes/account/OrderInfo'
+import OrderInfo from '@/components/routes/order/OrderInfo'
 
 export default {
   name: 'CheckoutApp',

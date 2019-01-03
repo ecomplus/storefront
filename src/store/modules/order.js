@@ -1,19 +1,22 @@
 const module = 'order'
 // initial state
 // https://developers.e-com.plus/docs/api/#/store/orders
+const emptyOrder = {
+  number: null,
+  status: null,
+  fulfillment_status: {},
+  financial_status: {},
+  items: [],
+  transactions: [],
+  shipping_lines: [],
+  amount: {},
+  payment_method_label: null,
+  shipping_method_label: null
+}
 const state = {
   body: {
     _id: null,
-    number: null,
-    status: null,
-    fulfillment_status: {},
-    financial_status: {},
-    items: [],
-    transactions: [],
-    shipping_lines: [],
-    amount: {},
-    payment_method_label: null,
-    shipping_method_label: null
+    ...emptyOrder
   }
 }
 
@@ -149,6 +152,8 @@ const actions = {
 
   // save new order object
   saveOrder ({ commit, dispatch }, payload) {
+    // clear current order body first
+    commit('editOrder', { body: emptyOrder })
     // call mutation to setup state
     commit('setOrderId', payload._id)
     return dispatch('loadOrder')
