@@ -45,7 +45,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { formatMoney, formatDate, updateTitle } from '@/lib/utils'
+import { formatMoney, formatDate } from '@/lib/utils'
 
 export default {
   name: 'OrdersList',
