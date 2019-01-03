@@ -36,7 +36,7 @@ export default new Router({
           component: AddressList
         },
         {
-          path: 'orders',
+          path: 'orders/:number?',
           name: 'orders',
           component: OrdersList
         }

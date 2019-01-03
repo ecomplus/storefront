@@ -1,7 +1,11 @@
 <template>
   <div class="_orders __container-sm">
     <transition name="fade">
-      <div v-if="!rows.length" key="orders-empty" class="_orders-empty">
+      <div v-if="$route.params.number" key="specific-order">
+        <order-info></order-info>
+      </div>
+
+      <div v-else-if="!rows.length" key="orders-empty" class="_orders-empty">
         <span v-if="loaded"></span>
       </div>
 
@@ -15,7 +19,11 @@
             <template slot-scope="scope">
               {{ formatDate(scope.row.created_at) }}
               <br>
-              <el-button type="info" size="mini" class="_order-list-edit">
+              <el-button
+                type="info"
+                size="mini"
+                class="_order-list-edit"
+                @click="() => showOrder(scope.row.number)">
                 <a-icon icon="angle-right" class="__icon-mr"></a-icon>
                 {{ $t('order.see') + ' #' + scope.row.number }}
               </el-button>
@@ -46,9 +54,14 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import { formatMoney, formatDate } from '@/lib/utils'
+import OrderInfo from '@/components/routes/account/OrderInfo'
 
 export default {
   name: 'OrdersList',
+
+  components: {
+    OrderInfo
+  },
 
   computed: mapGetters([
     'customer'
@@ -66,7 +79,8 @@ export default {
   methods: {
     ...mapActions([
       'fixCustomerOrders',
-      'loadCustomerOrders'
+      'loadCustomerOrders',
+      'saveOrder'
     ]),
 
     formatMoney (value) {
@@ -83,23 +97,53 @@ export default {
     },
 
     loadData () {
-      // fix orders list first
-      this.fixCustomerOrders().finally(() => {
-        let size = this.pageSize
-        let from = this.page * size
-        // load orders info with pagination
-        this.loadCustomerOrders({ from, size }).finally(() => {
-          setTimeout(() => {
-            this.rows = this.customer.orders.slice(from, from + size)
-            this.loaded = true
-          }, 200)
+      let orderNumber = this.$route.params.number
+      if (!orderNumber) {
+        // list orders
+        // fix orders list first
+        this.fixCustomerOrders().finally(() => {
+          let size = this.pageSize
+          let from = this.page * size
+          // load orders info with pagination
+          this.loadCustomerOrders({ from, size }).finally(() => {
+            setTimeout(() => {
+              this.rows = this.customer.orders.slice(from, from + size)
+              this.loaded = true
+            }, 200)
+          })
         })
-      })
+      } else {
+        // find order by number
+        let order = this.customer.orders.find(({ number }) => number === orderNumber)
+        if (order) {
+          // handle order specified
+          this.saveOrder(order)
+        } else {
+          // back to list
+          this.showList()
+        }
+      }
+    },
+
+    showOrder (number) {
+      // redirect to specified order info
+      this.$router.push({ name: 'orders', params: { number } })
+    },
+
+    showList () {
+      // redirect back to orders list
+      this.$router.push({ name: 'orders' })
     }
   },
 
   created () {
     this.loadData()
+  },
+
+  watch: {
+    '$route.params.number' () {
+      this.loadData()
+    }
   }
 }
 </script>
