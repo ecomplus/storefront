@@ -455,7 +455,7 @@ const actions = {
               order: data,
               email: rootGetters.customerEmail
             })
-            setCookie(cookieName, JSON.stringify(ordersList), 120)
+            setCookie(cookieName, JSON.stringify(ordersList), 5 * 60)
           })
         }
       })
