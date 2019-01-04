@@ -156,6 +156,22 @@
                   </div>
                 </div>
 
+                <div class="_order-shipping-method">
+                  {{ $t('order.shippingMethod') }}:
+                  {{ shipping.app.label || shipping.shipping_method_label }}
+                  <div v-if="shipping.tracking_codes" class="_order-shipping-tracking">
+                    {{ $t('order.trackingCode') }}:
+                    <div v-for="tracking in shipping.tracking_codes">
+                      <strong v-if="!tracking.link">
+                        {{ tracking.code }}
+                      </strong>
+                      <a v-else :href="tracking.link" target="_blank">
+                        {{ tracking.code }}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="_order-shipping-address">
                   <h5>
                     <a-icon icon="map-marker-alt" class="__icon-mr"></a-icon>
@@ -311,5 +327,8 @@ export default {
   margin-top: .25rem;
   font-size: $--font-size-small;
   color: $--color-text-secondary;
+}
+._order-shipping-method {
+  margin-top: $--card-padding * .5;
 }
 </style>

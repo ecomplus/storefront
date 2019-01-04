@@ -150,6 +150,8 @@ export default {
       postingDeadline: 'Posting deadline',
       deliveryTime: 'Delivery time',
       deliveryEstimate: 'Delivery estimate',
+      shippingMethod: 'Shipping method',
+      trackingCode: 'Tracking code',
       see: 'See order'
     },
     shipping: {
@@ -372,6 +374,8 @@ export default {
       postingDeadline: 'Prazo para postagem',
       deliveryTime: 'Prazo de entrega',
       deliveryEstimate: 'Estimativa de entrega',
+      shippingMethod: 'Forma de envio',
+      trackingCode: 'Código de rastreamento',
       see: 'Ver pedido'
     },
     account: {
