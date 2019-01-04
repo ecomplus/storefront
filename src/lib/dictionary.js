@@ -119,6 +119,8 @@ export default {
       cancelled: 'Cancelled',
       transactionCode: 'Transaction code',
       transactionReference: 'Reference code',
+      paymentRealized: 'Payment realized',
+      paymentConfirmed: 'Payment confirmed',
       financialStatus: {
         pending: 'Pending payment',
         under_analysis: 'Payment under analysis',
@@ -343,6 +345,8 @@ export default {
       cancelled: 'Cancelado',
       transactionCode: 'Código da transação',
       transactionReference: 'Código da referência',
+      paymentRealized: 'Pagamento realizado',
+      paymentConfirmed: 'Pagamento confirmado',
       financialStatus: {
         pending: 'Pagamento pendente',
         under_analysis: 'Pagamento em análise',
@@ -362,7 +366,7 @@ export default {
         in_separation: 'Em separação',
         ready_for_shipping: 'Preparado para envio',
         partially_shippend: 'Parcialmente enviado',
-        shipped: 'Pedido enviado',
+        shipped: 'Produtos enviados',
         partially_delivered: 'Parcialmente entregue',
         delivered: 'Entregue',
         returned_for_exchange: 'Devolvido para troca',

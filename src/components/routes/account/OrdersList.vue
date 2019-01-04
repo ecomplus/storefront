@@ -12,7 +12,10 @@
         </el-button>
         <order-info/>
         <el-row class="_order-details">
-          <el-col :md="12" :sm="24" :xs="12" class="_order-summary">
+          <el-col :md="12" :span="24">
+            <order-steps/>
+          </el-col>
+          <el-col :md="12" :span="24" class="_order-summary">
             <items-summary
               :items="order.items"
               :subtotal="order.amount.subtotal"
@@ -72,6 +75,7 @@
 import { mapGetters, mapActions } from 'vuex'
 import { formatMoney, formatDate } from '@/lib/utils'
 import OrderInfo from '@/components/routes/order/OrderInfo'
+import OrderSteps from '@/components/routes/order/OrderSteps'
 import ItemsSummary from '@/components/routes/checkout/ItemsSummary'
 
 export default {
@@ -79,6 +83,7 @@ export default {
 
   components: {
     OrderInfo,
+    OrderSteps,
     ItemsSummary
   },
 

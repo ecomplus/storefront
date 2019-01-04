@@ -2,6 +2,7 @@ const module = 'order'
 // initial state
 // https://developers.e-com.plus/docs/api/#/store/orders
 const emptyOrder = {
+  created_at: null,
   number: null,
   status: null,
   fulfillment_status: {},
@@ -11,7 +12,9 @@ const emptyOrder = {
   shipping_lines: [],
   amount: {},
   payment_method_label: null,
-  shipping_method_label: null
+  shipping_method_label: null,
+  payments_history: [],
+  fulfillments: []
 }
 const state = {
   body: {
@@ -130,6 +133,49 @@ const getters = {
     }
     // unexpedted current payment status or shipping status
     return new Date()
+  },
+
+  // return date string of first positive payment entry
+  orderPaymentDate ({ body }) {
+    let date
+    body.payments_history.forEach(entry => {
+      switch (entry.status) {
+        case 'under_analysis':
+        case 'authorized':
+        case 'paid':
+          if (entry.date_time && (typeof date !== 'string' || date > entry.date_time)) {
+            date = entry.date_time
+          }
+          break
+      }
+    })
+    return date
+  },
+
+  // return date string of last payment confirmation entry
+  orderConfirmationDate ({ body }) {
+    let date
+    body.payments_history.forEach(entry => {
+      if (entry.status === 'paid') {
+        if (entry.date_time && (!date || date < entry.date_time)) {
+          date = entry.date_time
+        }
+      }
+    })
+    return date
+  },
+
+  // return date string of last fulfillment entry with some status
+  orderFulfillmentDate: state => status => {
+    let date = null
+    state.body.fulfillments.forEach(entry => {
+      if (entry.status === status) {
+        if (entry.date_time && (!date || date < entry.date_time)) {
+          date = entry.date_time
+        }
+      }
+    })
+    return date
   }
 }
 
