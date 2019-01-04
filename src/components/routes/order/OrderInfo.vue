@@ -102,54 +102,57 @@
               </div>
               <div
                 v-for="shipping in order.shipping_lines"
-                v-if="shippingDeliveryPending(shipping)"
                 class="_order-shipping-info">
-                <div
-                  v-if="!shipping.status && orderFinancialStatus !== 'paid'"
-                  class="_order-shipping-deadline">
-                  {{ $t('order.willReceive').replace('$', shippingServiceTime(shipping)) }}
-                  <span v-if="shippingServiceWorkingDays(shipping)">
-                    {{ $t('shipping.workingDays') }}
-                  </span>
-                  <span v-else>
-                    {{ $t('shipping.days') }}
-                  </span>
-                  <span v-if="shipping.posting_deadline && shipping.posting_deadline.after_approval">
-                    {{ $t('order.afterApproval') }}
-                  </span>
-                </div>
-
-                <div
-                  v-else-if="orderFinancialStatus === 'paid' &&
-                    Date.now() > shippingDeliveryDate(shipping).getTime()"
-                  class="_order-delivery-estimate">
-                  {{ $t('order.deliveryEstimate') }}:
-                  {{ formatDate(shippingDeliveryDate(shipping).toISOString()) }}
-                </div>
-
-                <div v-else>
-                  <div v-if="shipping.posting_deadline">
-                    {{ $t('order.postingDeadline') }}:
-                    {{ shipping.posting_deadline.days }}
-                    <span v-if="shipping.posting_deadline.working_days">
+                <div v-if="shippingDeliveryPending(shipping)">
+                  <div
+                    v-if="!shipping.status && orderFinancialStatus !== 'paid'"
+                    class="_order-shipping-deadline">
+                    {{ $t('order.willReceive').replace('$', shippingServiceTime(shipping)) }}
+                    <span v-if="shippingServiceWorkingDays(shipping)">
                       {{ $t('shipping.workingDays') }}
                     </span>
                     <span v-else>
                       {{ $t('shipping.days') }}
                     </span>
-                    <span v-if="orderFinancialStatus !== 'paid' && shipping.posting_deadline.after_approval">
+                    <span v-if="shipping.posting_deadline &&
+                      shipping.posting_deadline.after_approval">
                       {{ $t('order.afterApproval') }}
                     </span>
                   </div>
-                  <div v-if="shipping.delivery_time">
-                    {{ $t('order.deliveryTime') }}:
-                    {{ shipping.delivery_time.days }}
-                    <span v-if="shipping.delivery_time.working_days">
-                      {{ $t('shipping.workingDays') }}
-                    </span>
-                    <span v-else>
-                      {{ $t('shipping.days') }}
-                    </span>
+
+                  <div
+                    v-else-if="orderFinancialStatus === 'paid' &&
+                      Date.now() > shippingDeliveryDate(shipping).getTime()"
+                    class="_order-delivery-estimate">
+                    {{ $t('order.deliveryEstimate') }}:
+                    {{ formatDate(shippingDeliveryDate(shipping).toISOString()) }}
+                  </div>
+
+                  <div v-else>
+                    <div v-if="shipping.posting_deadline">
+                      {{ $t('order.postingDeadline') }}:
+                      {{ shipping.posting_deadline.days }}
+                      <span v-if="shipping.posting_deadline.working_days">
+                        {{ $t('shipping.workingDays') }}
+                      </span>
+                      <span v-else>
+                        {{ $t('shipping.days') }}
+                      </span>
+                      <span v-if="orderFinancialStatus !== 'paid' &&
+                        shipping.posting_deadline.after_approval">
+                        {{ $t('order.afterApproval') }}
+                      </span>
+                    </div>
+                    <div v-if="shipping.delivery_time">
+                      {{ $t('order.deliveryTime') }}:
+                      {{ shipping.delivery_time.days }}
+                      <span v-if="shipping.delivery_time.working_days">
+                        {{ $t('shipping.workingDays') }}
+                      </span>
+                      <span v-else>
+                        {{ $t('shipping.days') }}
+                      </span>
+                    </div>
                   </div>
                 </div>
 
