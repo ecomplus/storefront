@@ -10,7 +10,15 @@
           <a-icon icon="angle-left" class="__icon-mr"></a-icon>
           {{ $t('session.orders') }}
         </el-button>
-        <order-info></order-info>
+        <order-info/>
+        <el-row class="_order-details">
+          <el-col :md="12" :sm="24" :xs="12" class="_order-summary">
+            <items-summary
+              :items="order.items"
+              :subtotal="order.amount.subtotal"
+              :amount="order.amount"/>
+          </el-col>
+        </el-row>
       </div>
 
       <div v-else-if="!rows.length" key="orders-empty" class="_orders-empty">
@@ -64,16 +72,19 @@
 import { mapGetters, mapActions } from 'vuex'
 import { formatMoney, formatDate } from '@/lib/utils'
 import OrderInfo from '@/components/routes/order/OrderInfo'
+import ItemsSummary from '@/components/routes/checkout/ItemsSummary'
 
 export default {
   name: 'OrdersList',
 
   components: {
-    OrderInfo
+    OrderInfo,
+    ItemsSummary
   },
 
   computed: mapGetters([
-    'customer'
+    'customer',
+    'order'
   ]),
 
   data () {
@@ -182,5 +193,8 @@ export default {
 }
 ._order-list-back {
   margin-bottom: $--card-padding;
+}
+._order-details {
+  margin-top: $--card-padding * 1.5;
 }
 </style>
