@@ -25,7 +25,9 @@
       </div>
 
       <div v-else-if="!rows.length" key="orders-empty" class="_orders-empty">
-        <span v-if="loaded"></span>
+        <span v-if="loaded">
+          {{ $t('account.noOrders') }}
+        </span>
       </div>
 
       <div v-else key="orders-list" class="_orders-list">

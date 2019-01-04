@@ -169,6 +169,7 @@ export default {
     account: {
       registration: 'Registration',
       orders: 'Orders',
+      noOrders: 'There are no orders yet for this account',
       addresses: 'Addresses',
       unloggedMsg: 'You must be logged to see your account settings',
       fullName: 'Full name',
@@ -385,6 +386,7 @@ export default {
     account: {
       registration: 'Cadastro',
       orders: 'Pedidos',
+      noOrders: 'Ainda não há pedidos registrados nesta conta',
       addresses: 'Endereços',
       unloggedMsg: 'Você precisa estar logado para ver as configurações da sua conta',
       fullName: 'Nome completo',
