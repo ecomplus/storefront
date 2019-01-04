@@ -207,6 +207,7 @@ export default {
 
   data () {
     return {
+      checkOrder: null,
       orderUpdateTimer: null
     }
   },
@@ -265,13 +266,13 @@ export default {
 
   mounted () {
     let { order } = this
-    setTimeout(() => {
+    this.checkOrder = setTimeout(() => {
       if (!order.number) {
         // no order
         // back to shopping cart
         this.$router.push({ name: 'cart' })
       }
-    }, 800)
+    }, 1000)
     // update order data on each 8 seconds
     this.orderUpdateTimer = setInterval(this.updateOrder, 8 * 1000)
   },
@@ -279,6 +280,8 @@ export default {
   beforeDestroy () {
     // unset order update interval function
     clearInterval(this.orderUpdateTimer)
+    // prevent redirecting to cart
+    clearTimeout(this.checkOrder)
   }
 }
 </script>

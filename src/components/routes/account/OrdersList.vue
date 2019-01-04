@@ -122,7 +122,7 @@ export default {
     },
 
     loadData () {
-      let orderNumber = this.$route.params.number
+      let orderNumber = parseInt(this.$route.params.number, 10)
       if (!orderNumber) {
         // list orders
         // fix orders list first
