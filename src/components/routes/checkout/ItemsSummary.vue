@@ -2,7 +2,7 @@
   <div class="__box">
     <div class="_summary-items">
       <div class="_summary-item" v-for="item in items" :key="item._id">
-        <el-row type="flex" align="middle" justify="end">
+        <el-row type="flex" align="middle" justify="end" v-if="item.quantity">
           <el-col :span="18" class="_summary-item-info">
             <div class="_summary-item-title">
               <a v-if="item._product" :href="'/' + item._product.slug" target="_blank">
