@@ -16,7 +16,8 @@ import api from '@/api'
 // setup Vuex
 Vue.use(Vuex)
 
-const debug = process.env.NODE_ENV !== 'production'
+/* global location */
+const debug = (process.env.NODE_ENV !== 'production' || location.host === 'storefront-app.e-com.plus')
 
 // global namespace
 // define common getters, mutations and actions
@@ -86,7 +87,7 @@ const actions = {
     // handle promise from API lib
     let promise = api[method][module](arg)
     // methods for payment and shipping toggles spinner only at checkout
-    if (method !== 'module' || window.location.hash.substr(2, 8) === 'checkout') {
+    if (method !== 'module' || location.hash.substr(2, 8) === 'checkout') {
       if (!background) {
         // show loading spinner
         commit('triggerLoading', true)
