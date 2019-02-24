@@ -1,11 +1,11 @@
 {
-  "name": "storefront-ui",
+  "name": "@ecomplus/storefront-ui",
   "description": "Vue UI kit for storefront components based on Tailwind CSS",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name StorefrontUi src/App.vue",
     "css": "tailwind build src/assets/styles.css -c tailwind.js -o public/vendor/tailwind.css"
   },
   "dependencies": {
