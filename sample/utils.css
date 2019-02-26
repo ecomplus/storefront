@@ -565,6 +565,10 @@ table {
  * -------->
  */
 
+body {
+  background: #000;
+}
+
 .btn {
   font-weight: 700;
   padding-top: .5rem;
@@ -572,6 +576,10 @@ table {
   padding-left: 1rem;
   padding-right: 1rem;
   border-radius: .25rem;
+}
+
+.btn.brand {
+  background-color: #6574cd;
 }
 
 /**
