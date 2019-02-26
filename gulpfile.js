@@ -18,13 +18,15 @@ const html = () => {
 
 const sass = () => {
   return src('./scss/theme.scss')
+    .pipe(sourcemaps.init())
     .pipe(buildSass().on('error', buildSass.logError))
+    .pipe(sourcemaps.write())
     .pipe(dest('./sample'))
 }
 
 const dist = () => {
   return src('./sample/theme.css')
-    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(cleanCss({ compatibility: 'ie8' }))
     .pipe(rename('theme.min.css'))
     .pipe(sourcemaps.write('./'))
