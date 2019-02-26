@@ -8,6 +8,7 @@ const autoprefixer = require('autoprefixer')
 const concatCss = require('gulp-concat-css')
 const cleanCss = require('gulp-clean-css')
 const sourcemaps = require('gulp-sourcemaps')
+const rename = require('gulp-rename')
 
 const html = () => {
   browserSync.init({
@@ -15,7 +16,7 @@ const html = () => {
     port: 3375
   })
   watch('./src/*.css', css)
-  watch('./sample/index.html', () => browserSync.reload)
+  watch('./sample/index.html', browserSync.reload)
 }
 
 const css = () => {
@@ -25,15 +26,15 @@ const css = () => {
       autoprefixer
     ]))
     .pipe(concatCss('utils.css'))
-    .pipe(sourcemaps.write())
     .pipe(dest('./sample'))
     .pipe(browserSync.stream())
 }
 
 const dist = () => {
   return src('./sample/utils.css')
-    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(sourcemaps.init())
     .pipe(cleanCss({ compatibility: 'ie8' }))
+    .pipe(rename('utils.min.css'))
     .pipe(sourcemaps.write('./'))
     .pipe(dest('./dist'))
 }
