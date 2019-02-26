@@ -22,7 +22,7 @@ const html = () => {
 const css = () => {
   return src('./src/*.css')
     .pipe(postcss([
-      tailwindcss('./tailwind.js'),
+      tailwindcss('./src/tailwind.js'),
       autoprefixer
     ]))
     .pipe(concatCss('utils.css'))
