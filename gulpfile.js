@@ -6,6 +6,8 @@ const tailwindcss = require('tailwindcss')
 const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
 const concatCss = require('gulp-concat-css')
+const cleanCss = require('gulp-clean-css')
+const sourcemaps = require('gulp-sourcemaps')
 
 const html = () => {
   browserSync.init({
@@ -13,7 +15,7 @@ const html = () => {
     port: 3375
   })
   watch('./src/*.css', css)
-  watch('./sample/*.html', () => browserSync.reload)
+  watch('./sample/index.html', () => browserSync.reload)
 }
 
 const css = () => {
@@ -23,10 +25,20 @@ const css = () => {
       autoprefixer
     ]))
     .pipe(concatCss('utils.css'))
+    .pipe(sourcemaps.write())
     .pipe(dest('./sample'))
     .pipe(browserSync.stream())
 }
 
+const dist = () => {
+  return src('./sample/utils.css')
+    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(cleanCss({ compatibility: 'ie8' }))
+    .pipe(sourcemaps.write('./'))
+    .pipe(dest('./dist'))
+}
+
 exports.css = css
+exports.dist = dist
 exports.html = html
 exports.default = parallel(html, css)
