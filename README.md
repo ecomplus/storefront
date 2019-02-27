@@ -67,8 +67,8 @@ your theme.
 
 ## Reference
 
-https://getbootstrap.com/docs/4.3/getting-started/theming/
-https://uxplanet.org/how-to-customize-bootstrap-b8078a011203
+- https://getbootstrap.com/docs/4.3/getting-started/theming/
+- https://uxplanet.org/how-to-customize-bootstrap-b8078a011203
 
 ## tl;dr
 
