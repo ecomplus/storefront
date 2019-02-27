@@ -7,6 +7,8 @@ const sourcemaps = require('gulp-sourcemaps')
 const rename = require('gulp-rename')
 const buildSass = require('gulp-sass')
 
+const filename = 'storefront-twbs'
+
 const html = () => {
   browserSync.init({
     server: './sample',
@@ -17,7 +19,7 @@ const html = () => {
 }
 
 const sass = () => {
-  return src('./scss/theme.scss')
+  return src('./scss/' + filename + '.scss')
     .pipe(sourcemaps.init())
     .pipe(buildSass().on('error', buildSass.logError))
     .pipe(sourcemaps.write())
@@ -26,10 +28,10 @@ const sass = () => {
 }
 
 const dist = () => {
-  return src('./sample/theme.css')
+  return src('./sample/' + filename + '.css')
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(cleanCss({ compatibility: 'ie8' }))
-    .pipe(rename('theme.min.css'))
+    .pipe(rename('' + filename + '.min.css'))
     .pipe(sourcemaps.write('./'))
     .pipe(dest('./dist'))
 }
