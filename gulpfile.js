@@ -12,7 +12,7 @@ const html = () => {
     server: './sample',
     port: 3376
   })
-  watch('./src/*.sass', sass)
+  watch('./scss/**/*.scss', sass)
   watch('./sample/index.html', browserSync.reload)
 }
 
@@ -22,6 +22,7 @@ const sass = () => {
     .pipe(buildSass().on('error', buildSass.logError))
     .pipe(sourcemaps.write())
     .pipe(dest('./sample'))
+    .pipe(browserSync.stream())
 }
 
 const dist = () => {
