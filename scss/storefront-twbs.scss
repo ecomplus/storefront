@@ -1,0 +1,19 @@
+// Theming Bootstrap
+// https://getbootstrap.com/docs/4.3/getting-started/theming/
+
+// Store brand colors
+// Overrides primary and secondary
+// Edited by merchant and persistent between themes
+@import "brand";
+
+// Theme variable overrides
+@import "theme";
+
+// Force no caret for dropdowns
+// Using FontAwesome icons
+$enable-caret: false;
+// Enable RFS by default of not specified by theme
+$enable-responsive-font-sizes: true !default;
+
+// Bootstrap and its default variables
+@import "../node_modules/bootstrap/scss/bootstrap";
