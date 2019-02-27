@@ -9,11 +9,11 @@ Generate Bootstrap 4 custom theme for E-Com Plus storefront.
 
 From CLI, compile the custom SASS theme to new storefront
 Bootstrap kit and utilities passing directories
-and brand colors RGBs:
+and brand colors RGBs (without `#`):
 
 ```bash
 npm i -g storefront-twbs
-storefront-twbs ~/mytheme/scss ~/mytheme/dist #6f42c1 #e83e8c
+storefront-twbs ~/mytheme/scss ~/mytheme/dist 6f42c1 e83e8c
 ```
 
 Note that `~/mytheme/scss` directory **must contain**
