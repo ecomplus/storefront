@@ -34,7 +34,7 @@ if (require.main === module) {
     let outputDir = process.argv[3]
 
     if (process.argv.length >= 6) {
-      // node ./index.js ~/mytheme/scss ~/mytheme/dist 333 fff
+      // node ./index.js ~/mytheme/scss ~/mytheme/dist #333 #fff
       // save _brand.scss with received RGBs first
       let primary = process.argv[4]
       let secondary = process.argv[5]
