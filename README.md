@@ -31,6 +31,13 @@ cd storefront-twbs
 npm i
 ```
 
+Install [Gulp](https://gulpjs.com/)
+globally (if not already installed):
+
+```bash
+npm i gulp-cli -g
+```
+
 Edit the SASS files in the `scss/theme` directory,
 we recommend start from `_variables.scss`.
 
