@@ -12,7 +12,7 @@ Bootstrap kit and utilities passing directories
 and brand colors RGBs (without `#`):
 
 ```bash
-npm i -g storefront-twbs
+npm i -g @ecomplus/storefront-twbs
 storefront-twbs ~/mytheme/scss ~/mytheme/dist 6f42c1 e83e8c
 ```
 

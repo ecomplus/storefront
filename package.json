@@ -1,8 +1,11 @@
 {
   "name": "@ecomplus/storefront-twbs",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "description": "Generate Bootstrap 4 custom theme for E-Com Plus storefront",
   "main": "src/index.js",
+  "bin": {
+    "storefront-twbs": "./src/index.js"
+  },
   "scripts": {
     "build": "gulp sass",
     "test": "gulp",
