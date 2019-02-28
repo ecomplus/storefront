@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 'use strict'
 
 // bind LibSass with Node-sass
@@ -32,20 +34,31 @@ if (require.main === module) {
     // node ./index.js ~/mytheme/scss ~/mytheme/dist
     let baseDir = process.argv[2]
     let outputDir = process.argv[3]
+    // core Node.js modules
+    const path = require('path')
+    const fs = require('fs')
 
     if (process.argv.length >= 6) {
       // node ./index.js ~/mytheme/scss ~/mytheme/dist 333 fff
       // save _brand.scss with received RGBs first
       let primary = process.argv[4]
       let secondary = process.argv[5]
-      let data = '$primary: #' + primary + '; $secondary: #' + secondary + ';'
-      require('fs').writeFileSync(baseDir + '/_brand.scss', data)
+      let scss = '$primary: #' + primary + '; $secondary: #' + secondary + ';'
+      fs.writeFileSync(path.join(baseDir, '/_brand.scss'), scss)
     }
 
-    compile('./../scss/storefront-twbs.scss', {
-      outFile: outputDir + '/storefront-twbs.min.css',
+    // get current main SCSS file based on module directory
+    const mainSass = path.join(__dirname, '..', '/scss/storefront-twbs.scss')
+    // output file path
+    const outFile = path.join(outputDir, '/storefront-twbs.min.css')
+    compile(mainSass, {
+      outFile,
       sourceMap: true,
       includePaths: [ baseDir ]
+    }).then(result => {
+      // save CSS and map files
+      fs.writeFileSync(outFile, result.css)
+      fs.writeFileSync(outFile + '.map', result.map)
     })
   }
 } else {
