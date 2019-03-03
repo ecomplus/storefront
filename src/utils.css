@@ -1,0 +1,9 @@
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/utilities";
+ */
+@tailwind utilities;
