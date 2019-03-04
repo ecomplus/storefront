@@ -1,0 +1,34 @@
+// Overriding default Bootstrap variables:
+// https://getbootstrap.com/docs/4.3/getting-started/theming/#variable-defaults
+
+// Set starter colors palette
+$blue:      #007bff;
+$indigo:    #6610f2;
+$purple:    #6f42c1;
+$pink:      #e83e8c;
+$red:       #dc3545;
+$orange:    #fd7e14;
+$yellow:    #ffc107;
+$green:     #28a745;
+$teal:      #20c997;
+$cyan:      #17a2b8;
+
+// Main colors
+// Generally should be overrided by store brand colors defined by merchant
+$primary:   $orange !default;
+$secondary: $blue !default;
+
+// Base border radius
+$border-radius:    .10rem;
+$border-radius-lg: .15rem;
+$border-radius-sm: .05rem;
+
+// Default border width and color
+$border-width:     3px;
+$border-color:     #e9ecef;
+
+// You can edit any of Bootstrap 4 variables
+// All variables reference:
+// https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
+
+// For more customizations edit the `_components.scss` file

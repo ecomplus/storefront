@@ -1,24 +1,35 @@
 {
-  "name": "@ecomplus/storefront-css",
-  "version": "0.0.1",
-  "description": "CSS utils for E-Com Plus storefront with Tailwind",
+  "name": "@ecomplus/storefront-twbs",
+  "version": "0.5.0",
+  "description": "Generate Bootstrap 4 custom theme for E-Com Plus storefront",
   "main": "src/index.js",
   "bin": {
-    "storefront-css": "./src/index.js"
+    "storefront-twbs": "./src/index.js"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "gulp sass",
+    "test": "gulp",
+    "dist": "gulp dist"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/storefront-css.git"
+    "url": "git+https://github.com/ecomclub/storefront-twbs.git"
   },
   "author": "E-Com Club",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/storefront-css/issues"
+    "url": "https://github.com/ecomclub/storefront-twbs/issues"
   },
-  "homepage": "https://github.com/ecomclub/storefront-css#readme",
+  "homepage": "https://github.com/ecomclub/storefront-twbs#readme",
   "dependencies": {
-    "tailwindcss": "^0.7.4"
+    "bootstrap": "^4.3.1",
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "node-sass": "^4.11.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",
