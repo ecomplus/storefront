@@ -1,0 +1,69 @@
+/**
+ *
+ * Provide additional utility classes for theming
+ * Extra utilities with brand and gray colors
+ *
+ */
+
+@mixin utils-variant($color, $value) {
+  // Text colors
+  .text_#{$color} {
+    color: $value;
+  }
+  .hover\:text_#{$color}:hover {
+    color: $value;
+  }
+
+  // Standalone background colors
+  .bg_#{$color} {
+    background-color: $value;
+  }
+  .hover\:bg_#{$color}:hover {
+    background-color: $value;
+  }
+
+  // Border colors
+  .border_#{$color} {
+    border-color: $value;
+  }
+  .hover\:border_#{$color}:hover {
+    border-color: $value;
+  }
+}
+
+// Map brand colors pallete
+$brand-colors: (
+  "primary-lightest": lighten($primary, 33%),
+  "primary-lighter": lighten($primary, 21%),
+  "primary-light": lighten($primary, 10%),
+  "primary": $primary,
+  "primary-dark": darken($primary, 10%),
+  "primary-darker": darken($primary, 21%),
+  "primary-darkest": darken($primary, 33%),
+  "secondary-lightest": lighten($secondary, 33%),
+  "secondary-lighter": lighten($secondary, 21%),
+  "secondary-light": lighten($secondary, 10%),
+  "secondary": $secondary,
+  "secondary-dark": darken($secondary, 10%),
+  "secondary-darker": darken($secondary, 21%),
+  "secondary-darkest": darken($secondary, 33%)
+);
+
+@each $color, $value in $brand-colors {
+  // Block utilities with background color and YIQ (white or black) text color
+  // For brand colors only
+  .block_#{$color} {
+    background-color: $value;
+    color: color-yiq($value);
+  }
+  .hover\:block_#{$color}:hover {
+    background-color: $value;
+    color: color-yiq($value);
+  }
+  @include utils-variant($color, $value);
+}
+
+@each $color, $value in $grays {
+  // utilities for grayscale
+  @include utils-variant("gray-#{$color}", $value);
+}
