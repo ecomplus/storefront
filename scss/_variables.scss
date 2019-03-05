@@ -1,12 +1,13 @@
 // Importing Bootstrap required files:
 // https://getbootstrap.com/docs/4.3/getting-started/theming/#importing
 
+// Theme variable overrides
+@import "theme/variables";
+
+// Required Bootstrap SASS files
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
-
-// Theme variable overrides
-@import "theme/variables";
 
 // Force no caret for dropdowns
 // Using FontAwesome icons
