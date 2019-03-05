@@ -1,11 +1,3 @@
-# DEPRECATION
-
-**No more using Bootstrap framework.**
-
-Moving to utilities-first approach with low number of components,
-only most reusable, take a look at
-[storefront-styles](https://github.com/ecomclub/storefront-styles).
-
 # storefront-twbs
 
 [![npm version](https://img.shields.io/npm/v/@ecomplus/storefront-twbs.svg)](https://www.npmjs.org/@ecomplus/storefront-twbs)
@@ -60,6 +52,15 @@ on `dist` folder by running:
 ```bash
 npm run dist
 ```
+
+### Components
+
+We're including all Bootstrap 4.3 components **excepting
+_navbar_ and _progress_**, as we're not seeing how they could
+be used inside storefront plugins.
+
+For advanced customizations, components styles may be
+overridden one by one on `theme/_components.scss`.
 
 ### For partners
 
