@@ -60,6 +60,22 @@ if (require.main === module) {
       fs.writeFileSync(outFile, result.css)
       fs.writeFileSync(outFile + '.map', result.map)
     })
+
+    // recursive copy theme assets folder
+    const ncp = require('ncp').ncp
+    ncp.limit = 16
+    const assetsSrc = path.join(baseDir, 'theme', 'assets')
+    // check if assets path exists and is a directory
+    fs.stat(assetsSrc, (err, stats) => {
+      if (!err && stats.isDirectory()) {
+        // start copying
+        ncp(assetsSrc, path.join(outputDir, 'assets'), err => {
+          if (err) {
+            console.error(err)
+          }
+        })
+      }
+    })
   }
 } else {
   module.exports = compile
