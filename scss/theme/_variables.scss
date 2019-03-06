@@ -24,8 +24,18 @@ $border-radius-lg: .15rem;
 $border-radius-sm: .05rem;
 
 // Default border width and color
-$border-width:     3px;
+$border-width:     2px;
 $border-color:     #e9ecef;
+
+// Control spacing
+// $spacer:        1rem;
+
+// Custom fonts
+// $font-family-sans-serif: "Open Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+// To setup custom fonts you must also import the font files:
+// 1. Add the files to `theme/assets` folder;
+// 2. Create a new file `theme/_fonts.scss` and import with SASS;
+// @import "fonts";
 
 // You can edit any of Bootstrap 4 variables
 // All variables reference:
