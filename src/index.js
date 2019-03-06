@@ -57,8 +57,8 @@ if (require.main === module) {
       includePaths: [ baseDir ]
     }).then(result => {
       // save CSS and map files
-      fs.writeFileSync(outFile, result.css)
-      fs.writeFileSync(outFile + '.map', result.map)
+      fs.writeFile(outFile, result.css, err => { if (err) throw err })
+      fs.writeFile(outFile + '.map', result.map, err => { if (err) console.error(err) })
     })
 
     // recursive copy theme assets folder
