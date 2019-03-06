@@ -11,11 +11,11 @@ const filename = 'storefront-twbs'
 
 const html = () => {
   browserSync.init({
-    server: './sample',
+    server: './docs',
     port: 3376
   })
   watch('./scss/**/*.scss', sass)
-  watch('./sample/index.html', browserSync.reload)
+  watch('./docs/index.html', browserSync.reload)
 }
 
 const sass = () => {
@@ -23,12 +23,12 @@ const sass = () => {
     .pipe(sourcemaps.init())
     .pipe(buildSass().on('error', buildSass.logError))
     .pipe(sourcemaps.write())
-    .pipe(dest('./sample'))
+    .pipe(dest('./docs'))
     .pipe(browserSync.stream())
 }
 
 const dist = () => {
-  return src('./sample/' + filename + '.css')
+  return src('./docs/' + filename + '.css')
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(cleanCss({ compatibility: 'ie8' }))
     .pipe(rename('' + filename + '.min.css'))
