@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-twbs",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Generate Bootstrap 4 custom theme for E-Com Plus storefront",
   "main": "src/index.js",
   "bin": {
