@@ -35,9 +35,82 @@ git push
 
 
       The <strong>primary</strong> is the main action color. It should be used in the major interactive elements of the app,
-      where the user's attention is meant to be driven to.<br>
+      where the user's attention is meant to be driven to and is where the user is done<br>
       Examples: <i>Call to actions, Obrigatory forms, check boxes, radio buttons</i>
       </p>
+      <div class="row">
+        <div class="col-3">
+          <button type="button" class="btn btn-primary">Add to cart</button>
+          <button type="button" class="btn btn-outline-primary">Checkout</button>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
+              <label class="custom-control-label" for="customRadio1">Toggle this</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+              <label class="custom-control-label" for="customRadio2">Or toggle this</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+              <label class="custom-control-label" for="customCheck1">Checked checkbox</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+              <label class="custom-control-label" for="customCheck1">Checked checbox</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
+              <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <br>
+      <br>
+      <p>
+      The <strong>secondary</strong> is the spotlight color. It should be used to drive attention in the elements with relevant info, but the where the user is not
+      intended to take action<br>
+      Examples: <i>Badges, Sales tags, Hotmarks</i>
+      </p>
+      <div class="row">
+        <div class="col-4">
+          <h4 class="text-center">Product name <span class="badge badge-secondary">New</span></h4>
+        </div>
+        <div class="col-4">
+          <div class="bs-component">
+            <div class="alert bg-secondary">
+              <h4 class="alert-heading text-center text-light">%40 OFF</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h4 class="card-title">Title</h4>
+              <p class="card-text">Some info about something.</p>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
 
 
 
@@ -850,8 +923,7 @@ git push
           <div class="col-lg-12">
             <h2>Alerts</h2>
             <div class="bs-component">
-              <div class="alert alert-dismissible alert-warning">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <div class="alert alert-warning">
                 <h4 class="alert-heading">Warning!</h4>
                 <p class="mb-0">Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, <a href="#" class="alert-link">vel scelerisque nisl consectetur et</a>.</p>
               </div>
