@@ -1,11 +1,4 @@
-<!--
-cd storefront-twbs
-git add docs
-git commit -m "docs: DESCRIPTION"
-git push
 
-npm run test
--->
 <!doctype html>
 <html lang="en">
   <head>
@@ -43,10 +36,10 @@ npm run test
       <p>
       The primary is the action color, and should be used to drive attention to the main tasks that shoud be done while using the app.
       It is meant to be used in major interactive elements of the page.
-      <br>
-      Use examples: <i>Call to actions, Obrigatory forms, check boxes, radio buttons, toggles</i>
+      <br><br>
+      Use examples: <i class="bg-light p-1 border">Call to actions</i> <i class="bg-light p-1 border">Obrigatory forms</i> <i class="bg-light p-1 border">Check boxes</i> <i class="bg-light p-1 border">Radio buttons</i> <i class="bg-light p-1 border">Toggles</i>
       </p>
-
+      <br>
       <div class="row">
         <div class="col-3">
           <button type="button" class="btn btn-primary">Add to cart</button>
@@ -70,16 +63,12 @@ npm run test
               <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
               <label class="custom-control-label" for="customCheck1">Checked checkbox</label>
             </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
-              <label class="custom-control-label" for="customCheck1">Checked checbox</label>
-            </div>
           </div>
         </div>
         <div class="col-3">
           <div class="form-group">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
+              <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="">
               <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
             </div>
           </div>
@@ -93,26 +82,19 @@ npm run test
       <p>
       The secondary is the main brand color, used to spotlight elements with the store brand identity.
       It should be used to drive attention in the elements with relevant info, but  where the user is not
-      intended to take action<br>
-      Use examples: <i>Badges, Sales tags, Hotmarks, Menus background, Footers and  </i>
-      </p>
+      intended to take action<br><br>
+      Use examples:  <i class="bg-light p-1 border">Badges</i> <i class="bg-light p-1 border"> Sales tags</i> <i class="bg-light p-1 border"> Hotmarks</i>
+      </p><br>
       <div class="row">
         <div class="col-6">
           <h4 class="text-center pb-4">Product name <span class="badge badge-secondary">New</span></h4>
-          <div class="bs-component">
-            <div class="alert bg-secondary">
-              <h4 class="alert-heading text-center text-light">%40 OFF</h4>
-            </div>
-          </div>
+
+
+
+
         </div>
-        <div class="col-6">
-          <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h4 class="card-title">Title</h4>
-              <p class="card-text">Some info</p>
-            </div>
-          </div>
+        <div class="col-3">
+          <h4 class=" h-50 text-center text-light bg-secondary">%40 OFF</h4>
         </div>
 
 
@@ -125,10 +107,10 @@ npm run test
       <p>
       <strong>Success, info, warning and danger</strong> are the notificantions colors. These colors are used to report something, facilitating user understanding of the information.
       This colors usage should be avoided on elements that don't give notificantions or any feedback.<br>
-
-      Use examples: <i>Alerts, Badges, Confirmations, Tooltips, Feedback messages </i>
+      <br>
+      Use examples: <i class="bg-light p-1 border">Alerts</i> <i class="border bg-light p-1">Badges</i> <i class="bg-light p-1 border">Confirmations</i> <i class="bg-light p-1 border">Feedback messages </i>
       </p>
-
+      <br>
         <div class="row">
 
             <p class="bs-component col-3">
@@ -168,9 +150,9 @@ npm run test
         <br>
         <h4>Neutral colors</h4>
         <p>
-        <strong>Light, white, dark and transparent</strong> are the colors that will fill most of the content. It should be mainly used in pages and elements backgrounds.<br>
-        Use examples: <i>Body background, Modals, Cards, Borders, Separators, Sections Backgrounds</i>
-        </p>
+        <strong>Light, white, dark and transparent</strong> are the colors that will fill most of the content. It should be mainly used in pages and major elements backgrounds.<br><br>
+        Use examples: <i class="bg-light p-1 border">Backgrounds</i> <i class="bg-light p-1 border"> Modals</i> <i class="bg-light p-1 border"> Cards</i> <i class="bg-light p-1 border"> Borders</i> <i class="bg-light p-1 border"> Separators</i>
+        </p><br>
         <div class="row">
           <div class="col-4">
             <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
@@ -210,7 +192,8 @@ npm run test
         <br><br>
         <h2>Extra utilities</h2>
          <p>
-         Besides all bootstrap utilities classes, we created some extra utilites and colors to meet some specific use cases.
+         Besides all bootstrap utilities classes, we created extra utilites and colors to meet some specific use cases.
+         You can see the scss file <a href="https://github.com/ecomclub/storefront-twbs/blob/master/scss/_utilities.scss">here</a>.
          </p><br><br>
 
          <h4>Colors</h4>
@@ -267,23 +250,23 @@ npm run test
                <i>Exemples:</i>
                <br>
                <br>
-             <ul>
-               <li class="list-group-item bg-primary"><p class="bg_primary-light">This paragraph is using .bg_primary-light</p></li>
-               <li class="list-group-item bg-secondary"><p class="bg_secondary-light">This paragraph is using .bg_secondary-light</p></li>
-             </ul>
+               <div class="bg-primary p-2"><p class="p-2 bg_primary-light">This element is using .bg_primary-light</p></div>
+               <br>
+               <div class="bg-secondary p-2"><p class="p-2 bg_secondary-light">This element is using .bg_secondary-light</p></div>
+
            </div>
+           <br>
            <h4>Block</h4>
            <p>The <strong>.block_<i>color</i></strong> classes will set the background color as the chosen one.
              The class also set text color to black or white, depending on the best to contrast with the background. </p>
              <i>Exemples:</i>
              <br>
              <br>
-           <ul>
-             <li class="list-group-item bg-primary"><p class="block_primary-light">This paragraph is using .block_primary-light</p></li>
-             <li class="list-group-item bg-secondary"><p class=" block_secondary-light">This paragraph is using .block_secondary-light</p></li>
-           </ul>
+             <div class="bg-primary p-2"><p class="p-2 block_primary-light">This element is using .block_primary-light</p></div>
+             <br>
+             <div class="bg-secondary p-2"><p class="p-2 block_secondary-light">This element is using .block_secondary-light</p></div>
          </div>
-
+         <br>
 
          <div>
            <h4>Border</h4>
@@ -292,8 +275,8 @@ npm run test
              <br>
              <br>
            <ul>
-             <li class="list-group-item bg-primary border_primary-darker">This element is using .border_primary-darker</li>
-             <li class="list-group-item bg-secondary border_secondary-darker">This paragraph is using .border_secondary-darker</li>
+             <li class="list-group-item bg-primary border_primary-darker">This list item is using .border_primary-darker</li>
+             <li class="list-group-item bg-secondary border_secondary-darker">This list item is using .border_secondary-darker</li>
            </ul>
          </div>
 
@@ -303,10 +286,9 @@ npm run test
              <i>Exemples:</i>
              <br>
              <br>
-           <ul>
-             <li class="list-group-item bg-primary text_primary-darkest">This element is using .text_primary-darkest</li>
-             <li class="list-group-item bg-secondary text_secondary-lightest">This element is using .text_secondary-lightest</li>
-           </ul>
+             <div class="mb-2 bg-primary text_primary-darkest p-2">This element is using .text_primary-darkest</div>
+
+             <div class="bg-secondary text_secondary-lightest p-2">This element is using .text_secondary-lightest</div>
          </div>
 
     </div>
