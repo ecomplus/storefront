@@ -5,6 +5,10 @@
 
 Generate Bootstrap 4 custom theme for E-Com Plus storefront.
 
+**[Small guide](https://developers.e-com.plus/storefront-twbs/) for partners**,
+please take a look before creating new
+templates and widgets.
+
 ## Compiling the storefront theme
 
 From CLI, compile the custom SASS theme to new storefront
@@ -55,11 +59,8 @@ npm run dist
 
 ### Components
 
-We're including all Bootstrap 4.3 components **excepting
-_navbar_ and _progress_**, as we're not seeing how they could
-be used inside storefront plugins.
-
-For advanced customizations, components styles may be
+We're including all Bootstrap 4.3 components,
+for complete theme customizations, components styles may be
 overridden one by one on `theme/_components.scss`.
 
 ### For partners
@@ -71,8 +72,8 @@ the desired merchant.
 The customized SASS files on `theme` folder will be used
 to compile the theme for each store with respective
 brand colors, so these are the files that you should
-publish on [Market](https://market.e-com.plus) to distribute
-your theme.
+put on your template source
+distributed in the [Market](https://market.e-com.plus).
 
 ## Reference
 
