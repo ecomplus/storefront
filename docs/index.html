@@ -15,297 +15,95 @@
 
     <div class="container">
 
-      <h1>Storefront style guide</h1>
-      <!-- intro
-      ================================================== -->
+      <h1>Storefront Bootstrap guide</h1>
+
       <p>
-        This is a guide for making componets that can be used on any E-Com Plus store without breaking it's visual identiy.<br>
-        You can and should use <a href="https://getbootstrap.com/docs/4.3/utilities/borders/">Bootstrap Utilities</a>,
-        they will follow the current installed theme variables.
+        All E-Com Plus stores should include
+        <a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">Bootstrap 4.3</a>
+        theme and script to improve compatibility between brand colors,
+        store template and third party widgets, keeping as possible
+        a consistent visual identity.
       </p>
 
-      <br><br>
-      <!-- colors
-      ================================================== -->
-      <h2>Colors</h2>
-
-      <p>The store owner set two <strong>brand colors</strong> that together with the theme colors, will fill all the store elements.<br>
-         To use these colors, take a look in bootstrap <a href="https://getbootstrap.com/docs/4.3/utilities/colors/">Colors Utilities</a></p> <br>
-
-         <h4>Primary</h4>
       <p>
-      The primary is the action color, and should be used to drive attention to the main tasks that shoud be done while using the app.
-      It is meant to be used in major interactive elements of the page.
-      <br><br>
-      Use examples: <i class="bg-light p-1 border">Call to actions</i> <i class="bg-light p-1 border">Obrigatory forms</i> <i class="bg-light p-1 border">Check boxes</i> <i class="bg-light p-1 border">Radio buttons</i> <i class="bg-light p-1 border">Toggles</i>
+        To <b>create a new template</b>, you <i>SHOULD</i> use as possible the default bootstrap
+        <a href="https://getbootstrap.com/docs/4.3/components/" target="_blank">components</a>,
+        and/or adapt them to mirror your theme visual identity.
+      <p>
+
       </p>
-      <br>
-      <div class="row">
-        <div class="col-3">
-          <button type="button" class="btn btn-primary">Add to cart</button>
-          <button type="button" class="btn btn-outline-primary">Checkout</button>
-        </div>
-        <div class="col-3">
-          <div class="form-group">
-            <div class="custom-control custom-radio">
-              <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
-              <label class="custom-control-label" for="customRadio1">Toggle this</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-              <label class="custom-control-label" for="customRadio2">Or toggle this</label>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="form-group">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
-              <label class="custom-control-label" for="customCheck1">Checked checkbox</label>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="form-group">
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="">
-              <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
-            </div>
-          </div>
-        </div>
+        To <b>create a new widget</b>, you <i>MUST</i> use bootstrap components the
+        maximum as possible, to follow the theme and store brand visual identity, you
+        should also use
+        <a href="https://getbootstrap.com/docs/4.3/utilities/" target="_blank">utilities</a>
+        and avoid creating custom CSS.
+      </p>
 
-      </div>
+      <h2>Brand colors</h2>
 
-      <br>
-      <br>
+      <p>
+        The merchant would set the <i>primary</i> and <i>secondary</i> colors
+        following the store brand.
+      <p>
+
+      <h4>Primary</h4>
+
+      </p>
+       Should be used to drive attention to the main tasks that shoud be done while using the app.
+       It is meant to be used in major interactive elements of the page.
+      </p>
+
+      <p class="lead">
+       Use examples:
+       <i class="text-muted">Links</i>,
+       <i class="text-muted">Call to actions</i>,
+       <i class="text-muted">Obrigatory forms</i>,
+       <i class="text-muted">Check boxes</i>,
+       <i class="text-muted">Radio buttons</i>,
+       <i class="text-muted">Toggles</i>
+      </p>
+
       <h4>Secondary</h4>
+
       <p>
-      The secondary is the main brand color, used to spotlight elements with the store brand identity.
-      It should be used to drive attention in the elements with relevant info, but  where the user is not
-      intended to take action<br><br>
-      Use examples:  <i class="bg-light p-1 border">Badges</i> <i class="bg-light p-1 border"> Sales tags</i> <i class="bg-light p-1 border"> Hotmarks</i>
-      </p><br>
-      <div class="row">
-        <div class="col-6">
-          <h4 class="text-center pb-4">Product name <span class="badge badge-secondary">New</span></h4>
-
-
-
-
-        </div>
-        <div class="col-3">
-          <h4 class=" h-50 text-center text-light bg-secondary">%40 OFF</h4>
-        </div>
-
-
-      </div>
-
-      <br>
-      <br>
-
-      <h4>Notifications colors</h4>
-      <p>
-      <strong>Success, info, warning and danger</strong> are the notificantions colors. These colors are used to report something, facilitating user understanding of the information.
-      This colors usage should be avoided on elements that don't give notificantions or any feedback.<br>
-      <br>
-      Use examples: <i class="bg-light p-1 border">Alerts</i> <i class="border bg-light p-1">Badges</i> <i class="bg-light p-1 border">Confirmations</i> <i class="bg-light p-1 border">Feedback messages </i>
+        Should be used to drive attention in the elements with relevant info,
+        but  where the user is not intended to take action
       </p>
-      <br>
-        <div class="row">
 
-            <p class="bs-component col-3">
-              <button type="button" class="btn btn-sm btn-success">Success</button>
-              <button type="button" class="btn btn-sm btn-success disabled">Success</button>
-              <button type="button" class="btn btn-sm btn-outline-success">Success</button>
+      <p class="lead">
+        Use examples:
+        <i class="text-muted">Secondary buttons</i>,
+        <i class="text-muted">Badges</i>,
+        <i class="text-muted">Sales tags</i>,
+        <i class="text-muted">Hotmarks</i>
+      </p>
 
+      <h3>Extra utilities</h3>
 
+      <p>
+        Besides all
+        <a href="https://getbootstrap.com/docs/4.3/utilities/" target="_blank">Bootstrap utilities</a>
+        classes, we created extra utilites with <b>brand colors</b>
+        variants essentially to be used with plugable widgets, but it can also be used on
+        the store template.
+      </p>
 
-            </p>
+      <h5>Background colors + contrast text color</h5>
 
-            <p class="bs-component col-3">
-              <button type="button" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="" data-original-title="This is a tooltip">Info</button>
-              <button type="button" class="btn btn-sm btn-info disabled">Info</button>
-              <button type="button" class="btn btn-sm btn-outline-info">Info</button>
+      <!-- .st-block-{color} -->
 
+      <h5>Text colors</h5>
 
-            </p>
+      <!-- .st-text-{color} -->
 
-            <p class="bs-component col-3">
-              <button type="button" class="btn btn-sm btn-warning">Warning</button>
-              <button type="button" class="btn btn-sm btn-warning disabled">Warning</button>
-              <button type="button" class="btn btn-sm btn-outline-warning">Warning</button>
-            </p>
+      <h5>Background colors</h5>
 
-            <p class="bs-component col-3">
-              <button type="button" class="btn btn-sm btn-danger">Danger</button>
-              <button type="button" class="btn btn-sm btn-danger disabled">Danger</button>
-              <button type="button" class="btn btn-sm btn-outline-danger">Danger</button>
-            </p>
+      <!-- .st-bg-{color} -->
 
+      <h5>Border colors</h5>
 
-
-        </div>
-
-        <br>
-        <br>
-        <h4>Neutral colors</h4>
-        <p>
-        <strong>Light, white, dark and transparent</strong> are the colors that will fill most of the content. It should be mainly used in pages and major elements backgrounds.<br><br>
-        Use examples: <i class="bg-light p-1 border">Backgrounds</i> <i class="bg-light p-1 border"> Modals</i> <i class="bg-light p-1 border"> Cards</i> <i class="bg-light p-1 border"> Borders</i> <i class="bg-light p-1 border"> Separators</i>
-        </p><br>
-        <div class="row">
-          <div class="col-4">
-            <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
-                <div class="card-header">Dark Header</div>
-                <div class="card-body">
-                  <h4 class="card-title">Dark background card</h4>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-          </div>
-          <div class="col-4">
-            <div class="card border-light mb-3" style="max-width: 20rem;">
-                <div class="card-header">Light Header</div>
-                <div class="card-body">
-                  <h4 class="card-title">White background card</h4>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-          </div>
-          <div class="col-4">
-            <div class="bd-example">
-              <div class="card" style="width: 18rem;">
-                <div class="card-header bg-dark text-light">
-                  Dark background header
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item bg-light">Light background item</li>
-                  <li class="list-group-item bg-white">White background item</li>
-                  <li class="list-group-item bg-transparent">Transparent background item</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-        <br><br>
-        <h2>Extra utilities</h2>
-         <p>
-         Besides all bootstrap utilities classes, we created extra utilites and colors to meet some specific use cases.
-         You can see the scss file <a href="https://github.com/ecomclub/storefront-twbs/blob/master/scss/_utilities.scss">here</a>.
-         </p><br><br>
-
-         <h4>Colors</h4>
-          <p>
-         These additional colors are derivations from the <strong>primary</strong> and <strong>secondary</strong>,
-         and should be used to contrast with the main colors.
-         <br>
-         <!-- Use examples: <i>Call to actions, Obrigatory forms, check boxes, radio buttons, toggles</i> -->
-         </p>
-         <div class="row">
-           <div class="col-3">
-             <div class="bd-example">
-               <div class="card" style="width: 18rem;">
-                 <div class="card-header">
-                   Primary pallete
-                 </div>
-                 <ul class="list-group list-group-flush">
-                   <li class="list-group-item block_primary-lightest">primary-lightest</li>
-                   <li class="list-group-item block_primary-lighter">primary-lighter</li>
-                   <li class="list-group-item block_primary-light">primary-light</li>
-                   <li class="list-group-item block_primary">primary</li>
-                   <li class="list-group-item block_primary-dark">primary-dark</li>
-                   <li class="list-group-item block_primary-darker">primary-darker</li>
-                   <li class="list-group-item block_primary-darkest">primary-darkest</li>
-                 </ul>
-               </div>
-             </div>
-           </div>
-           <div class="col-3">
-             <div class="bd-example">
-               <div class="card" style="width: 18rem;">
-                 <div class="card-header">
-                   Secondary pallete
-                 </div>
-                 <ul class="list-group list-group-flush">
-                   <li class="list-group-item block_secondary-lightest">secondary-lightest</li>
-                   <li class="list-group-item block_secondary-lighter">secondary-lighter</li>
-                   <li class="list-group-item block_secondary-light">secondary-light</li>
-                   <li class="list-group-item block_secondary">secondary</li>
-                   <li class="list-group-item block_secondary-dark">secondary-dark</li>
-                   <li class="list-group-item block_secondary-darker">secondary-darker</li>
-                   <li class="list-group-item block_secondary-darkest">secondary-darkest</li>
-                 </ul>
-               </div>
-             </div>
-           </div>
-         </div>
-         <br>
-
-         <div>
-           <div>
-             <h4>Background</h4>
-             <p>The <strong>.bg_<i>color</i></strong> classes will set only the background color as the chosen one.</p>
-               <i>Exemples:</i>
-               <br>
-               <br>
-               <div class="bg-primary p-2"><p class="p-2 bg_primary-light">This element is using .bg_primary-light</p></div>
-               <br>
-               <div class="bg-secondary p-2"><p class="p-2 bg_secondary-light">This element is using .bg_secondary-light</p></div>
-
-           </div>
-           <br>
-           <h4>Block</h4>
-           <p>The <strong>.block_<i>color</i></strong> classes will set the background color as the chosen one.
-             The class also set text color to black or white, depending on the best to contrast with the background. </p>
-             <i>Exemples:</i>
-             <br>
-             <br>
-             <div class="bg-primary p-2"><p class="p-2 block_primary-light">This element is using .block_primary-light</p></div>
-             <br>
-             <div class="bg-secondary p-2"><p class="p-2 block_secondary-light">This element is using .block_secondary-light</p></div>
-         </div>
-         <br>
-
-         <div>
-           <h4>Border</h4>
-           <p>The <strong>.border_<i>color</i></strong> classes will set only the element border color as the chosen one.</p>
-             <i>Exemples:</i>
-             <br>
-             <br>
-           <ul>
-             <li class="list-group-item bg-primary border_primary-darker">This list item is using .border_primary-darker</li>
-             <li class="list-group-item bg-secondary border_secondary-darker">This list item is using .border_secondary-darker</li>
-           </ul>
-         </div>
-
-         <div>
-           <h4>Text</h4>
-           <p>The <strong>.text_<i>color</i></strong> classes will set the text color as the chosen one.</p>
-             <i>Exemples:</i>
-             <br>
-             <br>
-             <div class="mb-2 bg-primary text_primary-darkest p-2">This element is using .text_primary-darkest</div>
-
-             <div class="bg-secondary text_secondary-lightest p-2">This element is using .text_secondary-lightest</div>
-         </div>
+      <!-- .st-border-{color} -->
 
     </div>
-
-    <!-- Font Awesome 5 -->
-    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <script>
-    (function () {
-      $('.bs-component [data-toggle="popover"]').popover()
-      $('.bs-component [data-toggle="tooltip"]').tooltip()
-    }())
-    </script>
   </body>
 </html>
