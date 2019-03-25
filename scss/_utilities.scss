@@ -33,7 +33,8 @@ $brand-colors: (
     background-color: $value;
     color: color-yiq($value);
   }
-  .st-block-#{$color}\:focus:focus {
+  .st-block-#{$color}\:active:active,
+  .st-block-#{$color}\:active:hover {
     background-color: $value;
     color: color-yiq($value);
   }
@@ -45,7 +46,8 @@ $brand-colors: (
   .st-text-#{$color}\:hover:hover {
     color: $value;
   }
-  .st-text-#{$color}\:focus:focus {
+  .st-text-#{$color}\:active:active,
+  .st-text-#{$color}\:active:focus {
     color: $value;
   }
 
@@ -56,7 +58,8 @@ $brand-colors: (
   .st-bg-#{$color}\:hover:hover {
     background-color: $value;
   }
-  .st-bg-#{$color}\:focus:focus {
+  .st-bg-#{$color}\:active:active,
+  .st-bg-#{$color}\:active:focus {
     background-color: $value;
   }
 
@@ -67,7 +70,8 @@ $brand-colors: (
   .st-border-#{$color}\:hover:hover {
     border-color: $value;
   }
-  .st-border-#{$color}\:focus:focus {
+  .st-border-#{$color}\:active:active,
+  .st-border-#{$color}\:active:focus {
     border-color: $value;
   }
 }
