@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/@ecomplus/storefront-twbs.svg)](https://www.npmjs.org/@ecomplus/storefront-twbs)
 [![license mit](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Generate Bootstrap 4 custom theme for E-Com Plus storefront.
+Generate custom Bootstrap 4 based theme for E-Com Plus storefront.
 
 **[Small guide](https://developers.e-com.plus/storefront-twbs/) for partners**,
 please take a look before creating new
@@ -11,8 +11,8 @@ templates and widgets.
 
 ## Compiling the storefront theme
 
-From CLI, compile the custom SASS theme to new storefront
-Bootstrap kit and utilities passing directories
+From CLI, compile the custom SASS theme
+and utilities passing directories
 and brand colors RGBs (without `#`):
 
 ```bash
@@ -37,6 +37,8 @@ npm i
 
 Edit the SASS files in the `scss/theme` directory,
 we recommend start from `_variables.scss`.
+You can also create custom SCSS files inside the same folder and
+import them from `_components.scss` file.
 
 Start the localhost test server with:
 
