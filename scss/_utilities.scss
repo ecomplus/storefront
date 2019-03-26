@@ -34,7 +34,7 @@ $brand-colors: (
     color: color-yiq($value) !important;
   }
   .st-block-#{$color}\:active:active,
-  .st-block-#{$color}\:active:hover {
+  .st-block-#{$color}\:active:focus {
     background-color: $value !important;
     color: color-yiq($value) !important;
   }
