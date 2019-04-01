@@ -1,2 +1,2 @@
-# ecomplus-template-boilerplate
+# storefront-boilerplate
 Boilerplate for Storefront PWA templates
