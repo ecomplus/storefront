@@ -1,2 +1,3 @@
 # storefront-boilerplate
-Boilerplate for Storefront PWA templates
+
+Boilerplate for JAMstack storefront PWA templates with E-Com Plus APIs
