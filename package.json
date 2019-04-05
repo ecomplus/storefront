@@ -31,7 +31,8 @@
   "dependencies": {
     "@ecomplus/shopping-cart": "^0.1.0",
     "@ecomplus/storefront-renderer": "^0.4.0",
-    "@ecomplus/storefront-twbs": "^0.10.0"
+    "@ecomplus/storefront-twbs": "^0.10.0",
+    "ncp": "^2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",

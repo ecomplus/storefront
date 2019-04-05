@@ -25,6 +25,15 @@ const build = () => {
       })
     }
   })
+
+  // copy static folder content
+  const ncp = require('ncp').ncp
+  ncp.limit = 16
+  ncp('./static', './dist', err => {
+    if (err) {
+      return console.error(err)
+    }
+  })
 }
 
 // create dist directory or clear it
