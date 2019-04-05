@@ -26,6 +26,49 @@ const compile = (file, opts = {}) => {
   })
 }
 
+// abstracted function to build CSS file from theme dir and brand colors
+const build = (baseDir, outputDir, primary, secondary) => {
+  // core Node.js modules
+  const path = require('path')
+  const fs = require('fs')
+
+  if (primary && secondary) {
+    // save _brand.scss with received RGBs first
+    let scss = '$primary: #' + primary + '; $secondary: #' + secondary + ';'
+    fs.writeFileSync(path.join(baseDir, '/_brand.scss'), scss)
+  }
+
+  // get current main SCSS file based on module directory
+  const mainSass = path.join(__dirname, '..', '/scss/storefront-twbs.scss')
+  // output file path
+  const outFile = path.join(outputDir, '/storefront-twbs.min.css')
+  compile(mainSass, {
+    outFile,
+    sourceMap: true,
+    includePaths: [ baseDir ]
+  }).then(result => {
+    // save CSS and map files
+    fs.writeFile(outFile, result.css, err => { if (err) throw err })
+    fs.writeFile(outFile + '.map', result.map, err => { if (err) console.error(err) })
+  })
+
+  // recursive copy theme assets folder
+  const ncp = require('ncp').ncp
+  ncp.limit = 16
+  const assetsSrc = path.join(baseDir, 'theme', 'assets')
+  // check if assets path exists and is a directory
+  fs.stat(assetsSrc, (err, stats) => {
+    if (!err && stats.isDirectory()) {
+      // start copying
+      ncp(assetsSrc, path.join(outputDir, 'assets'), err => {
+        if (err) {
+          console.error(err)
+        }
+      })
+    }
+  })
+}
+
 if (require.main === module) {
   // called directly
   // handle command line task
@@ -34,49 +77,18 @@ if (require.main === module) {
     // node ./index.js ~/mytheme/scss ~/mytheme/dist
     let baseDir = process.argv[2]
     let outputDir = process.argv[3]
-    // core Node.js modules
-    const path = require('path')
-    const fs = require('fs')
 
+    // brand colors
+    let primary, secondary
     if (process.argv.length >= 6) {
       // node ./index.js ~/mytheme/scss ~/mytheme/dist 333 fff
-      // save _brand.scss with received RGBs first
-      let primary = process.argv[4]
-      let secondary = process.argv[5]
-      let scss = '$primary: #' + primary + '; $secondary: #' + secondary + ';'
-      fs.writeFileSync(path.join(baseDir, '/_brand.scss'), scss)
+      primary = process.argv[4]
+      secondary = process.argv[5]
     }
 
-    // get current main SCSS file based on module directory
-    const mainSass = path.join(__dirname, '..', '/scss/storefront-twbs.scss')
-    // output file path
-    const outFile = path.join(outputDir, '/storefront-twbs.min.css')
-    compile(mainSass, {
-      outFile,
-      sourceMap: true,
-      includePaths: [ baseDir ]
-    }).then(result => {
-      // save CSS and map files
-      fs.writeFile(outFile, result.css, err => { if (err) throw err })
-      fs.writeFile(outFile + '.map', result.map, err => { if (err) console.error(err) })
-    })
-
-    // recursive copy theme assets folder
-    const ncp = require('ncp').ncp
-    ncp.limit = 16
-    const assetsSrc = path.join(baseDir, 'theme', 'assets')
-    // check if assets path exists and is a directory
-    fs.stat(assetsSrc, (err, stats) => {
-      if (!err && stats.isDirectory()) {
-        // start copying
-        ncp(assetsSrc, path.join(outputDir, 'assets'), err => {
-          if (err) {
-            console.error(err)
-          }
-        })
-      }
-    })
+    // run build
+    build(baseDir, outputDir, primary, secondary)
   }
 } else {
-  module.exports = compile
+  module.exports = { compile, build }
 }
