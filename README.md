@@ -11,6 +11,8 @@ templates and widgets.
 
 ## Compiling the storefront theme
 
+### Command line
+
 From CLI, compile the custom SASS theme
 and utilities passing directories
 and brand colors RGBs (without `#`):
@@ -23,6 +25,20 @@ storefront-twbs ~/mytheme/scss ~/mytheme/dist 6f42c1 e83e8c
 Note that `~/mytheme/scss` directory **must contain**
 `theme` folder with at least
 `_variables.scss` and `_components.scss` files.
+
+### Node.js
+
+Programmatic usage with `build` method:
+
+```javascript
+const buildTheme = require('@ecomplus/storefront-twbs').build
+let baseDir = '~/mytheme/scss'
+let outputDir = '~/mytheme/dist'
+let primaryColor = '6f42c1'
+let secondaryColor = 'e83e8c'
+// build {outputDir}/storefront-twbs.min.css
+buildTheme(baseDir, outputDir, primaryColor, secondaryColor)
+```
 
 ## Creating custom theme
 
