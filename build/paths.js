@@ -7,7 +7,7 @@ const path = require('path')
 const src = path.resolve(process.cwd(), 'template')
 const pub = path.resolve(process.cwd(), 'template/public')
 // outpur dir
-const output = path.resolve(process.cwd(), 'dist')
+const output = path.resolve(process.cwd(), process.env.NODE_ENV === 'production' ? 'dist' : 'test')
 
 // exports project folders
 module.exports = {
