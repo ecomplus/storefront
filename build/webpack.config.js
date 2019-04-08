@@ -9,9 +9,14 @@ const { src, output } = require('./paths')
 // const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  entry: path.resolve(src, 'js', 'index.js'),
+  entry: [
+    path.resolve(src, 'js', 'index.js'),
+    path.resolve(src, 'scss', 'styles.scss')
+  ],
   output: {
     path: output,
     filename: 'storefront.[chunkhash].js'
@@ -20,11 +25,35 @@ module.exports = {
     compress: true,
     port: 9123
   },
+  module: {
+    rules: [{
+      test: /\.s?css$/,
+      use: [
+        // fallback to style-loader in development
+        devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+        'css-loader',
+        {
+          loader: 'postcss-loader',
+          options: {
+            ident: 'postcss',
+            plugins: [
+              require('autoprefixer')()
+            ]
+          }
+        },
+        'sass-loader'
+      ]
+    }]
+  },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].[chunkhash].css'
+    }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(src, 'views', 'index.ejs')
     })
-  ]
+  ],
+  devtool: 'source-map'
 }
