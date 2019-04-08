@@ -4,8 +4,8 @@
 const path = require('path')
 
 // input directories
-const src = path.resolve(process.cwd(), 'src')
-const pub = path.resolve(process.cwd(), 'public')
+const src = path.resolve(process.cwd(), 'template')
+const pub = path.resolve(process.cwd(), 'template/public')
 // outpur dir
 const output = path.resolve(process.cwd(), 'dist')
 
