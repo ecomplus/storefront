@@ -1,0 +1,32 @@
+// --- DO NOT CREATE CUSTOM COMPONENTS OR CLASSES HERE
+// --- Edit `@/template/scss/styles.scss` instead
+
+// Edit Bootstrap components and modifiers:
+// https://getbootstrap.com/docs/4.3/getting-started/theming/#components
+
+// Work with variables, @mixin or @extend customizations here
+
+// == Examples of components customization ==>
+
+// Setting buttons outlined on hover
+// @each $color, $value in $theme-colors {
+  // .btn-#{$color}:hover {
+    // background: none;
+    // color: $value;
+  // }
+// }
+
+// Adding a colored bottom line on every buttons
+// .btn {
+  // position: relative;
+// }
+// .btn::after {
+  // content: " ";
+  // background-color: $indigo;
+  // position: absolute;
+  // bottom: 0;
+  // display: block;
+  // width: 100%;
+  // height: 2px;
+  // margin-top: 2px;
+// }
