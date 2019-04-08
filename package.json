@@ -5,8 +5,9 @@
   "main": "src/index.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node ./src/index.js"
+    "test": "echo \"Error: no test specified, start server with 'npm run serve'\" && exit 1",
+    "build": "webpack --config ./build/webpack.config.js --mode=production",
+    "serve": "webpack-dev-server --config ./build/webpack.config.js --mode=development"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,7 @@
     "ecommerce",
     "jamstack-commerce"
   ],
-  "author": "E-Com Club",
+  "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ecomclub/storefront-boilerplate/issues"
