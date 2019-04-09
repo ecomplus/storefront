@@ -10,6 +10,8 @@ const { src, output } = require('./paths')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
@@ -64,6 +66,29 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(src, 'views', 'index.ejs')
+    }),
+    new WebpackPwaManifest({
+      name: 'My Progressive Web App',
+      short_name: 'MyPWA',
+      description: 'My awesome Progressive Web App!',
+      background_color: '#ffffff',
+      // can be null, use-credentials or anonymous
+      crossorigin: 'use-credentials' /*,
+      icons: [{
+        src: path.resolve('src/assets/icon.png'),
+        // multiple sizes
+        sizes: [ 96, 128, 192, 256, 384, 512 ]
+      }, {
+        src: path.resolve('src/assets/large-icon.png'),
+        // can also use the specifications pattern
+        size: '1024x1024'
+      }] */
+    }),
+    new WorkboxPlugin.GenerateSW({
+      // these options encourage the ServiceWorkers to get in there fast
+      // and not allow any straggling "old" SWs to hang around
+      clientsClaim: true,
+      skipWaiting: true
     })
   ],
   stats: {
