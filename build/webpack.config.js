@@ -43,6 +43,17 @@ module.exports = {
         },
         'sass-loader'
       ]
+    }, {
+      test: /\.m?js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            [ '@babel/preset-env', { useBuiltIns: 'usage', corejs: 3 } ]
+          ]
+        }
+      }
     }]
   },
   plugins: [
@@ -55,5 +66,8 @@ module.exports = {
       template: path.resolve(src, 'views', 'index.ejs')
     })
   ],
+  stats: {
+    colors: true
+  },
   devtool: 'source-map'
 }

@@ -3,4 +3,7 @@
 import '@ecomplus/storefront-renderer/dist/storefront.min.js'
 import '@ecomplus/shopping-cart'
 
-console.log(5)
+let start = () => {
+  console.log(5)
+}
+start()
