@@ -7,10 +7,29 @@ public_folder: '/img/uploads'
 
 collections:
 
+  # static content for pages
+  # may vary by template
+  - name: 'pages'
+    label: 'Pages'
+    delete: false
+    files:
+      - name: 'home'
+        label: 'Homepage'
+        file: 'content/pages/home.json'
+        fields:
+          - {label: 'Name', name: 'name', widget: 'string'}
+          - {label: 'Logo', name: 'logo', widget: 'image'}
+          - {label: 'Primary Color', name: 'primary_color', widget: 'string'}
+          - {label: 'Secondary Color', name: 'secondary_color', widget: 'string'}
+          - {label: 'Icon', name: 'icon', widget: 'image'}
+          - {label: 'Large Icon', name: 'large_icon', widget: 'image'}
+          - {label: 'Favicon', name: 'favicon', widget: 'image'}
+
   # default blog posts collection
   # remove if your template does not support blog
   - name: 'blog'
     label: 'Blog'
+    description: 'Add extra content to the site with blog posts related to your store and clients'
     folder: 'content/blog'
     extension: 'json'
     create: true
@@ -27,6 +46,7 @@ collections:
   # usually will be the same for any template
   - name: 'settings'
     label: 'Settings'
+    description: 'General settings to modify the site identity and metadata'
     delete: false
     editor:
       preview: false
@@ -34,7 +54,6 @@ collections:
       - name: 'general'
         label: 'Site Settings'
         file: 'content/settings.json'
-        description: 'General Site Settings'
         fields:
           - {label: 'Name', name: 'name', widget: 'string'}
           - {label: 'Logo', name: 'logo', widget: 'image'}
