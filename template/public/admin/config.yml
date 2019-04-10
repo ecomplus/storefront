@@ -2,22 +2,52 @@ backend:
   name: git-gateway
   branch: master
 
-media_folder: "public/img/uploads"
-public_folder: "/img/uploads"
+media_folder: 'public/img/uploads'
+public_folder: '/img/uploads'
 
 collections:
 
   # default blog posts collection
   # remove if your template does not support blog
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'content/blog'
+    extension: 'json'
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish date", name: "date", widget: "datetime"}
-      - {label: "Featured image", name: "thumbnail", widget: "image"}
-      - {label: "Short description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog'}
+      - {label: 'Title', name: 'title', widget: 'string'}
+      - {label: 'Publish Date', name: 'date', widget: 'datetime'}
+      - {label: 'Featured Image', name: 'thumbnail', widget: 'image'}
+      - {label: 'Short Description', name: 'description', widget: 'text'}
+      - {label: 'Body', name: 'body', widget: 'markdown'}
+
+  # general site settings
+  # usually will be the same for any template
+  - name: 'settings'
+    label: 'Settings'
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: 'general'
+        label: 'Site Settings'
+        file: 'content/settings.json'
+        description: 'General Site Settings'
+        fields:
+          - {label: 'Name', name: 'name', widget: 'string'}
+          - {label: 'Logo', name: 'Logo', widget: 'image'}
+          - label: 'Post Settings'
+            name: posts
+            widget: 'object'
+            fields:
+              - {
+                  label: 'Number of posts on frontpage',
+                  name: front_limit,
+                  widget: number,
+                  min: 1,
+                  max: 10,
+                }
+              - { label: 'Default Author', name: author, widget: string }
+              - { label: 'Default Thumbnail', name: thumb, widget: image, class: 'thumb', required: false }
