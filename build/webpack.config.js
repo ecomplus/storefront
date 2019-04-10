@@ -3,7 +3,7 @@
 // use Node.js path module for compatibility
 const path = require('path')
 // load project directories
-const { src, output } = require('./paths')
+const { src, pub, output } = require('./paths')
 
 // load Webpack and plugins
 // const webpack = require('webpack')
@@ -12,6 +12,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const WorkboxPlugin = require('workbox-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
@@ -89,7 +90,10 @@ module.exports = {
       // and not allow any straggling "old" SWs to hang around
       clientsClaim: true,
       skipWaiting: true
-    })
+    }),
+    new CopyPlugin([
+      { from: pub, to: output }
+    ])
   ],
   stats: {
     colors: true
