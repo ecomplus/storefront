@@ -37,17 +37,9 @@ collections:
         description: 'General Site Settings'
         fields:
           - {label: 'Name', name: 'name', widget: 'string'}
-          - {label: 'Logo', name: 'Logo', widget: 'image'}
-          - label: 'Post Settings'
-            name: posts
-            widget: 'object'
-            fields:
-              - {
-                  label: 'Number of posts on frontpage',
-                  name: front_limit,
-                  widget: number,
-                  min: 1,
-                  max: 10,
-                }
-              - { label: 'Default Author', name: author, widget: string }
-              - { label: 'Default Thumbnail', name: thumb, widget: image, class: 'thumb', required: false }
+          - {label: 'Logo', name: 'logo', widget: 'image'}
+          - {label: 'Primary Color', name: 'primary_color', widget: 'string'}
+          - {label: 'Secondary Color', name: 'secondary_color', widget: 'string'}
+          - {label: 'Icon', name: 'icon', widget: 'image'}
+          - {label: 'Large Icon', name: 'large_icon', widget: 'image'}
+          - {label: 'Favicon', name: 'favicon', widget: 'image'}
