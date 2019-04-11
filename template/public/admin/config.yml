@@ -27,10 +27,27 @@ collections:
 
   # default blog posts collection
   # remove if your template does not support blog
-  - name: 'blog'
-    label: 'Blog'
+  - name: 'blog_posts'
+    label: 'Blog Posts'
     description: 'Add extra content to the site with blog posts related to your store and clients'
-    folder: 'content/blog'
+    folder: 'content/blog-posts'
+    extension: 'json'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - {label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog'}
+      - {label: 'Title', name: 'title', widget: 'string'}
+      - {label: 'Publish Date', name: 'date', widget: 'datetime'}
+      - {label: 'Featured Image', name: 'thumbnail', widget: 'image'}
+      - {label: 'Short Description', name: 'description', widget: 'text'}
+      - {label: 'Body', name: 'body', widget: 'markdown'}
+
+  # default extra pages collection
+  # eg.: 'about us', 'contact' and 'privacy'
+  - name: 'extra_pages'
+    label: 'Extra Pages'
+    description: 'Add extra content to the site with blog posts related to your store and clients'
+    folder: 'content/extra-pages'
     extension: 'json'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
