@@ -34,46 +34,65 @@ module.exports = () => {
           compress: true,
           port: 9123
         },
+        stats: {
+          colors: true
+        },
+        devtool: 'source-map',
+
         module: {
-          rules: [{
-            test: /\.s?css$/,
-            use: [
-              // fallback to style-loader in development
-              devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-              'css-loader',
-              {
-                loader: 'postcss-loader',
+          rules: [
+            // parse SCSS and fix compiled CSS with Postcss
+            {
+              test: /\.s?css$/,
+              use: [
+                // fallback to style-loader in development
+                devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                'css-loader',
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    ident: 'postcss',
+                    plugins: [
+                      require('autoprefixer')()
+                    ]
+                  }
+                },
+                'sass-loader'
+              ]
+            },
+
+            // transpile and polyfill JS with Babel
+            {
+              test: /\.m?js$/,
+              exclude: /(node_modules|bower_components)/,
+              use: {
+                loader: 'babel-loader',
                 options: {
-                  ident: 'postcss',
-                  plugins: [
-                    require('autoprefixer')()
+                  presets: [
+                    [ '@babel/preset-env', { useBuiltIns: 'usage', corejs: 3 } ]
                   ]
                 }
-              },
-              'sass-loader'
-            ]
-          }, {
-            test: /\.m?js$/,
-            exclude: /(node_modules|bower_components)/,
-            use: {
-              loader: 'babel-loader',
-              options: {
-                presets: [
-                  [ '@babel/preset-env', { useBuiltIns: 'usage', corejs: 3 } ]
-                ]
               }
             }
-          }]
+          ]
         },
+
         plugins: [
+          // clear dist folder
+          new CleanWebpackPlugin(),
+
+          // extract CSS to file
           new MiniCssExtractPlugin({
             filename: '[name].[chunkhash].css'
           }),
-          new CleanWebpackPlugin(),
+
+          // parse EJS views to HTML files
           new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(src, 'views', 'index.ejs')
           }),
+
+          // create manifest.json file
           new WebpackPwaManifest({
             name: 'My Progressive Web App',
             short_name: 'MyPWA',
@@ -91,20 +110,20 @@ module.exports = () => {
               size: '1024x1024'
             }] */
           }),
+
+          // create service-worker.js file
           new WorkboxPlugin.GenerateSW({
             // these options encourage the ServiceWorkers to get in there fast
             // and not allow any straggling "old" SWs to hang around
             clientsClaim: true,
             skipWaiting: true
           }),
+
+          // just copy files from public folder recursivily
           new CopyPlugin([
             { from: pub, to: output }
           ])
-        ],
-        stats: {
-          colors: true
-        },
-        devtool: 'source-map'
+        ]
       })
     })
   })
