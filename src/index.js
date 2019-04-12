@@ -42,10 +42,13 @@ const build = (baseDir, outputDir, primary, secondary) => {
   const mainSass = path.join(__dirname, '..', '/scss/storefront-twbs.scss')
   // output file path
   const outFile = path.join(outputDir, '/storefront-twbs.min.css')
+  // modules path to import Bootstrap SCSS files
+  const modulesPath = path.join(process.cwd(), 'node_modules')
+
   compile(mainSass, {
     outFile,
     sourceMap: true,
-    includePaths: [ baseDir ]
+    includePaths: [ baseDir, modulesPath ]
   }).then(result => {
     // save CSS and map files
     fs.writeFile(outFile, result.css, err => { if (err) throw err })
