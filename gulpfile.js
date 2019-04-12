@@ -1,5 +1,6 @@
 'use strict'
 
+const path = require('path')
 const { src, dest, parallel, watch } = require('gulp')
 const browserSync = require('browser-sync').create()
 const cleanCss = require('gulp-clean-css')
@@ -21,7 +22,9 @@ const html = () => {
 const sass = () => {
   return src('./scss/' + filename + '.scss')
     .pipe(sourcemaps.init())
-    .pipe(buildSass().on('error', buildSass.logError))
+    .pipe(buildSass({
+      includePaths: [ path.join(process.cwd(), 'node_modules') ]
+    }).on('error', buildSass.logError))
     .pipe(sourcemaps.write())
     .pipe(dest('./docs'))
     .pipe(browserSync.stream())
