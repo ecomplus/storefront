@@ -1,3 +1,5 @@
 {
-  "name": "My Shop"
+  "name": "My Shop",
+  "primary_color": "#e83e8c",
+  "secondary_color": "#6f42c1"
 }
