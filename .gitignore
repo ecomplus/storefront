@@ -1,6 +1,3 @@
-# Ignore default minified output folder
-dist
-
 # Logs
 logs
 *.log
