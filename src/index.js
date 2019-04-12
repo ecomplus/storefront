@@ -6,12 +6,12 @@
 const sass = require('node-sass')
 
 // simple function to compile received file
-const compile = (file, opts = {}) => {
+const compile = (data, opts = {}) => {
   // handle a new Promise
   return new Promise((resolve, reject) => {
     // https://www.npmjs.com/package/node-sass#options
     opts = Object.assign({
-      file,
+      data,
       outputStyle: 'compressed'
     }, opts)
 
@@ -32,23 +32,30 @@ const build = (baseDir, outputDir, primary, secondary) => {
   const path = require('path')
   const fs = require('fs')
 
+  // mount SCSS data string
+  let scss = ''
   if (primary && secondary) {
-    // save _brand.scss with received RGBs first
-    let scss = '$primary: #' + primary + '; $secondary: #' + secondary + ';'
-    fs.writeFileSync(path.join(baseDir, '/_brand.scss'), scss)
+    // save brand colors variables with received RGBs first
+    scss += '$primary: #' + primary + '; $secondary: #' + secondary + ';'
   }
 
   // get current main SCSS file based on module directory
-  const mainSass = path.join(__dirname, '..', '/scss/storefront-twbs.scss')
+  const mainDir = path.join(__dirname, '..', 'scss')
+  scss += fs.readFileSync(path.join(mainDir, 'storefront-twbs.scss'), 'utf8')
+
   // output file path
-  const outFile = path.join(outputDir, '/storefront-twbs.min.css')
+  const outFile = path.join(outputDir, 'storefront-twbs.min.css')
   // modules path to import Bootstrap SCSS files
   const modulesPath = path.join(process.cwd(), 'node_modules')
 
-  compile(mainSass, {
+  compile(scss, {
     outFile,
     sourceMap: true,
-    includePaths: [ baseDir, modulesPath ]
+    includePaths: [
+      mainDir,
+      baseDir,
+      modulesPath
+    ]
   }).then(result => {
     // save CSS and map files
     fs.writeFile(outFile, result.css, err => { if (err) throw err })
