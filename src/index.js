@@ -35,6 +35,8 @@ const build = (baseDir, outputDir, primary, secondary) => {
   // mount SCSS data string
   let scss = ''
   if (primary && secondary) {
+    primary = primary.replace('#', '')
+    secondary = secondary.replace('#', '')
     // save brand colors variables with received RGBs first
     scss += '$primary: #' + primary + '; $secondary: #' + secondary + ';'
   }
