@@ -1,10 +1,20 @@
 // --- DO NOT IMPORT OR OVERRIDE BOOTSTRAP STYLES HERE
 // --- Edit `@/template/scss/storefront-twbs/theme/*.scss` instead
 
+// Default Bootstrap variables
+// @import "../../../node_modules/bootstrap/scss/variables";
+
+// Bootstrap custom theme variable overrides
+// @import "storefront-twbs/theme/variables";
+
+// Store brand colors are injected from Webpack SASS loader
+// Overrides \$primary and \$secondary
+
+// Place below custom additional (non-Bootstrap) variables
+
 // Template styles:
 // Custom theme components and modifiers
 
-@import "variables";
-
-body {
+a {
+  color: $primary;
 }
