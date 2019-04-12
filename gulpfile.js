@@ -23,7 +23,10 @@ const sass = () => {
   return src('./scss/' + filename + '.scss')
     .pipe(sourcemaps.init())
     .pipe(buildSass({
-      includePaths: [ path.join(process.cwd(), 'node_modules') ]
+      includePaths: [
+        path.join(process.cwd(), 'node_modules'),
+        process.cwd()
+      ]
     }).on('error', buildSass.logError))
     .pipe(sourcemaps.write())
     .pipe(dest('./docs'))
