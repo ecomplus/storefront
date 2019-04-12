@@ -3,9 +3,9 @@
 // use Node.js path module for compatibility
 const path = require('path')
 // load project directories
-const { src, pub, output } = require('./paths')
+const { src, pub, output } = require('./lib/paths')
 // Netlify CMS content
-const content = require('./cms')
+const content = require('./lib/cms')
 // read views folder recursivily
 const recursive = require('recursive-readdir')
 

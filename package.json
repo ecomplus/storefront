@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified, start server with 'npm run serve'\" && exit 1",
-    "build": "NODE_ENV=production webpack --config ./build/webpack.config.js --mode=production",
+    "build": "node ./build/dist.bin.js",
     "serve": "webpack-dev-server --config ./build/webpack.config.js --mode=development"
   },
   "repository": {
