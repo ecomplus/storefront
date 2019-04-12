@@ -73,6 +73,8 @@ collections:
         file: 'content/settings.json'
         fields:
           - {label: 'Name', name: 'name', widget: 'string'}
+          - {label: 'Store ID', name: 'store_id', widget: 'number'}
+          - {label: 'Store Object ID', name: 'store_object_id', widget: 'string'}
           - {label: 'Logo', name: 'logo', widget: 'image'}
           - {label: 'Primary Color', name: 'primary_color', widget: 'string'}
           - {label: 'Secondary Color', name: 'secondary_color', widget: 'string'}

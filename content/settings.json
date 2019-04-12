@@ -1,5 +1,7 @@
 {
   "name": "My Shop",
   "primary_color": "#e83e8c",
-  "secondary_color": "#6f42c1"
+  "secondary_color": "#6f42c1",
+  "store_id": 1011,
+  "store_object_id": "5b1abe30a4d4531b8fe40725"
 }
