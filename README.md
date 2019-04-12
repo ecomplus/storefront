@@ -19,10 +19,10 @@ and brand colors RGBs (without `#`):
 
 ```bash
 npm i -g @ecomplus/storefront-twbs
-storefront-twbs ~/mytheme/scss ~/mytheme/dist 6f42c1 e83e8c
+storefront-twbs ~/mytheme ~/mytheme/dist 6f42c1 e83e8c
 ```
 
-Note that `~/mytheme/scss` directory **must contain**
+Note that `~/mytheme` directory **must contain**
 `theme` folder with at least
 `_variables.scss` and `_components.scss` files.
 
@@ -32,7 +32,7 @@ Programmatic usage with `build` method:
 
 ```javascript
 const buildTheme = require('@ecomplus/storefront-twbs').build
-let baseDir = '~/mytheme/scss'
+let baseDir = '~/mytheme'
 let outputDir = '~/mytheme/dist'
 let primaryColor = '6f42c1'
 let secondaryColor = 'e83e8c'
@@ -51,7 +51,7 @@ cd storefront-twbs
 npm i
 ```
 
-Edit the SASS files in the `scss/theme` directory,
+Edit the SASS files in the `theme` directory,
 we recommend start from `_variables.scss`.
 You can also create custom SCSS files inside the same folder and
 import them from `_components.scss` file.
