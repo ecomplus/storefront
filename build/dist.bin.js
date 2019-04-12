@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
+'use strict'
+
 process.env.NODE_ENV = 'production'
 
-// build bundles with webpack
+// build bundles and HTML views with webpack
 const webpack = require('webpack')
 const webpackConfig = require('./webpack.config')()
 
@@ -15,12 +17,23 @@ const fatalError = err => {
 }
 
 webpackConfig.catch(fatalError).then(config => {
-  webpack(config, (err, stats) => {
+  webpack({
+    mode: 'production',
+    ...config
+  }, (err, stats) => {
     // console.log(stats)
-    if (err || stats.hasErrors()) {
-      // handle errors here
+    if (err) {
       fatalError(err)
     }
-    // done processing webpack
+
+    // check and handle webpack errors and warnings
+    const info = stats.toJson()
+    if (stats.hasErrors()) {
+      let err = info.errors
+      fatalError(err)
+    }
+    if (stats.hasWarnings()) {
+      console.warn(info.warnings)
+    }
   })
 })

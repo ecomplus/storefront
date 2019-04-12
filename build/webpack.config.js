@@ -17,19 +17,33 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const WorkboxPlugin = require('workbox-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const StorefrontTwbsPlugin = require('@ecomplus/storefront-twbs/src/webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = () => {
   return new Promise((resolve, reject) => {
     content.catch(reject).then(cms => {
+      // site settings
+      const { settings } = cms
+      const primaryColor = settings.primary_color || '#3fe3e3'
+      const secondaryColor = settings.secondary_color || '#5e1efe'
+
       // setup Webpack plugins
       const plugins = [
         // clear dist folder
         new CleanWebpackPlugin(),
 
+        // build {output}/storefront-twbs.min.css
+        new StorefrontTwbsPlugin({
+          baseDir: path.resolve(src, 'scss', 'storefront-twbs'),
+          outputDir: output,
+          primaryColor,
+          secondaryColor
+        }),
+
         // extract CSS to file
         new MiniCssExtractPlugin({
-          filename: '[name].[chunkhash].css'
+          filename: 'styles.[chunkhash].css'
         }),
 
         // create manifest.json file
@@ -145,7 +159,13 @@ module.exports = () => {
                         ]
                       }
                     },
-                    'sass-loader'
+                    {
+                      loader: 'sass-loader',
+                      options: {
+                        // inject brand colors
+                        data: '$primary: ' + primaryColor + '; $secondary: ' + secondaryColor + '; '
+                      }
+                    }
                   ]
                 },
 
