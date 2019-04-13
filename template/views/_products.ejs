@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product</title>
+</head>
+<body
+  class="_ecom-store"
+  data-store="<%= settings.store_id %>"
+  data-id="<%= settings.store_object_id %>">
+  <h1><%= settings.name %></h1>
+  <div class="_ecom-el product" data-type="product" data-current="true">
+    <h2>{{ name() }}</h2>
+  </div>
+</body>
+</html>
