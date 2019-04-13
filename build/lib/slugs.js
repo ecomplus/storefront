@@ -92,6 +92,9 @@ module.exports = new Promise((resolve, reject) => {
           wait++
           listDocuments(resource)
         })
+      } else {
+        // cannot init E-Com Plus SDK
+        reject(err)
       }
     }
 
