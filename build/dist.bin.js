@@ -51,7 +51,7 @@ webpackConfig.catch(fatalError).then(config => {
 
       const writePage = (slug, dom) => {
         // save HTML file for new page by slug
-        let file = path.join(output, slug)
+        let file = path.join(output, slug + '.html')
         // create directories for the slug if needed
         mkdirp(path.dirname(file), err => {
           if (!err) {

@@ -145,10 +145,10 @@ module.exports = () => {
           reject(err)
         } else {
           files.forEach(template => {
-            let addView = filename => {
+            let addView = slug => {
               // add a view to compile
               plugins.push(new HtmlWebpackPlugin({
-                filename,
+                filename: slug + '.html',
                 template,
                 ...templateOptions
               }))
@@ -171,7 +171,7 @@ module.exports = () => {
               }
             } else {
               // preseted view
-              addView(filename + '.html')
+              addView(filename)
             }
           })
 
