@@ -48,21 +48,25 @@ module.exports = () => {
 
         // create manifest.json file
         new WebpackPwaManifest({
-          name: 'My Progressive Web App',
-          short_name: 'MyPWA',
-          description: 'My awesome Progressive Web App!',
-          background_color: '#ffffff',
+          name: settings.name || 'My Shop',
+          short_name: settings.short_name || 'MyShop',
+          description: settings.description || 'My PWA Shop',
+          background_color: settings.bg_color || '#ffffff',
           // can be null, use-credentials or anonymous
-          crossorigin: 'use-credentials' /*,
+          crossorigin: 'use-credentials',
           icons: [{
-            src: path.resolve('src/assets/icon.png'),
+            src: settings.icon
+              ? path.resolve(pub, 'img', 'uploads', settings.icon)
+              : path.resolve(pub, 'img', 'icon.png'),
             // multiple sizes
             sizes: [ 96, 128, 192, 256, 384, 512 ]
           }, {
-            src: path.resolve('src/assets/large-icon.png'),
+            src: settings.large_icon
+              ? path.resolve(pub, 'img', 'uploads', settings.large_icon)
+              : path.resolve(pub, 'img', 'large-icon.png'),
             // can also use the specifications pattern
             size: '1024x1024'
-          }] */
+          }]
         }),
 
         // create service-worker.js file
