@@ -110,14 +110,18 @@ module.exports = () => {
               // parse EJS partials to template params functions
               recursive(includes, (err, files) => {
                 if (!err) {
+                  // setup include function on template params
+                  let templates = {}
+                  templateOptions.templateParameters.include = (name, args = {}) => {
+                    // parse EJS partial with CMS data and received args
+                    return templates[name]({ ...data, args })
+                  }
+
                   files.forEach(file => {
                     // remove the path from file string
                     let name = file.split(path.sep).pop().replace('.ejs', '')
-                    let template = ejs.compile(fs.readFileSync(file, 'utf8'))
-                    // add to template params as function
-                    templateOptions.templateParameters[name] = (args = {}) => {
-                      return template({ ...data, ...args })
-                    }
+                    // save EJS compiler on templates object
+                    templates[name] = ejs.compile(fs.readFileSync(file, 'utf8'))
                   })
                 }
                 callback()
