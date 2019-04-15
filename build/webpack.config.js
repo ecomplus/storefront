@@ -2,12 +2,15 @@
 
 // use Node.js path module for compatibility
 const path = require('path')
+const fs = require('fs')
 // load project directories
-const { src, pub, output } = require('./lib/paths')
+const { src, pub, output, content } = require('./lib/paths')
 // Netlify CMS content
-const content = require('./lib/cms')
+const cms = require('./lib/cms')
 // read views folder recursivily
 const recursive = require('recursive-readdir')
+// parse EJS markup
+const ejs = require('ejs')
 
 // load Webpack and plugins
 // const webpack = require('webpack')
@@ -17,14 +20,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const WorkboxPlugin = require('workbox-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin')
 const StorefrontTwbsPlugin = require('@ecomplus/storefront-twbs/src/webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = () => {
   return new Promise((resolve, reject) => {
-    content.catch(reject).then(cms => {
+    cms().catch(reject).then(data => {
       // site settings
-      const { settings } = cms
+      const { settings } = data
       const primaryColor = settings.primary_color || '#3fe3e3'
       const secondaryColor = settings.secondary_color || '#5e1efe'
 
@@ -52,7 +56,6 @@ module.exports = () => {
           short_name: settings.short_name || 'MyShop',
           description: settings.description || 'My PWA Shop',
           background_color: settings.bg_color || '#ffffff',
-          // can be null, use-credentials or anonymous
           crossorigin: 'use-credentials',
           icons: [{
             src: settings.icon
@@ -64,17 +67,22 @@ module.exports = () => {
             src: settings.large_icon
               ? path.resolve(pub, 'img', 'uploads', settings.large_icon)
               : path.resolve(pub, 'img', 'large-icon.png'),
-            // can also use the specifications pattern
             size: '1024x1024'
           }]
         }),
 
         // create service-worker.js file
         new WorkboxPlugin.GenerateSW({
+          swDest: 'sw.js',
           // these options encourage the ServiceWorkers to get in there fast
           // and not allow any straggling "old" SWs to hang around
           clientsClaim: true,
-          skipWaiting: true
+          skipWaiting: true,
+          // runtime cache for webpack chunk files and external CDNs
+          runtimeCaching: [{
+            urlPattern: new RegExp('/storefront-twbs.min.css'),
+            handler: 'StaleWhileRevalidate'
+          }]
         }),
 
         // just copy files from public folder recursivily
@@ -84,14 +92,51 @@ module.exports = () => {
       ]
 
       // setup common options for HTML plugin
-      const views = path.resolve(src, 'views')
+      const includes = path.resolve(src, 'views', 'includes')
+      const pages = path.resolve(src, 'views', 'pages')
       const templateOptions = {
-        templateParameters: cms,
+        templateParameters: data,
         minify: !devMode
       }
 
+      // create a Webpack plugin to handle EJS includes
+      class TemplateIncludesPlugin {
+        // `apply` as its prototype method which is supplied with compiler as its argument
+        apply (compiler) {
+          compiler.hooks.beforeCompile.tapAsync(
+            'TemplateIncludesPlugin',
+
+            (params, callback) => {
+              // parse EJS partials to template params functions
+              recursive(includes, (err, files) => {
+                if (!err) {
+                  files.forEach(file => {
+                    // remove the path from file string
+                    let name = file.split(path.sep).pop().replace('.ejs', '')
+                    let template = ejs.compile(fs.readFileSync(file, 'utf8'))
+                    // add to template params as function
+                    templateOptions.templateParameters[name] = (args = {}) => {
+                      return template({ ...data, ...args })
+                    }
+                  })
+                }
+                callback()
+              })
+            }
+          )
+        }
+      }
+      plugins.push(new TemplateIncludesPlugin())
+
+      if (devMode) {
+        // watch EJS partials and CMS JSON content
+        plugins.push(new ExtraWatchWebpackPlugin({
+          dirs: [ includes, content ]
+        }))
+      }
+
       // parse EJS views to HTML files
-      recursive(views, (err, files) => {
+      recursive(pages, (err, files) => {
         if (err) {
           reject(err)
         } else {
@@ -106,16 +151,16 @@ module.exports = () => {
             }
 
             // remove the path from template filename string
-            let filename = template.slice(views.length + 1).replace('.ejs', '')
+            let filename = template.slice(pages.length + 1).replace('.ejs', '')
             if (filename.startsWith('_cms')) {
               // compile multiple files
               // for blog posts and extra pages
               // remove '_cms/' to get 'blog-posts' string
               let folder = filename.slice(5)
-              if (cms.hasOwnProperty(folder)) {
+              if (data.hasOwnProperty(folder)) {
                 // render each slug
-                for (let slug in cms[folder]) {
-                  if (cms[folder].hasOwnProperty(slug)) {
+                for (let slug in data[folder]) {
+                  if (data[folder].hasOwnProperty(slug)) {
                     addView(slug)
                   }
                 }
@@ -134,6 +179,7 @@ module.exports = () => {
             ],
             output: {
               path: output,
+              publicPath: '/',
               filename: 'storefront.[chunkhash].js'
             },
             devServer: {
