@@ -20,7 +20,7 @@ module.exports = new Promise((resolve, reject) => {
         // moving inside data dir by reference
         let obj = data
 
-        file.slice(dirLength).split('/').forEach(path => {
+        file.slice(dirLength).split(path.sep).forEach(path => {
           if (path !== '') {
             if (!obj.hasOwnProperty(path)) {
               let filename = path.replace('.json', '')
