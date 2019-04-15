@@ -4,7 +4,7 @@
 const path = require('path')
 const fs = require('fs')
 // load project directories
-const { src, pub, output, content } = require('./lib/paths')
+const { src, pub, output } = require('./lib/paths')
 // Netlify CMS content
 const cms = require('./lib/cms')
 // read views folder recursivily
@@ -26,7 +26,7 @@ const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = () => {
   return new Promise((resolve, reject) => {
-    cms().catch(reject).then(data => {
+    cms.catch(reject).then(data => {
       // site settings
       const { settings } = data
       const primaryColor = settings.primary_color || '#3fe3e3'
@@ -129,9 +129,9 @@ module.exports = () => {
       plugins.push(new TemplateIncludesPlugin())
 
       if (devMode) {
-        // watch EJS partials and CMS JSON content
+        // watch EJS partials on serve
         plugins.push(new ExtraWatchWebpackPlugin({
-          dirs: [ includes, content ]
+          dirs: [ includes ]
         }))
       }
 
