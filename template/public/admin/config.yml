@@ -75,6 +75,7 @@ collections:
           - {label: 'Name', name: 'name', widget: 'string'}
           - {label: 'Short Name', name: 'short_name', widget: 'string'}
           - {label: 'Short Description', name: 'description', widget: 'text'}
+          - {label: 'Language', name: 'lang', widget: 'string'}
           - {label: 'Store ID', name: 'store_id', widget: 'number'}
           - {label: 'Store Object ID', name: 'store_object_id', widget: 'string'}
           - {label: 'Logo', name: 'logo', widget: 'image'}
