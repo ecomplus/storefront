@@ -3,7 +3,12 @@
 import '@ecomplus/storefront-renderer/dist/storefront.min.js'
 import '@ecomplus/shopping-cart'
 
-let start = () => {
-  console.log(5)
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').then(registration => {
+      console.log('SW registered: ', registration)
+    }).catch(registrationError => {
+      console.log('SW registration failed: ', registrationError)
+    })
+  })
 }
-start()
