@@ -1,11 +1,11 @@
-<%= html() %>
+<%= include('html') %>
 <head>
-  <%= head() %>
+  <%= include('head', { title: 'Hello World' }) %>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
   <h1><%= settings.name %></h1>
-  <%= scripts() %>
+  <%= include('scripts') %>
   <script>
     // Netlify Identity for CMS login
     if (window.netlifyIdentity) {
