@@ -73,11 +73,14 @@ collections:
         file: 'content/settings.json'
         fields:
           - {label: 'Name', name: 'name', widget: 'string'}
+          - {label: 'Short Name', name: 'short_name', widget: 'string'}
+          - {label: 'Short Description', name: 'description', widget: 'text'}
           - {label: 'Store ID', name: 'store_id', widget: 'number'}
           - {label: 'Store Object ID', name: 'store_object_id', widget: 'string'}
           - {label: 'Logo', name: 'logo', widget: 'image'}
           - {label: 'Primary Color', name: 'primary_color', widget: 'string'}
           - {label: 'Secondary Color', name: 'secondary_color', widget: 'string'}
+          - {label: 'App Background Color', name: 'bg_color', widget: 'string'}
           - {label: 'Icon', name: 'icon', widget: 'image'}
           - {label: 'Large Icon', name: 'large_icon', widget: 'image'}
           - {label: 'Favicon', name: 'favicon', widget: 'image'}
