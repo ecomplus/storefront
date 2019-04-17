@@ -13,6 +13,8 @@ const slugs = require('./lib/slugs')
 const recursive = require('recursive-readdir')
 // parse EJS markup
 const ejs = require('ejs')
+// runtime cache for Workbox
+const runtimeCaching = require('./lib/cache')
 
 // load Webpack and plugins
 // const webpack = require('webpack')
@@ -83,10 +85,7 @@ module.exports = () => {
           clientsClaim: true,
           skipWaiting: true,
           // runtime cache for webpack chunk files and external CDNs
-          runtimeCaching: [{
-            urlPattern: new RegExp('/storefront-twbs.min.css'),
-            handler: 'StaleWhileRevalidate'
-          }]
+          runtimeCaching
         }),
 
         // just copy files from public folder recursivily
