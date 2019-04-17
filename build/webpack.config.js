@@ -7,6 +7,8 @@ const fs = require('fs')
 const { src, pub, output } = require('./lib/paths')
 // Netlify CMS content
 const cms = require('./lib/cms')
+// rewrite E-Com Plus resources slugs
+const slugs = require('./lib/slugs')
 // read views folder recursivily
 const recursive = require('recursive-readdir')
 // parse EJS markup
@@ -31,6 +33,8 @@ module.exports = () => {
       const { settings } = data
       const primaryColor = settings.primary_color || '#3fe3e3'
       const secondaryColor = settings.secondary_color || '#5e1efe'
+      // handle URL rewrites on development server
+      const rewrites = []
 
       // setup Webpack plugins
       const plugins = [
@@ -152,6 +156,14 @@ module.exports = () => {
                 template,
                 ...templateOptions
               }))
+
+              if (devMode) {
+                // rewrite the slug to HTML file
+                rewrites.push({
+                  from: new RegExp('^/' + slug + '$'),
+                  to: '/' + slug + '.html'
+                })
+              }
             }
 
             // remove the path from template filename string
@@ -175,72 +187,103 @@ module.exports = () => {
             }
           })
 
-          // resolve promise with webpack config object
-          resolve({
-            entry: [
-              path.resolve(src, 'js', 'index.js'),
-              path.resolve(src, 'scss', 'styles.scss')
-            ],
-            output: {
-              path: output,
-              publicPath: '/',
-              filename: 'storefront.[chunkhash].js'
-            },
-            devServer: {
-              compress: true,
-              port: 9123
-            },
-            stats: {
-              colors: true
-            },
-            devtool: 'source-map',
+          let startWebpack = () => {
+            // resolve promise with webpack config object
+            resolve({
+              entry: [
+                path.resolve(src, 'js', 'index.js'),
+                path.resolve(src, 'scss', 'styles.scss')
+              ],
+              output: {
+                path: output,
+                publicPath: '/',
+                filename: 'storefront.[chunkhash].js'
+              },
+              stats: {
+                colors: true
+              },
+              devtool: 'source-map',
 
-            module: {
-              rules: [
-                // parse SCSS and fix compiled CSS with Postcss
-                {
-                  test: /\.s?css$/,
-                  use: [
-                    // fallback to style-loader in development
-                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    {
-                      loader: 'postcss-loader',
+              // setup development server
+              devServer: {
+                compress: true,
+                port: 9123,
+                // get storefront-twbs theme from output dir
+                contentBase: output,
+                // history API with rewrites for resources slugs
+                historyApiFallback: { rewrites }
+              },
+
+              module: {
+                rules: [
+                  // parse SCSS and fix compiled CSS with Postcss
+                  {
+                    test: /\.s?css$/,
+                    use: [
+                      // fallback to style-loader in development
+                      devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                      'css-loader',
+                      {
+                        loader: 'postcss-loader',
+                        options: {
+                          ident: 'postcss',
+                          plugins: [
+                            require('autoprefixer')()
+                          ]
+                        }
+                      },
+                      {
+                        loader: 'sass-loader',
+                        options: {
+                          // inject brand colors
+                          data: '$primary: ' + primaryColor + '; $secondary: ' + secondaryColor + '; '
+                        }
+                      }
+                    ]
+                  },
+
+                  // transpile and polyfill JS with Babel
+                  {
+                    test: /\.m?js$/,
+                    exclude: /(node_modules|bower_components)/,
+                    use: {
+                      loader: 'babel-loader',
                       options: {
-                        ident: 'postcss',
-                        plugins: [
-                          require('autoprefixer')()
+                        presets: [
+                          [ '@babel/preset-env', { useBuiltIns: 'usage', corejs: 3 } ]
                         ]
                       }
-                    },
-                    {
-                      loader: 'sass-loader',
-                      options: {
-                        // inject brand colors
-                        data: '$primary: ' + primaryColor + '; $secondary: ' + secondaryColor + '; '
-                      }
-                    }
-                  ]
-                },
-
-                // transpile and polyfill JS with Babel
-                {
-                  test: /\.m?js$/,
-                  exclude: /(node_modules|bower_components)/,
-                  use: {
-                    loader: 'babel-loader',
-                    options: {
-                      presets: [
-                        [ '@babel/preset-env', { useBuiltIns: 'usage', corejs: 3 } ]
-                      ]
                     }
                   }
-                }
-              ]
-            },
+                ]
+              },
 
-            plugins
-          })
+              plugins
+            })
+          }
+
+          if (devMode) {
+            // setup rewrites for resource slugs
+            slugs.then(slugsByResources => {
+              for (let resource in slugsByResources) {
+                if (slugsByResources.hasOwnProperty(resource)) {
+                  // rewrite each slug to respective resource page
+                  slugsByResources[resource].forEach(slug => {
+                    if (slug) {
+                      rewrites.push({
+                        from: new RegExp('^/' + slug + '$'),
+                        to: '/_' + resource + '.html'
+                      })
+                    }
+                  })
+                }
+              }
+            }).catch(err => console.error(err)).finally(startWebpack)
+          } else {
+            // production
+            // just start compilation with Webpack
+            startWebpack()
+          }
         }
       })
     })
