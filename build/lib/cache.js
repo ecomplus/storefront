@@ -3,9 +3,9 @@
 // runtime cache rules for non Webpack chunk files and external CDNs
 // https://developers.google.com/web/tools/workbox/guides/codelabs/webpack#runtime
 module.exports = [
-  // Storefront Bootstrap theme
+  // CMS uploads and storefront Bootstrap theme
   {
-    urlPattern: /\/storefront-twbs?(\.min)\.css/,
+    urlPattern: /^\/(?:img\/uploads\/|storefront-twbs(\.min)?\.css|assets\/)/,
     handler: 'StaleWhileRevalidate'
   },
   // font files from Google Fonts

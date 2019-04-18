@@ -13,8 +13,6 @@ const slugs = require('./lib/slugs')
 const recursive = require('recursive-readdir')
 // parse EJS markup
 const ejs = require('ejs')
-// runtime cache for Workbox
-const runtimeCaching = require('./lib/cache')
 
 // load Webpack and plugins
 // const webpack = require('webpack')
@@ -77,15 +75,10 @@ module.exports = () => {
           }]
         }),
 
-        // create service-worker.js file
-        new WorkboxPlugin.GenerateSW({
-          swDest: 'sw.js',
-          // these options encourage the ServiceWorkers to get in there fast
-          // and not allow any straggling "old" SWs to hang around
-          clientsClaim: true,
-          skipWaiting: true,
-          // runtime cache for webpack chunk files and external CDNs
-          runtimeCaching
+        // create service worker file
+        new WorkboxPlugin.InjectManifest({
+          swSrc: path.resolve(__dirname, 'sw.js'),
+          swDest: 'sw.js'
         }),
 
         // just copy files from public folder recursivily
@@ -186,84 +179,10 @@ module.exports = () => {
             }
           })
 
-          let startWebpack = () => {
-            // resolve promise with webpack config object
-            resolve({
-              entry: [
-                path.resolve(src, 'js', 'index.js'),
-                path.resolve(src, 'scss', 'styles.scss')
-              ],
-              output: {
-                path: output,
-                publicPath: '/',
-                filename: 'storefront.[chunkhash].js'
-              },
-              stats: {
-                colors: true
-              },
-              devtool: 'source-map',
-
-              // setup development server
-              devServer: {
-                compress: true,
-                port: 9123,
-                // get storefront-twbs theme from output dir
-                contentBase: output,
-                // history API with rewrites for resources slugs
-                historyApiFallback: { rewrites }
-              },
-
-              module: {
-                rules: [
-                  // parse SCSS and fix compiled CSS with Postcss
-                  {
-                    test: /\.s?css$/,
-                    use: [
-                      // fallback to style-loader in development
-                      devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-                      'css-loader',
-                      {
-                        loader: 'postcss-loader',
-                        options: {
-                          ident: 'postcss',
-                          plugins: [
-                            require('autoprefixer')()
-                          ]
-                        }
-                      },
-                      {
-                        loader: 'sass-loader',
-                        options: {
-                          // inject brand colors
-                          data: '$primary: ' + primaryColor + '; $secondary: ' + secondaryColor + '; '
-                        }
-                      }
-                    ]
-                  },
-
-                  // transpile and polyfill JS with Babel
-                  {
-                    test: /\.m?js$/,
-                    exclude: /(node_modules|bower_components)/,
-                    use: {
-                      loader: 'babel-loader',
-                      options: {
-                        presets: [
-                          [ '@babel/preset-env', { useBuiltIns: 'usage', corejs: 3 } ]
-                        ]
-                      }
-                    }
-                  }
-                ]
-              },
-
-              plugins
-            })
-          }
-
-          if (devMode) {
-            // setup rewrites for resource slugs
-            slugs.then(slugsByResources => {
+          // wait for slugs promise
+          slugs.catch(err => console.error(err)).then(slugsByResources => {
+            if (devMode) {
+              // setup rewrites for resource slugs
               for (let resource in slugsByResources) {
                 if (slugsByResources.hasOwnProperty(resource)) {
                   // rewrite each slug to respective resource page
@@ -277,12 +196,84 @@ module.exports = () => {
                   })
                 }
               }
-            }).catch(err => console.error(err)).finally(startWebpack)
-          } else {
-            // production
-            // just start compilation with Webpack
-            startWebpack()
-          }
+            }
+          })
+
+            .finally(() => {
+              // start compilation
+              // resolve promise with webpack config object
+              resolve({
+                entry: [
+                  path.resolve(src, 'js', 'index.js'),
+                  path.resolve(src, 'scss', 'styles.scss')
+                ],
+                output: {
+                  path: output,
+                  publicPath: '/',
+                  filename: 'storefront.[chunkhash].js'
+                },
+                stats: {
+                  colors: true
+                },
+                devtool: 'source-map',
+
+                // setup development server
+                devServer: {
+                  compress: true,
+                  port: 9123,
+                  // get storefront-twbs theme from output dir
+                  contentBase: output,
+                  // history API with rewrites for resources slugs
+                  historyApiFallback: { rewrites }
+                },
+
+                module: {
+                  rules: [
+                    // parse SCSS and fix compiled CSS with Postcss
+                    {
+                      test: /\.s?css$/,
+                      use: [
+                        // fallback to style-loader in development
+                        devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                        'css-loader',
+                        {
+                          loader: 'postcss-loader',
+                          options: {
+                            ident: 'postcss',
+                            plugins: [
+                              require('autoprefixer')()
+                            ]
+                          }
+                        },
+                        {
+                          loader: 'sass-loader',
+                          options: {
+                            // inject brand colors
+                            data: '$primary: ' + primaryColor + '; $secondary: ' + secondaryColor + '; '
+                          }
+                        }
+                      ]
+                    },
+
+                    // transpile and polyfill JS with Babel
+                    {
+                      test: /\.m?js$/,
+                      exclude: /(node_modules|bower_components)/,
+                      use: {
+                        loader: 'babel-loader',
+                        options: {
+                          presets: [
+                            [ '@babel/preset-env', { useBuiltIns: 'usage', corejs: 3 } ]
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+
+                plugins
+              })
+            })
         }
       })
     })
