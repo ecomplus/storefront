@@ -33,7 +33,10 @@
     "@ecomplus/shopping-cart": "^0.1.0",
     "@ecomplus/storefront-renderer": "^1.1.0",
     "@ecomplus/storefront-twbs": "^1.2.0",
-    "core-js": "^3.0.1"
+    "bootstrap": "^4.3.1",
+    "core-js": "^3.0.1",
+    "jquery": "^3.4.0",
+    "popper.js": "^1.15.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
