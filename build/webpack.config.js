@@ -32,6 +32,8 @@ module.exports = () => {
       const { settings } = data
       // handle URL rewrites on development server
       const rewrites = []
+      // Storefront twbs theme base dir
+      const twbsDir = path.resolve(src, 'scss', 'storefront-twbs')
 
       // setup Webpack plugins
       const plugins = [
@@ -70,9 +72,14 @@ module.exports = () => {
           swDest: 'sw.js'
         }),
 
-        // just copy files from public folder recursivily
+        // copy files from public folder recursivily
         new CopyPlugin([
-          { from: pub, to: output }
+          { from: pub, to: output },
+          // Storefront twbs theme assets
+          {
+            from: path.resolve(twbsDir, 'theme', 'assets'),
+            to: path.resolve(output, 'assets')
+          }
         ])
       ]
 
@@ -243,7 +250,7 @@ module.exports = () => {
                             // include paths to handle storefront-twbs (and not only)
                             includePaths: [
                               path.resolve(process.cwd(), 'node_modules'),
-                              path.resolve(src, 'scss', 'storefront-twbs')
+                              twbsDir
                             ]
                           }
                         }
