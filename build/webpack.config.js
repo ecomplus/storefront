@@ -23,7 +23,6 @@ const WebpackPwaManifest = require('webpack-pwa-manifest')
 const WorkboxPlugin = require('workbox-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin')
-const StorefrontTwbsPlugin = require('@ecomplus/storefront-twbs/src/webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = () => {
@@ -31,8 +30,6 @@ module.exports = () => {
     cms.catch(reject).then(data => {
       // site settings
       const { settings } = data
-      const primaryColor = settings.primary_color || '#3fe3e3'
-      const secondaryColor = settings.secondary_color || '#5e1efe'
       // handle URL rewrites on development server
       const rewrites = []
 
@@ -40,14 +37,6 @@ module.exports = () => {
       const plugins = [
         // clear dist folder
         new CleanWebpackPlugin(),
-
-        // build {output}/storefront-twbs.min.css
-        new StorefrontTwbsPlugin({
-          baseDir: path.resolve(src, 'scss', 'storefront-twbs'),
-          outputDir: output,
-          primaryColor,
-          secondaryColor
-        }),
 
         // extract CSS to file
         new MiniCssExtractPlugin({
@@ -249,7 +238,13 @@ module.exports = () => {
                           loader: 'sass-loader',
                           options: {
                             // inject brand colors
-                            data: '$primary: ' + primaryColor + '; $secondary: ' + secondaryColor + '; '
+                            data: '$primary: ' + (settings.primary_color || '#3fe3e3') + '; ' +
+                              '$secondary: ' + (settings.secondary_color || '#5e1efe') + '; ',
+                            // include paths to handle storefront-twbs (and not only)
+                            includePaths: [
+                              path.resolve(process.cwd(), 'node_modules'),
+                              path.resolve(src, 'scss', 'storefront-twbs')
+                            ]
                           }
                         }
                       ]
