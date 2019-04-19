@@ -1,0 +1,29 @@
+{
+  "name": "@ecomplus/widget-minicart",
+  "description": "Vue component to handle shopping cart quickview for E-Com Plus stores",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomclub/widget-minicart.git"
+  },
+  "author": "E-Com Club",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomclub/widget-minicart/issues"
+  },
+  "homepage": "https://github.com/ecomclub/widget-minicart#readme",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.6.0",
+    "@vue/cli-service": "^3.6.0",
+    "vue-template-compiler": "^2.5.21"
+  }
+}
