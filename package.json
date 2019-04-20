@@ -15,7 +15,7 @@
   "homepage": "https://github.com/ecomclub/widget-minicart#readme",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build --target lib --name EcomMinicart src/EcomMinicart.vue"
   },
   "dependencies": {
     "core-js": "^2.6.5",
