@@ -56,9 +56,10 @@
 
                   <input
                     type="number"
-                    class="ml-2 ecom-minicart__item-quantity form-control"
+                    class="ml-2 ecom-minicart__item-quantity form-control form-control-sm"
                     placeholder="Qnt."
-                    v-model.number="item.quantity" />
+                    v-model.number="item.quantity"
+                    @change="handleItem(item)"/>
                   <div class="ecom-minicart__item-price flex-grow-1 text-center">
                     <strong>R$ {{ item.price * item.quantity }}</strong>
                   </div>
@@ -73,7 +74,10 @@
           </main>
 
           <footer class="card-footer text-muted">
-            2 days ago
+            <strong class="text-primary">R$ 100,00</strong>
+            <a class="btn btn-block btn-success" href="/app/">
+              Finalizar compra
+            </a>
           </footer>
         </aside>
       </div>

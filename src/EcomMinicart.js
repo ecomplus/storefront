@@ -5,7 +5,7 @@ import dictionary from './lib/dictionary'
 // handle cart object
 // https://developers.e-com.plus/shopping-cart/EcomCart.html
 /* global EcomCart */
-const { cart, removeItem } = EcomCart
+const { cart, removeItem, handleItem } = EcomCart
 
 export default {
   name: 'EcomMinicart',
@@ -36,6 +36,7 @@ export default {
   methods: {
     dictionary,
     removeItem,
+    handleItem,
 
     toggle () {
       let vm = this
