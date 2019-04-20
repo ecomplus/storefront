@@ -1,0 +1,39 @@
+.ecom-minicart__container {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.ecom-minicart__overlay {
+  width: 100%;
+  height: 100%;
+  opacity: .45;
+  cursor: pointer;
+}
+
+.ecom-minicart__sidebar {
+  position: fixed;
+  width: 25%;
+  height: 100%;
+  top: 0;
+  right: -25%;
+  transition: right 0.3s ease-out;
+  border-radius: 0;
+  border: none;
+}
+.ecom-minicart__sidebar.show {
+  right: 0;
+}
+
+.ecom-minicart__item-picture {
+  width: 100px;
+  height: auto;
+}
+.ecom-minicart__item-quantity {
+  max-width: 5rem;
+}
