@@ -2,6 +2,11 @@
 
 import dictionary from './lib/dictionary'
 
+// handle cart object
+// https://developers.e-com.plus/shopping-cart/EcomCart.html
+/* global EcomCart */
+const { cart, removeItem } = EcomCart
+
 export default {
   name: 'EcomMinicart',
 
@@ -23,18 +28,20 @@ export default {
   data () {
     return {
       visible: false,
-      fade: false
+      fade: false,
+      cart
     }
   },
 
   methods: {
     dictionary,
+    removeItem,
 
     toggle () {
       let vm = this
       vm.visible = !vm.visible
       if (vm.visible) {
-        // delay to fade in
+        // delay to add 'show' CSS class
         setTimeout(() => {
           vm.fade = vm.visible
         }, 50)

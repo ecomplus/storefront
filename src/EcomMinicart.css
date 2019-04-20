@@ -31,9 +31,22 @@
 }
 
 .ecom-minicart__item-picture {
-  width: 100px;
+  width: 60px;
   height: auto;
 }
 .ecom-minicart__item-quantity {
-  max-width: 5rem;
+  max-width: 70px;
+}
+.ecom-minicart__item-remove {
+  cursor: pointer;
+}
+
+.ecom-minicart-list-enter-active,
+.ecom-minicart-list-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.ecom-minicart-list-enter,
+.ecom-minicart-list-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
 }

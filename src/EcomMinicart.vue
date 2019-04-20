@@ -23,8 +23,55 @@
               </button>
             </header>
           </slot>
+
           <main class="card-body">
+            <transition-group
+              name="ecom-minicart-list"
+              tag="ul"
+              class="ecom-minicart__list list-unstyled">
+              <li
+                class="ecom-minicart__item pb-3"
+                v-for="item in cart.items"
+                :key="item._id">
+
+                <div class="ecom-minicart__item-name mb-3">
+                  <a v-if="item.slug" :href="'/' + item.slug">
+                    {{ item.name }}
+                  </a>
+                  <template v-else>
+                    {{ item.name }}
+                  </template>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-between">
+                  <a
+                    v-if="item.picture && Object.keys(item.picture).length"
+                    :href="item.slug ? '/' + item.slug : 'javascript:;'">
+                    <img
+                      :src="(item.picture.small || item.picture.normal ||
+                        item.picture[Object.keys(item.picture)[0]]).url"
+                      :alt="item.name"
+                      class="ecom-minicart__item-picture" />
+                  </a>
+
+                  <input
+                    type="number"
+                    class="ml-2 ecom-minicart__item-quantity form-control"
+                    placeholder="Qnt."
+                    v-model.number="item.quantity" />
+                  <div class="ecom-minicart__item-price flex-grow-1 text-center">
+                    <strong>R$ {{ item.price * item.quantity }}</strong>
+                  </div>
+                  <div
+                    class="ecom-minicart__item-remove text-right text-danger"
+                    @click="removeItem(item._id)">
+                    <i class="fas fa-trash-alt"></i>
+                  </div>
+                </div>
+              </li>
+            </transition-group>
           </main>
+
           <footer class="card-footer text-muted">
             2 days ago
           </footer>
@@ -45,33 +92,4 @@
 </template>
 
 <script src="./EcomMinicart.js"></script>
-
-<style>
-.ecom-minicart__container {
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-}
-.ecom-minicart__overlay {
-  width: 100%;
-  height: 100%;
-  opacity: .45;
-  cursor: pointer;
-}
-.ecom-minicart__sidebar {
-  position: fixed;
-  width: 25%;
-  height: 100%;
-  top: 0;
-  right: -25%;
-  transition: right 0.3s ease-out;
-}
-.ecom-minicart__sidebar.show {
-  right: 0;
-}
-</style>
+<style src="./EcomMinicart.css"></style>
