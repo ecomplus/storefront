@@ -1,5 +1,7 @@
 /* global EcomCart */
 
+EcomCart.clearCart()
+
 EcomCart.addItem({
   '_id': '951050155052163296800000',
   'sku': 'IPZ7060-613-1',
