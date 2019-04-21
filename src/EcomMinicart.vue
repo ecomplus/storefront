@@ -105,7 +105,9 @@
             {{ cart.items.length }}
           </small>
         </span>
-        <small class="ecom-minicart__button-subtotal text-muted ml-1">
+        <small
+          class="ecom-minicart__button-subtotal text-muted ml-1"
+          v-if="buttonSubtotal">
           {{ formatMoney(cart.subtotal) }}
         </small>
       </button>

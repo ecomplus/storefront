@@ -26,6 +26,10 @@ export default {
       type: Boolean,
       default: true
     },
+    buttonSubtotal: {
+      type: Boolean,
+      default: true
+    },
     lang: {
       type: String,
       default: 'pt_br'
