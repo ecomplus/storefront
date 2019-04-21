@@ -89,5 +89,13 @@ export default {
     if (this.show) {
       this.toggle()
     }
+  },
+
+  watch: {
+    show (val) {
+      if (val !== this.visible) {
+        this.toggle()
+      }
+    }
   }
 }

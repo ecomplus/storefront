@@ -73,39 +73,43 @@
             </transition-group>
           </main>
 
-          <footer class="ecom-minicart__summary card-footer text-muted">
-            <div class="d-flex align-items-center justify-content-between pb-2">
-              <span>Subtotal</span>
-              <strong class="ecom-minicart__subtotal text-primary">
-                {{ formatMoney(cart.subtotal) }}
-              </strong>
-            </div>
-            <a class="ecom-minicart__call-to-action btn btn-block btn-primary" href="/app/">
-              <span class="mr-1">
-                <i class="fas fa-check"></i>
-              </span>
-              {{ dictionary('checkout') }}
-            </a>
-          </footer>
+          <slot name="footer">
+            <footer class="ecom-minicart__summary card-footer text-muted">
+              <div class="d-flex align-items-center justify-content-between pb-2">
+                <span>Subtotal</span>
+                <strong class="ecom-minicart__subtotal text-primary">
+                  {{ formatMoney(cart.subtotal) }}
+                </strong>
+              </div>
+              <a class="ecom-minicart__call-to-action btn btn-block btn-primary" href="/app/">
+                <span class="mr-1">
+                  <i class="fas fa-check"></i>
+                </span>
+                {{ dictionary('checkout') }}
+              </a>
+            </footer>
+          </slot>
         </aside>
       </div>
     </transition>
 
-    <button
-      type="button"
-      class="ecom-minicart__button btn btn-lg btn-light"
-      @click="toggle"
-      :title="dictionary('open_cart')">
-      <span class="ecom-minicart__button-icon">
-        <i class="fas fa-shopping-bag"></i>
-        <small class="ecom-minicart__button-badge st-block-secondary rounded font-weight-bold">
-          {{ cart.items.length }}
+    <slot name="button">
+      <button
+        type="button"
+        class="ecom-minicart__button btn btn-lg btn-light"
+        @click="toggle"
+        :title="dictionary('open_cart')">
+        <span class="ecom-minicart__button-icon">
+          <i class="fas fa-shopping-bag"></i>
+          <small class="ecom-minicart__button-badge st-block-secondary rounded font-weight-bold">
+            {{ cart.items.length }}
+          </small>
+        </span>
+        <small class="ecom-minicart__button-subtotal text-muted ml-1">
+          {{ formatMoney(cart.subtotal) }}
         </small>
-      </span>
-      <small class="ecom-minicart__button-subtotal text-muted ml-1">
-        {{ formatMoney(cart.subtotal) }}
-      </small>
-    </button>
+      </button>
+    </slot>
   </div>
 </template>
 
