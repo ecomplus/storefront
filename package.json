@@ -1,8 +1,8 @@
 {
   "name": "@ecomplus/widget-minicart",
   "description": "Vue component to handle shopping cart quickview for E-Com Plus stores",
-  "version": "0.0.1",
-  "main": "src/index.js",
+  "version": "0.1.0",
+  "main": "dist/EcomMinicart.common.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ecomclub/widget-minicart.git"
