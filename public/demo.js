@@ -36,6 +36,7 @@ EcomCart.addItem({
   'currency_symbol': 'R$',
   'currency_id': 'BRL',
   'price': 10,
+  'min_quantity': 100,
   'quantity': 168,
   'name': 'Camisa / M',
   'picture': {
