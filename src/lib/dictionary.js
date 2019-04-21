@@ -8,6 +8,14 @@ const dictionary = {
   close: {
     en_us: 'Close',
     pt_br: 'Fechar'
+  },
+  remove: {
+    en_us: 'Remove',
+    pt_br: 'Remover'
+  },
+  checkout: {
+    en_us: 'Checkout',
+    pt_br: 'Finalizar compra'
   }
 }
 

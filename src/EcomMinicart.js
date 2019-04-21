@@ -7,6 +7,13 @@ import dictionary from './lib/dictionary'
 /* global EcomCart */
 const { cart, removeItem, handleItem } = EcomCart
 
+// get format money function
+/* global Ecom */
+let formatMoney
+if (Ecom) {
+  formatMoney = Ecom.methods.formatMoney
+}
+
 export default {
   name: 'EcomMinicart',
 
@@ -21,7 +28,23 @@ export default {
     },
     lang: {
       type: String,
-      default: 'en_us'
+      default: 'pt_br'
+    },
+    currency: {
+      type: String,
+      default: 'R$'
+    },
+    decimal: {
+      type: String,
+      default: ','
+    },
+    thousands: {
+      type: String,
+      default: '.'
+    },
+    numFixed: {
+      type: Number,
+      default: 2
     }
   },
 
@@ -51,6 +74,14 @@ export default {
       }
       // handle v-bind:show.sync="show"
       this.$emit('update:show', vm.visible)
+    },
+
+    formatMoney (price, currencySymbol) {
+      if (formatMoney) {
+        // format price string
+        price = formatMoney(price, this.decimal, this.thousands, this.numFixed)
+      }
+      return (currencySymbol || this.currency) + ' ' + price
     }
   },
 

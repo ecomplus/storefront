@@ -60,12 +60,13 @@
                     placeholder="Qnt."
                     v-model.number="item.quantity"
                     @change="handleItem(item)"/>
-                  <div class="ecom-minicart__item-price flex-grow-1 text-center">
-                    <strong>R$ {{ item.price * item.quantity }}</strong>
+                  <div class="ecom-minicart__item-price flex-grow-1 text-center font-weight-bold">
+                    {{ formatMoney(item.price * item.quantity, item.currency_symbol) }}
                   </div>
                   <div
                     class="ecom-minicart__item-remove text-right text-danger"
-                    @click="removeItem(item._id)">
+                    @click="removeItem(item._id)"
+                    :aria-label="dictionary('remove')">
                     <i class="fas fa-trash-alt"></i>
                   </div>
                 </div>
@@ -73,10 +74,18 @@
             </transition-group>
           </main>
 
-          <footer class="card-footer text-muted">
-            <strong class="text-primary">R$ 100,00</strong>
-            <a class="btn btn-block btn-success" href="/app/">
-              Finalizar compra
+          <footer class="ecom-minicart__summary card-footer text-muted">
+            <div class="d-flex align-items-center justify-content-between pb-2">
+              <span>Subtotal</span>
+              <strong class="ecom-minicart__subtotal text-primary">
+                {{ formatMoney(cart.subtotal) }}
+              </strong>
+            </div>
+            <a class="ecom-minicart__call-to-action btn btn-block btn-primary" href="/app/">
+              <span class="mr-1">
+                <i class="fas fa-check"></i>
+              </span>
+              {{ dictionary('checkout') }}
             </a>
           </footer>
         </aside>
