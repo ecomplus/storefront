@@ -28,7 +28,7 @@ export default {
     },
     buttonSubtotal: {
       type: Boolean,
-      default: true
+      default: false
     },
     lang: {
       type: String,
