@@ -5,6 +5,10 @@ const dictionary = {
     en_us: 'My cart',
     pt_br: 'Meu carrinho'
   },
+  open_cart: {
+    en_us: 'Open cart',
+    pt_br: 'Abrir carrinho'
+  },
   close: {
     en_us: 'Close',
     pt_br: 'Fechar'

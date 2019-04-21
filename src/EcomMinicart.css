@@ -50,6 +50,17 @@
   font-size: 120%;
 }
 
+.ecom-minicart__button-icon {
+  position: relative;
+}
+.ecom-minicart__button-badge {
+  position: absolute;
+  line-height: 1;
+  top: -.3rem;
+  right: -.7rem;
+  padding: .1rem .2rem;
+}
+
 .ecom-minicart-list-enter-active,
 .ecom-minicart-list-leave-active {
   transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);

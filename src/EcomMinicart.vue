@@ -57,7 +57,6 @@
                   <input
                     type="number"
                     class="ml-2 ecom-minicart__item-quantity form-control form-control-sm"
-                    placeholder="Qnt."
                     v-model.number="item.quantity"
                     @change="handleItem(item)"/>
                   <div class="ecom-minicart__item-price flex-grow-1 text-center font-weight-bold">
@@ -92,15 +91,21 @@
       </div>
     </transition>
 
-    <div class="ecom-minicart__button">
-      <button
-        type="button"
-        class="close"
-        :aria-label="dictionary('close')"
-        @click="toggle">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+    <button
+      type="button"
+      class="ecom-minicart__button btn btn-lg btn-light"
+      @click="toggle"
+      :title="dictionary('open_cart')">
+      <span class="ecom-minicart__button-icon">
+        <i class="fas fa-shopping-bag"></i>
+        <small class="ecom-minicart__button-badge st-block-secondary rounded font-weight-bold">
+          {{ cart.items.length }}
+        </small>
+      </span>
+      <small class="ecom-minicart__button-subtotal text-muted ml-1">
+        {{ formatMoney(cart.subtotal) }}
+      </small>
+    </button>
   </div>
 </template>
 
