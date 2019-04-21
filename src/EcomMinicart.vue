@@ -81,7 +81,9 @@
                   {{ formatMoney(cart.subtotal) }}
                 </strong>
               </div>
-              <a class="ecom-minicart__call-to-action btn btn-block btn-primary" href="/app/">
+              <a
+                class="ecom-minicart__call-to-action btn btn-block btn-primary"
+                href="/app/#/checkout">
                 <span class="mr-1">
                   <i class="fas fa-check"></i>
                 </span>
