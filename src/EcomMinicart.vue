@@ -24,7 +24,7 @@
             </header>
           </slot>
 
-          <main class="card-body">
+          <main class="ecom-minicart__sidebar-body card-body">
             <transition-group
               name="ecom-minicart-list"
               tag="ul"
