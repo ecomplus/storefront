@@ -1065,19 +1065,20 @@ if (Ecom) {
       type: String,
       default: 'pt_br'
     },
+    // options for money formatting
     currency: {
       type: String,
       default: 'R$'
     },
-    decimal: {
+    decimalDelimiter: {
       type: String,
       default: ','
     },
-    thousands: {
+    thousandsDelimiter: {
       type: String,
       default: '.'
     },
-    numFixed: {
+    currencyNumFixed: {
       type: Number,
       default: 2
     }
@@ -1112,7 +1113,7 @@ if (Ecom) {
     formatMoney: function formatMoney(price, currencySymbol) {
       if (_formatMoney) {
         // format price string
-        price = _formatMoney(price, this.decimal, this.thousands, this.numFixed);
+        price = _formatMoney(price, this.decimalDelimiter, this.thousandsDelimiter, this.currencyNumFixed);
       }
 
       return (currencySymbol || this.currency) + ' ' + price;
@@ -1126,6 +1127,7 @@ if (Ecom) {
   watch: {
     show: function show(val) {
       if (val !== this.visible) {
+        // state changed externally
         this.toggle();
       }
     }
