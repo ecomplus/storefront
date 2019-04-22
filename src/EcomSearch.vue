@@ -3,8 +3,12 @@
     <input
       type="search"
       class="ecom-search__input form-control form-control-lg"
+      v-model="inputValue"
+      :name="name"
       :placeholder="label"
-      :aria-label="label">
+      :aria-label="label"
+      @change="change"
+      @keyup.enter="submit">
     <div
       class="ecom-search__submit text-muted st-text-primary-light:hover"
       @click="submit">
