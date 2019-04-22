@@ -1,0 +1,28 @@
+.ecom-search {
+  &__input-group {
+    position: relative;
+  }
+
+  &__input {
+    z-index: 0;
+    padding-right: 3.3rem;
+  }
+
+  &__submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    z-index: 1;
+    padding: 0 .75rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: color 0.15s ease-out;
+
+    .fa-search {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+}
