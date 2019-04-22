@@ -5,6 +5,7 @@
         <div
           class="ecom-minicart__overlay bg-dark fade"
           :class="{ 'show': fade }"
+          v-if="overlay"
           @click="toggle">
         </div>
 
