@@ -1,6 +1,17 @@
 .ecom-search {
+  transition: box-shadow 0.15s linear;
+
   &__input-group {
     position: relative;
+
+    &--focus {
+      z-index: 9999;
+
+      input {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
   }
 
   &__input {
@@ -23,6 +34,39 @@
     .fa-search {
       width: 1.8rem;
       height: 1.8rem;
+    }
+  }
+
+  &__suggestions {
+    position: relative;
+
+    &-overlay {
+      position: fixed;
+      z-index: 9997;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      opacity: .45;
+    }
+
+    &-box {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9998;
+    }
+  }
+
+  &-fade {
+    &-enter-active,
+    &-leave-active {
+      transition: opacity .15s linear;
+    }
+    &-enter,
+    &-leave-to {
+      opacity: 0;
     }
   }
 }

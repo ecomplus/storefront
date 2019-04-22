@@ -6,6 +6,10 @@ export default {
   name: 'EcomSearch',
 
   props: {
+    overlay: {
+      type: Boolean,
+      default: true
+    },
     lang: {
       type: String,
       default: 'pt_br'
@@ -23,7 +27,8 @@ export default {
 
   data () {
     return {
-      term: this.value
+      term: this.value,
+      showSuggestions: false
     }
   },
 
@@ -52,6 +57,12 @@ export default {
 
     submit () {
       this.$emit('submit', this.term)
+    },
+
+    toggleSuggestions (state) {
+      let vm = this
+      // show or hide suggestions block
+      vm.showSuggestions = typeof state === 'boolean' ? state : !vm.showSuggestions
     }
   },
 
