@@ -29,6 +29,11 @@ export default {
     // optionally preset popular terms array
     presetedTerms: {
       type: Array
+    },
+    // try to fix search term if no results before submit
+    autoFix: {
+      type: Boolean,
+      default: true
     }
   },
 
@@ -112,11 +117,19 @@ export default {
   },
 
   methods: {
+    dictionary,
+
     change () {
       this.$emit('change', this.term)
     },
 
     submit () {
+      this.toggleSuggestions()
+      if (!this.suggestedItems.length && this.suggestedTerms.length && this.autoFix) {
+        // no search results
+        // fix searched term to suggested
+        this.term = this.suggestedTerms[0]
+      }
       this.$emit('submit', this.term)
     },
 

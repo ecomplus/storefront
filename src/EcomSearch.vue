@@ -12,8 +12,7 @@
         :aria-label="label"
         @change="change"
         @keyup.enter="submit"
-        @focus="toggleSuggestions(true)"
-        @blur="toggleSuggestions(false)" />
+        @focus="toggleSuggestions(true)" />
 
       <div
         class="ecom-search__submit text-muted st-text-primary-light:hover"
@@ -28,17 +27,27 @@
       <div class="ecom-search__suggestions" v-if="showSuggestions">
         <div
           class="ecom-search__suggestions-overlay bg-dark"
-          v-if="overlay">
+          v-if="overlay"
+          @click="toggleSuggestions(false)">
         </div>
         <div class="ecom-search__suggestions-box shadow rounded-bottom bg-white p-4">
-          <ul id="example-1">
-            <li v-for="term in suggestedTerms">
+          <p v-if="suggestedTerms.length" class="lead">
+            <span class="text-muted">
+              {{ dictionary('did_you_mean') }}
+            </span>
+            <a
+              class="ecom-search__suggestions-term ml-2"
+              v-for="term in suggestedTerms"
+              href="javascript:;"
+              @click="inputValue = term">
               {{ term }}
-            </li>
-            <li v-for="item in suggestedItems">
-              {{ item.name }}
-            </li>
-          </ul>
+            </a>
+          </p>
+
+          <div v-if="suggestedItems.length">
+            <div v-for="item in suggestedItems">
+            </div>
+          </div>
         </div>
       </div>
     </transition>

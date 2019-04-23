@@ -4,6 +4,10 @@ const dictionary = {
   search_products: {
     en_us: 'Search products',
     pt_br: 'Buscar produtos'
+  },
+  did_you_mean: {
+    en_us: 'Did you mean',
+    pt_br: 'Você quis dizer'
   }
 }
 
