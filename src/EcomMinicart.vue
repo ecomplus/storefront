@@ -61,7 +61,7 @@
                     v-model.number="item.quantity"
                     @change="handleItem(item)"/>
                   <div class="ecom-minicart__item-price flex-grow-1 text-center font-weight-bold">
-                    {{ formatMoney(item.price * item.quantity, item.currency_symbol) }}
+                    {{ currencyValue(item.price * item.quantity, item.currency_symbol) }}
                   </div>
                   <div
                     class="ecom-minicart__item-remove text-right text-danger"
@@ -79,7 +79,7 @@
               <div class="d-flex align-items-center justify-content-between pb-2">
                 <span>Subtotal</span>
                 <strong class="ecom-minicart__subtotal text-primary">
-                  {{ formatMoney(cart.subtotal) }}
+                  {{ currencyValue(cart.subtotal) }}
                 </strong>
               </div>
               <a
@@ -111,7 +111,7 @@
         <small
           class="ecom-minicart__button-subtotal text-muted ml-1"
           v-if="buttonSubtotal">
-          {{ formatMoney(cart.subtotal) }}
+          {{ currencyString(cart.subtotal) }}
         </small>
       </button>
     </slot>

@@ -9,10 +9,6 @@ const { cart, removeItem, handleItem } = EcomCart
 
 // get format money function
 /* global Ecom */
-let formatMoney
-if (Ecom) {
-  formatMoney = Ecom.methods.formatMoney
-}
 
 export default {
   name: 'EcomMinicart',
@@ -81,10 +77,10 @@ export default {
       this.$emit('update:show', vm.visible)
     },
 
-    formatMoney (price, currencySymbol) {
-      if (formatMoney) {
+    currencyValue (price, currencySymbol) {
+      if (Ecom) {
         // format price string
-        price = formatMoney(
+        price = Ecom.methods.formatMoney(
           price,
           this.decimalDelimiter,
           this.thousandsDelimiter,
