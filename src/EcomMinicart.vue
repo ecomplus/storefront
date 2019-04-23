@@ -75,7 +75,9 @@
           </main>
 
           <slot name="footer">
-            <footer class="ecom-minicart__summary card-footer text-muted">
+            <footer
+              class="ecom-minicart__summary card-footer text-muted"
+              v-if="cart.subtotal || cart.items.length">
               <div class="d-flex align-items-center justify-content-between pb-2">
                 <span>Subtotal</span>
                 <strong class="ecom-minicart__subtotal text-primary">
