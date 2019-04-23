@@ -127,4 +127,4 @@
 </template>
 
 <script src="./EcomMinicart.js"></script>
-<style src="./EcomMinicart.css"></style>
+<style lang="scss" src="./EcomMinicart.scss"></style>
