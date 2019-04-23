@@ -30,8 +30,15 @@
           class="ecom-search__suggestions-overlay bg-dark"
           v-if="overlay">
         </div>
-        <div class="ecom-search__suggestions-box rounded-bottom bg-white p-4">
-          Olá
+        <div class="ecom-search__suggestions-box shadow rounded-bottom bg-white p-4">
+          <ul id="example-1">
+            <li v-for="term in suggestedTerms">
+              {{ term }}
+            </li>
+            <li v-for="item in suggestedItems">
+              {{ item.name }}
+            </li>
+          </ul>
         </div>
       </div>
     </transition>
