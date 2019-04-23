@@ -1,8 +1,14 @@
 'use strict'
 
+import dictionary from './lib/dictionary'
+
+// E-Com Plus public APIs SDK
 /* global EcomIo */
 
-import dictionary from './lib/dictionary'
+// map items objects from Elasticsearch hits response
+const mapItems = hits => hits.hits.map(({ _id, _source }) => {
+  return Object.assign(_source, { _id })
+})
 
 export default {
   name: 'EcomSearch',
@@ -25,6 +31,11 @@ export default {
     },
     placeholder: {
       type: String
+    },
+    // max items to suggest
+    maxItems: {
+      type: Number,
+      default: 4
     },
     // optionally preset popular terms and items arrays
     presetedTerms: {
@@ -55,13 +66,23 @@ export default {
     }
   },
 
-  /*
   created () {
-    if (!this.popularTerms) {
+    if (!this.presetedTerms) {
       // TODO: get general popular terms on Search API
     }
+
+    if (!this.presetedItems) {
+      // get most popular items
+      // query Search API without term
+      this.searchProducts((err, body) => {
+        if (err) {
+          console.error(err)
+        } else {
+          this.popularItems = mapItems(body.hits)
+        }
+      })
+    }
   },
-  */
 
   computed: {
     inputValue: {
@@ -80,16 +101,11 @@ export default {
           let callback = (err, body) => {
             if (err) {
               console.error(err)
-              return
-            }
-
-            // check if term was not changed again
-            if (val === vm.term) {
+            } else if (val === vm.term) {
+              // term checked
               const { hits, suggest } = body
               // update suggested items
-              vm.suggestedItems = hits.hits.map(({ _id, _source }) => {
-                return Object.assign(_source, { _id })
-              })
+              vm.suggestedItems = mapItems(hits)
 
               if (suggest) {
                 // handle terms fix
@@ -101,6 +117,7 @@ export default {
                     fixedTerm = fixedTerm.replace(text, options[0].text)
                   }
                 })
+
                 if (fixedTerm !== val) {
                   if (!vm.suggestedItems.length && vm.autoFix && fixedTerm.indexOf(val) === -1) {
                     // no search results
@@ -115,8 +132,9 @@ export default {
             }
           }
 
-          // https://github.com/ecomclub/ecomplus-sdk-js#search-products
-          EcomIo.searchProducts(callback, val)
+          // search products by name and keywords
+          // https://github.com/ecomclub/ecomplus-sdk-js#term
+          this.searchProducts(callback, val)
         }
       }
     },
@@ -155,6 +173,12 @@ export default {
       let vm = this
       // show or hide suggestions block
       vm.showSuggestions = typeof state === 'boolean' ? state : !vm.showSuggestions
+    },
+
+    searchProducts (callback, term) {
+      // https://github.com/ecomclub/ecomplus-sdk-js#search-products
+      // apply from = 0 and size = maxItems
+      EcomIo.searchProducts(callback, term, 0, this.maxItems)
     }
   },
 
