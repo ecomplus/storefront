@@ -60,6 +60,12 @@
   padding: .1rem .2rem;
 }
 
+@media (max-height: 450px) {
+  .ecom-minicart__btn-cart {
+    display: none;
+  }
+}
+
 .ecom-minicart-list-enter-active,
 .ecom-minicart-list-leave-active {
   transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);

@@ -46,6 +46,15 @@ export default {
     currencyNumFixed: {
       type: Number,
       default: 2
+    },
+    // storefront app absolute links
+    checkoutUrl: {
+      type: String,
+      default: '/app/#/checkout'
+    },
+    cartUrl: {
+      type: String,
+      default: '/app/#/cart'
     }
   },
 

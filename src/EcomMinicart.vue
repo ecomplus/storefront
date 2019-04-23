@@ -82,13 +82,19 @@
                   {{ currencyValue(cart.subtotal) }}
                 </strong>
               </div>
+
               <a
-                class="ecom-minicart__call-to-action btn btn-block btn-primary"
-                href="/app/#/checkout">
+                class="ecom-minicart__btn-checkout btn btn-block btn-primary"
+                :href="checkoutUrl">
                 <span class="mr-1">
                   <i class="fas fa-check"></i>
                 </span>
                 {{ dictionary('checkout') }}
+              </a>
+              <a
+                class="ecom-minicart__btn-cart btn btn-block btn-outline-secondary"
+                :href="cartUrl">
+                {{ dictionary('see_cart') }}
               </a>
             </footer>
           </slot>

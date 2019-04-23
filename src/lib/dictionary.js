@@ -20,6 +20,10 @@ const dictionary = {
   checkout: {
     en_us: 'Checkout',
     pt_br: 'Finalizar compra'
+  },
+  see_cart: {
+    en_us: 'See shopping cart',
+    pt_br: 'Ver carrinho'
   }
 }
 
