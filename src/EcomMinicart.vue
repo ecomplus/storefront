@@ -72,6 +72,23 @@
                 </div>
               </li>
             </transition-group>
+
+            <div class="ecom-minicart__empty-cart">
+              <slot name="empty">
+                <p class="lead text-muted">
+                  {{ dictionary('empty_cart') }} ...
+                </p>
+                <a
+                  class="btn btn-block btn-primary"
+                  href="javascript:;"
+                  @click="toggle">
+                  <span class="mr-1">
+                    <i class="fas fa-arrow-left"></i>
+                  </span>
+                  {{ dictionary('continue_shopping') }}
+                </a>
+              </slot>
+            </div>
           </main>
 
           <slot name="footer">

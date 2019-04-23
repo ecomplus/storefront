@@ -24,6 +24,14 @@ const dictionary = {
   see_cart: {
     en_us: 'See shopping cart',
     pt_br: 'Ver carrinho'
+  },
+  empty_cart: {
+    en_us: 'Your shopping cart is empty',
+    pt_br: 'Seu carrinho de compras está vazio'
+  },
+  continue_shopping: {
+    en_us: 'Continue shopping',
+    pt_br: 'Continuar comprando'
   }
 }
 

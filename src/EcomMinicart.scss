@@ -75,6 +75,14 @@
     }
   }
 
+  &__empty-cart {
+    display: none;
+  }
+
+  &__list:empty + div {
+    display: inherit;
+  }
+
   &-list {
     &-enter-active,
     &-leave-active {
