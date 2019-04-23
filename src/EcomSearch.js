@@ -26,11 +26,14 @@ export default {
     placeholder: {
       type: String
     },
-    // optionally preset popular terms array
+    // optionally preset popular terms and items arrays
     presetedTerms: {
       type: Array
     },
-    // try to fix search term if no results before submit
+    presetedItems: {
+      type: Array
+    },
+    // try to fix search term when result is empty
     autoFix: {
       type: Boolean,
       default: true
@@ -46,17 +49,19 @@ export default {
       // suggested terms based on current term
       suggestedTerms: [],
       // general popular terms
-      popularTerms: []
+      popularTerms: this.presetedTerms || [],
+      // most popular or recommended items
+      popularItems: this.presetedItems || []
     }
   },
 
+  /*
   created () {
-    if (this.presetedTerms) {
-      this.popularTerms = this.presetedTerms
-    } else {
+    if (!this.popularTerms) {
       // TODO: get general popular terms on Search API
     }
   },
+  */
 
   computed: {
     inputValue: {
@@ -97,8 +102,14 @@ export default {
                   }
                 })
                 if (fixedTerm !== val) {
-                  // suggest fixed term
-                  vm.suggestedTerms.push(fixedTerm)
+                  if (!vm.suggestedItems.length && vm.autoFix && fixedTerm.indexOf(val) === -1) {
+                    // no search results
+                    // searched terms with grammar errors ?
+                    vm.inputValue = fixedTerm
+                  } else {
+                    // suggest fixed term
+                    vm.suggestedTerms.push(fixedTerm)
+                  }
                 }
               }
             }
@@ -118,6 +129,13 @@ export default {
 
   methods: {
     dictionary,
+
+    blur () {
+      if (this.term && this.term.length < 3) {
+        // unset suggestions
+        this.suggestedItems = this.suggestedTerms = []
+      }
+    },
 
     change () {
       this.$emit('change', this.term)

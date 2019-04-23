@@ -56,6 +56,10 @@
       top: 0;
       left: 0;
       z-index: 9998;
+
+      &:empty {
+        display: none;
+      }
     }
   }
 
@@ -64,6 +68,7 @@
     &-leave-active {
       transition: opacity .15s linear;
     }
+
     &-enter,
     &-leave-to {
       opacity: 0;

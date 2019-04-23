@@ -12,7 +12,8 @@
         :aria-label="label"
         @change="change"
         @keyup.enter="submit"
-        @focus="toggleSuggestions(true)" />
+        @focus="toggleSuggestions(true)"
+        @blur="blur" />
 
       <div
         class="ecom-search__submit text-muted st-text-primary-light:hover"
@@ -44,9 +45,7 @@
             </a>
           </p>
 
-          <div v-if="suggestedItems.length">
-            <div v-for="item in suggestedItems">
-            </div>
+          <div v-for="item in suggestedItems">
           </div>
         </div>
       </div>
