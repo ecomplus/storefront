@@ -64,7 +64,8 @@ export default {
         // handle v-model
         this.$emit('input', val)
 
-        if (val && val !== '') {
+        if (val && val.length > 2) {
+          let vm = this
           // get products and completed terms from E-Com Plus Search API
           let callback = (err, body) => {
             if (err) {
@@ -72,25 +73,28 @@ export default {
               return
             }
 
-            const { hits, suggest } = body
-            // update suggested items
-            this.suggestedItems = hits.hits.map(({ _id, _source }) => {
-              return Object.assign(_source, { _id })
-            })
-
-            if (suggest) {
-              // handle terms fix
-              // 'did you mean?'
-              let fixedTerm = val
-              this.suggestedTerms = []
-              suggest.words.forEach(({ options, text }) => {
-                if (options.length) {
-                  fixedTerm = fixedTerm.replace(text, options[0].text)
-                }
+            // check if term was not changed again
+            if (val === vm.term) {
+              const { hits, suggest } = body
+              // update suggested items
+              vm.suggestedItems = hits.hits.map(({ _id, _source }) => {
+                return Object.assign(_source, { _id })
               })
-              if (fixedTerm !== val) {
-                // suggest fixed term
-                this.suggestedTerms.push(fixedTerm)
+
+              if (suggest) {
+                // handle terms fix
+                // 'did you mean?'
+                let fixedTerm = val
+                vm.suggestedTerms = []
+                suggest.words.forEach(({ options, text }) => {
+                  if (options.length) {
+                    fixedTerm = fixedTerm.replace(text, options[0].text)
+                  }
+                })
+                if (fixedTerm !== val) {
+                  // suggest fixed term
+                  vm.suggestedTerms.push(fixedTerm)
+                }
               }
             }
           }
