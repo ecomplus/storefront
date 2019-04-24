@@ -4,23 +4,38 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>EcomSearch demo</title>
+
     <!-- Storefront Bootstrap theme -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-twbs@1/docs/storefront-twbs.css">
-    <title>@ecomplus/widget-search</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ecomplus/widget-search@0.1/dist/EcomSearch.css">
   </head>
   <body style="padding: 30px">
     <noscript>
       <strong>We're sorry but widget-search doesn't work properly without JavaScript enabled.
         Please enable it to continue.</strong>
     </noscript>
-    <div id="search"></div>
-    <!-- E-Com Plus Storefront Renderer -->
+
+    <div id="search">
+      <demo></demo>
+    </div>
+
+    <!-- E-Com Plus Storefront Renderer (optional) -->
     <script src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-renderer@1/dist/storefront.min.js"></script>
     <!-- Tests only -->
     <script src="./demo.js"></script>
     <!-- Font Awesome icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"></script>
-    <!-- built files will be auto injected -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@ecomplus/widget-search@0.1/dist/EcomSearch.umd.js"></script>
+
+    <script>
+    new Vue({
+      components: {
+        demo: EcomSearch
+      }
+    }).$mount('#search')
+    </script>
   </body>
 </html>
