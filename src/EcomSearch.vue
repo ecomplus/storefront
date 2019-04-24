@@ -7,7 +7,6 @@
         type="search"
         class="ecom-search__input form-control form-control-lg"
         v-model="inputValue"
-        :name="name"
         :placeholder="label"
         :aria-label="label"
         @change="change"
@@ -42,9 +41,8 @@
                 class="ecom-search__suggested-term mx-2"
                 v-for="term in listTerms"
                 href="javascript:;"
-                @click="inputValue = term">
-                {{ term }}
-              </a>
+                @click="inputValue = term"
+                v-text="term" />
               <span class="text-muted">?</span>
             </p>
 

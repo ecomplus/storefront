@@ -30,9 +30,6 @@ export default {
     value: {
       type: String
     },
-    name: {
-      type: String
-    },
     placeholder: {
       type: String
     },
@@ -69,7 +66,9 @@ export default {
     // CSS classes for default item block
     itemClasses: {
       type: Array,
-      default: [ 'col-12 col-sm-6 col-md-3' ]
+      default () {
+        return [ 'col-12 col-sm-6 col-md-3' ]
+      }
     }
   },
 
@@ -134,14 +133,21 @@ export default {
                 // 'did you mean?'
                 let fixedTerm = val
                 vm.suggestedTerms = []
-                suggest.words.forEach(({ options, text }) => {
+                const { words } = suggest
+                words.forEach(({ options, text }) => {
                   if (options.length) {
                     fixedTerm = fixedTerm.replace(text, options[0].text)
                   }
                 })
 
                 if (fixedTerm !== val) {
-                  if (!vm.suggestedItems.length && vm.autoFix && fixedTerm.indexOf(val) === -1) {
+                  if (!vm.suggestedItems.length &&
+                    vm.autoFix &&
+                    // check if val is not included on fixed term (don't force autocompletion)
+                    fixedTerm.indexOf(val) === -1 &&
+                    // check if there is only one word and suggestion is high scored
+                    words.length === 1 &&
+                    words[0].options[0].score >= 0.75) {
                     // no search results
                     // searched terms with grammar errors ?
                     vm.inputValue = fixedTerm
