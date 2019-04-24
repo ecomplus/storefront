@@ -5,6 +5,10 @@ import dictionary from './lib/dictionary'
 // E-Com Plus public APIs SDK
 /* global EcomIo */
 
+// get some methods from renderer object
+// https://developers.e-com.plus/storefront-renderer/Ecom.methods.html
+/* global Ecom */
+
 // map items objects from Elasticsearch hits response
 const mapItems = hits => hits.hits.map(({ _id, _source }) => {
   return Object.assign(_source, { _id })
@@ -48,6 +52,24 @@ export default {
     autoFix: {
       type: Boolean,
       default: true
+    },
+    // options for money formatting
+    decimalDelimiter: {
+      type: String,
+      default: ','
+    },
+    thousandsDelimiter: {
+      type: String,
+      default: '.'
+    },
+    currencyNumFixed: {
+      type: Number,
+      default: 2
+    },
+    // CSS classes for default item block
+    itemClasses: {
+      type: Array,
+      default: [ 'col-12 col-sm-6 col-md-3' ]
     }
   },
 
@@ -142,6 +164,16 @@ export default {
     label () {
       // for input placeholder and aria-label
       return this.placeholder || dictionary('search_products', this.lang)
+    },
+
+    listTerms () {
+      // list suggested or popular terms
+      return this.suggestedTerms.length ? this.suggestedTerms : this.popularTerms
+    },
+
+    listItems () {
+      // list suggested or popular items
+      return this.suggestedItems.length ? this.suggestedItems : this.popularItems
     }
   },
 
@@ -149,7 +181,7 @@ export default {
     dictionary,
 
     blur () {
-      if (this.term && this.term.length < 3) {
+      if (!this.term || this.term.length < 3) {
         // unset suggestions
         this.suggestedItems = this.suggestedTerms = []
       }
@@ -179,6 +211,39 @@ export default {
       // https://github.com/ecomclub/ecomplus-sdk-js#search-products
       // apply from = 0 and size = maxItems
       EcomIo.searchProducts(callback, term, 0, this.maxItems)
+    },
+
+    truncateString (str, ln) {
+      return str.length <= ln ? str : str.substring(0, ln) + '...'
+    },
+
+    name (item) {
+      // get translated item name
+      // https://developers.e-com.plus/storefront-renderer/methods_def_name.js.html
+      return Ecom.methods.name(item, this.lang)
+    },
+
+    formatMoney (price) {
+      // price price number to money format string
+      // https://developers.e-com.plus/storefront-renderer/methods_def_formatMoney.js.html
+      return Ecom.methods.formatMoney(
+        price,
+        this.decimalDelimiter,
+        this.thousandsDelimiter,
+        this.currencyNumFixed
+      )
+    },
+
+    price (item) {
+      // get item current price
+      // https://developers.e-com.plus/storefront-renderer/methods_def_price.js.html
+      return Ecom.methods.price(item)
+    },
+
+    onPromotion (item) {
+      // check if item has promotional price
+      // https://developers.e-com.plus/storefront-renderer/methods_def_onPromotion.js.html
+      return Ecom.methods.onPromotion(item)
     }
   },
 

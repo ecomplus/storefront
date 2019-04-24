@@ -56,9 +56,41 @@
       top: 0;
       left: 0;
       z-index: 9998;
+    }
 
-      &:empty {
-        display: none;
+    &-container:empty {
+      display: none;
+    }
+  }
+
+  &__item {
+    &-name {
+      font-size: 85%;
+      display: block;
+      overflow: hidden;
+    }
+
+    &-price {
+      display: inline-block;
+
+      &--compare {
+        font-size: 85%;
+        margin-right: .5rem;
+        text-decoration: line-through;
+        opacity: .8;
+      }
+    }
+
+    @media (max-width: 575px) {
+      text-align: right;
+
+      &-link {
+        display: flex;
+        align-items: center;
+      }
+
+      &-picture {
+        flex: 0 0 30%;
       }
     }
   }
