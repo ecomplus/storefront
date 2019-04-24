@@ -1,10 +1,20 @@
 {
-  "name": "widget-search",
+  "name": "@ecomplus/widget-search",
   "version": "0.1.0",
-  "private": true,
+  "main": "dist/EcomSearch.common.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomclub/widget-search.git"
+  },
+  "author": "E-Com Club",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomclub/widget-search/issues"
+  },
+  "homepage": "https://github.com/ecomclub/widget-search#readme",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build --target lib --name EcomSearch src/EcomSearch.vue"
   },
   "dependencies": {
     "core-js": "^2.6.5",
