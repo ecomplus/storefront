@@ -45,11 +45,6 @@ export default {
     presetedItems: {
       type: Array
     },
-    // try to fix search term when result is empty
-    autoFix: {
-      type: Boolean,
-      default: true
-    },
     // options for money formatting
     decimalDelimiter: {
       type: String,
@@ -146,20 +141,8 @@ export default {
                 })
 
                 if (fixedTerm !== val) {
-                  if (!vm.suggestedItems.length &&
-                    vm.autoFix &&
-                    // check if val is not included on fixed term (don't force autocompletion)
-                    fixedTerm.indexOf(val) === -1 &&
-                    // check if there is only one word and suggestion is high scored
-                    words.length === 1 &&
-                    words[0].options[0].score >= 0.75) {
-                    // no search results
-                    // searched terms with grammar errors ?
-                    vm.inputValue = fixedTerm
-                  } else {
-                    // suggest fixed term
-                    vm.suggestedTerms.push(fixedTerm)
-                  }
+                  // suggest fixed term
+                  vm.suggestedTerms.push(fixedTerm)
                 }
               }
             }

@@ -34,8 +34,8 @@
         <div class="ecom-search__suggestions-box shadow rounded-bottom bg-white">
           <div class="ecom-search__suggestions-container container py-4">
             <p class="ecom-search__info lead">
-              <span class="ecom-search__info-icon mr-3 st-text-secondary-lighter">
-                <i class="fas fa-info"></i>
+              <span class="ecom-search__info-icon mr-2 st-text-secondary-lighter">
+                <i class="fab fa-searchengin"></i>
               </span>
               <template v-if="searching">
                 <slot name="spinner">
