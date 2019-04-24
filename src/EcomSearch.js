@@ -45,10 +45,11 @@ export default {
     presetedItems: {
       type: Array
     },
-    // try to fix search term when result is empty
-    autoFix: {
-      type: Boolean,
-      default: false
+    // min score (match) to fix search term automatically
+    // zero to disable auto fix
+    autoFixScore: {
+      type: Number,
+      default: 0.83
     },
     // options for money formatting
     decimalDelimiter: {
@@ -137,29 +138,26 @@ export default {
               if (suggest) {
                 // handle terms fix
                 // 'did you mean?'
-                let fixedTerm = val
+                let suggestTerm = val
+                let autoFixTerm = val
                 const { words } = suggest
                 words.forEach(({ options, text }) => {
                   if (options.length) {
-                    fixedTerm = fixedTerm.replace(text, options[0].text)
+                    let opt = options[0]
+                    // check score if auto fix enabled
+                    if (vm.autoFixScore > 0 && opt.score >= vm.autoFixScore) {
+                      autoFixTerm = autoFixTerm.replace(text, opt.text)
+                    }
+                    suggestTerm = suggestTerm.replace(text, opt.text)
                   }
                 })
 
-                if (fixedTerm !== val) {
-                  if (!vm.suggestedItems.length &&
-                    vm.autoFix &&
-                    // check if val is not included on fixed term (don't force autocompletion)
-                    fixedTerm.indexOf(val) === -1 &&
-                    // check if there is only one word and suggestion is high scored
-                    words.length === 1 &&
-                    words[0].options[0].score >= 0.75) {
-                    // no search results
-                    // searched terms with grammar errors ?
-                    vm.inputValue = fixedTerm
-                  } else {
-                    // suggest fixed term
-                    vm.suggestedTerms.push(fixedTerm)
-                  }
+                if (autoFixTerm !== val) {
+                  // update input value to handle search with fixed term
+                  vm.inputValue = autoFixTerm
+                } else if (suggestTerm !== val) {
+                  // suggest fixed term
+                  vm.suggestedTerms.push(suggestTerm)
                 }
               }
             }
