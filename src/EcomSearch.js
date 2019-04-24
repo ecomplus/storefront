@@ -199,11 +199,6 @@ export default {
 
     submit () {
       this.toggleSuggestions()
-      if (!this.suggestedItems.length && this.suggestedTerms.length && this.autoFix) {
-        // no search results
-        // fix searched term to suggested
-        this.term = this.suggestedTerms[0]
-      }
       this.$emit('submit', this.term)
     },
 
