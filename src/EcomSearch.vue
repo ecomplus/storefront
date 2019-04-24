@@ -33,23 +33,47 @@
 
         <div class="ecom-search__suggestions-box shadow rounded-bottom bg-white">
           <div class="ecom-search__suggestions-container container py-4">
-            <p v-if="listTerms.length" class="lead">
-              <span class="text-muted">
-                {{ dictionary(suggestedTerms.length ? 'did_you_mean' : 'popular_terms') }}
+            <p class="ecom-search__info lead">
+              <span class="ecom-search__info-icon mr-3 st-text-secondary-lighter">
+                <i class="fas fa-info"></i>
               </span>
-              <a
-                class="ecom-search__suggested-term mx-2"
-                v-for="term in listTerms"
-                href="javascript:;"
-                @click="inputValue = term"
-                v-text="term" />
-              <span class="text-muted">?</span>
+              <template v-if="searching">
+                <slot name="spinner">
+                  <span
+                    class="position-absolute spinner-grow text-muted"
+                    role="status">
+                    <span class="sr-only">Loading...</span>
+                  </span>
+                </slot>
+              </template>
+
+              <template v-else>
+                <template v-if="listTerms.length">
+                  <span class="text-muted">
+                    {{ dictionary(suggestedTerms.length ? 'did_you_mean' : 'popular_terms') }}
+                  </span>
+                  <a
+                    class="ecom-search__suggested-term mx-2"
+                    v-for="term in listTerms"
+                    href="javascript:;"
+                    @click="inputValue = term"
+                    v-text="term" />
+                  <span class="text-muted mr-3">?</span>
+                </template>
+                <small class="d-inline-block"
+                  v-if="term && term === searchedTerm && !suggestedItems.length">
+                  {{ dictionary('no_results_for') }}
+                  <em class="text-secondary">{{ term }}</em>
+                </small>
+              </template>
             </p>
 
             <div v-if="listItems.length" class="ecom-search__items">
               <p class="text-muted">
-                {{ dictionary(suggestedItems.length ? 'suggested_products' : 'popular_products') }}
+                {{ dictionary(suggestedItems.length ?
+                  'suggested_products' : 'popular_products') }}
               </p>
+
               <div class="row">
                 <template v-for="(item, i) in listItems">
                   <slot name="item" v-bind:item="item">

@@ -75,6 +75,9 @@ export default {
   data () {
     return {
       term: this.value,
+      searching: 0,
+      searchedTerm: null,
+      totalSearchResults: 0,
       showSuggestions: false,
       // best matched search results
       suggestedItems: [],
@@ -115,6 +118,8 @@ export default {
         this.term = val
         // handle v-model
         this.$emit('input', val)
+        // unset suggested terms
+        this.suggestedTerms = []
 
         if (val && val.length > 2) {
           let vm = this
@@ -124,6 +129,7 @@ export default {
               console.error(err)
             } else if (val === vm.term) {
               // term checked
+              vm.searchedTerm = val
               const { hits, suggest } = body
               // update suggested items
               vm.suggestedItems = mapItems(hits)
@@ -132,7 +138,6 @@ export default {
                 // handle terms fix
                 // 'did you mean?'
                 let fixedTerm = val
-                vm.suggestedTerms = []
                 const { words } = suggest
                 words.forEach(({ options, text }) => {
                   if (options.length) {
@@ -208,7 +213,12 @@ export default {
       vm.showSuggestions = typeof state === 'boolean' ? state : !vm.showSuggestions
     },
 
-    searchProducts (callback, term) {
+    searchProducts (cb, term) {
+      this.searching++
+      let callback = (err, body) => {
+        this.searching--
+        cb(err, body)
+      }
       // https://github.com/ecomclub/ecomplus-sdk-js#search-products
       // apply from = 0 and size = maxItems
       EcomIo.searchProducts(callback, term, 0, this.maxItems)
@@ -225,7 +235,7 @@ export default {
     },
 
     formatMoney (price) {
-      // price price number to money format string
+      // price number to money format string
       // https://developers.e-com.plus/storefront-renderer/methods_def_formatMoney.js.html
       return Ecom.methods.formatMoney(
         price,

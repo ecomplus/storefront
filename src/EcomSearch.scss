@@ -63,6 +63,12 @@
     }
   }
 
+  &__info {
+    &-icon:only-child {
+      display: none;
+    }
+  }
+
   &__item {
     &-name {
       font-size: 85%;

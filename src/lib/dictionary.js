@@ -20,6 +20,10 @@ const dictionary = {
   popular_products: {
     en_us: 'Popular products',
     pt_br: 'Produtos populares'
+  },
+  no_results_for: {
+    en_us: 'No products found for',
+    pt_br: 'Nenhum produto encontrado para'
   }
 }
 
