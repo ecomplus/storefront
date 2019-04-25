@@ -1,10 +1,21 @@
 {
-  "name": "widget-user",
+  "name": "@ecomplus/widget-user",
+  "description": "Vue component for user identification on E-Com Plus stores",
   "version": "0.1.0",
-  "private": true,
+  "main": "dist/EcomUser.common.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomclub/widget-user.git"
+  },
+  "author": "E-Com Club",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomclub/widget-user/issues"
+  },
+  "homepage": "https://github.com/ecomclub/widget-user#readme",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build --target lib --name EcomUser src/EcomUser.vue"
   },
   "dependencies": {
     "core-js": "^2.6.5",
