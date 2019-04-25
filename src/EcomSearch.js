@@ -1,6 +1,7 @@
 'use strict'
 
 import dictionary from './lib/dictionary'
+import storage from './lib/storage'
 
 // E-Com Plus public APIs SDK
 /* global EcomIo */
@@ -110,6 +111,10 @@ export default {
   },
 
   computed: {
+    history () {
+      return storage.get()
+    },
+
     inputValue: {
       get () {
         return this.term
@@ -135,6 +140,10 @@ export default {
               // update suggested items
               vm.suggestedItems = mapItems(hits)
               vm.totalSearchResults = hits.total
+              if (hits.total) {
+                // add to history
+                storage.add(val)
+              }
 
               if (suggest) {
                 // handle terms fix

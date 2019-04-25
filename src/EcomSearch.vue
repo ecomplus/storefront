@@ -33,6 +33,20 @@
 
         <div class="ecom-search__suggestions-box shadow rounded-bottom bg-white">
           <div class="ecom-search__suggestions-container container py-4">
+            <p
+              class="ecom-search__history lead"
+              v-if="(!term || term === '') && history.length">
+              <span class="ecom-search__history-icon mr-3 st-text-secondary-lighter">
+                <i class="fas fa-history"></i>
+              </span>
+              <a
+                class="ecom-search__term-link mr-3"
+                v-for="term in history.slice(0, 5)"
+                href="javascript:;"
+                @click="inputValue = term"
+                v-text="term" />
+            </p>
+
             <p class="ecom-search__info lead">
               <span class="ecom-search__info-icon mr-3 st-text-secondary-lighter">
                 <i class="fab fa-searchengin"></i>
@@ -68,7 +82,7 @@
                     {{ dictionary(suggestedTerms.length ? 'did_you_mean' : 'popular_terms') }}
                   </span>
                   <a
-                    class="ecom-search__suggested-term mx-2"
+                    class="ecom-search__term-link mx-2"
                     v-for="term in listTerms"
                     href="javascript:;"
                     @click="inputValue = term"
