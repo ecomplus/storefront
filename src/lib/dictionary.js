@@ -1,6 +1,18 @@
 'use strict'
 
 const dictionary = {
+  my_account: {
+    en_us: 'My account',
+    pt_br: 'Minha conta'
+  },
+  hello: {
+    en_us: 'Hello',
+    pt_br: 'Olá'
+  },
+  logout: {
+    en_us: 'Logout',
+    pt_br: 'Sair'
+  }
 }
 
 export default function (word, lang) {
