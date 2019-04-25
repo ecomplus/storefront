@@ -104,10 +104,18 @@
       &-link {
         display: flex;
         align-items: center;
+        flex-wrap: nowrap;
+        overflow: hidden;
       }
 
       &-picture {
         flex: 0 0 30%;
+        width: 30%;
+      }
+
+      &-name {
+        flex: 0 0 70%;
+        width: 70%;
       }
     }
   }
