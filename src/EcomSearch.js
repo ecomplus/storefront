@@ -124,7 +124,6 @@ export default {
         this.term = val
         // handle v-model
         this.$emit('input', val)
-        // unset suggested terms
         this.suggestedTerms = []
 
         if (val && val.length > 2) {
@@ -179,6 +178,8 @@ export default {
           // search products by name and keywords
           // https://github.com/ecomclub/ecomplus-sdk-js#term
           this.searchProducts(callback, val)
+        } else if (val === '') {
+          this.suggestedItems = []
         }
       }
     },
