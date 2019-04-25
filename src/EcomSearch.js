@@ -134,6 +134,7 @@ export default {
               const { hits, suggest } = body
               // update suggested items
               vm.suggestedItems = mapItems(hits)
+              vm.totalSearchResults = hits.total
 
               if (suggest) {
                 // handle terms fix
@@ -145,7 +146,10 @@ export default {
                   if (options.length) {
                     let opt = options[0]
                     // check score if auto fix enabled
-                    if (vm.autoFixScore > 0 && opt.score >= vm.autoFixScore) {
+                    if (vm.autoFixScore > 0 &&
+                      opt.score >= vm.autoFixScore &&
+                      // prevent autocomplete
+                      opt.text.indexOf(text) === -1) {
                       autoFixTerm = autoFixTerm.replace(text, opt.text)
                     }
                     suggestTerm = suggestTerm.replace(text, opt.text)
