@@ -69,6 +69,17 @@
     }
   }
 
+  &__info,
+  &__history {
+    @media (max-width: 575px) {
+      font-size: 85%;
+    }
+  }
+
+  &__term-link {
+    display: inline-block;
+  }
+
   &__item {
     &-name {
       font-size: 85%;

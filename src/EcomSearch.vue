@@ -67,15 +67,16 @@
 
               <template v-else-if="suggestedItems.length">
                 <span
-                  class="ecom-search__count-results text-muted d-inline-block"
+                  key="results"
+                  class="ecom-search__count-results text-muted"
                   v-if="suggestedItems.length">
                   <strong>{{ totalSearchResults }}</strong>
                   {{ dictionary('total_results_for') }}
-                  <em class="text-secondary" v-text="searchedTerm" />
+                  <em class="text-secondary mr-3" v-text="searchedTerm" />
                   <a
                     href="javascript:;"
                     @click="submit"
-                    class="ml-3"
+                    class="d-inline-block"
                     v-if="totalSearchResults > maxItems"
                     v-text="dictionary('see_all')" />
                 </span>
@@ -95,11 +96,13 @@
                   <span class="text-muted mr-3">?</span>
                 </template>
 
-                <small class="d-inline-block"
+                <span
+                  key="empty"
+                  class="d-inline-block"
                   v-if="term && term === searchedTerm">
                   {{ dictionary('no_results_for') }}
                   <em class="text-secondary" v-text="term"/>
-                </small>
+                </span>
               </template>
             </p>
 

@@ -13,14 +13,6 @@ const dictionary = {
     en_us: 'Popular terms',
     pt_br: 'Buscas populares'
   },
-  suggested_products: {
-    en_us: 'Suggested products',
-    pt_br: 'Produtos sugeridos'
-  },
-  popular_products: {
-    en_us: 'Popular products',
-    pt_br: 'Produtos populares'
-  },
   no_results_for: {
     en_us: 'No products found for',
     pt_br: 'Nenhum produto encontrado para'
