@@ -1,6 +1,7 @@
 {
   "name": "@ecomplus/widget-search",
-  "version": "0.2.1",
+  "description": "Vue component for items search input with autocomplete on E-Com Plus stores",
+  "version": "0.2.2",
   "main": "dist/EcomSearch.common.js",
   "repository": {
     "type": "git",
