@@ -21,17 +21,19 @@
         class="ecom-user__menu dropdown-menu"
         :class="{ 'show': showMenu, 'dropdown-menu-right': menuRightAlignment }">
         <h6 class="dropdown-header">
-          {{ dictionary('my_account') }}
-        </h6>
-        <span class="dropdown-item-text">
           {{ greetings }}
-        </span>
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
+        </h6>
+        <a class="dropdown-item" :href="ordersUrl">
+          {{ dictionary('my_orders') }}
+        </a>
+        <a class="dropdown-item" :href="accountUrl">
+          {{ dictionary('my_account') }}
+        </a>
         <a
           class="ecom-user__logout dropdown-item text-danger"
           href="javascript:;"
           @click="logout">
+          <i class="fas fa-sign-out-alt"></i>
           {{ dictionary('logout') }}
         </a>
       </div>

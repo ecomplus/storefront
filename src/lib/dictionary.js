@@ -5,6 +5,10 @@ const dictionary = {
     en_us: 'My account',
     pt_br: 'Minha conta'
   },
+  my_orders: {
+    en_us: 'My orders',
+    pt_br: 'Meus pedidos'
+  },
   hello: {
     en_us: 'Hello',
     pt_br: 'Olá'

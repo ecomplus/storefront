@@ -30,6 +30,15 @@ export default {
     },
     getGreetingsMsg: {
       type: Function
+    },
+    // storefront app absolute links
+    accountUrl: {
+      type: String,
+      default: '/app/#/account/'
+    },
+    ordersUrl: {
+      type: String,
+      default: '/app/#/account/orders'
     }
   },
 
