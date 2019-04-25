@@ -47,42 +47,40 @@
                 </slot>
               </template>
 
+              <template v-else-if="suggestedItems.length">
+                <span
+                  class="ecom-search__count-results text-muted d-inline-block"
+                  v-if="suggestedItems.length">
+                  {{ dictionary('total_results') }}:
+                  <strong>{{ totalSearchResults }}</strong>
+                  <a
+                    href="javascript:;"
+                    @click="submit"
+                    class="ml-3"
+                    v-if="totalSearchResults > maxItems"
+                    v-text="dictionary('see_all')" />
+                </span>
+              </template>
+
               <template v-else>
-                <template v-if="suggestedItems.length">
-                  <span
-                    class="ecom-search__count-results text-muted d-inline-block"
-                    v-if="suggestedItems.length">
-                    {{ dictionary('total_results') }}:
-                    <strong>{{ totalSearchResults }}</strong>
-                    <a
-                      href="javascript:;"
-                      @click="submit"
-                      class="ml-3"
-                      v-if="totalSearchResults > maxItems"
-                      v-text="dictionary('see_all')" />
+                <template v-if="listTerms.length">
+                  <span class="text-muted">
+                    {{ dictionary(suggestedTerms.length ? 'did_you_mean' : 'popular_terms') }}
                   </span>
+                  <a
+                    class="ecom-search__suggested-term mx-2"
+                    v-for="term in listTerms"
+                    href="javascript:;"
+                    @click="inputValue = term"
+                    v-text="term" />
+                  <span class="text-muted mr-3">?</span>
                 </template>
 
-                <template v-else>
-                  <template v-if="listTerms.length">
-                    <span class="text-muted">
-                      {{ dictionary(suggestedTerms.length ? 'did_you_mean' : 'popular_terms') }}
-                    </span>
-                    <a
-                      class="ecom-search__suggested-term mx-2"
-                      v-for="term in listTerms"
-                      href="javascript:;"
-                      @click="inputValue = term"
-                      v-text="term" />
-                    <span class="text-muted mr-3">?</span>
-                  </template>
-
-                  <small class="d-inline-block"
-                    v-if="term && term === searchedTerm">
-                    {{ dictionary('no_results_for') }}
-                    <em class="text-secondary">{{ term }}</em>
-                  </small>
-                </template>
+                <small class="d-inline-block"
+                  v-if="term && term === searchedTerm">
+                  {{ dictionary('no_results_for') }}
+                  <em class="text-secondary">{{ term }}</em>
+                </small>
               </template>
             </p>
 
