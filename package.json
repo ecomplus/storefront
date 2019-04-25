@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-search",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/EcomSearch.common.js",
   "repository": {
     "type": "git",
