@@ -102,7 +102,7 @@ npm run build
             └── index.ejs
 ```
 
-### `@/content`
+#### `/content`
 
 Root directory for Netlify CMS (or any other headless CMS)
 [collections](https://www.netlifycms.org/docs/add-to-your-site/#collections)
@@ -114,30 +114,30 @@ some content for examples or defaults.
 is required** and must have at least the
 properties preseted as default.
 
-### `@/template`
+#### `/template`
 
 Source template files.
 All JS, SCSS, images and other assets files should be placed here.
 
-### `@/template/assets`
+#### `/template/assets`
 
 Predefined template assets (such as images, videos, sounds...)
 that should be imported inside `js` or `scss` files.
 
-### `@/template/js`
+#### `/template/js`
 
 JS source files,
 **[`index.js`](https://github.com/ecomclub/storefront-framework/blob/master/template/js/index.js)
 is required**,
 other files and modules should be imported from index.
 
-### `@/template/public`
+#### `/template/public`
 
 Any static assets placed in the `public`
 folder will simply be copied and not go through Webpack.
 You need to reference them using absolute paths.
 
-### `@/template/public/admin`
+#### `/template/public/admin`
 
 Setup for [Netlify CMS](https://www.netlifycms.org/),
 is optional if you're not planning to use the the referred CMS.
@@ -148,6 +148,31 @@ should be
 following your template options and features.
 The settings collection (file `content/settings.json`)
 must have at least the preseted fields.
+
+#### `/template/public/img`
+
+Place default favicon and app icons here.
+
+#### `/template/public/img/uploads`
+
+Netlify CMS
+[media](https://www.netlifycms.org/docs/add-to-your-site/#media-and-public-folders)
+on `uploads` folder, where the merchant may
+upload custom logo, banners, icons and other assets from
+CMS dashboard.
+
+#### `/template/public/scss`
+
+[SCSS](https://sass-lang.com/)
+to compile CSS stylesheet,
+**[`styles.scss`](https://github.com/ecomclub/storefront-framework/blob/master/template/scss/styles.scss)
+is required**, other files and modules
+should be imported inside it.
+
+#### `/template/public/scss/storefront-twbs/theme`
+
+[Custom storefront Bootstrap theme](https://github.com/ecomclub/storefront-twbs#creating-custom-theme),
+**`_components.scss` and `_variables.scss` are required**.
 
 ## Deploy with Netlify
 
