@@ -138,6 +138,8 @@ module.exports = () => {
         } else {
           files.forEach(template => {
             let addView = slug => {
+              // add slug to template params
+              templateOptions.templateParameters.slug = slug
               // add a view to compile
               plugins.push(new HtmlWebpackPlugin({
                 filename: slug + '.html',
