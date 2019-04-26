@@ -1,6 +1,8 @@
-# storefront-boilerplate
+# storefront-framework
 
-Boilerplate for JAMstack storefront PWA templates with E-Com Plus APIs
+[Webpack](https://webpack.js.org/) based
+framework to develop and build PWA and JAMstack e-commerce templates with
+[E-Com Plus APIs](https://developers.e-com.plus/docs/reference/)
 
 ## Netlify
 
