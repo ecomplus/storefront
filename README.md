@@ -23,6 +23,40 @@ npm i --save-dev @ecomplus/storefront-framework
 > Note: while you can install and run `storefront-pack` globally,
 we recommend installing it locally.
 
+### Commands
+
+- `storefront-pack serve`:
+Starts Webpack development server on port _9123_ (http://localhost:9123);
+- `storefront-pack build`:
+Compile assets bundles for production and prerender e-commerce pages;
+
+### NPM scripts
+
+NPM `package.json` scripts are a convenient and useful means to run
+locally installed binaries without having to be concerned
+about their full paths. Simply define a script as such:
+
+```json
+{
+  "scripts": {
+    "serve": "storefront-pack serve",
+    "build": "storefront-pack build"
+  }
+}
+```
+
+And run the following in your terminal/console:
+
+```bash
+npm run serve
+```
+
+Building for production:
+
+```bash
+npm run build
+```
+
 ## Deploy with Netlify
 
 ### Sample
