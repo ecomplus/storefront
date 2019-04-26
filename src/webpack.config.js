@@ -57,12 +57,12 @@ module.exports = () => {
               ? path.resolve(pub, 'img', 'uploads', settings.icon)
               : path.resolve(pub, 'img', 'icon.png'),
             // multiple sizes
-            sizes: [ 96, 128, 192, 256, 384, 512 ]
+            sizes: [ 96, 128, 192 ]
           }, {
             src: settings.large_icon
               ? path.resolve(pub, 'img', 'uploads', settings.large_icon)
               : path.resolve(pub, 'img', 'large-icon.png'),
-            size: '1024x1024'
+            sizes: [ 384, 512 ]
           }]
         }),
 
