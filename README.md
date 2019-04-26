@@ -57,6 +57,64 @@ Building for production:
 npm run build
 ```
 
+## Project structure
+
+```
+├── content
+│   └── settings.json
+└── template
+    ├── assets
+    ├── js
+    │   └── index.js
+    ├── public
+    │   ├── admin
+    │   │   ├── config.yml
+    │   │   └── index.html
+    │   └── img
+    │       ├── uploads
+    │       │   ├── favicon.png
+    │       │   ├── icon.png
+    │       │   ├── large-icon.png
+    │       │   ├── logo.png
+    │       │   └── og-image.png
+    │       ├── icon.png
+    │       └── large-icon.png
+    ├── scss
+    │   ├── storefront-twbs
+    │   │   └── theme
+    │   │       ├── assets
+    │   │       ├── _components.scss
+    │   │       └── _variables.scss
+    │   └── styles.scss
+    └── views
+        ├── includes
+        │   ├── head.ejs
+        │   └── html.ejs
+        └── pages
+            ├── _cms
+            │   ├── blog-posts.ejs
+            │   └── extra-pages.ejs
+            ├── _brands.ejs
+            ├── _categories.ejs
+            ├── _collections.ejs
+            ├── _products.ejs
+            ├── blog.ejs
+            └── index.ejs
+```
+
+### `@/content`
+
+Root directory for Netlify CMS (or any other headless CMS)
+[collections](https://www.netlifycms.org/docs/add-to-your-site/#collections)
+JSON content.
+
+You may create and/or edit content here to preset
+some content for examples or defaults.
+
+[`settings.json`](https://github.com/ecomclub/storefront-framework/blob/master/content/settings.json)
+is **required** and must have at least the
+properties preseted as default.
+
 ## Deploy with Netlify
 
 ### Sample
