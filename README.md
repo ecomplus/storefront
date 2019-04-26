@@ -99,7 +99,7 @@ And you can use it on EJS view as:
 ```
 
 Besides the CMS content, `slug` (the current page slug) and
-[`include`](https://github.com/ecomclub/storefront-framework#templateviewsincludes) (function)
+[`include`](#templateviewsincludes) (function)
 are properties of template data.
 
 ## Deploy with Netlify
