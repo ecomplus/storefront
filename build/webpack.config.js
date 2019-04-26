@@ -217,7 +217,6 @@ module.exports = () => {
                 devServer: {
                   compress: true,
                   port: 9123,
-                  // get storefront-twbs theme from output dir
                   contentBase: output,
                   // history API with rewrites for resources slugs
                   historyApiFallback: { rewrites }
