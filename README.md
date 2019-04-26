@@ -107,13 +107,47 @@ npm run build
 Root directory for Netlify CMS (or any other headless CMS)
 [collections](https://www.netlifycms.org/docs/add-to-your-site/#collections)
 JSON content.
-
 You may create and/or edit content here to preset
 some content for examples or defaults.
 
-[`settings.json`](https://github.com/ecomclub/storefront-framework/blob/master/content/settings.json)
-is **required** and must have at least the
+**[`settings.json`](https://github.com/ecomclub/storefront-framework/blob/master/content/settings.json)
+is required** and must have at least the
 properties preseted as default.
+
+### `@/template`
+
+Source template files.
+All JS, SCSS, images and other assets files should be placed here.
+
+### `@/template/assets`
+
+Predefined template assets (such as images, videos, sounds...)
+that should be imported inside `js` or `scss` files.
+
+### `@/template/js`
+
+JS source files,
+**[`index.js`](https://github.com/ecomclub/storefront-framework/blob/master/template/js/index.js)
+is required**,
+other files and modules should be imported from index.
+
+### `@/template/public`
+
+Any static assets placed in the `public`
+folder will simply be copied and not go through Webpack.
+You need to reference them using absolute paths.
+
+### `@/template/public/admin`
+
+Setup for [Netlify CMS](https://www.netlifycms.org/),
+is optional if you're not planning to use the the referred CMS.
+
+[`config.yml`](https://github.com/ecomclub/storefront-framework/blob/master/template/public/admin/config.yml)
+should be
+[configured](https://www.netlifycms.org/docs/add-to-your-site/#configuration)
+following your template options and features.
+The settings collection (file `content/settings.json`)
+must have at least the preseted fields.
 
 ## Deploy with Netlify
 
