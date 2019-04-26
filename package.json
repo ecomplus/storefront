@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-boilerplate",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Boilerplate for JAMstack storefront PWA templates with E-Com Plus APIs",
   "main": "src/index.js",
   "private": true,
