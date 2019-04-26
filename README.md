@@ -59,47 +59,23 @@ npm run build
 
 ## Project structure
 
+### Basic directory tree
+
 ```
 ├── content
-│   └── settings.json
 └── template
     ├── assets
     ├── js
-    │   └── index.js
     ├── public
     │   ├── admin
-    │   │   ├── config.yml
-    │   │   └── index.html
     │   └── img
-    │       ├── uploads
-    │       │   ├── favicon.png
-    │       │   ├── icon.png
-    │       │   ├── large-icon.png
-    │       │   ├── logo.png
-    │       │   └── og-image.png
-    │       ├── icon.png
-    │       └── large-icon.png
+    │       └── uploads
     ├── scss
-    │   ├── storefront-twbs
-    │   │   └── theme
-    │   │       ├── assets
-    │   │       ├── _components.scss
-    │   │       └── _variables.scss
-    │   └── styles.scss
+    │   └── storefront-twbs
+    │       └── theme
     └── views
         ├── includes
-        │   ├── head.ejs
-        │   └── html.ejs
         └── pages
-            ├── _cms
-            │   ├── blog-posts.ejs
-            │   └── extra-pages.ejs
-            ├── _brands.ejs
-            ├── _categories.ejs
-            ├── _collections.ejs
-            ├── _products.ejs
-            ├── blog.ejs
-            └── index.ejs
 ```
 
 #### `/content`
@@ -127,8 +103,8 @@ that should be imported inside `js` or `scss` files.
 #### `/template/js`
 
 JS source files,
-**[`index.js`](https://github.com/ecomclub/storefront-framework/blob/master/template/js/index.js)
-is required**,
+[`index.js`](https://github.com/ecomclub/storefront-framework/blob/master/template/js/index.js)
+is required,
 other files and modules should be imported from index.
 
 #### `/template/public`
@@ -161,18 +137,53 @@ on `uploads` folder, where the merchant may
 upload custom logo, banners, icons and other assets from
 CMS dashboard.
 
-#### `/template/public/scss`
+#### `/template/scss`
 
 [SCSS](https://sass-lang.com/)
 to compile CSS stylesheet,
-**[`styles.scss`](https://github.com/ecomclub/storefront-framework/blob/master/template/scss/styles.scss)
-is required**, other files and modules
+[`styles.scss`](https://github.com/ecomclub/storefront-framework/blob/master/template/scss/styles.scss)
+is required, other files and modules
 should be imported inside it.
 
-#### `/template/public/scss/storefront-twbs/theme`
+#### `/template/scss/storefront-twbs/theme`
 
 [Custom storefront Bootstrap theme](https://github.com/ecomclub/storefront-twbs#creating-custom-theme),
-**`_components.scss` and `_variables.scss` are required**.
+`_components.scss` and `_variables.scss` are required.
+
+#### `/template/views`
+
+[EJS](https://ejs.co/) markup to compile HTML files.
+
+#### `/template/views/includes`
+
+EJS partials to be included on pages, receiving all parsed
+CMS content and optionally additional arguments.
+Import the partial by filename, eg.:
+
+```ejs
+<%= include('head', { title: 'Hello World' }) %>
+```
+
+#### `/template/views/pages`
+
+EJS views to compile HTML pages, predefined files:
+
+```
+├── index.ejs
+├── _brands.ejs
+├── _categories.ejs
+├── _collections.ejs
+└── _products.ejs
+```
+
+The above files are required,
+with the specified names. They have to be in the
+root of `pages` directory.
+
+To complete the storefront template,
+you should also create other EJS views.
+It's possible to use as many pages as you want,
+and you can choose any filenames.
 
 ## Deploy with Netlify
 
