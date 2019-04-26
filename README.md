@@ -57,7 +57,83 @@ Building for production:
 npm run build
 ```
 
+## Pages CMS
+
+You should use a CMS for the store pages,
+we recommend [Netlify CMS](https://www.netlifycms.org/) and provide
+an starter
+[`config.yml`](https://github.com/ecomclub/storefront-framework/blob/master/template/public/admin/config.yml)
+file.
+
+All **content must be JSON**, saved on `content` folder.
+
+## Template parameters
+
+CMS content will be parsed to object and used as
+template data object when compiling [EJS](https://ejs.co/) files:
+
+- `content/settings.json` will be parsed to:
+```json
+{
+  "settings": {
+    "name": "My Shop",
+    "example": "any"
+  }
+}
+```
+
+- `content/pages/home.json` will be parsed to:
+```json
+{
+  "pages": {
+    "home": {
+      "example": "any"
+    }
+  }
+}
+```
+
+And you can use it on EJS view as:
+```ejs
+<%= settings.name %>
+```
+
+Besides the CMS content, `slug` (the current page slug) and
+[`include`](https://github.com/ecomclub/storefront-framework#templateviewsincludes) (function)
+are properties of template data.
+
+## Deploy with Netlify
+
+As a JAMstack app, your template may be easily deployed with Netlify,
+to do that you should add a simple
+[netlify.toml](https://github.com/ecomclub/storefront-framework/blob/master/netlify.toml)
+file and a
+[deploy button](https://www.netlify.com/docs/deploy-button/) with **link to your
+template repository** and
+`stack=cms` param (considering you're using Netlify CMS).
+
+### Sample
+
+```md
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront-framework)
+```
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront-framework)
+
+## Starter template
+
+We also provide
+[this open source template](https://github.com/ecomclub/storefront)
+as a boilerplate, so you don't need to
+start from scratch :wink:
+
+It's a complete e-commerce template with few dependencies,
+you may change what you need to setup your own theme and scripts.
+
 ## Project structure
+
+To work with this framework,
+your template project **must** have the following file structure:
 
 ### Basic directory tree
 
@@ -194,21 +270,3 @@ witch produces multiple slugs.
 For example, for a blog folder collection on folder `content/blog-posts`,
 you should have a view `_cms/blog-posts.ejs`, it will generate an HTML page for each
 post saved by CMS.
-
-## Deploy with Netlify
-
-As a JAMstack app, your template may be easily deployed with Netlify,
-to do that you should add a simple
-[netlify.toml](https://github.com/ecomclub/storefront-framework/blob/master/netlify.toml)
-file and a
-[deploy button](https://www.netlify.com/docs/deploy-button/) with **link to your
-template repository** and
-`stack=cms` param (considering you're using Netlify CMS).
-
-### Sample
-
-```md
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront-framework)
-```
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront-framework)
