@@ -1,5 +1,7 @@
 [EJS](https://ejs.co/) markup to compile HTML files.
 
+## `/includes`
+
 On `includes` folder you should place
 EJS partials to be included on multiple pages,
 receiving all parsed CMS content and
@@ -9,6 +11,8 @@ Import the partial by filename, eg.:
 ```ejs
 <%= include('head', { title: 'Hello World' }) %>
 ```
+
+## `/pages`
 
 On `pages` folder you must place
 EJS views to compile HTML pages.
@@ -31,3 +35,13 @@ To complete the storefront template,
 you should also create other EJS views.
 It's possible to use as many pages as you want,
 and you can choose any filenames.
+
+## `/pages/_cms`
+
+EJS views for
+[folder collections](https://www.netlifycms.org/docs/collection-types/#folder-collections),
+witch produces multiple slugs.
+
+For example, for a blog folder collection on folder `content/blog-posts`,
+you should have a view `_cms/blog-posts.ejs`, it will generate an HTML page for each
+post saved by CMS.

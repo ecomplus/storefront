@@ -86,8 +86,8 @@ JSON content.
 You may create and/or edit content here to preset
 some content for examples or defaults.
 
-**[`settings.json`](https://github.com/ecomclub/storefront-framework/blob/master/content/settings.json)
-is required** and must have at least the
+[`settings.json`](https://github.com/ecomclub/storefront-framework/blob/master/content/settings.json)
+is required and must have at least the
 properties preseted as default.
 
 #### `/template`
@@ -185,8 +185,18 @@ you should also create other EJS views.
 It's possible to use as many pages as you want,
 and you can choose any filenames.
 
+#### `/template/views/pages/_cms`
+
+EJS views for
+[folder collections](https://www.netlifycms.org/docs/collection-types/#folder-collections),
+witch produces multiple slugs.
+
+For example, for a blog folder collection on folder `content/blog-posts`,
+you should have a view `_cms/blog-posts.ejs`, it will generate an HTML page for each
+post saved by CMS.
+
 ## Deploy with Netlify
 
 ### Sample
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront-boilerplate)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront-framework)
