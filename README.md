@@ -197,6 +197,18 @@ post saved by CMS.
 
 ## Deploy with Netlify
 
+As a JAMstack app, your template may be easily deployed with Netlify,
+to do that you should add a simple
+[netlify.toml](https://github.com/ecomclub/storefront-framework/blob/master/netlify.toml)
+file and a
+[deploy button](https://www.netlify.com/docs/deploy-button/) with link to your
+template repository and
+`stack=cms` param (considering you're using Netlify CMS).
+
 ### Sample
+
+```md
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront-framework)
+```
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront-framework)
