@@ -3,14 +3,13 @@
 import dictionary from './lib/dictionary'
 
 // E-Com Plus Passport client to handle user login
-/* global EcomPassport */
-const {
+import {
   init,
   isLogged,
   customerName,
   loginPopup,
   logout
-} = EcomPassport
+} from 'ecomplus-passport-client'
 
 export default {
   name: 'EcomUser',
