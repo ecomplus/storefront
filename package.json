@@ -1,7 +1,7 @@
 {
   "name": "@ecomplus/widget-user",
   "description": "Vue component for user identification on E-Com Plus stores",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "dist/EcomUser.common.js",
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "ecomplus-passport-client": "^0.11.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
