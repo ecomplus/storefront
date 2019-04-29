@@ -1,5 +1,7 @@
 'use strict'
 
+const pkg = require('./../package.json')
+
 // use Node.js path module for compatibility
 const path = require('path')
 const fs = require('fs')
@@ -88,7 +90,8 @@ module.exports = () => {
       const pages = path.resolve(src, 'views', 'pages')
       const templateOptions = {
         templateParameters: data,
-        minify: !devMode
+        minify: !devMode,
+        meta: { 'generator': pkg.name + '@' + pkg.version }
       }
 
       // create a Webpack plugin to handle EJS includes
