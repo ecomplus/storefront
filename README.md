@@ -208,6 +208,12 @@ should be imported inside it.
 [Custom storefront Bootstrap theme](https://github.com/ecomclub/storefront-twbs#creating-custom-theme),
 `_components.scss` and `_variables.scss` are required.
 
+#### `/template/scss/storefront-twbs/theme/assets`
+
+Place here the static files
+that should be imported on storefront-twbs
+`_components.scss` or `_variables.scss` files.
+
 #### `/template/views`
 
 [EJS](https://ejs.co/) markup to compile HTML files.
