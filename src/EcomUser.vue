@@ -3,8 +3,7 @@
     <div class="btn-group">
       <slot
         name="button"
-        :logged="isLogged"
-        :displayName="name"
+        :user="{ logged: isLogged, name }"
         :toggle="toggle">
         <button
           type="button"
