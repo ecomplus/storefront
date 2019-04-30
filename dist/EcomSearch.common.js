@@ -3529,16 +3529,21 @@ if (!is_array_default()(storage_history)) {
   },
   add: function add(term) {
     // check if term is not on history yet
-    if (storage_history.indexOf(term) === -1) {
-      storage_history.unshift(term); // limit array size
+    var index = storage_history.indexOf(term);
 
-      if (storage_history.length > 20) {
-        storage_history.pop();
-      }
+    if (index > -1) {
+      // move term to start of list
+      storage_history.splice(index, 1);
+    }
 
-      if (DB_HISTORY) {
-        localStorage.setItem(DB_HISTORY, storage_history.join('||'));
-      }
+    storage_history.unshift(term); // limit array size
+
+    if (storage_history.length > 20) {
+      storage_history.pop();
+    }
+
+    if (DB_HISTORY) {
+      localStorage.setItem(DB_HISTORY, storage_history.join('||'));
     }
   }
 });
