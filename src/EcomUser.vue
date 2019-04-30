@@ -3,9 +3,9 @@
     <div class="btn-group">
       <slot
         name="button"
-        v-bind:logged="isLogged"
-        v-bind:name="name"
-        v-bind:toggle="toggle">
+        :isLogged="isLogged"
+        :displayName="name"
+        :toggleMenu="toggle">
         <button
           type="button"
           class="ecom-user__button btn btn-lg btn-light dropdown-toggle"
