@@ -3,9 +3,9 @@
     <div class="btn-group">
       <slot
         name="button"
-        :isLogged="isLogged"
+        :logged="isLogged"
         :displayName="name"
-        :toggleMenu="toggle">
+        :toggle="toggle">
         <button
           type="button"
           class="ecom-user__button btn btn-lg btn-light dropdown-toggle"
