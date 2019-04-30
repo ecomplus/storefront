@@ -611,17 +611,6 @@ module.exports = (
 
 /***/ }),
 
-/***/ "1af6":
-/***/ (function(module, exports, __webpack_require__) {
-
-// 22.1.2.2 / 15.4.3.2 Array.isArray(arg)
-var $export = __webpack_require__("63b6");
-
-$export($export.S, 'Array', { isArray: __webpack_require__("9003") });
-
-
-/***/ }),
-
 /***/ "1bc3":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -823,6 +812,14 @@ module.exports = function (it) {
   if (it == undefined) throw TypeError("Can't call method on  " + it);
   return it;
 };
+
+
+/***/ }),
+
+/***/ "2621":
+/***/ (function(module, exports) {
+
+exports.f = Object.getOwnPropertySymbols;
 
 
 /***/ }),
@@ -1434,22 +1431,6 @@ $exports.store = store;
 
 /***/ }),
 
-/***/ "5176":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("51b6");
-
-/***/ }),
-
-/***/ "51b6":
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__("a3c3");
-module.exports = __webpack_require__("584a").Object.assign;
-
-
-/***/ }),
-
 /***/ "520a":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1979,6 +1960,48 @@ module.exports = function (TO_STRING) {
 
 /***/ }),
 
+/***/ "7333":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 19.1.2.1 Object.assign(target, source, ...)
+var getKeys = __webpack_require__("0d58");
+var gOPS = __webpack_require__("2621");
+var pIE = __webpack_require__("52a7");
+var toObject = __webpack_require__("4bf8");
+var IObject = __webpack_require__("626a");
+var $assign = Object.assign;
+
+// should work with symbols and should have deterministic property order (V8 bug)
+module.exports = !$assign || __webpack_require__("79e5")(function () {
+  var A = {};
+  var B = {};
+  // eslint-disable-next-line no-undef
+  var S = Symbol();
+  var K = 'abcdefghijklmnopqrst';
+  A[S] = 7;
+  K.split('').forEach(function (k) { B[k] = k; });
+  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
+}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
+  var T = toObject(target);
+  var aLen = arguments.length;
+  var index = 1;
+  var getSymbols = gOPS.f;
+  var isEnum = pIE.f;
+  while (aLen > index) {
+    var S = IObject(arguments[index++]);
+    var keys = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S);
+    var length = keys.length;
+    var j = 0;
+    var key;
+    while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
+  } return T;
+} : $assign;
+
+
+/***/ }),
+
 /***/ "765d":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2252,48 +2275,6 @@ module.exports = __webpack_require__("35e8");
 
 /***/ }),
 
-/***/ "9306":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// 19.1.2.1 Object.assign(target, source, ...)
-var getKeys = __webpack_require__("c3a1");
-var gOPS = __webpack_require__("9aa9");
-var pIE = __webpack_require__("355d");
-var toObject = __webpack_require__("241e");
-var IObject = __webpack_require__("335c");
-var $assign = Object.assign;
-
-// should work with symbols and should have deterministic property order (V8 bug)
-module.exports = !$assign || __webpack_require__("294c")(function () {
-  var A = {};
-  var B = {};
-  // eslint-disable-next-line no-undef
-  var S = Symbol();
-  var K = 'abcdefghijklmnopqrst';
-  A[S] = 7;
-  K.split('').forEach(function (k) { B[k] = k; });
-  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
-}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
-  var T = toObject(target);
-  var aLen = arguments.length;
-  var index = 1;
-  var getSymbols = gOPS.f;
-  var isEnum = pIE.f;
-  while (aLen > index) {
-    var S = IObject(arguments[index++]);
-    var keys = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S);
-    var length = keys.length;
-    var j = 0;
-    var key;
-    while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
-  } return T;
-} : $assign;
-
-
-/***/ }),
-
 /***/ "9aa9":
 /***/ (function(module, exports) {
 
@@ -2411,17 +2392,6 @@ module.exports = Object.create || function create(O, Properties) {
   } else result = createDict();
   return Properties === undefined ? result : dPs(result, Properties);
 };
-
-
-/***/ }),
-
-/***/ "a3c3":
-/***/ (function(module, exports, __webpack_require__) {
-
-// 19.1.3.1 Object.assign(target, source)
-var $export = __webpack_require__("63b6");
-
-$export($export.S + $export.F, 'Object', { assign: __webpack_require__("9306") });
 
 
 /***/ }),
@@ -2549,13 +2519,6 @@ __webpack_require__("214f")('replace', 2, function (defined, REPLACE, $replace, 
   }
 });
 
-
-/***/ }),
-
-/***/ "a745":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("f410");
 
 /***/ }),
 
@@ -3288,15 +3251,6 @@ var meta = module.exports = {
 
 /***/ }),
 
-/***/ "f410":
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__("1af6");
-module.exports = __webpack_require__("584a").Array.isArray;
-
-
-/***/ }),
-
 /***/ "f6fd":
 /***/ (function(module, exports) {
 
@@ -3336,6 +3290,17 @@ module.exports = __webpack_require__("584a").Array.isArray;
     });
   }
 })(document);
+
+
+/***/ }),
+
+/***/ "f751":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.1 Object.assign(target, source)
+var $export = __webpack_require__("5ca1");
+
+$export($export.S + $export.F, 'Object', { assign: __webpack_require__("7333") });
 
 
 /***/ }),
@@ -3402,7 +3367,7 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6a83156a-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/EcomSearch.vue?vue&type=template&id=77311ca2&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"63dddd11-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/EcomSearch.vue?vue&type=template&id=77311ca2&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"ecom-search",class:{ 'shadow': _vm.showSuggestions }},[_c('div',{staticClass:"ecom-search__input-group",class:{ 'ecom-search__input-group--focus': _vm.showSuggestions }},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.inputValue),expression:"inputValue"}],staticClass:"ecom-search__input form-control form-control-lg",attrs:{"type":"search","placeholder":_vm.label,"aria-label":_vm.label},domProps:{"value":(_vm.inputValue)},on:{"change":_vm.change,"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.submit($event)},"focus":function($event){return _vm.toggleSuggestions(true)},"blur":_vm.blur,"input":function($event){if($event.target.composing){ return; }_vm.inputValue=$event.target.value}}}),_c('div',{staticClass:"ecom-search__submit text-muted st-text-primary-light:hover",on:{"click":_vm.submit}},[_vm._t("submit",[_c('i',{staticClass:"fas fa-search"})])],2)]),_c('transition',{attrs:{"name":"ecom-search-fade"}},[(_vm.showSuggestions)?_c('div',{staticClass:"ecom-search__suggestions"},[(_vm.overlay)?_c('div',{staticClass:"ecom-search__suggestions-overlay bg-dark",on:{"click":function($event){return _vm.toggleSuggestions(false)}}}):_vm._e(),_c('div',{staticClass:"ecom-search__suggestions-box shadow rounded-bottom bg-white"},[_c('div',{staticClass:"ecom-search__suggestions-container container py-4"},[(_vm.history.length &&
               !_vm.searching &&
               !_vm.suggestedItems.length &&
@@ -3424,9 +3389,8 @@ var web_dom_iterable = __webpack_require__("ac6a");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
 var es6_number_constructor = __webpack_require__("c5f6");
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/object/assign.js
-var object_assign = __webpack_require__("5176");
-var assign_default = /*#__PURE__*/__webpack_require__.n(object_assign);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.assign.js
+var es6_object_assign = __webpack_require__("f751");
 
 // CONCATENATED MODULE: ./src/lib/dictionary.js
 
@@ -3465,10 +3429,6 @@ var dictionary = {
 
   return dictionary[word] && dictionary[word][lang] || '';
 });
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js
-var is_array = __webpack_require__("a745");
-var is_array_default = /*#__PURE__*/__webpack_require__.n(is_array);
-
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.split.js
 var es6_regexp_split = __webpack_require__("28a5");
 
@@ -3506,7 +3466,6 @@ function typeof_typeof(obj) {
 
 
 
-
 var DB_HISTORY = (typeof localStorage === "undefined" ? "undefined" : typeof_typeof(localStorage)) === 'object' ? 'ecomSeachHistory' : null;
 var storage_history;
 
@@ -3518,7 +3477,7 @@ if (DB_HISTORY) {
   }
 }
 
-if (!is_array_default()(storage_history)) {
+if (!Array.isArray(storage_history)) {
   // return empty array
   storage_history = [];
 }
@@ -3565,11 +3524,11 @@ if (!is_array_default()(storage_history)) {
 /* global Ecom */
 // map items objects from Elasticsearch hits response
 
-var EcomSearchvue_type_script_lang_js_mapItems = function mapItems(hits) {
+var mapItems = function mapItems(hits) {
   return hits.hits.map(function (_ref) {
     var _id = _ref._id,
         _source = _ref._source;
-    return assign_default()(_source, {
+    return Object.assign(_source, {
       _id: _id
     });
   });
@@ -3662,7 +3621,7 @@ var EcomSearchvue_type_script_lang_js_mapItems = function mapItems(hits) {
         if (err) {
           console.error(err);
         } else {
-          _this.popularItems = EcomSearchvue_type_script_lang_js_mapItems(body.hits);
+          _this.popularItems = mapItems(body.hits);
         }
       });
     }
@@ -3693,7 +3652,7 @@ var EcomSearchvue_type_script_lang_js_mapItems = function mapItems(hits) {
               var hits = body.hits,
                   suggest = body.suggest; // update suggested items
 
-              vm.suggestedItems = EcomSearchvue_type_script_lang_js_mapItems(hits);
+              vm.suggestedItems = mapItems(hits);
               vm.totalSearchResults = hits.total;
 
               if (hits.total) {
