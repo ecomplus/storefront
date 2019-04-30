@@ -109,7 +109,7 @@
             <div v-if="listItems.length" class="ecom-search__items mt-4">
               <div class="row">
                 <template v-for="(item, i) in listItems">
-                  <slot name="item" v-bind:item="item">
+                  <slot name="item" :item="item">
                     <div class="ecom-search__item" :class="itemClasses" :key="item._id">
                       <div class="d-flex flex-column justify-content-between h-100">
                         <a
