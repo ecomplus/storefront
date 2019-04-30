@@ -23,15 +23,18 @@ export default {
 
   add (term) {
     // check if term is not on history yet
-    if (history.indexOf(term) === -1) {
-      history.unshift(term)
-      // limit array size
-      if (history.length > 20) {
-        history.pop()
-      }
-      if (DB_HISTORY) {
-        localStorage.setItem(DB_HISTORY, history.join('||'))
-      }
+    let index = history.indexOf(term)
+    if (index > -1) {
+      // move term to start of list
+      history.splice(index, 1)
+    }
+    history.unshift(term)
+    // limit array size
+    if (history.length > 20) {
+      history.pop()
+    }
+    if (DB_HISTORY) {
+      localStorage.setItem(DB_HISTORY, history.join('||'))
     }
   }
 }
