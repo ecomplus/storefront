@@ -33,7 +33,7 @@
 
         <div class="ecom-search__suggestions-box shadow rounded-bottom bg-white">
           <div class="ecom-search__suggestions-container container py-2 py-sm-3 py-lg-4">
-            <p
+            <div
               key="history"
               class="ecom-search__history lead"
               v-if="history.length &&
@@ -49,9 +49,9 @@
                 href="javascript:;"
                 @click="inputValue = term"
                 v-text="term" />
-            </p>
+            </div>
 
-            <p key="info" class="ecom-search__info lead" v-else>
+            <div key="info" class="ecom-search__info lead" v-else>
               <span class="ecom-search__info-icon mr-3 st-text-secondary-lighter">
                 <i class="fab fa-searchengin"></i>
               </span>
@@ -104,16 +104,17 @@
                   <em class="text-secondary" v-text="term"/>
                 </span>
               </template>
-            </p>
+            </div>
 
-            <div v-if="listItems.length" class="ecom-search__items mt-sm-4">
+            <div v-if="listItems.length" class="ecom-search__items">
               <div class="row">
                 <template v-for="(item, i) in listItems">
                   <slot name="item" :item="item">
-                    <div class="ecom-search__item" :class="itemClasses" :key="item._id">
-                      <div
-                        class="ecom-search__item-content"
-                        :class="{ 'mt-2 mt-sm-0': (i > 0) }">
+                    <div
+                      class="ecom-search__item mt-3 mt-md-4"
+                      :class="itemClasses"
+                      :key="item._id">
+                      <div class="ecom-search__item-content">
                         <a :href="'/' + item.slug">
                           <img
                             v-if="item.pictures && item.pictures[0] && item.pictures[0].normal"
@@ -122,7 +123,7 @@
                             :alt="item.pictures[0].normal.alt" />
                         </a>
 
-                        <div class="ecom-search__item-info pl-3 pl-sm-0 pt-sm-3">
+                        <div class="ecom-search__item-info pl-3 pl-sm-0 pt-sm-2 pt-md-3">
                           <a class="ecom-search__item-link" :href="'/' + item.slug">
                             <span
                               class="ecom-search__item-name"
