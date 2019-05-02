@@ -32,10 +32,10 @@
         </div>
 
         <div class="ecom-search__suggestions-box shadow rounded-bottom bg-white">
-          <div class="ecom-search__suggestions-container container pb-1 pb-sm-2 pb-lg-3">
+          <div class="ecom-search__suggestions-container container pb-2 pb-sm-3">
             <div
               key="history"
-              class="ecom-search__history lead mt-2 mt-sm-3 mt-lg-4"
+              class="ecom-search__history lead mt-2 mt-sm-3"
               v-if="history.length &&
                 !searching &&
                 !suggestedItems.length &&
@@ -53,7 +53,7 @@
 
             <div
               key="info"
-              class="ecom-search__info lead mt-2 mt-sm-3 mt-lg-4"
+              class="ecom-search__info lead mt-2 mt-sm-3"
               v-else>
               <span class="ecom-search__info-icon mr-3 st-text-secondary-lighter">
                 <i class="fab fa-searchengin"></i>
@@ -111,12 +111,12 @@
 
             <div
               v-if="listItems.length"
-              class="ecom-search__items mt-2 mt-lg-3 pb-1">
+              class="ecom-search__items mt-2 mt-sm-3">
               <div class="row">
                 <template v-for="(item, i) in listItems">
                   <slot name="item" :item="item">
                     <div
-                      class="ecom-search__item py-1"
+                      class="ecom-search__item pt-1 pb-2"
                       :class="itemClasses"
                       :key="item._id">
                       <div class="ecom-search__item-content">
