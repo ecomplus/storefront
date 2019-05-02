@@ -32,7 +32,7 @@
         </div>
 
         <div class="ecom-search__suggestions-box shadow rounded-bottom bg-white">
-          <div class="ecom-search__suggestions-container container py-4">
+          <div class="ecom-search__suggestions-container container py-2 py-sm-3 py-lg-4">
             <p
               key="history"
               class="ecom-search__history lead"
@@ -106,7 +106,7 @@
               </template>
             </p>
 
-            <div v-if="listItems.length" class="ecom-search__items mt-4">
+            <div v-if="listItems.length" class="ecom-search__items mt-sm-4">
               <div class="row">
                 <template v-for="(item, i) in listItems">
                   <slot name="item" :item="item">
@@ -114,7 +114,7 @@
                       <div class="d-flex flex-column justify-content-between h-100">
                         <a
                           class="ecom-search__item-link"
-                          :class="{ 'mt-4 mt-sm-0': i > 0 }"
+                          :class="{ 'mt-3 mt-sm-0': i > 0 }"
                           :href="'/' + item.slug">
                           <img
                             v-if="item.pictures && item.pictures[0] && item.pictures[0].normal"

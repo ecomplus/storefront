@@ -17,6 +17,13 @@
   &__input {
     z-index: 0;
     padding-right: 3.3rem;
+
+    @media (max-width: 767.98px) {
+      padding: .3rem 2.3rem .3rem .6rem;
+      font-size: 1rem;
+      height: auto;
+      line-height: 1.5;
+    }
   }
 
   &__submit {
@@ -34,6 +41,15 @@
     .fa-search {
       width: 1.8rem;
       height: 1.8rem;
+    }
+
+    @media (max-width: 767.98px) {
+      padding: 0 .55rem;
+
+      .fa-search {
+        width: 1.35rem;
+        height: 1.35rem;
+      }
     }
   }
 
@@ -71,7 +87,7 @@
 
   &__info,
   &__history {
-    @media (max-width: 575px) {
+    @media (max-width: 767.98px) {
       font-size: 85%;
     }
   }
@@ -98,7 +114,7 @@
       }
     }
 
-    @media (max-width: 575px) {
+    @media (max-width: 575.98px) {
       text-align: right;
 
       &-link {
@@ -116,6 +132,7 @@
       &-name {
         flex: 0 0 70%;
         width: 70%;
+        font-size: 80%;
       }
     }
   }
