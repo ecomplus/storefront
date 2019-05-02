@@ -97,6 +97,13 @@
   }
 
   &__item {
+    &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
     &-name {
       font-size: 85%;
       display: block;
@@ -117,21 +124,17 @@
     @media (max-width: 575.98px) {
       text-align: right;
 
-      &-link {
-        display: flex;
+      &-content {
+        flex-direction: row;
+        justify-content: flex-start;
         align-items: center;
-        flex-wrap: nowrap;
-        overflow: hidden;
       }
 
-      &-picture {
-        flex: 0 0 30%;
-        width: 30%;
+      &-info {
+        flex: 0 0 70%;
       }
 
       &-name {
-        flex: 0 0 70%;
-        width: 70%;
         font-size: 80%;
       }
     }

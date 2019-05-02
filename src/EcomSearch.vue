@@ -111,34 +111,38 @@
                 <template v-for="(item, i) in listItems">
                   <slot name="item" :item="item">
                     <div class="ecom-search__item" :class="itemClasses" :key="item._id">
-                      <div class="d-flex flex-column justify-content-between h-100">
-                        <a
-                          class="ecom-search__item-link"
-                          :class="{ 'mt-3 mt-sm-0': i > 0 }"
-                          :href="'/' + item.slug">
+                      <div
+                        class="ecom-search__item-content"
+                        :class="{ 'mt-2 mt-sm-0': (i > 0) }">
+                        <a :href="'/' + item.slug">
                           <img
                             v-if="item.pictures && item.pictures[0] && item.pictures[0].normal"
                             class="ecom-search__item-picture img-fluid"
                             :src="item.pictures[0].normal.url"
                             :alt="item.pictures[0].normal.alt" />
-                          <span
-                            class="ecom-search__item-name pl-3 pl-sm-0 pt-sm-3"
-                            :title="name(item)">
-                            {{ truncateString(name(item), 80) }}
-                          </span>
                         </a>
 
-                        <div class="ecom-search__item-prices">
-                          <strong
-                            class="ecom-search__item-price ecom-search__item-price--compare"
-                            v-if="onPromotion(item)">
-                            {{ item.currency_symbol }}
-                            {{ formatMoney(item.base_price) }}
-                          </strong>
-                          <strong class="ecom-search__item-price">
-                            {{ item.currency_symbol }}
-                            {{ formatMoney(price(item)) }}
-                          </strong>
+                        <div class="ecom-search__item-info pl-3 pl-sm-0 pt-sm-3">
+                          <a class="ecom-search__item-link" :href="'/' + item.slug">
+                            <span
+                              class="ecom-search__item-name"
+                              :title="name(item)">
+                              {{ truncateString(name(item), 80) }}
+                            </span>
+                          </a>
+
+                          <div class="ecom-search__item-prices">
+                            <strong
+                              class="ecom-search__item-price ecom-search__item-price--compare"
+                              v-if="onPromotion(item)">
+                              {{ item.currency_symbol }}
+                              {{ formatMoney(item.base_price) }}
+                            </strong>
+                            <strong class="ecom-search__item-price">
+                              {{ item.currency_symbol }}
+                              {{ formatMoney(price(item)) }}
+                            </strong>
+                          </div>
                         </div>
                       </div>
                     </div>
