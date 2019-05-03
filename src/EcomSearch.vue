@@ -18,7 +18,12 @@
         class="ecom-search__submit text-muted st-text-primary-light:hover"
         @click="submit">
         <slot name="submit">
-          <i class="fas fa-search"></i>
+          <span v-if="!showSuggestions || (term && term !== '')" key="submit">
+            <i class="fas fa-search"></i>
+          </span>
+          <span v-else key="close">
+            <i class="fas fa-times"></i>
+          </span>
         </slot>
       </div>
     </div>

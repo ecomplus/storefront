@@ -38,7 +38,13 @@
     align-items: center;
     transition: color 0.15s ease-out;
 
-    .fa-search {
+    > span {
+      padding-top: .15rem;
+      display: inline-block;
+    }
+
+    .fa-search,
+    .fa-times {
       width: 1.8rem;
       height: 1.8rem;
     }
@@ -46,7 +52,12 @@
     @media (max-width: 767.98px) {
       padding: 0 .55rem;
 
-      .fa-search {
+      > span {
+        padding-top: .1rem;
+      }
+
+      .fa-search,
+      .fa-times {
         width: 1.35rem;
         height: 1.35rem;
       }
