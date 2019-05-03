@@ -15,7 +15,7 @@
   }
 
   &__input {
-    z-index: 0;
+    z-index: 1;
     padding-right: 3.3rem;
 
     @media (max-width: 767.98px) {
@@ -31,7 +31,7 @@
     top: 0;
     right: 0;
     cursor: pointer;
-    z-index: 1;
+    z-index: 2;
     padding: 0 .75rem;
     height: 100%;
     display: flex;
@@ -55,10 +55,11 @@
 
   &__suggestions {
     position: relative;
+    z-index: 9998;
 
     &-overlay {
       position: fixed;
-      z-index: 9997;
+      z-index: 1;
       top: 0;
       left: 0;
       width: 100vw;
@@ -71,7 +72,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      z-index: 9998;
+      z-index: 2;
     }
 
     &-container:empty {
