@@ -11,7 +11,7 @@
 
     <div
       v-else
-      :class="{ 'ecom-search__floating p-3 p-lg-4': buttonOnly }">
+      :class="{ 'ecom-search__floating p-1 p-lg-2': buttonOnly }">
       <div
         class="ecom-search__input-group"
         :class="{ 'ecom-search__input-group--focus': showSuggestions }">
