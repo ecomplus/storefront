@@ -3367,15 +3367,15 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"63dddd11-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/EcomSearch.vue?vue&type=template&id=fe75f400&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"ecom-search",class:{ 'shadow': _vm.showSuggestions }},[_c('div',{staticClass:"ecom-search__input-group",class:{ 'ecom-search__input-group--focus': _vm.showSuggestions }},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.inputValue),expression:"inputValue"}],staticClass:"ecom-search__input form-control form-control-lg",attrs:{"type":"search","placeholder":_vm.label,"aria-label":_vm.label},domProps:{"value":(_vm.inputValue)},on:{"change":_vm.change,"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.submit($event)},"focus":function($event){return _vm.toggleSuggestions(true)},"blur":_vm.blur,"input":function($event){if($event.target.composing){ return; }_vm.inputValue=$event.target.value}}}),_c('div',{staticClass:"ecom-search__submit text-muted st-text-primary-light:hover",on:{"click":_vm.submit}},[_vm._t("submit",[_c('i',{staticClass:"fas fa-search"})])],2)]),_c('transition',{attrs:{"name":"ecom-search-fade"}},[(_vm.showSuggestions)?_c('div',{staticClass:"ecom-search__suggestions"},[(_vm.overlay)?_c('div',{staticClass:"ecom-search__suggestions-overlay bg-dark",on:{"click":function($event){return _vm.toggleSuggestions(false)}}}):_vm._e(),_c('div',{staticClass:"ecom-search__suggestions-box shadow rounded-bottom bg-white"},[_c('div',{staticClass:"ecom-search__suggestions-container container pb-2 pb-sm-3"},[(_vm.history.length &&
-              !_vm.searching &&
-              !_vm.suggestedItems.length &&
-              (!_vm.term || _vm.term !== _vm.searchedTerm))?_c('div',{key:"history",staticClass:"ecom-search__history lead mt-2 mt-sm-3"},[_c('span',{staticClass:"mr-3 st-text-secondary-lighter"},[_c('i',{staticClass:"fas fa-history"})]),_vm._l((_vm.history.slice(0, 5)),function(term){return _c('a',{staticClass:"ecom-search__term-link mr-3",attrs:{"href":"javascript:;"},domProps:{"textContent":_vm._s(term)},on:{"click":function($event){_vm.inputValue = term}}})})],2):_c('div',{key:"info",staticClass:"ecom-search__info lead mt-2 mt-sm-3"},[_c('span',{staticClass:"ecom-search__info-icon mr-3 st-text-secondary-lighter"},[_c('i',{staticClass:"fab fa-searchengin"})]),(_vm.searching)?[_vm._t("spinner",[_c('span',{staticClass:"position-absolute spinner-grow text-muted",attrs:{"role":"status"}},[_c('span',{staticClass:"sr-only"},[_vm._v("Loading...")])])])]:(_vm.suggestedItems.length)?[(_vm.suggestedItems.length)?_c('span',{key:"results",staticClass:"ecom-search__count-results text-muted"},[_c('strong',[_vm._v(_vm._s(_vm.totalSearchResults))]),_vm._v("\n                "+_vm._s(_vm.dictionary('total_results_for'))+"\n                "),_c('em',{staticClass:"text-secondary mr-3",domProps:{"textContent":_vm._s(_vm.searchedTerm)}}),(_vm.totalSearchResults > _vm.maxItems)?_c('a',{staticClass:"d-inline-block",attrs:{"href":"javascript:;"},domProps:{"textContent":_vm._s(_vm.dictionary('see_all'))},on:{"click":_vm.submit}}):_vm._e()]):_vm._e()]:[(_vm.listTerms.length)?[_c('span',{staticClass:"text-muted"},[_vm._v("\n                  "+_vm._s(_vm.dictionary(_vm.suggestedTerms.length ? 'did_you_mean' : 'popular_terms'))+"\n                ")]),_vm._l((_vm.listTerms),function(term){return _c('a',{staticClass:"ecom-search__term-link mx-2",attrs:{"href":"javascript:;"},domProps:{"textContent":_vm._s(term)},on:{"click":function($event){_vm.inputValue = term}}})}),_c('span',{staticClass:"text-muted mr-3"},[_vm._v("?")])]:_vm._e(),(_vm.term && _vm.term === _vm.searchedTerm)?_c('span',{key:"empty",staticClass:"d-inline-block"},[_vm._v("\n                "+_vm._s(_vm.dictionary('no_results_for'))+"\n                "),_c('em',{staticClass:"text-secondary",domProps:{"textContent":_vm._s(_vm.term)}})]):_vm._e()]],2),(_vm.listItems.length)?_c('div',{staticClass:"ecom-search__items mt-2 mt-sm-3"},[_c('div',{staticClass:"row"},[_vm._l((_vm.listItems),function(item,i){return [_vm._t("item",[_c('div',{key:item._id,staticClass:"ecom-search__item pt-1 pb-2",class:_vm.itemClasses},[_c('div',{staticClass:"ecom-search__item-content"},[_c('a',{attrs:{"href":'/' + item.slug}},[(item.pictures && item.pictures[0] && item.pictures[0].normal)?_c('img',{staticClass:"ecom-search__item-picture img-fluid",attrs:{"src":item.pictures[0].normal.url,"alt":item.pictures[0].normal.alt}}):_vm._e()]),_c('div',{staticClass:"ecom-search__item-info pl-3 pl-sm-0 pt-sm-2 pt-md-3"},[_c('a',{staticClass:"ecom-search__item-link",attrs:{"href":'/' + item.slug}},[_c('span',{staticClass:"ecom-search__item-name",attrs:{"title":_vm.name(item)}},[_vm._v("\n                            "+_vm._s(_vm.truncateString(_vm.name(item), 80))+"\n                          ")])]),_c('div',{staticClass:"ecom-search__item-prices"},[(_vm.onPromotion(item))?_c('strong',{staticClass:"ecom-search__item-price ecom-search__item-price--compare"},[_vm._v("\n                            "+_vm._s(item.currency_symbol)+"\n                            "+_vm._s(_vm.formatMoney(item.base_price))+"\n                          ")]):_vm._e(),_c('strong',{staticClass:"ecom-search__item-price"},[_vm._v("\n                            "+_vm._s(item.currency_symbol)+"\n                            "+_vm._s(_vm.formatMoney(_vm.price(item)))+"\n                          ")])])])])])],{"item":item})]})],2)]):_vm._e()])])]):_vm._e()])],1)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"63dddd11-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/EcomSearch.vue?vue&type=template&id=446e5a54&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"ecom-search",class:{ 'shadow': _vm.showSuggestions }},[(!_vm.showInput && !_vm.showSuggestions)?_c('button',{staticClass:"ecom-search__button btn btn-lg btn-light",attrs:{"type":"button","title":_vm.dictionary('search_products')},on:{"click":_vm.toggleInput}},[_c('i',{staticClass:"fas fa-search"})]):_c('div',{class:{ 'ecom-search__floating': _vm.buttonOnly }},[_c('div',{staticClass:"ecom-search__input-group",class:{ 'ecom-search__input-group--focus': _vm.showSuggestions }},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.inputValue),expression:"inputValue"}],ref:"input",staticClass:"ecom-search__input form-control form-control-lg",attrs:{"type":"search","placeholder":_vm.label,"aria-label":_vm.label},domProps:{"value":(_vm.inputValue)},on:{"change":_vm.change,"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.submit($event)},"focus":function($event){return _vm.toggleSuggestions(true)},"blur":_vm.blur,"input":function($event){if($event.target.composing){ return; }_vm.inputValue=$event.target.value}}}),_c('div',{staticClass:"ecom-search__submit text-muted st-text-primary-light:hover",on:{"click":_vm.submit}},[_vm._t("submit",[(!_vm.showSuggestions || (_vm.term && _vm.term !== ''))?_c('span',{key:"submit"},[_c('i',{staticClass:"fas fa-search"})]):_c('span',{key:"close"},[_c('i',{staticClass:"fas fa-times"})])])],2)]),_c('transition',{attrs:{"name":"ecom-search-fade"}},[(_vm.showSuggestions)?_c('div',{staticClass:"ecom-search__suggestions"},[(_vm.overlay)?_c('div',{staticClass:"ecom-search__suggestions-overlay bg-dark",on:{"click":function($event){return _vm.toggleSuggestions(false)}}}):_vm._e(),_c('div',{staticClass:"ecom-search__suggestions-box shadow rounded-bottom bg-white"},[_c('div',{staticClass:"ecom-search__suggestions-container container pb-2 pb-sm-3"},[(_vm.history.length &&
+                !_vm.searching &&
+                !_vm.suggestedItems.length &&
+                (!_vm.term || _vm.term !== _vm.searchedTerm))?_c('div',{key:"history",staticClass:"ecom-search__history lead mt-2 mt-sm-3"},[_c('span',{staticClass:"mr-3 st-text-secondary-lighter"},[_c('i',{staticClass:"fas fa-history"})]),_vm._l((_vm.history.slice(0, 5)),function(term){return _c('a',{staticClass:"ecom-search__term-link mr-3",attrs:{"href":"javascript:;"},domProps:{"textContent":_vm._s(term)},on:{"click":function($event){_vm.inputValue = term}}})})],2):_c('div',{key:"info",staticClass:"ecom-search__info lead mt-2 mt-sm-3"},[_c('span',{staticClass:"ecom-search__info-icon mr-3 st-text-secondary-lighter"},[_c('i',{staticClass:"fab fa-searchengin"})]),(_vm.searching)?[_vm._t("spinner",[_c('span',{staticClass:"position-absolute spinner-grow text-muted",attrs:{"role":"status"}},[_c('span',{staticClass:"sr-only"},[_vm._v("Loading...")])])])]:(_vm.suggestedItems.length)?[(_vm.suggestedItems.length)?_c('span',{key:"results",staticClass:"ecom-search__count-results text-muted"},[_c('strong',[_vm._v(_vm._s(_vm.totalSearchResults))]),_vm._v("\n                  "+_vm._s(_vm.dictionary('total_results_for'))+"\n                  "),_c('em',{staticClass:"text-secondary mr-3",domProps:{"textContent":_vm._s(_vm.searchedTerm)}}),(_vm.totalSearchResults > _vm.maxItems)?_c('a',{staticClass:"d-inline-block",attrs:{"href":"javascript:;"},domProps:{"textContent":_vm._s(_vm.dictionary('see_all'))},on:{"click":_vm.submit}}):_vm._e()]):_vm._e()]:[(_vm.listTerms.length)?[_c('span',{staticClass:"text-muted"},[_vm._v("\n                    "+_vm._s(_vm.dictionary(_vm.suggestedTerms.length ? 'did_you_mean' : 'popular_terms'))+"\n                  ")]),_vm._l((_vm.listTerms),function(term){return _c('a',{staticClass:"ecom-search__term-link mx-2",attrs:{"href":"javascript:;"},domProps:{"textContent":_vm._s(term)},on:{"click":function($event){_vm.inputValue = term}}})}),_c('span',{staticClass:"text-muted mr-3"},[_vm._v("?")])]:_vm._e(),(_vm.term && _vm.term === _vm.searchedTerm)?_c('span',{key:"empty",staticClass:"d-inline-block"},[_vm._v("\n                  "+_vm._s(_vm.dictionary('no_results_for'))+"\n                  "),_c('em',{staticClass:"text-secondary",domProps:{"textContent":_vm._s(_vm.term)}})]):_vm._e()]],2),(_vm.listItems.length)?_c('div',{staticClass:"ecom-search__items mt-2 mt-sm-3"},[_c('div',{staticClass:"row"},[_vm._l((_vm.listItems),function(item,i){return [_vm._t("item",[_c('div',{key:item._id,staticClass:"ecom-search__item pt-1 pb-2",class:_vm.itemClasses},[_c('div',{staticClass:"ecom-search__item-content"},[_c('a',{attrs:{"href":'/' + item.slug}},[(item.pictures && item.pictures[0] && item.pictures[0].normal)?_c('img',{staticClass:"ecom-search__item-picture img-fluid",attrs:{"src":item.pictures[0].normal.url,"alt":item.pictures[0].normal.alt}}):_vm._e()]),_c('div',{staticClass:"ecom-search__item-info pl-3 pl-sm-0 pt-sm-2 pt-md-3"},[_c('a',{staticClass:"ecom-search__item-link",attrs:{"href":'/' + item.slug}},[_c('span',{staticClass:"ecom-search__item-name",attrs:{"title":_vm.name(item)}},[_vm._v("\n                              "+_vm._s(_vm.truncateString(_vm.name(item), 80))+"\n                            ")])]),_c('div',{staticClass:"ecom-search__item-prices"},[(_vm.onPromotion(item))?_c('strong',{staticClass:"ecom-search__item-price ecom-search__item-price--compare"},[_vm._v("\n                              "+_vm._s(item.currency_symbol)+"\n                              "+_vm._s(_vm.formatMoney(item.base_price))+"\n                            ")]):_vm._e(),_c('strong',{staticClass:"ecom-search__item-price"},[_vm._v("\n                              "+_vm._s(item.currency_symbol)+"\n                              "+_vm._s(_vm.formatMoney(_vm.price(item)))+"\n                            ")])])])])])],{"item":item})]})],2)]):_vm._e()])])]):_vm._e()])],1)])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/EcomSearch.vue?vue&type=template&id=fe75f400&
+// CONCATENATED MODULE: ./src/EcomSearch.vue?vue&type=template&id=446e5a54&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.function.name.js
 var es6_function_name = __webpack_require__("7f7f");
@@ -3552,6 +3552,11 @@ var mapItems = function mapItems(hits) {
     placeholder: {
       type: String
     },
+    // show only search button without input
+    buttonOnly: {
+      type: Boolean,
+      default: false
+    },
     // max items to suggest
     maxItems: {
       type: Number,
@@ -3598,6 +3603,7 @@ var mapItems = function mapItems(hits) {
       searchedTerm: null,
       totalSearchResults: 0,
       showSuggestions: false,
+      showInput: !this.buttonOnly,
       // best matched search results
       suggestedItems: [],
       // suggested terms based on current term
@@ -3729,18 +3735,35 @@ var mapItems = function mapItems(hits) {
       this.toggleSuggestions();
       this.$emit('submit', this.term);
     },
+    toggleInput: function toggleInput() {
+      var _this2 = this;
+
+      this.showInput = !this.showInput;
+      setTimeout(function () {
+        // auto show suggestions and focus input
+        _this2.toggleSuggestions();
+
+        _this2.$refs.input.focus();
+      }, 100);
+    },
     toggleSuggestions: function toggleSuggestions(state) {
+      var _this3 = this;
+
       var vm = this; // show or hide suggestions block
 
       vm.showSuggestions = typeof state === 'boolean' ? state : !vm.showSuggestions;
+      setTimeout(function () {
+        // reset show input bool
+        _this3.showInput = !_this3.buttonOnly;
+      }, 200);
     },
     searchProducts: function searchProducts(cb, term) {
-      var _this2 = this;
+      var _this4 = this;
 
       this.searching++;
 
       var callback = function callback(err, body) {
-        _this2.searching--;
+        _this4.searching--;
         cb(err, body);
       }; // https://github.com/ecomclub/ecomplus-sdk-js#search-products
       // apply from = 0 and size = maxItems
