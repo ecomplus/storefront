@@ -34,6 +34,11 @@ export default {
     placeholder: {
       type: String
     },
+    // show only search button without input
+    buttonOnly: {
+      type: Boolean,
+      default: false
+    },
     // max items to suggest
     maxItems: {
       type: Number,
@@ -81,6 +86,7 @@ export default {
       searchedTerm: null,
       totalSearchResults: 0,
       showSuggestions: false,
+      showInput: !this.buttonOnly,
       // best matched search results
       suggestedItems: [],
       // suggested terms based on current term
@@ -219,10 +225,23 @@ export default {
       this.$emit('submit', this.term)
     },
 
+    toggleInput () {
+      this.showInput = !this.showInput
+      setTimeout(() => {
+        // auto show suggestions and focus input
+        this.toggleSuggestions()
+        this.$refs.input.focus()
+      }, 100)
+    },
+
     toggleSuggestions (state) {
       let vm = this
       // show or hide suggestions block
       vm.showSuggestions = typeof state === 'boolean' ? state : !vm.showSuggestions
+      setTimeout(() => {
+        // reset show input bool
+        this.showInput = !this.buttonOnly
+      }, 200)
     },
 
     searchProducts (cb, term) {

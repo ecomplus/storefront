@@ -1,5 +1,15 @@
 .ecom-search {
   transition: box-shadow 0.15s linear;
+  position: relative;
+
+  &__floating {
+    width: 100%;
+    z-index: 9999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+  }
 
   &__input-group {
     position: relative;
