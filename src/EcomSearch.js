@@ -295,6 +295,10 @@ export default {
         // value changed externally
         this.inputValue = val
       }
+    },
+
+    buttonOnly (val) {
+      this.showInput = !val
     }
   }
 }
