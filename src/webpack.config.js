@@ -219,7 +219,7 @@ module.exports = () => {
                 devtool: 'source-map',
                 performance: {
                   hints: 'warning',
-                  maxEntrypointSize: 800000,
+                  maxEntrypointSize: 600000,
                   maxAssetSize: 400000
                 },
 
