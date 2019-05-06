@@ -37,6 +37,8 @@ module.exports = new Promise((resolve, reject) => {
                   obj[filename] = {}
                 }
               }
+            } else {
+              obj = obj[path]
             }
           }
         })
