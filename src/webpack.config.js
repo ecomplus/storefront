@@ -240,7 +240,7 @@ module.exports = () => {
                           loader: 'postcss-loader',
                           options: {
                             ident: 'postcss',
-                            minimize: !!devMode,
+                            minimize: !devMode,
                             plugins: [
                               require('autoprefixer')(),
                               require('cssnano')({ preset: 'default' })
