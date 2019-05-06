@@ -56,13 +56,13 @@ module.exports = () => {
           crossorigin: 'use-credentials',
           icons: [{
             src: settings.icon
-              ? path.resolve(pub, 'img', 'uploads', settings.icon)
+              ? path.resolve(pub, settings.icon)
               : path.resolve(pub, 'img', 'icon.png'),
             // multiple sizes
             sizes: [ 96, 128, 192 ]
           }, {
             src: settings.large_icon
-              ? path.resolve(pub, 'img', 'uploads', settings.large_icon)
+              ? path.resolve(pub, settings.large_icon)
               : path.resolve(pub, 'img', 'large-icon.png'),
             sizes: [ 384, 512 ]
           }]
