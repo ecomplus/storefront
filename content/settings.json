@@ -6,8 +6,9 @@
   "primary_color": "#e83e8c",
   "secondary_color": "#6f42c1",
   "bg_color": "#ffffff",
-  "icon": "icon.png",
-  "large_icon": "large-icon.png",
+  "logo": "/img/uploads/logo.png",
+  "icon": "/img/icon.png",
+  "large_icon": "/img/large-icon.png",
   "store_id": 1011,
   "store_object_id": "5b1abe30a4d4531b8fe40725"
 }
