@@ -217,6 +217,11 @@ module.exports = () => {
                   colors: true
                 },
                 devtool: 'source-map',
+                performance: {
+                  hints: 'warning',
+                  maxEntrypointSize: 400000,
+                  maxAssetSize: 400000
+                },
 
                 // setup development server
                 devServer: {
