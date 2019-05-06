@@ -12,7 +12,7 @@ const webpackConfig = require('./webpack.config')()
 webpackConfig.then(config => {
   // setup Webpack compiler
   const compiler = webpack({
-    mode: 'production',
+    mode: process.env.NODE_ENV,
     ...config
   })
   const devServerOptions = Object.assign({}, config.devServer, {

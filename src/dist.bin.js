@@ -24,7 +24,7 @@ const fatalError = err => {
 
 webpackConfig.catch(fatalError).then(config => {
   webpack({
-    mode: 'production',
+    mode: process.env.NODE_ENV,
     ...config
   }, (err, stats) => {
     // console.log(stats)
