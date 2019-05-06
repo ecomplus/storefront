@@ -74,7 +74,7 @@
                 class="ecom-search__info lead mt-2 mt-sm-3"
                 v-else>
                 <span class="ecom-search__info-icon mr-3 st-text-secondary-lighter">
-                  <i class="fab fa-searchengin"></i>
+                  <i class="fas fa-search"></i>
                 </span>
                 <template v-if="searching">
                   <slot name="spinner">
