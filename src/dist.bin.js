@@ -51,7 +51,7 @@ webpackConfig.catch(fatalError).then(config => {
 
       const writePage = (slug, dom) => {
         // save HTML file for new page by slug
-        let file = path.join(output, slug + '.html')
+        let file = path.join(output, slug ? slug + '.html' : 'index.html')
         // create directories for the slug if needed
         mkdirp(path.dirname(file), err => {
           if (!err) {
@@ -81,10 +81,8 @@ webpackConfig.catch(fatalError).then(config => {
         })
       })
 
-      // read HTML template files by resource
-      const handleResource = resource => new Promise(resolve => {
-        let slugs = slugsByResources[resource]
-        fs.readFile(path.join(output, '_' + resource + '.html'), 'utf8', async (err, html) => {
+      const renderFile = (file, slugs) => new Promise(resolve => {
+        fs.readFile(path.join(output, file), 'utf8', async (err, html) => {
           if (err) {
             console.error(err)
             // resolve the promise anyway
@@ -103,11 +101,18 @@ webpackConfig.catch(fatalError).then(config => {
 
       // run pages prerenderization one by one
       ;(async function loop () {
+        // prerender each resource
         for (let resource in slugsByResources) {
           if (slugsByResources.hasOwnProperty(resource)) {
-            await handleResource(resource)
+            // HTML template files by resource
+            let file = '_' + resource + '.html'
+            let slugs = slugsByResources[resource]
+            await renderFile(file, slugs)
           }
         }
+
+        // prerender homepage
+        await renderFile('index.html', [ null ])
       }())
     })
   })
