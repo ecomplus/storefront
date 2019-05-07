@@ -92,7 +92,9 @@ webpackConfig.catch(fatalError).then(config => {
             // one by one to prevent 503 errors
             for (let i = 0; i < slugs.length; i++) {
               let slug = slugs[i]
-              await render(slug, html)
+              if (slug !== undefined) {
+                await render(slug, html)
+              }
             }
           }
           resolve()
