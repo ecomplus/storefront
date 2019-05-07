@@ -114,7 +114,7 @@ module.exports = () => {
 
                   files.forEach(file => {
                     // remove the path from file string
-                    let name = file.split(path.sep).pop().replace('.ejs', '')
+                    let name = file.replace(includes + path.sep, '').replace('.ejs', '')
                     // save EJS compiler on templates object
                     templates[name] = ejs.compile(fs.readFileSync(file, 'utf8'))
                   })
