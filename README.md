@@ -222,10 +222,16 @@ that should be imported on storefront-twbs
 
 EJS partials to be included on pages, receiving all parsed
 CMS content and optionally additional arguments.
-Import the partial by filename, eg.:
+Import the partial by filename with paths
+(ignore paths until the `includes` dir)
+and without extension, eg.:
 
 ```ejs
 <%= include('head', { title: 'Hello World' }) %>
+```
+
+```ejs
+<%= include('components/header') %>
 ```
 
 #### `/template/views/pages`
