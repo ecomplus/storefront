@@ -66,61 +66,43 @@ webpackConfig.catch(fatalError).then(config => {
         })
       }
 
-      // read HTML template files by resource
-      const handleResource = resource => {
-        return new Promise(resolve => {
-          let slugs = slugsByResources[resource]
-          fs.readFile(path.join(output, '_' + resource + '.html'), 'utf8', (err, html) => {
-            if (err) {
-              console.error(err)
-              // resolve the promise anyway
-              resolve()
-              return
-            }
+      const render = (slug, html) => new Promise(resolve => {
+        console.log(slug)
+        // force DOM location to current slug
+        let url = 'https://storefront:443/' + slug
+        // call renderer function to get Ecom and dom objects from promise
+        renderer(html, url).then(({ dom, Ecom }) => {
+          // init renderization
+          Ecom.init()
+            .then(() => writePage(slug, dom))
+            .catch(err => console.error(err))
+            // 600ms interval between each renderization
+            .finally(() => setTimeout(resolve, 600))
+        })
+      })
 
+      // read HTML template files by resource
+      const handleResource = resource => new Promise(resolve => {
+        let slugs = slugsByResources[resource]
+        fs.readFile(path.join(output, '_' + resource + '.html'), 'utf8', async (err, html) => {
+          if (err) {
+            console.error(err)
+            // resolve the promise anyway
+            resolve()
+          } else {
             // prerender each slug
             // one by one to prevent 503 errors
-            let ln = slugs.length
-            let index = -1
-            let next = () => {
-              index++
-              if (index >= ln) {
-                // all done
-                resolve()
-                return
-              }
-
-              let slug = slugs[index]
-              if (typeof slug === 'string' && slug.trim() !== '') {
-                let render = () => {
-                  console.log(slug)
-                  // force DOM location to current slug
-                  let url = 'https://storefront:443/' + slug
-                  // call renderer function to get Ecom and dom objects from promise
-                  renderer(html, url).then(({ dom, Ecom }) => {
-                    // init renderization
-                    Ecom.init()
-                      .then(() => writePage(slug, dom))
-                      .catch(err => console.error(err))
-                      .finally(next)
-                  })
-                }
-
-                // 600ms interval between each renderization
-                setTimeout(render, 600)
-              } else {
-                // continue
-                next()
-              }
+            for (let i = 0; i < slugs.length; i++) {
+              let slug = slugs[i]
+              await render(slug, html)
             }
-            // start
-            next()
-          })
+          }
+          resolve()
         })
-      }
+      })
 
-      // run resources one by one
-      (async function loop (resources) {
+      // run pages prerenderization one by one
+      ;(async function loop () {
         for (let resource in slugsByResources) {
           if (slugsByResources.hasOwnProperty(resource)) {
             await handleResource(resource)
