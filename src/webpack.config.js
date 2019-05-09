@@ -15,6 +15,8 @@ const slugs = require('./lib/slugs')
 const recursive = require('recursive-readdir')
 // parse EJS markup
 const ejs = require('ejs')
+// markdown parser
+const md = require('markdown-it')()
 
 // load Webpack and plugins
 // const webpack = require('webpack')
@@ -89,7 +91,7 @@ module.exports = () => {
       const includes = path.resolve(src, 'views', 'includes')
       const pages = path.resolve(src, 'views', 'pages')
       const templateOptions = {
-        templateParameters: data,
+        templateParameters: { ...data, md },
         minify: !devMode,
         meta: { 'generator': pkg.name + '@' + pkg.version }
       }
