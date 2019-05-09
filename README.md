@@ -73,6 +73,7 @@ CMS content will be parsed to object and used as
 template data object when compiling [EJS](https://ejs.co/) files:
 
 - `content/settings.json` will be parsed to:
+
 ```json
 {
   "settings": {
@@ -83,6 +84,7 @@ template data object when compiling [EJS](https://ejs.co/) files:
 ```
 
 - `content/pages/home.json` will be parsed to:
+
 ```json
 {
   "pages": {
@@ -94,13 +96,25 @@ template data object when compiling [EJS](https://ejs.co/) files:
 ```
 
 And you can use it on EJS view as:
+
 ```ejs
 <%= settings.name %>
 ```
 
-Besides the CMS content, `slug` (the current page slug) and
-[`include`](#templateviewsincludes) (function)
+Besides the CMS content, `slug` (the current page slug),
+`md` ([markdown-it](https://github.com/markdown-it/markdown-it) instance)
+and [`include`](#templateviewsincludes) (function)
 are properties of template data.
+
+### Parsing markdown content
+
+Some of your CMS content may be saved as markdown,
+on EJS views you can render it to HTML by using `md.render` function,
+eg.:
+
+```ejs
+<%= md.render(pages.home.md_content) %>
+```
 
 ## Starter template
 
