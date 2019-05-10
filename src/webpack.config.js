@@ -109,12 +109,6 @@ module.exports = () => {
                 if (!err) {
                   // setup include function on template params
                   let templates = {}
-                  files.forEach(file => {
-                    // remove the path from file string
-                    let name = file.replace(includes + path.sep, '').replace('.ejs', '')
-                    // save EJS compiler on templates object
-                    templates[name] = ejs.compile(fs.readFileSync(file, 'utf8'))
-                  })
 
                   templateOptions.templateParameters.include = (name, args = {}) => {
                     // parse EJS partial with CMS data and received args
@@ -127,6 +121,17 @@ module.exports = () => {
                     console.error(new Error(msg))
                     return ''
                   }
+
+                  files.forEach(file => {
+                    // remove the path from file string
+                    let name = file.replace(includes + path.sep, '').replace('.ejs', '')
+                    // fix path separator on name
+                    if (path.sep !== '/') {
+                      name = name.replace(new RegExp(path.sep, 'g'), '/')
+                    }
+                    // save EJS compiler on templates object
+                    templates[name] = ejs.compile(fs.readFileSync(file, 'utf8'))
+                  })
                 } else {
                   console.error(err)
                 }
