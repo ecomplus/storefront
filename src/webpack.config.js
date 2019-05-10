@@ -127,7 +127,11 @@ module.exports = () => {
                     console.error(new Error(msg))
                     return ''
                   }
+                } else {
+                  console.error(err)
                 }
+
+                // continue Webpack compilation
                 callback()
               })
             }
