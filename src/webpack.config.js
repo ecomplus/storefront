@@ -126,7 +126,7 @@ module.exports = () => {
                     let name = file.replace(includes + path.sep, '').replace('.ejs', '')
                     // fix path separator on name
                     if (path.sep !== '/') {
-                      name = name.replace(new RegExp(path.sep, 'g'), '/')
+                      name = name.replace(new RegExp('\\' + path.sep, 'g'), '/')
                     }
                     // save EJS compiler on templates object
                     templates[name] = ejs.compile(fs.readFileSync(file, 'utf8'))
