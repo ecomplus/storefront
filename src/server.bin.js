@@ -15,9 +15,8 @@ webpackConfig.then(config => {
     mode: process.env.NODE_ENV,
     ...config
   })
-  const devServerOptions = Object.assign({}, config.devServer, {
-    stats: { colors: true }
-  })
+  const { stats } = config
+  const devServerOptions = Object.assign({}, config.devServer, { stats })
 
   // start dev server
   const port = config.devServer.port
