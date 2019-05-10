@@ -218,6 +218,13 @@ module.exports = () => {
           })
 
             .finally(() => {
+              // check for verbose output option
+              let stats = { colors: true }
+              if (process.argv.indexOf('--verbose') === -1) {
+                // default Webpack output with less logs
+                stats.assets = stats.chunks = stats.modules = stats.children = false
+              }
+
               // start compilation
               // resolve promise with webpack config object
               resolve({
@@ -230,9 +237,7 @@ module.exports = () => {
                   publicPath: '/',
                   filename: 'storefront.[chunkhash].js'
                 },
-                stats: {
-                  colors: true
-                },
+                stats,
                 devtool: 'source-map',
                 performance: {
                   hints: devMode ? false : 'warning',
