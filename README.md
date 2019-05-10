@@ -30,6 +30,13 @@ Starts Webpack development server on port _9123_ (http://localhost:9123);
 - `storefront-pack build`:
 Compile assets bundles for production and prerender e-commerce pages;
 
+#### Optional arguments
+
+- `--port=8080`:
+Change the dev server port number, you may replace _8080_ by what you want;
+- `--verbose`:
+Detailed output of Webpack compilation process;
+
 ### NPM scripts
 
 NPM `package.json` scripts are a convenient and useful means to run
