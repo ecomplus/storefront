@@ -118,8 +118,7 @@ module.exports = () => {
                     }
                     // debug invalid include
                     let msg = `Can't include '${name}' EJS partial, ${name}.ejs does not exist!`
-                    console.error(new Error(msg))
-                    return ''
+                    throw new Error(msg)
                   }
 
                   files.forEach(file => {
