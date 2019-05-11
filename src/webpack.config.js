@@ -88,7 +88,7 @@ module.exports = () => {
       ]
 
       // setup common options for HTML plugin
-      const includes = path.resolve(src, 'views', 'includes')
+      const partials = path.resolve(src, 'views', 'partials')
       const pages = path.resolve(src, 'views', 'pages')
       const templateOptions = {
         templateParameters: { ...data, md },
@@ -105,7 +105,7 @@ module.exports = () => {
 
             (params, callback) => {
               // parse EJS partials to template params functions
-              recursive(includes, (err, files) => {
+              recursive(partials, (err, files) => {
                 if (!err) {
                   // setup include function on template params
                   let templates = {}
@@ -125,7 +125,7 @@ module.exports = () => {
 
                   files.forEach(file => {
                     // remove the path from file string
-                    let name = file.replace(includes + path.sep, '').replace('.ejs', '')
+                    let name = file.replace(partials + path.sep, '').replace('.ejs', '')
                     // fix path separator on name
                     if (path.sep !== '/') {
                       name = name.replace(new RegExp('\\' + path.sep, 'g'), '/')
@@ -149,7 +149,7 @@ module.exports = () => {
       if (devMode) {
         // watch EJS partials on serve
         plugins.push(new ExtraWatchWebpackPlugin({
-          dirs: [ includes ]
+          dirs: [ partials ]
         }))
       }
 
