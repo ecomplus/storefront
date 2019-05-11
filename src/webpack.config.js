@@ -110,16 +110,18 @@ module.exports = () => {
                   // setup include function on template params
                   let templates = {}
 
-                  templateOptions.templateParameters.include = (name, args = {}) => {
+                  let partial = (name, args = {}) => {
                     // parse EJS partial with CMS data and received args
                     let fn = templates[name]
                     if (typeof fn === 'function') {
-                      return fn({ ...data, args })
+                      return fn({ ...data, args, partial })
                     }
                     // debug invalid include
-                    let msg = `Can't include '${name}' EJS partial, ${name}.ejs does not exist!`
+                    let msg = `Can't include '${name}' EJS partial` +
+                      `\n'template/views/partials/${name}.ejs' does not exist!`
                     throw new Error(msg)
                   }
+                  templateOptions.templateParameters.partial = partial
 
                   files.forEach(file => {
                     // remove the path from file string
