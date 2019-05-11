@@ -1,15 +1,15 @@
 [EJS](https://ejs.co/) markup to compile HTML files.
 
-## `/includes`
+## `/partials`
 
-On `includes` folder you should place
+On `partials` folder you should place
 EJS partials to be included on multiple pages,
 receiving all parsed CMS content and
 optionally additional arguments.
 Import the partial by filename, eg.:
 
 ```ejs
-<%= include('head', { title: 'Hello World' }) %>
+<%= partial('head', { title: 'Hello World' }) %>
 ```
 
 ## `/pages`
