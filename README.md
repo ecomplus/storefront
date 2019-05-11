@@ -110,7 +110,7 @@ And you can use it on EJS view as:
 
 Besides the CMS content, `slug` (the current page slug),
 `md` ([markdown-it](https://github.com/markdown-it/markdown-it) instance)
-and [`include`](#templateviewsincludes) (function)
+and [`partial`](#templateviewspartials) (function)
 are properties of template data.
 
 ### Parsing markdown content
@@ -122,6 +122,17 @@ eg.:
 ```ejs
 <%= md.render(pages.home.md_content) %>
 ```
+
+### Including partial templates
+
+You may include partial template files (inside _partials_ folder)
+with EJS calling the `partial` function, eg.:
+
+```ejs
+<%= partial('components/header') %>
+```
+
+[More info](#templateviewspartials).
 
 ## Starter template
 
@@ -153,7 +164,7 @@ your template project **must** have the following file structure:
     │   └── storefront-twbs
     │       └── theme
     └── views
-        ├── includes
+        ├── partials
         └── pages
 ```
 
@@ -239,20 +250,20 @@ that should be imported on storefront-twbs
 
 [EJS](https://ejs.co/) markup to compile HTML files.
 
-#### `/template/views/includes`
+#### `/template/views/partials`
 
 EJS partials to be included on pages, receiving all parsed
 CMS content and optionally additional arguments.
 Import the partial by filename with paths
-(ignore paths until the `includes` dir)
+(ignore paths until the `partials` dir)
 and without extension, eg.:
 
 ```ejs
-<%= include('head', { title: 'Hello World' }) %>
+<%= partial('head', { title: 'Hello World' }) %>
 ```
 
 ```ejs
-<%= include('components/header') %>
+<%= partial('components/header') %>
 ```
 
 #### `/template/views/pages`
