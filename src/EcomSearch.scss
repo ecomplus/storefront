@@ -131,18 +131,21 @@
 
     &-name {
       font-size: 85%;
+      line-height: 1.2;
       display: block;
       overflow: hidden;
     }
 
     &-price {
-      display: inline-block;
+      display: block;
+      font-size: 1.2;
+      line-height: 1.1;
 
       &--compare {
         font-size: 85%;
         margin-right: .5rem;
         text-decoration: line-through;
-        opacity: .8;
+        opacity: .7;
       }
     }
 

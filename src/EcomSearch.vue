@@ -155,13 +155,13 @@
                               </span>
                             </a>
 
-                            <div class="ecom-search__item-prices">
-                              <strong
+                            <div class="ecom-search__item-prices mt-2">
+                              <span
                                 class="ecom-search__item-price ecom-search__item-price--compare"
                                 v-if="onPromotion(item)">
                                 {{ item.currency_symbol }}
                                 {{ formatMoney(item.base_price) }}
-                              </strong>
+                              </span>
                               <strong class="ecom-search__item-price">
                                 {{ item.currency_symbol }}
                                 {{ formatMoney(price(item)) }}
