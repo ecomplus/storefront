@@ -4,7 +4,6 @@
 import '@ecomplus/storefront-renderer/dist/storefront.min.js'
 // import '@ecomplus/shopping-cart'
 
-/* Tests only */
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').then(registration => {
@@ -14,4 +13,3 @@ if ('serviceWorker' in navigator) {
     })
   })
 }
-/* End sw tests */
