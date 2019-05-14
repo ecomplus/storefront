@@ -6,7 +6,7 @@ const pkg = require('./../package.json')
 const path = require('path')
 const fs = require('fs')
 // load project directories
-const { src, pub, output } = require('./lib/paths')
+const { src, pub, output, app } = require('./lib/paths')
 // Netlify CMS content
 const cms = require('./lib/cms')
 // rewrite E-Com Plus resources slugs
@@ -38,6 +38,22 @@ module.exports = () => {
       const rewrites = []
       // Storefront twbs theme base dir
       const twbsDir = path.resolve(src, 'scss', 'storefront-twbs')
+
+      const copy = [
+        { from: pub, to: output },
+        // Storefront twbs theme assets
+        {
+          from: path.resolve(twbsDir, 'theme', 'assets'),
+          to: path.resolve(output, 'assets')
+        }
+      ]
+      if (fs.lstatSync().isDirectory(app)) {
+        // @ecomplus/storefront-app
+        copy.push({
+          from: app,
+          to: path.resolve(output, 'app')
+        })
+      }
 
       // setup Webpack plugins
       const plugins = [
@@ -76,15 +92,8 @@ module.exports = () => {
           swDest: 'sw.js'
         }),
 
-        // copy files from public folder recursivily
-        new CopyPlugin([
-          { from: pub, to: output },
-          // Storefront twbs theme assets
-          {
-            from: path.resolve(twbsDir, 'theme', 'assets'),
-            to: path.resolve(output, 'assets')
-          }
-        ])
+        // copy files from public folders recursivily
+        new CopyPlugin(copy)
       ]
 
       // setup common options for HTML plugin
