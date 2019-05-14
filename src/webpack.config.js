@@ -38,6 +38,8 @@ module.exports = () => {
       const rewrites = []
       // Storefront twbs theme base dir
       const twbsDir = path.resolve(src, 'scss', 'storefront-twbs')
+      const primaryColor = settings.primary_color || '#3fe3e3'
+      const secondaryColor = settings.secondary_color || '#5e1efe'
 
       const copy = [
         { from: pub, to: output },
@@ -75,6 +77,7 @@ module.exports = () => {
           short_name: settings.short_name || 'MyShop',
           description: settings.description || 'My PWA Shop',
           background_color: settings.bg_color || '#ffffff',
+          theme_color: primaryColor,
           crossorigin: 'use-credentials',
           icons: [{
             src: settings.icon
@@ -106,7 +109,10 @@ module.exports = () => {
       const templateOptions = {
         templateParameters: { ...data, md },
         minify: !devMode,
-        meta: { 'generator': pkg.name + '@' + pkg.version }
+        meta: {
+          'generator': pkg.name + '@' + pkg.version,
+          'theme_color': primaryColor
+        }
       }
 
       // create a Webpack plugin to handle EJS includes
@@ -293,8 +299,8 @@ module.exports = () => {
                           loader: 'sass-loader',
                           options: {
                             // inject brand colors
-                            data: '$primary: ' + (settings.primary_color || '#3fe3e3') + '; ' +
-                              '$secondary: ' + (settings.secondary_color || '#5e1efe') + '; ',
+                            data: '$primary: ' + primaryColor + '; ' +
+                              '$secondary: ' + secondaryColor + '; ',
                             // include paths to handle storefront-twbs (and not only)
                             includePaths: [
                               path.resolve(process.cwd(), 'node_modules'),
