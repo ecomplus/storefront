@@ -1,7 +1,7 @@
 # storefront-app
 
 [![CodeFactor](https://www.codefactor.io/repository/github/ecomclub/storefront-app/badge)](https://www.codefactor.io/repository/github/ecomclub/storefront-app)
-[![npm version](https://img.shields.io/npm/v/ecomplus-storefront-app.svg)](https://www.npmjs.org/ecomplus-storefront-app)
+[![npm version](https://img.shields.io/npm/v/@ecomplus/storefront-app.svg)](https://www.npmjs.org/@ecomplus/storefront-app)
 [![license mit](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > Vue.js store app with cart, checkout and account pages
