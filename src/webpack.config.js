@@ -111,7 +111,7 @@ module.exports = () => {
         minify: !devMode,
         meta: {
           'generator': pkg.name + '@' + pkg.version,
-          'theme_color': primaryColor
+          'theme-color': primaryColor
         }
       }
 
