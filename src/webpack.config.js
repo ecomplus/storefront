@@ -52,6 +52,9 @@ module.exports = () => {
         copy.push({
           from: app,
           to: path.resolve(output, 'app')
+        }, {
+          from: path.join(app, '__static'),
+          to: path.resolve(output, '__static')
         })
       }
 
