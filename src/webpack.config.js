@@ -70,6 +70,7 @@ module.exports = () => {
 
         // create manifest.json file
         new WebpackPwaManifest({
+          filename: 'manifest.json',
           name: settings.name || 'My Shop',
           short_name: settings.short_name || 'MyShop',
           description: settings.description || 'My PWA Shop',
