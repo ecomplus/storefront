@@ -47,7 +47,7 @@ module.exports = () => {
           to: path.resolve(output, 'assets')
         }
       ]
-      if (fs.lstatSync().isDirectory(app)) {
+      if (fs.existsSync(app)) {
         // @ecomplus/storefront-app
         copy.push({
           from: app,
