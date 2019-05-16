@@ -13,7 +13,7 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest)
 
 // theme assets directory
 workbox.routing.registerRoute(
-  /^\/assets\//,
+  /^\/assets\/.*$/,
   new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'assets'
   })
@@ -29,7 +29,7 @@ workbox.routing.registerRoute(
 
 // CMS image uploads
 workbox.routing.registerRoute(
-  /^\/img\/uploads\//,
+  /^\/img\/uploads\/.*\.(?:png|gif|jpg|jpeg|webp|svg)$/,
   new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'media',
     plugins: [
@@ -170,7 +170,7 @@ workbox.routing.registerRoute('/', new workbox.strategies.NetworkFirst())
 workbox.routing.registerRoute(
   /^\/((?!(?:admin|assets|img)(\/|$))[^.]+)(\.(?!js|css|xml|txt|png|gif|jpg|jpeg|webp|svg)[^.]+)*$/,
   new workbox.strategies.NetworkFirst({
-    cacheName: 'live-api',
+    cacheName: 'page',
     plugins: [
       new workbox.expiration.Plugin({
         maxEntries: 50,
