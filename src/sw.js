@@ -11,40 +11,6 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest)
  * Runtime caching
  */
 
-// theme assets directory
-workbox.routing.registerRoute(
-  /^\/assets\/.*$/,
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: 'assets'
-  })
-)
-
-// logo image
-workbox.routing.registerRoute(
-  /^\/((?:img|assets).*)?logo\.(?:png|gif|jpg|jpeg|webp|svg)$/,
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: 'logo'
-  })
-)
-
-// CMS image uploads
-workbox.routing.registerRoute(
-  /^\/img\/uploads\/.*\.(?:png|gif|jpg|jpeg|webp|svg)$/,
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: 'media',
-    plugins: [
-      new workbox.expiration.Plugin({
-        // keep at most 20 entries
-        maxEntries: 20,
-        // don't keep any entries for more than 30 days
-        maxAgeSeconds: 60 * 60 * 24 * 30,
-        // automatically cleanup if quota is exceeded
-        purgeOnQuotaError: true
-      })
-    ]
-  })
-)
-
 // Google Fonts stylesheets
 workbox.routing.registerRoute(
   /^https:\/\/fonts\.googleapis\.com/,
@@ -129,7 +95,7 @@ workbox.routing.registerRoute(
 
 // normal and thumbnail sizes
 workbox.routing.registerRoute(
-  /https:\/\/ecom-[\w]+\.[\w]+\.digitaloceanspaces\.com\/imgs\/[12345]?[0-9]{2}px\//,
+  /^https:\/\/ecom-[\w]+\.[\w]+\.digitaloceanspaces\.com\/imgs\/[12345]?[0-9]{2}px\//,
   new workbox.strategies.CacheFirst({
     cacheName: 'pictures',
     plugins: [
@@ -145,7 +111,7 @@ workbox.routing.registerRoute(
 
 // big images
 workbox.routing.registerRoute(
-  /https:\/\/ecom-[\w]+\.[\w]+\.digitaloceanspaces\.com\/imgs\/[678]?[0-9]{2}px\//,
+  /^https:\/\/ecom-[\w]+\.[\w]+\.digitaloceanspaces\.com\/imgs\/[678]?[0-9]{2}px\//,
   new workbox.strategies.CacheFirst({
     cacheName: 'pictures-big',
     plugins: [
@@ -153,6 +119,44 @@ workbox.routing.registerRoute(
         maxEntries: 10,
         // 2 days only max age
         maxAgeSeconds: 60 * 60 * 24 * 2,
+        purgeOnQuotaError: true
+      })
+    ]
+  })
+)
+
+/**
+ * Same origin assets
+ */
+
+// theme assets directory
+workbox.routing.registerRoute(
+  /\/assets\//,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'assets'
+  })
+)
+
+// logo image
+workbox.routing.registerRoute(
+  /\/((?:img|assets).*)?logo\.(?:png|gif|jpg|jpeg|webp|svg)$/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'logo'
+  })
+)
+
+// CMS image uploads
+workbox.routing.registerRoute(
+  /\/img\/uploads\/.*\.(?:png|gif|jpg|jpeg|webp|svg)$/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'media',
+    plugins: [
+      new workbox.expiration.Plugin({
+        // keep at most 20 entries
+        maxEntries: 20,
+        // don't keep any entries for more than 30 days
+        maxAgeSeconds: 60 * 60 * 24 * 30,
+        // automatically cleanup if quota is exceeded
         purgeOnQuotaError: true
       })
     ]
@@ -168,7 +172,7 @@ workbox.routing.registerRoute('/', new workbox.strategies.NetworkFirst())
 
 // any page URL slug
 workbox.routing.registerRoute(
-  /^\/((?!(?:admin|assets|img)(\/|$))[^.]+)(\.(?!js|css|xml|txt|png|gif|jpg|jpeg|webp|svg)[^.]+)*$/,
+  /\/((?!(?:admin|assets|img)(\/|$))[^.]+)(\.(?!js|css|xml|txt|png|gif|jpg|jpeg|webp|svg)[^.]+)*$/,
   new workbox.strategies.NetworkFirst({
     cacheName: 'page',
     plugins: [
