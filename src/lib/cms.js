@@ -33,6 +33,7 @@ module.exports = new Promise((resolve, reject) => {
                 try {
                   obj[filename] = JSON.parse(fs.readFileSync(file, 'utf8'))
                 } catch (e) {
+                  console.error(new Error(`Invalid JSON at ${path}`))
                   // ignore invalid JSON string
                   obj[filename] = {}
                 }
