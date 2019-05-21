@@ -10,7 +10,7 @@ const recursive = require('recursive-readdir')
 // markdown parser
 const md = require('markdown-it')()
 // load project directories
-const { src, pub, output, app } = require('./lib/paths')
+const { src, pub, content, output, app } = require('./lib/paths')
 // Netlify CMS content
 const cms = require('./lib/cms')
 // rewrite E-Com Plus resources slugs
@@ -43,6 +43,11 @@ module.exports = () => {
 
       const copy = [
         { from: pub, to: output },
+        // settings JSON
+        {
+          from: path.resolve(content, 'settings.json'),
+          to: path.resolve(output, '__settings.json')
+        },
         // Storefront twbs theme assets
         {
           from: path.resolve(twbsDir, 'theme', 'assets'),
