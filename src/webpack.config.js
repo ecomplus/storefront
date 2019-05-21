@@ -5,18 +5,18 @@ const pkg = require('./../package.json')
 // use Node.js path module for compatibility
 const path = require('path')
 const fs = require('fs')
+// read views folder recursivily
+const recursive = require('recursive-readdir')
+// markdown parser
+const md = require('markdown-it')()
 // load project directories
 const { src, pub, output, app } = require('./lib/paths')
 // Netlify CMS content
 const cms = require('./lib/cms')
 // rewrite E-Com Plus resources slugs
 const slugs = require('./lib/slugs')
-// read views folder recursivily
-const recursive = require('recursive-readdir')
-// parse EJS markup
-const ejs = require('ejs')
-// markdown parser
-const md = require('markdown-it')()
+// setup Webpack plugin for template includes
+const templateIncludes = require('./plugins/template-includes')
 
 // load Webpack and plugins
 // const webpack = require('webpack')
@@ -115,54 +115,8 @@ module.exports = () => {
         }
       }
 
-      // create a Webpack plugin to handle EJS includes
-      class TemplateIncludesPlugin {
-        // `apply` as its prototype method which is supplied with compiler as its argument
-        apply (compiler) {
-          compiler.hooks.beforeCompile.tapAsync(
-            'TemplateIncludesPlugin',
-
-            (params, callback) => {
-              // parse EJS partials to template params functions
-              recursive(partials, (err, files) => {
-                if (!err) {
-                  // setup include function on template params
-                  let templates = {}
-
-                  let partial = (name, args = {}) => {
-                    // parse EJS partial with CMS data and received args
-                    let fn = templates[name]
-                    if (typeof fn === 'function') {
-                      return fn({ ...data, args, partial })
-                    }
-                    // debug invalid include
-                    let msg = `Can't include '${name}' EJS partial` +
-                      `\n'template/views/partials/${name}.ejs' does not exist!`
-                    throw new Error(msg)
-                  }
-                  templateOptions.templateParameters.partial = partial
-
-                  files.forEach(file => {
-                    // remove the path from file string
-                    let name = file.replace(partials + path.sep, '').replace('.ejs', '')
-                    // fix path separator on name
-                    if (path.sep !== '/') {
-                      name = name.replace(new RegExp('\\' + path.sep, 'g'), '/')
-                    }
-                    // save EJS compiler on templates object
-                    templates[name] = ejs.compile(fs.readFileSync(file, 'utf8'))
-                  })
-                } else {
-                  console.error(err)
-                }
-
-                // continue Webpack compilation
-                callback()
-              })
-            }
-          )
-        }
-      }
+      // Webpack plugin to handle EJS includes
+      const TemplateIncludesPlugin = templateIncludes(partials, templateOptions, data)
       plugins.push(new TemplateIncludesPlugin())
 
       if (devMode) {
@@ -258,12 +212,18 @@ module.exports = () => {
                   publicPath: '/',
                   filename: 'storefront.[chunkhash].js'
                 },
+                resolve: {
+                  alias: {
+                    vue: 'vue/dist/vue.js',
+                    '@ecomplus/storefront-renderer': '@ecomplus/storefront-renderer/dist/storefront.min.js'
+                  }
+                },
                 stats,
                 devtool: 'source-map',
                 performance: {
                   hints: devMode ? false : 'warning',
                   maxEntrypointSize: 600000,
-                  maxAssetSize: 400000
+                  maxAssetSize: 800000
                 },
 
                 // setup development server
