@@ -12,6 +12,21 @@ tool to develop and build
 e-commerce templates with
 [E-Com Plus APIs](https://developers.e-com.plus/docs/reference/)
 
+## Starter template
+
+`storefront-framework` is a JS tool **to create new templates**
+faster and with better development experience,
+but if you don't want to start the entire template from scratch,
+we also provide the
+[storefront](https://github.com/ecomclub/storefront),
+which is built with this framework
+and is also open source :wink:
+
+_Storefront_ is a complete e-commerce template
+with few dependencies,
+you may change what you need to customize
+and setup your own theme and scripts.
+
 ## Getting started
 
 First things first, install the module as dev dependency:
@@ -133,16 +148,6 @@ with EJS calling the `partial` function, eg.:
 ```
 
 [More info](#templateviewspartials).
-
-## Starter template
-
-We also provide
-[this open source template](https://github.com/ecomclub/storefront)
-as a boilerplate, so you don't need to
-start from scratch :wink:
-
-It's a complete e-commerce template with few dependencies,
-you may change what you need to setup your own theme and scripts.
 
 ## Project structure
 
