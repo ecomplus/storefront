@@ -113,7 +113,10 @@ module.exports = () => {
       const pages = path.resolve(src, 'views', 'pages')
       const templateOptions = {
         templateParameters: { ...data, md },
-        minify: !devMode,
+        minify: !devMode && {
+          collapseWhitespace: true,
+          removeComments: true
+        },
         meta: {
           'generator': pkg.name + '@' + pkg.version,
           'theme-color': primaryColor
