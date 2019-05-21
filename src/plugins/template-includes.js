@@ -8,7 +8,7 @@ const ejs = require('ejs')
 const path = require('path')
 const fs = require('fs')
 
-module.exports = (partials, templateOptions, data) => {
+module.exports = (dir, templateOptions, data) => {
   // create a Webpack plugin to handle EJS includes
   return class TemplateIncludesPlugin {
     // `apply` as its prototype method which is supplied with compiler as its argument
@@ -18,7 +18,7 @@ module.exports = (partials, templateOptions, data) => {
 
         (params, callback) => {
           // parse EJS partials to template params functions
-          recursive(partials, (err, files) => {
+          recursive(dir, (err, files) => {
             if (!err) {
               // setup include function on template params
               let templates = {}
@@ -38,7 +38,7 @@ module.exports = (partials, templateOptions, data) => {
 
               files.forEach(file => {
                 // remove the path from file string
-                let name = file.replace(partials + path.sep, '').replace('.ejs', '')
+                let name = file.replace(dir + path.sep, '').replace('.ejs', '')
                 // fix path separator on name
                 if (path.sep !== '/') {
                   name = name.replace(new RegExp('\\' + path.sep, 'g'), '/')
