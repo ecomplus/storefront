@@ -125,10 +125,17 @@ And you can use it on EJS view as:
 <%= settings.name %>
 ```
 
-Besides the CMS content, `slug` (the current page slug),
-`md` ([markdown-it](https://github.com/markdown-it/markdown-it) instance)
-and [`partial`](#templateviewspartials) (function)
-are properties of template data.
+Besides the CMS content,
+template data has the following properties:
+
+- `slug`:
+The current page slug;
+- `store_id` and `store_object_id`:
+From _ECOM_STORE_ID_ and _ECOM_STORE_OBJECT_ID_ environment variables;
+- `md`:
+[Markdown-it](https://github.com/markdown-it/markdown-it) instance;
+- `partial`:
+Function to include [EJS partials](#templateviewspartials);
 
 ### Parsing markdown content
 
