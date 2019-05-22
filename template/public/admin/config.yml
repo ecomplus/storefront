@@ -76,8 +76,6 @@ collections:
           - {label: 'Short Name', name: 'short_name', widget: 'string'}
           - {label: 'Short Description', name: 'description', widget: 'text'}
           - {label: 'Language', name: 'lang', widget: 'string'}
-          - {label: 'Store ID', name: 'store_id', widget: 'number'}
-          - {label: 'Store Object ID', name: 'store_object_id', widget: 'string'}
           - {label: 'Logo', name: 'logo', widget: 'image', required: false}
           - {label: 'Mini Logo', name: 'mini_logo', widget: 'image', required: false}
           - {label: 'Primary Color', name: 'primary_color', widget: 'string'}
