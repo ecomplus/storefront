@@ -238,6 +238,7 @@ module.exports = () => {
                 devServer: {
                   compress: true,
                   port: 9123,
+                  open: process.argv.indexOf('--open') !== -1,
                   contentBase: output,
                   // history API with rewrites for resources slugs
                   historyApiFallback: { rewrites }
