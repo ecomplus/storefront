@@ -1,5 +1,6 @@
 'use strict'
 
+const { ECOM_STORE_ID, ECOM_STORE_OBJECT_ID } = process.env
 const pkg = require('./../package.json')
 
 // use Node.js path module for compatibility
@@ -112,7 +113,12 @@ module.exports = () => {
       const partials = path.resolve(src, 'views', 'partials')
       const pages = path.resolve(src, 'views', 'pages')
       const templateOptions = {
-        templateParameters: { ...data, md },
+        templateParameters: {
+          ...data,
+          md,
+          store_id: ECOM_STORE_ID,
+          store_object_id: ECOM_STORE_OBJECT_ID
+        },
         minify: !devMode && {
           collapseWhitespace: true,
           removeComments: true
