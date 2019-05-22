@@ -59,9 +59,11 @@ webpackConfig.catch(fatalError).then(config => {
             fs.writeFile(file, dom.serialize(), err => {
               if (err) console.error(err)
             })
-            console.log('SUCCESS\n')
+            // color green
+            console.log('\x1b[32m%s\x1b[0m', 'DONE\n')
           } else {
-            console.error(err)
+            // color red
+            console.error('\x1b[31m%s\x1b[0m', err)
           }
         })
       }
