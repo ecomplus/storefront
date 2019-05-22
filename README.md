@@ -47,6 +47,8 @@ Compile assets bundles for production and prerender e-commerce pages;
 
 #### Optional arguments
 
+- `--open`:
+Automatically opens new browser tab with the dev server;
 - `--port=8080`:
 Change the dev server port number, you may replace _8080_ by what you want;
 - `--verbose`:
