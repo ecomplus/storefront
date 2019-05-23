@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "serve": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "build:lib": "node build/build.js --lib"
   },
   "dependencies": {
     "@brazilian-utils/is-valid-cnpj": "^0.1.11",
@@ -17,7 +18,7 @@
     "@fortawesome/vue-fontawesome": "^0.0.22",
     "card-validator": "^6.1.0",
     "ecomplus-passport-client": "^0.10.0",
-    "ecomplus-sdk": "^1.15.9",
+    "ecomplus-sdk": "^1.16.0",
     "element-theme-chalk": "^2.8.2",
     "element-ui": "^2.8.2",
     "inputmask": "^4.0.8",
