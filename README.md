@@ -23,7 +23,7 @@ you can just use the default _Storefront-App_ built files:
 - Scripts:
   1. `https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/js/manifest.min.js`;
   2. `https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/js/vendor.min.js`;
-  3. `https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib//js/app.min.js`;
+  3. `https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/js/app.min.js`;
 
 Importing it into your HTML view as following:
 
@@ -46,7 +46,7 @@ Importing it into your HTML view as following:
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/js/manifest.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/js/vendor.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib//js/app.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/js/app.min.js"></script>
   </body>
 </html>
 ```
