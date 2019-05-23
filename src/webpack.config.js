@@ -10,7 +10,7 @@ const recursive = require('recursive-readdir')
 // markdown parser
 const md = require('markdown-it')()
 // load project directories
-const { src, pub, content, output } = require('./lib/paths')
+const { src, pub, output } = require('./lib/paths')
 // Netlify CMS content
 const cms = require('./lib/cms')
 // rewrite E-Com Plus resources slugs
@@ -40,20 +40,6 @@ module.exports = () => {
       const twbsDir = path.resolve(src, 'scss', 'storefront-twbs')
       const primaryColor = settings.primary_color || '#3fe3e3'
       const secondaryColor = settings.secondary_color || '#5e1efe'
-
-      const copy = [
-        { from: pub, to: output },
-        // settings JSON
-        {
-          from: path.resolve(content, 'settings.json'),
-          to: path.resolve(output, '__settings.json')
-        },
-        // Storefront twbs theme assets
-        {
-          from: path.resolve(twbsDir, 'theme', 'assets'),
-          to: path.resolve(output, 'assets')
-        }
-      ]
 
       // setup Webpack plugins
       const plugins = [
@@ -95,7 +81,14 @@ module.exports = () => {
         }),
 
         // copy files from public folders recursivily
-        new CopyPlugin(copy)
+        new CopyPlugin([
+          { from: pub, to: output },
+          // Storefront twbs theme assets
+          {
+            from: path.resolve(twbsDir, 'theme', 'assets'),
+            to: path.resolve(output, 'assets')
+          }
+        ])
       ]
 
       // setup common options for HTML plugin
@@ -146,7 +139,7 @@ module.exports = () => {
                 // do not inject bundles on /app/index
                 // expected to be SPA view with his own scripts and styles
                 // https://github.com/ecomclub/storefront-app#using-as-library
-                inject: slug !== '/app/index'
+                inject: slug !== 'app/index'
               }))
 
               if (devMode) {
