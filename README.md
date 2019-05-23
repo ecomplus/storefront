@@ -19,11 +19,11 @@ If you don't want to customize,
 you can just use the default _Storefront-App_ built files:
 
 - Styles:
-  1. `https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/css/app.min.css`;
+  1. `https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/app.min.css`;
 - Scripts:
-  1. `https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/js/manifest.min.js`;
-  2. `https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/js/vendor.min.js`;
-  3. `https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/js/app.min.js`;
+  1. `https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/manifest.min.js`;
+  2. `https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/vendor.min.js`;
+  3. `https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/app.min.js`;
 
 Importing it into your HTML view as following:
 
@@ -36,7 +36,7 @@ Importing it into your HTML view as following:
     <meta name="ecom-store-id" content="<%= store_id %>">
     <meta name="ecom-store-object-id" content="<%= store_object_id %>">
     <title></title>
-    <link href="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/css/app.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/app.min.css" rel="stylesheet">
   </head>
   <body style="opacity: 0">
     <div id="app"></div>
@@ -44,9 +44,9 @@ Importing it into your HTML view as following:
       Powered by
       <a href="https://e-com.plus" target="_blank">E-Com Plus</a>
     </div>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/js/manifest.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/js/vendor.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/js/app.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/manifest.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/vendor.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/lib/app.min.js"></script>
   </body>
 </html>
 ```
