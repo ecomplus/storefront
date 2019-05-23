@@ -3,6 +3,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
+const libMode = process.argv.indexOf('--lib') !== -1
 
 module.exports = {
   dev: {
@@ -37,11 +38,11 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    index: path.resolve(__dirname, '../' + (libMode ? 'lib' : 'dist') + '/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: '__static',
+    assetsRoot: path.resolve(__dirname, '../' + (libMode ? 'lib' : 'dist')),
+    assetsSubDirectory: libMode ? '' : '__static',
     assetsPublicPath: '/',
 
     /**
