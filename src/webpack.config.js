@@ -5,13 +5,12 @@ const pkg = require('./../package.json')
 
 // use Node.js path module for compatibility
 const path = require('path')
-const fs = require('fs')
 // read views folder recursivily
 const recursive = require('recursive-readdir')
 // markdown parser
 const md = require('markdown-it')()
 // load project directories
-const { src, pub, content, output, app } = require('./lib/paths')
+const { src, pub, content, output } = require('./lib/paths')
 // Netlify CMS content
 const cms = require('./lib/cms')
 // rewrite E-Com Plus resources slugs
@@ -55,16 +54,6 @@ module.exports = () => {
           to: path.resolve(output, 'assets')
         }
       ]
-      if (fs.existsSync(app)) {
-        // @ecomplus/storefront-app
-        copy.push({
-          from: app,
-          to: path.resolve(output, 'app')
-        }, {
-          from: path.join(app, '__static'),
-          to: path.resolve(output, '__static')
-        })
-      }
 
       // setup Webpack plugins
       const plugins = [
@@ -151,9 +140,13 @@ module.exports = () => {
               templateOptions.templateParameters.slug = slug
               // add a view to compile
               plugins.push(new HtmlWebpackPlugin({
+                ...templateOptions,
                 filename: slug + '.html',
                 template,
-                ...templateOptions
+                // do not inject bundles on /app/index
+                // expected to be SPA view with his own scripts and styles
+                // https://github.com/ecomclub/storefront-app#using-as-library
+                inject: slug !== '/app/index'
               }))
 
               if (devMode) {
