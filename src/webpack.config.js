@@ -112,7 +112,7 @@ module.exports = () => {
       }
 
       // Webpack plugin to handle EJS includes
-      const TemplateIncludesPlugin = templateIncludes(partials, templateOptions, data)
+      const TemplateIncludesPlugin = templateIncludes(partials, templateOptions)
       plugins.push(new TemplateIncludesPlugin())
 
       if (devMode) {

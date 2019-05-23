@@ -8,7 +8,7 @@ const ejs = require('ejs')
 const path = require('path')
 const fs = require('fs')
 
-module.exports = (dir, templateOptions, data) => {
+module.exports = (dir, templateOptions) => {
   // create a Webpack plugin to handle EJS includes
   return class TemplateIncludesPlugin {
     // `apply` as its prototype method which is supplied with compiler as its argument
@@ -27,7 +27,11 @@ module.exports = (dir, templateOptions, data) => {
                 // parse EJS partial with CMS data and received args
                 let fn = templates[name]
                 if (typeof fn === 'function') {
-                  return fn({ ...data, args, partial })
+                  return fn({
+                    ...templateOptions.templateParameters,
+                    args,
+                    partial
+                  })
                 }
                 // debug invalid include
                 let msg = `Can't include '${name}' EJS partial` +
