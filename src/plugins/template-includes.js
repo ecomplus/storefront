@@ -8,7 +8,7 @@ const ejs = require('ejs')
 const path = require('path')
 const fs = require('fs')
 
-module.exports = (dir, templateOptions) => {
+module.exports = (dir, templateParameters) => {
   // create a Webpack plugin to handle EJS includes
   return class TemplateIncludesPlugin {
     // `apply` as its prototype method which is supplied with compiler as its argument
@@ -28,7 +28,7 @@ module.exports = (dir, templateOptions) => {
                 let fn = templates[name]
                 if (typeof fn === 'function') {
                   return fn({
-                    ...templateOptions.templateParameters,
+                    ...templateParameters,
                     args,
                     partial
                   })
@@ -38,7 +38,7 @@ module.exports = (dir, templateOptions) => {
                   `\n'template/views/partials/${name}.ejs' does not exist!`
                 throw new Error(msg)
               }
-              templateOptions.templateParameters.partial = partial
+              templateParameters.partial = partial
 
               files.forEach(file => {
                 // remove the path from file string

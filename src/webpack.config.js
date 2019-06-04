@@ -94,13 +94,13 @@ module.exports = () => {
       // setup common options for HTML plugin
       const partials = path.resolve(src, 'views', 'partials')
       const pages = path.resolve(src, 'views', 'pages')
+      const templateParameters = {
+        ...data,
+        md,
+        store_id: ECOM_STORE_ID,
+        store_object_id: ECOM_STORE_OBJECT_ID
+      }
       const templateOptions = {
-        templateParameters: {
-          ...data,
-          md,
-          store_id: ECOM_STORE_ID,
-          store_object_id: ECOM_STORE_OBJECT_ID
-        },
         minify: !devMode && {
           collapseWhitespace: true,
           removeComments: true
@@ -112,7 +112,7 @@ module.exports = () => {
       }
 
       // Webpack plugin to handle EJS includes
-      const TemplateIncludesPlugin = templateIncludes(partials, templateOptions)
+      const TemplateIncludesPlugin = templateIncludes(partials, templateParameters)
       plugins.push(new TemplateIncludesPlugin())
 
       if (devMode) {
@@ -129,19 +129,23 @@ module.exports = () => {
         } else {
           files.forEach(template => {
             let addView = slug => {
-              // add slug to template params
-              templateOptions.templateParameters.slug = slug
-              // add a view to compile
-              plugins.push(new HtmlWebpackPlugin({
+              const options = {
                 ...templateOptions,
+                templateParameters: {
+                  ...templateParameters,
+                  // add slug to template params
+                  slug
+                },
                 filename: slug + '.html',
                 template,
                 // do not inject bundles on /app/index
                 // expected to be SPA view with his own scripts and styles
                 // https://github.com/ecomclub/storefront-app#using-as-library
                 inject: slug !== 'app/index'
-              }))
+              }
 
+              // add a view to compile
+              plugins.push(new HtmlWebpackPlugin(options))
               if (devMode) {
                 // rewrite the slug to HTML file
                 rewrites.push({
