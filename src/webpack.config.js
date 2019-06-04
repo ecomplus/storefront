@@ -112,7 +112,10 @@ module.exports = () => {
       }
 
       // Webpack plugin to handle EJS includes
-      const TemplateIncludesPlugin = templateIncludes(partials, templateParameters)
+      const {
+        TemplateIncludesPlugin,
+        partial
+      } = templateIncludes(partials, templateParameters)
       plugins.push(new TemplateIncludesPlugin())
 
       if (devMode) {
@@ -134,7 +137,8 @@ module.exports = () => {
                 templateParameters: {
                   ...templateParameters,
                   // add slug to template params
-                  slug
+                  slug,
+                  partial
                 },
                 filename: slug + '.html',
                 template,
