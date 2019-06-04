@@ -10,7 +10,26 @@ const fs = require('fs')
 
 module.exports = (dir, templateParameters) => {
   // create a Webpack plugin to handle EJS includes
-  return class TemplateIncludesPlugin {
+  // setup include function on template params
+  const templates = {}
+
+  const partial = (name, args = {}) => {
+    // parse EJS partial with CMS data and received args
+    let fn = templates[name]
+    if (typeof fn === 'function') {
+      return fn({
+        ...templateParameters,
+        args,
+        partial
+      })
+    }
+    // debug invalid include
+    let msg = `Can't include '${name}' EJS partial` +
+      `\n'template/views/partials/${name}.ejs' does not exist!`
+    throw new Error(msg)
+  }
+
+  class TemplateIncludesPlugin {
     // `apply` as its prototype method which is supplied with compiler as its argument
     apply (compiler) {
       compiler.hooks.beforeCompile.tapAsync(
@@ -20,26 +39,6 @@ module.exports = (dir, templateParameters) => {
           // parse EJS partials to template params functions
           recursive(dir, (err, files) => {
             if (!err) {
-              // setup include function on template params
-              let templates = {}
-
-              let partial = (name, args = {}) => {
-                // parse EJS partial with CMS data and received args
-                let fn = templates[name]
-                if (typeof fn === 'function') {
-                  return fn({
-                    ...templateParameters,
-                    args,
-                    partial
-                  })
-                }
-                // debug invalid include
-                let msg = `Can't include '${name}' EJS partial` +
-                  `\n'template/views/partials/${name}.ejs' does not exist!`
-                throw new Error(msg)
-              }
-              templateParameters.partial = partial
-
               files.forEach(file => {
                 // remove the path from file string
                 let name = file.replace(dir + path.sep, '').replace('.ejs', '')
@@ -61,4 +60,7 @@ module.exports = (dir, templateParameters) => {
       )
     }
   }
+
+  // returns Webpack plugin class and partial function
+  return { TemplateIncludesPlugin, partial }
 }
