@@ -140,10 +140,10 @@ module.exports = () => cms.then(result => {
         },
         filename: slug + '.html',
         template,
-        // do not inject bundles on /app/index
-        // expected to be SPA view with his own scripts and styles
+        // do not inject bundles on /app/index and /admin/index
+        // expected to be SPA/CMS view with his own scripts and styles
         // https://github.com/ecomclub/storefront-app#using-as-library
-        inject: slug !== 'app/index'
+        inject: (slug !== 'app/index' && slug !== 'admin/index')
       }
 
       // add a view to compile
