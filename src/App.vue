@@ -281,7 +281,7 @@ body > div.v-modal {
 }
 // fix tabs nav scroll
 .el-tabs__nav-scroll {
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 // fade transition effects
