@@ -279,6 +279,10 @@ body > div.v-modal {
   margin: 0;
   max-width: none;
 }
+// fix tabs nav scroll
+.el-tabs__nav-scroll {
+  overflow-x: scroll;
+}
 
 // fade transition effects
 .fade-enter-active,
