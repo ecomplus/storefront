@@ -115,7 +115,7 @@ export default {
 }
 ._shipping-service {
   display: block;
-  background: $--tag-info-color;
+  background: lighten($--tag-info-color, 38%);
   margin-top: $--card-padding * .5;
   border-radius: $--tag-border-radius;
   padding: $--card-padding * .55 $--card-padding * .75;
@@ -152,7 +152,7 @@ export default {
 }
 ._shipping-selected,
 ._shipping-service:hover {
-  background: darken($--tag-info-color, 20%);
+  background: lighten($--tag-info-color, 33%);
   color: $--color-text-primary;
 }
 ._shipping-selected ._shipping-label {
