@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-app",
-  "version": "0.14.1",
+  "version": "0.14.2",
   "description": "Vue.js store app with cart, checkout and account pages",
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
