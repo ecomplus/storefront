@@ -8,7 +8,8 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "serve": "npm run dev",
     "build": "node build/build.js",
-    "build:lib": "node build/build.js --lib"
+    "build:lib": "node build/build.js --lib",
+    "release": "rm -rf ./lib; node build/build.js --lib & standard-version"
   },
   "dependencies": {
     "@brazilian-utils/is-valid-cnpj": "^0.1.11",
