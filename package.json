@@ -9,7 +9,7 @@
     "serve": "npm run dev",
     "build": "node build/build.js",
     "build:lib": "node build/build.js --lib",
-    "release": "rm -rf ./lib; node ./build/build.js --lib & standard-version"
+    "release": "standard-version"
   },
   "dependencies": {
     "@brazilian-utils/is-valid-cnpj": "^0.1.11",
