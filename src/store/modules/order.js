@@ -42,7 +42,7 @@ const getters = {
   order: state => state.body,
 
   // returns the first transaction object if any
-  orderTransaction: state => state.body.transactions[0],
+  orderTransaction: state => state.body.transactions[0] || {},
 
   // map current order financial status
   orderFinancialStatus ({ body }) {
