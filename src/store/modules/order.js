@@ -198,8 +198,8 @@ const actions = {
 
   // save new order object
   saveOrder ({ commit, dispatch }, payload) {
-    // clear current order body first
-    commit('editOrder', { body: emptyOrder })
+    // preset current order body first
+    commit('editOrder', { body: { ...emptyOrder, ...payload } })
     // call mutation to setup state
     commit('setOrderId', payload._id)
     return dispatch('loadOrder')
