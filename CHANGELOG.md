@@ -1,0 +1,29 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [0.15.0](https://github.com/ecomclub/storefront-app/compare/v0.10.0...v0.15.0) (2019-07-17)
+
+
+### Bug Fixes
+
+* **checkout:** add transaction to order object before confirmation ([bc8d0c8](https://github.com/ecomclub/storefront-app/commit/bc8d0c8))
+* **order:** preseting current order body before load ([a8b2484](https://github.com/ecomclub/storefront-app/commit/a8b2484))
+* **transaction:** prevent fatal error with undefined 'orderTransaction' ([36e3731](https://github.com/ecomclub/storefront-app/commit/36e3731))
+* fix shipping service element bg colors ([4ce4d7d](https://github.com/ecomclub/storefront-app/commit/4ce4d7d))
+* fix tabs nav scroll ([0d0e7e4](https://github.com/ecomclub/storefront-app/commit/0d0e7e4))
+* fix tabs nav scroll ([ad9f907](https://github.com/ecomclub/storefront-app/commit/ad9f907))
+* resolving lib assets output paths ([9760b16](https://github.com/ecomclub/storefront-app/commit/9760b16))
+* try to setup consts (config) with document metadata ([a3e6b3d](https://github.com/ecomclub/storefront-app/commit/a3e6b3d))
+* update some scss variables (new el theme chalk version) ([92261f3](https://github.com/ecomclub/storefront-app/commit/92261f3))
+
+
+### Build System
+
+* handle build to use as lib ([d646b39](https://github.com/ecomclub/storefront-app/commit/d646b39))
+
+
+### Features
+
+* try to get store ids from env vars ([795413b](https://github.com/ecomclub/storefront-app/commit/795413b))
+* try to setup consts (config) with document metadata ([9ee7e48](https://github.com/ecomclub/storefront-app/commit/9ee7e48))
