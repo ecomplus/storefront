@@ -437,12 +437,14 @@ const actions = {
           // redirect current window to payment link
           window.location = transaction.payment_link
         } else {
+          // add transaction to order object
+          order.transactions = order.transactions || []
+          order.transactions.push(transaction)
+
           // save created order object
           dispatch('saveOrder', order, { root: true }).finally(() => {
             resolve(response)
-          })
-
-          .then(() => {
+          }).then(() => {
             // save order info on cookie
             let order = rootGetters.order
             let data = {}
@@ -460,12 +462,12 @@ const actions = {
         }
       })
 
-      .catch(err => {
-        // cannot handle checkout
-        console.error(err)
-        // delay to reject
-        setTimeout(() => reject(err), 600)
-      })
+        .catch(err => {
+          // cannot handle checkout
+          console.error(err)
+          // delay to reject
+          setTimeout(() => reject(err), 600)
+        })
     })
   }
 }
