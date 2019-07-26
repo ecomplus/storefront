@@ -1,0 +1,38 @@
+{
+  "name": "@ecomplus/widget-tag-manager",
+  "version": "0.0.1",
+  "description": "Storefront plugin to handle GTM with ecommerce data layer",
+  "main": "src/index.js",
+  "scripts": {
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomclub/widget-tag-manager.git"
+  },
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "google-tag-manager",
+    "gtm",
+    "datalayer"
+  ],
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomclub/widget-tag-manager/issues"
+  },
+  "homepage": "https://github.com/ecomclub/widget-tag-manager#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "husky": "^3.0.1",
+    "standard": "^13.1.0",
+    "standard-version": "^6.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
