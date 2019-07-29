@@ -7,11 +7,11 @@ module.exports = {
   mode: devMode ? 'development' : 'production',
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
-    library: 'WidgetTagManager',
+    library: 'EcomTagManager',
     libraryTarget: 'umd',
     libraryExport: 'default',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'widget-tag-manager.min.js',
+    filename: 'ecom-tag-manager.min.js',
     globalObject: 'this'
   },
   devServer: {
