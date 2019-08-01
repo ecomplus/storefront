@@ -334,6 +334,15 @@ export default {
       }
     },
 
+    notifyInvalid (message) {
+      // show notification
+      this.$message({
+        showClose: true,
+        message: message || this.$t('card.invalidForm'),
+        type: 'warning'
+      })
+    },
+
     submitForm (address, confirmed) {
       if (!this.sameAddress && (!address || !address.zip)) {
         // submit address form first and wait for address data
@@ -386,8 +395,10 @@ export default {
                           } else {
                             fn(cardData).then(token => {
                               hash = token
-                              resolve()
-                            })
+                            }).catch(err => {
+                              console.error(err)
+                              hash = null
+                            }).finally(resolve)
                             return
                           }
                         }
@@ -397,10 +408,17 @@ export default {
                   } else {
                     resolve()
                   }
-                }).then(() => {
-                  // handle submit
-                  this.$emit('submit-form', Object.assign(data, { address, hash }))
                 })
+
+                  .then(() => {
+                    if (hash === null) {
+                      // invalid credit card ?
+                      this.notifyInvalid()
+                    } else {
+                      // handle submit
+                      this.$emit('submit-form', Object.assign(data, { address, hash }))
+                    }
+                  })
                 return
               } else if (valid.isPotentiallyValid) {
                 // not sure
@@ -425,12 +443,7 @@ export default {
             // complete notification message
             notify += this.$t('validate.isInvalid')
           }
-          // show notification
-          this.$message({
-            showClose: true,
-            message: notify || this.$t('card.invalidForm'),
-            type: 'warning'
-          })
+          this.notifyInvalid(notify)
         })
       }
     }
