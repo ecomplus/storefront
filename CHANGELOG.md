@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.3](https://github.com/ecomclub/storefront-app/compare/v0.15.1...v0.15.3) (2019-08-01)
+
+
+### Bug Fixes
+
+* **credit-card:** notify invalid when can't generate card hash ([d359faf](https://github.com/ecomclub/storefront-app/commit/d359faf))
+
+
+
 ### [0.15.1](https://github.com/ecomclub/storefront-app/compare/v0.15.0...v0.15.1) (2019-07-17)
 
 
