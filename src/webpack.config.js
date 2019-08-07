@@ -1,6 +1,6 @@
 'use strict'
 
-const { ECOM_STORE_ID, ECOM_STORE_OBJECT_ID } = process.env
+const { ECOM_STORE_ID } = process.env
 const pkg = require('./../package.json')
 
 // use Node.js path module for compatibility
@@ -57,10 +57,11 @@ module.exports = () => cms.then(result => {
   // check for custom service worker file
   let swSrc
   try {
-    swSrc = path.resolve(pub, 'sw.js')
+    const swPath = 'pub/sw.js'
+    swSrc = path.resolve(pub, swPath)
     if (!fs.existsSync(swSrc)) {
       // use default sw.js
-      swSrc = path.resolve(__dirname, 'sw.js')
+      swSrc = path.resolve(__dirname, swPath)
     }
   } catch (err) {
     console.error(err)
@@ -120,8 +121,7 @@ module.exports = () => cms.then(result => {
   const templateParameters = {
     ...data,
     md,
-    store_id: ECOM_STORE_ID,
-    store_object_id: ECOM_STORE_OBJECT_ID
+    store_id: ECOM_STORE_ID
   }
   const templateOptions = {
     minify: !devMode && {
