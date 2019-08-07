@@ -1,0 +1,22 @@
+{
+  "data": {
+    "store": {
+      "client": {
+        "api": "store",
+        "endpoint": "/stores/:store_id.json"
+      }
+    },
+    "brands": {
+      "client": {
+        "api": "store",
+        "endpoint": "/brands.json"
+      }
+    },
+    "categories": {
+      "client": {
+        "api": "store",
+        "endpoint": "/categories.json"
+      }
+    }
+  }
+}
