@@ -36,7 +36,6 @@
   "dependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.5.5",
     "@ecomplus/client": "^0.8.0",
     "@ecomplus/storefront-router": "^0.4.3",
