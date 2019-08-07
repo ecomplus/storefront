@@ -5,6 +5,7 @@ const pkg = require('./../package.json')
 
 // use Node.js path module for compatibility
 const path = require('path')
+const fs = require('fs')
 // read views folder recursivily
 const recursive = require('recursive-readdir')
 // markdown parser
@@ -53,6 +54,18 @@ module.exports = () => cms.then(result => {
   const primaryColor = settings.primary_color || '#3fe3e3'
   const secondaryColor = settings.secondary_color || '#5e1efe'
 
+  // check for custom service worker file
+  let swSrc
+  try {
+    swSrc = path.resolve(pub, 'sw.js')
+    if (!fs.existsSync(swSrc)) {
+      // use default sw.js
+      swSrc = path.resolve(__dirname, 'sw.js')
+    }
+  } catch (err) {
+    console.error(err)
+  }
+
   // setup Webpack plugins
   const plugins = [
     // clear dist folder
@@ -88,7 +101,7 @@ module.exports = () => cms.then(result => {
 
     // create service worker file
     new WorkboxPlugin.InjectManifest({
-      swSrc: path.resolve(__dirname, 'sw.js'),
+      swSrc,
       swDest: 'sw.js'
     }),
 
