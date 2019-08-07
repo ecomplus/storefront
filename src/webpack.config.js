@@ -9,17 +9,17 @@ const path = require('path')
 const recursive = require('recursive-readdir')
 // markdown parser
 const md = require('markdown-it')()
+// list all resource slugs with storefront router
+const EcomRouter = require('@ecomplus/storefront-router')
+const router = new EcomRouter(ECOM_STORE_ID)
 // load project directories
 const { js, scss, pub, img, pages, partials, modules, output } = require('./lib/paths')
 // Netlify CMS content
 const cms = require('./lib/cms')
-// rewrite E-Com Plus resources slugs
-const slugs = require('./lib/slugs')
 // setup Webpack plugin for template includes
 const templateIncludes = require('./plugins/template-includes')
 
 // load Webpack and plugins
-// const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -29,18 +29,18 @@ const CopyPlugin = require('copy-webpack-plugin')
 const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
 
-let data, slugsByResources, templateFiles
+let data, routes, templates
 
 module.exports = () => cms.then(result => {
   data = result
-  // also wait for slugs promise
-  return slugs
+  // also wait for list storefront routes promise
+  return router.list()
 }).then(result => {
-  slugsByResources = result
+  routes = result
   // async read page views EJS files
   return recursive(pages)
 }).then(result => {
-  templateFiles = result
+  templates = result
 
   // async process done
   // setup Webpack config object
@@ -77,12 +77,12 @@ module.exports = () => cms.then(result => {
           ? path.join(pub, settings.icon)
           : path.resolve(img, 'icon.png'),
         // multiple sizes
-        sizes: [ 96, 128, 192 ]
+        sizes: [96, 128, 192]
       }, {
         src: settings.large_icon
           ? path.join(pub, settings.large_icon)
           : path.resolve(img, 'large-icon.png'),
-        sizes: [ 384, 512 ]
+        sizes: [384, 512]
       }]
     }),
 
@@ -116,7 +116,7 @@ module.exports = () => cms.then(result => {
       removeComments: true
     },
     meta: {
-      'generator': pkg.name + '@' + pkg.version,
+      generator: pkg.name + '@' + pkg.version,
       'theme-color': primaryColor
     }
   }
@@ -128,8 +128,8 @@ module.exports = () => cms.then(result => {
   } = templateIncludes(partials, templateParameters)
   plugins.push(new TemplateIncludesPlugin())
 
-  templateFiles.forEach(template => {
-    let addView = slug => {
+  templates.forEach(template => {
+    const addView = slug => {
       const options = {
         ...templateOptions,
         templateParameters: {
@@ -158,16 +158,16 @@ module.exports = () => cms.then(result => {
     }
 
     // remove the path from template filename string
-    let filename = template.slice(pages.length + 1).replace('.ejs', '')
+    const filename = template.slice(pages.length + 1).replace('.ejs', '')
     if (filename.startsWith('_cms')) {
       // compile multiple files
       // for blog posts and extra pages
       // remove '_cms/' to get 'blog-posts' string
-      let folder = filename.slice(5)
-      if (data.hasOwnProperty(folder)) {
+      const folder = filename.slice(5)
+      if (data[folder]) {
         // render each slug
-        for (let slug in data[folder]) {
-          if (data[folder].hasOwnProperty(slug)) {
+        for (const slug in data[folder]) {
+          if (data[folder][slug] !== undefined) {
             addView(slug)
           }
         }
@@ -180,28 +180,22 @@ module.exports = () => cms.then(result => {
 
   if (devMode) {
     // watch EJS partials on serve
-    plugins.push(new ExtraWatchWebpackPlugin({
-      dirs: [ partials ]
-    }))
+    plugins.push(new ExtraWatchWebpackPlugin({ dirs: [partials] }))
 
     // setup rewrites for resource slugs
-    for (let resource in slugsByResources) {
-      if (slugsByResources.hasOwnProperty(resource)) {
-        // rewrite each slug to respective resource page
-        slugsByResources[resource].forEach(slug => {
-          if (slug) {
-            rewrites.push({
-              from: new RegExp('^/' + slug + '$'),
-              to: '/_' + resource + '.html'
-            })
-          }
+    routes.forEach(({ path, resource }) => {
+      // rewrite each slug to respective resource page
+      if (path) {
+        rewrites.push({
+          from: new RegExp('^' + path + '$'),
+          to: '/_' + resource + '.html'
         })
       }
-    }
+    })
   }
 
   // check for verbose output option
-  let stats = { colors: true }
+  const stats = { colors: true }
   if (process.argv.indexOf('--verbose') === -1) {
     // default Webpack output with less logs
     stats.assets = stats.chunks = stats.modules = stats.children = false
@@ -270,7 +264,7 @@ module.exports = () => cms.then(result => {
                 data: '$primary: ' + primaryColor + '; ' +
                   '$secondary: ' + secondaryColor + '; ',
                 // include paths to handle storefront-twbs (and not only)
-                includePaths: [ modules, twbsDir ]
+                includePaths: [modules, twbsDir]
               }
             }
           ]
@@ -284,7 +278,7 @@ module.exports = () => cms.then(result => {
             loader: 'babel-loader',
             options: {
               presets: [
-                [ '@babel/preset-env', { useBuiltIns: 'usage', corejs: 3 } ]
+                ['@babel/preset-env', { useBuiltIns: 'usage', corejs: 3 }]
               ],
               plugins: [
                 '@babel/plugin-syntax-dynamic-import'
