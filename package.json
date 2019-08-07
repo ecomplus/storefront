@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-framework",
-  "version": "2.14.0",
+  "version": "3.0.0-beta.1",
   "description": "Framework for PWA and JAMstack e-commerce templates with E-Com Plus APIs",
   "main": "src/cli.js",
   "bin": {
@@ -38,7 +38,9 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.5.5",
-    "@ecomplus/storefront-renderer": "^1.8.0",
+    "@ecomplus/client": "^0.8.0",
+    "@ecomplus/storefront-router": "^0.4.3",
+    "@ecomplus/utils": "^0.6.2",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^2.0.2",
@@ -46,7 +48,6 @@
     "core-js": "^3.1.4",
     "css-loader": "^2.1.1",
     "cssnano": "^4.1.10",
-    "ecomplus-sdk": "^1.16.0",
     "ejs": "^2.6.2",
     "extra-watch-webpack-plugin": "^1.0.3",
     "html-webpack-plugin": "^3.2.0",
