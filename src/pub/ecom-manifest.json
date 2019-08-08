@@ -17,6 +17,11 @@
         "api": "store",
         "endpoint": "/categories.json"
       }
+    },
+    "items": {
+      "search": {
+        "default": true
+      }
     }
   }
 }
