@@ -7,7 +7,7 @@ const webpackConfig = require('./../webpack.config')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const browserSync = require('browser-sync').create()
-const renderer = require('./../middlewares/renderer')
+const renderer = require('./../renderer')
 
 // setup Browsersync server together with Webpack
 bundler.then(compiler => {
