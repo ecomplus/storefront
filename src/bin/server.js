@@ -28,20 +28,33 @@ bundler.then(compiler => {
   browserSync.init({
     port,
     watch: true,
+    minify: false,
     server: webpackConfig.output.path,
+
     middleware: [
-      // Webpack dev server
+      // Webpack dev server with hot module reload
       webpackDevMiddleware(compiler, {
         publicPath: webpackConfig.output.publicPath,
         index: 'index.html',
         stats: webpackConfig.stats,
         writeToDisk: true
       }),
-      // hot reload
       webpackHotMiddleware(compiler),
-      // render views
-      renderer
-    ],
-    minify: false
+
+      // prerenderer views
+      (req, res, next) => {
+        renderer(req.url)
+          .then(html => {
+            if (html === false) {
+              // proceed to static server files
+              next()
+            } else {
+              res.write(html)
+              res.end()
+            }
+          })
+          .catch(() => process.exit(1))
+      }
+    ]
   })
 })
