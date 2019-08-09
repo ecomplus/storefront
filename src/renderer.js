@@ -10,6 +10,7 @@ const StorefrontRouter = require('@ecomplus/storefront-router')
 const getStoreData = require('./lib/get-store-data')
 const cmsCollections = require('./lib/cms-collections')
 const config = require('./lib/config')
+const MarkdownIt = require('markdown-it')
 
 // precompile EJS templates
 const templates = {}
@@ -48,6 +49,8 @@ const data = {
   ...config,
   // function to get CMS JSON content
   cms: file => require(path.resolve(paths.content, `${file}.json`)),
+  // markdown parser
+  md: new MarkdownIt(),
   ecomUtils,
   ecomClient
 }
