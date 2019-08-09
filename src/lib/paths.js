@@ -15,7 +15,7 @@ const img = path.resolve(pub, 'img')
 const content = path.resolve(process.cwd(), 'content')
 const modules = path.resolve(process.cwd(), 'node_modules')
 // outpur dir
-const output = path.resolve(process.cwd(), process.env.NODE_ENV === 'production' ? 'dist' : 'test')
+const output = path.resolve(process.cwd(), process.env.NODE_ENV === 'production' ? 'dist' : '.serve')
 
 // exports project folders
 module.exports = {
