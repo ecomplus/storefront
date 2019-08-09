@@ -43,7 +43,7 @@ bundler.then(compiler => {
 
       // prerenderer views
       (req, res, next) => {
-        renderer(req.url)
+        renderer(req.url.replace(/(\?.*)$/, '').replace(/(\.html)$/, ''))
           .then(html => {
             if (html === false) {
               // proceed to static server files
