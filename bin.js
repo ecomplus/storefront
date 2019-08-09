@@ -20,10 +20,10 @@
   for (let i = 0; i < process.argv.length; i++) {
     switch (process.argv[i]) {
       case 'serve':
-        require('./server.bin.js')
+        require('./src/bin/serve')
         return
       case 'build':
-        require('./dist.bin.js')
+        require('./src/bin/build')
         return
     }
   }
