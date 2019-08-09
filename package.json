@@ -2,13 +2,13 @@
   "name": "@ecomplus/storefront-framework",
   "version": "3.0.0-beta.1",
   "description": "Framework for PWA and JAMstack e-commerce templates with E-Com Plus APIs",
-  "main": "src/cli.js",
+  "main": "src/index.js",
   "bin": {
-    "storefront-pack": "./src/cli.js"
+    "storefront-pack": "./bin.js"
   },
   "scripts": {
-    "build": "node ./src/cli.js build",
-    "serve": "node ./src/cli.js serve",
+    "build": "node ./bin.js build",
+    "serve": "node ./bin.js serve",
     "release": "standard-version"
   },
   "repository": {
