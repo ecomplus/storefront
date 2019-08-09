@@ -1,11 +1,13 @@
+#!/usr/bin/env node
+
 'use strict'
 
 const bundler = require('./bundler')
-const webpackConfig = require('./webpack.config')
+const webpackConfig = require('./../webpack.config')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const browserSync = require('browser-sync').create()
-const render = require('./middlewares/render')
+const renderer = require('./../middlewares/renderer')
 
 // setup Browsersync server together with Webpack
 bundler.then(compiler => {
@@ -37,8 +39,8 @@ bundler.then(compiler => {
       }),
       // hot reload
       webpackHotMiddleware(compiler),
-      // renderer
-      render
+      // render views
+      renderer
     ],
     minify: false
   })

@@ -1,7 +1,9 @@
+#!/usr/bin/env node
+
 'use strict'
 
 const webpack = require('webpack')
-const webpackConfig = require('./webpack.config')
+const webpackConfig = require('./../webpack.config')
 
 module.exports = new Promise((resolve, reject) => {
   // start Webpack bundler
