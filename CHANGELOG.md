@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/ecomclub/storefront-framework/compare/v2.14.0...v3.0.0) (2019-08-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **pkg:** commands functionality entirely changed
+
+* **pkg:** update main file, bin command and scripts ([2285af2](https://github.com/ecomclub/storefront-framework/commit/2285af2))
+
+
+### Bug Fixes
+
+* **bin:** update serve and build scripts path ([d0c4ffb](https://github.com/ecomclub/storefront-framework/commit/d0c4ffb))
+* **js:** stop importing libs on example template js index ([6f49a7c](https://github.com/ecomclub/storefront-framework/commit/6f49a7c))
+* **template:** remove initial imports ([c0efa94](https://github.com/ecomclub/storefront-framework/commit/c0efa94))
+
+
+### Features
+
+* **store-data:** load E-Com Plus data for template renderization ([5fcae5e](https://github.com/ecomclub/storefront-framework/commit/5fcae5e))
+* **sw:** checking for custom service worker file on pub dir ([90245c2](https://github.com/ecomclub/storefront-framework/commit/90245c2))
+
 ## 2.14.0 (2019-08-07)
 
 
