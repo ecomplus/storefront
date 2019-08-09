@@ -40,7 +40,7 @@ const data = {
 }
 const dataPromise = getStoreData().then(storeData => Object.assign(data, storeData))
 
-const slugRegex = /\/((?!(?:admin|assets|img)(\/|$))[^.]+)(\.(?!js|css|xml|txt|png|gif|jpg|jpeg|webp|svg)[^.]+)*$/
+const slugRegex = /\/((?!(?:assets|img)(\/|$))[^.]+)(\.(?!js|css|xml|txt|png|gif|jpg|jpeg|webp|svg)[^.]+)*$/
 
 module.exports = url => dataPromise
   .then(() => {
