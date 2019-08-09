@@ -2,6 +2,7 @@
 /content
 /dist
 /test
+/.serve
 
 # Logs
 logs
