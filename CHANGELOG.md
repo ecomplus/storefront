@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [3.0.0](https://github.com/ecomclub/storefront-framework/compare/v2.14.0...v3.0.0) (2019-08-09)
+## [3.0.0-beta.1](https://github.com/ecomclub/storefront-framework/compare/v2.14.0...v3.0.0-beta.1) (2019-08-09)
 
 
 ### ⚠ BREAKING CHANGES
