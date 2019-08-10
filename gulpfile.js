@@ -1,7 +1,7 @@
 'use strict'
 
 const path = require('path')
-const { src, dest, parallel, watch } = require('gulp')
+const { src, dest, series, parallel, watch } = require('gulp')
 const browserSync = require('browser-sync').create()
 const cleanCss = require('gulp-clean-css')
 const sourcemaps = require('gulp-sourcemaps')
@@ -12,11 +12,11 @@ const filename = 'storefront-twbs'
 
 const html = () => {
   browserSync.init({
-    server: './docs',
+    server: './test',
     port: 3376
   })
   watch('./scss/**/*.scss', sass)
-  watch('./docs/index.html', browserSync.reload)
+  watch('./test/index.html', browserSync.reload)
 }
 
 const sass = () => {
@@ -29,12 +29,12 @@ const sass = () => {
       ]
     }).on('error', buildSass.logError))
     .pipe(sourcemaps.write())
-    .pipe(dest('./docs'))
+    .pipe(dest('./test'))
     .pipe(browserSync.stream())
 }
 
 const dist = () => {
-  return src('./docs/' + filename + '.css')
+  return src('./test/' + filename + '.css')
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(cleanCss({ compatibility: 'ie8' }))
     .pipe(rename('' + filename + '.min.css'))
@@ -43,6 +43,6 @@ const dist = () => {
 }
 
 exports.sass = sass
-exports.dist = dist
+exports.dist = series(sass, dist)
 exports.html = html
 exports.default = parallel(html, sass)
