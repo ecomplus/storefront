@@ -1,0 +1,50 @@
+{
+  "name": "@ecomplus/storefront-template",
+  "version": "0.0.1",
+  "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
+  "main": "template/js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomclub/storefront-template.git"
+  },
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "jamstack-ecommerce",
+    "vuejs",
+    "store-theme",
+    "ecommerce-template",
+    "ecommerce-theme"
+  ],
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomclub/storefront-template/issues"
+  },
+  "homepage": "https://github.com/ecomclub/storefront-template#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@ecomplus/storefront-framework": "^3.1.0",
+    "babel-eslint": "^10.0.2",
+    "husky": "^3.0.3",
+    "standard": "^13.1.0",
+    "standard-version": "^7.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "browserslist": [
+    "last 1 version",
+    "not dead",
+    "> 0.2%"
+  ],
+  "standard": {
+    "parser": "babel-eslint"
+  }
+}
