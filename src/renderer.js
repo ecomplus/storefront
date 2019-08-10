@@ -48,7 +48,7 @@ cmsCollections.forEach(collection => {
 const data = {
   ...config,
   // function to get CMS JSON content
-  cms: file => require(path.resolve(paths.content, `${file}.json`)),
+  cms: file => require(path.join(paths.content, `${file}.json`)),
   // markdown parser
   md: new MarkdownIt(),
   ecomUtils,
@@ -74,8 +74,8 @@ module.exports = (url, route) => dataPromise
     // it is a valid page URL
     // should be prerendered
     try {
-      const filename = path.resolve(paths.pages, url.slice(1) + '.ejs')
-      if (fs.existsSync(path.resolve(filename))) {
+      const filename = path.join(paths.pages, `${url}.ejs`)
+      if (fs.existsSync(filename)) {
         // predefined view
         return {
           filename
