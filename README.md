@@ -113,6 +113,11 @@ data = {
   // Brand colors RGB
   primaryColor,
   secondaryColor,
+  // Preloaded data from E-Com Plus APIs
+  store,
+  categories,
+  brands,
+  items,
   // Utility functions for e-commerce
   // https://developers.e-com.plus/ecomplus-utils/
   ecomUtils,
