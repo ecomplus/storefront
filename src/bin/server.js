@@ -2,10 +2,13 @@
 
 'use strict'
 
+const { BROWSER_RELOAD_DELAY } = process.env
+
+const path = require('path')
+const paths = require('./../lib/paths')
 const bundler = require('./bundler')
 const webpackConfig = require('./../webpack.config')
 const webpackDevMiddleware = require('webpack-dev-middleware')
-const webpackHotMiddleware = require('webpack-hot-middleware')
 const browserSync = require('browser-sync').create()
 const renderer = require('./../renderer')
 
@@ -27,9 +30,21 @@ bundler.then(compiler => {
   // start Browsersync
   browserSync.init({
     port,
-    watch: true,
     minify: false,
-    server: webpackConfig.output.path,
+    server: paths.output,
+
+    // watch source files to reload and stream
+    files: [
+      path.join(paths.pages, '/**/*.ejs'),
+      path.join(paths.content, '/**/*.json'),
+      path.join(paths.output, '/*.css'),
+      {
+        match: [path.join(paths.js, '/**/*.js')],
+        fn (event, file) {
+          setTimeout(() => browserSync.reload(), BROWSER_RELOAD_DELAY || 350)
+        }
+      }
+    ],
 
     middleware: [
       // Webpack dev server with hot module reload
@@ -39,7 +54,6 @@ bundler.then(compiler => {
         stats: webpackConfig.stats,
         writeToDisk: true
       }),
-      webpackHotMiddleware(compiler),
 
       // prerenderer views
       (req, res, next) => {
