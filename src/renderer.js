@@ -63,7 +63,9 @@ const slugRegex = /\/((?!(?:assets|img)(\/|$))[^.]+)(\.(?!js|css|xml|txt|png|gif
 module.exports = (url, route) => dataPromise
 
   .then(() => {
-    if (url === '/') {
+    if (route && route.path) {
+      return route
+    } else if (url === '/') {
       url = '/index'
     } else if (!slugRegex.test(url)) {
       // static file URL
@@ -93,11 +95,9 @@ module.exports = (url, route) => dataPromise
         collection,
         slug
       }
-    } else if (!route) {
+    } else {
       // try to map resource by slug with storefront router
       return router.map(url)
-    } else {
-      return route
     }
   })
 
