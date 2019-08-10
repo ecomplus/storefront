@@ -106,6 +106,13 @@ data = {
   cms,
   // MarkdownIt instance to parse MD markup
   md,
+  // Store ID number
+  storeId,
+  // Language code string
+  lang,
+  // Brand colors RGB
+  primaryColor,
+  secondaryColor,
   // Utility functions for e-commerce
   // https://developers.e-com.plus/ecomplus-utils/
   ecomUtils,
