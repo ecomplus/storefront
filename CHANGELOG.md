@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/ecomclub/storefront-framework/compare/v3.0.0...v3.0.1) (2019-08-10)
+
+
+### Bug Fixes
+
+* **bin:** watch source files to reload and stream ([6b14038](https://github.com/ecomclub/storefront-framework/commit/6b14038))
+* **webpack:** using css extract even on development ([7941107](https://github.com/ecomclub/storefront-framework/commit/7941107))
+
 ## [3.0.0](https://github.com/ecomclub/storefront-framework/compare/v3.0.0-beta.1...v3.0.0) (2019-08-10)
 
 
