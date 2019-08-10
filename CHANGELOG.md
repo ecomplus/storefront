@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/ecomclub/storefront-framework/compare/v3.0.2...v3.1.0) (2019-08-10)
+
+
+### Features
+
+* **build:** try to minify html output ([b40e193](https://github.com/ecomclub/storefront-framework/commit/b40e193))
+
 ### [3.0.2](https://github.com/ecomclub/storefront-framework/compare/v3.0.1...v3.0.2) (2019-08-10)
 
 ### [3.0.1](https://github.com/ecomclub/storefront-framework/compare/v3.0.0...v3.0.1) (2019-08-10)
