@@ -1,6 +1,5 @@
 'use strict'
 
-const webpack = require('webpack')
 const fs = require('fs')
 const path = require('path')
 const paths = require('./lib/paths')
@@ -161,12 +160,6 @@ if (process.argv.indexOf('--verbose') === -1) {
   // default Webpack output with less logs
   const { stats } = config
   stats.assets = stats.chunks = stats.modules = stats.children = false
-}
-
-if (devMode) {
-  // handle dev server hot reload
-  config.entry.main.push('webpack/hot/dev-server', 'webpack-hot-middleware/client')
-  config.plugins.push(new webpack.HotModuleReplacementPlugin())
 }
 
 // export Webpack config for storefront templates
