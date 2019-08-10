@@ -64,21 +64,40 @@ bundler.then(async () => {
 
   // build all CMS folder collection slugs
   for (let i = 0; i < cmsCollections.length; i++) {
-    // @TODO
+    const collection = cmsCollections[i]
+    const collSrc = path.join(paths.content, collection)
+    let files
+    try {
+      files = await recursiveReaddir(collSrc)
+    } catch (e) {
+      // directory not found ?
+    }
+    if (Array.isArray(files)) {
+      for (let i = 0; i < files.length; i++) {
+        if (files[i].endsWith('.json')) {
+          // get slug and url from filename
+          const [, slug] = files[i].slice(collSrc.length).replace('.json', '').split(path.sep)
+          const url = `/${collection}/${slug}`
+          await prerender(url, { path: url, collection, slug })
+        }
+      }
+    }
   }
 
   // check additional page views
   // read all page views recursivily
   const files = await recursiveReaddir(paths.pages)
   for (let i = 0; i < files.length; i++) {
-    // fix url string from filename
-    let url = files[i].slice(paths.pages.length).replace(/\.ejs$/, '')
-    const firstChar = url.charAt(1)
-    if (firstChar !== '#' && firstChar !== '@') {
-      if (path.sep !== '/') {
-        url = url.replace(path.sep, '/')
+    if (files[i].endsWith('.ejs')) {
+      // fix url string from filename
+      let url = files[i].slice(paths.pages.length).replace('.ejs', '')
+      const firstChar = url.charAt(1)
+      if (firstChar !== '#' && firstChar !== '@') {
+        if (path.sep !== '/') {
+          url = url.replace(path.sep, '/')
+        }
+        await prerender(url)
       }
-      await prerender(url)
     }
   }
 })
