@@ -14,7 +14,8 @@
     "ecomplus",
     "storefront",
     "jamstack-ecommerce",
-    "vuejs",
+    "pwa-ecommerce",
+    "ejs-template",
     "store-theme",
     "ecommerce-template",
     "ecommerce-theme"
@@ -25,6 +26,16 @@
     "url": "https://github.com/ecomclub/storefront-template/issues"
   },
   "homepage": "https://github.com/ecomclub/storefront-template#readme",
+  "dependencies": {
+    "@ecomplus/client": "^0.8.0",
+    "@ecomplus/search-engine": "^0.10.0",
+    "@ecomplus/utils": "^0.6.2",
+    "@glidejs/glide": "^3.3.0",
+    "core-js": "^3.2.0",
+    "lodash": "^4.17.15",
+    "photoswipe": "^4.1.3",
+    "vue": "^2.6.10"
+  },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
