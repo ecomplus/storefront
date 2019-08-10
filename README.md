@@ -47,8 +47,6 @@ Compile assets bundles for production and prerender e-commerce pages;
 
 #### Optional arguments
 
-- `--open`:
-Automatically opens new browser tab with the dev server;
 - `--port=8080`:
 Change the dev server port number, you may replace _8080_ by what you want;
 - `--verbose`:
@@ -91,51 +89,39 @@ file.
 
 All **content must be JSON**, saved on `content` folder.
 
-## Template parameters
+## Renderization
 
-CMS content will be parsed to object and used as
-template data object when compiling [EJS](https://ejs.co/) files:
+We use [EJS](https://ejs.co/) to prerender views with
+following template data:
 
-- `content/settings.json` will be parsed to:
-
-```json
-{
-  "settings": {
-    "name": "My Shop",
-    "example": "any"
-  }
+```js
+data = {
+  // Boolean development mode
+  devMode,
+  // Parsed object from `content/settings.json`
+  settings,
+  // Function to get CMS JSON content
+  cms,
+  // MarkdownIt instance to parse MD markup
+  md,
+  // Utility functions for e-commerce
+  // https://developers.e-com.plus/ecomplus-utils/
+  ecomUtils,
+  // E-Com Plus APIs client
+  // https://developers.e-com.plus/ecomplus-client/
+  ecomClient,
+  // Optional route object
+  route
 }
 ```
 
-- `content/pages/home.json` will be parsed to:
+EJS is configured with support for
+`asyc/await` and `includes`.
 
-```json
-{
-  "pages": {
-    "home": {
-      "example": "any"
-    }
-  }
-}
-```
+### Examples
 
-And you can use it on EJS view as:
-
-```ejs
-<%= settings.name %>
-```
-
-Besides the CMS content,
-template data has the following properties:
-
-- `slug`:
-The current page slug;
-- `store_id` and `store_object_id`:
-From _ECOM_STORE_ID_ and _ECOM_STORE_OBJECT_ID_ environment variables;
-- `md`:
-[Markdown-it](https://github.com/markdown-it/markdown-it) instance;
-- `partial`:
-Function to include [EJS partials](#templateviewspartials);
+You can code examples of EJS these views in our
+[`storefront-template` repo](https://github.com/ecomclub/storefront-template).
 
 ### Parsing markdown content
 
@@ -147,16 +133,28 @@ eg.:
 <%= md.render(pages.home.md_content) %>
 ```
 
-### Including partial templates
+### Handling slugs and routes
 
-You may include partial template files (inside _partials_ folder)
-with EJS calling the `partial` function, eg.:
+Template data may have a `route` property,
+it'll be set when the same EJS file should be rendered to
+multiple pages (slugs):
 
-```ejs
-<%= partial('components/header') %>
+- Store resource (products, categories, brands, collections):
+```js
+route = { path, resource, _id }
 ```
+You should use `route._id` to get the body of respective
+resource document with `ecomClient`;
 
-[More info](#templateviewspartials).
+- CMS folder collection (eg.: _blog_ or _pages_):
+```js
+route = { path, collection, slug }
+```
+You should use `route.slug` to get the parsed CMS content
+with `cms` function;
+
+- In other cases, such as for `index.ejs`, the
+`route` object will not be set on template data;
 
 ## Project structure
 
@@ -170,16 +168,12 @@ your template project **must** have the following file structure:
 └── template
     ├── assets
     ├── js
+    ├── pages
     ├── public
     │   ├── admin
     │   └── img
     │       └── uploads
-    ├── scss
-    │   └── storefront-twbs
-    │       └── theme
-    └── views
-        ├── partials
-        └── pages
+    └── scss
 ```
 
 #### `/content`
@@ -249,51 +243,21 @@ to compile CSS stylesheet,
 is required, other files and modules
 should be imported inside it.
 
-#### `/template/scss/storefront-twbs/theme`
+#### `/template/pages`
 
-[Custom storefront Bootstrap theme](https://github.com/ecomclub/storefront-twbs#creating-custom-theme),
-`_components.scss` and `_variables.scss` are required.
+[EJS](https://ejs.co/) markup to compile HTML pages.
 
-#### `/template/scss/storefront-twbs/theme/assets`
-
-Place here the static files
-that should be imported on storefront-twbs
-`_components.scss` or `_variables.scss` files.
-
-#### `/template/views`
-
-[EJS](https://ejs.co/) markup to compile HTML files.
-
-#### `/template/views/partials`
-
-EJS partials to be included on pages, receiving all parsed
-CMS content and optionally additional arguments.
-Import the partial by filename with paths
-(ignore paths until the `partials` dir)
-and without extension, eg.:
-
-```ejs
-<%= partial('head', { title: 'Hello World' }) %>
-```
-
-```ejs
-<%= partial('components/header') %>
-```
-
-#### `/template/views/pages`
-
-EJS views to compile HTML pages, predefined files:
+Required files:
 
 ```
 ├── index.ejs
-├── _brands.ejs
-├── _categories.ejs
-├── _collections.ejs
-└── _products.ejs
+├── #brands.ejs
+├── #categories.ejs
+├── #collections.ejs
+└── #products.ejs
 ```
 
-The above files are required,
-with the specified names. They have to be in the
+The above files have to be in the
 root of `pages` directory.
 
 To complete the storefront template,
@@ -301,14 +265,13 @@ you should also create other EJS views.
 It's possible to use as many pages as you want,
 and you can choose any filenames.
 
-#### `/template/views/pages/_cms`
-
-EJS views for
+You may want to add a `#cms` folder inside
+pages directory, this folder should contain EJS views for
 [folder collections](https://www.netlifycms.org/docs/collection-types/#folder-collections),
 witch produces multiple slugs.
 
-For example, for a blog folder collection on folder `content/blog-posts`,
-you should have a view `_cms/blog-posts.ejs`, it will generate an HTML page for each
+For example, for a blog folder collection on folder `content/blog`,
+you should have a view `#cms/blog.ejs`, it will generate an HTML page for each
 post saved by CMS.
 
 ## Deploy with Netlify
