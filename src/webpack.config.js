@@ -101,8 +101,7 @@ const config = {
       {
         test: /\.s?css$/,
         use: [
-          // fallback to style-loader in development
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          MiniCssExtractPlugin.loader,
           'css-loader',
 
           {
