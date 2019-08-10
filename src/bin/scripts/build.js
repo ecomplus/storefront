@@ -9,6 +9,7 @@ const path = require('path')
 const paths = require('./../../lib/paths')
 const recursiveReaddir = require('recursive-readdir')
 const mkdirp = require('mkdirp')
+const htmlMinifier = require('html-minifier')
 const StorefrontRouter = require('@ecomplus/storefront-router')
 const cmsCollections = require('./../../lib/cms-collections')
 const bundler = require('./../bundler')
@@ -33,6 +34,20 @@ const prerender = (url, route) => new Promise((resolve, reject) => {
   renderer(url, route)
     .then(html => {
       if (html) {
+        // try to minify HTML output
+        try {
+          const htmlMin = htmlMinifier.minify(html, {
+            collapseWhitespace: true,
+            removeComments: true,
+            removeAttributeQuotes: true
+          })
+          if (htmlMin) {
+            html = htmlMin
+          }
+        } catch (e) {
+          // skip minification
+        }
+
         // save HTML file on output folder
         const filepath = path.join(paths.output, `${url}.html`)
         // create directories for if needed
