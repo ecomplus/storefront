@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/ecomclub/storefront-framework/compare/v3.0.0-beta.1...v3.0.0) (2019-08-10)
+
+
+### Bug Fixes
+
+* **main:** fix exported object ([b4cebc4](https://github.com/ecomclub/storefront-framework/commit/b4cebc4))
+* **renderer:** edit slug regex to enable views on admin path ([9ff46d3](https://github.com/ecomclub/storefront-framework/commit/9ff46d3))
+* **renderer:** fix resolving file paths ([bdf5beb](https://github.com/ecomclub/storefront-framework/commit/bdf5beb))
+* **server:** handling renderer correctly ([43acf31](https://github.com/ecomclub/storefront-framework/commit/43acf31))
+* **server:** passing url path correctly to renderer ([7aee4ad](https://github.com/ecomclub/storefront-framework/commit/7aee4ad))
+
+
+### Features
+
+* **build:** build all cms folder collection slugs ([4055a53](https://github.com/ecomclub/storefront-framework/commit/4055a53))
+* **build:** prerendering pages, storefront routes and additional views ([a4a6d66](https://github.com/ecomclub/storefront-framework/commit/a4a6d66))
+* **renderer:** adding markdown parser ([da842d1](https://github.com/ecomclub/storefront-framework/commit/da842d1))
+* **renderer:** handle prerenderization with ejs async ([1c3e69b](https://github.com/ecomclub/storefront-framework/commit/1c3e69b))
+* **renderer:** render cms collections, store resources and custom views ([3eb2fd8](https://github.com/ecomclub/storefront-framework/commit/3eb2fd8))
+
 ## [3.0.0-beta.1](https://github.com/ecomclub/storefront-framework/compare/v2.14.0...v3.0.0-beta.1) (2019-08-09)
 
 
