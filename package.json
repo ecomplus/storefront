@@ -1,15 +1,13 @@
 {
   "name": "@ecomplus/storefront-twbs",
-  "version": "1.2.1",
+  "version": "2.0.0-alpha.0",
   "description": "Generate Bootstrap 4 based theme for E-Com Plus storefront",
   "main": "src/index.js",
-  "bin": {
-    "storefront-twbs": "./src/index.js"
-  },
   "scripts": {
-    "build": "gulp sass",
-    "test": "gulp",
-    "dist": "gulp dist"
+    "build:css": "gulp dist",
+    "build": "npm run build:css",
+    "serve": "gulp",
+    "release": "rm -rf ./dist; npm run build & standard-version"
   },
   "repository": {
     "type": "git",
@@ -23,8 +21,8 @@
   "homepage": "https://github.com/ecomclub/storefront-twbs#readme",
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "ncp": "^2.0.0",
-    "node-sass": "^4.12.0"
+    "portal-vue": "^2.1.6",
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.6.1",
