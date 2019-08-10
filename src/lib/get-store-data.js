@@ -28,37 +28,40 @@ module.exports = (storeId = config.storeId, pubSrc = paths.pub, ecomManifest) =>
     // load data for template renderization
     const getPromises = []
     const data = {}
-    for (const prop in ecomManifest) {
-      const propManifest = ecomManifest[prop]
-      if (propManifest) {
-        // run manifest configured GET request
-        const { client, search } = propManifest
-        let req
+    const dataManifest = ecomManifest.data
+    if (dataManifest) {
+      for (const prop in dataManifest) {
+        const propManifest = dataManifest[prop]
+        if (propManifest) {
+          // run manifest configured GET request
+          const { client, search } = propManifest
+          let req
 
-        if (client) {
-          // request with ecomClient
-          const { api, endpoint } = client
-          const url = endpoint.replace(':store_id', storeId)
-          req = ecomClient[api]({
-            url,
-            storeId
-          }).then(response => {
-            let body = response.data
-            if (body._id && body.result) {
-              // list request
-              body = body.result
-            }
-            data[prop] = body
-          })
-        } else if (search) {
-          // request with search engine instance
-          req = ecomSearch.fetch().then(() => {
-            data[prop] = ecomSearch.getItems()
-          })
+          if (client) {
+            // request with ecomClient
+            const { api, endpoint } = client
+            const url = endpoint.replace(':store_id', storeId)
+            req = ecomClient[api]({
+              url,
+              storeId
+            }).then(response => {
+              let body = response.data
+              if (body._id && body.result) {
+                // list request
+                body = body.result
+              }
+              data[prop] = body
+            })
+          } else if (search) {
+            // request with search engine instance
+            req = ecomSearch.fetch().then(() => {
+              data[prop] = ecomSearch.getItems()
+            })
+          }
+
+          // add request to promises list
+          getPromises.push(req)
         }
-
-        // add request to promises list
-        getPromises.push(req)
       }
     }
 
