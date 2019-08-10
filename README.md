@@ -12,6 +12,8 @@ tool to develop and build
 e-commerce templates with
 [E-Com Plus APIs](https://developers.e-com.plus/docs/reference/)
 
+[Changelog](https://github.com/ecomclub/storefront-framework/blob/master/CHANGELOG.md)
+
 ## Starter template
 
 `storefront-framework` is a JS tool **to create new templates**
@@ -121,7 +123,17 @@ EJS is configured with support for
 ### Examples
 
 You can code examples of EJS these views in our
-[`storefront-template` repo](https://github.com/ecomclub/storefront-template).
+[`storefront-template`](https://github.com/ecomclub/storefront-template) repo.
+
+### Loading JSON content
+
+You may load CMS content by calling the `cms` function
+with the filename (without extension) as param, eg.:
+
+```ejs
+<% const page = cms('pages/about-us') %>
+<%= page.title %>
+```
 
 ### Parsing markdown content
 
