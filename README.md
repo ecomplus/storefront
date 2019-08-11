@@ -3,102 +3,30 @@
 [![npm version](https://img.shields.io/npm/v/@ecomplus/storefront-twbs.svg)](https://www.npmjs.org/@ecomplus/storefront-twbs)
 [![license mit](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Generate custom Bootstrap 4 based theme for E-Com Plus storefront.
+[Boostrap 4.3](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
+and [BootstrapVue](https://bootstrap-vue.js.org/docs/components/)
+wrapper for E-Com Plus storefront.
 
-**[Small guide](https://developers.e-com.plus/storefront-twbs/) for partners**,
-please take a look before creating new
-templates and widgets.
+## Guide
 
-## Compiling the storefront theme
+All E-Com Plus stores should include Bootstrap 4.3 theme to improve compatibility between brand colors, store template and third party widgets, keeping as possible a consistent visual identity.
 
-### Command line
+To create a new template, you SHOULD use as possible the default bootstrap components, and/or adapt them to mirror your theme visual identity.
 
-From CLI, compile the custom SASS theme
-and utilities passing directories
-and brand colors RGBs (without `#`):
+To create a new widget, you MUST use bootstrap components the maximum as possible, to follow the theme and store brand visual identity, you should also use utilities and avoid creating custom CSS.
 
-```bash
-npm i -g @ecomplus/storefront-twbs
-storefront-twbs ~/mytheme ~/mytheme/dist 6f42c1 e83e8c
-```
+### Brand colors
 
-Note that `~/mytheme` directory **must contain**
-`theme` folder with at least
-`_variables.scss` and `_components.scss` files.
+The merchant would set the primary and secondary colors following the store brand.
 
-### Node.js
+#### Primary
 
-Programmatic usage with `build` method:
+Should be used to drive attention to the main tasks that shoud be done while using the app. It is meant to be used in major interactive elements of the page.
 
-```javascript
-const buildTheme = require('@ecomplus/storefront-twbs').build
-let baseDir = '~/mytheme'
-let outputDir = '~/mytheme/dist'
-let primaryColor = '6f42c1'
-let secondaryColor = 'e83e8c'
-// build {outputDir}/storefront-twbs.min.css
-buildTheme(baseDir, outputDir, primaryColor, secondaryColor)
-```
+Use examples: Links, Call to actions, Obrigatory forms, Check boxes, Radio buttons, Toggles
 
-## Creating custom theme
+#### Secondary
 
-Clone the [GitHub repository](https://github.com/ecomclub/storefront-twbs)
-and install dependencies with NPM:
+Should be used to drive attention in the elements with relevant info, but where the user is not intended to take action.
 
-```bash
-git clone https://github.com/ecomclub/storefront-twbs
-cd storefront-twbs
-npm i
-```
-
-Edit the SASS files in the `theme` directory,
-we recommend start from `_variables.scss`.
-You can also create custom SCSS files inside the same folder and
-import them from `_components.scss` file.
-
-Start the localhost test server with:
-
-```bash
-npm run test
-```
-
-Or optionally just compile the SASS to CSS with:
-
-```bash
-npm run build
-```
-
-When you're done, generate sourcemap and minified CSS
-on `dist` folder by running:
-
-```bash
-npm run dist
-```
-
-### Components
-
-We're including all Bootstrap 4.3 components,
-for complete theme customizations, components styles may be
-overridden one by one on `theme/_components.scss`.
-
-### For partners
-
-Note that your dist is not ready for stores,
-we also have to compile with the brand colors defined by
-the desired merchant.
-
-The customized SASS files on `theme` folder will be used
-to compile the theme for each store with respective
-brand colors, so these are the files that you should
-put on your template source
-distributed in the [Market](https://market.e-com.plus).
-
-## Reference
-
-- https://getbootstrap.com/docs/4.3/getting-started/theming/
-- https://uxplanet.org/how-to-customize-bootstrap-b8078a011203
-
-## tl;dr
-
-You can also find open source Bootstrap 4 themes
-on [Bootswatch](https://bootswatch.com/) :wink:.
+Use examples: Secondary buttons, Badges, Sales tags, Hotmarks
