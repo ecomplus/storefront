@@ -9,8 +9,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   mode: devMode ? 'development' : 'production',
   entry: [
-    path.resolve(__dirname, 'src/index.js'),
-    path.resolve(__dirname, 'scss/storefront-twbs.scss')
+    path.resolve(__dirname, 'scss/storefront-twbs.scss'),
+    path.resolve(__dirname, 'src/index.js')
   ],
   output: {
     library: '__storefront_twbs',
