@@ -72,8 +72,18 @@
         <i class="text-muted">Sales tags</i>,
         <i class="text-muted">Hotmarks</i>
       </p>
+
+      <div id="app">
+        <b-alert v-bind:show="true" variant="info" dismissible>
+          Also includes some Vue components from
+          <a href="https://bootstrap-vue.js.org/docs/" target="_blank">BootstrapVue</a>
+        </b-alert>
+      </div>
     </div>
 
     <script src="storefront-twbs.js"></script>
+    <script>
+      var app = new __storefront_twbs.Vue({ el: '#app' })
+    </script>
   </body>
 </html>
