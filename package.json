@@ -4,8 +4,7 @@
   "description": "Generate Bootstrap 4 based theme for E-Com Plus storefront",
   "main": "src/index.js",
   "scripts": {
-    "build:css": "gulp dist",
-    "build": "npm run build:css",
+    "build": "NODE_ENV=production webpack",
     "serve": "webpack-dev-server",
     "release": "rm -rf ./dist; npm run build & standard-version"
   },
