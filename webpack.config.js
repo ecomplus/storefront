@@ -27,6 +27,11 @@ module.exports = {
     colors: true
   },
   devtool: 'source-map',
+  performance: {
+    hints: devMode ? false : 'warning',
+    maxEntrypointSize: 500000,
+    maxAssetSize: 500000
+  },
 
   plugins: [
     new CleanWebpackPlugin(),
@@ -37,14 +42,6 @@ module.exports = {
 
   module: {
     rules: [
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader'
-        }
-      },
-
       {
         test: /\.s?css$/,
         use: [
@@ -72,7 +69,7 @@ module.exports = {
       vue: 'vue/dist/vue.js'
     }
   },
-  externals: {
+  externals: devMode ? {} : {
     vue: {
       commonjs: 'vue',
       commonjs2: 'vue',
