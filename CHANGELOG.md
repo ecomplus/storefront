@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/ecomclub/storefront-twbs/compare/v2.0.0-alpha.3...v2.0.0) (2019-08-11)
+
+
+### Features
+
+* **bootstrap-vue:** loading some bootstrap vue components and styles ([6653a9a](https://github.com/ecomclub/storefront-twbs/commit/6653a9a))
+
 ## [2.0.0-alpha.3](https://github.com/ecomclub/storefront-twbs/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2019-08-11)
 
 
