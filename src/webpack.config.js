@@ -43,9 +43,9 @@ const config = {
 
   entry: {
     main: [
+      path.resolve(paths.scss, 'styles.scss'),
       path.resolve(__dirname, 'assets/starter.js'),
-      path.resolve(paths.js, 'index.js'),
-      path.resolve(paths.scss, 'styles.scss')
+      path.resolve(paths.js, 'index.js')
     ]
   },
 
