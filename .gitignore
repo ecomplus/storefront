@@ -1,3 +1,6 @@
+/dist
+/.serve
+
 # Logs
 logs
 *.log
