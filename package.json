@@ -2,7 +2,9 @@
   "name": "@ecomplus/storefront-twbs",
   "version": "2.0.0",
   "description": "Generate Bootstrap 4 based theme for E-Com Plus storefront",
-  "main": "src/index.js",
+  "main": "dist/storefront-twbs.min.js",
+  "module": "src/index.js",
+  "browser": "dist/storefront-twbs.min.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "serve": "webpack-dev-server",
