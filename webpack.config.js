@@ -9,13 +9,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   mode: devMode ? 'development' : 'production',
   entry: [
-    path.resolve(__dirname, 'scss/storefront-twbs.scss'),
+    path.resolve(__dirname, 'scss/styles.scss'),
     path.resolve(__dirname, 'src/index.js')
   ],
   output: {
     library: '__storefront_twbs',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'storefront-twbs.js'
+    filename: 'storefront-twbs.min.js'
   },
 
   devServer: {
@@ -36,7 +36,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'storefront-twbs.css'
+      filename: 'storefront-twbs.min.css'
     })
   ],
 
