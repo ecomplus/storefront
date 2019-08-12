@@ -5,7 +5,8 @@
   "main": "template/js/index.js",
   "scripts": {
     "serve": "storefront-pack serve",
-    "build": "storefront-pack build"
+    "build": "storefront-pack build",
+    "release": "npm run build & standard-version"
   },
   "repository": {
     "type": "git",
