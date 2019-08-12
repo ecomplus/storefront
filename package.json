@@ -5,7 +5,8 @@
   "main": "template/js/index.js",
   "scripts": {
     "serve": "storefront-pack serve",
-    "build": "storefront-pack build",
+    "build:template": "storefront-pack build",
+    "build": "NODE_ENV=production webpack",
     "release": "npm run build & standard-version"
   },
   "repository": {
@@ -42,7 +43,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "@ecomplus/storefront-framework": "^3.1.2",
+    "@ecomplus/storefront-framework": "^3.1.3",
     "babel-eslint": "^10.0.2",
     "husky": "^3.0.3",
     "standard": "^13.1.0",
