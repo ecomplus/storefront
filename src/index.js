@@ -7,14 +7,6 @@ import {
   AlertPlugin,
   CollapsePlugin,
   DropdownPlugin,
-  FormPlugin,
-  FormCheckboxPlugin,
-  FormFilePlugin,
-  FormGroupPlugin,
-  FormInputPlugin,
-  FormRadioPlugin,
-  FormSelectPlugin,
-  FormTextareaPlugin,
   PaginationPlugin,
   ModalPlugin,
   TabsPlugin,
@@ -26,14 +18,6 @@ import {
 Vue.use(AlertPlugin)
 Vue.use(CollapsePlugin)
 Vue.use(DropdownPlugin)
-Vue.use(FormPlugin)
-Vue.use(FormCheckboxPlugin)
-Vue.use(FormFilePlugin)
-Vue.use(FormGroupPlugin)
-Vue.use(FormInputPlugin)
-Vue.use(FormRadioPlugin)
-Vue.use(FormSelectPlugin)
-Vue.use(FormTextareaPlugin)
 Vue.use(PaginationPlugin)
 Vue.use(ModalPlugin)
 Vue.use(TabsPlugin)
