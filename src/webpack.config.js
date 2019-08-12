@@ -62,36 +62,7 @@ const config = {
     // extract CSS to file
     new MiniCssExtractPlugin({
       filename: 'styles.css'
-    }),
-
-    // create manifest.json file
-    new WebpackPwaManifest({
-      filename: 'manifest.json',
-      name: settings.name || 'My Shop',
-      short_name: settings.short_name || 'MyShop',
-      description: settings.description || 'My PWA Shop',
-      background_color: settings.bg_color || '#ffffff',
-      theme_color: primaryColor,
-      crossorigin: 'use-credentials',
-      icons: [{
-        src: settings.icon
-          ? path.join(paths.pub, settings.icon)
-          : path.resolve(paths.img, 'icon.png'),
-        // multiple icon sizes
-        sizes: [96, 128, 192]
-      }, {
-        src: settings.large_icon
-          ? path.join(paths.pub, settings.large_icon)
-          : path.resolve(paths.img, 'large-icon.png'),
-        sizes: [384, 512]
-      }]
-    }),
-
-    // create service worker file
-    new WorkboxPlugin.InjectManifest({ swSrc, swDest: 'sw.js' }),
-
-    // copy files from public folders recursivily
-    new CopyPlugin([{ from: paths.pub, to: paths.output }])
+    })
   ],
 
   module: {
@@ -155,11 +126,44 @@ const config = {
   }
 }
 
-// handle configurable options by CLI args
-if (process.argv.indexOf('--verbose') === -1) {
-  // default Webpack output with less logs
-  const { stats } = config
-  stats.assets = stats.chunks = stats.modules = stats.children = false
+if (!process.env.WEBPACK_BUILD_LIB) {
+  config.plugins.push(
+    // create manifest.json file
+    new WebpackPwaManifest({
+      filename: 'manifest.json',
+      name: settings.name || 'My Shop',
+      short_name: settings.short_name || 'MyShop',
+      description: settings.description || 'My PWA Shop',
+      background_color: settings.bg_color || '#ffffff',
+      theme_color: primaryColor,
+      crossorigin: 'use-credentials',
+      icons: [{
+        src: settings.icon
+          ? path.join(paths.pub, settings.icon)
+          : path.resolve(paths.img, 'icon.png'),
+        // multiple icon sizes
+        sizes: [96, 128, 192]
+      }, {
+        src: settings.large_icon
+          ? path.join(paths.pub, settings.large_icon)
+          : path.resolve(paths.img, 'large-icon.png'),
+        sizes: [384, 512]
+      }]
+    }),
+
+    // create service worker file
+    new WorkboxPlugin.InjectManifest({ swSrc, swDest: 'sw.js' }),
+
+    // copy files from public folders recursivily
+    new CopyPlugin([{ from: paths.pub, to: paths.output }])
+  )
+
+  // handle configurable options by CLI args
+  if (process.argv.indexOf('--verbose') === -1) {
+    // default Webpack output with less logs
+    const { stats } = config
+    stats.assets = stats.chunks = stats.modules = stats.children = false
+  }
 }
 
 // export Webpack config for storefront templates
