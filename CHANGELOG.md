@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/ecomclub/storefront-twbs/compare/v2.0.0...v3.0.0) (2019-08-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* **scss:** importing old scss file wil l no more work
+* **bootstrap-vue:** form components plugin no more available
+
+* **bootstrap-vue:** removing form components by default ([6df7ce5](https://github.com/ecomclub/storefront-twbs/commit/6df7ce5))
+* **scss:** renaming entry scss file ([ea0c9a8](https://github.com/ecomclub/storefront-twbs/commit/ea0c9a8))
+
 ## [2.0.0](https://github.com/ecomclub/storefront-twbs/compare/v2.0.0-alpha.3...v2.0.0) (2019-08-11)
 
 
