@@ -44,6 +44,21 @@ We're including almost all Bootstrap 4.3 styles and components,
 just a few components aren't included by default as you can see at
 [`scss/styles.scss`](https://github.com/ecomclub/storefront-twbs/blob/master/scss/styles.scss).
 
+### Theming
+
+You should use Sass to create a custom theme,
+you just have to import your own variables before
+`@ecomplus/storefront-twbs/scss/styles`:
+
+```scss
+@import "variables";
+@import "node_modules/@ecomplus/storefront-twbs/scss/styles";
+```
+
+Take a look on
+[Bootstrap 4 variables](https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss)
+to see available Sass variables.
+
 ### Guide
 
 All E-Com Plus stores should include
