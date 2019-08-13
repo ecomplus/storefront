@@ -5,7 +5,7 @@ import Vue from 'vue'
 import '@ecomplus/storefront-twbs'
 import ecomUtils from '@ecomplus/utils'
 import ecomClient from '@ecomplus/client'
-import './test'
+import('./test')
 
 window._ = { cloneDeep, merge }
 window.$ = $
