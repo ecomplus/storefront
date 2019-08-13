@@ -1,20 +1,25 @@
 <%
+const social = cms('social')
 const home = cms('home') || {}
 %>
 
 <!doctype html>
-<html lang="<%= lang.replace('_', '-') %>">
+<html lang="<%= lang.replace('_', '-') %>" dir="ltr">
 
 <%-
 await include('@/head', {
   title: home.meta_title || settings.name,
   description: home.meta_description || settings.description,
-  settings
+  lang,
+  settings,
+  cms,
+  social,
+  canonical: null,
+  url: (settings.domain && settings.domain + '/') || store.homepage || (store.domain && store.domain + '/')
 })
 %>
 
 <body>
-  <h1 class="link">Hello <%= store.name %> !</h1>
   <script src="/storefront.js"></script>
 </body>
 
