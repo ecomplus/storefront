@@ -7,13 +7,43 @@
   <title><%= title %></title>
   <meta name="description" content="<%= description %>">
   <meta name="author" content="<%= settings.name %>">
+  <meta content="E-Com Plus Storefront" name="generator">
 
+  <% if (canonical) { %>
+    <link rel="canonical" href="<%= canonical %>">
+  <% } %>
+
+  <!-- Entry files -->
   <link rel="preload" href="/styles.css" as="style">
   <link rel="preload" href="/storefront.js" as="script">
   <link rel="stylesheet" type="text/css" href="/styles.css">
 
-  <!-- Apple Web App -->
+  <!-- Apple Web App Meta -->
   <link rel="apple-touch-icon" href="<%= settings.icon %>">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <% if (url && social) { %>
+    <!-- Facebook Open Graph -->
+    <meta property="og:url" content="<%= url %>"/>
+    <meta property="og:title" content="<%= title %>"/>
+    <meta property="og:description" content="<%= description %>"/>
+    <meta property="og:type" content="website"/>
+    <meta
+      property="og:locale"
+      content="<%= lang.length === 2 ? lang : lang.substr(0, 3) + lang.slice(3).toUpperCase() %>"
+    />
+    <% if (social.og_image) { %>
+      <meta property="og:image" content="<%= social.og_image %>"/>
+    <% } %>
+    <% if (social.fb_app_id) { %>
+      <meta property="og:app_id" content="<%= social.fb_app_id %>"/>
+    <% } %>
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary"/>
+    <% if (social.twitter_username) { %>
+      <meta name="twitter:site" content="<%= social.twitter_username %>"/>
+    <% } %>
+  <% } %>
 </head>
