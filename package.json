@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-template",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "dist/lib/storefront-template.js",
   "module": "template/js/index.js",
@@ -12,7 +12,7 @@
     "build:template": "storefront-pack build",
     "build": "NODE_ENV=production webpack",
     "release": "rm -rf ./dist; npm run build & standard-version",
-    "postinstall" : "node ./postinstall.js"
+    "postinstall": "node ./postinstall.js"
   },
   "repository": {
     "type": "git",
