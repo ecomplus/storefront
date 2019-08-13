@@ -125,7 +125,9 @@ const config = {
 if (!process.env.WEBPACK_BUILD_LIB) {
   config.plugins.push(
     // clear dist folder
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanStaleWebpackAssets: false
+    }),
 
     // create manifest.json file
     new WebpackPwaManifest({
