@@ -12,19 +12,47 @@ const cmsCollections = require('./lib/cms-collections')
 const config = require('./lib/config')
 const MarkdownIt = require('markdown-it')
 
-// precompile EJS templates
+const { devMode, storeId } = config
+
+// parse EJS render file async function to promise
+const renderFilePromise = (filename, data) => new Promise((resolve, reject) => {
+  ejs.renderFile(filename, data, { async: true }, (err, html) => {
+    if (err) {
+      reject(err)
+    } else {
+      resolve(html)
+    }
+  })
+})
+
+// precompile EJS templates on production
 const templates = {}
+
 const compileTemplate = (filename, prop) => {
-  try {
-    const markup = fs.readFileSync(filename, 'utf8')
-    // EJS compile enabling includes and async/await support
-    templates[prop] = ejs.compile(markup, {
-      filename,
-      async: true
-    })
-  } catch (err) {
-    console.error(err)
+  let template
+  if (!devMode) {
+    try {
+      const markup = fs.readFileSync(filename, 'utf8')
+      // EJS compile enabling includes and async/await support
+      template = ejs.compile(markup, { filename, async: true })
+    } catch (err) {
+      console.error(err)
+    }
   }
+
+  // save render promise to templates object
+  templates[prop] = data => new Promise((resolve, reject) => {
+    if (!template) {
+      // render EJS view directly
+      renderFilePromise(filename, data).then(resolve).catch(reject)
+    } else {
+      try {
+        resolve(template(data))
+      } catch (err) {
+        reject(err)
+      }
+    }
+  })
 }
 
 // prepare templates for E-Com Plus store resources
@@ -45,27 +73,33 @@ cmsCollections.forEach(collection => {
 })
 
 // setup initial template data
-const data = {
-  ...config,
+const data = { ...config, ecomUtils, ecomClient }
+
+const dataPromise = getStoreData().then(storeData => {
+  Object.assign(data, storeData)
+
   // function to get CMS JSON content
-  cms: file => {
-    let json
-    try {
-      json = fs.readFileSync(path.join(paths.content, `${file}.json`), 'utf8')
-    } catch (e) {
-      // ignore non existent file
+  data.cms = file => {
+    const filepath = path.join(paths.content, `${file}.json`)
+    if (devMode) {
+      let json
+      try {
+        json = fs.readFileSync(filepath, 'utf8')
+      } catch (e) {
+        // ignore non existent file
+      }
+      return json ? JSON.parse(json) : null
+    } else {
+      return require(filepath)
     }
-    return json ? JSON.parse(json) : null
-  },
+  }
+
   // markdown parser
-  md: new MarkdownIt(),
-  ecomUtils,
-  ecomClient
-}
-const dataPromise = getStoreData().then(storeData => Object.assign(data, storeData))
+  data.md = new MarkdownIt()
+})
 
 // setup storefront router
-const router = new StorefrontRouter(config.storeId)
+const router = new StorefrontRouter(storeId)
 const slugRegex = /\/((?!(?:assets|img)(\/|$))[^.]+)(\.(?!js|css|xml|txt|png|gif|jpg|jpeg|webp|svg)[^.]+)*$/
 
 module.exports = (url, route) => dataPromise
@@ -115,15 +149,7 @@ module.exports = (url, route) => dataPromise
       // render EJS template
       if (filename) {
         // render page specific EJS file
-        return new Promise((resolve, reject) => {
-          ejs.renderFile(filename, data, { async: true }, (err, html) => {
-            if (err) {
-              reject(err)
-            } else {
-              resolve(html)
-            }
-          })
-        })
+        return renderFilePromise(filename, data)
       }
       return templates[resource || collection]({ ...data, route })
     }
