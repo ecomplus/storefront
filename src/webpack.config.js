@@ -37,7 +37,7 @@ const config = {
   devtool: 'source-map',
   performance: {
     hints: devMode ? false : 'warning',
-    maxEntrypointSize: 600000,
+    maxEntrypointSize: 800000,
     maxAssetSize: 800000
   },
 
