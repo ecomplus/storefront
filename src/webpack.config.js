@@ -56,9 +56,6 @@ const config = {
   },
 
   plugins: [
-    // clear dist folder
-    new CleanWebpackPlugin(),
-
     // extract CSS to file
     new MiniCssExtractPlugin({
       filename: 'styles.css'
@@ -127,6 +124,9 @@ const config = {
 
 if (!process.env.WEBPACK_BUILD_LIB) {
   config.plugins.push(
+    // clear dist folder
+    new CleanWebpackPlugin(),
+
     // create manifest.json file
     new WebpackPwaManifest({
       filename: 'manifest.json',
