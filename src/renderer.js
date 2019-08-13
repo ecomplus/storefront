@@ -48,7 +48,15 @@ cmsCollections.forEach(collection => {
 const data = {
   ...config,
   // function to get CMS JSON content
-  cms: file => require(path.join(paths.content, `${file}.json`)),
+  cms: file => {
+    let json
+    try {
+      json = fs.readFileSync(path.join(paths.content, `${file}.json`), 'utf8')
+    } catch (e) {
+      // ignore non existent file
+    }
+    return json ? JSON.parse(json) : null
+  },
   // markdown parser
   md: new MarkdownIt(),
   ecomUtils,
