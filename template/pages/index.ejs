@@ -1,10 +1,21 @@
+<%
+const home = cms('home') || {}
+%>
+
 <!doctype html>
-<html>
-<head>
-  <%- await include('@/head', { title: 'Home', settings }) %>
-</head>
+<html lang="<%= lang.replace('_', '-') %>">
+
+<%-
+await include('@/head', {
+  title: home.meta_title || settings.name,
+  description: home.meta_description || settings.description,
+  settings
+})
+%>
+
 <body>
   <h1 class="link">Hello <%= store.name %> !</h1>
-  <%- await include('@/scripts') %>
+  <script src="/storefront.js"></script>
 </body>
+
 </html>
