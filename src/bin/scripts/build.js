@@ -49,7 +49,8 @@ const prerender = (url, route) => new Promise((resolve, reject) => {
         }
 
         // save HTML file on output folder
-        const filepath = path.join(paths.output, `${url}.html`)
+        const filename = /\.x?(ht)?ml$/.test(paths.output) ? url : `${url}.html`
+        const filepath = path.join(paths.output, filename)
         // create directories for if needed
         mkdirp(path.dirname(filepath), err => {
           if (!err) {

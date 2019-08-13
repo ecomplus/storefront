@@ -100,7 +100,7 @@ const dataPromise = getStoreData().then(storeData => {
 
 // setup storefront router
 const router = new StorefrontRouter(storeId)
-const slugRegex = /\/((?!(?:assets|img)(\/|$))[^.]+)(\.(?!js|css|xml|txt|png|gif|jpg|jpeg|webp|svg)[^.]+)*$/
+const slugRegex = /\/((?!(?:assets|img)(\/|$))[^.]+)(\.(?!js|css|txt|png|gif|jpg|jpeg|webp|svg)[^.]+)*$/
 
 module.exports = (url, route) => dataPromise
 
