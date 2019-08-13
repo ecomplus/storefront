@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.3](https://github.com/ecomclub/storefront-framework/compare/v3.2.2...v3.2.3) (2019-08-13)
+
+
+### Bug Fixes
+
+* **webpack:** fix removing files from public folder with clean plugin ([cd76a83](https://github.com/ecomclub/storefront-framework/commit/cd76a83))
+
 ### [3.2.2](https://github.com/ecomclub/storefront-framework/compare/v3.2.1...v3.2.2) (2019-08-13)
 
 
