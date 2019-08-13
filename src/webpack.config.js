@@ -119,7 +119,6 @@ const config = {
 
   resolve: {
     alias: {
-      '@': paths.src,
       vue: 'vue/dist/vue.js',
       '@ecomplus/storefront-renderer': '@ecomplus/storefront-renderer/dist/storefront.min.js'
     }
