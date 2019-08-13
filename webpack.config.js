@@ -14,6 +14,7 @@ module.exports = {
   ],
   output: {
     library: '__storefront_twbs',
+    libraryTarget: 'umd',
     path: path.resolve(__dirname, 'dist'),
     filename: 'storefront-twbs.min.js'
   },
