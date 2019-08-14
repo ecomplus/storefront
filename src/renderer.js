@@ -111,6 +111,7 @@ const resolveRoute = route => {
   } else if (collection) {
     return {
       collection,
+      slug,
       content: data.cms(`${collection}/${slug}`)
     }
   }
