@@ -204,7 +204,7 @@ if (_.route.resource) {
   // context = { resource, body }
 } else if (_.route.collection) {
   // cms folder collection
-  // context = { collection, content }
+  // context = { collection, slug, content }
 } else {
   // context = {}
 }
