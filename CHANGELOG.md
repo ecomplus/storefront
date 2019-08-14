@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/ecomclub/storefront-framework/compare/v4.0.0...v4.1.0) (2019-08-14)
+
+
+### Features
+
+* **renderer:** adding resolve route function to params ([f0204f4](https://github.com/ecomclub/storefront-framework/commit/f0204f4))
+
 ## [4.0.0](https://github.com/ecomclub/storefront-framework/compare/v3.2.3...v4.0.0) (2019-08-14)
 
 
