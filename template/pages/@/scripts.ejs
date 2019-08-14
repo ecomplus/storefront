@@ -1,13 +1,30 @@
 <%
-// merge store data to expose on window object
-const { store, categories, brands, items } = _
-delete store.description
-const storeData = { store, categories, brands, items }
+const { resource, body, collection, slug } = await _.resolveRoute()
+let echoContext = {}
+if (body) {
+  // store resource
+  // remove large description strings if any
+  echoContext = {
+    resource,
+    body: {
+      ...body,
+      body_html: '',
+      body_text: ''
+    }
+  }
+} else if (slug) {
+  // cms folder collection
+  // keep the slug only
+  echoContext = {
+    collection,
+    slug,
+    content: {}
+  }
+}
 %>
 
 <script>
   window.$settings = <%- JSON.stringify(_.settings) %>
-  window.$data = <%- JSON.stringify(storeData) %>
-  window.$context = <%- JSON.stringify(await _.resolveRoute()) %>
+  window.$context = <%- JSON.stringify(echoContext) %>
 </script>
 <script src="/storefront.js"></script>
