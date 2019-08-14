@@ -12,6 +12,7 @@ module.exports = [
     output: {
       ...config.output,
       path: path.resolve(config.output.path, 'lib'),
+      publicPath: '/storefront-template/',
       library: '__storefront_template',
       libraryTarget: 'umd',
       filename: 'storefront-template.js'
