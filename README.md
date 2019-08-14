@@ -151,7 +151,7 @@ You may load CMS content by calling the `cms` function
 with the filename (without extension) as param, eg.:
 
 ```ejs
-<% const page = cms('pages/about-us') %>
+<% const page = _.cms('pages/about-us') %>
 <%= page.title %>
 ```
 
@@ -162,7 +162,7 @@ on EJS views you can render it to HTML by using `md.render` function,
 eg.:
 
 ```ejs
-<%= md.render(pages.home.md_content) %>
+<%= _.md.render(pages.home.md_content) %>
 ```
 
 ### Handling slugs and routes
