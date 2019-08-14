@@ -1,5 +1,6 @@
 /dist
 /.serve
+/template/public/storefront-template
 
 # Logs
 logs
