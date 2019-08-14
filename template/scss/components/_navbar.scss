@@ -1,4 +1,16 @@
 .navbar {
+  &-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    @media (min-width: 992px) {
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+
   &-head {
     padding-top: .7rem;
     padding-bottom: 1rem;
@@ -35,8 +47,8 @@
       position: relative;
 
       > li {
-        margin-left: 1rem;
-        margin-right: 1rem;
+        padding-left: .25rem;
+        padding-right: 1rem;
         position: static;
         width: auto;
         white-space: nowrap;
@@ -100,15 +112,6 @@
     }
   }
 
-  &-container {
-    max-width: 80rem;
-    margin: 0 auto;
-    padding-right: 1rem;
-    padding-left: 1rem;
-
-    @media (min-width: 992px) {
-      padding-right: 2rem;
-      padding-left: 2rem;
-    }
+  &-buttons {
   }
 }

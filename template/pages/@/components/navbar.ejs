@@ -6,17 +6,47 @@ const logo = _.settings.logo
 %>
 
 <nav id="navbar" class="navbar">
-  <div class="navbar-head navbar-container">
-    <a href="/">
-      <% if (logo && logo.url) { %>
-        <img id="logo" class="navbar-logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
-      <% } else { %>
-        <%= _.settings.name || _.store.name %>
-      <% } %>
-    </a>
+  <div class="navbar-head navbar-container container-fluid">
+    <div class="row align-items-center">
+      <div class="col col-lg-3">
+        <a href="/">
+          <% if (logo && logo.url) { %>
+            <img id="logo" class="navbar-logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
+          <% } else { %>
+            <%= _.settings.name || _.store.name %>
+          <% } %>
+        </a>
+      </div>
+
+      <div class="order-lg-last col-auto">
+        <div
+          class="navbar-buttons"
+          role="group"
+          aria-label="<%= _.lang === 'pt_br' ? 'Minha conta' : 'My account' %>"
+        >
+          <button id="login" type="button" class="btn btn-lg btn-light">
+            <i class="fas fa-user"></i>
+          </button>
+          <button id="shopping-bag" type="button" class="btn btn-lg btn-light">
+            <i class="fas fa-shopping-bag"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="col-12 mt-2 col-lg mt-md-3 mt-lg-0">
+        <% const searchLabel = _.lang === 'pt_br' ? 'Buscar produtos' : 'Search products' %>
+        <input
+          id="search-bar"
+          type="search"
+          placeholder="<%= searchLabel %>"
+          aria-label="<%= searchLabel %>"
+          class="navbar-search form-control form-control-lg"
+        >
+      </div>
+    </div>
   </div>
 
-  <div class="navbar-menu">
+  <div id="menu" class="navbar-menu">
     <ul class="navbar-container">
       <% _.categories.forEach(category => { %>
         <% if (!category.parent) { %>

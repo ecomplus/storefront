@@ -20,6 +20,7 @@ const networks = [
         <%= header.marketing_stripe.text %>
         <% if (header.marketing_stripe.call_to_action) { %>
           <button
+            type="button"
             class="btn btn-sm ml-2 btn-outline-light"
             href="<%= header.marketing_stripe.call_to_action_link %>"
           >
