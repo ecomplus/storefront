@@ -1,11 +1,11 @@
 <!doctype html>
 <html>
 <head>
-  <%- await include('@/head', { title: 'Home', settings }) %>
+  <%- await include('@/head', { title: 'Home', _ }) %>
 </head>
 <body>
-  <h1 class="link">Hello <%= store.name %> !</h1>
-  <h2><%- cms('pages/home').title %></h2>
+  <h1 class="link">Hello <%= _.store.name %> !</h1>
+  <h2><%- _.cms('pages/home').title %></h2>
   <h3 class="text-secondary">Olá !</h3>
   <%- await include('@/scripts') %>
 </body>
