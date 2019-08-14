@@ -1,0 +1,39 @@
+.header {
+  background: var(--light);
+
+  &-countdown {
+    display: block;
+    background: var(--secondary);
+    color: var(--secondary-yiq);
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.1rem;
+    padding: .5rem;
+  }
+
+  &-bar {
+    background: var(--light);
+    color: var(--gray);
+    font-weight: bold;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: .5rem .75rem .35rem;
+
+    a {
+      display: inline-block;
+      margin-right: .75rem;
+      color: inherit;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &-left a {
+      @media (min-width: 992px) {
+        margin-right: 1rem;
+      }
+    }
+  }
+}

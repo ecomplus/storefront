@@ -1,0 +1,21 @@
+.navbar {
+  padding: 1rem;
+  max-width: 80rem;
+
+  &-logo {
+    max-width: 300px;
+    max-height: 60px;
+    width: auto;
+    height: auto;
+  }
+
+  &-item img {
+    margin-right: .25rem;
+    font-size: 9px;
+  }
+
+  &-chevron {
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+}
