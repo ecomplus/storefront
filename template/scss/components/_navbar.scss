@@ -1,12 +1,7 @@
 .navbar {
   &-head {
-    padding-top: 1rem;
+    padding-top: .7rem;
     padding-bottom: 1rem;
-
-    @media (min-width: 992px) {
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
-    }
   }
 
   &-logo {
@@ -62,7 +57,7 @@
           padding-top: .5rem;
           padding-bottom: .5rem;
           text-decoration: none;
-          font-weight: 500;
+          font-weight: 600;
 
           > img {
             display: inline-block;
