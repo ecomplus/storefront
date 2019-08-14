@@ -126,7 +126,9 @@ data = {
     // https://developers.e-com.plus/ecomplus-client/
     ecomClient,
     // Contextual route object
-    route
+    route,
+    // Async resolve current route and get context object
+    resolveRoute
   }
 }
 ```
@@ -184,10 +186,30 @@ with `cms` function;
 
 - In other cases, such as for `index.ejs`:
 ```js
-route = { path, filename }
+route = { path }
 ```
 You may use `route.path` to know the current context
 on included EJS partials;
+
+#### Context object
+
+With `resolveRoute` function you can get context object
+with resource `body` or CMS collection `content`:
+
+```ejs
+<%
+const context = _.resolveRoute()
+if (_.route.resource) {
+  // store resource
+  // context = { resource, body }
+} else if (_.route.collection) {
+  // cms folder collection
+  // context = { collection, content }
+} else {
+  // context = {}
+}
+%>
+```
 
 ## Project structure
 
