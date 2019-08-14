@@ -102,6 +102,21 @@ const dataPromise = getStoreData().then(storeData => {
 const router = new StorefrontRouter(storeId)
 const slugRegex = /\/((?!(?:assets|img)(\/|$))[^.]+)(\.(?!js|css|txt|png|gif|jpg|jpeg|webp|svg)[^.]+)*$/
 
+// function to resolve route and get context object
+const resolveRoute = route => {
+  const { resource, collection, slug } = route
+  if (resource) {
+    // resolve with storefront router
+    return router.resolve(route)
+  } else if (collection) {
+    return {
+      collection,
+      content: data.cms(`${collection}/${slug}`)
+    }
+  }
+  return {}
+}
+
 module.exports = (url, route) => dataPromise
 
   .then(() => {
@@ -151,13 +166,19 @@ module.exports = (url, route) => dataPromise
       const params = {
         _: {
           ...data,
-          route
+          route,
+          // abstraction to resolve current rounte
+          resolveRoute: () => resolveRoute(route)
         }
       }
+
       if (filename) {
+        // do not expose filename
+        delete route.filename
         // render page specific EJS file
         return renderFilePromise(filename, params)
       }
+      // render precompiled template
       return templates[resource || collection](params)
     }
     return route
