@@ -162,23 +162,30 @@ module.exports = (url, route) => dataPromise
   .then(route => {
     if (route) {
       const { filename, resource, collection } = route
-      // render EJS template
+      // setup template parameters
+      let context = null
       const params = {
         _: {
           ...data,
           route,
           // abstraction to resolve current rounte
-          resolveRoute: () => resolveRoute(route)
+          resolveRoute: () => {
+            if (context === null) {
+              context = resolveRoute(route)
+            }
+            return context
+          }
         }
       }
 
+      // render EJS template
       if (filename) {
         // do not expose filename
         delete route.filename
         // render page specific EJS file
         return renderFilePromise(filename, params)
       }
-      // render precompiled template
+      // precompiled template
       return templates[resource || collection](params)
     }
     return route
