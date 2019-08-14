@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/ecomclub/storefront-framework/compare/v3.2.3...v4.0.0) (2019-08-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* **renderer:** template data changed, old ejs templates can fail
+
+* **renderer:** wrapping template params on _ (global) property ([98afd64](https://github.com/ecomclub/storefront-framework/commit/98afd64))
+
 ### [3.2.3](https://github.com/ecomclub/storefront-framework/compare/v3.2.2...v3.2.3) (2019-08-13)
 
 
