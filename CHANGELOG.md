@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/ecomclub/storefront-template/compare/v0.1.1...v0.1.2) (2019-08-14)
+
+
+### Bug Fixes
+
+* **head:** finish metatags, update ejs with _ from template params ([5b694a3](https://github.com/ecomclub/storefront-template/commit/5b694a3))
+* **views:** fix handling new template params from framework@4 ([11ccebf](https://github.com/ecomclub/storefront-template/commit/11ccebf))
+
+
+### Features
+
+* **scripts:** setup scripts ejs partial exposing preloaded data ([e695390](https://github.com/ecomclub/storefront-template/commit/e695390))
+
 ### [0.1.1](https://github.com/ecomclub/storefront-template/compare/v0.1.0...v0.1.1) (2019-08-14)
 
 
