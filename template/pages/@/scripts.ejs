@@ -8,6 +8,6 @@ const storeData = { store, categories, brands, items }
 <script>
   window.$settings = <%- JSON.stringify(_.settings) %>
   window.$data = <%- JSON.stringify(storeData) %>
-  window.$context = <%- _.context ? JSON.stringify(_.context) : '{}' %>
+  window.$context = <%- JSON.stringify(await _.resolveRoute()) %>
 </script>
 <script src="/storefront.js"></script>
