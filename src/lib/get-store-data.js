@@ -46,7 +46,7 @@ module.exports = (storeId = config.storeId, pubSrc = paths.pub, ecomManifest) =>
               storeId
             }).then(response => {
               let body = response.data
-              if (body._id && body.result) {
+              if (!body._id && body.result) {
                 // list request
                 body = body.result
               }
