@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/ecomclub/storefront-template/compare/v0.1.4...v0.1.5) (2019-08-14)
+
+
+### Bug Fixes
+
+* **navbar:** fix initial navbar styles ([24e56b2](https://github.com/ecomclub/storefront-template/commit/24e56b2))
+* **navbar:** minor navbar fixes and demo logo ([7982e71](https://github.com/ecomclub/storefront-template/commit/7982e71))
+* **scripts:** call resolve route to get context object ([05c0d61](https://github.com/ecomclub/storefront-template/commit/05c0d61))
+
+
+### Features
+
+* **header:** finhis header and navbar markup and initial styles ([8b85642](https://github.com/ecomclub/storefront-template/commit/8b85642))
+
 ### [0.1.4](https://github.com/ecomclub/storefront-template/compare/v0.1.3...v0.1.4) (2019-08-14)
 
 ### [0.1.3](https://github.com/ecomclub/storefront-template/compare/v0.1.2...v0.1.3) (2019-08-14)
