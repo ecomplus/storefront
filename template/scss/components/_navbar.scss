@@ -1,6 +1,13 @@
 .navbar {
-  padding: 1rem;
-  max-width: 80rem;
+  &-head {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    @media (min-width: 992px) {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+  }
 
   &-logo {
     max-width: 300px;
@@ -17,5 +24,96 @@
   &-chevron {
     padding-left: .5rem;
     padding-right: .5rem;
+  }
+
+  &-menu {
+    background-color: var(--primary);
+    color: var(--primary-yiq);
+
+    > ul {
+      list-style: none;
+      display: flex;
+      overflow-x: auto;
+      overflow-y: hidden;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      position: relative;
+
+      > li {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        position: static;
+        width: auto;
+        white-space: nowrap;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        > a,
+        > span > a {
+          display: inline-block;
+          color: inherit;
+          text-transform: uppercase;
+          padding-top: .5rem;
+          padding-bottom: .5rem;
+          text-decoration: none;
+          font-weight: 500;
+
+          > img {
+            display: inline-block;
+            margin: auto;
+            height: auto;
+            width: auto;
+            max-height: .9rem;
+            max-width: 1.4rem;
+            margin-right: .15rem;
+          }
+        }
+
+        > ul {
+          display: none;
+        }
+
+        ul {
+          list-style: none;
+        }
+      }
+    }
+  }
+
+  &-submenu {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    display: none;
+    width: auto;
+    max-width: 90%;
+    max-width: calc(100% - 14px);
+    box-sizing: border-box;
+    position: absolute;
+    top: auto;
+    left: auto;
+    margin-top: 0;
+    list-style: none;
+
+    > li {
+      white-space: nowrap;
+    }
+  }
+
+  &-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    @media (min-width: 992px) {
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
   }
 }

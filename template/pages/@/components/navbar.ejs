@@ -6,7 +6,7 @@ const logo = _.settings.logo
 %>
 
 <nav id="navbar" class="navbar">
-  <div>
+  <div class="navbar-head navbar-container">
     <a href="/">
       <% if (logo && logo.url) { %>
         <img id="logo" class="navbar-logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
@@ -16,34 +16,36 @@ const logo = _.settings.logo
     </a>
   </div>
 
-  <ul class="navbar-menu">
-    <% _.categories.forEach(category => { %>
-      <% if (!category.parent) { %>
-        <li class="navbar-item">
-          <a href="/<%= category.slug %>">
-            <% if (category.icon) { %>
-              <img
-                src="<%= category.icon.url %>"
-                alt="<%= category.icon.alt || category.name %>"
-              >
-            <% } %>
-            <%= category.name %>
-          </a>
-          <% const subcategories = _.ecomUtils.filterByParentSlug(_.categories, category.slug) %>
-          <% if (subcategories && subcategories.length) { %>
-            <a class="navbar-chevron" href="javascript:;">
-              <i class="fas fa-chevron-down"></i>
+  <div class="navbar-menu">
+    <ul class="navbar-container">
+      <% _.categories.forEach(category => { %>
+        <% if (!category.parent) { %>
+          <li class="navbar-item">
+            <a href="/<%= category.slug %>">
+              <% if (category.icon) { %>
+                <img
+                  src="<%= category.icon.url %>"
+                  alt="<%= category.icon.alt || category.name %>"
+                >
+              <% } %>
+              <%= category.name %>
             </a>
-            <ul class="navbar-submenu dropdown-menu">
-              <% subcategories.forEach(subcategory => { %>
-                <a class="dropdown-item" href="/<%= subcategory.slug %>">
-                  <%= subcategory.name %>
-                </a>
-              <% }) %>
-            </ul>
-          <% } %>
-        </li>
-      <% } %>
-    <% }) %>
-  </ul>
+            <% const subcategories = _.ecomUtils.filterByParentSlug(_.categories, category.slug) %>
+            <% if (subcategories && subcategories.length) { %>
+              <a class="navbar-chevron" href="javascript:;">
+                <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul class="navbar-submenu dropdown-menu">
+                <% subcategories.forEach(subcategory => { %>
+                  <a class="dropdown-item" href="/<%= subcategory.slug %>">
+                    <%= subcategory.name %>
+                  </a>
+                <% }) %>
+              </ul>
+            <% } %>
+          </li>
+        <% } %>
+      <% }) %>
+    </ul>
+  </div>
 </nav>
