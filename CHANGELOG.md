@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/ecomclub/storefront-template/compare/v0.1.2...v0.1.3) (2019-08-14)
+
+
+### Features
+
+* **header:** setting up header component ([8ae714a](https://github.com/ecomclub/storefront-template/commit/8ae714a))
+* **icons:** loading font awesome icons ([934daaf](https://github.com/ecomclub/storefront-template/commit/934daaf))
+* **scss:** starting with component styles, setup header and navbar ([caa9649](https://github.com/ecomclub/storefront-template/commit/caa9649))
+
 ### [0.1.2](https://github.com/ecomclub/storefront-template/compare/v0.1.1...v0.1.2) (2019-08-14)
 
 
