@@ -15,8 +15,8 @@ const MarkdownIt = require('markdown-it')
 const { devMode, storeId } = config
 
 // parse EJS render file async function to promise
-const renderFilePromise = (filename, data) => new Promise((resolve, reject) => {
-  ejs.renderFile(filename, data, { async: true }, (err, html) => {
+const renderFilePromise = (filename, params) => new Promise((resolve, reject) => {
+  ejs.renderFile(filename, params, { async: true }, (err, html) => {
     if (err) {
       reject(err)
     } else {
@@ -41,13 +41,13 @@ const compileTemplate = (filename, prop) => {
   }
 
   // save render promise to templates object
-  templates[prop] = data => new Promise((resolve, reject) => {
+  templates[prop] = params => new Promise((resolve, reject) => {
     if (!template) {
       // render EJS view directly
-      renderFilePromise(filename, data).then(resolve).catch(reject)
+      renderFilePromise(filename, params).then(resolve).catch(reject)
     } else {
       try {
-        resolve(template(data))
+        resolve(template(params))
       } catch (err) {
         reject(err)
       }
@@ -122,6 +122,7 @@ module.exports = (url, route) => dataPromise
       if (fs.existsSync(filename)) {
         // predefined view
         return {
+          path: url,
           filename
         }
       }
@@ -147,11 +148,17 @@ module.exports = (url, route) => dataPromise
     if (route) {
       const { filename, resource, collection } = route
       // render EJS template
+      const params = {
+        _: {
+          ...data,
+          route
+        }
+      }
       if (filename) {
         // render page specific EJS file
-        return renderFilePromise(filename, data)
+        return renderFilePromise(filename, params)
       }
-      return templates[resource || collection]({ ...data, route })
+      return templates[resource || collection](params)
     }
     return route
   })
