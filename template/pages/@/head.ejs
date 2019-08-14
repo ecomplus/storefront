@@ -46,18 +46,15 @@ if (url) {
   <link rel="canonical" href="<%= url %>">
 <% } %>
 
-<!-- Entry files -->
 <link rel="preload" href="/styles.css" as="style">
 <link rel="preload" href="/storefront.js" as="script">
 <link rel="stylesheet" type="text/css" href="/styles.css">
 
-<!-- Apple Web App Meta -->
 <link rel="apple-touch-icon" href="<%= _.settings.icon %>">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
 <% if (social) { %>
-  <!-- Facebook Open Graph -->
   <meta property="og:url" content="<%= url %>">
   <meta property="og:title" content="<%= title %>">
   <meta property="og:description" content="<%= description %>">
@@ -70,7 +67,6 @@ if (url) {
     <meta property="og:app_id" content="<%= social.fb_app_id %>">
   <% } %>
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <% if (social.twitter_username) { %>
     <meta name="twitter:site" content="<%= social.twitter_username %>">

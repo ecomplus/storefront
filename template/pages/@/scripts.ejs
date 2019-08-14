@@ -5,12 +5,9 @@ delete store.description
 const storeData = { store, categories, brands, items }
 %>
 
-<!-- Preloaded data and settings -->
 <script>
   window.$settings = <%- JSON.stringify(_.settings) %>
   window.$data = <%- JSON.stringify(storeData) %>
   window.$context = <%- _.context ? JSON.stringify(_.context) : '{}' %>
 </script>
-
-<!-- Entry script -->
 <script src="/storefront.js"></script>

@@ -1,0 +1,82 @@
+<%
+// load header options and contacts from content
+const header = _.cms('header') || {}
+const contacts = _.cms('contacts') || {}
+// social networks handled by contacts
+const networks = [
+  'facebook',
+  'youtube',
+  'instagram',
+  'twitter',
+  'pinterest',
+  'linkedin'
+]
+%>
+
+<header class="header" id="header">
+  <% if (header.marketing_stripe) { %>
+    <% if (header.marketing_stripe.text || header.marketing_stripe.call_to_action) { %>
+      <div class="header-countdown d-none d-sm-block">
+        <%= header.marketing_stripe.text %>
+        <% if (header.marketing_stripe.call_to_action) { %>
+          <button
+            class="btn btn-sm ml-2 btn-outline-light"
+            href="<%= header.marketing_stripe.call_to_action_link %>"
+          >
+            <%= header.marketing_stripe.call_to_action %>
+          </button>
+        <% } %>
+      </div>
+    <% } %>
+  <% } %>
+
+  <div class="header-bar d-none d-md-block">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="header-bar-left col">
+          <% if (header.contacts_stripe.pages) { %>
+            <% header.contacts_stripe.pages.forEach(({ link, title }) => { %>
+              <a href="<%= link %>"><%= title %></a>
+            <% }) %>
+          <% } %>
+          <% if (header.contacts_stripe.phone_wpp) { %>
+            <% if (contacts.whatsapp) { %>
+              <a
+                href="javascript:;"
+                class="whatsapp-link font-weight-normal"
+                data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>"
+              >
+                <i class="fab fa-whatsapp"></i>
+                <%= contacts.whatsapp %>
+              </a>
+            <% } %>
+            <% if (contacts.phone) { %>
+              <a
+                href="tel:+<%= contacts.phone.replace(/\D/g, '') %>"
+                class="font-weight-normal"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fas fa-phone"></i>
+                <%= contacts.phone %>
+              </a>
+            <% } %>
+          <% } %>
+        </div>
+        <% if (header.contacts_stripe.socials) { %>
+          <div class="col-auto">
+            <% networks.forEach(network => { %>
+              <% if (contacts[network]) { %>
+                <a href="<%= contacts[network] %>" target="_blank" rel="noopener">
+                  <i class="fab fa-<%= network %>"></i>
+                </a>
+              <% } %>
+            <% }) %>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+  <%- await include('navbar', { _ }) %>
+</header>
