@@ -98,39 +98,45 @@ following template data:
 
 ```js
 data = {
-  // Boolean development mode
-  devMode,
-  // Parsed object from `content/settings.json`
-  settings,
-  // Function to get CMS JSON content
-  cms,
-  // MarkdownIt instance to parse MD markup
-  md,
-  // Store ID number
-  storeId,
-  // Language code string
-  lang,
-  // Brand colors RGB
-  primaryColor,
-  secondaryColor,
-  // Preloaded data from E-Com Plus APIs
-  store,
-  categories,
-  brands,
-  items,
-  // Utility functions for e-commerce
-  // https://developers.e-com.plus/ecomplus-utils/
-  ecomUtils,
-  // E-Com Plus APIs client
-  // https://developers.e-com.plus/ecomplus-client/
-  ecomClient,
-  // Optional route object
-  route
+  _: {
+    // Boolean development mode
+    devMode,
+    // Parsed object from `content/settings.json`
+    settings,
+    // Function to get CMS JSON content
+    cms,
+    // MarkdownIt instance to parse MD markup
+    md,
+    // Store ID number
+    storeId,
+    // Language code string
+    lang,
+    // Brand colors RGB
+    primaryColor,
+    secondaryColor,
+    // Preloaded data from E-Com Plus APIs
+    store,
+    categories,
+    brands,
+    items,
+    // Utility functions for e-commerce
+    // https://developers.e-com.plus/ecomplus-utils/
+    ecomUtils,
+    // E-Com Plus APIs client
+    // https://developers.e-com.plus/ecomplus-client/
+    ecomClient,
+    // Contextual route object
+    route
+  }
 }
 ```
 
 EJS is configured with support for
 `asyc/await` and `includes`.
+
+> Note that all parameters are inside the parent `_` (_global_),
+we use it to make easy to pass the original template parameters
+with EJS includes.
 
 ### Examples
 
@@ -159,9 +165,8 @@ eg.:
 
 ### Handling slugs and routes
 
-Template data may have a `route` property,
-it'll be set when the same EJS file should be rendered to
-multiple pages (slugs):
+Template parameters will have a `route` property,
+it'll be an object varying by type of view:
 
 - Store resource (products, categories, brands, collections):
 ```js
@@ -177,8 +182,12 @@ route = { path, collection, slug }
 You should use `route.slug` to get the parsed CMS content
 with `cms` function;
 
-- In other cases, such as for `index.ejs`, the
-`route` object will not be set on template data;
+- In other cases, such as for `index.ejs`:
+```js
+route = { path, filename }
+```
+You may use `route.path` to know the current context
+on included EJS partials;
 
 ## Project structure
 
