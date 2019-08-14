@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/ecomclub/storefront-template/compare/v0.1.0...v0.1.1) (2019-08-14)
+
+
+### Bug Fixes
+
+* **postinstall:** copy to template/public/assets/storefront-template ([a606027](https://github.com/ecomclub/storefront-template/commit/a606027))
+
 ## [0.1.0](https://github.com/ecomclub/storefront-template/compare/v0.0.7...v0.1.0) (2019-08-14)
 
 
