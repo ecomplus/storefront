@@ -1,15 +1,49 @@
+<%
+// setup page object for current route
+let page, pathname
+switch (_.route.path) {
+  case '/':
+  case '/index':
+    pathname = '/'
+    page = _.cms('home')
+    break
+}
+if (!page) {
+  page = {}
+}
+
+// page title and description
+const title = page.meta_title || _.settings.name
+const description = page.meta_description || _.settings.description
+let url
+if (pathname) {
+  let domain = _.settings.domain ? _.settings.domain : _.store.domain
+  if (domain) {
+    // canonical url
+    url = `https://${domain}${pathname}`
+  }
+}
+
+let social, ogLocale
+if (url) {
+  // content for og metatags
+  social = _.cms('social')
+  ogLocale = _.lang.length === 2 ? _.lang : _.lang.substr(0, 3) + _.lang.slice(3).toUpperCase()
+}
+%>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials">
+<meta name="theme-color" content="<%= _.primaryColor %>">
+<link rel="icon" href="<%= _.settings.favicon %>">
 
-<link rel="icon" href="<%= settings.favicon %>">
 <title><%= title %></title>
 <meta name="description" content="<%= description %>">
-<meta name="author" content="<%= settings.name %>">
-<meta content="E-Com Plus Storefront" name="generator">
-
-<% if (canonical) { %>
-  <link rel="canonical" href="<%= canonical %>">
+<meta name="author" content="<%= _.settings.name %>">
+<meta name="generator" content="E-Com Plus Storefront">
+<% if (url) { %>
+  <link rel="canonical" href="<%= url %>">
 <% } %>
 
 <!-- Entry files -->
@@ -18,30 +52,27 @@
 <link rel="stylesheet" type="text/css" href="/styles.css">
 
 <!-- Apple Web App Meta -->
-<link rel="apple-touch-icon" href="<%= settings.icon %>">
+<link rel="apple-touch-icon" href="<%= _.settings.icon %>">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-<% if (url && social) { %>
+<% if (social) { %>
   <!-- Facebook Open Graph -->
-  <meta property="og:url" content="<%= url %>"/>
-  <meta property="og:title" content="<%= title %>"/>
-  <meta property="og:description" content="<%= description %>"/>
-  <meta property="og:type" content="website"/>
-  <meta
-    property="og:locale"
-    content="<%= lang.length === 2 ? lang : lang.substr(0, 3) + lang.slice(3).toUpperCase() %>"
-  />
+  <meta property="og:url" content="<%= url %>">
+  <meta property="og:title" content="<%= title %>">
+  <meta property="og:description" content="<%= description %>">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="<%= ogLocale %>">
   <% if (social.og_image) { %>
-    <meta property="og:image" content="<%= social.og_image %>"/>
+    <meta property="og:image" content="<%= social.og_image %>">
   <% } %>
   <% if (social.fb_app_id) { %>
-    <meta property="og:app_id" content="<%= social.fb_app_id %>"/>
+    <meta property="og:app_id" content="<%= social.fb_app_id %>">
   <% } %>
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:card" content="summary">
   <% if (social.twitter_username) { %>
-    <meta name="twitter:site" content="<%= social.twitter_username %>"/>
+    <meta name="twitter:site" content="<%= social.twitter_username %>">
   <% } %>
 <% } %>
