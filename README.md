@@ -11,6 +11,6 @@ PWA &amp; JAMstack e-commerce theme for E-Com Plus stores
     - `logo`
     - `user-button`
     - `cart-button`
-    - `search-bar`
+    - `search-form`
     - `menu`
 - `main`
