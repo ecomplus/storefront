@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/ecomclub/storefront-template/compare/v0.1.5...v0.1.6) (2019-08-15)
+
+
+### Bug Fixes
+
+* **navbar:** add actions to navbar buttons and search form ([cdbd9f0](https://github.com/ecomclub/storefront-template/commit/cdbd9f0))
+
 ### [0.1.5](https://github.com/ecomclub/storefront-template/compare/v0.1.4...v0.1.5) (2019-08-14)
 
 
