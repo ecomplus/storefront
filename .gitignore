@@ -1,3 +1,7 @@
+# Copied SCSS files
+/scss/bootstrap/
+/scss/bootstrap-vue/
+
 # Output
 /dist
 
