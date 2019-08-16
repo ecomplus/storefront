@@ -61,6 +61,17 @@ module.exports = {
           },
           'sass-loader'
         ]
+      },
+
+      {
+        test: /bootstrap\.native/,
+        use: {
+          loader: 'bootstrap.native-loader',
+          options: {
+            only: ['collapse', 'dropdown', 'tooltip'],
+            bsVersion: 4
+          }
+        }
       }
     ]
   },
