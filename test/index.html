@@ -78,9 +78,17 @@
           Also includes some Vue components from
           <a href="https://bootstrap-vue.js.org/docs/" target="_blank">BootstrapVue</a>
         </b-alert>
+        <b-dropdown id="dropdown-1" variant="primary" text="And dropdown button">
+          <b-dropdown-item>First Action</b-dropdown-item>
+          <b-dropdown-item>Second Action</b-dropdown-item>
+          <b-dropdown-item>Third Action</b-dropdown-item>
+          <b-dropdown-divider></b-dropdown-divider>
+          <b-dropdown-item active>Active action</b-dropdown-item>
+          <b-dropdown-item disabled>Disabled action</b-dropdown-item>
+        </b-dropdown>
       </div>
 
-      <div class="dropdown">
+      <div class="dropdown mt-3">
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
