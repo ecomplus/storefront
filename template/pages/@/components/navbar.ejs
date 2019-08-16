@@ -64,16 +64,23 @@ const logo = _.settings.logo
             </a>
             <% const subcategories = _.ecomUtils.filterByParentSlug(_.categories, category.slug) %>
             <% if (subcategories && subcategories.length) { %>
-              <a class="navbar-chevron" href="javascript:;">
-                <i class="fas fa-chevron-down"></i>
+              <a
+                class="navbar-chevron dropdown-toggle"
+                href="javascript:;"
+                type="button"
+                id="<%= category._id %>"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
               </a>
-              <ul class="navbar-submenu dropdown-menu">
+              <div class="navbar-submenu dropdown-menu" aria-labelledby="<%= category._id %>">
                 <% subcategories.forEach(subcategory => { %>
                   <a class="dropdown-item" href="/<%= subcategory.slug %>">
                     <%= subcategory.name %>
                   </a>
                 <% }) %>
-              </ul>
+              </div>
             <% } %>
           </li>
         <% } %>
