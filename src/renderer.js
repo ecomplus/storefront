@@ -10,6 +10,7 @@ const StorefrontRouter = require('@ecomplus/storefront-router')
 const getStoreData = require('./lib/get-store-data')
 const cmsCollections = require('./lib/cms-collections')
 const config = require('./lib/config')
+const lodash = require('lodash')
 const MarkdownIt = require('markdown-it')
 
 const { devMode, storeId } = config
@@ -73,7 +74,7 @@ cmsCollections.forEach(collection => {
 })
 
 // setup initial template data
-const data = { ...config, ecomUtils, ecomClient }
+const data = { ...config, lodash, ecomUtils, ecomClient }
 
 const dataPromise = getStoreData().then(storeData => {
   Object.assign(data, storeData)
