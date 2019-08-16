@@ -119,16 +119,19 @@ data = {
     categories,
     brands,
     items,
+    // Contextual route object
+    route,
+    // Async resolve current route and get context object
+    resolveRoute,
+    // Lodash utility library
+    // https://lodash.com/docs/
+    lodash,
     // Utility functions for e-commerce
     // https://developers.e-com.plus/ecomplus-utils/
     ecomUtils,
     // E-Com Plus APIs client
     // https://developers.e-com.plus/ecomplus-client/
-    ecomClient,
-    // Contextual route object
-    route,
-    // Async resolve current route and get context object
-    resolveRoute
+    ecomClient
   }
 }
 ```
