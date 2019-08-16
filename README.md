@@ -10,7 +10,7 @@ wrapper for E-Com Plus storefront.
 ## Installation
 
 You can install the package with bundlers such as Webpack and Browserify,
-or install from CNDs like jsDelivr or UNPKG.
+or load from CNDs like jsDelivr or UNPKG.
 
 ### With bundlers
 
@@ -19,7 +19,8 @@ npm i --save @ecomplus/storefront-twbs
 ```
 
 ```js
-// Load some BootstrapVue components on global Vue instance
+// Load collapse, dropdown and tooltip Bootstrap native components
+// Add some BootstrapVue components on global Vue instance
 import '@ecomplus/storefront-twbs'
 ```
 
@@ -177,9 +178,18 @@ to be used by storefront widgets, as example (default):
 
 ## JavaScript
 
-The package includes some BootstrapVue components and directives,
-adding it directly to global Vue instance,
+The package includes
+[collapse](https://getbootstrap.com/docs/4.3/components/collapse/),
+[dropdowns](https://getbootstrap.com/docs/4.3/components/dropdowns/) and
+[tooltips](https://getbootstrap.com/docs/4.3/components/tooltips/)
+scripts from [`bootstrap.native`](https://github.com/thednp/bootstrap.native).
+
+Also some
+[BootstrapVue](https://bootstrap-vue.js.org/docs/components/)
+components and directives
+added directly to global Vue instance,
 you can see the available components at
 [`src/index.js`](https://github.com/ecomclub/storefront-twbs/blob/master/src/index.js).
 
 **It requires and does not include [Vue.js](https://vuejs.org/)**.
+jQuery is _not_ required.
