@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/ecomclub/storefront-template/compare/v0.1.6...v0.1.7) (2019-08-16)
+
+
+### Bug Fixes
+
+* **navbar:** fix navbar markup to handle bs dropdowns ([f0f7e1f](https://github.com/ecomclub/storefront-template/commit/f0f7e1f))
+
+
+### Features
+
+* **sidenav:** setup touch aside menu with slideout ([b72f278](https://github.com/ecomclub/storefront-template/commit/b72f278))
+
 ### [0.1.6](https://github.com/ecomclub/storefront-template/compare/v0.1.5...v0.1.6) (2019-08-15)
 
 
