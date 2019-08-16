@@ -21,10 +21,32 @@ if (body) {
     content: {}
   }
 }
+
+// also expose some store data
+let echoData = {
+  // up to 10 first level categories
+  categories: _.categories.filter(({ parent }) => !parent).slice(0, 10),
+  // up to 10 aleatory brands
+  brands: _.brands.slice(0, 10),
+  // up to 10 items with less and 'stable' data
+  items: _.items.slice(0, 10).map(({ _id, sku, name, slug, pictures }) => {
+    const item = { _id, sku, name, slug }
+    if (Array.isArray(pictures)) {
+      // output one picture per item only
+      const picture = pictures.find(({ normal }) => normal)
+      if (picture) {
+        const { _id, normal } = picture
+        item.pictures = [{ _id, normal }]
+      }
+    }
+    return item
+  })
+}
 %>
 
 <script>
-  window.$settings = <%- JSON.stringify(_.settings) %>
-  window.$context = <%- JSON.stringify(echoContext) %>
+  window._settings = <%- JSON.stringify(_.settings) %>
+  window._context = <%- JSON.stringify(echoContext) %>
+  window._data = <%- JSON.stringify(echoData) %>
 </script>
 <script src="/storefront.js"></script>
