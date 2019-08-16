@@ -1,6 +1,8 @@
 // declare some BootstrapVue components on global Vue instance
 // https://bootstrap-vue.js.org/docs/
 
+import 'bootstrap.native'
+
 import Vue from 'vue'
 
 import {
