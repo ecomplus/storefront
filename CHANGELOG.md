@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/ecomclub/storefront-twbs/compare/v3.0.5...v3.1.0) (2019-08-16)
+
+
+### Bug Fixes
+
+* **scss:** importing scss files locally ([b138e9c](https://github.com/ecomclub/storefront-twbs/commit/b138e9c))
+
+
+### Features
+
+* **js:** importing scripts from bootstrap.native ([9ebfa67](https://github.com/ecomclub/storefront-twbs/commit/9ebfa67))
+
 ### [3.0.5](https://github.com/ecomclub/storefront-twbs/compare/v3.0.4...v3.0.5) (2019-08-13)
 
 ### [3.0.4](https://github.com/ecomclub/storefront-twbs/compare/v3.0.3...v3.0.4) (2019-08-13)
