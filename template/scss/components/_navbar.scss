@@ -29,8 +29,8 @@
   }
 
   &-chevron {
-    padding-left: .5rem;
-    padding-right: .5rem;
+    padding-left: .1rem;
+    padding-right: .4rem;
   }
 
   &-menu {
@@ -81,37 +81,27 @@
             margin-right: .15rem;
           }
         }
-
-        > ul {
-          display: none;
-        }
-
-        ul {
-          list-style: none;
-        }
       }
     }
   }
 
   &-submenu {
+    position: fixed;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    border-top: none;
+    margin-top: 0;
     display: none;
     width: auto;
     max-width: 90%;
     max-width: calc(100% - 14px);
     box-sizing: border-box;
-    position: absolute;
     top: auto;
     left: auto;
-    margin-top: 0;
     list-style: none;
 
     > li {
       white-space: nowrap;
     }
-  }
-
-  &-buttons {
   }
 }

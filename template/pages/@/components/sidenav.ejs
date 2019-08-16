@@ -1,0 +1,11 @@
+<aside id="sidenav" class="sidenav">
+  <div class="sidenav-menu">
+    <% _.categories.forEach(category => { %>
+      <% if (!category.parent) { %>
+        <a href="/<%= category.slug %>" class="sidenav-item">
+          <%= category.name %>
+        </a>
+      <% } %>
+    <% }) %>
+  </div>
+</aside>

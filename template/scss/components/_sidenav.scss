@@ -1,0 +1,22 @@
+.sidenav {
+  display: none;
+  background: var(--light);
+  border-left: .25rem solid var(--primary-light);
+
+  &-item {
+    display: block;
+    font-size: 1.05rem;
+    color: var(--secondary);
+    padding: .75rem 1rem;
+    border-bottom: 1px solid var(--primary-lighter);
+
+    &:hover {
+      text-decoration: none;
+      background: var(--primary-lightest);
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

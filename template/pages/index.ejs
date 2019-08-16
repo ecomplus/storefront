@@ -6,8 +6,10 @@
 </head>
 
 <body>
-  <%- await include('@/components/header', { _ }) %>
+  <%- await include('@/components/sidenav', { _ }) %>
   <main role="main" id="main">
+    <%- await include('@/components/header', { _ }) %>
+    <article></article>
   </main>
   <%- await include('@/scripts', { _ }) %>
 </body>

@@ -1,0 +1,39 @@
+.slideout {
+  &-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 256px;
+    min-height: 100vh;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    z-index: 0;
+    display: none;
+
+    &-left {
+      left: 0;
+    }
+
+    &-right {
+      right: 0;
+    }
+  }
+
+  &-panel {
+    position: relative;
+    z-index: 1;
+    will-change: transform;
+    background-color: #fff;
+    min-height: 100vh;
+  }
+
+  &-open,
+  &-open body,
+  &-open .slideout-panel {
+    overflow: hidden;
+  }
+
+  &-open .slideout-menu {
+    display: block;
+  }
+}
