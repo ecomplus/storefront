@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.10](https://github.com/ecomclub/storefront-template/compare/v0.1.9...v0.1.10) (2019-08-17)
+
+
+### Features
+
+* **footer:** setup footer ejs and styles ([1b7bc70](https://github.com/ecomclub/storefront-template/commit/1b7bc70))
+* **menu:** fix menu styles and back links ([ced3a97](https://github.com/ecomclub/storefront-template/commit/ced3a97))
+
 ### [0.1.9](https://github.com/ecomclub/storefront-template/compare/v0.1.8...v0.1.9) (2019-08-17)
 
 
