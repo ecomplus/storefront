@@ -10,11 +10,13 @@ We're using IDs and classes to identify elements that you may
 want to add custom functionalities or widgets, those
 elements are listed below:
 
-- `#header`
-  - `#navbar`
-    - `#logo`
-    - `#user-button`
-    - `#cart-button`
-    - `#search-form`
-    - `#menu`
+- `#menu`
 - `#main`
+  - `#header`
+    - `#navbar`
+      - `#logo`
+      - `#user-button`
+      - `#cart-button`
+      - `#search-form`
+  - `#content`
+  - `#overlay`
