@@ -5,8 +5,10 @@ body {
   height: 100%;
 }
 
-@import 'components/header';
 @import 'components/menu';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/pay-icon';
 
 @import 'libs/slideout';
 

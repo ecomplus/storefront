@@ -1,0 +1,73 @@
+.footer {
+  background: var(--light);
+  border-top: .25rem solid var(--secondary);
+  color: var(--gray);
+
+  &-title {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: .5rem;
+    display: block;
+    color: var(--dark);
+  }
+
+  &-store {
+    color: var(--secondary);
+    font-weight: 500;
+  }
+
+  &-links {
+    font-size: .93rem;
+  }
+
+  &-list-icon {
+    width: 1.35rem;
+    display: inline-block;
+  }
+
+  &-social {
+    font-size: 1.25rem;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      opacity: .7;
+      margin-right: .5rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-credits {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--secondary);
+    font-size: .85rem;
+  }
+}
+
+.ecom-credits {
+  padding: 1.5rem;
+  background: #fff;
+  text-align: center;
+  font-size: .85rem;
+  color: #37003c;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    margin-left: .2rem;
+    height: 1.2rem;
+    display: inline-block;
+    width: auto;
+  }
+}

@@ -1,0 +1,212 @@
+<%
+// load footer options and contacts from content
+const footer = _.cms('footer') || {}
+const contacts = _.cms('contacts') || {}
+
+// social networks handled by contacts
+const networksWithColors = [
+  ['facebook', '#3b5998'],
+  ['youtube', '#ff0000'],
+  ['instagram', '#e1306c'],
+  ['twitter', '#1da1f2'],
+  ['pinterest', '#bd081c'],
+  ['linkedin', '#0073b1']
+]
+
+// all available payment method stamps
+const paymentMethods = [
+  'boleto',
+  'visa',
+  'mastercard',
+  'elo',
+  'amex',
+  'hipercard',
+  'hiper',
+  'diners',
+  'aura',
+  'itau',
+  'bradesco',
+  'bb',
+  'santander',
+  'citibank',
+  'hsbc',
+  'banrisul',
+  'mais'
+]
+%>
+
+<footer class="footer py-3 py-lg-4 py-xl-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-auto order-lg-last">
+        <% if (footer.contacts.title) { %>
+          <div class="footer-title">
+            <%= footer.contacts.title %>
+          </div>
+        <% } %>
+
+        <ul class="list-unstyled">
+          <% if (footer.contacts.phone_wpp) { %>
+            <% if (contacts.whatsapp) { %>
+              <li>
+                <span class="footer-list-icon">
+                  <i class="fab fa-whatsapp"></i>
+                </span>
+                <a
+                  href="javascript:;"
+                  class="whatsapp-link"
+                  data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>"
+                >
+                  <%= contacts.whatsapp %>
+                </a>
+              </li>
+            <% } %>
+            <% if (contacts.phone) { %>
+              <li>
+                <span class="footer-list-icon">
+                  <i class="fas fa-phone"></i>
+                </span>
+                <a
+                  href="<%= contacts.phone.replace(/\D/g, '') %>"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <%= contacts.phone %>
+                </a>
+              </li>
+            <% } %>
+          <% } %>
+          <% if (footer.contacts.email) { %>
+            <li>
+              <a href="mailto:<%= contacts.email %>" target="_blank" rel="noopener">
+                <%= contacts.email %>
+              </a>
+            </li>
+          <% } %>
+        </ul>
+
+        <% if (footer.contacts.socials) { %>
+          <p class="footer-social">
+            <% networksWithColors.forEach(([network, color]) => { %>
+              <% if (contacts[network]) { %>
+                <a
+                  href="<%= contacts[network] %>"
+                  target="_blank"
+                  rel="noopener"
+                  style="color: <%= color %>"
+                >
+                  <i class="fab fa-<%= network %>"></i>
+                </a>
+              <% } %>
+            <% }) %>
+          </p>
+        <% } %>
+      </div>
+
+      <div class="col-12 col-lg-5">
+        <h2 class="footer-title footer-store">
+          <%= footer.description.title || _.settings.name %>
+        </h2>
+        <p><%- footer.description.text || _.settings.description %></p>
+
+        <div class="mt-4 mb-3">
+          <p class="footer-payment-methods">
+            <% paymentMethods.forEach(method => { %>
+              <% if (footer.payment_methods[method]) { %>
+                <i class="pay-icon pay-icon-<%= method %>"></i>
+              <% } %>
+            <% }) %>
+          </p>
+          <div class="footer-stamps row">
+            <% footer.stamps.forEach(({ src, alt }) => { %>
+              <div class="col-auto">
+                <img src="<%= src %>" alt="<%= alt %>">
+              </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <% if (footer.links_1.title) { %>
+          <div class="footer-title">
+            <%= footer.links_1.title %>
+          </div>
+        <% } %>
+        <% if (footer.links_1.list_pages) { %>
+          <ul class="footer-links list-unstyled">
+            <% (_.cms('pages') || []).forEach(slug => { %>
+              <% const { title } = _.cms(`pages/${slug}`) %>
+              <li>
+                <i class="fas fa-angle-right"></i>
+                <a href="/<%= slug %>">
+                  <%= title %>
+                </a>
+              </li>
+            <% }) %>
+          </ul>
+        <% } else { %>
+          <ul class="footer-links list-unstyled">
+            <% footer.links_1.list.forEach(({ url, text }) => { %>
+              <li>
+                <i class="fas fa-angle-right"></i>
+                <a href="<%= url %>">
+                  <%= text %>
+                </a>
+              </li>
+            <% }) %>
+          </ul>
+        <% } %>
+      </div>
+
+      <div class="col">
+        <% if (footer.links_2.title) { %>
+          <div class="footer-title h2 lead">
+            <%= footer.links_2.title %>
+          </div>
+        <% } %>
+        <% if (footer.links_2.list_categories) { %>
+          <ul class="footer-links list-unstyled">
+            <% _.categories.forEach(({ name, slug, parent }) => { %>
+              <% if (!parent) { %>
+                <li>
+                  <i class="fas fa-angle-right"></i>
+                  <a href="/<%= slug %>">
+                    <%= name %>
+                  </a>
+                </li>
+              <% } %>
+            <% }) %>
+          </ul>
+        <% } else { %>
+          <ul class="footer-links list-unstyled">
+            <% footer.links_2.list.forEach(({ url, text }) => { %>
+              <li>
+                <i class="fas fa-angle-right"></i>
+                <a href="<%= url %>">
+                  <%= text %>
+                </a>
+              </li>
+            <% }) %>
+          </ul>
+        <% } %>
+      </div>
+    </div>
+
+    <% if (footer.credits) { %>
+      <div class="footer-credits">
+        <%= footer.credits %>
+      </div>
+    <% } %>
+  </div>
+</footer>
+
+<div class="ecom-credits">
+  <a href="https://e-com.plus" target="_blank" rel="noopener">
+    Powered by
+    <img
+      src="https://ecom.nyc3.digitaloceanspaces.com/brand/plus/198x43.png"
+      alt="E-Com Plus"
+    >
+  </a>
+</div>
