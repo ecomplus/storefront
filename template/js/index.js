@@ -20,3 +20,4 @@ window.$overlay = $overlay
 // async load base components
 import('./src/icons')
 import('./src/menu')
+import('./src/header')

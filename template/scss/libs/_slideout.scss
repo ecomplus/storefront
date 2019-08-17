@@ -8,7 +8,7 @@
     min-height: 100vh;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    z-index: 1080;
+    z-index: 0;
     display: none;
 
     &-left {
@@ -23,7 +23,6 @@
   &-panel {
     position: relative;
     z-index: 1;
-    will-change: transform;
     background-color: #fff;
     min-height: 100vh;
   }

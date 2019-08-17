@@ -12,6 +12,10 @@ body {
 
 @import 'libs/slideout';
 
+#main {
+  transform: none;
+}
+
 #overlay {
   position: fixed;
   top: 0;
@@ -25,4 +29,8 @@ body {
     opacity: .5;
     cursor: pointer;
   }
+}
+
+#content {
+  min-height: 1000px;
 }

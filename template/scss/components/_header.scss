@@ -1,5 +1,13 @@
 .header {
   background: var(--light);
+  z-index: 900;
+  display: block;
+  width: 100%;
+
+  &-float-fix {
+    display: block;
+    will-change: height;
+  }
 
   &-countdown {
     display: block;
@@ -82,5 +90,27 @@
     max-height: 60px;
     width: auto;
     height: auto;
+  }
+
+  &-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .header {
+      &-countdown {
+        font-size: 1rem;
+        padding: .25rem;
+      }
+
+      &-bar {
+        display: none !important;
+      }
+
+      &-container {
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+      }
+    }
   }
 }
