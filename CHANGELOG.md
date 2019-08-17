@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/ecomclub/storefront-template/compare/v0.1.10...v0.1.11) (2019-08-17)
+
+
+### Features
+
+* **header:** handling sticky header nav ([beec774](https://github.com/ecomclub/storefront-template/commit/beec774))
+
 ### [0.1.10](https://github.com/ecomclub/storefront-template/compare/v0.1.9...v0.1.10) (2019-08-17)
 
 
