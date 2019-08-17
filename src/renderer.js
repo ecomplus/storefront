@@ -81,7 +81,13 @@ const dataPromise = getStoreData().then(storeData => {
 
   // function to get CMS JSON content
   data.cms = file => {
-    const filepath = path.join(paths.content, `${file}.json`)
+    // first check if it's a folder collection
+    const dirColl = path.join(paths.content, file)
+    if (fs.existsSync(dirColl) && fs.lstatSync(dirColl).isDirectory()) {
+      // returns list of collection slugs
+      return fs.readdirSync(dirColl).map(filename => filename.replace('.json', ''))
+    }
+    const filepath = `${dirColl}.json`
     if (devMode) {
       let json
       try {
