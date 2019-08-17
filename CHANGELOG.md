@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.3.1](https://github.com/ecomclub/storefront-framework/compare/v4.3.0...v4.3.1) (2019-08-17)
+
+
+### Bug Fixes
+
+* **renderer:** edit cms function to handle folders and list slugs ([03cf79d](https://github.com/ecomclub/storefront-framework/commit/03cf79d))
+
 ## [4.3.0](https://github.com/ecomclub/storefront-framework/compare/v4.2.0...v4.3.0) (2019-08-16)
 
 
