@@ -24,12 +24,10 @@ if (body) {
 
 // also expose some store data
 let echoData = {
-  // up to 10 first level categories
-  categories: _.categories.filter(({ parent }) => !parent).slice(0, 10),
-  // up to 10 aleatory brands
-  brands: _.brands.slice(0, 10),
-  // up to 10 items with less and 'stable' data
-  items: _.items.slice(0, 10).map(({ _id, sku, name, slug, pictures }) => {
+  // up to 8 first level categories
+  categories: _.categories.filter(({ parent }) => !parent).slice(0, 8),
+  // up to 8 items with less and 'stable' data
+  items: _.items.slice(0, 8).map(({ _id, sku, name, slug, pictures }) => {
     const item = { _id, sku, name, slug }
     if (Array.isArray(pictures)) {
       // output one picture per item only
