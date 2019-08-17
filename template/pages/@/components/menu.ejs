@@ -17,6 +17,7 @@ const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
 
     <% for (const slug in categoryParents) { %>
       <% if (categoryParents.hasOwnProperty(slug)) { %>
+        <% let category, parent %>
         <div
           <% if (slug === '_') { %>
             id="categories-nav"
@@ -31,8 +32,8 @@ const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
         >
 
           <% if (slug !== '_') { %>
-            <% const category = _.categories.find(category => category.slug === slug) %>
-            <% const parent = category && category.parent %>
+            <% category = _.categories.find(category => category.slug === slug) %>
+            <% parent = category && category.parent %>
             <button
               class="menu-btn btn"
               type="button"
@@ -48,35 +49,47 @@ const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
                 aria-controls="a-<%= parent.slug %>"
               <% } %>
             >
-              <i class="fas fa-chevron-left"></i>
+              <i class="fas fa-arrow-left"></i>
             </button>
           <% } %>
 
-          <% categoryParents[slug].forEach(category => { %>
-            <% const subcategories = _.ecomUtils.filterByParentSlug(_.categories, category.slug) %>
-            <a
-              <% if (subcategories.length) { %>
-                href="#a-<%= category.slug %>"
-                data-toggle="collapse"
-                role="button"
-                aria-expanded="false"
-                aria-controls="a-<%= category.slug %>"
-                onclick="closeCollapsedMenu()"
-              <% } else { %>
-                href="/<%= category.slug %>"
-              <% } %>
-              id="c-<%= category._id %>"
-              class="menu-item"
-            >
-              <% if (category.icon) { %>
-                <img
-                  src="<%= category.icon.url %>"
-                  alt="<%= category.icon.alt || category.name %>"
-                >
-              <% } %>
-              <%= category.name %>
+          <div class="menu-list">
+            <% categoryParents[slug].forEach(subcategory => { %>
+              <% const hasSubmenu = Array.isArray(categoryParents[subcategory.slug]) %>
+              <a
+                <% if (hasSubmenu) { %>
+                  href="#a-<%= subcategory.slug %>"
+                  data-toggle="collapse"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="a-<%= subcategory.slug %>"
+                  onclick="closeCollapsedMenu()"
+                <% } else { %>
+                  href="/<%= subcategory.slug %>"
+                <% } %>
+                id="c-<%= subcategory._id %>"
+                class="menu-item"
+              >
+                <% if (subcategory.icon) { %>
+                  <span class="menu-item-icon">
+                    <img
+                      src="<%= subcategory.icon.url %>"
+                      alt="<%= subcategory.icon.alt || subcategory.name %>"
+                    >
+                  </span>
+                <% } %>
+                <span>
+                  <%= subcategory.name %>
+                </span>
+              </a>
+            <% }) %>
+          </div>
+
+          <% if (category && category.slug) { %>
+            <a href="/<%= category.slug %>" class="menu-link">
+              <%= _.lang === 'pt_br' ? `Ver toda a categoria ${category.name}` : `All ${category.name} category` %>
             </a>
-          <% }) %>
+          <% } %>
         </div>
       <% } %>
     <% } %>
