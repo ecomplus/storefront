@@ -1,0 +1,84 @@
+<%
+// start grouping categories by parent slug
+const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
+  return !parent || !parent.slug ? '_' : parent.slug
+})
+%>
+
+<aside id="menu" class="menu">
+  <nav class="accordion" id="accordion-menu">
+    <button
+      class="menu-btn menu-close btn"
+      type="button"
+      onclick="toggleSidenav()"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+
+    <% for (const slug in categoryParents) { %>
+      <% if (categoryParents.hasOwnProperty(slug)) { %>
+        <div
+          <% if (slug === '_') { %>
+            id="categories-nav"
+            class="collapse show"
+            aria-expanded="true"
+          <% } else { %>
+            id="a-<%= slug %>"
+            class="collapse"
+            aria-expanded="false"
+          <% } %>
+          data-parent="#accordion-menu"
+        >
+
+          <% if (slug !== '_') { %>
+            <% const category = _.categories.find(category => category.slug === slug) %>
+            <% const parent = category && category.parent %>
+            <button
+              class="menu-btn btn"
+              type="button"
+              data-toggle="collapse"
+              onclick="closeCollapsedMenu()"
+              <% if (!parent || !parent.slug) { %>
+                aria-expanded="true"
+                data-target="#categories-nav"
+                aria-controls="categories-nav"
+              <% } else { %>
+                aria-expanded="false"
+                data-target="#a-<%= parent.slug %>"
+                aria-controls="a-<%= parent.slug %>"
+              <% } %>
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+          <% } %>
+
+          <% categoryParents[slug].forEach(category => { %>
+            <% const subcategories = _.ecomUtils.filterByParentSlug(_.categories, category.slug) %>
+            <a
+              <% if (subcategories.length) { %>
+                href="#a-<%= category.slug %>"
+                data-toggle="collapse"
+                role="button"
+                aria-expanded="false"
+                aria-controls="a-<%= category.slug %>"
+                onclick="closeCollapsedMenu()"
+              <% } else { %>
+                href="/<%= category.slug %>"
+              <% } %>
+              id="c-<%= category._id %>"
+              class="menu-item"
+            >
+              <% if (category.icon) { %>
+                <img
+                  src="<%= category.icon.url %>"
+                  alt="<%= category.icon.alt || category.name %>"
+                >
+              <% } %>
+              <%= category.name %>
+            </a>
+          <% }) %>
+        </div>
+      <% } %>
+    <% } %>
+  </nav>
+</aside>

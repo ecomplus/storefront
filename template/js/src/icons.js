@@ -1,6 +1,5 @@
 import '@fortawesome/fontawesome-free'
 
-// import specific fa icons
 import {
   faShoppingBag,
   faUser,

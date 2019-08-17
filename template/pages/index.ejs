@@ -6,11 +6,15 @@
 </head>
 
 <body>
-  <%- await include('@/components/sidenav', { _ }) %>
+  <%- await include('@/components/menu', { _ }) %>
+
   <main role="main" id="main">
     <%- await include('@/components/header', { _ }) %>
-    <article></article>
+
+    <article id="content"></article>
+    <div id="overlay" class="fade"></div>
   </main>
+
   <%- await include('@/scripts', { _ }) %>
 </body>
 

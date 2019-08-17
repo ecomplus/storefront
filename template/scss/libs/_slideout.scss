@@ -3,11 +3,12 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    width: 256px;
+    width: 100%;
+    max-width: 300px;
     min-height: 100vh;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    z-index: 0;
+    z-index: 1080;
     display: none;
 
     &-left {
