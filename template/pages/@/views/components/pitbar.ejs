@@ -1,0 +1,54 @@
+<section class="pitbar st-block-secondary">
+  <div class="container">
+    <div class="row align-items-center pitbar__nav">
+      <% if (pages.home.pitbar.shipping) { %>
+        <div class="col-auto col-sm-6 col-lg">
+          <a class="pitbar__item" href="<%= info.shipping.link %>">
+            <span class="rounded-icon">
+              <i class="fas fa-shipping-fast"></i>
+            </span>
+            <div class="ml-3">
+              <%= info.shipping.text %>
+            </div>
+          </a>
+        </div>
+      <% } %>
+      <% if (pages.home.pitbar.installments) { %>
+        <div class="col-auto col-sm-6 col-lg">
+          <a class="pitbar__item" href="<%= info.installments.link %>">
+            <span class="rounded-icon">
+              <i class="fas fa-credit-card"></i>
+            </span>
+            <div class="ml-3">
+              <%= info.installments.text %>
+            </div>
+          </a>
+        </div>
+      <% } %>
+      <% if (pages.home.pitbar.exchange) { %>
+        <div class="col-auto col-sm-6 col-lg">
+          <a class="pitbar__item" href="<%= info.exchange.link %>">
+            <span class="rounded-icon">
+              <i class="fas fa-exchange-alt"></i>
+            </span>
+            <div class="ml-3">
+              <%= info.exchange.text %>
+            </div>
+          </a>
+        </div>
+      <% } %>
+      <% if (pages.home.pitbar.promo) { %>
+        <div class="col-auto col-sm-6 col-lg">
+          <a class="pitbar__item" href="<%= info.promo.link %>">
+            <span class="rounded-icon">
+              <i class="fas fa-percent"></i>
+            </span>
+            <div class="ml-3">
+              <%= info.promo.text %>
+            </div>
+          </a>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</section>

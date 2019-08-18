@@ -6,15 +6,16 @@
 </head>
 
 <body>
-  <%- await include('@/components/menu', { _ }) %>
+  <%- await include('@/layout/menu', { _ }) %>
 
   <main role="main" id="main">
-    <%- await include('@/components/header', { _ }) %>
+    <%- await include('@/layout/header', { _ }) %>
 
     <article id="content">
+      <%- await include('@/views/home', { _ }) %>
     </article>
 
-    <%- await include('@/components/footer', { _ }) %>
+    <%- await include('@/layout/footer', { _ }) %>
 
     <div id="overlay" class="fade"></div>
   </main>

@@ -50,6 +50,8 @@ const logo = _.settings.logo
             <% if (contacts.whatsapp) { %>
               <a
                 href="javascript:;"
+                target="_blank"
+                rel="noopener"
                 class="whatsapp-link font-weight-normal"
                 data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>"
               >
