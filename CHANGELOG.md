@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.12](https://github.com/ecomclub/storefront-template/compare/v0.1.11...v0.1.12) (2019-08-18)
+
+
+### Features
+
+* **header:** add transition styles to sticky navbar (css transform) ([2bd7ed6](https://github.com/ecomclub/storefront-template/commit/2bd7ed6))
+* **js:** starting utils, edit src folders treee ([b35f9e1](https://github.com/ecomclub/storefront-template/commit/b35f9e1))
+
 ### [0.1.11](https://github.com/ecomclub/storefront-template/compare/v0.1.10...v0.1.11) (2019-08-17)
 
 
