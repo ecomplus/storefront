@@ -3,6 +3,8 @@
   z-index: 900;
   display: block;
   width: 100%;
+  transition: transform .3s ease 0s;
+  will-change: transform, opacity;
 
   &-float-fix {
     display: block;
@@ -96,6 +98,8 @@
     position: fixed;
     top: 0;
     left: 0;
+    transform: translateY(-100%);
+    opacity: 0;
 
     .header {
       &-countdown {

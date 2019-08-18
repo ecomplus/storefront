@@ -9,9 +9,31 @@ let headerOffsetHeight = 0
 let headerOffset = 0
 let lastScrollPosition = 0
 
+let updateNavTimer
 const updateNavbar = fixHeader => {
-  $header.classList[fixHeader ? 'add' : 'remove']('header-fixed')
-  window.navFixed = fixHeader
+  if (window.navFixed !== fixHeader) {
+    clearTimeout(updateNavTimer)
+    const headerClass = 'header-fixed'
+
+    if (fixHeader) {
+      updateNavTimer = setTimeout(() => {
+        $header.style.transform = 'none'
+        $header.style.opacity = 1
+      }, 150)
+
+      $header.classList.add(headerClass)
+    } else {
+      updateNavTimer = setTimeout(() => {
+        $header.removeAttribute('style')
+      }, 150)
+
+      $header.style.opacity = 0
+      $header.style.transform = 'translateY(-100%)'
+      $header.classList.remove(headerClass)
+    }
+
+    window.navFixed = fixHeader
+  }
 }
 
 const onResize = () => {
