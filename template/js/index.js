@@ -5,8 +5,8 @@ import Vue from 'vue'
 import '@ecomplus/storefront-twbs'
 import ecomUtils from '@ecomplus/utils'
 import ecomClient from '@ecomplus/client'
-import $ from './src/$'
-import $overlay from './src/$overlay'
+import $ from './src/lib/$'
+import $overlay from './src/lib/$overlay'
 
 // expose some libs and utils on global scope
 window._ = { cloneDeep, merge }
@@ -18,6 +18,4 @@ window.$ = $
 window.$overlay = $overlay
 
 // async load base components
-import('./src/icons')
-import('./src/menu')
-import('./src/header')
+import('./app')
