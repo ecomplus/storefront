@@ -6,17 +6,15 @@ PWA &amp; JAMstack e-commerce theme for E-Com Plus stores
 
 ### Element identifiers
 
-We're using IDs and classes to identify elements that you may
-want to add custom functionalities or widgets, those
-elements are listed below:
+IDs and classes to identify elements that you may
+want to add custom functionalities or widgets:
 
 - `#menu`
 - `#main`
   - `#header`
-    - `#navbar`
-      - `#logo`
-      - `#user-button`
-      - `#cart-button`
-      - `#search-form`
+    - `#logo`
+    - `#user-button`
+    - `#cart-button`
+    - `#search-form`
   - `#content`
   - `#overlay`
