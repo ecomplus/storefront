@@ -11,7 +11,7 @@
   &__arrow,
   &__bullet {
     z-index: 2;
-    opacity: .7;
+    opacity: .65;
     cursor: pointer;
   }
 
@@ -95,6 +95,10 @@
     height: .5rem;
     border-radius: .25rem;
     margin-left: .25rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
 
     @media (min-width: 768px) {
       width: 1.4rem;
