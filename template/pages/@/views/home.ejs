@@ -1,5 +1,27 @@
 <%
+// load home and general info content
 const home = _.cms('home')
+const info = _.cms('info')
+
+// mount pitbar options object
+const pitbar = {
+  items: []
+}
+if (home.pitbar) {
+  // possible pitbar col names and icons
+  ;[
+    ['shipping', 'shipping-fast'],
+    ['installments', 'credit-card'],
+    ['exchange', 'exchange-alt'],
+    ['promo', 'percent']
+  ].forEach(([prop, icon]) => {
+    if (home.pitbar[prop]) {
+      const { link, text } = info[prop]
+      pitbar.items.push({ link, text, icon })
+    }
+  })
+}
 %>
 
 <%- await include('components/banner-slider', home.slider) %>
+<%- await include('components/pitbar', pitbar) %>

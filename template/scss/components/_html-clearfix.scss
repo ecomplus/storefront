@@ -1,0 +1,13 @@
+.html-clearfix {
+  max-width: 100%;
+  overflow-x: auto;
+
+  @media (min-width: 992px) {
+    overflow-x: hidden;
+  }
+
+  table,
+  .table {
+    max-width: 100%;
+  }
+}
