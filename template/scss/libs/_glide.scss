@@ -1,0 +1,132 @@
+@import '@glidejs/glide/src/assets/sass/glide.core';
+
+.glide {
+  opacity: 0;
+  transition: opacity .3s;
+
+  &--slider {
+    opacity: 1;
+  }
+
+  &__arrow,
+  &__bullet {
+    z-index: 2;
+    opacity: .7;
+    cursor: pointer;
+  }
+
+  &__arrow {
+    position: absolute;
+    display: block;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 2;
+    font-size: 1.2rem;
+    transition: background-color .15s, color .15s;
+    background: var(--light);
+    color: var(--secondary);
+
+    &:hover {
+      background-color: var(--secondary-light);
+      color: var(--secondary-light-yiq);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &--left {
+      @media (max-width: 767.98px) {
+        left: .5rem;
+      }
+      @media (min-width: 768px) and (max-width: 991.98px) {
+        left: 1rem;
+      }
+      @media (min-width: 992px) {
+        left: 1.5rem;
+      }
+    }
+
+    &--right {
+      @media (max-width: 767.98px) {
+        right: .5rem;
+      }
+      @media (min-width: 768px) and (max-width: 991.98px) {
+        right: 1rem;
+      }
+      @media (min-width: 992px) {
+        right: 1.5rem;
+      }
+    }
+
+    &--disabled {
+      opacity: 0.33;
+    }
+  }
+
+  &__bullets {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    display: inline-flex;
+    list-style: none;
+    transform: translateX(-50%);
+
+    @media (max-width: 767.98px) {
+      bottom: .5rem;
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      bottom: 1rem;
+    }
+    @media (min-width: 992px) {
+      bottom: 1.75rem;
+    }
+  }
+
+  &__bullet {
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    transition: opacity .15s, background-color .2s;
+    background: var(--light);
+    border: 1px solid var(--secondary);
+    width: .75rem;
+    height: .5rem;
+    border-radius: .25rem;
+    margin-left: .25rem;
+
+    @media (min-width: 768px) {
+      width: 1.4rem;
+      margin-left: .3rem;
+    }
+    @media (min-width: 992px) {
+      width: 1.6rem;
+      height: .6rem;
+      border-radius: .3rem;
+      margin-left: .4rem;
+    }
+
+    &--active {
+      background-color: var(--secondary-lightest);
+      opacity: .75;
+    }
+
+    &:hover {
+      background-color: var(--secondary-light);
+      opacity: .8;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &--swipeable {
+    cursor: grab;
+  }
+
+  &--dragging {
+    cursor: grabbing;
+  }
+}

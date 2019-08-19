@@ -5,12 +5,14 @@ body {
   height: 100%;
 }
 
-@import 'components/menu';
+@import 'components/banner-slider';
 @import 'components/header';
 @import 'components/footer';
+@import 'components/menu';
 @import 'components/pay-icon';
 
 @import 'libs/slideout';
+@import 'libs/glide';
 
 #main {
   transform: none;

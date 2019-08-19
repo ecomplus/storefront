@@ -1,7 +1,7 @@
 <section class="banner-slider">
   <div class="glide" data-autoplay="<%= autoplay %>">
     <div class="glide__track" data-glide-el="track">
-      <ul class="glide__slides banner-slider__slides">
+      <ul class="glide__slides banner-slider-slides">
         <% slides.forEach(({ link, img, alt }) => { %>
           <li class="glide__slide">
             <a href="<%= link %>" class="d-block">
@@ -17,14 +17,14 @@
 
       <div class="glide__arrows d-none d-md-block" data-glide-el="controls">
         <button
-          class="glide__arrow glide__arrow--left"
+          class="btn glide__arrow glide__arrow--left"
           data-glide-dir="<">
-          <i class="fas fa-arrow-left"></i>
+          <i class="fas fa-chevron-left"></i>
         </button>
         <button
-          class="glide__arrow glide__arrow--right"
+          class="btn glide__arrow glide__arrow--right"
           data-glide-dir=">">
-          <i class="fas fa-arrow-right"></i>
+          <i class="fas fa-chevron-right"></i>
         </button>
       </div>
 
