@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.13](https://github.com/ecomclub/storefront-template/compare/v0.1.12...v0.1.13) (2019-08-19)
+
+
+### Features
+
+* **pitbar:** setup pitbar (feats) and append to home ([0f8cb15](https://github.com/ecomclub/storefront-template/commit/0f8cb15))
+* **postinstall:** also copy cms config to /admin/cms ([ff843f9](https://github.com/ecomclub/storefront-template/commit/ff843f9))
+* **slider:** setup lozad and glide, handle banner slider ([91a4616](https://github.com/ecomclub/storefront-template/commit/91a4616))
+
 ### [0.1.12](https://github.com/ecomclub/storefront-template/compare/v0.1.11...v0.1.12) (2019-08-18)
 
 
