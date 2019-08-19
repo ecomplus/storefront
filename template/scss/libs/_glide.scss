@@ -8,27 +8,33 @@
     opacity: 1;
   }
 
-  &__arrow,
-  &__bullet {
-    z-index: 2;
-    opacity: .65;
-    cursor: pointer;
-  }
-
   &__arrow {
+    z-index: 2;
+    opacity: .7;
+    cursor: pointer;
     position: absolute;
     display: block;
     top: 50%;
     transform: translateY(-50%);
-    line-height: 2;
     font-size: 1.2rem;
-    transition: background-color .15s, color .15s;
-    background: var(--light);
+    line-height: 1;
+    transition: opacity .2s;
+    background: transparent;
     color: var(--secondary);
+    border: none;
+
+    @media (max-width: 767.98px) {
+      font-size: 1.75rem;
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      font-size: 2.25rem;
+    }
+    @media (min-width: 992px) {
+      font-size: 3rem;
+    }
 
     &:hover {
-      background-color: var(--secondary-light);
-      color: var(--secondary-light-yiq);
+      opacity: .9;
     }
 
     &:focus {
@@ -85,15 +91,18 @@
   }
 
   &__bullet {
+    z-index: 3;
+    opacity: .6;
+    cursor: pointer;
     padding: 0;
     margin: 0;
     line-height: 0;
-    transition: opacity .15s, background-color .2s;
-    background: var(--light);
-    border: 1px solid var(--secondary);
-    width: .75rem;
-    height: .5rem;
-    border-radius: .25rem;
+    transition: opacity .15s ease, background-color .2s, border .2s;
+    background: var(--secondary-lightest);
+    border: 1.5px solid var(--secondary-light);
+    width: 1rem;
+    height: .6rem;
+    border-radius: .3rem;
     margin-left: .25rem;
 
     &:first-child {
@@ -101,24 +110,26 @@
     }
 
     @media (min-width: 768px) {
-      width: 1.4rem;
+      width: 1.6rem;
       margin-left: .3rem;
     }
     @media (min-width: 992px) {
-      width: 1.6rem;
-      height: .6rem;
-      border-radius: .3rem;
+      width: 2rem;
+      height: .8rem;
+      border-radius: .4rem;
       margin-left: .4rem;
     }
 
     &--active {
-      background-color: var(--secondary-lightest);
-      opacity: .75;
+      border-color: var(--secondary);
+      background-color: var(--secondary-lighter);
+      opacity: .8;
     }
 
     &:hover {
-      background-color: var(--secondary-light);
-      opacity: .8;
+      border-color: var(--secondary);
+      background-color: var(--secondary);
+      opacity: .9;
     }
 
     &:focus {
