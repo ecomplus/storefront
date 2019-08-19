@@ -4,24 +4,36 @@ console.log('[POSTINSTALL] @ecomplus/storefront-template')
 
 const path = require('path')
 const fs = require('fs')
+const dirBase = process.env.INIT_CWD
+const dirDest = path.join(dirBase, 'template/public')
+let pathsTo, dirFrom
 
-const dir = path.join(__dirname, 'dist/lib')
-let copyTo = path.join(process.env.INIT_CWD, 'template/public')
-;['assets', 'storefront-template'].forEach(folder => {
-  copyTo = path.join(copyTo, folder)
-  if (!fs.existsSync(copyTo)) {
-    fs.mkdirSync(copyTo)
-  }
-})
+const copyFolder = () => {
+  let dirTo = dirDest
+  pathsTo.forEach(folder => {
+    dirTo = path.join(dirTo, folder)
+    if (!fs.existsSync(dirTo)) {
+      fs.mkdirSync(dirTo)
+    }
+  })
 
-fs.readdir(dir, (err, files) => {
-  if (!err) {
-    files.forEach(file => {
-      fs.copyFileSync(path.join(dir, file), path.join(copyTo, file))
-    })
-    console.log('[OK] JS bundles copied to @/template/public folder')
-    console.log()
-  } else {
-    console.error(err)
-  }
-})
+  const files = fs.readdirSync(dirFrom)
+  files.forEach(file => {
+    const filepath = path.join(dirFrom, file)
+    if (!fs.statSync(filepath).isDirectory()) {
+      fs.copyFileSync(filepath, path.join(dirTo, file))
+    }
+  })
+  console.log(`[OK] files copied to ${dirTo.slice(dirBase.length)} folder`)
+}
+
+dirFrom = path.join(__dirname, 'dist/lib')
+pathsTo = ['assets', 'storefront-template']
+copyFolder()
+
+dirFrom = path.join(__dirname, 'template/public/admin')
+pathsTo = ['admin', 'cms']
+copyFolder()
+
+console.log('[DONE] @ecomplus/storefront-template')
+console.log()
