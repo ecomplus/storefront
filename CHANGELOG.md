@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/ecomclub/storefront-template/compare/v0.1.13...v0.1.14) (2019-08-19)
+
+
+### Bug Fixes
+
+* **slides:** fix slider elements to work with slideout ([102027a](https://github.com/ecomclub/storefront-template/commit/102027a))
+
 ### [0.1.13](https://github.com/ecomclub/storefront-template/compare/v0.1.12...v0.1.13) (2019-08-19)
 
 

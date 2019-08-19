@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-template",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "dist/lib/storefront-template.js",
   "module": "template/js/index.js",
