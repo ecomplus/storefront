@@ -9,4 +9,12 @@
   line-height: 1;
   padding-top: .875rem;
   text-align: center;
+
+  @media (max-width: 575.98px) {
+    font-size: 1.2rem;
+    width: 2.4rem;
+    flex: 0 0 2.4rem;
+    height: 2.4rem;
+    padding-top: .5rem;
+  }
 }

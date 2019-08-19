@@ -87,69 +87,71 @@ const logo = _.settings.logo
     </div>
   </div>
 
-  <div class="header-container container-fluid">
-    <div class="row align-items-center">
-      <div class="col-auto">
-        <button class="btn header-toggler" type="button" onclick="toggleSidenav()">
-          <i class="header-toggler-icon fas fa-bars"></i>
-          <span class="d-none d-lg-inline">
-            Menu
-          </span>
-        </button>
-      </div>
+  <div class="header-container">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="header-col col-auto">
+          <button class="btn header-toggler" type="button" onclick="toggleSidenav()">
+            <i class="header-toggler-icon fas fa-bars"></i>
+            <span class="d-none d-lg-inline">
+              Menu
+            </span>
+          </button>
+        </div>
 
-      <div class="col col-lg-3">
-        <a href="/">
-          <% if (logo && logo.url) { %>
-            <img id="logo" class="header-logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
-          <% } else { %>
-            <%= _.settings.name || _.store.name %>
-          <% } %>
-        </a>
-      </div>
-
-      <div class="order-lg-last col-auto">
-        <div
-          class="header-buttons"
-          role="group"
-          aria-label="<%= _.lang === 'pt_br' ? 'Minha conta' : 'My account' %>"
-        >
-          <a
-            id="user-button"
-            class="btn btn-lg btn-light"
-            role="button"
-            href="/app/#/account/"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            title="<%= _.lang === 'pt_br' ? 'Minha conta' : 'My account' %>"
-          >
-            <i class="fas fa-user"></i>
-          </a>
-          <a
-            id="cart-button"
-            class="btn btn-lg btn-light"
-            role="button"
-            href="/app/#/cart"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            title="<%= _.lang === 'pt_br' ? 'Abrir carrinho' : 'Shopping cart' %>"
-          >
-            <i class="fas fa-shopping-bag"></i>
+        <div class="header-col col col-lg-3">
+          <a href="/">
+            <% if (logo && logo.url) { %>
+              <img id="logo" class="header-logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
+            <% } else { %>
+              <%= _.settings.name || _.store.name %>
+            <% } %>
           </a>
         </div>
-      </div>
 
-      <div class="col-12 mt-2 col-lg mt-md-3 mt-lg-0">
-        <form id="search-form" action="/search" method="get">
-          <% const searchLabel = _.lang === 'pt_br' ? 'Buscar produtos' : 'Search products' %>
-          <input
-            type="search"
-            name="term"
-            placeholder="<%= searchLabel %>"
-            aria-label="<%= searchLabel %>"
-            class="header-search form-control form-control-lg"
+        <div class="header-col order-lg-last col-auto">
+          <div
+            class="header-buttons"
+            role="group"
+            aria-label="<%= _.lang === 'pt_br' ? 'Minha conta' : 'My account' %>"
           >
-        </form>
+            <a
+              id="user-button"
+              class="btn btn-lg btn-light"
+              role="button"
+              href="/app/#/account/"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              title="<%= _.lang === 'pt_br' ? 'Minha conta' : 'My account' %>"
+            >
+              <i class="fas fa-user"></i>
+            </a>
+            <a
+              id="cart-button"
+              class="btn btn-lg btn-light"
+              role="button"
+              href="/app/#/cart"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              title="<%= _.lang === 'pt_br' ? 'Abrir carrinho' : 'Shopping cart' %>"
+            >
+              <i class="fas fa-shopping-bag"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="header-col col-12 mt-2 col-lg mt-md-3 mt-lg-0">
+          <form id="search-form" action="/search" method="get">
+            <% const searchLabel = _.lang === 'pt_br' ? 'Buscar produtos' : 'Search products' %>
+            <input
+              type="search"
+              name="term"
+              placeholder="<%= searchLabel %>"
+              aria-label="<%= searchLabel %>"
+              class="header-search form-control form-control-lg"
+            >
+          </form>
+        </div>
       </div>
     </div>
   </div>
