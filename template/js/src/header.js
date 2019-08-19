@@ -23,14 +23,19 @@ const updateNavbar = fixHeader => {
       }, 150)
 
       $header.classList.add(headerClass)
+      $headerPadding.style.height = headerOffsetHeight + 'px'
     } else {
-      updateNavTimer = setTimeout(() => {
-        $header.removeAttribute('style')
-      }, 150)
-
-      $header.style.opacity = 0
       $header.style.transform = 'translateY(-100%)'
-      $header.classList.remove(headerClass)
+
+      updateNavTimer = setTimeout(() => {
+        $header.style.opacity = 0
+        $header.classList.remove(headerClass)
+        $headerPadding.style.height = 0
+
+        updateNavTimer = setTimeout(() => {
+          $header.removeAttribute('style')
+        }, 150)
+      }, 250)
     }
 
     window.navFixed = fixHeader
@@ -55,14 +60,6 @@ const onScroll = () => {
   let offset = headerOffset
   offset *= scrollingUp ? 1.2 : 0.8
   const fixHeader = offset < currentScrollPosition
-
-  if (fixHeader) {
-    if (!window.navFixed) {
-      $headerPadding.style.height = headerOffsetHeight + 'px'
-    }
-  } else if (window.navFixed) {
-    $headerPadding.style.height = 0
-  }
   updateNavbar(fixHeader)
 }
 
