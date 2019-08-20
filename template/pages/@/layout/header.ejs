@@ -19,7 +19,7 @@ const logo = _.settings.logo
   : _.store.logo
 %>
 
-<header class="header" id="header">
+<header class="header" id="header" data-slideout-fixed>
   <% if (header.marketing_stripe) { %>
     <% if (header.marketing_stripe.text || header.marketing_stripe.call_to_action) { %>
       <div class="header__countdown d-none d-sm-block">
