@@ -102,8 +102,10 @@ data = {
     devMode,
     // Parsed object from `content/settings.json`
     settings,
-    // Function to get CMS JSON content
+    // Function to get CMS JSON content by filepath
     cms,
+    // Function to get `content/dictionary/${lang}` object
+    dictionary,
     // MarkdownIt instance to parse MD markup
     md,
     // Store ID number
