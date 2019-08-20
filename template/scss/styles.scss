@@ -3,6 +3,7 @@
 body {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 @import 'components/banner-slider';
@@ -12,10 +13,13 @@ body {
 @import 'components/menu';
 @import 'components/pay-icon';
 @import 'components/pitbar';
+@import 'components/product-card';
+@import 'components/products-carousel';
 @import 'components/rounded-icon';
 
-@import 'libs/slideout';
 @import 'libs/glide';
+@import 'libs/lozad';
+@import 'libs/slideout';
 
 #main {
   transform: none;

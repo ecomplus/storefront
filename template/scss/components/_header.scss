@@ -109,8 +109,12 @@
 
     .header {
       &__countdown {
-        font-size: 1rem;
+        font-size: .95rem;
         padding: .25rem;
+
+        .btn {
+          line-height: 1.2;
+        }
       }
 
       &__bar {
