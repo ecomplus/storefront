@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.4.0](https://github.com/ecomclub/storefront-framework/compare/v4.3.2...v4.4.0) (2019-08-20)
+
+
+### Features
+
+* **renderer:** abstraction for dictionary content ([65f0ef4](https://github.com/ecomclub/storefront-framework/commit/65f0ef4))
+
 ### [4.3.2](https://github.com/ecomclub/storefront-framework/compare/v4.3.1...v4.3.2) (2019-08-19)
 
 ### [4.3.1](https://github.com/ecomclub/storefront-framework/compare/v4.3.0...v4.3.1) (2019-08-17)
