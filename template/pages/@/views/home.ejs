@@ -23,6 +23,9 @@ if (home.pitbar) {
 }
 %>
 
-<%- await include('components/banner-slider', { opt: home.slider }) %>
-<%- await include('components/pitbar', { opt: pitbar }) %>
-<%- await include('components/products-carousel', { opt: { items: _.items } }) %>
+<%- await include('components/banner-slider', { _, opt: home.slider }) %>
+<%- await include('components/pitbar', { _, opt: pitbar }) %>
+
+<div class="container py-1 py-sm-2 py-lg-4">
+  <%- await include('components/products-carousel', { _, opt: { items: _.items } }) %>
+</div>
