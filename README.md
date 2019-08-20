@@ -113,6 +113,8 @@ to be used by storefront widgets, as example (default):
 
 ```css
 :root {
+    --body-bg: #fff;
+    --body-color: #212529;
     --blue: #007bff;
     --indigo: #6610f2;
     --purple: #6f42c1;
@@ -126,9 +128,9 @@ to be used by storefront widgets, as example (default):
     --white: #fff;
     --gray: #6c757d;
     --gray-dark: #343a40;
-    --primary: #ff015b;
+    --primary: #e83e8c;
     --primary-yiq: #fff;
-    --secondary: #6c757d;
+    --secondary: #333;
     --secondary-yiq: #fff;
     --success: #28a745;
     --success-yiq: #fff;
@@ -142,30 +144,20 @@ to be used by storefront widgets, as example (default):
     --light-yiq: #212529;
     --dark: #343a40;
     --dark-yiq: #fff;
-    --primary-lightest: #ffa9c8;
+    --primary-rgb: 232,62,140;
+    --secondary-rgb: 51,51,51;
+    --primary-lightest: #fad4e6;
     --primary-lightest-yiq: #212529;
-    --primary-lighter: #ff6ca0;
+    --primary-lighter: #f39ec5;
     --primary-lighter-yiq: #212529;
-    --primary-light: #ff347c;
-    --primary-light-yiq: #fff;
-    --primary-dark: #cd0049;
-    --primary-dark-yiq: #fff;
-    --primary-darker: #950035;
-    --primary-darker-yiq: #fff;
-    --primary-darkest: #58001f;
-    --primary-darkest-yiq: #fff;
-    --secondary-lightest: #c5c9cd;
-    --secondary-lightest-yiq: #212529;
-    --secondary-lighter: #a4aab0;
-    --secondary-lighter-yiq: #212529;
-    --secondary-light: #868e96;
+    --primary-light: #ed6ca7;
+    --primary-light-yiq: #212529;
+    --secondary-lightest: #878787;
+    --secondary-lightest-yiq: #fff;
+    --secondary-lighter: #696969;
+    --secondary-lighter-yiq: #fff;
+    --secondary-light: #4d4d4d;
     --secondary-light-yiq: #fff;
-    --secondary-dark: #545b62;
-    --secondary-dark-yiq: #fff;
-    --secondary-darker: #3a3f44;
-    --secondary-darker-yiq: #fff;
-    --secondary-darkest: #1e2023;
-    --secondary-darkest-yiq: #fff;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
