@@ -1,0 +1,8 @@
+.lozad:not(.show) {
+  @extend .spinner-grow;
+
+  background: var(--gray);
+  margin: 3rem auto 0;
+  height: 2.5rem;
+  width: 2.5rem;
+}
