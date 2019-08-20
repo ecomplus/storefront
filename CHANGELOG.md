@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/ecomclub/storefront-twbs/compare/v3.1.0...v3.2.0) (2019-08-20)
+
+
+### Features
+
+* **root:** adding brand colors rgb and body color to vars ([bc750a5](https://github.com/ecomclub/storefront-twbs/commit/bc750a5))
+
 ## [3.1.0](https://github.com/ecomclub/storefront-twbs/compare/v3.0.5...v3.1.0) (2019-08-16)
 
 
