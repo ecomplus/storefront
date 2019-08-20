@@ -71,6 +71,32 @@
     }
   }
 
+  &__arrows--outer .glide__arrow {
+    &--left {
+      @media (max-width: 575.98px) {
+        left: -15px;
+      }
+      @media (min-width: 576px) and (max-width: 1199.98px) {
+        left: -30px;
+      }
+      @media (min-width: 1200px) {
+        left: -45px;
+      }
+    }
+
+    &--right {
+      @media (max-width: 575.98px) {
+        right: -15px;
+      }
+      @media (min-width: 576px) and (max-width: 1199.98px) {
+        right: -30px;
+      }
+      @media (min-width: 1200px) {
+        right: -45px;
+      }
+    }
+  }
+
   &__bullets {
     position: absolute;
     z-index: 2;
