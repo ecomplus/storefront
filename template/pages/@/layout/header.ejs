@@ -22,7 +22,7 @@ const logo = _.settings.logo
 <header class="header" id="header">
   <% if (header.marketing_stripe) { %>
     <% if (header.marketing_stripe.text || header.marketing_stripe.call_to_action) { %>
-      <div class="header-countdown d-none d-sm-block">
+      <div class="header__countdown d-none d-sm-block">
         <%= header.marketing_stripe.text %>
         <% if (header.marketing_stripe.call_to_action) { %>
           <button
@@ -37,10 +37,10 @@ const logo = _.settings.logo
     <% } %>
   <% } %>
 
-  <div class="header-bar d-none d-md-block">
+  <div class="header__bar d-none d-md-block">
     <div class="container-fluid">
       <div class="row">
-        <div class="header-bar-left col">
+        <div class="header__bar__left col">
           <% if (header.contacts_stripe.pages) { %>
             <% header.contacts_stripe.pages.forEach(({ link, title }) => { %>
               <a href="<%= link %>"><%= title %></a>
@@ -87,31 +87,31 @@ const logo = _.settings.logo
     </div>
   </div>
 
-  <div class="header-container">
+  <div class="header__container">
     <div class="container-fluid">
       <div class="row align-items-center">
-        <div class="header-col col-auto">
-          <button class="btn header-toggler" type="button" onclick="toggleSidenav()">
-            <i class="header-toggler-icon fas fa-bars"></i>
+        <div class="header__col col-auto">
+          <button class="btn header__toggler" type="button" onclick="toggleSidenav()">
+            <i class="header__toggler__icon fas fa-bars"></i>
             <span class="d-none d-lg-inline">
               Menu
             </span>
           </button>
         </div>
 
-        <div class="header-col col col-lg-3">
+        <div class="header__col col col-lg-3">
           <a href="/">
             <% if (logo && logo.url) { %>
-              <img id="logo" class="header-logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
+              <img id="logo" class="header__logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
             <% } else { %>
               <%= _.settings.name || _.store.name %>
             <% } %>
           </a>
         </div>
 
-        <div class="header-col order-lg-last col-auto">
+        <div class="header__col order-lg-last col-auto">
           <div
-            class="header-buttons"
+            class="header__buttons"
             role="group"
             aria-label="<%= _.lang === 'pt_br' ? 'Minha conta' : 'My account' %>"
           >
@@ -140,7 +140,7 @@ const logo = _.settings.logo
           </div>
         </div>
 
-        <div class="header-col col-12 mt-2 col-lg mt-md-3 mt-lg-0">
+        <div class="header__col col-12 mt-2 col-lg mt-md-3 mt-lg-0">
           <form id="search-form" action="/search" method="get">
             <% const searchLabel = _.lang === 'pt_br' ? 'Buscar produtos' : 'Search products' %>
             <input
@@ -148,7 +148,7 @@ const logo = _.settings.logo
               name="term"
               placeholder="<%= searchLabel %>"
               aria-label="<%= searchLabel %>"
-              class="header-search form-control form-control-lg"
+              class="header__search form-control form-control-lg"
             >
           </form>
         </div>

@@ -8,7 +8,7 @@ const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
 <aside id="menu" class="menu">
   <nav class="accordion" id="accordion-menu">
     <button
-      class="menu-btn menu-close btn"
+      class="menu__btn menu__btn--close btn"
       type="button"
       onclick="toggleSidenav()"
     >
@@ -35,7 +35,7 @@ const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
             <% category = _.categories.find(category => category.slug === slug) %>
             <% parent = category && category.parent %>
             <button
-              class="menu-btn btn"
+              class="menu__btn btn"
               type="button"
               data-toggle="collapse"
               onclick="closeCollapsedMenu()"
@@ -53,7 +53,7 @@ const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
             </button>
           <% } %>
 
-          <div class="menu-list">
+          <div class="menu__list">
             <% categoryParents[slug].forEach(subcategory => { %>
               <% const hasSubmenu = Array.isArray(categoryParents[subcategory.slug]) %>
               <a
@@ -68,10 +68,10 @@ const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
                   href="/<%= subcategory.slug %>"
                 <% } %>
                 id="c-<%= subcategory._id %>"
-                class="menu-item"
+                class="menu__item"
               >
                 <% if (subcategory.icon) { %>
-                  <span class="menu-item-icon">
+                  <span class="menu__item__icon">
                     <img
                       src="<%= subcategory.icon.url %>"
                       alt="<%= subcategory.icon.alt || subcategory.name %>"
@@ -86,7 +86,7 @@ const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
           </div>
 
           <% if (category && category.slug) { %>
-            <a href="/<%= category.slug %>" class="menu-link">
+            <a href="/<%= category.slug %>" class="menu__link">
               <%= _.lang === 'pt_br' ? `Ver toda a categoria ${category.name}` : `All ${category.name} category` %>
             </a>
           <% } %>

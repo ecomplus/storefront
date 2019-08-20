@@ -120,12 +120,6 @@
       margin-left: .4rem;
     }
 
-    &--active {
-      border-color: var(--secondary);
-      background-color: var(--secondary-lighter);
-      opacity: .8;
-    }
-
     &:hover {
       border-color: var(--secondary);
       background-color: var(--secondary);
@@ -135,6 +129,13 @@
     &:focus {
       outline: none;
     }
+  }
+
+  .glide__bullet--active {
+    cursor: auto;
+    border-color: var(--secondary);
+    background-color: var(--secondary-lighter);
+    opacity: .8;
   }
 
   &--swipeable {

@@ -1,0 +1,56 @@
+<section class="products-carousel my-4" data-slideout-ignor>
+  <div
+    class="_ecom-el"
+    <% if (args.collection) { %>
+      data-type="collection"
+      data-id="<%= args.collection %>"
+    <% } else { %>
+      data-type="<%= args.type %>"
+    <% } %>
+    data-list="products"
+    data-size="<%= args.size || 8 %>"
+    v-if="body.hits && body.hits.total">
+    <h4 class="products-carousel-title">
+      <% if (args.title) { %>
+        <span>
+          <%= args.title %>
+        </span>
+      <% } else { %>
+        <a v-if="body.slug" v-bind:href="body.slug">
+          {{ body.name }}
+        </a>
+        <span v-else>
+          {{ body.name }}
+        </span>
+      <% } %>
+    </h4>
+    <div
+      class="glide"
+      data-autoplay="<%= args.autoplay %>"
+      data-per-view="4"
+      data-per-view-md="3"
+      data-per-view-sm="2">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides products-carousel-list">
+          <li
+            v-for="item in searchedItems(body)"
+            class="glide__slide items-carousel__item">
+            <%- await include('mproduct-card', { }) %>
+          </li>
+        </ul>
+        <div class="glide__arrows glide__arrows--outer" data-glide-el="controls">
+          <button
+            class="glide__arrow glide__arrow--left"
+            data-glide-dir="<">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button
+            class="glide__arrow glide__arrow--right"
+            data-glide-dir=">">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

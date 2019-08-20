@@ -3,7 +3,7 @@
   border-top: .25rem solid var(--secondary);
   color: var(--gray);
 
-  &-title {
+  &__title {
     font-size: 1.25rem;
     font-weight: 300;
     margin-bottom: .5rem;
@@ -11,21 +11,23 @@
     color: var(--dark);
   }
 
-  &-store {
+  &__store {
     color: var(--secondary);
     font-weight: 500;
   }
 
-  &-links {
+  &__links {
     font-size: .93rem;
+    padding-left: 0;
+    list-style: none;
   }
 
-  &-list-icon {
+  &__list-icon {
     width: 1.35rem;
     display: inline-block;
   }
 
-  &-social {
+  &__social {
     font-size: 1.25rem;
 
     a {
@@ -44,7 +46,7 @@
     }
   }
 
-  &-credits {
+  &__credits {
     padding-top: 1rem;
     margin-top: 1rem;
     border-top: 1px solid var(--secondary);

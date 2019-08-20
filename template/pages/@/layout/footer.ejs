@@ -40,7 +40,7 @@ const paymentMethods = [
     <div class="row">
       <div class="col-12 col-lg-auto order-lg-last">
         <% if (footer.contacts.title) { %>
-          <div class="footer-title">
+          <div class="footer__title">
             <%= footer.contacts.title %>
           </div>
         <% } %>
@@ -49,7 +49,7 @@ const paymentMethods = [
           <% if (footer.contacts.phone_wpp) { %>
             <% if (contacts.whatsapp) { %>
               <li>
-                <span class="footer-list-icon">
+                <span class="footer__list-icon">
                   <i class="fab fa-whatsapp"></i>
                 </span>
                 <a
@@ -65,7 +65,7 @@ const paymentMethods = [
             <% } %>
             <% if (contacts.phone) { %>
               <li>
-                <span class="footer-list-icon">
+                <span class="footer__list-icon">
                   <i class="fas fa-phone"></i>
                 </span>
                 <a
@@ -88,7 +88,7 @@ const paymentMethods = [
         </ul>
 
         <% if (footer.contacts.socials) { %>
-          <p class="footer-social">
+          <p class="footer__social">
             <% networksWithColors.forEach(([network, color]) => { %>
               <% if (contacts[network]) { %>
                 <a
@@ -106,20 +106,20 @@ const paymentMethods = [
       </div>
 
       <div class="col-12 col-lg-5">
-        <h2 class="footer-title footer-store">
+        <h2 class="footer__title footer__store">
           <%= footer.description.title || _.settings.name %>
         </h2>
         <p><%- footer.description.text || _.settings.description %></p>
 
         <div class="mt-4 mb-3">
-          <p class="footer-payment-methods">
+          <p class="footer__payment-methods">
             <% paymentMethods.forEach(method => { %>
               <% if (footer.payment_methods[method]) { %>
-                <i class="pay-icon pay-icon-<%= method %>"></i>
+                <i class="pay-icon pay-icon--<%= method %>"></i>
               <% } %>
             <% }) %>
           </p>
-          <div class="footer-stamps row">
+          <div class="footer__stamps row">
             <% footer.stamps.forEach(({ src, alt }) => { %>
               <div class="col-auto">
                 <img src="<%= src %>" alt="<%= alt %>">
@@ -131,12 +131,12 @@ const paymentMethods = [
 
       <div class="col">
         <% if (footer.links_1.title) { %>
-          <div class="footer-title">
+          <div class="footer__title">
             <%= footer.links_1.title %>
           </div>
         <% } %>
         <% if (footer.links_1.list_pages) { %>
-          <ul class="footer-links list-unstyled">
+          <ul class="footer__links">
             <% (_.cms('pages') || []).forEach(slug => { %>
               <% const { title } = _.cms(`pages/${slug}`) %>
               <li>
@@ -148,7 +148,7 @@ const paymentMethods = [
             <% }) %>
           </ul>
         <% } else { %>
-          <ul class="footer-links list-unstyled">
+          <ul class="footer__links">
             <% footer.links_1.list.forEach(({ url, text }) => { %>
               <li>
                 <i class="fas fa-angle-right"></i>
@@ -163,12 +163,12 @@ const paymentMethods = [
 
       <div class="col">
         <% if (footer.links_2.title) { %>
-          <div class="footer-title h2 lead">
+          <div class="footer__title">
             <%= footer.links_2.title %>
           </div>
         <% } %>
         <% if (footer.links_2.list_categories) { %>
-          <ul class="footer-links list-unstyled">
+          <ul class="footer__links">
             <% _.categories.forEach(({ name, slug, parent }) => { %>
               <% if (!parent) { %>
                 <li>
@@ -181,7 +181,7 @@ const paymentMethods = [
             <% }) %>
           </ul>
         <% } else { %>
-          <ul class="footer-links list-unstyled">
+          <ul class="footer__links">
             <% footer.links_2.list.forEach(({ url, text }) => { %>
               <li>
                 <i class="fas fa-angle-right"></i>
@@ -195,11 +195,9 @@ const paymentMethods = [
       </div>
     </div>
 
-    <% if (footer.credits) { %>
-      <div class="footer-credits">
-        <%= footer.credits %>
-      </div>
-    <% } %>
+    <div class="footer__credits">
+      <%= footer.credits || `© ${_.store.name} / ${contacts.address} / ${contacts.doc_number}` %>
+    </div>
   </div>
 </footer>
 

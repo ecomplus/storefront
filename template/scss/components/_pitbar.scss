@@ -6,7 +6,7 @@
   background: var(--secondary);
   color: var(--secondary-yiq);
 
-  &-nav {
+  &__nav {
     @media (max-width: 767.98px) {
       overflow-x: auto;
       min-width: 100%;
@@ -14,7 +14,7 @@
     }
   }
 
-  &-item {
+  &__item {
     text-transform: uppercase;
     display: flex;
     color: inherit;

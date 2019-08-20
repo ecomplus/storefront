@@ -14,7 +14,7 @@ let updateNavTimer
 const updateNavbar = fixHeader => {
   if (window.navFixed !== fixHeader) {
     clearTimeout(updateNavTimer)
-    const headerClass = 'header-fixed'
+    const headerClass = 'header--fixed'
 
     if (fixHeader) {
       updateNavTimer = setTimeout(() => {

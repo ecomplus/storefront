@@ -2,11 +2,11 @@
   display: none;
   background: var(--primary-lightest);
 
-  &-list {
+  &__list {
     padding-top: 40px;
   }
 
-  &-item {
+  &__item {
     display: flex;
     align-items: center;
     font-size: 1.05rem;
@@ -27,7 +27,7 @@
       border-bottom: none;
     }
 
-    &-icon {
+    &__icon {
       width: 1.75rem;
       margin-right: .7rem;
       text-align: center;
@@ -41,7 +41,7 @@
     }
   }
 
-  &-link {
+  &__link {
     display: block;
     border-top: 1px dashed var(--primary-lightest-yiq);
     margin: 1rem .7rem;
@@ -50,7 +50,7 @@
     color: var(--primary);
   }
 
-  &-btn {
+  &__btn {
     position: absolute;
     top: 0;
     left: 0;
@@ -60,10 +60,10 @@
     &:focus {
       box-shadow: none;
     }
-  }
 
-  &-close {
-    left: auto;
-    right: 0;
+    &--close {
+      left: auto;
+      right: 0;
+    }
   }
 }

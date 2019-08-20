@@ -11,7 +11,7 @@
     will-change: height;
   }
 
-  &-countdown {
+  &__countdown {
     display: block;
     background: var(--primary);
     color: var(--primary-yiq);
@@ -21,7 +21,7 @@
     padding: .5rem;
   }
 
-  &-bar {
+  &__bar {
     color: var(--gray);
     font-weight: bold;
     max-width: 80rem;
@@ -39,14 +39,14 @@
       }
     }
 
-    &-left a {
+    &__left a {
       @media (min-width: 992px) {
         margin-right: 1rem;
       }
     }
   }
 
-  &-container {
+  &__container {
     max-width: 80rem;
     margin: 0 auto;
     padding-right: 1rem;
@@ -60,7 +60,7 @@
     }
   }
 
-  &-toggler {
+  &__toggler {
     color: var(--gray);
     opacity: .85;
     padding: .5rem .2rem;
@@ -79,7 +79,7 @@
       box-shadow: none;
     }
 
-    &-icon {
+    &__icon {
       color: var(--secondary);
       font-size: 1.3rem;
       margin-right: .25rem;
@@ -87,7 +87,7 @@
     }
   }
 
-  &-logo {
+  &__logo {
     max-width: 300px;
     max-height: 60px;
     width: auto;
@@ -98,7 +98,7 @@
     }
   }
 
-  &-fixed {
+  &--fixed {
     position: fixed;
     top: 0;
     left: 0;
@@ -108,30 +108,30 @@
     opacity: 0;
 
     .header {
-      &-countdown {
+      &__countdown {
         font-size: 1rem;
         padding: .25rem;
       }
 
-      &-bar {
+      &__bar {
         display: none !important;
       }
 
-      &-container {
+      &__container {
         padding-top: .5rem;
         padding-bottom: .5rem;
       }
     }
   }
 
-  &-col {
+  &__col {
     @media (max-width: 575.98px) {
       padding-left: 5px;
       padding-right: 5px;
     }
   }
 
-  &-search {
+  &__search {
     @media (max-width: 767.98px) {
       padding: .3rem 2.3rem .3rem .6rem;
       font-size: 1rem;
