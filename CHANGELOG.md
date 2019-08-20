@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.15](https://github.com/ecomclub/storefront-template/compare/v0.1.14...v0.1.15) (2019-08-20)
+
+
+### Bug Fixes
+
+* **menu:** handling fixed nav with slideout ([46f6d46](https://github.com/ecomclub/storefront-template/commit/46f6d46))
+
+
+### Features
+
+* **jsonld:** setting up website and org structured data ([a714075](https://github.com/ecomclub/storefront-template/commit/a714075))
+* **products:** setup products carousel and product card ([7090fdc](https://github.com/ecomclub/storefront-template/commit/7090fdc))
+
 ### [0.1.14](https://github.com/ecomclub/storefront-template/compare/v0.1.13...v0.1.14) (2019-08-19)
 
 
