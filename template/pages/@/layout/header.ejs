@@ -113,7 +113,7 @@ const logo = _.settings.logo
           <div
             class="header__buttons"
             role="group"
-            aria-label="<%= _.lang === 'pt_br' ? 'Minha conta' : 'My account' %>"
+            aria-label="<%= _.dictionary().my_account %>"
           >
             <a
               id="user-button"
@@ -122,7 +122,7 @@ const logo = _.settings.logo
               href="/app/#/account/"
               data-toggle="tooltip"
               data-placement="bottom"
-              title="<%= _.lang === 'pt_br' ? 'Minha conta' : 'My account' %>"
+              title="<%= _.dictionary().my_account %>"
             >
               <i class="fas fa-user"></i>
             </a>
@@ -133,7 +133,7 @@ const logo = _.settings.logo
               href="/app/#/cart"
               data-toggle="tooltip"
               data-placement="bottom"
-              title="<%= _.lang === 'pt_br' ? 'Abrir carrinho' : 'Shopping cart' %>"
+              title="<%= _.dictionary().open_cart %>"
             >
               <i class="fas fa-shopping-bag"></i>
             </a>
@@ -142,12 +142,11 @@ const logo = _.settings.logo
 
         <div class="header__col col-12 mt-2 col-lg mt-md-3 mt-lg-0">
           <form id="search-form" action="/search" method="get">
-            <% const searchLabel = _.lang === 'pt_br' ? 'Buscar produtos' : 'Search products' %>
             <input
               type="search"
               name="term"
-              placeholder="<%= searchLabel %>"
-              aria-label="<%= searchLabel %>"
+              placeholder="<%= _.dictionary().search_products %>"
+              aria-label="<%= _.dictionary().search_products %>"
               class="header__search form-control form-control-lg"
             >
           </form>

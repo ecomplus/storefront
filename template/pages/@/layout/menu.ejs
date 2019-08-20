@@ -87,7 +87,7 @@ const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
 
           <% if (category && category.slug) { %>
             <a href="/<%= category.slug %>" class="menu__link">
-              <%= _.lang === 'pt_br' ? `Ver toda a categoria ${category.name}` : `All ${category.name} category` %>
+              <%= _.dictionary().see_all_category.replace(':name', category.name) %>
             </a>
           <% } %>
         </div>
