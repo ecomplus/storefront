@@ -1,8 +1,8 @@
-<% if (Array.isArray(items) && items.length) { %>
+<% if (Array.isArray(opt.cols) && opt.cols.length) { %>
   <section class="pitbar" data-slideout-ignore>
     <div class="container">
       <div class="row align-items-center pitbar__nav">
-        <% items.forEach(({ link, icon, text }) => { %>
+        <% opt.cols.forEach(({ link, icon, text }) => { %>
           <div class="col-auto col-sm-6 col-lg">
             <a class="pitbar__item" href="<%= link || 'javascript:;' %>">
               <span class="rounded-icon">

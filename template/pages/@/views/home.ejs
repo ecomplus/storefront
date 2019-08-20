@@ -5,7 +5,7 @@ const info = _.cms('info')
 
 // mount pitbar options object
 const pitbar = {
-  items: []
+  cols: []
 }
 if (home.pitbar) {
   // possible pitbar col names and icons
@@ -17,11 +17,12 @@ if (home.pitbar) {
   ].forEach(([prop, icon]) => {
     if (home.pitbar[prop]) {
       const { link, text } = info[prop]
-      pitbar.items.push({ link, text, icon })
+      pitbar.cols.push({ link, text, icon })
     }
   })
 }
 %>
 
-<%- await include('components/banner-slider', home.slider) %>
-<%- await include('components/pitbar', pitbar) %>
+<%- await include('components/banner-slider', { opt: home.slider }) %>
+<%- await include('components/pitbar', { opt: pitbar }) %>
+<%- await include('components/products-carousel', { opt: { items: _.items } }) %>
