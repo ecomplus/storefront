@@ -37,7 +37,7 @@
   "dependencies": {
     "@ecomplus/client": "^1.0.3",
     "@ecomplus/search-engine": "^1.0.1",
-    "@ecomplus/storefront-twbs": "^3.1.0",
+    "@ecomplus/storefront-twbs": "^3.2.0",
     "@ecomplus/utils": "^1.0.1",
     "@fortawesome/fontawesome-free": "^5.10.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
