@@ -21,4 +21,6 @@ want to add custom functionalities or widgets:
     - `#cart-button`
     - `#search-form`
   - `#content`
+    - `.products-carousel`
+    - `.product-card`
   - `#overlay`
