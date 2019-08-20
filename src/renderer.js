@@ -13,7 +13,7 @@ const config = require('./lib/config')
 const lodash = require('lodash')
 const MarkdownIt = require('markdown-it')
 
-const { devMode, storeId } = config
+const { devMode, storeId, lang } = config
 
 // parse EJS render file async function to promise
 const renderFilePromise = (filename, params) => new Promise((resolve, reject) => {
@@ -100,6 +100,9 @@ const dataPromise = getStoreData().then(storeData => {
       return require(filepath)
     }
   }
+
+  // abstraction for dictionary content
+  data.dictionary = () => data.cms(`dictionary/${lang}`)
 
   // markdown parser
   data.md = new MarkdownIt()
