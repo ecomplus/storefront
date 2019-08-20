@@ -3,19 +3,16 @@ $brand-colors: (
   "primary-lightest": lighten($primary, 33%),
   "primary-lighter": lighten($primary, 21%),
   "primary-light": lighten($primary, 10%),
-  "primary-dark": darken($primary, 10%),
-  "primary-darker": darken($primary, 21%),
-  "primary-darkest": darken($primary, 33%),
   "secondary-lightest": lighten($secondary, 33%),
   "secondary-lighter": lighten($secondary, 21%),
-  "secondary-light": lighten($secondary, 10%),
-  "secondary-dark": darken($secondary, 10%),
-  "secondary-darker": darken($secondary, 21%),
-  "secondary-darkest": darken($secondary, 33%)
+  "secondary-light": lighten($secondary, 10%)
 );
 
 :root {
   // Custom variable values only support SassScript inside `#{}`.
+  --body-bg: #{$body-bg};
+  --body-color: #{$body-color};
+
   @each $color, $value in $colors {
     --#{$color}: #{$value};
   }
@@ -24,6 +21,9 @@ $brand-colors: (
     --#{$color}: #{$value};
     --#{$color}-yiq: #{color-yiq($value)};
   }
+
+  --primary-rgb: #{red($primary)}, #{green($primary)}, #{blue($primary)};
+  --secondary-rgb: #{red($secondary)}, #{green($secondary)}, #{blue($secondary)};
 
   @each $color, $value in $brand-colors {
     --#{$color}: #{$value};
