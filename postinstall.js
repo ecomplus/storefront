@@ -7,7 +7,14 @@ const fs = require('fs')
 const dirBase = process.env.INIT_CWD
 const dirDest = path.join(dirBase, 'template/public')
 
-if (fs.statSync(dirDest).isDirectory()) {
+let runTemplateCopy
+try {
+  runTemplateCopy = fs.statSync(dirDest).isDirectory()
+} catch (e) {
+  runTemplateCopy = false
+}
+
+if (runTemplateCopy) {
   let pathsTo, dirFrom
 
   const copyFolder = () => {
