@@ -7,6 +7,9 @@
   "browser": "dist/lib/storefront-template.js",
   "jsdelivr": "dist/lib/storefront-template.js",
   "unpkg": "dist/storefront.js",
+  "bin": {
+    "storefront-template-copy": "./copy.js"
+  },
   "scripts": {
     "serve": "storefront-pack serve",
     "build:template": "storefront-pack build",
