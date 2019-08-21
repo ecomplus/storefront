@@ -27,5 +27,27 @@ if (home.pitbar) {
 <%- await include('components/pitbar', { _, opt: pitbar }) %>
 
 <div class="container py-1 py-sm-2 py-lg-4">
-  <%- await include('components/products-carousel', { _, opt: { items: _.items } }) %>
+  <% if (Array.isArray(home.showcase) && home.showcase.length) { %>
+    <%
+    for (let i = 0; i < home.showcase.length; i++) {
+      const shelf = home.showcase[i]
+      // get collection body
+      const res = await _.ecomClient.store({ url: `/collections/${shelf.collection}.json` })
+      const collection = res.data
+      let items = []
+      if (Array.isArray(collection.products) && collection.products.length) {
+        // search collection items by IDs
+        const search = new _.EcomSearch()
+        await search.setProductIds(collection.products).fetch()
+        items = search.getItems()
+      }
+      const { title, link } = shelf
+      %>
+      <%- await include('components/products-carousel', { _, opt: { items, collection, title, link } }) %>
+      <%
+    }
+    %>
+  <% } else { %>
+    <%- await include('components/products-carousel', { _, opt: { items: _.items } }) %>
+  <% } %>
 </div>
