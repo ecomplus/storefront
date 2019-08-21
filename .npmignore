@@ -1,5 +1,6 @@
 /docs
 /.serve
+/copy
 /template/public/**/storefront-template
 /template/public/admin/cms/
 
