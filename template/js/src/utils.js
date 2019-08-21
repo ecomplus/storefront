@@ -1,7 +1,7 @@
 import { IS_MOBILE } from './lib/env'
 import $ from './lib/$'
-// import lozad from 'lozad'
-// import Glide from '@glidejs/glide'
+import './lib/lazy-load'
+import './lib/glide-slides'
 
 const $wpLinks = $('.whatsapp-link')
 for (let i = 0; i < $wpLinks.length; i++) {

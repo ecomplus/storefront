@@ -1,0 +1,27 @@
+<%
+// setup product image object first
+const { pictures } = opt.item
+const imgObj = Array.isArray(pictures) && pictures.find(({ normal }) => normal).normal
+%>
+
+<div class="product-card" data-product-id="<%= opt.item._id %>">
+  <a
+    href="/<%= opt.item.slug %>"
+    class="product-card__link"
+    title="<%= opt.item.name %>"
+  >
+    <div class="product-card__pictures">
+      <% if (imgObj) { %>
+        <img
+          data-src="<%= imgObj.url %>"
+          alt="<%= imgObj.alt %>"
+          class="product-card__picture fade lozad img-fluid"
+        >
+      <% } %>
+    </div>
+    <h3 class="product-card__name">
+      <%= opt.item.name %>
+    </h3>
+  </a>
+  <p class="product-card__info"></p>
+</div>

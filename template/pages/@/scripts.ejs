@@ -42,9 +42,19 @@ let echoData = {
 }
 %>
 
-<script>
-  window._settings = <%- JSON.stringify(_.settings) %>
-  window._context = <%- JSON.stringify(echoContext) %>
-  window._data = <%- JSON.stringify(echoData) %>
-</script>
+<script><%-
+  `window._settings=${JSON.stringify(_.settings)};` +
+  `window._context=${JSON.stringify(echoContext)};` +
+  `window._data=${JSON.stringify(echoData)};`
+%></script>
 <script src="/storefront.js"></script>
+
+<script type="application/ld+json"><%-
+  JSON.stringify({
+    '@context': 'http://schema.org',
+    '@type': 'Organization',
+    name: _.settings.name || _.store.name,
+    url: _.store.homepage || `https://${(_.store.domain || _.settings.domain)}/`,
+    logo: (_.store.logo && _.store.logo.url) || `https://${_.settings.domain}${_.settings.logo}`
+  })
+%></script>

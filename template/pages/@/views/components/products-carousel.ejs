@@ -1,0 +1,62 @@
+<% if (Array.isArray(opt.items) && opt.items.length) { %>
+  <section
+    class="products-carousel"
+    data-size="<%= opt.items.length %>"
+    <% if (opt.collection) { %>
+      data-collection-id="<%= opt.collection._id %>"
+    <% } %>
+    data-slideout-ignore
+  >
+    <h4 class="products-carousel__title">
+      <% if (opt.title) { %>
+        <a href="<%= opt.link || 'javascript:;' %>">
+          <%= opt.title %>
+        </a>
+      <% } else if (opt.collection) { %>
+        <a href="<%= opt.collection.slug || 'javascript:;' %>">
+          <%= opt.collection.name %>
+        </a>
+      <% } else { %>
+        <a href="/search">
+          <%= _.dictionary().popular_products %>
+        </a>
+      <% } %>
+    </h4>
+
+    <div
+      class="glide"
+      data-autoplay="<%= opt.autoplay %>"
+      data-per-view="4"
+      data-per-view-md="3"
+      data-per-view-sm="2"
+    >
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides products-carousel__list">
+          <% for (let i = 0; i < opt.items.length; i++) { %>
+            <li class="glide__slide products-carousel__item">
+              <%- await include('product-card', { opt: { item: opt.items[i] } }) %>
+            </li>
+          <% } %>
+        </ul>
+
+        <div
+          class="glide__arrows glide__arrows--outer"
+          data-glide-el="controls"
+        >
+          <button
+            class="btn glide__arrow glide__arrow--left"
+            data-glide-dir="<"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button
+            class="btn glide__arrow glide__arrow--right"
+            data-glide-dir=">"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+<% } %>

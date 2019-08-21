@@ -1,5 +1,6 @@
 {
   "name": "My Shop",
+  "domain": "storefront-demo.e-com.plus",
   "short_name": "MyShop",
   "description": "My PWA Shop",
   "lang": "en_us",

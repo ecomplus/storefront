@@ -3,13 +3,22 @@
 body {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
-@import 'components/menu';
+@import 'components/banner-slider';
 @import 'components/header';
+@import 'components/html-clearfix';
 @import 'components/footer';
+@import 'components/menu';
 @import 'components/pay-icon';
+@import 'components/pitbar';
+@import 'components/product-card';
+@import 'components/products-carousel';
+@import 'components/rounded-icon';
 
+@import 'libs/glide';
+@import 'libs/lozad';
 @import 'libs/slideout';
 
 #main {
@@ -29,8 +38,4 @@ body {
     opacity: .5;
     cursor: pointer;
   }
-}
-
-#content {
-  min-height: 1000px;
 }
