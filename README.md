@@ -131,7 +131,10 @@ data = {
     ecomUtils,
     // E-Com Plus APIs client
     // https://developers.e-com.plus/ecomplus-client/
-    ecomClient
+    ecomClient,
+    // Search engine constructor
+    // https://developers.e-com.plus/search-engine/
+    EcomSearch
   }
 }
 ```
