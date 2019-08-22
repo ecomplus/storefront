@@ -6,4 +6,3 @@ export const DEFAULT_LANG = settings.lang || 'pt_br'
 // export const DEFAULT_COUNTRY_CODE = settings.country_code || 'br'
 // export const DEFAULT_CURRENCY = settings.currency || 'BRL'
 // export const DEFAULT_CURRENCY_SYMBOL = settings.currency_symbol || 'R$'
-export const IS_MOBILE = window.screen.width <= 575.98

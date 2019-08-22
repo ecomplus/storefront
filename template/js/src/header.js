@@ -1,10 +1,9 @@
-import { IS_MOBILE } from './lib/env'
 import $ from './lib/$'
 
 const $header = $('#header')
 let $headerPadding
 
-const setupStickyHeader = !IS_MOBILE
+const setupStickyHeader = window.screen.height >= 300
 window.navFixed = false
 let headerOffsetHeight = 0
 let headerOffset = 0
