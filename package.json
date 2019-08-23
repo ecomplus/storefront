@@ -2,22 +2,21 @@
   "name": "@ecomplus/storefront-template",
   "version": "0.1.23",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
-  "main": "dist/lib/storefront-template.js",
-  "module": "template/js/index.js",
-  "browser": "dist/lib/storefront-template.js",
+  "main": "template/js/index.js",
   "jsdelivr": "dist/storefront.js",
   "unpkg": "dist/storefront.js",
   "bin": {
+    "storefront-template-install": "./scripts/postinstall.js",
     "storefront-template-copy": "./scripts/copy.js"
   },
   "scripts": {
     "serve": "storefront-pack serve",
-    "build": "NODE_ENV=production webpack",
-    "build:template": "npm run postinstall && storefront-pack build",
-    "build:all": "npm run build:template && npm run build",
-    "release": "npm run build:all && standard-version",
+    "build": "storefront-pack build",
+    "build:lib": "NODE_ENV=production webpack",
+    "release": "npm run build && standard-version",
     "postinstall": "node ./scripts/postinstall.js",
-    "test:copy": "rm -rf ./copy; node ./scripts/copy.js --dest=copy"
+    "test:postinstall": "rm -rf ./copy && mkdir ./copy && TEMPLATE_DIR=copy npm run postinstall",
+    "test:copy": "rm -rf ./copy && node ./scripts/copy.js --dest=copy"
   },
   "repository": {
     "type": "git",
