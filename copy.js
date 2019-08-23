@@ -28,6 +28,6 @@ for (let i = 0; i < process.argv.length; i++) {
     break
   }
 }
-;['template', 'content'].forEach(folder => {
+['template', 'content'].forEach(folder => {
   recursiveCopy(path.join(__dirname, folder), path.join(dirDest, folder))
 })
