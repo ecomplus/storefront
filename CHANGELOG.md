@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.6.0](https://github.com/ecomclub/storefront-framework/compare/v4.5.0...v4.6.0) (2019-08-23)
+
+
+### Features
+
+* **babel-config:** handle optional BABEL_LOADER_EXCLUDE env ([cf2c0bf](https://github.com/ecomclub/storefront-framework/commit/cf2c0bf))
+
 ## [4.5.0](https://github.com/ecomclub/storefront-framework/compare/v4.4.0...v4.5.0) (2019-08-21)
 
 
