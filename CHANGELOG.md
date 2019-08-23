@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.24](https://github.com/ecomclub/storefront-template/compare/v0.1.23...v0.1.24) (2019-08-23)
+
+
+### Bug Fixes
+
+* **scripts:** fix recursive copy and move to scripts folder ([80f9605](https://github.com/ecomclub/storefront-template/commit/80f9605))
+
 ### [0.1.23](https://github.com/ecomclub/storefront-template/compare/v0.1.22...v0.1.23) (2019-08-23)
 
 
