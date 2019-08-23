@@ -1,7 +1,8 @@
 // declare some BootstrapVue components on global Vue instance
 // https://bootstrap-vue.js.org/docs/
 
-import 'bootstrap.native'
+import { version } from './../package.json'
+import { Collapse, Dropdown, Tooltip } from 'bootstrap.native'
 
 import Vue from 'vue'
 
@@ -27,6 +28,12 @@ Vue.use(ToastPlugin)
 Vue.use(VBPopoverPlugin)
 Vue.use(VBTooltipPlugin)
 
-export {
-  Vue
+if (typeof window === 'object') {
+  window.Vue = Vue
+  window.Collapse = Collapse
+  window.Dropdown = Dropdown
+  window.Tooltip = Tooltip
+  window.__storefront_twbs = {}
 }
+
+export { version }
