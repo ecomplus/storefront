@@ -4,47 +4,41 @@ console.log('[POSTINSTALL] @ecomplus/storefront-template')
 
 const path = require('path')
 const fs = require('fs')
+const recursiveCopy = require('./lib/recursive-copy')
+
 const dirBase = process.env.INIT_CWD
-const dirDest = path.join(dirBase, 'template/public')
+const dirDest = path.join(dirBase, process.env.TEMPLATE_DIR || 'template')
+const dirTemplate = path.join(__dirname, '../template')
 
-let runTemplateCopy
-try {
-  runTemplateCopy = fs.statSync(dirDest).isDirectory()
-} catch (e) {
-  runTemplateCopy = false
-}
-
-if (runTemplateCopy) {
-  let pathsTo, dirFrom
-
-  const copyFolder = () => {
-    let dirTo = dirDest
-    pathsTo.forEach(folder => {
-      dirTo = path.join(dirTo, folder)
-      if (!fs.existsSync(dirTo)) {
-        fs.mkdirSync(dirTo)
-      }
-    })
-
-    const files = fs.readdirSync(dirFrom)
-    files.forEach(file => {
-      const filepath = path.join(dirFrom, file)
-      if (!fs.statSync(filepath).isDirectory()) {
-        fs.copyFileSync(filepath, path.join(dirTo, file))
-      }
-    })
-    console.log(`[OK] files copied to ${dirTo.slice(dirBase.length)} folder`)
+if (dirTemplate === dirDest) {
+  console.log('[SKIP] same template directories')
+} else {
+  let runTemplateCopy
+  try {
+    runTemplateCopy = fs.statSync(dirDest).isDirectory()
+  } catch (e) {
+    runTemplateCopy = false
   }
 
-  dirFrom = path.join(__dirname, '../dist/lib')
-  pathsTo = ['assets', 'storefront-template']
-  copyFolder()
+  if (runTemplateCopy) {
+    const copyFolder = (pathFrom, pathsTo) => {
+      let dirTo = dirDest
+      pathsTo.forEach(folder => {
+        dirTo = path.join(dirTo, folder)
+        if (!fs.existsSync(dirTo)) {
+          fs.mkdirSync(dirTo)
+        }
+      })
+      const dirFrom = path.join(dirTemplate, pathFrom)
+      recursiveCopy(dirFrom, dirTo)
+      console.log(`[OK] files copied to ${dirTo.slice(dirBase.length)} folder`)
+    }
 
-  dirFrom = path.join(__dirname, '../template/public/admin')
-  pathsTo = ['admin', 'cms']
-  copyFolder()
+    copyFolder('js', ['js', 'storefront-template'])
+    copyFolder('public/admin', ['public', 'admin', 'cms'])
 
-  console.log('[DONE] @ecomplus/storefront-template')
+    console.log('[DONE] @ecomplus/storefront-template')
+  }
 }
 
 console.log()
