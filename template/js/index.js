@@ -1,3 +1,5 @@
+import { version } from './../../package.json'
+
 import cloneDeep from 'lodash.clonedeep'
 import merge from 'lodash.merge'
 import EventEmitter from 'eventemitter3'
@@ -36,3 +38,5 @@ const { _config } = ecomUtils
 
 // async load components
 import('./app')
+
+export { version }
