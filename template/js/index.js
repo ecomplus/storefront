@@ -21,5 +21,18 @@ window.ecomClient = ecomClient
 window.$ = $
 window.$overlay = $overlay
 
+// set global E-Com Plus config
+const { _settings } = window
+const { _config } = ecomUtils
+;[
+  'store_id',
+  'lang',
+  'currency',
+  'currency_symbol',
+  'country_code'
+].forEach(prop => {
+  _config.set(prop, _settings[prop])
+})
+
 // async load base components
 import('./app')
