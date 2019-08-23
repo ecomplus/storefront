@@ -5,17 +5,19 @@
   "main": "dist/lib/storefront-template.js",
   "module": "template/js/index.js",
   "browser": "dist/lib/storefront-template.js",
-  "jsdelivr": "dist/lib/storefront-template.js",
+  "jsdelivr": "dist/storefront.js",
   "unpkg": "dist/storefront.js",
   "bin": {
-    "storefront-template-copy": "./copy.js"
+    "storefront-template-copy": "./scripts/copy.js"
   },
   "scripts": {
     "serve": "storefront-pack serve",
-    "build:template": "storefront-pack build",
     "build": "NODE_ENV=production webpack",
-    "release": "rm -rf ./dist; npm run build & standard-version",
-    "postinstall": "node ./postinstall.js"
+    "build:template": "npm run postinstall && storefront-pack build",
+    "build:all": "npm run build:template && npm run build",
+    "release": "npm run build:all && standard-version",
+    "postinstall": "node ./scripts/postinstall.js",
+    "test:copy": "rm -rf ./copy; node ./scripts/copy.js --dest=copy"
   },
   "repository": {
     "type": "git",
