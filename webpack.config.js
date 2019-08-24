@@ -2,8 +2,9 @@
 
 const devMode = process.env.NODE_ENV !== 'production'
 const path = require('path')
-
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront-template/dist')
 
 // preset default output object
 const output = {
@@ -19,8 +20,9 @@ const config = {
   entry: path.resolve(__dirname, 'src/index.js'),
   output,
   devServer: {
-    contentBase: path.resolve(__dirname, 'test'),
+    contentBase: templatePath,
     stats: 'minimal',
+    port: 9124,
     open: true
   },
   stats: {
@@ -68,6 +70,13 @@ const config = {
       }
     ]
   }
+}
+
+if (devMode) {
+  // inject widget script with HTML plugin
+  config.plugins.push(new HtmlWebpackPlugin({
+    template: path.resolve(templatePath, 'index.html')
+  }))
 }
 
 module.exports = devMode
