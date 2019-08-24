@@ -6,7 +6,7 @@
   "jsdelivr": "dist/storefront.js",
   "unpkg": "dist/storefront.js",
   "bin": {
-    "storefront-template-install": "./scripts/install.js",
+    "storefront-template": "./scripts/install.js",
     "storefront-template-copy": "./scripts/copy.js"
   },
   "scripts": {
