@@ -6,8 +6,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "serve": "webpack-dev-server",
-    "serve:storefront": "storefront-template-copy && storefront-pack serve",
-    "release": "rm -rf ./dist; npm run build & standard-version"
+    "release": "rm -rf ./dist && npm run build && standard-version"
   },
   "repository": {
     "type": "git",
@@ -40,13 +39,14 @@
     "@babel/preset-env": "^7.5.5",
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "@ecomplus/storefront-framework": "^4.5.0",
-    "@ecomplus/storefront-template": "^0.1.21",
+    "@ecomplus/storefront-framework": "^4.6.1",
+    "@ecomplus/storefront-template": "^0.1.28",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "cssnano": "^4.1.10",
     "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
     "husky": "^3.0.4",
     "node-sass": "^4.12.0",
     "postcss-loader": "^3.0.0",
