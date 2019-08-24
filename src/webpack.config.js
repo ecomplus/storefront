@@ -97,8 +97,9 @@ const config = {
 
       // transpile and polyfill JS with Babel
       {
-        test: /\.m?js$/,
-        exclude: process.env.BABEL_LOADER_EXCLUDE || /(node_modules|bower_components)/,
+        test: /^(.(?!\.min.js$))+\.m?js$/,
+        exclude: process.env.BABEL_LOADER_EXCLUDE ||
+          /node_modules(\/(?![^/]+(\/[^/]+)?\/template\/js\/).+)/,
         use: {
           loader: 'babel-loader',
           options: {
