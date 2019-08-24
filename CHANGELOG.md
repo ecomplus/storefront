@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.27](https://github.com/ecomclub/storefront-template/compare/v0.1.26...v0.1.27) (2019-08-24)
+
+
+### Bug Fixes
+
+* **bin:** set scripts node bin ([9de943b](https://github.com/ecomclub/storefront-template/commit/9de943b))
+
 ### [0.1.26](https://github.com/ecomclub/storefront-template/compare/v0.1.25...v0.1.26) (2019-08-24)
 
 ### [0.1.25](https://github.com/ecomclub/storefront-template/compare/v0.1.24...v0.1.25) (2019-08-24)
