@@ -14,7 +14,19 @@ const config = require('./lib/config')
 const lodash = require('lodash')
 const MarkdownIt = require('markdown-it')
 
-const { devMode, storeId, lang } = config
+const { devMode, storeId, lang, settings } = config
+
+// setup E-Com Plus global config
+const { _config } = ecomUtils
+;[
+  'store_id',
+  'lang',
+  'currency',
+  'currency_symbol',
+  'country_code'
+].forEach(prop => {
+  _config.set(prop, settings[prop])
+})
 
 // parse EJS render file async function to promise
 const renderFilePromise = (filename, params) => new Promise((resolve, reject) => {
