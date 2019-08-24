@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.6.2](https://github.com/ecomclub/storefront-framework/compare/v4.6.1...v4.6.2) (2019-08-24)
+
+
+### Bug Fixes
+
+* **config:** setup E-Com Plus global config ([3fd5cdc](https://github.com/ecomclub/storefront-framework/commit/3fd5cdc))
+
 ### [4.6.1](https://github.com/ecomclub/storefront-framework/compare/v4.6.0...v4.6.1) (2019-08-24)
 
 
