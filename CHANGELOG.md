@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.6.1](https://github.com/ecomclub/storefront-framework/compare/v4.6.0...v4.6.1) (2019-08-24)
+
+
+### Bug Fixes
+
+* **babel-config:** fix default regex to babel loader test and exclude ([7d2e4c5](https://github.com/ecomclub/storefront-framework/commit/7d2e4c5))
+
 ## [4.6.0](https://github.com/ecomclub/storefront-framework/compare/v4.5.0...v4.6.0) (2019-08-23)
 
 
