@@ -6,7 +6,7 @@
   "jsdelivr": "dist/storefront.js",
   "unpkg": "dist/storefront.js",
   "bin": {
-    "storefront-template-install": "./scripts/postinstall.js",
+    "storefront-template-install": "./scripts/install.js",
     "storefront-template-copy": "./scripts/copy.js"
   },
   "scripts": {
@@ -14,8 +14,7 @@
     "build": "storefront-pack build",
     "build:lib": "NODE_ENV=production webpack",
     "release": "npm run build && standard-version",
-    "postinstall": "node ./scripts/postinstall.js",
-    "test:postinstall": "rm -rf ./copy && mkdir ./copy && TEMPLATE_DIR=copy npm run postinstall",
+    "test:install": "rm -rf ./copy && mkdir ./copy && TEMPLATE_DIR=copy node ./scripts/install.js",
     "test:copy": "rm -rf ./copy && node ./scripts/copy.js --dest=copy"
   },
   "repository": {
@@ -60,7 +59,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "@ecomplus/storefront-framework": "^4.5.0",
+    "@ecomplus/storefront-framework": "^4.6.1",
     "babel-eslint": "^10.0.2",
     "husky": "^3.0.4",
     "standard": "^13.1.0",
