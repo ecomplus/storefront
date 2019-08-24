@@ -2,7 +2,7 @@
 
 'use strict'
 
-console.log('[POSTINSTALL] @ecomplus/storefront-template')
+console.log('[INSTALL] @ecomplus/storefront-template')
 
 const path = require('path')
 const fs = require('fs')
@@ -36,9 +36,7 @@ if (dirTemplate === dirDest) {
       console.log(`[OK] files copied to ${dirTo.slice(dirBase.length)} folder`)
     }
 
-    copyFolder('js', ['js', 'storefront-template'])
     copyFolder('public/admin', ['public', 'admin', 'cms'])
-
     console.log('[DONE] @ecomplus/storefront-template')
   }
 }
