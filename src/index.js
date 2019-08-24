@@ -1,10 +1,11 @@
 import Vue from 'vue'
-import App from './../ecom-user/src/EcomUser.vue'
+import '@ecomplus/storefront-twbs'
+import EcomUser from './EcomUser.vue'
 
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App)
+  render: h => h(EcomUser)
 }).$mount('#app')
 
-console.log(1)
+window.alert(10)
