@@ -11,7 +11,7 @@
   },
   "scripts": {
     "serve": "storefront-pack serve",
-    "build": "storefront-pack build",
+    "build": "WEBPACK_BUILD_DEV=true storefront-pack build",
     "build:lib": "NODE_ENV=production webpack",
     "release": "npm run build && standard-version",
     "test:install": "rm -rf ./copy && mkdir ./copy && TEMPLATE_DIR=copy node ./scripts/install.js",
@@ -40,7 +40,7 @@
   "dependencies": {
     "@ecomplus/client": "^1.0.3",
     "@ecomplus/search-engine": "^1.0.2",
-    "@ecomplus/storefront-twbs": "^3.3.0",
+    "@ecomplus/storefront-twbs": "^3.4.0",
     "@ecomplus/utils": "^1.0.1",
     "@fortawesome/fontawesome-free": "^5.10.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
@@ -59,7 +59,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "@ecomplus/storefront-framework": "^4.6.2",
+    "@ecomplus/storefront-framework": "^4.7.0",
     "babel-eslint": "^10.0.2",
     "husky": "^3.0.4",
     "standard": "^13.1.0",
