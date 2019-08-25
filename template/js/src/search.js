@@ -8,13 +8,17 @@ if ($searchBar) {
     $('#search-input').focus()
   })
 
+  let resizeState
   const onResize = () => {
     const lgDevice = window.screen.width >= 992
-    if (lgDevice) {
-      classList.add('d-none', 'show')
-    } else {
-      classList.remove('show', 'd-none')
-      $('#mobile-search-btn').setAttribute('aria-expanded', 'false')
+    if (resizeState !== lgDevice) {
+      if (lgDevice) {
+        classList.add('d-none', 'show')
+      } else {
+        classList.remove('show', 'd-none')
+        $('#mobile-search-btn').setAttribute('aria-expanded', 'false')
+      }
+      resizeState = lgDevice
     }
   }
 

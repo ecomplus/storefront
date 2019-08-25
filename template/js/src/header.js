@@ -3,7 +3,7 @@ import $ from './lib/$'
 const $header = $('#header')
 let $headerPadding
 
-const setupStickyHeader = window.screen.height >= 300
+const setupStickyHeader = window.screen.height >= 200
 window.navFixed = false
 let headerOffsetHeight = 0
 let headerOffset = 0
@@ -42,7 +42,6 @@ const updateNavbar = fixHeader => {
 }
 
 const onResize = () => {
-  updateNavbar(false)
   const { offsetTop, offsetHeight } = $header
   headerOffsetHeight = offsetHeight
   headerOffset = offsetTop + offsetHeight
@@ -65,6 +64,7 @@ const onScroll = () => {
 if (setupStickyHeader) {
   window.addEventListener('resize', onResize)
   window.addEventListener('scroll', onScroll)
+  updateNavbar(false)
   onResize()
 
   $headerPadding = document.createElement('div')
