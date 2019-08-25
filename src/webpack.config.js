@@ -28,6 +28,15 @@ try {
   console.error(err)
 }
 
+// entry files
+const main = [path.resolve(paths.scss, 'styles.scss')]
+if (!devMode) {
+  // start service worker on production only
+  main.push(path.resolve(__dirname, 'assets/starter.js'))
+}
+// index.js must be the last to export lib correctly if any
+main.push(path.resolve(paths.js, 'index.js'))
+
 // setup base Webpack config object
 const config = {
   mode: devMode ? 'development' : 'production',
@@ -40,13 +49,8 @@ const config = {
     maxEntrypointSize: 800000,
     maxAssetSize: 800000
   },
-
   entry: {
-    main: [
-      path.resolve(paths.scss, 'styles.scss'),
-      path.resolve(__dirname, 'assets/starter.js'),
-      path.resolve(paths.js, 'index.js')
-    ]
+    main
   },
 
   output: {
