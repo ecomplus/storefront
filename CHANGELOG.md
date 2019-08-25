@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.6.3](https://github.com/ecomclub/storefront-framework/compare/v4.6.2...v4.6.3) (2019-08-25)
+
+
+### Bug Fixes
+
+* **webpack:** start service worker on production only ([c575f1a](https://github.com/ecomclub/storefront-framework/commit/c575f1a))
+
 ### [4.6.2](https://github.com/ecomclub/storefront-framework/compare/v4.6.1...v4.6.2) (2019-08-24)
 
 
