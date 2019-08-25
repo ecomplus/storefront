@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.7.0](https://github.com/ecomclub/storefront-framework/compare/v4.6.3...v4.7.0) (2019-08-25)
+
+
+### Features
+
+* **webpack:** handling WEBPACK_BUILD_DEV env to exclude sw register ([b0beccf](https://github.com/ecomclub/storefront-framework/commit/b0beccf))
+
 ### [4.6.3](https://github.com/ecomclub/storefront-framework/compare/v4.6.2...v4.6.3) (2019-08-25)
 
 
