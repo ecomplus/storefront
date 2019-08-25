@@ -42,7 +42,7 @@ we recommend installing it locally.
 ### Commands
 
 - `storefront-pack serve`:
-Starts Webpack development server on port _9123_ (http://localhost:9123);
+Starts Webpack development server on port _9126_ (http://localhost:9126);
 - `storefront-pack build`:
 Compile assets bundles for production and prerender e-commerce pages;
 
