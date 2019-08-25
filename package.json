@@ -6,9 +6,9 @@
   "module": "src/index.js",
   "browser": "dist/storefront-twbs.min.js",
   "scripts": {
-    "build": "bash ./setup.sh & NODE_ENV=production webpack",
-    "serve": "bash ./setup.sh & webpack-dev-server",
-    "release": "npm run build & standard-version"
+    "build": "bash ./setup.sh && NODE_ENV=production webpack",
+    "serve": "bash ./setup.sh && webpack-dev-server",
+    "release": "npm run build && standard-version"
   },
   "repository": {
     "type": "git",
