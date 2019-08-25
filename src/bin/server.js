@@ -24,7 +24,7 @@ bundler.then(compiler => {
     }
   }
   if (!port || isNaN(port)) {
-    port = 9123
+    port = 9126
   }
 
   // start Browsersync
