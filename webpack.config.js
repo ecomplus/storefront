@@ -22,7 +22,7 @@ const config = {
   devServer: {
     contentBase: templatePath,
     stats: 'minimal',
-    port: 9127,
+    port: 9128,
     open: true
   },
   stats: {
