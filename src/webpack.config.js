@@ -30,7 +30,7 @@ try {
 
 // entry files
 const main = [path.resolve(paths.scss, 'styles.scss')]
-if (!devMode) {
+if (!devMode && !process.env.WEBPACK_BUILD_DEV) {
   // start service worker on production only
   main.push(path.resolve(__dirname, 'assets/starter.js'))
 }
