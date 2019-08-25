@@ -11,6 +11,7 @@ import {
   CollapsePlugin,
   DropdownPlugin,
   PaginationPlugin,
+  PopoverPlugin,
   ModalPlugin,
   TabsPlugin,
   ToastPlugin,
@@ -22,6 +23,7 @@ Vue.use(AlertPlugin)
 Vue.use(CollapsePlugin)
 Vue.use(DropdownPlugin)
 Vue.use(PaginationPlugin)
+Vue.use(PopoverPlugin)
 Vue.use(ModalPlugin)
 Vue.use(TabsPlugin)
 Vue.use(ToastPlugin)
