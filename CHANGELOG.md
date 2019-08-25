@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.4.0](https://github.com/ecomclub/storefront-twbs/compare/v3.3.0...v3.4.0) (2019-08-25)
+
+
+### Features
+
+* **popover:** import bootstrap-vue popover component ([7f6187f](https://github.com/ecomclub/storefront-twbs/commit/7f6187f))
+
 ## [3.3.0](https://github.com/ecomclub/storefront-twbs/compare/v3.2.0...v3.3.0) (2019-08-23)
 
 
