@@ -1,9 +1,14 @@
 import { _config } from '@ecomplus/utils'
 import dictionary from './lib/dictionary'
 import EcomPassport from '@ecomplus/passport-client'
+import { SlideYUpTransition } from 'vue2-transitions'
 
 export default {
   name: 'StUser',
+
+  components: {
+    SlideYUpTransition
+  },
 
   props: {
     lang: {
@@ -32,14 +37,22 @@ export default {
     ordersUrl: {
       type: String,
       default: '/app/#/account/orders'
+    },
+    popupAlertCountSecs: {
+      type: Number,
+      default: 3
     }
   },
 
   data () {
     return {
+      waiting: false,
       isLogged: false,
+      email: '',
       name: '',
-      oauthProviders: []
+      oauthProviders: [],
+      showLoginForm: false,
+      popupAlertCount: 0
     }
   },
 
@@ -60,11 +73,25 @@ export default {
       const { isLogged, getCustomerName } = this.ecomPassport
       this.name = getCustomerName()
       this.isLogged = isLogged()
+      this.email = ''
+      this.popupAlertCount = 0
+    },
+
+    waitPromise (promise) {
+      const vm = this
+      vm.waiting = true
+      promise
+        .catch(err => {
+          vm.$emit('error', err)
+        })
+        .finally(() => {
+          vm.waiting = false
+        })
     },
 
     setOauthProviders () {
       const vm = this
-      vm.ecomPassport.fetchOauthProviders()
+      const promise = vm.ecomPassport.fetchOauthProviders()
         .then(({ host, baseUri, oauthPath, providers }) => {
           const oauthProviders = []
           for (const provider in providers) {
@@ -81,9 +108,10 @@ export default {
           vm.oauthProviders = oauthProviders
         })
         .catch(err => {
-          vm.$emit('error', err)
           vm.presetOauthProviders()
+          throw err
         })
+      vm.waitPromise(promise)
     },
 
     presetOauthProviders () {
@@ -108,8 +136,20 @@ export default {
 
     oauthPopup (link, provider) {
       if (link) {
+        this.popupAlertCount = this.popupAlertCountSecs
         this.ecomPassport.popupOauthLink(link)
+      } else {
       }
+    },
+
+    popupAlertChanged (countDown) {
+      this.popupAlertCount = countDown
+    },
+
+    emailLoginSubmit (e) {
+      e.preventDefault()
+      this.waitPromise(this.ecomPassport.fetchLogin(this.email))
+      this.showLoginForm = false
     },
 
     logout () {
@@ -129,8 +169,5 @@ export default {
     })
     vm.update()
     vm.setOauthProviders()
-    setTimeout(() => {
-      console.log(_config.get('lang'))
-    }, 3000)
   }
 }

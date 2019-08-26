@@ -26,6 +26,14 @@ const dictionary = {
   logout: {
     en_us: 'Logout',
     pt_br: 'Sair'
+  },
+  login: {
+    en_us: 'Login',
+    pt_br: 'Entrar'
+  },
+  continue_on_popup: {
+    en_us: 'Continue login on popup',
+    pt_br: 'Continue o login no pop-up'
   }
 }
 

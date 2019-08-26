@@ -7,6 +7,11 @@
     font-size: 1rem;
   }
 
+  &__alert {
+    font-size: .85rem;
+    margin-bottom: 1rem;
+  }
+
   &__logout {
     margin-top: 1rem;
   }
@@ -14,7 +19,6 @@
   &__btn {
     color: #fff;
     text-align: left;
-    font-size: 1rem;
     line-height: 1.2rem;
     padding: .7rem;
     min-width: 15rem;

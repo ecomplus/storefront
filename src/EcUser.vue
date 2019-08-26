@@ -6,6 +6,7 @@
         id="ec-user-popover"
         class="btn btn-lg btn-light"
         :title="dictionary('my_account')"
+        v-b-tooltip.hover.left
       >
         <i class="fas fa-user"></i>
       </button>
@@ -21,59 +22,100 @@
       </template>
 
       <div class="ec-user__popover">
-        <template v-if="isLogged">
-          <div class="list-group list-group-flush">
-            <a
-              :href="ordersUrl"
-              class="list-group-item list-group-item-action"
-            >
-              {{ dictionary('my_orders') }}
-            </a>
-            <a
-              :href="accountUrl"
-              class="list-group-item list-group-item-action"
-            >
-              {{ dictionary('my_account') }}
-            </a>
+        <slide-y-up-transition group>
+          <div v-if="waiting" key="waiting">
+            <div class="spinner-border m-3" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
           </div>
 
-          <button
-            class="btn btn-block btn-danger ec-user__logout"
-            type="button"
-            @click="() => logout()"
-          >
-            <i class="fas fa-sign-out-alt"></i>
-            {{ dictionary('logout') }}
-          </button>
-        </template>
+          <div v-else-if="isLogged" key="logged">
+            <div class="list-group list-group-flush">
+              <a
+                :href="ordersUrl"
+                class="list-group-item list-group-item-action"
+              >
+                {{ dictionary('my_orders') }}
+              </a>
+              <a
+                :href="accountUrl"
+                class="list-group-item list-group-item-action"
+              >
+                {{ dictionary('my_account') }}
+              </a>
+            </div>
 
-        <template v-else>
-          <button
-            v-for="({ link, faIcon, providerName, provider }) in oauthProviders"
-            type="button"
-            class="btn btn-block ec-user__btn"
-            :key="provider"
-            :class="`ec-user__btn--${provider}`"
-            @click="() => oauthPopup(link, provider)"
-          >
-            <span class="ec-user__btn__icon">
-              <i class="fab" :class="faIcon"></i>
-            </span>
-            {{ dictionary('sign_in_with') + ' ' + providerName }}
-          </button>
+            <button
+              class="btn btn-block btn-danger ec-user__logout"
+              type="button"
+              @click="logout"
+            >
+              <i class="fas fa-sign-out-alt"></i>
+              {{ dictionary('logout') }}
+            </button>
+          </div>
 
-          <button
-            type="button"
-            class="btn btn-block btn-secondary ec-user__btn"
-            key="email"
-            @click="() => emailLogin(link, provider)"
-          >
-            <span class="ec-user__btn__icon">
-              <i class="fas fa-envelope"></i>
-            </span>
-            {{  dictionary('sign_in_with') + ' ' + dictionary('email') }}
-          </button>
-        </template>
+          <div v-else-if="!showLoginForm" key="oauth">
+            <b-alert
+              :show="popupAlertCount"
+              class="ec-user__alert"
+              dismissible
+              fade
+              variant="info"
+              @dismissed="popupAlertCount = 0"
+              @dismiss-count-down="popupAlertChanged"
+            >
+              {{ dictionary('continue_on_popup') }}
+            </b-alert>
+
+            <button
+              v-for="({ link, faIcon, providerName, provider }) in oauthProviders"
+              type="button"
+              class="btn btn-block ec-user__btn"
+              :key="provider"
+              :class="`ec-user__btn--${provider}`"
+              @click="() => oauthPopup(link, provider)"
+            >
+              <span class="ec-user__btn__icon">
+                <i class="fab" :class="faIcon"></i>
+              </span>
+              {{ dictionary('sign_in_with') + ' ' + providerName }}
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-block btn-secondary ec-user__btn"
+              key="email"
+              @click="showLoginForm = true"
+            >
+              <span class="ec-user__btn__icon">
+                <i class="fas fa-envelope"></i>
+              </span>
+              {{ dictionary('sign_in_with') + ' ' + dictionary('email') }}
+            </button>
+          </div>
+
+          <div v-else key="form">
+            <form @submit="emailLoginSubmit">
+              <div class="form-group">
+                <label for="ec-user-email">
+                  {{ dictionary('sign_in_with') + ' ' + dictionary('email') }}
+                </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="ec-user-email"
+                  placeholder="email@mail.com"
+                  v-model="email"
+                  required
+                >
+              </div>
+              <button type="submit" class="btn btn-block btn-primary">
+                {{ dictionary('login') }}
+              </button>
+            </form>
+          </div>
+        </slide-y-up-transition>
       </div>
     </b-popover>
   </div>
