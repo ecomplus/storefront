@@ -27,7 +27,7 @@
   "homepage": "https://github.com/ecomclub/widget-user#readme",
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@ecomplus/passport-client": "^0.6.0",
+    "@ecomplus/passport-client": "^0.7.0",
     "@ecomplus/storefront-twbs": "^3.4.0",
     "@ecomplus/utils": "^1.0.1",
     "core-js": "^3.2.1",
@@ -40,7 +40,7 @@
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "@ecomplus/storefront-framework": "^4.7.0",
-    "@ecomplus/storefront-template": "^0.1.31",
+    "@ecomplus/storefront-template": "^0.1.33",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
