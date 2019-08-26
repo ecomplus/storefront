@@ -3,6 +3,7 @@ import '@fortawesome/fontawesome-free'
 import {
   faShoppingBag,
   faUser,
+  faSignOutAlt,
   faSearch,
   faChevronDown,
   faChevronLeft,
@@ -27,6 +28,7 @@ import {
 import {
   faFacebook,
   faFacebookF,
+  faLinkedin,
   faGoogle,
   faWindows,
   faPinterest,
@@ -41,6 +43,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 library.add(
   faShoppingBag,
   faUser,
+  faSignOutAlt,
   faSearch,
   faChevronDown,
   faChevronLeft,
@@ -51,6 +54,7 @@ library.add(
   faTimes,
   faFacebook,
   faFacebookF,
+  faLinkedin,
   faGoogle,
   faWindows,
   faPinterest,
