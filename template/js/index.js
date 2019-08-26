@@ -10,7 +10,6 @@ import ecomClient from '@ecomplus/client'
 import $ from './src/lib/$'
 import $overlay from './src/lib/$overlay'
 
-// expose some libs and utils on global scope
 window._ = { cloneDeep, merge }
 window.EventEmitter = EventEmitter
 window.Vue = Vue
@@ -21,5 +20,16 @@ window.ecomClient = ecomClient
 window.$ = $
 window.$overlay = $overlay
 
-// async load base components
+const { _settings } = window
+const { _config } = ecomUtils
+;[
+  'store_id',
+  'lang',
+  'currency',
+  'currency_symbol',
+  'country_code'
+].forEach(prop => {
+  _config.set(prop, _settings[prop])
+})
+
 import('./app')

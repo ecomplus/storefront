@@ -115,6 +115,18 @@ const logo = _.settings.logo
             role="group"
             aria-label="<%= _.dictionary().my_account %>"
           >
+            <button
+              class="d-lg-none btn btn-lg btn-light"
+              id="mobile-search-btn"
+              type="button"
+              data-toggle="collapse"
+              data-target="#search-bar"
+              aria-expanded="true"
+              aria-controls="search-bar"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+
             <a
               id="user-button"
               class="btn btn-lg btn-light"
@@ -140,7 +152,10 @@ const logo = _.settings.logo
           </div>
         </div>
 
-        <div class="header__col col-12 mt-2 col-lg mt-md-3 mt-lg-0">
+        <div
+          class="header__col d-none d-lg-block col-12 col-lg mt-2 mt-md-3 mt-lg-0 collapse show"
+          id="search-bar"
+        >
           <form id="search-form" action="/search" method="get">
             <input
               type="search"
@@ -148,6 +163,7 @@ const logo = _.settings.logo
               placeholder="<%= _.dictionary().search_products %>"
               aria-label="<%= _.dictionary().search_products %>"
               class="header__search form-control form-control-lg"
+              id="search-input"
             >
           </form>
           <% if (_.settings.domain) { %>

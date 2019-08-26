@@ -1,4 +1,3 @@
-import { IS_MOBILE } from './lib/env'
 import $ from './lib/$'
 import './lib/lazy-load'
 import './lib/glide-slides'
@@ -8,7 +7,7 @@ for (let i = 0; i < $wpLinks.length; i++) {
   const $link = $wpLinks[i]
   const tel = $link.dataset.tel
   if (tel) {
-    let href = 'https://' + (IS_MOBILE ? 'api' : 'web') +
+    let href = 'https://' + (window.screen.width <= 575.98 ? 'api' : 'web') +
       '.whatsapp.com/send?phone=' + encodeURIComponent(tel)
     if ($link.dataset.text) {
       href += '&text=' + encodeURIComponent($link.dataset.text)

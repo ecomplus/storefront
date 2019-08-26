@@ -26,7 +26,9 @@ import {
 
 import {
   faFacebook,
-  faLinkedin,
+  faFacebookF,
+  faGoogle,
+  faWindows,
   faPinterest,
   faTwitter,
   faYoutube,
@@ -48,7 +50,9 @@ library.add(
   faAngleRight,
   faTimes,
   faFacebook,
-  faLinkedin,
+  faFacebookF,
+  faGoogle,
+  faWindows,
   faPinterest,
   faTwitter,
   faYoutube,

@@ -2,6 +2,80 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.32](https://github.com/ecomclub/storefront-template/compare/v0.1.31...v0.1.32) (2019-08-25)
+
+### [0.1.31](https://github.com/ecomclub/storefront-template/compare/v0.1.30...v0.1.31) (2019-08-25)
+
+### [0.1.30](https://github.com/ecomclub/storefront-template/compare/v0.1.29...v0.1.30) (2019-08-25)
+
+### [0.1.29](https://github.com/ecomclub/storefront-template/compare/v0.1.28...v0.1.29) (2019-08-25)
+
+
+### Bug Fixes
+
+* **header:** fix header mobile styles ([adb95ae](https://github.com/ecomclub/storefront-template/commit/adb95ae))
+* **header:** preventing bugs with resize events ([566eb10](https://github.com/ecomclub/storefront-template/commit/566eb10))
+
+### [0.1.28](https://github.com/ecomclub/storefront-template/compare/v0.1.27...v0.1.28) (2019-08-24)
+
+
+### Bug Fixes
+
+* **install:** stop copying js folder ([188d326](https://github.com/ecomclub/storefront-template/commit/188d326))
+
+### [0.1.27](https://github.com/ecomclub/storefront-template/compare/v0.1.26...v0.1.27) (2019-08-24)
+
+
+### Bug Fixes
+
+* **bin:** set scripts node bin ([9de943b](https://github.com/ecomclub/storefront-template/commit/9de943b))
+
+### [0.1.26](https://github.com/ecomclub/storefront-template/compare/v0.1.25...v0.1.26) (2019-08-24)
+
+### [0.1.25](https://github.com/ecomclub/storefront-template/compare/v0.1.24...v0.1.25) (2019-08-24)
+
+### [0.1.24](https://github.com/ecomclub/storefront-template/compare/v0.1.23...v0.1.24) (2019-08-23)
+
+
+### Bug Fixes
+
+* **scripts:** fix recursive copy and move to scripts folder ([80f9605](https://github.com/ecomclub/storefront-template/commit/80f9605))
+
+### [0.1.23](https://github.com/ecomclub/storefront-template/compare/v0.1.22...v0.1.23) (2019-08-23)
+
+
+### Features
+
+* **lib:** exporting current pkg version ([9a16647](https://github.com/ecomclub/storefront-template/commit/9a16647))
+
+### [0.1.22](https://github.com/ecomclub/storefront-template/compare/v0.1.21...v0.1.22) (2019-08-23)
+
+
+### Features
+
+* **config:** setting global E-Com Plus config ([c0854c4](https://github.com/ecomclub/storefront-template/commit/c0854c4))
+
+### [0.1.21](https://github.com/ecomclub/storefront-template/compare/v0.1.20...v0.1.21) (2019-08-23)
+
+
+### Features
+
+* **webpack-externals:** add webpack.externals to be imported by widgets ([dbbd73a](https://github.com/ecomclub/storefront-template/commit/dbbd73a))
+
+### [0.1.20](https://github.com/ecomclub/storefront-template/compare/v0.1.19...v0.1.20) (2019-08-22)
+
+
+### Features
+
+* **mobile-header:** fixed header on mobile, collapse search bar ([86aba8a](https://github.com/ecomclub/storefront-template/commit/86aba8a))
+
+### [0.1.19](https://github.com/ecomclub/storefront-template/compare/v0.1.18...v0.1.19) (2019-08-21)
+
+
+### Bug Fixes
+
+* **postinstall:** prevent throwing error with unexistent template folder ([643e54c](https://github.com/ecomclub/storefront-template/commit/643e54c))
+
 ### [0.1.18](https://github.com/ecomclub/storefront-template/compare/v0.1.17...v0.1.18) (2019-08-21)
 
 

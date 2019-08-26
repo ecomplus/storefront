@@ -1,16 +1,11 @@
-<%
-// setup product image object first
-const { pictures } = opt.item
-const imgObj = Array.isArray(pictures) && pictures.find(({ normal }) => normal).normal
-%>
-
 <div class="product-card" data-product-id="<%= opt.item._id %>">
   <a
     href="/<%= opt.item.slug %>"
     class="product-card__link"
-    title="<%= opt.item.name %>"
+    title="<%= _.ecomUtils.name(opt.item) %>"
   >
     <div class="product-card__pictures">
+      <% const imgObj = _.ecomUtils.img(opt.item) %>
       <% if (imgObj) { %>
         <img
           data-src="<%= imgObj.url %>"
@@ -20,7 +15,7 @@ const imgObj = Array.isArray(pictures) && pictures.find(({ normal }) => normal).
       <% } %>
     </div>
     <h3 class="product-card__name">
-      <%= opt.item.name %>
+      <%= _.ecomUtils.name(opt.item) %>
     </h3>
   </a>
   <p class="product-card__info"></p>

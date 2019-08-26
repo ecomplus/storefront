@@ -1,4 +1,3 @@
-import { IS_MOBILE } from './lib/env'
 import $ from './lib/$'
 import $overlay from './lib/$overlay'
 import Slideout from 'slideout'
@@ -10,10 +9,7 @@ const slideout = new Slideout({
   tolerance: 70
 })
 
-let $fixedNav
-if (!IS_MOBILE) {
-  $fixedNav = $('[data-slideout-fixed]')
-}
+const $fixedNav = $('[data-slideout-fixed]')
 
 slideout.on('beforeopen', () => {
   if ($fixedNav && window.navFixed && window.pageYOffset > 0) {
