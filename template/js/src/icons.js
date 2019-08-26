@@ -1,5 +1,3 @@
-import '@fortawesome/fontawesome-free'
-
 import {
   faShoppingBag,
   faUser,
@@ -38,7 +36,7 @@ import {
   faWhatsapp
 } from '@fortawesome/free-brands-svg-icons'
 
-import { library } from '@fortawesome/fontawesome-svg-core'
+import { library, dom } from '@fortawesome/fontawesome-svg-core'
 
 library.add(
   faShoppingBag,
@@ -74,3 +72,5 @@ library.add(
   faTrashAlt,
   faCheck
 )
+
+dom.watch()
