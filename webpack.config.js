@@ -32,8 +32,6 @@ const config = {
   plugins: [
     new VueLoaderPlugin()
   ],
-  // exclude all imported libs on production by default
-  externals: devMode ? '' : /^[^./].*$/,
 
   module: {
     rules: [
@@ -69,7 +67,19 @@ const config = {
         ]
       }
     ]
-  }
+  },
+
+  externals: devMode
+    // external ecomUtils on dev server to get config correctly
+    ? {
+      '@ecomplus/utils': {
+        commonjs: '@ecomplus/utils',
+        commonjs2: '@ecomplus/utils',
+        root: 'ecomUtils'
+      }
+    }
+    // exclude all imported libs on production by default
+    : /^[^./].*$/
 }
 
 if (devMode) {
