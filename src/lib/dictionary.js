@@ -11,6 +11,18 @@ const dictionary = {
     en_us: 'Hello',
     pt_br: 'Olá'
   },
+  visitor: {
+    en_us: 'visitor',
+    pt_br: 'visitante'
+  },
+  sign_in_with: {
+    en_us: 'Sign in with',
+    pt_br: 'Entrar com'
+  },
+  email: {
+    en_us: 'email',
+    pt_br: 'e-mail'
+  },
   logout: {
     en_us: 'Logout',
     pt_br: 'Sair'
