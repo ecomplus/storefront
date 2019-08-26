@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.3](https://github.com/ecomclub/widget-user/compare/v0.6.2...v0.6.3) (2019-08-26)
+
+
+### Features
+
+* **login-out:** basic views and handlers for login/logout ([d7296be](https://github.com/ecomclub/widget-user/commit/d7296be))
+
 ### [0.6.2](https://github.com/ecomclub/widget-user/compare/v0.6.1...v0.6.2) (2019-08-25)
 
 
