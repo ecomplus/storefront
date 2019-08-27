@@ -8,19 +8,17 @@
       </li>
       <% opt.breadcrumbs.forEach(({ name, link }, index) => { %>
         <% if (index < opt.breadcrumbs.length - 1) { %>
-          <% if (index === opt.breadcrumbs.length - 2) { %>
-            <li class="breadcrumb-item">
-              <a href="<%= link %>">
-                <%= name %>
-              </a>
-            </li>
-          <% } else { %>
-            <li class="breadcrumb-item d-none d-md-block">
-              <a href="<%= link %>">
-                <%= name %>
-              </a>
-            </li>
-          <% } %>
+          <li
+            <% if (index === opt.breadcrumbs.length - 2) { %>
+              class="breadcrumb-item"
+            <% } else { %>
+              class="breadcrumb-item d-none d-md-block"
+            <% } %>
+          >
+            <a href="<%= link %>">
+              <%= name %>
+            </a>
+          </li>
         <% } else { %>
           <li class="breadcrumb-item d-none d-md-block active" aria-current="page">
             <%= name %>
