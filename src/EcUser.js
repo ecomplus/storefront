@@ -220,7 +220,7 @@ export default {
     vm.update()
     vm.setOauthProviders()
     window.addEventListener('scroll', () => {
-      if (window.navFixed && vm.showPopover) {
+      if (window.navFixed && vm.showPopover && window.screen.height > 450) {
         vm.showPopover = false
       }
     })
