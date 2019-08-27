@@ -26,6 +26,8 @@ if (body) {
 let echoData = {
   // up to 8 first level categories
   categories: _.categories.filter(({ parent }) => !parent).slice(0, 8),
+  // all grids with less data
+  grids: _.grids.map(({ grid_id, title, i18n }) => ({ grid_id, title, i18n })),
   // up to 8 items with less and 'stable' data
   items: _.items.slice(0, 8).map(({ _id, sku, name, slug, pictures }) => {
     const item = { _id, sku, name, slug }
