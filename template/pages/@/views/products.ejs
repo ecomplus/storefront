@@ -61,8 +61,52 @@ breadcrumbs.push({
           </div>
           <%= _.dictionary().buy %>
         </button>
+        <% if (body.short_description) { %>
+          <p class="lead product__info">
+            <%= body.short_description %>
+          </p>
+        <% } %>
       </div>
     </section>
+
+    <% if (body.body_html) { %>
+      <section class="product__description">
+        <p class="lead">
+          <a href="#description" name="description">#</a>
+          <%= _.dictionary().product_description %>
+        </p>
+        <div class="html-clearfix">
+          <%- body.body_html %>
+        </div>
+      </section>
+    <% } %>
+
+    <% if (body.specifications) { %>
+      <section class="product__specs">
+        <p class="lead">
+          <a href="#specs" name="specs">#</a>
+          <%= _.dictionary().product_specifications %>
+        </p>
+        <table class="table table-striped">
+          <tbody>
+            <% for (const gridId in body.specifications) {
+              if (body.specifications[gridId]) {
+                %>
+                <tr>
+                  <td class="text-muted">
+                    <%= _.ecomUtils.gridTitle(gridId, _.grids) %>
+                  </td>
+                  <td>
+                    <%= _.ecomUtils.specTextValue(body, gridId, _.grids) %>
+                  </td>
+                </tr>
+                <%
+              }
+            } %>
+          </tbody>
+        </table>
+      </section>
+    <% } %>
 
     <% if (pageProducts.additional_content) { %>
       <div class="p-3">
