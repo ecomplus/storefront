@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.36](https://github.com/ecomclub/storefront-template/compare/v0.1.35...v0.1.36) (2019-08-27)
+
+
+### Features
+
+* **cms:** adding dictionary translations to cms ([633030f](https://github.com/ecomclub/storefront-template/commit/633030f))
+* **cms:** adding dictionary translations to cms ([8cefc2f](https://github.com/ecomclub/storefront-template/commit/8cefc2f))
+
 ### [0.1.35](https://github.com/ecomclub/storefront-template/compare/v0.1.34...v0.1.35) (2019-08-27)
 
 
