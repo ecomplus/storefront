@@ -9,7 +9,7 @@ const breadcrumbs = [{
   link: `/${body.slug}`
 }]
 
-// setup search engine instance with category filter
+// setup search engine instance with brand filter
 const search = new _.EcomSearch()
 search.setBrandIds([body._id])
 %>
@@ -26,7 +26,7 @@ search.setBrandIds([body._id])
           alt="<%= body.logo.alt %>"
         >
       <% } %>
-      <h1 class="brand__name">
+      <h1 class="page-title brand__name">
         <%= _.ecomUtils.name(body) %>
       </h1>
     </div>
@@ -38,7 +38,7 @@ search.setBrandIds([body._id])
     <% if (Array.isArray(body.pictures) && body.pictures.length) { %>
       <div class="brand__banner">
         <img
-          class="img-fluid"
+          class="hero-banner img-fluid"
           src="<%= body.pictures[0].url %>"
           alt="<%= body.pictures[0].alt %>"
         >

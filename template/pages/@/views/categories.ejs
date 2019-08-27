@@ -18,7 +18,7 @@ search.setCategoryIds([body._id])
   <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
 
   <div id="category" class="category">
-    <h1 class="category__name">
+    <h1 class="page-title category__name">
       <%= _.ecomUtils.name(body) %>
     </h1>
     <% if (body.short_description) { %>
@@ -29,7 +29,7 @@ search.setCategoryIds([body._id])
     <% if (Array.isArray(body.pictures) && body.pictures.length) { %>
       <div class="category__banner">
         <img
-          class="img-fluid"
+          class="hero-banner img-fluid"
           src="<%= body.pictures[0].url %>"
           alt="<%= body.pictures[0].alt %>"
         >
