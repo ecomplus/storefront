@@ -18,7 +18,7 @@ const output = {
 // base Webpack config
 const config = {
   mode: devMode ? 'development' : 'production',
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: path.resolve(__dirname, devMode ? 'docs/demo.js' : 'src/index.js'),
   output,
   devServer: {
     contentBase: templatePath,
