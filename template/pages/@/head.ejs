@@ -9,12 +9,14 @@ switch (_.route.path) {
     break
 }
 if (!page) {
-  page = {}
+  // try resource body or folder collection content
+  const { body, collection } = await _.resolveRoute()
+  page = body || collection || {}
 }
 
 // page title and description
-const title = page.meta_title || _.settings.name
-const description = page.meta_description || _.settings.description
+const title = page.meta_title || page.name || _.settings.name
+const description = page.meta_description || page.short_description || _.settings.description
 let url
 if (pathname) {
   if (!_.settings.domain && _.store.domain) {
