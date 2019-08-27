@@ -1,0 +1,31 @@
+.product {
+  &__block {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__picture {
+    width: 100%;
+    min-height: 10rem;
+    text-align: center;
+  }
+
+  &__sku {
+    font-size: .85rem;
+    color: var(--gray);
+  }
+
+  &__buy {
+    .spinner-border {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-right: .5rem;
+      margin-bottom: .15rem;
+    }
+
+    @media (max-width: 575.98px) {
+      display: block;
+      width: 100%;
+    }
+  }
+}
