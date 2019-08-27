@@ -46,6 +46,7 @@ export default {
 
   data () {
     return {
+      showPopover: false,
       waiting: false,
       isLogged: false,
       email: '',
@@ -210,6 +211,11 @@ export default {
     })
     vm.update()
     vm.setOauthProviders()
+    window.addEventListener('scroll', () => {
+      if (window.navFixed && vm.showPopover) {
+        vm.showPopover = false
+      }
+    })
   },
 
   watch: {

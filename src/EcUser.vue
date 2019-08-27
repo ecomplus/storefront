@@ -15,6 +15,7 @@
     <b-popover
       target="ec-user-popover"
       triggers="click blur"
+      :show.sync="showPopover"
       :placement="popoverPlacement"
       @hidden="resetPopover"
     >
