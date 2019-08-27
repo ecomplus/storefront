@@ -84,7 +84,7 @@ export default {
       vm.waiting = true
       promise
         .catch(err => {
-          vm.$emit('error', err)
+          console.error(err)
         })
         .finally(() => {
           vm.waiting = false
@@ -175,8 +175,8 @@ export default {
             setTimeout(() => {
               vm.loginErrorAlert = true
             }, 100)
+            throw err
           }
-          throw err
         })
       vm.waitPromise(promise)
     },
