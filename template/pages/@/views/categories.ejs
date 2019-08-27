@@ -54,7 +54,9 @@ search.setCategoryIds([body._id])
     <% } %>
 
     <% if (pageCategories.additional_content) { %>
-      <%- _.md.render(pageCategories.additional_content) %>
+      <div class="p-3">
+        <%- _.md.render(pageCategories.additional_content) %>
+      </div>
     <% } %>
   </div>
 </div>

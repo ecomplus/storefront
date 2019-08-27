@@ -56,7 +56,9 @@ search.setBrandIds([body._id])
     <% } %>
 
     <% if (pageBrands.additional_content) { %>
-      <%- _.md.render(pageBrands.additional_content) %>
+      <div class="p-3">
+        <%- _.md.render(pageBrands.additional_content) %>
+      </div>
     <% } %>
   </div>
 </div>

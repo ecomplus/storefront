@@ -52,7 +52,9 @@ if (body.products && body.products.length) {
     <% } %>
 
     <% if (pageCollections.additional_content) { %>
-      <%- _.md.render(pageCollections.additional_content) %>
+      <div class="p-3">
+        <%- _.md.render(pageCollections.additional_content) %>
+      </div>
     <% } %>
   </div>
 </div>

@@ -65,7 +65,9 @@ breadcrumbs.push({
     </section>
 
     <% if (pageProducts.additional_content) { %>
-      <%- _.md.render(pageProducts.additional_content) %>
+      <div class="p-3">
+        <%- _.md.render(pageProducts.additional_content) %>
+      </div>
     <% } %>
   </div>
 </div>

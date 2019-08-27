@@ -52,6 +52,8 @@ if (home.pitbar) {
   <% } %>
 
   <% if (home.additional_content) { %>
-    <%- _.md.render(home.additional_content) %>
+    <div class="p-3">
+      <%- _.md.render(home.additional_content) %>
+    </div>
   <% } %>
 </div>
