@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.8.0](https://github.com/ecomclub/storefront-framework/compare/v4.7.0...v4.8.0) (2019-08-27)
+
+
+### Features
+
+* **preload:** also get grids list before rendering ([eb5a216](https://github.com/ecomclub/storefront-framework/commit/eb5a216))
+
 ## [4.7.0](https://github.com/ecomclub/storefront-framework/compare/v4.6.3...v4.7.0) (2019-08-25)
 
 
