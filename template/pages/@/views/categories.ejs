@@ -1,0 +1,42 @@
+<%
+// load categories page content
+const pageCategories = _.cms('categories')
+
+// current category body
+const { body } = await _.resolveRoute()
+const breadcrumbs = [{
+  name: _.ecomUtils.name(body),
+  link: `/${body.slug}`
+}]
+%>
+
+<div class="container py-1 py-sm-2 py-lg-4">
+  <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
+
+  <div class="category">
+    <h1 class="category__name">
+      <%= _.ecomUtils.name(body) %>
+    </h1>
+    <% if (body.short_description) { %>
+      <p class="lead">
+        <%= body.short_description %>
+      </p>
+    <% } %>
+    <% if (Array.isArray(body.pictures) && body.pictures.length) { %>
+      <div class="category__banner">
+        <img
+          class="img-fluid"
+          src="<%= body.pictures[0].url %>"
+          alt="<%= body.pictures[0].alt %>"
+        >
+      </div>
+    <% } %>
+    <section class="category__description" v-if="body.body_html">
+      <div v-html="body.body_html" class="html-clearfix"></div>
+    </section>
+
+    <% if (pageCategories.additional_content) { %>
+      <%- _.md.render(pageCategories.additional_content) %>
+    <% } %>
+  </div>
+</div>
