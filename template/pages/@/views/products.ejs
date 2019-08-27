@@ -1,0 +1,71 @@
+<%
+// load products page content
+const pageProducts = _.cms('products')
+
+// current product body
+const { body } = await _.resolveRoute()
+const breadcrumbs = []
+_.ecomUtils.categoriesList(body).forEach(categoryName => {
+  const findCategory = category => category.name === categoryName
+  const category = (body.categories && body.categories.find(findCategory)) ||
+    _.categories.find(findCategory)
+  if (category) {
+    breadcrumbs.push({
+      name: _.ecomUtils.name(category),
+      link: `/${category.slug}`
+    })
+  }
+})
+breadcrumbs.push({
+  name: _.ecomUtils.name(body),
+  link: `/${body.slug}`
+})
+%>
+
+<div class="container py-1 py-sm-2 py-lg-4">
+  <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
+
+  <div class="product" id="product">
+    <section class="product__block row">
+      <% if (body.pictures) { %>
+        <% const imgObj = _.ecomUtils.img(body, null, 'big') %>
+        <% if (imgObj) { %>
+          <div class="col-12 col-md-6">
+            <div class="product__picture">
+              <img
+                class="lozad fade img-fluid"
+                data-src="<%= imgObj.url %>"
+                alt="<%= imgObj.alt %>"
+              >
+            </div>
+          </div>
+        <% } %>
+      <% } %>
+
+      <div class="col">
+        <h1 class="product__name">
+          <%= _.ecomUtils.name(body) %>
+        </h1>
+        <p class="product__sku">
+          SKU:
+          <%= body.sku %>
+        </p>
+        <button
+          id="buy-button"
+          type="button"
+          class="product__buy btn btn-lg btn-primary"
+          disabled
+        >
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <%= _.dictionary().buy %>
+        </button>
+      </div>
+    </section>
+
+    <% if (pageProducts.additional_content) { %>
+      <%- _.md.render(pageProducts.additional_content) %>
+    <% } %>
+  </div>
+</div>
