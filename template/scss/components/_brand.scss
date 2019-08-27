@@ -9,11 +9,6 @@
     }
   }
 
-  &__name {
-    margin: 0;
-    color: var(--secondary);
-  }
-
   &__logo {
     max-width: 16rem;
     height: auto;
@@ -38,9 +33,5 @@
         opacity: .5;
       }
     }
-  }
-
-  &__banner {
-    margin: 1.5rem auto;
   }
 }
