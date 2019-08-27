@@ -20,15 +20,16 @@ collections:
     files:
       - name: "home"
         label: "Homepage"
-        file: "content/pages/home.json"
+        file: "content/home.json"
         fields:
-          - {label: "Título", name: "title", widget: "string", hint: "É relevante para SEO e exibida na aba do navegador", required: false}
+          - {label: "Meta title", name: "meta_title", widget: "string", hint: "Título exibido na aba do navegador e nas respostas em motores de busca, relevante para SEO", required: false}
+          - {label: "Meta description", name: "meta_description", widget: "string", hint: "escrição exibida nos resultados de motores de busca, relevante para SEO", required: false}
           - label: "Slider"
             name: "slider"
             widget: object
             hint: "Slider de imagens exibido na página inicial"
             fields:
-              - {label: "Autoplay", name: "autoplay", hint: "Tempo de exibição de cada slide, defina 0 para o slide não mudar automaticamente", required: false, widget: "number"}
+              - {label: "Autoplay", name: "autoplay", hint: "Tempo de exibição de cada slide em milisegundos, defina 0 para o slide não mudar automaticamente", required: false, widget: "number"}
               - label: Slides
                 name: slides
                 widget: list
@@ -56,7 +57,7 @@ collections:
       - name: "products"
         label: "Produtos"
         hint: "Configuração geral das páginas de produto"
-        file: "content/pages/products.json"
+        file: "content/products.json"
         fields:
           - label: Quem comrpou x também comprou y
             name: recommended
@@ -86,7 +87,7 @@ collections:
       - name: "search"
         label: "Busca"
         hint: "Configuração geral das páginas de busca"
-        file: "content/pages/search.json"
+        file: "content/search.json"
         fields:
           - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página de busca, required: false}
           - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página de busca, required: false}
@@ -94,7 +95,7 @@ collections:
       - name: "collections"
         label: "Coleções"
         hint: "Configuração geral das páginas de coleções"
-        file: "content/pages/collections.json"
+        file: "content/collections.json"
         fields:
           - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página das coleções, required: false}
           - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página das coleções, required: false}
@@ -102,7 +103,7 @@ collections:
       - name: "categories"
         label: "Categorias"
         hint: "Configuração geral das páginas de categorias"
-        file: "content/pages/categories.json"
+        file: "content/categories.json"
         fields:
           - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container das páginas de categoria, required: false}
           - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container das páginas de categoria, required: false}
@@ -111,7 +112,7 @@ collections:
       - name: "brands"
         label: "Marcas"
         hint: "Configuração geral das páginas de marca"
-        file: "content/pages/brands.json"
+        file: "content/brands.json"
         fields:
           - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container das páginas das marcas, required: false}
           - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da páginas das marcas, required: false}
@@ -119,7 +120,7 @@ collections:
       - name: "blog"
         label: "Blog"
         hint: "Configuração geral da página do blog"
-        file: "content/pages/blog.json"
+        file: "content/blog.json"
         fields:
           - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página do blog, required: false}
           - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página do blog, required: false}
@@ -127,8 +128,7 @@ collections:
   # default blog posts collection
   # remove if your template does not support blog
   - name: "blog_posts"
-    label: "Blog Posts"
-    description: "Add extra content to the site with blog posts related to your store and clients"
+    label: "Blog posts"
     folder: "content/posts"
     extension: "json"
     create: true
@@ -141,11 +141,30 @@ collections:
       - {label: "Descrição curta", name: "description", widget: "text", required: false}
       - {label: "Corpo", name: "body", widget: "markdown", required: false}
 
+  # Dictionary for store translations
+  - name: "dictionary"
+    label: "Dicioário"
+    folder: "content/dictionary"
+    extension: "json"
+    create: true
+    slug: "{{name}}"
+    fields:
+      - label: "Idioma"
+        name: "title"
+        widget: "string"
+        pattern: ['^[a-z]{2}(_[a-z]{2})?$', "Must have at least 20 characters"]
+        hint: "Código do idioma com duas letras, as vezes com duas também da região ex: pt_br, fr, en_us"
+      - {label: "Buscar produtos", name: "search_products", widget: "string"}
+      - {label: "Abrir carrinho", name: "open_cart", widget: "string"}
+      - {label: "Minha conta", name: "my_account", widget: "string"}
+      - {label: "Produtos populares", name: "popular_products", widget: "string"}
+      - {label: "Ver todas categorias", name: "see_all_category", widget: "string"}
+
   # default extra pages collection
   # eg.: "about us", "contact" and "privacy"
   - name: "extra_pages"
     label: "Extra Pages"
-    description: "Add extra content to the site with blog posts related to your store and clients"
+    description: "Páginas extra para conteúdo como Sobre nós, Política de privacidade, etc"
     folder: "content/extra"
     extension: "json"
     create: true
@@ -172,6 +191,7 @@ collections:
         file: "content/settings.json"
         fields:
           - {label: "Name", name: "name", widget: "string"}
+          - {label: "Domínio", name: "domain", widget: "string"}
           - {label: "Short Name", name: "short_name", widget: "string"}
           - {label: "Short Description", name: "description", widget: "text"}
           - {label: "Language", name: "lang", widget: "string"}
@@ -184,6 +204,15 @@ collections:
           - {label: "Large Icon", name: "large_icon", widget: "image"}
           - {label: "Favicon", name: "favicon", widget: "image"}
 
+      - name: "social"
+        file: "content/social.json"
+        label: "Sociais"
+        hint: "Configurações para compartilhamento da loja"
+        fields:
+          - {label: "Open Graphs Image", name: "og_image", required: false, widget: "image", hint: "Imagem que é exibida quando o site é compartilhado"}
+          - {label: "ID do app Facebook", name: "fb_app_id", required: false, widget: "string"}
+          - {label: "Username do twitter", name: "twitter_username", required: false, widget: "string"}
+
       - name: "contacts"
         file: "content/contacts.json"
         label: "Contatos"
@@ -191,6 +220,8 @@ collections:
         fields:
           - {label: "E-mail", name: "email", required: false, widget: "string"}
           - {label: "Telefone", name: "phone", required: false, widget: "string"}
+          - {label: "Endereço", name: "address", required: false, widget: "string"}
+          - {label: "CNPJ/CPF", name: "doc_number", required: false, widget: "string"}
           - {label: "Whatsapp", name: "whatsapp", required: false, widget: "string"}
           - {label: "Facebook", name: "facebook", widget: "string", required: false}
           - {label: "Twitter", name: "twitter", widget: "string", required: false}
@@ -241,7 +272,7 @@ collections:
     files:
       - name: "header"
         label: "Header"
-        file: "content/layout/header.json"
+        file: "content/header.json"
         fields:
           - label: "Tarja de marketing "
             name: "marketing_stripe"
@@ -267,14 +298,14 @@ collections:
 
       - name: "footer"
         label: "Footer"
-        file: "content/layout/footer.json"
+        file: "content/footer.json"
         fields:
           - label: Descrição
             name: description
             widget: object
             fields:
               - {label: Título, hint: "Em destaque, dentro de uma tag H2", required: false, name: title, widget: string}
-              - {label: Texto, required: false, name: body, widget: string}
+              - {label: Texto, required: false, name: text, widget: string}
           - label: Lista de links 1
             name: link_list_1
             widget: object
@@ -283,7 +314,7 @@ collections:
               - {label: "Listar páginas", hint: "Ativar para listar as páginas extra automáticamente", name: "list_pages", widget: "boolean", default: true}
               - {label: Título, required: false, name: title, widget: string}
               - label: Links
-                name: links
+                name: list
                 widget: list
                 fields:
                   - {label: Texto, required: false, name: text, widget: string}
@@ -296,7 +327,7 @@ collections:
               - {label: "Listar categorias", hint: "Ativar para listar as categorias da loja automáticamente", name: "list_categories", widget: "boolean", default: true}
               - {label: Título, required: false, name: title, widget: string}
               - label: Links
-                name: links
+                name: list
                 widget: list
                 fields:
                   - {label: Texto, required: false, name: text, widget: string}
@@ -311,11 +342,11 @@ collections:
               - {label: "Mostar email", required: false, name: email, widget: boolean}
               - {label: "Mostrar redes  sociais", name: "socials", required: false, widget: "boolean"}
           - label: Selos
-            name: seals
+            name: stamps
             widget: list
             fields:
-              - {label: Imagem, required: false, name: image, widget: image}
-              - {label: alt, required: false, name: Alt tag, widget: string}
+              - {label: Imagem, required: false, name: src, widget: image}
+              - {label: alt, required: false, name: alt, widget: string}
           - label: "Meios de pagamento"
             name: "payment_methods"
             widget: "object"
