@@ -1,0 +1,6 @@
+{
+  "@ecomplus/widget-user": {
+    "active": true,
+    "fn": "widgetUser"
+  }
+}

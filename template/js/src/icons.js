@@ -1,8 +1,7 @@
-import '@fortawesome/fontawesome-free'
-
 import {
   faShoppingBag,
   faUser,
+  faSignOutAlt,
   faSearch,
   faChevronDown,
   faChevronLeft,
@@ -27,6 +26,7 @@ import {
 import {
   faFacebook,
   faFacebookF,
+  faLinkedin,
   faGoogle,
   faWindows,
   faPinterest,
@@ -36,11 +36,12 @@ import {
   faWhatsapp
 } from '@fortawesome/free-brands-svg-icons'
 
-import { library } from '@fortawesome/fontawesome-svg-core'
+import { library, dom } from '@fortawesome/fontawesome-svg-core'
 
 library.add(
   faShoppingBag,
   faUser,
+  faSignOutAlt,
   faSearch,
   faChevronDown,
   faChevronLeft,
@@ -51,6 +52,7 @@ library.add(
   faTimes,
   faFacebook,
   faFacebookF,
+  faLinkedin,
   faGoogle,
   faWindows,
   faPinterest,
@@ -70,3 +72,5 @@ library.add(
   faTrashAlt,
   faCheck
 )
+
+dom.watch()

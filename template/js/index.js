@@ -20,6 +20,8 @@ window.ecomClient = ecomClient
 window.$ = $
 window.$overlay = $overlay
 
+Vue.config.productionTip = false
+
 const { _settings } = window
 const { _config } = ecomUtils
 ;[

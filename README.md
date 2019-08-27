@@ -28,5 +28,6 @@ new major releases.
       - `#search-input`
   - `#content`
     - `.products-carousel`
+    - `.retail-grid`
     - `.product-card`
   - `#overlay`

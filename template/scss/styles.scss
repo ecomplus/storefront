@@ -1,3 +1,4 @@
+@import 'variables';
 @import '@ecomplus/storefront-twbs/scss/styles';
 
 body {
@@ -7,6 +8,7 @@ body {
 }
 
 @import 'components/banner-slider';
+@import 'components/category';
 @import 'components/header';
 @import 'components/html-clearfix';
 @import 'components/footer';
@@ -15,6 +17,7 @@ body {
 @import 'components/pitbar';
 @import 'components/product-card';
 @import 'components/products-carousel';
+@import 'components/retail-grid';
 @import 'components/rounded-icon';
 
 @import 'libs/glide';

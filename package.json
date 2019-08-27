@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-template",
-  "version": "0.1.32",
+  "version": "0.1.37",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "template/js/index.js",
   "jsdelivr": "dist/storefront.js",
@@ -42,7 +42,7 @@
     "@ecomplus/search-engine": "^1.0.2",
     "@ecomplus/storefront-twbs": "^3.4.0",
     "@ecomplus/utils": "^1.0.1",
-    "@fortawesome/fontawesome-free": "^5.10.2",
+    "@ecomplus/widget-user": "^0.6.8",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
@@ -60,7 +60,7 @@
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "@ecomplus/storefront-framework": "^4.7.0",
-    "babel-eslint": "^10.0.2",
+    "babel-eslint": "^10.0.3",
     "husky": "^3.0.4",
     "standard": "^13.1.0",
     "standard-version": "^7.0.0"

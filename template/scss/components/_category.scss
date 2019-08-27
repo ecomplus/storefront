@@ -1,0 +1,19 @@
+.category {
+  &__name {
+    margin: 0;
+    color: var(--secondary);
+
+    @media (max-width: 767.98px) {
+      margin-top: 1rem;
+    }
+  }
+
+  &__banner {
+    margin: 1.5rem auto;
+  }
+
+  &__description {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+}
