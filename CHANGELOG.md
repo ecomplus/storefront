@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.35](https://github.com/ecomclub/storefront-template/compare/v0.1.34...v0.1.35) (2019-08-27)
+
+
+### Features
+
+* **widgets:** start widgets setup, using ecomplus/widget-user ([0d9a29e](https://github.com/ecomclub/storefront-template/commit/0d9a29e))
+
 ### [0.1.34](https://github.com/ecomclub/storefront-template/compare/v0.1.33...v0.1.34) (2019-08-26)
 
 ### [0.1.33](https://github.com/ecomclub/storefront-template/compare/v0.1.32...v0.1.33) (2019-08-26)
