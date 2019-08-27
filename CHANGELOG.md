@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.37](https://github.com/ecomclub/storefront-template/compare/v0.1.36...v0.1.37) (2019-08-27)
+
+
+### Features
+
+* **breadcrumbs:** general breadcrumbs component with jsonld ([f82b137](https://github.com/ecomclub/storefront-template/commit/f82b137))
+* **categories:** prerendering products on categories page ([43a265a](https://github.com/ecomclub/storefront-template/commit/43a265a))
+* **categories:** rendering basic category page view ([42b5d18](https://github.com/ecomclub/storefront-template/commit/42b5d18))
+* **head:** handling meta title and description for resource and colls ([7bb80b0](https://github.com/ecomclub/storefront-template/commit/7bb80b0))
+* **home:** rendering additional md content before footer ([110f045](https://github.com/ecomclub/storefront-template/commit/110f045))
+* **rertail-grid:** general component for retail grids ([6fff572](https://github.com/ecomclub/storefront-template/commit/6fff572))
+* **scss-vars:** handle breadcrumb styles with bootstrap scss vars ([107cc3a](https://github.com/ecomclub/storefront-template/commit/107cc3a))
+
 ### [0.1.36](https://github.com/ecomclub/storefront-template/compare/v0.1.35...v0.1.36) (2019-08-27)
 
 
