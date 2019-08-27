@@ -8,6 +8,13 @@ const breadcrumbs = [{
   name: _.ecomUtils.name(body),
   link: `/${body.slug}`
 }]
+const { parent } = body
+if (parent) {
+  breadcrumbs.unshift({
+    name: _.ecomUtils.name(parent),
+    link: `/${parent.slug}`
+  })
+}
 
 // setup search engine instance with category filter
 const search = new _.EcomSearch()
