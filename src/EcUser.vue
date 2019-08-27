@@ -132,10 +132,19 @@
           <div v-else key="form">
             <form @submit="emailLoginSubmit">
               <div class="form-group">
+                <button
+                  class="btn ec-user__back"
+                  type="button"
+                  @click="showLoginForm = false"
+                >
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+
                 <label for="ec-user-email">
                   {{ `${dictionary('sign_in_with')} ${dictionary('email')}` }}
                 </label>
                 <input
+                  ref="input"
                   type="email"
                   class="form-control"
                   id="ec-user-email"

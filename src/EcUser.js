@@ -48,6 +48,7 @@ export default {
     return {
       showPopover: false,
       waiting: false,
+      waitingPopup: false,
       isLogged: false,
       email: '',
       name: '',
@@ -78,6 +79,10 @@ export default {
       this.isLogged = isLogged()
       this.email = ''
       this.popupAlertCount = 0
+      if (this.isLogged && this.waitingPopup) {
+        this.showPopover = true
+      }
+      this.waitingPopup = false
     },
 
     waitPromise (promise) {
@@ -142,8 +147,11 @@ export default {
       const vm = this
       this.loginErrorAlert = false
       if (link) {
-        vm.popupAlertCount = vm.popupAlertCountSecs
         vm.ecomPassport.popupOauthLink(link)
+        vm.waitingPopup = true
+        setTimeout(() => {
+          vm.popupAlertCount = vm.popupAlertCountSecs
+        }, 200)
       } else {
         const promise = vm.setOauthProviders()
           .then(() => {
@@ -226,8 +234,13 @@ export default {
       this.showLoginForm = !newStatus
     },
 
-    showLoginForm () {
+    showLoginForm (newStatus) {
       this.loginErrorAlert = false
+      if (newStatus) {
+        setTimeout(() => {
+          this.$refs.input.focus()
+        }, 300)
+      }
     }
   }
 }

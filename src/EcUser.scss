@@ -71,6 +71,16 @@
     }
   }
 
+  &__back {
+    display: block;
+    padding-left: .3rem;
+    padding-right: .3rem;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
   &__visitor-info {
     font-size: .875rem;
     margin-top: .6rem;
