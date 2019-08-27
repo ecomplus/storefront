@@ -30,4 +30,7 @@ new major releases.
     - `.products-carousel`
     - `.retail-grid`
     - `.product-card`
+    - `#category`
+    - `#brand`
+    - `#collection`
   - `#overlay`

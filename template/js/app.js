@@ -10,7 +10,7 @@ import(/* webpackPrefetch: true */ './widgets').then(() => {
     for (const widgetPkg in widgets) {
       if (widgets[widgetPkg]) {
         const { active, fn, options } = widgets[widgetPkg]
-        if (active) {
+        if (active && typeof window[fn] === 'function') {
           window[fn](options)
         }
       }
