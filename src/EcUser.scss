@@ -5,6 +5,7 @@
     max-width: 100%;
     min-width: 12rem;
     font-size: 1rem;
+    line-height: 1.4;
   }
 
   &__alert {
@@ -22,6 +23,7 @@
     line-height: 1.2rem;
     padding: .7rem;
     min-width: 15rem;
+    font-size: .9rem;
 
     &:hover {
       color: #fff;
@@ -67,5 +69,12 @@
       text-align: center;
       margin-right: .2rem;
     }
+  }
+
+  &__visitor-info {
+    font-size: .875rem;
+    margin-top: .6rem;
+    text-align: center;
+    color: var(--gray);
   }
 }

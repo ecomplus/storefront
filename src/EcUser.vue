@@ -16,12 +16,22 @@
       target="ec-user-popover"
       triggers="click blur"
       :placement="popoverPlacement"
+      @hidden="resetPopover"
     >
       <template slot="title">
         {{ greetings }}
       </template>
 
       <div class="ec-user__popover">
+        <b-alert
+          :show="loginErrorAlert"
+          fade
+          variant="warning"
+          class="ec-user__alert"
+        >
+          {{ dictionary('login_error') }}.
+        </b-alert>
+
         <slide-y-up-transition group>
           <div v-if="waiting" key="waiting">
             <div class="spinner-border m-3" role="status">
@@ -57,6 +67,24 @@
 
           <div v-else-if="!showLoginForm" key="oauth">
             <b-alert
+              :show="!popupAlertCount && noProfileFound"
+              fade
+              variant="info"
+              class="ec-user__alert"
+            >
+              {{ dictionary('profile_not_found') }}
+              <b>{{ email }}</b>.
+              <br>
+              <a
+                href="javascript:;"
+                class="alert-link"
+                @click="noProfileFound = false"
+              >
+                {{ `${dictionary('sign_in_with')} ${dictionary('another')} ${dictionary('email')}` }}
+              </a>
+            </b-alert>
+
+            <b-alert
               :show="popupAlertCount"
               class="ec-user__alert"
               dismissible
@@ -65,7 +93,7 @@
               @dismissed="popupAlertCount = 0"
               @dismiss-count-down="popupAlertChanged"
             >
-              {{ dictionary('continue_on_popup') }}
+              {{ dictionary('continue_on_popup') }}.
             </b-alert>
 
             <button
@@ -79,7 +107,8 @@
               <span class="ec-user__btn__icon">
                 <i class="fab" :class="faIcon"></i>
               </span>
-              {{ dictionary('sign_in_with') + ' ' + providerName }}
+              {{ dictionary(noProfileFound ? 'sign_up_with' : 'sign_in_with') }}
+              {{ providerName }}
             </button>
 
             <button
@@ -87,19 +116,23 @@
               class="btn btn-block btn-secondary ec-user__btn"
               key="email"
               @click="showLoginForm = true"
+              v-if="!noProfileFound"
             >
               <span class="ec-user__btn__icon">
                 <i class="fas fa-envelope"></i>
               </span>
-              {{ dictionary('sign_in_with') + ' ' + dictionary('email') }}
+              {{ `${dictionary('sign_in_with')} ${dictionary('email')}` }}
             </button>
+            <div class="ec-user__visitor-info" v-else>
+              {{ dictionary('visitor_checkout') }}
+            </div>
           </div>
 
           <div v-else key="form">
             <form @submit="emailLoginSubmit">
               <div class="form-group">
                 <label for="ec-user-email">
-                  {{ dictionary('sign_in_with') + ' ' + dictionary('email') }}
+                  {{ `${dictionary('sign_in_with')} ${dictionary('email')}` }}
                 </label>
                 <input
                   type="email"

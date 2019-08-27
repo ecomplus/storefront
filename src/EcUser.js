@@ -52,7 +52,9 @@ export default {
       name: '',
       oauthProviders: [],
       showLoginForm: false,
-      popupAlertCount: 0
+      popupAlertCount: 0,
+      loginErrorAlert: false,
+      noProfileFound: false
     }
   },
 
@@ -112,6 +114,7 @@ export default {
           throw err
         })
       vm.waitPromise(promise)
+      return promise
     },
 
     presetOauthProviders () {
@@ -135,10 +138,23 @@ export default {
     },
 
     oauthPopup (link, provider) {
+      const vm = this
+      this.loginErrorAlert = false
       if (link) {
-        this.popupAlertCount = this.popupAlertCountSecs
-        this.ecomPassport.popupOauthLink(link)
+        vm.popupAlertCount = vm.popupAlertCountSecs
+        vm.ecomPassport.popupOauthLink(link)
       } else {
+        const promise = vm.setOauthProviders()
+          .then(() => {
+            const link = vm.oauthProviders
+              .find(oauthProvider => oauthProvider.provider === provider)
+            vm.oauthPopup(link, provider)
+          })
+          .catch(err => {
+            vm.loginErrorAlert = true
+            throw err
+          })
+        vm.waitPromise(promise)
       }
     },
 
@@ -147,13 +163,38 @@ export default {
     },
 
     emailLoginSubmit (e) {
+      const vm = this
       e.preventDefault()
-      this.waitPromise(this.ecomPassport.fetchLogin(this.email))
-      this.showLoginForm = false
+      vm.showLoginForm = false
+      const promise = vm.ecomPassport.fetchLogin(this.email)
+        .catch(err => {
+          const { response } = err
+          if (response && response.status === 403) {
+            vm.noProfileFound = true
+          } else {
+            setTimeout(() => {
+              vm.loginErrorAlert = true
+            }, 100)
+          }
+          throw err
+        })
+      vm.waitPromise(promise)
     },
 
     logout () {
       this.ecomPassport.logout()
+    },
+
+    resetErrors () {
+      this.noProfileFound = this.loginErrorAlert = false
+    },
+
+    resetPopover () {
+      if (this.showLoginForm) {
+        this.showLoginForm = false
+      } else {
+        this.resetErrors()
+      }
     }
   },
 
@@ -169,5 +210,18 @@ export default {
     })
     vm.update()
     vm.setOauthProviders()
+  },
+
+  watch: {
+    noProfileFound (newStatus) {
+      if (newStatus === false) {
+        this.email = ''
+      }
+      this.showLoginForm = !newStatus
+    },
+
+    showLoginForm () {
+      this.loginErrorAlert = false
+    }
   }
 }
