@@ -1,8 +1,8 @@
 <%
-// load categories page content
-const pageCategories = _.cms('categories')
+// load brands page content
+const pageBrands = _.cms('brands')
 
-// current category body
+// current brand body
 const { body } = await _.resolveRoute()
 const breadcrumbs = [{
   name: _.ecomUtils.name(body),
@@ -11,23 +11,32 @@ const breadcrumbs = [{
 
 // setup search engine instance with category filter
 const search = new _.EcomSearch()
-search.setCategoryIds([body._id])
+search.setBrandIds([body._id])
 %>
 
 <div class="container py-1 py-sm-2 py-lg-4">
   <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
 
-  <div id="category" class="category">
-    <h1 class="category__name">
-      <%= _.ecomUtils.name(body) %>
-    </h1>
+  <div id="brand" class="brand">
+    <div class="brand__head">
+      <% if (body.logo && body.logo.url) { %>
+        <img
+          class="brand__logo"
+          src="<%= body.logo.url %>"
+          alt="<%= body.logo.alt %>"
+        >
+      <% } %>
+      <h1 class="brand__name">
+        <%= _.ecomUtils.name(body) %>
+      </h1>
+    </div>
     <% if (body.short_description) { %>
-      <p class="lead category__info">
+      <p class="lead brand__info">
         <%= body.short_description %>
       </p>
     <% } %>
     <% if (Array.isArray(body.pictures) && body.pictures.length) { %>
-      <div class="category__banner">
+      <div class="brand__banner">
         <img
           class="img-fluid"
           src="<%= body.pictures[0].url %>"
@@ -39,15 +48,15 @@ search.setCategoryIds([body._id])
     <%- await include('components/retail-grid', { _, opt: { search } }) %>
 
     <% if (body.body_html) { %>
-      <section class="category__description">
+      <section class="brand__description">
         <div class="html-clearfix">
           <%- body.body_html %>
         </div>
       </section>
     <% } %>
 
-    <% if (pageCategories.additional_content) { %>
-      <%- _.md.render(pageCategories.additional_content) %>
+    <% if (pageBrands.additional_content) { %>
+      <%- _.md.render(pageBrands.additional_content) %>
     <% } %>
   </div>
 </div>

@@ -1,0 +1,46 @@
+.brand {
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 767.98px) {
+      display: block;
+    }
+  }
+
+  &__name {
+    margin: 0;
+    color: var(--secondary);
+  }
+
+  &__logo {
+    max-width: 16rem;
+    height: auto;
+    max-height: 8rem;
+    margin-bottom: .5rem;
+
+    @media (max-width: 767.98px) {
+      margin-top: 1rem;
+
+      + .brand__name {
+        display: none;
+      }
+    }
+
+    + .brand__name {
+      color: var(--gray);
+
+      &::before {
+        content: ' # ';
+        font-weight: 400;
+        font-size: 90%;
+        opacity: .5;
+      }
+    }
+  }
+
+  &__banner {
+    margin: 1.5rem auto;
+  }
+}
