@@ -12,6 +12,12 @@
         "endpoint": "/categories.json"
       }
     },
+    "grids": {
+      "client": {
+        "api": "store",
+        "endpoint": "/grids.json"
+      }
+    },
     "items": {
       "search": {
         "default": true
