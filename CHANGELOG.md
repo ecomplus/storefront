@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.38](https://github.com/ecomclub/storefront-template/compare/v0.1.37...v0.1.38) (2019-08-27)
+
+
+### Features
+
+* **brand:** prerendering brands view ([01e2235](https://github.com/ecomclub/storefront-template/commit/01e2235))
+* **collections:** prerendering collections pages ([2f5d74a](https://github.com/ecomclub/storefront-template/commit/2f5d74a))
+
 ### [0.1.37](https://github.com/ecomclub/storefront-template/compare/v0.1.36...v0.1.37) (2019-08-27)
 
 
