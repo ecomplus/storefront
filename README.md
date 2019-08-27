@@ -118,6 +118,7 @@ data = {
     // Preloaded data from E-Com Plus APIs
     store,
     categories,
+    grids,
     items,
     // Contextual route object
     route,
