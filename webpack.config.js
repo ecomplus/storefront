@@ -37,7 +37,12 @@ const config = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
+        options: {
+          compilerOptions: {
+            whitespace: devMode ? 'preserve' : 'condense'
+          }
+        }
       },
       {
         test: /^(.(?!\.min.js$))+\.m?js$/,
@@ -79,7 +84,7 @@ const config = {
       }
     }
     // exclude all imported libs on production by default
-    : /^[^./].*$/
+    : /^(@babel\/runtime|core-js|@ecomplus|vue|vue2-transitions)(\/|$)/
 }
 
 if (devMode) {
