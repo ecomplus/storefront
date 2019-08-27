@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.8](https://github.com/ecomclub/widget-user/compare/v0.6.7...v0.6.8) (2019-08-27)
+
+
+### Features
+
+* **automations:** show popover after popup login, autofocus input ([bd5d933](https://github.com/ecomclub/widget-user/commit/bd5d933))
+
 ### [0.6.7](https://github.com/ecomclub/widget-user/compare/v0.6.6...v0.6.7) (2019-08-27)
 
 ### [0.6.6](https://github.com/ecomclub/widget-user/compare/v0.6.5...v0.6.6) (2019-08-27)
