@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.9](https://github.com/ecomclub/widget-user/compare/v0.6.8...v0.6.9) (2019-08-27)
+
+
+### Bug Fixes
+
+* **scroll:** hide popover on scroll only on screen heigth > 450 ([b33903a](https://github.com/ecomclub/widget-user/commit/b33903a))
+
 ### [0.6.8](https://github.com/ecomclub/widget-user/compare/v0.6.7...v0.6.8) (2019-08-27)
 
 
