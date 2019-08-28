@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/ecomclub/storefront-framework/compare/v4.9.0...v5.0.0) (2019-08-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* **webpack:** changed css output filename, parsing more js/scss files
+
+### Features
+
+* **webpack:** supporting additional entry files ([9b417bf](https://github.com/ecomclub/storefront-framework/commit/9b417bf))
+
 ## [4.9.0](https://github.com/ecomclub/storefront-framework/compare/v4.8.0...v4.9.0) (2019-08-28)
 
 
