@@ -1,2 +1,5 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /app
+Disallow: /app/
+Disallow: /search
