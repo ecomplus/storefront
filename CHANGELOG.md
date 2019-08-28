@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.44](https://github.com/ecomclub/storefront-template/compare/v0.1.43...v0.1.44) (2019-08-28)
+
+
+### Bug Fixes
+
+* **views:** handling extra pages links correctly ([ec2974e](https://github.com/ecomclub/storefront-template/commit/ec2974e))
+
+
+### Features
+
+* **views:** setup views for app, cms and extra pages ([3a98a39](https://github.com/ecomclub/storefront-template/commit/3a98a39))
+* **views:** simple blog rendering, setup error pages views ([09220a6](https://github.com/ecomclub/storefront-template/commit/09220a6))
+
 ### [0.1.43](https://github.com/ecomclub/storefront-template/compare/v0.1.42...v0.1.43) (2019-08-28)
 
 ### [0.1.42](https://github.com/ecomclub/storefront-template/compare/v0.1.41...v0.1.42) (2019-08-28)
