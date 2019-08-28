@@ -1,5 +1,5 @@
 {
-  "additional_content": "",
+  "pitbar": false,
   "related": {
     "showcase": true,
     "title": "Produtos relacionados"
@@ -7,5 +7,6 @@
   "recommended": {
     "showcase": true,
     "title": "Quem comprou este produto, também comprou:"
-  }
+  },
+  "additional_content": ""
 }
