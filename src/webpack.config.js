@@ -29,13 +29,40 @@ try {
 }
 
 // entry files
-const main = [path.resolve(paths.scss, 'styles.scss')]
+const entry = {}
+// default module first
+entry.storefront = [path.resolve(paths.scss, 'styles.scss')]
 if (!devMode && !process.env.WEBPACK_BUILD_DEV) {
   // start service worker on production only
-  main.push(path.resolve(__dirname, 'assets/starter.js'))
+  entry.storefront.push(path.resolve(__dirname, 'assets/starter.js'))
 }
 // index.js must be the last to export lib correctly if any
-main.push(path.resolve(paths.js, 'index.js'))
+entry.storefront.push(path.resolve(paths.js, 'index.js'))
+
+// additional modules
+;['scss', 'js'].forEach(filetype => {
+  const srcPath = paths[filetype]
+  const ext = `.${filetype}`
+  fs.readdirSync(srcPath).forEach(file => {
+    switch (file) {
+      case 'index.js':
+      case 'styles.scss':
+        // already included on default module
+        break
+      default:
+        if (file.endsWith(ext) && !file.startsWith('_')) {
+          const name = file.replace(ext, '')
+          if (!entry[name]) {
+            const filepath = path.resolve(srcPath, file)
+            // ensure it's not a directory
+            if (!fs.statSync(filepath).isDirectory()) {
+              entry[name] = filepath
+            }
+          }
+        }
+    }
+  })
+})
 
 // setup base Webpack config object
 const config = {
@@ -49,21 +76,19 @@ const config = {
     maxEntrypointSize: 800000,
     maxAssetSize: 800000
   },
-  entry: {
-    main
-  },
+  entry,
 
   output: {
     path: paths.output,
     publicPath: '/',
-    filename: 'storefront.js',
-    chunkFilename: 'storefront.[name].js'
+    filename: '[name].js',
+    chunkFilename: '[name].[chunkhash].js'
   },
 
   plugins: [
     // extract CSS to file
     new MiniCssExtractPlugin({
-      filename: 'styles.css'
+      filename: '[name].css'
     })
   ],
 
