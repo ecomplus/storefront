@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.42](https://github.com/ecomclub/storefront-template/compare/v0.1.41...v0.1.42) (2019-08-28)
+
+
+### Bug Fixes
+
+* **robots:** fix disallowed urls ([2eafa86](https://github.com/ecomclub/storefront-template/commit/2eafa86))
+
+
+### Features
+
+* **search:** setup search page ([60ecd4a](https://github.com/ecomclub/storefront-template/commit/60ecd4a))
+
 ### [0.1.41](https://github.com/ecomclub/storefront-template/compare/v0.1.40...v0.1.41) (2019-08-28)
 
 ### [0.1.40](https://github.com/ecomclub/storefront-template/compare/v0.1.39...v0.1.40) (2019-08-28)
