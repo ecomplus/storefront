@@ -1,0 +1,22 @@
+<%
+// load current page content
+const { slug, content } = await _.resolveRoute()
+const breadcrumbs = [{
+  name: content.title,
+  link: `/pages/${slug}`
+}]
+%>
+
+<% if (content.pitbar) { %>
+  <%- await include('components/pitbar', { _ }) %>
+<% } %>
+
+<div class="container py-1 py-sm-2 py-lg-4">
+  <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
+
+  <% if (content.additional_content) { %>
+    <section class="md-content">
+      <%- _.md.render(content.additional_content) %>
+    </section>
+  <% } %>
+</div>
