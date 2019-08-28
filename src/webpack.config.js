@@ -82,7 +82,7 @@ const config = {
     path: paths.output,
     publicPath: '/',
     filename: '[name].js',
-    chunkFilename: '[name].[chunkhash].js'
+    chunkFilename: '[chunkhash].js'
   },
 
   plugins: [
