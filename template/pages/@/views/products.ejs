@@ -26,7 +26,7 @@ breadcrumbs.push({
   <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
 
   <div class="product" id="product">
-    <section class="product__block row">
+    <section id="product-block" class="product__block row">
       <% if (body.pictures) { %>
         <% const imgObj = _.ecomUtils.img(body, null, 'big') %>
         <% if (imgObj) { %>
@@ -68,6 +68,30 @@ breadcrumbs.push({
         <% } %>
       </div>
     </section>
+
+    <%
+    const showcaseTypes = ['related', 'recommended']
+    for (let i = 0; i < showcaseTypes.length; i++) {
+      const showcaseType = showcaseTypes[i]
+      if (pageProducts[showcaseType] && pageProducts[showcaseType].showcase) {
+        const { title } = pageProducts[showcaseType]
+        // get list of products from Graphs API
+        const url = `/products/${body._id}/${showcaseType}.json`
+        const { data } = await _.ecomClient.graphs({ url })
+        const productIds = _.ecomUtils.recommendedIds(data)
+        let items = []
+        if (Array.isArray(productIds) && productIds.length) {
+          // search related/recommended items by IDs
+          const search = new _.EcomSearch()
+          await search.setProductIds(productIds).fetch()
+          items = search.getItems()
+        }
+        %>
+        <%- await include('components/products-carousel', { _, opt: { items, title } }) %>
+        <%
+      }
+    }
+    %>
 
     <% if (body.body_html) { %>
       <section class="product__description">
