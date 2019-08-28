@@ -267,6 +267,10 @@ JS source files,
 is required,
 other files and modules should be imported from index.
 
+Other JS files on `/template/js` directory
+will also be considered additional
+[Webpack entry point](https://webpack.js.org/configuration/entry-context/).
+
 #### `/template/public`
 
 Any static assets placed in the `public`
@@ -335,6 +339,19 @@ witch produces multiple slugs.
 For example, for a blog folder collection on folder `content/blog`,
 you should have a view `#cms/blog.ejs`, it will generate an HTML page for each
 post saved by CMS.
+
+## Output
+
+On production, files will be created on `dist` folder,
+`template/js/index.js` will be bundled to `dist/storefront.js`
+and `template/scss/styles.scss` to `dist/storefront.css`.
+
+Additional entry points on `template/js/` or `template/scss/`
+root will respect original filename.
+
+EJS on `template/pages/` will be parsed to `dist/[file].html`
+or `dist/[slug].html` in case of store resources or CMS
+folder collections.
 
 ## Deploy with Netlify
 
