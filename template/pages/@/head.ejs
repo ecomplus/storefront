@@ -10,8 +10,8 @@ switch (_.route.path) {
 }
 if (!page) {
   // try resource body or folder collection content
-  const { body, collection } = await _.resolveRoute()
-  page = body || collection || {}
+  const { body, content } = await _.resolveRoute()
+  page = body || content || {}
 }
 
 // page title and description
