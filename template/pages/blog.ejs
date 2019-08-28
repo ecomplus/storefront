@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+
+<head>
+  <%- await include('@/head', { _ }) %>
+</head>
+
+<body>
+  <%- await include('@/layout/menu', { _ }) %>
+
+  <main role="main" id="main">
+    <%- await include('@/layout/header', { _ }) %>
+
+    <article id="content">
+      <%- await include('@/views/blog', { _ }) %>
+    </article>
+
+    <%- await include('@/layout/footer', { _ }) %>
+
+    <div id="overlay" class="fade"></div>
+  </main>
+
+  <%- await include('@/scripts', { _ }) %>
+</body>
+
+</html>

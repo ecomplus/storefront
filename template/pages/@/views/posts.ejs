@@ -1,15 +1,15 @@
 <%
-// load current page content
+// load blog page and current post content
+const pageBlog = _.cms('blog')
 const { slug, content } = await _.resolveRoute()
 const breadcrumbs = [{
+  name: pageBlog.title,
+  link: `/blog`
+}, {
   name: content.title,
-  link: `/pages/${slug}`
+  link: `/posts/${slug}`
 }]
 %>
-
-<% if (content.pitbar) { %>
-  <%- await include('components/pitbar', { _ }) %>
-<% } %>
 
 <div class="container py-1 py-sm-2 py-lg-4">
   <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>

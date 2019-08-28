@@ -1,0 +1,51 @@
+<%
+// load blog page content
+const pageBlog = _.cms('blog')
+const breadcrumbs = [{
+  name: pageBlog.title,
+  link: `/blog`
+}]
+%>
+
+<div class="container py-1 py-sm-2 py-lg-4">
+  <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
+
+  <h1 class="page-title">
+    <%= pageBlog.title %>
+  </h1>
+
+  <% if (pageBlog.additional_content) { %>
+    <section class="md-content">
+      <%- _.md.render(pageBlog.additional_content) %>
+    </section>
+  <% } %>
+
+  <div class="row my-5">
+    <% (_.cms('posts') || []).forEach(slug => { %>
+      <% const { title, thumbnail, description } = _.cms(`posts/${slug}`) %>
+      <div class="col col-md-6 col-lg-4">
+        <div class="card">
+          <% if (thumbnail) { %>
+            <a href="/posts/<%= slug %>">
+              <img
+                src="<%= thumbnail %>"
+                class="card-img-top"
+                alt="<%= title %>"
+              >
+            </a>
+          <% } %>
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="/posts/<%= slug %>">
+                <%= title %>
+              </a>
+            </h5>
+            <p class="card-text">
+              <%= description %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
