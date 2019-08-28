@@ -81,18 +81,22 @@ breadcrumbs.push({
         const { title } = pageProducts[showcaseType]
         // get list of products from Graphs API
         const url = `/products/${body._id}/${showcaseType}.json`
-        const { data } = await _.ecomClient.graphs({ url })
-        const productIds = _.ecomUtils.recommendedIds(data)
-        let items = []
-        if (Array.isArray(productIds) && productIds.length) {
-          // search related/recommended items by IDs
-          const search = new _.EcomSearch()
-          await search.setProductIds(productIds).fetch()
-          items = search.getItems()
+        try {
+          const { data } = await _.ecomClient.graphs({ url })
+          const productIds = _.ecomUtils.recommendedIds(data)
+          let items = []
+          if (Array.isArray(productIds) && productIds.length) {
+            // search related/recommended items by IDs
+            const search = new _.EcomSearch()
+            await search.setProductIds(productIds).fetch()
+            items = search.getItems()
+          }
+          %>
+          <%- await include('components/products-carousel', { _, opt: { items, title } }) %>
+          <%
+        } catch (err) {
+          console.error(err)
         }
-        %>
-        <%- await include('components/products-carousel', { _, opt: { items, title } }) %>
-        <%
       }
     }
     %>
