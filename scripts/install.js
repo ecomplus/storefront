@@ -36,7 +36,7 @@ if (dirTemplate === dirDest) {
       console.log(`[OK] files copied to ${dirTo.slice(dirBase.length)} folder`)
     }
 
-    copyFolder('public/admin', ['public', 'admin', 'cms'])
+    copyFolder('public/admin', ['public', 'admin'])
     console.log('[DONE] @ecomplus/storefront-template')
   }
 }
