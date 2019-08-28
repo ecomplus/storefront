@@ -34,12 +34,8 @@ const { _config } = ecomUtils
   _config.set(prop, _settings[prop])
 })
 
-const { pathname } = window.location
-switch (pathname) {
-  case '/app':
-  case '/app/':
-    import('./src/app')
-    break
-  default:
-    import('./page')
+if (window.location.pathname === '/app/') {
+  import('./src/app')
+} else {
+  import('./page')
 }
