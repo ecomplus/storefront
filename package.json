@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-template",
-  "version": "0.1.46",
+  "version": "0.1.47",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "template/js/index.js",
   "jsdelivr": "dist/storefront.js",
@@ -12,7 +12,7 @@
   "scripts": {
     "serve": "storefront-pack serve",
     "build": "ECOMCLIENT_NOTIMEOUT=true WEBPACK_BUILD_DEV=true storefront-pack build",
-    "build:site": "ECOMCLIENT_NOTIMEOUT=true storefront-pack build",
+    "build:site": "ECOMCLIENT_NOTIMEOUT=true ECOMCLIENT_DEBUG=true storefront-pack build",
     "build:lib": "NODE_ENV=production webpack",
     "release": "npm run build && standard-version",
     "test:install": "rm -rf ./copy && mkdir ./copy && TEMPLATE_DIR=copy node ./scripts/install.js",
