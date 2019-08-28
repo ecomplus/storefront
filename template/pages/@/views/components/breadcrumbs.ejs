@@ -1,20 +1,26 @@
 <% if (Array.isArray(opt.breadcrumbs) && opt.breadcrumbs.length) { %>
-  <nav class="d-none d-md-block" aria-label="breadcrumb">
+  <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item">
+      <li class="breadcrumb-item d-none d-md-block">
         <a href="/">
           <i class="fas fa-home"></i>
         </a>
       </li>
       <% opt.breadcrumbs.forEach(({ name, link }, index) => { %>
         <% if (index < opt.breadcrumbs.length - 1) { %>
-          <li class="breadcrumb-item">
+          <li
+            <% if (index === opt.breadcrumbs.length - 2) { %>
+              class="breadcrumb-item"
+            <% } else { %>
+              class="breadcrumb-item d-none d-md-block"
+            <% } %>
+          >
             <a href="<%= link %>">
               <%= name %>
             </a>
           </li>
         <% } else { %>
-          <li class="breadcrumb-item active" aria-current="page">
+          <li class="breadcrumb-item d-none d-md-block active" aria-current="page">
             <%= name %>
           </li>
         <% } %>

@@ -8,11 +8,22 @@ const breadcrumbs = [{
   name: _.ecomUtils.name(body),
   link: `/${body.slug}`
 }]
+const { parent } = body
+if (parent) {
+  breadcrumbs.unshift({
+    name: _.ecomUtils.name(parent),
+    link: `/${parent.slug}`
+  })
+}
 
 // setup search engine instance with category filter
 const search = new _.EcomSearch()
 search.setCategoryIds([body._id])
 %>
+
+<% if (pageCategories.pitbar) { %>
+  <%- await include('components/pitbar', { _ }) %>
+<% } %>
 
 <div class="container py-1 py-sm-2 py-lg-4">
   <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
@@ -27,10 +38,10 @@ search.setCategoryIds([body._id])
       </p>
     <% } %>
     <% if (Array.isArray(body.pictures) && body.pictures.length) { %>
-      <div class="category__banner">
+      <div class="hero-banner category__banner">
         <img
-          class="hero-banner img-fluid"
-          src="<%= body.pictures[0].url %>"
+          class="img-fluid lozad fade"
+          data-src="<%= body.pictures[0].url %>"
           alt="<%= body.pictures[0].alt %>"
         >
       </div>
@@ -47,7 +58,9 @@ search.setCategoryIds([body._id])
     <% } %>
 
     <% if (pageCategories.additional_content) { %>
-      <%- _.md.render(pageCategories.additional_content) %>
+      <section class="md-content">
+        <%- _.md.render(pageCategories.additional_content) %>
+      </section>
     <% } %>
   </div>
 </div>

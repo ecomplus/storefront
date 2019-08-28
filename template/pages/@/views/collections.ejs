@@ -17,6 +17,10 @@ if (body.products && body.products.length) {
 }
 %>
 
+<% if (pageCollections.pitbar) { %>
+  <%- await include('components/pitbar', { _ }) %>
+<% } %>
+
 <div class="container py-1 py-sm-2 py-lg-4">
   <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
 
@@ -30,10 +34,10 @@ if (body.products && body.products.length) {
       </p>
     <% } %>
     <% if (Array.isArray(body.pictures) && body.pictures.length) { %>
-      <div class="collection__banner">
+      <div class="hero-banner collection__banner">
         <img
-          class="hero-banner img-fluid"
-          src="<%= body.pictures[0].url %>"
+          class="img-fluid lozad fade"
+          data-src="<%= body.pictures[0].url %>"
           alt="<%= body.pictures[0].alt %>"
         >
       </div>
@@ -52,7 +56,9 @@ if (body.products && body.products.length) {
     <% } %>
 
     <% if (pageCollections.additional_content) { %>
-      <%- _.md.render(pageCollections.additional_content) %>
+      <section class="md-content">
+        <%- _.md.render(pageCollections.additional_content) %>
+      </section>
     <% } %>
   </div>
 </div>

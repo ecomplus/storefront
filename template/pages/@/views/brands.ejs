@@ -14,6 +14,10 @@ const search = new _.EcomSearch()
 search.setBrandIds([body._id])
 %>
 
+<% if (pageBrands.pitbar) { %>
+  <%- await include('components/pitbar', { _ }) %>
+<% } %>
+
 <div class="container py-1 py-sm-2 py-lg-4">
   <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
 
@@ -36,10 +40,10 @@ search.setBrandIds([body._id])
       </p>
     <% } %>
     <% if (Array.isArray(body.pictures) && body.pictures.length) { %>
-      <div class="brand__banner">
+      <div class="hero-banner brand__banner">
         <img
-          class="hero-banner img-fluid"
-          src="<%= body.pictures[0].url %>"
+          class="img-fluid lozad fade"
+          data-src="<%= body.pictures[0].url %>"
           alt="<%= body.pictures[0].alt %>"
         >
       </div>
@@ -56,7 +60,9 @@ search.setBrandIds([body._id])
     <% } %>
 
     <% if (pageBrands.additional_content) { %>
-      <%- _.md.render(pageBrands.additional_content) %>
+      <section class="md-content">
+        <%- _.md.render(pageBrands.additional_content) %>
+      </section>
     <% } %>
   </div>
 </div>

@@ -9,9 +9,13 @@
   >
     <h4 class="products-carousel__title">
       <% if (opt.title) { %>
-        <a href="<%= opt.link || 'javascript:;' %>">
-          <%= opt.title %>
-        </a>
+        <% if (opt.link) { %>
+          <a href="<%= opt.link || 'javascript:;' %>">
+            <%= opt.title %>
+          </a>
+        <% } else { %>
+          <span><%= opt.title %></span>
+        <% } %>
       <% } else if (opt.collection) { %>
         <a href="<%= opt.collection.slug || 'javascript:;' %>">
           <%= opt.collection.name %>

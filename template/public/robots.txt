@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /app/$
+Disallow: /app/index$
+Disallow: /app/index.html$
+Disallow: /search$
+Disallow: /search.html$

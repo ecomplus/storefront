@@ -1,0 +1,20 @@
+<%
+// load search page content
+const pageSearch = _.cms('search')
+%>
+
+<% if (pageSearch.pitbar) { %>
+  <%- await include('components/pitbar', { _ }) %>
+<% } %>
+
+<div class="container py-1 py-sm-2 py-lg-4">
+  <section id="search">
+    <%- await include('components/loading') %>
+  </section>
+
+  <% if (pageSearch.additional_content) { %>
+    <section class="md-content">
+      <%- _.md.render(pageSearch.additional_content) %>
+    </section>
+  <% } %>
+</div>

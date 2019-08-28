@@ -33,4 +33,8 @@ new major releases.
     - `#category`
     - `#brand`
     - `#collection`
+    - `#product`
+      - `#product-block`
+        - `#buy-button`
+    - `#search`
   - `#overlay`
