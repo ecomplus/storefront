@@ -12,7 +12,7 @@
   "scripts": {
     "serve": "storefront-pack serve",
     "build": "ECOMCLIENT_NOTIMEOUT=true WEBPACK_BUILD_DEV=true storefront-pack build",
-    "build:site": "ECOMCLIENT_NOTIMEOUT=true ECOMCLIENT_DEBUG=true storefront-pack build",
+    "build:site": "ECOMCLIENT_NOTIMEOUT=true storefront-pack build",
     "build:lib": "NODE_ENV=production webpack",
     "release": "npm run build && standard-version",
     "test:install": "rm -rf ./copy && mkdir ./copy && TEMPLATE_DIR=copy node ./scripts/install.js",
