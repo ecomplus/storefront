@@ -38,3 +38,4 @@ new major releases.
         - `#buy-button`
     - `#search`
   - `#overlay`
+- `#app`
