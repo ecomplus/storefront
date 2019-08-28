@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.9.0](https://github.com/ecomclub/storefront-framework/compare/v4.8.0...v4.9.0) (2019-08-28)
+
+
+### Features
+
+* **output:** specify chunkfilename to support dynamic imports properly ([f4d1895](https://github.com/ecomclub/storefront-framework/commit/f4d1895))
+
 ## [4.8.0](https://github.com/ecomclub/storefront-framework/compare/v4.7.0...v4.8.0) (2019-08-27)
 
 
