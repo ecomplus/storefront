@@ -5,12 +5,10 @@ import './pages/utils'
 import './pages/menu'
 import './pages/header'
 import './pages/search'
-import ecomUtils from '@ecomplus/utils'
 import Vue from 'vue'
 import $ from './pages/lib/$'
 import $overlay from './pages/lib/$overlay'
 
-window.ecomUtils = ecomUtils
 window.Vue = Vue
 window.$ = $
 window.$overlay = $overlay

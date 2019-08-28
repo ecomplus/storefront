@@ -1,6 +1,7 @@
-import { _config } from '@ecomplus/utils'
+import ecomUtils from '@ecomplus/utils'
 
 const { _settings } = window
+const { _config } = ecomUtils
 ;[
   'store_id',
   'lang',
@@ -10,3 +11,5 @@ const { _settings } = window
 ].forEach(prop => {
   _config.set(prop, _settings[prop])
 })
+
+window.ecomUtils = ecomUtils
