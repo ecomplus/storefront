@@ -23,7 +23,7 @@ collections:
         file: "content/home.json"
         fields:
           - {label: "Meta title", name: "meta_title", widget: "string", hint: "Título exibido na aba do navegador e nas respostas em motores de busca, relevante para SEO", required: false}
-          - {label: "Meta description", name: "meta_description", widget: "string", hint: "escrição exibida nos resultados de motores de busca, relevante para SEO", required: false}
+          - {label: "Meta description", name: "meta_description", widget: "string", hint: "Descrição exibida nos resultados de motores de busca, relevante para SEO", required: false}
           - label: "Slider"
             name: "slider"
             widget: object
@@ -51,8 +51,7 @@ collections:
             widget: list
             fields:
               - {label: Coleção, required: false, name: collection, widget: string, hint: "Entrar com o ID da coleção, que pode ser visto nesta página: https://app.e-com.plus/#/resources/collections"}
-          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página inicial, required: false}
-          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página inicial, required: false}
+          - {label: "Conteúdo adicional", name: "additional_content", widget: "markdown", hint: Markdown exibido no fim do container da página inicial, required: false}
 
       - name: "products"
         label: "Produtos"
@@ -81,49 +80,44 @@ collections:
               - {label: Mostrar coleção, name: collection_on, widget: boolean}
               - {label: Título, required: false, name: title, widget: string}
               - {label: ID da coleção, required: false, name: collection, widget: string, hint: Entrar com o ID da coleção, que pode ser visto nesta página: https://app.e-com.plus/#/resources/collections"}
-          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container das páginas de produto, required: false}
-          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container das páginas de produto, required: false}
+          - {label: "Conteúdo adicional", name: "additional_content", widget: "markdown", hint: Markdown exibido no fim do container das páginas de produto, required: false}
 
       - name: "search"
         label: "Busca"
         hint: "Configuração geral das páginas de busca"
         file: "content/search.json"
         fields:
-          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página de busca, required: false}
-          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página de busca, required: false}
+          - {label: "Conteúdo adicional", name: "additional_content", widget: "markdown", hint: Markdown exibido no fim do container da página de busca, required: false}
 
       - name: "collections"
         label: "Coleções"
         hint: "Configuração geral das páginas de coleções"
         file: "content/collections.json"
         fields:
-          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página das coleções, required: false}
-          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página das coleções, required: false}
+          - {label: "Conteúdo adicional", name: "additional_content", widget: "markdown", hint: Markdown exibido no fim do container da página das coleções, required: false}
 
       - name: "categories"
         label: "Categorias"
         hint: "Configuração geral das páginas de categorias"
         file: "content/categories.json"
         fields:
-          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container das páginas de categoria, required: false}
-          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container das páginas de categoria, required: false}
-
+          - {label: "Conteúdo adicional", name: "additional_content", widget: "markdown", hint: Markdown exibido no fim do container das páginas de categoria, required: false}
 
       - name: "brands"
         label: "Marcas"
         hint: "Configuração geral das páginas de marca"
         file: "content/brands.json"
         fields:
-          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container das páginas das marcas, required: false}
-          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da páginas das marcas, required: false}
+          - {label: "Conteúdo adicional", name: "additional_content", widget: "markdown", hint: Markdown exibido no fim do container das páginas das marcas, required: false}
 
       - name: "blog"
         label: "Blog"
         hint: "Configuração geral da página do blog"
         file: "content/blog.json"
         fields:
-          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página do blog, required: false}
-          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página do blog, required: false}
+          - {label: "Conteúdo adicional", name: "additional_content", widget: "markdown", hint: Markdown exibido no fim do container da página do blog, required: false}
+          - {label: "Meta title", name: "meta_title", widget: "string", hint: "Título da página exibido na aba do navegador e nas respostas em motores de busca, relevante para SEO", required: false}
+          - {label: "Meta description", name: "meta_description", widget: "string", hint: "Ddescrição da página exibida nos resultados de motores de busca, relevante para SEO", required: false}
 
   # default blog posts collection
   # remove if your template does not support blog
@@ -140,6 +134,8 @@ collections:
       - {label: "Alt da imagem", name: "alt", widget: "string", required: false, hint: "Alt tag da imagem"}
       - {label: "Descrição curta", name: "description", widget: "text", required: false}
       - {label: "Corpo", name: "body", widget: "markdown", required: false}
+      - {label: "Meta title", name: "meta_title", widget: "string", hint: "Título da página exibido na aba do navegador e nas respostas em motores de busca, relevante para SEO", required: false}
+      - {label: "Meta description", name: "meta_description", widget: "string", hint: "Ddescrição da página exibida nos resultados de motores de busca, relevante para SEO", required: false}
 
   # Dictionary for store translations
   - name: "dictionary"
@@ -175,6 +171,8 @@ collections:
       - {label: "Imagem em destaque", name: "thumbnail", widget: "image", required: false, hint: "Sugerimos 900px como largura máxima"}
       - {label: "Alt da imagem", name: "alt", widget: "string", required: false, hint: "Alt tag da imagem"}
       - {label: "Descrição curta", name: "description", widget: "text", required: false}
+      - {label: "Meta title", name: "meta_title", widget: "string", hint: "Título da página exibido na aba do navegador e nas respostas em motores de busca, relevante para SEO", required: false}
+      - {label: "Meta description", name: "meta_description", widget: "string", hint: "Ddescrição da página exibida nos resultados de motores de busca, relevante para SEO", required: false}
       - {label: "Corpo", name: "body", widget: "markdown", required: false}
 
   # general site settings
