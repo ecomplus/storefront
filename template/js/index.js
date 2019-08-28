@@ -31,18 +31,7 @@ setTimeout(() => {
   }
 }, 200)
 
-const { hash, pathname } = window.location
-
-switch (pathname) {
-  case '/app/':
-    import(/* webpackChunkName: "app" */ './app')
-    break
-  case '/admin/':
-  case '/admin/cms/':
-    import(/* webpackChunkName: "cms" */ './cms')
-    break
-}
-
+const { hash } = window.location
 if (hash.indexOf('=') !== -1) {
   const $netlifyIdentityScript = document.createElement('script')
   $netlifyIdentityScript.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js'

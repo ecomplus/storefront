@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+<html>
 
 <head>
   <%- await include('../@/head', { _ }) %>
@@ -7,6 +7,8 @@
 
 <body>
   <%- await include('../@/views/cms', { _ }) %>
+  <%- await include('../@/scripts', { _ }) %>
+  <script src="/admin.js"></script>
 </body>
 
 </html>

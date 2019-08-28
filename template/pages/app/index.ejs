@@ -3,10 +3,13 @@
 
 <head>
   <%- await include('../@/head', { _ }) %>
+  <link rel="stylesheet" type="text/css" href="/storefront.css">
 </head>
 
 <body>
   <%- await include('../@/views/app', { _ }) %>
+  <%- await include('../@/scripts', { _ }) %>
+  <script src="/checkout.js"></script>
 </body>
 
 </html>
