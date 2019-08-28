@@ -6,6 +6,18 @@
   background: var(--secondary);
   color: var(--secondary-yiq);
 
+  &:first-child {
+    @media (max-width: 767.98px) {
+      display: none;
+    }
+
+    .pitbar__nav {
+      overflow-x: auto;
+      min-width: 100%;
+      flex-wrap: nowrap;
+    }
+  }
+
   &__nav {
     @media (max-width: 767.98px) {
       overflow-x: auto;
