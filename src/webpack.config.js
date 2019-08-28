@@ -56,7 +56,8 @@ const config = {
   output: {
     path: paths.output,
     publicPath: '/',
-    filename: 'storefront.js'
+    filename: 'storefront.js',
+    chunkFilename: 'storefront.[name].js'
   },
 
   plugins: [
