@@ -31,7 +31,9 @@ setTimeout(() => {
   }
 }, 200)
 
-switch (window.location.pathname) {
+const { hash, pathname } = window.location
+
+switch (pathname) {
   case '/app/':
     import(/* webpackChunkName: "app" */ './app')
     break
@@ -39,4 +41,13 @@ switch (window.location.pathname) {
   case '/admin/cms/':
     import(/* webpackChunkName: "cms" */ './cms')
     break
+}
+
+if (hash.indexOf('=') !== -1) {
+  const $netlifyIdentityScript = document.createElement('script')
+  $netlifyIdentityScript.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js'
+  if (hash.indexOf('token=') === -1) {
+    $netlifyIdentityScript.async = $netlifyIdentityScript.defer = true
+  }
+  document.body.appendChild($netlifyIdentityScript)
 }
