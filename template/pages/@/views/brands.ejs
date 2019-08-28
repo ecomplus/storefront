@@ -14,6 +14,10 @@ const search = new _.EcomSearch()
 search.setBrandIds([body._id])
 %>
 
+<% if (pageBrands.pitbar) { %>
+  <%- await include('components/pitbar', { _ }) %>
+<% } %>
+
 <div class="container py-1 py-sm-2 py-lg-4">
   <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
 
@@ -56,9 +60,9 @@ search.setBrandIds([body._id])
     <% } %>
 
     <% if (pageBrands.additional_content) { %>
-      <div class="p-3">
+      <section class="md-content">
         <%- _.md.render(pageBrands.additional_content) %>
-      </div>
+      </section>
     <% } %>
   </div>
 </div>

@@ -21,6 +21,10 @@ const search = new _.EcomSearch()
 search.setCategoryIds([body._id])
 %>
 
+<% if (pageCategories.pitbar) { %>
+  <%- await include('components/pitbar', { _ }) %>
+<% } %>
+
 <div class="container py-1 py-sm-2 py-lg-4">
   <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
 
@@ -54,9 +58,9 @@ search.setCategoryIds([body._id])
     <% } %>
 
     <% if (pageCategories.additional_content) { %>
-      <div class="p-3">
+      <section class="md-content">
         <%- _.md.render(pageCategories.additional_content) %>
-      </div>
+      </section>
     <% } %>
   </div>
 </div>

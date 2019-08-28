@@ -2,29 +2,12 @@
 // load home and general info content
 const home = _.cms('home')
 const info = _.cms('info')
-
-// mount pitbar options object
-const pitbar = {
-  cols: []
-}
-if (home.pitbar) {
-  // possible pitbar col names and icons
-  ;[
-    ['shipping', 'shipping-fast'],
-    ['installments', 'credit-card'],
-    ['exchange', 'exchange-alt'],
-    ['promo', 'percent']
-  ].forEach(([prop, icon]) => {
-    if (home.pitbar[prop]) {
-      const { link, text } = info[prop]
-      pitbar.cols.push({ link, text, icon })
-    }
-  })
-}
 %>
 
 <%- await include('components/banner-slider', { _, opt: home.slider }) %>
-<%- await include('components/pitbar', { _, opt: pitbar }) %>
+<% if (home.pitbar) { %>
+  <%- await include('components/pitbar', { _ }) %>
+<% } %>
 
 <div class="container py-1 py-sm-2 py-lg-4">
   <% if (Array.isArray(home.showcase) && home.showcase.length) { %>
@@ -52,8 +35,8 @@ if (home.pitbar) {
   <% } %>
 
   <% if (home.additional_content) { %>
-    <div class="p-3">
+    <section class="md-content">
       <%- _.md.render(home.additional_content) %>
-    </div>
+    </section>
   <% } %>
 </div>

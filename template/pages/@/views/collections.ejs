@@ -17,6 +17,10 @@ if (body.products && body.products.length) {
 }
 %>
 
+<% if (pageCollections.pitbar) { %>
+  <%- await include('components/pitbar', { _ }) %>
+<% } %>
+
 <div class="container py-1 py-sm-2 py-lg-4">
   <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
 
@@ -52,9 +56,9 @@ if (body.products && body.products.length) {
     <% } %>
 
     <% if (pageCollections.additional_content) { %>
-      <div class="p-3">
+      <section class="md-content">
         <%- _.md.render(pageCollections.additional_content) %>
-      </div>
+      </section>
     <% } %>
   </div>
 </div>
