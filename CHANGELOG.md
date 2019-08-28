@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/ecomclub/storefront-template/compare/v0.1.47...v0.2.0) (2019-08-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* **install-script:** start replacing default public/admin/config.yml file
+* **dependencies:** build with framework v5, changed output files
+
+### Bug Fixes
+
+* **install-script:** copying cms config to public/admin by default ([53a76db](https://github.com/ecomclub/storefront-template/commit/53a76db))
+
+
+* **dependencies:** update storefront framework to v5 ([aa265eb](https://github.com/ecomclub/storefront-template/commit/aa265eb))
+
+
+### Features
+
+* **cms:** setup netlify cms scripts ([999f6a2](https://github.com/ecomclub/storefront-template/commit/999f6a2))
+* **netlify-identify:** importing netlify identity widget dynamically ([206ebcb](https://github.com/ecomclub/storefront-template/commit/206ebcb))
+
 ### [0.1.47](https://github.com/ecomclub/storefront-template/compare/v0.1.46...v0.1.47) (2019-08-28)
 
 ### [0.1.46](https://github.com/ecomclub/storefront-template/compare/v0.1.45...v0.1.46) (2019-08-28)
