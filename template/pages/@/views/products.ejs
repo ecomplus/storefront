@@ -137,5 +137,43 @@ breadcrumbs.push({
         <%- _.md.render(pageProducts.additional_content) %>
       </div>
     <% } %>
+
+    <%
+    // prepare data for product JSON-LD output
+    const productJsonLd = {
+      '@context': 'http://schema.org',
+      '@type': 'Product',
+      sku: body.sku,
+      description: body.short_description || body.meta_description || _.ecomUtils.name(body),
+      name: _.ecomUtils.name(body),
+      offers: {
+        '@type': 'Offer',
+        url: `https://${_.settings.domain}/${body.slug}`,
+        availability: `${(_.ecomUtils.inStock(body) ? 'In' : 'OutOf')}Stock`,
+        priceCurrency: _.settings.currency,
+        price: _.ecomUtils.price(body),
+        itemCondition: `http://schema.org/${(body.condition === 'new' ? 'New' : 'Used')}Condition`,
+        seller: {
+          '@type': 'Organization',
+          name: _.settings.name || _.store.name
+        }
+      }
+    }
+    if (body.brands && body.brands[0]) {
+      productJsonLd.brand = {
+        '@type': 'Brand',
+        name: body.brands[0].name
+      }
+    }
+    if (body.pictures && body.pictures.length) {
+      productJsonLd.image = _.ecomUtils.img(body, null, 'zoom').url
+    }
+    if (body.mpn && body.mpn[0]) {
+      productJsonLd.mpn = body.mpn[0]
+    }
+    %>
+    <script type="application/ld+json"><%-
+      JSON.stringify(productJsonLd)
+    %></script>
   </div>
 </div>
