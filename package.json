@@ -46,8 +46,12 @@
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@glidejs/glide": "^3.3.0",
+    "@pake/react-color": "^3.0.0",
     "core-js": "^3.2.1",
+    "create-react-class": "^15.6.3",
     "lozad": "^1.9.0",
+    "netlify-cms-widget-color": "^3.0.1",
+    "react": "^16.9.0",
     "slideout": "^1.0.1",
     "vue": "^2.6.10"
   },
