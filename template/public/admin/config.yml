@@ -193,11 +193,11 @@ collections:
           - {label: "Short Name", name: "short_name", widget: "string"}
           - {label: "Short Description", name: "description", widget: "text"}
           - {label: "Language", name: "lang", widget: "string"}
-          - {label: "Logo", name: "logo", widget: "image", required: false}
+          - {label: "Logo", name: "logo", widget: "image"}
           - {label: "Mini Logo", name: "mini_logo", widget: "image", required: false}
-          - {label: "Primary Color", name: "primary_color", widget: "string"}
-          - {label: "Secondary Color", name: "secondary_color", widget: "string"}
-          - {label: "App Background Color", name: "bg_color", widget: "string"}
+          - {label: "Primary Color", name: "primary_color", widget: "color"}
+          - {label: "Secondary Color", name: "secondary_color", widget: "color"}
+          - {label: "App Background Color", name: "bg_color", widget: "color"}
           - {label: "Icon", name: "icon", widget: "image"}
           - {label: "Large Icon", name: "large_icon", widget: "image"}
           - {label: "Favicon", name: "favicon", widget: "image"}
