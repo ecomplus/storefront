@@ -15,11 +15,11 @@ collections:
   # static content for pages
   # may vary by template
   - name: "pages"
-    label: "Pages"
+    label: "Páginas"
     delete: false
     files:
       - name: "home"
-        label: "Homepage"
+        label: "Página inicial"
         file: "content/home.json"
         fields:
           - {label: "Meta title", name: "meta_title", widget: "string", hint: "Título exibido na aba do navegador e nas respostas em motores de busca, relevante para SEO", required: false}
@@ -37,7 +37,7 @@ collections:
                   - {label: Imagem, name: img, widget: image}
                   - {label: Link, required: false, name: link, widget: string}
                   - {label: Alt, required: false, name: alt, widget: string}
-          - label: "Pitbar"
+          - label: "Barra de informações"
             name: "pitbar"
             hint: "Tarja com informações gerais da loja"
             widget: "object"
@@ -50,7 +50,7 @@ collections:
             label: "Vitrine"
             widget: list
             fields:
-              - {label: Coleção, required: false, name: collection, widget: string, hint: "Entrar com o ID da coleção, que pode ser visto nesta página: https://app.e-com.plus/#/resources/collections"}
+              - {label: Coleção, required: false, name: collection, widget: collections, hint: "Entrar com o ID da coleção, que pode ser visto nesta página: https://app.e-com.plus/#/resources/collections"}
           - {label: "Conteúdo adicional", name: "additional_content", widget: "markdown", hint: Markdown exibido no fim do container da página inicial, required: false}
 
       - name: "products"
@@ -122,7 +122,7 @@ collections:
   # default blog posts collection
   # remove if your template does not support blog
   - name: "blog_posts"
-    label: "Blog posts"
+    label: "Posts para o blog"
     folder: "content/posts"
     extension: "json"
     create: true
@@ -139,7 +139,7 @@ collections:
 
   # Dictionary for store translations
   - name: "dictionary"
-    label: "Dicioário"
+    label: "Dicionário"
     folder: "content/dictionary"
     extension: "json"
     create: true
@@ -161,7 +161,7 @@ collections:
   - name: "extra_pages"
     label: "Extra Pages"
     description: "Páginas extra para conteúdo como Sobre nós, Política de privacidade, etc"
-    folder: "content/extra"
+    folder: "content/pages"
     extension: "json"
     create: true
     slug: "{{slug}}"
@@ -178,14 +178,14 @@ collections:
   # general site settings
   # usually will be the same for any template
   - name: "settings"
-    label: "Settings"
+    label: "Configurações"
     description: "General settings to modify the site identity and metadata"
     delete: false
     editor:
       preview: false
     files:
       - name: "general"
-        label: "Site Settings"
+        label: "Configurações gerais"
         file: "content/settings.json"
         fields:
           - {label: "Name", name: "name", widget: "string"}
@@ -193,11 +193,11 @@ collections:
           - {label: "Short Name", name: "short_name", widget: "string"}
           - {label: "Short Description", name: "description", widget: "text"}
           - {label: "Language", name: "lang", widget: "string"}
-          - {label: "Logo", name: "logo", widget: "image"}
+          - {label: "Logo", name: "logo", widget: "image", required: false}
           - {label: "Mini Logo", name: "mini_logo", widget: "image", required: false}
-          - {label: "Primary Color", name: "primary_color", widget: "color"}
-          - {label: "Secondary Color", name: "secondary_color", widget: "color"}
-          - {label: "App Background Color", name: "bg_color", widget: "color"}
+          - {label: "Primary Color", name: "primary_color", widget: "string"}
+          - {label: "Secondary Color", name: "secondary_color", widget: "string"}
+          - {label: "App Background Color", name: "bg_color", widget: "string"}
           - {label: "Icon", name: "icon", widget: "image"}
           - {label: "Large Icon", name: "large_icon", widget: "image"}
           - {label: "Favicon", name: "favicon", widget: "image"}
@@ -263,7 +263,7 @@ collections:
   # usually will be applied all pages
   - name: "layout"
     label: "Layout"
-    description: "Layout applied to all pages"
+    description: "Layout aplicado a todas páginas"
     delete: false
     editor:
       preview: false
