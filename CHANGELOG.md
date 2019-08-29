@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/ecomclub/storefront-template/compare/v0.1.47...v0.2.0) (2019-08-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* **install-script:** start replacing default public/admin/config.yml file
+* **dependencies:** build with framework v5, changed output files
+
+### Bug Fixes
+
+* **install-script:** copying cms config to public/admin by default ([53a76db](https://github.com/ecomclub/storefront-template/commit/53a76db))
+
+
+* **dependencies:** update storefront framework to v5 ([aa265eb](https://github.com/ecomclub/storefront-template/commit/aa265eb))
+
+
+### Features
+
+* **cms:** setup netlify cms scripts ([999f6a2](https://github.com/ecomclub/storefront-template/commit/999f6a2))
+* **netlify-identify:** importing netlify identity widget dynamically ([206ebcb](https://github.com/ecomclub/storefront-template/commit/206ebcb))
+
+### [0.1.47](https://github.com/ecomclub/storefront-template/compare/v0.1.46...v0.1.47) (2019-08-28)
+
+### [0.1.46](https://github.com/ecomclub/storefront-template/compare/v0.1.45...v0.1.46) (2019-08-28)
+
+### [0.1.45](https://github.com/ecomclub/storefront-template/compare/v0.1.44...v0.1.45) (2019-08-28)
+
+### [0.1.44](https://github.com/ecomclub/storefront-template/compare/v0.1.43...v0.1.44) (2019-08-28)
+
+
+### Bug Fixes
+
+* **views:** handling extra pages links correctly ([ec2974e](https://github.com/ecomclub/storefront-template/commit/ec2974e))
+
+
+### Features
+
+* **views:** setup views for app, cms and extra pages ([3a98a39](https://github.com/ecomclub/storefront-template/commit/3a98a39))
+* **views:** simple blog rendering, setup error pages views ([09220a6](https://github.com/ecomclub/storefront-template/commit/09220a6))
+
 ### [0.1.43](https://github.com/ecomclub/storefront-template/compare/v0.1.42...v0.1.43) (2019-08-28)
 
 ### [0.1.42](https://github.com/ecomclub/storefront-template/compare/v0.1.41...v0.1.42) (2019-08-28)

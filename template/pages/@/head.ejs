@@ -10,8 +10,8 @@ switch (_.route.path) {
 }
 if (!page) {
   // try resource body or folder collection content
-  const { body, collection } = await _.resolveRoute()
-  page = body || collection || {}
+  const { body, content } = await _.resolveRoute()
+  page = body || content || {}
 }
 
 // page title and description
@@ -51,9 +51,8 @@ if (url) {
   <link rel="canonical" href="<%= url %>">
 <% } %>
 
-<link rel="preload" href="/styles.css" as="style">
+<link rel="preload" href="/storefront.css" as="style">
 <link rel="preload" href="/storefront.js" as="script">
-<link rel="stylesheet" type="text/css" href="/styles.css">
 
 <link rel="apple-touch-icon" href="<%= _.settings.icon %>">
 <meta name="apple-mobile-web-app-capable" content="yes">

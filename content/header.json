@@ -7,12 +7,12 @@
   "contacts_stripe": {
     "pages": [
       {
-        "title": "About us",
-        "link": "about-us"
+        "title": "Sobre nós",
+        "link": "/pages/sobre-nos"
       },
       {
-        "title": "This store is a PWA",
-        "link": "progressive-web-app"
+        "title": "Esta loja é um PWA",
+        "link": "/posts/esta-loja-e-um-pwa"
       }
     ],
     "phone_wpp": true,
