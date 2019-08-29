@@ -42,7 +42,6 @@ if (url) {
 <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials">
 <meta name="theme-color" content="<%= _.primaryColor %>">
 <link rel="icon" href="<%= _.settings.favicon %>">
-
 <title><%= title %></title>
 <meta name="description" content="<%= description %>">
 <meta name="author" content="<%= _.settings.name %>">
@@ -76,3 +75,5 @@ if (url) {
     <meta name="twitter:site" content="<%= social.twitter_username %>">
   <% } %>
 <% } %>
+
+<meta name="ecom-store-id" content="<%= _.storeId %>">
