@@ -51,6 +51,7 @@
     "create-react-class": "^15.6.3",
     "lozad": "^1.9.0",
     "netlify-cms-widget-color": "^3.0.1",
+    "netlify-cms-widget-ecomplus-collections": "0.0.4",
     "react": "^16.9.0",
     "slideout": "^1.0.1",
     "vue": "^2.6.10"
