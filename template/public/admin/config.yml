@@ -134,25 +134,6 @@ collections:
       - {label: "Meta title", name: "meta_title", widget: "string", hint: "Título da página exibido na aba do navegador e nas respostas em motores de busca, relevante para SEO", required: false}
       - {label: "Meta description", name: "meta_description", widget: "string", hint: "Ddescrição da página exibida nos resultados de motores de busca, relevante para SEO", required: false}
 
-  # Dictionary for store translations
-  - name: "dictionary"
-    label: "Dicionário"
-    folder: "content/dictionary"
-    extension: "json"
-    create: true
-    slug: "{{title}}"
-    fields:
-      - label: "Idioma"
-        name: "title"
-        widget: "string"
-        pattern: ['^[a-z]{2}(_[a-z]{2})?$', "Must have at least 20 characters"]
-        hint: "Código do idioma com duas letras, as vezes com duas também da região ex: pt_br, fr, en_us"
-      - {label: "Buscar produtos", name: "search_products", widget: "string"}
-      - {label: "Abrir carrinho", name: "open_cart", widget: "string"}
-      - {label: "Minha conta", name: "my_account", widget: "string"}
-      - {label: "Produtos populares", name: "popular_products", widget: "string"}
-      - {label: "Ver todas categorias", name: "see_all_category", widget: "string"}
-
   # default extra pages collection
   # eg.: "about us", "contact" and "privacy"
   - name: "extra_pages"
@@ -193,12 +174,24 @@ collections:
           - {label: "Language", name: "lang", widget: "string"}
           - {label: "Logo", name: "logo", widget: "image", required: false}
           - {label: "Mini Logo", name: "mini_logo", widget: "image", required: false}
-          - {label: "Primary Color", name: "primary_color", widget: "string"}
-          - {label: "Secondary Color", name: "secondary_color", widget: "string"}
-          - {label: "App Background Color", name: "bg_color", widget: "string"}
+          - {label: "Primary Color", name: "primary_color", widget: "color"}
+          - {label: "Secondary Color", name: "secondary_color", widget: "color"}
+          - {label: "App Background Color", name: "bg_color", widget: "color"}
           - {label: "Icon", name: "icon", widget: "image"}
           - {label: "Large Icon", name: "large_icon", widget: "image"}
           - {label: "Favicon", name: "favicon", widget: "image"}
+
+      # Dictionary for store translations
+      - name: "dictionary"
+        label: "Dicionário"
+        delete: false
+        file: "content/dictionary/pt_br.json"
+        fields:
+          - {label: "Buscar produtos", name: "search_products", widget: "string"}
+          - {label: "Abrir carrinho", name: "open_cart", widget: "string"}
+          - {label: "Minha conta", name: "my_account", widget: "string"}
+          - {label: "Produtos populares", name: "popular_products", widget: "string"}
+          - {label: "Ver todas categorias", name: "see_all_category", widget: "string"}
 
       - name: "social"
         file: "content/social.json"
