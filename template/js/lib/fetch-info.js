@@ -5,8 +5,8 @@ window._info = {}
 const fetchInfoPromises = []
 
 ;[
-  'calculate_shipping',
-  'list_payments'
+  'list_payments',
+  'calculate_shipping'
 ].forEach(endpoint => {
   const modInfo = {}
   window._info[endpoint] = modInfo
