@@ -9,6 +9,7 @@ import emitter from './lib/emitter'
 import Vue from 'vue'
 import $ from './pages/lib/$'
 import $overlay from './pages/lib/$overlay'
+import './lib/fetch-info'
 
 window.Vue = Vue
 window.$ = $
