@@ -15,3 +15,7 @@
 .link {
   color: $primary;
 }
+
+.custom-color {
+  color: map-get($settings-theme, 'custom-color');
+}
