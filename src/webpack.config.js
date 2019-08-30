@@ -3,6 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const paths = require('./lib/paths')
+const jsonSassVars = require('json-sass-vars')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
@@ -117,7 +118,9 @@ const config = {
             loader: 'sass-loader',
             options: {
               // inject brand colors
-              data: `$primary: ${primaryColor}; $secondary: ${secondaryColor}; `,
+              data: `$primary: ${primaryColor}; ` +
+                `$secondary: ${secondaryColor}; ` +
+                `$settings-theme: ${jsonSassVars.convertJs(settings.theme || {})}; `,
               // include path to import from node modules
               includePaths: [paths.modules]
             }
