@@ -140,7 +140,7 @@ collections:
     folder: "content/dictionary"
     extension: "json"
     create: true
-    slug: "{{name}}"
+    slug: "{{title}}"
     fields:
       - label: "Idioma"
         name: "title"
