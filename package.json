@@ -39,6 +39,7 @@
   },
   "homepage": "https://github.com/ecomclub/storefront-template#readme",
   "dependencies": {
+    "@ecomplus/client": "^1.1.2",
     "@ecomplus/storefront-twbs": "^3.4.0",
     "@ecomplus/utils": "^1.0.1",
     "@ecomplus/widget-user": "^0.6.9",
@@ -49,6 +50,7 @@
     "@pake/react-color": "^3.0.0",
     "core-js": "^3.2.1",
     "create-react-class": "^15.6.3",
+    "eventemitter3": "^4.0.0",
     "lozad": "^1.9.0",
     "netlify-cms-widget-color": "^3.0.1",
     "react": "^16.9.0",
@@ -58,7 +60,6 @@
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "@ecomplus/client": "^1.1.2",
     "@ecomplus/search-engine": "^1.0.2",
     "@ecomplus/storefront-framework": "^5.0.1",
     "babel-eslint": "^10.0.3",
