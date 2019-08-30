@@ -37,15 +37,7 @@ collections:
                   - {label: Imagem, name: img, widget: image}
                   - {label: Link, required: false, name: link, widget: string}
                   - {label: Alt, required: false, name: alt, widget: string}
-          - label: "Barra de informações"
-            name: "pitbar"
-            hint: "Tarja com informações gerais da loja"
-            widget: "object"
-            fields:
-              - {label: "Exibir informação de frete", name: "shipping", widget: "boolean", default: true, required: false}
-              - {label: "Exibir informação de parcelamento", name: "installments", widget: "boolean", default: true, required: false}
-              - {label: "Exibir informação de trocas", name: "exchange", widget: "boolean", default: true, required: false}
-              - {label: "Exibir informação de promoção", name: "promo", widget: "boolean", default: true, required: false}
+          - {label: "Exibir barra de informações", name: "pitbar", widget: "boolean", default: true, required: false}
           - name: "showcase"
             label: "Vitrine"
             widget: list
@@ -58,6 +50,7 @@ collections:
         hint: "Configuração geral das páginas de produto"
         file: "content/products.json"
         fields:
+          - {label: "Exibir barra de informações", name: "pitbar", widget: "boolean", default: false, required: false}
           - label: Quem comrpou x também comprou y
             name: recommended
             widget: object
@@ -87,6 +80,7 @@ collections:
         hint: "Configuração geral das páginas de busca"
         file: "content/search.json"
         fields:
+          - {label: "Exibir barra de informações", name: "pitbar", widget: "boolean", default: false, required: false}
           - {label: "Conteúdo adicional", name: "additional_content", widget: "markdown", hint: Markdown exibido no fim do container da página de busca, required: false}
 
       - name: "collections"
@@ -94,6 +88,7 @@ collections:
         hint: "Configuração geral das páginas de coleções"
         file: "content/collections.json"
         fields:
+          - {label: "Exibir barra de informações", name: "pitbar", widget: "boolean", default: false, required: false}
           - {label: "Conteúdo adicional", name: "additional_content", widget: "markdown", hint: Markdown exibido no fim do container da página das coleções, required: false}
 
       - name: "categories"
@@ -101,6 +96,7 @@ collections:
         hint: "Configuração geral das páginas de categorias"
         file: "content/categories.json"
         fields:
+          - {label: "Exibir barra de informações", name: "pitbar", widget: "boolean", default: false, required: false}
           - {label: "Conteúdo adicional", name: "additional_content", widget: "markdown", hint: Markdown exibido no fim do container das páginas de categoria, required: false}
 
       - name: "brands"
@@ -108,6 +104,7 @@ collections:
         hint: "Configuração geral das páginas de marca"
         file: "content/brands.json"
         fields:
+          - {label: "Exibir barra de informações", name: "pitbar", widget: "boolean", default: false, required: false}
           - {label: "Conteúdo adicional", name: "additional_content", widget: "markdown", hint: Markdown exibido no fim do container das páginas das marcas, required: false}
 
       - name: "blog"
@@ -128,7 +125,7 @@ collections:
     create: true
     slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     fields:
-      - {label: "Título", name: "name", widget: "string"}
+      - {label: "Título", name: "title", widget: "string"}
       - {label: "Data de publicação", name: "date", widget: "datetime", required: false}
       - {label: "Imagem em destaque", name: "thumbnail", widget: "image", required: false, hint: "Sugerimos 900px como largura máxima"}
       - {label: "Alt da imagem", name: "alt", widget: "string", required: false, hint: "Alt tag da imagem"}
@@ -166,13 +163,14 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Título", name: "name", widget: "string"}
+      - {label: "Título", name: "title", widget: "string"}
       - {label: "Data de publicação", name: "date", widget: "datetime", required: false}
       - {label: "Imagem em destaque", name: "thumbnail", widget: "image", required: false, hint: "Sugerimos 900px como largura máxima"}
       - {label: "Alt da imagem", name: "alt", widget: "string", required: false, hint: "Alt tag da imagem"}
       - {label: "Descrição curta", name: "description", widget: "text", required: false}
       - {label: "Meta title", name: "meta_title", widget: "string", hint: "Título da página exibido na aba do navegador e nas respostas em motores de busca, relevante para SEO", required: false}
       - {label: "Meta description", name: "meta_description", widget: "string", hint: "Ddescrição da página exibida nos resultados de motores de busca, relevante para SEO", required: false}
+      - {label: "Exibir barra de informações", name: "pitbar", widget: "boolean", default: false, required: false}
       - {label: "Corpo", name: "body", widget: "markdown", required: false}
 
   # general site settings
@@ -234,30 +232,41 @@ collections:
         hint: "Informações gerais da loja, exibidas em várias páginas"
         widget: object
         fields:
+          - label: "Preço em destaque"
+            name: "main_price"
+            widget: "select"
+            options:
+              - { label: "Total", value: "total" }
+              - { label: "Com desconto", value: "discount" }
+              - { label: "Parcelado", value: "installments" }
           - label: "Frete"
             name: "shipping"
             widget: object
             fields:
               - {label: Texto, required: false, name: text, widget: string}
               - {label: Link, required: false, name: link, widget: string}
+              - {label: "Exibir na barra de informações", name: "show", widget: "boolean", default: true, required: false}
           - label: "Parcelamento"
             name: "installments"
             widget: object
             fields:
               - {label: Texto, required: false, name: text, widget: string}
               - {label: Link, required: false, name: link, widget: string}
+              - {label: "Exibir na barra de informações", name: "show", widget: "boolean", default: true, required: false}
           - label: "Trocas"
             name: "exchange"
             widget: object
             fields:
               - {label: Texto, required: false, name: text, widget: string}
               - {label: Link, required: false, name: link, widget: string}
+              - {label: "Exibir na barra de informações", name: "show", widget: "boolean", default: true, required: false}
           - label: "Promoção"
             name: "promo"
             widget: object
             fields:
               - {label: Texto, required: false, name: text, widget: string}
               - {label: Link, required: false, name: link, widget: string}
+              - {label: "Exibir na barra de informações", name: "show", widget: "boolean", default: true, required: false}
 
   # Site Layout
   # usually will be applied all pages
