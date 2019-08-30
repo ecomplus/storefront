@@ -9,5 +9,8 @@
   "logo": "/img/uploads/logo.png",
   "icon": "/img/icon.png",
   "large_icon": "/img/large-icon.png",
-  "favicon": "/img/uploads/favicon.png"
+  "favicon": "/img/uploads/favicon.png",
+  "theme": {
+    "custom-color": "#c5c5c5"
+  }
 }
