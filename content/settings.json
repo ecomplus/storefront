@@ -7,7 +7,7 @@
   "primary_color": "#e83e8c",
   "secondary_color": "#333333",
   "bg_color": "#ffffff",
-  "bootswatch_theme": "minty",
+  "bootswatch_theme": "",
   "logo": "/img/uploads/logo.png",
   "mini_logo": "",
   "icon": "/img/icon.png",
