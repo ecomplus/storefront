@@ -3,6 +3,7 @@
 /copy
 /template/**/storefront-template
 /template/public/admin/cms/
+/template/scss/styles.scss
 
 # Logs
 logs
