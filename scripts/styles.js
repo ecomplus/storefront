@@ -12,7 +12,7 @@ ejs.renderFile(templateFile, settings, {}, (err, scss) => {
   if (err) {
     console.error(err)
   } else {
-    const filename = path.resolve(__dirname, '../template/scss/styles.scss')
+    const filename = path.resolve(process.env.INIT_CWD, '../template/scss/styles.scss')
     fs.writeFileSync(filename, scss, 'utf8')
     console.log(`[SCSS] ${filename}`)
   }
