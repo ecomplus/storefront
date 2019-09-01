@@ -1,13 +1,13 @@
 @import "variables";
 <%-
-bootswatch_theme && bootswatch_theme !== '-'
-  ? `@import "bootswatch/dist/${bootswatch_theme}/variables";`
+bootswatch && bootswatch.length > 1
+  ? `@import "bootswatch/dist/${bootswatch}/variables";`
   : ''
 %>
 @import "@ecomplus/storefront-twbs/scss/styles";
 <%-
-bootswatch_theme && bootswatch_theme !== '-'
-  ? `@import "bootswatch/dist/${bootswatch_theme}/bootswatch";`
+bootswatch && bootswatch.length > 1
+  ? `@import "bootswatch/dist/${bootswatch}/bootswatch";`
   : ''
 %>
 @import "main";
