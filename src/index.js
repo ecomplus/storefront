@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import '@ecomplus/storefront-twbs'
-import App from './App.vue'
+import EcUser from './EcProduct.vue'
 
 export default options => {
   new Vue({
-    render: h => h(App)
-  }).$mount('#el')
+    render: h => h(EcUser)
+  }).$mount('#product-block')
 }
