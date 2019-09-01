@@ -1,5 +1,21 @@
 <template>
   <div class="ec-product">
+    <div class="row" v-if="body._id">
+      <div class="col-12 col-md-6 mb-4 mb-md-0">
+        <ec-gallery
+          :sliderOptions="{ rewind: true }"
+          :images="body.pictures"
+        />
+      </div>
+      <div class="col">
+        <h1 class="ec-product__name">
+          {{ body.name }}
+        </h1>
+      </div>
+    </div>
+    <template v-else>
+      <slot />
+    </template>
   </div>
 </template>
 

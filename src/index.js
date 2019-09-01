@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import '@ecomplus/storefront-twbs'
-import EcUser from './EcProduct.vue'
+import EcProduct from './EcProduct.vue'
 
 export default options => {
+  const $productBlock = document.getElementById('product-block')
   new Vue({
-    render: h => h(EcUser)
-  }).$mount('#product-block')
+    components: {
+      EcProduct
+    },
+    template: `
+    <ec-product>${$productBlock.outerHTML}</ec-product>`
+  }).$mount($productBlock)
 }
