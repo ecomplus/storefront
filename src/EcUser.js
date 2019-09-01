@@ -4,7 +4,7 @@ import EcomPassport from '@ecomplus/passport-client'
 import { SlideYUpTransition } from 'vue2-transitions'
 
 export default {
-  name: 'StUser',
+  name: 'EcUser',
 
   components: {
     SlideYUpTransition
