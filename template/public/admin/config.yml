@@ -227,6 +227,7 @@ collections:
         fields:
           - label: "Preço em destaque"
             name: "main_price"
+            hint: "Preço que terá destaque ao exibir o produto"
             widget: "select"
             options:
               - { label: "Total", value: "total" }

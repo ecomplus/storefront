@@ -1,18 +1,21 @@
 {
   "name": "@ecomplus/storefront-template",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "template/js/index.js",
   "jsdelivr": "dist/storefront.js",
   "unpkg": "dist/storefront.js",
   "bin": {
     "storefront-template": "./scripts/install.js",
-    "storefront-template-copy": "./scripts/copy.js"
+    "storefront-template-copy": "./scripts/copy.js",
+    "storefront-template-styles": "./scripts/styles.js"
   },
   "scripts": {
-    "serve": "storefront-pack serve",
-    "build": "ECOMCLIENT_NOTIMEOUT=true WEBPACK_BUILD_DEV=true storefront-pack build",
-    "build:site": "ECOMCLIENT_NOTIMEOUT=true storefront-pack build",
+    "styles": "node ./scripts/styles.js",
+    "pack": "npm run styles && storefront-pack",
+    "serve": "npm run pack serve",
+    "build": "ECOMCLIENT_NOTIMEOUT=true WEBPACK_BUILD_DEV=true npm run pack build",
+    "build:site": "ECOMCLIENT_NOTIMEOUT=true npm run pack build",
     "build:lib": "NODE_ENV=production webpack",
     "release": "npm run build && standard-version",
     "test:install": "rm -rf ./copy && mkdir ./copy && TEMPLATE_DIR=copy node ./scripts/install.js",
@@ -39,6 +42,7 @@
   },
   "homepage": "https://github.com/ecomclub/storefront-template#readme",
   "dependencies": {
+    "@ecomplus/client": "^1.1.2",
     "@ecomplus/storefront-twbs": "^3.4.0",
     "@ecomplus/utils": "^1.0.1",
     "@ecomplus/widget-user": "^0.6.9",
@@ -46,23 +50,20 @@
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@glidejs/glide": "^3.3.0",
-    "@pake/react-color": "^3.0.0",
+    "bootswatch": "^4.3.1",
     "core-js": "^3.2.1",
-    "create-react-class": "^15.6.3",
+    "eventemitter3": "^4.0.0",
     "lozad": "^1.9.0",
-    "netlify-cms-widget-color": "^3.0.1",
-    "netlify-cms-widget-ecomplus-collections": "0.0.4",
-    "react": "^16.9.0",
     "slideout": "^1.0.1",
     "vue": "^2.6.10"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "@ecomplus/client": "^1.1.2",
     "@ecomplus/search-engine": "^1.0.2",
-    "@ecomplus/storefront-framework": "^5.0.1",
+    "@ecomplus/storefront-framework": "^5.1.0",
     "babel-eslint": "^10.0.3",
+    "ejs": "^2.6.2",
     "husky": "^3.0.4",
     "standard": "^13.1.0",
     "standard-version": "^7.0.0"
