@@ -75,6 +75,11 @@ const config = {
     ]
   },
 
+  resolve: {
+    alias: {
+      vue$: 'vue/dist/vue.esm.js'
+    }
+  },
   externals: devMode
     // external ecomUtils on dev server to get config correctly
     ? {
@@ -91,7 +96,7 @@ const config = {
 if (devMode) {
   // inject widget script with HTML plugin
   config.plugins.push(new HtmlWebpackPlugin({
-    template: path.resolve(templatePath, 'index.html')
+    template: path.resolve(templatePath, 'monitor-gamer-asus-rog-swift-led-24-widescreen-fhd-pg248q.html')
   }))
 }
 
