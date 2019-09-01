@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.10](https://github.com/ecomclub/widget-user/compare/v0.6.9...v0.6.10) (2019-09-01)
+
+
+### Bug Fixes
+
+* **component:** update exported component name ([76efa1c](https://github.com/ecomclub/widget-user/commit/76efa1c))
+
 ### [0.6.9](https://github.com/ecomclub/widget-user/compare/v0.6.8...v0.6.9) (2019-08-27)
 
 
