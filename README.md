@@ -1,2 +1,2 @@
-# storefront-widget-boilerplate
-Webpack + Babel + Vue boilerplate for widgets
+# widget-product
+Storefront plugin & Vue component for full product block
