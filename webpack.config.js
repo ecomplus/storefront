@@ -8,10 +8,11 @@ const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront
 
 // preset default output object
 const output = {
-  library: '__widget_example_name',
+  library: 'widgetProduct',
   libraryTarget: 'umd',
+  libraryExport: 'default',
   path: path.resolve(__dirname, 'dist'),
-  filename: 'widget-example-name.min.js'
+  filename: 'widget-product.min.js'
 }
 
 // base Webpack config
@@ -73,7 +74,7 @@ const config = {
       }
     ]
   },
-  
+
   externals: devMode
     // external ecomUtils on dev server to get config correctly
     ? {
