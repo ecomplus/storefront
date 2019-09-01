@@ -177,6 +177,31 @@ collections:
           - {label: "Primary Color", name: "primary_color", widget: "color"}
           - {label: "Secondary Color", name: "secondary_color", widget: "color"}
           - {label: "App Background Color", name: "bg_color", widget: "color"}
+          - label: "Tema"
+            name: "bootswatch_theme"
+            widget: "select"
+            options:
+              - { label: "cerulean", value: "cerulean" }
+              - { label: "cosmo", value: "cosmo" }
+              - { label: "cyborg", value: "cyborg" }
+              - { label: "darkly", value: "darkly" }
+              - { label: "flatly", value: "flatly" }
+              - { label: "journal", value: "journal" }
+              - { label: "litera", value: "litera" }
+              - { label: "lumen", value: "lumen" }
+              - { label: "lux", value: "lux" }
+              - { label: "materia", value: "materia" }
+              - { label: "minty", value: "minty" }
+              - { label: "pulse", value: "pulse" }
+              - { label: "sandstone", value: "sandstone" }
+              - { label: "simplex", value: "simplex" }
+              - { label: "sketchy", value: "sketchy" }
+              - { label: "slate", value: "slate" }
+              - { label: "solar", value: "solar" }
+              - { label: "spacelab", value: "spacelab" }
+              - { label: "superhero", value: "superhero" }
+              - { label: "united", value: "united" }
+              - { label: "yeti", value: "yeti" }
           - {label: "Icon", name: "icon", widget: "image"}
           - {label: "Large Icon", name: "large_icon", widget: "image"}
           - {label: "Favicon", name: "favicon", widget: "image"}
