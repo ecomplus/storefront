@@ -1,7 +1,7 @@
 import emitter from './emitter'
 import { modules } from '@ecomplus/client'
 
-window._info = {}
+window._info = window._info || {}
 const fetchInfoPromises = []
 
 ;[
