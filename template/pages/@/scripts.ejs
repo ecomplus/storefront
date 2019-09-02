@@ -46,6 +46,7 @@ let echoData = {
 
 <script><%-
   `window._settings=${JSON.stringify(_.settings)};` +
+  `window._info=${JSON.stringify(_.cms('info'))};` +
   `window._widgets=${JSON.stringify(_.cms('widgets'))};` +
   `window._context=${JSON.stringify(echoContext)};` +
   `window._data=${JSON.stringify(echoData)};`

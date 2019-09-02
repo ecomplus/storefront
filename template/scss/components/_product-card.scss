@@ -44,6 +44,11 @@
       color: transparent;
     }
   }
+
+  &__info .spinner-border {
+    color: var(--gray);
+    opacity: .85;
+  }
 }
 
 .col > .product-card {

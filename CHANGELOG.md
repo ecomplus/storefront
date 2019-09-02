@@ -2,6 +2,64 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.4](https://github.com/ecomclub/storefront-template/compare/v0.3.3...v0.3.4) (2019-09-01)
+
+### [0.3.3](https://github.com/ecomclub/storefront-template/compare/v0.3.2...v0.3.3) (2019-09-01)
+
+
+### Bug Fixes
+
+* **script:** remove async from script tag, must be sync to export ([40a4de4](https://github.com/ecomclub/storefront-template/commit/40a4de4))
+
+### [0.3.2](https://github.com/ecomclub/storefront-template/compare/v0.3.1...v0.3.2) (2019-09-01)
+
+
+### Bug Fixes
+
+* **info:** keep window._info if set ([3a3829b](https://github.com/ecomclub/storefront-template/commit/3a3829b))
+
+
+### Features
+
+* **info:** set info from cms on window object ([9c3251b](https://github.com/ecomclub/storefront-template/commit/9c3251b))
+
+### [0.3.1](https://github.com/ecomclub/storefront-template/compare/v0.3.0...v0.3.1) (2019-09-01)
+
+
+### Bug Fixes
+
+* **menu:** using dark color on menu items for contrast ([f857b49](https://github.com/ecomclub/storefront-template/commit/f857b49))
+* **styles-script:** get theme correctly, use INIT_CWD to get settings ([b4a32e0](https://github.com/ecomclub/storefront-template/commit/b4a32e0))
+
+## [0.3.0](https://github.com/ecomclub/storefront-template/compare/v0.2.1...v0.3.0) (2019-08-31)
+
+
+### Bug Fixes
+
+* **styles-script:** fix output dir ([1780587](https://github.com/ecomclub/storefront-template/commit/1780587))
+* **styles-script:** fix output dir (template/scss) ([a017882](https://github.com/ecomclub/storefront-template/commit/a017882))
+
+
+### Features
+
+* **dynamic-styles:** generate styles.scss to work with themes ([6cf0330](https://github.com/ecomclub/storefront-template/commit/6cf0330))
+
+### [0.2.1](https://github.com/ecomclub/storefront-template/compare/v0.2.0...v0.2.1) (2019-08-30)
+
+
+### Bug Fixes
+
+* **cms:** importing cms core and widgets properly from cdn ([dcc06fd](https://github.com/ecomclub/storefront-template/commit/dcc06fd))
+* **scss:** set images max-width on md and html contents ([737eaad](https://github.com/ecomclub/storefront-template/commit/737eaad))
+
+
+### Features
+
+* **cms:** importing custom netlify cms build (pt-br) ([afbec7f](https://github.com/ecomclub/storefront-template/commit/afbec7f))
+* **cms:** using color netlify cms color widget ([99ea5e4](https://github.com/ecomclub/storefront-template/commit/99ea5e4))
+* **modules-info:** fetch payment and shipping info and emit events ([acd63e3](https://github.com/ecomclub/storefront-template/commit/acd63e3))
+* **wemitter:** setup global storefront object and handle events ([1efc2db](https://github.com/ecomclub/storefront-template/commit/1efc2db))
+
 ## [0.2.0](https://github.com/ecomclub/storefront-template/compare/v0.1.47...v0.2.0) (2019-08-28)
 
 
