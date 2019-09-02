@@ -2,7 +2,7 @@
   "domain": "storefront-demo.e-com.plus",
   "primary_color": "#1a1a1a",
   "theme": {
-    "bootswatch_theme": "lux"
+    "bootswatch": "lux"
   },
   "bg_color": "#ffffff",
   "logo": "/img/uploads/logo.png",

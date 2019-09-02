@@ -182,7 +182,7 @@ collections:
             widget: "object"
             fields:
               - label: "Estilo"
-                name: "bootswatch_theme"
+                name: "bootswatch"
                 widget: "select"
                 options:
                   - { label: "Padrão", value: "_" }
