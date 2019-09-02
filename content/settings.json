@@ -2,7 +2,7 @@
   "domain": "storefront-demo.e-com.plus",
   "primary_color": "#e83e8c",
   "theme": {
-    "bootswatch": "spacelab"
+    "bootswatch": "solar"
   },
   "bg_color": "#ffffff",
   "logo": "/img/uploads/logo.png",
