@@ -1,6 +1,6 @@
 {
   "domain": "storefront-demo.e-com.plus",
-  "primary_color": "#e83e8c",
+  "primary_color": "#b58900",
   "theme": {
     "bootswatch": "solar"
   },
@@ -11,7 +11,7 @@
   "lang": "pt_br",
   "mini_logo": "",
   "favicon": "/img/uploads/favicon.png",
-  "secondary_color": "#333333",
+  "secondary_color": "#839496",
   "icon": "/img/icon.png",
   "description": "My PWA Shop",
   "large_icon": "/img/large-icon.png"
