@@ -206,7 +206,7 @@ collections:
                   - { label: "Spacelab", value: "spacelab" }
                   - { label: "Superhero", value: "superhero" }
                   - { label: "United", value: "united" }
-                  - { label: "Yeti", value: "yeti" }              
+                  - { label: "Yeti", value: "yeti" }
           - {label: "Icon", name: "icon", widget: "image"}
           - {label: "Large Icon", name: "large_icon", widget: "image"}
           - {label: "Favicon", name: "favicon", widget: "image"}
