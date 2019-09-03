@@ -6,9 +6,9 @@
   "jsdelivr": "dist/storefront.js",
   "unpkg": "dist/storefront.js",
   "bin": {
-    "storefront-template": "./scripts/install.js",
-    "storefront-template-copy": "./scripts/copy.js",
-    "storefront-template-styles": "./scripts/styles.js"
+    "storefront-tmpl": "./scripts/install.js",
+    "storefront-tmpl-copy": "./scripts/copy.js",
+    "storefront-tmpl-styles": "./scripts/styles.js"
   },
   "scripts": {
     "styles": "node ./scripts/styles.js",
