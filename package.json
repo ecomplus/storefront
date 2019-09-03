@@ -45,7 +45,7 @@
     "@ecomplus/client": "^1.1.2",
     "@ecomplus/storefront-twbs": "^3.4.0",
     "@ecomplus/utils": "^1.0.1",
-    "@ecomplus/widget-user": "^0.6.10",
+    "@ecomplus/widget-user": "^0.6.11",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
@@ -63,7 +63,7 @@
     "@ecomplus/search-engine": "^1.0.2",
     "@ecomplus/storefront-framework": "^5.1.1",
     "babel-eslint": "^10.0.3",
-    "ejs": "^2.6.2",
+    "ejs": "^2.7.1",
     "husky": "^3.0.5",
     "standard": "^13.1.0",
     "standard-version": "^7.0.0"
