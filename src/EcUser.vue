@@ -1,5 +1,5 @@
 <template>
-  <div class="ec-user">
+  <div class="ec-user" id="user-button">
     <slot name="button">
       <button
         type="button"
