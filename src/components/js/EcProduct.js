@@ -1,7 +1,8 @@
-import { _config } from '@ecomplus/utils'
+import { _config, inStock, onPromotion, formatMoney } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
 import EcGallery from './../EcGallery.vue'
 import dictionary from './../../lib/dictionary'
+import { FadeTransition } from 'vue2-transitions'
 
 const { _context } = window
 
@@ -9,7 +10,8 @@ export default {
   name: 'EcProduct',
 
   components: {
-    EcGallery
+    EcGallery,
+    FadeTransition
   },
 
   props: {
@@ -37,7 +39,10 @@ export default {
   },
 
   methods: {
-    dictionary
+    dictionary,
+    inStock,
+    onPromotion,
+    formatMoney
   },
 
   created () {

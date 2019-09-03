@@ -1,4 +1,12 @@
 const dictionary = {
+  from: {
+    en_us: 'from',
+    pt_br: 'de'
+  },
+  to: {
+    en_us: 'to',
+    pt_br: 'por'
+  },
   hello: {
     en_us: 'Hello',
     pt_br: 'Olá'
