@@ -102,7 +102,7 @@ breadcrumbs.push({
     %>
 
     <% if (body.body_html) { %>
-      <section class="product__description">
+      <section id="product-description" class="product__description">
         <p class="lead">
           <a href="#description" name="description">#</a>
           <%= _.dictionary().product_description %>
@@ -114,7 +114,7 @@ breadcrumbs.push({
     <% } %>
 
     <% if (body.specifications) { %>
-      <section class="product__specs">
+      <section id="product-specs" class="product__specs">
         <p class="lead">
           <a href="#specs" name="specs">#</a>
           <%= _.dictionary().product_specifications %>
