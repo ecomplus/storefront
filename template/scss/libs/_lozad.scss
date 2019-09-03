@@ -1,9 +1,13 @@
-.lozad:not(.show) {
-  @extend .spinner-grow;
+.lozad {
+  transition: font-size .4s ease-in;
 
-  background: var(--gray);
-  margin: 3rem auto 0;
-  height: 2.5rem;
-  width: 2.5rem;
-  font-size: 0;
+  &:not(.show) {
+    @extend .spinner-grow;
+
+    background: var(--gray);
+    margin: 3rem auto 0;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 0;
+  }
 }
