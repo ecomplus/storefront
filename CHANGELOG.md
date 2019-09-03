@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.1](https://github.com/ecomclub/storefront-template/compare/v0.4.0...v0.4.1) (2019-09-03)
+
+
+### Bug Fixes
+
+* **content:** complete content/settings.json again ([6b946b3](https://github.com/ecomclub/storefront-template/commit/6b946b3))
+* **lozad:** prevent alt to show splash on img load ([21f5f02](https://github.com/ecomclub/storefront-template/commit/21f5f02))
+
 ## [0.4.0](https://github.com/ecomclub/storefront-template/compare/v0.3.6...v0.4.0) (2019-09-03)
 
 
