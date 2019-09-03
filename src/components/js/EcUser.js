@@ -1,5 +1,5 @@
 import { _config } from '@ecomplus/utils'
-import dictionary from './lib/dictionary'
+import dictionary from './../../lib/dictionary'
 import EcomPassport from '@ecomplus/passport-client'
 import { SlideYUpTransition } from 'vue2-transitions'
 

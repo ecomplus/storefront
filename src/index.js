@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import '@ecomplus/storefront-twbs'
-import EcUser from './EcUser.vue'
+import EcUser from './components/EcUser.vue'
 
 export default options => {
+  const elId = 'user-button'
   new Vue({
-    render: h => h(EcUser)
-  }).$mount('#user-button')
+    components: {
+      EcUser
+    },
+    template: `
+    <ec-user id="${elId}"/>`
+  }).$mount(`#${elId}`)
 }
