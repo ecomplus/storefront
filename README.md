@@ -36,6 +36,8 @@ new major releases.
     - `#product`
       - `#product-block`
         - `#buy-button`
+      - `#product-description`
+      - `#product-specs`
     - `#search`
   - `#overlay`
 - `#app`
