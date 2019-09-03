@@ -5,7 +5,7 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront-template/dist')
-const { dependencies } = require('package.json')
+const { dependencies } = require('./package.json')
 
 // preset default output object
 const output = {
