@@ -45,7 +45,7 @@
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "@ecomplus/storefront-framework": "^4.9.0",
-    "@ecomplus/storefront-template": "^0.1.47",
+    "@ecomplus/storefront-template": "^0.4.0",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
