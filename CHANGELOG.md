@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/ecomclub/storefront-template/compare/v0.3.6...v0.4.0) (2019-09-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* **pkg:** pkg bin commands renamed
+
+* **pkg:** update bin commands ([67320aa](https://github.com/ecomclub/storefront-template/commit/67320aa))
+
+
+### Bug Fixes
+
+* **ccontent:** adding title to dictionaries ([3c26f83](https://github.com/ecomclub/storefront-template/commit/3c26f83))
+* **cms:** fixing bootswatch name ([943c0cb](https://github.com/ecomclub/storefront-template/commit/943c0cb))
+* **cms:** fixing collections widget usage ([5ae54d3](https://github.com/ecomclub/storefront-template/commit/5ae54d3))
+* **cms:** fixing dictionary slugs ([f7e9b6d](https://github.com/ecomclub/storefront-template/commit/f7e9b6d))
+* **cms:** fixing spanish slugs ([c7d9721](https://github.com/ecomclub/storefront-template/commit/c7d9721))
+* **content:** deleting entry with no slug ([4451463](https://github.com/ecomclub/storefront-template/commit/4451463))
+
+
+### Features
+
+* **cms:** adding bootswatch themes as cms options ([b1a9a50](https://github.com/ecomclub/storefront-template/commit/b1a9a50))
+* **cms:** adding bootswatch themes on settings ([33cc485](https://github.com/ecomclub/storefront-template/commit/33cc485))
+* **cms:** adding collection select widget ([3447b71](https://github.com/ecomclub/storefront-template/commit/3447b71))
+* **content:** adding spanish translation ([235f066](https://github.com/ecomclub/storefront-template/commit/235f066))
+
 ### [0.3.6](https://github.com/ecomclub/storefront-template/compare/v0.3.5...v0.3.6) (2019-09-03)
 
 ### [0.3.5](https://github.com/ecomclub/storefront-template/compare/v0.3.4...v0.3.5) (2019-09-03)
