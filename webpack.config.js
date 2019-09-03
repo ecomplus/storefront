@@ -76,6 +76,11 @@ const config = {
     ]
   },
 
+  resolve: {
+    alias: {
+      vue$: 'vue/dist/vue.esm.js'
+    }
+  },
   externals: devMode
     // external ecomUtils on dev server to get config correctly
     ? {
