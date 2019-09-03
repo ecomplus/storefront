@@ -1,7 +1,7 @@
 import { _config } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
-import EcGallery from './components/EcGallery.vue'
-import dictionary from './lib/dictionary'
+import EcGallery from './../EcGallery.vue'
+import dictionary from './../../lib/dictionary'
 
 const { _context } = window
 
