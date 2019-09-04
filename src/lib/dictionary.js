@@ -7,9 +7,21 @@ const dictionary = {
     en_us: 'to',
     pt_br: 'por'
   },
-  hello: {
-    en_us: 'Hello',
-    pt_br: 'Olá'
+  or: {
+    en_us: 'or',
+    pt_br: 'ou'
+  },
+  unavailable: {
+    en_us: 'Unavailable',
+    pt_br: 'Indisponível'
+  },
+  out_of_stock: {
+    en_us: 'Out of stock',
+    pt_br: 'Sem estoque'
+  },
+  buy: {
+    en_us: 'Buy',
+    pt_br: 'Comprar'
   }
 }
 
@@ -19,3 +31,5 @@ export default function (word, lang) {
   }
   return (dictionary[word] && dictionary[word][lang]) || ''
 }
+
+export { dictionary }
