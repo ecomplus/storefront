@@ -22,6 +22,14 @@ const dictionary = {
   buy: {
     en_us: 'Buy',
     pt_br: 'Comprar'
+  },
+  zip: {
+    en_us: 'Zip code',
+    pt_br: 'CEP'
+  },
+  calculate_shipping: {
+    en_us: 'Calculate shipping',
+    pt_br: 'Calcular frete e prazo'
   }
 }
 

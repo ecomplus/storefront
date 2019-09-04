@@ -45,6 +45,10 @@
           </button>
         </slot>
 
+        <slot name="shipping">
+          <ec-shipping :zipCode.sync="zipCode"/>
+        </slot>
+
         <p v-if="body.short_description" class="ec-product__info lead">
           {{ body.short_description }}
         </p>

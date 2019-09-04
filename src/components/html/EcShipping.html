@@ -1,0 +1,32 @@
+<div class="ec-shipping">
+  <form
+    v-if="zipInput"
+    @submit.prevent="submitZipCode"
+    class="ec-shipping__form"
+  >
+    <div class="form-group">
+      <label for="ec-shipping-zip">
+        {{ dictionary('calculate_shipping') }}
+      </label>
+      <div class="input-group">
+        <input
+          ref="zipInput"
+          type="text"
+          class="form-control ec-shipping__input"
+          id="ec-shipping-zip"
+          :placeholder="dictionary('zip')"
+          :aria-label="dictionary('zip')"
+          v-model="zipCodeValue"
+        >
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit">
+            <i class="fas fa-truck"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="ec-shipping__services">
+  </div>
+</div>

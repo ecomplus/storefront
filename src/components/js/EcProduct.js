@@ -2,6 +2,7 @@ import { _config, inStock } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
 import EcPrices from './../EcPrices.vue'
 import EcGallery from './../EcGallery.vue'
+import EcShipping from './../EcShipping.vue'
 import dictionary from './../../lib/dictionary'
 import { FadeTransition } from 'vue2-transitions'
 
@@ -14,6 +15,7 @@ export default {
   components: {
     EcPrices,
     EcGallery,
+    EcShipping,
     FadeTransition
   },
 
@@ -40,7 +42,8 @@ export default {
 
   data () {
     return {
-      body: {}
+      body: {},
+      zipCode: '123'
     }
   },
 
@@ -52,14 +55,10 @@ export default {
 
   methods: {
     dictionary,
-    inStock
-  },
+    inStock,
 
-  created () {
-    const vm = this
-    if (vm.product) {
-      vm.body = vm.product
-    } else {
+    fetchProduct () {
+      const vm = this
       const { storeId } = vm
       store({ url: `/products/${vm.productId}.json`, storeId })
         .then(({ data }) => {
@@ -76,9 +75,24 @@ export default {
           vm.$bvToast.toast(errorMsg, {
             title: 'Offline',
             variant: 'danger',
+            noAutoHide: true,
             solid: true
           })
         })
+    }
+  },
+
+  created () {
+    if (this.product) {
+      this.body = this.product
+    } else {
+      this.fetchProduct()
+    }
+  },
+
+  watch: {
+    zipCode (newZip) {
+      console.log(newZip)
     }
   }
 }
