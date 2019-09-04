@@ -16,10 +16,6 @@ export default {
       type: String,
       default: _config.get('lang')
     },
-    storeId: {
-      type: Number,
-      default: _config.get('store_id')
-    },
     product: {
       type: Object,
       required: true
