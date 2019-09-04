@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.3](https://github.com/ecomclub/storefront-template/compare/v0.4.2...v0.4.3) (2019-09-04)
+
+
+### Bug Fixes
+
+* **cms:** fixing settings config, setting some fields as hidden ([f1882bb](https://github.com/ecomclub/storefront-template/commit/f1882bb))
+
+
+### Features
+
+* **icons:** adding truck, lock and shield alt fa icons ([1708f13](https://github.com/ecomclub/storefront-template/commit/1708f13))
+* **product-card:** add data-sku to each product ([a42d1e8](https://github.com/ecomclub/storefront-template/commit/a42d1e8))
+
 ### [0.4.2](https://github.com/ecomclub/storefront-template/compare/v0.4.1...v0.4.2) (2019-09-03)
 
 
