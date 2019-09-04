@@ -338,7 +338,7 @@ collections:
               - {label: Título, hint: "Em destaque, dentro de uma tag H2", required: false, name: title, widget: string}
               - {label: Texto, required: false, name: text, widget: string}
           - label: Lista de links 1
-            name: link_list_1
+            name: links_1
             widget: object
             hint: "Lista de links normalmente utilizada para exibir páginas como, Sobre nós e Política de privacidade"
             fields:
@@ -351,7 +351,7 @@ collections:
                   - {label: Texto, required: false, name: text, widget: string}
                   - {label: URL, required: false, name: url, widget: string}
           - label: Lista de links 2
-            name: link_list_2
+            name: links_2
             widget: object
             hint: "Lista adicional de links, para exibir páginas"
             fields:
