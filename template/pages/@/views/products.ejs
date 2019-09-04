@@ -50,12 +50,7 @@ breadcrumbs.push({
         <h1 class="product__name">
           <%= _.ecomUtils.name(body) %>
         </h1>
-        <p class="product__sku">
-          SKU:
-          <%= body.sku %>
-        </p>
         <button
-          id="buy-button"
           type="button"
           class="product__buy btn btn-lg btn-primary"
           disabled
@@ -102,7 +97,7 @@ breadcrumbs.push({
     %>
 
     <% if (body.body_html) { %>
-      <section class="product__description">
+      <section id="product-description" class="product__description">
         <p class="lead">
           <a href="#description" name="description">#</a>
           <%= _.dictionary().product_description %>
@@ -114,7 +109,7 @@ breadcrumbs.push({
     <% } %>
 
     <% if (body.specifications) { %>
-      <section class="product__specs">
+      <section id="product-specs" class="product__specs">
         <p class="lead">
           <a href="#specs" name="specs">#</a>
           <%= _.dictionary().product_specifications %>

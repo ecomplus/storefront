@@ -31,9 +31,11 @@ const fetchInfoPromises = []
                   break
 
                 default:
-                  field = 'interest_free_installments'
+                  field = 'installments_option'
                   val = response[field]
-                  if (val && (modInfo[field] === undefined || val > modInfo[field])) {
+                  if (val && (!modInfo[field] ||
+                    val.monthly_interest < modInfo[field].monthly_interest ||
+                    val.max_number > modInfo[field].max_number)) {
                     modInfo[field] = val
                   }
                   field = 'discount_option'
