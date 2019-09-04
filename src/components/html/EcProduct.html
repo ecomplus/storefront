@@ -17,24 +17,21 @@
         </p>
 
         <p v-if="!body.available" class="ec-product__unavailable">
-          Indisponível
+          {{ dictionary('unavailable') }}
         </p>
         <p v-else-if="!inStock(body)" class="ec-product__out-of-stock">
-          Sem estoque
+          {{ dictionary('out_of_stock') }}
         </p>
         <p v-else class="ec-product__prices">
-          <span v-if="onPromotion(body)">
-            {{ dictionary('from') }}
-            {{ formatMoney(body.base_price) }}
-            {{ dictionary('to') }}
-          </span>
-          <strong class="ec-product__price">
-            {{ formatMoney(body.price) }}
-          </strong>
-          ou 10x de
-          <strong>
-            {{ formatMoney(body.price / 10) }}
-          </strong>
+          <slot name="prices">
+            <ec-prices
+              :product="body"
+              :lang="lang"
+              :storeId="storeId"
+              :literal="true"
+              :big="true"
+            />
+          </slot>
         </p>
 
         <slot name="buy">
@@ -44,12 +41,12 @@
             @click="$emit('buy')"
           >
             <i class="fas fa-shopping-bag mr-1"></i>
-            Buy
+            {{ strBuy }}
           </button>
         </slot>
 
         <p v-if="body.short_description" class="ec-product__info lead">
-          <%= body.short_description %>
+          {{ body.short_description }}
         </p>
       </div>
     </div>
