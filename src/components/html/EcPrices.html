@@ -1,0 +1,52 @@
+<p
+  class="ec-prices"
+  :class="{ 'ec-prices--literal': literal, 'ec-prices--big': big }"
+>
+  <span v-if="onPromotion(product)" class="ec-prices__compare">
+    <template v-if="literal">
+      {{ dictionary('from') }}
+      <s>{{ formatMoney(product.base_price) }}</s>
+      {{ dictionary('to') }}
+    </template>
+    <s v-else>{{ formatMoney(product.base_price) }}</s>
+  </span>
+
+  <strong class="ec-prices__value">
+    {{ formatMoney(price) }}
+  </strong>
+
+  <slide-y-up-transition group>
+    <span
+      key="installments"
+      v-if="interestFreeInstallments > 1"
+      class="ec-prices__installments"
+    >
+      <template v-if="literal">
+        {{ dictionary('or') }}
+      </template>
+      {{ interestFreeInstallments }}x
+      <strong>
+        {{ formatMoney(price / interestFreeInstallments) }}
+      </strong>
+      <template v-if="literal">
+        {{ dictionary('interest_free') }}
+      </template>
+    </span>
+
+    <span
+      key="discount"
+      v-if="typeof priceWithDiscount === 'number' && priceWithDiscount < price"
+      class="ec-prices__discount"
+    >
+      <template v-if="literal">
+        {{ dictionary('or') }}
+      </template>
+      <strong>
+        {{ formatMoney(priceWithDiscount) }}
+      </strong>
+      <template v-if="literal && typeof discountLabel === 'string'">
+        {{ discountLabel }}
+      </template>
+    </span>
+  </slide-y-up-transition>
+</p>

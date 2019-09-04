@@ -1,0 +1,28 @@
+.ec-prices {
+  margin-top: 1rem;
+
+  &:not(.ec-prices--big) {
+    font-size: .95rem;
+    line-height: 1.075;
+    font-weight: 400;
+  }
+
+  &__value {
+    display: block;
+    font-size: 1.25rem;
+  }
+
+  &--big {
+    line-height: 1.15;
+
+    .ec-prices__value {
+      font-size: 250%;
+    }
+  }
+
+  &:not(.ec-prices--literal) {
+    .ec-prices__compare {
+      color: var(--gray);
+    }
+  }
+}
