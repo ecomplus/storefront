@@ -9,15 +9,15 @@
         {{ dictionary('calculate_shipping') }}
       </label>
       <div class="input-group">
-        <input
-          ref="zipInput"
-          type="text"
+        <cleave-input
+          type="tel"
           class="form-control ec-shipping__input"
           id="ec-shipping-zip"
           :placeholder="dictionary('zip')"
           :aria-label="dictionary('zip')"
+          :options="zipInputCleave"
           v-model="zipCodeValue"
-        >
+        />
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" type="submit">
             <i class="fas fa-truck"></i>

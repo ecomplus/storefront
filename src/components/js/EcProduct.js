@@ -43,7 +43,7 @@ export default {
   data () {
     return {
       body: {},
-      zipCode: '123'
+      zipCode: ''
     }
   },
 
