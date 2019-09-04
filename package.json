@@ -32,6 +32,7 @@
     "@ecomplus/client": "^1.0.3",
     "@ecomplus/storefront-twbs": "^3.2.0",
     "@ecomplus/utils": "^1.0.1",
+    "cleave.js": "^1.5.3",
     "core-js": "^3.2.1",
     "vue": "^2.6.10",
     "vue2-transitions": "^0.3.0"
