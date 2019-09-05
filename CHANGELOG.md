@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/ecomclub/widget-product/compare/v0.2.3...v0.2.4) (2019-09-05)
+
+
+### Bug Fixes
+
+* **image:** fix handling lazy load with lozad ([9af3058](https://github.com/ecomclub/widget-product/commit/9af3058))
+* **product:** fix getting product title ([cda9bb8](https://github.com/ecomclub/widget-product/commit/cda9bb8))
+
 ### [0.2.3](https://github.com/ecomclub/widget-product/compare/v0.2.2...v0.2.3) (2019-09-05)
 
 
