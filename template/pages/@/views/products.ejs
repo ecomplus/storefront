@@ -36,11 +36,17 @@ breadcrumbs.push({
         <% if (imgObj) { %>
           <div class="col-12 col-md-6">
             <div class="product__picture">
-              <img
-                class="lozad fade img-fluid"
-                data-src="<%= imgObj.url %>"
-                alt="<%= imgObj.alt %>"
+              <picture
+                class="lozad fade"
+                data-iesrc="<%= imgObj.url %>"
+                data-alt="<%= imgObj.alt %>"
               >
+                <source
+                  srcset="<%= _.ecomUtils.img(body).url %>"
+                  media="(max-width: 399.98px)"
+                >
+                <source srcset="<%= imgObj.url %>" media="(min-width: 400px)">
+              </picture>
             </div>
           </div>
         <% } %>
