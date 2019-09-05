@@ -152,6 +152,7 @@ collections:
       - {label: "Meta title", name: "meta_title", widget: "string", hint: "Título da página exibido na aba do navegador e nas respostas em motores de busca, relevante para SEO", required: false}
       - {label: "Meta description", name: "meta_description", widget: "string", hint: "Ddescrição da página exibida nos resultados de motores de busca, relevante para SEO", required: false}
       - {label: "Exibir barra de informações", name: "pitbar", widget: "boolean", default: false, required: false}
+      - {label: "Inserir html", name: "code", widget: "text", required: false}
       - {label: "Corpo", name: "body", widget: "markdown", required: false}
 
   # general site settings
