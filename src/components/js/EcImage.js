@@ -36,8 +36,7 @@ export default {
     if ($img) {
       const observer = lozad($img, {
         loaded ($el) {
-          $el.classList.remove('lozad')
-          setTimeout(() => $el.classList.add('show'), 100)
+          $el.classList.add('show')
         }
       })
       observer.observe()
