@@ -81,6 +81,6 @@
     "parser": "babel-eslint"
   },
   "dependencies": {
-    "@ecomplus/widget-product": "^0.2.2"
+    "@ecomplus/widget-product": "^0.2.7"
   }
 }
