@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import '@ecomplus/storefront-twbs'
-import MyComponent from './components/MyComponent.vue'
+import MyComponent from './components/EcProductCard.vue'
 
 export default options => {
   const elId = 'some-el-id'
