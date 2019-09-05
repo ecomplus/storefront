@@ -49,7 +49,7 @@
     "@ecomplus/storefront-framework": "^5.1.1",
     "@ecomplus/storefront-twbs": "^3.4.0",
     "@ecomplus/utils": "^1.0.1",
-    "@ecomplus/widget-user": "^0.7.1",
+    "@ecomplus/widget-user": "^0.7.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
@@ -81,6 +81,6 @@
     "parser": "babel-eslint"
   },
   "dependencies": {
-    "@ecomplus/widget-product": "^0.2.1"
+    "@ecomplus/widget-product": "^0.2.2"
   }
 }
