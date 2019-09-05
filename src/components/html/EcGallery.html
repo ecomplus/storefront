@@ -1,0 +1,39 @@
+<div class="ec-gallery">
+  <div class="ec-gallery__thumbs">
+    <div
+      v-for="(image, i) in images"
+      :key="'img-' + i"
+      class="ec-gallery__item"
+      :class="{ 'ec-gallery__item--selected': i === activeIndex }"
+      @click="go(i)"
+    >
+      <EcImage
+        class="ec-gallery__thumb"
+        :fade="false"
+        :src="image.small.url"
+        :alt="image.small.alt"
+      />
+    </div>
+  </div>
+
+  <div class="ec-gallery__stage">
+    <div class="glide" ref="glide">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <li
+            class="glide__slide"
+            v-for="(picture, i) in mapPictures"
+            :key="'slide-' + i"
+          >
+            <EcImage
+              class="ec-gallery__big-image"
+              :src="picture"
+              :pictureBreakpoint="380"
+              @click="$emit('click:stage', { image, i })"
+            />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

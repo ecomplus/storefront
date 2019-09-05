@@ -1,101 +1,105 @@
-$gallery-flex-direction: row;
-$gallery__nav-width: 100px;
-$gallery__nav-margin: 0 1.5rem 0 0;
-$gallery__item-margin-bottom: .75rem;
-$gallery__item-opacity: 0.5;
-$gallery__item-transition: opacity 0.15s linear;
-$gallery__item-mobile-size: 10px;
-$gallery__stage-width: 400px;
-
-.sf-gallery {
+.ec-gallery {
   width: 100%;
   text-align: center;
   display: flex;
-  flex-direction: $gallery-flex-direction;
+  flex-direction: row;
   position: relative;
+  justify-content: center;
 
-  @media (max-width: 768px) {
-    justify-content: center;
+  @media (min-width: 992px) {
+    margin-bottom: 0;
   }
 
   &__thumbs {
-    width: $gallery__nav-width;
+    z-index: 2;
+    position: absolute;
+    width: auto;
+    margin: 0;
     padding: 0;
-    margin: $gallery__nav-margin;
-    overflow-y: auto;
+    display: inline-flex;
+    top: 100%;
+    margin-top: -15px;
 
-    @media (max-width: 768px) {
-      z-index: 2;
-      position: absolute;
-      width: auto;
-      margin: 0;
-      padding: 0;
-      top: 100%;
-      display: inline-flex;
-      bottom: 0;
-      overflow: inherit;
+    @media (min-width: 992px) {
+      position: static;
+      display: block;
+      width: 100px;
+      margin: 0 1.5rem 0 0;
+      left: auto;
+      bottom: auto;
+      overflow-y: auto;
     }
   }
 
   &__item {
-    margin-bottom: $gallery__item-margin-bottom;
-    opacity: $gallery__item-opacity;
-    transition: $gallery__item-transition;
+    opacity: .5;
+    transition: opacity .15s linear;
     cursor: pointer;
-    user-select: none;
+    margin-right: .75rem;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    &::before {
+      display: block;
+      content: " ";
+      height: 10px;
+      width: 10px;
+      background: var(--gray);
+      border-radius: 50%;
+    }
 
     &--selected {
       cursor: auto;
       opacity: 1;
-    }
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-
-    @media (max-width: 768px) {
-      opacity: 1;
 
       &::before {
-        display: block;
-        content: " ";
-        height: $gallery__item-mobile-size;
-        width: $gallery__item-mobile-size;
-        background: var(--gray);
-        border-radius: 50%;
+        background: var(--secondary);
+      }
+    }
 
-        @media (max-width: 768px) {
-          margin: 0 5px;
-        }
+    @media (min-width: 992px) {
+      margin: 0 0 .75rem;
+
+      &:last-of-type {
+        margin-bottom: 0;
       }
 
-      &--selected::before {
-        background: var(--secondary);
+      &::before {
+        display: none;
       }
     }
   }
 
   &__stage {
-    width: $gallery__stage-width;
+    width: 400px;
     max-width: 100%;
     overflow: hidden;
+    user-select: none;
   }
 
-  &__thumb {
-    display: block;
-    width: 100%;
-    height: auto;
+  &__thumb,
+  &__thumb img {
+    display: none;
 
-    @media (max-width: 768px) {
-      display: none;
+    @media (min-width: 992px) {
+      display: block;
+      width: 100%;
+      height: auto;
     }
   }
 
-  &__big-image {
+  &__big-image,
+  &__big-image img {
     max-width: 100%;
     width: auto;
     height: auto;
+    cursor: zoom-in;
+  }
+
+  img {
+    user-drag: none;
     user-select: none;
-    pointer-events: none;
   }
 }
