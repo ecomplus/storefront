@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/ecomclub/widget-product/compare/v0.1.4...v0.2.0) (2019-09-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* **photoswipe:** changes on product and gallery component apis
+
+### Features
+
+* **photoswipe:** handling photoswipe if available on global storefront ([734196d](https://github.com/ecomclub/widget-product/commit/734196d))
+
 ### [0.1.4](https://github.com/ecomclub/widget-product/compare/v0.1.3...v0.1.4) (2019-09-05)
 
 
