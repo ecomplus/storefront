@@ -48,6 +48,8 @@
           <ec-shipping
             :lang="lang"
             :zipCode.sync="zipCode"
+            :selectServices="true"
+            @serviceSelected="logShippingService"
             :shippedItems="[{
               ...body,
               product_id: body._id,

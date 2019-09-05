@@ -43,7 +43,8 @@ export default {
   data () {
     return {
       body: {},
-      zipCode: ''
+      zipCode: '',
+      selectedService: 0
     }
   },
 
@@ -79,6 +80,10 @@ export default {
             solid: true
           })
         })
+    },
+
+    logShippingService (service) {
+      console.log(service)
     }
   },
 

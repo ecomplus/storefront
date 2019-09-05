@@ -23,6 +23,10 @@ const dictionary = {
     en_us: 'Buy',
     pt_br: 'Comprar'
   },
+  up_to: {
+    en_us: 'up to',
+    pt_br: 'até'
+  },
   zip: {
     en_us: 'Zip code',
     pt_br: 'CEP'
@@ -30,6 +34,18 @@ const dictionary = {
   calculate_shipping: {
     en_us: 'Calculate shipping',
     pt_br: 'Calcular frete e prazo'
+  },
+  days: {
+    en_us: 'days',
+    pt_br: 'dias'
+  },
+  working_days: {
+    en_us: 'working days',
+    pt_br: 'dias úteis'
+  },
+  free_shipping: {
+    en_us: 'free shipping',
+    pt_br: 'frete grátis'
   }
 }
 

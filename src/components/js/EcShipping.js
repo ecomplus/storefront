@@ -1,5 +1,6 @@
-import { _config, price } from '@ecomplus/utils'
+import { _config, price, formatMoney } from '@ecomplus/utils'
 import { modules } from '@ecomplus/client'
+import { SlideYUpTransition } from 'vue2-transitions'
 import CleaveInput from 'vue-cleave-component'
 import dictionary from './../../lib/dictionary'
 
@@ -10,6 +11,7 @@ export default {
   name: 'EcShipping',
 
   components: {
+    SlideYUpTransition,
     CleaveInput
   },
 
@@ -33,6 +35,9 @@ export default {
     zipCode: {
       type: String
     },
+    selectServices: {
+      type: Boolean
+    },
     shippedItems: {
       type: Array,
       default: () => []
@@ -50,15 +55,15 @@ export default {
   data () {
     return {
       zipCodeValue: this.zipCode,
-      zipInputCleave: this.countryCode === 'BR'
-        ? { blocks: [5, 3], delimiter: '-' }
-        : { blocks: [30] },
-      shippingServices: []
+      shippingServices: [],
+      selectedService: 0,
+      waiting: false
     }
   },
 
   methods: {
     dictionary,
+    formatMoney,
 
     updateZipCode () {
       this.$emit('update:zipCode', this.zipCodeValue)
@@ -71,7 +76,6 @@ export default {
         if (validated && !error) {
           response.shipping_services.forEach(service => {
             this.shippingServices.push({
-              _id: appResult._id,
               app_id: appResult.app_id,
               ...service
             })
@@ -96,8 +100,12 @@ export default {
         const itemsToSubtotal = (subtotal, item) => subtotal + price(item) * item.quantity
         data.subtotal = data.items.reduce(itemsToSubtotal, 0)
       }
+      this.waiting = true
       modules({ url, method, storeId, data })
         .then(({ data }) => this.parseShippingOptions(data.result))
+        .finally(() => {
+          this.waiting = false
+        })
     },
 
     submitZipCode (e) {
@@ -106,6 +114,28 @@ export default {
         localStorage.setItem(zipStorageKey, this.zipCodeValue)
       }
       this.fetchShippingServices()
+    },
+
+    serviceDeadline (service) {
+      const shipping = service.shipping_line
+      let days = shipping.posting_deadline ? shipping.posting_deadline.days : 0
+      if (shipping.delivery_time) {
+        days += shipping.delivery_time.days
+      }
+      return days
+    },
+
+    serviceIsWorkingDays (service) {
+      const shipping = service.shipping_line
+      return (shipping.posting_deadline && shipping.posting_deadline.working_days) ||
+        (shipping.delivery_time && shipping.delivery_time.working_days)
+    },
+
+    setSelectedService (i) {
+      if (this.selectServices) {
+        this.$emit('serviceSelected', this.shippingServices[i])
+        this.selectedService = i
+      }
     }
   },
 
