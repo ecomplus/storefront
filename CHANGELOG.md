@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/ecomclub/widget-product/compare/v0.1.3...v0.1.4) (2019-09-05)
+
+
+### Bug Fixes
+
+* **gallery:** fix gallery component stage click event ([59087b5](https://github.com/ecomclub/widget-product/commit/59087b5))
+* **gallery:** fixes for ecgallery component ([3020c08](https://github.com/ecomclub/widget-product/commit/3020c08))
+
+
+### Features
+
+* **image:** ecimage vue component with lozad ([b9cc76f](https://github.com/ecomclub/widget-product/commit/b9cc76f))
+
 ### [0.1.3](https://github.com/ecomclub/widget-product/compare/v0.1.2...v0.1.3) (2019-09-05)
 
 
