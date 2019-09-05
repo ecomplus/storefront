@@ -85,13 +85,18 @@ export default {
   created () {
     if (!this.installmentsOption && !this.discountOption) {
       if (storefront) {
-        storefront.on('info:list_payments', () => {
+        const getPaymentInfo = () => {
           const paymentInfo = _info && _info.list_payments
           if (paymentInfo) {
             this.updateInstallments(paymentInfo.installments_option)
             this.updateDiscount(paymentInfo.discount_option)
+            return Object.keys(paymentInfo).length > 0
           }
-        })
+          return false
+        }
+        if (!getPaymentInfo()) {
+          storefront.on('info:list_payments', getPaymentInfo)
+        }
       }
     } else {
       this.updateInstallments(this.installmentsOption)
