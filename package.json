@@ -31,6 +31,7 @@
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "@ecomplus/search-engine": "^1.0.1",
+    "@ecomplus/shopping-cart": "^0.6.1",
     "@ecomplus/storefront-twbs": "^3.2.0",
     "@ecomplus/utils": "^1.0.1",
     "@ecomplus/widget-product": "^0.2.3",
