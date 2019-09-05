@@ -8,10 +8,10 @@
   >
 
   <picture
-    v-else-if="src && src.normal"
+    v-else-if="src && imgObj"
     :class="imgClasses"
-    :data-iesrc="src.normal.url"
-    :data-alt="src.normal.alt"
+    :data-iesrc="imgObj.url"
+    :data-alt="imgObj.alt"
     ref="lazyImg"
   >
     <source
@@ -20,7 +20,7 @@
       :media="`(max-width: ${pictureBreakpoint - 0.02}px)`"
     >
     <source
-      :srcset="src.normal.url"
+      :srcset="imgObj.url"
       :media="`(min-width: ${pictureBreakpoint}px)`"
     >
   </picture>

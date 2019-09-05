@@ -1,3 +1,4 @@
+import { img } from '@ecomplus/utils'
 import lozad from 'lozad'
 
 export default {
@@ -28,6 +29,12 @@ export default {
   data () {
     return {
       imgClasses: `lozad ${(this.fade ? 'fade' : 'show')}`
+    }
+  },
+
+  computed: {
+    imgObj () {
+      return img(this.src)
     }
   },
 
