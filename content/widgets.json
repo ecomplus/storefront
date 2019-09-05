@@ -2,5 +2,9 @@
   "@ecomplus/widget-user": {
     "active": true,
     "fn": "widgetUser"
+  },
+  "@ecomplus/widget-product": {
+    "active": true,
+    "fn": "widgetProduct"
   }
 }

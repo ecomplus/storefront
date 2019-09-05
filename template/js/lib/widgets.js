@@ -1,8 +1,10 @@
 import emitter from './emitter'
 import widgetUser from '@ecomplus/widget-user'
+import widgetProduct from '@ecomplus/widget-product'
 
 const fnWidgets = {
-  widgetUser
+  widgetUser,
+  widgetProduct
 }
 
 setTimeout(() => {

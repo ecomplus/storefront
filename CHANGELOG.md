@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.6](https://github.com/ecomclub/storefront-template/compare/v0.4.5...v0.4.6) (2019-09-05)
+
+
+### Features
+
+* **product:** add widget for product block ([ed1d581](https://github.com/ecomclub/storefront-template/commit/ed1d581))
+
+### [0.4.5](https://github.com/ecomclub/storefront-template/compare/v0.4.4...v0.4.5) (2019-09-05)
+
+
+### Features
+
+* **photoswipe:** add photoswipe (plugin) on product pages ([5d2c7d7](https://github.com/ecomclub/storefront-template/commit/5d2c7d7))
+
+### [0.4.4](https://github.com/ecomclub/storefront-template/compare/v0.4.3...v0.4.4) (2019-09-04)
+
+### [0.4.3](https://github.com/ecomclub/storefront-template/compare/v0.4.2...v0.4.3) (2019-09-04)
+
+
+### Bug Fixes
+
+* **cms:** fixing settings config, setting some fields as hidden ([f1882bb](https://github.com/ecomclub/storefront-template/commit/f1882bb))
+
+
+### Features
+
+* **icons:** adding truck, lock and shield alt fa icons ([1708f13](https://github.com/ecomclub/storefront-template/commit/1708f13))
+* **product-card:** add data-sku to each product ([a42d1e8](https://github.com/ecomclub/storefront-template/commit/a42d1e8))
+
 ### [0.4.2](https://github.com/ecomclub/storefront-template/compare/v0.4.1...v0.4.2) (2019-09-03)
 
 
