@@ -25,8 +25,9 @@ window.storefront = {
   }
 })
 
-import(/* webpackPrefetch: true */ './lib/widgets')
-
+if (window._widgets !== false) {
+  import(/* webpackPrefetch: true */ './lib/widgets')
+}
 if (window.pluginPhotoswipe) {
   import(/* webpackPrefetch: true */ './pages/plugins/photoswipe')
 }
