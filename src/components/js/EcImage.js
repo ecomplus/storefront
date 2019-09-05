@@ -27,7 +27,7 @@ export default {
 
   data () {
     return {
-      imgClasses: `img-fluid lozad ${(this.fade ? 'fade' : 'show')}`
+      imgClasses: `lozad ${(this.fade ? 'fade' : 'show')}`
     }
   },
 
