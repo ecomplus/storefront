@@ -6,7 +6,7 @@ import EcShipping from './../EcShipping.vue'
 import dictionary from './../../lib/dictionary'
 import { FadeTransition } from 'vue2-transitions'
 
-const { _context } = window
+const { _context, storefront } = window
 const getContextId = () => _context && _context.body && _context.body._id
 
 export default {
@@ -51,6 +51,27 @@ export default {
   computed: {
     strBuy () {
       return this.buyText || this.dictionary('buy')
+    },
+
+    photoswipeImages () {
+      const { name, pictures } = this.body
+      const psImages = []
+      if (pictures) {
+        pictures.forEach(({ zoom }) => {
+          if (zoom && zoom.size) {
+            const sizes = zoom.size.split('x')
+            if (sizes.length === 2) {
+              psImages.push({
+                src: zoom.url,
+                title: name,
+                w: parseInt(sizes[0], 10),
+                h: parseInt(sizes[1], 10)
+              })
+            }
+          }
+        })
+      }
+      return psImages
     }
   },
 
@@ -84,6 +105,12 @@ export default {
 
     logShippingService (service) {
       console.log(service)
+    },
+
+    openPhotoswipe ({ index }) {
+      if (storefront && typeof storefront.photoswipe === 'function') {
+        storefront.photoswipe(this.photoswipeImages, index)
+      }
     }
   },
 

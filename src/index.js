@@ -14,10 +14,6 @@ export default options => {
     methods: {
       addToCart () {
         console.log('cart')
-      },
-
-      openPhotoswipe () {
-        console.log('photoswipe')
       }
     },
 

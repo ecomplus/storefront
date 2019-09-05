@@ -22,10 +22,10 @@
         <ul class="glide__slides">
           <li
             class="glide__slide"
-            v-for="(picture, i) in mapPictures"
-            :key="'slide-' + i"
+            v-for="(picture, index) in mapPictures"
+            :key="'slide-' + index"
           >
-            <div @click="$emit('click:stage', { picture, i })">
+            <div @click="$emit('click:stage', { picture, index })">
               <EcImage
                 class="ec-gallery__big-image"
                 :src="picture"
