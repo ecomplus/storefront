@@ -1,1 +1,48 @@
-<div></div>
+<div class="ec-product-card">
+  <fade-transition :duration="700">
+    <section v-if="body._id">
+      <a
+        class="ec-product-card__link"
+        :href="`/${body.slug}`"
+        :title="name(body)"
+      >
+        <div class="ec-product-card__pictures">
+          <ec-image
+            class="ec-product-card__picture"
+            v-if="body.pictures && body.pictures.length"
+            v-for="(picture, index) in body.pictures.slice(0, 2)"
+            :key="index"
+            :src="picture"
+            :pictureBreakpoint="300"
+          />
+          <ec-image v-else class="ec-product-card__picture"/>
+        </div>
+
+        <h3 class="ec-product-card__name">
+          {{ name(body) }}
+        </h3>
+      </a>
+
+      <ec-prices
+        class="ec-product-card__prices"
+        :lang="lang"
+        :product="body"
+      />
+
+      <slot name="buy">
+        <button
+          type="button"
+          class="ec-product-card__buy btn btn-primary"
+          @click="$emit('buy', { item: body })"
+        >
+          <i class="fas fa-shopping-bag mr-1"></i>
+          {{ strBuy }}
+        </button>
+      </slot>
+    </section>
+  </fade-transition>
+
+  <template v-if="!body._id">
+    <slot />
+  </template>
+</div>
