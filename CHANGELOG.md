@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.6](https://github.com/ecomclub/storefront-template/compare/v0.4.5...v0.4.6) (2019-09-05)
+
+
+### Features
+
+* **product:** add widget for product block ([ed1d581](https://github.com/ecomclub/storefront-template/commit/ed1d581))
+
 ### [0.4.5](https://github.com/ecomclub/storefront-template/compare/v0.4.4...v0.4.5) (2019-09-05)
 
 
