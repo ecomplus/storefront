@@ -38,7 +38,7 @@
           <button
             type="button"
             class="ec-product__buy btn btn-lg btn-primary"
-            @click="$emit('buy')"
+            @click="$emit('buy', { product: body })"
           >
             <i class="fas fa-shopping-bag mr-1"></i>
             {{ strBuy }}
@@ -48,9 +48,6 @@
         <slot name="shipping">
           <ec-shipping
             :lang="lang"
-            :zipCode.sync="zipCode"
-            :selectServices="true"
-            @serviceSelected="logShippingService"
             :shippedItems="[{
               ...body,
               product_id: body._id,

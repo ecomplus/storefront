@@ -42,9 +42,7 @@ export default {
 
   data () {
     return {
-      body: {},
-      zipCode: '',
-      selectedService: 0
+      body: {}
     }
   },
 
@@ -103,10 +101,6 @@ export default {
         })
     },
 
-    logShippingService (service) {
-      console.log(service)
-    },
-
     openPhotoswipe ({ index }) {
       if (storefront && typeof storefront.photoswipe === 'function') {
         storefront.photoswipe(this.photoswipeImages, index)
@@ -119,12 +113,6 @@ export default {
       this.body = this.product
     } else {
       this.fetchProduct()
-    }
-  },
-
-  watch: {
-    zipCode (newZip) {
-      console.log(newZip)
     }
   }
 }
