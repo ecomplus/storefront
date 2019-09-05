@@ -5,6 +5,7 @@
         <ec-gallery
           :sliderOptions="{ rewind: true }"
           :images="body.pictures"
+          @click:stage="$emit('click:stage')"
         />
       </div>
 

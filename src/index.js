@@ -14,11 +14,19 @@ export default options => {
     methods: {
       addToCart () {
         console.log('cart')
+      },
+
+      openPhotoswipe () {
+        console.log('photoswipe')
       }
     },
 
     template: `
-    <ec-product id="${elId}" @buy="addToCart">
+    <ec-product
+      id="${elId}"
+      @buy="addToCart"
+      @click:stage="openPhotoswipe"
+    >
       ${$productBlock.outerHTML}
     </ec-product>`
   }).$mount($productBlock)

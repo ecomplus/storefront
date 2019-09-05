@@ -25,12 +25,13 @@
             v-for="(picture, i) in mapPictures"
             :key="'slide-' + i"
           >
-            <EcImage
-              class="ec-gallery__big-image"
-              :src="picture"
-              :pictureBreakpoint="380"
-              @click="$emit('click:stage', { image, i })"
-            />
+            <div @click="$emit('click:stage', { picture, i })">
+              <EcImage
+                class="ec-gallery__big-image"
+                :src="picture"
+                :pictureBreakpoint="380"
+              />
+            </div>
           </li>
         </ul>
       </div>
