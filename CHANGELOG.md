@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.5](https://github.com/ecomclub/widget-product/compare/v0.2.4...v0.2.5) (2019-09-05)
+
+
+### Bug Fixes
+
+* **prices:** show discount label even without literal = true ([0c929d1](https://github.com/ecomclub/widget-product/commit/0c929d1))
+* **prices:** try to get payment info out of event ([451c581](https://github.com/ecomclub/widget-product/commit/451c581))
+
 ### [0.2.4](https://github.com/ecomclub/widget-product/compare/v0.2.3...v0.2.4) (2019-09-05)
 
 
