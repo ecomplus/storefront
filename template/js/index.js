@@ -13,11 +13,12 @@ import './lib/fetch-info'
 
 window.Vue = Vue
 window.$ = $
-window.$overlay = $overlay
 
 Vue.config.productionTip = false
 
-window.storefront = {}
+window.storefront = {
+  $overlay
+}
 ;['on', 'off', 'once'].forEach(method => {
   window.storefront[method] = (ev, fn) => {
     emitter[method](ev, fn)
@@ -25,6 +26,10 @@ window.storefront = {}
 })
 
 import(/* webpackPrefetch: true */ './lib/widgets')
+
+if (window.pluginPhotoswipe) {
+  import(/* webpackPrefetch: true */ './pages/plugins/photoswipe')
+}
 
 const { hash } = window.location
 if (hash.indexOf('=') !== -1) {
