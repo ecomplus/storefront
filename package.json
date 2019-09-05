@@ -1,12 +1,12 @@
 {
-  "name": "@ecomplus/widget-example-name",
-  "version": "0.0.1",
-  "description": "My E-Com Plus storefront plugin",
-  "main": "dist/widget-example-name.min.js",
+  "name": "@ecomplus/widget-product-card",
+  "version": "0.0.4",
+  "description": "Storefront plugin with Vue component for product cards",
+  "main": "dist/widget-product-card.min.js",
   "module": "src/index.js",
-  "browser": "dist/widget-example-name.min.js",
-  "jsdelivr": "dist/widget-example-name.root.min.js",
-  "unpkg": "dist/widget-example-name.root.min.js",
+  "browser": "dist/widget-product-card.min.js",
+  "jsdelivr": "dist/widget-product-card.root.min.js",
+  "unpkg": "dist/widget-product-card.root.min.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "serve": "webpack-dev-server",
@@ -14,25 +14,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/widget-example-name.git"
+    "url": "git+https://github.com/ecomclub/widget-product-card.git"
   },
   "keywords": [
     "ecomplus",
     "storefront",
-    "widget"
+    "widget",
+    "product-card"
   ],
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/widget-example-name/issues"
+    "url": "https://github.com/ecomclub/widget-product-card/issues"
   },
-  "homepage": "https://github.com/ecomclub/widget-example-name#readme",
+  "homepage": "https://github.com/ecomclub/widget-product-card#readme",
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@ecomplus/client": "^1.0.3",
     "@ecomplus/search-engine": "^1.0.1",
     "@ecomplus/storefront-twbs": "^3.2.0",
     "@ecomplus/utils": "^1.0.1",
+    "@ecomplus/widget-product": "^0.2.3",
     "core-js": "^3.2.1",
     "vue": "^2.6.10"
   },
@@ -42,8 +43,8 @@
     "@babel/preset-env": "^7.5.5",
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "@ecomplus/storefront-framework": "*",
-    "@ecomplus/storefront-template": "*",
+    "@ecomplus/storefront-framework": "^5.1.1",
+    "@ecomplus/storefront-template": "^0.4.6",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
@@ -59,7 +60,7 @@
     "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7",
+    "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.8.0"
   },
   "husky": {
