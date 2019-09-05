@@ -44,7 +44,7 @@
       <strong>
         {{ formatMoney(priceWithDiscount) }}
       </strong>
-      <template v-if="literal && typeof discountLabel === 'string'">
+      <template v-if="typeof discountLabel === 'string'">
         {{ discountLabel }}
       </template>
     </span>
