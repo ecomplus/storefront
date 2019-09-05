@@ -6,17 +6,6 @@
 
 Storefront plugin & Vue component for product block
 
-## Vue components
-
-Reusable Vue components available at
-[`src/components`](https://github.com/ecomclub/widget-product/tree/master/src/components):
-
-- `EcProduct`
-- `EcPrices`
-- `EcShipping`
-- `EcImage`
-- `EcGallery`
-
 ## Get started
 
 ```bash
@@ -36,3 +25,14 @@ Vue component:
 ```js
 import EcProduct from '@ecomplus/widget-product/src/components/EcProduct.vue'
 ```
+
+## Vue components
+
+Reusable Vue components available at
+[`src/components`](https://github.com/ecomclub/widget-product/tree/master/src/components):
+
+- `EcProduct`
+- `EcPrices`
+- `EcShipping`
+- `EcImage`
+- `EcGallery`
