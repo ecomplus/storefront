@@ -34,7 +34,7 @@
     "@ecomplus/shopping-cart": "^0.6.1",
     "@ecomplus/storefront-twbs": "^3.2.0",
     "@ecomplus/utils": "^1.0.1",
-    "@ecomplus/widget-product": "^0.2.3",
+    "@ecomplus/widget-product": "^0.2.4",
     "core-js": "^3.2.1",
     "vue": "^2.6.10"
   },
@@ -45,7 +45,7 @@
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "@ecomplus/storefront-framework": "^5.1.1",
-    "@ecomplus/storefront-template": "^0.4.6",
+    "@ecomplus/storefront-template": "^0.4.7",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
