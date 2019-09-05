@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.8](https://github.com/ecomclub/widget-product/compare/v0.2.7...v0.2.8) (2019-09-05)
+
+
+### Bug Fixes
+
+* **mobile:** style and touch fixes for gallery on mobile ([d73a264](https://github.com/ecomclub/widget-product/commit/d73a264))
+
 ### [0.2.7](https://github.com/ecomclub/widget-product/compare/v0.2.6...v0.2.7) (2019-09-05)
 
 ### [0.2.6](https://github.com/ecomclub/widget-product/compare/v0.2.5...v0.2.6) (2019-09-05)
