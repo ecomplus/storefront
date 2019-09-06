@@ -5,9 +5,9 @@ import EcomCart from '@ecomplus/shopping-cart'
 
 export default (options = {}, elId = 'product-block') => {
   const $productBlock = document.getElementById(elId)
-  const cart = new EcomCart()
-
   if ($productBlock) {
+    const cart = new EcomCart()
+
     new Vue({
       components: {
         EcProduct
