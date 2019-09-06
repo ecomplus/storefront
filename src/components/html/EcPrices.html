@@ -25,9 +25,9 @@
         {{ dictionary('or') }}
       </small>
       {{ interestFreeInstallments }}x
-      <strong>
+      <span>
         {{ formatMoney(price / interestFreeInstallments) }}
-      </strong>
+      </span>
       <small v-if="literal">
         {{ dictionary('interest_free') }}
       </small>
@@ -41,9 +41,9 @@
       <small v-if="literal">
         {{ dictionary('or') }}
       </small>
-      <strong>
+      <span>
         {{ formatMoney(priceWithDiscount) }}
-      </strong>
+      </span>
       <small v-if="typeof discountLabel === 'string'">
         {{ discountLabel }}
       </small>

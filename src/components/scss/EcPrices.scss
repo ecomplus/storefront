@@ -3,7 +3,6 @@
 
   &:not(.ec-prices--big) {
     font-size: .95rem;
-    font-weight: 400;
   }
 
   &__value {
@@ -16,8 +15,17 @@
     margin-bottom: .25rem;
   }
 
-  &--literal small {
-    font-size: 100%;
+  &--literal {
+    .ec-prices__installments,
+    .ec-prices__discount {
+      span {
+        font-weight: bold;
+      }
+    }
+
+    small {
+      font-size: 100%;
+    }
   }
 
   &:not(.ec-prices--literal) {
