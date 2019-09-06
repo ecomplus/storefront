@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.11](https://github.com/ecomclub/storefront-template/compare/v0.4.10...v0.4.11) (2019-09-06)
+
+
+### Bug Fixes
+
+* **widgets:** timeout before loading widgets chunk ([186dfc9](https://github.com/ecomclub/storefront-template/commit/186dfc9))
+
+### [0.4.10](https://github.com/ecomclub/storefront-template/compare/v0.4.9...v0.4.10) (2019-09-05)
+
+### [0.4.9](https://github.com/ecomclub/storefront-template/compare/v0.4.8...v0.4.9) (2019-09-05)
+
+
+### Bug Fixes
+
+* **widgets:** check if widgets must be skipped before import ([a21b9c5](https://github.com/ecomclub/storefront-template/commit/a21b9c5))
+
+### [0.4.8](https://github.com/ecomclub/storefront-template/compare/v0.4.7...v0.4.8) (2019-09-05)
+
+### [0.4.7](https://github.com/ecomclub/storefront-template/compare/v0.4.6...v0.4.7) (2019-09-05)
+
+
+### Bug Fixes
+
+* **lozad:** fix handling images lazy load ([61061df](https://github.com/ecomclub/storefront-template/commit/61061df))
+
 ### [0.4.6](https://github.com/ecomclub/storefront-template/compare/v0.4.5...v0.4.6) (2019-09-05)
 
 
