@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.8](https://github.com/ecomclub/widget-product/compare/v0.3.7...v0.3.8) (2019-09-06)
+
+
+### Bug Fixes
+
+* **prices:** minor strings and styles fixes ([ed6ac5d](https://github.com/ecomclub/widget-product/commit/ed6ac5d))
+
 ### [0.3.7](https://github.com/ecomclub/widget-product/compare/v0.3.6...v0.3.7) (2019-09-06)
 
 
