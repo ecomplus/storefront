@@ -1,21 +1,24 @@
-import emitter from './emitter'
-import widgetUser from '@ecomplus/widget-user'
-import widgetProduct from '@ecomplus/widget-product'
-
-const fnWidgets = {
-  widgetUser,
-  widgetProduct
+const widgets = window._widgets
+const startWidget = (pkg, fn) => {
+  if (widgets[pkg]) {
+    const { active, options } = widgets[pkg]
+    if (active && typeof fn === 'function') {
+      fn(options)
+    }
+    console.log(`Widget loaded: ${pkg}`)
+  }
 }
 
-const widgets = window._widgets
-if (typeof widgets === 'object' && widgets !== null) {
-  for (const widgetPkg in widgets) {
-    if (widgets[widgetPkg]) {
-      const { active, fn, options } = widgets[widgetPkg]
-      if (active && typeof fnWidgets[fn] === 'function') {
-        fnWidgets[fn](options)
-      }
-    }
-  }
-  emitter.emit('widgets', { widgets })
+import('@ecomplus/widget-user')
+  .then(exp => startWidget('@ecomplus/widget-user', exp.default))
+
+import('@ecomplus/widget-product-card')
+  .then(exp => startWidget('@ecomplus/widget-product-card', exp.default))
+
+const { resource } = document.body.dataset
+switch (resource) {
+  case 'products':
+    import('@ecomplus/widget-product')
+      .then(exp => startWidget('@ecomplus/widget-product', exp.default))
+    break
 }

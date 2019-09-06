@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-template",
-  "version": "0.4.11",
+  "version": "1.0.0",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "template/js/index.js",
   "jsdelivr": "dist/storefront.js",
@@ -49,7 +49,9 @@
     "@ecomplus/storefront-framework": "^5.1.1",
     "@ecomplus/storefront-twbs": "^3.4.0",
     "@ecomplus/utils": "^1.0.1",
-    "@ecomplus/widget-user": "^0.7.2",
+    "@ecomplus/widget-product": "^0.3.8",
+    "@ecomplus/widget-product-card": "^0.2.4",
+    "@ecomplus/widget-user": "^0.9.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
@@ -79,8 +81,5 @@
   ],
   "standard": {
     "parser": "babel-eslint"
-  },
-  "dependencies": {
-    "@ecomplus/widget-product": "^0.2.9"
   }
 }

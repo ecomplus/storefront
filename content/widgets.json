@@ -1,10 +1,28 @@
 {
   "@ecomplus/widget-user": {
     "active": true,
-    "fn": "widgetUser"
+    "options": {}
+  },
+  "@ecomplus/widget-product-card": {
+    "active": true,
+    "options": {
+      "props": {
+        "buyText": ""
+      },
+      "slots": {
+        "buy": ""
+      }
+    }
   },
   "@ecomplus/widget-product": {
     "active": true,
-    "fn": "widgetProduct"
+    "options": {
+      "props": {
+        "buyText": ""
+      },
+      "slots": {
+        "buy": ""
+      }
+    }
   }
 }
