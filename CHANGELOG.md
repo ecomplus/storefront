@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.11](https://github.com/ecomclub/storefront-template/compare/v0.4.10...v0.4.11) (2019-09-06)
+
+
+### Bug Fixes
+
+* **widgets:** timeout before loading widgets chunk ([186dfc9](https://github.com/ecomclub/storefront-template/commit/186dfc9))
+
 ### [0.4.10](https://github.com/ecomclub/storefront-template/compare/v0.4.9...v0.4.10) (2019-09-05)
 
 ### [0.4.9](https://github.com/ecomclub/storefront-template/compare/v0.4.8...v0.4.9) (2019-09-05)
