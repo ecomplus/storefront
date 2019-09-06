@@ -379,6 +379,7 @@ collections:
             fields:
               - {label: Imagem, required: false, name: src, widget: image}
               - {label: alt, required: false, name: alt, widget: string}
+              - {label: Link, required: false, name: link, widget: string}
           - label: "Meios de pagamento"
             name: "payment_methods"
             widget: "object"
