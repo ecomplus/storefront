@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-product",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "Storefront plugin & Vue component for full product block",
   "main": "dist/widget-product.min.js",
   "module": "src/index.js",
@@ -19,7 +19,8 @@
   "keywords": [
     "ecomplus",
     "storefront",
-    "widget"
+    "widget",
+    "products"
   ],
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
