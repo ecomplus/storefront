@@ -25,9 +25,12 @@ window.storefront = {
   }
 })
 
-if (window._widgets !== false) {
-  import(/* webpackPrefetch: true */ './lib/widgets')
-}
+setTimeout(() => {
+  if (window._widgets !== false) {
+    import(/* webpackPrefetch: true */ './lib/widgets')
+  }
+}, 200)
+
 if (window.pluginPhotoswipe) {
   import(/* webpackPrefetch: true */ './pages/plugins/photoswipe')
 }
