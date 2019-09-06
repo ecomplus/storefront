@@ -46,6 +46,10 @@ const dictionary = {
   free_shipping: {
     en_us: 'free shipping',
     pt_br: 'frete grátis'
+  },
+  interest_free: {
+    en_us: 'interest free',
+    pt_br: 'sem juros'
   }
 }
 
