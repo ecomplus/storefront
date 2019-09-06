@@ -152,6 +152,7 @@ collections:
       - {label: "Meta title", name: "meta_title", widget: "string", hint: "Título da página exibido na aba do navegador e nas respostas em motores de busca, relevante para SEO", required: false}
       - {label: "Meta description", name: "meta_description", widget: "string", hint: "Ddescrição da página exibida nos resultados de motores de busca, relevante para SEO", required: false}
       - {label: "Exibir barra de informações", name: "pitbar", widget: "boolean", default: false, required: false}
+      - {label: "Inserir html", name: "code", widget: "text", required: false}
       - {label: "Corpo", name: "body", widget: "markdown", required: false}
 
   # general site settings
@@ -338,7 +339,7 @@ collections:
               - {label: Título, hint: "Em destaque, dentro de uma tag H2", required: false, name: title, widget: string}
               - {label: Texto, required: false, name: text, widget: string}
           - label: Lista de links 1
-            name: link_list_1
+            name: links_1
             widget: object
             hint: "Lista de links normalmente utilizada para exibir páginas como, Sobre nós e Política de privacidade"
             fields:
@@ -351,7 +352,7 @@ collections:
                   - {label: Texto, required: false, name: text, widget: string}
                   - {label: URL, required: false, name: url, widget: string}
           - label: Lista de links 2
-            name: link_list_2
+            name: links_2
             widget: object
             hint: "Lista adicional de links, para exibir páginas"
             fields:
@@ -378,6 +379,7 @@ collections:
             fields:
               - {label: Imagem, required: false, name: src, widget: image}
               - {label: alt, required: false, name: alt, widget: string}
+              - {label: Link, required: false, name: link, widget: string}
           - label: "Meios de pagamento"
             name: "payment_methods"
             widget: "object"
