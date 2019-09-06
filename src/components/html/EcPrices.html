@@ -1,4 +1,4 @@
-<p
+<div
   class="ec-prices"
   :class="{ 'ec-prices--literal': literal, 'ec-prices--big': big }"
 >
@@ -16,7 +16,7 @@
   </strong>
 
   <slide-y-up-transition group>
-    <span
+    <div
       key="installments"
       v-if="interestFreeInstallments > 1"
       class="ec-prices__installments"
@@ -31,9 +31,9 @@
       <template v-if="literal">
         {{ dictionary('interest_free') }}
       </template>
-    </span>
+    </div>
 
-    <span
+    <div
       key="discount"
       v-if="typeof priceWithDiscount === 'number' && priceWithDiscount < price"
       class="ec-prices__discount"
@@ -47,6 +47,6 @@
       <template v-if="typeof discountLabel === 'string'">
         {{ discountLabel }}
       </template>
-    </span>
+    </div>
   </slide-y-up-transition>
-</p>
+</div>
