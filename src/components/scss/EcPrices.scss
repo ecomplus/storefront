@@ -3,6 +3,10 @@
 
   &:not(.ec-prices--big) {
     font-size: .95rem;
+
+    .ec-prices__installments {
+      font-weight: 300;
+    }
   }
 
   &__value {

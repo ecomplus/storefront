@@ -7,10 +7,6 @@ const dictionary = {
     en_us: 'to',
     pt_br: 'por'
   },
-  or: {
-    en_us: 'or',
-    pt_br: 'ou'
-  },
   unavailable: {
     en_us: 'Unavailable',
     pt_br: 'Indisponível'
