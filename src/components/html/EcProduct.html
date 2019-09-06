@@ -34,20 +34,17 @@
           </slot>
         </p>
 
-        <span
+        <div
           @click="$emit('buy', { product: body })"
-          style="cursor: pointer;"
+          class="ec-product__buy"
         >
           <slot name="buy">
-            <button
-              type="button"
-              class="ec-product__buy btn btn-lg btn-primary"
-            >
+            <button type="button" class="btn btn-lg btn-primary">
               <i class="fas fa-shopping-bag mr-1"></i>
               {{ strBuy }}
             </button>
           </slot>
-        </span>
+        </div>
 
         <slot name="shipping">
           <ec-shipping
