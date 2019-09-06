@@ -20,7 +20,7 @@ export default (options = {}, elId = 'user-button') => {
       template: `
       <ec-user
         id="${elId}"
-        v-bind="options"
+        v-bind="options.props"
       />`
     }).$mount($userButton)
   }
