@@ -3,9 +3,9 @@ import lozad from 'lozad'
 import '@ecomplus/storefront-twbs'
 import EcProductCard from './components/EcProductCard.vue'
 import EcomCart from '@ecomplus/shopping-cart'
+import { dynamicVueSlots } from '@ecomplus/widget-product/src/lib/utils'
 
-export default options => {
-  const elClass = (options && options.elClass) || 'product-card'
+export default (options = {}, elClass = 'product-card') => {
   const cart = new EcomCart()
 
   const load = $productCard => {
@@ -19,6 +19,7 @@ export default options => {
 
         data () {
           return {
+            options,
             productId,
             sku
           }
@@ -26,19 +27,26 @@ export default options => {
 
         methods: {
           addToCart ({ product }) {
-            cart.addProduct(product)
+            const { variations, slug } = product
+            if (variations && variations.length) {
+              window.location = `/${slug}`
+            } else {
+              cart.addProduct(product)
+            }
           }
         },
 
         template: `
         <ec-product-card
           class="${elClass}"
+          v-bind="options.props"
           :data-product-id="productId"
           :data-sku="sku"
           :productId="productId"
           @buy="addToCart"
         >
           ${$productCard.outerHTML}
+          ${dynamicVueSlots(options.slots)}
         </ec-product-card>`
       }).$mount($productCard)
     }
