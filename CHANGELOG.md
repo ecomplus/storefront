@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/ecomclub/widget-product-card/compare/v0.1.0...v0.2.0) (2019-09-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* **product-card:** component props renamed
+
+### Features
+
+* **product-card:** handling connection errors ([57193fc](https://github.com/ecomclub/widget-product-card/commit/57193fc))
+* **product-card:** improve styles, update api ([d25a27a](https://github.com/ecomclub/widget-product-card/commit/d25a27a))
+* **widget:** handling options props and slots, redirect if variations ([45bdef8](https://github.com/ecomclub/widget-product-card/commit/45bdef8))
+
 ## [0.1.0](https://github.com/ecomclub/widget-product-card/compare/v0.0.5...v0.1.0) (2019-09-05)
 
 
