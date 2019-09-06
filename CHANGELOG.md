@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.3](https://github.com/ecomclub/widget-product/compare/v0.3.2...v0.3.3) (2019-09-06)
+
+
+### Bug Fixes
+
+* **price:** styles fixes for price component, remove forced margins ([daf39ce](https://github.com/ecomclub/widget-product/commit/daf39ce))
+
 ### [0.3.2](https://github.com/ecomclub/widget-product/compare/v0.3.1...v0.3.2) (2019-09-06)
 
 ### [0.3.1](https://github.com/ecomclub/widget-product/compare/v0.3.0...v0.3.1) (2019-09-06)
