@@ -4,10 +4,6 @@
   &:not(.ec-prices--big) {
     font-size: .95rem;
     font-weight: 400;
-
-    .ec-prices__compare {
-      line-height: 1.1;
-    }
   }
 
   &__value {
@@ -18,6 +14,10 @@
   &--big .ec-prices__value {
     font-size: 250%;
     margin-bottom: .25rem;
+  }
+
+  &--literal small {
+    font-size: 100%;
   }
 
   &:not(.ec-prices--literal) {

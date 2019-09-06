@@ -21,16 +21,16 @@
       v-if="interestFreeInstallments > 1"
       class="ec-prices__installments"
     >
-      <template v-if="literal">
+      <small v-if="literal">
         {{ dictionary('or') }}
-      </template>
+      </small>
       {{ interestFreeInstallments }}x
       <strong>
         {{ formatMoney(price / interestFreeInstallments) }}
       </strong>
-      <template v-if="literal">
+      <small v-if="literal">
         {{ dictionary('interest_free') }}
-      </template>
+      </small>
     </div>
 
     <div
@@ -38,15 +38,15 @@
       v-if="typeof priceWithDiscount === 'number' && priceWithDiscount < price"
       class="ec-prices__discount"
     >
-      <template v-if="literal">
+      <small v-if="literal">
         {{ dictionary('or') }}
-      </template>
+      </small>
       <strong>
         {{ formatMoney(priceWithDiscount) }}
       </strong>
-      <template v-if="typeof discountLabel === 'string'">
+      <small v-if="typeof discountLabel === 'string'">
         {{ discountLabel }}
-      </template>
+      </small>
     </div>
   </slide-y-up-transition>
 </div>
