@@ -23,23 +23,32 @@
         </h3>
       </a>
 
-      <ec-prices
-        class="ec-product-card__prices"
-        :lang="lang"
-        :product="body"
-      />
+      <p v-if="!body.available || !body.visible" class="badge badge-warning">
+        {{ dictionary('unavailable') }}
+      </p>
+      <p v-else-if="!inStock(body)" class="badge badge-dark">
+        {{ dictionary('out_of_stock') }}
+      </p>
 
-      <div
-        @click="$emit('buy', { product: body })"
-        class="ec-product-card__buy fade"
-      >
-        <slot name="buy">
-          <button type="button" class="btn btn-block btn-primary">
-            <i class="fas fa-shopping-bag mr-1"></i>
-            {{ strBuy }}
-          </button>
-        </slot>
-      </div>
+      <template v-else>
+        <ec-prices
+          class="ec-product-card__prices"
+          :lang="lang"
+          :product="body"
+        />
+
+        <div
+          @click="$emit('buy', { product: body })"
+          class="ec-product-card__buy fade"
+        >
+          <slot name="buy">
+            <button type="button" class="btn btn-block btn-primary">
+              <i class="fas fa-shopping-bag mr-1"></i>
+              {{ strBuy }}
+            </button>
+          </slot>
+        </div>
+      </template>
     </section>
   </fade-transition>
 
