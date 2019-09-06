@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/ecomclub/widget-product/compare/v0.2.9...v0.3.0) (2019-09-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* **widget:** options object model changed to have props and slots
+* **widget:** getting elId from param instead of options obj
+
+### Bug Fixes
+
+* **product:** keep buy emited event out of buy slot ([59c418f](https://github.com/ecomclub/widget-product/commit/59c418f))
+
+
+### Features
+
+* **widget:** handling vue slots dynamically from widget options ([9d2fd48](https://github.com/ecomclub/widget-product/commit/9d2fd48))
+
+
+* **widget:** add second param to widget function, bind options ([b1ccf40](https://github.com/ecomclub/widget-product/commit/b1ccf40))
+
 ### [0.2.9](https://github.com/ecomclub/widget-product/compare/v0.2.8...v0.2.9) (2019-09-05)
 
 
