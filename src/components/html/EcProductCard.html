@@ -45,5 +45,8 @@
 
   <template v-if="!body._id">
     <slot />
+    <div class="alert alert-warning small" role="alert" v-if="error">
+      {{ error }}
+    </div>
   </template>
 </div>

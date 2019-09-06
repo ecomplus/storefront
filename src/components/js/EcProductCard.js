@@ -36,7 +36,8 @@ export default {
 
   data () {
     return {
-      body: {}
+      body: {},
+      error: ''
     }
   },
 
@@ -64,15 +65,9 @@ export default {
           })
           .catch(err => {
             console.error(err)
-            const errorMsg = this.lang === 'pt_br'
-              ? 'Não foi possível carregar informações do produto, por favor verifique sua conexão'
-              : 'Unable to load product information, please check your internet connection'
-            this.$bvToast.toast(errorMsg, {
-              title: 'Offline',
-              variant: 'danger',
-              noAutoHide: true,
-              solid: true
-            })
+            this.error = this.lang === 'pt_br'
+              ? 'Erro de conexão, clique no produto para tentar novamente'
+              : 'Connection error, click product to try again'
           })
       }
     }
