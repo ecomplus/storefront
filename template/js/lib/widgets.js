@@ -12,6 +12,9 @@ const startWidget = (pkg, fn) => {
 import('@ecomplus/widget-user')
   .then(exp => startWidget('@ecomplus/widget-user', exp.default))
 
+import('@ecomplus/widget-product-card')
+  .then(exp => startWidget('@ecomplus/widget-product-card', exp.default))
+
 const { resource } = document.body.dataset
 switch (resource) {
   case 'products':
