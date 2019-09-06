@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.12](https://github.com/ecomclub/storefront-template/compare/v0.4.11...v0.4.12) (2019-09-06)
+
+
+### Features
+
+* **product-card:** setup ecomplus/widget-product-card to load items ([e5d1173](https://github.com/ecomclub/storefront-template/commit/e5d1173))
+* **widgets:** load widgets dynamically, check resource when specific ([4027365](https://github.com/ecomclub/storefront-template/commit/4027365))
+
 ### [0.4.11](https://github.com/ecomclub/storefront-template/compare/v0.4.10...v0.4.11) (2019-09-06)
 
 
