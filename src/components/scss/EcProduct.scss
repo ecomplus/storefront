@@ -8,4 +8,11 @@
     cursor: pointer;
     margin-bottom: 1rem;
   }
+
+  &__unavailable,
+  &__out-of-stock {
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: var(--warning);
+  }
 }
