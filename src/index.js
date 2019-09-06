@@ -2,8 +2,7 @@ import Vue from 'vue'
 import '@ecomplus/storefront-twbs'
 import EcUser from './components/EcUser.vue'
 
-export default options => {
-  const elId = (options && options.elId) || 'user-button'
+export default (options = {}, elId = 'user-button') => {
   const $userButton = document.getElementById(elId)
 
   if ($userButton) {
@@ -11,8 +10,18 @@ export default options => {
       components: {
         EcUser
       },
+
+      data () {
+        return {
+          options
+        }
+      },
+
       template: `
-      <ec-user id="${elId}"/>`
+      <ec-user
+        id="${elId}"
+        v-bind="options"
+      />`
     }).$mount($userButton)
   }
 }
