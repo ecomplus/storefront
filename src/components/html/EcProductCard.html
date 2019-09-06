@@ -29,16 +29,17 @@
         :product="body"
       />
 
-      <slot name="buy">
-        <button
-          type="button"
-          class="ec-product-card__buy btn btn-primary"
-          @click="$emit('buy', { item: body })"
-        >
-          <i class="fas fa-shopping-bag mr-1"></i>
-          {{ strBuy }}
-        </button>
-      </slot>
+      <div
+        @click="$emit('buy', { product: body })"
+        class="ec-product-card__buy fade"
+      >
+        <slot name="buy">
+          <button type="button" class="btn btn-block btn-primary">
+            <i class="fas fa-shopping-bag mr-1"></i>
+            {{ strBuy }}
+          </button>
+        </slot>
+      </div>
     </section>
   </fade-transition>
 

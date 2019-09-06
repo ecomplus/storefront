@@ -26,7 +26,7 @@ export default {
     productId: {
       type: String
     },
-    item: {
+    product: {
       type: Object
     },
     buyText: {
@@ -79,8 +79,8 @@ export default {
   },
 
   created () {
-    if (this.item) {
-      this.body = this.item
+    if (this.product) {
+      this.body = this.product
     } else {
       this.fetchItem()
     }

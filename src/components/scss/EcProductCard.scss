@@ -1,5 +1,7 @@
 .ec-product-card {
   position: relative;
+  padding-bottom: .1rem;
+  margin-bottom: 0;
 
   &__link:hover h3 {
     text-decoration: underline;
@@ -61,13 +63,15 @@
     }
   }
 
-  &__buy {
-    position: absolute;
-    display: none;
-    top: .25rem;
-    right: 1rem;
-    z-index: 1;
-    opacity: 0;
+  &__prices {
+    margin-bottom: .15rem;
+    height: 4.92rem;
+    overflow-x: hidden;
+    white-space: nowrap;
+
+    .ec-prices__value:first-child {
+      margin-top: 1.14rem;
+    }
   }
 
   &:hover {
@@ -81,8 +85,7 @@
     }
 
     .ec-product-card__buy {
-      display: block;
-      opacity: .8;
+      opacity: 1;
     }
   }
 }
