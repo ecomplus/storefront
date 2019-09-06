@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
-    "@commitlint/config-conventional": "^7.6.0",
+    "@commitlint/config-conventional": "^8.1.0",
     "autoprefixer": "^9.6.1",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.28",
