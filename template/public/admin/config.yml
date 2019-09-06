@@ -406,3 +406,61 @@ collections:
             widget: object
             fields:
               - {label: Texto, required: false, name: texto, widget: string}
+
+      - name: "widgets"
+        label: "Widgets"
+        file: "content/widgets.json"
+        fields:
+          - label: "Login de usuários"
+            name: "@ecomplus/widget-product-card"
+            widget: object
+            hint: "Card de produtos exibido na vitrine e em vários outros pontos da loja"
+            fields:
+              - {label: "Ativar", name: "active", required: false, widget: "boolean"}
+
+          - label: "Card de produtos"
+            name: "@ecomplus/widget-product-card"
+            widget: object
+            hint: "Card de produtos exibido na vitrine e em vários outros pontos da loja"
+            fields:
+              - {label: "Ativar", name: "active", required: false, widget: "boolean"}
+              - label: "Opções"
+                name: "options"
+                widget: object
+                hint: "Personalizações do widget"
+                fields:
+                  - label: "Propriedades"
+                    name: "props"
+                    widget: object
+                    hint: ""
+                    fields:
+                      - {label: "Texto de comprar", name: "buyText", required: false, widget: "string"}
+                  - label: "Slots"
+                    name: "slots"
+                    widget: object
+                    hint: ""
+                    fields:
+                      - {label: "código de comprar", name: "buy", required: false, widget: "string"}
+          - label: "Login de usuários"
+            name: "@ecomplus/widget-product"
+            widget: object
+            hint: "Produto a ser exibido na página de produto"
+            fields:
+              - {label: "Ativar", name: "active", required: false, widget: "boolean"}
+              - label: "Opções"
+                name: "options"
+                widget: object
+                hint: "Personalizações do widget"
+                fields:
+                  - label: "Propriedades"
+                    name: "props"
+                    widget: object
+                    hint: ""
+                    fields:
+                      - {label: "Texto de comprar", name: "buyText", required: false, widget: "string"}
+                  - label: "Slots"
+                    name: "slots"
+                    widget: object
+                    hint: ""
+                    fields:
+                      - {label: "código de comprar", name: "buy", required: false, widget: "string"}
