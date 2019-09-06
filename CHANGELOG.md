@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/ecomclub/storefront-template/compare/v0.4.12...v1.0.0) (2019-09-06)
+
+
+### Bug Fixes
+
+* **cms:** fixing link lists name on cms ([2454aa4](https://github.com/ecomclub/storefront-template/commit/2454aa4))
+
 ### [0.4.12](https://github.com/ecomclub/storefront-template/compare/v0.4.11...v0.4.12) (2019-09-06)
 
 
