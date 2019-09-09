@@ -121,18 +121,18 @@ const paymentMethods = [
           </p>
           <div class="footer__stamps row">
             <% footer.stamps.forEach(({ src, alt, link }) => { %>
-              <div class="col-auto"> 
-                <a
-                  <% if (link) { %>
+              <div class="col-auto">
+                <% if (link) { %>
+                  <a 
                     href="<%= link %>"
-                  <% } %> else{ %>  
-                    href="javascript:;"
-                  <% } %>                
-                  target="_blank"
-                  rel="noopener"
-                >
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <img src="<%= src %>" alt="<%= alt %>">
+                  </a>
+                <% } %> else{ %>
                   <img src="<%= src %>" alt="<%= alt %>">
-                </a>
+                <% } %>
               </div>
             <% }) %>
           </div>
