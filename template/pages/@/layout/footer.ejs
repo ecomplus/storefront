@@ -120,9 +120,12 @@ const paymentMethods = [
             <% }) %>
           </p>
           <div class="footer__stamps row">
-            <% footer.stamps.forEach(({ src, alt }) => { %>
+            <% footer.stamps.forEach(({ src, alt, link }) => { %>
               <div class="col-auto">
-                <img src="<%= src %>" alt="<%= alt %>">
+                <a 
+                  href="<%= link %>">
+                  <img src="<%= src %>" alt="<%= alt %>">
+                </a>
               </div>
             <% }) %>
           </div>
