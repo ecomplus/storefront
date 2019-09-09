@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.1](https://github.com/ecomclub/widget-user/compare/v0.9.0...v0.9.1) (2019-09-09)
+
+
+### Bug Fixes
+
+* **passport-instance:** fix creating EcomPassport instance ([2755b40](https://github.com/ecomclub/widget-user/commit/2755b40))
+
 ## [0.9.0](https://github.com/ecomclub/widget-user/compare/v0.8.0...v0.9.0) (2019-09-06)
 
 
