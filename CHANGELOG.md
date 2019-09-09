@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/ecomclub/storefront-template/compare/v1.0.0...v1.1.0) (2019-09-09)
+
+
+### Bug Fixes
+
+* **cms:** fixing setting on cms and adding widgetss config ([b20baf5](https://github.com/ecomclub/storefront-template/commit/b20baf5))
+
+
+### Features
+
+* **cms:** adding user product and product-card wigets configs ([2cfa6b7](https://github.com/ecomclub/storefront-template/commit/2cfa6b7))
+* **footer:** rendering footer stamps with links ([4eee3a8](https://github.com/ecomclub/storefront-template/commit/4eee3a8))
+
 ## [1.0.0](https://github.com/ecomclub/storefront-template/compare/v0.4.12...v1.0.0) (2019-09-06)
 
 
