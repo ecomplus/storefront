@@ -55,7 +55,7 @@ export default {
     fetchItem () {
       if (this.productId) {
         const { storeId } = this
-        const search = new EcomSearch({ storeId })
+        const search = new EcomSearch(storeId)
         search.setProductIds([this.productId]).fetch()
           .then(() => {
             const items = search.getItems()
