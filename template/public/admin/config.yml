@@ -42,7 +42,7 @@ collections:
             label: "Vitrine"
             widget: list
             fields:
-              - {label: Coleção, required: false, name: collection, widget: collections, hint: "Entrar com o ID da coleção, que pode ser visto nesta página: https://app.e-com.plus/#/resources/collections"}
+              - {label: Coleção, required: false, name: collection, widget: collections}
           - {label: "Conteúdo adicional", name: "additional_content", widget: "markdown", hint: Markdown exibido no fim do container da página inicial, required: false}
 
       - name: "products"
@@ -170,8 +170,11 @@ collections:
         fields:
           - {label: "Store ID", name: "store_id", hint: "Id da loja, pode ser encontrado na página de configurações do painel", required: false, widget: "number"}
           - {label: "Name", name: "name", widget: "string"}
-          - {label: "Short Name", name: "short_name", widget: "string"}
+          - {label: "Short Name", name: "short_name", widget: "string", hint: "Deve conter apenas letras, sem caracteres especiais ou espaços"}
           - {label: "Short Description", name: "description", widget: "text"}
+          - {label: "Primary Color", name: "primary_color", widget: "color"}
+          - {label: "Secondary Color", name: "secondary_color", widget: "color"}
+          - {label: "App Background Color", name: "bg_color", widget: "color"}
           - label: "Tema"
             name: "theme"
             widget: "object"
@@ -409,7 +412,7 @@ collections:
 
       - name: "widgets"
         label: "Widgets"
-        file: "content/widgets.json"
+        file: "content/widget-user.json"
         fields:
           - label: "Login de usuários"
             name: "@ecomplus/widget-product-card"
@@ -441,7 +444,7 @@ collections:
                     hint: ""
                     fields:
                       - {label: "código de comprar", name: "buy", required: false, widget: "string"}
-          - label: "Login de usuários"
+          - label: "Produtos"
             name: "@ecomplus/widget-product"
             widget: object
             hint: "Produto a ser exibido na página de produto"
