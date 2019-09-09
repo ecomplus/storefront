@@ -19,10 +19,6 @@ export default {
       type: Number,
       default: _config.get('store_id')
     },
-    ecomPassport: {
-      type: Object,
-      default: () => new EcomPassport()
-    },
     popoverPlacement: {
       type: String,
       default: 'bottomleft'
@@ -46,6 +42,7 @@ export default {
 
   data () {
     return {
+      ecomPassport: new EcomPassport(this.storeId, this.lang),
       showPopover: false,
       waiting: false,
       waitingPopup: false,
