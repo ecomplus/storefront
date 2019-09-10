@@ -55,6 +55,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@glidejs/glide": "^3.3.0",
     "bootswatch": "^4.3.1",
+    "core-js": "^3.2.1",
     "ejs": "^2.7.1",
     "eventemitter3": "^4.0.0",
     "lozad": "^1.9.0",
@@ -66,7 +67,6 @@
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "babel-eslint": "^10.0.3",
-    "core-js": "^3.2.1",
     "husky": "^3.0.5",
     "standard": "^14.1.0",
     "standard-version": "^7.0.0"
