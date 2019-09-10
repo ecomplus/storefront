@@ -6,6 +6,14 @@ const dictionary = {
   no_results_for: {
     en_us: 'No results for',
     pt_br: 'Nenhum produto encontrado para'
+  },
+  total_results_for: {
+    en_us: 'products found for',
+    pt_br: 'produtos encontrados para'
+  },
+  see_all: {
+    en_us: 'See all',
+    pt_br: 'Ver todos'
   }
 }
 

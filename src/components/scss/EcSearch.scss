@@ -1,9 +1,17 @@
 .ec-search {
   &__popover {
     max-width: calc(100% - 2rem);
+    max-height: calc(100vh - 200px);
+    margin-top: 2px;
+    overflow-y: auto;
 
     @media (min-width: 576px) {
       min-width: 400px;
+    }
+
+    @media (min-width: 850px) {
+      max-width: 800px;
+      max-height: calc(100vh - 100px);
     }
   }
 
@@ -14,14 +22,52 @@
     font-size: 1.15rem;
     overflow-x: auto;
     white-space: nowrap;
+    color: var(--gray);
+  }
+
+  &__info {
+    em {
+      color: var(--secondary);
+    }
+
+    span {
+      display: inline-block;
+    }
   }
 
   &__history__link {
     margin-left: .5rem;
   }
 
-  &__no-results,
-  &__history {
-    color: var(--gray);
+  &__items {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  &__item {
+    padding-right: 1rem;
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    @media (max-width: 849.98px) {
+      width: 200px;
+      flex: 0 0 200px;
+    }
+
+    @media (min-width: 850px) {
+      width: 25%;
+    }
+
+    button,
+    .btn {
+      display: none;
+    }
+
+    .ec-prices {
+      height: auto;
+      white-space: normal;
+    }
   }
 }

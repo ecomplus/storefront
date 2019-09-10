@@ -20,7 +20,7 @@
       </div>
 
       <slide-y-up-transition :duration="{ enter: 300, leave: 50 }">
-        <div v-if="!searching && searchTerm" class="ec-search__info">
+        <div v-if="!searching && searchedTerm" class="ec-search__info">
           <template v-if="suggestedTerm">
             {{ dictionary('did_you_mean') }}
             <a
@@ -31,9 +31,21 @@
             />
             ?
           </template>
+
           <span v-if="!totalSearchResults" class="ec-search__no-results">
             {{ dictionary('no_results_for') }}
-            <em>{{ searchTerm }}</em>
+            <em>{{ searchedTerm }}</em>
+          </span>
+          <span v-else class="ec-search__count-results">
+            <strong>{{ totalSearchResults }}</strong>
+            {{ dictionary('total_results_for') }}
+            <em>{{ searchedTerm }}</em>
+            <a
+              href="#"
+              @click.prevent="setSearchTerm(searchedTerm)"
+              v-if="totalSearchResults > maxItems"
+              v-text="`+${dictionary('see_all')}`"
+            />
           </span>
         </div>
       </slide-y-up-transition>
@@ -47,6 +59,22 @@
             href="#"
             @click.prevent="setSearchTerm(term)"
             v-text="term"
+          />
+        </div>
+      </slide-y-up-transition>
+
+      <slide-y-up-transition :duration="{ enter: 600, leave: 0 }">
+        <div
+          v-if="!searching && suggestedItems.length"
+          class="ec-search__items"
+        >
+          <ec-product-card
+            class="ec-search__item"
+            v-for="product in suggestedItems"
+            :key="product._id"
+            :lang="lang"
+            :storeId="storeId"
+            :product="product"
           />
         </div>
       </slide-y-up-transition>

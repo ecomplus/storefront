@@ -22,7 +22,12 @@ export default {
       default: _config.get('store_id')
     },
     term: {
-      type: String
+      type: String,
+      default: ''
+    },
+    maxItems: {
+      type: Number,
+      default: 4
     },
     autoFixScore: {
       type: [Number, Boolean],
@@ -38,6 +43,7 @@ export default {
     return {
       ecomSearch: new EcomSearch(this.storeId),
       searchTerm: this.term,
+      searchedTerm: '',
       searching: false,
       suggestedItems: [],
       suggestedTerm: '',
@@ -70,8 +76,8 @@ export default {
 
     handleSuggestions (term) {
       if (this.elInput.value === term) {
-        let suggestTerm, autoFixTerm
-        suggestTerm = autoFixTerm = term
+        let suggestTerm = term
+        let autoFix = false
         this.suggestedTerm = ''
         this.ecomSearch.getTermSuggestions().forEach(({ options, text }) => {
           if (options.length) {
@@ -82,27 +88,37 @@ export default {
               opt.score >= this.autoFixScore &&
               opt.text.indexOf(term) === -1
             ) {
-              autoFixTerm = autoFixTerm.replace(text, opt.text)
+              autoFix = true
             }
             suggestTerm = suggestTerm.replace(text, opt.text)
           }
         })
-        if (autoFixTerm !== term) {
-          this.elInput.value = this.searchTerm = autoFixTerm
-        } else if (suggestTerm !== term) {
-          this.suggestedTerm = suggestTerm
+        if (suggestTerm !== term) {
+          if (autoFix) {
+            this.elInput.value = this.searchTerm = suggestTerm
+          } else {
+            this.suggestedTerm = suggestTerm
+          }
+          this.ecomSearch.history.shift()
         }
       }
     },
 
     fetchItems (term) {
-      if (!term) {
-        term = this.searchTerm
+      const { ecomSearch } = this
+      if (term !== false) {
+        if (!term) {
+          term = this.searchTerm
+        }
+        ecomSearch.setSearchTerm(term)
+      } else {
+        ecomSearch.reset().setPageSize(this.maxItems)
       }
       this.searching = true
-      this.ecomSearch.setSearchTerm(term).fetch()
+      ecomSearch.fetch()
         .then(() => {
-          const { getItems, getTotalCount } = this.ecomSearch
+          const { getItems, getTotalCount } = ecomSearch
+          this.searchedTerm = term
           this.suggestedItems = getItems()
           this.totalSearchResults = getTotalCount()
           this.handleSuggestions(term)
@@ -113,6 +129,16 @@ export default {
         .finally(() => {
           this.searching = false
         })
+    },
+
+    instantSearch (term) {
+      this.showPopover = false
+      setTimeout(() => {
+        this.fetchItems(term)
+        setTimeout(() => {
+          this.showPopover = true
+        }, 100)
+      }, 100)
     }
   },
 
@@ -120,8 +146,14 @@ export default {
     window.addEventListener('scroll', () => {
       if (window.navFixed && this.showPopover && window.screen.height > 450) {
         this.showPopover = false
+        setTimeout(() => {
+          if (this.elInput === document.activeElement) {
+            this.showPopover = true
+          }
+        }, 200)
       }
     })
+    this.ecomSearch.setPageSize(this.maxItems)
   },
 
   mounted () {
@@ -139,6 +171,11 @@ export default {
           this.showPopover = true
         }
       })
+      $input.addEventListener('focus', ev => {
+        if (!this.totalSearchResults) {
+          this.instantSearch(false)
+        }
+      })
       if (!this.term) {
         this.searchTerm = $input.value
       } else {
@@ -153,8 +190,12 @@ export default {
 
   watch: {
     searchTerm (term) {
-      if (term && term.length > 2) {
-        this.fetchItems()
+      if (term) {
+        if (term.length > 2) {
+          this.instantSearch()
+        }
+      } else {
+        this.instantSearch(false)
       }
     }
   }
