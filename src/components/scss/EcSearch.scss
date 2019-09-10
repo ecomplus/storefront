@@ -1,2 +1,27 @@
 .ec-search {
+  &__popover {
+    max-width: calc(100% - 2rem);
+
+    @media (min-width: 576px) {
+      min-width: 400px;
+    }
+  }
+
+  &__info,
+  &__history {
+    font-weight: 300;
+    margin-bottom: .25rem;
+    font-size: 1.15rem;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  &__history__link {
+    margin-left: .5rem;
+  }
+
+  &__no-results,
+  &__history {
+    color: var(--gray);
+  }
 }

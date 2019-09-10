@@ -1,7 +1,11 @@
 const dictionary = {
-  hello: {
-    en_us: 'Hello',
-    pt_br: 'Olá'
+  did_you_mean: {
+    en_us: 'Did you mean',
+    pt_br: 'Você quis dizer'
+  },
+  no_results_for: {
+    en_us: 'No results for',
+    pt_br: 'Nenhum produto encontrado para'
   }
 }
 
