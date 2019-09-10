@@ -18,10 +18,11 @@ export default (options = {}, elId = 'search-input') => {
       },
 
       template: `
-      <ec-search
-        id="${elId}"
-        v-bind="options.props"
-      />`
+      <ec-search v-bind="options.props">
+        <template #input>
+          ${$searchInput.outerHTML}
+        </template>
+      </ec-search>`
     }).$mount($searchInput)
   }
 }
