@@ -39,6 +39,10 @@
     "vue": "^2.6.10",
     "vue2-transitions": "^0.3.0"
   },
+  "peerDependencies": {
+    "@ecomplus/widget-product": "^0.3.8",
+    "@ecomplus/widget-product-card": "^0.2.5"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/plugin-transform-runtime": "^7.6.0",
@@ -46,7 +50,9 @@
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "@ecomplus/storefront-framework": "^5.1.1",
-    "@ecomplus/storefront-template": "^1.0.0",
+    "@ecomplus/storefront-template": "^1.1.1",
+    "@ecomplus/widget-product": "^0.3.8",
+    "@ecomplus/widget-product-card": "^0.2.6",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
