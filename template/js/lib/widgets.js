@@ -1,24 +1,21 @@
-const widgets = window._widgets
-const startWidget = (pkg, fn) => {
-  if (widgets[pkg]) {
-    const { active, options } = widgets[pkg]
-    if (active && typeof fn === 'function') {
-      fn(options)
-    }
-    console.log(`Widget loaded: ${pkg}`)
+const loadWidget = (pkg, runImport) => {
+  const { active, options } = window._widgets[pkg]
+  if (active) {
+    runImport().then(exp => {
+      if (typeof exp.default === 'function') {
+        exp.default(options)
+      }
+      console.log(`Widget loaded: ${pkg}`)
+    })
   }
 }
 
-import('@ecomplus/widget-user')
-  .then(exp => startWidget('@ecomplus/widget-user', exp.default))
-
-import('@ecomplus/widget-product-card')
-  .then(exp => startWidget('@ecomplus/widget-product-card', exp.default))
+loadWidget('@ecomplus/widget-user', () => import('@ecomplus/widget-user'))
+loadWidget('@ecomplus/widget-product-card', () => import('@ecomplus/widget-product-card'))
 
 const { resource } = document.body.dataset
 switch (resource) {
   case 'products':
-    import('@ecomplus/widget-product')
-      .then(exp => startWidget('@ecomplus/widget-product', exp.default))
+    loadWidget('@ecomplus/widget-product', () => import('@ecomplus/widget-product'))
     break
 }
