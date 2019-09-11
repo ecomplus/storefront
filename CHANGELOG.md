@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/ecomclub/storefront-template/compare/v1.3.0...v1.4.0) (2019-09-11)
+
+
+### Features
+
+* **footer:** add address at contact col ([#26](https://github.com/ecomclub/storefront-template/issues/26)) ([dd5fc18](https://github.com/ecomclub/storefront-template/commit/dd5fc18))
+
 ## [1.3.0](https://github.com/ecomclub/storefront-template/compare/v1.2.0...v1.3.0) (2019-09-11)
 
 
