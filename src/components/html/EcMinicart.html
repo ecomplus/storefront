@@ -1,0 +1,16 @@
+<div class="ec-minicart">
+  <slot name="button">
+    <button
+      type="button"
+      class="btn btn-lg btn-light"
+      :title="dictionary('shopping_cart')"
+      @click="$emit('update:showCart', true)"
+      v-b-tooltip.hover.left
+    >
+      <i class="fas fa-shopping-bag"></i>
+    </button>
+  </slot>
+
+  <aside v-show="showCart">
+  </aside>
+</div>
