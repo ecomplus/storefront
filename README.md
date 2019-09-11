@@ -1,2 +1,2 @@
-# widget-user
-Storefront plugin with Vue component customer identification
+# widget-search
+Storefront plugin with Vue component for instant search engine on E-Com Plus stores
