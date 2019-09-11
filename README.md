@@ -40,3 +40,10 @@ new major releases.
     - `#search`
   - `#overlay`
 - `#app`
+
+### Search page
+
+Products on search page must be dynamically loaded,
+HTTP parameters (optionals) to filter search results:
+
+`/search?term&page&category&brand`
