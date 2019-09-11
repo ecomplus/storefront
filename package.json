@@ -32,7 +32,7 @@
   "homepage": "https://github.com/ecomclub/widget-minicart#readme",
   "dependencies": {
     "@babel/runtime": "^7.6.0",
-    "@ecomplus/search-engine": "^1.0.5",
+    "@ecomplus/shopping-cart": "^0.6.1",
     "@ecomplus/storefront-twbs": "^3.4.1",
     "@ecomplus/utils": "^1.0.1",
     "core-js": "^3.2.1",
@@ -40,8 +40,7 @@
     "vue2-transitions": "^0.3.0"
   },
   "peerDependencies": {
-    "@ecomplus/widget-product": "^0.3.8",
-    "@ecomplus/widget-product-card": "^0.2.5"
+    "@ecomplus/widget-product": "^0.3.8"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
@@ -52,7 +51,6 @@
     "@ecomplus/storefront-framework": "^5.1.1",
     "@ecomplus/storefront-template": "^1.2.0",
     "@ecomplus/widget-product": "^0.3.8",
-    "@ecomplus/widget-product-card": "^0.2.6",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
