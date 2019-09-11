@@ -134,11 +134,13 @@ export default {
     instantSearch (term) {
       this.showPopover = false
       setTimeout(() => {
-        this.fetchItems(term)
+        if ((!term && !this.elInput.value) || this.elInput.value === term) {
+          this.fetchItems(term)
+        }
         setTimeout(() => {
           this.showPopover = true
         }, 100)
-      }, 100)
+      }, 400)
     }
   },
 
@@ -192,7 +194,7 @@ export default {
     searchTerm (term) {
       if (term) {
         if (term.length > 2) {
-          this.instantSearch()
+          this.instantSearch(term)
         }
       } else {
         this.instantSearch(false)
