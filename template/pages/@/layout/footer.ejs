@@ -85,6 +85,13 @@ const paymentMethods = [
               </a>
             </li>
           <% } %>
+          <% if (footer.contacts.address) { %>
+            <li>
+              <address>
+                <%= contacts.address %>
+              </address>
+            </li>
+          <% } %>
         </ul>
 
         <% if (footer.contacts.socials) { %>
