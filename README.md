@@ -41,9 +41,9 @@ new major releases.
   - `#overlay`
 - `#app`
 
-### Search page
+### Search query
 
 Products on search page must be dynamically loaded,
-HTTP parameters (optionals) to filter search results:
+default HTTP parameters (optionals) to filter search results:
 
-`/search?term&page&category&brand`
+`/search?term&page&categories[]&brands[]`
