@@ -74,33 +74,35 @@ export default {
       }
     },
 
+    checkCurrentTerm (term) {
+      return (!term && !this.elInput.value) || this.elInput.value === term
+    },
+
     handleSuggestions (term) {
-      if (this.elInput.value === term) {
-        let suggestTerm = term
-        let autoFix = false
-        this.suggestedTerm = ''
-        this.ecomSearch.getTermSuggestions().forEach(({ options, text }) => {
-          if (options.length) {
-            const opt = options[0]
-            if (
-              !this.totalSearchResults &&
-              this.autoFixScore > 0 &&
-              opt.score >= this.autoFixScore &&
-              opt.text.indexOf(term) === -1
-            ) {
-              autoFix = true
-            }
-            suggestTerm = suggestTerm.replace(text, opt.text)
+      let suggestTerm = term
+      let autoFix = false
+      this.suggestedTerm = ''
+      this.ecomSearch.getTermSuggestions().forEach(({ options, text }) => {
+        if (options.length) {
+          const opt = options[0]
+          if (
+            !this.totalSearchResults &&
+            this.autoFixScore > 0 &&
+            opt.score >= this.autoFixScore &&
+            opt.text.indexOf(term) === -1
+          ) {
+            autoFix = true
           }
-        })
-        if (suggestTerm !== term) {
-          if (autoFix) {
-            this.elInput.value = this.searchTerm = suggestTerm
-          } else {
-            this.suggestedTerm = suggestTerm
-          }
-          this.ecomSearch.history.shift()
+          suggestTerm = suggestTerm.replace(text, opt.text)
         }
+      })
+      if (suggestTerm !== term) {
+        if (autoFix) {
+          this.elInput.value = this.searchTerm = suggestTerm
+        } else {
+          this.suggestedTerm = suggestTerm
+        }
+        this.ecomSearch.history.shift()
       }
     },
 
@@ -117,11 +119,13 @@ export default {
       this.searching = true
       ecomSearch.fetch()
         .then(() => {
-          const { getItems, getTotalCount } = ecomSearch
-          this.searchedTerm = term
-          this.suggestedItems = getItems()
-          this.totalSearchResults = getTotalCount()
-          this.handleSuggestions(term)
+          if (this.checkCurrentTerm(term)) {
+            const { getItems, getTotalCount } = ecomSearch
+            this.searchedTerm = term
+            this.suggestedItems = getItems()
+            this.totalSearchResults = getTotalCount()
+            this.handleSuggestions(term)
+          }
         })
         .catch(err => {
           console.error(err)
@@ -134,11 +138,13 @@ export default {
     instantSearch (term) {
       this.showPopover = false
       setTimeout(() => {
-        if ((!term && !this.elInput.value) || this.elInput.value === term) {
+        if (this.checkCurrentTerm(term)) {
           this.fetchItems(term)
         }
         setTimeout(() => {
-          this.showPopover = true
+          if (this.checkCurrentTerm(term)) {
+            this.showPopover = true
+          }
         }, 100)
       }, 400)
     }
