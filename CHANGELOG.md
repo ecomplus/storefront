@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.2](https://github.com/ecomclub/widget-search/compare/v0.5.1...v0.5.2) (2019-09-11)
+
+
+### Bug Fixes
+
+* **search-popover:** fix show/hide popover transitions ([1c7eff9](https://github.com/ecomclub/widget-search/commit/1c7eff9))
+* **search-popover:** style fixes for popover box ([9260791](https://github.com/ecomclub/widget-search/commit/9260791))
+
 ### [0.5.1](https://github.com/ecomclub/widget-search/compare/v0.5.0...v0.5.1) (2019-09-10)
 
 
