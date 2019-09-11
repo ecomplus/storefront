@@ -39,9 +39,6 @@
     "vue": "^2.6.10",
     "vue2-transitions": "^0.3.0"
   },
-  "peerDependencies": {
-    "@ecomplus/widget-product": "^0.3.8"
-  },
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/plugin-transform-runtime": "^7.6.0",
@@ -50,7 +47,6 @@
     "@commitlint/config-conventional": "^8.1.0",
     "@ecomplus/storefront-framework": "^5.1.1",
     "@ecomplus/storefront-template": "^1.2.0",
-    "@ecomplus/widget-product": "^0.3.8",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
