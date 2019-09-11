@@ -1,10 +1,17 @@
 {
   "@ecomplus/widget-user": {
     "active": true,
+    "desktopOnly": false,
+    "options": {}
+  },
+  "@ecomplus/widget-search": {
+    "active": true,
+    "desktopOnly": true,
     "options": {}
   },
   "@ecomplus/widget-product-card": {
     "active": true,
+    "desktopOnly": false,
     "options": {
       "props": {
         "buyText": ""
@@ -16,6 +23,7 @@
   },
   "@ecomplus/widget-product": {
     "active": true,
+    "desktopOnly": false,
     "options": {
       "props": {
         "buyText": ""
