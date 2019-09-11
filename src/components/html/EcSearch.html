@@ -10,6 +10,7 @@
       :target="elInput.id"
       :show.sync="showPopover"
       :placement="popoverPlacement"
+      :fallback-placement="[popoverPlacement]"
     >
       <div
         v-if="searching"
