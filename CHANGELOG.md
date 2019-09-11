@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/ecomclub/storefront-template/compare/v1.2.0...v1.3.0) (2019-09-11)
+
+
+### Bug Fixes
+
+* **cms:** making credits a string as in views, fixing widgets file ([6e22af3](https://github.com/ecomclub/storefront-template/commit/6e22af3))
+
+
+### Features
+
+* **widget-search:** adding ecomplu/widget-search to widgets ([5391450](https://github.com/ecomclub/storefront-template/commit/5391450))
+* **widgets:** check desktopOnly to skip widget on mobile if configured ([a29289c](https://github.com/ecomclub/storefront-template/commit/a29289c))
+
 ## [1.2.0](https://github.com/ecomclub/storefront-template/compare/v1.1.1...v1.2.0) (2019-09-10)
 
 
