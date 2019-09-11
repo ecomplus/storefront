@@ -29,12 +29,12 @@ new major releases.
   - `#content`
     - `.products-carousel`
     - `.retail-grid`
-    - `.product-card`
+    - `.product-card` (`[data-to-render="true"]`)
     - `#category`
     - `#brand`
     - `#collection`
     - `#product`
-      - `#product-block`
+      - `#product-block` (`[data-to-render="true"]`)
       - `#product-description`
       - `#product-specs`
     - `#search`
