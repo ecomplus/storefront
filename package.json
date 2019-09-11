@@ -49,7 +49,7 @@
     "@ecomplus/utils": "^1.0.1",
     "@ecomplus/widget-product": "^0.3.8",
     "@ecomplus/widget-product-card": "^0.2.5",
-    "@ecomplus/widget-search": "^0.5.2",
+    "@ecomplus/widget-search": "^0.5.3",
     "@ecomplus/widget-user": "^0.9.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
