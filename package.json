@@ -53,7 +53,7 @@
     "html-minifier": "^4.0.0",
     "json-sass-vars": "^3.1.0",
     "lodash": "^4.17.15",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^10.0.0",
     "mini-css-extract-plugin": "^0.8.0",
     "mkdirp": "^0.5.1",
     "node-sass": "^4.12.0",
