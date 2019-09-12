@@ -1,5 +1,5 @@
 import { _config, name, inStock } from '@ecomplus/utils'
-import EcomSearch from '@ecomplus/search-engine'
+import { store } from '@ecomplus/client'
 import dictionary from '@ecomplus/widget-product/src/lib/dictionary'
 import EcImage from '@ecomplus/widget-product/src/components/EcImage.vue'
 import EcPrices from '@ecomplus/widget-product/src/components/EcPrices.vue'
@@ -54,14 +54,12 @@ export default {
 
     fetchItem () {
       if (this.productId) {
-        const { storeId } = this
-        const search = new EcomSearch(storeId)
-        search.setProductIds([this.productId]).fetch()
-          .then(() => {
-            const items = search.getItems()
-            if (Array.isArray(items) && items.length) {
-              this.body = items[0]
-            }
+        const { storeId, productId } = this
+        store({ url: `/products/${productId}.json`, storeId })
+          .then(({ data }) => {
+            this.body = data
+            delete this.body.body_html
+            delete this.body.body_text
           })
           .catch(err => {
             console.error(err)
