@@ -1,14 +1,19 @@
-import Vue from 'vue'
-import '@ecomplus/storefront-twbs'
-import MyComponent from './components/MyComponent.vue'
-
+import ratingCards from './lib/rating-products'
+import commentsProduct from './lib/comments-products'
+import ratingSearch from './lib/rating-search'
+//
 export default options => {
-  const elId = 'some-el-id'
-  new Vue({
-    components: {
-      MyComponent
-    },
-    template: `
-    <my-component id="${elId}"/>`
-  }).$mount(`#${elId}`)
+  document.addEventListener('DOMContentLoaded', function () {
+    ;[
+      '//static.trustvox.com.br/assets/widget.js',
+      '//s3-sa-east-1.amazonaws.com/trustvox-rate-widget-js/widget.js'
+    ].forEach(script => {
+      const scriptEl = document.createElement('script')
+      scriptEl.src = script
+      document.body.appendChild(scriptEl)
+    })
+    ratingCards(options)
+    ratingSearch(options)
+    commentsProduct(options)
+  }, false)
 }
