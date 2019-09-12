@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.1.2](https://github.com/ecomclub/storefront-framework/compare/v5.1.1...v5.1.2) (2019-09-12)
+
+
+### Bug Fixes
+
+* **sw:** fix service worker entry for live apis ([9f4df60](https://github.com/ecomclub/storefront-framework/commit/9f4df60))
+* **webpack:** update clean webpack plugin 3 usage ([876b4bc](https://github.com/ecomclub/storefront-framework/commit/876b4bc))
+
 ### [5.1.1](https://github.com/ecomclub/storefront-framework/compare/v5.1.0...v5.1.1) (2019-09-01)
 
 ## [5.1.0](https://github.com/ecomclub/storefront-framework/compare/v5.0.1...v5.1.0) (2019-08-30)
