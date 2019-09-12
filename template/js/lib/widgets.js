@@ -1,6 +1,6 @@
 const loadWidget = (pkg, runImport) => {
-  const { active, options } = window._widgets[pkg]
-  if (active) {
+  const { active, desktopOnly, options } = window._widgets[pkg]
+  if (active && (!desktopOnly || window.screen.width >= 768)) {
     runImport().then(exp => {
       if (typeof exp.default === 'function') {
         exp.default(options)
@@ -12,6 +12,7 @@ const loadWidget = (pkg, runImport) => {
 
 loadWidget('@ecomplus/widget-user', () => import('@ecomplus/widget-user'))
 loadWidget('@ecomplus/widget-product-card', () => import('@ecomplus/widget-product-card'))
+loadWidget('@ecomplus/widget-search', () => import('@ecomplus/widget-search'))
 
 const { resource } = document.body.dataset
 switch (resource) {

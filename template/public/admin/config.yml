@@ -404,15 +404,11 @@ collections:
               - {label: "HSBC", name: "hsbc", widget: "boolean", default: true, required: false}
               - {label: "Banrisul", name: "banrisul", widget: "boolean", default: true, required: false}
               - {label: "Mais", name: "mais", widget: "boolean", default: true, required: false}
-          - label: Creditos
-            name: credits
-            widget: object
-            fields:
-              - {label: Texto, required: false, name: texto, widget: string}
+          - {label: "Créditos", name: "credits", widget: "string", required: false}
 
       - name: "widgets"
         label: "Widgets"
-        file: "content/widget-user.json"
+        file: "content/widgets.json"
         fields:
           - label: "Login de usuários"
             name: "@ecomplus/widget-product-card"
