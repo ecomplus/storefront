@@ -43,7 +43,7 @@ export default {
     return {
       ecomSearch: new EcomSearch(this.storeId),
       searchTerm: this.term,
-      searchedTerm: '',
+      searchedTerm: null,
       searching: false,
       suggestedItems: [],
       suggestedTerm: '',
@@ -136,17 +136,21 @@ export default {
     },
 
     instantSearch (term) {
-      this.showPopover = false
-      setTimeout(() => {
-        if (this.checkCurrentTerm(term)) {
-          this.fetchItems(term)
-        }
+      if (this.searchedTerm === null) {
+        this.fetchItems(term)
+      } else if (this.searchedTerm !== term) {
+        this.showPopover = false
         setTimeout(() => {
           if (this.checkCurrentTerm(term)) {
-            this.showPopover = true
+            this.fetchItems(term)
           }
-        }, 100)
-      }, 400)
+          setTimeout(() => {
+            if (this.checkCurrentTerm(term)) {
+              this.showPopover = true
+            }
+          }, 100)
+        }, 400)
+      }
     }
   },
 
