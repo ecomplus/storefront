@@ -37,6 +37,7 @@
     "@ecomplus/utils": "^1.0.1",
     "core-js": "^3.2.1",
     "vue": "^2.6.10",
+    "vue-select": "^3.1.0",
     "vue2-transitions": "^0.3.0"
   },
   "devDependencies": {
@@ -45,8 +46,8 @@
     "@babel/preset-env": "^7.6.0",
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "@ecomplus/storefront-framework": "^5.1.1",
-    "@ecomplus/storefront-template": "^1.2.0",
+    "@ecomplus/storefront-framework": "^5.1.2",
+    "@ecomplus/storefront-template": "^1.4.3",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
