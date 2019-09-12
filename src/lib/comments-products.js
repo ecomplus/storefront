@@ -70,8 +70,7 @@ export default options => {
 
     window._trustvox = window._trustvox || []
     window._trustvox.push(['_storeId', options.storeId])
-    //window._trustvox.push(['_productId', context.sku])
-    window._trustvox.push(['_productId', 'produto_teste_1234'])
+    window._trustvox.push(['_productId', context.sku])
     window._trustvox.push(['_productName', context.name])
     window._trustvox.push(['_productPhotos', pictures])
 
