@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.3](https://github.com/ecomclub/storefront-template/compare/v1.4.2...v1.4.3) (2019-09-12)
+
+
+### Bug Fixes
+
+* **search:** add nested #search-engine to make easier handling obervers ([c9eb536](https://github.com/ecomclub/storefront-template/commit/c9eb536))
+
 ### [1.4.2](https://github.com/ecomclub/storefront-template/compare/v1.4.1...v1.4.2) (2019-09-12)
 
 ### [1.4.1](https://github.com/ecomclub/storefront-template/compare/v1.4.0...v1.4.1) (2019-09-11)
