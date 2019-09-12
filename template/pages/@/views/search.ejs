@@ -9,7 +9,9 @@ const pageSearch = _.cms('search')
 
 <div class="container py-1 py-sm-2 py-lg-4">
   <section id="search">
-    <%- await include('components/loading') %>
+    <div id="search-engine">
+      <%- await include('components/loading') %>
+    </div>
   </section>
 
   <% if (pageSearch.additional_content) { %>
