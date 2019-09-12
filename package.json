@@ -46,7 +46,7 @@
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "@ecomplus/storefront-framework": "^5.1.2",
-    "@ecomplus/storefront-template": "^1.4.3",
+    "@ecomplus/storefront-template": "^1.4.4",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
@@ -61,7 +61,7 @@
     "standard-version": "^7.0.0",
     "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.39.3",
+    "webpack": "^4.40.0",
     "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.8.0"
   },
