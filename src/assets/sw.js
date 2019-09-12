@@ -26,7 +26,7 @@ workbox.routing.registerRoute(
     cacheName: 'google-fonts-webfonts',
     plugins: [
       new workbox.cacheableResponse.Plugin({
-        statuses: [ 0, 200 ]
+        statuses: [0, 200]
       }),
       new workbox.expiration.Plugin({
         // large expiration time
@@ -73,9 +73,9 @@ workbox.routing.registerRoute(
   })
 )
 
-// Live (no cache) APIs
+// Live Store and Search API
 workbox.routing.registerRoute(
-  /^https:\/\/([a-z-]+\.)?e-com\.plus\/((?:api|[0-9]+)\/)?v[1-9]+\//,
+  /^https:\/\/(?:api|apx-search).e-com\.plus\/(api\/)?v[1-9]+\//,
   new workbox.strategies.NetworkFirst({
     cacheName: 'live-api',
     plugins: [
