@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.1](https://github.com/ecomclub/widget-minicart/compare/v0.6.0...v0.6.1) (2019-09-12)
+
+
+### Features
+
+* **cart-item:** add and handle cart item component ([4c03ea8](https://github.com/ecomclub/widget-minicart/commit/4c03ea8))
+* **minicart:** setup minicart header and footer ([0dd097c](https://github.com/ecomclub/widget-minicart/commit/0dd097c))
+
 ## [0.6.0](https://github.com/ecomclub/widget-minicart/compare/v0.3.0...v0.6.0) (2019-09-11)
 
 
