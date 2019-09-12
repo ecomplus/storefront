@@ -1,12 +1,14 @@
-import { _config } from '@ecomplus/utils'
+import { _config, formatMoney } from '@ecomplus/utils'
 import dictionary from './../../lib/dictionary'
-import { SlideXLeftTransition } from 'vue2-transitions'
+import { SlideXRightTransition, SlideYUpTransition } from 'vue2-transitions'
+import EcomCart from '@ecomplus/shopping-cart'
 
 export default {
   name: 'EcMinicart',
 
   components: {
-    SlideXLeftTransition
+    SlideXRightTransition,
+    SlideYUpTransition
   },
 
   props: {
@@ -21,15 +23,35 @@ export default {
     showCart: {
       type: Boolean,
       default: false
+    },
+    checkoutUrl: {
+      type: String,
+      default: '/app/#/checkout'
+    },
+    cartUrl: {
+      type: String,
+      default: '/app/#/cart'
     }
   },
 
   data () {
     return {
+      ecomCart: new EcomCart(this.storeId)
+    }
+  },
+
+  computed: {
+    cart () {
+      return this.ecomCart.data
     }
   },
 
   methods: {
-    dictionary
+    dictionary,
+    formatMoney
+  },
+
+  mounted () {
+    document.querySelector('body').appendChild(this.$refs.sidebar.$el)
   }
 }
