@@ -12,53 +12,65 @@
       :placement="popoverPlacement"
       :fallback-placement="[popoverPlacement]"
     >
-      <div v-if="searching" class="spinner-border m-4" role="status">
-        <span class="sr-only">Loading...</span>
+      <div class="ec-search__head">
+        <div>
+          <div v-if="searching" class="spinner-border m-4" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+
+          <slide-y-up-transition :duration="{ enter: 300, leave: 50 }">
+            <div v-if="!searching && searchedTerm" class="ec-search__info">
+              <template v-if="suggestedTerm">
+                {{ dictionary('did_you_mean') }}
+                <a
+                  class="ec-search__suggestion"
+                  href="#"
+                  @click.prevent="setSearchTerm(suggestedTerm)"
+                  v-text="suggestedTerm"
+                />
+                ?
+              </template>
+
+              <span v-if="!totalSearchResults" class="ec-search__no-results">
+                {{ dictionary('no_results_for') }}
+                <em>{{ searchedTerm }}</em>
+              </span>
+              <span v-else class="ec-search__count-results">
+                <strong>{{ totalSearchResults }}</strong>
+                {{ dictionary('total_results_for') }}
+                <em>{{ searchedTerm }}</em>
+                <a
+                  href="#"
+                  @click.prevent="setSearchTerm(searchedTerm)"
+                  v-if="totalSearchResults > maxItems"
+                  v-text="`+${dictionary('see_all')}`"
+                />
+              </span>
+            </div>
+          </slide-y-up-transition>
+
+          <slide-y-up-transition>
+            <div v-if="history.length" class="ec-search__history">
+              <i class="fas fa-history"></i>
+              <a
+                class="ec-search__history__link"
+                v-for="term in history"
+                href="#"
+                @click.prevent="setSearchTerm(term)"
+                v-text="term"
+              />
+            </div>
+          </slide-y-up-transition>
+        </div>
+
+        <button
+          class="btn ec-search__close"
+          @click="showPopover = false"
+          type="button"
+        >
+          <i class="fas fa-times"></i>
+        </button>
       </div>
-
-      <slide-y-up-transition :duration="{ enter: 300, leave: 50 }">
-        <div v-if="!searching && searchedTerm" class="ec-search__info">
-          <template v-if="suggestedTerm">
-            {{ dictionary('did_you_mean') }}
-            <a
-              class="ec-search__suggestion"
-              href="#"
-              @click.prevent="setSearchTerm(suggestedTerm)"
-              v-text="suggestedTerm"
-            />
-            ?
-          </template>
-
-          <span v-if="!totalSearchResults" class="ec-search__no-results">
-            {{ dictionary('no_results_for') }}
-            <em>{{ searchedTerm }}</em>
-          </span>
-          <span v-else class="ec-search__count-results">
-            <strong>{{ totalSearchResults }}</strong>
-            {{ dictionary('total_results_for') }}
-            <em>{{ searchedTerm }}</em>
-            <a
-              href="#"
-              @click.prevent="setSearchTerm(searchedTerm)"
-              v-if="totalSearchResults > maxItems"
-              v-text="`+${dictionary('see_all')}`"
-            />
-          </span>
-        </div>
-      </slide-y-up-transition>
-
-      <slide-y-up-transition>
-        <div v-if="history.length" class="ec-search__history">
-          <i class="fas fa-history"></i>
-          <a
-            class="ec-search__history__link"
-            v-for="term in history"
-            href="#"
-            @click.prevent="setSearchTerm(term)"
-            v-text="term"
-          />
-        </div>
-      </slide-y-up-transition>
 
       <slide-y-up-transition :duration="{ enter: 600, leave: 0 }">
         <div
