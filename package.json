@@ -37,7 +37,6 @@
     "@ecomplus/utils": "^1.0.1",
     "core-js": "^3.2.1",
     "vue": "^2.6.10",
-    "vue-select": "^3.1.0",
     "vue2-transitions": "^0.3.0"
   },
   "devDependencies": {

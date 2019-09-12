@@ -4,7 +4,7 @@
       type="button"
       class="btn btn-lg btn-light"
       :title="dictionary('shopping_cart')"
-      @click="$emit('update:showCart', true)"
+      @click="show"
       v-b-tooltip.hover.left
     >
       <i class="fas fa-shopping-bag"></i>
@@ -23,7 +23,7 @@
             type="button"
             class="close"
             :aria-label="dictionary('close')"
-            @click="$emit('update:showCart', false)"
+            @click="hide"
           >
             <span aria-hidden="true">&times;</span>
           </button>
@@ -37,7 +37,16 @@
             v-if="cart.items.length"
             key="list"
           >
-            <slot name="list">
+            <slot name="list" v-bind="{ items: cart.items }">
+              <slide-y-up-transition group>
+                <ec-cart-item
+                  v-for="item in cart.items"
+                  :key="item._id"
+                  :item="item"
+                  @increase="qnt => ecomCart.increaseItemQnt(item._id, qnt)"
+                  @remove="ecomCart.removeItem(item._id)"
+                />
+              </slide-y-up-transition>
             </slot>
           </div>
 
@@ -53,7 +62,7 @@
               <a
                 class="btn btn-block btn-primary"
                 href="#"
-                @click.prevent="$emit('update:showCart', false)"
+                @click.prevent="hide"
               >
                 <span class="mr-1">
                   <i class="fas fa-arrow-left"></i>

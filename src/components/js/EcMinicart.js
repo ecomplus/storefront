@@ -1,12 +1,14 @@
 import { _config, formatMoney } from '@ecomplus/utils'
-import dictionary from './../../lib/dictionary'
-import { SlideXRightTransition, SlideYUpTransition } from 'vue2-transitions'
 import EcomCart from '@ecomplus/shopping-cart'
+import dictionary from './../../lib/dictionary'
+import EcCartItem from './../EcCartItem.vue'
+import { SlideXRightTransition, SlideYUpTransition } from 'vue2-transitions'
 
 export default {
   name: 'EcMinicart',
 
   components: {
+    EcCartItem,
     SlideXRightTransition,
     SlideYUpTransition
   },
@@ -23,6 +25,10 @@ export default {
     showCart: {
       type: Boolean,
       default: false
+    },
+    showOnItemAdded: {
+      type: Boolean,
+      default: true
     },
     checkoutUrl: {
       type: String,
@@ -48,7 +54,21 @@ export default {
 
   methods: {
     dictionary,
-    formatMoney
+    formatMoney,
+
+    show () {
+      this.$emit('update:showCart', true)
+    },
+
+    hide () {
+      this.$emit('update:showCart', false)
+    }
+  },
+
+  created () {
+    if (this.showOnItemAdded) {
+      EcomCart.on('addItem', this.show)
+    }
   },
 
   mounted () {
