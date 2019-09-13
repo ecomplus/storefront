@@ -67,7 +67,10 @@ export default {
 
   created () {
     if (this.showOnItemAdded) {
-      EcomCart.on('addItem', this.show)
+      EcomCart.on('addItem', ({ data }) => {
+        this.show()
+        this.ecomCart.data = data
+      })
     }
   },
 
