@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.5](https://github.com/ecomclub/widget-minicart/compare/v0.6.4...v0.6.5) (2019-09-13)
+
+
+### Bug Fixes
+
+* **minicart-body:** style fix with overflow-y ([c68b884](https://github.com/ecomclub/widget-minicart/commit/c68b884))
+
 ### [0.6.4](https://github.com/ecomclub/widget-minicart/compare/v0.6.3...v0.6.4) (2019-09-13)
 
 
