@@ -411,11 +411,28 @@ collections:
         file: "content/widgets.json"
         fields:
           - label: "Login de usuários"
-            name: "@ecomplus/widget-product-card"
+            name: "@ecomplus/widget-user"
             widget: object
-            hint: "Card de produtos exibido na vitrine e em vários outros pontos da loja"
+            hint: "Caixa de login na página, sem redirecionar ou abrir nova guia"
             fields:
               - {label: "Ativar", name: "active", required: false, widget: "boolean"}
+              - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
+
+          - label: "Busca instantânea"
+            name: "@ecomplus/widget-search"
+            widget: object
+            hint: "Exibe uma prévia de resultado de busca logo abaixo do campo de pesquisa"
+            fields:
+              - {label: "Ativar", name: "active", required: false, widget: "boolean"}
+              - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
+
+          - label: "Minicart"
+            name: "@ecomplus/widget-minicart"
+            widget: object
+            hint: "Esse widget faz que o carrinho seja aberto na lateral da tela sem redirecionar da página"
+            fields:
+              - {label: "Ativar", name: "active", required: false, widget: "boolean"}
+              - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
 
           - label: "Card de produtos"
             name: "@ecomplus/widget-product-card"
@@ -423,6 +440,7 @@ collections:
             hint: "Card de produtos exibido na vitrine e em vários outros pontos da loja"
             fields:
               - {label: "Ativar", name: "active", required: false, widget: "boolean"}
+              - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
               - label: "Opções"
                 name: "options"
                 widget: object
@@ -446,6 +464,7 @@ collections:
             hint: "Produto a ser exibido na página de produto"
             fields:
               - {label: "Ativar", name: "active", required: false, widget: "boolean"}
+              - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
               - label: "Opções"
                 name: "options"
                 widget: object
