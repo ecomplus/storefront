@@ -156,6 +156,12 @@
       &-btn {
         margin-top: -1.15rem;
         font-size: 1.3rem;
+        right: 1rem;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      &-btn {
         right: .5rem;
       }
     }

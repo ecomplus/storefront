@@ -9,6 +9,11 @@
     "desktopOnly": true,
     "options": {}
   },
+  "@ecomplus/widget-minicart": {
+    "active": true,
+    "desktopOnly": false,
+    "options": {}
+  },
   "@ecomplus/widget-product-card": {
     "active": true,
     "desktopOnly": false,

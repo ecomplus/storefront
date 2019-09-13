@@ -38,6 +38,7 @@ new major releases.
       - `#product-description`
       - `#product-specs`
     - `#search`
+      - `#search-engine`
   - `#overlay`
 - `#app`
 

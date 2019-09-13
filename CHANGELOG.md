@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1](https://github.com/ecomclub/storefront-template/compare/v1.5.0...v1.5.1) (2019-09-13)
+
+## [1.5.0](https://github.com/ecomclub/storefront-template/compare/v1.4.4...v1.5.0) (2019-09-13)
+
+
+### Bug Fixes
+
+* **js:** exposing libs on window ([d024c84](https://github.com/ecomclub/storefront-template/commit/d024c84))
+
+
+### Features
+
+* **widgets:** import and setup ecomplus/widget-minicart ([865e721](https://github.com/ecomclub/storefront-template/commit/865e721))
+
+### [1.4.4](https://github.com/ecomclub/storefront-template/compare/v1.4.3...v1.4.4) (2019-09-12)
+
+
+### Bug Fixes
+
+* **search-bar:** check document width to handle carousel ([9a091ba](https://github.com/ecomclub/storefront-template/commit/9a091ba))
+
+### [1.4.3](https://github.com/ecomclub/storefront-template/compare/v1.4.2...v1.4.3) (2019-09-12)
+
+
+### Bug Fixes
+
+* **search:** add nested #search-engine to make easier handling obervers ([c9eb536](https://github.com/ecomclub/storefront-template/commit/c9eb536))
+
 ### [1.4.2](https://github.com/ecomclub/storefront-template/compare/v1.4.1...v1.4.2) (2019-09-12)
 
 ### [1.4.1](https://github.com/ecomclub/storefront-template/compare/v1.4.0...v1.4.1) (2019-09-11)
