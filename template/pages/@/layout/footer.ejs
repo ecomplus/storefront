@@ -85,6 +85,13 @@ const paymentMethods = [
               </a>
             </li>
           <% } %>
+          <% if (footer.contacts.address) { %>
+            <li>
+              <address>
+                <%= contacts.address %>
+              </address>
+            </li>
+          <% } %>
         </ul>
 
         <% if (footer.contacts.socials) { %>
@@ -120,9 +127,19 @@ const paymentMethods = [
             <% }) %>
           </p>
           <div class="footer__stamps row">
-            <% footer.stamps.forEach(({ src, alt }) => { %>
+            <% footer.stamps.forEach(({ src, alt, link }) => { %>
               <div class="col-auto">
-                <img src="<%= src %>" alt="<%= alt %>">
+                <% if (link) { %>
+                  <a 
+                    href="<%= link %>"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <img src="<%= src %>" alt="<%= alt %>">
+                  </a>
+                <% } else { %>
+                  <img src="<%= src %>" alt="<%= alt %>">
+                <% } %>
               </div>
             <% }) %>
           </div>

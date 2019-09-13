@@ -1,30 +1,57 @@
 import './lib/config'
+import emitter from './lib/emitter'
 import '@ecomplus/storefront-twbs'
+
 import './pages/icons'
 import './pages/utils'
 import './pages/menu'
 import './pages/header'
 import './pages/search'
-import emitter from './lib/emitter'
+
+import lozad from 'lozad'
 import Vue from 'vue'
+import cloneDeep from 'lodash.clonedeep'
+import merge from 'lodash.merge'
+import Glide from '@glidejs/glide'
+import ecomClient from '@ecomplus/client'
+import EcomSearch from '@ecomplus/search-engine'
+import EcomPassport from '@ecomplus/passport-client'
+import EcomCart from '@ecomplus/shopping-cart'
+
 import $ from './pages/lib/$'
 import $overlay from './pages/lib/$overlay'
 import './lib/fetch-info'
 
+window.lozad = lozad
 window.Vue = Vue
+window._ = { cloneDeep, merge }
+window.Glide = Glide
+window.ecomClient = ecomClient
+window.EcomSearch = EcomSearch
+window.EcomPassport = EcomPassport
+window.EcomCart = EcomCart
 window.$ = $
-window.$overlay = $overlay
 
 Vue.config.productionTip = false
 
-window.storefront = {}
+window.storefront = {
+  $overlay
+}
 ;['on', 'off', 'once'].forEach(method => {
   window.storefront[method] = (ev, fn) => {
     emitter[method](ev, fn)
   }
 })
 
-import(/* webpackPrefetch: true */ './lib/widgets')
+setTimeout(() => {
+  if (window._widgets !== false) {
+    import(/* webpackPrefetch: true */ './lib/widgets')
+  }
+}, 200)
+
+if (window.pluginPhotoswipe) {
+  import(/* webpackPrefetch: true */ './pages/plugins/photoswipe')
+}
 
 const { hash } = window.location
 if (hash.indexOf('=') !== -1) {

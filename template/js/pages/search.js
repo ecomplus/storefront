@@ -10,7 +10,7 @@ if ($searchBar) {
 
   let resizeState
   const onResize = () => {
-    const lgDevice = window.screen.width >= 992
+    const lgDevice = document.body.offsetWidth >= 992
     if (resizeState !== lgDevice) {
       if (lgDevice) {
         classList.add('d-none', 'show')

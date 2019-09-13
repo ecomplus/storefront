@@ -1,7 +1,7 @@
 .lozad {
   transition: font-size .4s ease-in;
 
-  &:not(.show) {
+  &:not([data-loaded]) {
     @extend .spinner-grow;
 
     background: var(--gray);

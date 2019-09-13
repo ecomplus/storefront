@@ -128,12 +128,42 @@
     }
   }
 
-  @media (max-width: 767.98px) {
-    &__search {
+  &__search {
+    &-btn {
+      border: none;
+      background: none;
+      position: absolute;
+      top: 50%;
+      margin-top: -1.25rem;
+      right: 1.25rem;
+      font-size: 1.5rem;
+      line-height: 1;
+      padding: .5rem;
+      color: var(--secondary);
+      transition: color .125s;
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+
+    @media (max-width: 767.98px) {
       padding: .3rem 2.3rem .3rem .6rem;
       font-size: 1rem;
       height: auto;
       line-height: 1.5;
+
+      &-btn {
+        margin-top: -1.15rem;
+        font-size: 1.3rem;
+        right: 1rem;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      &-btn {
+        right: .5rem;
+      }
     }
   }
 
