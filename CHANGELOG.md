@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/ecomclub/storefront-template/compare/v1.4.4...v1.5.0) (2019-09-13)
+
+
+### Bug Fixes
+
+* **js:** exposing libs on window ([d024c84](https://github.com/ecomclub/storefront-template/commit/d024c84))
+
+
+### Features
+
+* **widgets:** import and setup ecomplus/widget-minicart ([865e721](https://github.com/ecomclub/storefront-template/commit/865e721))
+
 ### [1.4.4](https://github.com/ecomclub/storefront-template/compare/v1.4.3...v1.4.4) (2019-09-12)
 
 
