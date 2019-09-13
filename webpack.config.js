@@ -6,6 +6,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront-template/dist')
 const { dependencies } = require('./package.json')
+const externals = require('@ecomplus/storefront-template/webpack.externals')
 
 // preset default output object
 const output = {
@@ -91,7 +92,13 @@ const config = {
       }
     }
     // exclude all imported libs on production by default
-    : new RegExp('^(' + Object.entries(dependencies).map(([pkg]) => pkg).join('|') + ')(/|$)', 'i')
+    : [
+      externals,
+      new RegExp('^(' +
+        Object.entries(dependencies)
+          .map(([pkg]) => pkg).filter(pkg => !externals[pkg]).join('|') +
+        ')(/|$)', 'i')
+    ]
 }
 
 if (devMode) {
@@ -113,6 +120,6 @@ module.exports = devMode
         ...output,
         filename: output.filename.replace('.min.js', '.root.min.js')
       },
-      externals: require('@ecomplus/storefront-template/webpack.externals')
+      externals
     }
   ]
