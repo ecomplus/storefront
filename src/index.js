@@ -22,7 +22,11 @@ export default (options = {}, elId = 'product-block') => {
 
       methods: {
         addToCart ({ product }) {
-          cart.addProduct(product)
+          cart.addProduct({
+            ...product,
+            body_html: null,
+            body_text: null
+          })
         }
       },
 
