@@ -436,7 +436,7 @@ collections:
 
           - label: "Card de produtos"
             name: "@ecomplus/widget-product-card"
-            widget: object
+            widget: hidden
             hint: "Card de produtos exibido na vitrine e em vários outros pontos da loja"
             fields:
               - {label: "Ativar", name: "active", required: false, widget: "boolean"}
@@ -460,7 +460,7 @@ collections:
                       - {label: "código de comprar", name: "buy", required: false, widget: "string"}
           - label: "Produtos"
             name: "@ecomplus/widget-product"
-            widget: object
+            widget: hidden
             hint: "Produto a ser exibido na página de produto"
             fields:
               - {label: "Ativar", name: "active", required: false, widget: "boolean"}
