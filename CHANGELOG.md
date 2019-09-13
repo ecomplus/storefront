@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.4](https://github.com/ecomclub/widget-minicart/compare/v0.6.3...v0.6.4) (2019-09-13)
+
+
+### Features
+
+* **minicart-button:** add badge to items count ([7654dc1](https://github.com/ecomclub/widget-minicart/commit/7654dc1))
+
 ### [0.6.3](https://github.com/ecomclub/widget-minicart/compare/v0.6.2...v0.6.3) (2019-09-13)
 
 ### [0.6.2](https://github.com/ecomclub/widget-minicart/compare/v0.6.1...v0.6.2) (2019-09-13)
