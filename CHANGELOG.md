@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.2](https://github.com/ecomclub/widget-minicart/compare/v0.6.1...v0.6.2) (2019-09-13)
+
+
+### Bug Fixes
+
+* **show-cart:** handling EcomCart event correctly ([1112925](https://github.com/ecomclub/widget-minicart/commit/1112925))
+
 ### [0.6.1](https://github.com/ecomclub/widget-minicart/compare/v0.6.0...v0.6.1) (2019-09-12)
 
 
