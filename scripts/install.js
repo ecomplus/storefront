@@ -2,7 +2,8 @@
 
 'use strict'
 
-console.log('[INSTALL] @ecomplus/storefront-template')
+const pkg = require('./../package.json')
+console.log(`[INSTALL] ${pkg.name}@${pkg.version}`)
 
 const path = require('path')
 const fs = require('fs')

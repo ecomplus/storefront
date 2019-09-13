@@ -1,0 +1,8 @@
+$pswp__assets-path: "/assets/photoswipe/";
+
+@import "photoswipe/src/css/main";
+@import "photoswipe/src/css/default-skin/default-skin";
+
+.pswp {
+  z-index: 9999;
+}

@@ -17,7 +17,8 @@
     "title": "Contacts",
     "phone_wpp": true,
     "socials": true,
-    "email": true
+    "email": true,
+    "address": true
   },
   "stamps": [
     {

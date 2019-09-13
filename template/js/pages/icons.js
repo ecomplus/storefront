@@ -20,7 +20,10 @@ import {
   faPercent,
   faHome,
   faTrashAlt,
-  faCheck
+  faCheck,
+  faTruck,
+  faLock,
+  faShieldAlt
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -70,7 +73,10 @@ library.add(
   faPercent,
   faHome,
   faTrashAlt,
-  faCheck
+  faCheck,
+  faTruck,
+  faLock,
+  faShieldAlt
 )
 
 dom.watch()

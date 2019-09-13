@@ -2,6 +2,156 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.2](https://github.com/ecomclub/storefront-template/compare/v1.5.1...v1.5.2) (2019-09-13)
+
+
+### Bug Fixes
+
+* **widgets:** prevent fatal error with _widgets object ([de35d7a](https://github.com/ecomclub/storefront-template/commit/de35d7a))
+
+### [1.5.1](https://github.com/ecomclub/storefront-template/compare/v1.5.0...v1.5.1) (2019-09-13)
+
+## [1.5.0](https://github.com/ecomclub/storefront-template/compare/v1.4.4...v1.5.0) (2019-09-13)
+
+
+### Bug Fixes
+
+* **js:** exposing libs on window ([d024c84](https://github.com/ecomclub/storefront-template/commit/d024c84))
+
+
+### Features
+
+* **widgets:** import and setup ecomplus/widget-minicart ([865e721](https://github.com/ecomclub/storefront-template/commit/865e721))
+
+### [1.4.4](https://github.com/ecomclub/storefront-template/compare/v1.4.3...v1.4.4) (2019-09-12)
+
+
+### Bug Fixes
+
+* **search-bar:** check document width to handle carousel ([9a091ba](https://github.com/ecomclub/storefront-template/commit/9a091ba))
+
+### [1.4.3](https://github.com/ecomclub/storefront-template/compare/v1.4.2...v1.4.3) (2019-09-12)
+
+
+### Bug Fixes
+
+* **search:** add nested #search-engine to make easier handling obervers ([c9eb536](https://github.com/ecomclub/storefront-template/commit/c9eb536))
+
+### [1.4.2](https://github.com/ecomclub/storefront-template/compare/v1.4.1...v1.4.2) (2019-09-12)
+
+### [1.4.1](https://github.com/ecomclub/storefront-template/compare/v1.4.0...v1.4.1) (2019-09-11)
+
+## [1.4.0](https://github.com/ecomclub/storefront-template/compare/v1.3.0...v1.4.0) (2019-09-11)
+
+
+### Features
+
+* **footer:** add address at contact col ([#26](https://github.com/ecomclub/storefront-template/issues/26)) ([dd5fc18](https://github.com/ecomclub/storefront-template/commit/dd5fc18))
+
+## [1.3.0](https://github.com/ecomclub/storefront-template/compare/v1.2.0...v1.3.0) (2019-09-11)
+
+
+### Bug Fixes
+
+* **cms:** making credits a string as in views, fixing widgets file ([6e22af3](https://github.com/ecomclub/storefront-template/commit/6e22af3))
+
+
+### Features
+
+* **widget-search:** adding ecomplu/widget-search to widgets ([5391450](https://github.com/ecomclub/storefront-template/commit/5391450))
+* **widgets:** check desktopOnly to skip widget on mobile if configured ([a29289c](https://github.com/ecomclub/storefront-template/commit/a29289c))
+
+## [1.2.0](https://github.com/ecomclub/storefront-template/compare/v1.1.1...v1.2.0) (2019-09-10)
+
+
+### Features
+
+* **search:** add search btn and icon to header input ([3055ac6](https://github.com/ecomclub/storefront-template/commit/3055ac6))
+
+### [1.1.1](https://github.com/ecomclub/storefront-template/compare/v1.1.0...v1.1.1) (2019-09-09)
+
+## [1.1.0](https://github.com/ecomclub/storefront-template/compare/v1.0.0...v1.1.0) (2019-09-09)
+
+
+### Bug Fixes
+
+* **cms:** fixing setting on cms and adding widgetss config ([b20baf5](https://github.com/ecomclub/storefront-template/commit/b20baf5))
+
+
+### Features
+
+* **cms:** adding user product and product-card wigets configs ([2cfa6b7](https://github.com/ecomclub/storefront-template/commit/2cfa6b7))
+* **footer:** rendering footer stamps with links ([4eee3a8](https://github.com/ecomclub/storefront-template/commit/4eee3a8))
+
+## [1.0.0](https://github.com/ecomclub/storefront-template/compare/v0.4.12...v1.0.0) (2019-09-06)
+
+
+### Bug Fixes
+
+* **cms:** fixing link lists name on cms ([2454aa4](https://github.com/ecomclub/storefront-template/commit/2454aa4))
+
+### [0.4.12](https://github.com/ecomclub/storefront-template/compare/v0.4.11...v0.4.12) (2019-09-06)
+
+
+### Features
+
+* **product-card:** setup ecomplus/widget-product-card to load items ([e5d1173](https://github.com/ecomclub/storefront-template/commit/e5d1173))
+* **widgets:** load widgets dynamically, check resource when specific ([4027365](https://github.com/ecomclub/storefront-template/commit/4027365))
+
+### [0.4.11](https://github.com/ecomclub/storefront-template/compare/v0.4.10...v0.4.11) (2019-09-06)
+
+
+### Bug Fixes
+
+* **widgets:** timeout before loading widgets chunk ([186dfc9](https://github.com/ecomclub/storefront-template/commit/186dfc9))
+
+### [0.4.10](https://github.com/ecomclub/storefront-template/compare/v0.4.9...v0.4.10) (2019-09-05)
+
+### [0.4.9](https://github.com/ecomclub/storefront-template/compare/v0.4.8...v0.4.9) (2019-09-05)
+
+
+### Bug Fixes
+
+* **widgets:** check if widgets must be skipped before import ([a21b9c5](https://github.com/ecomclub/storefront-template/commit/a21b9c5))
+
+### [0.4.8](https://github.com/ecomclub/storefront-template/compare/v0.4.7...v0.4.8) (2019-09-05)
+
+### [0.4.7](https://github.com/ecomclub/storefront-template/compare/v0.4.6...v0.4.7) (2019-09-05)
+
+
+### Bug Fixes
+
+* **lozad:** fix handling images lazy load ([61061df](https://github.com/ecomclub/storefront-template/commit/61061df))
+
+### [0.4.6](https://github.com/ecomclub/storefront-template/compare/v0.4.5...v0.4.6) (2019-09-05)
+
+
+### Features
+
+* **product:** add widget for product block ([ed1d581](https://github.com/ecomclub/storefront-template/commit/ed1d581))
+
+### [0.4.5](https://github.com/ecomclub/storefront-template/compare/v0.4.4...v0.4.5) (2019-09-05)
+
+
+### Features
+
+* **photoswipe:** add photoswipe (plugin) on product pages ([5d2c7d7](https://github.com/ecomclub/storefront-template/commit/5d2c7d7))
+
+### [0.4.4](https://github.com/ecomclub/storefront-template/compare/v0.4.3...v0.4.4) (2019-09-04)
+
+### [0.4.3](https://github.com/ecomclub/storefront-template/compare/v0.4.2...v0.4.3) (2019-09-04)
+
+
+### Bug Fixes
+
+* **cms:** fixing settings config, setting some fields as hidden ([f1882bb](https://github.com/ecomclub/storefront-template/commit/f1882bb))
+
+
+### Features
+
+* **icons:** adding truck, lock and shield alt fa icons ([1708f13](https://github.com/ecomclub/storefront-template/commit/1708f13))
+* **product-card:** add data-sku to each product ([a42d1e8](https://github.com/ecomclub/storefront-template/commit/a42d1e8))
+
 ### [0.4.2](https://github.com/ecomclub/storefront-template/compare/v0.4.1...v0.4.2) (2019-09-03)
 
 

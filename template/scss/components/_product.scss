@@ -8,6 +8,11 @@
     width: 100%;
     min-height: 10rem;
     text-align: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
   }
 
   &__name {

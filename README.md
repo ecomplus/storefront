@@ -29,14 +29,22 @@ new major releases.
   - `#content`
     - `.products-carousel`
     - `.retail-grid`
-    - `.product-card`
+    - `.product-card` (`[data-to-render="true"]`)
     - `#category`
     - `#brand`
     - `#collection`
     - `#product`
-      - `#product-block`
+      - `#product-block` (`[data-to-render="true"]`)
       - `#product-description`
       - `#product-specs`
     - `#search`
+      - `#search-engine`
   - `#overlay`
 - `#app`
+
+### Search query
+
+Products on search page must be dynamically loaded,
+default HTTP parameters (optionals) to filter search results:
+
+`/search?term&page&categories[]&brands[]`
