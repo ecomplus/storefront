@@ -1,21 +1,21 @@
 {
   "@ecomplus/widget-user": {
-    "active": true,
+    "active": false,
     "desktopOnly": false,
     "options": {}
   },
   "@ecomplus/widget-search": {
-    "active": true,
+    "active": false,
     "desktopOnly": true,
     "options": {}
   },
   "@ecomplus/widget-minicart": {
-    "active": true,
+    "active": false,
     "desktopOnly": false,
     "options": {}
   },
   "@ecomplus/widget-product-card": {
-    "active": true,
+    "active": false,
     "desktopOnly": false,
     "options": {
       "props": {
@@ -27,7 +27,7 @@
     }
   },
   "@ecomplus/widget-product": {
-    "active": true,
+    "active": false,
     "desktopOnly": false,
     "options": {
       "props": {
