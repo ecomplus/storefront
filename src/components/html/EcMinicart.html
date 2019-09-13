@@ -2,12 +2,15 @@
   <slot name="button">
     <button
       type="button"
-      class="btn btn-lg btn-light"
+      class="ec-minicart__button btn btn-lg btn-light"
       :title="dictionary('shopping_cart')"
       @click="show"
       v-b-tooltip.hover.left
     >
       <i class="fas fa-shopping-bag"></i>
+      <span class="badge badge-sm badge-primary">
+        {{ cart.items.length }}
+      </span>
     </button>
   </slot>
 
