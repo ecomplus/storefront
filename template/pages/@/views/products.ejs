@@ -113,7 +113,13 @@ breadcrumbs.push({
           <%= _.dictionary().product_description %>
         </p>
         <div class="html-clearfix">
-          <%- body.body_html %>
+          <%- body.body_html.replace(
+            /<img ([^/>]+)?src=['"]([^'"]+)['"]([^/>]+)?\/?>/g,
+            '<img class="lozad" data-src="$2" $1>'
+          ).replace(
+            /<img class="lozad" data-src="([^'"]+)"([^>]+)class=['"]([^'"]+)['"]([^/>]+)?>/g,
+            '<img class="lozad $3" data-src="$1" $2 $4>'
+          ) %>
         </div>
       </section>
     <% } %>
