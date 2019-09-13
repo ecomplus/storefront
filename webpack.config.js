@@ -10,11 +10,11 @@ const externals = require('@ecomplus/storefront-template/webpack.externals')
 
 // preset default output object
 const output = {
-  library: 'widgetExampleName',
+  library: 'widgetSearchEngine',
   libraryTarget: 'umd',
   libraryExport: 'default',
   path: path.resolve(__dirname, 'dist'),
-  filename: 'widget-example-name.min.js'
+  filename: 'widget-search-engine.min.js'
 }
 
 // base Webpack config
@@ -76,12 +76,12 @@ const config = {
       }
     ]
   },
-  
+
   resolve: {
     alias: {
       vue$: 'vue/dist/vue.esm.js'
     }
-  },  
+  },
   externals: devMode
     // external ecomUtils on dev server to get config correctly
     ? {

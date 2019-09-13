@@ -1,2 +1,2 @@
-# storefront-widget-boilerplate
-Webpack + Babel + Vue boilerplate for widgets
+# widget-search-engine
+Storefront plugin & Vue component for dynamic search page
