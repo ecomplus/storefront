@@ -21,6 +21,10 @@
     right: 0;
     z-index: 1100;
     border-radius: 0;
+
+    > article {
+      overflow-y: auto;
+    }
   }
 
   &__summary {
