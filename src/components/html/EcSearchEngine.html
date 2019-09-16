@@ -1,7 +1,65 @@
 <section class="ec-search-engine">
-  <div></div>
+  <fade-transition :duration="700">
+    <div v-if="searched" class="ec-search-engine__results">
+      <slide-x-left-transition>
+        <aside class="ec-search-engine__sidebar" v-if="showFilters">
+          <div
+            class="ec-search-engine__filters"
+            :class="`ec-search-engine__filters--${filter}`"
+            v-for="(options, filter) in filters"
+            :key="`filters-${filter}`"
+          >
+            <template v-if="filter !== 'Specs'">
+              <h4>{{ dictionary(filter.toLowerCase()) }}</h4>
+              <div
+                class="custom-control custom-checkbox"
+                v-for="opt in options"
+                :key="`${filter}-${opt.key}`"
+              >
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  :id="`${filter}-${opt.key}`"
+                >
+                <label class="custom-control-label" :for="`${filter}-${opt.key}`">
+                  {{ opt.key }}
+                  <small>({{ opt.doc_count }})</small>
+                </label>
+              </div>
+            </template>
 
-  <aside></aside>
+            <template v-else>
+            </template>
+          </div>
+        </aside>
+      </slide-x-left-transition>
 
-  <article></article>
+      <article class="ec-search-engine__retail">
+        <div class="ec-search-engine__info">
+          <h1 v-if="term">
+            {{ term }}
+          </h1>
+        </div>
+
+        <slide-y-up-transition group>
+          <div class="row" key="items">
+            <div
+              class="col-6 col-md-4 col-lg-3"
+              v-for="product in suggestedItems"
+            >
+              <ec-product-card
+                class="ec-search-engine__item"
+                :key="product._id"
+                :lang="lang"
+                :storeId="storeId"
+                :product="product"
+              />
+            </div>
+          </div>
+        </slide-y-up-transition>
+      </article>
+    </div>
+  </fade-transition>
+
+  <slot v-if="searching"></slot>
 </section>

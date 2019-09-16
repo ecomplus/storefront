@@ -1,2 +1,28 @@
 .ec-search-engine {
+  &__results {
+    margin-top: 1.5rem;
+    display: flex;
+  }
+
+  &__sidebar {
+    max-width: 100%;
+    flex: 0 0 250px;
+    padding-right: 2rem;
+  }
+
+  &__filters {
+    margin-top: 1rem;
+
+    small {
+      color: var(--gray);
+    }
+  }
+
+  &__retail {
+    flex-grow: 1;
+  }
+
+  &__item {
+    margin-bottom: 1rem;
+  }
 }

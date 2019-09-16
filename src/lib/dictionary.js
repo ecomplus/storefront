@@ -1,7 +1,11 @@
 const dictionary = {
-  hello: {
-    en_us: 'Hello',
-    pt_br: 'Olá'
+  brands: {
+    en_us: 'Brands',
+    pt_br: 'Marcas'
+  },
+  categories: {
+    en_us: 'Categories',
+    pt_br: 'Categorias'
   }
 }
 

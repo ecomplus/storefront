@@ -4,28 +4,33 @@ import EcSearchEngine from './components/EcSearchEngine.vue'
 import { dynamicVueSlots } from '@ecomplus/widget-product/src/lib/utils'
 
 export default (options = {}, elId = 'search-engine') => {
-  new Vue({
-    components: {
-      EcSearchEngine
-    },
+  const $searchEngine = document.getElementById(elId)
 
-    data () {
-      return {
-        options,
-        urlParams: new URLSearchParams(window.location.search)
-      }
-    },
+  if ($searchEngine) {
+    new Vue({
+      components: {
+        EcSearchEngine
+      },
 
-    template: `
-    <ec-search-engine
-      id="${elId}"
-      v-bind="options.props"
-      :term="urlParams.get('term')"
-      :page="parseInt(urlParams.get('page'), 10)"
-      :brands="urlParams.getAll('brands')"
-      :categories="urlParams.getAll('categories')"
-    >
-      ${dynamicVueSlots(options.slots)}
-    </ec-search-engine>`
-  }).$mount(`#${elId}`)
+      data () {
+        return {
+          options,
+          urlParams: new URLSearchParams(window.location.search)
+        }
+      },
+
+      template: `
+      <ec-search-engine
+        id="${elId}"
+        v-bind="options.props"
+        :term="urlParams.get('term')"
+        :page="parseInt(urlParams.get('page'), 10)"
+        :brands="urlParams.getAll('brands')"
+        :categories="urlParams.getAll('categories')"
+      >
+        ${dynamicVueSlots(options.slots)}
+        ${$searchEngine.outerHTML}
+      </ec-search-engine>`
+    }).$mount(`#${elId}`)
+  }
 }
