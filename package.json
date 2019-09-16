@@ -47,7 +47,7 @@
     "@ecomplus/search-engine": "^1.0.5",
     "@ecomplus/shopping-cart": "^0.6.2",
     "@ecomplus/storefront-framework": "^5.1.2",
-    "@ecomplus/storefront-twbs": "^3.4.1",
+    "@ecomplus/storefront-twbs": "^3.4.2",
     "@ecomplus/utils": "^1.0.1",
     "@ecomplus/widget-minicart": "^0.6.5",
     "@ecomplus/widget-product": "^0.3.10",
@@ -72,7 +72,7 @@
     "@commitlint/config-conventional": "^8.1.0",
     "babel-eslint": "^10.0.3",
     "husky": "^3.0.5",
-    "standard": "^14.2.0",
+    "standard": "^14.3.0",
     "standard-version": "^7.0.0"
   },
   "husky": {
