@@ -7,14 +7,15 @@
         :title="name(body)"
       >
         <div class="ec-product-card__pictures">
-          <ec-image
-            class="ec-product-card__picture"
-            v-if="body.pictures && body.pictures.length"
-            v-for="(picture, index) in body.pictures.slice(0, 2)"
-            :key="index"
-            :src="picture"
-            :pictureBreakpoint="300"
-          />
+          <template v-if="body.pictures && body.pictures.length">
+            <ec-image
+              class="ec-product-card__picture"
+              v-for="(picture, index) in body.pictures.slice(0, 2)"
+              :key="index"
+              :src="picture"
+              :pictureBreakpoint="300"
+            />
+          </template>
           <ec-image v-else class="ec-product-card__picture"/>
         </div>
 
