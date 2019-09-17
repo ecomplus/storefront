@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.6](https://github.com/ecomclub/widget-search/compare/v0.5.5...v0.5.6) (2019-09-17)
+
+
+### Bug Fixes
+
+* **scroll:** fix scroll js handler (timeout, blur) ([c802415](https://github.com/ecomclub/widget-search/commit/c802415))
+* **scss:** minor scss fixes (items size) ([7d30e93](https://github.com/ecomclub/widget-search/commit/7d30e93))
+* **scss:** preset items block width ([c1a5759](https://github.com/ecomclub/widget-search/commit/c1a5759))
+
 ### [0.5.5](https://github.com/ecomclub/widget-search/compare/v0.5.4...v0.5.5) (2019-09-12)
 
 
