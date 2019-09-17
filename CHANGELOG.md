@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.2](https://github.com/ecomclub/widget-user/compare/v0.9.1...v0.9.2) (2019-09-17)
+
+
+### Bug Fixes
+
+* **scroll:** remove js listener to window scroll (keep popover) ([e90f48e](https://github.com/ecomclub/widget-user/commit/e90f48e))
+
 ### [0.9.1](https://github.com/ecomclub/widget-user/compare/v0.9.0...v0.9.1) (2019-09-09)
 
 
