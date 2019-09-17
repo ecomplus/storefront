@@ -172,13 +172,15 @@ to be used by storefront widgets, as example (default):
 
 The package includes
 [collapse](https://getbootstrap.com/docs/4.3/components/collapse/),
-[dropdowns](https://getbootstrap.com/docs/4.3/components/dropdowns/) and
+[dropdowns](https://getbootstrap.com/docs/4.3/components/dropdowns/),
+[modal](https://getbootstrap.com/docs/4.3/components/modal/) and
 [tooltips](https://getbootstrap.com/docs/4.3/components/tooltips/)
 scripts from [`bootstrap.native`](https://github.com/thednp/bootstrap.native).
 
 Also some
 [BootstrapVue](https://bootstrap-vue.js.org/docs/components/)
-components and directives
+components/directives and
+[PortalVue](https://portal-vue.linusb.org/)
 added directly to global Vue instance,
 you can see the available components at
 [`src/index.js`](https://github.com/ecomclub/storefront-twbs/blob/master/src/index.js).
