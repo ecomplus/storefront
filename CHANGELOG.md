@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.5.0](https://github.com/ecomclub/storefront-twbs/compare/v3.4.2...v3.5.0) (2019-09-17)
+
+
+### Features
+
+* **modal:** importing bootstrap native modal ([8bd1002](https://github.com/ecomclub/storefront-twbs/commit/8bd1002))
+* **portal-vue:** add portalVue mixin (already used by toast) ([feebb04](https://github.com/ecomclub/storefront-twbs/commit/feebb04))
+
 ### [3.4.2](https://github.com/ecomclub/storefront-twbs/compare/v3.4.1...v3.4.2) (2019-09-16)
 
 ### [3.4.1](https://github.com/ecomclub/storefront-twbs/compare/v3.4.0...v3.4.1) (2019-09-06)
