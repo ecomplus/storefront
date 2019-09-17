@@ -13,6 +13,13 @@
     ]
   },
   "pitbar": true,
-  "showcase": [],
+  "showcase": [
+    {
+      "collection": "5cc0ba91887ef430f1f67d81"
+    },
+    {
+      "collection": "5cdf01ba887ef430f1f6d065"
+    }
+  ],
   "additional_content": ""
 }
