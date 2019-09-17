@@ -155,15 +155,18 @@ export default {
   },
 
   created () {
+    let onScrollTimer
+    let lastScrollOffset = window.pageYOffset
     window.addEventListener('scroll', () => {
-      if (window.navFixed && this.showPopover && window.screen.height > 450) {
-        this.showPopover = false
-        setTimeout(() => {
+      clearTimeout(onScrollTimer)
+      onScrollTimer = setTimeout(() => {
+        if (Math.abs(window.pageYOffset - lastScrollOffset) > 50) {
           if (this.elInput === document.activeElement) {
-            this.showPopover = true
+            this.elInput.blur()
           }
-        }, 200)
-      }
+        }
+        lastScrollOffset = window.pageYOffset
+      }, 50)
     })
     this.ecomSearch.setPageSize(this.maxItems)
   },
