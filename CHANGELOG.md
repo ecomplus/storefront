@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/ecomclub/storefront-template/compare/v1.5.4...v1.6.0) (2019-09-17)
+
+
+### Features
+
+* **icons:** add filter and sort fa icons ([48c8efc](https://github.com/ecomclub/storefront-template/commit/48c8efc))
+
 ### [1.5.4](https://github.com/ecomclub/storefront-template/compare/v1.5.3...v1.5.4) (2019-09-17)
 
 
