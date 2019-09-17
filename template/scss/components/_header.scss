@@ -3,8 +3,9 @@
   z-index: 900;
   display: block;
   width: 100%;
-  transition: transform .15s ease-in-out;
+  transition: transform .125s;
   will-change: transform, opacity;
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
 
   &-float-fix {
     display: block;
@@ -13,12 +14,17 @@
 
   &__countdown {
     display: block;
-    background: var(--primary);
-    color: var(--primary-yiq);
+    background: var(--secondary);
+    color: var(--secondary-yiq);
     text-align: center;
     font-weight: 300;
     font-size: 1.1rem;
-    padding: .5rem;
+    padding: .4rem;
+  }
+
+  a.header__countdown {
+    background: var(--primary);
+    color: var(--primary-yiq);
   }
 
   &__bar {
@@ -104,17 +110,16 @@
     left: 0;
     transition: transform .25s ease 0s;
     transform: translateY(-100%);
-    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
     opacity: 0;
 
     .header {
       &__countdown {
-        font-size: .95rem;
+        font-size: .93rem;
         padding: .25rem;
+      }
 
-        .btn {
-          line-height: 1.2;
-        }
+      &__logo {
+        max-height: 50px;
       }
 
       &__bar {
