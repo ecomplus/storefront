@@ -68,7 +68,7 @@ module.exports = {
         use: {
           loader: 'bootstrap.native-loader',
           options: {
-            only: ['collapse', 'dropdown', 'tooltip'],
+            only: ['collapse', 'dropdown', 'modal', 'tooltip'],
             bsVersion: 4
           }
         }
