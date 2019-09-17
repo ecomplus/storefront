@@ -9,6 +9,7 @@ import Vue from 'vue'
 import {
   Collapse,
   Dropdown,
+  Modal,
   Tooltip
 } from 'bootstrap.native'
 
@@ -42,6 +43,7 @@ if (typeof window === 'object') {
   window.Vue = Vue
   window.Collapse = Collapse
   window.Dropdown = Dropdown
+  window.Modal = Modal
   window.Tooltip = Tooltip
   window.__storefront_twbs = {}
 }
