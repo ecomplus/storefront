@@ -1,9 +1,10 @@
-import { _config, name, inStock } from '@ecomplus/utils'
+import { _config, name, inStock, onPromotion, price } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
 import dictionary from '@ecomplus/widget-product/src/lib/dictionary'
 import EcImage from '@ecomplus/widget-product/src/components/EcImage.vue'
 import EcPrices from '@ecomplus/widget-product/src/components/EcPrices.vue'
 import { FadeTransition } from 'vue2-transitions'
+
 
 export default {
   name: 'EcProductCard',
@@ -51,6 +52,8 @@ export default {
     dictionary,
     name,
     inStock,
+    onPromotion,
+    price, 
 
     fetchItem () {
       if (this.productId) {
