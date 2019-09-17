@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-template",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "template/js/index.js",
   "jsdelivr": "dist/storefront.js",
@@ -51,7 +51,7 @@
     "@ecomplus/utils": "^1.0.1",
     "@ecomplus/widget-minicart": "^0.6.5",
     "@ecomplus/widget-product": "^0.3.10",
-    "@ecomplus/widget-product-card": "^0.2.7",
+    "@ecomplus/widget-product-card": "^0.2.8",
     "@ecomplus/widget-search": "^0.5.5",
     "@ecomplus/widget-user": "^0.9.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
@@ -68,8 +68,8 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.1.0",
-    "@commitlint/config-conventional": "^8.1.0",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "babel-eslint": "^10.0.3",
     "husky": "^3.0.5",
     "standard": "^14.3.0",

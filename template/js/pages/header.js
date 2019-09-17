@@ -3,7 +3,6 @@ import $ from './lib/$'
 const $header = $('#header')
 if ($header) {
   let $headerPadding
-  const setupStickyHeader = window.screen.height >= 200
   window.navFixed = false
   let headerOffsetHeight = 0
   let headerOffset = 0
@@ -24,17 +23,13 @@ if ($header) {
         $header.classList.add(headerClass)
         $headerPadding.style.height = headerOffsetHeight + 'px'
       } else {
-        $header.style.transform = 'translateY(-100%)'
-
         updateNavTimer = setTimeout(() => {
-          $header.style.opacity = 0
-          $header.classList.remove(headerClass)
-          $headerPadding.style.height = 0
-
-          updateNavTimer = setTimeout(() => {
-            $header.removeAttribute('style')
-          }, 150)
+          $header.removeAttribute('style')
         }, 250)
+
+        $header.style.transform = 'translateY(-25%)'
+        $header.classList.remove(headerClass)
+        $headerPadding.style.height = 0
       }
 
       window.navFixed = fixHeader
@@ -61,9 +56,8 @@ if ($header) {
     updateNavbar(fixHeader)
   }
 
-  if (setupStickyHeader) {
+  setTimeout(() => {
     window.addEventListener('resize', onResize)
-    window.addEventListener('scroll', onScroll)
     updateNavbar(false)
     onResize()
 
@@ -71,5 +65,11 @@ if ($header) {
     $headerPadding.className = 'header-float-fix'
     $headerPadding.style.height = 0
     $header.parentElement.insertBefore($headerPadding, $header)
-  }
+
+    let onScrollTimer
+    window.addEventListener('scroll', () => {
+      clearTimeout(onScrollTimer)
+      onScrollTimer = setTimeout(onScroll, 50)
+    })
+  }, 500)
 }
