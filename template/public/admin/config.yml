@@ -406,79 +406,88 @@ collections:
               - {label: "Mais", name: "mais", widget: "boolean", default: true, required: false}
           - {label: "Créditos", name: "credits", widget: "string", required: false}
 
-      - name: "widgets"
-        label: "Widgets"
-        file: "content/widgets.json"
+  - name: "widgets"
+    label: "Widgets"
+    delete: false
+    files:
+      - label: "Login de usuários"
+        name: "@ecomplus/widget-user"
+        file: "ecomplus-widget-user.json"
+        hint: "Caixa de login na página, sem redirecionar ou abrir nova guia"
         fields:
-          - label: "Login de usuários"
-            name: "@ecomplus/widget-user"
-            widget: object
-            hint: "Caixa de login na página, sem redirecionar ou abrir nova guia"
-            fields:
-              - {label: "Ativar", name: "active", required: false, widget: "boolean"}
-              - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
+          - {label: "Ativar", name: "active", required: false, widget: "boolean"}
+          - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
 
-          - label: "Busca instantânea"
-            name: "@ecomplus/widget-search"
-            widget: object
-            hint: "Exibe uma prévia de resultado de busca logo abaixo do campo de pesquisa"
-            fields:
-              - {label: "Ativar", name: "active", required: false, widget: "boolean"}
-              - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
+      - label: "Busca instantânea"
+        name: "@ecomplus/widget-search"
+        file: "ecomplus-widget-search.json"
+        hint: "Exibe uma prévia de resultado de busca logo abaixo do campo de pesquisa"
+        fields:
+          - {label: "Ativar", name: "active", required: false, widget: "boolean"}
+          - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
 
-          - label: "Minicart"
-            name: "@ecomplus/widget-minicart"
-            widget: object
-            hint: "Esse widget faz que o carrinho seja aberto na lateral da tela sem redirecionar da página"
-            fields:
-              - {label: "Ativar", name: "active", required: false, widget: "boolean"}
-              - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
+      - label: "Motor de busca"
+        name: "@ecomplus/widget-search-engine"
+        file: "ecomplus-widget-search-engine.json"
+        hint: "Exibe uma prévia de resultado de busca logo abaixo do campo de pesquisa"
+        fields:
+          - {label: "Ativar", name: "active", required: false, widget: "boolean"}
+          - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
 
-          - label: "Card de produtos"
-            name: "@ecomplus/widget-product-card"
-            widget: hidden
-            hint: "Card de produtos exibido na vitrine e em vários outros pontos da loja"
+      - label: "Minicart"
+        name: "@ecomplus/widget-minicart"
+        file: "ecomplus-widget-minicart.json"
+        hint: "Esse widget faz que o carrinho seja aberto na lateral da tela sem redirecionar da página"
+        fields:
+          - {label: "Ativar", name: "active", required: false, widget: "boolean"}
+          - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
+
+      - label: "Card de produtos"
+        name: "@ecomplus/widget-product-card"
+        file: "ecomplus-widget-product-card.json"
+        hint: "Card de produtos exibido na vitrine e em vários outros pontos da loja"
+        fields:
+          - {label: "Ativar", name: "active", required: false, widget: "boolean"}
+          - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
+          - label: "Opções"
+            name: "options"
+            widget: object
+            hint: "Personalizações do widget"
             fields:
-              - {label: "Ativar", name: "active", required: false, widget: "boolean"}
-              - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
-              - label: "Opções"
-                name: "options"
+              - label: "Propriedades"
+                name: "props"
                 widget: object
-                hint: "Personalizações do widget"
+                hint: ""
                 fields:
-                  - label: "Propriedades"
-                    name: "props"
-                    widget: object
-                    hint: ""
-                    fields:
-                      - {label: "Texto de comprar", name: "buyText", required: false, widget: "string"}
-                  - label: "Slots"
-                    name: "slots"
-                    widget: object
-                    hint: ""
-                    fields:
-                      - {label: "código de comprar", name: "buy", required: false, widget: "string"}
-          - label: "Produtos"
-            name: "@ecomplus/widget-product"
-            widget: hidden
-            hint: "Produto a ser exibido na página de produto"
-            fields:
-              - {label: "Ativar", name: "active", required: false, widget: "boolean"}
-              - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
-              - label: "Opções"
-                name: "options"
+                  - {label: "Texto de comprar", name: "buyText", required: false, widget: "string"}
+              - label: "Customização"
+                name: "slots"
                 widget: object
-                hint: "Personalizações do widget"
+                hint: ""
                 fields:
-                  - label: "Propriedades"
-                    name: "props"
-                    widget: object
-                    hint: ""
-                    fields:
-                      - {label: "Texto de comprar", name: "buyText", required: false, widget: "string"}
-                  - label: "Slots"
-                    name: "slots"
-                    widget: object
-                    hint: ""
-                    fields:
-                      - {label: "código de comprar", name: "buy", required: false, widget: "string"}
+                  - {label: "Código HTML para comprar", name: "buy", required: false, widget: "string"}
+
+      - label: "Produtos"
+        name: "@ecomplus/widget-product"
+        file: "ecomplus-widget-product.json"
+        hint: "Produto a ser exibido na página de produto"
+        fields:
+          - {label: "Ativar", name: "active", required: false, widget: "boolean"}
+          - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
+          - label: "Opções"
+            name: "options"
+            widget: object
+            hint: "Personalizações do widget"
+            fields:
+              - label: "Propriedades"
+                name: "props"
+                widget: object
+                hint: ""
+                fields:
+                  - {label: "Texto de comprar", name: "buyText", required: false, widget: "string"}
+              - label: "Customização"
+                name: "slots"
+                widget: object
+                hint: ""
+                fields:
+                  - {label: "Código HTML para comprar", name: "buy", required: false, widget: "string"}
