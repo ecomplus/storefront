@@ -1,6 +1,5 @@
 {
   "pkg": "@ecomplus/widget-user",
   "active": true,
-  "desktopOnly": false,
-  "options": {}
+  "desktopOnly": false
 }
