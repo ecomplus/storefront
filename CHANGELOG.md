@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.10](https://github.com/ecomclub/widget-product-card/compare/v0.2.9...v0.2.10) (2019-09-18)
+
+
+### Bug Fixes
+
+* **offer-stamp:** check if product is active to show stamp ([7974e0b](https://github.com/ecomclub/widget-product-card/commit/7974e0b))
+
+
+### Features
+
+* **inactive-product:** add --inactive class and decrease opaticy ([cb4d376](https://github.com/ecomclub/widget-product-card/commit/cb4d376))
+
 ### [0.2.9](https://github.com/ecomclub/widget-product-card/compare/v0.2.8...v0.2.9) (2019-09-18)
 
 
