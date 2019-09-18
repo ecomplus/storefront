@@ -5,7 +5,10 @@
 
   <portal to="search-nav">
     <slide-y-up-transition>
-      <div class="ec-search-engine__nav" v-if="searched">
+      <div
+        class="ec-search-engine__nav"
+        v-if="searched && totalSearchResults > 4"
+      >
         <slot name="nav" v-bind="{ totalSearchResults, toggleFilters }">
           <div class="container">
             <div class="row">
@@ -28,6 +31,7 @@
                   class="btn ec-search-engine__toggle"
                   @click="toggleFilters(true)"
                   type="button"
+                  v-if="filters.find(({ filterObj }) => filterObj.options.length)"
                 >
                   <i class="fas fa-filter"></i>
                   {{ dictionary('filter') }}
