@@ -1,28 +1,119 @@
 .ec-search-engine {
+  &__nav {
+    background: rgba(128, 128, 128, .1);
+    line-height: 2.5;
+    color: var(--gray);
+  }
+
+  &__count {
+    padding-left: .5rem;
+    position: relative;
+  }
+
+  &__spinner {
+    position: absolute;
+    top: .35rem;
+    right: -3rem;
+    color: var(--secondary);
+    margin-left: 1.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  &__actions {
+    text-align: right;
+
+    a {
+      color: inherit;
+      display: inline-block;
+      text-decoration: none;
+      transition: opacity .15s;
+      padding: 0 .5rem;
+      opacity: .75;
+
+      i,
+      svg {
+        font-size: .825rem;
+        color: var(--secondary);
+        margin-right: .15rem;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
   &__results {
-    margin-top: 1.5rem;
-    display: flex;
+    transition: opacity .25s;
   }
 
-  &__sidebar {
-    max-width: 100%;
-    flex: 0 0 250px;
-    padding-right: 2rem;
-  }
+  &__info {
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
 
-  &__filters {
-    margin-top: 1rem;
-
-    small {
+    h1 small {
+      font-size: .9rem;
       color: var(--gray);
     }
   }
 
   &__retail {
-    flex-grow: 1;
+    padding-top: .5rem;
   }
 
   &__item {
     margin-bottom: 1rem;
+  }
+
+  &__sidebar {
+    position: fixed;
+    width: 280px;
+    max-width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1100;
+    border-radius: 0;
+
+    .card {
+      &-body {
+        overflow-y: auto;
+      }
+    }
+  }
+
+  &__filter {
+    &:not(:first-child) {
+      margin-top: 1rem;
+    }
+
+    &:last-child {
+      margin-bottom: 1.5rem;
+    }
+
+    &__btn {
+      padding-left: 0;
+      color: var(--secondary);
+      font-size: 1.2rem;
+      font-weight: 300;
+
+      i,
+      svg {
+        margin-right: .25rem;
+        color: var(--gray);
+        opacity: .6;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  &__option {
+    small {
+      color: var(--gray);
+    }
   }
 }

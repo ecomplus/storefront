@@ -1,59 +1,199 @@
 <section class="ec-search-engine">
-  <fade-transition :duration="700">
-    <div v-if="searched" class="ec-search-engine__results">
-      <slide-x-left-transition>
-        <aside class="ec-search-engine__sidebar" v-if="showFilters">
-          <div
-            class="ec-search-engine__filters"
-            :class="`ec-search-engine__filters--${filter}`"
-            v-for="(options, filter) in filters"
-            :key="`filters-${filter}`"
-          >
-            <template v-if="filter !== 'Specs'">
-              <h4>{{ dictionary(filter.toLowerCase()) }}</h4>
-              <div
-                class="custom-control custom-checkbox"
-                v-for="opt in options"
-                :key="`${filter}-${opt.key}`"
-              >
-                <input
-                  type="checkbox"
-                  class="custom-control-input"
-                  :id="`${filter}-${opt.key}`"
-                >
-                <label class="custom-control-label" :for="`${filter}-${opt.key}`">
-                  {{ opt.key }}
-                  <small>({{ opt.doc_count }})</small>
-                </label>
+  <nav ref="nav">
+    <portal-target name="search-nav"/>
+  </nav>
+
+  <portal to="search-nav">
+    <slide-y-up-transition>
+      <div class="ec-search-engine__nav" v-if="searched">
+        <slot name="nav" v-bind="{ totalSearchResults, toggleFilters }">
+          <div class="container">
+            <div class="row">
+              <div class="col-auto">
+                <div class="ec-search-engine__count">
+                  <strong>{{ totalSearchResults }}</strong>
+                  {{ dictionary('items') }}
+                  <div
+                    class="spinner-grow ec-search-engine__spinner"
+                    role="status"
+                    v-if="searching"
+                  >
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </div>
               </div>
-            </template>
 
-            <template v-else>
-            </template>
+              <div class="ec-search-engine__actions col">
+                <a
+                  href="#"
+                  @click.prevent="toggleFilters(true)"
+                  role="button"
+                >
+                  <i class="fas fa-filter"></i>
+                  {{ dictionary('filter') }}
+                  <span class="d-none d-md-inline">
+                    {{ dictionary('results') }}
+                  </span>
+                </a>
+
+                <a
+                  href="#"
+                  @click.prevent="showFilters = !showFilters"
+                  role="button"
+                >
+                  <i class="fas fa-sort"></i>
+                  <span class="d-none d-md-inline">
+                    {{ dictionary('sort') }}
+                  </span>
+                </a>
+              </div>
+            </div>
           </div>
-        </aside>
-      </slide-x-left-transition>
+        </slot>
+      </div>
+    </slide-y-up-transition>
+  </portal>
 
-      <article class="ec-search-engine__retail">
-        <div class="ec-search-engine__info">
-          <h1 v-if="term">
-            {{ term }}
-          </h1>
+  <slide-x-right-transition>
+    <aside
+      class="ec-search-engine__sidebar card shadow"
+      v-show="showFilters"
+    >
+      <slot name="filters">
+        <header class="card-header">
+          {{ dictionary('refine_search') }}
+          <button
+            type="button"
+            class="close"
+            :aria-label="dictionary('close_filters')"
+            @click="toggleFilters(false)"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </header>
+
+        <div class="card-body">
+          <slide-y-up-transition group>
+            <div
+              class="ec-search-engine__filter"
+              v-for="({ filter, filterObj, isSpec }) in filters"
+              v-if="filterObj.options.length"
+              :class="`ec-search-engine__filter--${filter}`"
+              :key="`filters-${filter}`"
+            >
+              <button
+                class="btn ec-search-engine__filter__btn"
+                type="button"
+                :aria-expanded="filterObj.show ? 'true' : 'false'"
+                :aria-controls="`collapse-${filter}`"
+                @click="filterObj.show = !filterObj.show"
+              >
+                <i class="fas fa-chevron-down"></i>
+                {{ filterLabel(filter) }}
+              </button>
+
+              <b-collapse :id="`collapse-${filter}`" v-model="filterObj.show">
+                <div
+                  class="custom-control custom-checkbox ec-search-engine__option"
+                  v-for="(opt, index) in filterObj.options"
+                  :key="`${filter}-${index}`"
+                >
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    :id="`${filter}-${index}`"
+                    @change="ev => setFilterOption(filter, opt.key, ev.target.checked)"
+                    :checked="selectedOptions[filter].indexOf(opt.key) > -1"
+                  >
+                  <label class="custom-control-label" :for="`${filter}-${index}`">
+                    {{ opt.key }}
+                    <small v-if="!isSpec">
+                      ({{ opt.doc_count }})
+                    </small>
+                  </label>
+                </div>
+              </b-collapse>
+            </div>
+          </slide-y-up-transition>
         </div>
 
+        <footer class="card-footer">
+          <button
+            class="btn btn-sm btn-block btn-outline-secondary"
+            type="button"
+            @click="clearFilters"
+          >
+            <span class="mr-1">
+              <i class="fas fa-trash-alt"></i>
+            </span>
+            {{ dictionary('clear_filters') }}
+          </button>
+        </footer>
+      </slot>
+    </aside>
+  </slide-x-right-transition>
+
+  <fade-transition :duration="1000">
+    <div
+      class="ec-search-engine__results"
+      :style="{ opacity: searching ? 0.4 : 1 }"
+      v-if="searched"
+    >
+      <div class="ec-search-engine__info">
+        <h1 v-if="term">
+          <small class="d-none d-lg-block">
+            {{ dictionary('searching_for') }}:
+          </small>
+          {{ term }}
+        </h1>
+
+        <slide-y-up-transition>
+          <div v-if="hasSelectedOptions">
+            <button
+              class="btn btn-sm btn-outline-secondary"
+              type="button"
+              @click="clearFilters"
+            >
+              <span class="mr-1">
+                <i class="fas fa-trash-alt"></i>
+              </span>
+              {{ dictionary('clear_filters') }}
+            </button>
+
+            <template v-for="(options, filter) in selectedOptions">
+              <button
+                class="btn m-1 btn-sm btn-light"
+                type="button"
+                v-for="option in options"
+                @click="setFilterOption(filter, option, false)"
+              >
+                <span class="mr-1">
+                  <i class="fas fa-times"></i>
+                </span>
+                {{ option }}
+                <small>\ {{ filterLabel(filter) }}</small>
+              </button>
+            </template>
+          </div>
+        </slide-y-up-transition>
+      </div>
+
+      <article class="ec-search-engine__retail" v-if="searched">
         <slide-y-up-transition group>
           <div class="row" key="items">
             <div
               class="col-6 col-md-4 col-lg-3"
               v-for="product in suggestedItems"
             >
-              <ec-product-card
-                class="ec-search-engine__item"
-                :key="product._id"
-                :lang="lang"
-                :storeId="storeId"
-                :product="product"
-              />
+              <slot name="product" v-bind="{ product }">
+                <ec-product-card
+                  class="ec-search-engine__item"
+                  :key="product._id"
+                  :lang="lang"
+                  :storeId="storeId"
+                  :product="product"
+                />
+              </slot>
             </div>
           </div>
         </slide-y-up-transition>
@@ -61,5 +201,5 @@
     </div>
   </fade-transition>
 
-  <slot v-if="searching"></slot>
+  <slot v-if="!searched"></slot>
 </section>
