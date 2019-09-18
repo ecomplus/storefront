@@ -4,10 +4,7 @@
 >
   <fade-transition :duration="700">
     <section v-if="body._id">
-      <span
-        v-if="isActive && onPromotion(body)"
-        class="ec-product-card__offer-stamp"
-      >
+      <span v-if="isActive && discount > 0" class="ec-product-card__offer-stamp">
         -<b>{{ discount }}</b>%
       </span>
 

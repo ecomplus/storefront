@@ -53,7 +53,9 @@ export default {
 
     discount () {
       const { body } = this
-      return Math.round(((body.base_price - price(body)) * 100) / body.base_price)
+      return onPromotion(body)
+        ? Math.round(((body.base_price - price(body)) * 100) / body.base_price)
+        : 0
     }
   },
 
@@ -61,7 +63,6 @@ export default {
     dictionary,
     name,
     inStock,
-    onPromotion,
 
     fetchItem () {
       if (this.productId) {
