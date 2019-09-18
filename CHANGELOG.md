@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/ecomclub/storefront-template/compare/v1.6.0...v1.7.0) (2019-09-18)
+
+
+### Features
+
+* **widget-search:** setup search engine widget on search page ([f6f389f](https://github.com/ecomclub/storefront-template/commit/f6f389f))
+
 ## [1.6.0](https://github.com/ecomclub/storefront-template/compare/v1.5.4...v1.6.0) (2019-09-17)
 
 
