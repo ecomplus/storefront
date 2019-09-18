@@ -157,7 +157,9 @@ export default {
             }
             this.priceRange = getPriceRange()
             this.updateFilters()
-            this.searched = true
+            setTimeout(() => {
+              this.searched = true
+            }, 10)
           }
         })
         .catch(err => {
