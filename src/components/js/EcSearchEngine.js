@@ -53,10 +53,12 @@ export default {
   data () {
     return {
       ecomSearch: new EcomSearch(this.storeId),
+      currentPage: 0,
       resultItems: [],
       fixedTerm: '',
       totalSearchResults: 0,
       searching: false,
+      loadingMore: false,
       searched: false,
       filters: [],
       lastSelectedFilter: null,
@@ -79,6 +81,10 @@ export default {
         }
       }
       return false
+    },
+
+    countedItems () {
+      return (this.pageSize || 24) * (this.currentPage - 1) + this.resultItems.length
     }
   },
 
@@ -134,14 +140,21 @@ export default {
       })
     },
 
-    fetchItems (isRetry) {
+    fetchItems (page, isRetry) {
       this.searching = true
-      this.ecomSearch.fetch()
+      this.loadingMore = page > 1 || this.page > 1
+      this.ecomSearch.setPageNumber(page).fetch()
         .then(() => {
           const { getItems, getPriceRange, getTotalCount } = this.ecomSearch
           this.totalSearchResults = getTotalCount()
           if (this.totalSearchResults || this.fixedTerm || !this.fixTerm()) {
-            this.resultItems = getItems()
+            if (page) {
+              this.currentPage = page
+              this.resultItems = this.resultItems.concat(getItems())
+            } else {
+              this.currentPage = 1
+              this.resultItems = getItems()
+            }
             this.priceRange = getPriceRange()
             this.updateFilters()
             this.searched = true
@@ -150,11 +163,11 @@ export default {
         .catch(err => {
           console.error(err)
           if (!isRetry) {
-            this.fetchItems(true)
+            this.fetchItems(page, true)
           }
         })
         .finally(() => {
-          this.searching = false
+          this.searching = this.loadingMore = false
         })
     },
 
@@ -240,19 +253,14 @@ export default {
     if (term) {
       ecomSearch.setSearchTerm(term)
     }
-    if (page) {
-      ecomSearch.setPageNumber(page)
-    }
-    if (pageSize) {
-      ecomSearch.setPageSize(pageSize)
-    }
     if (Array.isArray(brands) && brands.length) {
       ecomSearch.setBrandNames(brands)
     }
     if (Array.isArray(categories) && categories.length) {
       ecomSearch.setCategoryNames(categories)
     }
-    this.fetchItems()
+    ecomSearch.setPageSize(pageSize || 24)
+    this.fetchItems(page || 1)
   },
 
   mounted () {
@@ -260,5 +268,17 @@ export default {
       const $nav = this.$refs.nav
       document.getElementById(this.navbarId).appendChild($nav)
     }
+    let onScrollTimer
+    window.addEventListener('scroll', () => {
+      clearTimeout(onScrollTimer)
+      if (!this.searching && this.totalSearchResults > this.countedItems) {
+        onScrollTimer = setTimeout(() => {
+          const { offsetTop, offsetHeight } = this.$el
+          if (window.pageYOffset + window.screen.height >= offsetTop + offsetHeight) {
+            this.fetchItems(this.currentPage + 1)
+          }
+        }, 100)
+      }
+    })
   }
 }

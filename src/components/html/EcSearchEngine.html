@@ -7,7 +7,7 @@
     <slide-y-up-transition>
       <div
         class="ec-search-engine__nav"
-        v-if="searched && totalSearchResults > 4"
+        v-if="searched && (searching || totalSearchResults > 8 || hasSelectedOptions)"
       >
         <slot name="nav" v-bind="{ totalSearchResults, toggleFilters }">
           <div class="container">
@@ -31,7 +31,7 @@
                   class="btn ec-search-engine__toggle"
                   @click="toggleFilters(true)"
                   type="button"
-                  v-if="filters.find(({ filterObj }) => filterObj.options.length)"
+                  v-if="hasSelectedOptions || filters.find(({ filterObj }) => filterObj.options.length)"
                 >
                   <i class="fas fa-filter"></i>
                   {{ dictionary('filter') }}
@@ -152,7 +152,7 @@
   <fade-transition :duration="1000">
     <div
       class="ec-search-engine__results"
-      :style="{ opacity: searching ? 0.4 : 1 }"
+      :style="{ opacity: searching && !loadingMore ? 0.4 : 1 }"
       v-if="searched"
     >
       <div class="ec-search-engine__info">
@@ -223,5 +223,7 @@
     </div>
   </fade-transition>
 
-  <slot v-if="!searched"></slot>
+  <slide-y-up-transition>
+    <slot v-if="!searched || loadingMore"></slot>
+  </slide-y-up-transition>
 </section>
