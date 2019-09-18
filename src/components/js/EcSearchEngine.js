@@ -177,7 +177,7 @@ export default {
 
     filterLabel (filter) {
       const label = this.dictionary(filter.toLowerCase())
-      if (!label) {
+      if (!label && window._data && Array.isArray(window._data.grids)) {
         const grid = window._data.grids.find(grid => grid.grid_id === filter)
         if (grid) {
           return grid.title || grid.grid_id
