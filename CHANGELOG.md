@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.1](https://github.com/ecomclub/storefront-template/compare/v1.8.0...v1.8.1) (2019-09-18)
+
+
+### Bug Fixes
+
+* **cms:** fix widgets collection on cms config ([9995656](https://github.com/ecomclub/storefront-template/commit/9995656))
+* **echo-widgets:** update widget object model from collection (pkg) ([ea8b540](https://github.com/ecomclub/storefront-template/commit/ea8b540))
+
 ## [1.8.0](https://github.com/ecomclub/storefront-template/compare/v1.7.0...v1.8.0) (2019-09-18)
 
 
