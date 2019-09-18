@@ -5,7 +5,6 @@ import EcImage from '@ecomplus/widget-product/src/components/EcImage.vue'
 import EcPrices from '@ecomplus/widget-product/src/components/EcPrices.vue'
 import { FadeTransition } from 'vue2-transitions'
 
-
 export default {
   name: 'EcProductCard',
 
@@ -45,6 +44,16 @@ export default {
   computed: {
     strBuy () {
       return this.buyText || this.dictionary('buy')
+    },
+
+    isActive () {
+      const { body } = this
+      return body.available && body.visible && inStock(body)
+    },
+
+    discount () {
+      const { body } = this
+      return Math.round(((body.base_price - price(body)) * 100) / body.base_price)
     }
   },
 
@@ -53,7 +62,6 @@ export default {
     name,
     inStock,
     onPromotion,
-    price, 
 
     fetchItem () {
       if (this.productId) {
