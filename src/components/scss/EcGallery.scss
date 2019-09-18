@@ -23,7 +23,7 @@
     @media (min-width: 992px) {
       position: static;
       display: block;
-      width: 100px;
+      width: 90px;
       margin: 0 1.5rem 0 0;
       left: auto;
       bottom: auto;
@@ -60,7 +60,7 @@
     }
 
     @media (min-width: 992px) {
-      margin: 0 0 .75rem;
+      margin: 0 0 .5rem;
 
       &:last-of-type {
         margin-bottom: 0;
@@ -87,6 +87,18 @@
       display: block;
       width: 100%;
       height: auto;
+    }
+  }
+
+  &__open {
+    display: none;
+
+    @media (min-width: 992px) {
+      font-weight: bold;
+      font-size: 1.15rem;
+      padding: 0 .5rem;
+      display: inline-block;
+      margin-bottom: .5rem;
     }
   }
 

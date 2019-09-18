@@ -8,12 +8,22 @@
       @click="go(i)"
     >
       <ec-image
+        v-if="i < 4"
         class="ec-gallery__thumb"
         :fade="false"
         :src="image.small.url"
         :alt="image.small.alt"
       />
     </div>
+
+    <button
+      v-if="images.length > 4"
+      class="btn btn-dark ec-gallery__open"
+      type="button"
+      @click.prevent="$emit('click:stage', { index: 4 })"
+    >
+      +{{ images.length - 4 }}
+    </button>
   </div>
 
   <div class="ec-gallery__stage">
