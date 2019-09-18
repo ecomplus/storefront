@@ -1,3 +1,4 @@
+import { name, version } from './../../package.json'
 import './lib/config'
 import emitter from './lib/emitter'
 import '@ecomplus/storefront-twbs'
@@ -62,3 +63,5 @@ if (hash.indexOf('=') !== -1) {
   }
   document.body.appendChild($netlifyIdentityScript)
 }
+
+console.log(`// TEMPLATE => ${name}@${version}`)
