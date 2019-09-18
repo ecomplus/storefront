@@ -21,17 +21,16 @@ const logo = _.settings.logo
 
 <header class="header" id="header" data-slideout-fixed>
   <% if (header.marketing_stripe) { %>
-    <% if (header.marketing_stripe.text || header.marketing_stripe.call_to_action) { %>
-      <div class="header__countdown d-none d-sm-block">
-        <%= header.marketing_stripe.text %>
-        <% if (header.marketing_stripe.call_to_action) { %>
-          <button
-            type="button"
-            class="btn btn-sm ml-2 btn-outline-light"
-            href="<%= header.marketing_stripe.call_to_action_link %>"
-          >
-            <%= header.marketing_stripe.call_to_action %>
-          </button>
+    <% if (header.marketing_stripe.text) { %>
+      <div class="d-none d-sm-block">
+        <% if (header.marketing_stripe.link) { %>
+          <a class="header__countdown" href="<%= header.marketing_stripe.link %>">
+            <%= header.marketing_stripe.text %>
+          </a>
+        <% } else { %>
+          <div class="header__countdown">
+            <%= header.marketing_stripe.text %>
+          </div>
         <% } %>
       </div>
     <% } %>

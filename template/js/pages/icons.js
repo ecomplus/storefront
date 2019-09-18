@@ -23,7 +23,9 @@ import {
   faCheck,
   faTruck,
   faLock,
-  faShieldAlt
+  faShieldAlt,
+  faFilter,
+  faSort
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -76,7 +78,9 @@ library.add(
   faCheck,
   faTruck,
   faLock,
-  faShieldAlt
+  faShieldAlt,
+  faFilter,
+  faSort
 )
 
 dom.watch()

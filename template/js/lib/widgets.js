@@ -19,8 +19,8 @@ loadWidget('@ecomplus/widget-search', () => import('@ecomplus/widget-search'))
 loadWidget('@ecomplus/widget-minicart', () => import('@ecomplus/widget-minicart'))
 
 const { resource } = document.body.dataset
-switch (resource) {
-  case 'products':
-    loadWidget('@ecomplus/widget-product', () => import('@ecomplus/widget-product'))
-    break
+if (resource && resource.startsWith('product')) {
+  loadWidget('@ecomplus/widget-product', () => import('@ecomplus/widget-product'))
+} else if (document.getElementById('search')) {
+  loadWidget('@ecomplus/widget-search-engine', () => import('@ecomplus/widget-search-engine'))
 }

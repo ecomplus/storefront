@@ -1,8 +1,7 @@
 {
   "marketing_stripe": {
     "text": "Enjoy our discounts of up to 40%!",
-    "call_to_action": "BUY",
-    "call_to_action_link": "promotion"
+    "link": "promotion"
   },
   "contacts_stripe": {
     "pages": [
