@@ -38,6 +38,22 @@ const dictionary = {
   clear_filters: {
     en_us: 'Clear filters',
     pt_br: 'Limpar filtros'
+  },
+  relevance: {
+    en_us: 'Most relevant',
+    pt_br: 'Mais relevantes'
+  },
+  sales: {
+    en_us: 'Best sellers',
+    pt_br: 'Mais vendidos'
+  },
+  lowest_price: {
+    en_us: 'Lowest price',
+    pt_br: 'Menor preço'
+  },
+  highest_price: {
+    en_us: 'Highest price',
+    pt_br: 'Maior preço'
   }
 }
 

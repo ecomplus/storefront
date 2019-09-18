@@ -65,7 +65,9 @@ export default {
         min: null,
         avg: null,
         max: null
-      }
+      },
+      sortOptions: [null, 'sales', 'lowest_price', 'highest_price'],
+      selectedSortOption: null
     }
   },
 
@@ -197,6 +199,12 @@ export default {
           this.updateSearchFilter(filter)
         }
       }
+      this.fetchItems()
+    },
+
+    setSortOrder (sort) {
+      this.selectedSortOption = sort
+      this.ecomSearch.setSortOrder(sort)
       this.fetchItems()
     }
   },

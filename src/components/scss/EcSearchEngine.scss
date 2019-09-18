@@ -1,18 +1,18 @@
 .ec-search-engine {
   &__nav {
     background: rgba(128, 128, 128, .1);
-    line-height: 2.5;
     color: var(--gray);
   }
 
   &__count {
     padding-left: .5rem;
     position: relative;
+    line-height: 2.5;
   }
 
   &__spinner {
     position: absolute;
-    top: .35rem;
+    top: .4rem;
     right: -3rem;
     color: var(--secondary);
     margin-left: 1.5rem;
@@ -20,27 +20,34 @@
     height: 1.75rem;
   }
 
-  &__actions {
-    text-align: right;
+  &__toggle {
+    color: inherit;
+    display: inline-block;
+    text-decoration: none;
+    transition: opacity .15s, color .2s;
+    padding: 0 .5rem;
+    opacity: .75;
+    line-height: 2.5;
+    border: none;
 
-    a {
-      color: inherit;
-      display: inline-block;
+    i,
+    svg {
+      font-size: .825rem;
+      color: var(--gray-dark);
+      margin-right: .15rem;
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 1;
       text-decoration: none;
-      transition: opacity .15s;
-      padding: 0 .5rem;
-      opacity: .75;
+      color: inherit;
+      box-shadow: none;
+    }
 
-      i,
-      svg {
-        font-size: .825rem;
-        color: var(--secondary);
-        margin-right: .15rem;
-      }
-
-      &:hover {
-        opacity: 1;
-      }
+    &[aria-expanded="true"] {
+      color: var(--gray-dark);
+      opacity: 1;
     }
   }
 

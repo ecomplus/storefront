@@ -23,29 +23,41 @@
                 </div>
               </div>
 
-              <div class="ec-search-engine__actions col">
-                <a
-                  href="#"
-                  @click.prevent="toggleFilters(true)"
-                  role="button"
+              <div class="text-right col">
+                <button
+                  class="btn ec-search-engine__toggle"
+                  @click="toggleFilters(true)"
+                  type="button"
                 >
                   <i class="fas fa-filter"></i>
                   {{ dictionary('filter') }}
                   <span class="d-none d-md-inline">
                     {{ dictionary('results') }}
                   </span>
-                </a>
+                </button>
 
-                <a
-                  href="#"
-                  @click.prevent="showFilters = !showFilters"
-                  role="button"
+                <b-dropdown
+                  variant="link"
+                  toggle-class="ec-search-engine__toggle"
+                  right
+                  no-caret
                 >
-                  <i class="fas fa-sort"></i>
-                  <span class="d-none d-md-inline">
-                    {{ dictionary('sort') }}
-                  </span>
-                </a>
+                  <template #button-content>
+                    <i class="fas fa-sort"></i>
+                    <span class="d-none d-md-inline">
+                      {{ dictionary('sort') }}
+                    </span>
+                  </template>
+                  <b-dropdown-item
+                    href="#"
+                    v-for="(sortOption, index) in sortOptions"
+                    :key="`sort-${index}`"
+                    @click.prevent="setSortOrder(sortOption)"
+                    :active="selectedSortOption === sortOption"
+                  >
+                    {{ dictionary(sortOption || 'relevance') }}
+                  </b-dropdown-item>
+                </b-dropdown>
               </div>
             </div>
           </div>
