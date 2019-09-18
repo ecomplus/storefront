@@ -46,13 +46,13 @@ let echoData = {
 // setup widgets object
 let echoWidgets = _.cms('widgets')
 if (Array.isArray(echoWidgets)) {
-  // parse widgets folder collection to object
+  // parse widgets folder/file CMS collection to object
   echoWidgets = echoWidgets.reduce((obj, slug) => {
     const widget = _.cms(`widgets/${slug}`)
-    const { title } = widget
-    if (title) {
-      obj[title] = widget
-      delete obj[title].title
+    const { pkg } = widget
+    if (pkg) {
+      obj[pkg] = widget
+      delete obj[pkg].pkg
     } else {
       obj[slug] = widget
     }
