@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/ecomclub/widget-search-engine/compare/v0.1.0...v0.2.0) (2019-09-18)
+
+
+### Bug Fixes
+
+* **search-nav:** hide nav when few results ([3933344](https://github.com/ecomclub/widget-search-engine/commit/3933344))
+
+
+### Features
+
+* **search-pagination:** handling infitine scroll (load more) ([615057d](https://github.com/ecomclub/widget-search-engine/commit/615057d))
+* **search-sort:** handling search sort order ([5acb777](https://github.com/ecomclub/widget-search-engine/commit/5acb777))
+* **search-term:** handling search fix when no results ([224e908](https://github.com/ecomclub/widget-search-engine/commit/224e908))
+
 ## [0.1.0](https://github.com/ecomclub/widget-search-engine/compare/v0.0.2...v0.1.0) (2019-09-18)
 
 
