@@ -58,9 +58,15 @@
   &__info {
     margin-bottom: 1.5rem;
     padding-top: 1rem;
+  }
 
-    h1 small {
-      font-size: .9rem;
+  &__terms {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    small {
+      font-size: .95rem;
       color: var(--gray);
     }
   }

@@ -152,16 +152,18 @@
       v-if="searched"
     >
       <div class="ec-search-engine__info">
-        <h1 v-if="term">
-          <small class="d-none d-lg-block">
-            {{ dictionary('searching_for') }}:
-          </small>
-          {{ fixedTerm || term }}
-        </h1>
-        <p class="lead" v-if="fixedTerm">
-          {{ dictionary('no_results_for') }}
-          <em>{{ term }}</em>
-        </p>
+        <div class="ec-search-engine__terms" v-if="term">
+          <h1>
+            <small class="d-none d-md-block">
+              {{ dictionary('searching_for') }}:
+            </small>
+            {{ fixedTerm || term }}
+          </h1>
+          <em v-if="fixedTerm" class="d-none d-lg-block">
+            {{ dictionary('no_results_for') }}
+            <s>{{ term }}</s>
+          </em>
+        </div>
 
         <slide-y-up-transition>
           <div v-if="hasSelectedOptions">
