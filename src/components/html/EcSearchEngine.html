@@ -156,18 +156,28 @@
       v-if="searched"
     >
       <div class="ec-search-engine__info">
-        <div class="ec-search-engine__terms" v-if="term">
-          <h1>
-            <small class="d-none d-md-block">
-              {{ dictionary('searching_for') }}:
-            </small>
-            {{ fixedTerm || term }}
-          </h1>
-          <em v-if="fixedTerm" class="d-none d-lg-block">
-            {{ dictionary('no_results_for') }}
-            <s>{{ term }}</s>
-          </em>
-        </div>
+        <template v-if="term">
+          <div class="ec-search-engine__no-results" v-if="emptyResult">
+            <div class="lead">
+              {{ dictionary('no_results_for') }}
+              <em>{{ term }}</em>
+            </div>
+            <h1>{{ dictionary('popular_products') }}</h1>
+          </div>
+
+          <div class="ec-search-engine__terms" v-else>
+            <h1>
+              <small class="d-none d-md-block">
+                {{ dictionary('searching_for') }}:
+              </small>
+              {{ fixedTerm || term }}
+            </h1>
+            <em v-if="fixedTerm" class="d-none d-lg-block">
+              {{ dictionary('no_results_for') }}
+              <s>{{ term }}</s>
+            </em>
+          </div>
+        </template>
 
         <slide-y-up-transition>
           <div v-if="hasSelectedOptions">
@@ -200,26 +210,47 @@
         </slide-y-up-transition>
       </div>
 
-      <article class="ec-search-engine__retail" v-if="searched">
-        <slide-y-up-transition group>
-          <div class="row" key="items">
-            <div
-              class="col-6 col-md-4 col-lg-3"
-              v-for="product in resultItems"
-            >
-              <slot name="product" v-bind="{ product }">
-                <ec-product-card
-                  class="ec-search-engine__item"
-                  :key="product._id"
-                  :lang="lang"
-                  :storeId="storeId"
-                  :product="product"
-                />
-              </slot>
-            </div>
+      <article class="ec-search-engine__retail">
+        <div class="row">
+          <div
+            class="col-6 col-md-4 col-lg-3"
+            v-for="product in resultItems"
+            :key="product._id"
+          >
+            <slot name="product" v-bind="{ product }">
+              <ec-product-card
+                class="ec-search-engine__item"
+                :lang="lang"
+                :storeId="storeId"
+                :product="product"
+              />
+            </slot>
           </div>
-        </slide-y-up-transition>
+        </div>
       </article>
+
+      <slide-y-up-transition>
+        <div class="alert alert-warning" role="alert" v-if="networkError">
+          <h4 class="alert-heading">Offline</h4>
+          <template v-if="lang === 'pt_br'">
+            Não foi possível buscar os produtos, por favor verifique sua
+            conexão com a internet.
+          </template>
+          <template v-else>
+            Unable to fetch the products, please check your internet connection.
+          </template>
+
+          <hr>
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click="fetchItems(currentPage)"
+          >
+            <i class="fas fa-search mr-1"></i>
+            {{ dictionary('search_again') }}
+          </button>
+        </div>
+      </slide-y-up-transition>
     </div>
   </fade-transition>
 

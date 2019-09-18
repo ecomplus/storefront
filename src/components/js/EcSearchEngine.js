@@ -60,6 +60,8 @@ export default {
       searching: false,
       loadingMore: false,
       searched: false,
+      emptyResult: false,
+      networkError: false,
       filters: [],
       lastSelectedFilter: null,
       selectedOptions: {},
@@ -87,22 +89,24 @@ export default {
     dictionary,
 
     fixTerm () {
-      let fixedTerm = this.term
-      let autoFix = true
-      this.ecomSearch.getTermSuggestions().forEach(({ options, text }) => {
-        if (options.length) {
-          const opt = options[0]
-          if (opt.score < this.autoFixScore) {
-            autoFix = false
+      if (this.term) {
+        let fixedTerm = this.term
+        let autoFix = true
+        this.ecomSearch.getTermSuggestions().forEach(({ options, text }) => {
+          if (options.length) {
+            const opt = options[0]
+            if (opt.score < this.autoFixScore) {
+              autoFix = false
+            }
+            fixedTerm = fixedTerm.replace(text, opt.text)
           }
-          fixedTerm = fixedTerm.replace(text, opt.text)
+        })
+        if (autoFix && fixedTerm !== this.term) {
+          this.fixedTerm = fixedTerm
+          this.ecomSearch.setSearchTerm(fixedTerm).history.shift()
+          this.fetchItems()
+          return true
         }
-      })
-      if (autoFix && fixedTerm !== this.term) {
-        this.fixedTerm = fixedTerm
-        this.ecomSearch.setSearchTerm(fixedTerm).history.shift()
-        this.fetchItems()
-        return true
       }
       return false
     },
@@ -136,30 +140,40 @@ export default {
     },
 
     fetchItems (page, isRetry) {
+      const { ecomSearch } = this
       this.searching = true
       this.loadingMore = page > 1 || this.page > 1
-      this.ecomSearch.setPageNumber(page).fetch()
+      ecomSearch.setPageNumber(page).fetch()
         .then(() => {
-          const { getItems, getTotalCount } = this.ecomSearch
-          this.totalSearchResults = getTotalCount()
+          this.totalSearchResults = ecomSearch.getTotalCount()
           if (this.totalSearchResults || this.fixedTerm || !this.fixTerm()) {
             if (page) {
               this.currentPage = page
-              this.resultItems = this.resultItems.concat(getItems())
+              this.resultItems = this.resultItems.concat(ecomSearch.getItems())
             } else {
               this.currentPage = 1
-              this.resultItems = getItems()
+              this.resultItems = ecomSearch.getItems()
+            }
+            if (!this.searched) {
+              if (!this.resultItems.length) {
+                ecomSearch.reset()
+                this.emptyResult = true
+                return this.fetchItems()
+              }
+              setTimeout(() => {
+                this.searched = true
+              }, 10)
             }
             this.updateFilters()
-            setTimeout(() => {
-              this.searched = true
-            }, 10)
+            this.networkError = false
           }
         })
         .catch(err => {
           console.error(err)
-          if (!isRetry) {
+          if (!isRetry && (!err.response || err.response.status !== 400)) {
             this.fetchItems(page, true)
+          } else {
+            this.networkError = true
           }
         })
         .finally(() => {

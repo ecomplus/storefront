@@ -58,6 +58,14 @@ const dictionary = {
   highest_price: {
     en_us: 'Highest price',
     pt_br: 'Maior preço'
+  },
+  popular_products: {
+    en_us: 'Popular products',
+    pt_br: 'Produtos populares'
+  },
+  search_again: {
+    en_us: 'Search again',
+    pt_br: 'Buscar novamente'
   }
 }
 
