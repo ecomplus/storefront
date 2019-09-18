@@ -48,7 +48,7 @@
     "@ecomplus/storefront-framework": "*",
     "@ecomplus/storefront-template": "^1.6.0",
     "@ecomplus/widget-product": "^0.3.10",
-    "@ecomplus/widget-product-card": "^0.2.8",
+    "@ecomplus/widget-product-card": "^0.2.10",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
