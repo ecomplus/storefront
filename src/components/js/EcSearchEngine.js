@@ -63,11 +63,6 @@ export default {
       filters: [],
       lastSelectedFilter: null,
       selectedOptions: {},
-      priceRange: {
-        min: null,
-        avg: null,
-        max: null
-      },
       sortOptions: [null, 'sales', 'lowest_price', 'highest_price'],
       selectedSortOption: null
     }
@@ -145,7 +140,7 @@ export default {
       this.loadingMore = page > 1 || this.page > 1
       this.ecomSearch.setPageNumber(page).fetch()
         .then(() => {
-          const { getItems, getPriceRange, getTotalCount } = this.ecomSearch
+          const { getItems, getTotalCount } = this.ecomSearch
           this.totalSearchResults = getTotalCount()
           if (this.totalSearchResults || this.fixedTerm || !this.fixTerm()) {
             if (page) {
@@ -155,7 +150,6 @@ export default {
               this.currentPage = 1
               this.resultItems = getItems()
             }
-            this.priceRange = getPriceRange()
             this.updateFilters()
             setTimeout(() => {
               this.searched = true
