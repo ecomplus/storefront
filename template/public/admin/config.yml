@@ -407,7 +407,6 @@ collections:
 
   - name: "widgets"
     label: "Widgets"
-    folder: "content/widgets"
     delete: false
     editor:
       preview: false
