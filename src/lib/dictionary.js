@@ -19,6 +19,10 @@ const dictionary = {
     en_us: 'Searching for',
     pt_br: 'Buscando por'
   },
+  no_results_for: {
+    en_us: 'No results for',
+    pt_br: 'Nenhum resultado para'
+  },
   brands: {
     en_us: 'Brands',
     pt_br: 'Marcas'

@@ -156,8 +156,12 @@
           <small class="d-none d-lg-block">
             {{ dictionary('searching_for') }}:
           </small>
-          {{ term }}
+          {{ fixedTerm || term }}
         </h1>
+        <p class="lead" v-if="fixedTerm">
+          {{ dictionary('no_results_for') }}
+          <em>{{ term }}</em>
+        </p>
 
         <slide-y-up-transition>
           <div v-if="hasSelectedOptions">
@@ -195,7 +199,7 @@
           <div class="row" key="items">
             <div
               class="col-6 col-md-4 col-lg-3"
-              v-for="product in suggestedItems"
+              v-for="product in resultItems"
             >
               <slot name="product" v-bind="{ product }">
                 <ec-product-card

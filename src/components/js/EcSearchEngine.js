@@ -39,7 +39,7 @@ export default {
     },
     autoFixScore: {
       type: [Number, Boolean],
-      default: 0.83
+      default: 0.6
     },
     showFilters: {
       type: Boolean,
@@ -53,8 +53,8 @@ export default {
   data () {
     return {
       ecomSearch: new EcomSearch(this.storeId),
-      suggestedItems: [],
-      suggestedTerm: '',
+      resultItems: [],
+      fixedTerm: '',
       totalSearchResults: 0,
       searching: false,
       searched: false,
@@ -85,7 +85,25 @@ export default {
   methods: {
     dictionary,
 
-    handleSuggestions () {
+    fixTerm () {
+      let fixedTerm = this.term
+      let autoFix = true
+      this.ecomSearch.getTermSuggestions().forEach(({ options, text }) => {
+        if (options.length) {
+          const opt = options[0]
+          if (opt.score < this.autoFixScore) {
+            autoFix = false
+          }
+          fixedTerm = fixedTerm.replace(text, opt.text)
+        }
+      })
+      if (autoFix && fixedTerm !== this.term) {
+        this.fixedTerm = fixedTerm
+        this.ecomSearch.setSearchTerm(fixedTerm).history.shift()
+        this.fetchItems()
+        return true
+      }
+      return false
     },
 
     updateFilters () {
@@ -121,12 +139,13 @@ export default {
       this.ecomSearch.fetch()
         .then(() => {
           const { getItems, getPriceRange, getTotalCount } = this.ecomSearch
-          this.suggestedItems = getItems()
           this.totalSearchResults = getTotalCount()
-          this.priceRange = getPriceRange()
-          this.handleSuggestions(this.term)
-          this.updateFilters()
-          this.searched = true
+          if (this.totalSearchResults || this.fixedTerm || !this.fixTerm()) {
+            this.resultItems = getItems()
+            this.priceRange = getPriceRange()
+            this.updateFilters()
+            this.searched = true
+          }
         })
         .catch(err => {
           console.error(err)
