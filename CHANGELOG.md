@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.2](https://github.com/ecomclub/storefront-template/compare/v1.8.1...v1.8.2) (2019-09-18)
+
+
+### Bug Fixes
+
+* **echo-widgets:** stop mutating widget objects (by reference) ([5f784c8](https://github.com/ecomclub/storefront-template/commit/5f784c8))
+
 ### [1.8.1](https://github.com/ecomclub/storefront-template/compare/v1.8.0...v1.8.1) (2019-09-18)
 
 
