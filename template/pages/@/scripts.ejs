@@ -42,12 +42,29 @@ let echoData = {
     return item
   })
 }
+
+// setup widgets object
+let echoWidgets = _.cms('widgets')
+if (Array.isArray(echoWidgets)) {
+  // parse widgets folder collection to object
+  echoWidgets = echoWidgets.reduce((obj, slug) => {
+    const widget = _.cms(`widgets/${slug}`)
+    const { title } = widget
+    if (title) {
+      obj[title] = widget
+      delete obj[title].title
+    } else {
+      obj[slug] = widget
+    }
+    return obj
+  }, {})
+}
 %>
 
 <script><%-
   `window._settings=${JSON.stringify(_.settings)};` +
   `window._info=${JSON.stringify(_.cms('info'))};` +
-  `window._widgets=${JSON.stringify(_.cms('widgets'))};` +
+  `window._widgets=${JSON.stringify(echoWidgets)};` +
   `window._context=${JSON.stringify(echoContext)};` +
   `window._data=${JSON.stringify(echoData)};`
 %></script>
