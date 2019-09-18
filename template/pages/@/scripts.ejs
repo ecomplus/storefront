@@ -49,13 +49,8 @@ if (Array.isArray(echoWidgets)) {
   // parse widgets folder/file CMS collection to object
   echoWidgets = echoWidgets.reduce((obj, slug) => {
     const widget = _.cms(`widgets/${slug}`)
-    const { pkg } = widget
-    if (pkg) {
-      obj[pkg] = widget
-      delete obj[pkg].pkg
-    } else {
-      obj[slug] = widget
-    }
+    const { pkg, active, desktopOnly, options } = widget
+    obj[pkg || slug] = { active, desktopOnly, options }
     return obj
   }, {})
 }
