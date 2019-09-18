@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.9](https://github.com/ecomclub/widget-product-card/compare/v0.2.8...v0.2.9) (2019-09-18)
+
+
+### Features
+
+* **product-card:** create tag promo stamp ([#16](https://github.com/ecomclub/widget-product-card/issues/16)) ([a09eb60](https://github.com/ecomclub/widget-product-card/commit/a09eb60))
+
 ### [0.2.8](https://github.com/ecomclub/widget-product-card/compare/v0.2.7...v0.2.8) (2019-09-16)
 
 
