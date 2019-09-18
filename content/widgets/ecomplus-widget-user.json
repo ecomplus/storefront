@@ -1,5 +1,5 @@
 {
-  "title": "@ecomplus/widget-user",
+  "pkg": "@ecomplus/widget-user",
   "active": true,
   "desktopOnly": false,
   "options": {}
