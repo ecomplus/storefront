@@ -315,8 +315,7 @@ collections:
             hint: "Tarja na cor secundária com texto e botão, caso não seja configurada não é exibida na loja"
             fields:
               - {label: "Texto", name: "text", required: false, widget: "string"}
-              - {label: "Texto do botão", name: "call_to_action", required: false, widget: "string"}
-              - {label: "Link do botão", name: "call_to_action_link", required: false, widget: "string"}
+              - {label: "Link", name: "link", required: false, widget: "string"}
           - label: "Tarja de contatos"
             name: "contacts_stripe"
             widget: object

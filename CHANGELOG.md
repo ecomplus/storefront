@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/ecomclub/storefront-template/compare/v1.6.0...v1.7.0) (2019-09-18)
+
+
+### Features
+
+* **widget-search:** setup search engine widget on search page ([f6f389f](https://github.com/ecomclub/storefront-template/commit/f6f389f))
+
+## [1.6.0](https://github.com/ecomclub/storefront-template/compare/v1.5.4...v1.6.0) (2019-09-17)
+
+
+### Features
+
+* **icons:** add filter and sort fa icons ([48c8efc](https://github.com/ecomclub/storefront-template/commit/48c8efc))
+
+### [1.5.4](https://github.com/ecomclub/storefront-template/compare/v1.5.3...v1.5.4) (2019-09-17)
+
+
+### Bug Fixes
+
+* **header:** minor fixes for sticky header bar ([b78645e](https://github.com/ecomclub/storefront-template/commit/b78645e))
+
 ### [1.5.3](https://github.com/ecomclub/storefront-template/compare/v1.5.2...v1.5.3) (2019-09-13)
 
 ### [1.5.2](https://github.com/ecomclub/storefront-template/compare/v1.5.1...v1.5.2) (2019-09-13)
