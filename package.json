@@ -30,7 +30,7 @@
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "@ecomplus/search-engine": "^1.0.1",
-    "@ecomplus/storefront-twbs": "^3.4.2",
+    "@ecomplus/storefront-twbs": "^3.5.0",
     "@ecomplus/utils": "^1.0.1",
     "core-js": "^3.2.1",
     "vue": "^2.6.10"
@@ -43,10 +43,10 @@
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
-    "@commitlint/cli": "^8.1.0",
-    "@commitlint/config-conventional": "^8.1.0",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@ecomplus/storefront-framework": "*",
-    "@ecomplus/storefront-template": "*",
+    "@ecomplus/storefront-template": "^1.6.0",
     "@ecomplus/widget-product": "^0.3.10",
     "@ecomplus/widget-product-card": "^0.2.8",
     "autoprefixer": "^9.6.1",
@@ -64,7 +64,7 @@
     "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7",
+    "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1"
   },
   "husky": {
