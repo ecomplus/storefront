@@ -18,7 +18,8 @@ loadWidget('@ecomplus/widget-product-card', () => import('@ecomplus/widget-produ
 loadWidget('@ecomplus/widget-search', () => import('@ecomplus/widget-search'))
 loadWidget('@ecomplus/widget-minicart', () => import('@ecomplus/widget-minicart'))
 
-if (document.body.dataset.resource === 'product') {
+const { resource } = document.body.dataset
+if (resource && resource.startsWith('product')) {
   loadWidget('@ecomplus/widget-product', () => import('@ecomplus/widget-product'))
 } else if (document.getElementById('search')) {
   loadWidget('@ecomplus/widget-search-engine', () => import('@ecomplus/widget-search-engine'))
