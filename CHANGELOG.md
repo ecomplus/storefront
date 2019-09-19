@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.12](https://github.com/ecomclub/widget-product/compare/v0.3.11...v0.3.12) (2019-09-19)
+
+
+### Features
+
+* **discount:** add discount badge for product's page ([#18](https://github.com/ecomclub/widget-product/issues/18)) ([78f0919](https://github.com/ecomclub/widget-product/commit/78f0919))
+
 ### [0.3.11](https://github.com/ecomclub/widget-product/compare/v0.3.10...v0.3.11) (2019-09-18)
 
 
