@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.2](https://github.com/ecomclub/storefront-template/compare/v1.8.1...v1.8.2) (2019-09-18)
+
+
+### Bug Fixes
+
+* **echo-widgets:** stop mutating widget objects (by reference) ([5f784c8](https://github.com/ecomclub/storefront-template/commit/5f784c8))
+
+### [1.8.1](https://github.com/ecomclub/storefront-template/compare/v1.8.0...v1.8.1) (2019-09-18)
+
+
+### Bug Fixes
+
+* **cms:** fix widgets collection on cms config ([9995656](https://github.com/ecomclub/storefront-template/commit/9995656))
+* **echo-widgets:** update widget object model from collection (pkg) ([ea8b540](https://github.com/ecomclub/storefront-template/commit/ea8b540))
+
+## [1.8.0](https://github.com/ecomclub/storefront-template/compare/v1.7.0...v1.8.0) (2019-09-18)
+
+
+### Bug Fixes
+
+* **cms:** changing widgets config structure ([#36](https://github.com/ecomclub/storefront-template/issues/36)) ([55f17ef](https://github.com/ecomclub/storefront-template/commit/55f17ef))
+* **cms:** fixing widgets files paths ([#38](https://github.com/ecomclub/storefront-template/issues/38)) ([99c946a](https://github.com/ecomclub/storefront-template/commit/99c946a))
+* **cms:** updating marketing stripe data on cms config ([#34](https://github.com/ecomclub/storefront-template/issues/34)) ([eaac1f3](https://github.com/ecomclub/storefront-template/commit/eaac1f3))
+* **widgets:** checking product page (resource) correctly ([f8cfc2c](https://github.com/ecomclub/storefront-template/commit/f8cfc2c))
+
+
+### Features
+
+* **echo-widgets:** also accepting widgets as folder collection from cms ([bf64ea4](https://github.com/ecomclub/storefront-template/commit/bf64ea4))
+* **install-script:** copying widgets folder on cms content ([b8c4ba5](https://github.com/ecomclub/storefront-template/commit/b8c4ba5))
+
 ## [1.7.0](https://github.com/ecomclub/storefront-template/compare/v1.6.0...v1.7.0) (2019-09-18)
 
 
