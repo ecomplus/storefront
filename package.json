@@ -3,8 +3,9 @@
   "version": "1.0.0-alpha.0",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build:spa": "vue-cli-service build",
     "build": "vue-cli-service build",
+    "build:spa": "vue-cli-service build --no-clean",
+    "build:all": "npm run build && npm run build:spa",
     "lint": "vue-cli-service lint",
     "release": "npm run build && standard-version --prerelease"
   },
