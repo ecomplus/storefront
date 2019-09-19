@@ -68,8 +68,8 @@ export default {
   created () {
     if (this.showOnItemAdded) {
       EcomCart.on('addItem', ({ data }) => {
+        this.$set(this.ecomCart, 'data', data)
         this.show()
-        this.ecomCart.data = data
       })
     }
   },
