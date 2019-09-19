@@ -3,7 +3,7 @@
   "version": "1.0.0-alpha.1",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name storefrontApp",
     "build:spa": "vue-cli-service build",
     "build:all": "npm run build && npm run build:spa -- --no-clean",
     "lint": "vue-cli-service lint",
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@ecomplus/storefront-template": "^1.8.2",
     "@vue/cli-plugin-babel": "^4.0.0-rc.3",
     "@vue/cli-plugin-eslint": "^4.0.0-rc.3",
     "@vue/cli-plugin-router": "^4.0.0-rc.3",
