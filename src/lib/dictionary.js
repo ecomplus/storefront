@@ -46,6 +46,10 @@ const dictionary = {
   interest_free: {
     en_us: 'interest free',
     pt_br: 'sem juros'
+  },
+  discount_of: {
+    en_us: 'discount of',
+    pt_br:  'desconto de'
   }
 }
 

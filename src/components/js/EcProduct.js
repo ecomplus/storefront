@@ -1,4 +1,4 @@
-import { _config, name, inStock } from '@ecomplus/utils'
+import { _config, name, inStock, onPromotion, price } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
 import EcPrices from './../EcPrices.vue'
 import EcGallery from './../EcGallery.vue'
@@ -49,6 +49,13 @@ export default {
   computed: {
     strBuy () {
       return this.buyText || this.dictionary('buy')
+    },
+
+    discount () {
+      const { body } = this
+      return onPromotion(body)
+        ? Math.round(((body.base_price - price(body)) * 100) / body.base_price)
+        : 0
     },
 
     photoswipeImages () {

@@ -33,8 +33,13 @@
                 :literal="true"
                 :big="true"
               />
+
+              <span class="ec-product__discount" v-if="discount > 0">
+                {{ dictionary('discount_of') }} <strong>{{ discount }}%</strong>
+              </span>
             </p>
           </slot>
+
 
           <div
             @click="$emit('buy', { product: body })"
