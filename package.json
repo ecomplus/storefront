@@ -3,7 +3,7 @@
   "version": "1.0.0-alpha.2",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build src/index.js --target lib --inline-vue --name storefrontApp",
+    "build": "vue-cli-service build src/main.js --target lib --inline-vue --name storefrontApp",
     "build:spa": "vue-cli-service build",
     "build:all": "npm run build && npm run build:spa -- --no-clean",
     "lint": "vue-cli-service lint",
