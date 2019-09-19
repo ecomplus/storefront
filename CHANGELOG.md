@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.6](https://github.com/ecomclub/widget-minicart/compare/v0.6.5...v0.6.6) (2019-09-19)
+
+
+### Bug Fixes
+
+* **update-cart:** use vue.set for deep reactivity ([da0c24a](https://github.com/ecomclub/widget-minicart/commit/da0c24a))
+
 ### [0.6.5](https://github.com/ecomclub/widget-minicart/compare/v0.6.4...v0.6.5) (2019-09-13)
 
 

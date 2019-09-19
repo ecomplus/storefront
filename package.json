@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-minicart",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "description": "Storefront plugin with Vue component for shopping cart quickview E-Com Plus stores",
   "main": "dist/widget-minicart.min.js",
   "module": "src/index.js",
