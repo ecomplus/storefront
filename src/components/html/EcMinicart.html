@@ -5,7 +5,7 @@
       class="ec-minicart__button btn btn-lg btn-light"
       :title="dictionary('shopping_cart')"
       @click="show"
-      v-b-tooltip.hover.left
+      v-b-tooltip.hover.bottom
     >
       <i class="fas fa-shopping-bag"></i>
       <span class="badge badge-sm badge-primary">
@@ -46,6 +46,7 @@
                   v-for="item in cart.items"
                   :key="item._id"
                   :item="item"
+                  :resetQnt="showCart"
                   @increase="qnt => ecomCart.increaseItemQnt(item._id, qnt)"
                   @remove="ecomCart.removeItem(item._id)"
                 />

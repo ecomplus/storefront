@@ -16,13 +16,16 @@ export default {
     inputType: {
       type: String,
       default: 'select'
+    },
+    resetQnt: {
+      type: Boolean
     }
   },
 
   data () {
     return {
-      quantity: this.item.quantity,
-      skipSelect: !Number.isInteger(this.item.quantity) || this.item.quantity > 10
+      quantity: 1,
+      skipSelect: false
     }
   },
 
@@ -38,7 +41,17 @@ export default {
 
   methods: {
     dictionary,
-    formatMoney
+    formatMoney,
+
+    updateQnt () {
+      this.quantity = this.item.quantity
+      this.skipSelect = !Number.isInteger(this.item.quantity) ||
+        this.item.quantity > 10
+    }
+  },
+
+  created () {
+    this.updateQnt()
   },
 
   watch: {
@@ -49,6 +62,12 @@ export default {
       if (this.quantity !== this.item.quantity) {
         this.$emit('increase', this.quantity - oldQnt)
         this.quantity = this.item.quantity
+      }
+    },
+
+    resetQnt (reload) {
+      if (reload) {
+        this.updateQnt()
       }
     }
   }
