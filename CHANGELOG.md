@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.7](https://github.com/ecomclub/widget-minicart/compare/v0.6.6...v0.6.7) (2019-09-19)
+
+
+### Bug Fixes
+
+* **cart-item:** add resetQnt prop to update input without full reload ([48210f1](https://github.com/ecomclub/widget-minicart/commit/48210f1))
+
 ### [0.6.6](https://github.com/ecomclub/widget-minicart/compare/v0.6.5...v0.6.6) (2019-09-19)
 
 
