@@ -1,3 +1,2 @@
 import './lib/config'
-
-console.log('Storefront App')
+// import '@ecomplus/storefront-app'
