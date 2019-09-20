@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/ecomclub/storefront-template/compare/v1.8.4...v1.9.0) (2019-09-20)
+
+
+### Bug Fixes
+
+* **echo-widgets:** preserving widgets objects props ([70c534d](https://github.com/ecomclub/storefront-template/commit/70c534d))
+* **storefront-app:** importing storefront-app script from cdn ([8d51cbc](https://github.com/ecomclub/storefront-template/commit/8d51cbc))
+
+
+### Features
+
+* **checkout-widgets:** check and setup widgets on /app/ routes ([366037c](https://github.com/ecomclub/storefront-template/commit/366037c))
+
 ### [1.8.4](https://github.com/ecomclub/storefront-template/compare/v1.8.3...v1.8.4) (2019-09-20)
 
 ### [1.8.3](https://github.com/ecomclub/storefront-template/compare/v1.8.2...v1.8.3) (2019-09-20)
