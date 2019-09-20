@@ -60,7 +60,7 @@ copyFolder({
 
 copyFolder({
   pathTemplate: 'node_modules/@ecomplus/storefront-app',
-  pathFrom: 'dist',
+  pathFrom: 'dist/lib',
   pathDest: 'template',
   pathsTo: ['public', 'assets', 'vendor', 'storefront-app']
 })
