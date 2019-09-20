@@ -13,12 +13,12 @@ const dirBase = process.env.TEMPLATE_DIR
   ? path.join(process.env.INIT_CWD, process.env.TEMPLATE_DIR)
   : process.env.INIT_CWD
 
-const copyFolder = (pathBase, pathFrom, pathsTo, overwrite = true) => {
-  const dirDest = path.join(dirBase, pathBase)
-  const dirTemplate = path.join(__dirname, `../${pathBase}`)
+const copyFolder = ({ pathTemplate, pathDest, pathFrom, pathsTo, overwrite = true }) => {
+  const dirDest = path.join(dirBase, pathDest)
+  const dirTemplate = path.join(__dirname, `../${pathTemplate}`)
 
   if (dirTemplate === dirDest) {
-    console.log(`[SKIP] same '${pathBase}' directories`)
+    console.log(`[SKIP] same '${pathDest}' directories`)
   } else {
     let runTemplateCopy
     if (fs.existsSync(dirDest)) {
@@ -43,8 +43,34 @@ const copyFolder = (pathBase, pathFrom, pathsTo, overwrite = true) => {
   }
 }
 
-copyFolder('template', 'public/admin', ['public', 'admin'])
-copyFolder('content', 'widgets', ['widgets'], false)
+copyFolder({
+  pathTemplate: 'template',
+  pathFrom: 'public/admin',
+  pathDest: 'template',
+  pathsTo: ['public', 'admin']
+})
+
+copyFolder({
+  pathTemplate: 'content',
+  pathFrom: 'widgets',
+  pathDest: 'content',
+  pathsTo: ['widgets'],
+  overwrite: false
+})
+
+copyFolder({
+  pathTemplate: 'node_modules/@ecomplus/storefront-app',
+  pathFrom: 'dist',
+  pathDest: 'template',
+  pathsTo: ['public', 'assets', 'vendor', 'storefront-app']
+})
+
+copyFolder({
+  pathTemplate: 'node_modules/photoswipe',
+  pathFrom: 'dist/default-skin',
+  pathDest: 'template',
+  pathsTo: ['public', 'assets', 'vendor', 'photoswipe']
+})
 
 console.log('[DONE] @ecomplus/storefront-template')
 console.log()
