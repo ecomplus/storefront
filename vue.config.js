@@ -21,7 +21,7 @@ if (process.argv.indexOf('--target') === process.argv.indexOf('lib') - 1) {
     config
       .plugin('html')
       .tap(args => {
-        args[0].template = path.join(templatePath, 'app/index.html')
+        args[0].template = path.join(templatePath, 'app/test.html')
         return args
       })
   }
