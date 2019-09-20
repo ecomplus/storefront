@@ -3,6 +3,9 @@
 .DS_Store
 node_modules
 /docs
+/dist/app
+/dist/lib/index.html
+/public
 
 # local env files
 .env.local
