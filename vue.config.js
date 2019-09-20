@@ -1,39 +1,61 @@
 const path = require('path')
+const recursiveCopy = require('@ecomplus/storefront-template/scripts/lib/recursive-copy')
 const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront-template/dist')
+const { dependencies } = require('./package.json')
+const externals = require('@ecomplus/storefront-template/webpack.externals')
 
-const config = {
+const devMode = process.env.NODE_ENV !== 'production'
+const libMode = !devMode && process.argv.indexOf('--lib') > -1
+
+if (!devMode && !libMode) {
+  // copy template assets
+  recursiveCopy(templatePath, path.join(process.cwd(), 'public'))
+}
+
+module.exports = {
   lintOnSave: false,
   devServer: {
     port: 9130,
     contentBase: templatePath
-  }
-}
+  },
 
-if (process.argv.indexOf('--target') === process.argv.indexOf('lib') - 1) {
-  // production Vue CLI lib output
-  config.chainWebpack = config => {
-    // exclude all libs imported by storefront-template
-    config.externals(require('@ecomplus/storefront-template/webpack.externals'))
-  }
-
-  config.css = {
+  // single JS file output
+  css: {
     extract: false
-  }
-} else {
-  // build/serve SPA
-  if (process.env.NODE_ENV === 'production') {
-    config.outputDir = 'dist/app'
-  }
+  },
+  configureWebpack: {
+    optimization: {
+      splitChunks: false
+    },
+    output: {
+      library: '__storefront_app',
+      libraryTarget: 'umd'
+    }
+  },
 
-  config.chainWebpack = config => {
+  // default public path for storefront-template on lib mode
+  publicPath: libMode ? '/assets/vendor/storefront-app/' : '/app/',
+  outputDir: devMode ? 'test' : libMode ? 'dist/lib' : 'dist/app',
+  filenameHashing: !libMode,
+
+  chainWebpack: config => {
+    if (libMode) {
+      // exclude all imported deps on lib mode by default
+      config.externals([
+        externals,
+        new RegExp('^(' +
+          Object.entries(dependencies)
+            .map(([pkg]) => pkg).filter(pkg => !externals[pkg]).join('|') +
+          ')(/|$)', 'i')
+      ])
+    }
+
+    // HTML file from template to load global vars and styles
     config
-      // HTML file from template to load global vars and styles
       .plugin('html')
       .tap(args => {
-        args[0].template = path.join(templatePath, 'app/test.html')
+        args[0].template = path.join(templatePath, 'app/index.html')
         return args
       })
   }
 }
-
-module.exports = config
