@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.1](https://github.com/ecomclub/storefront-template/compare/v1.10.0...v1.10.1) (2019-09-20)
+
+
+### Bug Fixes
+
+* **script-install:** passing directoy for modules (vendor) correctly ([beac3b8](https://github.com/ecomclub/storefront-template/commit/beac3b8))
+
 ## [1.10.0](https://github.com/ecomclub/storefront-template/compare/v1.9.0...v1.10.0) (2019-09-20)
 
 
