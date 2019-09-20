@@ -4,7 +4,7 @@
   "description": "Vue.js ecommerce app with cart, checkout and account pages",
   "main": "dist/storefrontApp.umd.min.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve src/test.js",
     "build": "vue-cli-service build src/main.js --target lib --name storefrontApp",
     "build:spa": "vue-cli-service build",
     "build:all": "npm run build && npm run build:spa",
