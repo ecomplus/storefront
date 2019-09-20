@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-alpha.3](https://github.com/ecomclub/storefront-app/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2019-09-20)
+
 ## [1.0.0-alpha.2](https://github.com/ecomclub/storefront-app/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2019-09-19)
 
 ## [1.0.0-alpha.1](https://github.com/ecomclub/storefront-app/compare/v0.15.4...v1.0.0-alpha.1) (2019-09-19)
