@@ -54,7 +54,7 @@ module.exports = {
     config
       .plugin('html')
       .tap(args => {
-        args[0].template = path.join(templatePath, 'app/index.html')
+        args[0].template = path.join(templatePath, 'app/test.html')
         return args
       })
   }
