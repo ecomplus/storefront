@@ -40,7 +40,7 @@ new major releases.
     - `#search`
       - `#search-engine`
   - `#overlay`
-- `#app`
+- `#storefront-app`
 
 ### Search query
 
