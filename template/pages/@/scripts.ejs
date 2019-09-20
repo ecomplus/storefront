@@ -50,7 +50,9 @@ if (Array.isArray(echoWidgets)) {
   echoWidgets = echoWidgets.reduce((obj, slug) => {
     const widget = _.cms(`widgets/${slug}`)
     const { pkg, active, desktopOnly, options } = widget
-    obj[pkg || slug] = { active, desktopOnly, options }
+    if (active) {
+      obj[pkg || slug] = { active, desktopOnly, options }
+    }
     return obj
   }, {})
 }
