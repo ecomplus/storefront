@@ -5,7 +5,7 @@
   "main": "dist/storefrontApp.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve src/test.js",
-    "build": "vue-cli-service build src/main.js --target lib --name storefrontApp",
+    "build": "vue-cli-service build src/index.js --target lib --name storefrontApp",
     "build:spa": "vue-cli-service build",
     "build:all": "npm run build && npm run build:spa",
     "lint": "vue-cli-service lint",
