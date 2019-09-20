@@ -16,6 +16,7 @@ module.exports = {
   lintOnSave: false,
   devServer: {
     port: 9130,
+    open: true,
     contentBase: templatePath
   },
 
