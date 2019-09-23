@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.2](https://github.com/ecomclub/storefront-template/compare/v1.10.1...v1.10.2) (2019-09-23)
+
+
+### Bug Fixes
+
+* **preload:** not preloading css and js when not necessary ([3d6e606](https://github.com/ecomclub/storefront-template/commit/3d6e606))
+
 ### [1.10.1](https://github.com/ecomclub/storefront-template/compare/v1.10.0...v1.10.1) (2019-09-20)
 
 
