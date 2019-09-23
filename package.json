@@ -58,7 +58,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.24",
     "@fortawesome/free-brands-svg-icons": "^5.11.1",
     "@fortawesome/free-solid-svg-icons": "^5.11.1",
-    "@glidejs/glide": "^3.4.0",
+    "@glidejs/glide": "^3.4.1",
     "bootswatch": "^4.3.1",
     "core-js": "^3.2.1",
     "ejs": "^2.7.1",
