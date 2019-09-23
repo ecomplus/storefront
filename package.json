@@ -45,7 +45,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@ecomplus/storefront-template": "^1.10.0",
+    "@ecomplus/storefront-template": "^1.10.1",
     "@vue/cli-plugin-babel": "^4.0.0-rc.3",
     "@vue/cli-plugin-eslint": "^4.0.0-rc.3",
     "@vue/cli-plugin-router": "^4.0.0-rc.3",
