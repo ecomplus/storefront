@@ -1,6 +1,6 @@
 import { name, version } from './../../package.json'
 import './lib/config'
-import emitter from './lib/emitter'
+import { events } from './lib/emitter'
 import '@ecomplus/storefront-twbs'
 
 import './lib/icons'
@@ -37,14 +37,7 @@ window.$ = $
 
 Vue.config.productionTip = false
 
-window.storefront = {
-  $overlay
-}
-;['on', 'off', 'once'].forEach(method => {
-  window.storefront[method] = (ev, fn) => {
-    emitter[method](ev, fn)
-  }
-})
+window.storefront = { $overlay, ...events }
 
 setTimeout(() => {
   if (window._widgets !== false) {
