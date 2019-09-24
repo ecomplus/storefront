@@ -1,7 +1,5 @@
 <template>
-  <div class="container">
-    <ec-cart/>
-  </div>
+  <ec-cart/>
 </template>
 
 <script>
