@@ -2,6 +2,8 @@ import { _config, formatMoney } from '@ecomplus/utils'
 import dictionary from '@ecomplus/widget-minicart/src/lib/dictionary'
 import EcomCart from '@ecomplus/shopping-cart'
 import EcCartItem from '@ecomplus/widget-minicart/src/components/EcCartItem.vue'
+import EcShipping from '@ecomplus/widget-product/src/components/EcShipping.vue'
+import EcPrices from '@ecomplus/widget-product/src/components/EcPrices.vue'
 import { SlideYUpTransition } from 'vue2-transitions'
 
 export default {
@@ -9,6 +11,8 @@ export default {
 
   components: {
     EcCartItem,
+    EcShipping,
+    EcPrices,
     SlideYUpTransition
   },
 
@@ -24,6 +28,12 @@ export default {
     checkoutUrl: {
       type: String,
       default: '/app/#/checkout'
+    },
+    discountValue: {
+      type: Number
+    },
+    totalValue: {
+      type: Number
     }
   },
 
@@ -36,6 +46,16 @@ export default {
   computed: {
     cart () {
       return this.ecomCart.data
+    },
+
+    asProduct () {
+      const body = {
+        price: this.totalValue >= 0 ? this.totalValue : this.cart.subtotal
+      }
+      if (this.discountValue > 0) {
+        body.base_price = body.price + this.discountValue
+      }
+      return body
     }
   },
 

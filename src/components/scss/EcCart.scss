@@ -1,2 +1,46 @@
 .ec-cart {
+  &__empty {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ec-cart-item {
+    padding-top: 1rem;
+    border-top: 1px dotted var(--gray);
+
+    &__name {
+      margin-bottom: .5rem;
+    }
+  }
+
+  &__info {
+    border-radius: .25rem;
+    padding: 1rem;
+    background: var(--light);
+  }
+
+  &__summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+
+    > span {
+      color: var(--gray);
+    }
+  }
+
+  &__shipping {
+    margin: 1rem 0;
+  }
+
+  &__total {
+    margin: 1rem 0;
+
+    .ec-prices {
+      &__value {
+        font-size: 1.5rem;
+      }
+    }
+  }
 }

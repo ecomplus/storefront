@@ -1,12 +1,8 @@
 <div class="ec-cart">
-  <div class="row">
-    <div class="col-md-7 col-lg-8">
-      <slide-y-up-transition group>
-        <div
-          class="ec-cart__list"
-          v-if="cart.items.length"
-          key="list"
-        >
+  <slide-y-up-transition group>
+    <div class="row" v-if="cart.items.length" key="list">
+      <div class="col-md-7 col-lg-8">
+        <div class="ec-cart__list">
           <slot name="list" v-bind="{ items: cart.items }">
             <slide-y-up-transition group>
               <ec-cart-item
@@ -19,45 +15,67 @@
             </slide-y-up-transition>
           </slot>
         </div>
-
-        <div
-          v-else
-          class="ec-cart__empty"
-          key="empty"
-        >
-          <slot name="empty">
-            <p class="lead text-muted">
-              {{ dictionary('empty_cart') }} ...
-            </p>
-            <a class="btn btn-block btn-primary" href="/">
-              <span class="mr-1">
-                <i class="fas fa-arrow-left"></i>
-              </span>
-              {{ dictionary('continue_shopping') }}
-            </a>
-          </slot>
-        </div>
-      </slide-y-up-transition>
-    </div>
-
-    <div class="col-md-5 col-lg-4">
-      <div class="ec-cart__summary">
-        <span>Subtotal</span>
-        <strong class="ec-cart__subtotal">
-          {{ formatMoney(cart.subtotal) }}
-        </strong>
       </div>
 
-      <a
-        class="ec-cart__btn-checkout btn btn-block btn-primary"
-        role="button"
-        :href="checkoutUrl"
-      >
-        <span class="mr-1">
-          <i class="fas fa-check"></i>
-        </span>
-        {{ dictionary('checkout') }}
-      </a>
+      <div class="col-md-5 col-lg-4">
+        <div class="ec-cart__info">
+          <slot name="info">
+            <div class="ec-cart__summary-row">
+              <span>Subtotal</span>
+              <div>{{ formatMoney(cart.subtotal) }}</div>
+            </div>
+
+            <ec-shipping
+              class="ec-cart__shipping"
+              :lang="lang"
+              :selectServices="true"
+              :shippedItems="cart.items"
+              @serviceSelected="val => $emit('serviceSelected', val)"
+              @update:zipCode="val => $emit('update:zipCode', val)"
+            />
+
+            <div class="ec-cart__summary-row ec-cart__total">
+              <span>Total</span>
+              <ec-prices
+                :lang="lang"
+                :product="asProduct"
+                :literal="true"
+              />
+            </div>
+
+            <slot name="checkout">
+              <a
+                class="ec-cart__btn-checkout btn btn-lg btn-block btn-success"
+                role="button"
+                :href="checkoutUrl"
+              >
+                <span class="mr-1">
+                  <i class="fas fa-shopping-bag"></i>
+                </span>
+                {{ dictionary('checkout') }}
+              </a>
+            </slot>
+          </slot>
+        </div>
+      </div>
     </div>
-  </div>
+
+    <div
+      v-else
+      class="ec-cart__empty"
+      key="empty"
+    >
+      <slot name="empty">
+        <p class="lead text-muted">
+          {{ dictionary('empty_cart') }} ...
+        </p>
+        <a class="btn btn-primary" href="/">
+          <span class="mr-1">
+            <i class="fas fa-arrow-left"></i>
+          </span>
+          {{ dictionary('continue_shopping') }}
+        </a>
+      </slot>
+    </div>
+  </slide-y-up-transition>
 </div>
