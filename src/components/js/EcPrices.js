@@ -41,7 +41,10 @@ export default {
   data () {
     return {
       interestFreeInstallments: 0,
-      priceWithDiscount: false,
+      discount: {
+        type: null,
+        value: 0
+      },
       discountLabel: this.discountText
     }
   },
@@ -61,16 +64,9 @@ export default {
 
     updateDiscount (discount) {
       if (discount && (!discount.min_amount || discount.min_amount <= this.price)) {
-        const { type, value } = discount
-        if (value) {
-          if (type === 'percentage') {
-            this.priceWithDiscount = this.price * (100 - value) / 100
-          } else {
-            this.priceWithDiscount = this.price - value
-          }
-          if (!this.discountText && this.discountText !== false && discount.label) {
-            this.discountLabel = `via ${discount.label}`
-          }
+        this.discount = discount
+        if (!this.discountText && this.discountText !== false && discount.label) {
+          this.discountLabel = `via ${discount.label}`
         }
       }
     }
@@ -79,6 +75,17 @@ export default {
   computed: {
     price () {
       return price(this.product)
+    },
+
+    priceWithDiscount () {
+      const { type, value } = this.discount
+      if (value) {
+        if (type === 'percentage') {
+          return this.price * (100 - value) / 100
+        } else {
+          return this.price - value
+        }
+      }
     }
   },
 
