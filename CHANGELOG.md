@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.14](https://github.com/ecomclub/widget-product/compare/v0.3.13...v0.3.14) (2019-09-24)
+
+
+### Bug Fixes
+
+* **shipping:** set selected after services update ([9e5eec1](https://github.com/ecomclub/widget-product/commit/9e5eec1))
+
 ### [0.3.13](https://github.com/ecomclub/widget-product/compare/v0.3.12...v0.3.13) (2019-09-24)
 
 
