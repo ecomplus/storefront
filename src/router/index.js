@@ -1,24 +1,38 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Cart from './../views/Cart.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/cart/:id?',
     name: 'cart',
-    component: Cart
+    component: () => import(
+      /* webpackChunkName: "cart" */
+      './../views/Cart.vue'
+    )
   },
   {
-    path: '/checkout',
+    path: '/checkout/:id?',
     name: 'checkout',
-    component: () => import(/* webpackChunkName: "checkout" */ './../views/Checkout.vue')
+    component: () => import(
+      /* webpackChunkName: "checkout" */
+      './../views/Checkout.vue'
+    )
   },
   {
     path: '/account',
     name: 'account',
-    component: () => import(/* webpackChunkName: "account" */ './../views/Account.vue')
+    component: () => import(
+      /* webpackChunkName: "account" */
+      './../views/Account.vue'
+    )
+  },
+  {
+    path: '/:id?',
+    redirect: {
+      name: 'cart'
+    }
   }
 ]
 
