@@ -1,5 +1,5 @@
-import $ from './lib/$'
-import $overlay from './lib/$overlay'
+import $ from './$'
+import $overlay from './$overlay'
 import Slideout from 'slideout'
 
 const slideout = new Slideout({

@@ -1,4 +1,4 @@
-import $ from './lib/$'
+import $ from './$'
 
 const $header = $('#header')
 if ($header) {

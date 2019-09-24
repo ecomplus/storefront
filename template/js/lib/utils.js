@@ -1,6 +1,4 @@
-import $ from './lib/$'
-import './lib/lazy-load'
-import './lib/glide-slides'
+import $ from './$'
 
 const $wpLinks = $('.whatsapp-link')
 for (let i = 0; i < $wpLinks.length; i++) {
