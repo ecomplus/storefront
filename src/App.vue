@@ -8,26 +8,48 @@
       </div>
     </fade-transition>
 
-    <router-view/>
+    <div class="container">
+      <h1 v-if="$store.state.title">
+        {{ $store.state.title }}
+      </h1>
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
-  #loading {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2000;
-    background: rgba(255, 255, 255, .6);
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  #storefront-app {
+    padding: 2rem 0;
 
-    .spinner-grow {
-      width: 150px;
-      height: 150px;
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--secondary);
+
+      &::before {
+        content: '# ';
+        color: var(--secondary-lightest);
+        font-weight: 400;
+        margin-right: .2rem;
+      }
+    }
+
+    #loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2000;
+      background: rgba(255, 255, 255, .6);
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .spinner-grow {
+        width: 150px;
+        height: 150px;
+      }
     }
   }
 </style>

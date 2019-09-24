@@ -6,18 +6,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    loading: 0
+    loading: 0,
+    title: ''
   },
 
   mutations: {
-    triggerLoading (state, payload = true) {
-      if (!payload) {
+    triggerLoading (state, loading = true) {
+      if (!loading) {
         if (state.loading > 0) {
           state.loading--
         }
       } else {
         state.loading++
       }
+    },
+
+    setTitle (state, title) {
+      state.title = title
     }
   },
 
