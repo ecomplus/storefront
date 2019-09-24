@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.15](https://github.com/ecomclub/widget-product/compare/v0.3.14...v0.3.15) (2019-09-24)
+
+
+### Bug Fixes
+
+* **prices:** priceWithDiscount must be a computed (reactive) ([b20bd48](https://github.com/ecomclub/widget-product/commit/b20bd48))
+
 ### [0.3.14](https://github.com/ecomclub/widget-product/compare/v0.3.13...v0.3.14) (2019-09-24)
 
 
