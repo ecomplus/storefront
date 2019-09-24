@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/ecomclub/storefront-template/compare/v1.10.2...v1.11.0) (2019-09-24)
+
+
+### Features
+
+* **checkout:** loading icons and utils before widgets ([a2e2656](https://github.com/ecomclub/storefront-template/commit/a2e2656))
+
 ### [1.10.2](https://github.com/ecomclub/storefront-template/compare/v1.10.1...v1.10.2) (2019-09-23)
 
 
