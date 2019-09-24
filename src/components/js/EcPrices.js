@@ -2,7 +2,7 @@ import { _config, price, onPromotion, formatMoney } from '@ecomplus/utils'
 import dictionary from './../../lib/dictionary'
 import { SlideYUpTransition } from 'vue2-transitions'
 
-const { storefront, _info } = window
+const { _events, _info } = window
 
 export default {
   name: 'EcPrices',
@@ -84,7 +84,7 @@ export default {
 
   created () {
     if (!this.installmentsOption && !this.discountOption) {
-      if (storefront) {
+      if (_events) {
         const getPaymentInfo = () => {
           const paymentInfo = _info && _info.list_payments
           if (paymentInfo) {
@@ -95,7 +95,7 @@ export default {
           return false
         }
         if (!getPaymentInfo()) {
-          storefront.on('info:list_payments', getPaymentInfo)
+          _events.on('info:list_payments', getPaymentInfo)
         }
       }
     } else {
