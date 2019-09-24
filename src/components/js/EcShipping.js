@@ -56,7 +56,7 @@ export default {
     return {
       zipCodeValue: this.zipCode,
       shippingServices: [],
-      selectedService: 0,
+      selectedService: null,
       waiting: false
     }
   },
@@ -71,17 +71,20 @@ export default {
 
     parseShippingOptions (shippingResult = []) {
       this.shippingServices = []
-      shippingResult.forEach(appResult => {
-        const { validated, error, response } = appResult
-        if (validated && !error) {
-          response.shipping_services.forEach(service => {
-            this.shippingServices.push({
-              app_id: appResult.app_id,
-              ...service
+      if (shippingResult.length) {
+        shippingResult.forEach(appResult => {
+          const { validated, error, response } = appResult
+          if (validated && !error) {
+            response.shipping_services.forEach(service => {
+              this.shippingServices.push({
+                app_id: appResult.app_id,
+                ...service
+              })
             })
-          })
-        }
-      })
+          }
+        })
+        this.setSelectedService(0)
+      }
     },
 
     fetchShippingServices () {
