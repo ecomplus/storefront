@@ -1,6 +1,16 @@
 import EcomCart from '@ecomplus/shopping-cart'
+import ecomClient from '@ecomplus/client'
 
 const cart = new EcomCart()
+
+const fetchProduct = _id => {
+  return ecomClient.store({
+    url: `products/${_id}.json`,
+    axiosConfig: {
+      timeout: 30000
+    }
+  })
+}
 
 const state = {
   amount: {
@@ -15,7 +25,8 @@ const state = {
     }
   },
   shipping: {},
-  payment: {}
+  payment: {},
+  updated: false
 }
 
 const getters = {
@@ -41,8 +52,43 @@ const mutations = {
   }
 }
 
+const actions = {
+  fetchCartItems ({ commit }) {
+    const promises = []
+    cart.data.items.forEach(item => {
+      const { _id, quantity } = item
+      const promise = new Promise(resolve => {
+        fetchProduct(item.product_id)
+          .then(({ data }) => {
+            Object.assign(item, data, {
+              quantity: 0,
+              body_html: null,
+              body_text: null
+            })
+            cart.increaseItemQnt(_id, quantity, false)
+          })
+          .catch(err => {
+            console.error(err)
+            const status = err.response && err.response.status
+            if (status >= 400 && status < 500) {
+              cart.removeItem(_id, false)
+            }
+            // TODO: Notify error
+          })
+          .finally(resolve)
+      })
+      promises.push(promise)
+    })
+    return Promise.all(promises).then(() => {
+      cart.save()
+      commit('updateAmount')
+    })
+  }
+}
+
 export default {
   state,
   getters,
-  mutations
+  mutations,
+  actions
 }

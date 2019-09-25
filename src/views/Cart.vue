@@ -1,19 +1,10 @@
 <template>
-  <ec-cart/>
+  <div id="cart">
+    <ec-cart
+      @serviceSelected="selectShippingService"
+      :totalValue="totalValue"
+    />
+  </div>
 </template>
 
-<script>
-import EcCart from './../components/EcCart.vue'
-
-export default {
-  name: 'cart',
-
-  components: {
-    EcCart
-  },
-
-  created () {
-    // TODO: fetch api and update cart items prices and quantities
-  }
-}
-</script>
+<script src="./js/Cart.js"></script>
