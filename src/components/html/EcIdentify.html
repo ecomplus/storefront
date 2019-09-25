@@ -1,0 +1,75 @@
+<div class="ec-identify">
+  <form @submit.prevent="submitEmail">
+    <label class="h4" for="ec-identify-email">
+      {{ i18n('EnterYourEmail') }}
+    </label>
+
+    <div class="input-group input-group-lg">
+      <input
+        ref="input"
+        type="email"
+        class="form-control"
+        id="ec-identify-email"
+        placeholder="email@mail.com"
+        v-model="email"
+        required
+      >
+
+      <div class="input-group-append" :aria-label="i18n('Continue')">
+        <button type="submit" class="btn btn-lg btn-block btn-primary">
+          <i class="fas fa-arrow-right"></i>
+          <span class="d-none d-md-inline ml-1">
+            {{ i18n('Continue') }}
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <div class="ec-identify__info">
+      <div class="ec-identify__info__title">
+        <i class="fas fa-lock"></i>
+        {{ i18n('WeUseYourDataTo') }}:
+      </div>
+
+      <div
+        class="ec-identify__info__row"
+        v-for="label in ['IdentifyAccount', 'NotifyAboutOrders', 'ManageYourHistory']"
+      >
+        <i class="fas fa-check"></i>
+        {{ i18n(label) }}
+      </div>
+    </div>
+
+    <slide-y-up-transition>
+      <div class="ec-identify__oauth" v-if="oauthProviders.length">
+        <p class="lead">
+          {{ i18n('OrProceedWith') }}:
+        </p>
+
+        <button
+          v-for="({ link, faIcon, providerName, provider }) in oauthProviders"
+          type="button"
+          class="btn ec-identify__btn"
+          :key="provider"
+          :class="`ec-identify__btn--${provider}`"
+          @click="() => oauthPopup(link)"
+        >
+          <small>{{ i18n('SignInWith') }}</small>
+          <i class="fab mr-2" :class="faIcon"></i>
+          {{ providerName }}
+        </button>
+      </div>
+    </slide-y-up-transition>
+  </form>
+
+  <fade-transition>
+    <div class="ec-identify__popup-overlay" v-if="waitingPopup">
+      <div>
+        <div class="spinner-border mb-3" role="status">
+          <span class="sr-only">Popup...</span>
+        </div>
+        <h5>{{ i18n('OauthOnPopup') }}</h5>
+      </div>
+    </div>
+  </fade-transition>
+</div>
