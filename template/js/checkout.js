@@ -1,4 +1,5 @@
 import './lib/config'
+import './lib/fetch-info'
 
 import '@ecomplus/storefront-app'
 
