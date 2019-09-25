@@ -1,7 +1,7 @@
 <template>
   <div id="storefront-app">
     <fade-transition :duration="700">
-      <div id="loading" v-if="$store.state.loading">
+      <div id="loading" v-show="$store.state.loading">
         <div class="spinner-grow text-primary" role="status">
           <span class="sr-only">Loading...</span>
         </div>
@@ -25,6 +25,7 @@
       text-align: center;
       margin-bottom: 1.5rem;
       color: var(--secondary);
+      font-size: 2rem;
 
       &::before {
         content: '# ';
@@ -39,7 +40,7 @@
       top: 0;
       left: 0;
       z-index: 2000;
-      background: rgba(255, 255, 255, .6);
+      background: rgba(255, 255, 255, .7);
       width: 100vw;
       height: 100vh;
       display: flex;

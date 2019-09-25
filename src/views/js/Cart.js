@@ -17,6 +17,7 @@ export default {
       'updateAmount',
       'selectShippingService'
     ]),
+
     ...mapActions([
       'fetchCartItems'
     ])
@@ -24,6 +25,6 @@ export default {
 
   created () {
     this.updateAmount()
-    this.fetchCartItems()
+    this.fetchCartItems({})
   }
 }

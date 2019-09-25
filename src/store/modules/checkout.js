@@ -25,8 +25,7 @@ const state = {
     }
   },
   shipping: {},
-  payment: {},
-  updated: false
+  payment: {}
 }
 
 const getters = {
@@ -53,7 +52,7 @@ const mutations = {
 }
 
 const actions = {
-  fetchCartItems ({ commit }) {
+  fetchCartItems ({ commit }, { removeOnError }) {
     const promises = []
     cart.data.items.forEach(item => {
       const { _id, quantity } = item
@@ -70,7 +69,7 @@ const actions = {
           .catch(err => {
             console.error(err)
             const status = err.response && err.response.status
-            if (status >= 400 && status < 500) {
+            if (removeOnError || (status >= 400 && status < 500)) {
               cart.removeItem(_id, false)
             }
             // TODO: Notify error
