@@ -12,14 +12,30 @@
         id="ec-identify-email"
         placeholder="email@mail.com"
         v-model="email"
+        :readonly="waitingLogin"
         required
       >
 
       <div class="input-group-append" :aria-label="i18n('Continue')">
-        <button type="submit" class="btn btn-lg btn-block btn-primary">
-          <i class="fas fa-arrow-right"></i>
-          <span class="d-none d-md-inline ml-1">
-            {{ i18n('Continue') }}
+        <button
+          type="submit"
+          class="btn btn-block btn-primary"
+          :disabled="waitingLogin"
+        >
+          <span v-if="!waitingLogin" key="login">
+            <i class="fas fa-arrow-right"></i>
+            <span class="d-none d-md-inline ml-1">
+              {{ i18n('Continue') }}
+            </span>
+          </span>
+
+          <span v-else key="loading">
+            <span
+              class="spinner-border spinner-border-sm mb-1 mr-1"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            <span class="sr-only">Loading...</span>
           </span>
         </button>
       </div>

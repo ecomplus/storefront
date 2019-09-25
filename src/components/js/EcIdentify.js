@@ -35,6 +35,9 @@ export default {
     mergeDictionary: {
       type: Object,
       default: () => {}
+    },
+    customerEmail: {
+      type: String
     }
   },
 
@@ -43,7 +46,8 @@ export default {
       ecomPassport: new EcomPassport(this.storeId, this.lang),
       email: this.customerEmail,
       oauthProviders: [],
-      waitingPopup: false
+      waitingPopup: false,
+      waitingLogin: false
     }
   },
 
@@ -71,19 +75,32 @@ export default {
       return i18n(this.dictionary[label], this.lang)
     },
 
+    updateEmail () {
+      this.$emit('update:customerEmail', this.email)
+    },
+
     submitEmail () {
-      this.ecomPassport.fetchLogin(this.email)
-        .catch(err => {
-          const { response } = err
-          if (!response || response.status !== 403) {
-            console.error(err)
-            this.$bvToast.toast(this.i18n('WasAnErrorOnLogin'), {
-              title: this.i18n('LoginError'),
-              variant: 'warning',
-              solid: true
-            })
-          }
-        })
+      if (!this.waitingLogin) {
+        this.waitingLogin = true
+        this.ecomPassport.fetchLogin(this.email)
+          .then(this.updateEmail)
+          .catch(err => {
+            const { response } = err
+            if (!response || response.status !== 403) {
+              console.error(err)
+              this.$bvToast.toast(this.i18n('WasAnErrorOnLogin'), {
+                title: this.i18n('LoginError'),
+                variant: 'warning',
+                solid: true
+              })
+            } else {
+              this.updateEmail()
+            }
+          })
+          .finally(() => {
+            this.waitingLogin = false
+          })
+      }
     },
 
     setOauthProviders () {
