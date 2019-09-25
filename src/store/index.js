@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import shop from './modules/shop'
+import checkout from './modules/checkout'
 
 Vue.use(Vuex)
 
@@ -27,6 +28,7 @@ export default new Vuex.Store({
   },
 
   modules: {
-    shop
+    shop,
+    checkout
   }
 })
