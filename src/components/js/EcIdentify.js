@@ -122,6 +122,9 @@ export default {
         this.$emit('login', this.ecomPassport)
       }
     })
+    if (this.ecomPassport.isLogged()) {
+      this.$emit('login', this.ecomPassport)
+    }
   },
 
   mounted () {
