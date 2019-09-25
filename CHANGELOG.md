@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/ecomclub/storefront-template/compare/v1.12.0...v1.13.0) (2019-09-25)
+
+
+### Bug Fixes
+
+* **checkout:** fetch info to show all prices ([eea2616](https://github.com/ecomclub/storefront-template/commit/eea2616))
+
+
+### Features
+
+* **app:** setup header on app views ([fd8c6e5](https://github.com/ecomclub/storefront-template/commit/fd8c6e5))
+
 ## [1.12.0](https://github.com/ecomclub/storefront-template/compare/v1.11.0...v1.12.0) (2019-09-24)
 
 
