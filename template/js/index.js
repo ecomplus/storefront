@@ -1,13 +1,15 @@
 import { name, version } from './../../package.json'
 import './lib/config'
-import emitter from './lib/emitter'
+import { events } from './lib/emitter'
 import '@ecomplus/storefront-twbs'
 
-import './pages/icons'
-import './pages/utils'
-import './pages/menu'
-import './pages/header'
-import './pages/search'
+import './lib/icons'
+import './lib/utils'
+import './lib/lazy-load'
+import './lib/glide-slides'
+import './lib/menu'
+import './lib/header'
+import './lib/search'
 
 import lozad from 'lozad'
 import Vue from 'vue'
@@ -19,8 +21,8 @@ import EcomSearch from '@ecomplus/search-engine'
 import EcomPassport from '@ecomplus/passport-client'
 import EcomCart from '@ecomplus/shopping-cart'
 
-import $ from './pages/lib/$'
-import $overlay from './pages/lib/$overlay'
+import $ from './lib/$'
+import $overlay from './lib/$overlay'
 import './lib/fetch-info'
 
 window.lozad = lozad
@@ -35,23 +37,16 @@ window.$ = $
 
 Vue.config.productionTip = false
 
-window.storefront = {
-  $overlay
-}
-;['on', 'off', 'once'].forEach(method => {
-  window.storefront[method] = (ev, fn) => {
-    emitter[method](ev, fn)
-  }
-})
+window.storefront = { $overlay, ...events }
 
 setTimeout(() => {
   if (window._widgets !== false) {
-    import(/* webpackPrefetch: true */ './lib/widgets')
+    import(/* webpackPrefetch: true */ './lib/load-widgets')
   }
 }, 200)
 
 if (window.pluginPhotoswipe) {
-  import(/* webpackPrefetch: true */ './pages/plugins/photoswipe')
+  import(/* webpackPrefetch: true */ './lib/photoswipe')
 }
 
 const { hash } = window.location
