@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-app",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "Vue.js ecommerce app with cart, checkout and account pages",
   "main": "dist/lib/js/app.js",
   "scripts": {
@@ -34,7 +34,7 @@
     "@ecomplus/storefront-twbs": "^3.5.0",
     "@ecomplus/utils": "^1.0.1",
     "@ecomplus/widget-minicart": "^0.6.7",
-    "@ecomplus/widget-product": "^0.3.13",
+    "@ecomplus/widget-product": "^0.3.15",
     "@ecomplus/widget-user": "^0.9.2",
     "core-js": "^3.2.1",
     "vue": "^2.6.10",

@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.2](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2019-09-25)
+
+
+### Bug Fixes
+
+* **identify:** emit login on created if already logged ([7d02e02](https://github.com/ecomclub/storefront-app/commit/7d02e02))
+
+
+### Features
+
+* **cart-items:** fetch cart items to update data ([88dd7c2](https://github.com/ecomclub/storefront-app/commit/88dd7c2))
+* **i18n:** setup dictionary ([f1307b0](https://github.com/ecomclub/storefront-app/commit/f1307b0))
+* **identify:** setup EcIdentify component ([00fcfd2](https://github.com/ecomclub/storefront-app/commit/00fcfd2))
+* **vuex:** setup checkout module ([cbf77ef](https://github.com/ecomclub/storefront-app/commit/cbf77ef))
+
 ## [1.0.0-beta.1](https://github.com/ecomclub/storefront-app/compare/v1.0.0-alpha.6...v1.0.0-beta.1) (2019-09-24)
 
 
