@@ -1,3 +1,24 @@
-<div id="spa">
-  <div id="storefront-app"></div>
+<%
+// store logo object
+const logo = _.settings.logo
+  ? { url: _.settings.logo, alt: _.settings.name }
+  : _.store.logo
+%>
+
+<div class="app">
+  <header class="app__header">
+    <div class="container">
+      <a href="/">
+        <% if (logo && logo.url) { %>
+          <img class="app__logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
+        <% } else { %>
+          <%= _.settings.name || _.store.name %>
+        <% } %>
+      </a>
+    </div>
+  </header>
+
+  <div id="spa">
+    <div id="storefront-app"></div>
+  </div>
 </div>
