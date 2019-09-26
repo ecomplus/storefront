@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.4](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2019-09-26)
+
+
+### Bug Fixes
+
+* **identify:** add customerEmail sync prop and handle login loading ([a917507](https://github.com/ecomclub/storefront-app/commit/a917507))
+
+
+### Features
+
+* **identify:** handle second login step with doc number ([af0b1a0](https://github.com/ecomclub/storefront-app/commit/af0b1a0))
+
 ## [1.0.0-beta.3](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2019-09-25)
 
 ## [1.0.0-beta.2](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2019-09-25)
