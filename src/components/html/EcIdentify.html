@@ -1,12 +1,12 @@
 <div class="ec-identify">
-  <form @submit.prevent="submitEmail">
+  <form @submit.prevent="submitLogin">
     <label class="h4" for="ec-identify-email">
       {{ i18n('EnterYourEmail') }}
     </label>
 
     <div class="input-group input-group-lg">
       <input
-        ref="input"
+        ref="inputEmail"
         type="email"
         class="form-control"
         id="ec-identify-email"
@@ -19,7 +19,7 @@
       <div class="input-group-append" :aria-label="i18n('Continue')">
         <button
           type="submit"
-          class="btn btn-block btn-primary"
+          class="btn btn-primary"
           :disabled="waitingLogin"
         >
           <span v-if="!waitingLogin" key="login">
@@ -40,6 +40,41 @@
         </button>
       </div>
     </div>
+
+    <slide-y-up-transition>
+      <div v-if="confirmAccount()" class="ec-identify__confirm">
+        <div class="ec-identify__hello">
+          {{ i18n('HelloAgain') }}
+          <strong>{{ ecomPassport.getCustomerName() }}</strong>
+        </div>
+        <label class="lead" for="ec-identify-doc">
+          {{ i18n('EnterYourDocNumber') }}
+        </label>
+
+        <div class="input-group input-group-lg">
+          <input-doc-number
+            ref="InputDoc"
+            id="ec-identify-doc"
+            v-model.number="docNumber"
+            :isCompany="isCompany"
+            :countryCode="countryCode"
+            :readonly="waitingLogin"
+            :placeholder="countryCode === 'BR' ? (isCompany ? 'CNPJ' : 'CPF') : null"
+            required
+          />
+
+          <div class="input-group-append" :aria-label="i18n('Continue')">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              :disabled="waitingLogin"
+            >
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </slide-y-up-transition>
 
     <div class="ec-identify__info">
       <div class="ec-identify__info__title">

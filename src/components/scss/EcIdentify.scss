@@ -3,6 +3,18 @@
   margin: 0 auto;
   text-align: center;
 
+  &__confirm {
+    max-width: 525px;
+    margin: 1rem auto 0;
+  }
+
+  &__hello {
+    &::after {
+      color: var(--gray);
+      content: ' :)';
+    }
+  }
+
   &__info {
     padding: 1rem 2rem;
     background: var(--light);

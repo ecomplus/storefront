@@ -1,10 +1,13 @@
 import { _config, i18n } from '@ecomplus/utils'
 import EcomPassport from '@ecomplus/passport-client'
+import InputDocNumber from './../_internal/InputDocNumber.vue'
 import { FadeTransition, SlideYUpTransition } from 'vue2-transitions'
 
 import {
   Continue,
+  EnterYourDocNumber,
   EnterYourEmail,
+  HelloAgain,
   IdentifyAccount,
   LoginError,
   ManageYourHistory,
@@ -20,6 +23,7 @@ export default {
   name: 'EcIdentify',
 
   components: {
+    InputDocNumber,
     FadeTransition,
     SlideYUpTransition
   },
@@ -27,6 +31,10 @@ export default {
   props: {
     lang: {
       type: String
+    },
+    countryCode: {
+      type: String,
+      default: _config.get('country_code')
     },
     storeId: {
       type: Number,
@@ -45,6 +53,8 @@ export default {
     return {
       ecomPassport: new EcomPassport(this.storeId, this.lang),
       email: this.customerEmail,
+      docNumber: '',
+      isCompany: false,
       oauthProviders: [],
       waitingPopup: false,
       waitingLogin: false
@@ -55,7 +65,9 @@ export default {
     dictionary () {
       return {
         Continue,
+        EnterYourDocNumber,
         EnterYourEmail,
+        HelloAgain,
         IdentifyAccount,
         LoginError,
         ManageYourHistory,
@@ -75,15 +87,17 @@ export default {
       return i18n(this.dictionary[label], this.lang)
     },
 
-    updateEmail () {
-      this.$emit('update:customerEmail', this.email)
+    confirmAccount () {
+      const { isLogged, isAuthorized, getCustomer } = this.ecomPassport
+      return isLogged() && !isAuthorized() && getCustomer().main_email === this.email
     },
 
-    submitEmail () {
+    submitLogin () {
       if (!this.waitingLogin) {
         this.waitingLogin = true
-        this.ecomPassport.fetchLogin(this.email)
-          .then(this.updateEmail)
+        const { email, docNumber } = this
+        const isAccountConfirm = this.confirmAccount()
+        this.ecomPassport.fetchLogin(email, isAccountConfirm ? docNumber : null)
           .catch(err => {
             const { response } = err
             if (!response || response.status !== 403) {
@@ -94,35 +108,13 @@ export default {
                 solid: true
               })
             } else {
-              this.updateEmail()
+              this.$emit('update:customerEmail', this.email)
             }
           })
           .finally(() => {
             this.waitingLogin = false
           })
       }
-    },
-
-    setOauthProviders () {
-      this.ecomPassport.fetchOauthProviders()
-        .then(({ host, baseUri, oauthPath, providers }) => {
-          const oauthProviders = []
-          for (const provider in providers) {
-            if (providers[provider]) {
-              const { faIcon, providerName } = providers[provider]
-              oauthProviders.push({
-                link: host + baseUri + provider + oauthPath,
-                faIcon,
-                provider,
-                providerName
-              })
-            }
-          }
-          this.oauthProviders = oauthProviders
-        })
-        .catch(err => {
-          console.error(err)
-        })
     },
 
     oauthPopup (link) {
@@ -132,19 +124,48 @@ export default {
   },
 
   created () {
-    this.setOauthProviders()
-    EcomPassport.on('login', ({ sessionId }) => {
-      if (sessionId === this.ecomPassport.sessionId) {
-        this.waitingPopup = false
-        this.$emit('login', this.ecomPassport)
-      }
-    })
-    if (this.ecomPassport.isLogged()) {
-      this.$emit('login', this.ecomPassport)
-    }
+    this.ecomPassport.fetchOauthProviders()
+      .then(({ host, baseUri, oauthPath, providers }) => {
+        const oauthProviders = []
+        for (const provider in providers) {
+          if (providers[provider]) {
+            const { faIcon, providerName } = providers[provider]
+            oauthProviders.push({
+              link: host + baseUri + provider + oauthPath,
+              faIcon,
+              provider,
+              providerName
+            })
+          }
+        }
+        this.oauthProviders = oauthProviders
+      })
+      .catch(err => {
+        console.error(err)
+      })
   },
 
   mounted () {
-    this.$refs.input.focus()
+    this.$refs.inputEmail.focus()
+    const { isLogged, isAuthorized, getCustomer } = this.ecomPassport
+    const handleLogin = () => {
+      if (isAuthorized()) {
+        this.$emit('login', this.ecomPassport)
+      } else if (isLogged()) {
+        const customer = getCustomer()
+        this.email = customer.main_email
+        this.isCompany = customer.registry_type === 'j'
+        setTimeout(() => {
+          this.$refs.InputDoc.$el.focus()
+        }, 400)
+      }
+    }
+    EcomPassport.on('login', ({ sessionId, isAuthorized }) => {
+      if (sessionId === this.ecomPassport.sessionId) {
+        this.waitingPopup = false
+        handleLogin()
+      }
+    })
+    handleLogin()
   }
 }
