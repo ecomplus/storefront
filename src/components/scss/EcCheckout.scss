@@ -1,0 +1,16 @@
+.ec-checkout {
+  &__app {
+    min-height: 300px;
+  }
+
+  &__back {
+    margin-top: 2rem;
+    text-align: center;
+
+    @media (max-width: 575.98px) {
+      > .btn {
+        display: block;
+      }
+    }
+  }
+}

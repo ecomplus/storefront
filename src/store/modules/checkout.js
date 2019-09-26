@@ -5,7 +5,7 @@ const cart = new EcomCart()
 
 const fetchProduct = _id => {
   return ecomClient.store({
-    url: `products/${_id}.json`,
+    url: `/products/${_id}.json`,
     axiosConfig: {
       timeout: 30000
     }

@@ -14,15 +14,32 @@ export default {
     }
   },
 
+  computed: {
+    customerEmail: {
+      get () {
+        return this.$store.getters.customerEmail
+      },
+      set (email) {
+        this.setCustomerEmail(email)
+      }
+    }
+  },
+
   methods: {
     ...mapMutations([
       'triggerLoading',
-      'selectShippingService'
+      'selectShippingService',
+      'setCustomerEmail'
     ]),
 
     ...mapActions([
-      'fetchCartItems'
-    ])
+      'fetchCartItems',
+      'fetchCustomer'
+    ]),
+
+    login (ecomPassport) {
+      this.fetchCustomer({ ecomPassport })
+    }
   },
 
   created () {

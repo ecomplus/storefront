@@ -1,5 +1,21 @@
 <div class="ec-checkout">
-  <ec-identify
-    @login="customerLogin"
-  />
+  <fade-transition :duration="700">
+    <div class="ec-checkout__app" v-if="shownCheckoutStep">
+      <ec-addresses/>
+    </div>
+  </fade-transition>
+
+  <slot name="login" v-if="!userIdentified">
+    <ec-identify
+      @login="login"
+      :customerEmail.sync="userEmail"
+    />
+  </slot>
+
+  <div class="ec-checkout__back">
+    <a :href="cartUrl" class="btn btn-sm btn-secondary">
+      <i class="fas fa-chevron-left mr-1"></i>
+      {{ i18n('BackToCart') }}
+    </a>
+  </div>
 </div>

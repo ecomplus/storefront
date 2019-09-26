@@ -22,9 +22,36 @@ const state = {
 }
 
 const getters = {
+  customer: ({ customer }) => customer,
+
+  customerEmail: ({ customer }) => customer.main_email
+}
+
+const mutations = {
+  setCustomer (state, customer) {
+    state.customer = customer
+  },
+
+  setCustomerEmail (state, email) {
+    state.customer.main_email = email
+  }
+}
+
+const actions = {
+  fetchCustomer ({ commit }, { ecomPassport }) {
+    return ecomPassport.requestApi('/me.json')
+      .then(({ data }) => {
+        commit('setCustomer', data)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
 }
 
 export default {
   state,
-  getters
+  getters,
+  mutations,
+  actions
 }
