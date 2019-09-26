@@ -1,11 +1,26 @@
+export const BackToCart = {
+  en_us: 'Back to cart',
+  pt_br: 'Voltar ao carrinho'
+}
+
 export const Continue = {
   en_us: 'Continue',
   pt_br: 'Continuar'
 }
 
+export const EnterYourDocNumber = {
+  en_us: 'Enter your document number to confirm',
+  pt_br: 'Confirme o login com seu documento'
+}
+
 export const EnterYourEmail = {
   en_us: 'Enter your email to proceed',
   pt_br: 'Informe seu email para prosseguir'
+}
+
+export const HelloAgain = {
+  en_us: 'Hello again',
+  pt_br: 'Olá novamente'
 }
 
 export const IdentifyAccount = {
