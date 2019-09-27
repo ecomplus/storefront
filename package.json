@@ -42,10 +42,10 @@
   "homepage": "https://github.com/ecomclub/storefront-template#readme",
   "dependencies": {
     "@ecomplus/client": "^1.1.3",
-    "@ecomplus/passport-client": "^0.7.1",
+    "@ecomplus/passport-client": "^0.7.2",
     "@ecomplus/search-engine": "^1.0.5",
     "@ecomplus/shopping-cart": "^0.6.2",
-    "@ecomplus/storefront-app": "^1.0.0-beta.3",
+    "@ecomplus/storefront-app": "^1.0.0-beta.4",
     "@ecomplus/storefront-framework": "^5.1.2",
     "@ecomplus/storefront-twbs": "^3.5.0",
     "@ecomplus/utils": "^1.0.1",
