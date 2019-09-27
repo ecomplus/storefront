@@ -1,10 +1,14 @@
-import { _config } from '@ecomplus/utils'
+import { _config, i18n } from '@ecomplus/utils'
 import CleaveInput from 'vue-cleave-component'
+
+import {
+  ZipCode
+} from './../../../lib/i18n'
 
 const countryCode = _config.get('country_code')
 
 export default {
-  name: 'InputDocNumber',
+  name: 'InputZipCode',
 
   components: {
     CleaveInput
@@ -14,19 +18,12 @@ export default {
     value: {
       type: [String, Number],
       required: true
-    },
-    isCompany: {
-      type: Boolean
     }
   },
 
   computed: {
     placeholder () {
-      return countryCode === 'BR'
-        ? this.isCompany
-          ? 'CNPJ'
-          : 'CPF'
-        : null
+      return i18n(ZipCode)
     },
 
     localValue: {
@@ -40,9 +37,7 @@ export default {
 
     cleaveOptions () {
       return countryCode === 'BR'
-        ? this.isCompany
-          ? { blocks: [2, 3, 3, 4, 2], delimiters: ['.', '.', '/', '-'] }
-          : { blocks: [3, 3, 3, 2], delimiters: ['.', '.', '-'] }
+        ? { blocks: [5, 3], delimiter: '-' }
         : { blocks: [30] }
     }
   }

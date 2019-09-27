@@ -8,4 +8,4 @@
   />
 </template>
 
-<script src="./js/InputDocNumber.js"></script>
+<script src="./js/InputZipCode.js"></script>
