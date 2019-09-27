@@ -1,4 +1,4 @@
-import { _config, i18n } from '@ecomplus/utils'
+import { i18n } from '@ecomplus/utils'
 import EcomPassport from '@ecomplus/passport-client'
 import InputDocNumber from './../_internal/InputDocNumber.vue'
 import { FadeTransition, SlideYUpTransition } from 'vue2-transitions'
@@ -29,17 +29,6 @@ export default {
   },
 
   props: {
-    lang: {
-      type: String
-    },
-    countryCode: {
-      type: String,
-      default: _config.get('country_code')
-    },
-    storeId: {
-      type: Number,
-      default: _config.get('store_id')
-    },
     mergeDictionary: {
       type: Object,
       default: () => {}
@@ -51,7 +40,7 @@ export default {
 
   data () {
     return {
-      ecomPassport: new EcomPassport(this.storeId, this.lang),
+      ecomPassport: new EcomPassport(),
       email: this.customerEmail,
       docNumber: '',
       isCompany: false,
@@ -84,7 +73,7 @@ export default {
 
   methods: {
     i18n (label) {
-      return i18n(this.dictionary[label], this.lang)
+      return i18n(this.dictionary[label])
     },
 
     confirmAccount () {

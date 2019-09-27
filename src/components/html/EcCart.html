@@ -27,7 +27,6 @@
 
             <ec-shipping
               class="ec-cart__shipping"
-              :lang="lang"
               :selectServices="true"
               :shippedItems="cart.items"
               @serviceSelected="val => $emit('serviceSelected', val)"
@@ -37,7 +36,6 @@
             <div class="ec-cart__summary-row ec-cart__total">
               <span>Total</span>
               <ec-prices
-                :lang="lang"
                 :product="asProduct"
                 :literal="true"
               />

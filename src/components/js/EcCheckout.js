@@ -1,4 +1,4 @@
-import { _config, i18n } from '@ecomplus/utils'
+import { i18n } from '@ecomplus/utils'
 import EcIdentify from './../EcIdentify.vue'
 import EcAddresses from './../EcAddresses.vue'
 import EcPayment from './../EcPayment.vue'
@@ -26,13 +26,6 @@ export default {
   },
 
   props: {
-    lang: {
-      type: String
-    },
-    storeId: {
-      type: Number,
-      default: _config.get('store_id')
-    },
     mergeDictionary: {
       type: Object,
       default: () => {}
@@ -42,6 +35,12 @@ export default {
       default: '/app/#/cart'
     },
     customerEmail: {
+      type: String
+    },
+    customerAddresses: {
+      type: Array
+    },
+    shippingZipCode: {
       type: String
     },
     checkoutStep: {
@@ -82,7 +81,7 @@ export default {
 
   methods: {
     i18n (label) {
-      return i18n(this.dictionary[label], this.lang)
+      return i18n(this.dictionary[label])
     },
 
     login (ecomPassport) {

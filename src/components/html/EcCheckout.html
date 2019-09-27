@@ -1,7 +1,15 @@
 <div class="ec-checkout">
   <fade-transition :duration="700">
     <div class="ec-checkout__app" v-if="shownCheckoutStep">
-      <ec-addresses/>
+      <div class="row">
+        <div class="col-md-4">
+          <ec-addresses
+            :addresses="customerAddresses"
+            :zipCode="shippingZipCode"
+            @addressSelected="val => $emit('addressSelected', val)"
+          />
+        </div>
+      </div>
     </div>
   </fade-transition>
 

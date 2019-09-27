@@ -21,10 +21,6 @@ export default {
       type: String,
       default: _config.get('lang')
     },
-    storeId: {
-      type: Number,
-      default: _config.get('store_id')
-    },
     checkoutUrl: {
       type: String,
       default: '/app/#/checkout'
@@ -39,7 +35,7 @@ export default {
 
   data () {
     return {
-      ecomCart: new EcomCart(this.storeId)
+      ecomCart: new EcomCart()
     }
   },
 

@@ -57,9 +57,7 @@
             id="ec-identify-doc"
             v-model.number="docNumber"
             :isCompany="isCompany"
-            :countryCode="countryCode"
             :readonly="waitingLogin"
-            :placeholder="countryCode === 'BR' ? (isCompany ? 'CNPJ' : 'CPF') : null"
             required
           />
 
