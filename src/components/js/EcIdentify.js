@@ -9,6 +9,7 @@ import {
   EnterYourEmail,
   HelloAgain,
   IdentifyAccount,
+  InvalidLoginInfo,
   LoginError,
   ManageYourHistory,
   NotifyAboutOrders,
@@ -46,7 +47,8 @@ export default {
       isCompany: false,
       oauthProviders: [],
       waitingPopup: false,
-      waitingLogin: false
+      waitingLogin: false,
+      alertLoginFail: false
     }
   },
 
@@ -58,6 +60,7 @@ export default {
         EnterYourEmail,
         HelloAgain,
         IdentifyAccount,
+        InvalidLoginInfo,
         LoginError,
         ManageYourHistory,
         NotifyAboutOrders,
@@ -84,6 +87,7 @@ export default {
     submitLogin () {
       if (!this.waitingLogin) {
         this.waitingLogin = true
+        this.alertLoginFail = false
         const { email, docNumber } = this
         const isAccountConfirm = this.confirmAccount()
         this.ecomPassport.fetchLogin(email, isAccountConfirm ? docNumber : null)
@@ -96,8 +100,10 @@ export default {
                 variant: 'warning',
                 solid: true
               })
-            } else {
+            } else if (!isAccountConfirm) {
               this.$emit('update:customerEmail', this.email)
+            } else {
+              this.alertLoginFail = true
             }
           })
           .finally(() => {
@@ -109,6 +115,14 @@ export default {
     oauthPopup (link) {
       this.ecomPassport.popupOauthLink(link)
       this.waitingPopup = true
+    }
+  },
+
+  watch: {
+    docNumber () {
+      if (this.alertLoginFail) {
+        this.alertLoginFail = false
+      }
     }
   },
 

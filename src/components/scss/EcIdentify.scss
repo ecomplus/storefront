@@ -6,6 +6,10 @@
   &__confirm {
     max-width: 525px;
     margin: 1rem auto 0;
+
+    .alert {
+      font-size: .9rem;
+    }
   }
 
   &__hello {
@@ -56,10 +60,6 @@
     line-height: 1.2rem;
     padding: .5rem 1.2rem .7rem;
 
-    &:not(:first-of-type) {
-      margin-left: .5rem;
-    }
-
     &:hover {
       color: #fff;
     }
@@ -86,6 +86,10 @@
     }
 
     @media (min-width: 576px) {
+      &:not(:first-of-type) {
+        margin-left: .5rem;
+      }
+
       > small {
         display: block;
         text-align: center;
