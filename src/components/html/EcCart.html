@@ -29,7 +29,7 @@
               class="ec-cart__shipping"
               :selectServices="true"
               :shippedItems="cart.items"
-              @serviceSelected="val => $emit('serviceSelected', val)"
+              @serviceSelected="val => $emit('shippingService', val)"
               @update:zipCode="val => $emit('update:zipCode', val)"
             />
 
