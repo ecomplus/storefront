@@ -83,21 +83,6 @@
       </div>
     </slide-y-up-transition>
 
-    <div class="ec-identify__info">
-      <div class="ec-identify__info__title">
-        <i class="fas fa-lock"></i>
-        {{ i18n('WeUseYourDataTo') }}:
-      </div>
-
-      <div
-        class="ec-identify__info__row"
-        v-for="label in ['IdentifyAccount', 'NotifyAboutOrders', 'ManageYourHistory']"
-      >
-        <i class="fas fa-check"></i>
-        {{ i18n(label) }}
-      </div>
-    </div>
-
     <slide-y-up-transition>
       <div class="ec-identify__oauth" v-if="oauthProviders.length">
         <p class="lead">
@@ -119,6 +104,21 @@
       </div>
     </slide-y-up-transition>
   </form>
+
+  <div class="ec-identify__info">
+    <div class="ec-identify__info__title">
+      <i class="fas fa-lock"></i>
+      {{ i18n('WeUseYourDataTo') }}:
+    </div>
+
+    <div
+      class="ec-identify__info__row"
+      v-for="label in ['IdentifyAccount', 'NotifyAboutOrders', 'ManageYourHistory']"
+    >
+      <i class="fas fa-check"></i>
+      {{ i18n(label) }}
+    </div>
+  </div>
 
   <fade-transition>
     <div class="ec-identify__popup-overlay" v-if="waitingPopup">

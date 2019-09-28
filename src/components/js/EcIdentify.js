@@ -36,12 +36,15 @@ export default {
     },
     customerEmail: {
       type: String
+    },
+    ecomPassport: {
+      type: Object,
+      default: () => new EcomPassport()
     }
   },
 
   data () {
     return {
-      ecomPassport: new EcomPassport(),
       email: this.customerEmail,
       docNumber: '',
       isCompany: false,
