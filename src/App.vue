@@ -8,11 +8,13 @@
       </div>
     </fade-transition>
 
-    <div class="container">
-      <h1 v-if="$store.state.title">
+    <div :class="$store.state.fluidPage ? 'container-fluid' : 'container'">
+      <h1 v-show="!$store.state.fluidPage && $store.state.title">
         {{ $store.state.title }}
       </h1>
-      <router-view/>
+      <slide-x-left-transition :duration="{ enter: 400, leave: 0 }">
+        <router-view/>
+      </slide-x-left-transition>
     </div>
   </div>
 </template>

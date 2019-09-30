@@ -4,7 +4,7 @@ import { _config, i18n } from '@ecomplus/utils'
 import App from './App.vue'
 import router from './router/'
 import store from './store/'
-import { FadeTransition } from 'vue2-transitions'
+import { FadeTransition, SlideXLeftTransition } from 'vue2-transitions'
 
 const { title } = document
 router.afterEach(to => {
@@ -43,7 +43,8 @@ new Vue({
   store,
   render: h => h(App),
   components: {
-    FadeTransition
+    FadeTransition,
+    SlideXLeftTransition
   }
 }).$mount('#storefront-app')
 
