@@ -3,9 +3,19 @@ export const BackToCart = {
   pt_br: 'Voltar ao carrinho'
 }
 
+export const Bag = {
+  en_us: 'Bag',
+  pt_br: 'Sacola'
+}
+
 export const Continue = {
   en_us: 'Continue',
   pt_br: 'Continuar'
+}
+
+export const Delivery = {
+  en_us: 'Delivery',
+  pt_br: 'Entrega'
 }
 
 export const EnterYourDocNumber = {
@@ -23,9 +33,19 @@ export const HelloAgain = {
   pt_br: 'Olá novamente'
 }
 
+export const Identification = {
+  en_us: 'Identification',
+  pt_br: 'Identificação'
+}
+
 export const IdentifyAccount = {
   en_us: 'Identify your account',
   pt_br: 'Identificar ou criar sua conta'
+}
+
+export const InvalidLoginInfo = {
+  en_us: 'Invalid login info, please verify',
+  pt_br: 'Login inválido, por favor verifique os dados informados'
 }
 
 export const LoginError = {
@@ -43,6 +63,11 @@ export const NotifyAboutOrders = {
   pt_br: 'Notificar sobre o andamento do pedido'
 }
 
+export const NoNumber = {
+  en_us: 'No number',
+  pt_br: 'S/N'
+}
+
 export const OauthOnPopup = {
   en_us: 'Continue login on popup',
   pt_br: 'Continue o login no pop-up'
@@ -51,6 +76,11 @@ export const OauthOnPopup = {
 export const OrProceedWith = {
   en_us: 'Or proceed with',
   pt_br: 'Ou prossiga com'
+}
+
+export const Payment = {
+  en_us: 'Payment',
+  pt_br: 'Pagamento'
 }
 
 export const ProfileNotFound = {
@@ -63,6 +93,11 @@ export const SignInWith = {
   pt_br: 'Entrar com'
 }
 
+export const Summary = {
+  en_us: 'Summary',
+  pt_br: 'Resumo'
+}
+
 export const WasAnErrorOnLogin = {
   en_us: 'There was an error trying to login, please try again or select another option',
   pt_br: 'Houve um erro ao tentar o login, por favor tente novamente ou selecione outra opção'
@@ -71,4 +106,9 @@ export const WasAnErrorOnLogin = {
 export const WeUseYourDataTo = {
   en_us: 'We will use your data safely and responsibly to',
   pt_br: 'Usaremos seus dados com segurança e responsabilidade para'
+}
+
+export const ZipCode = {
+  en_us: 'Zip code',
+  pt_br: 'CEP'
 }
