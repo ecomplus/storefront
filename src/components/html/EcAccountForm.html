@@ -1,0 +1,155 @@
+<form
+  class="ec-account-form needs-validation"
+  @submit.prevent="submit"
+  novalidate
+>
+  <div class="form-group">
+    <label for="ec-account-form-email">
+      {{ i18n('EmailAddress') }}
+    </label>
+    <input
+      type="email"
+      class="form-control"
+      id="ec-account-form-email"
+      v-model="localCustomer.main_email"
+      placeholder="email@mail.com"
+      required
+    >
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-lg-8">
+      <label for="ec-account-form-name">
+        {{ i18n('FullName') }}
+      </label>
+      <input
+        type="text"
+        pattern="[^\d\s]{2,}[\s][^\d\s]{2,}.*"
+        class="form-control"
+        id="ec-account-form-name"
+        v-model="fullName"
+        required
+      >
+    </div>
+
+    <div class="form-group col-lg-4" v-if="!short">
+      <label for="ec-account-form-nickname">
+        {{ i18n('Nickname') }}
+      </label>
+      <input
+        type="text"
+        pattern="[^\d\s]{2,}.*"
+        class="form-control"
+        id="ec-account-form-nickname"
+        v-model="localCustomer.display_name"
+      >
+    </div>
+  </div>
+
+  <div class="form-group" v-if="!short">
+    <div
+      class="custom-control custom-radio custom-control-inline"
+      v-for="(label, value) in {
+        f: 'Female',
+        m: 'Male',
+        x: 'GenderX'
+      }"
+    >
+      <input
+        type="radio"
+        name="ec-account-form-gender"
+        class="custom-control-input"
+        :id="`ec-account-form-gender-${value}`"
+        :value="value"
+        v-model="localCustomer.gender"
+      >
+      <label
+        class="custom-control-label"
+        :for="`ec-account-form-gender-${value}`"
+      >
+        {{ i18n(label) }}
+      </label>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-lg-4">
+      <label for="ec-account-form-phone">
+        {{ i18n('ContactPhone') }}
+      </label>
+      <input-phone
+        id="ec-account-form-phone"
+        v-model="phoneNumber"
+        required
+      />
+    </div>
+
+    <div class="form-group col-lg-4" v-if="!short">
+      <label for="ec-account-form-cell">
+        {{ i18n('Cellphone') }}
+      </label>
+      <input-phone
+        id="ec-account-form-cell"
+        v-model="secondPhoneNumber"
+      />
+    </div>
+
+    <div class="form-group col-lg-4">
+      <label for="ec-account-form-birth">
+        {{ i18n('Birthdate') }}
+      </label>
+      <input-date
+        id="ec-account-form-birth"
+        v-model="birthdate"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div
+      class="custom-control custom-radio custom-control-inline"
+      v-for="(label, value) in {
+        p: 'PersonalRegistration',
+        j: 'CompanyRegistration'
+      }"
+    >
+      <input
+        type="radio"
+        name="ec-account-form-type"
+        class="custom-control-input"
+        :id="`ec-account-form-type-${value}`"
+        :value="value"
+        v-model="localCustomer.registry_type"
+        required
+      >
+      <label
+        class="custom-control-label"
+        :for="`ec-account-form-type-${value}`"
+      >
+        {{ i18n(label) }}
+      </label>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-lg-6">
+      <div class="form-group">
+        <label for="ec-account-form-doc">
+          {{ i18n('DocNumber') }}
+        </label>
+        <input-doc-number
+          id="ec-account-form-doc"
+          v-model="localCustomer.doc_number"
+          :isCompany="localCustomer.registry_type !== 'p'"
+          required
+        />
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-lg btn-block btn-primary" type="submit">
+    <i class="fas fa-check mr-1"></i>
+    {{ i18n('Save') }}
+  </button>
+</form>
