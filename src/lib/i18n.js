@@ -8,6 +8,26 @@ export const Bag = {
   pt_br: 'Sacola'
 }
 
+export const Birthdate = {
+  en_us: 'Birthdate',
+  pt_br: 'Data de nascimento'
+}
+
+export const Cellphone = {
+  en_us: 'Cellphone',
+  pt_br: 'Celular'
+}
+
+export const CompanyRegistration = {
+  en_us: 'Company registration',
+  pt_br: 'Pessoa jurídica'
+}
+
+export const ContactPhone = {
+  en_us: 'Contact phone',
+  pt_br: 'Telefone de contato'
+}
+
 export const Continue = {
   en_us: 'Continue',
   pt_br: 'Continuar'
@@ -18,6 +38,16 @@ export const Delivery = {
   pt_br: 'Entrega'
 }
 
+export const DocNumber = {
+  en_us: 'Document number',
+  pt_br: 'Número do documento'
+}
+
+export const EmailAddress = {
+  en_us: 'Email address',
+  pt_br: 'Endereço de e-mail'
+}
+
 export const EnterYourDocNumber = {
   en_us: 'Enter your document number to confirm',
   pt_br: 'Confirme o login com seu documento'
@@ -26,6 +56,21 @@ export const EnterYourDocNumber = {
 export const EnterYourEmail = {
   en_us: 'Enter your email to proceed',
   pt_br: 'Informe seu email para prosseguir'
+}
+
+export const Female = {
+  en_us: 'Female',
+  pt_br: 'Feminino'
+}
+
+export const FullName = {
+  en_us: 'Full name',
+  pt_br: 'Nome completo'
+}
+
+export const GenderX = {
+  en_us: 'Other',
+  pt_br: 'Outro'
 }
 
 export const HelloAgain = {
@@ -53,9 +98,19 @@ export const LoginError = {
   pt_br: 'Erro no login'
 }
 
+export const Male = {
+  en_us: 'Male',
+  pt_br: 'Masculino'
+}
+
 export const ManageYourHistory = {
   en_us: 'Manage your purchase history',
   pt_br: 'Gerenciar seu histórico de compras'
+}
+
+export const Nickname = {
+  en_us: 'Nickname',
+  pt_br: 'Apelido'
 }
 
 export const NotifyAboutOrders = {
@@ -83,9 +138,24 @@ export const Payment = {
   pt_br: 'Pagamento'
 }
 
+export const PersonalRegistration = {
+  en_us: 'Personal registration',
+  pt_br: 'Pessoa física'
+}
+
 export const ProfileNotFound = {
   en_us: 'No profile found with email address',
   pt_br: 'Nenhum perfil encontrado com o endereço de e-mail'
+}
+
+export const RegisterToBuy = {
+  en_us: 'Complete your registration to proceed with the purchase',
+  pt_br: 'Complete seu cadastro para prosseguir com a compra'
+}
+
+export const Save = {
+  en_us: 'Save',
+  pt_br: 'Salvar'
 }
 
 export const SignInWith = {
