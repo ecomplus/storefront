@@ -93,7 +93,13 @@ export default {
         this.alertLoginFail = false
         const { email, docNumber } = this
         const isAccountConfirm = this.confirmAccount()
+        const emitUpdate = () => this.$emit('update', { email, docNumber })
         this.ecomPassport.fetchLogin(email, isAccountConfirm ? docNumber : null)
+          .then(() => {
+            if (isAccountConfirm) {
+              emitUpdate()
+            }
+          })
           .catch(err => {
             const { response } = err
             if (!response || response.status !== 403) {
@@ -104,7 +110,8 @@ export default {
                 solid: true
               })
             } else if (!isAccountConfirm) {
-              this.$emit('update:customerEmail', this.email)
+              this.$emit('update:customerEmail', email)
+              emitUpdate()
             } else {
               this.alertLoginFail = true
             }
