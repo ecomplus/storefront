@@ -25,7 +25,11 @@ import {
   faLock,
   faShieldAlt,
   faFilter,
-  faSort
+  faSort,
+  faPencilAlt,
+  faEdit,
+  faQuestionCircle,
+  faExclamationTriangle
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -80,7 +84,11 @@ library.add(
   faLock,
   faShieldAlt,
   faFilter,
-  faSort
+  faSort,
+  faPencilAlt,
+  faEdit,
+  faQuestionCircle,
+  faExclamationTriangle
 )
 
 dom.watch()
