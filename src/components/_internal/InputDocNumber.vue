@@ -2,6 +2,7 @@
   <cleave-input
     type="tel"
     class="form-control"
+    :pattern="pattern"
     :options="cleaveOptions"
     v-model="localValue"
     :placeholder="placeholder"

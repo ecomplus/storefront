@@ -26,6 +26,13 @@ export default {
       return i18n(ZipCode)
     },
 
+    pattern () {
+      if (countryCode === 'BR') {
+        return '[\\d]{5}-[\\d]{3}'
+      }
+      return null
+    },
+
     localValue: {
       get () {
         return this.value
