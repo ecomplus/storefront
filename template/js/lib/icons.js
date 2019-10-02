@@ -28,6 +28,7 @@ import {
   faSort,
   faPencilAlt,
   faEdit,
+  faPlus,
   faQuestionCircle,
   faExclamationTriangle
 } from '@fortawesome/free-solid-svg-icons'
@@ -87,6 +88,7 @@ library.add(
   faSort,
   faPencilAlt,
   faEdit,
+  faPlus,
   faQuestionCircle,
   faExclamationTriangle
 )
