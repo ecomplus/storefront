@@ -1,4 +1,4 @@
-import { _config, i18n } from '@ecomplus/utils'
+import { _config, i18n, randomObjectId } from '@ecomplus/utils'
 import axios from 'axios'
 import InputZipCode from './../_internal/InputZipCode.vue'
 import { SlideYUpTransition } from 'vue2-transitions'
@@ -45,6 +45,7 @@ export default {
   data () {
     return {
       localAddress: {
+        _id: randomObjectId(),
         zip: '',
         province_code: '',
         ...this.address
