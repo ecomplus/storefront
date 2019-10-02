@@ -1,15 +1,22 @@
 import { i18n } from '@ecomplus/utils'
+import EcomCart from '@ecomplus/shopping-cart'
 import EcIdentify from './../EcIdentify.vue'
+import EcAccountForm from './../EcAccountForm.vue'
 import EcAddresses from './../EcAddresses.vue'
 import EcPayment from './../EcPayment.vue'
 import EcCartItem from '@ecomplus/widget-minicart/src/components/EcCartItem.vue'
 import EcShipping from '@ecomplus/widget-product/src/components/EcShipping.vue'
 import EcPrices from '@ecomplus/widget-product/src/components/EcPrices.vue'
-import { FadeTransition } from 'vue2-transitions'
+import { FadeTransition, SlideYUpTransition, SlideXRightTransition } from 'vue2-transitions'
 
 import {
+  Bag,
   BackToCart,
-  Continue
+  Continue,
+  Delivery,
+  Payment,
+  RegisterToBuy,
+  Summary
 } from './../../lib/i18n'
 
 export default {
@@ -17,12 +24,15 @@ export default {
 
   components: {
     EcIdentify,
+    EcAccountForm,
     EcAddresses,
     EcPayment,
     EcCartItem,
     EcShipping,
     EcPrices,
-    FadeTransition
+    FadeTransition,
+    SlideYUpTransition,
+    SlideXRightTransition
   },
 
   props: {
@@ -34,11 +44,13 @@ export default {
       type: String,
       default: '/app/#/cart'
     },
-    customerEmail: {
-      type: String
+    amount: {
+      type: Object,
+      default: () => {}
     },
-    customerAddresses: {
-      type: Array
+    customer: {
+      type: Object,
+      default: () => {}
     },
     shippingZipCode: {
       type: String
@@ -46,36 +58,75 @@ export default {
     checkoutStep: {
       type: Number,
       default: 1
+    },
+    ecomCart: {
+      type: Object,
+      default: () => new EcomCart()
     }
   },
 
   data () {
     return {
       toCheckoutStep: this.checkoutStep,
-      isLogged: false,
-      userEmail: this.customerEmail
+      customerEmail: this.customer.main_email,
+      isUserIdentified: false,
+      isShippingSelected: false,
+      localZipCode: this.shippingZipCode
     }
   },
 
   computed: {
     dictionary () {
       return {
+        Bag,
         BackToCart,
         Continue,
+        Delivery,
+        Payment,
+        RegisterToBuy,
+        Summary,
         ...this.mergeDictionary
       }
     },
 
-    userIdentified () {
-      return this.isLogged || this.userEmail
+    cart () {
+      return this.ecomCart.data
+    },
+
+    hasBuyerInfo () {
+      const { customer } = this
+      return this.customerEmail &&
+        customer.name && customer.name.given_name && customer.name.family_name &&
+        customer.birth_date && customer.birth_date.day &&
+        customer.registry_type && customer.doc_number &&
+        customer.phones && customer.phones.length
+    },
+
+    localCustomer: {
+      get () {
+        return this.customer
+      },
+      set (customer) {
+        this.$emit('update:customer', customer)
+      }
     },
 
     shownCheckoutStep () {
-      if (!this.userIdentified) {
+      if (!this.hasBuyerInfo) {
         return 0
       } else {
         return this.toCheckoutStep
       }
+    },
+
+    shippingAddress () {
+      const { addresses } = this.customer
+      return addresses && addresses.find(addr => addr.default)
+    },
+
+    enabledCheckoutStep () {
+      return !this.hasBuyerInfo ? 0
+        : this.shippingAddress && this.isShippingSelected ? 2 : 1
     }
   },
 
@@ -85,24 +136,54 @@ export default {
     },
 
     login (ecomPassport) {
-      this.isLogged = ecomPassport.isLogged()
-      if (this.isLogged) {
-        this.userEmail = ecomPassport.getCustomer().main_email
+      if (ecomPassport.isLogged()) {
+        this.customerEmail = ecomPassport.getCustomer().main_email
         this.$emit('login', ecomPassport)
+      }
+    },
+
+    autoMoveStep () {
+      this.toCheckoutStep = this.enabledCheckoutStep
+    },
+
+    updateZipCode () {
+      if (this.shippingAddress) {
+        this.localZipCode = this.shippingAddress.zip
+      }
+    },
+
+    selectAddress (addressId) {
+      this.$emit('addressSelected', addressId)
+      this.updateZipCode()
+    },
+
+    selectShippingService (service) {
+      if (service) {
+        this.isShippingSelected = true
+        this.$emit('shippingService', service)
       }
     }
   },
 
   watch: {
-    userEmail (email) {
-      if (this.shownCheckoutStep === 0) {
-        this.toCheckoutStep = 1
+    customerEmail (email) {
+      if (email) {
+        this.$emit('update:customer', { ...this.customer, main_email: email })
+        this.isUserIdentified = true
       }
-      this.$emit('update:customerEmail', email)
     },
 
     toCheckoutStep (stepNumber) {
       this.$emit('update:checkoutStep', stepNumber)
+    },
+
+    enabledCheckoutStep () {
+      this.autoMoveStep()
     }
+  },
+
+  created () {
+    this.autoMoveStep()
+    this.updateZipCode()
   }
 }

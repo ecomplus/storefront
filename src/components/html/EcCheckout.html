@@ -1,24 +1,96 @@
 <div class="ec-checkout">
-  <fade-transition :duration="700">
-    <div class="ec-checkout__app" v-if="shownCheckoutStep">
+  <fade-transition :duration="{ enter: 600, leave: 0 }" group>
+    <div class="ec-checkout__app" key="app" v-if="shownCheckoutStep">
+      <nav class="ec-checkout__steps">
+        <a
+          href="#"
+          class="ec-checkout__step"
+          v-for="(label, i) in [null, 'Delivery', 'Payment', 'Summary']"
+          v-if="label"
+          :class="'ec-checkout__step--' + (
+            shownCheckoutStep === i ? 'current'
+              : enabledCheckoutStep < i ? 'disabled'
+                : shownCheckoutStep > i ? 'past' : 'next'
+          )"
+          @click.prevent="toCheckoutStep = i"
+        >
+          <small>{{ i }}</small>
+          {{ i18n(label) }}
+        </a>
+      </nav>
+
       <div class="row">
-        <div class="col-md-4">
+        <div
+          class="ec-checkout__col col-lg-4"
+          :class="enabledCheckoutStep === 1 ? 'offset-lg-4' : null"
+        >
+          <slide-y-up-transition :duration="{ enter: 300, leave: 0 }">
+            <ec-shipping
+              class="ec-checkout__shipping"
+              v-if="shippingAddress"
+              :key="`shipTo${localZipCode}`"
+              :selectServices="true"
+              :shippedItems="cart.items"
+              :zipCode="localZipCode"
+              @serviceSelected="selectShippingService"
+            />
+          </slide-y-up-transition>
+
           <ec-addresses
-            :addresses="customerAddresses"
+            :customer.sync="localCustomer"
             :zipCode="shippingZipCode"
-            @addressSelected="val => $emit('addressSelected', val)"
+            @addressSelected="selectAddress"
           />
+
+          <div
+            class="ec-checkout__overlay fade"
+            :class="shownCheckoutStep !== 1 ? 'show' : null"
+            @click="toCheckoutStep = 1"
+          >
+          </div>
         </div>
+
+        <slide-x-right-transition
+          tag="div"
+          class="ec-checkout__col col-lg-4"
+        >
+          <div v-if="enabledCheckoutStep >= 2">
+            PAYMENT
+
+            <div
+              class="ec-checkout__overlay fade"
+              :class="shownCheckoutStep !== 2 ? 'show' : null"
+              @click="toCheckoutStep = 2"
+            >
+            </div>
+          </div>
+        </slide-x-right-transition>
       </div>
     </div>
-  </fade-transition>
 
-  <slot name="login" v-if="!userIdentified">
-    <ec-identify
-      @login="login"
-      :customerEmail.sync="userEmail"
-    />
-  </slot>
+    <div key="login" v-else-if="!isUserIdentified">
+      <slot name="login">
+        <ec-identify
+          @login="login"
+          @update="isUserIdentified = true"
+          :customerEmail.sync="customerEmail"
+        />
+      </slot>
+    </div>
+
+    <div key="account" v-else>
+      <slot name="account">
+        <p class="lead text-center">
+          {{ i18n('RegisterToBuy') }}:
+        </p>
+
+        <ec-account-form
+          :customer.sync="localCustomer"
+          :short="true"
+        />
+      </slot>
+    </div>
+  </fade-transition>
 
   <div class="ec-checkout__back">
     <a :href="cartUrl" class="btn btn-sm btn-secondary">
