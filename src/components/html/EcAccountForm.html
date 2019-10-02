@@ -134,17 +134,15 @@
 
   <div class="form-row">
     <div class="form-group col-lg-6">
-      <div class="form-group">
-        <label for="ec-account-form-doc">
-          {{ i18n('DocNumber') }}
-        </label>
-        <input-doc-number
-          id="ec-account-form-doc"
-          v-model="localCustomer.doc_number"
-          :isCompany="localCustomer.registry_type !== 'p'"
-          required
-        />
-      </div>
+      <label for="ec-account-form-doc">
+        {{ i18n('DocNumber') }}
+      </label>
+      <input-doc-number
+        id="ec-account-form-doc"
+        v-model="localCustomer.doc_number"
+        :isCompany="localCustomer.registry_type !== 'p'"
+        required
+      />
     </div>
   </div>
 
