@@ -9,7 +9,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     loading: 0,
-    title: ''
+    title: '',
+    fluidPage: false
   },
 
   mutations: {
@@ -25,6 +26,10 @@ export default new Vuex.Store({
 
     setTitle (state, title) {
       state.title = title
+    },
+
+    setFluidPage (state, isFluid = true) {
+      state.fluidPage = isFluid
     }
   },
 

@@ -1,7 +1,7 @@
 <template>
   <div id="cart">
     <ec-cart
-      @serviceSelected="selectShippingService"
+      @shippingService="selectShippingService"
       :totalValue="totalValue"
     />
   </div>

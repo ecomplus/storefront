@@ -1,4 +1,4 @@
-import { mapMutations, mapActions } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 import EcCheckout from './../../components/EcCheckout.vue'
 
 export default {
@@ -10,17 +10,25 @@ export default {
 
   data () {
     return {
-      updateInterval: null
+      updateInterval: null,
+      ecomPassport: null,
+      checkoutStep: 0
     }
   },
 
   computed: {
-    customerEmail: {
+    ...mapGetters([
+      'amount',
+      'shippingZipCode',
+      'selectedAddress'
+    ]),
+
+    customer: {
       get () {
-        return this.$store.getters.customerEmail
+        return this.$store.getters.customer
       },
-      set (email) {
-        this.setCustomerEmail(email)
+      set (customer) {
+        this.setCustomer(customer)
       }
     }
   },
@@ -28,8 +36,11 @@ export default {
   methods: {
     ...mapMutations([
       'triggerLoading',
+      'setFluidPage',
       'selectShippingService',
-      'setCustomerEmail'
+      'setCustomer',
+      'setCustomerEmail',
+      'selectAddress'
     ]),
 
     ...mapActions([
@@ -38,18 +49,30 @@ export default {
     ]),
 
     login (ecomPassport) {
+      this.ecomPassport = ecomPassport
+      this.triggerLoading(true)
       this.fetchCustomer({ ecomPassport })
+        .finally(() => this.triggerLoading(false))
+    }
+  },
+
+  watch: {
+    checkoutStep (stepNumber, lastStep) {
+      if (stepNumber && !lastStep) {
+        this.setFluidPage(true)
+      }
     }
   },
 
   created () {
-    this.triggerLoading(true)
     const update = () => this.fetchCartItems({ removeOnError: true })
-    update().then(() => this.triggerLoading(false))
     this.updateInterval = setInterval(update, 600000)
+    this.triggerLoading(true)
+    update().finally(() => this.triggerLoading(false))
   },
 
-  beforeDestroy () {
+  destroyed () {
+    this.setFluidPage(false)
     clearInterval(this.updateInterval)
   }
 }

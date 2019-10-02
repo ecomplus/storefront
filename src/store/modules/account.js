@@ -1,21 +1,21 @@
 const state = {
   customer: {
-    _id: null,
-    locale: null,
-    main_email: null,
+    _id: '',
+    locale: '',
+    main_email: '',
     accepts_marketing: false,
-    display_name: null,
+    display_name: '',
     name: {},
     birth_date: {},
-    gender: null,
+    gender: '',
     photos: [],
     phones: [],
     registry_type: 'p',
-    doc_country: null,
-    doc_number: null,
-    inscription_type: null,
-    inscription_number: null,
-    corporate_name: null,
+    doc_country: '',
+    doc_number: '',
+    inscription_type: '',
+    inscription_number: '',
+    corporate_name: '',
     addresses: [],
     orders: []
   }
@@ -24,7 +24,7 @@ const state = {
 const getters = {
   customer: ({ customer }) => customer,
 
-  customerEmail: ({ customer }) => customer.main_email
+  selectedAddress: ({ customer }) => customer.addresses.find(addr => addr.default)
 }
 
 const mutations = {
@@ -34,6 +34,12 @@ const mutations = {
 
   setCustomerEmail (state, email) {
     state.customer.main_email = email
+  },
+
+  selectAddress (state, addressId) {
+    state.customer.addresses.forEach(address => {
+      address.default = address._id === addressId
+    })
   }
 }
 

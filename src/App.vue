@@ -42,7 +42,7 @@
       top: 0;
       left: 0;
       z-index: 2000;
-      background: rgba(255, 255, 255, .7);
+      background: rgba(255, 255, 255, .85);
       width: 100vw;
       height: 100vh;
       display: flex;

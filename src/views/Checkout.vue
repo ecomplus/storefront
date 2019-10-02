@@ -1,8 +1,13 @@
 <template>
   <div id="checkout">
     <ec-checkout
+      :checkoutStep.sync="checkoutStep"
       @login="login"
-      :customerEmail.sync="customerEmail"
+      :customer.sync="customer"
+      @addressSelected="selectAddress"
+      :shippingZipCode="shippingZipCode"
+      @shippingService="selectShippingService"
+      :amount="amount"
     />
   </div>
 </template>

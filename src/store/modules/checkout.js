@@ -29,7 +29,17 @@ const state = {
 }
 
 const getters = {
-  totalValue: ({ amount }) => amount.total
+  amount: ({ amount }) => amount,
+
+  totalValue: ({ amount }) => amount.total,
+
+  shippingZipCode: ({ shipping }) => {
+    if (shipping.shipping_line) {
+      return shipping.shipping_line.to.zip
+    } else {
+      return ''
+    }
+  }
 }
 
 const mutations = {
