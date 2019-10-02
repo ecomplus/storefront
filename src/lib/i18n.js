@@ -13,14 +13,29 @@ export const Birthdate = {
   pt_br: 'Data de nascimento'
 }
 
+export const Borough = {
+  en_us: 'Borough',
+  pt_br: 'Bairro'
+}
+
 export const Cellphone = {
   en_us: 'Cellphone',
   pt_br: 'Celular'
 }
 
+export const City = {
+  en_us: 'City',
+  pt_br: 'Cidade'
+}
+
 export const CompanyRegistration = {
   en_us: 'Company registration',
   pt_br: 'Pessoa jurídica'
+}
+
+export const Complement = {
+  en_us: 'Complement',
+  pt_br: 'Complemento'
 }
 
 export const ContactPhone = {
@@ -41,6 +56,11 @@ export const Delivery = {
 export const DocNumber = {
   en_us: 'Document number',
   pt_br: 'Número do documento'
+}
+
+export const Edit = {
+  en_us: 'Edit',
+  pt_br: 'Editar'
 }
 
 export const EmailAddress = {
@@ -108,9 +128,19 @@ export const ManageYourHistory = {
   pt_br: 'Gerenciar seu histórico de compras'
 }
 
+export const Name = {
+  en_us: 'Name',
+  pt_br: 'Nome'
+}
+
 export const Nickname = {
   en_us: 'Nickname',
   pt_br: 'Apelido'
+}
+
+export const NewAddress = {
+  en_us: 'New address',
+  pt_br: 'Novo endereço'
 }
 
 export const NotifyAboutOrders = {
@@ -121,6 +151,11 @@ export const NotifyAboutOrders = {
 export const NoNumber = {
   en_us: 'No number',
   pt_br: 'S/N'
+}
+
+export const Number = {
+  en_us: 'Number',
+  pt_br: 'Número'
 }
 
 export const OauthOnPopup = {
@@ -148,9 +183,29 @@ export const ProfileNotFound = {
   pt_br: 'Nenhum perfil encontrado com o endereço de e-mail'
 }
 
+export const ProvinceCode = {
+  en_us: 'Province code',
+  pt_br: 'UF'
+}
+
+export const Recipient = {
+  en_us: 'Recipient',
+  pt_br: 'Destinatário'
+}
+
+export const Reference = {
+  en_us: 'Reference',
+  pt_br: 'Referência'
+}
+
 export const RegisterToBuy = {
   en_us: 'Complete your registration to proceed with the purchase',
   pt_br: 'Complete seu cadastro para prosseguir com a compra'
+}
+
+export const Remove = {
+  en_us: 'Remove',
+  pt_br: 'Remover'
 }
 
 export const Save = {
@@ -161,6 +216,11 @@ export const Save = {
 export const SignInWith = {
   en_us: 'Sign in with',
   pt_br: 'Entrar com'
+}
+
+export const Street = {
+  en_us: 'Street',
+  pt_br: 'Rua'
 }
 
 export const Summary = {
