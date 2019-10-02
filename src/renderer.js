@@ -118,7 +118,7 @@ const dataPromise = getStoreData().then(storeData => {
   data.dictionary = () => data.cms(`dictionary/${lang}`)
 
   // markdown parser
-  data.md = new MarkdownIt()
+  data.md = new MarkdownIt({ html: true })
 })
 
 // setup storefront router
