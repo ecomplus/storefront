@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](https://github.com/ecomclub/storefront-framework/compare/v5.1.2...v5.2.0) (2019-10-02)
+
+
+### Features
+
+* **md:** enable html tags with markdown it instance ([cf757b1](https://github.com/ecomclub/storefront-framework/commit/cf757b1))
+
 ### [5.1.2](https://github.com/ecomclub/storefront-framework/compare/v5.1.1...v5.1.2) (2019-09-12)
 
 
