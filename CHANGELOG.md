@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.5](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2019-10-02)
+
+
+### Bug Fixes
+
+* **account-form:** minor markup fixes ([5745e7f](https://github.com/ecomclub/storefront-app/commit/5745e7f))
+* **cart:** edit 'shippingService' event name ([ae62eda](https://github.com/ecomclub/storefront-app/commit/ae62eda))
+* **identify:** alert when doc number does not match with email ([7f09cee](https://github.com/ecomclub/storefront-app/commit/7f09cee))
+* **identify:** fix handling events and doc number val ([ce157d2](https://github.com/ecomclub/storefront-app/commit/ce157d2))
+* **internals:** inputs for zip code and doc number components ([0891d4a](https://github.com/ecomclub/storefront-app/commit/0891d4a))
+
+
+### Features
+
+* **account-form:** setup EcAccountForm for customer registration ([a00b4f0](https://github.com/ecomclub/storefront-app/commit/a00b4f0))
+* **address-form:** setup address form component ([b1a0e42](https://github.com/ecomclub/storefront-app/commit/b1a0e42))
+* **addresses:** edit and remove addresses ([f5e3988](https://github.com/ecomclub/storefront-app/commit/f5e3988))
+* **app:** page transitions ([d1f005a](https://github.com/ecomclub/storefront-app/commit/d1f005a))
+
 ## [1.0.0-beta.4](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2019-09-26)
 
 
