@@ -29,6 +29,12 @@ export default {
       },
       set (customer) {
         this.setCustomer(customer)
+        if (customer._id) {
+          const { ecomPassport } = this
+          if (ecomPassport && ecomPassport.isAuthorized()) {
+            this.saveCustomer({ ecomPassport })
+          }
+        }
       }
     }
   },
@@ -45,7 +51,8 @@ export default {
 
     ...mapActions([
       'fetchCartItems',
-      'fetchCustomer'
+      'fetchCustomer',
+      'saveCustomer'
     ]),
 
     login (ecomPassport) {
