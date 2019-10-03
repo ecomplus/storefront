@@ -16,10 +16,11 @@ const state = {
     inscription_type: '',
     inscription_number: '',
     corporate_name: '',
-    addresses: [],
-    orders: []
+    addresses: []
   }
 }
+
+const customerFields = Object.keys(state.customer)
 
 const getters = {
   customer: ({ customer }) => customer,
@@ -29,7 +30,12 @@ const getters = {
 
 const mutations = {
   setCustomer (state, customer) {
-    state.customer = customer
+    customerFields.forEach(field => {
+      const val = customer[field]
+      if (val !== undefined) {
+        state.customer[field] = val
+      }
+    })
   },
 
   setCustomerEmail (state, email) {
@@ -49,6 +55,27 @@ const actions = {
       .then(({ data }) => {
         commit('setCustomer', data)
       })
+      .catch(err => {
+        console.error(err)
+      })
+  },
+
+  saveCustomer ({ getters, commit }, { ecomPassport, customer }) {
+    if (customer) {
+      commit('setCustomer', customer)
+    } else {
+      customer = getters.customer
+    }
+    const data = {}
+    customerFields.forEach(field => {
+      if (field !== '_id') {
+        const val = customer[field]
+        if (val && (typeof val !== 'object' || Object.keys(val).length)) {
+          data[field] = val
+        }
+      }
+    })
+    return ecomPassport.requestApi('/me.json', 'patch', data)
       .catch(err => {
         console.error(err)
       })
