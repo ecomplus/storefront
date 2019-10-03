@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.6](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2019-10-03)
+
+
+### Bug Fixes
+
+* **address-form:** set random object id by default ([a122459](https://github.com/ecomclub/storefront-app/commit/a122459))
+
+
+### Features
+
+* **account:** set only used customer fields, add saveCustomer action ([6bfb2f7](https://github.com/ecomclub/storefront-app/commit/6bfb2f7))
+* **checkout:** save customer on data edited ([c16f65b](https://github.com/ecomclub/storefront-app/commit/c16f65b))
+
 ## [1.0.0-beta.5](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2019-10-02)
 
 
