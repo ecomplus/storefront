@@ -21,27 +21,20 @@ const logo = _.settings.logo
       <div class="app__contact">
         Dúvidas? Ligue
         <% if (contacts.whatsapp) { %>
-          <a
-            href="javascript:;"
-            target="_blank"
-            rel="noopener"
-            class="whatsapp-link font-weight-normal"
-            data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>"
+          <span
+            class="whatsapp-link font-weight-normal pl-1"
           >
             <i class="fab fa-whatsapp"></i>
             <%= contacts.whatsapp %>
-          </a>
+          </span>
         <% } %>
         <% if (contacts.phone) { %>
-          /<a
-            href="tel:+<%= contacts.phone.replace(/\D/g, '') %>"
-            class="font-weight-normal"
-            target="_blank"
-            rel="noopener"
+          /<span
+            class="font-weight-normal pl-1"
           >
             <i class="fas fa-phone"></i>
             <%= contacts.phone %>
-          </a>
+          </span>
         <% } %>
       </div>
       <div class="app__safe-icon d-flex align-items-center">
