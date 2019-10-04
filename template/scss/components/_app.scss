@@ -11,7 +11,14 @@
   }
   &__safe-icon {
     float: right;
-    display: flex;
-    
+  }
+  &__safe-icon .rounded-icon {
+    border: 1px solid var(--secondary)
+  }
+  &app__safe-icon-text {
+    line-height: 12px;
+    margin: 0;
+    padding: 5px 35px 5px 0;
+    text-transform: uppercase;
   }
 }
