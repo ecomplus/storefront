@@ -17,41 +17,46 @@
         v-show="selectedGateway === -1 || selectedGateway === i"
         :key="gateway.app_id + gateway.payment_method.code + i"
         @click.prevent="selectedGateway = i"
-        :data-intermediator="gateway.intermediator && gateway.intermediator.name"
+        :data-intermediator="gateway.intermediator && gateway.intermediator.code"
       >
-        <span class="ec-payment__title">
-          <span>{{ gateway.label }}</span>
-          <span class="ec-payment__icon">
-            <i class="fas" :class="`fa-${gatewayIcon(gateway)}`"></i>
-          </span>
-        </span>
-
-        <span class="ec-payment__badges">
-          <span
-            class="badge badge-success ec-payment__discount"
-            v-if="gateway.discount && gateway.discount.value > 0"
-          >
-            <template v-if="gateway.discount.type === 'percentage'">
-              {{ gateway.discount.value }}%
-            </template>
-            <template v-else>
-              {{ formatMoney(gateway.discount.value) }}
-            </template>
-            {{ i18n('OfDiscount') }}
-            <template v-if="gateway.discount.apply_at === 'freight'">
-              {{ i18n('OnFreight') }}
-            </template>
+        <span class="ec-payment__head">
+          <span class="ec-payment__title">
+            {{ gateway.label }}
           </span>
 
-          <span
-            class="badge badge-info ec-payment__installment"
-            v-if="gateway.installment_option"
-          >
-            {{ i18n('UpTo') }}
-            {{ gateway.installment_option.number }}x
-            <template v-if="!gateway.installment_option.tax">
-              {{ i18n('InterestFree') }}
-            </template>
+          <span>
+            <span class="ec-payment__badges">
+              <span
+                class="badge badge-success ec-payment__discount"
+                v-if="gateway.discount && gateway.discount.value > 0"
+              >
+                <template v-if="gateway.discount.type === 'percentage'">
+                  {{ gateway.discount.value }}%
+                </template>
+                <template v-else>
+                  {{ formatMoney(gateway.discount.value) }}
+                </template>
+                {{ i18n('OfDiscount') }}
+                <template v-if="gateway.discount.apply_at === 'freight'">
+                  {{ i18n('OnFreight') }}
+                </template>
+              </span>
+
+              <span
+                class="badge badge-info ec-payment__installment"
+                v-if="gateway.installment_option"
+              >
+                {{ i18n('UpTo') }}
+                {{ gateway.installment_option.number }}x
+                <template v-if="!gateway.installment_option.tax">
+                  {{ i18n('InterestFree') }}
+                </template>
+              </span>
+            </span>
+
+            <span class="ec-payment__icon">
+              <i class="fas" :class="`fa-${gatewayIcon(gateway)}`"></i>
+            </span>
           </span>
         </span>
 
@@ -66,6 +71,13 @@
           v-if="gateway.icon"
           :src="gateway.icon"
         />
+
+        <small
+          v-else-if="gateway.intermediator && gateway.intermediator.name"
+          class="ec-payment__intermediator"
+        >
+          via {{ gateway.intermediator.name }}
+        </small>
       </a>
 
       <fade-transition>
