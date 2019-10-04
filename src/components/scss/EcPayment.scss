@@ -1,2 +1,33 @@
 .ec-payment {
+  &__title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    width: 2em;
+    text-align: center;
+  }
+
+  &__text {
+    display: block;
+    margin-top: .25rem;
+    font-size: .9rem;
+    color: var(--gray);
+  }
+
+  &__badges {
+    display: block;
+    text-transform: lowercase;
+
+    .badge {
+      margin-right: .25rem;
+    }
+  }
+
+  &__stamp {
+    max-width: 100%;
+    max-height: 60px;
+    margin-top: .5rem;
+  }
 }

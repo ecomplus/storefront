@@ -55,7 +55,7 @@
           class="ec-checkout__col col-lg-4"
         >
           <div v-if="enabledCheckoutStep >= 2">
-            PAYMENT
+            <ec-payment :amount="amount"/>
 
             <div
               class="ec-checkout__overlay fade"

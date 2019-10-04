@@ -23,6 +23,11 @@ export const Cellphone = {
   pt_br: 'Celular'
 }
 
+export const ChangePaymentMethod = {
+  en_us: 'Change payment method',
+  pt_br: 'Alterar forma de pagamento'
+}
+
 export const City = {
   en_us: 'City',
   pt_br: 'Cidade'
@@ -113,6 +118,11 @@ export const InvalidLoginInfo = {
   pt_br: 'Login inválido, por favor verifique os dados informados'
 }
 
+export const InterestFree = {
+  en_us: 'Interest-free',
+  pt_br: 'Sem juros'
+}
+
 export const LoginError = {
   en_us: 'Login error',
   pt_br: 'Erro no login'
@@ -161,6 +171,16 @@ export const Number = {
 export const OauthOnPopup = {
   en_us: 'Continue login on popup',
   pt_br: 'Continue o login no pop-up'
+}
+
+export const OfDiscount = {
+  en_us: 'Of discount',
+  pt_br: 'De desconto'
+}
+
+export const OnFreight = {
+  en_us: 'On freight',
+  pt_br: 'No frete'
 }
 
 export const OrProceedWith = {
@@ -226,6 +246,11 @@ export const Street = {
 export const Summary = {
   en_us: 'Summary',
   pt_br: 'Resumo'
+}
+
+export const UpTo = {
+  en_us: 'Up to',
+  pt_br: 'Até'
 }
 
 export const WasAnErrorOnLogin = {
