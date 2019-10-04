@@ -35,6 +35,7 @@
     "@ecomplus/storefront-twbs": "^3.5.0",
     "@ecomplus/utils": "^1.1.0",
     "axios": "^0.19.0",
+    "card-validator": "^6.2.0",
     "cleave.js": "^1.5.3",
     "core-js": "^3.2.1",
     "lodash.clonedeep": "^4.5.0",
