@@ -14,7 +14,9 @@
           )"
           @click.prevent="toCheckoutStep = i"
         >
-          <small>{{ i }}</small>
+          <small v-if="i < 3">
+            {{ i }}
+          </small>
           {{ i18n(label) }}
         </a>
       </nav>

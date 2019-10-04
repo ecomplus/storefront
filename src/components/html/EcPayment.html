@@ -21,6 +21,15 @@
       >
         <span class="ec-payment__head">
           <span class="ec-payment__title">
+            <a
+              href="#"
+              class="ec-payment__back"
+              v-if="selectedGateway === i"
+              @click.prevent.stop="selectedGateway = -1"
+              :aria-label="i18n('ChangePaymentMethod')"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </a>
             {{ gateway.label }}
           </span>
 
@@ -44,7 +53,7 @@
 
               <span
                 class="badge badge-info ec-payment__installment"
-                v-if="gateway.installment_option"
+                v-else-if="gateway.installment_option"
               >
                 {{ i18n('UpTo') }}
                 {{ gateway.installment_option.number }}x
@@ -59,12 +68,6 @@
             </span>
           </span>
         </span>
-
-        <span
-          class="ec-payment__text"
-          v-if="gateway.text"
-          v-html="gateway.text"
-        ></span>
 
         <img
           class="ec-payment__stamp"
@@ -81,7 +84,21 @@
       </a>
 
       <fade-transition>
-        <div class="list-group-item" v-if="selectedGateway > -1">
+        <div
+          class="ec-payment__method list-group-item"
+          v-if="selectedGateway > -1"
+        >
+          <ec-credit-card
+            v-if="paymentGateway.payment_method.code === 'credit_card'"
+            class="mb-3"
+          />
+
+          <p
+            class="ec-payment__text"
+            v-else-if="paymentGateway.text"
+            v-html="paymentGateway.text"
+          ></p>
+
           <button
             class="btn btn-sm btn-light"
             type="button"

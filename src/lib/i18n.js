@@ -1,3 +1,8 @@
+export const AboutCvv = {
+  en_us: '3 or 4 digits, usually on the back of the card (up front on AMEX cards)',
+  pt_br: '3 ou 4 dígitos, geralmente no verso do cartão (na frente em cartões AMEX)'
+}
+
 export const BackToCart = {
   en_us: 'Back to cart',
   pt_br: 'Voltar ao carrinho'
@@ -18,6 +23,11 @@ export const Borough = {
   pt_br: 'Bairro'
 }
 
+export const CardNumber = {
+  en_us: 'Card number',
+  pt_br: 'Número do cartão'
+}
+
 export const Cellphone = {
   en_us: 'Cellphone',
   pt_br: 'Celular'
@@ -26,6 +36,11 @@ export const Cellphone = {
 export const ChangePaymentMethod = {
   en_us: 'Change payment method',
   pt_br: 'Alterar forma de pagamento'
+}
+
+export const Checkout = {
+  en_us: 'Checkout',
+  pt_br: 'Finalizar compra'
 }
 
 export const City = {
@@ -41,6 +56,11 @@ export const CompanyRegistration = {
 export const Complement = {
   en_us: 'Complement',
   pt_br: 'Complemento'
+}
+
+export const ConfirmPurchase = {
+  en_us: 'Confirm purchase',
+  pt_br: 'Confirmar compra'
 }
 
 export const ContactPhone = {
@@ -103,6 +123,11 @@ export const HelloAgain = {
   pt_br: 'Olá novamente'
 }
 
+export const HolderName = {
+  en_us: 'Holder name',
+  pt_br: 'Nome do titular'
+}
+
 export const Identification = {
   en_us: 'Identification',
   pt_br: 'Identificação'
@@ -141,6 +166,11 @@ export const ManageYourHistory = {
 export const Name = {
   en_us: 'Name',
   pt_br: 'Nome'
+}
+
+export const NameOnCard = {
+  en_us: 'Name on card',
+  pt_br: 'Nome impresso no cartão'
 }
 
 export const Nickname = {
@@ -188,6 +218,11 @@ export const OrProceedWith = {
   pt_br: 'Ou prossiga com'
 }
 
+export const ParcelIn = {
+  en_us: 'Parcel in',
+  pt_br: 'Parcelar em'
+}
+
 export const Payment = {
   en_us: 'Payment',
   pt_br: 'Pagamento'
@@ -233,6 +268,11 @@ export const Save = {
   pt_br: 'Salvar'
 }
 
+export const SecurityCode = {
+  en_us: 'Security code',
+  pt_br: 'Código de segurança'
+}
+
 export const SignInWith = {
   en_us: 'Sign in with',
   pt_br: 'Entrar com'
@@ -251,6 +291,11 @@ export const Summary = {
 export const UpTo = {
   en_us: 'Up to',
   pt_br: 'Até'
+}
+
+export const ValidThru = {
+  en_us: 'Valid thru',
+  pt_br: 'Validade'
 }
 
 export const WasAnErrorOnLogin = {

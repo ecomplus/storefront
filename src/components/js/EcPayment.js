@@ -1,7 +1,8 @@
 import { i18n, price, formatMoney } from '@ecomplus/utils'
 import { modules } from '@ecomplus/client'
-import { FadeTransition, SlideYUpTransition } from 'vue2-transitions'
 import EcomCart from '@ecomplus/shopping-cart'
+import EcCreditCard from './../EcCreditCard.vue'
+import { FadeTransition, SlideYUpTransition } from 'vue2-transitions'
 
 import {
   ChangePaymentMethod,
@@ -15,6 +16,7 @@ export default {
   name: 'EcPayment',
 
   components: {
+    EcCreditCard,
     FadeTransition,
     SlideYUpTransition
   },
@@ -54,6 +56,10 @@ export default {
         UpTo,
         ...this.mergeDictionary
       }
+    },
+
+    paymentGateway () {
+      return this.paymentGateways[this.selectedGateway] || {}
     }
   },
 

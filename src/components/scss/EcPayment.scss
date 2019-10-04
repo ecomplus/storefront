@@ -35,4 +35,18 @@
   &__intermediator {
     color: var(--gray);
   }
+
+  &__back {
+    color: var(--gray);
+    font-size: .85rem;
+    padding: .15rem;
+
+    &:hover {
+      color: var(--black);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
 }
