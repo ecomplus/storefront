@@ -1,4 +1,5 @@
 <%
+const contacts = _.cms('contacts') || {}
 // store logo object
 const logo = _.settings.logo
   ? { url: _.settings.logo, alt: _.settings.name }
@@ -7,8 +8,8 @@ const logo = _.settings.logo
 
 <div class="app">
   <header class="app__header">
-    <div class="container d-flex">
-      <div class="app__logo-position d-flex mr-auto">
+    <div class="container d-flex justify-content-between">
+      <div class="app__logo-position d-flex">
         <a href="/">
           <% if (logo && logo.url) { %>
                 <img class="app__logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
@@ -17,11 +18,37 @@ const logo = _.settings.logo
           <% } %>
         </a>
       </div>
-      <div class="app__safe-icon d-flex mr-auto">
+      <div class="app__contact">
+        Dúvidas? Ligue
+        <% if (contacts.whatsapp) { %>
+          <a
+            href="javascript:;"
+            target="_blank"
+            rel="noopener"
+            class="whatsapp-link font-weight-normal"
+            data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>"
+          >
+            <i class="fab fa-whatsapp"></i>
+            <%= contacts.whatsapp %>
+          </a>
+        <% } %>
+        <% if (contacts.phone) { %>
+          /<a
+            href="tel:+<%= contacts.phone.replace(/\D/g, '') %>"
+            class="font-weight-normal"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fas fa-phone"></i>
+            <%= contacts.phone %>
+          </a>
+        <% } %>
+      </div>
+      <div class="app__safe-icon d-flex">
         <span class="rounded-icon">
           <i class="fas fa-shield-alt"></i>
         </span>
-        <span class="app__safe-icon-text">Dados 100%<br> Seguros</span>
+        <span class="app__safe-icon-text">AMBIENTE 100% SEGURO</span>
       </div>
     </div>
   </header>
