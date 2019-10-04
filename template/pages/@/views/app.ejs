@@ -8,7 +8,7 @@ const logo = _.settings.logo
 
 <div class="app">
   <header class="app__header">
-    <div class="container d-flex justify-content-between">
+    <div class="container d-flex justify-content-between align-items-center">
       <div class="app__logo-position d-flex">
         <a href="/">
           <% if (logo && logo.url) { %>
@@ -44,11 +44,9 @@ const logo = _.settings.logo
           </a>
         <% } %>
       </div>
-      <div class="app__safe-icon d-flex">
-        <span class="rounded-icon">
-          <i class="fas fa-shield-alt"></i>
-        </span>
-        <span class="app__safe-icon-text">AMBIENTE 100% SEGURO</span>
+      <div class="app__safe-icon d-flex align-items-center">
+        <i class="fas fa-shield-alt"></i>
+        <span class="app__safe-icon-text pl-5">AMBIENTE 100% SEGURO</span>
       </div>
     </div>
   </header>

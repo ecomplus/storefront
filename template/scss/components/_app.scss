@@ -11,9 +11,7 @@
   }
   &__safe-icon {
     float: right;
-  }
-  &__safe-icon .rounded-icon {
-    border: 1px solid var(--secondary)
+    color:  var(--success)
   }
   &app__safe-icon-text {
     line-height: 12px;
