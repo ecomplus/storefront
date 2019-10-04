@@ -9,14 +9,10 @@
     max-width: 150px;
     max-height: 80px;
   }
-  &__safe-icon {
-    float: right;
+  &__icon-shield {
     color:  var(--success)
   }
-  &app__safe-icon-text {
-    line-height: 12px;
-    margin: 0;
-    padding: 5px 35px 5px 0;
-    text-transform: uppercase;
+  &__contact {
+    color: var(--grey)
   }
 }
