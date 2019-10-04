@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.7](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.6...v1.0.0-beta.7) (2019-10-04)
+
+
+### Features
+
+* **payment:** fixes for payment list, start credit card form ([c1867e4](https://github.com/ecomclub/storefront-app/commit/c1867e4))
+* **payment:** start listing and selecting payment method (EcPayment) ([bc31907](https://github.com/ecomclub/storefront-app/commit/bc31907))
+
 ## [1.0.0-beta.6](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2019-10-03)
 
 
