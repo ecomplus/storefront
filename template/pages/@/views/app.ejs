@@ -8,7 +8,7 @@ const logo = _.settings.logo
 <div class="app">
   <header class="app__header">
     <div class="container">
-      <div class="app__logo-position">
+      <div class="app__logo-position d-flex justify-content-start">
         <a href="/">
           <% if (logo && logo.url) { %>
                 <img class="app__logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
@@ -17,11 +17,11 @@ const logo = _.settings.logo
           <% } %>
         </a>
       </div>
-      <div class="app__safe-icon">
+      <div class="app__safe-icon d-flex justify-content-end">
         <span class="rounded-icon">
           <i class="fas fa-shield-alt"></i>
         </span>
-        <span class="app_safe-icon-text">Seus dados<br>100% seguros</span>
+        <span class="app_safe-icon-text">Dados 100%<br> seguros</span>
       </div>
     </div>
   </header>
