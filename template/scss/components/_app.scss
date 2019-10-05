@@ -30,11 +30,11 @@
     min-width: 22%;
   }
 
-  &__secure h3 {
+  &__footer__secure h3 {
     font-size: 1.05rem;
   }
 
-  &__footer__payment__methods {
+  &__footer__payment__methods, &__footer__stamp-safe > ul {
     padding: 0;
     margin: 0;
     display: flex;
@@ -45,7 +45,7 @@
     height: calc(100% - 15px);
   }
 
-  &__footer__payment__methods li {
+  &__footer__payment__methods li, &__footer__stamp-safe > ul > li {
     list-style: none;
     height: 18px;
   }
