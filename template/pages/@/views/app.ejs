@@ -1,5 +1,26 @@
 <%
 const contacts = _.cms('contacts') || {}
+const footer = _.cms('footer') || {}
+const paymentMethods = [
+  'boleto',
+  'visa',
+  'mastercard',
+  'elo',
+  'amex',
+  'hipercard',
+  'hiper',
+  'diners',
+  'aura',
+  'itau',
+  'bradesco',
+  'bb',
+  'santander',
+  'citibank',
+  'hsbc',
+  'banrisul',
+  'mais'
+]
+%>
 // store logo object
 const logo = _.settings.logo
   ? { url: _.settings.logo, alt: _.settings.name }
@@ -47,4 +68,25 @@ const logo = _.settings.logo
   <div id="spa">
     <div id="storefront-app"></div>
   </div>
+
+  <footer>
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="app__payment">
+        Pague Com
+        <span class="app__payment__methods">
+          <% paymentMethods.forEach(method => { %>
+            <% if (footer.payment_methods[method]) { %>
+              <i class="pay-icon pay-icon--<%= method %>"></i>
+            <% } %>
+          <% }) %>
+        </span>
+      </div>
+      <div class="app__secure">
+        <span>Seus dados 100% seguros</span>
+      </div>
+      <div class="app__stamp-safe">
+        
+      </div>
+    </div>
+  </footer>
 </div>
