@@ -3,6 +3,7 @@
     background: var(--light);
     padding: 1rem;
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    max-width: 100%;
   }
 
   &__logo {
@@ -49,6 +50,9 @@
 
   &__footer__payment__methods li, &__footer__stamp-safe > ul > li {
     list-style: none;
+  }
+  @media (max-width: 767.98px) {
+    &__contact
   }
 
 }
