@@ -1,5 +1,5 @@
 .app {
-  &__header {
+  &__header, &__footer {
     background: var(--light);
     padding: 1rem;
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
@@ -18,19 +18,13 @@
     color: var(--grey)
   }
 
-  &__footer {
-    background: var(--light);
-    padding: 1rem;
-    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
-  }
-
   &__footer__payment h3 {
     font-size: 1.05rem;
     margin: 5px 20px 0 0;
     min-width: 22%;
   }
 
-  &__footer__secure h3 {
+  &__footer__stamp-safe h3 {
     font-size: 1.05rem;
   }
 
@@ -41,13 +35,10 @@
     justify-content: space-between;
     align-items: center;
     min-width: 100%;
-    height: 70%;
-    height: calc(100% - 15px);
   }
 
   &__footer__payment__methods li, &__footer__stamp-safe > ul > li {
     list-style: none;
-    height: 18px;
   }
 
 }
