@@ -18,6 +18,27 @@
   &__footer {
     background: var(--light);
     padding: 1rem;
-    box-shadow: 0.25rem 0.125rem 0.25rem rgba(0,0,0,.075);
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+    &__payment {
+      h3 {
+        font-size: 1.05rem
+      }
+      &__methods {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-width: 100%;
+        height: 70%;
+        height: calc(100% - 15px);
+        li {
+          list-style: none;
+          height: 18px;
+        }
+      }
+    }
+
   }
+
 }
