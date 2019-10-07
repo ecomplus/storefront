@@ -29,7 +29,7 @@ const logo = _.settings.logo
 <div class="app">
   <header class="app__header">
     <div class="container d-flex justify-content-between align-items-center">
-      <div class="app__logo-position d-flex">
+      <div class="app__logo-position d-flex col-md-4 col-12">
         <a href="/">
           <% if (logo && logo.url) { %>
                 <img class="app__logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
@@ -38,7 +38,7 @@ const logo = _.settings.logo
           <% } %>
         </a>
       </div>
-      <div class="app__contact">
+      <div class="app__contact col-md-4">
         Dúvidas? Ligue
         <% if (contacts.whatsapp) { %>
           <span
@@ -55,7 +55,7 @@ const logo = _.settings.logo
           </span>
         <% } %>
       </div>
-      <div class="app__safe-icon d-flex align-items-center">
+      <div class="app__safe-icon d-flex align-items-center col-md-4 col-12">
         <span class="app__icon-shield">
           <i class="fas fa-shield-alt"></i>
         </span>
