@@ -1,9 +1,17 @@
 .app {
-  &__header, &__footer {
+  &__header {
     background: var(--light);
     padding: 1rem;
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
     max-width: 100%;
+  }
+
+  &__footer {
+    background: var(--dark);
+    padding: 1rem;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    max-width: 100%;
+    color: var(--light);
   }
 
   &__logo {
@@ -19,18 +27,6 @@
     color: var(--grey)
   }
 
-  &__footer__payment h3 {
-    font-size: 1.05rem;
-    padding: 1.1rem;
-    min-width: 35%;
-  }
-
-  &__footer__stamp-safe h3 {
-    font-size: 1.05rem;
-    min-width: 50%;
-    padding: 1.1rem;
-  }
-
   &__footer__payment__methods {
     padding: 0;
     margin: 0;
@@ -40,19 +36,13 @@
     min-width: 100%;
   }
 
-  &__footer__stamp-safe > ul {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    min-width: 100%;
-  }
-
   &__footer__payment__methods li, &__footer__stamp-safe > ul > li {
     list-style: none;
   }
   @media (max-width: 767.98px) {
-    &__contact
+    &__contact {
+      display: none;
+    }
   }
 
 }

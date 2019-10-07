@@ -72,15 +72,13 @@ const logo = _.settings.logo
     <div class="container d-flex justify-content-between align-items-center">
       <div class="app__footer__payment d-flex">
         <h3>Pague Com</h3>
-        <ul class="app__footer__payment__methods">
+        <span class="app__footer__payment__methods">
           <% paymentMethods.forEach(method => { %>
             <% if (footer.payment_methods[method]) { %>
-              <li class="<%= method %>">
-                <i class="pay-icon pay-icon--<%= method %>"></i>
-              <li>
+                <i class="pay-icon pay-icon--<%= method %>"></i
             <% } %>
           <% }) %>
-        </ul>
+        </span>
       </div>
       <div class="app__footer__stamp-safe d-flex">
         <h3>Seus dados 100% seguros</h3>
