@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.1](https://github.com/ecomclub/storefront-framework/compare/v5.2.0...v5.2.1) (2019-10-07)
+
+
+### Bug Fixes
+
+* **webpack:** use style-loader instead of css-extract on win32 ([fce05e9](https://github.com/ecomclub/storefront-framework/commit/fce05e9))
+
 ## [5.2.0](https://github.com/ecomclub/storefront-framework/compare/v5.1.2...v5.2.0) (2019-10-02)
 
 
