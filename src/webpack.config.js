@@ -99,7 +99,7 @@ const config = {
       {
         test: /\.s?css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          process.platform !== 'win32' ? MiniCssExtractPlugin.loader : 'style-loader',
           'css-loader',
 
           {
