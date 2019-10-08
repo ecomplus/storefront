@@ -55,6 +55,14 @@
     &__contact {
       display: none !important;
     }
+    &__logo-position {
+      -webkit-box-pack: center!important;
+      justify-content: center!important;
+    }
+    &__safe-icon {
+      padding-top: 0.5rem!important;
+      padding-right: 0!important;
+    }
   }
 
 }
