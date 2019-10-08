@@ -1,5 +1,6 @@
 import { _config, price, formatMoney } from '@ecomplus/utils'
 import { modules } from '@ecomplus/client'
+import EcShippingLine from './../EcShippingLine.vue'
 import { SlideYUpTransition } from 'vue2-transitions'
 import CleaveInput from 'vue-cleave-component'
 import dictionary from './../../lib/dictionary'
@@ -11,6 +12,7 @@ export default {
   name: 'EcShipping',
 
   components: {
+    EcShippingLine,
     SlideYUpTransition,
     CleaveInput
   },
@@ -117,21 +119,6 @@ export default {
         localStorage.setItem(zipStorageKey, this.zipCodeValue)
       }
       this.fetchShippingServices()
-    },
-
-    serviceDeadline (service) {
-      const shipping = service.shipping_line
-      let days = shipping.posting_deadline ? shipping.posting_deadline.days : 0
-      if (shipping.delivery_time) {
-        days += shipping.delivery_time.days
-      }
-      return days
-    },
-
-    serviceIsWorkingDays (service) {
-      const shipping = service.shipping_line
-      return (shipping.posting_deadline && shipping.posting_deadline.working_days) ||
-        (shipping.delivery_time && shipping.delivery_time.working_days)
     },
 
     setSelectedService (i) {

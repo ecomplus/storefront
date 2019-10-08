@@ -54,20 +54,11 @@
           @click.prevent="setSelectedService(i)"
         >
           <span class="ec-shipping__option">
-            <span>
-              <strong>
-                {{ `${dictionary('up_to')} ${serviceDeadline(service)}` }}
-                {{ dictionary(serviceIsWorkingDays(service) ? 'working_days' : 'days') }}
-              </strong>
-              <span class="mx-2">
-                <template v-if="service.shipping_line.total_price">
-                  {{ formatMoney(service.shipping_line.total_price) }}
-                </template>
-                <template v-else>
-                  {{ dictionary('free_shipping') }}
-                </template>
-              </span>
-            </span>
+            <ec-shipping-line
+              :shippingLine="service.shipping_line"
+              :lang="lang"
+            />
+
             <small>{{ service.label }}</small>
           </span>
         </component>
