@@ -73,8 +73,8 @@ const logo = _.settings.logo
 
   <footer class="app__footer">
     <div class="container">
-      <div class="row">
-        <div class="app__footer__payment col-12 col-md-6 pt-2 pb-2 d-flex align-items-center">
+      <div class="row d-flex align-items-center">
+        <div class="app__footer__payment col-12 col-md-6 pt-2 pb-2">
           <ul class="app__footer__payment__methods">
             <% paymentMethods.forEach(method => { %>
               <% if (footer.payment_methods[method]) { %>
@@ -85,7 +85,7 @@ const logo = _.settings.logo
             <% }) %>
           </ul>
         </div>
-        <div class="app__footer__stamp col-12 col-md-6 pt-2 pb-2 d-flex align-items-center">
+        <div class="app__footer__stamp col-12 col-md-6 pt-2 pb-2">
           <% footer.stamps.forEach(({ src, alt, link }) => { %>
             <ul class="app__footer__stamp__checkout">
               <% if (link) { %>
@@ -110,17 +110,17 @@ const logo = _.settings.logo
     </div>
   </footer>
 
-  <div class="container d-flex justify-content-center col-12">
-    <div class="app__info d-flex align-items-center">
+  <div class="container d-flex justify-content-between col-12 align-items-center">
+    <div class="app__info">
       <% if (footer.credits) { %>
         <span><%= footer.credits %></span>
       <% } else { %>
         <span class="app__credits__name">© <%= settings.name %> - </span>
-        <span class="app__credits__address"><%= contacts.address %> - </span>
-        <span class="app__credits__doc-number"><%= contacts.doc_number %></span>
+        <span class="app__credits__address pl-1"><%= contacts.address %> - </span>
+        <span class="app__credits__doc-number pl-1"><%= contacts.doc_number %></span>
       <% } %>
     </div>
-    <div class="ecom-credits d-flex align-items-center">
+    <div class="ecom-credits">
       <a href="https://e-com.plus" target="_blank" rel="noopener">
         Powered by
         <img

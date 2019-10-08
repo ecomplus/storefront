@@ -34,24 +34,23 @@
     min-width: 100%;
   }
 
-  &__footer__info {
-    text-align: center !important;
-    padding: 1rem;
-    font-size: 0.7rem;
+  &__info {
+    font-size: 0.9rem;
   }
 
   &__footer__stamp > ul {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    min-width: 100%;
+      justify-content: flex-end;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: flex-end;
+      min-width: 100%;
   }
 
   &__footer__payment__methods li, &__footer__stamp__checkout li {
     list-style: none;
   }
-  
+
   @media (max-width: 767.98px) {
     &__contact {
       display: none !important;
