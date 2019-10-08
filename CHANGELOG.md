@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.8](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.7...v1.0.0-beta.8) (2019-10-08)
+
+
+### Bug Fixes
+
+* **addresses:** start emitting select address ([2b3c9ba](https://github.com/ecomclub/storefront-app/commit/2b3c9ba))
+
+
+### Features
+
+* **credit-card:** finish handling credit card form ([c1b17fd](https://github.com/ecomclub/storefront-app/commit/c1b17fd))
+
 ## [1.0.0-beta.7](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.6...v1.0.0-beta.7) (2019-10-04)
 
 
