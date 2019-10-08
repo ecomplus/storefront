@@ -1,5 +1,6 @@
 <%
 const contacts = _.cms('contacts') || {}
+const settings = _.cms('settings') || {}
 const footer = _.cms('footer') || {}
 const paymentMethods = [
   'boleto',
@@ -111,11 +112,11 @@ const logo = _.settings.logo
       <div class="row col-md-12">
         <div class="app__footer__info">
           <% if (footer.credits) { %>
-            <span class="d-flex justify-content-end"><%= footer.credits %></span>
+            <span class="d-flex justify-content-center"><%= footer.credits %></span>
           <% } else { %>
-            <p class="d-flex justify-content-end"><%= © _.store.name %></p>
-            <p class="d-flex justify-content-end"><%= contacts.address %></p>
-            <p class="d-flex justify-content-end"><%= contacts.doc_number %></p>
+            <p class="d-flex justify-content-center">© <%= settings.name %></p>
+            <p class="d-flex justify-content-center"><%= contacts.address %></p>
+            <p class="d-flex justify-content-center"><%= contacts.doc_number %></p>
           <% } %>
         </div>
       </div>
