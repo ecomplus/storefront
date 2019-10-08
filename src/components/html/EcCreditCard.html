@@ -14,12 +14,15 @@
         :class="!numberPotentiallyValid && alert.bin ? 'is-invalid': null"
         id="ec-credit-card-bin"
         v-model="card.bin"
-        @blur="alert.bin = !numberPotentiallyValid"
+        @blur="alert.bin = card.bin && !numberPotentiallyValid"
         :options="{ creditCard: true }"
         required
       />
 
-      <div class="input-group-append" v-if="activeBrand && brands.indexOf(activeBrand) > -1">
+      <div
+        class="input-group-append"
+        v-if="activeBrand && brands.indexOf(activeBrand) > -1"
+      >
         <span class="input-group-text">
           <i
             class="pay-icon"
@@ -37,15 +40,41 @@
     <div class="input-group">
       <input
         type="text"
-        pattern="[^\d\s]{2,}.*"
+        pattern="[^\d\s]{3,}.*"
         class="form-control"
         id="ec-credit-card-name"
         :placeholder="i18n('NameOnCard')"
         v-model="card.name"
+        @change="checkName"
         required
       />
     </div>
   </div>
+
+  <slide-y-up-transition>
+    <div v-if="!hideHolderFields">
+      <div class="form-group">
+        <label for="ec-credit-card-birth">
+          {{ i18n('Birthdate') }}
+        </label>
+        <input-date
+          id="ec-credit-card-birth"
+          v-model="card.birth"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="ec-credit-card-doc">
+          {{ i18n('DocNumber') }}
+        </label>
+        <input-doc-number
+          id="ec-credit-card-doc"
+          :isCompany="isCompany"
+          v-model="card.doc"
+        />
+      </div>
+    </div>
+  </slide-y-up-transition>
 
   <div class="form-row">
     <div class="form-group col-lg-6">
@@ -55,9 +84,12 @@
       <cleave-input
         type="tel"
         class="form-control"
+        :class="alert.date ? 'is-invalid': null"
         id="ec-credit-card-validate"
-        :placeholder="`MM/${(lang === 'pt_br' ? 'AA' : 'YY')}`"
-        v-model="card.validate"
+        pattern="[\d]{2}\/[\d]{2}"
+        :placeholder="`mm/${(lang === 'pt_br' ? 'aa' : 'yy')}`"
+        @blur="() => { alert.date = card.date && !validateDate() }"
+        v-model="card.date"
         :options="{
           date: true,
           datePattern: ['m', 'y']
@@ -81,11 +113,13 @@
       <cleave-input
         type="tel"
         class="form-control"
+        :class="alert.cvv ? 'is-invalid': null"
         id="ec-credit-card-cvv"
-        minlength="3"
+        pattern="[\d]{3,4}"
         maxlength="4"
         placeholder="123"
         v-model="card.cvv"
+        @blur="() => { alert.cvv = card.cvv && !validateCvv() }"
         :options="{
           numeral: true,
           numeralPositiveOnly: true,
@@ -94,6 +128,35 @@
         required
       />
     </div>
+  </div>
+
+  <div
+    v-if="installmentOptions && installmentOptions.length"
+    class="form-group"
+  >
+    <label for="ec-credit-card-installment">
+      {{ i18n('ParcelIn') }}
+    </label>
+
+    <select
+      class="custom-select"
+      id="ec-credit-card-installment"
+      v-model="card.installment"
+    >
+      <option :value="1">
+        {{ formatMoney(amount.total) }}
+        {{ i18n('AtSight').toLowerCase() }}
+      </option>
+      <option
+        v-for="({ number, value, tax }) in installmentList"
+        :value="number"
+      >
+        {{ `${number}x ${i18n('Of').toLowerCase()} ${formatMoney(value)}` }}
+        <template v-if="!tax">
+          {{ i18n('InterestFree').toLowerCase() }}
+        </template>
+      </option>
+    </select>
   </div>
 
   <button class="btn btn-lg btn-block btn-success" type="submit">

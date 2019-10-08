@@ -16,20 +16,18 @@
         v-for="(gateway, i) in paymentGateways"
         v-show="selectedGateway === -1 || selectedGateway === i"
         :key="gateway.app_id + gateway.payment_method.code + i"
-        @click.prevent="selectedGateway = i"
+        @click.prevent="selectedGateway = selectedGateway === i ? -1 : i"
         :data-intermediator="gateway.intermediator && gateway.intermediator.code"
       >
         <span class="ec-payment__head">
           <span class="ec-payment__title">
-            <a
-              href="#"
+            <span
               class="ec-payment__back"
               v-if="selectedGateway === i"
-              @click.prevent.stop="selectedGateway = -1"
               :aria-label="i18n('ChangePaymentMethod')"
             >
               <i class="fas fa-chevron-left"></i>
-            </a>
+            </span>
             {{ gateway.label }}
           </span>
 
@@ -90,6 +88,11 @@
         >
           <ec-credit-card
             v-if="paymentGateway.payment_method.code === 'credit_card'"
+            :amount="amount"
+            :checkHolder="customerName"
+            :isCompany="isCompany"
+            :installmentOptions="paymentGateway.installment_options"
+            :jsClient="paymentGateway.js_client"
             class="mb-3"
           />
 

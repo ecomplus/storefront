@@ -31,10 +31,14 @@ export default {
       default: () => new EcomCart()
     },
     amount: {
-      type: Object
+      type: Object,
+      required: true
     },
     cartItems: {
       type: Array
+    },
+    customer: {
+      type: Object
     }
   },
 
@@ -60,6 +64,14 @@ export default {
 
     paymentGateway () {
       return this.paymentGateways[this.selectedGateway] || {}
+    },
+
+    isCompany () {
+      return this.customer && this.customer.registry_type !== 'p'
+    },
+
+    customerName () {
+      return this.customer && this.customer.name && this.customer.name.given_name
     }
   },
 
