@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.16.0](https://github.com/ecomclub/storefront-template/compare/v1.15.0...v1.16.0) (2019-10-08)
+
+
+### Bug Fixes
+
+* **scss:** style fixes (and aliases) for pay icons ([6f5668c](https://github.com/ecomclub/storefront-template/commit/6f5668c))
+
+
+### Features
+
+* **app:** add header and footer to checkout spa ([#57](https://github.com/ecomclub/storefront-template/issues/57)) ([d9574ad](https://github.com/ecomclub/storefront-template/commit/d9574ad))
+
+## [1.15.0](https://github.com/ecomclub/storefront-template/compare/v1.14.0...v1.15.0) (2019-10-03)
+
+
+### Features
+
+* **icons:** add fa plus icon ([2e2bd25](https://github.com/ecomclub/storefront-template/commit/2e2bd25))
+* **icons:** add some payment related icons ([030f382](https://github.com/ecomclub/storefront-template/commit/030f382))
+
 ## [1.14.0](https://github.com/ecomclub/storefront-template/compare/v1.13.0...v1.14.0) (2019-10-01)
 
 

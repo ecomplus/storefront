@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   display: inline-block;
   margin: 3px 3px 0 0;
+  background-position: 0 25px;
 
   &--visa {
     background-position: 0 0;
@@ -30,7 +31,8 @@
   &--elo {
     background-position: 0 -175px;
   }
-  &--diners {
+  &--diners,
+  &--diners-club {
     background-position: 0 -200px;
   }
   &--citibank {
@@ -51,7 +53,8 @@
   &--aura {
     background-position: 0 -350px;
   }
-  &--amex {
+  &--amex,
+  &--american-express {
     background-position: 0 -375px;
   }
   &--mais {
