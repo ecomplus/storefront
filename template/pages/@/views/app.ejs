@@ -73,15 +73,6 @@ const logo = _.settings.logo
 
   <footer class="app__footer">
     <div class="container">
-      <div class="app__credits__info col-12">
-        <% if (footer.credits) { %>
-          <span><%= footer.credits %></span>
-        <% } else { %>
-          <span class="app__credits__name">© <%= settings.name %> - </span>
-          <span class="app__credits__address pl-1"><%= contacts.address %> - </span>
-          <span class="app__credits__doc-number pl-1"><%= contacts.doc_number %></span>
-        <% } %>
-      </div>
       <div class="app__footer__stamp col-12 pt-2 pb-2">
           <% footer.stamps.forEach(({ src, alt, link }) => { %>
             <ul class="app__footer__stamp__checkout d-flex justify-content-center">
