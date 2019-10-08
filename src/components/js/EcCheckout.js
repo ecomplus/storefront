@@ -6,12 +6,14 @@ import EcAddresses from './../EcAddresses.vue'
 import EcPayment from './../EcPayment.vue'
 import EcCartItem from '@ecomplus/widget-minicart/src/components/EcCartItem.vue'
 import EcShipping from '@ecomplus/widget-product/src/components/EcShipping.vue'
+import EcShippingLine from '@ecomplus/widget-product/src/components/EcShippingLine.vue'
 import EcPrices from '@ecomplus/widget-product/src/components/EcPrices.vue'
 import { FadeTransition, SlideYUpTransition, SlideXRightTransition } from 'vue2-transitions'
 
 import {
   Bag,
   BackToCart,
+  ChangeShippingMethod,
   Continue,
   Delivery,
   Discount,
@@ -31,6 +33,7 @@ export default {
     EcPayment,
     EcCartItem,
     EcShipping,
+    EcShippingLine,
     EcPrices,
     FadeTransition,
     SlideYUpTransition,
@@ -61,6 +64,12 @@ export default {
       type: Number,
       default: 1
     },
+    shippingService: {
+      type: Object
+    },
+    paymentGateway: {
+      type: Object
+    },
     ecomCart: {
       type: Object,
       default: () => new EcomCart()
@@ -72,7 +81,7 @@ export default {
       toCheckoutStep: this.checkoutStep,
       customerEmail: this.customer.main_email,
       isUserIdentified: false,
-      isShippingSelected: false,
+      editShippingService: !this.shippingService,
       localZipCode: this.shippingZipCode
     }
   },
@@ -82,6 +91,7 @@ export default {
       return {
         Bag,
         BackToCart,
+        ChangeShippingMethod,
         Continue,
         Delivery,
         Discount,
@@ -130,7 +140,7 @@ export default {
 
     enabledCheckoutStep () {
       return !this.hasBuyerInfo ? 0
-        : this.shippingAddress && this.isShippingSelected ? 2 : 1
+        : this.shippingAddress && this.shippingService ? 2 : 1
     }
   },
 
@@ -167,13 +177,6 @@ export default {
     selectAddress (addressId) {
       this.$emit('addressSelected', addressId)
       this.updateZipCode()
-    },
-
-    selectShippingService (service) {
-      if (service) {
-        this.isShippingSelected = true
-        this.$emit('shippingService', service)
-      }
     }
   },
 

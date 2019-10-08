@@ -6,7 +6,7 @@
 
   &__step {
     padding: .35rem;
-    flex: 0 0 33%;
+    flex-grow: 1;
     color: var(--primary-light);
     text-align: center;
     font-size: .85rem;
@@ -63,13 +63,17 @@
     min-height: 300px;
     max-width: 90rem;
     margin: 0 auto 2rem;
-    padding-bottom: 2.5rem;
-    border-bottom: 1px dotted var(--gray);
+  }
+
+  &__info {
+    background: var(--light);
+    border-left: .3rem solid var(--secondary);
+    border-radius: .25rem 0 0 .25rem;
   }
 
   &__back {
     margin-top: 2rem;
-    text-align: center;
+    text-align: right;
 
     @media (max-width: 575.98px) {
       > .btn {
@@ -82,16 +86,23 @@
     padding-top: 1rem;
   }
 
-  .ec-shipping {
+  &__shipping {
     margin-bottom: 1rem;
 
-    &__form {
-      display: none;
-    }
+    &-method {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: .25rem;
 
-    &__services {
-      max-width: 100%;
+      small {
+        color: var(--gray);
+      }
     }
+  }
+
+  .ec-shipping__services {
+    max-width: 100%;
   }
 
   &__overlay {
@@ -110,13 +121,18 @@
   }
 
   &__summary {
-    background: var(--light);
+    padding: 1rem .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
 
   &__item {
     display: flex;
     align-items:flex-start;
     overflow-x: hidden;
+    margin-bottom: .5rem;
 
     img {
       flex: 0 0 50px;
@@ -130,7 +146,11 @@
   }
 
   &__amount {
-    &-row {
+    margin-top: 1.5rem;
+    padding-top: .75rem;
+    border-top: 1px dotted var(--gray);
+
+    &__row {
       display: flex;
       justify-content: space-between;
 
@@ -144,6 +164,10 @@
 
         > div {
           font-weight: bold;
+        }
+
+        strong {
+          color: var(--secondary);
         }
       }
     }

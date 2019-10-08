@@ -1,85 +1,112 @@
 <div class="ec-checkout">
   <fade-transition :duration="{ enter: 600, leave: 0 }" group>
     <div class="ec-checkout__app" key="app" v-if="shownCheckoutStep">
-      <nav class="ec-checkout__steps">
-        <a
-          href="#"
-          class="ec-checkout__step"
-          v-for="(label, i) in [null, 'Delivery', 'Payment', 'Summary']"
-          v-if="label"
-          :class="'ec-checkout__step--' + (
-            shownCheckoutStep === i ? 'current'
-              : enabledCheckoutStep < i ? 'disabled'
-                : shownCheckoutStep > i ? 'past' : 'next'
-          )"
-          @click.prevent="toCheckoutStep = i"
-        >
-          <small v-if="i < 3">
-            {{ i }}
-          </small>
-          {{ i18n(label) }}
-        </a>
-      </nav>
-
       <div class="row">
-        <div
-          class="ec-checkout__col col-lg-4"
-          :class="enabledCheckoutStep === 1 ? 'offset-lg-4' : null"
-        >
-          <slide-y-up-transition :duration="{ enter: 300, leave: 0 }">
-            <ec-shipping
-              class="ec-checkout__shipping"
-              v-if="shippingAddress"
-              :key="`shipTo${localZipCode}`"
-              :selectServices="true"
-              :shippedItems="cart.items"
-              :zipCode="localZipCode"
-              @serviceSelected="selectShippingService"
-            />
-          </slide-y-up-transition>
+        <div class="col-lg-8">
+          <nav class="ec-checkout__steps">
+            <a
+              href="#"
+              class="ec-checkout__step"
+              v-for="(label, i) in [null, 'Delivery', 'Payment']"
+              v-if="label"
+              :class="'ec-checkout__step--' + (
+                shownCheckoutStep === i ? 'current'
+                  : enabledCheckoutStep < i ? 'disabled'
+                    : shownCheckoutStep > i ? 'past' : 'next'
+              )"
+              @click.prevent="toCheckoutStep = i"
+            >
+              <small>{{ i }}</small>
+              {{ i18n(label) }}
+            </a>
+          </nav>
 
-          <ec-addresses
-            :customer.sync="localCustomer"
-            :zipCode="shippingZipCode"
-            @addressSelected="selectAddress"
-          />
+          <div class="row">
+            <div
+              class="ec-checkout__col col-lg-6"
+              :class="enabledCheckoutStep === 1 ? 'offset-lg-3' : null"
+            >
+              <div v-if="shippingAddress" class="ec-checkout__shipping">
+                <slide-y-up-transition :duration="{ enter: 300, leave: 0 }" group>
+                  <div
+                    v-if="shippingService && !editShippingService"
+                    key="service"
+                  >
+                    <div class="ec-checkout__shipping-method">
+                      <small>{{ shippingService.label }}</small>
+                      <ec-shipping-line :shippingLine="shippingService.shipping_line"/>
+                    </div>
 
-          <div
-            class="ec-checkout__overlay fade"
-            :class="shownCheckoutStep !== 1 ? 'show' : null"
-            @click="toCheckoutStep = 1"
-          >
+                    <a
+                      href="#"
+                      class="btn btn-sm btn-light"
+                      @click.prevent="editShippingService = true"
+                    >
+                      <i class="fas fa-edit mr-1"></i>
+                      {{ i18n('ChangeShippingMethod') }}
+                    </a>
+                  </div>
+
+                  <ec-shipping
+                    v-else
+                    key="services"
+                    :key="`shipTo${localZipCode}`"
+                    :selectServices="true"
+                    :shippedItems="cart.items"
+                    :zipCode="localZipCode"
+                    :zipInput="false"
+                    @serviceSelected="service => $emit('update:shippingService', service)"
+                  />
+                </slide-y-up-transition>
+              </div>
+
+              <ec-addresses
+                :customer.sync="localCustomer"
+                :zipCode="shippingZipCode"
+                @addressSelected="selectAddress"
+              />
+
+              <div
+                class="ec-checkout__overlay fade"
+                :class="shownCheckoutStep !== 1 ? 'show' : null"
+                @click="toCheckoutStep = 1"
+              >
+              </div>
+            </div>
+
+            <slide-x-right-transition
+              tag="div"
+              class="ec-checkout__col col-lg-6"
+            >
+              <div v-if="enabledCheckoutStep >= 2">
+                <ec-payment
+                  :customer="localCustomer"
+                  :amount="amount"
+                  @gatewaySelected="gateway => $emit('update:paymentGateway', gateway)"
+                  @checkout="data => $emit('checkout', data)"
+                />
+
+                <div
+                  class="ec-checkout__overlay fade"
+                  :class="shownCheckoutStep !== 2 ? 'show' : null"
+                  @click="toCheckoutStep = 2"
+                >
+                </div>
+              </div>
+            </slide-x-right-transition>
           </div>
         </div>
 
-        <slide-x-right-transition
-          tag="div"
-          class="ec-checkout__col col-lg-4"
-        >
-          <div v-if="enabledCheckoutStep >= 2">
-            <ec-payment
-              :customer="localCustomer"
-              :amount="amount"
-              @checkout="data => $emit('checkout', data)"
-            />
+        <div class="col-lg-4 ec-checkout__info">
+          <div class="ec-checkout__summary">
+            <div>
+              <h5>{{ i18n('Summary') }}</h5>
 
-            <div
-              class="ec-checkout__overlay fade"
-              :class="shownCheckoutStep !== 2 ? 'show' : null"
-              @click="toCheckoutStep = 2"
-            >
-            </div>
-          </div>
-        </slide-x-right-transition>
-
-        <div class="ec-checkout__col col-lg-4">
-          <div class="ec-checkout__summary card">
-            <div class="card-body">
               <slot name="list" v-bind="{ items: cart.items }">
                 <div
                   class="ec-checkout__item"
                   v-for="item in cart.items"
-                  v-b-tooltip.right.hover
+                  v-b-tooltip.hover
                   :title="name(item)"
                 >
                   <img
@@ -98,28 +125,35 @@
                   </div>
                 </div>
               </slot>
+
+              <div class="ec-checkout__amount">
+                <div class="ec-checkout__amount__row">
+                  <span>Subtotal</span>
+                  <div>{{ formatMoney(cart.subtotal) }}</div>
+                </div>
+
+                <div class="ec-checkout__amount__row">
+                  <span>{{ i18n('Freight') }}</span>
+                  <div>{{ formatMoney(amount.freight) }}</div>
+                </div>
+
+                <div class="ec-checkout__amount__row" v-if="amount.discount">
+                  <span>{{ i18n('Discount') }}</span>
+                  <div>{{ formatMoney(amount.discount) }}</div>
+                </div>
+
+                <div class="ec-checkout__amount__row ec-checkout__amount__row--total">
+                  <span>Total</span>
+                  <div>{{ formatMoney(amount.total) }}</div>
+                </div>
+              </div>
             </div>
 
-            <div class="card-footer">
-              <div class="ec-checkout__amount-row">
-                <span>Subtotal</span>
-                <div>{{ formatMoney(cart.subtotal) }}</div>
-              </div>
-
-              <div class="ec-checkout__amount-row">
-                <span>{{ i18n('Freight') }}</span>
-                <div>{{ formatMoney(amount.freight) }}</div>
-              </div>
-
-              <div class="ec-checkout__amount-row" v-if="amount.discount">
-                <span>{{ i18n('Discount') }}</span>
-                <div>{{ formatMoney(amount.discount) }}</div>
-              </div>
-
-              <div class="ec-checkout__amount-row ec-checkout__amount-row--total">
-                <span>Total</span>
-                <div>{{ formatMoney(amount.total) }}</div>
-              </div>
+            <div class="ec-checkout__back">
+              <a :href="cartUrl" class="btn btn-sm btn-light">
+                <i class="fas fa-chevron-left mr-1"></i>
+                {{ i18n('BackToCart') }}
+              </a>
             </div>
           </div>
         </div>
@@ -149,11 +183,4 @@
       </slot>
     </div>
   </fade-transition>
-
-  <div class="ec-checkout__back">
-    <a :href="cartUrl" class="btn btn-sm btn-secondary">
-      <i class="fas fa-chevron-left mr-1"></i>
-      {{ i18n('BackToCart') }}
-    </a>
-  </div>
 </div>

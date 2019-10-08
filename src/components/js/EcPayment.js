@@ -162,6 +162,12 @@ export default {
     }
   },
 
+  watch: {
+    selectedGateway () {
+      this.$emit('gatewaySelected', this.paymentGateway)
+    }
+  },
+
   created () {
     this.fetchPaymentGateways()
   }
