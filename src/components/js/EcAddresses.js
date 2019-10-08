@@ -139,6 +139,8 @@ export default {
   created () {
     if (!this.addresses.length) {
       this.newAddress = true
+    } else {
+      this.selectAddress(this.addresses.find(addr => addr.default) || this.addresses[0])
     }
   }
 }
