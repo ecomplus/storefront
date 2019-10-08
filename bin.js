@@ -2,10 +2,12 @@
 
 'use strict'
 
+const { storeId } = require('./src/lib/config')
+
 ;(function () {
   // set default store for tests if undefined
   if (!process.env.ECOM_STORE_ID) {
-    process.env.ECOM_STORE_ID = 1011
+    process.env.ECOM_STORE_ID = storeId
   }
   if (!process.env.ECOM_STORE_OBJECT_ID) {
     process.env.ECOM_STORE_OBJECT_ID = '5b1abe30a4d4531b8fe40725'
