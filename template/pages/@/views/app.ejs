@@ -28,38 +28,40 @@ const logo = _.settings.logo
 
 <div class="app">
   <header class="app__header">
-    <div class="container d-flex justify-content-between align-items-center">
-      <div class="app__logo-position d-flex col-md-4 col-12">
-        <a href="/">
-          <% if (logo && logo.url) { %>
-                <img class="app__logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
-          <% } else { %>
-            <%= _.settings.name || _.store.name %>
+    <div class="container d-flex align-items-center">
+      <div class="row" >
+        <div class="app__logo-position d-flex col col-md-4">
+          <a href="/">
+            <% if (logo && logo.url) { %>
+                  <img class="app__logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
+            <% } else { %>
+              <%= _.settings.name || _.store.name %>
+            <% } %>
+          </a>
+        </div>
+        <div class="app__contact col-md-4">
+          Dúvidas? Ligue
+          <% if (contacts.whatsapp) { %>
+            <span
+              class="whatsapp-link font-weight-normal pl-1"
+            >
+              <%= contacts.whatsapp %>
+            </span>
           <% } %>
-        </a>
-      </div>
-      <div class="app__contact col-md-4">
-        Dúvidas? Ligue
-        <% if (contacts.whatsapp) { %>
-          <span
-            class="whatsapp-link font-weight-normal pl-1"
-          >
-            <%= contacts.whatsapp %>
+          <% if (contacts.phone) { %>
+            /<span
+              class="font-weight-normal pl-1"
+            >
+              <%= contacts.phone %>
+            </span>
+          <% } %>
+        </div>
+        <div class="app__safe-icon d-flex align-items-center col col-md-4 justify-content-end">
+          <span class="app__icon-shield">
+            <i class="fas fa-shield-alt"></i>
           </span>
-        <% } %>
-        <% if (contacts.phone) { %>
-          /<span
-            class="font-weight-normal pl-1"
-          >
-            <%= contacts.phone %>
-          </span>
-        <% } %>
-      </div>
-      <div class="app__safe-icon d-flex align-items-center col-md-4 col-12">
-        <span class="app__icon-shield">
-          <i class="fas fa-shield-alt"></i>
-        </span>
-        <span class="app__safe-icon-text pl-2">Ambiente 100% Seguro</span>
+          <span class="app__safe-icon-text pl-2">Ambiente 100% Seguro</span>
+        </div>
       </div>
     </div>
   </header>
@@ -69,7 +71,7 @@ const logo = _.settings.logo
   </div>
 
   <footer class="app__footer">
-    <div class="container d-flex justify-content-between align-items-center">
+    <div class="container d-flex">
       <div class="app__footer__payment col-12 col-md-6">
         <h3>Pague Com</h3>
         <ul class="app__footer__payment__methods">
