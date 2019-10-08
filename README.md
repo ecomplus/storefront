@@ -34,5 +34,6 @@ Reusable Vue components available at
 - `EcProduct`
 - `EcPrices`
 - `EcShipping`
+- `EcShippingLine`
 - `EcImage`
 - `EcGallery`
