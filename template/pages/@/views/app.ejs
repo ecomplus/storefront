@@ -2,25 +2,7 @@
 const contacts = _.cms('contacts') || {}
 const settings = _.cms('settings') || {}
 const footer = _.cms('footer') || {}
-const paymentMethods = [
-  'boleto',
-  'visa',
-  'mastercard',
-  'elo',
-  'amex',
-  'hipercard',
-  'hiper',
-  'diners',
-  'aura',
-  'itau',
-  'bradesco',
-  'bb',
-  'santander',
-  'citibank',
-  'hsbc',
-  'banrisul',
-  'mais'
-]
+
 // store logo object
 const logo = _.settings.logo
   ? { url: _.settings.logo, alt: _.settings.name }
