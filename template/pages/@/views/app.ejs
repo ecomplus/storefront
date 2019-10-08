@@ -2,25 +2,7 @@
 const contacts = _.cms('contacts') || {}
 const settings = _.cms('settings') || {}
 const footer = _.cms('footer') || {}
-const paymentMethods = [
-  'boleto',
-  'visa',
-  'mastercard',
-  'elo',
-  'amex',
-  'hipercard',
-  'hiper',
-  'diners',
-  'aura',
-  'itau',
-  'bradesco',
-  'bb',
-  'santander',
-  'citibank',
-  'hsbc',
-  'banrisul',
-  'mais'
-]
+
 // store logo object
 const logo = _.settings.logo
   ? { url: _.settings.logo, alt: _.settings.name }
@@ -73,21 +55,9 @@ const logo = _.settings.logo
 
   <footer class="app__footer">
     <div class="container">
-      <div class="row d-flex align-items-center">
-        <div class="app__footer__payment col-12 col-md-6 pt-2 pb-2">
-          <ul class="app__footer__payment__methods">
-            <% paymentMethods.forEach(method => { %>
-              <% if (footer.payment_methods[method]) { %>
-                <li class="<%= method %>">
-                  <i class="pay-icon pay-icon--<%= method %>"></i>
-                </li>
-              <% } %>
-            <% }) %>
-          </ul>
-        </div>
-        <div class="app__footer__stamp col-12 col-md-6 pt-2 pb-2">
+      <div class="app__footer__stamp col-12 pt-2 pb-2">
           <% footer.stamps.forEach(({ src, alt, link }) => { %>
-            <ul class="app__footer__stamp__checkout">
+            <ul class="app__footer__stamp__checkout d-flex align-items-center">
               <% if (link) { %>
                 <li>
                   <a
@@ -105,7 +75,6 @@ const logo = _.settings.logo
               <% } %>
             </ul>
           <% }) %>
-        </div>
       </div>
     </div>
   </footer>
