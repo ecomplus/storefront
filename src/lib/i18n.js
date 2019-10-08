@@ -3,6 +3,11 @@ export const AboutCvv = {
   pt_br: '3 ou 4 dígitos, geralmente no verso do cartão (na frente em cartões AMEX)'
 }
 
+export const AtSight = {
+  en_us: 'At sight',
+  pt_br: 'À vista'
+}
+
 export const BackToCart = {
   en_us: 'Back to cart',
   pt_br: 'Voltar ao carrinho'
@@ -138,14 +143,24 @@ export const IdentifyAccount = {
   pt_br: 'Identificar ou criar sua conta'
 }
 
-export const InvalidLoginInfo = {
-  en_us: 'Invalid login info, please verify',
-  pt_br: 'Login inválido, por favor verifique os dados informados'
-}
-
 export const InterestFree = {
   en_us: 'Interest-free',
   pt_br: 'Sem juros'
+}
+
+export const InvalidCard = {
+  en_us: 'Invalid card info',
+  pt_br: 'Cartão inválido'
+}
+
+export const InvalidCardMsg = {
+  en_us: 'Unable to validate this card, please check the data or try again later',
+  pt_br: 'Não foi possível validar este cartão, por favor verifique os dados ou tente novamente mais tarde'
+}
+
+export const InvalidLoginInfo = {
+  en_us: 'Invalid login info, please verify',
+  pt_br: 'Login inválido, por favor verifique os dados informados'
 }
 
 export const LoginError = {
@@ -201,6 +216,11 @@ export const Number = {
 export const OauthOnPopup = {
   en_us: 'Continue login on popup',
   pt_br: 'Continue o login no pop-up'
+}
+
+export const Of = {
+  en_us: 'Of',
+  pt_br: 'De'
 }
 
 export const OfDiscount = {
