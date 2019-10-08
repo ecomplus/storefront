@@ -2,6 +2,7 @@
 /.serve
 /copy
 /template/**/storefront-template
+/template/public/assets/vendor/
 /template/public/admin/cms/
 /template/scss/styles.scss
 

@@ -2,6 +2,98 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.15.0](https://github.com/ecomclub/storefront-template/compare/v1.14.0...v1.15.0) (2019-10-03)
+
+
+### Features
+
+* **icons:** add fa plus icon ([2e2bd25](https://github.com/ecomclub/storefront-template/commit/2e2bd25))
+* **icons:** add some payment related icons ([030f382](https://github.com/ecomclub/storefront-template/commit/030f382))
+
+## [1.14.0](https://github.com/ecomclub/storefront-template/compare/v1.13.0...v1.14.0) (2019-10-01)
+
+
+### Features
+
+* **icons:** add fa icons for forms edit/info ([42136bd](https://github.com/ecomclub/storefront-template/commit/42136bd))
+
+## [1.13.0](https://github.com/ecomclub/storefront-template/compare/v1.12.0...v1.13.0) (2019-09-25)
+
+
+### Bug Fixes
+
+* **checkout:** fetch info to show all prices ([eea2616](https://github.com/ecomclub/storefront-template/commit/eea2616))
+
+
+### Features
+
+* **app:** setup header on app views ([fd8c6e5](https://github.com/ecomclub/storefront-template/commit/fd8c6e5))
+
+## [1.12.0](https://github.com/ecomclub/storefront-template/compare/v1.11.0...v1.12.0) (2019-09-24)
+
+
+### Features
+
+* **emitter:** setup global _events to handle default emitter evs ([8cb3583](https://github.com/ecomclub/storefront-template/commit/8cb3583))
+
+## [1.11.0](https://github.com/ecomclub/storefront-template/compare/v1.10.2...v1.11.0) (2019-09-24)
+
+
+### Features
+
+* **checkout:** loading icons and utils before widgets ([a2e2656](https://github.com/ecomclub/storefront-template/commit/a2e2656))
+
+### [1.10.2](https://github.com/ecomclub/storefront-template/compare/v1.10.1...v1.10.2) (2019-09-23)
+
+
+### Bug Fixes
+
+* **preload:** not preloading css and js when not necessary ([3d6e606](https://github.com/ecomclub/storefront-template/commit/3d6e606))
+
+### [1.10.1](https://github.com/ecomclub/storefront-template/compare/v1.10.0...v1.10.1) (2019-09-20)
+
+
+### Bug Fixes
+
+* **script-install:** passing directoy for modules (vendor) correctly ([beac3b8](https://github.com/ecomclub/storefront-template/commit/beac3b8))
+
+## [1.10.0](https://github.com/ecomclub/storefront-template/compare/v1.9.0...v1.10.0) (2019-09-20)
+
+
+### Bug Fixes
+
+* **app:** fix /app/ views ([d35361b](https://github.com/ecomclub/storefront-template/commit/d35361b))
+* **app:** fix app.ejs view, remove cdn scripts ([960a262](https://github.com/ecomclub/storefront-template/commit/960a262))
+* **js:** importing storefront-app js properly (checkout.js) ([f8fa367](https://github.com/ecomclub/storefront-template/commit/f8fa367))
+* **scss:** update photoswipe assets path ([93581f5](https://github.com/ecomclub/storefront-template/commit/93581f5))
+
+
+### Features
+
+* **script-install:** copying storefront-app and photoswipe assets ([1e28d2e](https://github.com/ecomclub/storefront-template/commit/1e28d2e))
+
+## [1.9.0](https://github.com/ecomclub/storefront-template/compare/v1.8.4...v1.9.0) (2019-09-20)
+
+
+### Bug Fixes
+
+* **echo-widgets:** preserving widgets objects props ([70c534d](https://github.com/ecomclub/storefront-template/commit/70c534d))
+* **storefront-app:** importing storefront-app script from cdn ([8d51cbc](https://github.com/ecomclub/storefront-template/commit/8d51cbc))
+
+
+### Features
+
+* **checkout-widgets:** check and setup widgets on /app/ routes ([366037c](https://github.com/ecomclub/storefront-template/commit/366037c))
+
+### [1.8.4](https://github.com/ecomclub/storefront-template/compare/v1.8.3...v1.8.4) (2019-09-20)
+
+### [1.8.3](https://github.com/ecomclub/storefront-template/compare/v1.8.2...v1.8.3) (2019-09-20)
+
+
+### Bug Fixes
+
+* **views:** adding some classes, fix storefront-app div id ([cad46e4](https://github.com/ecomclub/storefront-template/commit/cad46e4))
+
 ### [1.8.2](https://github.com/ecomclub/storefront-template/compare/v1.8.1...v1.8.2) (2019-09-18)
 
 

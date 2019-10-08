@@ -16,6 +16,9 @@ import {
   faBars,
   faShippingFast,
   faCreditCard,
+  faReceipt,
+  faBarcode,
+  faMoneyCheck,
   faExchangeAlt,
   faPercent,
   faHome,
@@ -25,7 +28,12 @@ import {
   faLock,
   faShieldAlt,
   faFilter,
-  faSort
+  faSort,
+  faPencilAlt,
+  faEdit,
+  faPlus,
+  faQuestionCircle,
+  faExclamationTriangle
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -71,6 +79,9 @@ library.add(
   faBars,
   faShippingFast,
   faCreditCard,
+  faReceipt,
+  faBarcode,
+  faMoneyCheck,
   faExchangeAlt,
   faPercent,
   faHome,
@@ -80,7 +91,12 @@ library.add(
   faLock,
   faShieldAlt,
   faFilter,
-  faSort
+  faSort,
+  faPencilAlt,
+  faEdit,
+  faPlus,
+  faQuestionCircle,
+  faExclamationTriangle
 )
 
 dom.watch()

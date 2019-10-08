@@ -42,11 +42,12 @@ for (let i = 0; i < $glides.length; i++) {
     const { perView } = glide.settings
     if (perView > 1 && $glide.dataset.pagination !== 'false') {
       const { direction } = move
+      let page, newIndex
       switch (direction) {
         case '>':
         case '<':
-          const page = Math.ceil(glide.index / perView)
-          let newIndex = page * perView + (direction === '>' ? perView : -perView)
+          page = Math.ceil(glide.index / perView)
+          newIndex = page * perView + (direction === '>' ? perView : -perView)
           if (newIndex >= size) {
             newIndex = 0
           } else if (newIndex < 0 || newIndex + perView > size) {

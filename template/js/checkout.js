@@ -1,3 +1,9 @@
 import './lib/config'
+import './lib/fetch-info'
 
-console.log('Storefront App')
+import '@ecomplus/storefront-app'
+
+import './lib/icons'
+import './lib/utils'
+
+import(/* webpackPrefetch: true */ './lib/load-widgets')
