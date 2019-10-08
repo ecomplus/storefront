@@ -36,9 +36,8 @@
 
   &__footer__info {
     text-align: center !important;
-    background: var(--light);
-    color: var(--dark);
     padding: 1rem;
+    font-size: 0.7rem;
   }
 
   &__footer__stamp > ul {
@@ -52,10 +51,7 @@
   &__footer__payment__methods li, &__footer__stamp__checkout li {
     list-style: none;
   }
-
-  &__credits img {
-    height: 1.2rem;
-  }
+  
   @media (max-width: 767.98px) {
     &__contact {
       display: none !important;
