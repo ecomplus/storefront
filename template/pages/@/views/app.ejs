@@ -109,15 +109,16 @@ const logo = _.settings.logo
           <% }) %>
         </div>
       </div>
-      <div class="app__footer__credits">
-        <% if (footer.credits) { %>
-          <span><%= footer.credits %></span>
-        <% } else { %>
-          <span>© <%= settings.name %></span><br>
-          <span><%= contacts.address %></span><br>
-          <span><%= contacts.doc_number %></span>
-        <% } %>
-      </div>
     </div>
   </footer>
+
+  <div class="app__credits">
+    <% if (footer.credits) { %>
+      <span><%= footer.credits %></span>
+    <% } else { %>
+      <span>© <%= settings.name %></span><br>
+      <span><%= contacts.address %></span><br>
+      <span><%= contacts.doc_number %></span>
+    <% } %>
+  </div>
 </div>

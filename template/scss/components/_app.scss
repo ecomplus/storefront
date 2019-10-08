@@ -7,11 +7,11 @@
   }
 
   &__footer {
-    background: var(--dark);
+    background: var(--light);
     padding: 1rem;
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
     max-width: 100%;
-    color: var(--light);
+    color: var(--dark);
   }
 
   &__logo {
@@ -43,8 +43,10 @@
     min-width: 100%;
   }
 
-  &__footer__credits {
-    text-align: center;
+  &__credits {
+    text-align: center !important;
+    background: var(--dark);
+    color: var(--light)
   }
 
   &__footer__stamp > ul {
@@ -60,7 +62,7 @@
   }
   @media (max-width: 767.98px) {
     &__contact {
-      display: none;
+      display: none !important;
     }
   }
 
