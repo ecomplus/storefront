@@ -77,7 +77,7 @@
           v-else-if="gateway.intermediator && gateway.intermediator.name"
           class="ec-payment__intermediator"
         >
-          via {{ gateway.intermediator.name }}
+          {{ gateway.intermediator.name }}
         </small>
       </a>
 
@@ -86,6 +86,12 @@
           class="ec-payment__method list-group-item"
           v-if="selectedGateway > -1"
         >
+          <p
+            class="ec-payment__text"
+            v-if="paymentGateway.text"
+            v-html="paymentGateway.text"
+          ></p>
+
           <ec-credit-card
             v-if="paymentGateway.payment_method.code === 'credit_card'"
             :amount="amount"
@@ -93,15 +99,28 @@
             :isCompany="isCompany"
             :installmentOptions="paymentGateway.installment_options"
             :jsClient="paymentGateway.js_client"
-            class="mb-3"
+            @submitCard="checkout"
           />
 
-          <p
-            class="ec-payment__text"
-            v-else-if="paymentGateway.text"
-            v-html="paymentGateway.text"
-          ></p>
+          <div v-else>
+            <p class="ec-payment__total">
+              {{ i18n('Total') }}:
+              <strong>{{ formatMoney(amount.total) }}</strong>
+            </p>
 
+            <button
+              class="btn btn-success btn-lg btn-block ec-payment__pay"
+              @click="() => { checkout() }"
+            >
+              <i class="fas fa-check mr-1"></i>
+              {{ i18n(
+                paymentGateway.payment_method.code === 'banking_billet'
+                  ? 'GenerateBillet' : 'Checkout'
+              ) }}
+            </button>
+          </div>
+
+          <hr>
           <button
             class="btn btn-sm btn-light"
             type="button"

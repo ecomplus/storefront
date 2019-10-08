@@ -6,9 +6,12 @@ import { FadeTransition, SlideYUpTransition } from 'vue2-transitions'
 
 import {
   ChangePaymentMethod,
+  Checkout,
+  GenerateBillet,
   InterestFree,
   OfDiscount,
   OnFreight,
+  Total,
   UpTo
 } from './../../lib/i18n'
 
@@ -54,9 +57,12 @@ export default {
     dictionary () {
       return {
         ChangePaymentMethod,
+        Checkout,
+        GenerateBillet,
         InterestFree,
         OfDiscount,
         OnFreight,
+        Total,
         UpTo,
         ...this.mergeDictionary
       }
@@ -148,6 +154,11 @@ export default {
         .finally(() => {
           this.waiting = false
         })
+    },
+
+    checkout (data = {}) {
+      data.payment = this.paymentGateway
+      this.$emit('checkout', data)
     }
   },
 

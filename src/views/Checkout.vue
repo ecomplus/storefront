@@ -8,6 +8,7 @@
       :shippingZipCode="shippingZipCode"
       @shippingService="selectShippingService"
       :amount="amount"
+      @checkout="checkout"
     />
   </div>
 </template>

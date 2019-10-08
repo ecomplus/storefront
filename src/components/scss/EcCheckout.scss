@@ -62,7 +62,9 @@
   &__app {
     min-height: 300px;
     max-width: 90rem;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px dotted var(--gray);
   }
 
   &__back {
@@ -104,6 +106,46 @@
     &.show {
       z-index: 10;
       opacity: .5;
+    }
+  }
+
+  &__summary {
+    background: var(--light);
+  }
+
+  &__item {
+    display: flex;
+    align-items:flex-start;
+    overflow-x: hidden;
+
+    img {
+      flex: 0 0 50px;
+      height: auto;
+      margin-right: .5rem;
+    }
+
+    small {
+      white-space: nowrap;
+    }
+  }
+
+  &__amount {
+    &-row {
+      display: flex;
+      justify-content: space-between;
+
+      > span {
+        font-weight: 300;
+      }
+
+      &--total {
+        margin-top: .5rem;
+        font-size: 1.25rem;
+
+        > div {
+          font-weight: bold;
+        }
+      }
     }
   }
 }

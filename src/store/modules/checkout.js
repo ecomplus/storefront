@@ -24,8 +24,7 @@ const state = {
       value: 0
     }
   },
-  shipping: {},
-  payment: {}
+  shipping: {}
 }
 
 const getters = {

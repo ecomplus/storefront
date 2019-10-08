@@ -60,6 +60,10 @@ export default {
       this.triggerLoading(true)
       this.fetchCustomer({ ecomPassport })
         .finally(() => this.triggerLoading(false))
+    },
+
+    checkout (data) {
+      console.log(data)
     }
   },
 

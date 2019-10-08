@@ -1,4 +1,4 @@
-import { i18n } from '@ecomplus/utils'
+import { i18n, name, formatMoney, price, img } from '@ecomplus/utils'
 import EcomCart from '@ecomplus/shopping-cart'
 import EcIdentify from './../EcIdentify.vue'
 import EcAccountForm from './../EcAccountForm.vue'
@@ -14,6 +14,8 @@ import {
   BackToCart,
   Continue,
   Delivery,
+  Discount,
+  Freight,
   Payment,
   RegisterToBuy,
   Summary
@@ -82,6 +84,8 @@ export default {
         BackToCart,
         Continue,
         Delivery,
+        Discount,
+        Freight,
         Payment,
         RegisterToBuy,
         Summary,
@@ -131,6 +135,14 @@ export default {
   },
 
   methods: {
+    name,
+    price,
+    formatMoney,
+
+    img (item) {
+      return img(item, null, 'small')
+    },
+
     i18n (label) {
       return i18n(this.dictionary[label])
     },

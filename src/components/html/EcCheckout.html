@@ -60,6 +60,7 @@
             <ec-payment
               :customer="localCustomer"
               :amount="amount"
+              @checkout="data => $emit('checkout', data)"
             />
 
             <div
@@ -70,6 +71,58 @@
             </div>
           </div>
         </slide-x-right-transition>
+
+        <div class="ec-checkout__col col-lg-4">
+          <div class="ec-checkout__summary card">
+            <div class="card-body">
+              <slot name="list" v-bind="{ items: cart.items }">
+                <div
+                  class="ec-checkout__item"
+                  v-for="item in cart.items"
+                  v-b-tooltip.right.hover
+                  :title="name(item)"
+                >
+                  <img
+                    v-if="img(item)"
+                    :src="img(item).url"
+                    :alt="img(item).alt"
+                  />
+
+                  <div>
+                    <span class="badge badge-secondary">
+                      {{ item.quantity }}
+                    </span>
+                    {{ formatMoney(price(item)) }}
+                    <br>
+                    <small>{{ name(item) }}</small>
+                  </div>
+                </div>
+              </slot>
+            </div>
+
+            <div class="card-footer">
+              <div class="ec-checkout__amount-row">
+                <span>Subtotal</span>
+                <div>{{ formatMoney(cart.subtotal) }}</div>
+              </div>
+
+              <div class="ec-checkout__amount-row">
+                <span>{{ i18n('Freight') }}</span>
+                <div>{{ formatMoney(amount.freight) }}</div>
+              </div>
+
+              <div class="ec-checkout__amount-row" v-if="amount.discount">
+                <span>{{ i18n('Discount') }}</span>
+                <div>{{ formatMoney(amount.discount) }}</div>
+              </div>
+
+              <div class="ec-checkout__amount-row ec-checkout__amount-row--total">
+                <span>Total</span>
+                <div>{{ formatMoney(amount.total) }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

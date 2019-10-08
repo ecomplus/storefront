@@ -83,6 +83,11 @@ export const Delivery = {
   pt_br: 'Entrega'
 }
 
+export const Discount = {
+  en_us: 'Discount',
+  pt_br: 'Desconto'
+}
+
 export const DocNumber = {
   en_us: 'Document number',
   pt_br: 'Número do documento'
@@ -113,6 +118,11 @@ export const Female = {
   pt_br: 'Feminino'
 }
 
+export const Freight = {
+  en_us: 'Freight',
+  pt_br: 'Frete'
+}
+
 export const FullName = {
   en_us: 'Full name',
   pt_br: 'Nome completo'
@@ -121,6 +131,11 @@ export const FullName = {
 export const GenderX = {
   en_us: 'Other',
   pt_br: 'Outro'
+}
+
+export const GenerateBillet = {
+  en_us: 'Generate billet',
+  pt_br: 'Gerar boleto'
 }
 
 export const HelloAgain = {
@@ -306,6 +321,10 @@ export const Street = {
 export const Summary = {
   en_us: 'Summary',
   pt_br: 'Resumo'
+}
+
+export const Total = {
+  en_us: 'Total'
 }
 
 export const UpTo = {
