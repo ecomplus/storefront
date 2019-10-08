@@ -7,9 +7,8 @@
   }
 
   &__footer {
-    background: var(--light);
-    padding: 1rem;
-    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    background: #f5f5f5;
+    padding: 1.5rem;
     max-width: 100%;
     color: var(--dark);
   }
@@ -46,7 +45,8 @@
   &__credits {
     text-align: center !important;
     background: var(--dark);
-    color: var(--light)
+    color: var(--light);
+    padding: 1.5rem;
   }
 
   &__footer__stamp > ul {
