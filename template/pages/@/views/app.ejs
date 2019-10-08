@@ -111,25 +111,25 @@ const logo = _.settings.logo
   </footer>
 
   <div class="app__credits">
-    <div class="container d-flex justify-content-between col-12 align-items-center">
-    <div class="app__credits__info">
-      <% if (footer.credits) { %>
-        <span><%= footer.credits %></span>
-      <% } else { %>
-        <span class="app__credits__name">© <%= settings.name %> - </span>
-        <span class="app__credits__address pl-1"><%= contacts.address %> - </span>
-        <span class="app__credits__doc-number pl-1"><%= contacts.doc_number %></span>
-      <% } %>
-    </div>
-    <div class="ecom-credits">
-      <a href="https://e-com.plus" target="_blank" rel="noopener">
-        Powered by
-        <img
-          src="https://ecom.nyc3.digitaloceanspaces.com/brand/plus/198x43.png"
-          alt="E-Com Plus"
-        >
-      </a>
-    </div>
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="app__credits__info">
+        <% if (footer.credits) { %>
+          <span><%= footer.credits %></span>
+        <% } else { %>
+          <span class="app__credits__name">© <%= settings.name %> - </span>
+          <span class="app__credits__address pl-1"><%= contacts.address %> - </span>
+          <span class="app__credits__doc-number pl-1"><%= contacts.doc_number %></span>
+        <% } %>
+      </div>
+      <div class="ecom-credits">
+        <a href="https://e-com.plus" target="_blank" rel="noopener">
+          Powered by
+          <img
+            src="https://ecom.nyc3.digitaloceanspaces.com/brand/plus/198x43.png"
+            alt="E-Com Plus"
+          >
+        </a>
+      </div>
     </div>
   </div>
 
