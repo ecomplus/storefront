@@ -6,7 +6,8 @@
       :customer.sync="customer"
       @addressSelected="selectAddress"
       :shippingZipCode="shippingZipCode"
-      @shippingService="selectShippingService"
+      :shippingService.sync="shippingService"
+      :paymentGateway.sync="paymentGateway"
       :amount="amount"
       @checkout="checkout"
     />

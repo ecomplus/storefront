@@ -36,6 +36,24 @@ export default {
           }
         }
       }
+    },
+
+    shippingService: {
+      get () {
+        return this.$store.getters.shippingService
+      },
+      set (service) {
+        this.selectShippingService(service)
+      }
+    },
+
+    paymentGateway: {
+      get () {
+        return this.$store.getters.paymentGateway
+      },
+      set (gateway) {
+        this.selectPaymentGateway(gateway)
+      }
     }
   },
 
@@ -44,6 +62,7 @@ export default {
       'triggerLoading',
       'setFluidPage',
       'selectShippingService',
+      'selectPaymentGateway',
       'setCustomer',
       'setCustomerEmail',
       'selectAddress'

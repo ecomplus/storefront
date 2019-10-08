@@ -19,12 +19,11 @@ const state = {
     total: 0
   },
   discount: {
-    coupon: {
-      name: '',
-      value: 0
-    }
+    coupon: '',
+    value: 0
   },
-  shipping: {}
+  shipping: {},
+  payment: {}
 }
 
 const getters = {
@@ -38,7 +37,11 @@ const getters = {
     } else {
       return ''
     }
-  }
+  },
+
+  shippingService: ({ shipping }) => shipping.app_id ? shipping : undefined,
+
+  paymentGateway: ({ payment }) => payment.app_id ? payment : undefined
 }
 
 const mutations = {
@@ -57,6 +60,26 @@ const mutations = {
     amount.total -= amount.freight
     amount.freight = shippingService.shipping_line.total_price
     amount.total += amount.freight
+  },
+
+  selectPaymentGateway (state, paymentGateway) {
+    state.payment = paymentGateway
+    const { amount, discount } = state
+    amount.subtotal = amount.total + amount.discount - amount.freight
+    amount.total += amount.discount
+    amount.discount = discount.value
+    if (paymentGateway.discount) {
+      const maxDiscount = amount[paymentGateway.discount.apply_at || 'total']
+      if (maxDiscount) {
+        const { type, value } = paymentGateway.discount
+        if (type === 'percentage') {
+          amount.discount += maxDiscount * value / 100
+        } else {
+          amount.discount += value <= maxDiscount ? value : maxDiscount
+        }
+      }
+    }
+    amount.total -= amount.discount
   }
 }
 
