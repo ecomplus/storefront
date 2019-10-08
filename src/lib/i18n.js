@@ -43,6 +43,11 @@ export const ChangePaymentMethod = {
   pt_br: 'Alterar forma de pagamento'
 }
 
+export const ChangeShippingMethod = {
+  en_us: 'Change shipping method',
+  pt_br: 'Alterar forma de envio'
+}
+
 export const Checkout = {
   en_us: 'Checkout',
   pt_br: 'Finalizar compra'
