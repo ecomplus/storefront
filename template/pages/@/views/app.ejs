@@ -110,17 +110,17 @@ const logo = _.settings.logo
     </div>
   </footer>
 
-  <div class="d-flex">
-    <div class="app__info col-12">
+  <div class="container d-flex justify-content-center col-12">
+    <div class="app__info d-flex align-items-center">
       <% if (footer.credits) { %>
         <span><%= footer.credits %></span>
       <% } else { %>
-        <span class="app__credits__name">© <%= settings.name %></span> |
-        <span class="app__credits__address"><%= contacts.address %></span> |
+        <span class="app__credits__name">© <%= settings.name %> - </span>
+        <span class="app__credits__address"><%= contacts.address %> - </span>
         <span class="app__credits__doc-number"><%= contacts.doc_number %></span>
       <% } %>
     </div>
-    <div class="ecom-credits pl-5">
+    <div class="ecom-credits d-flex align-items-center">
       <a href="https://e-com.plus" target="_blank" rel="noopener">
         Powered by
         <img
