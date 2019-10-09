@@ -71,7 +71,8 @@ export default {
     ...mapActions([
       'fetchCartItems',
       'fetchCustomer',
-      'saveCustomer'
+      'saveCustomer',
+      'sendCheckout'
     ]),
 
     login (ecomPassport) {
@@ -81,8 +82,11 @@ export default {
         .finally(() => this.triggerLoading(false))
     },
 
-    checkout (data) {
-      console.log(data)
+    checkout (transaction) {
+      const { customer } = this
+      this.sendCheckout({ customer, transaction }).then(order => {
+        console.log(order)
+      })
     }
   },
 

@@ -12,6 +12,37 @@ const fetchProduct = _id => {
   })
 }
 
+const prepareTransaction = ({ customer, transaction }) => {
+  const { name } = customer
+  Object.assign(transaction, {
+    buyer: {
+      email: customer.main_email,
+      fullname: `${name.given_name}${(` ${name.middle_name} ` || ' ')}${name.family_name}`
+    }
+  })
+  ;[
+    'inscription_number',
+    'inscription_type',
+    'doc_number',
+    'doc_country',
+    'registry_type',
+    'birth_date',
+    'gender'
+  ].forEach(prop => {
+    const value = customer[prop]
+    if (value) {
+      transaction.buyer[prop] = value
+    }
+  })
+  if (customer.phones.length) {
+    transaction.buyer.phone = customer.phones[0]
+  }
+  if (!transaction.billing_address) {
+    transaction.billing_address = customer.addresses.find(addr => addr.default)
+  }
+  return transaction
+}
+
 const state = {
   amount: {
     freight: 0,
@@ -92,9 +123,10 @@ const actions = {
         fetchProduct(item.product_id)
           .then(({ data }) => {
             Object.assign(item, data, {
+              final_price: data.price,
               quantity: 0,
-              body_html: null,
-              body_text: null
+              body_html: '',
+              body_text: ''
             })
             cart.increaseItemQnt(_id, quantity, false)
           })
@@ -104,7 +136,6 @@ const actions = {
             if (removeOnError || (status >= 400 && status < 500)) {
               cart.removeItem(_id, false)
             }
-            // TODO: Notify error
           })
           .finally(resolve)
       })
@@ -113,6 +144,44 @@ const actions = {
     return Promise.all(promises).then(() => {
       cart.save()
       commit('updateAmount')
+    })
+  },
+
+  sendCheckout ({ getters }, payload) {
+    const customer = { ...payload.customer }
+    for (const prop in customer) {
+      if (
+        Object.prototype.hasOwnProperty.call(customer, prop) &&
+        (customer[prop] === null || customer[prop] === '')
+      ) {
+        delete customer[prop]
+      }
+    }
+    const checkoutBody = {
+      items: cart.data.items,
+      shipping: {
+        ...getters.shippingService,
+        to: customer.addresses.find(addr => addr.default)
+      },
+      transaction: prepareTransaction(payload),
+      customer
+    }
+    return ecomClient.modules({
+      url: '/@checkout.json',
+      method: 'post',
+      data: checkoutBody
+    }).then(({ data }) => {
+      const { order, transaction } = data
+      if (transaction.redirect_to_payment && transaction.payment_link) {
+        window.location = transaction.payment_link
+      } else {
+        order.transactions = order.transactions || []
+        order.transactions.push(transaction)
+      }
+      return order
+    }).catch(err => {
+      console.error(err)
+      throw err
     })
   }
 }
