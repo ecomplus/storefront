@@ -28,6 +28,11 @@ export const Borough = {
   pt_br: 'Bairro'
 }
 
+export const Buyer = {
+  en_us: 'Buyer',
+  pt_br: 'Comprador'
+}
+
 export const CardNumber = {
   en_us: 'Card number',
   pt_br: 'Número do cartão'
@@ -183,6 +188,11 @@ export const InvalidLoginInfo = {
   pt_br: 'Login inválido, por favor verifique os dados informados'
 }
 
+export const Logout = {
+  en_us: 'Logout',
+  pt_br: 'Sair'
+}
+
 export const LoginError = {
   en_us: 'Login error',
   pt_br: 'Erro no login'
@@ -196,6 +206,11 @@ export const Male = {
 export const ManageYourHistory = {
   en_us: 'Manage your purchase history',
   pt_br: 'Gerenciar seu histórico de compras'
+}
+
+export const MyAccount = {
+  en_us: 'My account',
+  pt_br: 'Minha conta'
 }
 
 export const Name = {
