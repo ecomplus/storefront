@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.12](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.11...v1.0.0-beta.12) (2019-10-09)
+
+
+### Features
+
+* **confirmation:** add confirmation route, move to it after checkout ([bb7cd96](https://github.com/ecomclub/storefront-app/commit/bb7cd96))
+* **order:** setup EcOrderInfo component with order refresh service ([6cc3288](https://github.com/ecomclub/storefront-app/commit/6cc3288))
+
 ## [1.0.0-beta.11](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.10...v1.0.0-beta.11) (2019-10-09)
 
 
