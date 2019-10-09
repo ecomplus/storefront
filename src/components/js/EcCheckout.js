@@ -1,4 +1,4 @@
-import { i18n, name, formatMoney, price, img } from '@ecomplus/utils'
+import { i18n, name, formatMoney, price, img, phone } from '@ecomplus/utils'
 import EcomCart from '@ecomplus/shopping-cart'
 import EcIdentify from './../EcIdentify.vue'
 import EcAccountForm from './../EcAccountForm.vue'
@@ -13,11 +13,16 @@ import { FadeTransition, SlideYUpTransition, SlideXRightTransition } from 'vue2-
 import {
   Bag,
   BackToCart,
+  Buyer,
   ChangeShippingMethod,
+  ContactPhone,
   Continue,
   Delivery,
   Discount,
+  DocNumber,
   Freight,
+  Logout,
+  MyAccount,
   Payment,
   RegisterToBuy,
   Summary
@@ -80,7 +85,8 @@ export default {
     return {
       toCheckoutStep: this.checkoutStep,
       customerEmail: this.customer.main_email,
-      isUserIdentified: false,
+      isUserIdentified: Boolean(this.customer.main_email),
+      editAccount: false,
       editShippingService: !this.shippingService,
       localZipCode: this.shippingZipCode
     }
@@ -91,11 +97,16 @@ export default {
       return {
         Bag,
         BackToCart,
+        Buyer,
         ChangeShippingMethod,
+        ContactPhone,
         Continue,
         Delivery,
         Discount,
+        DocNumber,
         Freight,
+        Logout,
+        MyAccount,
         Payment,
         RegisterToBuy,
         Summary,
@@ -121,12 +132,22 @@ export default {
         return this.customer
       },
       set (customer) {
+        this.editAccount = false
         this.$emit('update:customer', customer)
       }
     },
 
+    customerName () {
+      const { name } = this.customer
+      return `${name.given_name} ${(name.middle_name || '')} ${name.family_name}`
+    },
+
+    customerPhone () {
+      return phone(this.customer)
+    },
+
     shownCheckoutStep () {
-      if (!this.hasBuyerInfo) {
+      if (!this.hasBuyerInfo || this.editAccount) {
         return 0
       } else {
         return this.toCheckoutStep
