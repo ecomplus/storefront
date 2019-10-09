@@ -110,21 +110,16 @@
         </span>
       </label>
 
-      <cleave-input
-        type="tel"
+      <input
+        type="number"
         class="form-control"
         :class="alert.cvv ? 'is-invalid': null"
         id="ec-credit-card-cvv"
-        pattern="[\d]{3,4}"
-        maxlength="4"
+        min="100"
+        max="9999"
         placeholder="123"
         v-model="card.cvv"
         @blur="() => { alert.cvv = card.cvv && !validateCvv() }"
-        :options="{
-          numeral: true,
-          numeralPositiveOnly: true,
-          numeralThousandsGroupStyle: 'none'
-        }"
         required
       />
     </div>

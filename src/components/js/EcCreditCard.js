@@ -25,6 +25,8 @@ import {
   ValidThru
 } from './../../lib/i18n'
 
+const countryCode = _config.get('country_code')
+
 export default {
   name: 'EcCreditCard',
 
@@ -194,13 +196,43 @@ export default {
     },
 
     emitCardData (hash) {
-      const data = {
-        ...this.card,
-        bin: `*** ${this.card.bin.slice(-4)}`,
-        cvv: '***',
-        hash
+      const { bin, name, cvv, doc, birth, installment, address } = this.card
+      const transaction = {
+        credit_card: {
+          holder_name: name,
+          last_digits: bin.slice(-4),
+          save: true,
+          cvv: parseInt(cvv, 10),
+          hash
+        }
       }
-      this.$emit('submitCard', data)
+      if (installment) {
+        transaction.installments_number = installment
+      }
+      if (address && address.zip) {
+        transaction.billing_address = address
+      }
+      if (name && doc) {
+        transaction.payer = {
+          fullname: name,
+          doc_number: doc.replace(/\D/g, '')
+        }
+        if (birth) {
+          const dateNumber = (start, ln) => parseInt(birth.substr(start, ln), 10)
+          let day, month, year
+          if (countryCode === 'BR') {
+            day = dateNumber(0, 2)
+            month = dateNumber(2, 2)
+            year = dateNumber(4, 4)
+          } else {
+            day = dateNumber(6, 2)
+            month = dateNumber(4, 2)
+            year = dateNumber(0, 4)
+          }
+          transaction.payer.birth_date = { day, month, year }
+        }
+      }
+      this.$emit('checkout', transaction)
     },
 
     notifyInvalidCard () {
