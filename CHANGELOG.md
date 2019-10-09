@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.10](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.9...v1.0.0-beta.10) (2019-10-09)
+
+
+### Features
+
+* **checkout:** setup checkout summary and fix steps mobile view ([e0836d9](https://github.com/ecomclub/storefront-app/commit/e0836d9))
+
 ## [1.0.0-beta.9](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.8...v1.0.0-beta.9) (2019-10-08)
 
 
