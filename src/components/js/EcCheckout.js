@@ -209,6 +209,10 @@ export default {
       }
     },
 
+    localZipCode () {
+      this.editShippingService = true
+    },
+
     toCheckoutStep (stepNumber) {
       this.$emit('update:checkoutStep', stepNumber)
     },

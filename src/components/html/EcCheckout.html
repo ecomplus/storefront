@@ -31,7 +31,7 @@
                   <slide-y-up-transition :duration="{ enter: 300, leave: 0 }" group>
                     <div
                       v-if="shippingService && !editShippingService"
-                      key="service"
+                      key="shipping"
                     >
                       <div class="ec-checkout__shipping-method">
                         <small>{{ shippingService.label }}</small>
@@ -40,7 +40,7 @@
 
                       <a
                         href="#"
-                        class="btn btn-sm btn-light"
+                        class="btn btn-sm btn-secondary"
                         @click.prevent="editShippingService = true"
                       >
                         <i class="fas fa-edit mr-1"></i>
@@ -50,7 +50,6 @@
 
                     <ec-shipping
                       v-else
-                      key="services"
                       :key="`shipTo${localZipCode}`"
                       :selectServices="true"
                       :shippedItems="cart.items"
@@ -88,7 +87,7 @@
                   :customer="localCustomer"
                   :amount="amount"
                   @gatewaySelected="gateway => $emit('update:paymentGateway', gateway)"
-                  @checkout="data => $emit('checkout', data)"
+                  @checkout="transaction => $emit('checkout', transaction)"
                 />
 
                 <div

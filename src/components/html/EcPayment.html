@@ -99,7 +99,7 @@
             :isCompany="isCompany"
             :installmentOptions="paymentGateway.installment_options"
             :jsClient="paymentGateway.js_client"
-            @submitCard="checkout"
+            @checkout="checkout"
           />
 
           <div v-else>

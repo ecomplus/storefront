@@ -94,13 +94,17 @@
   }
 
   &__shipping {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 
     &-method {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: .25rem;
+      margin-bottom: 1rem;
+      border-radius: .25rem;
+      padding: .75rem 1rem;
+      background: var(--light);
+      border-left: 3px solid var(--success);
 
       small {
         color: var(--gray);

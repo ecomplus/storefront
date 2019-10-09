@@ -156,9 +156,11 @@ export default {
         })
     },
 
-    checkout (data = {}) {
-      data.payment = this.paymentGateway
-      this.$emit('checkout', data)
+    checkout (transaction) {
+      this.$emit('checkout', {
+        ...this.paymentGateway,
+        ...transaction
+      })
     }
   },
 
