@@ -123,7 +123,10 @@
                     </span>
                     {{ formatMoney(price(item)) }}
                     <br>
-                    <small>{{ name(item) }}</small>
+                    <a v-if="item.slug" :href="item.slug" target="_blank">
+                      <small>{{ name(item) }}</small>
+                    </a>
+                    <small v-else>{{ name(item) }}</small>
                   </div>
                 </div>
               </slot>
