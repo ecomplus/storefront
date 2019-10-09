@@ -63,7 +63,7 @@
               id="ec-address-form-number"
               :required="!noNumber"
               :readonly="noNumber"
-              v-model="localAddress.number"
+              v-model.number="localAddress.number"
               ref="inputNumber"
             >
           </div>
