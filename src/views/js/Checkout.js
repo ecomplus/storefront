@@ -65,7 +65,8 @@ export default {
       'selectPaymentGateway',
       'setCustomer',
       'setCustomerEmail',
-      'selectAddress'
+      'selectAddress',
+      'addOrder'
     ]),
 
     ...mapActions([
@@ -84,9 +85,18 @@ export default {
 
     checkout (transaction) {
       const { customer } = this
-      this.sendCheckout({ customer, transaction }).then(order => {
-        console.log(order)
-      })
+      this.triggerLoading(true)
+      this.sendCheckout({ customer, transaction })
+        .then(order => {
+          this.addOrder(order)
+          this.$router.push({
+            name: 'confirmation',
+            params: {
+              id: order._id
+            }
+          })
+        })
+        .finally(() => this.triggerLoading(false))
     }
   },
 

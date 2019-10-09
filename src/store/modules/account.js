@@ -17,7 +17,8 @@ const state = {
     inscription_number: '',
     corporate_name: '',
     addresses: []
-  }
+  },
+  orders: []
 }
 
 const customerFields = Object.keys(state.customer)
@@ -25,7 +26,9 @@ const customerFields = Object.keys(state.customer)
 const getters = {
   customer: ({ customer }) => customer,
 
-  selectedAddress: ({ customer }) => customer.addresses.find(addr => addr.default)
+  selectedAddress: ({ customer }) => customer.addresses.find(addr => addr.default),
+
+  orders: ({ orders }) => orders
 }
 
 const mutations = {
@@ -46,6 +49,10 @@ const mutations = {
     state.customer.addresses.forEach(address => {
       address.default = address._id === addressId
     })
+  },
+
+  addOrder (state, order) {
+    state.orders.push(order)
   }
 }
 

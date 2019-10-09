@@ -22,6 +22,12 @@ router.afterEach(to => {
         pt_br: 'Finalizar compra'
       })
       break
+    case 'confirmation':
+      subtitle = i18n({
+        en_us: '✓ We received your order',
+        pt_br: '✓ Recebemos seu pedido'
+      })
+      break
     case 'account':
       subtitle = i18n({
         en_us: 'My account',

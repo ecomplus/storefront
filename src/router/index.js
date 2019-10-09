@@ -21,6 +21,14 @@ const routes = [
     )
   },
   {
+    path: '/confirmation/:id?',
+    name: 'confirmation',
+    component: () => import(
+      /* webpackChunkName: "confirmation" */
+      './../views/Confirmation.vue'
+    )
+  },
+  {
     path: '/account',
     name: 'account',
     component: () => import(
