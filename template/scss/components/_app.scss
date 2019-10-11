@@ -1,69 +1,95 @@
 .app {
+  &__header,
+  &__footer {
+    .container-fluid {
+      max-width: 90rem;
+      margin: 0 auto;
+    }
+  }
+
   &__header {
     background: var(--light);
     padding: 1rem;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    max-width: 100%;
-    &-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 90rem;
-      margin: 0 auto;
-      @media (max-width: 767.98px) {
-        flex-direction: column;
-        & > div {
-          padding: 0.5rem;
-        }
+    text-align: right;
+
+    @media (max-width: 575.98px) {
+      text-align: center;
+      font-size: .85rem;
+    }
+  }
+
+  &__contact {
+    color: var(--gray);
+
+    span {
+      &:not(:last-child) {
+        margin-right: .75rem;
+      }
+
+      &:not(:first-child) {
+        color: var(--secondary);
       }
     }
   }
 
   &__footer {
-    background: #f5f5f5;
-    padding: 1rem;
+    border-top: .25rem solid var(--secondary);
+    background: var(--light);
+  }
+
+  &__stamps {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2rem 1rem;
+    margin: 0;
     max-width: 100%;
-    color: var(--dark);
-    &-stamp {
-      &--checkout {
-        list-style: none;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+
+    & > li {
+      @media (max-width: 767.98px) {
         padding: 1rem 0;
-        margin: 0;
-        & > li {
-          @media (max-width: 767.98px) {
-            padding: 1rem 0;
-          }
-        }
-        li > img {
-          max-width: 120px;
-          height: auto;
-          width: 100%;
-        }
-        @media (max-width: 767.98px) {
-          flex-wrap: wrap;
-        }
       }
+    }
+
+    li > img {
+      max-width: 120px;
+      height: auto;
+      width: 100%;
+    }
+
+    @media (max-width: 767.98px) {
+      padding: 1.5rem 0;
+      flex-wrap: wrap;
+      overflow-x: auto;
     }
   }
 
   &__logo {
-    max-width: 150px;
-    max-height: 80px;
+    max-width: 300px;
+    max-height: 60px;
   }
 
-  &__icon-shield {
-    color: var(--success);
+  &__safe {
+    @media (max-width: 575.98px) {
+      display: none;
+    }
+
+    &__icon {
+      color: var(--success);
+      margin-right: .25rem;
+    }
   }
 
-  &__contact {
-    color: var(--grey);
-  }
+  &__credits {
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray);
+    font-size: .9rem;
+    padding: .5rem;
 
-  &__credits-info {
-    text-align: center;
-    padding-top: 2rem;
+    > div {
+      padding-top: 1rem;
+    }
   }
 }

@@ -11,34 +11,38 @@ const logo = _.settings.logo
 
 <div class="app">
   <header class="app__header">
-    <div class="app__header-content">
-      <div class="app__header-content--logo">
-        <a href="/">
-          <% if (logo && logo.url) { %>
-          <img class="app__logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
-          <% } else { %>
-          <%= _.settings.name || _.store.name %>
-          <% } %>
-        </a>
-      </div>
-      <div class="app__header-content--contact">
-        <%= _.dictionary().help %> ? <%= _.dictionary().call_to %>
-        <% if (contacts.whatsapp) { %>
-        <span class="whatsapp-link font-weight-normal pl-1">
-          <%= contacts.whatsapp %>
-        </span>
-        <% } %>
-        <% if (contacts.phone) { %>
-        |<span class="font-weight-normal pl-1">
-          <%= contacts.phone %>
-        </span>
-        <% } %>
-      </div>
-      <div class="app__header-content--safe-icon">
-        <span class="app__icon-shield">
-          <i class="fas fa-shield-alt"></i>
-        </span>
-        <span class="app__safe-icon-text pl-2">Ambiente 100% Seguro</span>
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-12 col-sm-auto mb-2 mb-sm-0">
+          <a href="/">
+            <% if (logo && logo.url) { %>
+              <img class="app__logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
+            <% } else { %>
+              <%= _.settings.name || _.store.name %>
+            <% } %>
+          </a>
+        </div>
+
+        <div class="col">
+          <div class="app__contact">
+            <span class="d-none d-md-inline">
+              <%= _.dictionary().need_help %>? <%= _.dictionary().call_to %>
+            </span>
+            <% if (contacts.whatsapp) { %>
+              <span><%= contacts.whatsapp %></span>
+            <% } %>
+            <% if (contacts.phone) { %>
+              <span><%= contacts.phone %></span>
+            <% } %>
+          </div>
+
+          <div class="app__safe">
+            <span class="app__safe__icon">
+              <i class="fas fa-shield-alt"></i>
+            </span>
+            <%= _.dictionary().safe_env %>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -48,37 +52,36 @@ const logo = _.settings.logo
   </div>
 
   <footer class="app__footer">
-    <div class="container">
-      <div class="app__footer-stamp">
-        <ul class="app__footer-stamp--checkout">
-          <% footer.stamps.forEach(({ src, alt, link }) => { %>
+    <div class="container-fluid">
+      <ul class="app__stamps">
+        <% footer.stamps.forEach(({ src, alt, link }) => { %>
           <% if (link) { %>
-          <li>
-            <a href="<%= link %>" target="_blank" rel="noopener">
+            <li>
+              <a href="<%= link %>" target="_blank" rel="noopener">
+                <img src="<%= src %>" alt="<%= alt %>">
+              </a>
+            </li>
+            <% } else { %>
+            <li>
               <img src="<%= src %>" alt="<%= alt %>">
-            </a>
-          </li>
-          <% } else { %>
-          <li>
-            <img src="<%= src %>" alt="<%= alt %>">
-          </li>
+            </li>
           <% } %>
-          <% }) %>
-        </ul>
-      </div>
+        <% }) %>
+      </ul>
     </div>
   </footer>
 
   <div class="app__credits container">
-    <div class="app__credits-info">
+    <div>
       <% if (footer.credits) { %>
-      <span><%= footer.credits %></span>
+        <span><%= footer.credits %></span>
       <% } else { %>
-      <span class="app__credits-info--name">© <%= settings.name %> </span>
-      <span class="app__credits-info--address"> - <%= contacts.address %> - </span>
-      <span class="app__credits-info--doc-number"> <%= contacts.doc_number %></span>
+        <span class="app__credits__name">© <%= settings.name %> </span>
+        <span class="app__credits__address"> - <%= contacts.address %> - </span>
+        <span class="app__credits__number"> <%= contacts.doc_number %></span>
       <% } %>
     </div>
+
     <div class="ecom-credits">
       <a href="https://e-com.plus" target="_blank" rel="noopener">
         Powered by
