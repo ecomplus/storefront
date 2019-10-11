@@ -21,7 +21,7 @@
 
 <style lang="scss">
   #storefront-app {
-    padding: 2rem 0;
+    padding: 2rem 0 3rem;
 
     h1 {
       text-align: center;
