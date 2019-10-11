@@ -1,6 +1,6 @@
 {
   "buy": "Comprar",
-  "help": "Ayuda",
+  "need_help": "Necesita ayuda",
   "call_to": "Llamar",
   "search_products": "Buscar Productos",
   "open_cart": "Sacola abierta",
@@ -8,5 +8,6 @@
   "popular_products": "Productos populares",
   "see_all_category": "Ver todas las categorías",
   "product_description": "Descripción del producto",
-  "product_specifications": "Producto presupuesto"
+  "product_specifications": "Producto presupuesto",
+  "safe_env": "Ambiente 100% seguro"
 }
