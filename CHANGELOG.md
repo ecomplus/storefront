@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.3](https://github.com/ecomclub/storefront-framework/compare/v5.2.2...v5.2.3) (2019-10-11)
+
+
+### Bug Fixes
+
+* **bin:** script must be required before config ([01afe85](https://github.com/ecomclub/storefront-framework/commit/01afe85))
+
 ### [5.2.2](https://github.com/ecomclub/storefront-framework/compare/v5.2.1...v5.2.2) (2019-10-08)
 
 
