@@ -63,6 +63,11 @@ export const City = {
   pt_br: 'Cidade'
 }
 
+export const CodeCopied = {
+  en_us: 'Code copied',
+  pt_br: 'Código copiado'
+}
+
 export const CompanyRegistration = {
   en_us: 'Company registration',
   pt_br: 'Pessoa jurídica'
@@ -88,6 +93,16 @@ export const Continue = {
   pt_br: 'Continuar'
 }
 
+export const CopyCode = {
+  en_us: 'Copy code',
+  pt_br: 'Copiar código'
+}
+
+export const CopyErrorMsg = {
+  en_us: 'Error copying to clipboard, please copy manually',
+  pt_br: 'Erro ao copiar para a área de transferência, por favor copie manualmente'
+}
+
 export const Delivery = {
   en_us: 'Delivery',
   pt_br: 'Entrega'
@@ -101,6 +116,11 @@ export const Discount = {
 export const DocNumber = {
   en_us: 'Document number',
   pt_br: 'Número do documento'
+}
+
+export const DoPaymentMsg = {
+  en_us: 'Please finalize the payment to confirm your purchase',
+  pt_br: 'Por favor finalize o pagamento para confirmar sua compra'
 }
 
 export const Edit = {
@@ -268,6 +288,16 @@ export const OnFreight = {
   pt_br: 'No frete'
 }
 
+export const OrderConfirmationMsg = {
+  en_us: 'Your order has been confirmed, thanks for your preference',
+  pt_br: 'Seu pedido foi confirmado, obrigado pela preferência'
+}
+
+export const OrderNumber = {
+  en_us: 'Order number',
+  pt_br: 'Número do pedido'
+}
+
 export const OrProceedWith = {
   en_us: 'Or proceed with',
   pt_br: 'Ou prossiga com'
@@ -288,6 +318,11 @@ export const PersonalRegistration = {
   pt_br: 'Pessoa física'
 }
 
+export const PrintBillet = {
+  en_us: 'Print billet',
+  pt_br: 'Imprimir boleto'
+}
+
 export const ProfileNotFound = {
   en_us: 'No profile found with email address',
   pt_br: 'Nenhum perfil encontrado com o endereço de e-mail'
@@ -301,6 +336,11 @@ export const ProvinceCode = {
 export const Recipient = {
   en_us: 'Recipient',
   pt_br: 'Destinatário'
+}
+
+export const RedirectToPayment = {
+  en_us: 'Redirect to payment',
+  pt_br: 'Efetuar pagamento'
 }
 
 export const Reference = {
@@ -347,6 +387,11 @@ export const Total = {
   en_us: 'Total'
 }
 
+export const TicketCode = {
+  en_us: 'Ticket code',
+  pt_br: 'Código de barras do boleto'
+}
+
 export const UpTo = {
   en_us: 'Up to',
   pt_br: 'Até'
@@ -370,4 +415,66 @@ export const WeUseYourDataTo = {
 export const ZipCode = {
   en_us: 'Zip code',
   pt_br: 'CEP'
+}
+
+export const _FinancialStatus = {
+  pending: {
+    en_us: 'Pending payment',
+    pt_br: 'Pagamento pendente'
+  },
+  under_analysis: {
+    en_us: 'Payment under analysis',
+    pt_br: 'Pagamento em análise'
+  },
+  authorized: {
+    en_us: 'Authorized payment',
+    pt_br: 'Pagamento autorizado'
+  },
+  unauthorized: {
+    en_us: 'Unauthorized payment',
+    pt_br: 'Pagamento não autorizado'
+  },
+  partially_paid: {
+    en_us: 'Partially paid',
+    pt_br: 'Parcialmente pago'
+  },
+  paid: {
+    en_us: 'Paid',
+    pt_br: 'Pago'
+  },
+  in_dispute: {
+    en_us: 'Payment in dispute',
+    pt_br: 'Pagamento em disputa'
+  },
+  partially_refunded: {
+    en_us: 'Payment partially refunded',
+    pt_br: 'Pagamento parcialmente devolvido'
+  },
+  refunded: {
+    en_us: 'Payment refunded',
+    pt_br: 'Pagamento devolvido'
+  },
+  voided: {
+    en_us: 'Payment voided',
+    pt_br: 'Pagamento cancelado'
+  },
+  unknown: {
+    en_us: 'Unknown payment status',
+    pt_br: 'Situação do pagamento desconhecida'
+  }
+}
+
+export const _OrderStatus = {
+  open: {
+    en_us: 'Open order',
+    pt_br: 'Pedido em aberto'
+  },
+  closed: {
+    en_us: 'Finalized order',
+    pt_br: 'Pedido finalizado'
+  },
+  cancelled: {
+    en_us: 'Cancelled',
+    pt_br: 'Cancelado'
+  }
 }
