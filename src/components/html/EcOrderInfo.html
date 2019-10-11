@@ -1,2 +1,72 @@
 <div class="ec-order-info">
+  <div v-if="isNew" class="ec-order-info__new">
+    {{ i18n('OrderConfirmationMsg') }}!
+  </div>
+
+  <slide-y-up-transition group>
+    <div key="loading" v-if="!loaded">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+    <div key="loaded" v-else>
+      <p class="ec-order-info__number">
+        {{ i18n('OrderNumber') }}:
+        <span class="h4">{{ localOrder.number }}</span>
+      </p>
+
+      <div
+        class="ec-order-info__status"
+        :class="`ec-order-info__status--${localOrder.status}`"
+        v-if="localOrder.status"
+      >
+        {{ i18n('_OrderStatus', localOrder.status) }}
+      </div>
+
+      <template v-if="transaction.status && transaction.status.current === 'pending'">
+        <div class="ec-order-info__billet" v-if="transaction.banking_billet">
+          <p class="lead">{{ i18n('DoPaymentMsg') }}</p>
+
+          <template v-if="transaction.banking_billet.code">
+            <p>
+              {{ i18n('TicketCode') }}:
+              <br><samp>{{ transaction.banking_billet.code }}</samp>
+            </p>
+
+            <button
+              class="btn btn-outline-primary mr-3"
+              @click="() => toClipboard(transaction.banking_billet.code)"
+            >
+              <i class="fas fa-copy mr-1"></i>
+              {{ i18n('CopyCode') }}
+            </button>
+          </template>
+
+          <a
+            target="_blank"
+            class="btn btn-primary"
+            v-if="transaction.banking_billet.link"
+            :href="transaction.banking_billet.link"
+          >
+            <i class="fas fa-print mr-1"></i>
+            {{ i18n('PrintBillet') }}
+          </a>
+        </div>
+
+        <div class="ec-order-info__redirect" v-else-if="transaction.payment_link">
+          <p class="lead">{{ i18n('DoPaymentMsg') }}</p>
+
+          <a
+            target="_blank"
+            class="btn btn-lg btn-primary"
+            :href="transaction.payment_link"
+          >
+            <i class="fas fa-arrow-right"></i>
+            {{ i18n('RedirectToPayment') }}
+          </a>
+        </div>
+      </template>
+    </div>
+  </slide-y-up-transition>
 </div>

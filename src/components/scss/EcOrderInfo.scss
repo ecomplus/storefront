@@ -1,2 +1,35 @@
-.ec-confirmation {
+.ec-order-info {
+  &__new {
+    text-align: center;
+    color: var(--success);
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  &__number {
+    color: var(--gray);
+
+    span {
+      display: block;
+      color: var(--secondary);
+    }
+  }
+
+  &__status {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+
+    &--open {
+      color: var(--info);
+    }
+
+    &--cancelled {
+      color: var(--danger);
+    }
+
+    &--closed {
+      color: var(--success);
+    }
+  }
 }
