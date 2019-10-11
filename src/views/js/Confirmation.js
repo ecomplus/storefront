@@ -14,7 +14,8 @@ export default {
     ]),
 
     order () {
-      return this.orders.find(({ _id }) => this.$route.params.id === _id)
+      const _id = this.$route.params.id
+      return this.orders.find(order => _id === order._id) || { _id }
     }
   }
 }

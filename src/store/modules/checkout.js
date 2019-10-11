@@ -178,7 +178,10 @@ const actions = {
         order.transactions = order.transactions || []
         order.transactions.push(transaction)
       }
-      return order
+      return {
+        status: 'open',
+        ...order
+      }
     }).catch(err => {
       console.error(err)
       throw err
