@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.17.0](https://github.com/ecomclub/storefront-template/compare/v1.16.1...v1.17.0) (2019-10-11)
+
+
+### Features
+
+* **icons:** add fa print/copy ([e317a04](https://github.com/ecomclub/storefront-template/commit/e317a04))
+
 ### [1.16.1](https://github.com/ecomclub/storefront-template/compare/v1.16.0...v1.16.1) (2019-10-10)
 
 ## [1.16.0](https://github.com/ecomclub/storefront-template/compare/v1.15.0...v1.16.0) (2019-10-08)
