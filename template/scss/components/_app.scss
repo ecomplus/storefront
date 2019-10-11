@@ -2,8 +2,21 @@
   &__header {
     background: var(--light);
     padding: 1rem;
-    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     max-width: 100%;
+    &-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 90rem;
+      margin: 0 auto;
+      @media (max-width: 767.98px) {
+        flex-direction: column;
+        & > div {
+          padding: 0.5rem;
+        }
+      }
+    }
   }
 
   &__footer {
@@ -19,11 +32,11 @@
   }
 
   &__icon-shield {
-    color:  var(--success)
+    color: var(--success);
   }
 
   &__contact {
-    color: var(--grey)
+    color: var(--grey);
   }
 
   &__footer__payment__methods {
@@ -47,7 +60,8 @@
     min-width: 100%;
   }
 
-  &__footer__payment__methods li, &__footer__stamp__checkout li {
+  &__footer__payment__methods li,
+  &__footer__stamp__checkout li {
     list-style: none;
   }
 
@@ -56,13 +70,12 @@
       display: none !important;
     }
     &__logo-position {
-      -webkit-box-pack: center!important;
-      justify-content: center!important;
+      -webkit-box-pack: center !important;
+      justify-content: center !important;
     }
     &__safe-icon {
-      padding-top: 0.5rem!important;
-      padding-right: 0!important;
+      padding-top: 0.5rem !important;
+      padding-right: 0 !important;
     }
   }
-
 }
