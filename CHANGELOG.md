@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.17.1](https://github.com/ecomclub/storefront-template/compare/v1.17.0...v1.17.1) (2019-10-11)
+
+
+### Bug Fixes
+
+* **app:** responsive header ([605d100](https://github.com/ecomclub/storefront-template/commit/605d100))
+
 ## [1.17.0](https://github.com/ecomclub/storefront-template/compare/v1.16.1...v1.17.0) (2019-10-11)
 
 
