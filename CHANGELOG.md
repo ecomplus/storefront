@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.13](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.12...v1.0.0-beta.13) (2019-10-11)
+
+
+### Features
+
+* **confirmation:** handle new order confirmation with EcOrderInfo ([a753cfb](https://github.com/ecomclub/storefront-app/commit/a753cfb))
+* **confirmation:** states and handlers for confirmation view ([61a585f](https://github.com/ecomclub/storefront-app/commit/61a585f))
+
 ## [1.0.0-beta.12](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.11...v1.0.0-beta.12) (2019-10-09)
 
 
