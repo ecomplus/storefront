@@ -3,6 +3,9 @@
 'use strict'
 
 ;(function () {
+  // force unset ecomClient timeout
+  process.env.ECOMCLIENT_NOTIMEOUT = true
+
   // check for action argument
   let action
   for (let i = 0; i < process.argv.length; i++) {
