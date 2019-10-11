@@ -22,7 +22,7 @@ const logo = _.settings.logo
         </a>
       </div>
       <div class="app__header-content--contact">
-        Dúvidas? Ligue
+        <%= _.dictionary().help %> ? <%= _.dictionary().call_to %>
         <% if (contacts.whatsapp) { %>
         <span class="whatsapp-link font-weight-normal pl-1">
           <%= contacts.whatsapp %>
@@ -49,9 +49,9 @@ const logo = _.settings.logo
 
   <footer class="app__footer">
     <div class="container">
-      <div class="app__footer__stamp col-12 pt-2 pb-2">
-        <% footer.stamps.forEach(({ src, alt, link }) => { %>
-        <ul class="app__footer__stamp__checkout d-flex align-items-center">
+      <div class="app__footer-stamp">
+        <ul class="app__footer-stamp--checkout">
+          <% footer.stamps.forEach(({ src, alt, link }) => { %>
           <% if (link) { %>
           <li>
             <a href="<%= link %>" target="_blank" rel="noopener">
@@ -63,30 +63,27 @@ const logo = _.settings.logo
             <img src="<%= src %>" alt="<%= alt %>">
           </li>
           <% } %>
+          <% }) %>
         </ul>
-        <% }) %>
       </div>
     </div>
   </footer>
 
-  <div class="app__credits">
-    <div class="container d-flex justify-content-between align-items-center">
-      <div class="app__credits__info">
-        <% if (footer.credits) { %>
-        <span><%= footer.credits %></span>
-        <% } else { %>
-        <span class="app__credits__name">© <%= settings.name %> - </span>
-        <span class="app__credits__address pl-1"><%= contacts.address %> - </span>
-        <span class="app__credits__doc-number pl-1"><%= contacts.doc_number %></span>
-        <% } %>
-      </div>
-      <div class="ecom-credits">
-        <a href="https://e-com.plus" target="_blank" rel="noopener">
-          Powered by
-          <img src="https://ecom.nyc3.digitaloceanspaces.com/brand/plus/198x43.png" alt="E-Com Plus">
-        </a>
-      </div>
+  <div class="app__credits container">
+    <div class="app__credits-info">
+      <% if (footer.credits) { %>
+      <span><%= footer.credits %></span>
+      <% } else { %>
+      <span class="app__credits-info--name">© <%= settings.name %> </span>
+      <span class="app__credits-info--address"> - <%= contacts.address %> - </span>
+      <span class="app__credits-info--doc-number"> <%= contacts.doc_number %></span>
+      <% } %>
+    </div>
+    <div class="ecom-credits">
+      <a href="https://e-com.plus" target="_blank" rel="noopener">
+        Powered by
+        <img src="https://ecom.nyc3.digitaloceanspaces.com/brand/plus/198x43.png" alt="E-Com Plus">
+      </a>
     </div>
   </div>
-
 </div>
