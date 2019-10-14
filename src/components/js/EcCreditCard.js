@@ -1,7 +1,6 @@
-/* eslint-disable no-eval */
-
 import { _config, i18n, formatMoney } from '@ecomplus/utils'
 import cardValidator from 'card-validator'
+import loadPaymentClient from './../../lib/load-payment-client'
 import InputDate from './../_internal/InputDate.vue'
 import InputDocNumber from './../_internal/InputDocNumber.vue'
 import CleaveInput from 'vue-cleave-component'
@@ -60,6 +59,9 @@ export default {
     },
     jsClient: {
       type: Object
+    },
+    jsClientLoad: {
+      type: Promise
     }
   },
 
@@ -91,7 +93,8 @@ export default {
         'hiper',
         'hipercard'
       ],
-      hideHolderFields: this.skipHolderInfo || Boolean(this.checkHolder)
+      hideHolderFields: this.skipHolderInfo || Boolean(this.checkHolder),
+      loadPromise: this.jsClientLoad || Promise.resolve()
     }
   },
 
@@ -178,7 +181,7 @@ export default {
     },
 
     generateCardHash () {
-      return this.jsClient.loaded.then(() => {
+      return this.loadPromise.then(() => {
         const cardHash = this.jsClient.cc_hash
         if (cardHash && cardHash.function) {
           const { name, doc, bin, cvv, date } = this.card
@@ -294,25 +297,8 @@ export default {
   },
 
   created () {
-    if (this.jsClient) {
-      const script = document.createElement('script')
-      script.async = true
-      script.defer = true
-      this.jsClient.loaded = new Promise(resolve => {
-        script.onload = () => {
-          resolve()
-          const expression = this.jsClient.onload_expression
-          if (expression) {
-            try {
-              eval(expression)
-            } catch (err) {
-              console.error(err, expression)
-            }
-          }
-        }
-      })
-      script.setAttribute('src', this.jsClient.script_uri)
-      document.head.appendChild(script)
+    if (this.jsClient && !this.jsClientLoad) {
+      this.loadPromise = loadPaymentClient(this.jsClient)
     }
   },
 

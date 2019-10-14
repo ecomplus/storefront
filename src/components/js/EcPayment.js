@@ -1,5 +1,6 @@
 import { i18n, price, formatMoney } from '@ecomplus/utils'
 import { modules } from '@ecomplus/client'
+import loadPaymentClient from './../../lib/load-payment-client'
 import EcomCart from '@ecomplus/shopping-cart'
 import EcCreditCard from './../EcCreditCard.vue'
 import { FadeTransition, SlideYUpTransition } from 'vue2-transitions'
@@ -49,7 +50,8 @@ export default {
     return {
       waiting: false,
       paymentGateways: [],
-      selectedGateway: -1
+      selectedGateway: -1,
+      loadedClients: {}
     }
   },
 
@@ -70,6 +72,20 @@ export default {
 
     paymentGateway () {
       return this.paymentGateways[this.selectedGateway] || {}
+    },
+
+    jsClient () {
+      return this.paymentGateway.js_client
+    },
+
+    jsClientLoad () {
+      const { loadedClients, selectedGateway } = this
+      return loadedClients[selectedGateway].then(payload => {
+        if (this.jsClient.transaction_promise && selectedGateway === this.selectedGateway) {
+          this.jsClient.transaction_promise.then(this.checkout)
+        }
+        return payload
+      })
     },
 
     isCompany () {
@@ -116,16 +132,23 @@ export default {
 
     parsePaymentOptions (listResult = []) {
       this.paymentGateways = []
+      this.loadedClients = {}
       if (listResult.length) {
         listResult.forEach(appResult => {
           const { validated, error, response } = appResult
           if (validated && !error) {
             response.payment_gateways.forEach(gateway => {
-              this.paymentGateways.push({
+              const paymentGateway = {
                 app_id: appResult.app_id,
                 installment_option: this.installmentOption(gateway),
                 ...gateway
-              })
+              }
+              this.paymentGateways.push(paymentGateway)
+              const jsClient = paymentGateway.js_client
+              if (jsClient) {
+                const gatewayIndex = this.paymentGateways.length - 1
+                this.loadedClients[gatewayIndex] = loadPaymentClient(jsClient)
+              }
             })
           }
         })

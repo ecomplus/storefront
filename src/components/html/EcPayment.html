@@ -98,9 +98,16 @@
             :checkHolder="customerName"
             :isCompany="isCompany"
             :installmentOptions="paymentGateway.installment_options"
-            :jsClient="paymentGateway.js_client"
+            :jsClient="jsClient"
+            :jsClientLoad="jsClientLoad"
             @checkout="checkout"
           />
+
+          <div
+            v-else-if="jsClient && jsClient.container_html"
+            v-html="jsClient.container_html"
+          >
+          </div>
 
           <div v-else>
             <p class="ec-payment__total">
