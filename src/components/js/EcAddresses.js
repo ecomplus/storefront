@@ -140,7 +140,14 @@ export default {
     if (!this.addresses.length) {
       this.newAddress = true
     } else {
-      this.selectAddress(this.addresses.find(addr => addr.default) || this.addresses[0])
+      let address
+      if (this.zipCode) {
+        address = this.addresses.find(addr => addr.zip === this.zipCode)
+      }
+      if (!address) {
+        address = this.addresses.find(addr => addr.default) || this.addresses[0]
+      }
+      this.selectAddress(address)
     }
   }
 }
