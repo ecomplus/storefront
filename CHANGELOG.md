@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.14](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.13...v1.0.0-beta.14) (2019-10-14)
+
+
+### Bug Fixes
+
+* **addresses:** start selecting address by zip code (if set) ([ba8baaf](https://github.com/ecomclub/storefront-app/commit/ba8baaf))
+
+
+### Features
+
+* **lib:** add load payment client script (function) ([079b794](https://github.com/ecomclub/storefront-app/commit/079b794))
+* **payments:** preload clients, treat transaction promise ([711e0bb](https://github.com/ecomclub/storefront-app/commit/711e0bb))
+
 ## [1.0.0-beta.13](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.12...v1.0.0-beta.13) (2019-10-11)
 
 
