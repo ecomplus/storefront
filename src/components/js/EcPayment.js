@@ -80,7 +80,8 @@ export default {
 
     jsClientLoad () {
       const { loadedClients, selectedGateway } = this
-      return loadedClients[selectedGateway].then(payload => {
+      return loadedClients[selectedGateway].then(runOnloadExpression => {
+        const payload = runOnloadExpression()
         const transactionPromise = this.jsClient.transaction_promise
         if (transactionPromise && selectedGateway === this.selectedGateway) {
           try {
@@ -152,7 +153,7 @@ export default {
               const jsClient = paymentGateway.js_client
               if (jsClient) {
                 const gatewayIndex = this.paymentGateways.length - 1
-                this.loadedClients[gatewayIndex] = loadPaymentClient(jsClient)
+                this.loadedClients[gatewayIndex] = loadPaymentClient(jsClient, true)
               }
             })
           }
