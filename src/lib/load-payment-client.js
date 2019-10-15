@@ -6,7 +6,6 @@ export default jsClient => {
   script.defer = true
   const loadPromise = new Promise(resolve => {
     script.onload = () => {
-      resolve()
       const expression = jsClient.onload_expression
       if (expression) {
         try {
@@ -15,6 +14,7 @@ export default jsClient => {
           console.error(err, expression)
         }
       }
+      resolve()
     }
   })
   script.setAttribute('src', jsClient.script_uri)
