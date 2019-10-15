@@ -63,7 +63,12 @@ const actions = {
         commit('setCustomer', data)
       })
       .catch(err => {
-        console.error(err)
+        const { response } = err
+        if (response && response.status === 401) {
+          ecomPassport.logout()
+        } else {
+          console.error(err)
+        }
       })
   },
 
