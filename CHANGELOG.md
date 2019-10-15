@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.15](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.14...v1.0.0-beta.15) (2019-10-15)
+
+
+### Bug Fixes
+
+* **account:** logout after fetch customer 401 error ([bd34d3a](https://github.com/ecomclub/storefront-app/commit/bd34d3a))
+* **payment-client:** resolve promise after onload expression ([1d49c7b](https://github.com/ecomclub/storefront-app/commit/1d49c7b))
+* **payments:** fix handling gateways js clients ([99a08b5](https://github.com/ecomclub/storefront-app/commit/99a08b5))
+* **payments:** fix handling js client transaction promise ([b7822c8](https://github.com/ecomclub/storefront-app/commit/b7822c8))
+
 ## [1.0.0-beta.14](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.13...v1.0.0-beta.14) (2019-10-14)
 
 
