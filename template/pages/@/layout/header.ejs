@@ -75,7 +75,7 @@ const logo = _.settings.logo
           <div class="col-auto">
             <% networks.forEach(network => { %>
               <% if (contacts[network]) { %>
-                <a href="<%= contacts[network] %>" target="_blank" rel="noopener">
+                <a href="<%= contacts[network] %>" target="_blank" rel="noopener" aria-label="<%= network %>">
                   <i class="fab fa-<%= network %>"></i>
                 </a>
               <% } %>
@@ -90,7 +90,7 @@ const logo = _.settings.logo
     <div class="container-fluid">
       <div class="row align-items-center">
         <div class="header__col col-auto">
-          <button class="btn header__toggler" type="button" onclick="toggleSidenav()">
+          <button class="btn header__toggler" type="button" onclick="toggleSidenav()" aria-label="menu">
             <i class="header__toggler__icon fas fa-bars"></i>
             <span class="d-none d-lg-inline">
               Menu
@@ -134,6 +134,7 @@ const logo = _.settings.logo
               data-toggle="tooltip"
               data-placement="bottom"
               title="<%= _.dictionary().my_account %>"
+              aria-label="<%= _.dictionary().my_account %>"
             >
               <i class="fas fa-user"></i>
             </a>
@@ -145,6 +146,7 @@ const logo = _.settings.logo
               data-toggle="tooltip"
               data-placement="bottom"
               title="<%= _.dictionary().open_cart %>"
+              aria-label="<%= _.dictionary().open_cart %>"
             >
               <i class="fas fa-shopping-bag"></i>
             </a>
