@@ -1,20 +1,28 @@
 /* eslint-disable no-eval */
 
-export default jsClient => {
+export default (jsClient, skipOnloadExpression) => {
   const script = document.createElement('script')
   script.async = true
   script.defer = true
   const loadPromise = new Promise(resolve => {
     script.onload = () => {
-      const expression = jsClient.onload_expression
-      if (expression) {
-        try {
-          eval(expression)
-        } catch (err) {
-          console.error(err, expression)
+      let expression = jsClient.onload_expression
+      const runExpression = () => {
+        if (expression) {
+          try {
+            eval(expression)
+          } catch (err) {
+            console.error(err, expression)
+          }
+          expression = null
         }
       }
-      resolve()
+      if (!skipOnloadExpression) {
+        runExpression()
+        resolve()
+      } else {
+        resolve(runExpression)
+      }
     }
   })
   script.setAttribute('src', jsClient.script_uri)
