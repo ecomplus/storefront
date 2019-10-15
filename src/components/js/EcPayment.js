@@ -81,8 +81,13 @@ export default {
     jsClientLoad () {
       const { loadedClients, selectedGateway } = this
       return loadedClients[selectedGateway].then(payload => {
-        if (this.jsClient.transaction_promise && selectedGateway === this.selectedGateway) {
-          this.jsClient.transaction_promise.then(this.checkout)
+        const transactionPromise = this.jsClient.transaction_promise
+        if (transactionPromise && selectedGateway === this.selectedGateway) {
+          try {
+            window[transactionPromise].then(this.checkout)
+          } catch (err) {
+            console.error(err)
+          }
         }
         return payload
       })
