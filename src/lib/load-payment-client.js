@@ -14,7 +14,9 @@ export default (jsClient, skipOnloadExpression) => {
           } catch (err) {
             console.error(err, expression)
           }
-          expression = null
+          if (!jsClient.container_html) {
+            expression = null
+          }
         }
       }
       if (!skipOnloadExpression) {
