@@ -7,6 +7,7 @@ import store from './store/'
 import { FadeTransition, SlideXLeftTransition } from 'vue2-transitions'
 import './lib/clipboard'
 import './lib/credit-card'
+import 'cleave.js/dist/addons/cleave-phone.br'
 
 const { title } = document
 router.afterEach(to => {
