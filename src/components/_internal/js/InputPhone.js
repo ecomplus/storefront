@@ -1,6 +1,6 @@
 import { _config } from '@ecomplus/utils'
+import CleavePhone from 'cleave.js/dist/addons/cleave-phone.br'
 import CleaveInput from 'vue-cleave-component'
-import 'cleave.js/dist/addons/cleave-phone.br'
 
 const countryCode = _config.get('country_code')
 
@@ -8,7 +8,8 @@ export default {
   name: 'InputPhone',
 
   components: {
-    CleaveInput
+    CleaveInput,
+    CleavePhone
   },
 
   props: {
