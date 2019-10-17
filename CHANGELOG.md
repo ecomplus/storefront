@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.5](https://github.com/ecomclub/storefront-framework/compare/v5.2.4...v5.2.5) (2019-10-17)
+
+
+### Bug Fixes
+
+* **deps:** explicitly add 'html-webpack-plugin' required by others ([cbbce72](https://github.com/ecomclub/storefront-framework/commit/cbbce72))
+
 ### [5.2.4](https://github.com/ecomclub/storefront-framework/compare/v5.2.3...v5.2.4) (2019-10-11)
 
 
