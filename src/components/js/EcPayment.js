@@ -79,19 +79,26 @@ export default {
     },
 
     jsClientLoad () {
-      const { loadedClients, selectedGateway } = this
-      return loadedClients[selectedGateway].then(runOnloadExpression => {
-        const payload = runOnloadExpression()
-        const transactionPromise = this.jsClient.transaction_promise
-        if (transactionPromise && selectedGateway === this.selectedGateway) {
-          try {
-            window[transactionPromise].then(this.checkout)
-          } catch (err) {
-            console.error(err)
+      const { amount, loadedClients, selectedGateway } = this
+      if (amount.total) {
+        return loadedClients[selectedGateway].then(runOnloadExpression => {
+          if (this.$refs.gatewayContainer) {
+            this.$refs.gatewayContainer.innerHTML = this.jsClient.container_html
           }
-        }
-        return payload
-      })
+          const payload = runOnloadExpression(amount)
+          const transactionPromise = this.jsClient.transaction_promise
+          if (transactionPromise && selectedGateway === this.selectedGateway) {
+            try {
+              window[transactionPromise].then(this.checkout)
+            } catch (err) {
+              console.error(err)
+            }
+          }
+          return payload
+        })
+      } else {
+        return Promise.resolve()
+      }
     },
 
     isCompany () {

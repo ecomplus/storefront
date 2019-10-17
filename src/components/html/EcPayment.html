@@ -94,8 +94,10 @@
 
           <div
             v-if="jsClient && jsClient.container_html"
-            v-html="jsClient.container_html"
             :data-loaded="jsClientLoad.toString()"
+            :data-amount="JSON.stringify(amount)"
+            v-html="jsClient.container_html"
+            ref="gatewayContainer"
           >
           </div>
 
