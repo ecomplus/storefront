@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.18](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.17...v1.0.0-beta.18) (2019-10-17)
+
+
+### Bug Fixes
+
+* **input-phone:** import br format on main ([57fd25a](https://github.com/ecomclub/storefront-app/commit/57fd25a))
+
 ## [1.0.0-beta.17](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.16...v1.0.0-beta.17) (2019-10-17)
 
 
