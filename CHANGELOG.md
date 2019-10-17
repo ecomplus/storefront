@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.16](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.15...v1.0.0-beta.16) (2019-10-17)
+
+
+### Bug Fixes
+
+* **payment:** ensure container html is updated when amoutn changes ([0c2031a](https://github.com/ecomclub/storefront-app/commit/0c2031a))
+* **payment-client:** repeat onload expression when it has container html ([4649d05](https://github.com/ecomclub/storefront-app/commit/4649d05))
+
+
+### Features
+
+* **payment-clients:** set global _amount object before onload exp ([e397a6b](https://github.com/ecomclub/storefront-app/commit/e397a6b))
+
 ## [1.0.0-beta.15](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.14...v1.0.0-beta.15) (2019-10-15)
 
 
