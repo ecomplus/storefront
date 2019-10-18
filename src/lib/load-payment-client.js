@@ -7,8 +7,8 @@ export default (jsClient, skipOnloadExpression) => {
   const loadPromise = new Promise(resolve => {
     script.onload = () => {
       let expression = jsClient.onload_expression
-      const runExpression = (amount) => {
-        window._amount = amount
+      const runExpression = (checkoutData) => {
+        window._checkout = checkoutData
         if (expression) {
           try {
             eval(expression)

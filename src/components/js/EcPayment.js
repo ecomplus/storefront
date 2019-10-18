@@ -70,6 +70,10 @@ export default {
       }
     },
 
+    items () {
+      return this.cartItems || this.ecomCart.data.items
+    },
+
     paymentGateway () {
       return this.paymentGateways[this.selectedGateway] || {}
     },
@@ -79,13 +83,13 @@ export default {
     },
 
     jsClientLoad () {
-      const { amount, loadedClients, selectedGateway } = this
+      const { amount, customer, items, loadedClients, selectedGateway } = this
       if (amount.total) {
         return loadedClients[selectedGateway].then(runOnloadExpression => {
           if (this.$refs.gatewayContainer) {
             this.$refs.gatewayContainer.innerHTML = this.jsClient.container_html
           }
-          const payload = runOnloadExpression(amount)
+          const payload = runOnloadExpression({ amount, customer, items })
           const transactionPromise = this.jsClient.transaction_promise
           if (transactionPromise && selectedGateway === this.selectedGateway) {
             try {
@@ -171,7 +175,7 @@ export default {
     fetchPaymentGateways () {
       const url = '/list_payments.json'
       const method = 'POST'
-      const items = this.cartItems || this.ecomCart.data.items
+      const { items } = this
       const amount = this.amount ? { ...this.amount } : {}
       if (typeof amount.subtotal !== 'number') {
         amount.total = amount.subtotal = items
