@@ -18,7 +18,8 @@ const prepareTransaction = ({ customer, transaction }) => {
     buyer: {
       email: customer.main_email,
       fullname: `${name.given_name}${(` ${name.middle_name} ` || ' ')}${name.family_name}`
-    }
+    },
+    domain: window.location.hostname
   })
   ;[
     'inscription_number',
