@@ -313,6 +313,16 @@ export const Payment = {
   pt_br: 'Pagamento'
 }
 
+export const PaymentError = {
+  en_us: 'Payment error',
+  pt_br: 'Erro no pagamento'
+}
+
+export const PaymentErrorMsg = {
+  en_us: 'Unable to approve purchase, please verify details or try another payment method',
+  pt_br: 'Não foi possível aprovar a compra, por favor verifique os dados ou tente com outra forma de pagamento'
+}
+
 export const PersonalRegistration = {
   en_us: 'Personal registration',
   pt_br: 'Pessoa física'
