@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.20](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.19...v1.0.0-beta.20) (2019-10-22)
+
+
+### Bug Fixes
+
+* **payments:** handle js client transaction promise reject ([ad9edbd](https://github.com/ecomclub/storefront-app/commit/ad9edbd))
+
 ## [1.0.0-beta.19](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.18...v1.0.0-beta.19) (2019-10-22)
 
 
