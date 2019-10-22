@@ -37,7 +37,7 @@
     "axios": "^0.19.0",
     "card-validator": "^6.2.0",
     "cleave.js": "^1.5.3",
-    "core-js": "^3.3.2",
+    "core-js": "^3.3.3",
     "credit-card-type": "^8.3.0",
     "lodash.clonedeep": "^4.5.0",
     "vue": "^2.6.10",
@@ -54,7 +54,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@ecomplus/storefront-template": "^1.17.1",
+    "@ecomplus/storefront-template": "^1.17.2",
     "@ecomplus/widget-minicart": "^0.6.7",
     "@ecomplus/widget-product": "^0.3.16",
     "@vue/cli-plugin-babel": "^4.0.4",
