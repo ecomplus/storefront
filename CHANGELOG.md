@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.19](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.18...v1.0.0-beta.19) (2019-10-22)
+
+
+### Bug Fixes
+
+* **input-phone:** import br format with named import (fix include err) ([8932e2a](https://github.com/ecomclub/storefront-app/commit/8932e2a))
+* **list-payments:** remove empty customer props (prevent 400 error) ([5b3be13](https://github.com/ecomclub/storefront-app/commit/5b3be13))
+
+
+### Features
+
+* **payment-client:** explose _checkout with amount, items and customer ([f55a5ef](https://github.com/ecomclub/storefront-app/commit/f55a5ef))
+
 ## [1.0.0-beta.18](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.17...v1.0.0-beta.18) (2019-10-17)
 
 
