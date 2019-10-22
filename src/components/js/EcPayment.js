@@ -12,6 +12,8 @@ import {
   InterestFree,
   OfDiscount,
   OnFreight,
+  PaymentError,
+  PaymentErrorMsg,
   Total,
   UpTo
 } from './../../lib/i18n'
@@ -64,6 +66,8 @@ export default {
         InterestFree,
         OfDiscount,
         OnFreight,
+        PaymentError,
+        PaymentErrorMsg,
         Total,
         UpTo,
         ...this.mergeDictionary
@@ -93,7 +97,16 @@ export default {
           const transactionPromise = this.jsClient.transaction_promise
           if (transactionPromise && selectedGateway === this.selectedGateway) {
             try {
-              window[transactionPromise].then(this.checkout)
+              window[transactionPromise]
+                .then(this.checkout)
+                .catch(err => {
+                  console.error(err)
+                  this.$bvToast.toast(this.i18n('PaymentErrorMsg'), {
+                    title: this.i18n('PaymentError'),
+                    variant: 'warning',
+                    solid: true
+                  })
+                })
             } catch (err) {
               console.error(err)
             }
