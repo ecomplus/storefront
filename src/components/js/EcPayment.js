@@ -187,7 +187,20 @@ export default {
           amount.total -= amount.discount
         }
       }
-      const data = { items, amount }
+      const data = {
+        items,
+        amount,
+        domain: window.location.hostname
+      }
+      if (this.customer) {
+        data.customer = {}
+        for (const prop in this.customer) {
+          const val = this.customer[prop]
+          if (val && (typeof val !== 'object' || Object.keys(val).length)) {
+            data.customer[prop] = val
+          }
+        }
+      }
       this.waiting = true
       modules({ url, method, data })
         .then(({ data }) => this.parsePaymentOptions(data.result))
