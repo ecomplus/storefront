@@ -1,0 +1,27 @@
+<div class="ec-variations" v-if="variations">
+  <div class="ec-variations__specifications" v-for="(values, grid) in options">
+    <div class="ec-variations__colors" v-if="grid === 'colors'">
+      <h5> {{ gridTitle(grid, grids) }} <span></span></h5>
+      <div class="ec-variations__options">
+        <a
+        :data-code="specValueByText(variations, value, grid)"
+        v-for="value in values"
+        :data-value="value"
+        href="#"
+        :style="{background: specValueByText(variations, value, grid)}"
+        ></a>
+      </div>
+    </div>
+    <div v-else class="ec-variations__other" :id="['ec-variations__' + grid]">
+      <h5> {{ gridTitle(grid, grids) }} <span></span></h5>
+      <div class="ec-variations__options" v-if="quantityVariations < 30">
+        <a v-for="value in values" :data-value="value" href="#">{{ value }}</a>
+      </div>
+      <div v-else class="ec-variations__select">
+        <select class="select_var" name="variations_select">
+          <option v-for="value in values" :data-value="value" href="#">{{ value }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>

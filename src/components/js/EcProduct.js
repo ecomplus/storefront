@@ -1,6 +1,7 @@
-import { _config, name, inStock, onPromotion, price } from '@ecomplus/utils'
+import { _config, name, inStock, onPromotion, price, variationsGrids, specValueByText } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
 import EcPrices from './../EcPrices.vue'
+import EcVariations from './../EcVariations.vue'
 import EcGallery from './../EcGallery.vue'
 import EcShipping from './../EcShipping.vue'
 import dictionary from './../../lib/dictionary'
@@ -15,6 +16,7 @@ export default {
   components: {
     EcPrices,
     EcGallery,
+    EcVariations,
     EcShipping,
     FadeTransition
   },
@@ -84,6 +86,8 @@ export default {
     dictionary,
     name,
     inStock,
+    variationsGrids,
+    specValueByText,
 
     fetchProduct () {
       const vm = this
