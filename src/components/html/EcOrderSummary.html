@@ -1,0 +1,74 @@
+<div class="ec-order__summary">
+  <div>
+    <h5>{{ i18n('Summary') }}</h5>
+
+    <slot name="list">
+      <div class="ec-order__item" v-for="item in order.items">
+        <img v-if="img(item)" :src="img(item).url" :alt="img(item).alt" />
+
+        <div>
+          <span class="badge badge-secondary">
+            {{ item.quantity }}
+          </span>
+          {{ formatMoney(price(item)) }}
+          <br>
+          <a v-if="item.slug" :href="item.slug" target="_blank">
+            <small>{{ name(item) }}</small>
+          </a>
+          <small v-else>{{ name(item) }}</small>
+        </div>
+      </div>
+    </slot>
+
+    <div class="ec-order__amount">
+      <div class="ec-order__amount__row">
+        <span>Subtotal</span>
+        <div>{{ formatMoney(order.amount.subtotal) }}</div>
+      </div>
+
+      <div class="ec-order__amount__row">
+        <span>
+          {{ i18n('Freight') }}
+          <small v-if="shippingLines.to">
+            {{ shippingLines.to.street }}
+            <template v-if="shippingLines.to">
+              {{ shippingLines.to.number }}
+            </template>
+          </small>
+        </span>
+        <div>{{ formatMoney(order.amount.freight) }}</div>
+      </div>
+
+      <div class="ec-order__amount__row" v-if="order.amount.discount">
+        <span>{{ i18n('Discount') }}</span>
+        <div>{{ formatMoney(order.amount.discount) }}</div>
+      </div>
+
+      <div class="ec-order__amount__row ec-order__amount__row--total">
+        <span>Total</span>
+        <div>{{ formatMoney(order.amount.total) }}</div>
+      </div>
+    </div>
+
+    <div class="ec-order__user">
+      <h5>{{ i18n('Buyer') }}</h5>
+      <p>
+        {{ customerName }}
+        <br>
+        <small>{{ i18n('DocNumber') }}:</small>
+        {{ docNumber }}
+        <br>
+        <small>{{ i18n('ContactPhone') }}:</small>
+        {{ customerPhone }}
+        <br>
+        <small>{{ i18n('ShippingMethod') }}:</small>
+        {{ shippingMethod }}
+        <br>
+        <small>{{ i18n('WillReceive') }}:</small>
+        {{workingDays.days}} 
+        <span v-if="workingDays.working_days">{{i18n('WorkingDays')}}</span>
+        <span v-else>{{i18n('Days')}}</span>
+      </p>
+    </div>
+  </div>
+</div>

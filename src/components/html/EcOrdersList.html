@@ -1,0 +1,31 @@
+<div class="ec-orders-list">
+  <div class="" v-if="$route.params.number" key="specific-order">
+    <div class="row">
+      <div class="col-12">
+        <ec-order-info :order="order" :isNew="false" :skipDataLoad="false"></ec-order-info>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <ec-order-step :order="order"></ec-order-step>
+      </div>
+      <div class="col-sm-8 col-md-9">
+        <ec-order-summary :order.sync="order" :ecomPassport.sync="ecomPassport"></ec-order-summary>
+      </div>
+    </div>
+  </div>
+  <div class="ec-orders-container" v-else key="orders-list">
+    <ul v-if="ordersList.length" v-for="(order, index) in ordersList">
+      <li>
+        <span>{{formatDate(order.created_at)}}</span>
+        <router-link 
+          :to="`/account/orders/${order.number}`"
+          >
+          <button class="btn btn-sm btn-light"><i class="fas fa-chevron-right mr-1"></i>Ver pedido #{{order.number}}</button>
+        </router-link>
+      </li>
+      <li>
+        <span>{{formatMoney(order.amount.total)}}</span>
+        <span :class="'ec-orders-list-status-' + order.status">Cancelado</span>
+      </li>
+    </ul>
+  </div>
+</div>

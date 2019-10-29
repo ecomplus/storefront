@@ -1,0 +1,29 @@
+<div class="ec-account">
+  <div v-if="localCustomer._id" class="ec-account__logged" key="account">
+    <div class="py-3">
+      <h2>{{ i18n('HelloAgain') + ' ' + nickname }}</h2>
+      <small>
+        {{ i18n('IsNotYou') + '?'}}
+        <a href="#" @click.prevent="logout" class="ec-account-logout">
+          {{ i18n('Logout') }}
+        </a>
+      </small>
+    </div>
+    <b-tabs content-class="mt-3">
+      <b-tab :title="i18n('Registration')" active>
+        <ec-account-form :customer.sync="localCustomer"/>
+      </b-tab>
+      <b-tab :title="i18n('Addresses')">
+        <ec-addresses :customer.sync="localCustomer"/>
+      </b-tab>
+      <b-tab :title="i18n('Orders')">
+        <ec-orders-list :ecomPassport="ecomPassport"/>
+      </b-tab>
+    </b-tabs>
+  </div>
+
+  <div key="login" v-else>
+    <ec-identify @login="login" :customerEmail.sync="customerEmail" />
+  </div>
+
+</div>

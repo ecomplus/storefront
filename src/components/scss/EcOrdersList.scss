@@ -1,0 +1,40 @@
+.ec-orders-list {
+  .ec-orders-container {
+    max-width: 710px;
+    margin: 0 auto;
+    ul {
+      display: flex;
+      justify-content: space-around;
+      margin: 0;
+      padding: 0;
+      li {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid #ebeef5;
+        width: 100%;
+        padding: 12px;
+        box-sizing: border-box;
+        button{
+          max-width: 50%;
+        }
+      }
+      &:hover {
+        background-color: #f5f7fa;
+      }
+    }
+  }
+  
+  &-status {
+    font-weight: 600;
+    &-open{
+      color: #E6A23C;
+    }
+    &-closed {
+      color: #67C23A;
+    }
+    &-cancelled {
+      color: #F56C6C;
+    }
+  }
+}

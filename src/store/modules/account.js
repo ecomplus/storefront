@@ -1,25 +1,29 @@
-const state = {
-  customer: {
-    _id: '',
-    locale: '',
-    main_email: '',
-    accepts_marketing: false,
-    display_name: '',
-    name: {},
-    birth_date: {},
-    gender: '',
-    photos: [],
-    phones: [],
-    registry_type: 'p',
-    doc_country: '',
-    doc_number: '',
-    inscription_type: '',
-    inscription_number: '',
-    corporate_name: '',
-    addresses: []
-  },
-  orders: []
+const getDefaultState = () => {
+  return {
+    customer: {
+      _id: '',
+      locale: '',
+      main_email: '',
+      accepts_marketing: false,
+      display_name: '',
+      name: {},
+      birth_date: {},
+      gender: '',
+      photos: [],
+      phones: [],
+      registry_type: 'p',
+      doc_country: '',
+      doc_number: '',
+      inscription_type: '',
+      inscription_number: '',
+      corporate_name: '',
+      addresses: []
+    },
+    orders: []
+  }
 }
+
+const state = getDefaultState()
 
 const customerFields = Object.keys(state.customer)
 
@@ -53,6 +57,10 @@ const mutations = {
 
   addOrder (state, order) {
     state.orders.push(order)
+  },
+
+  resetCustomer (state) {
+    Object.assign(state, getDefaultState())
   }
 }
 
@@ -88,6 +96,16 @@ const actions = {
       }
     })
     return ecomPassport.requestApi('/me.json', 'patch', data)
+      .catch(err => {
+        console.error(err)
+      })
+  },
+
+  fetchOrdersList ({ commit }, { ecomPassport }) {
+    return ecomPassport.fetchOrdersList()
+      .then(data => {
+        commit('addOrder', data)
+      })
       .catch(err => {
         console.error(err)
       })

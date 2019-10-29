@@ -1,0 +1,35 @@
+<div class="ec-order-steps">
+    <ul>
+      <li class="complete">
+        <div class="ec-order-steps__step">{{i18n('OrderCreated')}}
+          <span class="desc"> <i class="ico fa fa-check ico-green"></i> 20/12/2019</span>
+        </div>
+      </li>
+  
+      <li :class="payment ? 'complete' : ''">
+        <div class="order__step">{{i18n('PaymentRealized')}} 
+          <span class="desc" v-if="payment"> <i class="ico fa fa-check ico-green"></i> {{payment}}</span>
+        </div>
+      </li>
+      <li :class="confirmation ? 'complete' : ''">
+        <div class="order__step">{{i18n('PaymentConfirmed')}}
+          <span class="desc" v-if="confirmation"><i class="ico fa fa-check ico-green"></i> {{confirmation}}</span>
+        </div>
+      </li>
+      <li :class="prepared ? 'complete' : ''">
+        <div class="order__step">{{i18n('_FulfillmentStatus','ready_for_shipping')}}
+          <span class="desc" v-if="prepared"><i class="ico fa fa-check ico-green"></i> {{prepared}}</span>
+        </div>
+      </li>
+      <li :class="shipped ? 'complete' : ''">
+        <div class="order__step">{{i18n('_FulfillmentStatus','shipped')}}
+          <span class="desc" v-if="shipped"><i class="ico fa fa-check ico-green"></i> {{shipped}}</span>
+        </div>
+      </li>
+      <li :class="delivered ? 'complete' : ''">
+        <div class="order__step">{{i18n('_FulfillmentStatus','delivered')}}
+          <span class="desc" v-if="delivered"><i class="ico fa fa-check ico-green"></i> {{delivered}}</span>
+        </div>
+      </li>
+    </ul>
+  </div>

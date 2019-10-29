@@ -3,6 +3,11 @@ export const AboutCvv = {
   pt_br: '3 ou 4 dígitos, geralmente no verso do cartão (na frente em cartões AMEX)'
 }
 
+export const Addresses = {
+  en_us: 'Addresses',
+  pt_br: 'Endereços'
+}
+
 export const AtSight = {
   en_us: 'At sight',
   pt_br: 'À vista'
@@ -101,6 +106,11 @@ export const CopyCode = {
 export const CopyErrorMsg = {
   en_us: 'Error copying to clipboard, please copy manually',
   pt_br: 'Erro ao copiar para a área de transferência, por favor copie manualmente'
+}
+
+export const Days = {
+  en_us: 'Days',
+  pt_br: 'Dias'
 }
 
 export const Delivery = {
@@ -208,6 +218,11 @@ export const InvalidLoginInfo = {
   pt_br: 'Login inválido, por favor verifique os dados informados'
 }
 
+export const IsNotYou = {
+  en_us: 'Is not you',
+  pt_br: 'Não é você'
+}
+
 export const Logout = {
   en_us: 'Logout',
   pt_br: 'Sair'
@@ -288,6 +303,16 @@ export const OnFreight = {
   pt_br: 'No frete'
 }
 
+export const Orders = {
+  en_us: 'Orders',
+  pt_br: 'Pedidos'
+}
+
+export const OrderCreated = {
+  en_us: 'Order created',
+  pt_br: 'Recebemos seu pedido'
+}
+
 export const OrderConfirmationMsg = {
   en_us: 'Your order has been confirmed, thanks for your preference',
   pt_br: 'Seu pedido foi confirmado, obrigado pela preferência'
@@ -311,6 +336,16 @@ export const ParcelIn = {
 export const Payment = {
   en_us: 'Payment',
   pt_br: 'Pagamento'
+}
+
+export const PaymentConfirmed = {
+  en_us: 'Payment',
+  pt_br: 'Pagamento confirmado'
+}
+
+export const PaymentRealized = {
+  en_us: 'Payment realized',
+  pt_br: 'Pagamento realizado'
 }
 
 export const PaymentError = {
@@ -368,6 +403,11 @@ export const Remove = {
   pt_br: 'Remover'
 }
 
+export const Registration = {
+  en_us: 'Registration',
+  pt_br: 'Cadastro'
+}
+
 export const Save = {
   en_us: 'Save',
   pt_br: 'Salvar'
@@ -381,6 +421,11 @@ export const SecurityCode = {
 export const SignInWith = {
   en_us: 'Sign in with',
   pt_br: 'Entrar com'
+}
+
+export const ShippingMethod = {
+  en_us: 'Shipping options',
+  pt_br: 'Forma de envio'
 }
 
 export const Street = {
@@ -420,6 +465,11 @@ export const WasAnErrorOnLogin = {
 export const WeUseYourDataTo = {
   en_us: 'We will use your data safely and responsibly to',
   pt_br: 'Usaremos seus dados com segurança e responsabilidade para'
+}
+
+export const WorkingDays = {
+  en_us: 'Working days',
+  pt_br: 'Dias úteis'
 }
 
 export const ZipCode = {
@@ -487,4 +537,24 @@ export const _OrderStatus = {
     en_us: 'Cancelled',
     pt_br: 'Cancelado'
   }
+}
+
+export const _FulfillmentStatus = {
+  ready_for_shipping: {
+    en_us: 'Ready for shipping',
+    pt_br: 'Preparado para envio'
+  },
+  shipped: {
+    en_us: 'Shipped',
+    pt_br: 'Produtos enviados'
+  },
+  delivered: {
+    en_us: 'Delivered',
+    pt_br: 'Entregue'
+  }
+}
+
+export const WillReceive = {
+  en_us: 'You\'ll receive the products in up to ',
+  pt_br: 'Você receberá os produtos em até '
 }

@@ -1,5 +1,11 @@
 <template>
-  <div class="account">
-    <h1>Account</h1>
+  <div id="account">
+    <ec-account
+      @login="login"
+      @logout="resetCustomer"
+      :customer.sync="customer"
+      :ecomPassport="ecomPassport"
+    />
   </div>
 </template>
+<script src="./js/Account.js"></script>

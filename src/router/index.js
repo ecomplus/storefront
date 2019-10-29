@@ -34,7 +34,17 @@ const routes = [
     component: () => import(
       /* webpackChunkName: "account" */
       './../views/Account.vue'
-    )
+    ),
+    children: [
+      {
+        path: 'orders/:number?',
+        name: 'orders',
+        component: () => import(
+          /* webpackChunkName: "account" */
+          './../views/Account.vue'
+        )
+      }
+    ]
   },
   {
     path: '/:id?',
