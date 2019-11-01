@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.17](https://github.com/ecomclub/widget-product/compare/v0.3.16...v0.3.17) (2019-11-01)
+
+
+### Features
+
+* **variations:** rendering product variations ([#30](https://github.com/ecomclub/widget-product/issues/30)) ([5d875e5](https://github.com/ecomclub/widget-product/commit/5d875e5))
+
 ### [0.3.16](https://github.com/ecomclub/widget-product/compare/v0.3.15...v0.3.16) (2019-10-08)
 
 
