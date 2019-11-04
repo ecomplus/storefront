@@ -8,4 +8,5 @@
     />
   </div>
 </template>
+
 <script src="./js/Account.js"></script>
