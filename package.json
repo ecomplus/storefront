@@ -56,7 +56,7 @@
     "@commitlint/config-conventional": "^8.2.0",
     "@ecomplus/storefront-template": "^1.17.3",
     "@ecomplus/widget-minicart": "^0.6.7",
-    "@ecomplus/widget-product": "^0.3.16",
+    "@ecomplus/widget-product": "^0.3.17",
     "@vue/cli-plugin-babel": "^4.0.5",
     "@vue/cli-plugin-eslint": "^4.0.5",
     "@vue/cli-plugin-router": "^4.0.5",
