@@ -40,8 +40,8 @@ const routes = [
         path: 'orders/:number?',
         name: 'orders',
         component: () => import(
-          /* webpackChunkName: "account" */
-          './../views/Account.vue'
+          /* webpackChunkName: "order" */
+          './../views/Order.vue'
         )
       }
     ]
