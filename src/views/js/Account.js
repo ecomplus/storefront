@@ -1,4 +1,4 @@
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 import EcAccount from './../../components/EcAccount.vue'
 
 export default {
@@ -15,8 +15,6 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['customer']),
-
     customer: {
       get () {
         return this.$store.getters.customer
