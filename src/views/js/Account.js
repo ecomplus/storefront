@@ -32,9 +32,17 @@ export default {
   },
 
   methods: {
-    ...mapMutations(['triggerLoading', 'setCustomer', 'setCustomerEmail', 'resetCustomer']),
+    ...mapMutations([
+      'triggerLoading',
+      'setCustomer',
+      'setCustomerEmail',
+      'resetCustomer'
+    ]),
 
-    ...mapActions(['fetchCustomer', 'saveCustomer']),
+    ...mapActions([
+      'fetchCustomer',
+      'saveCustomer'
+    ]),
 
     login (ecomPassport) {
       this.ecomPassport = ecomPassport
