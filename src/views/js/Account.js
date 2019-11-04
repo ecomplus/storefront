@@ -1,4 +1,3 @@
-import EcomPassport from '@ecomplus/passport-client'
 import { mapGetters, mapMutations, mapActions } from 'vuex'
 import EcAccount from './../../components/EcAccount.vue'
 
@@ -11,7 +10,7 @@ export default {
 
   data () {
     return {
-      ecomPassport: new EcomPassport()
+      ecomPassport: null
     }
   },
 
