@@ -248,6 +248,11 @@ export const MyAccount = {
   pt_br: 'Minha conta'
 }
 
+export const MyOrders = {
+  en_us: 'My orders',
+  pt_br: 'Meus pedidos'
+}
+
 export const Name = {
   en_us: 'Name',
   pt_br: 'Nome'
