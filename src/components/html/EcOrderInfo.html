@@ -69,4 +69,12 @@
       </template>
     </div>
   </slide-y-up-transition>
+
+  <a
+    v-if="isNew && accountOrdersUrl"
+    :href="accountOrdersUrl"
+    class="ec-order-info__orders-link btn btn-sm btn-light"
+  >
+    {{ i18n('MyOrders') }}
+  </a>
 </div>

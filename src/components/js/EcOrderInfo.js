@@ -7,6 +7,7 @@ import {
   CopyCode,
   CopyErrorMsg,
   DoPaymentMsg,
+  MyOrders,
   OrderConfirmationMsg,
   OrderNumber,
   PrintBillet,
@@ -37,6 +38,10 @@ export default {
     },
     skipDataLoad: {
       type: Boolean
+    },
+    accountOrdersUrl: {
+      type: String,
+      default: '/app/#/account/orders'
     }
   },
 
@@ -55,6 +60,7 @@ export default {
         CopyCode,
         CopyErrorMsg,
         DoPaymentMsg,
+        MyOrders,
         OrderConfirmationMsg,
         OrderNumber,
         PrintBillet,
