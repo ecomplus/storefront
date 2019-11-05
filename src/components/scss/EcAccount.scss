@@ -1,6 +1,7 @@
 .ec-account {
   &__greetings {
-    i, svg {
+    i,
+    svg {
       color: var(--success);
       margin-right: .25rem;
     }
