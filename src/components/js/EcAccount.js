@@ -7,11 +7,11 @@ import EcOrdersList from '../EcOrdersList.vue'
 
 import {
   Addresses,
-  Registration,
-  Orders,
-  HelloAgain,
+  Hello,
   IsNotYou,
-  Logout
+  Logout,
+  Orders,
+  Registration
 } from './../../lib/i18n'
 
 export default {
@@ -25,6 +25,10 @@ export default {
   },
 
   props: {
+    mergeDictionary: {
+      type: Object,
+      default: () => {}
+    },
     customer: {
       type: Object,
       default: () => {}
@@ -39,11 +43,12 @@ export default {
     dictionary () {
       return {
         Addresses,
-        Registration,
-        Orders,
-        HelloAgain,
+        Hello,
         IsNotYou,
-        Logout
+        Logout,
+        Orders,
+        Registration,
+        ...this.mergeDictionary
       }
     },
 

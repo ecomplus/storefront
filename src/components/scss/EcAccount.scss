@@ -1,0 +1,29 @@
+.ec-account {
+  &__greetings {
+    i, svg {
+      color: var(--success);
+      margin-right: .25rem;
+    }
+  }
+
+  &__logout {
+    color: var(--gray);
+    margin: 1rem 0;
+
+    a {
+      margin: 0 .5rem;
+      color: var(--danger);
+    }
+  }
+
+  &__tabs {
+    margin-top: 2rem;
+  }
+
+  &__content {
+    padding-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
