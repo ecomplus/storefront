@@ -1,11 +1,11 @@
-
 import EcomPassport from '@ecomplus/passport-client'
 import { i18n, formatDate, formatMoney } from '@ecomplus/utils'
 import EcOrderStep from '../EcOrderStep.vue'
 import EcOrderInfo from '../EcOrderInfo.vue'
 import EcOrderSummary from '../EcOrderSummary.vue'
+
 export default {
-  name: 'OrdersList',
+  name: 'EcOrdersList',
 
   components: {
     EcOrderStep,
@@ -66,11 +66,5 @@ export default {
 
   mounted () {
     this.fetchOrdersList().then(() => this.fetchSingleOrder())
-  },
-
-  watch: {
-    '$route.params.number': function () {
-      this.fetchSingleOrder()
-    }
   }
 }
