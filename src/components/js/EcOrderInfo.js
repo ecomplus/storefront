@@ -74,10 +74,7 @@ export default {
 
     localOrder: {
       get () {
-        return {
-          ...this.order,
-          ...this.orderBody
-        }
+        return this.orderBody
       },
       set (body) {
         this.orderBody = body
@@ -126,7 +123,10 @@ export default {
       const update = () => {
         store({ url: `/orders/${this.order._id}.json` })
           .then(({ data }) => {
-            this.localOrder = data
+            this.localOrder = {
+              ...this.localOrder,
+              data
+            }
           })
           .catch(err => {
             console.error(err)
@@ -136,7 +136,7 @@ export default {
       setTimeout(() => {
         update()
         this.loaded = true
-      }, 1000)
+      }, this.isNew ? 1000 : 3000)
     }
   },
 
