@@ -3,9 +3,10 @@
     <ec-account
       :ecomPassport="ecomPassport"
       :customer.sync="customer"
+      :showOrders.sync="showOrders"
       @login="login"
       @logout="resetAccount"
-      :showOrders.sync="showOrders"
+      @viewOrder="viewOrder"
     />
   </div>
 </template>

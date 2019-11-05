@@ -64,6 +64,15 @@ export default {
       this.triggerLoading(true)
       this.fetchCustomer({ ecomPassport })
         .finally(() => this.triggerLoading(false))
+    },
+
+    viewOrder ({ number }) {
+      if (number) {
+        this.$router.push({
+          name: 'order',
+          params: { number }
+        })
+      }
     }
   }
 }
