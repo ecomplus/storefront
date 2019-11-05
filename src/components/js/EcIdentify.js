@@ -37,6 +37,10 @@ export default {
     customerEmail: {
       type: String
     },
+    acceptGuest: {
+      type: Boolean,
+      default: true
+    },
     ecomPassport: {
       type: Object,
       default: () => new EcomPassport()
@@ -109,7 +113,7 @@ export default {
                 variant: 'warning',
                 solid: true
               })
-            } else if (!isAccountConfirm) {
+            } else if (!isAccountConfirm && this.acceptGuest) {
               this.$emit('update:customerEmail', email)
               emitUpdate()
             } else {
@@ -125,14 +129,22 @@ export default {
     oauthPopup (link) {
       this.ecomPassport.popupOauthLink(link)
       this.waitingPopup = true
+    },
+
+    unsetLoginAlert () {
+      if (this.alertLoginFail) {
+        this.alertLoginFail = false
+      }
     }
   },
 
   watch: {
+    email () {
+      this.unsetLoginAlert()
+    },
+
     docNumber () {
-      if (this.alertLoginFail) {
-        this.alertLoginFail = false
-      }
+      this.unsetLoginAlert()
     }
   },
 
