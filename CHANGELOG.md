@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.21](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.20...v1.0.0-beta.21) (2019-11-05)
+
+
+### Bug Fixes
+
+* **account:** do not accept guest login on account component ([e20db01](https://github.com/ecomclub/storefront-app/commit/e20db01))
+* **account:** ecomPassport is required and must be preseted ([3b963a8](https://github.com/ecomclub/storefront-app/commit/3b963a8))
+* **account:** handle show orders following route param ([f533af3](https://github.com/ecomclub/storefront-app/commit/f533af3))
+* **account:** handle show orders following route param (js) ([78e0441](https://github.com/ecomclub/storefront-app/commit/78e0441))
+* **account:** preset ecomPassport and pass as prop ([7eb5b24](https://github.com/ecomclub/storefront-app/commit/7eb5b24))
+* **account:** show loading spinner while updating customer ([6359a8a](https://github.com/ecomclub/storefront-app/commit/6359a8a))
+* **account-form:** watch customer prop to update local customer ([9bee4a8](https://github.com/ecomclub/storefront-app/commit/9bee4a8))
+* **addresses:** unset new addresses when list is loaded (reactive) ([dab7074](https://github.com/ecomclub/storefront-app/commit/dab7074))
+* **i18n:** update dictionary, convention fixes ([d83c80f](https://github.com/ecomclub/storefront-app/commit/d83c80f))
+* **order-info:** fix handling orderBody/localOrder ([f5c115f](https://github.com/ecomclub/storefront-app/commit/f5c115f))
+* **orders-list:** stop using route from component (be context less) ([d318d12](https://github.com/ecomclub/storefront-app/commit/d318d12))
+* **orders-list:** stop using vue router on component src ([225df3f](https://github.com/ecomclub/storefront-app/commit/225df3f))
+* **routes:** loading specific view for orders ([718c287](https://github.com/ecomclub/storefront-app/commit/718c287))
+
+
+### Features
+
+* **account:** add and sync showOrders prop on account component ([790f921](https://github.com/ecomclub/storefront-app/commit/790f921))
+* **account:** emit viewOrder event (from orders list) ([afce312](https://github.com/ecomclub/storefront-app/commit/afce312))
+* **account:** handle viewOrders event and push route ([bfd1246](https://github.com/ecomclub/storefront-app/commit/bfd1246))
+* **account:** setup EcAccount component and /account route ([#35](https://github.com/ecomclub/storefront-app/issues/35)) ([367cb4e](https://github.com/ecomclub/storefront-app/commit/367cb4e))
+* **identify:** add 'acceptGuest' prop to prevent guest login ([2f24621](https://github.com/ecomclub/storefront-app/commit/2f24621))
+* **order:** functional order component ([e29138e](https://github.com/ecomclub/storefront-app/commit/e29138e))
+* **order:** setup specific order view ([0e7c34c](https://github.com/ecomclub/storefront-app/commit/0e7c34c))
+* **order-info:** minor edit, add link to account orders ([01c2a49](https://github.com/ecomclub/storefront-app/commit/01c2a49))
+* **orders-list:** basic functional orders list component ([381975f](https://github.com/ecomclub/storefront-app/commit/381975f))
+
 ## [1.0.0-beta.20](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.19...v1.0.0-beta.20) (2019-10-22)
 
 
