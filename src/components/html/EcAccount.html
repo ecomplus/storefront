@@ -17,13 +17,24 @@
       class="ec-account__nav"
       content-class="ec-account__content"
     >
-      <b-tab :title="i18n('Registration')" active>
-        <ec-account-form :customer.sync="localCustomer"/>
+      <b-tab
+        class="ec-account__registration"
+        :title="i18n('Registration')"
+        active
+      >
+        <div class="row">
+          <div class="col-lg-8 col-md-7">
+            <ec-account-form :customer.sync="localCustomer"/>
+          </div>
+
+          <div class="col-lg-4 col-md-5 mt-3 mt-md-0">
+            <h4>{{ i18n('Addresses') }}</h4>
+            <ec-addresses :customer.sync="localCustomer"/>
+          </div>
+        </div>
       </b-tab>
-      <b-tab :title="i18n('Addresses')">
-        <ec-addresses :customer.sync="localCustomer"/>
-      </b-tab>
-      <b-tab :title="i18n('Orders')">
+
+      <b-tab class="ec-account__orders" :title="i18n('Orders')">
         <ec-orders-list :ecomPassport="ecomPassport"/>
       </b-tab>
     </b-tabs>
