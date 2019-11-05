@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.18.1](https://github.com/ecomclub/storefront-template/compare/v1.18.0...v1.18.1) (2019-11-05)
+
+
+### Bug Fixes
+
+* **cms:** trustvox widget content file ([fe663b4](https://github.com/ecomclub/storefront-template/commit/fe663b4))
+
 ## [1.18.0](https://github.com/ecomclub/storefront-template/compare/v1.17.3...v1.18.0) (2019-11-05)
 
 
