@@ -178,6 +178,11 @@ export const GenerateBillet = {
   pt_br: 'Gerar boleto'
 }
 
+export const Hello = {
+  en_us: 'Hello',
+  pt_br: 'Olá'
+}
+
 export const HelloAgain = {
   en_us: 'Hello again',
   pt_br: 'Olá novamente'
@@ -472,6 +477,11 @@ export const WeUseYourDataTo = {
   pt_br: 'Usaremos seus dados com segurança e responsabilidade para'
 }
 
+export const WillReceiveMsg = {
+  en_us: 'You\'ll receive the products in up to',
+  pt_br: 'Você receberá os produtos em até'
+}
+
 export const WorkingDays = {
   en_us: 'Working days',
   pt_br: 'Dias úteis'
@@ -557,9 +567,4 @@ export const _FulfillmentStatus = {
     en_us: 'Delivered',
     pt_br: 'Entregue'
   }
-}
-
-export const WillReceive = {
-  en_us: 'You\'ll receive the products in up to ',
-  pt_br: 'Você receberá os produtos em até '
 }
