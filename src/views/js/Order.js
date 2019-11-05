@@ -1,48 +1,36 @@
-import { mapGetters, mapMutations, mapActions } from 'vuex'
-import EcAccount from './../../components/EcAccount.vue'
+import { mapGetters } from 'vuex'
+import EcOrder from './../../components/EcOrder.vue'
 
 export default {
   name: 'order',
 
   components: {
-    EcAccount
-  },
-
-  data () {
-    return {
-      ecomPassport: null
-    }
+    EcOrder
   },
 
   computed: {
-    ...mapGetters(['customer']),
+    ...mapGetters([
+      'orders'
+    ]),
 
-    customer: {
-      get () {
-        return this.$store.getters.customer
-      },
-      set (customer) {
-        this.setCustomer(customer)
-        if (customer._id) {
-          const { ecomPassport } = this
-          if (ecomPassport && ecomPassport.isAuthorized()) {
-            this.saveCustomer({ ecomPassport })
-          }
+    number () {
+      const numberStr = this.$route.params.number
+      return /^[0-9]+$/.test(numberStr) && parseInt(numberStr, 10)
+    },
+
+    order () {
+      const order = this.orders.find(({ _id, number }) => {
+        return this.number === number || this.$route.params.number === _id
+      })
+      if (!order) {
+        const { number } = this
+        if (number) {
+          return { number }
+        } else {
+          return { _id: this.$route.params.number }
         }
       }
-    }
-  },
-
-  methods: {
-    ...mapMutations(['triggerLoading', 'setCustomer', 'setCustomerEmail', 'resetCustomer']),
-
-    ...mapActions(['fetchCustomer', 'saveCustomer']),
-
-    login (ecomPassport) {
-      this.ecomPassport = ecomPassport
-      this.triggerLoading(true)
-      this.fetchCustomer({ ecomPassport })
-        .finally(() => this.triggerLoading(false))
+      return order
     }
   }
 }
