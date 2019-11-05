@@ -29,6 +29,20 @@ export default {
             .finally(() => this.triggerLoading(false))
         }
       }
+    },
+
+    showOrders: {
+      get () {
+        return this.$route.params.tab === 'orders'
+      },
+      set (showOrders) {
+        this.$router.push({
+          name: 'account',
+          params: {
+            tab: showOrders ? 'orders' : null
+          }
+        })
+      }
     }
   },
 
