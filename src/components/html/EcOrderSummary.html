@@ -64,8 +64,8 @@
         <small>{{ i18n('ShippingMethod') }}:</small>
         {{ shippingMethod }}
         <br>
-        <small>{{ i18n('WillReceive') }}:</small>
-        {{workingDays.days}} 
+        <small>{{ i18n('WillReceiveMsg') }}:</small>
+        {{workingDays.days}}
         <span v-if="workingDays.working_days">{{i18n('WorkingDays')}}</span>
         <span v-else>{{i18n('Days')}}</span>
       </p>

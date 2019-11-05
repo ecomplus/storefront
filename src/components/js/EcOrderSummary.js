@@ -8,7 +8,7 @@ import {
   DocNumber,
   ContactPhone,
   ShippingMethod,
-  WillReceive,
+  WillReceiveMsg,
   WorkingDays
 } from './../../lib/i18n'
 
@@ -32,7 +32,7 @@ export default {
         DocNumber,
         ContactPhone,
         ShippingMethod,
-        WillReceive,
+        WillReceiveMsg,
         WorkingDays
       }
     },
