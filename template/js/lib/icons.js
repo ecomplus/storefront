@@ -1,6 +1,7 @@
 import {
   faShoppingBag,
   faUser,
+  faUserCircle,
   faSignOutAlt,
   faSearch,
   faChevronDown,
@@ -56,6 +57,7 @@ import { library, dom } from '@fortawesome/fontawesome-svg-core'
 library.add(
   faShoppingBag,
   faUser,
+  faUserCircle,
   faSignOutAlt,
   faSearch,
   faChevronDown,
