@@ -4,7 +4,7 @@
       :ecomPassport="ecomPassport"
       :customer.sync="customer"
       @login="login"
-      @logout="resetCustomer"
+      @logout="resetAccount"
     />
   </div>
 </template>

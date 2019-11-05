@@ -37,7 +37,7 @@ export default {
       'triggerLoading',
       'setCustomer',
       'setCustomerEmail',
-      'resetCustomer'
+      'resetAccount'
     ]),
 
     ...mapActions([

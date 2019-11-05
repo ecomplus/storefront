@@ -59,7 +59,7 @@ const mutations = {
     state.orders.push(order)
   },
 
-  resetCustomer (state) {
+  resetAccount (state) {
     Object.assign(state, getDefaultState())
   }
 }
