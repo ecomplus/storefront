@@ -1,11 +1,14 @@
 import observer from './observer'
 import newRatingWidget from './rating-widget'
+
 export default options => {
   const elClass = 'product-card'
   const $productCards = document.getElementsByClassName(elClass)
+
   if ($productCards) {
     const skus = []
     const $ratingsBySku = {}
+
     for (let i = 0; i < $productCards.length; i++) {
       const { sku } = $productCards[i].dataset
       if (skus.indexOf(sku) === -1) {
@@ -15,6 +18,7 @@ export default options => {
         $ratingsBySku[sku] = $rating
         document.body.appendChild($rating)
       }
+
       const $shelf = $productCards[i].parentElement
       observer($shelf, () => {
         for (let i = 0; i < $shelf.childNodes.length; i++) {
@@ -35,6 +39,7 @@ export default options => {
         }
       })
     }
+
     window._trustvox_shelf_rate = window._trustvox_shelf_rate || []
     window._trustvox_shelf_rate.push(['_storeId', options.storeId])
   }

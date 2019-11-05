@@ -1,6 +1,6 @@
 import observer from './observer'
 import newRatingWidget from './rating-widget'
-// WIP
+
 export default () => {
   const $search = document.getElementById('search')
   if ($search) {
