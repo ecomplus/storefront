@@ -495,7 +495,7 @@ collections:
 
       - label: "Trustvox"
         name: ecomplus_widget_trustvox
-        file: "content/widgets/ecomplus-widget-trustvox.json"
+        file: "content/widgets/widget-trustvox.json"
         fields:
           - {name: pkg, widget: hidden, default: "@ecomplus/widget-trustvox"}
           - {label: "Ativar", hint: "Avaliações de produtos via Trustvox", name: "active", required: false, widget: "boolean"}
