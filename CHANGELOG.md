@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.18.0](https://github.com/ecomclub/storefront-template/compare/v1.17.3...v1.18.0) (2019-11-05)
+
+
+### Features
+
+* **cms:** add trustvox widget to cms and content ([a5667b1](https://github.com/ecomclub/storefront-template/commit/a5667b1))
+* **icons:** add fa-user-circle to fa icons list ([4e7ab29](https://github.com/ecomclub/storefront-template/commit/4e7ab29))
+
 ### [1.17.3](https://github.com/ecomclub/storefront-template/compare/v1.17.2...v1.17.3) (2019-10-24)
 
 ### [1.17.2](https://github.com/ecomclub/storefront-template/compare/v1.17.1...v1.17.2) (2019-10-21)
