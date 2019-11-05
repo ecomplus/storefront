@@ -161,6 +161,24 @@ export default {
           name.middle_name = names.join(' ')
         }
       }
+    },
+
+    customer: {
+      handler () {
+        for (const field in this.customer) {
+          if (this.customer[field]) {
+            const localValue = this.localCustomer[field]
+            if (!localValue || (typeof localValue === 'object' && !Object.keys(localValue).length)) {
+              if (field === 'name') {
+                this.fullName = fullName(this.customer)
+              } else {
+                this.localCustomer[field] = this.customer[field]
+              }
+            }
+          }
+        }
+      },
+      deep: true
     }
   },
 
