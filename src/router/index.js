@@ -29,7 +29,15 @@ const routes = [
     )
   },
   {
-    path: '/account',
+    path: '/order/:number',
+    name: 'order',
+    component: () => import(
+      /* webpackChunkName: "order" */
+      './../views/Order.vue'
+    )
+  },
+  {
+    path: '/account/:tab?',
     name: 'account',
     component: () => import(
       /* webpackChunkName: "account" */
@@ -37,12 +45,10 @@ const routes = [
     ),
     children: [
       {
-        path: 'orders/:number?',
-        name: 'orders',
-        component: () => import(
-          /* webpackChunkName: "order" */
-          './../views/Order.vue'
-        )
+        path: 'orders/:number',
+        redirect: {
+          name: 'order'
+        }
       }
     ]
   },
