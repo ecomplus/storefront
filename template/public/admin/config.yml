@@ -443,7 +443,7 @@ collections:
           - {label: "Ativar", hint: "Esse widget faz que o carrinho seja aberto na lateral da tela sem redirecionar da página", name: "active", required: false, widget: "boolean"}
           - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
 
-      - label: "Card de produtos"
+      - label: "Card de produto"
         name: ecomplus_widget_product_card
         file: "content/widgets/ecomplus-widget-product-card.json"
         fields:
@@ -468,12 +468,12 @@ collections:
                 fields:
                   - {label: "Código HTML para comprar", name: "buy", required: false, widget: "string"}
 
-      - label: "Produtos"
+      - label: "Produto"
         name: ecomplus_widget_product
         file: "content/widgets/ecomplus-widget-product.json"
         fields:
           - {name: pkg, widget: hidden, default: "@ecomplus/widget-product"}
-          - {label: "Ativar", hint: "Produto a ser exibido na página de produto", name: "active", required: false, widget: "boolean"}
+          - {label: "Ativar", hint: "Componente com informações do item exibido na página de produto", name: "active", required: false, widget: "boolean"}
           - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
           - label: "Opções"
             name: "options"
@@ -492,3 +492,17 @@ collections:
                 hint: ""
                 fields:
                   - {label: "Código HTML para comprar", name: "buy", required: false, widget: "string"}
+
+      - label: "Trustvox"
+        name: ecomplus_widget_trustvox
+        file: "content/widgets/ecomplus-widget-trustvox.json"
+        fields:
+          - {name: pkg, widget: hidden, default: "@ecomplus/widget-trustvox"}
+          - {label: "Ativar", hint: "Avaliações de produtos via Trustvox", name: "active", required: false, widget: "boolean"}
+          - {label: "Apenas em desktops", name: "desktopOnly", hint: "Desativa o widget em dispositivos móveis", required: false, widget: "boolean"}
+          - label: "Opções"
+            name: "options"
+            widget: object
+            hint: "Personalizações do widget"
+            fields:
+              - {label: "ID da loja na Trustvox", name: "trustvoxStoreId", required: true, widget: "number"}
