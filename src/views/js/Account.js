@@ -21,11 +21,11 @@ export default {
       },
       set (customer) {
         this.setCustomer(customer)
-        if (customer._id) {
-          const { ecomPassport } = this
-          if (ecomPassport && ecomPassport.isAuthorized()) {
-            this.saveCustomer({ ecomPassport })
-          }
+        const { ecomPassport } = this
+        if (ecomPassport && ecomPassport.isAuthorized()) {
+          this.triggerLoading(true)
+          this.saveCustomer({ ecomPassport })
+            .finally(() => this.triggerLoading(false))
         }
       }
     }
