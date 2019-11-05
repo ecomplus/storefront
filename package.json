@@ -19,7 +19,9 @@
   "keywords": [
     "ecomplus",
     "storefront",
-    "widget"
+    "widget",
+    "trustvox",
+    "reviews"
   ],
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
@@ -29,12 +31,7 @@
   "homepage": "https://github.com/ecomclub/widget-example-name#readme",
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@ecomplus/client": "^1.0.3",
-    "@ecomplus/search-engine": "^1.0.5",
-    "@ecomplus/storefront-twbs": "^3.2.0",
-    "@ecomplus/utils": "^1.0.1",
-    "core-js": "^3.2.1",
-    "vue": "^2.6.10"
+    "core-js": "^3.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -44,20 +41,12 @@
     "@commitlint/config-conventional": "^8.1.0",
     "@ecomplus/storefront-framework": "*",
     "@ecomplus/storefront-template": "^1.4.1",
-    "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
-    "css-loader": "^3.2.0",
-    "cssnano": "^4.1.10",
-    "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.0.4",
-    "node-sass": "^4.12.0",
     "postcss-loader": "^3.0.0",
-    "sass-loader": "^7.3.1",
     "standard": "^14.2.0",
     "standard-version": "^7.0.0",
-    "vue-loader": "^15.7.1",
-    "vue-template-compiler": "^2.6.10",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
