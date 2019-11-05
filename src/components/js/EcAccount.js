@@ -36,6 +36,16 @@ export default {
     ecomPassport: {
       type: Object,
       default: () => new EcomPassport()
+    },
+    showOrders: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  data () {
+    return {
+      currentTab: this.showOrders ? 1 : 0
     }
   },
 
@@ -83,6 +93,12 @@ export default {
         this.ecomPassport.logout()
         this.$emit('logout')
       }
+    }
+  },
+
+  watch: {
+    currentTab (tabIndex) {
+      this.$emit('update:showOrders', tabIndex === 1)
     }
   }
 }

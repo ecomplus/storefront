@@ -16,12 +16,9 @@
     <b-tabs
       class="ec-account__nav"
       content-class="ec-account__content"
+      v-model="currentTab"
     >
-      <b-tab
-        class="ec-account__registration"
-        :title="i18n('Registration')"
-        active
-      >
+      <b-tab class="ec-account__registration" :title="i18n('Registration')">
         <div class="row">
           <div class="col-lg-8 col-md-7">
             <ec-account-form :customer.sync="localCustomer"/>
