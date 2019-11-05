@@ -1,9 +1,10 @@
 <template>
   <div id="account">
     <ec-account
+      :ecomPassport="ecomPassport"
+      :customer.sync="customer"
       @login="login"
       @logout="resetCustomer"
-      :customer.sync="customer"
     />
   </div>
 </template>
