@@ -4,6 +4,7 @@ import EcAddresses from '../EcAddresses.vue'
 import EcAccountForm from '../EcAccountForm.vue'
 import EcIdentify from '../EcIdentify.vue'
 import EcOrdersList from '../EcOrdersList.vue'
+
 import {
   Addresses,
   Registration,
@@ -26,7 +27,7 @@ export default {
   props: {
     customer: {
       type: Object,
-      default: () => { }
+      default: () => {}
     },
     ecomPassport: {
       type: Object,
@@ -45,6 +46,7 @@ export default {
         Logout
       }
     },
+
     localCustomer: {
       get () {
         return this.customer
@@ -53,11 +55,9 @@ export default {
         this.$emit('update:customer', customer)
       }
     },
-    customerEmail () {
-      return this.localCustomer.main_email
-    },
+
     nickname () {
-      return nickname(this.localCustomer)
+      return nickname(this.customer)
     }
   },
 
