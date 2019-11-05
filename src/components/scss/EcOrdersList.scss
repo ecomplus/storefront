@@ -1,40 +1,60 @@
 .ec-orders-list {
-  .ec-orders-container {
-    max-width: 710px;
-    margin: 0 auto;
-    ul {
+  max-width: 700px;
+  margin: 0 auto;
+
+  &__item {
+    @media (min-width: 768px) {
       display: flex;
-      justify-content: space-around;
-      margin: 0;
-      padding: 0;
-      li {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border: 1px solid #ebeef5;
-        width: 100%;
-        padding: 12px;
-        box-sizing: border-box;
-        button{
-          max-width: 50%;
-        }
+      justify-content: space-between;
+
+      > div {
+        flex: 1.4 1 0;
       }
-      &:hover {
-        background-color: #f5f7fa;
+
+      > span {
+        flex: 1 1 0;
+        text-align: right;
+      }
+    }
+
+    &:hover {
+      .ec-orders-list__number {
+        text-decoration: underline;
       }
     }
   }
-  
-  &-status {
-    font-weight: 600;
-    &-open{
-      color: #E6A23C;
+
+  &__number {
+    padding: 0 1rem;
+    border-left: .5rem solid var(--primary-lightest);
+    color: var(--primary);
+
+    &--open {
+      border-left-color: var(--warning);
     }
-    &-closed {
-      color: #67C23A;
+    &--closed {
+      border-left-color: var(--success);
     }
-    &-cancelled {
-      color: #F56C6C;
+    &--cancelled {
+      border-left-color: var(--danger);
+    }
+  }
+
+  &__status {
+    font-weight: bold;
+
+    @media (max-width: 767.98px) {
+      float: right;
+    }
+
+    &--open {
+      color: var(--warning);
+    }
+    &--closed {
+      color: var(--success);
+    }
+    &--cancelled {
+      color: var(--danger);
     }
   }
 }

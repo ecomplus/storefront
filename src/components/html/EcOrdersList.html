@@ -1,16 +1,35 @@
 <div class="ec-orders-list">
-  <ul v-if="ordersList.length" v-for="(order, index) in ordersList">
-    <li>
-      <span>{{formatDate(order.created_at)}}</span>
-      <router-link
-        :to="`/account/orders/${order.number}`"
+  <div
+    class="list-group list-group-flush"
+    v-if="orders.length"
+    v-for="order in orders"
+  >
+    <a
+      href="#"
+      class="ec-orders-list__item list-group-item list-group-item-action"
+      @click.prevent="() => $emit('viewOrder', order)"
+    >
+      <div>
+        <samp
+          class="ec-orders-list__number"
+          :class="`ec-orders-list__number--${order.status}`"
+          v-text="`#${order.number}`"
         >
-        <button class="btn btn-sm btn-light"><i class="fas fa-chevron-right mr-1"></i>Ver pedido #{{order.number}}</button>
-      </router-link>
-    </li>
-    <li>
-      <span>{{formatMoney(order.amount.total)}}</span>
-      <span :class="'ec-orders-list-status-' + order.status">Cancelado</span>
-    </li>
-  </ul>
+        </samp>
+
+        <strong v-if="order.amount" class="ec-orders-list__amount">
+          {{ formatMoney(order.amount.total) }}
+        </strong>
+      </div>
+
+      <span>{{ formatDate(order.created_at) }}</span>
+
+      <span
+        class="ec-orders-list__status"
+        :class="`ec-orders-list__status--${order.status}`"
+      >
+        {{ i18n('_OrderStatus', order.status) }}
+      </span>
+    </a>
+  </div>
 </div>

@@ -1,8 +1,12 @@
-import EcomPassport from '@ecomplus/passport-client'
 import { i18n, formatDate, formatMoney } from '@ecomplus/utils'
-import EcOrderStep from '../EcOrderStep.vue'
-import EcOrderInfo from '../EcOrderInfo.vue'
-import EcOrderSummary from '../EcOrderSummary.vue'
+import EcomPassport from '@ecomplus/passport-client'
+import EcOrderStep from './../EcOrderStep.vue'
+import EcOrderInfo from './../EcOrderInfo.vue'
+import EcOrderSummary from './../EcOrderSummary.vue'
+
+import {
+  _OrderStatus
+} from './../../lib/i18n'
 
 export default {
   name: 'EcOrdersList',
@@ -14,6 +18,10 @@ export default {
   },
 
   props: {
+    mergeDictionary: {
+      type: Object,
+      default: () => {}
+    },
     ecomPassport: {
       type: Object,
       default: () => new EcomPassport()
@@ -22,16 +30,16 @@ export default {
 
   data () {
     return {
-      ordersList: [],
-      order: {}
+      orders: []
     }
   },
 
   computed: {
-    getOrderId () {
-      const { number } = this.$route.params
-      const result = this.ordersList.find(order => order.number === Number(number))
-      return result._id
+    dictionary () {
+      return {
+        _OrderStatus,
+        ...this.mergeDictionary
+      }
     }
   },
 
@@ -41,30 +49,12 @@ export default {
 
     i18n (label, prop) {
       return i18n(prop ? this.dictionary[label][prop] : this.dictionary[label])
-    },
-
-    fetchOrdersList () {
-      return this.ecomPassport.fetchOrdersList()
-        .then(result => {
-          this.ordersList = result
-        })
-    },
-
-    fetchOrder (orderId) {
-      this.ecomPassport.requestApi(`/orders/${orderId}.json`)
-        .then(({ data }) => {
-          this.order = data
-        })
-    },
-
-    fetchSingleOrder () {
-      if (this.$route.params.number) {
-        this.fetchOrder(this.getOrderId)
-      }
     }
   },
 
-  mounted () {
-    this.fetchOrdersList().then(() => this.fetchSingleOrder())
+  created () {
+    this.ecomPassport.fetchOrdersList().then(result => {
+      this.orders = result
+    })
   }
 }
