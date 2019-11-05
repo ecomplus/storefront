@@ -41,6 +41,6 @@ export default options => {
     }
 
     window._trustvox_shelf_rate = window._trustvox_shelf_rate || []
-    window._trustvox_shelf_rate.push(['_storeId', options.storeId])
+    window._trustvox_shelf_rate.push(['_storeId', options.trustvoxStoreId])
   }
 }
