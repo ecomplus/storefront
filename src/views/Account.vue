@@ -5,6 +5,7 @@
       :customer.sync="customer"
       @login="login"
       @logout="resetAccount"
+      :showOrders.sync="showOrders"
     />
   </div>
 </template>
