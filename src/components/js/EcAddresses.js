@@ -118,6 +118,12 @@ export default {
   },
 
   watch: {
+    addresses (_, oldList) {
+      if (!oldList.length && this.newAddress) {
+        this.showForm = this.newAddress = false
+      }
+    },
+
     newAddress (addAddress) {
       if (addAddress) {
         this.editedAddressIndex = this.addresses.length
