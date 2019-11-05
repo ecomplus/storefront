@@ -50,7 +50,6 @@ export default {
     ...mapMutations([
       'triggerLoading',
       'setCustomer',
-      'setCustomerEmail',
       'resetAccount'
     ]),
 

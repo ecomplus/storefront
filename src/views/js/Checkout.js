@@ -64,7 +64,6 @@ export default {
       'selectShippingService',
       'selectPaymentGateway',
       'setCustomer',
-      'setCustomerEmail',
       'selectAddress',
       'addOrder'
     ]),
