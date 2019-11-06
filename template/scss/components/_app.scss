@@ -57,6 +57,15 @@
       height: auto;
       width: 100%;
     }
+    
+    li:not(:last-child) {
+      margin-right: 2rem
+    }
+
+    li {
+      align-items: center;
+      display: flex;
+    }
 
     @media (max-width: 767.98px) {
       padding: 1.5rem 0;
