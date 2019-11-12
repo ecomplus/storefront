@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.18.2](https://github.com/ecomclub/storefront-template/compare/v1.18.1...v1.18.2) (2019-11-12)
+
+
+### Bug Fixes
+
+* **app:** edit foter stamps margin and align items ([#76](https://github.com/ecomclub/storefront-template/issues/76)) ([c9219ec](https://github.com/ecomclub/storefront-template/commit/c9219ec))
+
 ### [1.18.1](https://github.com/ecomclub/storefront-template/compare/v1.18.0...v1.18.1) (2019-11-05)
 
 
