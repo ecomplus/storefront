@@ -61,7 +61,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@glidejs/glide": "^3.4.1",
     "bootswatch": "^4.3.1",
-    "core-js": "^3.3.6",
+    "core-js": "^3.4.1",
     "ejs": "^2.7.1",
     "eventemitter3": "^4.0.0",
     "lozad": "^1.14.0",
