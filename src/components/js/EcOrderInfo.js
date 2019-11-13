@@ -1,5 +1,6 @@
 import { i18n } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
+import EcomPassport from '@ecomplus/passport-client'
 import { SlideYUpTransition } from 'vue2-transitions'
 
 import {
@@ -28,6 +29,10 @@ export default {
     mergeDictionary: {
       type: Object,
       default: () => {}
+    },
+    ecomPassport: {
+      type: Object,
+      default: () => new EcomPassport()
     },
     order: {
       type: Object,
@@ -115,6 +120,18 @@ export default {
           solid: true
         })
       })
+    },
+
+    saveCustomerOrder () {
+      if (this.localOrder._id) {
+        const { ecomPassport } = this
+        if (ecomPassport && ecomPassport.isAuthorized()) {
+          const { orders } = ecomPassport.getCustomer()
+          if (Array.isArray(orders)) {
+            // TODO: save/update order on customer document
+          }
+        }
+      }
     }
   },
 
