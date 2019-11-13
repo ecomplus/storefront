@@ -1,6 +1,6 @@
 <template>
   <div id="confirmation">
-    <ec-order-info :order="order" :isNew="true"/>
+    <ec-order-info :order.sync="order" :isNew="true"/>
   </div>
 </template>
 

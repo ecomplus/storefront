@@ -59,6 +59,10 @@ const mutations = {
     state.orders.push(order)
   },
 
+  updateOrder (state, index, order) {
+    state.orders[index] = order
+  },
+
   resetAccount (state) {
     Object.assign(state, getDefaultState())
   }
@@ -96,16 +100,6 @@ const actions = {
       }
     })
     return ecomPassport.requestApi('/me.json', 'patch', data)
-      .catch(err => {
-        console.error(err)
-      })
-  },
-
-  fetchOrdersList ({ commit }, { ecomPassport }) {
-    return ecomPassport.fetchOrdersList()
-      .then(data => {
-        commit('addOrder', data)
-      })
       .catch(err => {
         console.error(err)
       })
