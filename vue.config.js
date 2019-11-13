@@ -47,7 +47,7 @@ module.exports = {
         new RegExp('^(' +
           Object.entries(dependencies)
             .map(([pkg]) => pkg).filter(pkg => !externals[pkg]).join('|') +
-          ')(/|$)', 'i')
+          ')$', 'i')
       ])
     }
 
