@@ -59,8 +59,8 @@ const mutations = {
     state.orders.push(order)
   },
 
-  updateOrder (state, index, order) {
-    state.orders[index] = order
+  setOrders (state, orders) {
+    state.orders = orders
   },
 
   resetAccount (state) {

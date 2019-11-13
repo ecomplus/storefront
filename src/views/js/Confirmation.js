@@ -23,12 +23,14 @@ export default {
       },
       set (order) {
         if (order && order._id === this.orderId) {
-          const orderIndex = this.orders.findIndex(({ _id }) => _id === order._id)
-          if (orderIndex > -1) {
-            this.updateOrder(orderIndex, order)
+          const orders = this.orders.concat()
+          const stateOrder = orders.find(({ _id }) => _id === order._id)
+          if (stateOrder) {
+            Object.assign(stateOrder, order)
           } else {
-            this.addOrder(order)
+            orders.push(order)
           }
+          this.setOrders(orders)
         }
       }
     }
@@ -37,7 +39,7 @@ export default {
   methods: {
     ...mapMutations([
       'addOrder',
-      'updateOrder'
+      'setOrders'
     ])
   }
 }
