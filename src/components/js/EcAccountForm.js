@@ -151,8 +151,12 @@ export default {
   watch: {
     fullName (nameStr) {
       const names = nameStr.split(' ')
+      const givenName = names.shift()
       this.localCustomer.name = {
-        given_name: names.shift()
+        given_name: givenName
+      }
+      if (!this.localCustomer.display_name) {
+        this.localCustomer.display_name = givenName
       }
       const { name } = this.localCustomer
       if (names.length) {
