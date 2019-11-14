@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.23](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.22...v1.0.0-beta.23) (2019-11-14)
+
+
+### Bug Fixes
+
+* **confirmation:** update order state on confirmation view (setOrders) ([f34be46](https://github.com/ecomclub/storefront-app/commit/f34be46))
+* **order-info:** fix mergin fetched order data to local order ([e523c59](https://github.com/ecomclub/storefront-app/commit/e523c59))
+* **order-info:** remove saveCustomerOrder (should be done by checkout ?) ([ceab91b](https://github.com/ecomclub/storefront-app/commit/ceab91b))
+
+
+### Features
+
+* **order-info:** save/update order on customer api document ([e20c4fe](https://github.com/ecomclub/storefront-app/commit/e20c4fe))
+
 ## [1.0.0-beta.22](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.21...v1.0.0-beta.22) (2019-11-13)
 
 
