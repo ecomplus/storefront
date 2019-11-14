@@ -142,6 +142,9 @@ export default {
     submit (ev) {
       const $form = this.$el
       if ($form.checkValidity()) {
+        if (!this.localCustomer.display_name) {
+          this.localCustomer.display_name = this.localCustomer.name.given_name
+        }
         this.$emit('update:customer', this.localCustomer)
       }
       $form.classList.add('was-validated')
@@ -151,12 +154,8 @@ export default {
   watch: {
     fullName (nameStr) {
       const names = nameStr.split(' ')
-      const givenName = names.shift()
       this.localCustomer.name = {
-        given_name: givenName
-      }
-      if (!this.localCustomer.display_name) {
-        this.localCustomer.display_name = givenName
+        given_name: names.shift()
       }
       const { name } = this.localCustomer
       if (names.length) {
