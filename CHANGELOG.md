@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.25](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.24...v1.0.0-beta.25) (2019-11-14)
+
+
+### Bug Fixes
+
+* **account-form:** display name fixed on form submit ([062e5b0](https://github.com/ecomclub/storefront-app/commit/062e5b0))
+
 ## [1.0.0-beta.24](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.23...v1.0.0-beta.24) (2019-11-14)
 
 
