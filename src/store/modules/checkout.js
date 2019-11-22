@@ -77,9 +77,12 @@ const getters = {
 }
 
 const mutations = {
-  updateAmount (state) {
+  updateAmount (state, subtotalValue) {
     const { freight, discount } = state.amount
-    state.amount.total = cart.data.subtotal + freight - discount
+    const subtotal = typeof subtotalValue === 'number' && !isNaN(subtotalValue)
+      ? subtotalValue
+      : cart.data.subtotal
+    state.amount.total = subtotal + freight - discount
   },
 
   setDiscount (state, discountValue) {

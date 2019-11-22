@@ -1,4 +1,5 @@
 import { mapGetters, mapMutations, mapActions } from 'vuex'
+import EcomCart from '@ecomplus/shopping-cart'
 import EcCart from './../../components/EcCart.vue'
 
 export default {
@@ -26,5 +27,8 @@ export default {
   created () {
     this.updateAmount()
     this.fetchCartItems({})
+    EcomCart.on('save', ({ data }) => {
+      this.updateAmount(data.subtotal)
+    })
   }
 }
