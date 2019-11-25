@@ -14,7 +14,7 @@ const recursiveCopy = (from, to, overwrite = true) => {
     }
     const files = fs.readdirSync(from)
     files.forEach(file => {
-      recursiveCopy(path.join(from, file), path.join(to, file))
+      recursiveCopy(path.join(from, file), path.join(to, file), overwrite)
     })
   }
 }
