@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.6](https://github.com/ecomclub/storefront-framework/compare/v5.2.5...v5.2.6) (2019-11-25)
+
+
+### Bug Fixes
+
+* **renderer:** add index when end with / to test predefined views ([#28](https://github.com/ecomclub/storefront-framework/issues/28)) ([eecdbe4](https://github.com/ecomclub/storefront-framework/commit/eecdbe4aec728871f474b0a43b70f29973b7f1c1))
+
 ### [5.2.5](https://github.com/ecomclub/storefront-framework/compare/v5.2.4...v5.2.5) (2019-10-17)
 
 
