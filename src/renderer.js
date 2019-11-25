@@ -146,9 +146,7 @@ module.exports = (url, route) => dataPromise
   .then(() => {
     if (route && route.path) {
       return route
-    } else if (url === '/') {
-      url = '/index'
-    } else if (!slugRegex.test(url)) {
+    } else if (url !== '/' && !slugRegex.test(url)) {
       // static file URL
       // must continue serving normally
       return false
@@ -157,7 +155,7 @@ module.exports = (url, route) => dataPromise
     // it is a valid page URL
     // should be prerendered
     try {
-      const filename = path.join(paths.pages, `${url}.ejs`)
+      const filename = path.join(paths.pages, url.endsWith('/') ? `${url}index.ejs` : `${url}.ejs`)
       if (fs.existsSync(filename)) {
         // predefined view
         return {
