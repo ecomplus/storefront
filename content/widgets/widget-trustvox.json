@@ -1,1 +1,8 @@
-{}
+{
+  "pkg": "@ecomplus/widget-trustvox",
+  "active": false,
+  "desktopOnly": true,
+  "options": {
+    "trustvoxStoreId": ""
+  }
+}

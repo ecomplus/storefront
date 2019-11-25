@@ -2,6 +2,51 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.18.2](https://github.com/ecomclub/storefront-template/compare/v1.18.1...v1.18.2) (2019-11-12)
+
+
+### Bug Fixes
+
+* **app:** edit foter stamps margin and align items ([#76](https://github.com/ecomclub/storefront-template/issues/76)) ([c9219ec](https://github.com/ecomclub/storefront-template/commit/c9219ec))
+
+### [1.18.1](https://github.com/ecomclub/storefront-template/compare/v1.18.0...v1.18.1) (2019-11-05)
+
+
+### Bug Fixes
+
+* **cms:** trustvox widget content file ([fe663b4](https://github.com/ecomclub/storefront-template/commit/fe663b4))
+
+## [1.18.0](https://github.com/ecomclub/storefront-template/compare/v1.17.3...v1.18.0) (2019-11-05)
+
+
+### Features
+
+* **cms:** add trustvox widget to cms and content ([a5667b1](https://github.com/ecomclub/storefront-template/commit/a5667b1))
+* **icons:** add fa-user-circle to fa icons list ([4e7ab29](https://github.com/ecomclub/storefront-template/commit/4e7ab29))
+
+### [1.17.3](https://github.com/ecomclub/storefront-template/compare/v1.17.2...v1.17.3) (2019-10-24)
+
+### [1.17.2](https://github.com/ecomclub/storefront-template/compare/v1.17.1...v1.17.2) (2019-10-21)
+
+
+### Bug Fixes
+
+* **script:** fix recursive copy function (keep overwrite) ([130eb45](https://github.com/ecomclub/storefront-template/commit/130eb45))
+
+### [1.17.1](https://github.com/ecomclub/storefront-template/compare/v1.17.0...v1.17.1) (2019-10-11)
+
+
+### Bug Fixes
+
+* **app:** responsive header ([605d100](https://github.com/ecomclub/storefront-template/commit/605d100))
+
+## [1.17.0](https://github.com/ecomclub/storefront-template/compare/v1.16.1...v1.17.0) (2019-10-11)
+
+
+### Features
+
+* **icons:** add fa print/copy ([e317a04](https://github.com/ecomclub/storefront-template/commit/e317a04))
+
 ### [1.16.1](https://github.com/ecomclub/storefront-template/compare/v1.16.0...v1.16.1) (2019-10-10)
 
 ## [1.16.0](https://github.com/ecomclub/storefront-template/compare/v1.15.0...v1.16.0) (2019-10-08)
