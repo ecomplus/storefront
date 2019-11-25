@@ -17,7 +17,7 @@ const MarkdownIt = require('markdown-it')
 const { devMode, storeId, lang, settings } = config
 
 // setup E-Com Plus global config
-const { _config } = ecomUtils
+const { $ecomConfig } = ecomUtils
 ;[
   'store_id',
   'lang',
@@ -25,7 +25,7 @@ const { _config } = ecomUtils
   'currency_symbol',
   'country_code'
 ].forEach(prop => {
-  _config.set(prop, settings[prop])
+  $ecomConfig.set(prop, settings[prop])
 })
 
 // parse EJS render file async function to promise
