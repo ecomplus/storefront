@@ -2,4 +2,4 @@
 // import '@ecomplus/utils'
 // import '@ecomplus/shopping-cart'
 
-window.alert(3)
+window.alert('Olá')
