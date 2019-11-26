@@ -1,4 +1,4 @@
-const config = {
+const cmsConfig = {
   config: {
     backend: {
       name: 'git-gateway',
@@ -1537,4 +1537,4 @@ const config = {
   }
 }
 
-export default config
+export default cmsConfig

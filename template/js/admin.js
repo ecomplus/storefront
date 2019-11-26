@@ -1,6 +1,6 @@
 import './lib/config'
-import cmsInit from './cms/cms'
+import initNetlifyCms from './netlify-cms/init'
 
 document.title = `Admin ~ ${document.title}`
 
-cmsInit()
+initNetlifyCms()
