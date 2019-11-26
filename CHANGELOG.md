@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.19.0](https://github.com/ecomclub/storefront-template/compare/v1.18.2...v1.19.0) (2019-11-26)
+
+
+### Features
+
+* **cms-config:** supporting netlify cms config import/customization ([0f0abcb](https://github.com/ecomclub/storefront-template/commit/0f0abcbed55909c9c804a49fa8fdfb88b900c32c))
+
+
+### Bug Fixes
+
+* **cms-config:** unsing lodash merge to deep merge config objects ([5fe3dc3](https://github.com/ecomclub/storefront-template/commit/5fe3dc3185faaf73f00cff8e6aa88ddde5ccc172))
+* **cms-config:** update with config.yml, add trustvox widget again ([8be9c17](https://github.com/ecomclub/storefront-template/commit/8be9c17a34181545ade60dee81da9a59b21b6ce3))
+
 ### [1.18.2](https://github.com/ecomclub/storefront-template/compare/v1.18.1...v1.18.2) (2019-11-12)
 
 
