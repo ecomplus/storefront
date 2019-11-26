@@ -19,6 +19,18 @@
   </div>
 </template>
 
+<script>
+import { FadeTransition, SlideXLeftTransition } from 'vue2-transitions'
+
+export default {
+  name: 'StorefrontApp',
+  components: {
+    FadeTransition,
+    SlideXLeftTransition
+  }
+}
+</script>
+
 <style lang="scss">
   #storefront-app {
     padding: 2rem 0 3rem;

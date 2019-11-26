@@ -4,7 +4,6 @@ import { _config, i18n } from '@ecomplus/utils'
 import App from './App.vue'
 import router from './router/'
 import store from './store/'
-import { FadeTransition, SlideXLeftTransition } from 'vue2-transitions'
 import './lib/clipboard'
 import './lib/credit-card'
 
@@ -49,11 +48,7 @@ router.afterEach(to => {
 new Vue({
   router,
   store,
-  render: h => h(App),
-  components: {
-    FadeTransition,
-    SlideXLeftTransition
-  }
+  render: h => h(App)
 }).$mount('#storefront-app')
 
 console.log(`* Starting Storefront App with Store ID #${_config.get('store_id')}`)
