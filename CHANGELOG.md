@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.26](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.25...v1.0.0-beta.26) (2019-11-26)
+
+
+### Bug Fixes
+
+* **address-form:** enable street and borough fields when empty ([29ff4b1](https://github.com/ecomclub/storefront-app/commit/29ff4b1e15bdf0e445c67c525c189a2d66930875))
+* **cart-subtotal:** fix updating vuex amount on cart view ([2b2dbe8](https://github.com/ecomclub/storefront-app/commit/2b2dbe8f083770c10613b868e7f870b062ba5515))
+* **transitions:** fix declaring transitions on App.vue for routes ([d274d34](https://github.com/ecomclub/storefront-app/commit/d274d349803ddae3f7b3497cc10ff2c4d5ad0b50))
+
 ## [1.0.0-beta.25](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.24...v1.0.0-beta.25) (2019-11-14)
 
 
