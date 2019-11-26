@@ -53,7 +53,6 @@ export default {
       zipReady: countryCode !== 'BR',
       zipLoading: false,
       addressFromZip: false,
-      boroughFromZip: false,
       noNumber: false
     }
   },
@@ -124,18 +123,13 @@ export default {
               this.localAddress.province_code = uf
               this.localAddress.city = localidade
               this.localAddress.street = logradouro
+              this.localAddress.borough = bairro
               this.addressFromZip = true
-              if (bairro) {
-                this.localAddress.borough = data.bairro
-                this.boroughFromZip = true
-              } else {
-                this.boroughFromZip = false
-              }
               setTimeout(() => {
                 this.$refs.inputNumber.select()
               }, 300)
             } else {
-              this.addressFromZip = this.boroughFromZip = false
+              this.addressFromZip = false
             }
           })
           .catch(err => {

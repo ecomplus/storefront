@@ -123,7 +123,7 @@
             class="form-control"
             id="ec-address-form-street"
             v-model="localAddress.street"
-            :readonly="addressFromZip"
+            :readonly="addressFromZip && Boolean(localAddress.street)"
             @click="({ target }) => target.select()"
             required
           >
@@ -138,7 +138,7 @@
             class="form-control"
             id="ec-address-form-borough"
             v-model="localAddress.borough"
-            :readonly="boroughFromZip"
+            :readonly="addressFromZip && Boolean(localAddress.borough)"
             @click="({ target }) => target.select()"
           >
         </div>
