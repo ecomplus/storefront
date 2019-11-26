@@ -4,13 +4,16 @@ const cmsConfig = {
       name: 'git-gateway',
       branch: 'master'
     },
+
     media_folder: 'template/public/img/uploads',
     public_folder: '/img/uploads',
+
     slug: {
       encoding: 'ascii',
       clean_accents: true,
       sanitize_replacement: '-'
     },
+
     collections: [
       {
         name: 'pages',
@@ -104,6 +107,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             name: 'products',
             label: 'Produtos',
@@ -191,6 +195,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             name: 'search',
             label: 'Busca',
@@ -213,6 +218,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             name: 'collections',
             label: 'Coleções',
@@ -235,6 +241,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             name: 'categories',
             label: 'Categorias',
@@ -257,6 +264,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             name: 'brands',
             label: 'Marcas',
@@ -279,6 +287,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             name: 'blog',
             label: 'Blog',
@@ -310,6 +319,7 @@ const cmsConfig = {
           }
         ]
       },
+
       {
         name: 'blog_posts',
         label: 'Posts para o blog',
@@ -371,6 +381,7 @@ const cmsConfig = {
           }
         ]
       },
+
       {
         name: 'extra_pages',
         label: 'Extra Pages',
@@ -446,6 +457,7 @@ const cmsConfig = {
           }
         ]
       },
+
       {
         name: 'settings',
         label: 'Configurações',
@@ -653,6 +665,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             name: 'dictionary',
             label: 'Dicionário',
@@ -686,6 +699,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             name: 'social',
             file: 'content/social.json',
@@ -713,6 +727,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             name: 'contacts',
             file: 'content/contacts.json',
@@ -787,6 +802,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             label: 'Informações',
             file: 'content/info.json',
@@ -922,6 +938,7 @@ const cmsConfig = {
           }
         ]
       },
+
       {
         name: 'layout',
         label: 'Layout',
@@ -997,6 +1014,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             name: 'footer',
             label: 'Footer',
@@ -1295,6 +1313,7 @@ const cmsConfig = {
           }
         ]
       },
+
       {
         name: 'widgets',
         label: 'Widgets',
@@ -1329,6 +1348,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             label: 'Busca instantânea',
             name: 'ecomplus_widget_search',
@@ -1355,6 +1375,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             label: 'Motor de busca',
             name: 'ecomplus_widget_search_engine',
@@ -1381,6 +1402,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             label: 'Minicart',
             name: 'ecomplus_widget_minicart',
@@ -1407,6 +1429,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             label: 'Card de produtos',
             name: 'ecomplus_widget_product_card',
@@ -1469,6 +1492,7 @@ const cmsConfig = {
               }
             ]
           },
+
           {
             label: 'Produtos',
             name: 'ecomplus_widget_product',
@@ -1526,6 +1550,47 @@ const cmsConfig = {
                         widget: 'string'
                       }
                     ]
+                  }
+                ]
+              }
+            ]
+          },
+
+          {
+            label: 'Trustvox',
+            name: 'ecomplus_widget_trustvox',
+            file: 'content/widgets/widget-trustvox.json',
+            fields: [
+              {
+                name: 'pkg',
+                widget: 'hidden',
+                default: '@ecomplus/widget-trustvox'
+              },
+              {
+                label: 'Ativar',
+                hint: 'Avaliações de produtos via Trustvox',
+                name: 'active',
+                required: false,
+                widget: 'boolean'
+              },
+              {
+                label: 'Apenas em desktops',
+                name: 'desktopOnly',
+                hint: 'Desativa o widget em dispositivos móveis',
+                required: false,
+                widget: 'boolean'
+              },
+              {
+                label: 'Opções',
+                name: 'options',
+                widget: 'object',
+                hint: 'Personalizações do widget',
+                fields: [
+                  {
+                    label: 'ID da loja na Trustvox',
+                    name: 'trustvoxStoreId',
+                    widget: 'number',
+                    required: true
                   }
                 ]
               }
