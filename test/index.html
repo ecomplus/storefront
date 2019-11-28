@@ -15,7 +15,9 @@
 
   <body style="padding: 3rem 0">
     <div class="container">
-      <h1>Storefront Bootstrap guide</h1>
+      <h1 class="animated bounce delay-1s">
+        <i class="fas fa-shopping-bag"></i> Storefront Bootstrap guide
+      </h1>
 
       <p>
         All E-Com Plus stores should include
@@ -78,6 +80,8 @@
         <i class="text-muted">Hotmarks</i>
       </p>
 
+      <hr>
+
       <div id="app">
         <b-alert v-bind:show="true" variant="info" dismissible>
           Also includes some Vue components from
@@ -93,7 +97,13 @@
         </b-dropdown>
       </div>
 
-      <div class="dropdown mt-3">
+      <hr>
+
+      <div class="dropdown">
+        <p>
+          Some JS handlers/constructors from
+          <a href="http://thednp.github.io/bootstrap.native/">Bootstrap.native</a>
+        </p>
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
