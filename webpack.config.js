@@ -25,7 +25,8 @@ module.exports = {
     open: true
   },
   stats: {
-    colors: true
+    colors: true,
+    children: false
   },
   devtool: 'source-map',
   performance: {
