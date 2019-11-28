@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/@ecomplus/storefront-twbs.svg)](https://www.npmjs.org/@ecomplus/storefront-twbs)
 [![license mit](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[Boostrap 4.3](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
+[Boostrap 4.4](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
 and [BootstrapVue](https://bootstrap-vue.js.org/docs/components/)
 wrapper for E-Com Plus storefront.
 
@@ -41,7 +41,7 @@ import '@ecomplus/storefront-twbs'
 
 ## Styles
 
-We're including almost all Bootstrap 4.3 styles and components,
+We're including almost all Bootstrap 4.4 styles and components,
 just a few components aren't included by default as you can see at
 [`scss/styles.scss`](https://github.com/ecomclub/storefront-twbs/blob/master/scss/styles.scss).
 
@@ -63,7 +63,7 @@ to see available Sass variables.
 ### Guide
 
 All E-Com Plus stores should include
-Bootstrap 4.3 theme to improve compatibility between brand colors,
+Bootstrap 4.4 theme to improve compatibility between brand colors,
 store template and third party widgets,
 keeping as possible a consistent visual identity.
 
@@ -171,10 +171,10 @@ to be used by storefront widgets, as example (default):
 ## JavaScript
 
 The package includes
-[collapse](https://getbootstrap.com/docs/4.3/components/collapse/),
-[dropdowns](https://getbootstrap.com/docs/4.3/components/dropdowns/),
-[modal](https://getbootstrap.com/docs/4.3/components/modal/) and
-[tooltips](https://getbootstrap.com/docs/4.3/components/tooltips/)
+[collapse](https://getbootstrap.com/docs/4.4/components/collapse/),
+[dropdowns](https://getbootstrap.com/docs/4.4/components/dropdowns/),
+[modal](https://getbootstrap.com/docs/4.4/components/modal/) and
+[tooltips](https://getbootstrap.com/docs/4.4/components/tooltips/)
 scripts from [`bootstrap.native`](https://github.com/thednp/bootstrap.native).
 
 Also some
