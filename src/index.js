@@ -1,10 +1,6 @@
-// declare some BootstrapVue components on global Vue instance
-// https://bootstrap-vue.js.org/docs/
-
 import { version } from './../package.json'
 
-import PortalVue from 'portal-vue'
-import Vue from 'vue'
+import './fontawesome-icons'
 
 import {
   Collapse,
@@ -12,6 +8,10 @@ import {
   Modal,
   Tooltip
 } from 'bootstrap.native'
+
+import Vue from 'vue'
+
+import PortalVue from 'portal-vue'
 
 import {
   AlertPlugin,
