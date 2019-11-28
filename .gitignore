@@ -1,6 +1,7 @@
 # Copied SCSS files
 /scss/bootstrap/
 /scss/bootstrap-vue/
+/scss/animate.css/
 
 # Output
 /dist
