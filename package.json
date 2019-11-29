@@ -1,7 +1,7 @@
 {
   "name": "@ecomplus/storefront-twbs",
   "version": "3.5.1",
-  "description": "Generate Bootstrap 4 based theme for E-Com Plus storefront",
+  "description": "Bootstrap + Animate.css + FontAwesome wrapper for E-Com Plus Storefront",
   "main": "dist/storefront-twbs.min.js",
   "module": "src/index.js",
   "browser": "dist/storefront-twbs.min.js",
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/ecomclub/storefront-twbs.git"
   },
-  "author": "E-Com Club",
+  "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ecomclub/storefront-twbs/issues"
