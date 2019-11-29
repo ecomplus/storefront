@@ -1,11 +1,35 @@
 # storefront-twbs
 
+[![CodeFactor](https://www.codefactor.io/repository/github/ecomclub/storefront-twbs/badge)](https://www.codefactor.io/repository/github/ecomclub/storefront-twbs)
 [![npm version](https://img.shields.io/npm/v/@ecomplus/storefront-twbs.svg)](https://www.npmjs.org/@ecomplus/storefront-twbs)
 [![license mit](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[Boostrap 4.4](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
-and [BootstrapVue](https://bootstrap-vue.js.org/docs/components/)
-wrapper for E-Com Plus storefront.
+Foundation components for
+[E-Com Plus Storefront](https://github.com/ecomclub/storefront):
+
+1. **[Boostrap 4.4](https://getbootstrap.com/docs/4.4/getting-started/introduction/)**
+with [BootstrapVue](https://bootstrap-vue.js.org/docs/components/) and
+[BootstrapNative](https://github.com/thednp/bootstrap.native) (_no_ jQuery):
+    - [`scss/styles.scss`](https://github.com/ecomclub/storefront-twbs/blob/master/scss/styles.scss):
+    Almost all (_but not all_) Bootstrap CSS is imported;
+    - [`src/index.js`](https://github.com/ecomclub/storefront-twbs/blob/master/src/index.js):
+    Only some components are imported from BootstrapVue/BootstrapNative,
+    we encourage to use only normal Bootstrap CSS classes when no JS is
+    required for the component;
+
+2. Some animations imported from
+**[Animate.css](https://daneden.github.io/animate.css/)**:
+    - [`scss/_animate.scss`](https://github.com/ecomclub/storefront-twbs/blob/master/scss/_animate.scss):
+    Curated CSS animations list;
+
+3. Some SVG icons imported from
+**[Font Awesome 5](https://fontawesome.com/)**:
+    - [`src/fontawesome-icons.js`](https://github.com/ecomclub/storefront-twbs/blob/master/src/fontawesome-icons.js):
+    Curated SVG icons list;
+
+> We're not importing those frameworks _as is_ to select only common and
+most useful components for storefront themes. By this way we're reducing
+final bundle size and improving template **performance** :rocket:.
 
 ## Installation
 
@@ -187,3 +211,18 @@ you can see the available components at
 
 **It requires and does not include [Vue.js](https://vuejs.org/)**.
 jQuery is _not_ required.
+
+
+### Font Awesome
+
+Some [Font Awesome](https://fontawesome.com/) SVG icons
+are also included to the bundle, together with Font Awesome SVG `dom`.
+
+You can use FA icons by just adding respective CSS classes, eg.:
+
+```html
+<i class="fas fa-shopping-bag"></i>
+```
+
+See available icons at
+[`src/fontawesome-icons.js`](https://github.com/ecomclub/storefront-twbs/blob/master/src/fontawesome-icons.js).
