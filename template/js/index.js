@@ -15,10 +15,6 @@ import Vue from 'vue'
 import cloneDeep from 'lodash.clonedeep'
 import merge from 'lodash.merge'
 import Glide from '@glidejs/glide'
-import ecomClient from '@ecomplus/client'
-import EcomSearch from '@ecomplus/search-engine'
-import EcomPassport from '@ecomplus/passport-client'
-import EcomCart from '@ecomplus/shopping-cart'
 
 import $ from './lib/$'
 import $overlay from './lib/$overlay'
@@ -28,10 +24,6 @@ window.lozad = lozad
 window.Vue = Vue
 window._ = { cloneDeep, merge }
 window.Glide = Glide
-window.ecomClient = ecomClient
-window.EcomSearch = EcomSearch
-window.EcomPassport = EcomPassport
-window.EcomCart = EcomCart
 window.$ = $
 
 Vue.config.productionTip = false
