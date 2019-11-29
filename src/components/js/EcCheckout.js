@@ -1,5 +1,5 @@
 import { i18n, name, formatMoney, price, img, phone } from '@ecomplus/utils'
-import EcomCart from '@ecomplus/shopping-cart'
+import ecomCart from '@ecomplus/shopping-cart'
 import EcIdentify from './../EcIdentify.vue'
 import EcAccountForm from './../EcAccountForm.vue'
 import EcAddresses from './../EcAddresses.vue'
@@ -77,7 +77,7 @@ export default {
     },
     ecomCart: {
       type: Object,
-      default: () => new EcomCart()
+      default: () => ecomCart
     }
   },
 

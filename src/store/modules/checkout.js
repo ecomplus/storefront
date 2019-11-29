@@ -1,7 +1,5 @@
-import EcomCart from '@ecomplus/shopping-cart'
+import ecomCart from '@ecomplus/shopping-cart'
 import ecomClient from '@ecomplus/client'
-
-const cart = new EcomCart()
 
 const fetchProduct = _id => {
   return ecomClient.store({
@@ -81,7 +79,7 @@ const mutations = {
     const { freight, discount } = state.amount
     const subtotal = typeof subtotalValue === 'number' && !isNaN(subtotalValue)
       ? subtotalValue
-      : cart.data.subtotal
+      : ecomCart.data.subtotal
     state.amount.total = subtotal + freight - discount
   },
 
@@ -121,7 +119,7 @@ const mutations = {
 const actions = {
   fetchCartItems ({ commit }, { removeOnError }) {
     const promises = []
-    cart.data.items.forEach(item => {
+    ecomCart.data.items.forEach(item => {
       const { _id, quantity } = item
       const promise = new Promise(resolve => {
         fetchProduct(item.product_id)
@@ -132,13 +130,13 @@ const actions = {
               body_html: '',
               body_text: ''
             })
-            cart.increaseItemQnt(_id, quantity, false)
+            ecomCart.increaseItemQnt(_id, quantity, false)
           })
           .catch(err => {
             console.error(err)
             const status = err.response && err.response.status
             if (removeOnError || (status >= 400 && status < 500)) {
-              cart.removeItem(_id, false)
+              ecomCart.removeItem(_id, false)
             }
           })
           .finally(resolve)
@@ -146,7 +144,7 @@ const actions = {
       promises.push(promise)
     })
     return Promise.all(promises).then(() => {
-      cart.save()
+      ecomCart.save()
       commit('updateAmount')
     })
   },
@@ -162,7 +160,7 @@ const actions = {
       }
     }
     const checkoutBody = {
-      items: cart.data.items,
+      items: ecomCart.data.items,
       shipping: {
         ...getters.shippingService,
         to: customer.addresses.find(addr => addr.default)

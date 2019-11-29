@@ -1,6 +1,6 @@
 import { _config, formatMoney } from '@ecomplus/utils'
 import dictionary from '@ecomplus/widget-minicart/src/lib/dictionary'
-import EcomCart from '@ecomplus/shopping-cart'
+import ecomCart from '@ecomplus/shopping-cart'
 import EcCartItem from '@ecomplus/widget-minicart/src/components/EcCartItem.vue'
 import EcShipping from '@ecomplus/widget-product/src/components/EcShipping.vue'
 import EcPrices from '@ecomplus/widget-product/src/components/EcPrices.vue'
@@ -17,6 +17,10 @@ export default {
   },
 
   props: {
+    ecomCart: {
+      type: Object,
+      default: () => ecomCart
+    },
     lang: {
       type: String,
       default: _config.get('lang')
@@ -30,12 +34,6 @@ export default {
     },
     totalValue: {
       type: Number
-    }
-  },
-
-  data () {
-    return {
-      ecomCart: new EcomCart()
     }
   },
 
@@ -58,14 +56,5 @@ export default {
   methods: {
     dictionary,
     formatMoney
-  },
-
-  created () {
-    if (this.showOnItemAdded) {
-      EcomCart.on('addItem', ({ data }) => {
-        this.$set(this.ecomCart, 'data', data)
-        this.show()
-      })
-    }
   }
 }

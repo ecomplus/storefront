@@ -1,7 +1,7 @@
 import { i18n, price, formatMoney } from '@ecomplus/utils'
 import { modules } from '@ecomplus/client'
 import loadPaymentClient from './../../lib/load-payment-client'
-import EcomCart from '@ecomplus/shopping-cart'
+import ecomCart from '@ecomplus/shopping-cart'
 import EcCreditCard from './../EcCreditCard.vue'
 import { FadeTransition, SlideYUpTransition } from 'vue2-transitions'
 
@@ -34,7 +34,7 @@ export default {
     },
     ecomCart: {
       type: Object,
-      default: () => new EcomCart()
+      default: () => ecomCart
     },
     amount: {
       type: Object,
