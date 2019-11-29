@@ -3,7 +3,6 @@ import './lib/config'
 import { events } from './lib/emitter'
 import '@ecomplus/storefront-twbs'
 
-import './lib/icons'
 import './lib/utils'
 import './lib/lazy-load'
 import './lib/glide-slides'
