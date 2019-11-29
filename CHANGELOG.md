@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.19.2](https://github.com/ecomclub/storefront-template/compare/v1.19.1...v1.19.2) (2019-11-29)
+
+
+### Bug Fixes
+
+* **ecom-config:** update using $ecomConfig from utils ([d868af7](https://github.com/ecomclub/storefront-template/commit/d868af7915f7a45ff14ed33acaf2cacae3f5c858))
+* **imports:** explicitly 'import all' for not ES6 libs ([57791e5](https://github.com/ecomclub/storefront-template/commit/57791e5024bb8ce5defef5df8b8e09e743132f7d))
+* **js:** remove icons from lib (imported from storefront-twbs@4) ([744954b](https://github.com/ecomclub/storefront-template/commit/744954bb6f4420455d5fa901b688c0e5f9d6b5cb))
+
 ### [1.19.1](https://github.com/ecomclub/storefront-template/compare/v1.19.0...v1.19.1) (2019-11-27)
 
 ## [1.19.0](https://github.com/ecomclub/storefront-template/compare/v1.18.2...v1.19.0) (2019-11-26)
