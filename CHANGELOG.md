@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/ecomclub/storefront-twbs/compare/v3.5.1...v4.0.0) (2019-11-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* **fa-icons:** shipping fontawesome dom and icons
+
+### Features
+
+* **animate.css:** add Animate.css base styles and selected animations ([23e25ac](https://github.com/ecomclub/storefront-twbs/commit/23e25ac37bd17b99b9e528d6d35415713a7f0da4))
+* **fa-icons:** add curated fontawesome svg icons to bundle ([0d4c8a2](https://github.com/ecomclub/storefront-twbs/commit/0d4c8a228caea20a38280c20c3ba2d46e276dbc6))
+
 ### [3.5.1](https://github.com/ecomclub/storefront-twbs/compare/v3.5.0...v3.5.1) (2019-11-28)
 
 ## [3.5.0](https://github.com/ecomclub/storefront-twbs/compare/v3.4.2...v3.5.0) (2019-09-17)
