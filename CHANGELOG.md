@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/ecomclub/storefront-twbs/compare/v4.0.0...v4.0.1) (2019-11-29)
+
+
+### Bug Fixes
+
+* **animate:** import scss files (renamed) instead of css ([5729480](https://github.com/ecomclub/storefront-twbs/commit/57294808a1c830ba9dbe585cdb2a706ff10d27a5))
+
 ## [4.0.0](https://github.com/ecomclub/storefront-twbs/compare/v3.5.1...v4.0.0) (2019-11-29)
 
 

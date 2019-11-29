@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-twbs",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Bootstrap + Animate.css + FontAwesome wrapper for E-Com Plus Storefront",
   "main": "dist/storefront-twbs.min.js",
   "module": "src/index.js",
