@@ -1300,6 +1300,13 @@ const cmsConfig = {
                     widget: 'boolean',
                     default: true,
                     required: false
+                  },
+                  {
+                    label: 'Paypal',
+                    name: 'paypal',
+                    widget: 'boolean',
+                    default: true,
+                    required: false
                   }
                 ]
               },
