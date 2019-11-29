@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/@ecomplus/storefront-twbs.svg)](https://www.npmjs.org/@ecomplus/storefront-twbs)
 [![license mit](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Foundation components for
+:nail_care: Foundation components for
 [E-Com Plus Storefront](https://github.com/ecomclub/storefront):
 
 1. **[Boostrap 4.4](https://getbootstrap.com/docs/4.4/getting-started/introduction/)**
@@ -28,8 +28,13 @@ with [BootstrapVue](https://bootstrap-vue.js.org/docs/components/) and
     Curated SVG icons list;
 
 > We're not importing those frameworks _as is_ to select only common and
-most useful components for storefront themes. By this way we're reducing
-final bundle size and improving template **performance** :rocket:.
+most useful components for Storefront themes. By this way we're reducing
+final bundle size and improving website **performance** :rocket:.
+
+> We generally use (and encourage partners to) Vue.js for
+[Storefront widgets](https://github.com/ecomclub?utf8=%E2%9C%93&q=widget&type=&language=),
+but remember that Bootstrap CSS, Font Awesome SVG and Animate.css
+**are all reusable with any JS framework**.
 
 ## Installation
 
