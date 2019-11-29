@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 
 mkdir -p ./scss/bootstrap/scss;
 cp -r ./node_modules/bootstrap/scss/* ./scss/bootstrap/scss/;
