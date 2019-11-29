@@ -48,13 +48,10 @@ npm i --save @ecomplus/storefront-twbs
 ```
 
 ```js
-// Load collapse, dropdown and tooltip Bootstrap native components
-// Add some BootstrapVue components on global Vue instance
 import '@ecomplus/storefront-twbs'
 ```
 
 ```scss
-// Bootstrap 4 styles
 @import "node_modules/@ecomplus/storefront-twbs/scss/styles";
 ```
 
