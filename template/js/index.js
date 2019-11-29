@@ -41,12 +41,9 @@ if (window.pluginPhotoswipe) {
 }
 
 const { hash } = window.location
-if (hash.indexOf('=') !== -1) {
+if (hash.indexOf('_token=') !== -1 || hash.indexOf('error=access_denied') !== -1) {
   const $netlifyIdentityScript = document.createElement('script')
   $netlifyIdentityScript.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js'
-  if (hash.indexOf('token=') === -1) {
-    $netlifyIdentityScript.async = $netlifyIdentityScript.defer = true
-  }
   document.body.appendChild($netlifyIdentityScript)
 }
 
