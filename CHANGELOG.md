@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.21.0](https://github.com/ecomclub/storefront-template/compare/v1.20.0...v1.21.0) (2019-11-29)
+
+
+### Features
+
+* **load-widgets:** preloading ecom libs and emitting events ([0f4150e](https://github.com/ecomclub/storefront-template/commit/0f4150e83b3f39377e29c4428dc42f8b5a8c0dce))
+
 ## [1.20.0](https://github.com/ecomclub/storefront-template/compare/v1.19.2...v1.20.0) (2019-11-29)
 
 ### [1.19.2](https://github.com/ecomclub/storefront-template/compare/v1.19.1...v1.19.2) (2019-11-29)
