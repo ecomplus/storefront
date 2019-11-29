@@ -14,7 +14,7 @@ with [BootstrapVue](https://bootstrap-vue.js.org/docs/components/) and
     Almost all (_but not all_) Bootstrap CSS is imported;
     - [`src/index.js`](https://github.com/ecomclub/storefront-twbs/blob/master/src/index.js):
     Only some components are imported from BootstrapVue/BootstrapNative,
-    we encourage to use only normal Bootstrap CSS classes when no JS is
+    you should use only normal Bootstrap CSS classes when no JS is
     required for the component;
 
 2. Some animations imported from
