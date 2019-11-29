@@ -8,7 +8,7 @@
   "scripts": {
     "build": "bash ./setup.sh && NODE_ENV=production webpack",
     "serve": "bash ./setup.sh && webpack-dev-server",
-    "release": "npm run build && standard-version"
+    "release": "rm -rf ./dist && npm run build && standard-version"
   },
   "repository": {
     "type": "git",

@@ -8,4 +8,3 @@ mkdir -p ./scss/animate.css/source;
 cp -r ./node_modules/animate.css/source/* ./scss/animate.css/source/;
 find ./scss/ -type f -name "*.css" -exec rename .css .scss '{}' \;
 find ./scss/ -type f ! -name "*.scss" -delete;
-rm -rf ./dist;
