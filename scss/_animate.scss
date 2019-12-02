@@ -1,6 +1,27 @@
 // Animate.css base styles
 @import "animate.css/source/base";
 
+// Setup custom base animation duration
+$animate-duration: .3s !default;
+
+.animated {
+  // Overwrite default Animate.css durations
+  animation-duration: $animate-duration;
+
+  &.faster {
+    animation-duration: $animate-duration * .5;
+  }
+  &.fast {
+    animation-duration: $animate-duration * .75;
+  }
+  &.slow {
+    animation-duration: $animate-duration * 1.5;
+  }
+  &.slower {
+    animation-duration: $animate-duration * 2.25;
+  }
+}
+
 // All animations demo:
 // https://daneden.github.io/animate.css/
 
