@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.27](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.26...v1.0.0-beta.27) (2019-12-02)
+
+
+### Bug Fixes
+
+* **shopping-cart:** update using ecomCart v1 ([a571bbb](https://github.com/ecomclub/storefront-app/commit/a571bbb06b81efc89fa5400dc821abf535cf8c14))
+
 ## [1.0.0-beta.26](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.25...v1.0.0-beta.26) (2019-11-26)
 
 
