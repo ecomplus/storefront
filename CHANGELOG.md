@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.22.0](https://github.com/ecomclub/storefront-template/compare/v1.21.0...v1.22.0) (2019-12-02)
+
+
+### Features
+
+* **pay-icon:** update to better image resolution and add paypal stamp ([#91](https://github.com/ecomclub/storefront-template/issues/91)) ([be4a88e](https://github.com/ecomclub/storefront-template/commit/be4a88ef2bac3a21e62e92c12410bd7c737a3cdb))
+
 ## [1.21.0](https://github.com/ecomclub/storefront-template/compare/v1.20.0...v1.21.0) (2019-11-29)
 
 
