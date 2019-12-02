@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.3](https://github.com/ecomclub/storefront-twbs/compare/v4.0.2...v4.0.3) (2019-12-02)
+
+
+### Bug Fixes
+
+* **animate:** changing default animate duration (faster) ([6a09a33](https://github.com/ecomclub/storefront-twbs/commit/6a09a33eea7e49001debc21a35039329958c8010))
+
 ### [4.0.2](https://github.com/ecomclub/storefront-twbs/compare/v4.0.1...v4.0.2) (2019-11-29)
 
 ### [4.0.1](https://github.com/ecomclub/storefront-twbs/compare/v4.0.0...v4.0.1) (2019-11-29)
