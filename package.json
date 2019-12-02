@@ -47,7 +47,7 @@
     "@commitlint/config-conventional": "^8.2.0",
     "@ecomplus/storefront-framework": "^5.2.6",
     "@ecomplus/storefront-template": "^1.21.0",
-    "@ecomplus/widget-product": "^0.3.17",
+    "@ecomplus/widget-product": "^0.3.18",
     "@ecomplus/widget-product-card": "^0.2.12",
     "autoprefixer": "^9.7.3",
     "babel-loader": "^8.0.6",
