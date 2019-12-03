@@ -16,46 +16,56 @@
       </button>
     </template>
 
-    <div class="ec-discount__coupon">
-      <transition
-        enter-active-class="animated fadeInDown"
-        leave-active-class="animated fadeOutUp"
+    <transition
+      enter-active-class="animated fadeInDown"
+      leave-active-class="animated fadeOutUp"
+    >
+      <form
+        @submit.prevent="submitCoupon"
+        class="ec-discount__form"
+        v-if="isFormVisible"
       >
-        <form
-          @submit.prevent="submitCoupon"
-          class="ec-discount__form"
-          v-if="isFormVisible"
-        >
-          <div class="form-group">
-            <label for="ec-discount-coupon">
-              {{ i19discountCoupon }}
-            </label>
+        <div class="form-group">
+          <label for="ec-discount-coupon">
+            {{ i19discountCoupon }}
+          </label>
 
-            <div class="input-group">
-              <input
-                type="text"
-                ref="input"
-                class="form-control ec-discount__input"
-                id="ec-discount-coupon"
-                :readonly="isLoading"
-                :placeholder="i19code"
-                :aria-label="i19code"
-                v-model="localCouponCode"
-              >
+          <div class="input-group">
+            <input
+              type="text"
+              ref="input"
+              class="form-control ec-discount__input"
+              id="ec-discount-coupon"
+              required
+              :readonly="isLoading"
+              :placeholder="i19code"
+              :aria-label="i19code"
+              v-model="localCouponCode"
+            >
 
-              <div class="input-group-append">
-                <span v-if="isLoading" class="input-group-text">
-                  <span class="spinner-grow spinner-grow-sm" role="status"></span>
-                  <span class="sr-only">Loading...</span>
-                </span>
-                <button v-else class="btn btn-outline-secondary" type="submit">
-                  {{ i19add }}
-                </button>
-              </div>
+            <div class="input-group-append">
+              <span v-if="isLoading" class="input-group-text">
+                <span class="spinner-grow spinner-grow-sm" role="status"></span>
+                <span class="sr-only">Loading...</span>
+              </span>
+              <button v-else class="btn btn-outline-secondary" type="submit">
+                {{ i19add }}
+              </button>
             </div>
           </div>
-        </form>
-      </transition>
-    </div>
+        </div>
+      </form>
+    </transition>
   </template>
+
+  <b-alert
+    class="ec-discount__alert"
+    :variant="alertVariant"
+    dismissible
+    fade
+    :show="!isLoading && alertText"
+    @dismissed="alertText = null"
+  >
+    {{ alertText }}
+  </b-alert>
 </div>
