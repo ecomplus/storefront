@@ -161,6 +161,12 @@
                 </div>
               </div>
 
+              <ec-discount
+                class="ec-checkout__discount"
+                :isAttentionWanted="true"
+                :amount.sync="localAmount"
+              />
+
               <div class="ec-checkout__user">
                 <h5>{{ i18n('Buyer') }}</h5>
                 <p>

@@ -4,6 +4,7 @@ import EcIdentify from './../EcIdentify.vue'
 import EcAccountForm from './../EcAccountForm.vue'
 import EcAddresses from './../EcAddresses.vue'
 import EcPayment from './../EcPayment.vue'
+import EcDiscount from './../EcDiscount.vue'
 import EcCartItem from '@ecomplus/widget-minicart/src/components/EcCartItem.vue'
 import EcShipping from '@ecomplus/widget-product/src/components/EcShipping.vue'
 import EcShippingLine from '@ecomplus/widget-product/src/components/EcShippingLine.vue'
@@ -36,6 +37,7 @@ export default {
     EcAccountForm,
     EcAddresses,
     EcPayment,
+    EcDiscount,
     EcCartItem,
     EcShipping,
     EcShippingLine,
@@ -125,6 +127,15 @@ export default {
         customer.birth_date && customer.birth_date.day &&
         customer.registry_type && customer.doc_number &&
         customer.phones && customer.phones.length
+    },
+
+    localAmount: {
+      get () {
+        return this.amount
+      },
+      set (amount) {
+        this.$emit('update:amount', amount)
+      }
     },
 
     localCustomer: {
