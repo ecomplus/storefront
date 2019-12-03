@@ -75,16 +75,16 @@ const getters = {
 }
 
 const mutations = {
+  setAmount (state, amount) {
+    state.amount = { ...state.amount, ...amount }
+  },
+
   updateAmount (state, subtotalValue) {
     const { freight, discount } = state.amount
     const subtotal = typeof subtotalValue === 'number' && !isNaN(subtotalValue)
       ? subtotalValue
       : ecomCart.data.subtotal
     state.amount.total = subtotal + freight - discount
-  },
-
-  setDiscount (state, discountValue) {
-    state.amount.discount = discountValue
   },
 
   selectShippingService (state, shippingService) {

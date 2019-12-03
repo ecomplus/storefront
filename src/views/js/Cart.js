@@ -9,12 +9,24 @@ export default {
     EcCart
   },
 
-  computed: mapGetters([
-    'totalValue'
-  ]),
+  computed: {
+    ...mapGetters([
+      'amount'
+    ]),
+
+    localAmount: {
+      get () {
+        return this.amount
+      },
+      set (amount) {
+        this.setAmount(amount)
+      }
+    }
+  },
 
   methods: {
     ...mapMutations([
+      'setAmount',
       'updateAmount',
       'selectShippingService'
     ]),

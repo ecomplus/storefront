@@ -31,11 +31,9 @@ export default {
       type: String,
       default: '/app/#/checkout'
     },
-    discountValue: {
-      type: Number
-    },
-    totalValue: {
-      type: Number
+    amount: {
+      type: Object,
+      default: () => {}
     }
   },
 
@@ -44,12 +42,22 @@ export default {
       return this.ecomCart.data
     },
 
-    asProduct () {
-      const body = {
-        price: this.totalValue >= 0 ? this.totalValue : this.cart.subtotal
+    localAmount: {
+      get () {
+        return this.amount
+      },
+      set (amount) {
+        this.$emit('update:amount', amount)
       }
-      if (this.discountValue > 0) {
-        body.base_price = body.price + this.discountValue
+    },
+
+    asProduct () {
+      const { total, discount } = this.localAmount
+      const body = {
+        price: total >= 0 ? total : this.cart.subtotal
+      }
+      if (discount > 0) {
+        body.base_price = body.price + discount
       }
       return body
     }

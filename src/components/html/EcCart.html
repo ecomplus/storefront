@@ -16,7 +16,10 @@
           </slot>
         </div>
 
-        <ec-discount class="ec-cart__discount"/>
+        <ec-discount
+          class="ec-cart__discount"
+          :amount.sync="localAmount"
+        />
       </div>
 
       <div class="col-md-5 col-lg-4">
