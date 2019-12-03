@@ -4,10 +4,10 @@ import baseModulesRequestData from './../../lib/base-modules-request-data'
 
 import {
   i19add,
-  // i19addDiscountCoupon,
-  i19code
-  // i19discountCoupon,
-  // i19hasCouponOrVoucherQn
+  i19addDiscountCoupon,
+  i19code,
+  i19discountCoupon,
+  i19hasCouponOrVoucherQn
 } from '@ecomplus/i18n'
 
 export default {
@@ -41,25 +41,11 @@ export default {
   },
 
   computed: {
-    i19add () {
-      return i18n(i19add)
-    },
-
-    i19addDiscountCoupon () {
-      return 'Adicionar cupom de desconto'
-    },
-
-    i19code () {
-      return i18n(i19code)
-    },
-
-    i19discountCoupon () {
-      return 'Cupom de desconto'
-    },
-
-    i19hasCouponOrVoucherQn () {
-      return 'Possui cupom de desconto ou vale?'
-    }
+    i19add: () => i18n(i19add),
+    i19addDiscountCoupon: () => i18n(i19addDiscountCoupon),
+    i19code: () => i18n(i19code),
+    i19discountCoupon: () => i18n(i19discountCoupon),
+    i19hasCouponOrVoucherQn: () => i18n(i19hasCouponOrVoucherQn)
   },
 
   methods: {
