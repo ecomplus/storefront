@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.29](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.28...v1.0.0-beta.29) (2019-12-03)
+
+
+### Features
+
+* **checkout:** add discount form (coupon) to checkout component ([ac014c3](https://github.com/ecomclub/storefront-app/commit/ac014c39294018b801005afc07e5f039b8a13af5))
+* **discount:** setting up EcDiscount component (coupon, apply discount) ([29785fb](https://github.com/ecomclub/storefront-app/commit/29785fbda0161ac26ae1189b7470cfaeb13608df))
+
+
+### Bug Fixes
+
+* **cart:** recieve and update entire amount object ([58f96a4](https://github.com/ecomclub/storefront-app/commit/58f96a4057d9cb2db16eb8795c0b32492a6bb445))
+* **checkout:** recieve and update entire amount object ([8e0b489](https://github.com/ecomclub/storefront-app/commit/8e0b48900fc8874a1e471b9b1173ba4eefbd5979))
+* **discounts:** add feedback alert/toast ([2666ba9](https://github.com/ecomclub/storefront-app/commit/2666ba957e3522333a23734f22bd9c4902e273ea))
+* **discounts:** fix emited amount object (update) ([77a979b](https://github.com/ecomclub/storefront-app/commit/77a979b5dc1626fe74459919ef23f414b7c42bde))
+* **discounts:** importing all used words from i18n ([514ec6c](https://github.com/ecomclub/storefront-app/commit/514ec6c93bde98cff15d59301a9363f08419ff8f))
+
 ## [1.0.0-beta.28](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.27...v1.0.0-beta.28) (2019-12-02)
 
 ## [1.0.0-beta.27](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.26...v1.0.0-beta.27) (2019-12-02)
