@@ -1,0 +1,15 @@
+.ec-discount {
+  &__intro {
+    color: var(--secondary);
+  }
+
+  &__coupon {
+    overflow-y: hidden;
+    margin-top: .5rem;
+    padding: 0 .75rem;
+  }
+
+  &__input {
+    max-width: 200px;
+  }
+}

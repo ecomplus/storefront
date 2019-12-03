@@ -1,0 +1,61 @@
+<div class="ec-discount">
+  <template v-if="hasCouponInput">
+    <template v-if="!isFormAlwaysVisible">
+      <h6 v-if="isAttentionWanted" class="ec-discount__intro">
+        {{ i19hasCouponOrVoucherQn }}
+      </h6>
+
+      <button
+        class="ec-discount__coupon-btn btn btn-sm"
+        :class="`btn-${(isAttentionWanted ? 'primary' : 'light')}`"
+        @click.prevent="isFormVisible = !isFormVisible"
+        type="button"
+      >
+        <i class="fas fa-tag mr-1"></i>
+        {{ i19addDiscountCoupon }}
+      </button>
+    </template>
+
+    <div class="ec-discount__coupon">
+      <transition
+        enter-active-class="animated fadeInDown"
+        leave-active-class="animated fadeOutUp"
+      >
+        <form
+          @submit.prevent="submitCoupon"
+          class="ec-discount__form"
+          v-if="isFormVisible"
+        >
+          <div class="form-group">
+            <label for="ec-discount-coupon">
+              {{ i19discountCoupon }}
+            </label>
+
+            <div class="input-group">
+              <input
+                type="text"
+                ref="input"
+                class="form-control ec-discount__input"
+                id="ec-discount-coupon"
+                :readonly="isLoading"
+                :placeholder="i19code"
+                :aria-label="i19code"
+                v-model="localCouponCode"
+              >
+
+              <div class="input-group-append">
+                <span v-if="isLoading" class="input-group-text">
+                  <span class="spinner-grow spinner-grow-sm" role="status"></span>
+                  <span class="sr-only">Loading...</span>
+                </span>
+                <button v-else class="btn btn-outline-secondary" type="submit">
+                  {{ i19add }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </transition>
+    </div>
+  </template>
+</div>
