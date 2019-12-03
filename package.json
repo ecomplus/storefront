@@ -31,7 +31,7 @@
   "homepage": "https://github.com/ecomclub/storefront-app#readme",
   "dependencies": {
     "@ecomplus/client": "^1.1.3",
-    "@ecomplus/i18n": "^1.1.1",
+    "@ecomplus/i18n": "^1.2.0",
     "@ecomplus/passport-client": "^0.7.13",
     "@ecomplus/shopping-cart": "^1.0.0",
     "@ecomplus/storefront-twbs": "^4.0.3",
