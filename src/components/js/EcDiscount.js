@@ -71,10 +71,12 @@ export default {
         .then(({ data }) => {
           const discountRule = data.discount_rule
           if (discountRule) {
+            const discount = discountRule.extra_discount.value
             this.$emit('update:couponCode', localCouponCode)
             this.$emit('update:amount', {
               ...amount,
-              discount: discountRule.extra_discount.value
+              discount,
+              total: ((amount && amount.total) || 0) + ((amount && amount.discount) || 0) - discount
             })
             this.alertText = this.i19couponAppliedMsg
             this.alertVariant = 'info'
