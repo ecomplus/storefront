@@ -4,6 +4,7 @@ import ecomCart from '@ecomplus/shopping-cart'
 import EcCartItem from '@ecomplus/widget-minicart/src/components/EcCartItem.vue'
 import EcShipping from '@ecomplus/widget-product/src/components/EcShipping.vue'
 import EcPrices from '@ecomplus/widget-product/src/components/EcPrices.vue'
+import EcDiscount from './../EcDiscount.vue'
 import { SlideYUpTransition } from 'vue2-transitions'
 
 export default {
@@ -13,6 +14,7 @@ export default {
     EcCartItem,
     EcShipping,
     EcPrices,
+    EcDiscount,
     SlideYUpTransition
   },
 
