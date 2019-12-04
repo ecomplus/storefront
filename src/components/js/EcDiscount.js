@@ -19,6 +19,7 @@ export default {
   props: {
     amount: Object,
     couponCode: String,
+    extraDiscountValue: Number,
     hasCouponInput: {
       type: Boolean,
       default: true
@@ -29,11 +30,11 @@ export default {
 
   data () {
     return {
-      isFormVisible: this.isFormAlwaysVisible || this.couponCode,
-      localCouponCode: this.couponCode,
-      isLoading: false,
       alertText: null,
-      alertVariant: null
+      alertVariant: null,
+      isFormVisible: this.isFormAlwaysVisible || this.couponCode,
+      isLoading: false,
+      localCouponCode: this.couponCode
     }
   },
 
@@ -63,13 +64,8 @@ export default {
         .then(({ data }) => {
           const discountRule = data.discount_rule
           if (discountRule) {
-            const discount = discountRule.extra_discount.value
             this.$emit('update:couponCode', localCouponCode)
-            this.$emit('update:amount', {
-              ...amount,
-              discount,
-              total: ((amount && amount.total) || 0) + ((amount && amount.discount) || 0) - discount
-            })
+            this.$emit('update:extraDiscountValue', discountRule.extra_discount.value)
             this.alertText = this.i19couponAppliedMsg
             this.alertVariant = 'info'
           } else {
