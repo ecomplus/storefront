@@ -8,7 +8,7 @@
       :shippingZipCode="shippingZipCode"
       :shippingService.sync="shippingService"
       :paymentGateway.sync="paymentGateway"
-      :amount.sync="localAmount"
+      :amount="amount"
       @checkout="checkout"
     />
   </div>

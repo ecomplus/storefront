@@ -129,15 +129,6 @@ export default {
         customer.phones && customer.phones.length
     },
 
-    localAmount: {
-      get () {
-        return this.amount
-      },
-      set (amount) {
-        this.$emit('update:amount', amount)
-      }
-    },
-
     localCustomer: {
       get () {
         return this.customer

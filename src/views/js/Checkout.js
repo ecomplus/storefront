@@ -23,15 +23,6 @@ export default {
       'selectedAddress'
     ]),
 
-    localAmount: {
-      get () {
-        return this.amount
-      },
-      set (amount) {
-        this.setAmount(amount)
-      }
-    },
-
     customer: {
       get () {
         return this.$store.getters.customer
@@ -70,7 +61,6 @@ export default {
     ...mapMutations([
       'triggerLoading',
       'setFluidPage',
-      'setAmount',
       'selectShippingService',
       'selectPaymentGateway',
       'setCustomer',
