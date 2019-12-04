@@ -46,6 +46,7 @@ const state = {
   amount: {
     freight: 0,
     discount: 0,
+    subtotal: 0,
     total: 0
   },
   extraDiscount: {
@@ -81,11 +82,13 @@ const getters = {
 
 const mutations = {
   updateAmount (state, subtotalValue) {
-    const { freight, discount } = state.amount
+    const { amount } = state
+    const { freight, discount } = amount
     const subtotal = typeof subtotalValue === 'number' && !isNaN(subtotalValue)
       ? subtotalValue
       : ecomCart.data.subtotal
-    state.amount.total = subtotal + freight - discount
+    amount.subtotal = subtotal
+    amount.total = subtotal + freight - discount
   },
 
   setDiscountCoupon (state, couponCode) {
