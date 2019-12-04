@@ -2,6 +2,7 @@ name: Lighthouse
 
 on:
   pull_request:
+    types: [review_requested]
     branches:
       - master
     paths:
