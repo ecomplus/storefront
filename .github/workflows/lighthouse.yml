@@ -22,8 +22,3 @@ jobs:
           urls: |
             https://deploy-preview-$PR_NUMBER--storefront-template.netlify.com/
           temporaryPublicStorage: true
-      - name: Save results
-        uses: actions/upload-artifact@v1
-        with:
-          name: lighthouse-results
-          path: '.lighthouseci'
