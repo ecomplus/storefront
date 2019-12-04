@@ -1,4 +1,4 @@
-import { _config, formatMoney } from '@ecomplus/utils'
+import { $ecomConfig, formatMoney } from '@ecomplus/utils'
 import dictionary from '@ecomplus/widget-minicart/src/lib/dictionary'
 import ecomCart from '@ecomplus/shopping-cart'
 import EcCartItem from '@ecomplus/widget-minicart/src/components/EcCartItem.vue'
@@ -25,7 +25,7 @@ export default {
     },
     lang: {
       type: String,
-      default: _config.get('lang')
+      default: $ecomConfig.get('lang')
     },
     checkoutUrl: {
       type: String,
@@ -42,17 +42,8 @@ export default {
       return this.ecomCart.data
     },
 
-    localAmount: {
-      get () {
-        return this.amount
-      },
-      set (amount) {
-        this.$emit('update:amount', amount)
-      }
-    },
-
     asProduct () {
-      const { total, discount } = this.localAmount
+      const { total, discount } = this.amount
       const body = {
         price: total >= 0 ? total : this.cart.subtotal
       }

@@ -2,7 +2,7 @@
   <div id="cart">
     <ec-cart
       @shippingService="selectShippingService"
-      :amount.sync="localAmount"
+      :amount="amount"
     />
   </div>
 </template>
