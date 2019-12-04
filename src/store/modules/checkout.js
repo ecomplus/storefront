@@ -102,7 +102,7 @@ const mutations = {
     const { discount } = amount
     amount.discount += (extraDiscountValue - extraDiscount.value)
     amount.total -= (amount.discount - discount)
-    if (amount.total > 0) {
+    if (amount.total < 0) {
       amount.total = 0
     }
     extraDiscount.value = extraDiscountValue
