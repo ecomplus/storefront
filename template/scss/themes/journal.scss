@@ -1,0 +1,18 @@
+.pitbar__item:after{
+  background: var(--primary);
+}
+
+.pitbar {
+    background: var(--light);
+    color: var(--primary);
+}
+
+.rounded-icon {
+
+a {
+  color: $primary_color
+}
+
+a:hover {
+  color: $secondary_color
+}
