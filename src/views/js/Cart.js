@@ -9,13 +9,26 @@ export default {
     EcCart
   },
 
-  computed: mapGetters([
-    'amount'
-  ]),
+  computed: {
+    ...mapGetters([
+      'amount'
+    ]),
+
+    discountCoupon: {
+      get () {
+        return this.$store.getters.discountCoupon
+      },
+      set (couponCode) {
+        this.setDiscountCoupon(couponCode)
+      }
+    }
+  },
 
   methods: {
     ...mapMutations([
       'updateAmount',
+      'setDiscountCoupon',
+      'setDiscountRule',
       'selectShippingService'
     ]),
 

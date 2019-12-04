@@ -38,6 +38,15 @@ export default {
       }
     },
 
+    discountCoupon: {
+      get () {
+        return this.$store.getters.discountCoupon
+      },
+      set (couponCode) {
+        this.setDiscountCoupon(couponCode)
+      }
+    },
+
     shippingService: {
       get () {
         return this.$store.getters.shippingService
@@ -61,6 +70,8 @@ export default {
     ...mapMutations([
       'triggerLoading',
       'setFluidPage',
+      'setDiscountCoupon',
+      'setDiscountRule',
       'selectShippingService',
       'selectPaymentGateway',
       'setCustomer',
