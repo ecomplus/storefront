@@ -34,7 +34,8 @@ export default {
     amount: {
       type: Object,
       default: () => {}
-    }
+    },
+    discountCoupon: String
   },
 
   computed: {
@@ -51,6 +52,15 @@ export default {
         body.base_price = body.price + discount
       }
       return body
+    },
+
+    localDiscountCoupon: {
+      get () {
+        return this.discountCoupon
+      },
+      set (couponCode) {
+        this.$emit('update:discountCoupon', couponCode)
+      }
     }
   },
 
