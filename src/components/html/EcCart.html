@@ -19,7 +19,7 @@
         <ec-discount
           class="ec-cart__discount"
           :amount="amount"
-          :couponCode.sync="localDiscountCode"
+          :couponCode.sync="localDiscountCoupon"
           @setDiscountRule="discountRule => $emit('setDiscountRule', discountRule)"
         />
       </div>
