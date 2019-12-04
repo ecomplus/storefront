@@ -19,7 +19,6 @@ export default {
   props: {
     amount: Object,
     couponCode: String,
-    extraDiscountValue: Number,
     hasCouponInput: {
       type: Boolean,
       default: true
@@ -49,6 +48,39 @@ export default {
   },
 
   methods: {
+    parseDiscountOptions (listResult = []) {
+      if (listResult.length) {
+        let discountRule, extraDiscountValue, invalidCouponMsg
+        listResult.forEach(appResult => {
+          const { validated, error, response } = appResult
+          if (validated && !error) {
+            const appDiscountRule = response.discount_rule
+            if (appDiscountRule) {
+              const discountRuleValue = appDiscountRule.extra_discount.value
+              if (!(extraDiscountValue > discountRuleValue)) {
+                extraDiscountValue = discountRuleValue
+                discountRule = {
+                  app_id: appResult.app_id,
+                  ...appDiscountRule
+                }
+              }
+            } else if (response.invalid_coupon_message) {
+              invalidCouponMsg = response.invalid_coupon_message
+            }
+          }
+        })
+        if (extraDiscountValue) {
+          this.$emit('update:couponCode', this.localCouponCode)
+          this.$emit('setDiscountRule', discountRule)
+          this.alertText = this.i19couponAppliedMsg
+          this.alertVariant = 'info'
+        } else {
+          this.alertText = invalidCouponMsg || this.i19invalidCouponMsg
+          this.alertVariant = 'warning'
+        }
+      }
+    },
+
     submitCoupon () {
       this.isLoading = true
       const { amount, localCouponCode } = this
@@ -61,18 +93,7 @@ export default {
           ...baseModulesRequestData
         }
       })
-        .then(({ data }) => {
-          const discountRule = data.discount_rule
-          if (discountRule) {
-            this.$emit('update:couponCode', localCouponCode)
-            this.$emit('update:extraDiscountValue', discountRule.extra_discount.value)
-            this.alertText = this.i19couponAppliedMsg
-            this.alertVariant = 'info'
-          } else {
-            this.alertText = data.invalid_coupon_message || this.i19invalidCouponMsg
-            this.alertVariant = 'warning'
-          }
-        })
+        .then(({ data }) => this.parseDiscountOptions(data.result))
         .catch(err => {
           this.alertText = null
           console.error(err)
