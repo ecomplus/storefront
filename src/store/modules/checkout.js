@@ -48,9 +48,10 @@ const state = {
     discount: 0,
     total: 0
   },
-  discount: {
+  extraDiscount: {
     coupon: '',
-    value: 0
+    value: 0,
+    rule: {}
   },
   shipping: {},
   payment: {}
@@ -60,6 +61,10 @@ const getters = {
   amount: ({ amount }) => amount,
 
   totalValue: ({ amount }) => amount.total,
+
+  discountCoupon: ({ extraDiscount }) => extraDiscount.coupon,
+
+  discountRule: ({ extraDiscount }) => extraDiscount.rule,
 
   shippingZipCode: ({ shipping }) => {
     if (shipping.shipping_line) {
@@ -75,16 +80,29 @@ const getters = {
 }
 
 const mutations = {
-  setAmount (state, amount) {
-    state.amount = { ...state.amount, ...amount }
-  },
-
   updateAmount (state, subtotalValue) {
     const { freight, discount } = state.amount
     const subtotal = typeof subtotalValue === 'number' && !isNaN(subtotalValue)
       ? subtotalValue
       : ecomCart.data.subtotal
     state.amount.total = subtotal + freight - discount
+  },
+
+  setDiscountCoupon (state, couponCode) {
+    state.extraDiscount.coupon = couponCode
+  },
+
+  setDiscountRule (state, discountRule) {
+    state.extraDiscount.rule = discountRule
+    const extraDiscountValue = discountRule.extra_discount.value
+    const { amount, extraDiscount } = state
+    const { discount } = amount
+    amount.discount += (extraDiscountValue - extraDiscount.value)
+    amount.total -= (amount.discount - discount)
+    if (amount.total > 0) {
+      amount.total = 0
+    }
+    extraDiscount.value = extraDiscountValue
   },
 
   selectShippingService (state, shippingService) {
@@ -164,6 +182,10 @@ const actions = {
       shipping: {
         ...getters.shippingService,
         to: customer.addresses.find(addr => addr.default)
+      },
+      discount: {
+        ...getters.discountRule,
+        discount_coupon: getters.discountCoupon
       },
       transaction: prepareTransaction(payload),
       customer
