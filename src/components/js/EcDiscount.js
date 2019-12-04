@@ -17,22 +17,14 @@ export default {
   name: 'EcDiscount',
 
   props: {
+    amount: Object,
+    couponCode: String,
     hasCouponInput: {
       type: Boolean,
       default: true
     },
-    couponCode: {
-      type: String
-    },
-    amount: {
-      type: Object
-    },
-    isFormAlwaysVisible: {
-      type: Boolean
-    },
-    isAttentionWanted: {
-      type: Boolean
-    }
+    isFormAlwaysVisible: Boolean,
+    isAttentionWanted: Boolean
   },
 
   data () {
