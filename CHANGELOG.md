@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.30](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.29...v1.0.0-beta.30) (2019-12-04)
+
+
+### Features
+
+* **vuex:** storing/handling discount coupon and result rule ([e5febfc](https://github.com/ecomclub/storefront-app/commit/e5febfcd53769477600e101b7fde5e609888ba65))
+
+
+### Bug Fixes
+
+* **cart:** fix handling discount coupon ([2f8c5cc](https://github.com/ecomclub/storefront-app/commit/2f8c5ccccb78e162192ae79d40f0c34c1752d3e7))
+* **cart:** fix used computed names ([91229bd](https://github.com/ecomclub/storefront-app/commit/91229bd4c32db69cf6b56f3383d68047b140da6a))
+* **checkout:** fix handling discount coupon ([8a7b1ec](https://github.com/ecomclub/storefront-app/commit/8a7b1ecc4e0c59325fbfe20f1a36e8aa2f000321))
+* **checkout:** fix used computed names ([457ea78](https://github.com/ecomclub/storefront-app/commit/457ea7867f468da5845a42de4c045f216787b853))
+* **discount:** fix handling apply descount results, update events ([4096a0c](https://github.com/ecomclub/storefront-app/commit/4096a0ce5ea773f0f998a112e8c51be73e010c88))
+* **discount:** stop changing amount object directly, emit discount value ([2d6c507](https://github.com/ecomclub/storefront-app/commit/2d6c507a3ecff3d0c8d3d316eecf5732287ce3e5))
+* **views:** fix handling discount on cart/checkout with vuex ([585fbb3](https://github.com/ecomclub/storefront-app/commit/585fbb3c923110503ce91ea88ef99c6f73ffbae2))
+
 ## [1.0.0-beta.29](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.28...v1.0.0-beta.29) (2019-12-03)
 
 
