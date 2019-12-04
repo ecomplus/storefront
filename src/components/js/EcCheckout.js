@@ -80,7 +80,8 @@ export default {
     ecomCart: {
       type: Object,
       default: () => ecomCart
-    }
+    },
+    discountCoupon: String
   },
 
   data () {
@@ -136,6 +137,15 @@ export default {
       set (customer) {
         this.editAccount = false
         this.$emit('update:customer', customer)
+      }
+    },
+
+    localDiscountCoupon: {
+      get () {
+        return this.discountCoupon
+      },
+      set (couponCode) {
+        this.$emit('update:discountCoupon', couponCode)
       }
     },
 
