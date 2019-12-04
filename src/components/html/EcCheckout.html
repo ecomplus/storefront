@@ -164,7 +164,7 @@
               <ec-discount
                 class="ec-checkout__discount"
                 :amount="amount"
-                :couponCode.sync="localDiscountCode"
+                :couponCode.sync="localDiscountCoupon"
                 @setDiscountRule="discountRule => $emit('setDiscountRule', discountRule)"
                 is-attention-wanted
               />
