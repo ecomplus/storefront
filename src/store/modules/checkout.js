@@ -118,22 +118,24 @@ const mutations = {
 
   selectPaymentGateway (state, paymentGateway) {
     state.payment = paymentGateway
-    const { amount, discount } = state
-    amount.subtotal = amount.total + amount.discount - amount.freight
-    amount.total += amount.discount
-    amount.discount = discount.value
+    const { amount } = state
     if (paymentGateway.discount) {
       const maxDiscount = amount[paymentGateway.discount.apply_at || 'total']
       if (maxDiscount) {
         const { type, value } = paymentGateway.discount
+        let discountValue
         if (type === 'percentage') {
-          amount.discount += maxDiscount * value / 100
+          discountValue = maxDiscount * value / 100
         } else {
-          amount.discount += value <= maxDiscount ? value : maxDiscount
+          discountValue = value <= maxDiscount ? value : maxDiscount
         }
+        amount.total -= discountValue
+        if (amount.total < 0) {
+          amount.total = 0
+        }
+        amount.discount += discountValue
       }
     }
-    amount.total -= amount.discount
   }
 }
 
