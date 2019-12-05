@@ -1,5 +1,4 @@
 import { mapGetters, mapMutations, mapActions } from 'vuex'
-import ecomCart from '@ecomplus/shopping-cart'
 import EcCart from './../../components/EcCart.vue'
 
 export default {
@@ -26,7 +25,6 @@ export default {
 
   methods: {
     ...mapMutations([
-      'updateAmount',
       'setDiscountCoupon',
       'setDiscountRule',
       'selectShippingService'
@@ -38,10 +36,6 @@ export default {
   },
 
   created () {
-    this.updateAmount()
     this.fetchCartItems({})
-    ecomCart.on('change', ({ data }) => {
-      this.updateAmount(data.subtotal)
-    })
   }
 }
