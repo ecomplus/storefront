@@ -3,5 +3,14 @@
 }
 
 .header__toggler{
-  margin: 12px;
+  padding: 12px;
+}
+.menu__btn--close{
+    padding-left: 8px;
+    padding-top: 2px;
+    padding-right: 8px;
+    padding-bottom: 2px;
+}
+.menu__btn{
+  color: var(--light);
 }
