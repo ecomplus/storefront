@@ -66,6 +66,7 @@
     "eventemitter3": "^4.0.0",
     "lozad": "^1.14.0",
     "photoswipe": "^4.1.3",
+    "react": "^16.12.0",
     "slideout": "^1.0.1",
     "vue": "^2.6.10"
   },
