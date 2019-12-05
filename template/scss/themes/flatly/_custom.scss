@@ -1,7 +1,7 @@
 a {
-  color: $primary_color;
+  color: var(--primary);
 }
 
 a:hover {
-  color: $secondary_color;
+  color: var(--primary-lightest);
 }
