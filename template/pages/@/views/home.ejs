@@ -35,7 +35,7 @@ const info = _.cms('info')
   <% } %>
 
   <% if (home.additional_content) { %>
-    <section class="md-content" data-cms-widgetFor="additional_content" data-cms-visible="false" data-cms-bind="home.additional_content">
+    <section class="md-content" data-cms-bind="home.additional_content">
       <%- _.md.render(home.additional_content) %>
     </section>
   <% } %>
