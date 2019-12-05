@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.31](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.30...v1.0.0-beta.31) (2019-12-05)
+
+
+### Bug Fixes
+
+* **cart:** removed updateAmout mutation (not needed) ([74d4787](https://github.com/ecomclub/storefront-app/commit/74d4787c60bdc862dfea7de0bfe75486f2993e93))
+* **vuex:** fix amount object model (add subtotal) ([6e958e4](https://github.com/ecomclub/storefront-app/commit/6e958e445689cbb171703e49cffdafc7b567ab5d))
+* **vuex:** fix update discount rule (total value) ([3e43024](https://github.com/ecomclub/storefront-app/commit/3e43024a339cc693779950f3ee0c125194646837))
+* **vuex:** fix updating amount after selected payment ([439c716](https://github.com/ecomclub/storefront-app/commit/439c7167246841413035bffce64c7105fff7ca54))
+* **vuex:** fixing checkout module (getters) ([3e621a4](https://github.com/ecomclub/storefront-app/commit/3e621a4a61ab90ec97fb284132cc208a7e2c76b1))
+
 ## [1.0.0-beta.30](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.29...v1.0.0-beta.30) (2019-12-04)
 
 
