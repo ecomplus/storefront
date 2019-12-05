@@ -3,9 +3,9 @@
 }
 
 a {
-  color: $secondary;
+  color: var(--primary);
 }
 
 a:hover {
-  color: $secondary-lightest;
+  color: var(--primary-lightest);
 }

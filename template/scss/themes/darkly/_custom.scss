@@ -1,13 +1,11 @@
-$light: #eee;
-
 #ec-user-popover {
   margin-right: 4px;
 }
 
 a {
-  color: $secondary;
+  color:  var(--primary);
 }
 
 a:hover {
-  color: $secondary
+  color: var(--primary-lightest)
 }
