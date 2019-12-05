@@ -43,85 +43,30 @@ const prepareTransaction = ({ customer, transaction }) => {
 }
 
 const state = {
-  amount: {
-    freight: 0,
-    discount: 0,
-    subtotal: 0,
-    total: 0
-  },
-  extraDiscount: {
-    coupon: '',
-    value: 0,
-    rule: {}
-  },
-  shipping: {},
-  payment: {}
+  shippingService: {},
+  discountCoupon: '',
+  discountRule: {},
+  paymentGateway: {}
 }
 
 const getters = {
-  amount: ({ amount }) => amount,
-
-  totalValue: ({ amount }) => amount.total,
-
-  discountCoupon: ({ extraDiscount }) => extraDiscount.coupon,
-
-  discountRule: ({ extraDiscount }) => extraDiscount.rule,
-
-  shippingZipCode: ({ shipping }) => {
-    if (shipping.shipping_line) {
-      return shipping.shipping_line.to.zip
-    } else {
-      return ''
+  amount: ({ shippingService, discountRule, paymentGateway }) => {
+    const amount = {
+      subtotal: ecomCart.data.subtotal,
+      freight: shippingService.shipping_line ? shippingService.shipping_line.total_price : 0,
+      discount: 0
     }
-  },
-
-  shippingService: ({ shipping }) => shipping.app_id ? shipping : undefined,
-
-  paymentGateway: ({ payment }) => payment.app_id ? payment : undefined
-}
-
-const mutations = {
-  updateAmount (state, subtotalValue) {
-    const { amount } = state
-    const { freight, discount } = amount
-    const subtotal = typeof subtotalValue === 'number' && !isNaN(subtotalValue)
-      ? subtotalValue
-      : ecomCart.data.subtotal
-    amount.subtotal = subtotal
-    amount.total = subtotal + freight - discount
-  },
-
-  setDiscountCoupon (state, couponCode) {
-    state.extraDiscount.coupon = couponCode
-  },
-
-  setDiscountRule (state, discountRule) {
-    state.extraDiscount.rule = discountRule
-    const extraDiscountValue = discountRule.extra_discount.value
-    const { amount, extraDiscount } = state
-    const { discount } = amount
-    amount.discount += (extraDiscountValue - extraDiscount.value)
-    amount.total -= (amount.discount - discount)
-    if (amount.total < 0) {
-      amount.total = 0
+    amount.total = amount.subtotal + amount.freight
+    const addDiscount = discountValue => {
+      amount.discount += discountValue
+      amount.total -= discountValue
     }
-    extraDiscount.value = extraDiscountValue
-  },
-
-  selectShippingService (state, shippingService) {
-    state.shipping = shippingService
-    const { amount } = state
-    amount.total -= amount.freight
-    amount.freight = shippingService.shipping_line.total_price
-    amount.total += amount.freight
-  },
-
-  selectPaymentGateway (state, paymentGateway) {
-    state.payment = paymentGateway
-    const { amount } = state
+    if (discountRule.extra_discount) {
+      addDiscount(discountRule.extra_discount.value)
+    }
     if (paymentGateway.discount) {
       const maxDiscount = amount[paymentGateway.discount.apply_at || 'total']
-      if (maxDiscount) {
+      if (maxDiscount > 0) {
         const { type, value } = paymentGateway.discount
         let discountValue
         if (type === 'percentage') {
@@ -129,13 +74,47 @@ const mutations = {
         } else {
           discountValue = value <= maxDiscount ? value : maxDiscount
         }
-        amount.total -= discountValue
-        if (amount.total < 0) {
-          amount.total = 0
-        }
-        amount.discount += discountValue
+        addDiscount(discountValue)
       }
     }
+    if (amount.total < 0) {
+      amount.total = 0
+    }
+    return amount
+  },
+
+  discountCoupon: ({ discountCoupon }) => discountCoupon,
+
+  discountRule: ({ discountRule }) => discountRule.app_id ? discountRule : undefined,
+
+  shippingZipCode: ({ shippingService }) => {
+    if (shippingService.shipping_line) {
+      return shippingService.shipping_line.to.zip
+    } else {
+      return ''
+    }
+  },
+
+  shippingService: ({ shippingService }) => shippingService.app_id ? shippingService : undefined,
+
+  paymentGateway: ({ paymentGateway }) => paymentGateway.app_id ? paymentGateway : undefined
+}
+
+const mutations = {
+  selectShippingService (state, shippingService) {
+    state.shippingService = shippingService
+  },
+
+  setDiscountCoupon (state, discountCoupon) {
+    state.discountCoupon = discountCoupon
+  },
+
+  setDiscountRule (state, discountRule) {
+    state.discountRule = discountRule
+  },
+
+  selectPaymentGateway (state, paymentGateway) {
+    state.paymentGateway = paymentGateway
   }
 }
 
@@ -168,7 +147,6 @@ const actions = {
     })
     return Promise.all(promises).then(() => {
       ecomCart.save()
-      commit('updateAmount')
     })
   },
 
@@ -188,12 +166,14 @@ const actions = {
         ...getters.shippingService,
         to: customer.addresses.find(addr => addr.default)
       },
-      discount: {
-        ...getters.discountRule,
-        discount_coupon: getters.discountCoupon
-      },
       transaction: prepareTransaction(payload),
       customer
+    }
+    if (getters.discountRule) {
+      checkoutBody.discount = {
+        ...getters.discountRule,
+        discount_coupon: getters.discountCoupon
+      }
     }
     return ecomClient.modules({
       url: '/@checkout.json',
