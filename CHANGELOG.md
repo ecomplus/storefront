@@ -2,6 +2,105 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.22.0](https://github.com/ecomclub/storefront-template/compare/v1.21.0...v1.22.0) (2019-12-02)
+
+
+### Features
+
+* **pay-icon:** update to better image resolution and add paypal stamp ([#91](https://github.com/ecomclub/storefront-template/issues/91)) ([be4a88e](https://github.com/ecomclub/storefront-template/commit/be4a88ef2bac3a21e62e92c12410bd7c737a3cdb))
+
+## [1.21.0](https://github.com/ecomclub/storefront-template/compare/v1.20.0...v1.21.0) (2019-11-29)
+
+
+### Features
+
+* **load-widgets:** preloading ecom libs and emitting events ([0f4150e](https://github.com/ecomclub/storefront-template/commit/0f4150e83b3f39377e29c4428dc42f8b5a8c0dce))
+
+## [1.20.0](https://github.com/ecomclub/storefront-template/compare/v1.19.2...v1.20.0) (2019-11-29)
+
+### [1.19.2](https://github.com/ecomclub/storefront-template/compare/v1.19.1...v1.19.2) (2019-11-29)
+
+
+### Bug Fixes
+
+* **ecom-config:** update using $ecomConfig from utils ([d868af7](https://github.com/ecomclub/storefront-template/commit/d868af7915f7a45ff14ed33acaf2cacae3f5c858))
+* **imports:** explicitly 'import all' for not ES6 libs ([57791e5](https://github.com/ecomclub/storefront-template/commit/57791e5024bb8ce5defef5df8b8e09e743132f7d))
+* **js:** remove icons from lib (imported from storefront-twbs@4) ([744954b](https://github.com/ecomclub/storefront-template/commit/744954bb6f4420455d5fa901b688c0e5f9d6b5cb))
+
+### [1.19.1](https://github.com/ecomclub/storefront-template/compare/v1.19.0...v1.19.1) (2019-11-27)
+
+## [1.19.0](https://github.com/ecomclub/storefront-template/compare/v1.18.2...v1.19.0) (2019-11-26)
+
+
+### Features
+
+* **cms-config:** supporting netlify cms config import/customization ([0f0abcb](https://github.com/ecomclub/storefront-template/commit/0f0abcbed55909c9c804a49fa8fdfb88b900c32c))
+
+
+### Bug Fixes
+
+* **cms-config:** unsing lodash merge to deep merge config objects ([5fe3dc3](https://github.com/ecomclub/storefront-template/commit/5fe3dc3185faaf73f00cff8e6aa88ddde5ccc172))
+* **cms-config:** update with config.yml, add trustvox widget again ([8be9c17](https://github.com/ecomclub/storefront-template/commit/8be9c17a34181545ade60dee81da9a59b21b6ce3))
+
+### [1.18.2](https://github.com/ecomclub/storefront-template/compare/v1.18.1...v1.18.2) (2019-11-12)
+
+
+### Bug Fixes
+
+* **app:** edit foter stamps margin and align items ([#76](https://github.com/ecomclub/storefront-template/issues/76)) ([c9219ec](https://github.com/ecomclub/storefront-template/commit/c9219ec))
+
+### [1.18.1](https://github.com/ecomclub/storefront-template/compare/v1.18.0...v1.18.1) (2019-11-05)
+
+
+### Bug Fixes
+
+* **cms:** trustvox widget content file ([fe663b4](https://github.com/ecomclub/storefront-template/commit/fe663b4))
+
+## [1.18.0](https://github.com/ecomclub/storefront-template/compare/v1.17.3...v1.18.0) (2019-11-05)
+
+
+### Features
+
+* **cms:** add trustvox widget to cms and content ([a5667b1](https://github.com/ecomclub/storefront-template/commit/a5667b1))
+* **icons:** add fa-user-circle to fa icons list ([4e7ab29](https://github.com/ecomclub/storefront-template/commit/4e7ab29))
+
+### [1.17.3](https://github.com/ecomclub/storefront-template/compare/v1.17.2...v1.17.3) (2019-10-24)
+
+### [1.17.2](https://github.com/ecomclub/storefront-template/compare/v1.17.1...v1.17.2) (2019-10-21)
+
+
+### Bug Fixes
+
+* **script:** fix recursive copy function (keep overwrite) ([130eb45](https://github.com/ecomclub/storefront-template/commit/130eb45))
+
+### [1.17.1](https://github.com/ecomclub/storefront-template/compare/v1.17.0...v1.17.1) (2019-10-11)
+
+
+### Bug Fixes
+
+* **app:** responsive header ([605d100](https://github.com/ecomclub/storefront-template/commit/605d100))
+
+## [1.17.0](https://github.com/ecomclub/storefront-template/compare/v1.16.1...v1.17.0) (2019-10-11)
+
+
+### Features
+
+* **icons:** add fa print/copy ([e317a04](https://github.com/ecomclub/storefront-template/commit/e317a04))
+
+### [1.16.1](https://github.com/ecomclub/storefront-template/compare/v1.16.0...v1.16.1) (2019-10-10)
+
+## [1.16.0](https://github.com/ecomclub/storefront-template/compare/v1.15.0...v1.16.0) (2019-10-08)
+
+
+### Bug Fixes
+
+* **scss:** style fixes (and aliases) for pay icons ([6f5668c](https://github.com/ecomclub/storefront-template/commit/6f5668c))
+
+
+### Features
+
+* **app:** add header and footer to checkout spa ([#57](https://github.com/ecomclub/storefront-template/issues/57)) ([d9574ad](https://github.com/ecomclub/storefront-template/commit/d9574ad))
+
 ## [1.15.0](https://github.com/ecomclub/storefront-template/compare/v1.14.0...v1.15.0) (2019-10-03)
 
 
