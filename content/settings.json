@@ -8,7 +8,7 @@
   "secondary_color": "#839496",
   "bg_color": "#ffffff",
   "theme": {
-    "bootswatch": "solar"
+    "bootswatch": "spacelab"
   },
   "logo": "/img/uploads/logo.png",
   "mini_logo": "",
