@@ -37,7 +37,7 @@ export default class HomePreview extends React.Component {
       for (const key in data) {
         if (data.hasOwnProperty(key)) {
           const value = data[key]
-          const selector = `[data-cms-widgetfor="${key}"]`
+          const selector = `[data-cms-widgetfor="home.${key}"]`
           const $el = doc.querySelectorAll(selector)[0]
           if ($el) {
             switch (typeof value) {
