@@ -1,4 +1,4 @@
-import EventEmitter from 'eventemitter3'
+import * as EventEmitter from 'eventemitter3'
 
 const $overlay = document.getElementById('overlay')
 const emitter = new EventEmitter()

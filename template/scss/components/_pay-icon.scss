@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   display: inline-block;
   margin: 3px 3px 0 0;
+  background-size: 40px 451px;
   background-position: 0 25px;
 
   &--visa {
@@ -59,5 +60,8 @@
   }
   &--mais {
     background-position: 0 -400px;
+  }
+  &--paypal {
+    background-position: 0 -425px;
   }
 }

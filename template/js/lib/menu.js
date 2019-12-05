@@ -1,6 +1,6 @@
 import $ from './$'
 import $overlay from './$overlay'
-import Slideout from 'slideout'
+import * as Slideout from 'slideout'
 
 const slideout = new Slideout({
   panel: $('#main'),

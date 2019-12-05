@@ -1,0 +1,24 @@
+name: Lighthouse
+
+on:
+  pull_request:
+    types: [review_requested]
+    branches:
+      - master
+    paths:
+      - 'template/**'
+      - 'content/**'
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v2
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        with:
+          urls: |
+            https://deploy-preview-$PR_NUMBER--storefront-template.netlify.com/
+          temporaryPublicStorage: true

@@ -1,5 +1,5 @@
-import PhotoSwipe from 'photoswipe'
-import psUi from 'photoswipe/dist/photoswipe-ui-default'
+import * as PhotoSwipe from 'photoswipe'
+import * as psUi from 'photoswipe/dist/photoswipe-ui-default'
 
 const $pswp = document.getElementsByClassName('pswp')[0]
 if ($pswp) {
