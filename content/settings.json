@@ -8,7 +8,7 @@
   "secondary_color": "#7A8288",
   "bg_color": "#ffffff",
   "theme": {
-    "bootswatch": "slate"
+    "bootswatch": "solar"
   },
   "logo": "/img/uploads/logo.png",
   "mini_logo": "",
