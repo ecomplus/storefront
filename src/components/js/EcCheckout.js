@@ -5,6 +5,7 @@ import EcAccountForm from './../EcAccountForm.vue'
 import EcAddresses from './../EcAddresses.vue'
 import EcPayment from './../EcPayment.vue'
 import EcDiscount from './../EcDiscount.vue'
+import EcSummary from './../EcSummary.vue'
 import EcCartItem from '@ecomplus/widget-minicart/src/components/EcCartItem.vue'
 import EcShipping from '@ecomplus/widget-product/src/components/EcShipping.vue'
 import EcShippingLine from '@ecomplus/widget-product/src/components/EcShippingLine.vue'
@@ -38,6 +39,7 @@ export default {
     EcAddresses,
     EcPayment,
     EcDiscount,
+    EcSummary,
     EcCartItem,
     EcShipping,
     EcShippingLine,

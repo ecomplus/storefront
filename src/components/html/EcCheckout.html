@@ -104,68 +104,13 @@
         <div class="col-lg-4 ec-checkout__info">
           <div class="ec-checkout__summary">
             <div>
-              <h5>{{ i18n('Summary') }}</h5>
-
-              <slot name="list" v-bind="{ items: cart.items }">
-                <div
-                  class="ec-checkout__item"
-                  v-for="item in cart.items"
-                >
-                  <img
-                    v-if="img(item)"
-                    :src="img(item).url"
-                    :alt="img(item).alt"
-                  />
-
-                  <div>
-                    <span class="badge badge-secondary">
-                      {{ item.quantity }}
-                    </span>
-                    {{ formatMoney(price(item)) }}
-                    <br>
-                    <a v-if="item.slug" :href="item.slug" target="_blank">
-                      <small>{{ name(item) }}</small>
-                    </a>
-                    <small v-else>{{ name(item) }}</small>
-                  </div>
-                </div>
-              </slot>
-
-              <div class="ec-checkout__amount">
-                <div class="ec-checkout__amount__row">
-                  <span>Subtotal</span>
-                  <div>{{ formatMoney(cart.subtotal) }}</div>
-                </div>
-
-                <div class="ec-checkout__amount__row">
-                  <span>
-                    {{ i18n('Freight') }}
-                    <small v-if="shippingAddress">
-                      {{ shippingAddress.street }}
-                      <template v-if="shippingAddress.number">
-                        {{ shippingAddress.number }}
-                      </template>
-                    </small>
-                  </span>
-                  <div>{{ formatMoney(amount.freight) }}</div>
-                </div>
-
-                <div class="ec-checkout__amount__row" v-if="amount.discount">
-                  <span>{{ i18n('Discount') }}</span>
-                  <div>{{ formatMoney(amount.discount) }}</div>
-                </div>
-
-                <div class="ec-checkout__amount__row ec-checkout__amount__row--total">
-                  <span>Total</span>
-                  <div>{{ formatMoney(amount.total) }}</div>
-                </div>
-              </div>
+              <ec-summary :amount="amount" :customer="customer"/>
 
               <ec-discount
                 class="ec-checkout__discount"
                 :amount="amount"
                 :couponCode.sync="localDiscountCoupon"
-                :is-coupon-applied="discountCoupon && amount.discount"
+                :is-coupon-applied="Boolean(discountCoupon && amount.discount)"
                 @setDiscountRule="discountRule => $emit('setDiscountRule', discountRule)"
                 is-attention-wanted
               />

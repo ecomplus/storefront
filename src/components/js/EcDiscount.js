@@ -48,7 +48,8 @@ export default {
     i19invalidCouponMsg: () => 'O cupom de desconto inserido é inválido.',
 
     canAddCoupon () {
-      return this.couponCode !== this.localCouponCode || !this.isCouponApplied
+      return !this.couponCode || !this.isCouponApplied ||
+        this.couponCode !== this.localCouponCode
     }
   },
 
