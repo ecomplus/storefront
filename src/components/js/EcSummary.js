@@ -1,9 +1,12 @@
-import { i18n, name, formatMoney, price, img } from '@ecomplus/utils'
-import ecomCart from '@ecomplus/shopping-cart'
+import { i18n, name, formatMoney, price, img, phone } from '@ecomplus/utils'
 
 import {
+  i19buyer,
+  i19contactPhone,
   i19discount,
+  i19docNumber,
   i19freight,
+  i19myAccount,
   i19subtotal,
   i19summary,
   i19total
@@ -13,45 +16,36 @@ export default {
   name: 'EcSummary',
 
   props: {
-    ecomCart: {
-      type: Object,
-      default: () => ecomCart
-    },
     amount: {
       type: Object,
-      default: () => {}
+      required: true
     },
-    customer: {
-      type: Object,
-      default: () => {}
-    }
+    items: Array,
+    buyer: Object,
+    shippingAddress: Object
   },
 
   computed: {
+    i19buyer: () => i18n(i19buyer),
+    i19contactPhone: () => i18n(i19contactPhone),
     i19discount: () => i18n(i19discount),
+    i19docNumber: () => i18n(i19docNumber),
     i19freight: () => i18n(i19freight),
+    i19myAccount: () => i18n(i19myAccount),
     i19subtotal: () => i18n(i19subtotal),
     i19summary: () => i18n(i19summary),
     i19total: () => i18n(i19total),
 
-    shippingAddress () {
-      const { addresses } = this.customer
-      return addresses && addresses.find(addr => addr.default)
+    buyerName () {
+      if (!this.buyer) {
+        return ''
+      }
+      const { name } = this.buyer
+      return `${name.given_name} ${(name.middle_name || '')} ${name.family_name}`
     },
 
-    cart () {
-      return this.ecomCart.data
-    },
-
-    localAmount () {
-      if (typeof this.amount.total === 'number') {
-        return this.amount
-      }
-      const { subtotal } = this
-      return {
-        subtotal,
-        total: subtotal
-      }
+    buyerPhone () {
+      return phone(this.buyer)
     }
   },
 

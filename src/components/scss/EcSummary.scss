@@ -26,6 +26,11 @@
     padding: .75rem 0;
     border-top: 1px dotted var(--gray);
 
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
     &__row {
       display: flex;
       justify-content: space-between;
