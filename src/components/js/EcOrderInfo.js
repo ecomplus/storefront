@@ -1,6 +1,7 @@
 import { i18n } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
 import EcomPassport from '@ecomplus/passport-client'
+import EcSummary from './../EcSummary.vue'
 import { SlideYUpTransition } from 'vue2-transitions'
 
 import {
@@ -22,6 +23,7 @@ export default {
   name: 'EcOrderInfo',
 
   components: {
+    EcSummary,
     SlideYUpTransition
   },
 
@@ -89,6 +91,9 @@ export default {
         this.$emit('update:order', body)
         this.saveCustomerOrder()
       }
+    },
+
+    shippingAddress () {
     },
 
     financialStatus () {
