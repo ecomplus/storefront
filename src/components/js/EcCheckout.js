@@ -1,4 +1,4 @@
-import { i18n, name, formatMoney, price, img, phone } from '@ecomplus/utils'
+import { i18n, name, formatMoney, price, img } from '@ecomplus/utils'
 import ecomCart from '@ecomplus/shopping-cart'
 import EcIdentify from './../EcIdentify.vue'
 import EcAccountForm from './../EcAccountForm.vue'
@@ -149,15 +149,6 @@ export default {
       set (couponCode) {
         this.$emit('update:discountCoupon', couponCode)
       }
-    },
-
-    customerName () {
-      const { name } = this.customer
-      return `${name.given_name} ${(name.middle_name || '')} ${name.family_name}`
-    },
-
-    customerPhone () {
-      return phone(this.customer)
     },
 
     shownCheckoutStep () {

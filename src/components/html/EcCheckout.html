@@ -103,9 +103,13 @@
 
         <div class="col-lg-4 ec-checkout__info">
           <div class="ec-checkout__summary">
-            <div>
-              <ec-summary :amount="amount" :customer="customer"/>
-
+            <ec-summary
+              :amount="amount"
+              :items="cart.items"
+              :buyer="customer"
+              :shippingAddress="shippingAddress"
+              @click:account="editAccount = true"
+            >
               <ec-discount
                 class="ec-checkout__discount"
                 :amount="amount"
@@ -114,29 +118,7 @@
                 @setDiscountRule="discountRule => $emit('setDiscountRule', discountRule)"
                 is-attention-wanted
               />
-
-              <div class="ec-checkout__user">
-                <h5>{{ i18n('Buyer') }}</h5>
-                <p>
-                  {{ customerName }}
-                  <br>
-                  <small>{{ i18n('DocNumber') }}:</small>
-                  {{ customer.doc_number }}
-                  <br>
-                  <small>{{ i18n('ContactPhone') }}:</small>
-                  {{ customerPhone }}
-                </p>
-
-                <button
-                  class="btn btn-sm btn-outline-secondary"
-                  type="button"
-                  @click="editAccount = true"
-                >
-                  <i class="fas fa-pencil-alt mr-1"></i>
-                  {{ i18n('MyAccount') }}
-                </button>
-              </div>
-            </div>
+            </ec-summary>
 
             <div class="ec-checkout__back">
               <a :href="cartUrl" class="btn btn-sm btn-light">
