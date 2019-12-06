@@ -9,3 +9,11 @@
 .ec-minicart__sidebar{
   background-color: var(--light);
 }
+
+a {
+  color:  var(--primary);
+}
+
+a:hover {
+  color: var(--primary-lightest)
+}
