@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.23.0](https://github.com/ecomclub/storefront-template/compare/v1.22.0...v1.23.0) (2019-12-06)
+
+
+### Features
+
+* **themes:** easy support scss variables/custom for bootswatch themes ([f69f03a](https://github.com/ecomclub/storefront-template/commit/f69f03ac8da1f41ff96a2528f6e291fca2f07208))
+
 ## [1.22.0](https://github.com/ecomclub/storefront-template/compare/v1.21.0...v1.22.0) (2019-12-02)
 
 
