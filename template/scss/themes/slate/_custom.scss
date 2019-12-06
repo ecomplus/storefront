@@ -1,19 +1,18 @@
 #ec-user-popover {
-  margin-right: 4px;
+  margin-right:  0.5rem;
 }
-
+.breadcrumb {
+  padding-left: 1rem;
+}
 .header__toggler{
-  padding: 12px;
+  padding: 0.15rem;
 }
 .menu__btn--close{
-    padding-left: 8px;
-    padding-top: 2px;
-    padding-right: 8px;
-    padding-bottom: 2px;
+    padding-left: 1rem;
+    padding-top: 0.3rem;
+    padding-right: 1rem;
+    padding-bottom: 0.3rem;
 }
 .menu__btn{
   color: var(--light);
-}
-.breadcrumb {
-  padding-left: 8px;
 }

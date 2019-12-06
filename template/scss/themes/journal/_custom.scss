@@ -1,22 +1,17 @@
 .pitbar__item:after{
   background: var(--primary);
 }
-
 .pitbar {
     background: var(--light);
     color: var(--primary);
 }
-
 .rounded-icon {
-
 a {
   color: var(--primary);
 }
-
 a:hover {
   color: var(--primary-lightest);
 }
-
 #ec-user-popover {
-  margin-right: 4px;
+  margin-right:  0.5rem;
 }
