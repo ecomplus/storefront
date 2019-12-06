@@ -4,11 +4,11 @@
   "domain": "storefront-demo.e-com.plus",
   "short_name": "MyShop",
   "description": "My PWA Shop",
-  "primary_color": "#e83e8c",
-  "secondary_color": "#333333",
+  "primary_color": "#B58900",
+  "secondary_color": "#839496",
   "bg_color": "#ffffff",
   "theme": {
-    "bootswatch": "_"
+    "bootswatch": "sketchy"
   },
   "logo": "/img/uploads/logo.png",
   "mini_logo": "",
