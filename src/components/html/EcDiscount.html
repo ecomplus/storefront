@@ -1,29 +1,31 @@
 <div class="ec-discount">
   <template v-if="hasCouponInput">
-    <template v-if="!isFormAlwaysVisible">
-      <h6 v-if="isAttentionWanted" class="ec-discount__intro">
-        {{ i19hasCouponOrVoucherQn }}
-      </h6>
-
-      <button
-        class="ec-discount__coupon-btn btn btn-sm"
-        :class="`btn-${(isAttentionWanted ? 'secondary' : 'light')}`"
-        @click.prevent="isFormVisible = !isFormVisible"
-        type="button"
-      >
-        <i class="fas fa-tag mr-1"></i>
-        {{ i19addDiscountCoupon }}
-      </button>
-    </template>
-
     <transition
       enter-active-class="animated fadeInDown"
-      leave-active-class="animated fadeOutUp faster"
+      leave-active-class="animated position-absolute fadeOutUp"
+      group
     >
+      <div v-if="!isFormVisible" key="button">
+        <h6 v-if="isAttentionWanted" class="ec-discount__intro">
+          {{ i19hasCouponOrVoucherQn }}
+        </h6>
+
+        <button
+          class="ec-discount__coupon-btn btn btn-sm"
+          :class="`btn-${(isAttentionWanted ? 'secondary' : 'light')}`"
+          @click.prevent="isFormVisible = !isFormVisible"
+          type="button"
+        >
+          <i class="fas fa-tag mr-1"></i>
+          {{ i19addDiscountCoupon }}
+        </button>
+      </div>
+
       <form
+        v-else
+        key="form"
         @submit.prevent="submitCoupon"
         class="ec-discount__form"
-        v-if="isFormVisible"
       >
         <div class="form-group">
           <label for="ec-discount-coupon">
@@ -48,8 +50,23 @@
                 <span class="spinner-grow spinner-grow-sm" role="status"></span>
                 <span class="sr-only">Loading...</span>
               </span>
-              <button v-else class="btn btn-outline-secondary" type="submit">
+
+              <button
+                v-else-if="canAddCoupon"
+                key="add"
+                class="btn btn-outline-secondary"
+                type="submit"
+              >
                 {{ i19add }}
+              </button>
+              <button
+                v-else
+                key="applied"
+                class="btn btn-outline-success"
+                disabled
+                type="button"
+              >
+                <i class="fas fa-check-circle"></i>
               </button>
             </div>
           </div>

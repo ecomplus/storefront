@@ -24,6 +24,7 @@ export default {
       default: true
     },
     isFormAlwaysVisible: Boolean,
+    isCouponApplied: Boolean,
     isAttentionWanted: Boolean
   },
 
@@ -44,7 +45,11 @@ export default {
     i19couponAppliedMsg: () => 'Cupom de desconto aplicado com sucesso.',
     i19discountCoupon: () => i18n(i19discountCoupon),
     i19hasCouponOrVoucherQn: () => i18n(i19hasCouponOrVoucherQn),
-    i19invalidCouponMsg: () => 'O cupom de desconto inserido é inválido.'
+    i19invalidCouponMsg: () => 'O cupom de desconto inserido é inválido.',
+
+    canAddCoupon () {
+      return this.couponCode !== this.localCouponCode || !this.isCouponApplied
+    }
   },
 
   methods: {
@@ -82,30 +87,32 @@ export default {
     },
 
     submitCoupon () {
-      this.isLoading = true
-      const { amount, localCouponCode } = this
-      modules({
-        url: '/apply_discount.json',
-        method: 'POST',
-        data: {
-          discount_coupon: localCouponCode,
-          amount,
-          ...baseModulesRequestData
-        }
-      })
-        .then(({ data }) => this.parseDiscountOptions(data.result))
-        .catch(err => {
-          this.alertText = null
-          console.error(err)
-          this.$bvToast.toast(this.i19discountCoupon, {
-            title: i18n(i19errorMsg),
-            variant: 'warning',
-            solid: true
+      if (this.canAddCoupon) {
+        this.isLoading = true
+        const { amount, localCouponCode } = this
+        modules({
+          url: '/apply_discount.json',
+          method: 'POST',
+          data: {
+            discount_coupon: localCouponCode,
+            amount,
+            ...baseModulesRequestData
+          }
+        })
+          .then(({ data }) => this.parseDiscountOptions(data.result))
+          .catch(err => {
+            this.alertText = null
+            console.error(err)
+            this.$bvToast.toast(this.i19discountCoupon, {
+              title: i18n(i19errorMsg),
+              variant: 'warning',
+              solid: true
+            })
           })
-        })
-        .finally(() => {
-          this.isLoading = false
-        })
+          .finally(() => {
+            this.isLoading = false
+          })
+      }
     }
   },
 
@@ -113,6 +120,9 @@ export default {
     couponCode (couponCode) {
       if (couponCode !== this.couponCode) {
         this.localCouponCode = couponCode
+        if (couponCode && !this.isFormVisible) {
+          this.isFormVisible = true
+        }
       }
     },
 

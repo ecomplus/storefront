@@ -5,9 +5,13 @@
     color: var(--secondary);
   }
 
-  &__form,
+  &__form{
+    margin-top: 1rem;
+  }
+
   &__alert {
     margin-top: 1rem;
+    font-size: .9rem;
   }
 
   &__input {
