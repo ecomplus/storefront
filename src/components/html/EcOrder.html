@@ -1,14 +1,5 @@
 <article class="ec-order">
   <div v-if="localOrder._id">
     <ec-order-info :order.sync="localOrder"/>
-
-    <div class="row">
-      <div class="col-sm-4 col-md-3">
-        <ec-order-step :order="localOrder"/>
-      </div>
-      <div class="col-sm-8 col-md-9">
-        <ec-order-summary :order="localOrder"/>
-      </div>
-    </div>
   </div>
 </article>
