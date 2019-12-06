@@ -1,0 +1,62 @@
+<div class="ec-summary">
+  <h5 class="ec-summary__title">
+    {{ i19summary }}
+  </h5>
+
+  <slot name="list" v-bind="{ items: cart.items }">
+    <div
+      class="ec-summary__item"
+      v-for="item in cart.items"
+    >
+      <img
+        v-if="img(item)"
+        :src="img(item).url"
+        :alt="img(item).alt"
+      />
+
+      <div>
+        <span class="badge badge-secondary">
+          {{ item.quantity }}
+        </span>
+        {{ formatMoney(price(item)) }}
+        <br>
+        <a v-if="item.slug" :href="item.slug" target="_blank">
+          <small>{{ name(item) }}</small>
+        </a>
+        <small v-else>{{ name(item) }}</small>
+      </div>
+    </div>
+  </slot>
+
+  <slot name="amount" v-bind="{ amount: localAmount }">
+    <div class="ec-summary__amount">
+      <div class="ec-summary__amount__row">
+        <span>{{ i19subtotal }}</span>
+        <div>{{ formatMoney(localAmount.subtotal) }}</div>
+      </div>
+
+      <div class="ec-summary__amount__row">
+        <span>
+          {{ i19freight }}
+          <small v-if="shippingAddress">
+            {{ shippingAddress.street }}
+            <template v-if="shippingAddress.number">
+              {{ shippingAddress.number }}
+            </template>
+          </small>
+        </span>
+        <div>{{ formatMoney(localAmount.freight) }}</div>
+      </div>
+
+      <div class="ec-summary__amount__row" v-if="localAmount.discount">
+        <span>{{ i19discount }}</span>
+        <div>{{ formatMoney(localAmount.discount) }}</div>
+      </div>
+
+      <div class="ec-summary__amount__row ec-summary__amount__row--total">
+        <span>{{ i19total }}</span>
+        <div>{{ formatMoney(localAmount.total) }}</div>
+      </div>
+    </div>
+  </slot>
+</div>
