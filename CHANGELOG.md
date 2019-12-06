@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.32](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.31...v1.0.0-beta.32) (2019-12-06)
+
+
+### Features
+
+* **discount:** showing icon for confirmed coupon, improve transitions ([602a9a0](https://github.com/ecomclub/storefront-app/commit/602a9a08b8ad4fc206ae1880a950b2d48beb568e))
+* **order-info:** add summary to order info ([3716c92](https://github.com/ecomclub/storefront-app/commit/3716c92a1d13fd999437d9260002118b309145ac))
+* **summary:** add buyer info to summary component ([01ada5f](https://github.com/ecomclub/storefront-app/commit/01ada5fdbca0f9dd9fa04d7c0cf2f6d999a984cc))
+* **summary:** setup separated checkout summary component ([d363585](https://github.com/ecomclub/storefront-app/commit/d3635852ebc97758241b32fd121b812d18998d7e))
+
+
+### Bug Fixes
+
+* **discount:** fix handling applied coupon bool ([0d28837](https://github.com/ecomclub/storefront-app/commit/0d28837a31db330e24f9417be56821af017329d9))
+* **order:** removing broken components, only order info yet ([ad1aa54](https://github.com/ecomclub/storefront-app/commit/ad1aa546c16a4b5647149b43c06fa23c09bcfb9e))
+
 ## [1.0.0-beta.31](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.30...v1.0.0-beta.31) (2019-12-05)
 
 
