@@ -56,7 +56,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@ecomplus/storefront-template": "^1.23.0",
+    "@ecomplus/storefront-template": "^1.23.1",
     "@ecomplus/widget-minicart": "^0.6.8",
     "@ecomplus/widget-product": "^0.3.19",
     "@vue/cli-plugin-babel": "^4.1.1",
