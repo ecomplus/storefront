@@ -70,60 +70,71 @@
             </div>
           </template>
 
-          <slot name="payment" v-bind="{ order: localOrder, transaction }">
-            <div class="ec-order-info__payment">
-              <div
-                class="ec-order-info__financial-status"
-                :class="`ec-order-info__financial-status--${financialStatus}`"
-              >
-                {{ i19FinancialStatus(financialStatus) }}
-              </div>
-
-              <div v-for="transaction in order.transactions">
-                <p class="ec-order-info__payment-value">
-                  {{ transaction.payment_method.name || order.payment_method_label }}:
-                  <strong v-if="transaction.installments && transaction.installments.value">
-                    {{ transaction.installments.number }}x
-                    {{ i19of.toLowerCase() }}
-                    {{ formatMoney(transaction.installments.value) }}
-                  </strong>
-                  <strong v-else>
-                    {{ formatMoney(transaction.amount || order.amount.total) }}
-                  </strong>
-                </p>
-
-                <p
-                  v-if="transaction.credit_card"
-                  class="ec-order-info__credit-card"
-                >
-                  {{ transaction.credit_card.company }}
-                  <span v-if="transaction.credit_card.last_digits">
-                    <span v-if="!transaction.credit_card.company">
-                      {{ i19cardNumber }}
-                    </span>
-                    **** {{ transaction.credit_card.last_digits }}
-                  </span>
-                </p>
-
-                <span v-if="transaction.intermediator">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <slot name="payment" v-bind="{ order: localOrder, transaction }">
+                <div class="ec-order-info__payment">
                   <div
-                    class="ec-order-info__transaction-code"
-                    v-if="transaction.intermediator.transaction_code"
+                    class="ec-order-info__financial-status"
+                    :class="`ec-order-info__financial-status--${financialStatus}`"
                   >
-                    {{ i19transactionCode }}:
-                    {{ transaction.intermediator.transaction_code }}
+                    {{ i19FinancialStatus(financialStatus) }}
                   </div>
-                  <div
-                    class="ec-order-info__transaction-reference"
-                    v-if="transaction.intermediator.transaction_reference"
-                  >
-                    {{ i19referenceCode }}:
-                    {{ transaction.intermediator.transaction_reference }}
+
+                  <div v-for="transaction in localOrder.transactions">
+                    <p class="ec-order-info__payment-value">
+                      {{ transaction.payment_method.name || localOrder.payment_method_label }}:
+                      <strong v-if="transaction.installments && transaction.installments.value">
+                        {{ transaction.installments.number }}x
+                        {{ i19of.toLowerCase() }}
+                        {{ formatMoney(transaction.installments.value) }}
+                      </strong>
+                      <strong v-else>
+                        {{ formatMoney(transaction.amount || localOrder.amount.total) }}
+                      </strong>
+                    </p>
+
+                    <p
+                      v-if="transaction.credit_card"
+                      class="ec-order-info__credit-card"
+                    >
+                      {{ transaction.credit_card.company }}
+                      <span v-if="transaction.credit_card.last_digits">
+                        <span v-if="!transaction.credit_card.company">
+                          {{ i19cardNumber }}
+                        </span>
+                        **** {{ transaction.credit_card.last_digits }}
+                      </span>
+                    </p>
+
+                    <template v-if="transaction.intermediator">
+                      <div
+                        class="ec-order-info__transaction-code"
+                        v-if="transaction.intermediator.transaction_code"
+                      >
+                        <small>{{ i19transactionCode }}</small>
+                        <br>
+                        {{ transaction.intermediator.transaction_code }}
+                      </div>
+                      <div
+                        class="ec-order-info__transaction-reference"
+                        v-if="transaction.intermediator.transaction_reference"
+                      >
+                        <small>{{ i19referenceCode }}</small>
+                        <br>
+                        {{ transaction.intermediator.transaction_reference }}
+                      </div>
+                    </template>
                   </div>
-                </span>
-              </div>
+                </div>
+              </slot>
             </div>
-          </slot>
+
+            <div class="col-12 col-md-6">
+              <slot name="shipping" v-bind="{ order: localOrder, shippingAddress }">
+              </slot>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-lg-5" v-if="localOrder.amount">
@@ -133,6 +144,7 @@
                 :amount="localOrder.amount"
                 :items="localOrder.items"
                 :buyer="localOrder.buyer && localOrder.buyer[0]"
+                :shippingAddress="shippingAddress"
               />
             </div>
           </div>

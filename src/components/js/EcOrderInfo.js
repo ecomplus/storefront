@@ -19,6 +19,7 @@ import {
   i19transactionCode,
   i19ticketCode,
   i19FinancialStatus,
+  i19FulfillmentStatus,
   i19OrderStatus
 } from '@ecomplus/i18n'
 
@@ -45,6 +46,9 @@ export default {
     skipDataLoad: {
       type: Boolean
     },
+    skipFirstDataLoad: {
+      type: Boolean
+    },
     skipCustomerUpdate: {
       type: Boolean
     },
@@ -56,7 +60,7 @@ export default {
 
   data () {
     return {
-      loaded: this.skipDataLoad,
+      loaded: this.skipDataLoad || this.skipFirstDataLoad,
       updateInterval: null,
       orderBody: this.order
     }
@@ -96,6 +100,11 @@ export default {
     },
 
     shippingAddress () {
+      const { localOrder } = this
+      if (localOrder.shipping_lines && localOrder.shipping_lines.length) {
+        return localOrder.shipping_lines[0].to
+      }
+      return undefined
     },
 
     financialStatus () {
@@ -114,8 +123,9 @@ export default {
 
   methods: {
     formatMoney,
-    i19FinancialStatus: (prop) => i18n({ ...i19FinancialStatus }),
-    i19OrderStatus: (prop) => i18n({ ...i19OrderStatus }),
+    i19FinancialStatus: prop => i18n(i19FinancialStatus)[prop],
+    i19FulfillmentStatus: prop => i18n(i19FulfillmentStatus)[prop],
+    i19OrderStatus: prop => i18n(i19OrderStatus)[prop],
 
     toClipboard (text) {
       this.$copyText(text).then(() => {
@@ -177,7 +187,7 @@ export default {
       }
       if (!this.skipDataLoad) {
         const update = () => {
-          store({ url: `/orders/${this.order._id}.json` })
+          return store({ url: `/orders/${this.order._id}.json` })
             .then(({ data }) => {
               this.localOrder = {
                 ...this.localOrder,
@@ -189,10 +199,13 @@ export default {
             })
         }
         this.updateInterval = setInterval(update, 9000)
-        setTimeout(() => {
-          update()
-          this.loaded = true
-        }, this.isNew ? 1000 : 3000)
+        if (!this.skipFirstDataLoad) {
+          setTimeout(() => {
+            update().finally(() => {
+              this.loaded = true
+            })
+          }, this.isNew ? 1000 : 3000)
+        }
       }
     }
   },
