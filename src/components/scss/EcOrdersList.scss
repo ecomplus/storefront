@@ -30,7 +30,7 @@
     color: var(--primary);
 
     &--open {
-      border-left-color: var(--warning);
+      border-left-color: var(--info);
     }
     &--closed {
       border-left-color: var(--success);
@@ -48,7 +48,7 @@
     }
 
     &--open {
-      color: var(--warning);
+      color: var(--info);
     }
     &--closed {
       color: var(--success);
