@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.33](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.32...v1.0.0-beta.33) (2019-12-08)
+
+
+### Features
+
+* **order-info:** show transaction info properly ([0706569](https://github.com/ecomclub/storefront-app/commit/070656916a1ed7156336f857ae23f80fa2c333d4))
+* **shipping-line:** setup ShippingLine component with delivery info ([2bdd691](https://github.com/ecomclub/storefront-app/commit/2bdd6916a2e21ba6d847efd7818a6186c99b9bd1))
+
+
+### Bug Fixes
+
+* **order:** also passing order object id with router param ([e70520c](https://github.com/ecomclub/storefront-app/commit/e70520cf915a535c67071a0c2109145b9a36c259))
+* **order:** show order info only after load from passport ([7714e5b](https://github.com/ecomclub/storefront-app/commit/7714e5bd1727679f0afd34d6eb1937e65649e904))
+* **orders-list:** auto updating account orders list ([085453b](https://github.com/ecomclub/storefront-app/commit/085453b65ca3a4f2715b5abbf0b7e5518198c346))
+* **orders-list:** change open status color to info (blue) ([94dbdde](https://github.com/ecomclub/storefront-app/commit/94dbdde6839e0b05927b22c9a17bf8fc606e2539))
+* **orders-list:** clear update interval before destroy ([82a8740](https://github.com/ecomclub/storefront-app/commit/82a8740758fe74a4d8d6b6e6f4235953048cd524))
+
 ## [1.0.0-beta.32](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.31...v1.0.0-beta.32) (2019-12-06)
 
 
