@@ -26,7 +26,7 @@ export default {
 
   computed: {
     i19afterApproval: () => i18n(i19afterApproval),
-    i19days: () => i18n(i19days),
+    i19days: () => i18n(i19days).toLowerCase(),
     i19noNumber: () => i18n(i19noNumber),
     i19postingDeadline: () => i18n(i19postingDeadline),
     i19recipient: () => i18n(i19recipient),
@@ -34,7 +34,7 @@ export default {
     i19shippingMethod: () => i18n(i19shippingMethod),
     i19trackingCodes: () => i18n(i19trackingCodes),
     i19willReceiveMsg: () => i18n(i19willReceiveMsg),
-    i19workingDays: () => i18n(i19workingDays),
+    i19workingDays: () => i18n(i19workingDays).toLowerCase(),
 
     isDeliveryPending () {
       if (this.shippingLine.status) {
