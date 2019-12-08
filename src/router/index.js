@@ -29,7 +29,7 @@ const routes = [
     )
   },
   {
-    path: '/order/:number',
+    path: '/order/:number/:id?',
     name: 'order',
     component: () => import(
       /* webpackChunkName: "order" */

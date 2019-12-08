@@ -65,11 +65,11 @@ export default {
         .finally(() => this.triggerLoading(false))
     },
 
-    viewOrder ({ number }) {
+    viewOrder ({ _id, number }) {
       if (number) {
         this.$router.push({
           name: 'order',
-          params: { number }
+          params: { number, id: _id }
         })
       }
     }

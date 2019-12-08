@@ -25,7 +25,10 @@ export default {
       if (!order) {
         const { number } = this
         if (number) {
-          return { number }
+          return {
+            _id: this.$route.params.id,
+            number
+          }
         } else {
           return { _id: this.$route.params.number }
         }

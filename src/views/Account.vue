@@ -6,7 +6,7 @@
       :showOrders.sync="showOrders"
       @login="login"
       @logout="resetAccount"
-      @viewOrder="viewOrder"
+      @click:order="viewOrder"
     />
   </div>
 </template>

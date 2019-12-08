@@ -34,7 +34,7 @@
       <b-tab class="ec-account__orders" :title="i18n('Orders')">
         <ec-orders-list
           :ecomPassport="ecomPassport"
-          @viewOrder="order => $emit('viewOrder', order)"
+          @click:order="order => $emit('click:order', order)"
         />
       </b-tab>
     </b-tabs>
