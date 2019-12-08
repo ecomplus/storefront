@@ -1,6 +1,6 @@
 <div class="ec-order-info py-4">
   <div v-if="isNew" class="ec-order-info__new">
-    {{ i18n('OrderConfirmationMsg') }}!
+    {{ i19orderConfirmationMsg }}!
   </div>
 
   <slide-y-up-transition group>
@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-12 col-lg-7">
           <p class="ec-order-info__number">
-            {{ i18n('OrderNumber') }}:
+            {{ i19orderNumber }}:
             <span class="h4">{{ localOrder.number }}</span>
           </p>
 
@@ -23,16 +23,16 @@
             :class="`ec-order-info__status--${localOrder.status}`"
             v-if="localOrder.status"
           >
-            {{ i18n('_OrderStatus', localOrder.status) }}
+            {{ i19OrderStatus(localOrder.status) }}
           </div>
 
           <template v-if="transaction.status && transaction.status.current === 'pending'">
             <div class="ec-order-info__billet" v-if="transaction.banking_billet">
-              <p class="lead">{{ i18n('DoPaymentMsg') }}</p>
+              <p class="lead">{{ i19doPaymentMsg }}</p>
 
               <template v-if="transaction.banking_billet.code">
                 <p>
-                  {{ i18n('TicketCode') }}:
+                  {{ i19ticketCode }}:
                   <br><samp>{{ transaction.banking_billet.code }}</samp>
                 </p>
 
@@ -41,7 +41,7 @@
                   @click="() => toClipboard(transaction.banking_billet.code)"
                 >
                   <i class="fas fa-copy mr-1"></i>
-                  {{ i18n('CopyCode') }}
+                  {{ i19copyCode }}
                 </button>
               </template>
 
@@ -52,12 +52,12 @@
                 :href="transaction.banking_billet.link"
               >
                 <i class="fas fa-print mr-1"></i>
-                {{ i18n('PrintBillet') }}
+                {{ i19printBillet }}
               </a>
             </div>
 
             <div class="ec-order-info__redirect" v-else-if="transaction.payment_link">
-              <p class="lead">{{ i18n('DoPaymentMsg') }}</p>
+              <p class="lead">{{ i19doPaymentMsg }}</p>
 
               <a
                 target="_blank"
@@ -65,10 +65,65 @@
                 :href="transaction.payment_link"
               >
                 <i class="fas fa-arrow-right"></i>
-                {{ i18n('RedirectToPayment') }}
+                {{ i19redirectToPayment }}
               </a>
             </div>
           </template>
+
+          <slot name="payment" v-bind="{ order: localOrder, transaction }">
+            <div class="ec-order-info__payment">
+              <div
+                class="ec-order-info__financial-status"
+                :class="`ec-order-info__financial-status--${financialStatus}`"
+              >
+                {{ i19FinancialStatus(financialStatus) }}
+              </div>
+
+              <div v-for="transaction in order.transactions">
+                <p class="ec-order-info__payment-value">
+                  {{ transaction.payment_method.name || order.payment_method_label }}:
+                  <strong v-if="transaction.installments && transaction.installments.value">
+                    {{ transaction.installments.number }}x
+                    {{ i19of.toLowerCase() }}
+                    {{ formatMoney(transaction.installments.value) }}
+                  </strong>
+                  <strong v-else>
+                    {{ formatMoney(transaction.amount || order.amount.total) }}
+                  </strong>
+                </p>
+
+                <p
+                  v-if="transaction.credit_card"
+                  class="ec-order-info__credit-card"
+                >
+                  {{ transaction.credit_card.company }}
+                  <span v-if="transaction.credit_card.last_digits">
+                    <span v-if="!transaction.credit_card.company">
+                      {{ i19cardNumber }}
+                    </span>
+                    **** {{ transaction.credit_card.last_digits }}
+                  </span>
+                </p>
+
+                <span v-if="transaction.intermediator">
+                  <div
+                    class="ec-order-info__transaction-code"
+                    v-if="transaction.intermediator.transaction_code"
+                  >
+                    {{ i19transactionCode }}:
+                    {{ transaction.intermediator.transaction_code }}
+                  </div>
+                  <div
+                    class="ec-order-info__transaction-reference"
+                    v-if="transaction.intermediator.transaction_reference"
+                  >
+                    {{ i19referenceCode }}:
+                    {{ transaction.intermediator.transaction_reference }}
+                  </div>
+                </span>
+              </div>
+            </div>
+          </slot>
         </div>
 
         <div class="col-12 col-lg-5" v-if="localOrder.amount">
@@ -91,6 +146,6 @@
     :href="accountOrdersUrl"
     class="ec-order-info__orders-link btn btn-sm btn-light"
   >
-    {{ i18n('MyOrders') }}
+    {{ i19myOrders }}
   </a>
 </div>

@@ -1,23 +1,26 @@
-import { i18n } from '@ecomplus/utils'
+import { i18n, formatMoney } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
 import EcomPassport from '@ecomplus/passport-client'
 import EcSummary from './../EcSummary.vue'
 import { SlideYUpTransition } from 'vue2-transitions'
 
 import {
-  CodeCopied,
-  CopyCode,
-  CopyErrorMsg,
-  DoPaymentMsg,
-  MyOrders,
-  OrderConfirmationMsg,
-  OrderNumber,
-  PrintBillet,
-  RedirectToPayment,
-  TicketCode,
-  _FinancialStatus,
-  _OrderStatus
-} from './../../lib/i18n'
+  i19codeCopied,
+  i19copyCode,
+  i19copyErrorMsg,
+  i19doPaymentMsg,
+  i19myOrders,
+  i19of,
+  i19orderConfirmationMsg,
+  i19orderNumber,
+  i19printBillet,
+  i19redirectToPayment,
+  i19referenceCode,
+  i19transactionCode,
+  i19ticketCode,
+  i19FinancialStatus,
+  i19OrderStatus
+} from '@ecomplus/i18n'
 
 export default {
   name: 'EcOrderInfo',
@@ -28,10 +31,6 @@ export default {
   },
 
   props: {
-    mergeDictionary: {
-      type: Object,
-      default: () => {}
-    },
     ecomPassport: {
       type: Object,
       default: () => new EcomPassport()
@@ -64,23 +63,19 @@ export default {
   },
 
   computed: {
-    dictionary () {
-      return {
-        CodeCopied,
-        CopyCode,
-        CopyErrorMsg,
-        DoPaymentMsg,
-        MyOrders,
-        OrderConfirmationMsg,
-        OrderNumber,
-        PrintBillet,
-        RedirectToPayment,
-        TicketCode,
-        _FinancialStatus,
-        _OrderStatus,
-        ...this.mergeDictionary
-      }
-    },
+    i19codeCopied: () => i18n(i19codeCopied),
+    i19copyCode: () => i18n(i19copyCode),
+    i19copyErrorMsg: () => i18n(i19copyErrorMsg),
+    i19doPaymentMsg: () => i18n(i19doPaymentMsg),
+    i19myOrders: () => i18n(i19myOrders),
+    i19of: () => i18n(i19of),
+    i19orderConfirmationMsg: () => i18n(i19orderConfirmationMsg),
+    i19orderNumber: () => i18n(i19orderNumber),
+    i19printBillet: () => i18n(i19printBillet),
+    i19redirectToPayment: () => i18n(i19redirectToPayment),
+    i19referenceCode: () => i18n(i19referenceCode),
+    i19transactionCode: () => i18n(i19transactionCode),
+    i19ticketCode: () => i18n(i19ticketCode),
 
     localOrder: {
       get () {
@@ -93,25 +88,34 @@ export default {
       }
     },
 
-    shippingAddress () {
-    },
-
-    financialStatus () {
-      return ''
-    },
-
     transaction () {
       const { transactions } = this.localOrder
       return transactions && transactions.length
         ? transactions[0]
         : {}
+    },
+
+    shippingAddress () {
+    },
+
+    financialStatus () {
+      const { localOrder, transaction } = this
+      const status = localOrder.financial_status && localOrder.financial_status.current
+      if (status) {
+        return status
+      } else {
+        if (transaction && transaction.status) {
+          return transaction.status.current
+        }
+      }
+      return 'pending'
     }
   },
 
   methods: {
-    i18n (label, prop) {
-      return i18n(prop ? this.dictionary[label][prop] : this.dictionary[label])
-    },
+    formatMoney,
+    i19FinancialStatus: (prop) => i18n({ ...i19FinancialStatus }),
+    i19OrderStatus: (prop) => i18n({ ...i19OrderStatus }),
 
     toClipboard (text) {
       this.$copyText(text).then(() => {

@@ -19,11 +19,14 @@
     }
   }
 
-  &__status {
+  &__status,
+  &__financial-status {
     font-weight: bold;
+    font-size: 1.15rem;
     margin-bottom: 1rem;
-    font-size: 1.4rem;
+  }
 
+  &__status {
     &--open {
       color: var(--info);
     }
@@ -33,6 +36,26 @@
     }
 
     &--closed {
+      color: var(--success);
+    }
+  }
+
+  &__financial-status {
+    &--pending {
+      color: var(--warning);
+    }
+
+    &--under_analysis {
+      color: var(--info);
+    }
+
+    &--unauthorized,
+    &--in_dispute,
+    &--voided {
+      color: var(--danger);
+    }
+
+    &--paid {
       color: var(--success);
     }
   }
