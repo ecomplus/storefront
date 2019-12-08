@@ -1,6 +1,7 @@
 import { i18n, formatMoney } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
 import EcomPassport from '@ecomplus/passport-client'
+import EcShippingLine from './../EcShippingLine.vue'
 import EcSummary from './../EcSummary.vue'
 import { SlideYUpTransition } from 'vue2-transitions'
 
@@ -27,6 +28,7 @@ export default {
   name: 'EcOrderInfo',
 
   components: {
+    EcShippingLine,
     EcSummary,
     SlideYUpTransition
   },
@@ -118,6 +120,20 @@ export default {
         }
       }
       return 'pending'
+    },
+
+    fulfillmentStatus () {
+      const { localOrder } = this
+      const status = localOrder.fulfillment_status && localOrder.fulfillment_status.current
+      if (status) {
+        return status
+      } else {
+        const shippingLine = localOrder.shipping_lines && localOrder.shipping_lines[0]
+        if (shippingLine && shippingLine.status) {
+          return shippingLine.status.current
+        }
+      }
+      return null
     }
   },
 

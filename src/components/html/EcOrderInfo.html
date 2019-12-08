@@ -132,6 +132,24 @@
 
             <div class="col-12 col-md-6">
               <slot name="shipping" v-bind="{ order: localOrder, shippingAddress }">
+                <div class="ec-order-info__shipping">
+                  <div
+                    v-if="fulfillmentStatus"
+                    class="ec-order-info__fulfillment-status"
+                    :class="`ec-order-info__fulfillment-status--${financialStatus}`"
+                  >
+                    {{ i19FulfillmentStatus(fulfillmentStatus) }}
+                  </div>
+
+                  <template v-if="localOrder.shipping_lines">
+                    <ec-shipping-line
+                      v-for="shippingLine in localOrder.shipping_lines"
+                      :key="shippingLine._id"
+                      :shipping-line="shippingLine"
+                      :financialStatus="financialStatus"
+                    />
+                  </template>
+                </div>
               </slot>
             </div>
           </div>
