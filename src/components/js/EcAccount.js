@@ -31,7 +31,7 @@ export default {
     },
     customer: {
       type: Object,
-      default: () => {}
+      default: () => ({})
     },
     ecomPassport: {
       type: Object,
@@ -82,7 +82,7 @@ export default {
     },
 
     login (ecomPassport) {
-      if (ecomPassport.isLogged()) {
+      if (ecomPassport.isAuthorized()) {
         this.localCustomer = ecomPassport.getCustomer()
         this.$emit('login', ecomPassport)
       }
