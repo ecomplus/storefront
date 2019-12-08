@@ -73,6 +73,7 @@ const actions = {
     return ecomPassport.requestApi('/me.json')
       .then(({ data }) => {
         commit('setCustomer', data)
+        ecomPassport.setCustomer(data)
       })
       .catch(err => {
         const { response } = err
