@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/ecomclub/storefront-app/compare/v1.0.0...v1.0.1) (2019-12-08)
+
+
+### Bug Fixes
+
+* **shipping-line:** styles/text changes for shipping line component ([5e0ffc5](https://github.com/ecomclub/storefront-app/commit/5e0ffc555522146d5716a090bdffac56fd59b6c1))
+
 ## [1.0.0](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.33...v1.0.0) (2019-12-08)
 
 ## [1.0.0-beta.33](https://github.com/ecomclub/storefront-app/compare/v1.0.0-beta.32...v1.0.0-beta.33) (2019-12-08)
