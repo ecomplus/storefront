@@ -33,6 +33,7 @@ export default {
 
   data () {
     return {
+      isReady: this.skipDataLoad,
       orderBody: {
         _id: '',
         ...this.order
@@ -60,6 +61,7 @@ export default {
         : store({ url })
       request.then(({ data }) => {
         this.localOrder = data
+        this.isReady = true
       })
     }
   },

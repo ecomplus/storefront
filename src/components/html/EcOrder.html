@@ -1,5 +1,19 @@
 <article class="ec-order">
-  <div v-if="localOrder._id">
-    <ec-order-info :order.sync="localOrder"/>
-  </div>
+  <transition
+    enter-active-class="animated fadeIn slow"
+    group
+  >
+    <ec-order-info
+      v-if="isReady"
+      key="info"
+      :order.sync="localOrder"
+      skip-first-data-load
+    />
+
+    <div key="loading" v-else>
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </transition>
 </article>
