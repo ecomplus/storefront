@@ -30,6 +30,7 @@ export default {
 
   data () {
     return {
+      updateInterval: null,
       orders: []
     }
   },
@@ -53,13 +54,15 @@ export default {
   },
 
   created () {
-    const update = () => {
-      this.ecomPassport.fetchOrdersList().then(result => {
+    const update = () => this.ecomPassport.fetchOrdersList()
+      .then(result => {
         this.orders = result
-      }).finally(() => {
-        setTimeout(update, 5000)
       })
-    }
     update()
+    this.updateInterval = setInterval(update, 5000)
+  },
+
+  beforeDestroy () {
+    clearInterval(this.updateInterval)
   }
 }
