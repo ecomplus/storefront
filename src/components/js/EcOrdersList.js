@@ -53,8 +53,13 @@ export default {
   },
 
   created () {
-    this.ecomPassport.fetchOrdersList().then(result => {
-      this.orders = result
-    })
+    const update = () => {
+      this.ecomPassport.fetchOrdersList().then(result => {
+        this.orders = result
+      }).finally(() => {
+        setTimeout(update, 5000)
+      })
+    }
+    update()
   }
 }
