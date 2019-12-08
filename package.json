@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-app",
-  "version": "1.0.0-beta.33",
+  "version": "1.0.0",
   "description": "Vue.js ecommerce app with cart, checkout and account pages",
   "main": "dist/lib/js/app.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "vue-cli-service build --lib",
     "build:spa": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "release": "npm run build && standard-version --prerelease"
+    "release": "npm run build && standard-version"
   },
   "repository": {
     "type": "git",
