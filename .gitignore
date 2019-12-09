@@ -1,5 +1,7 @@
-# Output
 /dist
+/.serve
+/content
+/template
 
 # Logs
 logs

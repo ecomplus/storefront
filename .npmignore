@@ -1,5 +1,7 @@
-# Documentation
 /docs
+/.serve
+/content
+/template
 
 # Logs
 logs
