@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/ecomclub/storefront-app/compare/v1.0.1...v1.1.0) (2019-12-09)
+
+
+### Features
+
+* **global:** setting up window.storefrontApp for payment clients ([3db4980](https://github.com/ecomclub/storefront-app/commit/3db498047101bf37eea7a01441fa62a5df610a40))
+
+
+### Bug Fixes
+
+* **amount:** amount getter with fixed money values (2 fixed numbers) ([0fc74e7](https://github.com/ecomclub/storefront-app/commit/0fc74e7456c3a6adcf22b5690976c17cfb10e6ab))
+
 ### [1.0.1](https://github.com/ecomclub/storefront-app/compare/v1.0.0...v1.0.1) (2019-12-08)
 
 
