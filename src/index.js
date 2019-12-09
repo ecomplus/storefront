@@ -1,3 +1,4 @@
 export default (options = {}) => {
-  console.log('GTM')
+  const x = import('./debug.js')
+  console.log(x)
 }
