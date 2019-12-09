@@ -68,18 +68,4 @@ if (devMode) {
   }))
 }
 
-module.exports = devMode
-  // single config object for dev server
-  ? config
-  // production outputs with and without polyfill
-  : [
-    config,
-    {
-      ...config,
-      output: {
-        ...output,
-        filename: output.filename.replace('.min.js', '.root.min.js')
-      },
-      externals
-    }
-  ]
+module.exports = config
