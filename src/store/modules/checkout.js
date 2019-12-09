@@ -81,9 +81,7 @@ const getters = {
         addDiscount(discountValue)
       }
     }
-    if (amount.total < 0) {
-      amount.total = 0
-    }
+    amount.total = amount.total > 0 ? fixMoneyValue(amount.total) : 0
     return amount
   },
 
