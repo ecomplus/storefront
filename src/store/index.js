@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import shop from './modules/shop'
 import checkout from './modules/checkout'
 import account from './modules/account'
 
@@ -34,7 +33,6 @@ export default new Vuex.Store({
   },
 
   modules: {
-    shop,
     checkout,
     account
   }
