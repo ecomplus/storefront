@@ -16,6 +16,7 @@ const output = {
   filename: 'widget-tag-manager.min.js',
   publicPath: devMode ? '/' : '/assets/vendor/'
 }
+output.chunkFilename = output.filename.replace('.min.js', '.[name].min.js')
 
 // base Webpack config
 const config = {
