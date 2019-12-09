@@ -1,0 +1,14 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## 0.1.0 (2019-12-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **webpack:** global constructor changed
+
+### build
+
+* **webpack:** edit constructor and output filename ([b14f9ee](https://github.com/ecomclub/widget-tag-manager/commit/b14f9eeda5f6e5d74133119a97a4a213a1e52d87))
