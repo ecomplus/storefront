@@ -1,6 +1,8 @@
 import ecomCart from '@ecomplus/shopping-cart'
 import ecomClient from '@ecomplus/client'
 
+const fixMoneyValue = num => Math.round(num * 100) / 100
+
 const fetchProduct = _id => {
   return ecomClient.store({
     url: `/products/${_id}.json`,
@@ -52,12 +54,14 @@ const state = {
 const getters = {
   amount: ({ shippingService, discountRule, paymentGateway }) => {
     const amount = {
-      subtotal: ecomCart.data.subtotal,
-      freight: shippingService.shipping_line ? shippingService.shipping_line.total_price : 0,
+      subtotal: fixMoneyValue(ecomCart.data.subtotal),
+      freight: shippingService.shipping_line
+        ? fixMoneyValue(shippingService.shipping_line.total_price) : 0,
       discount: 0
     }
     amount.total = amount.subtotal + amount.freight
     const addDiscount = discountValue => {
+      discountValue = fixMoneyValue(discountValue)
       amount.discount += discountValue
       amount.total -= discountValue
     }
