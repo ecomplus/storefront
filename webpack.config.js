@@ -13,7 +13,8 @@ const output = {
   libraryTarget: 'umd',
   libraryExport: 'default',
   path: path.resolve(__dirname, 'dist'),
-  filename: 'widget-tag-manager.min.js'
+  filename: 'widget-tag-manager.min.js',
+  publicPath: devMode ? '/' : '/assets/vendor/'
 }
 
 // base Webpack config
