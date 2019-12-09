@@ -28,7 +28,15 @@ window.$ = $
 
 Vue.config.productionTip = false
 
-window.storefront = { $overlay, ...events }
+window.storefront = {
+  $overlay,
+  settings: window._settings,
+  info: window._info,
+  widgets: window._widgets,
+  context: window._context,
+  data: window._data,
+  ...events
+}
 
 setTimeout(() => {
   if (window._widgets !== false) {
