@@ -24,9 +24,14 @@ import { FadeTransition, SlideXLeftTransition } from 'vue2-transitions'
 
 export default {
   name: 'StorefrontApp',
+
   components: {
     FadeTransition,
     SlideXLeftTransition
+  },
+
+  created () {
+    window.storefrontApp = {}
   }
 }
 </script>
