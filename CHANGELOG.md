@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.23.3](https://github.com/ecomclub/storefront-template/compare/v1.23.2...v1.23.3) (2019-12-09)
+
+
+### Bug Fixes
+
+* **js:** fix global storefront with data, context, settings ([0a7d4fd](https://github.com/ecomclub/storefront-template/commit/0a7d4fd7efc37e4c303738f813c14333f8bf7ce1))
+
 ### [1.23.2](https://github.com/ecomclub/storefront-template/compare/v1.23.1...v1.23.2) (2019-12-08)
 
 ### [1.23.1](https://github.com/ecomclub/storefront-template/compare/v1.23.0...v1.23.1) (2019-12-06)
