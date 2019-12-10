@@ -1,5 +1,5 @@
 <% if (bootswatch && bootswatch.length > 1) { %>
-  @import "themes/<%- bootswatch %>/variables";
+  @import "<%- themesPath %>/<%- bootswatch %>/variables";
   @import "bootswatch/dist/<%- bootswatch %>/variables";
 <% } %>
 
@@ -8,7 +8,7 @@
 
 <% if (bootswatch && bootswatch.length > 1) { %>
   @import "bootswatch/dist/<%- bootswatch %>/bootswatch";
-  @import "themes/<%- bootswatch %>/custom";
+  @import "<%- themesPath %>/<%- bootswatch %>/custom";
 <% } %>
 
 @import "main";
