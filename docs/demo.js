@@ -1,9 +1,14 @@
 import widget from './../src/'
+import appendTest from './../src/append/test'
+
+const options = {
+  gtmContainerId: 'GTM-KMQZKG9',
+  dataLayerVar: 'dataLayer'
+}
 
 window._widgets = false
-widget({
-  gtmContainerId: 'GTM-KMQZKG9',
-  skipGtmScript: false
-})
+appendTest(options)
+
+widget(options)
 
 export default widget
