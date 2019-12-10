@@ -57,18 +57,19 @@ if (url) {
   <% } %>
 
   <%
-  // setup preloaded widgets (pixels, tags)
+  // setup preloaded widget partials (pixels, tags)
   const widgets = _.cms('widgets')
   if (Array.isArray(widgets)) {
-    widgets.map(slug => _.cms(`widgets/${slug}`))
-      .filter(({ active, headScript }) => Boolean(active && headScript && headScript.src))
-      .forEach(({ headScript, options }) => {
+    const widgetObjects = widgets.map(slug => _.cms(`widgets/${slug}`))
+    for (let i = 0; i < widgetObjects.length; i++) {
+      const { pkg, active, options, headAppend } = widgetObjects[i]
+      if (active && headAppend) {
         %>
-        <script src="<%- headScript.src %>"></script>
-        <script>window.<%- headScript.globalFn %>(<%- JSON.stringify(options) %>)</script>
+        <%- await include(`../../../node_modules/${pkg}/${headAppend}`, { _, options }) %>
         <%
-      })
+      }
     }
+  }
   %>
 <% } %>
 

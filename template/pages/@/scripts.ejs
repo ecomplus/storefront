@@ -78,3 +78,19 @@ if (Array.isArray(widgets)) {
     logo: (_.store.logo && _.store.logo.url) || `https://${_.settings.domain}${_.settings.logo}`
   })
 %></script>
+
+<%
+if (!_.route.path.startsWith('/admin/')) {
+  // append widgets additional HTML
+  for (const pkg in echoWidgets) {
+    if (echoWidgets[pkg]) {
+      const { active, options, bodyAppend } = echoWidgets[pkg]
+      if (active && bodyAppend) {
+        %>
+        <%- await include(`../../../node_modules/${pkg}/${bodyAppend}`, { _, options }) %>
+        <%
+      }
+    }
+  }
+}
+%>
