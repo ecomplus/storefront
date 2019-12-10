@@ -55,6 +55,21 @@ if (url) {
   <% if (!_.route.path.startsWith('/app/')) { %>
     <link rel="preload" href="/storefront.js" as="script">
   <% } %>
+
+  <%
+  // setup preloaded widgets (pixels, tags)
+  const widgets = _.cms('widgets')
+  if (Array.isArray(widgets)) {
+    widgets.map(slug => _.cms(`widgets/${slug}`))
+      .filter(({ active, headScript }) => Boolean(active && headScript && headScript.src))
+      .forEach(({ headScript, options }) => {
+        %>
+        <script src="<%- headScript.src %>"></script>
+        <script>window.<%- headScript.globalFn %>(<%- JSON.stringify(options) %>)</script>
+        <%
+      })
+    }
+  %>
 <% } %>
 
 <link rel="apple-touch-icon" href="<%= _.settings.icon %>">
