@@ -44,13 +44,6 @@ const copyFolder = ({ dirTemplate, pathDest, pathFrom, pathsTo, overwrite = true
 }
 
 copyFolder({
-  dirTemplate: path.join(__dirname, '../template'),
-  pathFrom: 'public/admin',
-  pathDest: 'template',
-  pathsTo: ['public', 'admin']
-})
-
-copyFolder({
   dirTemplate: path.join(__dirname, '../content'),
   pathFrom: 'widgets',
   pathDest: 'content',
