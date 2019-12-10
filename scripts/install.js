@@ -66,13 +66,6 @@ copyFolder({
 })
 
 copyFolder({
-  dirTemplate: path.join(process.cwd(), 'node_modules/@ecomplus/widget-tag-manager'),
-  pathFrom: 'dist/root',
-  pathDest: 'template',
-  pathsTo: ['public', 'assets', 'vendor']
-})
-
-copyFolder({
   dirTemplate: path.join(process.cwd(), 'node_modules/photoswipe'),
   pathFrom: 'dist/default-skin',
   pathDest: 'template',
