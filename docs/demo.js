@@ -1,6 +1,9 @@
 import widget from './../src/'
 
 window._widgets = false
-widget({})
+widget({
+  gtmContainerId: 'GTM-KMQZKG9',
+  skipGtmScript: false
+})
 
 export default widget
