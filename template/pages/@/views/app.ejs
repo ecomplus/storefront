@@ -1,6 +1,5 @@
 <%
 const contacts = _.cms('contacts') || {}
-const settings = _.cms('settings') || {}
 const footer = _.cms('footer') || {}
 
 // store logo object
@@ -76,7 +75,7 @@ const logo = _.settings.logo
       <% if (footer.credits) { %>
         <span><%= footer.credits %></span>
       <% } else { %>
-        <span class="app__credits__name">© <%= settings.name %> </span>
+        <span class="app__credits__name">© <%= _.settings.name %> </span>
         <span class="app__credits__address"> - <%= contacts.address %> - </span>
         <span class="app__credits__number"> <%= contacts.doc_number %></span>
       <% } %>
