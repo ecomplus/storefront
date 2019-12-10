@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/ecomclub/widget-tag-manager/compare/v0.1.6...v0.1.7) (2019-12-10)
+
+
+### Features
+
+* **append:** add ejs files to append on head/body ([12d9711](https://github.com/ecomclub/widget-tag-manager/commit/12d97113ce4bc95e89e6c4a0b7a8680ec103edda))
+
 ### [0.1.6](https://github.com/ecomclub/widget-tag-manager/compare/v0.1.5...v0.1.6) (2019-12-10)
 
 
