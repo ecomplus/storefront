@@ -1,7 +1,7 @@
 {
   "pkg": "@ecomplus/widget-tag-manager",
   "active": true,
-  "desktopOnly": false,
+  "desktopOnly": true,
   "options": {
     "gtmContainerId": "GTM-KMQZKG9",
     "dataLayerVar": "dataLayer"
