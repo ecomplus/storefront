@@ -33,6 +33,7 @@ const loadWidget = (pkg, runImport) => {
 }
 
 if (!isCheckout) {
+  loadWidget('@ecomplus/widget-tag-manager', () => import('@ecomplus/widget-tag-manager'))
   loadWidget('@ecomplus/widget-user', () => import('@ecomplus/widget-user'))
   loadWidget('@ecomplus/widget-product-card', () => import('@ecomplus/widget-product-card'))
   loadWidget('@ecomplus/widget-search', () => import('@ecomplus/widget-search'))
