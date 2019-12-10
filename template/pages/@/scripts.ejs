@@ -44,10 +44,11 @@ let echoData = {
 }
 
 // setup widgets object
-let echoWidgets = _.cms('widgets')
-if (Array.isArray(echoWidgets)) {
+let echoWidgets = {}
+const widgets = _.cms('widgets')
+if (Array.isArray(widgets)) {
   // parse widgets folder/file CMS collection to object
-  echoWidgets = echoWidgets.reduce((obj, slug) => {
+  echoWidgets = widgets.reduce((obj, slug) => {
     const widget = _.cms(`widgets/${slug}`)
     const { pkg, active } = widget
     if (active) {
