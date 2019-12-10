@@ -36,6 +36,7 @@ const copyFolder = ({ dirTemplate, pathDest, pathFrom, pathsTo, overwrite = true
         }
       })
       const dirFrom = path.join(dirTemplate, pathFrom)
+      console.log(`[COPY] read files from ${dirFrom.replace(/^.*node_modules/, '')}`)
       recursiveCopy(dirFrom, dirTo, overwrite)
       console.log(`[OK] files copied to ${dirTo.slice(dirBase.length)} folder`)
     }
@@ -62,6 +63,13 @@ copyFolder({
   pathFrom: 'dist/lib',
   pathDest: 'template',
   pathsTo: ['public', 'assets', 'vendor', 'storefront-app']
+})
+
+copyFolder({
+  dirTemplate: path.join(process.cwd(), 'node_modules/@ecomplus/widget-tag-manager'),
+  pathFrom: 'dist/root',
+  pathDest: 'template',
+  pathsTo: ['public', 'assets', 'vendor']
 })
 
 copyFolder({
