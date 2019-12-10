@@ -1,4 +1,4 @@
 export default (options = {}) => {
-  const x = import('./debug.js')
+  const x = import(/* webpackChunkName: "debug" */ './debug.js')
   console.log(x)
 }
