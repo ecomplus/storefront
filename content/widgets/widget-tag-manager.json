@@ -1,10 +1,11 @@
 {
   "pkg": "@ecomplus/widget-tag-manager",
-  "active": false,
+  "active": true,
   "desktopOnly": false,
-  "options": {},
-  "headScript": {
-    "src": "/assets/vendor/widget-tag-manager.min.js",
-    "globalFn": "widgetTagManager"
-  }
+  "options": {
+    "gtmContainerId": "GTM-KMQZKG9",
+    "dataLayerVar": "dataLayer"
+  },
+  "headAppend": "src/append/head",
+  "bodyAppend": "src/append/body"
 }
