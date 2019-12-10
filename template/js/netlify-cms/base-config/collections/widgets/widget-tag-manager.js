@@ -35,10 +35,8 @@ export default {
           required: true
         },
         {
-          label: 'Variável global data layer (avançado)',
           name: 'dataLayerVar',
-          widget: 'string',
-          required: true,
+          widget: 'hidden',
           default: 'dataLayer'
         }
       ]
