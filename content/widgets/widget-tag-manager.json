@@ -1,1 +1,10 @@
-{}
+{
+  "pkg": "@ecomplus/widget-tag-manager",
+  "active": false,
+  "desktopOnly": false,
+  "options": {},
+  "headScript": {
+    "src": "/assets/vendor/widget-tag-manager.min.js",
+    "globalFn": "widgetTagManager"
+  }
+}
