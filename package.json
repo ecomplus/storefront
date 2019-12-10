@@ -54,7 +54,7 @@
     "@ecomplus/widget-product-card": "^0.2.12",
     "@ecomplus/widget-search": "^0.5.9",
     "@ecomplus/widget-search-engine": "^0.2.3",
-    "@ecomplus/widget-tag-manager": "^0.1.6",
+    "@ecomplus/widget-tag-manager": "^0.1.7",
     "@ecomplus/widget-trustvox": "^0.1.0",
     "@ecomplus/widget-user": "^0.9.3",
     "@glidejs/glide": "^3.4.1",
