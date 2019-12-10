@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.24.0](https://github.com/ecomclub/storefront-template/compare/v1.23.3...v1.24.0) (2019-12-10)
+
+
+### Features
+
+* **cms:** add Google Tag Manager to default config widgets ([45e0d8d](https://github.com/ecomclub/storefront-template/commit/45e0d8df0614a15b3b5de85100357d7be7dc3ea4))
+* **head:** supporting <head> scripts from widgets ([a4777fb](https://github.com/ecomclub/storefront-template/commit/a4777fbd1b481a746ce9a4dcbff73fbdf36d9a47))
+* **pages:** support importing ejs partials from widgets pkgs ([3018679](https://github.com/ecomclub/storefront-template/commit/3018679dfd94d08b6ce18b4c74f33f0871e62da6))
+* **slider:** removing controls when there is only one image ([0cbccde](https://github.com/ecomclub/storefront-template/commit/0cbccde0e3a45e97fa26e0f7e831113f5c211316))
+* **themes:** creating custom css to bootswatch themes ([efe1e1b](https://github.com/ecomclub/storefront-template/commit/efe1e1b1aaa9a65c86065aa4a9e1b6e4d09a34bc))
+* **widget:** add ecomplus/widget-tag-manager ([5490a90](https://github.com/ecomclub/storefront-template/commit/5490a90ddbf5eaaef5c2b6a75d2ec731c106f400))
+
+
+### Bug Fixes
+
+* **cms:** fix cms config for tag manager widget ([6ee0a53](https://github.com/ecomclub/storefront-template/commit/6ee0a53633909abe590aa99782a53fa9d16d502b))
+* **cms:** set window.CMS_MANUAL_INIT on cms view ([2c1d282](https://github.com/ecomclub/storefront-template/commit/2c1d282c73d3b1ca6a7c11d93125f1e9dddfe2b2))
+* **script-style:** pass themesPath var for storefront deploy ([31344ab](https://github.com/ecomclub/storefront-template/commit/31344ab6009e3a06d4ffbbb51f5a9d25f7ed5aef))
+* **scripts:** ensure 'echoWidgets' is not array ([7731a54](https://github.com/ecomclub/storefront-template/commit/7731a5481da03835cc68f372575e9c44bdd3c13b))
+
 ### [1.23.3](https://github.com/ecomclub/storefront-template/compare/v1.23.2...v1.23.3) (2019-12-09)
 
 
