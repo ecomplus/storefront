@@ -68,4 +68,18 @@ if (devMode) {
   }))
 }
 
-module.exports = config
+module.exports = devMode
+  // single config object for dev server
+  ? config
+  // production outputs with and without polyfill
+  : [
+    config,
+    {
+      ...config,
+      output: {
+        ...output,
+        path: path.join(output.path, 'root')
+      },
+      externals
+    }
+  ]
