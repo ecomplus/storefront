@@ -1,9 +1,10 @@
 {
   "pkg": "@ecomplus/widget-tag-manager",
   "active": true,
-  "desktopOnly": true,
+  "desktopOnly": false,
+  "enableCheckout": true,
   "options": {
-    "gtmContainerId": "GTM-KMQZKG9",
+    "gtmContainerId": "",
     "dataLayerVar": "dataLayer"
   },
   "headAppend": "src/append/head",
