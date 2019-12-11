@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/ecomclub/widget-tag-manager/compare/v0.1.7...v0.1.8) (2019-12-11)
+
+
+### Features
+
+* **gtm-variables:** setting data layer variables before gtm script ([a8f90c0](https://github.com/ecomclub/widget-tag-manager/commit/a8f90c0d0b742c91bd9e851f7f2fd86e01aefebb))
+* **watch-routes:** handle storefront app router to data layer ([b405b26](https://github.com/ecomclub/widget-tag-manager/commit/b405b26029600c8db46543f6960f4a472d05f19a))
+
 ### [0.1.7](https://github.com/ecomclub/widget-tag-manager/compare/v0.1.6...v0.1.7) (2019-12-10)
 
 
