@@ -1,6 +1,6 @@
 {
   "pkg": "@ecomplus/widget-tag-manager",
-  "active": true,
+  "active": false,
   "desktopOnly": false,
   "enableCheckout": true,
   "options": {
