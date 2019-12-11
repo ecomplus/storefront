@@ -87,7 +87,7 @@ if (!_.route.path.startsWith('/admin/')) {
       const { active, options, bodyAppend } = echoWidgets[pkg]
       if (active && bodyAppend) {
         %>
-        <%- await include(`../../../node_modules/${pkg}/${bodyAppend}`, { _, options }) %>
+        <%- await include(`${process.cwd()}/node_modules/${pkg}/${bodyAppend}`, { _, options }) %>
         <%
       }
     }

@@ -65,7 +65,7 @@ if (url) {
       const { pkg, active, options, headAppend } = widgetObjects[i]
       if (active && headAppend) {
         %>
-        <%- await include(`../../../node_modules/${pkg}/${headAppend}`, { _, options }) %>
+        <%- await include(`${process.cwd()}/node_modules/${pkg}/${headAppend}`, { _, options }) %>
         <%
       }
     }
