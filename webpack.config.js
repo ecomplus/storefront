@@ -64,7 +64,7 @@ const config = {
 if (devMode) {
   // inject widget script with HTML plugin
   config.plugins.push(new HtmlWebpackPlugin({
-    template: path.resolve(templatePath, 'index.html')
+    template: path.resolve(templatePath, 'lot-of-pictures-product.html')
   }))
 }
 
