@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.24.2](https://github.com/ecomclub/storefront-template/compare/v1.24.1...v1.24.2) (2019-12-11)
+
+
+### Bug Fixes
+
+* **script-install:** merge widgets json to use new default values ([#103](https://github.com/ecomclub/storefront-template/issues/103)) ([7dff154](https://github.com/ecomclub/storefront-template/commit/7dff154bb9b7db8aeb2931e3441909075fafbd01))
+
 ### [1.24.1](https://github.com/ecomclub/storefront-template/compare/v1.24.0...v1.24.1) (2019-12-11)
 
 
