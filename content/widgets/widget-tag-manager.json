@@ -1,5 +1,6 @@
 {
   "active": true,
+  "desktopOnly": false,
   "options": {
     "gtmContainerId": "GTM-KMQZKG9"
   }
