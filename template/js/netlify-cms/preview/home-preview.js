@@ -30,35 +30,59 @@ export default class HomePreview extends React.Component {
 
   render () {
     const { doc } = this.state
-    console.log(doc)
+    let newDoc = doc
+    let html
     if (doc) {
       const { entry } = this.props
       const data = JSON.parse(entry.getIn(['raw']))
-      for (const key in data) {
-        if (data.hasOwnProperty(key)) {
-          const value = data[key]
-          const selector = `[data-cms-widgetfor="home.${key}"]`
-          const $el = doc.querySelectorAll(selector)[0]
-          if ($el) {
-            switch (typeof value) {
-              case 'boolean':
-                
-                break
-              case 'string':
-                break
-              case 'object':
-                break
-              case 'array':
-  
-                break
-              default: break
-            }
-            console.log(selector)
-            console.log($el)
+
+      // set slider
+      this.props.widgetsFor('slider').getIn(['data', 'slides']).map(function(slider, index) {
+        // set last img has preview for slider
+        const img = slider.getIn(['img'])
+        const $slider = doc.querySelectorAll('.glide')
+        if (img) {
+          $slider[0].classList.add(...['glide--ltr', 'glide--slider', 'glide--swipeable'])
+          const $imgs = doc.querySelectorAll('.banner-slider img')
+          for (let i = 0; i < $imgs.length; i++) {
+            const $img = $imgs[i]
+            $img.classList.remove()
+            $img.classList.add(...['lozad', 'fade', 'img-fluid', 'show'])
+            $img.setAttribute('src', img)
+            $img.setAttribute('data-loaded', true)
           }
+          $slider[0].style.display = 'block'
+        } else {
+          $slider[0].style.display = 'none'
         }
+      })
+
+      for (const key in data) {
+        const objCurr = entry.getIn(['data', key])
+        newDoc = this.displayWidget(key, objCurr, doc)
       }
     }
-    return h('div', { dangerouslySetInnerHTML: { __html: this.state.html } })
+
+    if (newDoc.childNodes && newDoc.childNodes.length) {
+      html = newDoc.childNodes[1].innerHTML
+    }
+    return h('div', { dangerouslySetInnerHTML: { __html: html } })
+  }
+
+  displayWidget (key, value, doc) {
+    const $els = doc.querySelectorAll(`[data-cms-bind="home.${key}"],[data-cms-if="home.${key}"]`)
+    for (let i = 0; i < $els.length; i++) {
+      const { cmsBind, cmsIf } = $els[i].dataset
+      if (cmsIf) {
+        if (value) {
+          $els[i].style.display = 'block'
+        } else {
+          $els[i].style.display = 'none'
+        }
+      } else if (typeof value === 'string') {
+        $els[i].innerHTML = value
+      }
+    }
+    return doc
   }
 }
