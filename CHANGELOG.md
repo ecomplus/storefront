@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/ecomclub/storefront-app/compare/v1.1.1...v1.2.0) (2019-12-11)
+
+
+### Features
+
+* **global:** setting router on window.storefrontApp ([c9340f5](https://github.com/ecomclub/storefront-app/commit/c9340f5f5e2e8d07203cf34ce8def023c08af8e8))
+
 ### [1.1.1](https://github.com/ecomclub/storefront-app/compare/v1.1.0...v1.1.1) (2019-12-09)
 
 
