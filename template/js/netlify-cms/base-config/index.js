@@ -1,4 +1,5 @@
 import settings from './collections/settings'
+import layout from './collections/layout'
 import pages from './collections/pages'
 import blogPosts from './collections/blog-posts'
 import extraPages from './collections/extra-pages'
@@ -20,6 +21,7 @@ export default {
     },
     collections: [
       settings,
+      layout,
       pages,
       blogPosts,
       extraPages,
