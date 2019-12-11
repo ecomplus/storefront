@@ -6,8 +6,11 @@
   <link rel="stylesheet" type="text/css" href="/storefront.css">
 </head>
 
-<body>
+<body class="app">
+  <%- await include('../@/layout/app/header', { _ }) %>
   <%- await include('../@/views/app', { _ }) %>
+  <%- await include('../@/layout/app/footer', { _ }) %>
+
   <%- await include('../@/scripts', { _ }) %>
   <script src="/checkout.js"></script>
 </body>
