@@ -45,6 +45,8 @@ router.afterEach(to => {
   }
 })
 
+window.storefrontApp = { router }
+
 new Vue({
   router,
   store,

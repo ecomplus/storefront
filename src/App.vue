@@ -28,10 +28,6 @@ export default {
   components: {
     FadeTransition,
     SlideXLeftTransition
-  },
-
-  created () {
-    window.storefrontApp = {}
   }
 }
 </script>
