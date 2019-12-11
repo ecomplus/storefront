@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.24.4](https://github.com/ecomclub/storefront-template/compare/v1.24.3...v1.24.4) (2019-12-11)
+
+
+### Bug Fixes
+
+* **cms:** add layout to collections list ([5138b53](https://github.com/ecomclub/storefront-template/commit/5138b53a49013aa65b988754b0c8845b8998e79f))
+* **cms:** fix importing layout collection files ([9ed6f42](https://github.com/ecomclub/storefront-template/commit/9ed6f424d6deb664b5a9c7f343cb0f2d4bb2c34c))
+
 ### [1.24.3](https://github.com/ecomclub/storefront-template/compare/v1.24.2...v1.24.3) (2019-12-11)
 
 ### [1.24.2](https://github.com/ecomclub/storefront-template/compare/v1.24.1...v1.24.2) (2019-12-11)
