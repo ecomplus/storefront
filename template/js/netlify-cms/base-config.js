@@ -82,8 +82,7 @@ const cmsConfig = {
                 label: 'Exibir barra de informações',
                 name: 'pitbar',
                 widget: 'boolean',
-                default: true,
-                required: false
+                default: true
               },
               {
                 name: 'showcase',
@@ -118,8 +117,7 @@ const cmsConfig = {
                 label: 'Exibir barra de informações',
                 name: 'pitbar',
                 widget: 'boolean',
-                default: false,
-                required: false
+                default: false
               },
               {
                 label: 'Quem comrpou x também comprou',
@@ -206,8 +204,7 @@ const cmsConfig = {
                 label: 'Exibir barra de informações',
                 name: 'pitbar',
                 widget: 'boolean',
-                default: false,
-                required: false
+                default: false
               },
               {
                 label: 'Conteúdo adicional',
@@ -229,8 +226,7 @@ const cmsConfig = {
                 label: 'Exibir barra de informações',
                 name: 'pitbar',
                 widget: 'boolean',
-                default: false,
-                required: false
+                default: false
               },
               {
                 label: 'Conteúdo adicional',
@@ -252,8 +248,7 @@ const cmsConfig = {
                 label: 'Exibir barra de informações',
                 name: 'pitbar',
                 widget: 'boolean',
-                default: false,
-                required: false
+                default: false
               },
               {
                 label: 'Conteúdo adicional',
@@ -275,8 +270,7 @@ const cmsConfig = {
                 label: 'Exibir barra de informações',
                 name: 'pitbar',
                 widget: 'boolean',
-                default: false,
-                required: false
+                default: false
               },
               {
                 label: 'Conteúdo adicional',
@@ -440,8 +434,7 @@ const cmsConfig = {
             label: 'Exibir barra de informações',
             name: 'pitbar',
             widget: 'boolean',
-            default: false,
-            required: false
+            default: false
           },
           {
             label: 'Inserir html',
@@ -851,8 +844,7 @@ const cmsConfig = {
                     label: 'Exibir na barra de informações',
                     name: 'show',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   }
                 ]
               },
@@ -877,8 +869,7 @@ const cmsConfig = {
                     label: 'Exibir na barra de informações',
                     name: 'show',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   }
                 ]
               },
@@ -903,8 +894,7 @@ const cmsConfig = {
                     label: 'Exibir na barra de informações',
                     name: 'show',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   }
                 ]
               },
@@ -929,8 +919,7 @@ const cmsConfig = {
                     label: 'Exibir na barra de informações',
                     name: 'show',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   }
                 ]
               }
@@ -1001,13 +990,11 @@ const cmsConfig = {
                   {
                     label: 'Mostrar telefone e whatsapp',
                     name: 'phone_wpp',
-                    required: false,
                     widget: 'boolean'
                   },
                   {
                     label: 'Mostrar redes sociais',
                     name: 'socials',
-                    required: false,
                     widget: 'boolean'
                   }
                 ]
@@ -1135,19 +1122,16 @@ const cmsConfig = {
                   {
                     label: 'Mostrar telefone e whatsapp',
                     name: 'phone_wpp',
-                    required: false,
                     widget: 'boolean'
                   },
                   {
                     label: 'Mostar email',
-                    required: false,
                     name: 'email',
                     widget: 'boolean'
                   },
                   {
                     label: 'Mostrar redes  sociais',
                     name: 'socials',
-                    required: false,
                     widget: 'boolean'
                   }
                 ]
@@ -1186,127 +1170,109 @@ const cmsConfig = {
                     label: 'Boleto',
                     name: 'boleto',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Visa',
                     name: 'visa',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Mastercard',
                     name: 'mastercard',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Elo',
                     name: 'elo',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'American Express',
                     name: 'amex',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Hipercard',
                     name: 'hipercard',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Hiper',
                     name: 'hiper',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Diners',
                     name: 'diners',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Aura',
                     name: 'aura',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Itaú',
                     name: 'itau',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Bradesco',
                     name: 'bradesco',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Banco do Brasil',
                     name: 'bb',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Santander',
                     name: 'santander',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Citibank',
                     name: 'citibank',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'HSBC',
                     name: 'hsbc',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Banrisul',
                     name: 'banrisul',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Mais',
                     name: 'mais',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   },
                   {
                     label: 'Paypal',
                     name: 'paypal',
                     widget: 'boolean',
-                    default: true,
-                    required: false
+                    default: true
                   }
                 ]
               },
@@ -1370,14 +1336,12 @@ const cmsConfig = {
                 label: 'Ativar',
                 hint: 'Exibe uma prévia de resultado de busca logo abaixo do campo de pesquisa',
                 name: 'active',
-                required: false,
                 widget: 'boolean'
               },
               {
                 label: 'Apenas em desktops',
                 name: 'desktopOnly',
                 hint: 'Desativa o widget em dispositivos móveis',
-                required: false,
                 widget: 'boolean'
               }
             ]
@@ -1397,14 +1361,12 @@ const cmsConfig = {
                 label: 'Ativar',
                 hint: 'Widget para exibir resultados de busca na página',
                 name: 'active',
-                required: false,
                 widget: 'boolean'
               },
               {
                 label: 'Apenas em desktops',
                 name: 'desktopOnly',
                 hint: 'Desativa o widget em dispositivos móveis',
-                required: false,
                 widget: 'boolean'
               }
             ]
@@ -1424,14 +1386,12 @@ const cmsConfig = {
                 label: 'Ativar',
                 hint: 'Esse widget faz que o carrinho seja aberto na lateral da tela sem redirecionar da página',
                 name: 'active',
-                required: false,
                 widget: 'boolean'
               },
               {
                 label: 'Apenas em desktops',
                 name: 'desktopOnly',
                 hint: 'Desativa o widget em dispositivos móveis',
-                required: false,
                 widget: 'boolean'
               }
             ]
@@ -1451,14 +1411,12 @@ const cmsConfig = {
                 label: 'Ativar',
                 hint: 'Card de produtos exibido na vitrine e em vários outros pontos da loja',
                 name: 'active',
-                required: false,
                 widget: 'boolean'
               },
               {
                 label: 'Apenas em desktops',
                 name: 'desktopOnly',
                 hint: 'Desativa o widget em dispositivos móveis',
-                required: false,
                 widget: 'boolean'
               },
               {
@@ -1514,14 +1472,12 @@ const cmsConfig = {
                 label: 'Ativar',
                 hint: 'Produto a ser exibido na página de produto',
                 name: 'active',
-                required: false,
                 widget: 'boolean'
               },
               {
                 label: 'Apenas em desktops',
                 name: 'desktopOnly',
                 hint: 'Desativa o widget em dispositivos móveis',
-                required: false,
                 widget: 'boolean'
               },
               {
@@ -1577,14 +1533,12 @@ const cmsConfig = {
                 label: 'Ativar',
                 hint: 'Avaliações de produtos via Trustvox',
                 name: 'active',
-                required: false,
                 widget: 'boolean'
               },
               {
                 label: 'Apenas em desktops',
                 name: 'desktopOnly',
                 hint: 'Desativa o widget em dispositivos móveis',
-                required: false,
                 widget: 'boolean'
               },
               {
