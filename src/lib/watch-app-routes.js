@@ -1,6 +1,6 @@
 export default dataLayer => {
-  const { storefrontApp } = window
-  if (storefrontApp && storefrontApp.router) {
+  const router = window.storefrontApp && window.storefrontApp.router
+  if (router) {
     const addRouteToData = ({ name, params }) => {
       if (name) {
         const data = {
@@ -17,10 +17,9 @@ export default dataLayer => {
         dataLayer.push(data)
       }
     }
-    const { currentRoute, afterEach } = storefrontApp.router
-    if (currentRoute) {
-      addRouteToData(currentRoute)
+    if (router.currentRoute) {
+      addRouteToData(router.currentRoute)
     }
-    afterEach(addRouteToData)
+    router.afterEach(addRouteToData)
   }
 }
