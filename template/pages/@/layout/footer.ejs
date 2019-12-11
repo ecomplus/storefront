@@ -12,27 +12,6 @@ const networksWithColors = [
   ['pinterest', '#bd081c'],
   ['linkedin', '#0073b1']
 ]
-
-// all available payment method stamps
-const paymentMethods = [
-  'boleto',
-  'visa',
-  'mastercard',
-  'elo',
-  'amex',
-  'hipercard',
-  'hiper',
-  'diners',
-  'aura',
-  'itau',
-  'bradesco',
-  'bb',
-  'santander',
-  'citibank',
-  'hsbc',
-  'banrisul',
-  'mais'
-]
 %>
 
 <footer class="footer py-3 py-lg-4 py-xl-5">
@@ -120,7 +99,7 @@ const paymentMethods = [
 
         <div class="mt-4 mb-3">
           <p class="footer__payment-methods">
-            <% paymentMethods.forEach(method => { %>
+            <% Object.keys(footer.payment_methods).forEach(method => { %>
               <% if (footer.payment_methods[method]) { %>
                 <i class="pay-icon pay-icon--<%= method %>"></i>
               <% } %>
@@ -130,7 +109,7 @@ const paymentMethods = [
             <% footer.stamps.forEach(({ src, alt, link }) => { %>
               <div class="col-auto">
                 <% if (link) { %>
-                  <a 
+                  <a
                     href="<%= link %>"
                     target="_blank"
                     rel="noopener"

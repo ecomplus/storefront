@@ -7,9 +7,11 @@ const fs = require('fs')
 const path = require('path')
 const ejs = require('ejs')
 const { theme } = require(path.resolve(INIT_CWD, 'content/settings.json'))
+const themesPath = INIT_CWD === path.resolve(__dirname, '..')
+  ? 'themes' : '@ecomplus/storefront-template/template/scss/themes'
 
-const templateFile = path.resolve(__dirname, 'styles.scss.ejs')
-ejs.renderFile(templateFile, theme, {}, (err, scss) => {
+const templateFile = path.resolve(__dirname, '../template/scss/styles.scss.ejs')
+ejs.renderFile(templateFile, { themesPath, ...theme }, {}, (err, scss) => {
   if (err) {
     console.error(err)
   } else {

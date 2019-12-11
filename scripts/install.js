@@ -13,7 +13,14 @@ const dirBase = process.env.TEMPLATE_DIR
   ? path.join(process.env.INIT_CWD, process.env.TEMPLATE_DIR)
   : process.env.INIT_CWD
 
-const copyFolder = ({ dirTemplate, pathDest, pathFrom, pathsTo, overwrite = true }) => {
+const copyFolder = ({
+  dirTemplate,
+  pathDest,
+  pathFrom,
+  pathsTo,
+  overwrite = true,
+  mergeJson = false
+}) => {
   const dirDest = path.join(dirBase, pathDest)
 
   if (dirTemplate === dirDest) {
@@ -36,25 +43,22 @@ const copyFolder = ({ dirTemplate, pathDest, pathFrom, pathsTo, overwrite = true
         }
       })
       const dirFrom = path.join(dirTemplate, pathFrom)
-      recursiveCopy(dirFrom, dirTo, overwrite)
+      console.log(`[COPY] read files from ${dirFrom.replace(/^.*node_modules/, '')}`)
+      recursiveCopy(dirFrom, dirTo, overwrite, mergeJson)
       console.log(`[OK] files copied to ${dirTo.slice(dirBase.length)} folder`)
     }
   }
 }
 
-copyFolder({
-  dirTemplate: path.join(__dirname, '../template'),
-  pathFrom: 'public/admin',
-  pathDest: 'template',
-  pathsTo: ['public', 'admin']
-})
-
-copyFolder({
-  dirTemplate: path.join(__dirname, '../content'),
-  pathFrom: 'widgets',
-  pathDest: 'content',
-  pathsTo: ['widgets'],
-  overwrite: false
+;['dictionary', 'widgets'].forEach(contentFolder => {
+  copyFolder({
+    dirTemplate: path.join(__dirname, '../content'),
+    pathFrom: contentFolder,
+    pathDest: 'content',
+    pathsTo: [contentFolder],
+    overwrite: false,
+    mergeJson: true
+  })
 })
 
 copyFolder({

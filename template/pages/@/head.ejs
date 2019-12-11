@@ -55,6 +55,22 @@ if (url) {
   <% if (!_.route.path.startsWith('/app/')) { %>
     <link rel="preload" href="/storefront.js" as="script">
   <% } %>
+
+  <%
+  // setup preloaded widget partials (pixels, tags)
+  const widgets = _.cms('widgets')
+  if (Array.isArray(widgets)) {
+    const widgetObjects = widgets.map(slug => _.cms(`widgets/${slug}`))
+    for (let i = 0; i < widgetObjects.length; i++) {
+      const { pkg, active, options, headAppend } = widgetObjects[i]
+      if (active && headAppend) {
+        %>
+        <%- await include(`${process.cwd()}/node_modules/${pkg}/${headAppend}`, { _, options }) %>
+        <%
+      }
+    }
+  }
+  %>
 <% } %>
 
 <link rel="apple-touch-icon" href="<%= _.settings.icon %>">

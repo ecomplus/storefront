@@ -1,3 +1,14 @@
+import emitter from './emitter'
+import EcomSearch from '@ecomplus/search-engine'
+import EcomPassport from '@ecomplus/passport-client'
+import EcomCart from '@ecomplus/shopping-cart'
+
+window.EcomSearch = EcomSearch
+window.EcomPassport = EcomPassport
+window.EcomCart = EcomCart
+
+emitter.emit('ecom:ready')
+
 const isCheckout = window.location.pathname.startsWith('/app/')
 const isMobile = window.screen.width < 768
 
@@ -14,6 +25,7 @@ const loadWidget = (pkg, runImport) => {
         if (typeof exp.default === 'function') {
           exp.default(options)
         }
+        emitter.emit(`widget:${pkg}`)
         console.log(`Widget loaded: ${pkg}`)
       })
     }
@@ -21,6 +33,7 @@ const loadWidget = (pkg, runImport) => {
 }
 
 if (!isCheckout) {
+  loadWidget('@ecomplus/widget-tag-manager', () => import('@ecomplus/widget-tag-manager'))
   loadWidget('@ecomplus/widget-user', () => import('@ecomplus/widget-user'))
   loadWidget('@ecomplus/widget-product-card', () => import('@ecomplus/widget-product-card'))
   loadWidget('@ecomplus/widget-search', () => import('@ecomplus/widget-search'))

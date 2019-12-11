@@ -2,6 +2,118 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.24.6](https://github.com/ecomclub/storefront-template/compare/v1.24.5...v1.24.6) (2019-12-11)
+
+### [1.24.5](https://github.com/ecomclub/storefront-template/compare/v1.24.4...v1.24.5) (2019-12-11)
+
+
+### Bug Fixes
+
+* **script-install:** copying default dictionary from content ([180803f](https://github.com/ecomclub/storefront-template/commit/180803f7364dc4215a8cf3610cea4f0205e98827))
+
+### [1.24.4](https://github.com/ecomclub/storefront-template/compare/v1.24.3...v1.24.4) (2019-12-11)
+
+
+### Bug Fixes
+
+* **cms:** add layout to collections list ([5138b53](https://github.com/ecomclub/storefront-template/commit/5138b53a49013aa65b988754b0c8845b8998e79f))
+* **cms:** fix importing layout collection files ([9ed6f42](https://github.com/ecomclub/storefront-template/commit/9ed6f424d6deb664b5a9c7f343cb0f2d4bb2c34c))
+
+### [1.24.3](https://github.com/ecomclub/storefront-template/compare/v1.24.2...v1.24.3) (2019-12-11)
+
+### [1.24.2](https://github.com/ecomclub/storefront-template/compare/v1.24.1...v1.24.2) (2019-12-11)
+
+
+### Bug Fixes
+
+* **script-install:** merge widgets json to use new default values ([#103](https://github.com/ecomclub/storefront-template/issues/103)) ([7dff154](https://github.com/ecomclub/storefront-template/commit/7dff154bb9b7db8aeb2931e3441909075fafbd01))
+
+### [1.24.1](https://github.com/ecomclub/storefront-template/compare/v1.24.0...v1.24.1) (2019-12-11)
+
+
+### Bug Fixes
+
+* **cms:** add enableCheckout to tag manager widget ([a0bebdf](https://github.com/ecomclub/storefront-template/commit/a0bebdfdb813d48f6c3424605996a9446f4abbf5))
+* **ejs:** fix importing partials from node modules ([7ab0660](https://github.com/ecomclub/storefront-template/commit/7ab0660901926e47bf7c5ee3963c7a17fa309242))
+
+## [1.24.0](https://github.com/ecomclub/storefront-template/compare/v1.23.3...v1.24.0) (2019-12-10)
+
+
+### Features
+
+* **cms:** add Google Tag Manager to default config widgets ([45e0d8d](https://github.com/ecomclub/storefront-template/commit/45e0d8df0614a15b3b5de85100357d7be7dc3ea4))
+* **head:** supporting <head> scripts from widgets ([a4777fb](https://github.com/ecomclub/storefront-template/commit/a4777fbd1b481a746ce9a4dcbff73fbdf36d9a47))
+* **pages:** support importing ejs partials from widgets pkgs ([3018679](https://github.com/ecomclub/storefront-template/commit/3018679dfd94d08b6ce18b4c74f33f0871e62da6))
+* **slider:** removing controls when there is only one image ([0cbccde](https://github.com/ecomclub/storefront-template/commit/0cbccde0e3a45e97fa26e0f7e831113f5c211316))
+* **themes:** creating custom css to bootswatch themes ([efe1e1b](https://github.com/ecomclub/storefront-template/commit/efe1e1b1aaa9a65c86065aa4a9e1b6e4d09a34bc))
+* **widget:** add ecomplus/widget-tag-manager ([5490a90](https://github.com/ecomclub/storefront-template/commit/5490a90ddbf5eaaef5c2b6a75d2ec731c106f400))
+
+
+### Bug Fixes
+
+* **cms:** fix cms config for tag manager widget ([6ee0a53](https://github.com/ecomclub/storefront-template/commit/6ee0a53633909abe590aa99782a53fa9d16d502b))
+* **cms:** set window.CMS_MANUAL_INIT on cms view ([2c1d282](https://github.com/ecomclub/storefront-template/commit/2c1d282c73d3b1ca6a7c11d93125f1e9dddfe2b2))
+* **script-style:** pass themesPath var for storefront deploy ([31344ab](https://github.com/ecomclub/storefront-template/commit/31344ab6009e3a06d4ffbbb51f5a9d25f7ed5aef))
+* **scripts:** ensure 'echoWidgets' is not array ([7731a54](https://github.com/ecomclub/storefront-template/commit/7731a5481da03835cc68f372575e9c44bdd3c13b))
+
+### [1.23.3](https://github.com/ecomclub/storefront-template/compare/v1.23.2...v1.23.3) (2019-12-09)
+
+
+### Bug Fixes
+
+* **js:** fix global storefront with data, context, settings ([0a7d4fd](https://github.com/ecomclub/storefront-template/commit/0a7d4fd7efc37e4c303738f813c14333f8bf7ce1))
+
+### [1.23.2](https://github.com/ecomclub/storefront-template/compare/v1.23.1...v1.23.2) (2019-12-08)
+
+### [1.23.1](https://github.com/ecomclub/storefront-template/compare/v1.23.0...v1.23.1) (2019-12-06)
+
+## [1.23.0](https://github.com/ecomclub/storefront-template/compare/v1.22.0...v1.23.0) (2019-12-06)
+
+
+### Features
+
+* **themes:** easy support scss variables/custom for bootswatch themes ([f69f03a](https://github.com/ecomclub/storefront-template/commit/f69f03ac8da1f41ff96a2528f6e291fca2f07208))
+
+## [1.22.0](https://github.com/ecomclub/storefront-template/compare/v1.21.0...v1.22.0) (2019-12-02)
+
+
+### Features
+
+* **pay-icon:** update to better image resolution and add paypal stamp ([#91](https://github.com/ecomclub/storefront-template/issues/91)) ([be4a88e](https://github.com/ecomclub/storefront-template/commit/be4a88ef2bac3a21e62e92c12410bd7c737a3cdb))
+
+## [1.21.0](https://github.com/ecomclub/storefront-template/compare/v1.20.0...v1.21.0) (2019-11-29)
+
+
+### Features
+
+* **load-widgets:** preloading ecom libs and emitting events ([0f4150e](https://github.com/ecomclub/storefront-template/commit/0f4150e83b3f39377e29c4428dc42f8b5a8c0dce))
+
+## [1.20.0](https://github.com/ecomclub/storefront-template/compare/v1.19.2...v1.20.0) (2019-11-29)
+
+### [1.19.2](https://github.com/ecomclub/storefront-template/compare/v1.19.1...v1.19.2) (2019-11-29)
+
+
+### Bug Fixes
+
+* **ecom-config:** update using $ecomConfig from utils ([d868af7](https://github.com/ecomclub/storefront-template/commit/d868af7915f7a45ff14ed33acaf2cacae3f5c858))
+* **imports:** explicitly 'import all' for not ES6 libs ([57791e5](https://github.com/ecomclub/storefront-template/commit/57791e5024bb8ce5defef5df8b8e09e743132f7d))
+* **js:** remove icons from lib (imported from storefront-twbs@4) ([744954b](https://github.com/ecomclub/storefront-template/commit/744954bb6f4420455d5fa901b688c0e5f9d6b5cb))
+
+### [1.19.1](https://github.com/ecomclub/storefront-template/compare/v1.19.0...v1.19.1) (2019-11-27)
+
+## [1.19.0](https://github.com/ecomclub/storefront-template/compare/v1.18.2...v1.19.0) (2019-11-26)
+
+
+### Features
+
+* **cms-config:** supporting netlify cms config import/customization ([0f0abcb](https://github.com/ecomclub/storefront-template/commit/0f0abcbed55909c9c804a49fa8fdfb88b900c32c))
+
+
+### Bug Fixes
+
+* **cms-config:** unsing lodash merge to deep merge config objects ([5fe3dc3](https://github.com/ecomclub/storefront-template/commit/5fe3dc3185faaf73f00cff8e6aa88ddde5ccc172))
+* **cms-config:** update with config.yml, add trustvox widget again ([8be9c17](https://github.com/ecomclub/storefront-template/commit/8be9c17a34181545ade60dee81da9a59b21b6ce3))
+
 ### [1.18.2](https://github.com/ecomclub/storefront-template/compare/v1.18.1...v1.18.2) (2019-11-12)
 
 

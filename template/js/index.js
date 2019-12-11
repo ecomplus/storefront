@@ -3,7 +3,6 @@ import './lib/config'
 import { events } from './lib/emitter'
 import '@ecomplus/storefront-twbs'
 
-import './lib/icons'
 import './lib/utils'
 import './lib/lazy-load'
 import './lib/glide-slides'
@@ -16,10 +15,6 @@ import Vue from 'vue'
 import cloneDeep from 'lodash.clonedeep'
 import merge from 'lodash.merge'
 import Glide from '@glidejs/glide'
-import ecomClient from '@ecomplus/client'
-import EcomSearch from '@ecomplus/search-engine'
-import EcomPassport from '@ecomplus/passport-client'
-import EcomCart from '@ecomplus/shopping-cart'
 
 import $ from './lib/$'
 import $overlay from './lib/$overlay'
@@ -29,15 +24,19 @@ window.lozad = lozad
 window.Vue = Vue
 window._ = { cloneDeep, merge }
 window.Glide = Glide
-window.ecomClient = ecomClient
-window.EcomSearch = EcomSearch
-window.EcomPassport = EcomPassport
-window.EcomCart = EcomCart
 window.$ = $
 
 Vue.config.productionTip = false
 
-window.storefront = { $overlay, ...events }
+window.storefront = {
+  $overlay,
+  settings: window._settings,
+  info: window._info,
+  widgets: window._widgets,
+  context: window._context,
+  data: window._data,
+  ...events
+}
 
 setTimeout(() => {
   if (window._widgets !== false) {
@@ -50,12 +49,9 @@ if (window.pluginPhotoswipe) {
 }
 
 const { hash } = window.location
-if (hash.indexOf('=') !== -1) {
+if (hash.indexOf('_token=') !== -1 || hash.indexOf('error=access_denied') !== -1) {
   const $netlifyIdentityScript = document.createElement('script')
   $netlifyIdentityScript.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js'
-  if (hash.indexOf('token=') === -1) {
-    $netlifyIdentityScript.async = $netlifyIdentityScript.defer = true
-  }
   document.body.appendChild($netlifyIdentityScript)
 }
 
