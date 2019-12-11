@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.24.5](https://github.com/ecomclub/storefront-template/compare/v1.24.4...v1.24.5) (2019-12-11)
+
+
+### Bug Fixes
+
+* **script-install:** copying default dictionary from content ([180803f](https://github.com/ecomclub/storefront-template/commit/180803f7364dc4215a8cf3610cea4f0205e98827))
+
 ### [1.24.4](https://github.com/ecomclub/storefront-template/compare/v1.24.3...v1.24.4) (2019-12-11)
 
 
