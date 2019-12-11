@@ -1,5 +1,5 @@
-import header from './files/header'
-import footer from './files/footer'
+import header from './layout/header'
+import footer from './layout/footer'
 
 export default {
   name: 'layout',
