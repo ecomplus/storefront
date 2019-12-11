@@ -50,13 +50,15 @@ const copyFolder = ({
   }
 }
 
-copyFolder({
-  dirTemplate: path.join(__dirname, '../content'),
-  pathFrom: 'widgets',
-  pathDest: 'content',
-  pathsTo: ['widgets'],
-  overwrite: false,
-  mergeJson: true
+;['dictionary', 'widgets'].forEach(contentFolder => {
+  copyFolder({
+    dirTemplate: path.join(__dirname, '../content'),
+    pathFrom: contentFolder,
+    pathDest: 'content',
+    pathsTo: [contentFolder],
+    overwrite: false,
+    mergeJson: true
+  })
 })
 
 copyFolder({
