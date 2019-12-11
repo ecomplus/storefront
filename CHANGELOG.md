@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/ecomclub/widget-tag-manager/compare/v0.1.8...v0.1.9) (2019-12-11)
+
+
+### Bug Fixes
+
+* **watch-routes:** add current route before watching ([9a9de45](https://github.com/ecomclub/widget-tag-manager/commit/9a9de45632d8974d4505441d5a6108d1773c09b7))
+
 ### [0.1.8](https://github.com/ecomclub/widget-tag-manager/compare/v0.1.7...v0.1.8) (2019-12-11)
 
 
