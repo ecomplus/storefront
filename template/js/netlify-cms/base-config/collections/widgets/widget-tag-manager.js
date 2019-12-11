@@ -36,8 +36,7 @@ export default {
         {
           label: 'Código do contêiner GTM',
           name: 'gtmContainerId',
-          widget: 'string',
-          required: true
+          widget: 'string'
         },
         {
           name: 'dataLayerVar',
