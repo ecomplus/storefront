@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.24.1](https://github.com/ecomclub/storefront-template/compare/v1.24.0...v1.24.1) (2019-12-11)
+
+
+### Bug Fixes
+
+* **cms:** add enableCheckout to tag manager widget ([a0bebdf](https://github.com/ecomclub/storefront-template/commit/a0bebdfdb813d48f6c3424605996a9446f4abbf5))
+* **ejs:** fix importing partials from node modules ([7ab0660](https://github.com/ecomclub/storefront-template/commit/7ab0660901926e47bf7c5ee3963c7a17fa309242))
+
 ## [1.24.0](https://github.com/ecomclub/storefront-template/compare/v1.23.3...v1.24.0) (2019-12-10)
 
 
