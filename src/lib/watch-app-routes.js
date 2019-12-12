@@ -76,8 +76,10 @@ export default dataLayer => {
 
         switch (name) {
           case 'cart':
+            emitCheckout(1, 'Review Cart')
+            break
           case 'checkout':
-            emitCheckout(2, name)
+            emitCheckout(2, 'Confirm Purchase')
             break
           case 'confirmation':
             emitPurchase(params.id)
