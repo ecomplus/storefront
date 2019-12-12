@@ -3,7 +3,8 @@ import appendTest from './../src/append/test'
 
 const options = {
   gtmContainerId: 'GTM-KMQZKG9',
-  dataLayerVar: 'dataLayer'
+  dataLayerVar: 'dataLayer',
+  parseDomMsDelay: 300
 }
 
 window._widgets = false
