@@ -1,4 +1,4 @@
-import { currencyCode } from './constants'
+import { currencyCode } from './common'
 
 export default dataLayer => {
   const $products = document.querySelectorAll('[data-sku]')
