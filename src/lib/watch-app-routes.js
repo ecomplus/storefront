@@ -17,6 +17,7 @@ export default dataLayer => {
         dataLayer.push(data)
       }
     }
+
     if (router.currentRoute) {
       addRouteToData(router.currentRoute)
     }
