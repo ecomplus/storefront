@@ -1,17 +1,15 @@
-import { name, price, categoriesList } from '@ecomplus/utils'
+import { categoriesList } from '@ecomplus/utils'
+import { currencyCode, getProductData } from './common'
 
 export default dataLayer => {
   const context = window.storefront && window.storefront.context
   if (context && context.resource === 'products') {
     const { body } = context
 
-    const productData = {
-      name: name(body),
-      id: body.sku,
-      price: price(body).toFixed(2)
-    }
+    const productData = getProductData(body)
     const data = {
       ecommerce: {
+        currencyCode,
         detail: {
           products: [productData]
         }

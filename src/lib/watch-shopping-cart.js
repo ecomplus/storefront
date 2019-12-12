@@ -1,16 +1,8 @@
-import { $ecomConfig, name, price } from '@ecomplus/utils'
 import ecomCart from '@ecomplus/shopping-cart'
+import { currencyCode, getProductData } from './common'
 
 export default dataLayer => {
-  const currencyCode = $ecomConfig.get('currency') || 'BRL'
   const productsBySku = {}
-
-  const getProductData = item => ({
-    name: name(item),
-    id: item.sku,
-    price: price(item),
-    quantity: item.quantity
-  })
 
   const emitAddToCart = item => {
     const productData = getProductData(item)
@@ -31,6 +23,7 @@ export default dataLayer => {
     dataLayer.push({
       event: 'removeFromCart',
       ecommerce: {
+        currencyCode,
         remove: {
           products: [
             (productData ? Object.assign({}, productData) : getProductData(item))

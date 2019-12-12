@@ -1,4 +1,4 @@
-import { $ecomConfig } from '@ecomplus/utils'
+import { currencyCode } from './constants'
 
 export default dataLayer => {
   const $products = document.querySelectorAll('[data-sku]')
@@ -14,7 +14,7 @@ export default dataLayer => {
 
     dataLayer.push({
       ecommerce: {
-        currencyCode: $ecomConfig.get('currency') || 'BRL',
+        currencyCode,
         impressions: skus.map(id => ({ id }))
       }
     })
