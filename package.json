@@ -29,8 +29,9 @@
   "homepage": "https://github.com/ecomclub/widget-tag-manager#readme",
   "dependencies": {
     "@babel/runtime": "^7.7.6",
+    "@ecomplus/storefront-app": "^1.2.0",
     "@ecomplus/utils": "^0.6.2",
-    "core-js": "^3.4.8"
+    "core-js": "^3.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
