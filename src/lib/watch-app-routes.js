@@ -41,22 +41,25 @@ export default dataLayer => {
     }
 
     const emitPurchase = orderId => {
-      if (ecomCart.data) {
-        const { amount } = window.storefrontApp
-        const revenue = ((amount && amount.total) || ecomCart.data.subtotal || 0).toFixed(2)
-        dataLayer.push({
-          ecommerce: {
-            currencyCode,
-            purchase: {
-              actionField: {
-                id: orderId,
-                revenue
-              },
-              products: getCartProductsList()
-            }
+      const { amount } = window.storefrontApp
+      const revenue = (
+        (amount && amount.total) ||
+        (ecomCart.data && ecomCart.data.subtotal) ||
+        0
+      ).toFixed(2)
+
+      dataLayer.push({
+        ecommerce: {
+          currencyCode,
+          purchase: {
+            actionField: {
+              id: orderId,
+              revenue
+            },
+            products: getCartProductsList()
           }
-        })
-      }
+        }
+      })
     }
 
     const addRouteToData = ({ name, params }) => {
@@ -68,7 +71,7 @@ export default dataLayer => {
         if (params) {
           for (const field in params) {
             if (params[field]) {
-              data[field] = params[field]
+              data[`params.${field}`] = params[field]
             }
           }
         }
