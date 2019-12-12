@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { FadeTransition, SlideXLeftTransition } from 'vue2-transitions'
 
 export default {
@@ -28,6 +29,28 @@ export default {
   components: {
     FadeTransition,
     SlideXLeftTransition
+  },
+
+  computed: {
+    ...mapGetters([
+      'amount',
+      'customer'
+    ])
+  },
+
+  methods: {
+    updateGlobal () {
+      const { amount, customer } = this
+      Object.assign(window.storefrontApp, { amount, customer })
+    }
+  },
+
+  created () {
+    this.$router.beforeEach((_, __, next) => {
+      this.updateGlobal()
+      next()
+    })
+    this.updateGlobal()
   }
 }
 </script>
