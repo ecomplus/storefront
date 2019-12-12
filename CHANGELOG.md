@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/ecomclub/widget-tag-manager/compare/v0.1.10...v0.1.11) (2019-12-12)
+
+
+### Features
+
+* **checkout-events:** emit checkout events from app routes ([1d8af37](https://github.com/ecomclub/widget-tag-manager/commit/1d8af379a86739c5c8ab441d023449261f552cdd))
+* **impressions:** parse dom to add product impressions to data layer ([fc8407b](https://github.com/ecomclub/widget-tag-manager/commit/fc8407bf5e3971e9d6a01996f34644adcb7c56c5))
+* **product-details:** parse context to handle product views ([a5d400a](https://github.com/ecomclub/widget-tag-manager/commit/a5d400a79c8a1bbb0033b560506d9ccc12686140))
+* **shopping-cart:** watch shopping cart add/remove events ([708e7e8](https://github.com/ecomclub/widget-tag-manager/commit/708e7e87cdf24992a6bec43801e4e6978c77dd70))
+
+
+### Bug Fixes
+
+* **import:** fix importing from 'common.js' ([53d231b](https://github.com/ecomclub/widget-tag-manager/commit/53d231b263b8217114584de041f0808eafea38cd))
+
 ### [0.1.10](https://github.com/ecomclub/widget-tag-manager/compare/v0.1.9...v0.1.10) (2019-12-11)
 
 
