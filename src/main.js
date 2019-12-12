@@ -45,7 +45,14 @@ router.afterEach(to => {
   }
 })
 
-window.storefrontApp = { router }
+window.storefrontApp = {
+  router: {
+    afterEach: cb => router.afterEach(cb),
+    get currentRoute () {
+      return router.currentRoute
+    }
+  }
+}
 
 new Vue({
   router,
