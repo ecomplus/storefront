@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/ecomclub/widget-tag-manager/compare/v0.1.13...v0.1.14) (2019-12-12)
+
+
+### Bug Fixes
+
+* **checkout-events:** emit purchase event without cart data ([cd0ab92](https://github.com/ecomclub/widget-tag-manager/commit/cd0ab92acd341370def66bc4924ee25a5a869e80))
+
 ### [0.1.13](https://github.com/ecomclub/widget-tag-manager/compare/v0.1.12...v0.1.13) (2019-12-12)
 
 
