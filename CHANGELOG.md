@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.7](https://github.com/ecomclub/storefront-framework/compare/v5.2.6...v5.2.7) (2019-12-13)
+
+
+### Bug Fixes
+
+* **renderer:** ignore non existent content file (cms) without fatal ([99336a3](https://github.com/ecomclub/storefront-framework/commit/99336a37549dcf542d35527a3c1948c22bdedb38))
+
 ### [5.2.6](https://github.com/ecomclub/storefront-framework/compare/v5.2.5...v5.2.6) (2019-11-25)
 
 
