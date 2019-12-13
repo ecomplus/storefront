@@ -42,7 +42,7 @@ setTimeout(() => {
   if (window._widgets !== false) {
     import(/* webpackPrefetch: true */ './lib/load-widgets')
   }
-}, 200)
+}, 50)
 
 if (window.pluginPhotoswipe) {
   import(/* webpackPrefetch: true */ './lib/photoswipe')
