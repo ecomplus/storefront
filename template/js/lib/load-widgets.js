@@ -1,37 +1,19 @@
-import emitter from './emitter'
-import EcomSearch from '@ecomplus/search-engine'
-import EcomPassport from '@ecomplus/passport-client'
-import EcomCart from '@ecomplus/shopping-cart'
-
-window.EcomSearch = EcomSearch
-window.EcomPassport = EcomPassport
-window.EcomCart = EcomCart
-
-emitter.emit('ecom:ready')
+import getWidgetOptions from './_widgets/get-widget-options'
+import startWidget from './_widgets/start-widget'
 
 const isCheckout = window.location.pathname.startsWith('/app/')
-const isMobile = window.screen.width < 768
 const widgetsLoadPromises = []
 
 const loadWidget = (pkg, runImport) => {
-  const widget = window._widgets[pkg]
-  if (widget) {
-    const { active, options, desktopOnly, enableCheckout, disablePages } = widget
-    if (
-      active &&
-      (!desktopOnly || !isMobile) &&
-      (isCheckout ? enableCheckout : !disablePages)
-    ) {
-      const importPromise = runImport()
-      importPromise.then(exp => {
-        if (typeof exp.default === 'function') {
-          exp.default(options)
-        }
-        emitter.emit(`widget:${pkg}`)
-        console.log(`Widget loaded: ${pkg}`)
-      })
-      widgetsLoadPromises.push(importPromise)
-    }
+  const options = getWidgetOptions(pkg)
+  if (options) {
+    const importPromise = runImport()
+    importPromise.then(exp => {
+      if (typeof exp.default === 'function') {
+        startWidget(pkg, exp.default, options)
+      }
+    })
+    widgetsLoadPromises.push(importPromise)
   }
 }
 

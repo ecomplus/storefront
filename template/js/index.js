@@ -1,7 +1,7 @@
 import { name, version } from './../../package.json'
 import './lib/config'
-import { events } from './lib/emitter'
 import '@ecomplus/storefront-twbs'
+import { emitter, events } from './lib/emitter'
 
 import './lib/utils'
 import './lib/lazy-load'
@@ -20,11 +20,23 @@ import $ from './lib/$'
 import $overlay from './lib/$overlay'
 import './lib/fetch-info'
 
+import EcomSearch from '@ecomplus/search-engine'
+import EcomPassport from '@ecomplus/passport-client'
+import EcomCart from '@ecomplus/shopping-cart'
+
+import './lib/start-layout-widgets'
+
 window.lozad = lozad
 window.Vue = Vue
 window._ = { cloneDeep, merge }
 window.Glide = Glide
 window.$ = $
+
+window.EcomSearch = EcomSearch
+window.EcomPassport = EcomPassport
+window.EcomCart = EcomCart
+
+emitter.emit('ecom:ready')
 
 Vue.config.productionTip = false
 
