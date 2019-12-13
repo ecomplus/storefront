@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.25.0](https://github.com/ecomclub/storefront-template/compare/v1.24.6...v1.25.0) (2019-12-13)
+
+
+### Features
+
+* **menu:** reorder first level categories list when configured ([4c63063](https://github.com/ecomclub/storefront-template/commit/4c63063a248729da159a975c3b9fbed4ffe9f119))
+
+
+### Bug Fixes
+
+* **load-widgets:** load additional widgets after component ones ([930db9e](https://github.com/ecomclub/storefront-template/commit/930db9e9bae1d59d7b09e2292f878c0bbb5d1e2d))
+
 ### [1.24.6](https://github.com/ecomclub/storefront-template/compare/v1.24.5...v1.24.6) (2019-12-11)
 
 ### [1.24.5](https://github.com/ecomclub/storefront-template/compare/v1.24.4...v1.24.5) (2019-12-11)
