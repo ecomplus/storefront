@@ -12,7 +12,7 @@ if (mainCategories) {
   const orderedCategorySlugs = menu && menu.sort_categories
   if (Array.isArray(orderedCategorySlugs)) {
     // reorder first level categories list
-    orderedCategorySlugs.forEach(slug => {
+    orderedCategorySlugs.reverse().forEach(slug => {
       const categoryIndex = mainCategories.findIndex(category => category.slug === slug)
       if (categoryIndex > -1) {
         const category = mainCategories[categoryIndex]
