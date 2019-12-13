@@ -101,17 +101,19 @@ const dataPromise = getStoreData().then(storeData => {
       return fs.readdirSync(dirColl).map(filename => filename.replace('.json', ''))
     }
     const filepath = `${dirColl}.json`
-    if (devMode) {
-      let json
-      try {
-        json = fs.readFileSync(filepath, 'utf8')
-      } catch (e) {
-        // ignore non existent file
+
+    let obj
+    try {
+      if (devMode) {
+        obj = JSON.parse(fs.readFileSync(filepath, 'utf8'))
+      } else {
+        obj = require(filepath)
       }
-      return json ? JSON.parse(json) : null
-    } else {
-      return require(filepath)
+    } catch (e) {
+      // ignore non existent file
+      obj = {}
     }
+    return obj
   }
 
   // abstraction for dictionary content
