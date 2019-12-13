@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.25.1](https://github.com/ecomclub/storefront-template/compare/v1.25.0...v1.25.1) (2019-12-13)
+
+
+### Bug Fixes
+
+* **menu:** revert ordered categories slugs to fix categories order ([8ef9468](https://github.com/ecomclub/storefront-template/commit/8ef94684549ee5bd47f40b89abb8c9872660d7e0))
+
 ## [1.25.0](https://github.com/ecomclub/storefront-template/compare/v1.24.6...v1.25.0) (2019-12-13)
 
 
