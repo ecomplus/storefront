@@ -16,5 +16,6 @@
     ],
     "phone_wpp": true,
     "socials": true
-  }
+  },
+  "categoriesSortList": []
 }
