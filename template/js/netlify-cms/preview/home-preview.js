@@ -1,7 +1,7 @@
 import React from 'react'
 import virtualDoc from './virtual-doc'
 import displayWidget from './display-widget'
-
+import fetchPage from './fetch-page'
 export default class HomePreview extends React.Component {
   constructor () {
     super()
@@ -16,16 +16,9 @@ export default class HomePreview extends React.Component {
   }
 
   async fetchPage () {
-    fetch('/index.html').then(response => {
-      return response.text()
-    })
-      .then(html => {
-        const vDoc = virtualDoc(html)
-        this.setState({ html, vDoc })
-      })
-      .catch(err => {
-        console.log('Failed to fetch page:', err)
-      })
+    const html = await fetchPage('/index.html')
+    const vDoc = virtualDoc(html)
+    this.setState({ html, vDoc })
   }
 
   render () {
