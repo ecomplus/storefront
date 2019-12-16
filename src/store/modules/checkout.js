@@ -45,6 +45,7 @@ const prepareTransaction = ({ customer, transaction }) => {
 }
 
 const state = {
+  cart: ecomCart.data,
   shippingService: {},
   discountCoupon: '',
   discountRule: {},
@@ -52,9 +53,9 @@ const state = {
 }
 
 const getters = {
-  amount: ({ shippingService, discountRule, paymentGateway }) => {
+  amount: ({ cart, shippingService, discountRule, paymentGateway }) => {
     const amount = {
-      subtotal: fixMoneyValue(ecomCart.data.subtotal),
+      subtotal: fixMoneyValue(cart.subtotal),
       freight: shippingService.shipping_line
         ? fixMoneyValue(shippingService.shipping_line.total_price) : 0,
       discount: 0
@@ -104,19 +105,19 @@ const getters = {
 
 const mutations = {
   selectShippingService (state, shippingService) {
-    state.shippingService = shippingService
+    state.shippingService = shippingService || {}
   },
 
   setDiscountCoupon (state, discountCoupon) {
-    state.discountCoupon = discountCoupon
+    state.discountCoupon = discountCoupon || {}
   },
 
   setDiscountRule (state, discountRule) {
-    state.discountRule = discountRule
+    state.discountRule = discountRule || {}
   },
 
   selectPaymentGateway (state, paymentGateway) {
-    state.paymentGateway = paymentGateway
+    state.paymentGateway = paymentGateway || {}
   }
 }
 
