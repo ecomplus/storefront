@@ -4,7 +4,7 @@ import displayWidget from './display-widget'
 import fetchPage from './fetch-page'
 
 export default class ProductsPreview extends React.Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       vDoc: '',
@@ -12,17 +12,17 @@ export default class ProductsPreview extends React.Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.fetchPage()
   }
 
-  async fetchPage() {
+  async fetchPage () {
     const html = await fetchPage('/macbook-apple-pro-15.4-intel-core-i7-2.6ghz-ram-16gb-ssd-512gb-mr972ll/a-prata')
     const vDoc = virtualDoc(html)
     this.setState({ html, vDoc })
   }
 
-  render() {
+  render () {
     const { vDoc } = this.state
     let newDoc = vDoc
     let html
@@ -41,6 +41,9 @@ export default class ProductsPreview extends React.Component {
           children.replaceWith($img)
         }
       }
+
+      const $spiners = vDoc.querySelectorAll('.spinner-border')
+      $spiners.forEach(element => element.remove())
 
       // fix product related
       const $caroulse = vDoc.querySelectorAll('.products-carousel ul')
