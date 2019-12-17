@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.25.3](https://github.com/ecomclub/storefront-template/compare/v1.25.2...v1.25.3) (2019-12-17)
+
+
+### Bug Fixes
+
+* **cms:** update products page config options ([c283118](https://github.com/ecomclub/storefront-template/commit/c2831188e0426d043815528650c1535e4d48f5e7))
+
 ### [1.25.2](https://github.com/ecomclub/storefront-template/compare/v1.25.1...v1.25.2) (2019-12-17)
 
 
