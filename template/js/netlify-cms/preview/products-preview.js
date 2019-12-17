@@ -32,7 +32,7 @@ export default class ProductsPreview extends React.Component {
 
       // fix image widget
       const $productPicture = vDoc.querySelectorAll('.product__picture')[0]
-      if ($productPicture.children) {
+      if ($productPicture && $productPicture.children) {
         const children = $productPicture.children[0]
         if (children.dataset.iesrc) {
           children.setAttribute('data-loaded', true)
