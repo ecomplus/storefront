@@ -1,6 +1,6 @@
 <section class="ec-cart-item">
   <div class="ec-cart-item__name">
-    <a v-if="item.slug" :href="'/' + item.slug">
+    <a v-if="item.slug" :href="`/${item.slug}`">
       {{ item.name }}
     </a>
     <template v-else>
@@ -12,7 +12,7 @@
     <component
       v-if="item.picture && Object.keys(item.picture).length"
       :is="item.slug ? 'a' : 'span'"
-      :href="item.slug"
+      :href="`/${item.slug}`"
     >
       <img
         :src="img.url"
