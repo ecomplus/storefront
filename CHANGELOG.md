@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.25.2](https://github.com/ecomclub/storefront-template/compare/v1.25.1...v1.25.2) (2019-12-17)
+
+
+### Bug Fixes
+
+* **polyfill:** manually add promise.all-settled not recognized by babel ([b205731](https://github.com/ecomclub/storefront-template/commit/b20573194a2972d4987b12ce598089da958a12c9))
+
 ### [1.25.1](https://github.com/ecomclub/storefront-template/compare/v1.25.0...v1.25.1) (2019-12-13)
 
 
