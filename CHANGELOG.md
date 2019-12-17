@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/ecomclub/storefront-app/compare/v1.3.1...v1.3.2) (2019-12-17)
+
+
+### Bug Fixes
+
+* **vuex:** fixes for amount getter on checkout module ([bb973f1](https://github.com/ecomclub/storefront-app/commit/bb973f1952ae7556eaed159560ffd19ff0ad4cba))
+
 ### [1.3.1](https://github.com/ecomclub/storefront-app/compare/v1.3.0...v1.3.1) (2019-12-12)
 
 ## [1.3.0](https://github.com/ecomclub/storefront-app/compare/v1.2.0...v1.3.0) (2019-12-12)
