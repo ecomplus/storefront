@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.8](https://github.com/ecomclub/storefront-framework/compare/v5.2.7...v5.2.8) (2019-12-17)
+
+
+### Bug Fixes
+
+* **babel-options:** should specify corejs minor version ([5a977f9](https://github.com/ecomclub/storefront-framework/commit/5a977f9a7dea3930224f0c9f131a15a4cb3675b3)), closes [/github.com/babel/babel/issues/10883#issuecomment-566727858](https://github.com/ecomclub//github.com/babel/babel/issues/10883/issues/issuecomment-566727858)
+
 ### [5.2.7](https://github.com/ecomclub/storefront-framework/compare/v5.2.6...v5.2.7) (2019-12-13)
 
 
