@@ -1,3 +1,4 @@
+import 'core-js/modules/es.promise.all-settled'
 import emitter from './emitter'
 import EcomSearch from '@ecomplus/search-engine'
 import EcomPassport from '@ecomplus/passport-client'
