@@ -18,7 +18,7 @@
             <span class="sr-only">Loading...</span>
           </div>
 
-          <slide-y-up-transition :duration="{ enter: 300, leave: 50 }">
+          <transition enter-active-class="animated fadeIn">
             <div v-if="!searching && searchedTerm" class="ec-search__info">
               <template v-if="suggestedTerm">
                 {{ dictionary('did_you_mean') }}
@@ -47,9 +47,9 @@
                 />
               </span>
             </div>
-          </slide-y-up-transition>
+          </transition>
 
-          <slide-y-up-transition>
+          <transition enter-active-class="animated fadeInLeft">
             <div v-if="history.length" class="ec-search__history">
               <i class="fas fa-history"></i>
               <a
@@ -60,7 +60,7 @@
                 v-text="term"
               />
             </div>
-          </slide-y-up-transition>
+          </transition>
         </div>
 
         <button
@@ -72,7 +72,7 @@
         </button>
       </div>
 
-      <slide-y-up-transition :duration="{ enter: 600, leave: 0 }">
+      <transition enter-active-class="animated fadeIn slow">
         <div
           v-if="!searching && suggestedItems.length"
           class="ec-search__items"
@@ -86,7 +86,7 @@
             :product="product"
           />
         </div>
-      </slide-y-up-transition>
+      </transition>
     </b-popover>
   </template>
 </div>

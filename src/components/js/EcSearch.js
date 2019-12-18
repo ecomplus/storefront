@@ -2,14 +2,12 @@ import { _config } from '@ecomplus/utils'
 import EcomSearch from '@ecomplus/search-engine'
 import dictionary from './../../lib/dictionary'
 import EcProductCard from '@ecomplus/widget-product-card/src/components/EcProductCard.vue'
-import { SlideYUpTransition } from 'vue2-transitions'
 
 export default {
   name: 'EcSearch',
 
   components: {
-    EcProductCard,
-    SlideYUpTransition
+    EcProductCard
   },
 
   props: {
