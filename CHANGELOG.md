@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/ecomclub/storefront-app/compare/v1.4.0...v1.4.1) (2019-12-18)
+
+
+### Bug Fixes
+
+* **transitions:** using vue transition-group correctly ([ce051b6](https://github.com/ecomclub/storefront-app/commit/ce051b6299f7cbf7f891c60b8b96aef24c21213c))
+
 ## [1.4.0](https://github.com/ecomclub/storefront-app/compare/v1.3.2...v1.4.0) (2019-12-18)
 
 
