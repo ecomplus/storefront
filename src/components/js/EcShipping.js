@@ -1,7 +1,6 @@
-import { _config, price, formatMoney } from '@ecomplus/utils'
+import { $ecomConfig, price, formatMoney } from '@ecomplus/utils'
 import { modules } from '@ecomplus/client'
 import EcShippingLine from './../EcShippingLine.vue'
-import { SlideYUpTransition } from 'vue2-transitions'
 import CleaveInput from 'vue-cleave-component'
 import dictionary from './../../lib/dictionary'
 
@@ -13,22 +12,21 @@ export default {
 
   components: {
     EcShippingLine,
-    SlideYUpTransition,
     CleaveInput
   },
 
   props: {
     lang: {
       type: String,
-      default: _config.get('lang')
+      default: $ecomConfig.get('lang')
     },
     countryCode: {
       type: String,
-      default: _config.get('country_code')
+      default: $ecomConfig.get('country_code')
     },
     storeId: {
       type: Number,
-      default: _config.get('store_id')
+      default: $ecomConfig.get('store_id')
     },
     zipInput: {
       type: Boolean,

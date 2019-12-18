@@ -30,7 +30,10 @@
   </form>
 
   <div class="ec-shipping__services">
-    <slide-y-up-transition group>
+    <transition-group
+      enter-active-class="animated fadeInDown"
+      leave-active-class="animated position-absolute fadeOutUp"
+    >
       <div
         v-if="waiting"
         key="waiting"
@@ -63,6 +66,6 @@
           </span>
         </component>
       </div>
-    </slide-y-up-transition>
+    </transition-group>
   </div>
 </div>
