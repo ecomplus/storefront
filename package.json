@@ -44,8 +44,8 @@
     "@babel/preset-env": "^7.7.6",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@ecomplus/storefront-framework": "^5.2.7",
-    "@ecomplus/storefront-template": "^1.25.1",
+    "@ecomplus/storefront-framework": "^5.2.8",
+    "@ecomplus/storefront-template": "^1.25.3",
     "autoprefixer": "^9.7.3",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.0",
@@ -62,7 +62,7 @@
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.41.3",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.10.0"
   },
   "husky": {
     "hooks": {
