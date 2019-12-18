@@ -1,15 +1,10 @@
 import { _config, price, onPromotion, formatMoney } from '@ecomplus/utils'
 import dictionary from './../../lib/dictionary'
-import { SlideYUpTransition } from 'vue2-transitions'
 
 const { _events, _info } = window
 
 export default {
   name: 'EcPrices',
-
-  components: {
-    SlideYUpTransition
-  },
 
   props: {
     lang: {

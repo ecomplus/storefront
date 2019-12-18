@@ -15,7 +15,7 @@
     {{ formatMoney(price) }}
   </strong>
 
-  <slide-y-up-transition group>
+  <transition-group enter-active-class="animated slideInDown">
     <div
       key="installments"
       v-if="interestFreeInstallments > 1"
@@ -42,5 +42,5 @@
         {{ discountLabel }}
       </small>
     </div>
-  </slide-y-up-transition>
+  </transition-group>
 </div>
