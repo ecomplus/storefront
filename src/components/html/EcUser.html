@@ -32,7 +32,10 @@
         {{ dictionary('login_error') }}.
       </b-alert>
 
-      <slide-y-up-transition group>
+      <transition-group
+        enter-active-class="animated fadeInDown"
+        leave-active-class="animated position-absolute fadeOutUp"
+      >
         <div v-if="waiting" key="waiting">
           <div class="spinner-border m-3" role="status">
             <span class="sr-only">Loading...</span>
@@ -157,7 +160,7 @@
             </button>
           </form>
         </div>
-      </slide-y-up-transition>
+      </transition-group>
     </div>
   </b-popover>
 </div>

@@ -1,23 +1,18 @@
-import { _config } from '@ecomplus/utils'
+import { $ecomConfig } from '@ecomplus/utils'
 import dictionary from './../../lib/dictionary'
 import EcomPassport from '@ecomplus/passport-client'
-import { SlideYUpTransition } from 'vue2-transitions'
 
 export default {
   name: 'EcUser',
 
-  components: {
-    SlideYUpTransition
-  },
-
   props: {
     lang: {
       type: String,
-      default: _config.get('lang')
+      default: $ecomConfig.get('lang')
     },
     storeId: {
       type: Number,
-      default: _config.get('store_id')
+      default: $ecomConfig.get('store_id')
     },
     popoverPlacement: {
       type: String,
