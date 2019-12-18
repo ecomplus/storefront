@@ -1,7 +1,5 @@
-import { _config, price, onPromotion, formatMoney } from '@ecomplus/utils'
+import { $ecomConfig, price, onPromotion, formatMoney } from '@ecomplus/utils'
 import dictionary from './../../lib/dictionary'
-
-const { _events, _info } = window
 
 export default {
   name: 'EcPrices',
@@ -9,7 +7,7 @@ export default {
   props: {
     lang: {
       type: String,
-      default: _config.get('lang')
+      default: $ecomConfig.get('lang')
     },
     product: {
       type: Object,
@@ -86,9 +84,10 @@ export default {
 
   created () {
     if (!this.installmentsOption && !this.discountOption) {
-      if (_events) {
+      const { storefront } = window
+      if (storefront) {
         const getPaymentInfo = () => {
-          const paymentInfo = _info && _info.list_payments
+          const paymentInfo = storefront.info && storefront.info.list_payments
           if (paymentInfo) {
             this.updateInstallments(paymentInfo.installments_option)
             this.updateDiscount(paymentInfo.discount_option)
@@ -97,7 +96,7 @@ export default {
           return false
         }
         if (!getPaymentInfo()) {
-          _events.on('info:list_payments', getPaymentInfo)
+          storefront.on('info:list_payments', getPaymentInfo)
         }
       }
     } else {
