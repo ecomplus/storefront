@@ -1,4 +1,4 @@
-import { _config, formatMoney, price, img } from '@ecomplus/utils'
+import { $ecomConfig, formatMoney, price, img } from '@ecomplus/utils'
 import dictionary from './../../lib/dictionary'
 
 export default {
@@ -7,7 +7,7 @@ export default {
   props: {
     lang: {
       type: String,
-      default: _config.get('lang')
+      default: $ecomConfig.get('lang')
     },
     item: {
       type: Object,

@@ -1,4 +1,4 @@
-import { _config, formatMoney } from '@ecomplus/utils'
+import { $ecomConfig, formatMoney } from '@ecomplus/utils'
 import ecomCart from '@ecomplus/shopping-cart'
 import dictionary from './../../lib/dictionary'
 import EcCartItem from './../EcCartItem.vue'
@@ -16,7 +16,7 @@ export default {
   props: {
     lang: {
       type: String,
-      default: _config.get('lang')
+      default: $ecomConfig.get('lang')
     },
     ecomCart: {
       type: Object,
