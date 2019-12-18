@@ -1,4 +1,4 @@
-import { _config, name, inStock, onPromotion, price } from '@ecomplus/utils'
+import { $ecomConfig, name, inStock, onPromotion, price } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
 import dictionary from '@ecomplus/widget-product/src/lib/dictionary'
 import EcImage from '@ecomplus/widget-product/src/components/EcImage.vue'
@@ -15,11 +15,11 @@ export default {
   props: {
     lang: {
       type: String,
-      default: _config.get('lang')
+      default: $ecomConfig.get('lang')
     },
     storeId: {
       type: Number,
-      default: _config.get('store_id')
+      default: $ecomConfig.get('store_id')
     },
     productId: {
       type: String
