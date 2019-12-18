@@ -1,14 +1,12 @@
 import Vue from 'vue'
 import '@ecomplus/storefront-twbs'
 import EcProduct from './components/EcProduct.vue'
-import EcomCart from '@ecomplus/shopping-cart'
+import ecomCart from '@ecomplus/shopping-cart'
 import { dynamicVueSlots } from './lib/utils'
 
 export default (options = {}, elId = 'product-block') => {
   const $productBlock = document.getElementById(elId)
   if ($productBlock) {
-    const cart = new EcomCart()
-
     new Vue({
       components: {
         EcProduct
@@ -22,7 +20,7 @@ export default (options = {}, elId = 'product-block') => {
 
       methods: {
         addToCart ({ product }) {
-          cart.addProduct({
+          ecomCart.addProduct({
             ...product,
             body_html: null,
             body_text: null
