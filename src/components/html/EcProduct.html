@@ -1,5 +1,5 @@
 <div class="ec-product">
-  <fade-transition :duration="700">
+  <transition enter-active-class="animated fadeIn slower">
     <div class="row" v-if="body._id">
       <div class="col-12 col-md-6">
         <ec-gallery
@@ -79,7 +79,7 @@
         </p>
       </div>
     </div>
-  </fade-transition>
+  </transition>
 
   <template v-if="!body._id">
     <slot />

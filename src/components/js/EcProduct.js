@@ -1,14 +1,27 @@
-import { _config, name, inStock, onPromotion, price, variationsGrids, specValueByText } from '@ecomplus/utils'
+import {
+  $ecomConfig,
+  name,
+  inStock,
+  onPromotion,
+  price,
+  variationsGrids,
+  specValueByText
+} from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
 import EcPrices from './../EcPrices.vue'
 // import EcVariations from './../EcVariations.vue'
 import EcGallery from './../EcGallery.vue'
 import EcShipping from './../EcShipping.vue'
 import dictionary from './../../lib/dictionary'
-import { FadeTransition } from 'vue2-transitions'
 
-const { _context, storefront } = window
-const getContextId = () => _context && _context.body && _context.body._id
+const { storefront } = window
+const getContextId = () => {
+  if (storefront) {
+    const { context } = storefront
+    return context && context.body && context.body._id
+  }
+  return null
+}
 
 export default {
   name: 'EcProduct',
@@ -17,18 +30,17 @@ export default {
     EcPrices,
     EcGallery,
     // EcVariations,
-    EcShipping,
-    FadeTransition
+    EcShipping
   },
 
   props: {
     lang: {
       type: String,
-      default: _config.get('lang')
+      default: $ecomConfig.get('lang')
     },
     storeId: {
       type: Number,
-      default: _config.get('store_id')
+      default: $ecomConfig.get('store_id')
     },
     productId: {
       type: String,
@@ -96,7 +108,7 @@ export default {
         .then(({ data }) => {
           vm.body = data
           if (getContextId() === vm.productId) {
-            _context.body = data
+            storefront.context.body = data
           }
         })
         .catch(err => {
