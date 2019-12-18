@@ -1,5 +1,5 @@
 import { _config, formatMoney } from '@ecomplus/utils'
-import EcomCart from '@ecomplus/shopping-cart'
+import ecomCart from '@ecomplus/shopping-cart'
 import dictionary from './../../lib/dictionary'
 import EcCartItem from './../EcCartItem.vue'
 import { SlideXRightTransition, SlideYUpTransition } from 'vue2-transitions'
@@ -18,9 +18,9 @@ export default {
       type: String,
       default: _config.get('lang')
     },
-    storeId: {
-      type: Number,
-      default: _config.get('store_id')
+    ecomCart: {
+      type: Object,
+      default: () => ecomCart
     },
     showCart: {
       type: Boolean,
@@ -37,12 +37,6 @@ export default {
     cartUrl: {
       type: String,
       default: '/app/#/cart'
-    }
-  },
-
-  data () {
-    return {
-      ecomCart: new EcomCart(this.storeId)
     }
   },
 
@@ -67,7 +61,7 @@ export default {
 
   created () {
     if (this.showOnItemAdded) {
-      EcomCart.on('addItem', ({ data }) => {
+      ecomCart.on('addItem', ({ data }) => {
         this.$set(this.ecomCart, 'data', data)
         this.show()
       })
