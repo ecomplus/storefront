@@ -2,12 +2,10 @@ import Vue from 'vue'
 import lozad from 'lozad'
 import '@ecomplus/storefront-twbs'
 import EcProductCard from './components/EcProductCard.vue'
-import EcomCart from '@ecomplus/shopping-cart'
+import ecomCart from '@ecomplus/shopping-cart'
 import { dynamicVueSlots } from '@ecomplus/widget-product/src/lib/utils'
 
 export default (options = {}, elClass = 'product-card') => {
-  const cart = new EcomCart()
-
   const load = $productCard => {
     if (!$productCard.classList.contains('ec-product-card')) {
       const { productId, sku } = $productCard.dataset
@@ -31,7 +29,7 @@ export default (options = {}, elClass = 'product-card') => {
             if (variations && variations.length) {
               window.location = `/${slug}`
             } else {
-              cart.addProduct(product)
+              ecomCart.addProduct(product)
             }
           }
         },
