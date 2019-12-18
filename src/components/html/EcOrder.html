@@ -1,8 +1,5 @@
 <article class="ec-order">
-  <transition
-    enter-active-class="animated fadeIn slow"
-    group
-  >
+  <transition-group enter-active-class="animated fadeIn slow">
     <ec-order-info
       v-if="isReady"
       key="info"
@@ -15,5 +12,5 @@
         <span class="sr-only">Loading...</span>
       </div>
     </div>
-  </transition>
+  </transition-group>
 </article>

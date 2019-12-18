@@ -1,9 +1,8 @@
 <div class="ec-discount">
   <template v-if="hasCouponInput">
-    <transition
+    <transition-group
       enter-active-class="animated fadeInDown"
       leave-active-class="animated position-absolute fadeOutUp"
-      group
     >
       <div v-if="!isFormVisible" key="button">
         <h6 v-if="isAttentionWanted" class="ec-discount__intro">
@@ -72,7 +71,7 @@
           </div>
         </div>
       </form>
-    </transition>
+    </transition-group>
   </template>
 
   <b-alert
