@@ -2,6 +2,7 @@ import React from 'react'
 import virtualDoc from './virtual-doc'
 import displayWidget from './display-widget'
 import fetchPage from './fetch-page'
+import previewCarousel from './preview-carousel'
 
 export default class ProductsPreview extends React.Component {
   constructor () {
@@ -30,6 +31,56 @@ export default class ProductsPreview extends React.Component {
       const { entry } = this.props
       const data = JSON.parse(entry.getIn(['raw']))
 
+      // related
+      const $related = vDoc.querySelectorAll('[data-cms-if="products.related"]')
+      this.props.widgetsFor('related')
+        .getIn(['data'])
+        .map(function (value, key) {
+          switch (key) {
+            case 'related_on':
+              if (value) {
+                $related[0].style.display = 'block'
+              } else {
+                $related[0].style.display = 'none'
+              }
+              break
+            case 'title':
+              $related[0].children.forEach(child => {
+                if (child.className === 'products-carousel__title') {
+                  child.children[0].innerText = value
+                }
+              })
+              break
+            default:
+              break
+          }
+        })
+
+      // recommended
+      const $recommended = vDoc.querySelectorAll('[data-cms-if="products.recommended"]')
+      this.props.widgetsFor('recommended')
+        .getIn(['data'])
+        .map(function (value, key) {
+          switch (key) {
+            case 'recommended_on':
+              if (value) {
+                $recommended[0].style.display = 'block'
+              } else {
+                $recommended[0].style.display = 'none'
+              }
+              break
+            case 'title':
+              $recommended[0].children.forEach(child => {
+                if (child.className === 'products-carousel__title') {
+                  child.children[0].innerText = value
+                }
+              })
+              break
+            default:
+              break
+          }
+        })
+
       // fix image widget
       const $productPicture = vDoc.querySelectorAll('.product__picture')[0]
       if ($productPicture && $productPicture.children) {
@@ -44,42 +95,14 @@ export default class ProductsPreview extends React.Component {
 
       const $spiners = vDoc.querySelectorAll('.spinner-border')
       $spiners.forEach(element => element.remove())
-
-      // fix product related
-      const $caroulse = vDoc.querySelectorAll('.products-carousel ul')
-      if ($caroulse.length) {
-        for (let k = 0; k < $caroulse.length; k++) {
-          const $ul = $caroulse[k]
-          console.log($ul)
-          $ul.classList.add(...['glide__slides', 'products-carousel__list'])
-          const $glide = vDoc.querySelectorAll('.products-carousel .glide')
-          console.log($glide)
-          if ($glide.length) {
-            $glide[k].classList.add(...['glide--ltr', 'glide--slider', 'glide--swipeable'])
-          }
-          const childrens = $ul.children
-          for (let i = 0; i < childrens.length; i++) {
-            const child = childrens[i]
-            child.style.width = '270px'
-            child.style.marginRight = '5px'
-            const $elImg = child.querySelectorAll('img')
-            if ($elImg.length) {
-              $elImg[0].classList.add('show')
-              $elImg[0].setAttribute('src', $elImg[0].dataset.src)
-              $elImg[0].setAttribute('data-loaded', true)
-            }
-
-            const $cardInfo = child.querySelectorAll('.product-card__info')[0]
-            if ($cardInfo) {
-              $cardInfo.parentNode.removeChild($cardInfo)
-            }
-          }
-        }
-      }
+      //
+      previewCarousel(vDoc)
 
       for (const key in data) {
         const objCurr = entry.getIn(['data', key])
-        newDoc = displayWidget(key, objCurr, vDoc)
+        if (typeof objCurr !== 'object') {
+          newDoc = displayWidget('products', key, objCurr, vDoc)
+        }
       }
     }
 
