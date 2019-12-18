@@ -140,5 +140,11 @@ export default {
         }, 200)
       }
     }
+  },
+
+  created () {
+    if (this.couponCode && !this.isCouponApplied) {
+      this.submitCoupon()
+    }
   }
 }
