@@ -17,7 +17,11 @@ export default html => {
         if (child.nodeName === 'SCRIPT') {
           const el = document.createElement('div')
           el.innerHTML = content
-          element.parentNode.replaceChild(el, child)
+          if (element.parentNode) {
+            element.parentNode.replaceChild(el, child)
+          } else {
+            element.appendChild(el)
+          }
         }
       }
     }
