@@ -13,10 +13,21 @@ const cols = []
     cols.push({ link, text, icon })
   }
 })
+
+let currentPage
+switch (_.route.path) {
+  case '/':
+  case '/index':
+    currentPage = 'home'    
+    break;
+  default:
+    currentPage = _.route.resource
+    break;
+}
 %>
 
 <% if (cols.length) { %>
-  <section class="pitbar" data-cms-if="home.pitbar" data-slideout-ignore>
+  <section class="pitbar" data-cms-if="<%= currentPage %>.pitbar" data-slideout-ignore>
     <div class="container">
       <div class="row align-items-center pitbar__nav">
         <% cols.forEach(({ link, icon, text }) => { %>
