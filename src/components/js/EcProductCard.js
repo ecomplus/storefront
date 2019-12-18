@@ -3,15 +3,13 @@ import { store } from '@ecomplus/client'
 import dictionary from '@ecomplus/widget-product/src/lib/dictionary'
 import EcImage from '@ecomplus/widget-product/src/components/EcImage.vue'
 import EcPrices from '@ecomplus/widget-product/src/components/EcPrices.vue'
-import { FadeTransition } from 'vue2-transitions'
 
 export default {
   name: 'EcProductCard',
 
   components: {
     EcImage,
-    EcPrices,
-    FadeTransition
+    EcPrices
   },
 
   props: {

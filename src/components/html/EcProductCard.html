@@ -2,7 +2,7 @@
   class="ec-product-card"
   :class="body._id && !isActive ? 'ec-product-card--inactive' : null"
 >
-  <fade-transition :duration="700">
+  <transition enter-active-class="animated fadeIn">
     <section v-if="body._id">
       <span v-if="isActive && discount > 0" class="ec-product-card__offer-stamp">
         -<b>{{ discount }}</b>%
@@ -58,7 +58,7 @@
         </div>
       </template>
     </section>
-  </fade-transition>
+  </transition>
 
   <template v-if="!body._id">
     <slot />
