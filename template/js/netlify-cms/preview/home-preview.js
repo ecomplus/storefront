@@ -82,7 +82,7 @@ export default class HomePreview extends React.Component {
 
       for (const key in data) {
         const objCurr = entry.getIn(['data', key])
-        newDoc = displayWidget(key, objCurr, vDoc)
+        newDoc = displayWidget('home', key, objCurr, vDoc)
       }
     }
 
