@@ -1,26 +1,23 @@
-import { _config } from '@ecomplus/utils'
+import { $ecomConfig } from '@ecomplus/utils'
 import EcomSearch from '@ecomplus/search-engine'
 import dictionary from './../../lib/dictionary'
 import EcProductCard from '@ecomplus/widget-product-card/src/components/EcProductCard.vue'
-import { SlideXRightTransition, SlideYUpTransition } from 'vue2-transitions'
 
 export default {
   name: 'EcSearchEngine',
 
   components: {
-    EcProductCard,
-    SlideXRightTransition,
-    SlideYUpTransition
+    EcProductCard
   },
 
   props: {
     lang: {
       type: String,
-      default: _config.get('lang')
+      default: $ecomConfig.get('lang')
     },
     storeId: {
       type: Number,
-      default: _config.get('store_id')
+      default: $ecomConfig.get('store_id')
     },
     term: {
       type: String

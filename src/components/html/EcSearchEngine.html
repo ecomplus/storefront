@@ -4,7 +4,7 @@
   </nav>
 
   <portal to="search-nav">
-    <slide-y-up-transition>
+    <transition enter-active-class="animated fadeInDown fast">
       <div
         class="ec-search-engine__nav"
         v-if="searched && (searching || totalSearchResults > 8 || hasSelectedOptions)"
@@ -67,10 +67,13 @@
           </div>
         </slot>
       </div>
-    </slide-y-up-transition>
+    </transition>
   </portal>
 
-  <slide-x-right-transition>
+  <transition
+    enter-active-class="animated slideInRight"
+    leave-active-class="animated slideOutRight"
+  >
     <aside
       class="ec-search-engine__sidebar card shadow"
       v-show="showFilters"
@@ -89,48 +92,46 @@
         </header>
 
         <div class="card-body">
-          <slide-y-up-transition group>
-            <div
-              class="ec-search-engine__filter"
-              v-for="({ filter, filterObj, isSpec }) in filters"
-              v-if="filterObj.options.length"
-              :class="`ec-search-engine__filter--${filter}`"
-              :key="`filters-${filter}`"
+          <div
+            class="ec-search-engine__filter"
+            v-for="({ filter, filterObj, isSpec }) in filters"
+            v-if="filterObj.options.length"
+            :class="`ec-search-engine__filter--${filter}`"
+            :key="`filters-${filter}`"
+          >
+            <button
+              class="btn ec-search-engine__filter__btn"
+              type="button"
+              :aria-expanded="filterObj.show ? 'true' : 'false'"
+              :aria-controls="`collapse-${filter}`"
+              @click="filterObj.show = !filterObj.show"
             >
-              <button
-                class="btn ec-search-engine__filter__btn"
-                type="button"
-                :aria-expanded="filterObj.show ? 'true' : 'false'"
-                :aria-controls="`collapse-${filter}`"
-                @click="filterObj.show = !filterObj.show"
-              >
-                <i class="fas fa-chevron-down"></i>
-                {{ filterLabel(filter) }}
-              </button>
+              <i class="fas fa-chevron-down"></i>
+              {{ filterLabel(filter) }}
+            </button>
 
-              <b-collapse :id="`collapse-${filter}`" v-model="filterObj.show">
-                <div
-                  class="custom-control custom-checkbox ec-search-engine__option"
-                  v-for="(opt, index) in filterObj.options"
-                  :key="`${filter}-${index}`"
+            <b-collapse :id="`collapse-${filter}`" v-model="filterObj.show">
+              <div
+                class="custom-control custom-checkbox ec-search-engine__option"
+                v-for="(opt, index) in filterObj.options"
+                :key="`${filter}-${index}`"
+              >
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  :id="`${filter}-${index}`"
+                  @change="ev => setFilterOption(filter, opt.key, ev.target.checked)"
+                  :checked="selectedOptions[filter].indexOf(opt.key) > -1"
                 >
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    :id="`${filter}-${index}`"
-                    @change="ev => setFilterOption(filter, opt.key, ev.target.checked)"
-                    :checked="selectedOptions[filter].indexOf(opt.key) > -1"
-                  >
-                  <label class="custom-control-label" :for="`${filter}-${index}`">
-                    {{ opt.key }}
-                    <small v-if="!isSpec">
-                      ({{ opt.doc_count }})
-                    </small>
-                  </label>
-                </div>
-              </b-collapse>
-            </div>
-          </slide-y-up-transition>
+                <label class="custom-control-label" :for="`${filter}-${index}`">
+                  {{ opt.key }}
+                  <small v-if="!isSpec">
+                    ({{ opt.doc_count }})
+                  </small>
+                </label>
+              </div>
+            </b-collapse>
+          </div>
         </div>
 
         <footer class="card-footer">
@@ -147,9 +148,9 @@
         </footer>
       </slot>
     </aside>
-  </slide-x-right-transition>
+  </transition>
 
-  <fade-transition :duration="1000">
+  <transition enter-active-class="animated fadeIn slower">
     <div
       class="ec-search-engine__results"
       :style="{ opacity: searching && !loadingMore ? 0.4 : 1 }"
@@ -179,7 +180,10 @@
           </div>
         </template>
 
-        <slide-y-up-transition>
+        <transition
+          enter-active-class="animated fadeInDown"
+          leave-active-class="animated position-absolute fadeOutUp"
+        >
           <div v-if="hasSelectedOptions">
             <button
               class="btn btn-sm btn-outline-secondary"
@@ -207,7 +211,7 @@
               </button>
             </template>
           </div>
-        </slide-y-up-transition>
+        </transition>
       </div>
 
       <article class="ec-search-engine__retail">
@@ -229,7 +233,10 @@
         </div>
       </article>
 
-      <slide-y-up-transition>
+      <transition
+        enter-active-class="animated fadeInDown"
+        leave-active-class="animated position-absolute fadeOutUp"
+      >
         <div class="alert alert-warning" role="alert" v-if="networkError">
           <h4 class="alert-heading">Offline</h4>
           <template v-if="lang === 'pt_br'">
@@ -250,11 +257,14 @@
             {{ dictionary('search_again') }}
           </button>
         </div>
-      </slide-y-up-transition>
+      </transition>
     </div>
-  </fade-transition>
+  </transition>
 
-  <slide-y-up-transition>
+  <transition
+    enter-active-class="animated fadeInDown"
+    leave-active-class="animated fadeOutUp"
+  >
     <slot v-if="!searched || loadingMore"></slot>
-  </slide-y-up-transition>
+  </transition>
 </section>
