@@ -38,10 +38,7 @@
         </slot>
 
         <article class="card-body">
-          <transition-group
-            enter-active-class="animated fadeInDown"
-            leave-active-class="animated position-absolute fadeOutUp"
-          >
+          <transition-group enter-active-class="animated fadeIn slow">
             <div
               class="ec-minicart__list"
               v-if="cart.items.length"
