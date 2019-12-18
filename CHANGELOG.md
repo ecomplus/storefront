@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/ecomclub/storefront-app/compare/v1.3.2...v1.4.0) (2019-12-18)
+
+
+### Features
+
+* **vuex:** persist valid discount coupon on session storage ([eb8ab63](https://github.com/ecomclub/storefront-app/commit/eb8ab63c080123a5c1bafed3275b5e066491e22d))
+
+
+### Bug Fixes
+
+* **discount:** auto submit coupon on component create when not applied ([ba8d048](https://github.com/ecomclub/storefront-app/commit/ba8d0488c7df7360255424a05af9ed773cca7ad3))
+
 ### [1.3.2](https://github.com/ecomclub/storefront-app/compare/v1.3.1...v1.3.2) (2019-12-17)
 
 
