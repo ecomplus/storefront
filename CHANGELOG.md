@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.20](https://github.com/ecomclub/widget-product/compare/v0.3.19...v0.3.20) (2019-12-18)
+
+
+### Bug Fixes
+
+* **widget:** fixes for new ecomCart v1 ([58588e3](https://github.com/ecomclub/widget-product/commit/58588e31b729bff04e0d6af1c600353666b08c59))
+
 ### [0.3.19](https://github.com/ecomclub/widget-product/compare/v0.3.18...v0.3.19) (2019-12-02)
 
 ### [0.3.18](https://github.com/ecomclub/widget-product/compare/v0.3.17...v0.3.18) (2019-12-02)
