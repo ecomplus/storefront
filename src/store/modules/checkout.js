@@ -44,10 +44,18 @@ const prepareTransaction = ({ customer, transaction }) => {
   return transaction
 }
 
+const { sessionStorage } = window
+const couponStorageKey = 'st_discount_coupon'
+const persistDiscountCoupon = couponCode => {
+  if (sessionStorage) {
+    sessionStorage.setItem(couponStorageKey, couponCode)
+  }
+}
+
 const state = {
   cart: ecomCart.data,
   shippingService: {},
-  discountCoupon: '',
+  discountCoupon: (sessionStorage && sessionStorage.getItem(couponStorageKey)) || '',
   discountRule: {},
   paymentGateway: {}
 }
@@ -109,10 +117,16 @@ const mutations = {
   },
 
   setDiscountCoupon (state, discountCoupon) {
-    state.discountCoupon = discountCoupon || {}
+    if (discountCoupon && state.discountRule.app_id) {
+      persistDiscountCoupon(discountCoupon)
+    }
+    state.discountCoupon = discountCoupon || ''
   },
 
   setDiscountRule (state, discountRule) {
+    if (state.discountCoupon && discountRule.app_id) {
+      persistDiscountCoupon(state.discountCoupon)
+    }
     state.discountRule = discountRule || {}
   },
 
