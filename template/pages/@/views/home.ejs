@@ -37,15 +37,9 @@ const info = _.cms('info')
     <%- await include('components/products-carousel', { _, opt: { items: _.items } }) %>
   <% } %>
 
-  <% if (home.additional_content) { %>
-    <section class="md-content" data-cms-bind="home.additional_content">
+  <section class="md-content" data-cms-bind="home.additional_content" data-cms-md="true">
+    <% if (home.additional_content) { %>  
       <%- _.md.render(home.additional_content) %>
-    </section>
-  <% } else { %>
-    <script type="html/text" data-cms-html>
-      <section class="md-content" data-cms-bind="home.additional_content">
-        <%- _.md.render(home.additional_content) %>
-      </section>
-    </script>
-  <% } %>
+    <% } %>
+  </section>
 </div>
