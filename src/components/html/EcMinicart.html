@@ -14,98 +14,109 @@
     </button>
   </slot>
 
-  <slide-x-right-transition ref="sidebar">
-    <aside
-      v-show="showCart"
-      class="ec-minicart__sidebar card shadow"
+  <div ref="sidebar">
+    <transition
+      enter-active-class="animated slideInRight"
+      leave-active-class="animated slideOutRight"
     >
-      <slot name="header">
-        <header class="card-header">
-          {{ dictionary('my_cart') }}
-          <button
-            type="button"
-            class="close"
-            :aria-label="dictionary('close')"
-            @click="hide"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </header>
-      </slot>
+      <aside
+        v-show="showCart"
+        class="ec-minicart__sidebar card shadow"
+      >
+        <slot name="header">
+          <header class="card-header">
+            {{ dictionary('my_cart') }}
+            <button
+              type="button"
+              class="close"
+              :aria-label="dictionary('close')"
+              @click="hide"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </header>
+        </slot>
 
-      <article class="card-body">
-        <slide-y-up-transition group>
-          <div
-            class="ec-minicart__list"
-            v-if="cart.items.length"
-            key="list"
+        <article class="card-body">
+          <transition-group
+            enter-active-class="animated fadeInDown"
+            leave-active-class="animated position-absolute fadeOutUp"
           >
-            <slot name="list" v-bind="{ items: cart.items }">
-              <slide-y-up-transition group>
-                <ec-cart-item
-                  v-for="item in cart.items"
-                  :key="item._id"
-                  :item="item"
-                  :resetQnt="showCart"
-                  @increase="qnt => ecomCart.increaseItemQnt(item._id, qnt)"
-                  @remove="ecomCart.removeItem(item._id)"
-                />
-              </slide-y-up-transition>
-            </slot>
-          </div>
+            <div
+              class="ec-minicart__list"
+              v-if="cart.items.length"
+              key="list"
+            >
+              <slot name="list" v-bind="{ items: cart.items }">
+                <transition-group
+                  enter-active-class="animated fadeInDown"
+                  leave-active-class="animated position-absolute fadeOutUp faster"
+                >
+                  <ec-cart-item
+                    v-for="item in cart.items"
+                    :key="item._id"
+                    :item="item"
+                    :resetQnt="showCart"
+                    @increase="qnt => ecomCart.increaseItemQnt(item._id, qnt)"
+                    @remove="ecomCart.removeItem(item._id)"
+                  />
+                </transition-group>
+              </slot>
+            </div>
 
-          <div
-            v-else
-            class="ec-minicart__empty"
-            key="empty"
-          >
-            <slot name="empty">
-              <p class="lead text-muted">
-                {{ dictionary('empty_cart') }} ...
-              </p>
-              <a
-                class="btn btn-block btn-primary"
-                href="#"
-                @click.prevent="hide"
-              >
-                <span class="mr-1">
-                  <i class="fas fa-arrow-left"></i>
-                </span>
-                {{ dictionary('continue_shopping') }}
-              </a>
-            </slot>
-          </div>
-        </slide-y-up-transition>
-      </article>
+            <div
+              v-else
+              class="ec-minicart__empty"
+              key="empty"
+            >
+              <slot name="empty">
+                <p class="lead text-muted">
+                  {{ dictionary('empty_cart') }} ...
+                </p>
+                <a
+                  class="btn btn-block btn-primary"
+                  href="#"
+                  @click.prevent="hide"
+                >
+                  <span class="mr-1">
+                    <i class="fas fa-arrow-left"></i>
+                  </span>
+                  {{ dictionary('continue_shopping') }}
+                </a>
+              </slot>
+            </div>
+          </transition-group>
+        </article>
 
-      <slot name="footer">
-        <footer class="card-footer" v-if="cart.subtotal || cart.items.length">
-          <div class="ec-minicart__summary">
-            <span>Subtotal</span>
-            <strong class="ec-minicart__subtotal">
-              {{ formatMoney(cart.subtotal) }}
-            </strong>
-          </div>
+        <slot name="footer">
+          <footer class="card-footer" v-if="cart.subtotal || cart.items.length">
+            <div class="ec-minicart__summary">
+              <span>Subtotal</span>
+              <strong class="ec-minicart__subtotal">
+                {{ formatMoney(cart.subtotal) }}
+              </strong>
+            </div>
 
-          <a
-            class="ec-minicart__btn-checkout btn btn-block btn-primary"
-            role="button"
-            :href="checkoutUrl"
-          >
-            <span class="mr-1">
-              <i class="fas fa-check"></i>
-            </span>
-            {{ dictionary('checkout') }}
-          </a>
-          <a
-            class="ec-minicart__btn-cart btn btn-block btn-outline-secondary"
-            role="button"
-            :href="cartUrl"
-          >
-            {{ dictionary('see_cart') }}
-          </a>
-        </footer>
-      </slot>
-    </aside>
-  </slide-x-right-transition>
+            <a
+              class="ec-minicart__btn-checkout btn btn-block btn-primary"
+              role="button"
+              :href="checkoutUrl"
+            >
+              <span class="mr-1">
+                <i class="fas fa-check"></i>
+              </span>
+              {{ dictionary('checkout') }}
+            </a>
+            <a
+              class="ec-minicart__btn-cart btn btn-block btn-outline-secondary"
+              role="button"
+              :href="cartUrl"
+            >
+              {{ dictionary('see_cart') }}
+            </a>
+          </footer>
+        </slot>
+      </aside>
+    </transition>
+  </div>
 </div>

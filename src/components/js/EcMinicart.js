@@ -2,15 +2,12 @@ import { $ecomConfig, formatMoney } from '@ecomplus/utils'
 import ecomCart from '@ecomplus/shopping-cart'
 import dictionary from './../../lib/dictionary'
 import EcCartItem from './../EcCartItem.vue'
-import { SlideXRightTransition, SlideYUpTransition } from 'vue2-transitions'
 
 export default {
   name: 'EcMinicart',
 
   components: {
-    EcCartItem,
-    SlideXRightTransition,
-    SlideYUpTransition
+    EcCartItem
   },
 
   props: {
@@ -69,6 +66,6 @@ export default {
   },
 
   mounted () {
-    document.querySelector('body').appendChild(this.$refs.sidebar.$el)
+    document.querySelector('body').appendChild(this.$refs.sidebar)
   }
 }
