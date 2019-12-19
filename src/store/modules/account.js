@@ -30,7 +30,8 @@ const customerFields = Object.keys(state.customer)
 const getters = {
   customer: ({ customer }) => customer,
 
-  selectedAddress: ({ customer }) => customer.addresses.find(addr => addr.default),
+  selectedAddress: ({ customer }) => customer.addresses.find(addr => addr.default) ||
+    customer.addresses[0],
 
   orders: ({ orders }) => orders
 }
