@@ -1,3 +1,4 @@
+import ecomClient from '@ecomplus/client'
 import virtualDoc from './virtual-doc'
 import displayWidget from './display-widget'
 import fetchPage from './fetch-page'
@@ -17,9 +18,22 @@ export default class ProductsPreview extends window.React.Component {
   }
 
   async fetchPage () {
-    const html = await fetchPage('/macbook-apple-pro-15.4-intel-core-i7-2.6ghz-ram-16gb-ssd-512gb-mr972ll/a-prata')
-    const vDoc = virtualDoc(html)
-    this.setState({ html, vDoc })
+    ecomClient.store({ url: '/products.json' })
+      .then(async response => {
+        const { result } = response.data
+        if (result.length) {
+          const productSlug = result[Math.floor(Math.random() * result.length)].slug
+          const html = await fetchPage(`/${productSlug}`)
+          const vDoc = virtualDoc(html)
+          this.setState({ html, vDoc })
+        }
+      })
+      .catch(error => {
+        console.error(error)
+        if (error.response) {
+          console.log(error.response)
+        }
+      })
   }
 
   render () {
@@ -32,53 +46,56 @@ export default class ProductsPreview extends window.React.Component {
 
       // related
       const $related = vDoc.querySelectorAll('[data-cms-if="products.related"]')
-      this.props.widgetsFor('related')
-        .getIn(['data'])
-        .map(function (value, key) {
-          switch (key) {
-            case 'showcase':
-              if (value) {
-                $related[0].style.display = 'block'
-              } else {
-                $related[0].style.display = 'none'
-              }
-              break
-            case 'title':
-              $related[0].children.forEach(child => {
-                if (child.className === 'products-carousel__title') {
-                  child.children[0].innerText = value
+      if ($related.length) {
+        this.props.widgetsFor('related')
+          .getIn(['data'])
+          .map(function (value, key) {
+            switch (key) {
+              case 'showcase':
+                if (value) {
+                  $related[0].style.display = 'block'
+                } else {
+                  $related[0].style.display = 'none'
                 }
-              })
-              break
-            default:
-              break
-          }
-        })
-
+                break
+              case 'title':
+                $related[0].children.forEach(child => {
+                  if (child.className === 'products-carousel__title') {
+                    child.children[0].innerText = value
+                  }
+                })
+                break
+              default:
+                break
+            }
+          })
+      }
       // recommended
       const $recommended = vDoc.querySelectorAll('[data-cms-if="products.recommended"]')
-      this.props.widgetsFor('recommended')
-        .getIn(['data'])
-        .map(function (value, key) {
-          switch (key) {
-            case 'showcase':
-              if (value) {
-                $recommended[0].style.display = 'block'
-              } else {
-                $recommended[0].style.display = 'none'
-              }
-              break
-            case 'title':
-              $recommended[0].children.forEach(child => {
-                if (child.className === 'products-carousel__title') {
-                  child.children[0].innerText = value
+      if ($recommended.length) {
+        this.props.widgetsFor('recommended')
+          .getIn(['data'])
+          .map(function (value, key) {
+            switch (key) {
+              case 'showcase':
+                if (value) {
+                  $recommended[0].style.display = 'block'
+                } else {
+                  $recommended[0].style.display = 'none'
                 }
-              })
-              break
-            default:
-              break
-          }
-        })
+                break
+              case 'title':
+                $recommended[0].children.forEach(child => {
+                  if (child.className === 'products-carousel__title') {
+                    child.children[0].innerText = value
+                  }
+                })
+                break
+              default:
+                break
+            }
+          })
+      }
 
       // fix image widget
       const $productPicture = vDoc.querySelectorAll('.product__picture')[0]
