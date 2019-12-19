@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/ecomclub/widget-trustvox/compare/v0.1.0...v0.1.1) (2019-12-19)
+
+
+### Bug Fixes
+
+* **widget:** don't wait for content loaded event (async widget) ([34582db](https://github.com/ecomclub/widget-trustvox/commit/34582db4f89a7b750d3329b513c15806707e2a0c))
+
 ## 0.1.0 (2019-11-05)
 
 
