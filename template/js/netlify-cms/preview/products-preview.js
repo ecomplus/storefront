@@ -36,7 +36,7 @@ export default class ProductsPreview extends window.React.Component {
         .getIn(['data'])
         .map(function (value, key) {
           switch (key) {
-            case 'related_on':
+            case 'showcase':
               if (value) {
                 $related[0].style.display = 'block'
               } else {
@@ -61,7 +61,7 @@ export default class ProductsPreview extends window.React.Component {
         .getIn(['data'])
         .map(function (value, key) {
           switch (key) {
-            case 'recommended_on':
+            case 'showcase':
               if (value) {
                 $recommended[0].style.display = 'block'
               } else {
