@@ -4,7 +4,7 @@ import displayWidget from './display-widget'
 import fetchPage from './fetch-page'
 import previewCarousel from './preview-carousel'
 
-export default class HomePreview extends React.Component {
+export default class HomePreview extends window.React.Component {
   constructor () {
     super()
     this.state = {
