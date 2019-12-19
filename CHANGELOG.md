@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.2](https://github.com/ecomclub/storefront-app/compare/v1.4.1...v1.4.2) (2019-12-19)
+
+
+### Bug Fixes
+
+* **vuex:** fallback to first customer address when none selcted ([b73e7c6](https://github.com/ecomclub/storefront-app/commit/b73e7c6c515a81bf58c705ad5f6ef1f6e30e0585))
+
 ### [1.4.1](https://github.com/ecomclub/storefront-app/compare/v1.4.0...v1.4.1) (2019-12-18)
 
 
