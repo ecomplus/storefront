@@ -1,15 +1,3 @@
-<%
-let currentPage
-switch (_.route.path) {
-  case '/':
-  case '/index':
-    currentPage = 'home'    
-    break;
-  default:
-    currentPage = _.route.resource
-    break;
-}
-%>
 <% if (Array.isArray(opt.items) && opt.items.length) { %>
   <section
     class="products-carousel"
@@ -18,7 +6,7 @@ switch (_.route.path) {
       data-collection-id="<%= opt.collection._id %>"
     <% } %>
     data-slideout-ignore
-    data-cms-if="<%= currentPage %>.<%= opt.showcaseType || 'showcase' %>"
+    data-cms-if="<%= _.currentPage %>.<%= opt.showcaseType || 'showcase' %>"
   >
     <h4 class="products-carousel__title">
       <% if (opt.title) { %>
