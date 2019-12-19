@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.25.4](https://github.com/ecomclub/storefront-template/compare/v1.25.3...v1.25.4) (2019-12-19)
+
+
+### Bug Fixes
+
+* **cart:** import ecomCart default instance from v1 ([573af31](https://github.com/ecomclub/storefront-template/commit/573af31b48a1f26740bf37bd10ad92ad252a3ee3))
+
 ### [1.25.3](https://github.com/ecomclub/storefront-template/compare/v1.25.2...v1.25.3) (2019-12-17)
 
 
