@@ -19,7 +19,7 @@ export default {
       fields: [
         {
           label: 'Mostrar produtos recomendados',
-          name: 'recommended_on',
+          name: 'showcase',
           widget: 'boolean'
         },
         {
@@ -38,7 +38,7 @@ export default {
       fields: [
         {
           label: 'Mostrar produtos relacionados',
-          name: 'related_on',
+          name: 'showcase',
           widget: 'boolean'
         },
         {
@@ -46,33 +46,6 @@ export default {
           required: false,
           name: 'title',
           widget: 'string'
-        }
-      ]
-    },
-    {
-      label: 'Adicionar coleção',
-      name: 'add_collection',
-      widget: 'object',
-      hint: 'Ativa no final da página slider de produtos de uma coleção fixa',
-      fields: [
-        {
-          label: 'Mostrar coleção',
-          name: 'collection_on',
-          widget: 'boolean'
-        },
-        {
-          label: 'Título',
-          required: false,
-          name: 'title',
-          widget: 'string'
-        },
-        {
-          label: 'ID da coleção',
-          required: false,
-          name: 'collection',
-          widget: 'string',
-          hint: 'Entrar com o ID da coleção',
-          que: 'pode ser visto nesta página: https://app.e-com.plus/#/resources/collections\''
         }
       ]
     },

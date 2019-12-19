@@ -1,16 +1,19 @@
+import 'core-js/modules/es.promise.all-settled'
 import emitter from './emitter'
 import EcomSearch from '@ecomplus/search-engine'
 import EcomPassport from '@ecomplus/passport-client'
-import EcomCart from '@ecomplus/shopping-cart'
+import { ecomCart, EcomCart } from '@ecomplus/shopping-cart'
 
 window.EcomSearch = EcomSearch
 window.EcomPassport = EcomPassport
 window.EcomCart = EcomCart
+window.ecomCart = ecomCart
 
 emitter.emit('ecom:ready')
 
 const isCheckout = window.location.pathname.startsWith('/app/')
 const isMobile = window.screen.width < 768
+const widgetsLoadPromises = []
 
 const loadWidget = (pkg, runImport) => {
   const widget = window._widgets[pkg]
@@ -21,19 +24,20 @@ const loadWidget = (pkg, runImport) => {
       (!desktopOnly || !isMobile) &&
       (isCheckout ? enableCheckout : !disablePages)
     ) {
-      runImport().then(exp => {
+      const importPromise = runImport()
+      importPromise.then(exp => {
         if (typeof exp.default === 'function') {
           exp.default(options)
         }
         emitter.emit(`widget:${pkg}`)
         console.log(`Widget loaded: ${pkg}`)
       })
+      widgetsLoadPromises.push(importPromise)
     }
   }
 }
 
 if (!isCheckout) {
-  loadWidget('@ecomplus/widget-tag-manager', () => import('@ecomplus/widget-tag-manager'))
   loadWidget('@ecomplus/widget-user', () => import('@ecomplus/widget-user'))
   loadWidget('@ecomplus/widget-product-card', () => import('@ecomplus/widget-product-card'))
   loadWidget('@ecomplus/widget-search', () => import('@ecomplus/widget-search'))
@@ -46,3 +50,9 @@ if (!isCheckout) {
     loadWidget('@ecomplus/widget-search-engine', () => import('@ecomplus/widget-search-engine'))
   }
 }
+
+Promise.allSettled(widgetsLoadPromises)
+  .then(() => {
+    loadWidget('@ecomplus/widget-tag-manager', () => import('@ecomplus/widget-tag-manager'))
+    loadWidget('@ecomplus/widget-trustvox', () => import('@ecomplus/widget-trustvox'))
+  })

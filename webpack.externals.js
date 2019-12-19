@@ -58,7 +58,7 @@ module.exports = {
   '@ecomplus/shopping-cart': {
     commonjs: '@ecomplus/shopping-cart',
     commonjs2: '@ecomplus/shopping-cart',
-    root: 'EcomCart'
+    root: 'ecomCart'
   },
 
   '@ecomplus/storefront-twbs': {

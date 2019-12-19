@@ -42,6 +42,11 @@ export default {
           name: 'dataLayerVar',
           widget: 'hidden',
           default: 'dataLayer'
+        },
+        {
+          name: 'parseDomMsDelay',
+          widget: 'hidden',
+          default: 300
         }
       ]
     },

@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.25.4](https://github.com/ecomclub/storefront-template/compare/v1.25.3...v1.25.4) (2019-12-19)
+
+
+### Bug Fixes
+
+* **cart:** import ecomCart default instance from v1 ([573af31](https://github.com/ecomclub/storefront-template/commit/573af31b48a1f26740bf37bd10ad92ad252a3ee3))
+
+### [1.25.3](https://github.com/ecomclub/storefront-template/compare/v1.25.2...v1.25.3) (2019-12-17)
+
+
+### Bug Fixes
+
+* **cms:** update products page config options ([c283118](https://github.com/ecomclub/storefront-template/commit/c2831188e0426d043815528650c1535e4d48f5e7))
+
+### [1.25.2](https://github.com/ecomclub/storefront-template/compare/v1.25.1...v1.25.2) (2019-12-17)
+
+
+### Bug Fixes
+
+* **polyfill:** manually add promise.all-settled not recognized by babel ([b205731](https://github.com/ecomclub/storefront-template/commit/b20573194a2972d4987b12ce598089da958a12c9))
+
+### [1.25.1](https://github.com/ecomclub/storefront-template/compare/v1.25.0...v1.25.1) (2019-12-13)
+
+
+### Bug Fixes
+
+* **menu:** revert ordered categories slugs to fix categories order ([8ef9468](https://github.com/ecomclub/storefront-template/commit/8ef94684549ee5bd47f40b89abb8c9872660d7e0))
+
+## [1.25.0](https://github.com/ecomclub/storefront-template/compare/v1.24.6...v1.25.0) (2019-12-13)
+
+
+### Features
+
+* **menu:** reorder first level categories list when configured ([4c63063](https://github.com/ecomclub/storefront-template/commit/4c63063a248729da159a975c3b9fbed4ffe9f119))
+
+
+### Bug Fixes
+
+* **load-widgets:** load additional widgets after component ones ([930db9e](https://github.com/ecomclub/storefront-template/commit/930db9e9bae1d59d7b09e2292f878c0bbb5d1e2d))
+
 ### [1.24.6](https://github.com/ecomclub/storefront-template/compare/v1.24.5...v1.24.6) (2019-12-11)
 
 ### [1.24.5](https://github.com/ecomclub/storefront-template/compare/v1.24.4...v1.24.5) (2019-12-11)

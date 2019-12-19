@@ -2,7 +2,7 @@ export default (page, key, value, document) => {
   const $els = document.querySelectorAll(`[data-cms-bind="${page}.${key}"],[data-cms-if="${page}.${key}"]`)
   for (let i = 0; i < $els.length; i++) {
     const { cmsBind, cmsMd, cmsIf } = $els[i].dataset
-    console.log(cmsMd)
+
     if (cmsIf) {
       if (value) {
         $els[i].style.display = 'block'
