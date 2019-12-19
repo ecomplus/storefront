@@ -59,7 +59,7 @@
     "@ecomplus/widget-user": "^0.9.5",
     "@glidejs/glide": "^3.4.1",
     "bootswatch": "^4.4.1",
-    "core-js": "^3.5.0",
+    "core-js": "^3.6.0",
     "ejs": "^3.0.1",
     "eventemitter3": "^4.0.0",
     "lodash.clonedeep": "^4.5.0",
