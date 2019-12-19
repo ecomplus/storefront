@@ -2,11 +2,12 @@ import 'core-js/modules/es.promise.all-settled'
 import emitter from './emitter'
 import EcomSearch from '@ecomplus/search-engine'
 import EcomPassport from '@ecomplus/passport-client'
-import EcomCart from '@ecomplus/shopping-cart'
+import { ecomCart, EcomCart } from '@ecomplus/shopping-cart'
 
 window.EcomSearch = EcomSearch
 window.EcomPassport = EcomPassport
 window.EcomCart = EcomCart
+window.ecomCart = ecomCart
 
 emitter.emit('ecom:ready')
 
