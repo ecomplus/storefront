@@ -1,4 +1,3 @@
-import React from 'react'
 import virtualDoc from './virtual-doc'
 import displayWidget from './display-widget'
 import fetchPage from './fetch-page'
