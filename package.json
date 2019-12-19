@@ -30,26 +30,26 @@
   },
   "homepage": "https://github.com/ecomclub/widget-trustvox#readme",
   "dependencies": {
-    "@babel/runtime": "^7.5.5",
-    "core-js": "^3.2.1"
+    "@babel/runtime": "^7.7.6",
+    "core-js": "^3.6.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-transform-runtime": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.6",
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "@ecomplus/storefront-framework": "*",
-    "@ecomplus/storefront-template": "^1.4.1",
+    "@ecomplus/storefront-framework": "^5.2.8",
+    "@ecomplus/storefront-template": "^1.25.4",
     "babel-loader": "^8.0.6",
     "html-webpack-plugin": "^3.2.0",
-    "husky": "^3.0.4",
+    "husky": "^3.1.0",
     "postcss-loader": "^3.0.0",
     "standard": "^14.2.0",
-    "standard-version": "^7.0.0",
-    "webpack": "^4.39.2",
+    "standard-version": "^7.0.1",
+    "webpack": "^4.41.3",
     "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.10.0"
   },
   "husky": {
     "hooks": {
