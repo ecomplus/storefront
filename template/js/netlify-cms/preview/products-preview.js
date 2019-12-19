@@ -3,7 +3,7 @@ import displayWidget from './display-widget'
 import fetchPage from './fetch-page'
 import previewCarousel from './preview-carousel'
 
-export default class ProductsPreview extends React.Component {
+export default class ProductsPreview extends window.React.Component {
   constructor () {
     super()
     this.state = {
