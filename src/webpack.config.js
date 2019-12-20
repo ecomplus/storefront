@@ -130,7 +130,7 @@ const config = {
 
       // transpile and polyfill JS with Babel
       {
-        test: /^(.(?!\.min.js$))+\.m?js$/,
+        test: /^(.(\.runtime|(?!\.min.js$)))+\.m?js$/,
         exclude: process.env.BABEL_LOADER_EXCLUDE ||
           /node_modules(\/(?![^/]+(\/[^/]+)?\/template\/js\/).+)/,
         use: {
