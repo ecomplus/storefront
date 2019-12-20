@@ -5,7 +5,7 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront-template/dist')
-const { dependencies } = require('./package.json')
+const { dependencies, peerDependencies } = require('./package.json')
 
 // preset default output object
 const output = {
@@ -91,7 +91,10 @@ const config = {
       }
     }
     // exclude all imported libs on production by default
-    : new RegExp('^(' + Object.entries(dependencies).map(([pkg]) => pkg).join('|') + ')(/|$)', 'i')
+    : new RegExp('^(' + Object.entries({
+      ...peerDependencies,
+      ...dependencies
+    }).map(([pkg]) => pkg).join('|') + ')(/|$)', 'i')
 }
 
 if (devMode) {
