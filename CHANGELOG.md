@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.9](https://github.com/ecomclub/storefront-framework/compare/v5.2.8...v5.2.9) (2019-12-20)
+
+
+### Bug Fixes
+
+* **webpack-babel-rule:** match js files with .runtime even if minified ([01c45bd](https://github.com/ecomclub/storefront-framework/commit/01c45bd0309ed1101823cd0097e0b05a7822fd68))
+
 ### [5.2.8](https://github.com/ecomclub/storefront-framework/compare/v5.2.7...v5.2.8) (2019-12-17)
 
 
