@@ -9,6 +9,18 @@ export default (options = {}, elClass = 'product-card') => {
   const load = $productCard => {
     if (!$productCard.classList.contains('ec-product-card')) {
       const { productId, sku } = $productCard.dataset
+      let product
+      const $parent = $productCard.parentNode
+      if ($parent) {
+        product = $parent.dataset.product
+        if (typeof product === 'string') {
+          try {
+            product = JSON.parse(product)
+          } catch (e) {
+            product = undefined
+          }
+        }
+      }
 
       new Vue({
         components: {
@@ -19,6 +31,7 @@ export default (options = {}, elClass = 'product-card') => {
           return {
             options,
             productId,
+            product,
             sku
           }
         },
@@ -41,6 +54,7 @@ export default (options = {}, elClass = 'product-card') => {
           :data-product-id="productId"
           :data-sku="sku"
           :productId="productId"
+          :product="product"
           @buy="addToCart"
         >
           ${$productCard.outerHTML}
