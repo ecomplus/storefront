@@ -137,7 +137,7 @@ const config = {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-env', { useBuiltIns: 'usage', corejs: '3.5' }]
+              ['@babel/preset-env', { useBuiltIns: 'usage', corejs: '3.6' }]
             ],
             plugins: [
               '@babel/plugin-syntax-dynamic-import'
