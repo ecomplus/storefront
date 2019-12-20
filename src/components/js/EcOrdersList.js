@@ -2,7 +2,6 @@ import { i18n, formatDate, formatMoney } from '@ecomplus/utils'
 import EcomPassport from '@ecomplus/passport-client'
 import EcOrderStep from './../EcOrderStep.vue'
 import EcOrderInfo from './../EcOrderInfo.vue'
-import EcOrderSummary from './../EcOrderSummary.vue'
 
 import {
   _OrderStatus
@@ -13,8 +12,7 @@ export default {
 
   components: {
     EcOrderStep,
-    EcOrderInfo,
-    EcOrderSummary
+    EcOrderInfo
   },
 
   props: {
