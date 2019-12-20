@@ -20,7 +20,7 @@ export default options => {
 
       const $shelfContainer = document.createElement('div')
       $shelfContainer.className = 'trustvox-shelf-container'
-      $shelfContainer.setAttribute('data-trustvox-product-code', 'produto_teste_1234')
+      $shelfContainer.setAttribute('data-trustvox-product-code', context.sku)
       $link.appendChild($shelfContainer)
 
       const $ratingClickHere = document.createElement('span')
