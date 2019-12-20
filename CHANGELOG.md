@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.14](https://github.com/ecomclub/widget-product-card/compare/v0.2.13...v0.2.14) (2019-12-20)
+
+
+### Features
+
+* **widget:** getting item data from parent element ([f88fe2b](https://github.com/ecomclub/widget-product-card/commit/f88fe2b98beb4cefbffdee0e66c7ec2d6155d16d))
+
+
+### Bug Fixes
+
+* **product-card:** handle isLoadDisabled and isLoading (skip error msg) ([99a4445](https://github.com/ecomclub/widget-product-card/commit/99a4445457eeac9af6bf53a78ec77213fd0dab3b))
+
 ### [0.2.13](https://github.com/ecomclub/widget-product-card/compare/v0.2.12...v0.2.13) (2019-12-18)
 
 
