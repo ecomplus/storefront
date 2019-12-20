@@ -76,10 +76,7 @@
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "babel-eslint": "^10.0.3",
-    "core-js": "^3.6.0",
-    "ejs": "^3.0.1",
     "husky": "^3.1.0",
-    "lodash": "^4.17.15",
     "standard": "^14.3.1",
     "standard-version": "^7.0.1"
   },
