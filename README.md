@@ -19,30 +19,31 @@ but you should use as possible the ones listed below to keep your
 widgets more stable, because we will try to keep it even with
 new major releases.
 
-- `#menu`
-- `#main`
-  - `#header`
-    - `#logo`
-    - `#user-button`
-    - `#cart-button`
-    - `#search-form`
-      - `#search-input`
-  - `#content`
-    - `.products-carousel`
-    - `.retail-grid`
-    - `.product-card` (`[data-to-render="true"]`)
-    - `#category`
-    - `#brand`
-    - `#collection`
-    - `#product`
-      - `#product-block` (`[data-to-render="true"]`)
-      - `#product-description`
-      - `#product-specs`
-    - `#search`
-      - `#search-engine`
-  - `#overlay`
-- `#spa`
-  - `#storefront-app`
+- `aside#menu`
+- `main#main`
+  - `header#header`
+    - `img#logo`
+    - `a#user-button`
+    - `a#cart-button`
+    - `form#search-form`
+      - `input#search-input`
+  - `article#content`
+    - `section.products-carousel`
+    - `section.retail-grid`
+    - `article[data-product="{...}"]`
+      - `div.product-card[data-to-render="true"]`
+    - `div#category`
+    - `div#brand`
+    - `div#collection`
+    - `div#product`
+      - `section#product-block[data-to-render="true"]`
+      - `section#product-description`
+      - `section#product-specs`
+    - `section#search`
+      - `div#search-engine`
+  - `div#overlay`
+- `main#spa`
+  - `div#storefront-app`
 
 ### Search query
 
