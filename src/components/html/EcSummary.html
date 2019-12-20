@@ -21,7 +21,7 @@
           </span>
           {{ formatMoney(price(item)) }}
           <br>
-          <a v-if="item.slug" :href="item.slug" target="_blank">
+          <a v-if="item.slug" :href="`/${item.slug}`" target="_blank">
             <small>{{ name(item) }}</small>
           </a>
           <small v-else>{{ name(item) }}</small>
