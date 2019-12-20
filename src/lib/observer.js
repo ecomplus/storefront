@@ -7,6 +7,6 @@ export default (el, callback) => {
     attributeOldValue: true,
     characterDataOldValue: true
   }
-  const observer = new MutationObserver(callback)
+  const observer = new window.MutationObserver(callback)
   observer.observe(el, config)
 }

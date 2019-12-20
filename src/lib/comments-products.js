@@ -1,6 +1,7 @@
 export default options => {
   const $productBlock = document.getElementById('product')
   const context = window._context.body
+
   const moConfig = {
     childList: false,
     attributes: true,
@@ -55,13 +56,12 @@ export default options => {
             }
           }
         }
-        mo = new MutationObserver(callback)
+        mo = new window.MutationObserver(callback)
         mo.observe($shelfProduct.childNodes[i], moConfig)
       }
     }
 
-    let pictures = []
-
+    const pictures = []
     context.pictures.forEach(picture => {
       if (picture.normal) {
         pictures.push(picture.normal.url)
@@ -69,17 +69,15 @@ export default options => {
     })
 
     window._trustvox = window._trustvox || []
-    window._trustvox.push(['_storeId', options.storeId])
+    window._trustvox.push(['_storeId', options.trustvoxStoreId])
     window._trustvox.push(['_productId', context.sku])
     window._trustvox.push(['_productName', context.name])
     window._trustvox.push(['_productPhotos', pictures])
 
-    //
     const $trustvoxWidget = document.createElement('div')
     $trustvoxWidget.id = '_trustvox_widget'
     document.getElementById('product').appendChild($trustvoxWidget)
 
-    // 
     const interval = setInterval(() => {
       if (widgetIsRended) {
         mo.disconnect()

@@ -2,18 +2,17 @@
 
 const devMode = process.env.NODE_ENV !== 'production'
 const path = require('path')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront-template/dist')
 const { dependencies } = require('./package.json')
 
 // preset default output object
 const output = {
-  library: 'widgetExampleName',
+  library: 'widgetTrustvox',
   libraryTarget: 'umd',
   libraryExport: 'default',
   path: path.resolve(__dirname, 'dist'),
-  filename: 'widget-example-name.min.js'
+  filename: 'widget-trustvox.min.js'
 }
 
 // base Webpack config
@@ -31,56 +30,16 @@ const config = {
     colors: true
   },
   devtool: 'source-map',
-  plugins: [
-    new VueLoaderPlugin()
-  ],
-
+  plugins: [],
   module: {
     rules: [
       {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          compilerOptions: {
-            whitespace: devMode ? 'preserve' : 'condense'
-          }
-        }
-      },
-      {
         test: /^(.(?!\.min.js$))+\.m?js$/,
         loader: 'babel-loader'
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        use: 'file-loader'
-      },
-      {
-        test: /\.s?css$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              minimize: !devMode,
-              plugins: [
-                require('autoprefixer')(),
-                require('cssnano')({ preset: 'default' })
-              ]
-            }
-          },
-          'sass-loader'
-        ]
       }
     ]
   },
-  
-  resolve: {
-    alias: {
-      vue$: 'vue/dist/vue.esm.js'
-    }
-  },  
+
   externals: devMode
     // external ecomUtils on dev server to get config correctly
     ? {
