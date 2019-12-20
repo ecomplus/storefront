@@ -225,7 +225,9 @@ export default {
       this.loginErrorAlert = false
       if (newStatus) {
         setTimeout(() => {
-          this.$refs.input.focus()
+          if (this.$refs.input) {
+            this.$refs.input.focus()
+          }
         }, 300)
       }
     }
