@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.6](https://github.com/ecomclub/widget-user/compare/v0.9.5...v0.9.6) (2019-12-20)
+
+
+### Bug Fixes
+
+* **login-form:** prevent error with undefined $refs.input (chrome) ([548754a](https://github.com/ecomclub/widget-user/commit/548754ac0847404ecb3508a722953070d1edc24b))
+* **popover:** manually handling popover effects (show/hide) ([b4f4f49](https://github.com/ecomclub/widget-user/commit/b4f4f49440b24b6629362214af5e5f185b6ddec2))
+
 ### [0.9.5](https://github.com/ecomclub/widget-user/compare/v0.9.4...v0.9.5) (2019-12-18)
 
 ### [0.9.4](https://github.com/ecomclub/widget-user/compare/v0.9.3...v0.9.4) (2019-12-17)
