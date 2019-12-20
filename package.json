@@ -30,11 +30,11 @@
   },
   "homepage": "https://github.com/ecomclub/widget-user#readme",
   "peerDependencies": {
-    "@ecomplus/passport-client": "^0.7.13",
-    "@ecomplus/storefront-twbs": "^4.0.3",
-    "@ecomplus/utils": "^1.2.2",
-    "core-js": "^3.6.0",
-    "vue": "^2.6.11"
+    "@ecomplus/passport-client": "0.7.x",
+    "@ecomplus/storefront-twbs": "4.x",
+    "@ecomplus/utils": "1.x",
+    "core-js": "3.x",
+    "vue": "2.x"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
