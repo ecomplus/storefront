@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.3](https://github.com/ecomclub/storefront-app/compare/v1.4.2...v1.4.3) (2019-12-20)
+
+
+### Bug Fixes
+
+* **summary:** fix items link to /slug ([a02d528](https://github.com/ecomclub/storefront-app/commit/a02d528ebf9d9e10b9636f39edc917105f1b2120))
+
 ### [1.4.2](https://github.com/ecomclub/storefront-app/compare/v1.4.1...v1.4.2) (2019-12-19)
 
 
