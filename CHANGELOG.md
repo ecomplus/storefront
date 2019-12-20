@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.26.0](https://github.com/ecomclub/storefront-template/compare/v1.25.5...v1.26.0) (2019-12-20)
+
+
+### Features
+
+* **product-card:** save part of item payload on data ([f8974db](https://github.com/ecomclub/storefront-template/commit/f8974dbb7865bc67392ef7d9fa6c022c06f97b30))
+
 ### [1.25.5](https://github.com/ecomclub/storefront-template/compare/v1.25.4...v1.25.5) (2019-12-20)
 
 ### [1.25.4](https://github.com/ecomclub/storefront-template/compare/v1.25.3...v1.25.4) (2019-12-19)
