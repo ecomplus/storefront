@@ -39,6 +39,7 @@ export default {
     return {
       ecomPassport: new EcomPassport(this.storeId, this.lang),
       showPopover: false,
+      popoverTriggers: 'click blur',
       waiting: false,
       waitingPopup: false,
       isLogged: false,
@@ -48,7 +49,8 @@ export default {
       showLoginForm: false,
       popupAlertCount: 0,
       loginErrorAlert: false,
-      noProfileFound: false
+      noProfileFound: false,
+      popoverHideTimer: null
     }
   },
 
@@ -66,18 +68,28 @@ export default {
     dictionary,
 
     update () {
+      this.fixPopoverTriggers()
       const { isLogged, getCustomerName } = this.ecomPassport
       this.name = getCustomerName()
       this.isLogged = isLogged()
       this.email = ''
       this.popupAlertCount = 0
-      if (this.isLogged && this.waitingPopup) {
+      if (this.isLogged) {
         this.showPopover = true
+        setTimeout(() => {
+          if (this.showPopover) {
+            this.popoverHideTimer = setTimeout(() => {
+              this.showPopover = false
+            }, 2000)
+          }
+        }, 200)
       }
       this.waitingPopup = false
+      clearTimeout(this.popoverHideTimer)
     },
 
     waitPromise (promise) {
+      this.fixPopoverTriggers()
       const vm = this
       vm.waiting = true
       promise
@@ -196,6 +208,15 @@ export default {
       } else {
         this.resetErrors()
       }
+    },
+
+    fixPopoverTriggers () {
+      if (this.showPopover) {
+        this.popoverTriggers = 'manual'
+        setTimeout(() => {
+          this.popoverTriggers = 'click blur'
+        }, 310)
+      }
     }
   },
 
@@ -224,12 +245,17 @@ export default {
     showLoginForm (newStatus) {
       this.loginErrorAlert = false
       if (newStatus) {
+        this.fixPopoverTriggers()
         setTimeout(() => {
           if (this.$refs.input) {
             this.$refs.input.focus()
           }
         }, 300)
       }
+    },
+
+    showPopover () {
+      clearTimeout(this.popoverHideTimer)
     }
   }
 }
