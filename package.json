@@ -10,7 +10,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "serve": "webpack-dev-server",
-    "release": "rm -rf ./dist && npm run build && standard-version"
+    "release": "rm -rf ./dist && npm ddp && npm run build && standard-version"
   },
   "repository": {
     "type": "git",
@@ -38,8 +38,8 @@
     "lozad": "^1.14.0",
     "vue": "^2.6.11"
   },
-  "peerDependencies": {
-    "@ecomplus/widget-product": "^0.3.8"
+  "optionalDependencies": {
+    "@ecomplus/widget-product": "0.3.x"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
