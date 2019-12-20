@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/ecomclub/widget-trustvox/compare/v0.1.1...v0.1.2) (2019-12-20)
+
+
+### Bug Fixes
+
+* **rating-products:** check dom element before continue ([e89f162](https://github.com/ecomclub/widget-trustvox/commit/e89f16246d6214554fb8f748261a96bf3c61d73e))
+
 ### [0.1.1](https://github.com/ecomclub/widget-trustvox/compare/v0.1.0...v0.1.1) (2019-12-19)
 
 
