@@ -16,7 +16,7 @@
     "build": "ECOMCLIENT_NOTIMEOUT=true WEBPACK_BUILD_DEV=true npm run pack build",
     "build:site": "ECOMCLIENT_NOTIMEOUT=true npm run pack build",
     "build:lib": "NODE_ENV=production webpack",
-    "release": "npm run build && standard-version",
+    "release": "npm ddp && npm run build && standard-version",
     "test:install": "rm -rf ./copy && mkdir ./copy && TEMPLATE_DIR=copy node ./scripts/install.js",
     "test:copy": "rm -rf ./copy && node ./scripts/copy.js --dest=copy"
   },
