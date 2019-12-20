@@ -3,7 +3,7 @@
   :class="body._id && !isActive ? 'ec-product-card--inactive' : null"
 >
   <transition enter-active-class="animated fadeIn">
-    <section v-if="body._id">
+    <section v-if="!isLoading">
       <span v-if="isActive && discount > 0" class="ec-product-card__offer-stamp">
         -<b>{{ discount }}</b>%
       </span>
@@ -60,7 +60,7 @@
     </section>
   </transition>
 
-  <template v-if="!body._id">
+  <template v-if="isLoading">
     <slot />
     <div class="alert alert-warning small" role="alert" v-if="error">
       {{ error }}

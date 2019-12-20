@@ -21,20 +21,16 @@ export default {
       type: Number,
       default: $ecomConfig.get('store_id')
     },
-    productId: {
-      type: String
-    },
-    product: {
-      type: Object
-    },
-    buyText: {
-      type: String
-    }
+    productId: String,
+    product: Object,
+    buyText: String,
+    isLoadDisabled: Boolean
   },
 
   data () {
     return {
       body: {},
+      isLoading: false,
       error: ''
     }
   },
@@ -64,6 +60,7 @@ export default {
 
     fetchItem () {
       if (this.productId) {
+        this.isLoading = true
         const { storeId, productId } = this
         store({ url: `/products/${productId}.json`, storeId })
           .then(({ data }) => {
@@ -73,9 +70,14 @@ export default {
           })
           .catch(err => {
             console.error(err)
-            this.error = this.lang === 'pt_br'
-              ? 'Erro de conexão, clique no produto para tentar novamente'
-              : 'Connection error, click product to try again'
+            if (!this.body.name || !this.body.slug || !this.body.pictures) {
+              this.error = this.lang === 'pt_br'
+                ? 'Erro de conexão, clique no produto para tentar novamente'
+                : 'Connection error, click product to try again'
+            }
+          })
+          .finally(() => {
+            this.isLoading = false
           })
       }
     }
@@ -84,7 +86,8 @@ export default {
   created () {
     if (this.product) {
       this.body = this.product
-    } else {
+    }
+    if (!this.isLoadDisabled) {
       this.fetchItem()
     }
   }
