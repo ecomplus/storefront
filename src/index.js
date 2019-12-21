@@ -49,64 +49,69 @@ export default (options = {}, elClass = 'product-card') => {
     }).$mount($productCard)
   }
 
-  const load = $productCard => {
-    if (!$productCard.classList.contains('ec-product-card')) {
-      const { productId, sku } = $productCard.dataset
-      let product
-      const $parent = $productCard.parentNode
-      if ($parent) {
-        product = $parent.dataset.product
-        if (typeof product === 'string') {
-          try {
-            product = JSON.parse(product)
-          } catch (e) {
-            product = undefined
-          }
-        }
-      }
-      setupComponent($productCard, productId, sku, product)
-    }
-  }
-
   const $productCards = document.querySelectorAll(`.${elClass}`)
-  const loadWithObserver = () => {
-    const observer = lozad($productCards, { load })
-    observer.observe()
-  }
-
   const productIds = []
-  const cardsById = {}
   for (let i = 0; i < $productCards.length; i++) {
     if ($productCards[i]) {
       const { productId } = $productCards[i].dataset
       if (productIds.indexOf(productId) === -1) {
         productIds.push(productId)
       }
-      if (!cardsById[productId]) {
-        cardsById[productId] = []
-      }
-      cardsById[productId].push($productCards[i])
     }
   }
 
-  if (productIds.length >= 6 && productIds.length <= 70) {
+  let preFetchPromise
+  if (productIds.length >= 6 && productIds.length <= 70 && !options.skipSearchApi) {
     const search = new EcomSearch()
     delete search.dsl.aggs
     delete search.dsl.sort
-    search.setPageSize(productIds.length).setProductIds(productIds).fetch()
-      .then(() => {
-        search.getItems().forEach(item => {
-          const { _id, sku } = item
-          cardsById[_id].forEach($productCard => {
-            setupComponent($productCard, _id, sku, item, true)
-          })
-        })
-      })
+    search.setPageSize(productIds.length).setProductIds(productIds)
+
+    preFetchPromise = search.fetch()
+      .then(() => search.getItems())
       .catch(err => {
         console.error(err)
-        loadWithObserver()
       })
   } else {
-    loadWithObserver()
+    preFetchPromise = Promise.resolve()
   }
+
+  const load = $productCard => {
+    if ($productCard) {
+      const { productId, sku, toRender } = $productCard.dataset
+      if (toRender) {
+        let product
+
+        preFetchPromise
+          .then(items => {
+            if (Array.isArray(items)) {
+              product = items.find(({ _id }) => _id === productId)
+            }
+          })
+
+          .finally(() => {
+            let isLoaded
+            if (product) {
+              isLoaded = true
+            } else {
+              const $parent = $productCard.parentNode
+              if ($parent) {
+                product = $parent.dataset.product
+                if (typeof product === 'string') {
+                  try {
+                    product = JSON.parse(product)
+                  } catch (e) {
+                    product = undefined
+                  }
+                }
+              }
+            }
+            setupComponent($productCard, productId, sku, product, isLoaded)
+          })
+      }
+    }
+  }
+
+  const observer = lozad($productCards, { load })
+  observer.observe()
 }
