@@ -41,8 +41,13 @@ const loadWidget = (pkg, runImport) => {
 if (!isCheckout) {
   loadWidget(
     '@ecomplus/widget-product-card',
-    () => Promise.resolve({ default: widgetProductCard })
+    () => new Promise(resolve => {
+      setTimeout(() => {
+        resolve({ default: widgetProductCard })
+      }, 50)
+    })
   )
+
   loadWidget(
     '@ecomplus/widget-user',
     () => import('@ecomplus/widget-user/dist/widget-user.runtime.min.js')

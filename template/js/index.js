@@ -19,6 +19,8 @@ import Glide from '@glidejs/glide'
 import $ from './lib/$'
 import $overlay from './lib/$overlay'
 
+import './lib/load-widgets'
+
 window.lozad = lozad
 window.Vue = Vue
 window._ = { cloneDeep, merge }
@@ -37,9 +39,9 @@ window.storefront = {
   ...events
 }
 
-import('./lib/load-widgets').then(() => {
-  import('./lib/fetch-info')
-})
+setTimeout(() => {
+  import(/* webpackPreload: true */ './lib/fetch-info')
+}, 300)
 
 if (window.pluginPhotoswipe) {
   import('./lib/photoswipe')
