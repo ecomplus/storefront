@@ -89,11 +89,11 @@ export default (options = {}, elClass = 'product-card') => {
     }
   }
 
-  if (productIds.length >= 6) {
+  if (productIds.length >= 6 && productIds.length <= 70) {
     const search = new EcomSearch()
     delete search.dsl.aggs
     delete search.dsl.sort
-    search.setProductIds(productIds).fetch()
+    search.setPageSize(productIds.length).setProductIds(productIds).fetch()
       .then(() => {
         search.getItems().forEach(item => {
           const { _id, sku } = item
