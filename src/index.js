@@ -104,5 +104,7 @@ export default (options = {}, elClass = 'product-card') => {
         console.error(err)
         loadWithObserver()
       })
+  } else {
+    loadWithObserver()
   }
 }
