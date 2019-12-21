@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.26.1](https://github.com/ecomclub/storefront-template/compare/v1.26.0...v1.26.1) (2019-12-21)
+
+
+### Bug Fixes
+
+* **product-card:** add quantity to stored data ([bc7adad](https://github.com/ecomclub/storefront-template/commit/bc7adad50cb0fc08e83fb52b5009b33f995ce49a))
+
 ## [1.26.0](https://github.com/ecomclub/storefront-template/compare/v1.25.5...v1.26.0) (2019-12-20)
 
 
