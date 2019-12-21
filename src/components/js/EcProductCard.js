@@ -24,7 +24,7 @@ export default {
     productId: String,
     product: Object,
     buyText: String,
-    isLoadDisabled: Boolean
+    isLoaded: Boolean
   },
 
   data () {
@@ -67,6 +67,7 @@ export default {
             this.body = data
             delete this.body.body_html
             delete this.body.body_text
+            this.$emit('update:is-loaded', true)
           })
           .catch(err => {
             console.error(err)
@@ -87,7 +88,7 @@ export default {
     if (this.product) {
       this.body = this.product
     }
-    if (!this.isLoadDisabled) {
+    if (!this.isLoaded) {
       this.fetchItem()
     }
   }
