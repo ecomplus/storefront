@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.22](https://github.com/ecomclub/widget-product-card/compare/v0.2.21...v0.2.22) (2019-12-21)
+
+
+### Bug Fixes
+
+* **component:** set available and visible if undefined ([17998d0](https://github.com/ecomclub/widget-product-card/commit/17998d062b9b67012fded7e1171cc8add79b0394))
+
 ### [0.2.21](https://github.com/ecomclub/widget-product-card/compare/v0.2.20...v0.2.21) (2019-12-21)
 
 
