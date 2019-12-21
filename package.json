@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-template",
-  "version": "1.26.1",
+  "version": "1.26.2",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "template/js/index.js",
   "jsdelivr": "dist/storefront.js",
@@ -56,7 +56,7 @@
     "@ecomplus/utils": "^1.2.2",
     "@ecomplus/widget-minicart": "^0.6.11",
     "@ecomplus/widget-product": "^0.3.21",
-    "@ecomplus/widget-product-card": "^0.2.18",
+    "@ecomplus/widget-product-card": "^0.2.19",
     "@ecomplus/widget-search": "^0.5.10",
     "@ecomplus/widget-search-engine": "^0.2.4",
     "@ecomplus/widget-tag-manager": "^1.0.0",
