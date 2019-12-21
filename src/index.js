@@ -68,7 +68,13 @@ export default (options = {}, elClass = 'product-card') => {
     search.setPageSize(productIds.length).setProductIds(productIds)
 
     preFetchPromise = search.fetch()
-      .then(() => search.getItems())
+      .then(() => {
+        const items = search.getItems()
+        for (let i = 0; i < 2; i++) {
+          load($productCards[i])
+        }
+        return items
+      })
       .catch(err => {
         console.error(err)
       })
