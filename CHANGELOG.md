@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.19](https://github.com/ecomclub/widget-product-card/compare/v0.2.18...v0.2.19) (2019-12-21)
+
+
+### Bug Fixes
+
+* **widget:** set page size for search query ([7ca6002](https://github.com/ecomclub/widget-product-card/commit/7ca6002aca85f31a214318af56d6cd60a6484ff9))
+
 ### [0.2.18](https://github.com/ecomclub/widget-product-card/compare/v0.2.17...v0.2.18) (2019-12-21)
 
 ### [0.2.17](https://github.com/ecomclub/widget-product-card/compare/v0.2.16...v0.2.17) (2019-12-21)
