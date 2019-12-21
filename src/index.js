@@ -74,28 +74,30 @@ export default (options = {}, elClass = 'product-card') => {
     observer.observe()
   }
 
-  const skus = []
-  const cardsBySku = {}
+  const productIds = []
+  const cardsById = {}
   for (let i = 0; i < $productCards.length; i++) {
     if ($productCards[i]) {
-      const { sku } = $productCards[i].dataset
-      if (skus.indexOf(sku) === -1) {
-        skus.push(sku)
+      const { productId } = $productCards[i].dataset
+      if (productIds.indexOf(productId) === -1) {
+        productIds.push(productId)
       }
-      if (!cardsBySku[sku]) {
-        cardsBySku[sku] = []
+      if (!cardsById[productId]) {
+        cardsById[productId] = []
       }
-      cardsBySku[sku].push($productCards[i])
+      cardsById[productId].push($productCards[i])
     }
   }
 
-  if (skus.length >= 8) {
+  if (productIds.length >= 6) {
     const search = new EcomSearch()
-    search.setSkus(skus).fetch()
+    delete search.dsl.aggs
+    delete search.dsl.sort
+    search.setProductIds(productIds).fetch()
       .then(() => {
         search.getItems().forEach(item => {
           const { _id, sku } = item
-          cardsBySku[sku].forEach($productCard => {
+          cardsById[_id].forEach($productCard => {
             setupComponent($productCard, _id, sku, item, true)
           })
         })
