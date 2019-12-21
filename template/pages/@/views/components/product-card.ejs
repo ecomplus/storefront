@@ -1,7 +1,7 @@
 <%
 // save part of item payload on data
 const itemData = {}
-let itemDataFields = ['_id', 'sku', 'slug']
+let itemDataFields = ['_id', 'sku', 'slug', 'quantity']
 if (Array.isArray(_.itemDataFields)) {
   itemDataFields = itemDataFields.concat(_.itemDataFields)
 }
