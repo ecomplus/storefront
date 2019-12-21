@@ -87,6 +87,12 @@ export default {
   created () {
     if (this.product) {
       this.body = this.product
+      if (this.product.available === undefined) {
+        this.body.available = true
+      }
+      if (this.product.visible === undefined) {
+        this.body.visible = true
+      }
     }
     if (!this.isLoaded) {
       this.fetchItem()
