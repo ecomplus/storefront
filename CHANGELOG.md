@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.21](https://github.com/ecomclub/widget-product-card/compare/v0.2.20...v0.2.21) (2019-12-21)
+
+
+### Bug Fixes
+
+* **widget:** force preload first 2 cards ([f09fe3d](https://github.com/ecomclub/widget-product-card/commit/f09fe3d464b7732fa2bb229a9e7bf38ee093c76d))
+
 ### [0.2.20](https://github.com/ecomclub/widget-product-card/compare/v0.2.19...v0.2.20) (2019-12-21)
 
 ### [0.2.19](https://github.com/ecomclub/widget-product-card/compare/v0.2.18...v0.2.19) (2019-12-21)
