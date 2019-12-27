@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.24](https://github.com/ecomclub/widget-product-card/compare/v0.2.23...v0.2.24) (2019-12-27)
+
+
+### Features
+
+* **product-card:** handling addToCart on component source ([26d60c2](https://github.com/ecomclub/widget-product-card/commit/26d60c2bec843c43f3b3a31e265660b974896240))
+
 ### [0.2.23](https://github.com/ecomclub/widget-product-card/compare/v0.2.22...v0.2.23) (2019-12-23)
 
 ### [0.2.22](https://github.com/ecomclub/widget-product-card/compare/v0.2.21...v0.2.22) (2019-12-21)
