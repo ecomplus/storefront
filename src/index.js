@@ -3,7 +3,6 @@ import lozad from 'lozad'
 import '@ecomplus/storefront-twbs'
 import EcProductCard from './components/EcProductCard.vue'
 import EcomSearch from '@ecomplus/search-engine'
-import ecomCart from '@ecomplus/shopping-cart'
 import { dynamicVueSlots } from '@ecomplus/widget-product/src/lib/utils'
 
 export default (options = {}, elClass = 'product-card') => {
@@ -21,17 +20,6 @@ export default (options = {}, elClass = 'product-card') => {
         isLoaded: () => isLoaded
       },
 
-      methods: {
-        addToCart ({ product }) {
-          const { variations, slug } = product
-          if (variations && variations.length) {
-            window.location = `/${slug}`
-          } else {
-            ecomCart.addProduct(product)
-          }
-        }
-      },
-
       template: `
       <ec-product-card
         class="${elClass}"
@@ -41,7 +29,6 @@ export default (options = {}, elClass = 'product-card') => {
         :productId="productId"
         :product="product"
         :isLoaded="isLoaded"
-        @buy="addToCart"
       >
         ${$productCard.outerHTML}
         ${dynamicVueSlots(options.slots)}
@@ -67,7 +54,7 @@ export default (options = {}, elClass = 'product-card') => {
     delete search.dsl.sort
     search.setPageSize(productIds.length).setProductIds(productIds)
 
-    preFetchPromise = search.fetch()
+    preFetchPromise = search.fetch({ timeout: 5000 })
       .then(() => {
         const items = search.getItems()
         for (let i = 0; i < 2; i++) {
