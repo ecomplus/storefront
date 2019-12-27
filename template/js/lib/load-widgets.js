@@ -17,7 +17,7 @@ const widgetsLoadPromises = []
 const widgetsMsDelay = window.location.hostname === 'localhost' ? 50 : 1
 
 const loadWidget = (pkg, runImport) => {
-  widgetsLoadPromises.push(new Promise(resolve => {
+  const waitWidgetResolve = new Promise(resolve => {
     setTimeout(() => {
       const widget = window._widgets && window._widgets[pkg]
       if (widget) {
@@ -27,7 +27,7 @@ const loadWidget = (pkg, runImport) => {
           (!desktopOnly || !isMobile) &&
           (isCheckout ? enableCheckout : !disablePages)
         ) {
-          runImport()
+          return runImport()
             .then(exp => {
               if (typeof exp.default === 'function') {
                 exp.default(options)
@@ -39,8 +39,12 @@ const loadWidget = (pkg, runImport) => {
             .finally(resolve)
         }
       }
+
+      resolve()
     }, widgetsMsDelay)
-  }))
+  })
+
+  widgetsLoadPromises.push(waitWidgetResolve)
 }
 
 if (!isCheckout) {
