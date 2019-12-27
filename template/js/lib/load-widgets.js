@@ -15,27 +15,30 @@ emitter.emit('ecom:ready')
 const isCheckout = window.location.pathname.startsWith('/app/')
 const isMobile = window.screen.width < 768
 const widgetsLoadPromises = []
+const widgetsMsDelay = window.location.hostname === 'localhost' ? 50 : 1
 
 const loadWidget = (pkg, runImport) => {
-  const widget = window._widgets && window._widgets[pkg]
-  if (widget) {
-    const { active, options, desktopOnly, enableCheckout, disablePages } = widget
-    if (
-      active &&
-      (!desktopOnly || !isMobile) &&
-      (isCheckout ? enableCheckout : !disablePages)
-    ) {
-      const importPromise = runImport()
-      importPromise.then(exp => {
-        if (typeof exp.default === 'function') {
-          exp.default(options)
-        }
-        emitter.emit(`widget:${pkg}`)
-        console.log(`Widget loaded: ${pkg}`)
-      })
-      widgetsLoadPromises.push(importPromise)
+  setTimeout(() => {
+    const widget = window._widgets && window._widgets[pkg]
+    if (widget) {
+      const { active, options, desktopOnly, enableCheckout, disablePages } = widget
+      if (
+        active &&
+        (!desktopOnly || !isMobile) &&
+        (isCheckout ? enableCheckout : !disablePages)
+      ) {
+        const importPromise = runImport()
+        importPromise.then(exp => {
+          if (typeof exp.default === 'function') {
+            exp.default(options)
+          }
+          emitter.emit(`widget:${pkg}`)
+          console.log(`Widget loaded: ${pkg}`)
+        })
+        widgetsLoadPromises.push(importPromise)
+      }
     }
-  }
+  }, widgetsMsDelay)
 }
 
 if (!isCheckout) {
@@ -44,7 +47,7 @@ if (!isCheckout) {
     () => new Promise(resolve => {
       setTimeout(() => {
         resolve({ default: widgetProductCard })
-      }, 50)
+      }, widgetsMsDelay)
     })
   )
 
