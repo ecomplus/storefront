@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/ecomclub/widget-tag-manager/compare/v1.0.0...v1.0.1) (2019-12-28)
+
+
+### Bug Fixes
+
+* **events:** add event name when missing and create prefix eec ([a0db64c](https://github.com/ecomclub/widget-tag-manager/commit/a0db64ca578f597a66c79ba1fc495c43089f2a6a))
+
 ## [1.0.0](https://github.com/ecomclub/widget-tag-manager/compare/v0.1.14...v1.0.0) (2019-12-12)
 
 ### [0.1.14](https://github.com/ecomclub/widget-tag-manager/compare/v0.1.13...v0.1.14) (2019-12-12)
