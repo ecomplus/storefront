@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/ecomclub/widget-tag-manager/compare/v1.0.1...v1.1.0) (2019-12-28)
+
+
+### Features
+
+* **impressions:** try to set list name when parsing dom impressions ([78c2c64](https://github.com/ecomclub/widget-tag-manager/commit/78c2c64745dfcbfb439be058037545c85b09542f))
+
 ### [1.0.1](https://github.com/ecomclub/widget-tag-manager/compare/v1.0.0...v1.0.1) (2019-12-28)
 
 
