@@ -28,7 +28,7 @@ new major releases.
     - `form#search-form`
       - `input#search-input`
   - `article#content`
-    - `section.products-carousel`
+    - `section.products-carousel[data-title]`
     - `section.retail-grid`
     - `article[data-product="{...}"]`
       - `div.product-card[data-to-render="true"]`
