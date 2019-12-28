@@ -4,10 +4,9 @@ const devMode = process.env.NODE_ENV !== 'production'
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront-template/dist')
-const { dependencies } = require('./package.json')
+const { dependencies, peerDependencies } = require('./package.json')
 const externals = require('@ecomplus/storefront-template/webpack.externals')
 
-// preset default output object
 const output = {
   library: 'widgetTagManager',
   libraryTarget: 'umd',
@@ -18,8 +17,7 @@ const output = {
 }
 output.chunkFilename = output.filename.replace('.min.js', '.[name].min.js')
 
-// base Webpack config
-const config = {
+const generalConfig = {
   mode: devMode ? 'development' : 'production',
   entry: path.resolve(__dirname, devMode ? 'docs/demo.js' : 'src/index.js'),
   output,
@@ -43,7 +41,6 @@ const config = {
   },
 
   externals: devMode
-    // external ecomUtils on dev server to get config correctly
     ? {
       '@ecomplus/utils': {
         commonjs: '@ecomplus/utils',
@@ -51,36 +48,32 @@ const config = {
         root: 'ecomUtils'
       }
     }
-    // exclude all imported libs on production by default
     : [
       externals,
       new RegExp('^(' +
-        Object.entries(dependencies)
+        Object.entries({ ...dependencies, ...peerDependencies })
           .map(([pkg]) => pkg).filter(pkg => !externals[pkg]).join('|') +
         ')(/|$)', 'i')
     ]
 }
 
 if (devMode) {
-  // inject widget script with HTML plugin
-  config.plugins.push(new HtmlWebpackPlugin({
+  generalConfig.plugins.push(new HtmlWebpackPlugin({
     template: path.resolve(templatePath, 'monitor-gamer-asus-rog-swift-led-24-widescreen-fhd-pg248q.html')
   }))
 }
 
-module.exports = devMode
-  // single config object for dev server
-  ? config
-  // production outputs with and without polyfill
-  : [
-    config,
-    {
-      ...config,
-      output: {
-        ...output,
-        libraryTarget: 'var',
-        path: path.join(output.path, 'root')
-      },
-      externals
-    }
-  ]
+module.exports = devMode ? generalConfig : [
+  generalConfig,
+
+  {
+    ...generalConfig,
+    output: {
+      ...output,
+      libraryTarget: 'var',
+      filename: output.filename.replace('.min.js', '.var.min.js'),
+      path: path.join(output.path, 'public')
+    },
+    externals
+  }
+]
