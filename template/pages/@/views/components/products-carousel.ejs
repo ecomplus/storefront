@@ -1,4 +1,11 @@
 <% if (Array.isArray(opt.items) && opt.items.length) { %>
+  <%
+  const title = opt.title ||
+    (opt.collection && opt.collection.name) ||
+    _.dictionary().popular_products
+  const link = opt.link || (opt.collection && opt.collection.slug)
+  %>
+
   <section
     class="products-carousel"
     data-size="<%= opt.items.length %>"
@@ -6,23 +13,20 @@
       data-collection-id="<%= opt.collection._id %>"
     <% } %>
     data-slideout-ignore
+    data-title="<%= title %>"
   >
     <h4 class="products-carousel__title">
-      <% if (opt.title) { %>
-        <% if (opt.link) { %>
-          <a href="<%= opt.link || 'javascript:;' %>">
-            <%= opt.title %>
+      <% if (opt.title || opt.collection) { %>
+        <% if (link) { %>
+          <a href="<%= link %>">
+            <%= title %>
           </a>
         <% } else { %>
-          <span><%= opt.title %></span>
+          <span><%= title %></span>
         <% } %>
-      <% } else if (opt.collection) { %>
-        <a href="<%= opt.collection.slug || 'javascript:;' %>">
-          <%= opt.collection.name %>
-        </a>
       <% } else { %>
         <a href="/search">
-          <%= _.dictionary().popular_products %>
+          <%= title %>
         </a>
       <% } %>
     </h4>
