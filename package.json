@@ -8,7 +8,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "serve": "webpack-dev-server",
-    "release": "rm -rf ./dist && npm run build && standard-version"
+    "release": "rm -rf ./dist && npm ddp && npm run build && standard-version"
   },
   "repository": {
     "type": "git",
@@ -53,10 +53,5 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  },
-  "browserslist": [
-    "last 1 version",
-    "not dead",
-    "> 0.2%"
-  ]
+  }
 }
