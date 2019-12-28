@@ -66,18 +66,16 @@ export default dataLayer => {
     }
 
     const addRouteToData = ({ name, params }) => {
-      if (name) {
-        switch (name) {
-          case 'cart':
-            emitCheckout(1, 'Review Cart')
-            break
-          case 'checkout':
-            emitCheckout(2, 'Confirm Purchase')
-            break
-          case 'confirmation':
-            emitPurchase(params.id)
-            break
-        }
+      switch (name) {
+        case 'cart':
+          emitCheckout(1, 'Review Cart')
+          break
+        case 'checkout':
+          emitCheckout(2, 'Confirm Purchase')
+          break
+        case 'confirmation':
+          emitPurchase(params.id)
+          break
       }
     }
 
