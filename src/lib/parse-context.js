@@ -8,6 +8,7 @@ export default dataLayer => {
 
     const productData = getProductData(body)
     const data = {
+      event: 'eec.detail',
       ecommerce: {
         currencyCode,
         detail: {

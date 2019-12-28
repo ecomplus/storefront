@@ -7,7 +7,7 @@ export default dataLayer => {
   const emitAddToCart = item => {
     const productData = getProductData(item)
     dataLayer.push({
-      event: 'addToCart',
+      event: 'eec.add',
       ecommerce: {
         currencyCode,
         add: {
@@ -15,13 +15,14 @@ export default dataLayer => {
         }
       }
     })
+    dataLayer.push({ event: 'addToCart' })
     productsBySku[item.sku] = productData
   }
 
   const emitRemoveFromCart = item => {
     const productData = productsBySku[item.sku]
     dataLayer.push({
-      event: 'removeFromCart',
+      event: 'eec.remove',
       ecommerce: {
         currencyCode,
         remove: {
@@ -31,6 +32,7 @@ export default dataLayer => {
         }
       }
     })
+    dataLayer.push({ event: 'removeFromCart' })
     delete productsBySku[item.sku]
   }
 

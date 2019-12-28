@@ -13,6 +13,7 @@ export default dataLayer => {
     }
 
     dataLayer.push({
+      event: 'eec.impressions',
       ecommerce: {
         currencyCode,
         impressions: skus.map(id => ({ id }))

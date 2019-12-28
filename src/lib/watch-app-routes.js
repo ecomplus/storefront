@@ -19,7 +19,7 @@ export default dataLayer => {
       const actionField = { step, option }
       if (step <= 1 || !isCartSent) {
         dataLayer.push({
-          event: 'checkout',
+          event: 'eec.checkout',
           ecommerce: {
             currencyCode,
             checkout: {
@@ -28,15 +28,17 @@ export default dataLayer => {
             }
           }
         })
+        dataLayer.push({ event: 'checkout' })
         isCartSent = true
       } else {
         dataLayer.push({
-          event: 'checkoutOption',
+          event: 'eec.checkout_option',
           ecommerce: {
             currencyCode,
             checkout_option: { actionField }
           }
         })
+        dataLayer.push({ event: 'checkoutOption' })
       }
     }
 
@@ -49,6 +51,7 @@ export default dataLayer => {
       ).toFixed(2)
 
       dataLayer.push({
+        event: 'eec.purchase',
         ecommerce: {
           currencyCode,
           purchase: {
@@ -66,7 +69,7 @@ export default dataLayer => {
       if (name) {
         const data = {
           name,
-          event: `goto:${name}`
+          event: `goto.${name}`
         }
         if (params) {
           for (const field in params) {
