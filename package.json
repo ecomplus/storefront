@@ -28,16 +28,14 @@
   },
   "homepage": "https://github.com/ecomclub/widget-tag-manager#readme",
   "peerDependencies": {
-    "@ecomplus/storefront-app": "^1.2.0",
-    "@ecomplus/utils": "^1.2.2",
-    "core-js": "^3.5.0"
+    "@ecomplus/utils": "1.x",
+    "core-js": "3.x"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@ecomplus/storefront-app": "^1.4.3",
     "@ecomplus/storefront-template": "^1.26.5",
     "@ecomplus/utils": "^1.2.6",
     "babel-eslint": "^10.0.3",
