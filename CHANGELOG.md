@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.26.6](https://github.com/ecomclub/storefront-template/compare/v1.26.5...v1.26.6) (2019-12-28)
+
+
+### Bug Fixes
+
+* **header:** fix position to relative to prevent childs overlaped ([a31f531](https://github.com/ecomclub/storefront-template/commit/a31f531d625a89572dc47c87081989d9d856ed91))
+* **widgets:** ensure widget start promise is always resolved ([cb856c2](https://github.com/ecomclub/storefront-template/commit/cb856c2a48dffa559abc1c732bcd275b28c75c77))
+* **widgets:** set widgets delay depending on hostname (dev server) ([d227a49](https://github.com/ecomclub/storefront-template/commit/d227a49a3f7d1fc4034fbb2213e6c54bd4588cad))
+
 ### [1.26.5](https://github.com/ecomclub/storefront-template/compare/v1.26.4...v1.26.5) (2019-12-23)
 
 ### [1.26.4](https://github.com/ecomclub/storefront-template/compare/v1.26.3...v1.26.4) (2019-12-21)
