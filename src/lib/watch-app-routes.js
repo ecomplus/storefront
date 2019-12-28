@@ -67,19 +67,6 @@ export default dataLayer => {
 
     const addRouteToData = ({ name, params }) => {
       if (name) {
-        const data = {
-          name,
-          event: `goto.${name}`
-        }
-        if (params) {
-          for (const field in params) {
-            if (params[field]) {
-              data[`params.${field}`] = params[field]
-            }
-          }
-        }
-        dataLayer.push(data)
-
         switch (name) {
           case 'cart':
             emitCheckout(1, 'Review Cart')
