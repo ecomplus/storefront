@@ -88,7 +88,7 @@ Promise.all(widgetsLoadPromises).then(() => {
   Promise.all(widgetsLoadPromises).then(() => {
     loadWidget(
       '@ecomplus/widget-tag-manager',
-      () => import('@ecomplus/widget-tag-manager')
+      () => import('@ecomplus/widget-tag-manager/src/index.js')
     )
     loadWidget(
       '@ecomplus/widget-trustvox',
