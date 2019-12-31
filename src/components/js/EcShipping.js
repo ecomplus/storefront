@@ -7,6 +7,28 @@ import dictionary from './../../lib/dictionary'
 const { localStorage } = window
 const zipStorageKey = 'ec-shipping-zip'
 
+const reduceItemBody = itemOrProduct => {
+  const shippedItem = {}
+  ;[
+    'product_id',
+    'variation_id',
+    'sku',
+    'name',
+    'quantity',
+    'currency_id',
+    'currency_symbol',
+    'price',
+    'final_price',
+    'dimensions',
+    'weight'
+  ].forEach(field => {
+    if (itemOrProduct[field] !== undefined) {
+      shippedItem[field] = itemOrProduct[field]
+    }
+  })
+  return shippedItem
+}
+
 export default {
   name: 'EcShipping',
 
@@ -99,13 +121,14 @@ export default {
         }
       }
       if (this.shippedItems.length) {
-        data.items = this.shippedItems
+        data.items = this.shippedItems.map(reduceItemBody)
         const itemsToSubtotal = (subtotal, item) => subtotal + price(item) * item.quantity
         data.subtotal = data.items.reduce(itemsToSubtotal, 0)
       }
       this.waiting = true
       modules({ url, method, storeId, data })
         .then(({ data }) => this.parseShippingOptions(data.result))
+        .catch(console.error)
         .finally(() => {
           this.waiting = false
         })
