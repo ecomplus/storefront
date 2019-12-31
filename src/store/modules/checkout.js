@@ -132,6 +132,14 @@ const mutations = {
 
   selectPaymentGateway (state, paymentGateway) {
     state.paymentGateway = paymentGateway || {}
+  },
+
+  resetCart (state) {
+    if (sessionStorage) {
+      sessionStorage.removeItem(couponStorageKey)
+    }
+    ecomCart.clear()
+    state.cart = ecomCart.data
   }
 }
 

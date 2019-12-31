@@ -39,7 +39,15 @@ export default {
   methods: {
     ...mapMutations([
       'addOrder',
-      'setOrders'
+      'setOrders',
+      'resetCart'
     ])
+  },
+
+  mounted () {
+    const { status } = this.order
+    if (status && status !== 'cancelled') {
+      this.resetCart()
+    }
   }
 }
