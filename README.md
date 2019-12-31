@@ -11,7 +11,7 @@ tool to develop and build
 e-commerce templates with
 [E-Com Plus APIs](https://developers.e-com.plus/docs/reference/)
 
-[Changelog](https://github.com/ecomclub/storefront-framework/blob/master/CHANGELOG.md)
+[CHANGELOG](https://github.com/ecomclub/storefront-framework/blob/master/CHANGELOG.md)
 
 ## Starter template
 
@@ -352,6 +352,15 @@ root will respect original filename.
 EJS on `template/pages/` will be parsed to `dist/[file].html`
 or `dist/[slug].html` in case of store resources or CMS
 folder collections.
+
+## Working with Webpack
+
+The easiest way to tweak the Webpack configuration is providing an object exported by
+`storefront.webpack.js` file on your project root.
+
+The object will be merged into the final
+[config](https://github.com/ecomclub/storefront-framework/blob/master/src/webpack.config.js)
+using [webpack-merge](https://github.com/survivejs/webpack-merge).
 
 ## Deploy with Netlify
 
