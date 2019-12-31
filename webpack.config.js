@@ -96,7 +96,7 @@ const config = {
 if (devMode) {
   // inject widget script with HTML plugin
   config.plugins.push(new HtmlWebpackPlugin({
-    template: path.resolve(templatePath, 'camisa-com-estampa-de-cavalos.html')
+    template: path.resolve(templatePath, 'monitor-gamer-asus-rog-swift-led-24-widescreen-fhd-pg248q.html')
   }))
 }
 
