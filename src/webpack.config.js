@@ -74,8 +74,8 @@ const config = {
   devtool: 'source-map',
   performance: {
     hints: devMode ? false : 'warning',
-    maxEntrypointSize: 800000,
-    maxAssetSize: 800000
+    maxEntrypointSize: 1000000,
+    maxAssetSize: 1000000
   },
   entry,
 
@@ -149,10 +149,15 @@ const config = {
   },
 
   resolve: {
-    alias: {
-      vue$: 'vue/dist/vue.esm.js',
-      '@ecomplus/storefront-renderer': '@ecomplus/storefront-renderer/dist/storefront.min.js'
-    }
+    alias: Object.assign(
+      { vue$: 'vue/dist/vue.esm.js' },
+      // aliases to @ecomplus libs raw source
+      ['utils', 'client', 'search-engine', 'passport-client', 'shopping-cart']
+        .reduce((alias, lib) => {
+          alias[`@ecomplus/${lib}$`] = `@ecomplus/${lib}/src/index.js`
+          return alias
+        }, {})
+    )
   }
 }
 
