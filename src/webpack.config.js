@@ -206,5 +206,14 @@ if (!process.env.WEBPACK_BUILD_LIB) {
   }
 }
 
+// optionally merge custom config object
+let customConfig
+try {
+  customConfig = require(path.join(process.cwd(), 'storefront.webpack'))
+} catch (e) {
+}
+
 // export Webpack config for storefront templates
-module.exports = config
+module.exports = typeof customConfig === 'object' && customConfig
+  ? require('webpack-merge')(config, customConfig)
+  : config
