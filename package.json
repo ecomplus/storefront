@@ -42,8 +42,7 @@
   "homepage": "https://github.com/ecomclub/storefront-template#readme",
   "peerDependencies": {
     "core-js": "3.x",
-    "ejs": "3.x",
-    "lodash": "4.x"
+    "ejs": "3.x"
   },
   "dependencies": {
     "@ecomplus/client": "^1.1.3",
