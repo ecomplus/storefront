@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/ecomclub/widget-tag-manager#readme",
   "peerDependencies": {
+    "@ecomplus/shopping-cart": ">=1 <3",
     "@ecomplus/utils": "1.x",
     "core-js": "3.x"
   },
@@ -40,7 +41,8 @@
     "@babel/preset-env": "^7.7.7",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@ecomplus/storefront-template": "^1.26.6",
+    "@ecomplus/shopping-cart": "^2.0.1",
+    "@ecomplus/storefront-snapshot": "^1.1.0",
     "@ecomplus/utils": "^1.2.7",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
