@@ -28,9 +28,7 @@
   },
   "homepage": "https://github.com/ecomclub/widget-tag-manager#readme",
   "peerDependencies": {
-    "@ecomplus/utils": "1.x"
-  },
-  "optionalDependencies": {
+    "@ecomplus/utils": "1.x",
     "core-js": "3.x"
   },
   "devDependencies": {
