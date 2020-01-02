@@ -127,9 +127,12 @@ module.exports = devMode ? generalConfig : [
     module: {
       rules: baseModuleRules
     },
+    optimization: {
+      minimize: false
+    },
     output: {
       ...output,
-      filename: output.filename.replace('.min.js', '.runtime.min.js')
+      filename: output.filename.replace('.min.js', '.runtime.js')
     },
     externals
   }
