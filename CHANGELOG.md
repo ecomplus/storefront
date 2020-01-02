@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.3.0](https://github.com/ecomclub/storefront-framework/compare/v5.2.9...v5.3.0) (2020-01-02)
+
+
+### Features
+
+* **webpack:** merge custom config object from `storefront.webpack.js` ([c4f75f7](https://github.com/ecomclub/storefront-framework/commit/c4f75f754fcd3fef1ca8e961978eca0fc8731605)), closes [#17](https://github.com/ecomclub/storefront-framework/issues/17)
+
 ### [5.2.9](https://github.com/ecomclub/storefront-framework/compare/v5.2.8...v5.2.9) (2019-12-20)
 
 
