@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0](https://github.com/ecomclub/widget-user/compare/v0.9.10...v0.10.0) (2020-01-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* **webpack:** removed .runtime.min.js output file
+
+### Bug Fixes
+
+* **component:** fixes for ecomplus/passport-client 1.x ([9e332be](https://github.com/ecomclub/widget-user/commit/9e332beed1fa3a8aefb47c4b22871dfdb9aad6c1))
+
+
+### build
+
+* **webpack:** update runtime output filename and optim ([de8edff](https://github.com/ecomclub/widget-user/commit/de8edff939f28f2916c0e75c7a182dc27498ab9d))
+
 ### [0.9.10](https://github.com/ecomclub/widget-user/compare/v0.9.9...v0.9.10) (2019-12-23)
 
 ### [0.9.9](https://github.com/ecomclub/widget-user/compare/v0.9.8...v0.9.9) (2019-12-20)
