@@ -3,7 +3,7 @@
   "version": "0.10.0",
   "description": "Storefront plugin with Vue component customer identification for E-Com Plus stores",
   "main": "dist/widget-user.min.js",
-  "module": "src/index.js",
+  "module": "dist/widget-user.runtime.js",
   "browser": "dist/widget-user.min.js",
   "jsdelivr": "dist/public/widget-user.var.min.js",
   "unpkg": "dist/public/widget-user.var.min.js",
