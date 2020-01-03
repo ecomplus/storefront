@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.4](https://github.com/ecomclub/storefront-app/compare/v1.4.3...v1.4.4) (2020-01-03)
+
+
+### Bug Fixes
+
+* **checkout:** recreate (update key) payments component on amount change ([bb0a046](https://github.com/ecomclub/storefront-app/commit/bb0a0463ac09e10de076f3a18ebc6305ad3b4373)), closes [#89](https://github.com/ecomclub/storefront-app/issues/89)
+* **checkout:** reset cart on confirmation if order not cancelled ([537550c](https://github.com/ecomclub/storefront-app/commit/537550c98eee912542549f2d291f01ea2e8527ef))
+
 ### [1.4.3](https://github.com/ecomclub/storefront-app/compare/v1.4.2...v1.4.3) (2019-12-20)
 
 
