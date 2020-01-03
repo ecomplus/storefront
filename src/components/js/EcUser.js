@@ -1,6 +1,6 @@
 import { $ecomConfig } from '@ecomplus/utils'
 import dictionary from './../../lib/dictionary'
-import EcomPassport from '@ecomplus/passport-client'
+import ecomPassport from '@ecomplus/passport-client'
 
 export default {
   name: 'EcUser',
@@ -10,9 +10,9 @@ export default {
       type: String,
       default: $ecomConfig.get('lang')
     },
-    storeId: {
-      type: Number,
-      default: $ecomConfig.get('store_id')
+    ecomPassport: {
+      type: Object,
+      default: () => ecomPassport
     },
     popoverPlacement: {
       type: String,
@@ -37,7 +37,6 @@ export default {
 
   data () {
     return {
-      ecomPassport: new EcomPassport(this.storeId, this.lang),
       showPopover: false,
       popoverTriggers: 'click blur',
       waiting: false,
@@ -69,9 +68,9 @@ export default {
 
     update () {
       this.fixPopoverTriggers()
-      const { isLogged, getCustomerName } = this.ecomPassport
+      const { checkLogin, getCustomerName } = this.ecomPassport
       this.name = getCustomerName()
-      this.isLogged = isLogged()
+      this.isLogged = checkLogin()
       this.email = ''
       this.popupAlertCount = 0
       if (this.isLogged) {
@@ -223,11 +222,9 @@ export default {
   mounted () {
     const vm = this
     ;['login', 'logout'].forEach(ev => {
-      EcomPassport.on(ev, ({ sessionId }) => {
-        if (sessionId === vm.ecomPassport.sessionId) {
-          vm.update()
-          vm.$emit(ev, vm.ecomPassport)
-        }
+      this.ecomPassport.on(ev, payload => {
+        vm.update()
+        vm.$emit(ev, payload)
       })
     })
     vm.update()
