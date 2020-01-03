@@ -77,8 +77,11 @@ const config = {
     maxEntrypointSize: 1000000,
     maxAssetSize: 1000000
   },
-  entry,
+  resolve: {
+    mainFields: ['module', 'browser', 'main']
+  },
 
+  entry,
   output: {
     path: paths.output,
     publicPath: '/',
@@ -146,18 +149,6 @@ const config = {
         }
       }
     ]
-  },
-
-  resolve: {
-    alias: Object.assign(
-      { vue$: 'vue/dist/vue.esm.js' },
-      // aliases to @ecomplus libs raw source
-      ['utils', 'client', 'search-engine', 'passport-client', 'shopping-cart']
-        .reduce((alias, lib) => {
-          alias[`@ecomplus/${lib}$`] = `@ecomplus/${lib}/src/index.js`
-          return alias
-        }, {})
-    )
   }
 }
 
