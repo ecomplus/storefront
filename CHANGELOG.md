@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.5](https://github.com/ecomclub/storefront-app/compare/v1.4.4...v1.4.5) (2020-01-03)
+
+
+### Bug Fixes
+
+* **checkout:** edit payments list key (prevent unecessary reload) ([8c3ffc9](https://github.com/ecomclub/storefront-app/commit/8c3ffc9ecfb500c21c59ff716c48fdbc2dc308fe))
+* **payment:** immediate emit gatewaySelected, add delay to first fetch ([cd2d567](https://github.com/ecomclub/storefront-app/commit/cd2d5670334817594d19b7101ee8b3b42e67dc04))
+
 ### [1.4.4](https://github.com/ecomclub/storefront-app/compare/v1.4.3...v1.4.4) (2020-01-03)
 
 
