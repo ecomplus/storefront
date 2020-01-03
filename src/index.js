@@ -7,21 +7,14 @@ export default (options = {}, elId = 'user-button') => {
 
   if ($userButton) {
     new Vue({
-      components: {
-        EcUser
-      },
-
-      data () {
-        return {
-          options
+      render: h => h(EcUser, {
+        attrs: {
+          id: elId
+        },
+        props: {
+          ...options.props
         }
-      },
-
-      template: `
-      <ec-user
-        id="${elId}"
-        v-bind="options.props"
-      />`
+      })
     }).$mount($userButton)
   }
 }
