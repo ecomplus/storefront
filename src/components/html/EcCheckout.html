@@ -86,6 +86,7 @@
                 <ec-payment
                   :customer="localCustomer"
                   :amount="amount"
+                  :key="`pay-${amount.total.toString()}`"
                   @gatewaySelected="gateway => $emit('update:paymentGateway', gateway)"
                   @checkout="transaction => $emit('checkout', transaction)"
                 />
