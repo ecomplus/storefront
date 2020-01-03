@@ -167,6 +167,19 @@ export default {
     enabledCheckoutStep () {
       return !this.hasBuyerInfo ? 0
         : this.shippingAddress && this.shippingService ? 2 : 1
+    },
+
+    paymentsListKey () {
+      let key = 'pay'
+      if (this.localDiscountCoupon) {
+        key += `-${this.localDiscountCoupon}`
+      }
+      ;['freight', 'subtotal'].forEach(amountField => {
+        if (this.amount[amountField] > 0) {
+          key += `-${this.amount[amountField]}`
+        }
+      })
+      return key
     }
   },
 
