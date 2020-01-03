@@ -3,7 +3,7 @@
   "version": "0.2.24",
   "description": "Storefront plugin with Vue component for product cards",
   "main": "dist/widget-product-card.min.js",
-  "module": "src/index.js",
+  "module": "dist/widget-product-card.runtime.js",
   "browser": "dist/widget-product-card.min.js",
   "jsdelivr": "dist/public/widget-product-card.var.min.js",
   "unpkg": "dist/public/widget-product-card.var.min.js",
