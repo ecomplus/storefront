@@ -30,18 +30,18 @@
   },
   "homepage": "https://github.com/ecomclub/widget-user#readme",
   "peerDependencies": {
-    "@ecomplus/passport-client": "0.7.x",
+    "@ecomplus/passport-client": "1.x",
     "@ecomplus/storefront-twbs": "4.x",
     "@ecomplus/utils": "1.x",
     "core-js": "3.x",
-    "vue": "2.x"
+    "vue": ">=2 <4"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@ecomplus/passport-client": "^0.7.13",
+    "@ecomplus/passport-client": "^1.0.2",
     "@ecomplus/storefront-snapshot": "^1.1.0",
     "@ecomplus/storefront-twbs": "^4.0.4",
     "@ecomplus/utils": "^1.2.7",
@@ -50,7 +50,7 @@
     "core-js": "^3.6.1",
     "css-loader": "^3.4.0",
     "cssnano": "^4.1.10",
-    "file-loader": "^4.3.0",
+    "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.1.0",
     "node-sass": "^4.13.0",
