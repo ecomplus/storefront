@@ -231,12 +231,17 @@ export default {
   },
 
   watch: {
-    selectedGateway () {
-      this.$emit('gatewaySelected', this.paymentGateway)
+    selectedGateway: {
+      handler () {
+        this.$emit('gatewaySelected', this.paymentGateway)
+      },
+      immediate: true
     }
   },
 
   created () {
-    this.fetchPaymentGateways()
+    setTimeout(() => {
+      this.fetchPaymentGateways()
+    }, 50)
   }
 }
