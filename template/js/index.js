@@ -1,5 +1,4 @@
-// setup dependencies
-// import '@ecomplus/utils'
-// import '@ecomplus/shopping-cart'
+import ecomUtils from '@ecomplus/utils'
 
-window.alert('Olá')
+window.alert('Hello Storefront!')
+window.ecomUtils = ecomUtils
