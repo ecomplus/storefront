@@ -1,32 +1,20 @@
 import $ from 'jquery'
 
-import Alert from 'bootstrap/js/dist/alert'
-import Button from 'bootstrap/js/src/button'
-// import Carousel from 'bootstrap/js/dist/carousel'
-import Collapse from 'bootstrap/js/dist/collapse'
-import Dropdown from 'bootstrap/js/dist/dropdown'
-import Modal from 'bootstrap/js/dist/modal'
-import Popover from 'bootstrap/js/dist/popover'
-// import Scrollspy from 'bootstrap/js/dist/scrollspy'
-import Tab from 'bootstrap/js/dist/tab'
-import Toast from 'bootstrap/js/dist/toast'
-import Tooltip from 'bootstrap/js/dist/tooltip'
-import Util from 'bootstrap/js/dist/util'
+import 'bootstrap/js/dist/alert'
+import 'bootstrap/js/dist/button'
+// import 'bootstrap/js/dist/carousel'
+import 'bootstrap/js/dist/collapse'
+import 'bootstrap/js/dist/dropdown'
+import 'bootstrap/js/dist/modal'
+import 'bootstrap/js/dist/popover'
+// import 'bootstrap/js/dist/scrollspy'
+import 'bootstrap/js/dist/tab'
+import 'bootstrap/js/dist/toast'
+import 'bootstrap/js/dist/tooltip'
+import 'bootstrap/js/dist/util'
 
 import './fontawesome-icons'
 
 export {
-  $,
-  Util,
-  Alert,
-  Button,
-  // Carousel,
-  Collapse,
-  Dropdown,
-  Modal,
-  Popover,
-  // Scrollspy,
-  Tab,
-  Toast,
-  Tooltip
+  $
 }
