@@ -79,7 +79,7 @@ module.exports = {
 
   resolve: {
     alias: {
-      jquery: 'jquery/dist/jquery.slim.js'
+      jquery: path.join(process.cwd(), 'src/$')
     }
   }
 }
