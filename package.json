@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-twbs",
-  "version": "4.0.4",
+  "version": "5.0.0-alpha.0",
   "description": "Bootstrap + Animate.css + FontAwesome wrapper for E-Com Plus Storefront",
   "main": "dist/storefront-twbs.min.js",
   "module": "src/index.js",
@@ -8,7 +8,7 @@
   "scripts": {
     "build": "bash ./setup.sh && NODE_ENV=production webpack",
     "serve": "bash ./setup.sh && webpack-dev-server",
-    "release": "rm -rf ./dist && npm run build && standard-version"
+    "release": "rm -rf ./dist && npm run build && standard-version --prerelease alpha"
   },
   "repository": {
     "type": "git",

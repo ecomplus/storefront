@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0-alpha.0](https://github.com/ecomclub/storefront-twbs/compare/v4.0.4...v5.0.0-alpha.0) (2020-01-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* **styles:** bootstrap-vue required styles removed from bundle
+* **js:** bundle changed, removed bootstrap-vue, js export changed
+
+### Bug Fixes
+
+* **browser-support:** import compiled bootstrap js ([595deee](https://github.com/ecomclub/storefront-twbs/commit/595deee1125145eef20247373c36b2cf4c2f9d04))
+
+
+* **js:** import/export jquery and bootstrap original components ([df23cad](https://github.com/ecomclub/storefront-twbs/commit/df23cad8c4520ee558609f9c0fef88c5104ca272))
+* **styles:** remove bootstrap-vue styles ([cce680d](https://github.com/ecomclub/storefront-twbs/commit/cce680d7a9f3886fa1338e772dcb1a6fe6052a67))
+
 ### [4.0.4](https://github.com/ecomclub/storefront-twbs/compare/v4.0.3...v4.0.4) (2020-01-02)
 
 ### [4.0.3](https://github.com/ecomclub/storefront-twbs/compare/v4.0.2...v4.0.3) (2019-12-02)
