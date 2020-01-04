@@ -79,14 +79,7 @@ module.exports = {
 
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.esm.js'
-    }
-  },
-  externals: devMode ? {} : {
-    vue: {
-      commonjs: 'vue',
-      commonjs2: 'vue',
-      root: 'Vue'
+      jquery: 'jquery/dist/jquery.slim.js'
     }
   }
 }
