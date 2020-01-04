@@ -9,6 +9,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const WorkboxPlugin = require('workbox-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 const {
   devMode,
@@ -89,6 +90,9 @@ const config = {
     chunkFilename: '[chunkhash].js'
   },
 
+  optimization: {
+    minimizer: [new TerserPlugin()]
+  },
   plugins: [
     // extract CSS to file
     new MiniCssExtractPlugin({
