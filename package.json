@@ -20,9 +20,6 @@
     "url": "https://github.com/ecomclub/storefront-twbs/issues"
   },
   "homepage": "https://github.com/ecomclub/storefront-twbs#readme",
-  "peerDependencies": {
-    "vue": ">=2"
-  },
   "devDependencies": {
     "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.3.4",
@@ -32,17 +29,13 @@
     "animate.css": "^3.7.2",
     "autoprefixer": "^9.7.3",
     "bootstrap": "^4.4.1",
-    "bootstrap-vue": "^2.1.0",
-    "bootstrap.native": "^2.0.27",
-    "bootstrap.native-loader": "^2.0.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.1",
     "cssnano": "^4.1.10",
     "husky": "^3.1.0",
-    "jquery": "^3.4.1",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.0",
-    "portal-vue": "^2.1.7",
+    "popper.js": "^1.16.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.3.1",
     "standard": "^14.3.1",
