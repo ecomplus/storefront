@@ -51,8 +51,5 @@ $secondary: #333333 !default;
 @import "bootstrap/scss/utilities";
 @import "bootstrap/scss/print";
 
-// Bootstrap Vue styles
-@import "bootstrap-vue/src/index";
-
 // Animate.css base styles and selected animations
 @import "animate";
