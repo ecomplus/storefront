@@ -74,7 +74,8 @@
     "@commitlint/config-conventional": "^8.2.0",
     "husky": "^3.1.0",
     "standard": "^14.3.1",
-    "standard-version": "^7.0.1"
+    "standard-version": "^7.0.1",
+    "terser-webpack-plugin": "^2.3.1"
   },
   "husky": {
     "hooks": {
