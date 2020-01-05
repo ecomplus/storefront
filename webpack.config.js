@@ -5,7 +5,6 @@ const path = require('path')
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   mode: devMode ? 'development' : 'production',
@@ -36,9 +35,6 @@ module.exports = {
     maxAssetSize: 500000
   },
 
-  optimization: {
-    minimizer: [new TerserPlugin()]
-  },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
