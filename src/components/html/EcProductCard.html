@@ -58,7 +58,9 @@
   </transition>
 
   <template v-if="isLoading">
-    <slot />
+    <slot>
+      <div v-html="prerenderedHTML"></div>
+    </slot>
     <div class="alert alert-warning small" role="alert" v-if="error">
       {{ error }}
     </div>

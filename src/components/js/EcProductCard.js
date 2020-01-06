@@ -29,7 +29,8 @@ export default {
       type: Boolean,
       default: true
     },
-    isLoaded: Boolean
+    isLoaded: Boolean,
+    prerenderedHTML: String
   },
 
   data () {
