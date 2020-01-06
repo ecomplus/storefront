@@ -51,7 +51,8 @@ export default {
     },
     buyText: {
       type: String
-    }
+    },
+    prerenderedHTML: String
   },
 
   data () {

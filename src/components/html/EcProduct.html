@@ -80,6 +80,8 @@
   </transition>
 
   <template v-if="!body._id">
-    <slot />
+    <slot>
+      <div v-html="prerenderedHTML"></div>
+    </slot>
   </template>
 </div>
