@@ -71,18 +71,13 @@ const generalConfig = {
   stats: {
     colors: true
   },
+  devtool: 'source-map',
 
   plugins: [
     new VueLoaderPlugin()
   ],
   module: {
     rules: moduleRulesWithPolyfill
-  },
-
-  resolve: {
-    alias: {
-      vue$: 'vue/dist/vue.esm.js'
-    }
   },
 
   externals: devMode
