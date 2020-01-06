@@ -4,9 +4,9 @@ const devMode = process.env.NODE_ENV !== 'production'
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront-template/dist')
+const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront-snapshot')
 const { dependencies, peerDependencies } = require('./package.json')
-const externals = require('@ecomplus/storefront-template/webpack.externals')
+const externals = require('@ecomplus/storefront-snapshot/webpack.externals')
 
 const output = {
   library: 'widgetProductCard',
@@ -121,7 +121,7 @@ module.exports = devMode ? generalConfig : [
     },
     output: {
       ...output,
-      filename: output.filename.replace('.min.js', '.runtime.js')
+      filename: output.filename.replace('.min.js', '.es.js')
     }
   },
 
