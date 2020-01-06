@@ -116,7 +116,7 @@ module.exports = devMode ? generalConfig : [
     },
     output: {
       ...output,
-      filename: output.filename.replace('.min.js', '.runtime.js')
+      filename: output.filename.replace('.min.js', '.es.js')
     }
   },
 
