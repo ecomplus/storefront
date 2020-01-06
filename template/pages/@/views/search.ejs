@@ -5,18 +5,25 @@ const pageSearch = _.cms('search')
 
 <% if (pageSearch.pitbar) { %>
   <%- await include('components/pitbar', { _ }) %>
+<% } else { %>
+  <script type="html/text" data-cms-html>
+    <%- await include('components/pitbar', { _ }) %>
+  </script>
 <% } %>
 
 <div class="container py-1 py-sm-2 py-lg-4">
   <section id="search">
     <div id="search-engine">
       <%- await include('components/loading') %>
+      <script type="html/text" data-cms-html>
+        <%- await include('components/preview-search', { _ }) %>
+      </script>
     </div>
   </section>
 
-  <% if (pageSearch.additional_content) { %>
-    <section class="md-content">
+  <section class="md-content" data-cms-bind="search.additional_content" data-cms-md="true">
+    <% if (pageSearch.additional_content) { %>  
       <%- _.md.render(pageSearch.additional_content) %>
-    </section>
-  <% } %>
+    <% } %>
+  </section>
 </div>
