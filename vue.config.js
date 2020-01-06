@@ -1,7 +1,7 @@
 const path = require('path')
 const recursiveCopy = require('@ecomplus/storefront-template/scripts/lib/recursive-copy')
 const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront-template/dist')
-const { dependencies } = require('./package.json')
+const { dependencies, peerDependencies } = require('./package.json')
 const externals = require('@ecomplus/storefront-template/webpack.externals')
 
 const devMode = process.env.NODE_ENV !== 'production'
@@ -45,7 +45,7 @@ module.exports = {
       config.externals([
         externals,
         new RegExp('^(' +
-          Object.entries(dependencies)
+          Object.entries({ ...dependencies, ...peerDependencies })
             .map(([pkg]) => pkg).filter(pkg => !externals[pkg]).join('|') +
           ')$', 'i')
       ])
