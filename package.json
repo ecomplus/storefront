@@ -2,9 +2,9 @@
   "name": "@ecomplus/widget-product-card",
   "version": "0.2.24",
   "description": "Storefront plugin with Vue component for product cards",
-  "main": "dist/widget-product-card.min.js",
-  "module": "dist/widget-product-card.runtime.js",
+  "module": "dist/widget-product-card.es.js",
   "browser": "dist/widget-product-card.min.js",
+  "main": "dist/widget-product-card.min.js",
   "jsdelivr": "dist/public/widget-product-card.var.min.js",
   "unpkg": "dist/public/widget-product-card.var.min.js",
   "scripts": {
@@ -37,9 +37,6 @@
     "core-js": "3.x",
     "lozad": "1.x",
     "vue": "2.x"
-  },
-  "optionalDependencies": {
-    "@ecomplus/widget-product": "0.4.x"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
