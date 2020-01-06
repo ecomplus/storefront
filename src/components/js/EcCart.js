@@ -1,4 +1,4 @@
-import { $ecomConfig, formatMoney } from '@ecomplus/utils'
+import { $ecomConfig, i18n, formatMoney } from '@ecomplus/utils'
 import dictionary from '@ecomplus/widget-minicart/src/lib/dictionary'
 import ecomCart from '@ecomplus/shopping-cart'
 import EcCartItem from '@ecomplus/widget-minicart/src/components/EcCartItem.vue'
@@ -6,6 +6,10 @@ import EcShipping from '@ecomplus/widget-product/src/components/EcShipping.vue'
 import EcPrices from '@ecomplus/widget-product/src/components/EcPrices.vue'
 import EcDiscount from './../EcDiscount.vue'
 import { SlideYUpTransition } from 'vue2-transitions'
+
+import {
+  i19discount
+} from '@ecomplus/i18n'
 
 export default {
   name: 'EcCart',
@@ -39,6 +43,8 @@ export default {
   },
 
   computed: {
+    i19discount: () => i18n(i19discount),
+
     cart () {
       return this.ecomCart.data
     },

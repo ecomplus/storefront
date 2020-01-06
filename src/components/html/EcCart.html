@@ -33,6 +33,18 @@
               <div>{{ formatMoney(cart.subtotal) }}</div>
             </div>
 
+            <transition enter-active-class="animated fadeInDown">
+              <div class="ec-cart__summary-row mt-1" v-if="amount.discount">
+                <span>
+                  <i class="fas fa-tag mr-1"></i>
+                  {{ i19discount }}
+                </span>
+                <div class="text-secondary">
+                  {{ formatMoney(amount.discount) }}
+                </div>
+              </div>
+            </transition>
+
             <ec-shipping
               class="ec-cart__shipping"
               :selectServices="true"
