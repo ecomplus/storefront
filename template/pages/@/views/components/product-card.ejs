@@ -1,31 +1,52 @@
-<div
-  class="product-card"
-  data-product-id="<%= opt.item._id %>"
-  data-sku="<%= opt.item.sku %>"
-  data-to-render="true"
->
-  <a
-    href="/<%= opt.item.slug %>"
-    class="product-card__link"
-    title="<%= _.ecomUtils.name(opt.item) %>"
+<%
+// save part of item payload on data
+const itemData = {}
+let itemDataFields = ['_id', 'sku', 'slug', 'quantity']
+if (Array.isArray(_.itemDataFields)) {
+  itemDataFields = itemDataFields.concat(_.itemDataFields)
+}
+itemDataFields.forEach(field => itemData[field] = opt.item[field])
+itemData.name = _.ecomUtils.name(opt.item)
+itemData.price = _.ecomUtils.price(opt.item)
+
+const imgObj = _.ecomUtils.img(opt.item)
+if (imgObj) {
+  itemData.pictures = [{
+    _id: _.ecomUtils.randomObjectId(),
+    normal: imgObj
+  }]
+}
+%>
+
+<article data-product="<%= JSON.stringify(itemData) %>">
+  <div
+    class="product-card"
+    data-product-id="<%= itemData._id %>"
+    data-sku="<%= itemData.sku %>"
+    data-to-render="true"
   >
-    <div class="product-card__pictures">
-      <% const imgObj = _.ecomUtils.img(opt.item) %>
-      <% if (imgObj) { %>
-        <img
-          data-src="<%= imgObj.url %>"
-          alt="<%= imgObj.alt %>"
-          class="product-card__picture fade lozad img-fluid"
-        >
-      <% } %>
-    </div>
-    <h3 class="product-card__name">
-      <%= _.ecomUtils.name(opt.item) %>
-    </h3>
-  </a>
-  <div class="product-card__info">
-    <div class="spinner-border spinner-border-sm" role="status">
-      <span class="sr-only">Loading...</span>
+    <a
+      href="/<%= itemData.slug %>"
+      class="product-card__link"
+      title="<%= itemData.name %>"
+    >
+      <div class="product-card__pictures">
+        <% if (imgObj) { %>
+          <img
+            data-src="<%= imgObj.url %>"
+            alt="<%= imgObj.alt %>"
+            class="product-card__picture fade lozad img-fluid"
+          >
+        <% } %>
+      </div>
+      <h3 class="product-card__name">
+        <%= itemData.name %>
+      </h3>
+    </a>
+    <div class="product-card__info">
+      <div class="spinner-border spinner-border-sm" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
   </div>
-</div>
+</article>
