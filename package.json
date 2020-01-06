@@ -5,8 +5,8 @@
   "module": "dist/widget-product.es.js",
   "browser": "dist/widget-product.min.js",
   "main": "dist/widget-product.min.js",
-  "jsdelivr": "dist/widget-product.root.min.js",
-  "unpkg": "dist/widget-product.root.min.js",
+  "jsdelivr": "dist/public/widget-product.var.min.js",
+  "unpkg": "dist/public/widget-product.var.min.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "serve": "webpack-dev-server",
