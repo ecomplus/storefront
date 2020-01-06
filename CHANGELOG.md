@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/ecomclub/widget-product/compare/v0.3.23...v0.4.0) (2020-01-06)
+
+
+### Features
+
+* **component:** add prerenderedHTML prop to handle default slot ([01eb577](https://github.com/ecomclub/widget-product/commit/01eb57715218c3b7f825b970baeda088b00ff372))
+
 ### [0.3.23](https://github.com/ecomclub/widget-product/compare/v0.3.22...v0.3.23) (2019-12-31)
 
 
