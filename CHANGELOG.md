@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.6](https://github.com/ecomclub/storefront-app/compare/v1.4.5...v1.4.6) (2020-01-06)
+
+
+### Bug Fixes
+
+* **vuex:** fix buyer fullname parsing on checkout module ([90891ea](https://github.com/ecomclub/storefront-app/commit/90891ea10fc3d2e2c0261c69b2720189dd0f95b0))
+
 ### [1.4.5](https://github.com/ecomclub/storefront-app/compare/v1.4.4...v1.4.5) (2020-01-03)
 
 

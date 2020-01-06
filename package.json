@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-app",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "Vue.js ecommerce app with cart, checkout and account pages",
   "main": "dist/lib/js/app.js",
   "scripts": {
