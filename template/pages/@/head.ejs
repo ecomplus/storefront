@@ -41,10 +41,13 @@ switch (_.route.path) {
   case '/':
   case '/index':
     _.currentPage = 'home'    
-    break;
+    break
+  case '/search':
+    _.currentPage = 'search'    
+    break
   default:
     _.currentPage = _.route.resource
-    break;
+    break
 }
 %>
 
