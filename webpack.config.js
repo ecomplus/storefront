@@ -4,19 +4,61 @@ const devMode = process.env.NODE_ENV !== 'production'
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront-template/dist')
+const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront-snapshot')
+const { dependencies, peerDependencies } = require('./package.json')
+const externals = require('@ecomplus/storefront-snapshot/webpack.externals')
 
-// preset default output object
 const output = {
   library: 'widgetProduct',
   libraryTarget: 'umd',
   libraryExport: 'default',
   path: path.resolve(__dirname, 'dist'),
-  filename: 'widget-product.min.js'
+  filename: 'widget-product.min.js',
+  publicPath: devMode ? '/' : '/assets/vendor/'
 }
+output.chunkFilename = output.filename.replace('.min.js', '.[name].min.js')
 
-// base Webpack config
-const config = {
+const baseModuleRules = [
+  {
+    test: /\.vue$/,
+    loader: 'vue-loader',
+    options: {
+      compilerOptions: {
+        whitespace: devMode ? 'preserve' : 'condense'
+      }
+    }
+  },
+  {
+    test: /\.(png|jpe?g|gif|svg)$/i,
+    use: 'file-loader'
+  },
+  {
+    test: /\.s?css$/,
+    use: [
+      'vue-style-loader',
+      'css-loader',
+      {
+        loader: 'postcss-loader',
+        options: {
+          ident: 'postcss',
+          minimize: !devMode,
+          plugins: [
+            require('autoprefixer')(),
+            require('cssnano')({ preset: 'default' })
+          ]
+        }
+      },
+      'sass-loader'
+    ]
+  }
+]
+
+const moduleRulesWithPolyfill = baseModuleRules.concat([{
+  test: /^(.(?!\.min.js$))+\.m?js$/,
+  loader: 'babel-loader'
+}])
+
+const generalConfig = {
   mode: devMode ? 'development' : 'production',
   entry: path.resolve(__dirname, devMode ? 'docs/demo.js' : 'src/index.js'),
   output,
@@ -29,50 +71,12 @@ const config = {
   stats: {
     colors: true
   },
-  devtool: 'source-map',
+
   plugins: [
     new VueLoaderPlugin()
   ],
-
   module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          compilerOptions: {
-            whitespace: devMode ? 'preserve' : 'condense'
-          }
-        }
-      },
-      {
-        test: /^(.(?!\.min.js$))+\.m?js$/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: 'file-loader'
-      },
-      {
-        test: /\.s?css$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              minimize: !devMode,
-              plugins: [
-                require('autoprefixer')(),
-                require('cssnano')({ preset: 'default' })
-              ]
-            }
-          },
-          'sass-loader'
-        ]
-      }
-    ]
+    rules: moduleRulesWithPolyfill
   },
 
   resolve: {
@@ -80,8 +84,8 @@ const config = {
       vue$: 'vue/dist/vue.esm.js'
     }
   },
+
   externals: devMode
-    // external ecomUtils on dev server to get config correctly
     ? {
       '@ecomplus/utils': {
         commonjs: '@ecomplus/utils',
@@ -89,29 +93,46 @@ const config = {
         root: 'ecomUtils'
       }
     }
-    // exclude all imported libs on production by default
-    : /^(@babel\/runtime|core-js|@ecomplus|lodash.*|lozad|vue|vue2-transitions|@glide|eventemitter3)(\/|$)/
+    : [
+      externals,
+      new RegExp('^(' +
+        Object.entries({ ...dependencies, ...peerDependencies })
+          .map(([pkg]) => pkg).filter(pkg => !externals[pkg]).join('|') +
+        ')(/|$)', 'i')
+    ]
 }
 
 if (devMode) {
-  // inject widget script with HTML plugin
-  config.plugins.push(new HtmlWebpackPlugin({
+  generalConfig.plugins.push(new HtmlWebpackPlugin({
     template: path.resolve(templatePath, 'monitor-gamer-asus-rog-swift-led-24-widescreen-fhd-pg248q.html')
   }))
 }
 
-module.exports = devMode
-  // single config object for dev server
-  ? config
-  // production outputs with and without polyfill
-  : [
-    config,
-    {
-      ...config,
-      output: {
-        ...output,
-        filename: output.filename.replace('.min.js', '.root.min.js')
-      },
-      externals: require('@ecomplus/storefront-template/webpack.externals')
+module.exports = devMode ? generalConfig : [
+  generalConfig,
+
+  {
+    ...generalConfig,
+    module: {
+      rules: baseModuleRules
+    },
+    optimization: {
+      minimize: false
+    },
+    output: {
+      ...output,
+      filename: output.filename.replace('.min.js', '.es.js')
     }
-  ]
+  },
+
+  {
+    ...generalConfig,
+    output: {
+      ...output,
+      libraryTarget: 'var',
+      filename: output.filename.replace('.min.js', '.var.min.js'),
+      path: path.join(output.path, 'public')
+    },
+    externals
+  }
+]
