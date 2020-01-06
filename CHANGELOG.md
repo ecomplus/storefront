@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/ecomclub/widget-product-card/compare/v0.2.24...v0.3.0) (2020-01-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* **webpack:** replaced .runtime.js output with .es.js
+* **webpack:** removed .runtime.min.js output file
+
+### Features
+
+* **component:** add prerenderedHTML prop to handle default slot ([0bc127b](https://github.com/ecomclub/widget-product-card/commit/0bc127b1dd191381aa96898b82c81b7496627185))
+
+
+### build
+
+* **webpack:** update config to use storefront-snapshot, edit ES output ([f1a5cbb](https://github.com/ecomclub/widget-product-card/commit/f1a5cbb7324216cd006c3a83e6140877bcfd0cd6))
+* **webpack:** update runtime output filename and optim ([66578e6](https://github.com/ecomclub/widget-product-card/commit/66578e68b2826d5c6bcf6491776a663cb8cf65c1))
+
 ### [0.2.24](https://github.com/ecomclub/widget-product-card/compare/v0.2.23...v0.2.24) (2019-12-27)
 
 
