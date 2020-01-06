@@ -14,10 +14,12 @@ const fetchProduct = _id => {
 
 const prepareTransaction = ({ customer, transaction }) => {
   const { name } = customer
+  const fullname = `${name.given_name} ` +
+    (name.middle_name ? `${name.middle_name} ${name.family_name}` : name.family_name)
   Object.assign(transaction, {
     buyer: {
       email: customer.main_email,
-      fullname: `${name.given_name}${(` ${name.middle_name} ` || ' ')}${name.family_name}`
+      fullname
     },
     domain: window.location.hostname
   })
