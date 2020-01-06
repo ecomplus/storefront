@@ -3,36 +3,24 @@ import lozad from 'lozad'
 import '@ecomplus/storefront-twbs'
 import EcProductCard from './components/EcProductCard.vue'
 import EcomSearch from '@ecomplus/search-engine'
-import { dynamicVueSlots } from '@ecomplus/widget-product/src/lib/utils'
 
 export default (options = {}, elClass = 'product-card') => {
   const setupComponent = ($productCard, productId, sku, product, isLoaded) => {
     new Vue({
-      components: {
-        EcProductCard
-      },
-
-      computed: {
-        options: () => options,
-        productId: () => productId,
-        sku: () => sku,
-        product: () => product,
-        isLoaded: () => isLoaded
-      },
-
-      template: `
-      <ec-product-card
-        class="${elClass}"
-        v-bind="options.props"
-        :data-product-id="productId"
-        :data-sku="sku"
-        :productId="productId"
-        :product="product"
-        :isLoaded="isLoaded"
-      >
-        ${$productCard.outerHTML}
-        ${dynamicVueSlots(options.slots)}
-      </ec-product-card>`
+      render: h => h(EcProductCard, {
+        class: elClass,
+        attrs: {
+          'data-product-id': productId,
+          'data-sku': sku
+        },
+        props: {
+          ...options.props,
+          prerenderedHTML: $productCard.outerHTML,
+          productId,
+          product,
+          isLoaded
+        }
+      })
     }).$mount($productCard)
   }
 
