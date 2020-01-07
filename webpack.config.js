@@ -9,7 +9,7 @@ const { dependencies, peerDependencies } = require('./package.json')
 const externals = require('@ecomplus/storefront-snapshot/webpack.externals')
 
 const output = {
-  library: 'widgetUser',
+  library: 'widgetMinicart',
   libraryTarget: 'umd',
   libraryExport: 'default',
   path: path.resolve(__dirname, 'dist'),
