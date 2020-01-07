@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/ecomclub/widget-search/compare/v0.5.11...v0.6.0) (2020-01-07)
+
 ### [0.5.11](https://github.com/ecomclub/widget-search/compare/v0.5.10...v0.5.11) (2019-12-23)
 
 ### [0.5.10](https://github.com/ecomclub/widget-search/compare/v0.5.9...v0.5.10) (2019-12-18)
