@@ -2,9 +2,9 @@
   "name": "@ecomplus/widget-search-engine",
   "version": "0.2.6",
   "description": "Storefront plugin & Vue component for dynamic search page",
-  "main": "dist/widget-search-engine.min.js",
-  "module": "src/index.js",
+  "module": "dist/widget-search-engine.es.js",
   "browser": "dist/widget-search-engine.min.js",
+  "main": "dist/widget-search-engine.min.js",
   "jsdelivr": "dist/public/widget-search-engine.var.min.js",
   "unpkg": "dist/public/widget-search-engine.var.min.js",
   "scripts": {
