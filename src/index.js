@@ -20,9 +20,7 @@ export default (options = {}, elId = 'search-input') => {
 
     new Vue({
       render: h => h(EcSearch, {
-        props: {
-          ...options.props
-        },
+        props: options.props,
         scopedSlots: {
           input: () => h('input', { attrs })
         }
