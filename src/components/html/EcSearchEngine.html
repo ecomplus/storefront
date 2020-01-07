@@ -265,6 +265,8 @@
     enter-active-class="animated fadeInDown"
     leave-active-class="animated fadeOutUp"
   >
-    <slot v-if="!searched || loadingMore"></slot>
+    <slot v-if="!searched || loadingMore">
+      <div v-html="prerenderedHTML"></div>
+    </slot>
   </transition>
 </section>

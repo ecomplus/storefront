@@ -42,9 +42,8 @@ export default {
       type: Boolean,
       default: false
     },
-    navbarId: {
-      type: String
-    }
+    navbarId: String,
+    prerenderedHTML: String
   },
 
   data () {
