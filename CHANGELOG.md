@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.8](https://github.com/ecomclub/storefront-app/compare/v1.4.7...v1.4.8) (2020-01-07)
+
+
+### Bug Fixes
+
+* **payments:** minor fix on badge text ([dde96be](https://github.com/ecomclub/storefront-app/commit/dde96be818a7e938d4d6808a3a07597d49533b3b))
+* adjusted to save address for new user ([404628b](https://github.com/ecomclub/storefront-app/commit/404628b356cb6810d08c99f419ac08572dc0ff38))
+
 ### [1.4.7](https://github.com/ecomclub/storefront-app/compare/v1.4.6...v1.4.7) (2020-01-06)
 
 ### [1.4.6](https://github.com/ecomclub/storefront-app/compare/v1.4.5...v1.4.6) (2020-01-06)
