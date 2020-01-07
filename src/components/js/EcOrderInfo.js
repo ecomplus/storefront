@@ -1,6 +1,6 @@
 import { i18n, formatMoney } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
-import EcomPassport from '@ecomplus/passport-client'
+import ecomPassport from '@ecomplus/passport-client'
 import EcShippingLine from './../EcShippingLine.vue'
 import EcSummary from './../EcSummary.vue'
 import { SlideYUpTransition } from 'vue2-transitions'
@@ -36,7 +36,7 @@ export default {
   props: {
     ecomPassport: {
       type: Object,
-      default: () => new EcomPassport()
+      default: () => ecomPassport
     },
     order: {
       type: Object,
@@ -163,7 +163,7 @@ export default {
 
     saveCustomerOrder () {
       const { localOrder, ecomPassport } = this
-      if (!this.skipCustomerUpdate && localOrder.number && ecomPassport && ecomPassport.isAuthorized()) {
+      if (!this.skipCustomerUpdate && localOrder.number && ecomPassport && ecomPassport.checkAuthorization()) {
         ecomPassport.requestApi('/me.json')
           .then(({ data }) => {
             const orders = data.orders || []

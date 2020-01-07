@@ -31,7 +31,7 @@ export default {
         this.setCustomer(customer)
         if (customer._id) {
           const { ecomPassport } = this
-          if (ecomPassport && ecomPassport.isAuthorized()) {
+          if (ecomPassport && ecomPassport.checkAuthorization()) {
             this.saveCustomer({ ecomPassport })
           }
         }

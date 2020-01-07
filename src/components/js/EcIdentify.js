@@ -1,5 +1,5 @@
 import { i18n } from '@ecomplus/utils'
-import EcomPassport from '@ecomplus/passport-client'
+import ecomPassport from '@ecomplus/passport-client'
 import InputDocNumber from './../_internal/InputDocNumber.vue'
 import { FadeTransition, SlideYUpTransition } from 'vue2-transitions'
 
@@ -43,7 +43,7 @@ export default {
     },
     ecomPassport: {
       type: Object,
-      default: () => new EcomPassport()
+      default: () => ecomPassport
     }
   },
 
@@ -87,8 +87,8 @@ export default {
     },
 
     confirmAccount () {
-      const { isLogged, isAuthorized, getCustomer } = this.ecomPassport
-      return isLogged() && !isAuthorized() && getCustomer().main_email === this.email
+      const { checkLogin, checkAuthorization, getCustomer } = this.ecomPassport
+      return checkLogin() && !checkAuthorization() && getCustomer().main_email === this.email
     },
 
     submitLogin () {
@@ -172,11 +172,11 @@ export default {
 
   mounted () {
     this.$refs.inputEmail.focus()
-    const { isLogged, isAuthorized, getCustomer } = this.ecomPassport
+    const { checkLogin, checkAuthorization, getCustomer } = this.ecomPassport
     const handleLogin = () => {
-      if (isAuthorized()) {
+      if (checkAuthorization()) {
         this.$emit('login', this.ecomPassport)
-      } else if (isLogged()) {
+      } else if (checkLogin()) {
         const customer = getCustomer()
         this.email = customer.main_email
         this.isCompany = customer.registry_type === 'j'
@@ -185,11 +185,9 @@ export default {
         }, 400)
       }
     }
-    EcomPassport.on('login', ({ sessionId, isAuthorized }) => {
-      if (sessionId === this.ecomPassport.sessionId) {
-        this.waitingPopup = false
-        handleLogin()
-      }
+    ecomPassport.on('login', () => {
+      this.waitingPopup = false
+      handleLogin()
     })
     handleLogin()
   }

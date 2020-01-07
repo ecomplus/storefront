@@ -1,5 +1,5 @@
 import { i18n, formatDate, formatMoney } from '@ecomplus/utils'
-import EcomPassport from '@ecomplus/passport-client'
+import ecomPassport from '@ecomplus/passport-client'
 import EcOrderStep from './../EcOrderStep.vue'
 import EcOrderInfo from './../EcOrderInfo.vue'
 
@@ -22,7 +22,7 @@ export default {
     },
     ecomPassport: {
       type: Object,
-      default: () => new EcomPassport()
+      default: () => ecomPassport
     }
   },
 

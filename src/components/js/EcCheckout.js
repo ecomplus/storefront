@@ -197,7 +197,7 @@ export default {
     },
 
     login (ecomPassport) {
-      if (ecomPassport.isLogged()) {
+      if (ecomPassport.checkLogin()) {
         this.customerEmail = ecomPassport.getCustomer().main_email
         this.$emit('login', ecomPassport)
       }

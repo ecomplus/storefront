@@ -1,5 +1,5 @@
 import { store } from '@ecomplus/client'
-import EcomPassport from '@ecomplus/passport-client'
+import ecomPassport from '@ecomplus/passport-client'
 import EcOrderStep from './../EcOrderStep.vue'
 import EcOrderInfo from './../EcOrderInfo.vue'
 
@@ -25,7 +25,7 @@ export default {
     },
     ecomPassport: {
       type: Object,
-      default: () => new EcomPassport()
+      default: () => ecomPassport
     }
   },
 
@@ -54,7 +54,7 @@ export default {
   methods: {
     fetchOrder () {
       const url = `/orders/${this.orderBody._id}.json`
-      const request = this.ecomPassport.isLogged()
+      const request = this.ecomPassport.checkLogin()
         ? this.ecomPassport.requestApi(url)
         : store({ url })
       request.then(({ data }) => {

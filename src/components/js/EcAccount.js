@@ -1,5 +1,5 @@
 import { i18n, nickname } from '@ecomplus/utils'
-import EcomPassport from '@ecomplus/passport-client'
+import ecomPassport from '@ecomplus/passport-client'
 import EcAddresses from '../EcAddresses.vue'
 import EcAccountForm from '../EcAccountForm.vue'
 import EcIdentify from '../EcIdentify.vue'
@@ -35,7 +35,7 @@ export default {
     },
     ecomPassport: {
       type: Object,
-      default: () => new EcomPassport()
+      default: () => ecomPassport
     },
     showOrders: {
       type: Boolean,
@@ -82,14 +82,14 @@ export default {
     },
 
     login (ecomPassport) {
-      if (ecomPassport.isAuthorized()) {
+      if (ecomPassport.checkAuthorization()) {
         this.localCustomer = ecomPassport.getCustomer()
         this.$emit('login', ecomPassport)
       }
     },
 
     logout () {
-      if (this.ecomPassport.isLogged()) {
+      if (this.ecomPassport.checkLogin()) {
         this.ecomPassport.logout()
         this.$emit('logout')
       }
