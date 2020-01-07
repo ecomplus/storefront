@@ -113,23 +113,25 @@ module.exports = devMode ? generalConfig : [
 
   {
     ...generalConfig,
+    module: {
+      rules: baseModuleRules
+    },
+    optimization: {
+      minimize: false
+    },
+    output: {
+      ...output,
+      filename: output.filename.replace('.min.js', '.es.js')
+    }
+  },
+
+  {
+    ...generalConfig,
     output: {
       ...output,
       libraryTarget: 'var',
       filename: output.filename.replace('.min.js', '.var.min.js'),
       path: path.join(output.path, 'public')
-    },
-    externals
-  },
-
-  {
-    ...generalConfig,
-    module: {
-      rules: baseModuleRules
-    },
-    output: {
-      ...output,
-      filename: output.filename.replace('.min.js', '.runtime.min.js')
     },
     externals
   }
