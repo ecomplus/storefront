@@ -9,38 +9,38 @@ export default (options = {}, elId = 'cart-button') => {
     const { $overlay } = window.storefront
 
     new Vue({
-      components: {
-        EcMinicart
+      data: {
+        showCart: false
       },
 
-      data () {
-        return {
-          options,
-          showCart: false
-        }
-      },
+      render (createElement) {
+        const vm = this
+        return createElement(EcMinicart, {
+          attrs: {
+            id: elId
+          },
+          props: {
+            ...options.props,
+            showCart: vm.showCart
+          },
 
-      watch: {
-        showCart (show) {
-          if ($overlay) {
-            if (show) {
-              $overlay.show()
-              $overlay.once('hide', () => {
-                this.showCart = false
-              })
-            } else {
-              $overlay.hide()
+          on: {
+            'update:showCart' (isVisible) {
+              vm.showCart = isVisible
+              if ($overlay) {
+                if (isVisible) {
+                  $overlay.show()
+                  $overlay.once('hide', () => {
+                    vm.showCart = false
+                  })
+                } else {
+                  $overlay.hide()
+                }
+              }
             }
           }
-        }
-      },
-
-      template: `
-      <ec-minicart
-        id="${elId}"
-        v-bind="options.props"
-        :showCart.sync="showCart"
-      />`
+        })
+      }
     }).$mount($cartButton)
   }
 }
