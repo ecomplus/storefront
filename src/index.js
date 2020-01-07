@@ -1,3 +1,9 @@
+/*!
+ * @ecomplus/widget-search-engine
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the MIT License.
+ */
+
 import Vue from 'vue'
 import '@ecomplus/storefront-twbs'
 import EcSearchEngine from './components/EcSearchEngine.vue'
