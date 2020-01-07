@@ -1,3 +1,9 @@
+/*!
+ * @ecomplus/widget-minicart
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the MIT License.
+ */
+
 import Vue from 'vue'
 import '@ecomplus/storefront-twbs'
 import EcMinicart from './components/EcMinicart.vue'
