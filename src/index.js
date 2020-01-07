@@ -1,3 +1,9 @@
+/*!
+ * @ecomplus/widget-product-card
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the MIT License.
+ */
+
 import Vue from 'vue'
 import lozad from 'lozad'
 import '@ecomplus/storefront-twbs'
