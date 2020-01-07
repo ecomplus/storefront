@@ -1,3 +1,9 @@
+/*!
+ * @ecomplus/widget-product
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the MIT License.
+ */
+
 import Vue from 'vue'
 import '@ecomplus/storefront-twbs'
 import EcProduct from './components/EcProduct.vue'
