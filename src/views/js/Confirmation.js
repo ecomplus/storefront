@@ -9,16 +9,10 @@ export default {
     EcOrderInfo
   },
 
-  props: {
-    ecomPassport: {
-      type: Object,
-      default: () => ecomPassport
-    },
-  },
-
   computed: {
     ...mapGetters([
-      'orders'
+      'orders',
+      'customer'
     ]),
 
     orderId () {
@@ -51,17 +45,16 @@ export default {
       'resetCart'
     ]),
     ...mapActions([
-      'saveCustomer',
-    ]),
+      'saveCustomer'
+    ])
   },
 
   created () {
-    const { ecomPassport } = this
-    if (!this.ecomPassport.checkAuthorization()) {
-      const { main_email, doc_number } = this.$store.getters.customer
-      if (main_email && doc_number) {
-        ecomPassport.fetchLogin(main_email, doc_number).then(()=> {
-          this.saveCustomer( { ecomPassport })
+    const { customer } = this
+    if (!ecomPassport.checkAuthorization()) {
+      if (customer.main_email && customer.doc_number) {
+        ecomPassport.fetchLogin(customer.main_email, customer.doc_number).then(() => {
+          this.saveCustomer({ ecomPassport })
         })
       }
     }
