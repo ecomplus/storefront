@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/ecomclub/widget-search-engine/compare/v0.2.6...v0.3.0) (2020-01-07)
+
+
+### Features
+
+* **component:** add 'prerenderedHTML' prop ([5faba13](https://github.com/ecomclub/widget-search-engine/commit/5faba1394f71b6000cb891ed495389e3cbd900d1))
+
 ### [0.2.6](https://github.com/ecomclub/widget-search-engine/compare/v0.2.5...v0.2.6) (2019-12-27)
 
 ### [0.2.5](https://github.com/ecomclub/widget-search-engine/compare/v0.2.4...v0.2.5) (2019-12-23)
