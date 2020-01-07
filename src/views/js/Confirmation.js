@@ -1,11 +1,19 @@
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 import EcOrderInfo from './../../components/EcOrderInfo.vue'
+import ecomPassport from '@ecomplus/passport-client'
 
 export default {
   name: 'confirmation',
 
   components: {
     EcOrderInfo
+  },
+
+  props: {
+    ecomPassport: {
+      type: Object,
+      default: () => ecomPassport
+    },
   },
 
   computed: {
@@ -41,7 +49,22 @@ export default {
       'addOrder',
       'setOrders',
       'resetCart'
-    ])
+    ]),
+    ...mapActions([
+      'saveCustomer',
+    ]),
+  },
+
+  created () {
+    const { ecomPassport } = this
+    if (!this.ecomPassport.checkAuthorization()) {
+      const { main_email, doc_number } = this.$store.getters.customer
+      if (main_email && doc_number) {
+        ecomPassport.fetchLogin(main_email, doc_number).then(()=> {
+          this.saveCustomer( { ecomPassport })
+        })
+      }
+    }
   },
 
   mounted () {
