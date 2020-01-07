@@ -40,9 +40,9 @@
                 <template v-if="gateway.discount.type === 'percentage'">
                   {{ gateway.discount.value }}%
                 </template>
-                <template v-else>
+                <span v-else class="text-uppercase">
                   {{ formatMoney(gateway.discount.value) }}
-                </template>
+                </span>
                 {{ i18n('OfDiscount') }}
                 <template v-if="gateway.discount.apply_at === 'freight'">
                   {{ i18n('OnFreight') }}
