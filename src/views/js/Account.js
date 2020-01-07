@@ -1,4 +1,4 @@
-import EcomPassport from '@ecomplus/passport-client'
+import ecomPassport from '@ecomplus/passport-client'
 import { mapMutations, mapActions } from 'vuex'
 import EcAccount from './../../components/EcAccount.vue'
 
@@ -11,7 +11,7 @@ export default {
 
   data () {
     return {
-      ecomPassport: new EcomPassport()
+      ecomPassport: ecomPassport
     }
   },
 
@@ -23,7 +23,7 @@ export default {
       set (customer) {
         this.setCustomer(customer)
         const { ecomPassport } = this
-        if (ecomPassport && ecomPassport.isAuthorized()) {
+        if (ecomPassport && ecomPassport.checkAuthorization()) {
           this.triggerLoading(true)
           this.saveCustomer({ ecomPassport })
             .finally(() => this.triggerLoading(false))
