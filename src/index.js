@@ -12,23 +12,21 @@ export default (options = {}, elId = 'search-input') => {
   const $searchInput = document.getElementById(elId)
 
   if ($searchInput) {
+    const attrs = {}
+    for (let i = $searchInput.attributes.length - 1; i >= 0; i--) {
+      const { name, value } = $searchInput.attributes[i]
+      attrs[name] = value
+    }
+
     new Vue({
-      components: {
-        EcSearch
-      },
-
-      data () {
-        return {
-          options
+      render: h => h(EcSearch, {
+        props: {
+          ...options.props
+        },
+        scopedSlots: {
+          input: () => h('input', { attrs })
         }
-      },
-
-      template: `
-      <ec-search v-bind="options.props">
-        <template #input>
-          ${$searchInput.outerHTML}
-        </template>
-      </ec-search>`
+      })
     }).$mount($searchInput)
   }
 }
