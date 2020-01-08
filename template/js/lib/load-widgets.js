@@ -2,7 +2,7 @@ import emitter from './emitter'
 import EcomSearch from '@ecomplus/search-engine'
 import EcomPassport from '@ecomplus/passport-client'
 import { ecomCart, EcomCart } from '@ecomplus/shopping-cart'
-import widgetProductCard from '@ecomplus/widget-product-card/dist/widget-product-card.runtime.min.js'
+import widgetProductCard from '@ecomplus/widget-product-card'
 
 window.EcomSearch = EcomSearch
 window.EcomPassport = EcomPassport
@@ -59,7 +59,7 @@ if (!isCheckout) {
     loadWidget(
       '@ecomplus/widget-search-engine',
       () => import(/* webpackPrefetch: true */
-        '@ecomplus/widget-search-engine/dist/widget-search-engine.runtime.min.js')
+        '@ecomplus/widget-search-engine')
     )
   }
 }
@@ -73,7 +73,7 @@ Promise.all(widgetsLoadPromises).then(() => {
   if (!isCheckout) {
     loadWidget(
       '@ecomplus/widget-user',
-      () => import('@ecomplus/widget-user/dist/widget-user.runtime.min.js')
+      () => import('@ecomplus/widget-user')
     )
     loadWidget(
       '@ecomplus/widget-search',
@@ -88,7 +88,7 @@ Promise.all(widgetsLoadPromises).then(() => {
   Promise.all(widgetsLoadPromises).then(() => {
     loadWidget(
       '@ecomplus/widget-tag-manager',
-      () => import('@ecomplus/widget-tag-manager/src/index.js')
+      () => import('@ecomplus/widget-tag-manager')
     )
     loadWidget(
       '@ecomplus/widget-trustvox',
