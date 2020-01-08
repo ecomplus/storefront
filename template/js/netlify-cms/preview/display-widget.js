@@ -1,7 +1,8 @@
-export default (key, value, document) => {
-  const $els = document.querySelectorAll(`[data-cms-bind="home.${key}"],[data-cms-if="home.${key}"]`)
+export default (page, key, value, document) => {
+  const $els = document.querySelectorAll(`[data-cms-bind="${page}.${key}"],[data-cms-if="${page}.${key}"]`)
   for (let i = 0; i < $els.length; i++) {
-    const { cmsBind, cmsIf } = $els[i].dataset
+    const { cmsBind, cmsMd, cmsIf } = $els[i].dataset
+
     if (cmsIf) {
       if (value) {
         $els[i].style.display = 'block'
@@ -9,7 +10,12 @@ export default (key, value, document) => {
         $els[i].style.display = 'none'
       }
     } else if (typeof value === 'string') {
-      $els[i].innerHTML = value
+      if (cmsMd) {
+        const md = new markdownit()
+        $els[i].innerHTML = md.render(value)
+      } else {
+        $els[i].innerHTML = value
+      }
     }
   }
   return document
