@@ -34,12 +34,14 @@
         >
           {{ qnt }}
         </option>
-        <option :value="11" @click="skipSelect = true">
+        <option :value="11">
           11+
         </option>
       </select>
+
       <input
         v-else
+        ref="input"
         :type="inputType && inputType !== 'select' ? inputType : 'number'"
         class="ec-cart-item__quantity form-control"
         v-model.number="quantity"

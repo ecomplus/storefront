@@ -63,6 +63,12 @@ export default {
         this.$emit('increase', this.quantity - oldQnt)
         this.quantity = this.item.quantity
       }
+      if (qnt > 10 && oldQnt <= 10) {
+        this.skipSelect = true
+        setTimeout(() => {
+          this.$refs.input.focus()
+        }, 300)
+      }
     },
 
     resetQnt (reload) {
