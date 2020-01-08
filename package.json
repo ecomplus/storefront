@@ -88,7 +88,8 @@
   "browserslist": [
     "> 0.5%",
     "not dead",
-    "not ie 11"
+    "not ie 11",
+    "not ie_mob 11"
   ],
   "standard": {
     "parser": "babel-eslint"
