@@ -37,6 +37,13 @@ const info = _.cms('info')
     <%- await include('components/products-carousel', { _, opt: { items: _.items } }) %>
   <% } %>
 
+  <!-- cms preview -->
+  <div>
+    <script type="html/text" data-cms-html>
+      <%- await include('components/product-block', {opt: { title: 'Produtos populares', showcaseType: 'showcase' }}) %>
+    </script>
+  </div>
+
   <% if (home.additional_content) { %>
     <section class="md-content" data-cms-bind="home.additional_content">
       <%- _.md.render(home.additional_content) %>
