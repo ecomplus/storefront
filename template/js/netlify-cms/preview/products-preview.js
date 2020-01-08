@@ -44,6 +44,15 @@ export default class ProductsPreview extends window.React.Component {
       const { entry } = this.props
       const data = JSON.parse(entry.getIn(['raw']))
 
+      const $carousels = vDoc.querySelectorAll('[data-cms-if="products.related"],[data-cms-if="products.recommended"]')
+
+      if ($carousels.length) {
+        $carousels.forEach(el => {
+          if (!el.dataset.cmsDefault) {
+            el.remove()
+          }
+        })
+      }
       // related
       const $related = vDoc.querySelectorAll('[data-cms-if="products.related"]')
       if ($related.length) {
@@ -70,6 +79,7 @@ export default class ProductsPreview extends window.React.Component {
             }
           })
       }
+
       // recommended
       const $recommended = vDoc.querySelectorAll('[data-cms-if="products.recommended"]')
       if ($recommended.length) {
