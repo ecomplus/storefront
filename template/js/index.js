@@ -18,7 +18,8 @@ import Glide from '@glidejs/glide'
 
 import $ from './lib/$'
 import $overlay from './lib/$overlay'
-import './lib/fetch-info'
+
+import './lib/load-widgets'
 
 window.lozad = lozad
 window.Vue = Vue
@@ -39,13 +40,11 @@ window.storefront = {
 }
 
 setTimeout(() => {
-  if (window._widgets !== false) {
-    import(/* webpackPrefetch: true */ './lib/load-widgets')
-  }
-}, 50)
+  import(/* webpackPreload: true */ './lib/fetch-info')
+}, 300)
 
 if (window.pluginPhotoswipe) {
-  import(/* webpackPrefetch: true */ './lib/photoswipe')
+  import('./lib/photoswipe')
 }
 
 const { hash } = window.location

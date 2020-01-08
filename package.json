@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-template",
-  "version": "1.25.4",
+  "version": "1.26.6",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "template/js/index.js",
   "jsdelivr": "dist/storefront.js",
@@ -16,7 +16,7 @@
     "build": "ECOMCLIENT_NOTIMEOUT=true WEBPACK_BUILD_DEV=true npm run pack build",
     "build:site": "ECOMCLIENT_NOTIMEOUT=true npm run pack build",
     "build:lib": "NODE_ENV=production webpack",
-    "release": "npm run build && standard-version",
+    "release": "npm ddp && npm run build && standard-version",
     "test:install": "rm -rf ./copy && mkdir ./copy && TEMPLATE_DIR=copy node ./scripts/install.js",
     "test:copy": "rm -rf ./copy && node ./scripts/copy.js --dest=copy"
   },
@@ -40,27 +40,29 @@
     "url": "https://github.com/ecomclub/storefront-template/issues"
   },
   "homepage": "https://github.com/ecomclub/storefront-template#readme",
+  "peerDependencies": {
+    "core-js": "3.x",
+    "ejs": "3.x"
+  },
   "dependencies": {
     "@ecomplus/client": "^1.1.3",
     "@ecomplus/passport-client": "^0.7.13",
-    "@ecomplus/search-engine": "^1.0.5",
+    "@ecomplus/search-engine": "^1.1.1",
     "@ecomplus/shopping-cart": "^1.0.0",
-    "@ecomplus/storefront-app": "^1.4.1",
-    "@ecomplus/storefront-framework": "^5.2.8",
+    "@ecomplus/storefront-app": "^1.4.3",
+    "@ecomplus/storefront-framework": "^5.2.9",
     "@ecomplus/storefront-twbs": "^4.0.3",
-    "@ecomplus/utils": "^1.2.2",
-    "@ecomplus/widget-minicart": "^0.6.11",
-    "@ecomplus/widget-product": "^0.3.21",
-    "@ecomplus/widget-product-card": "^0.2.13",
-    "@ecomplus/widget-search": "^0.5.10",
-    "@ecomplus/widget-search-engine": "^0.2.4",
-    "@ecomplus/widget-tag-manager": "^1.0.0",
-    "@ecomplus/widget-trustvox": "^0.1.0",
-    "@ecomplus/widget-user": "^0.9.5",
+    "@ecomplus/utils": "^1.2.6",
+    "@ecomplus/widget-minicart": "^0.6.12",
+    "@ecomplus/widget-product": "^0.3.23",
+    "@ecomplus/widget-product-card": "^0.2.24",
+    "@ecomplus/widget-search": "^0.5.11",
+    "@ecomplus/widget-search-engine": "^0.2.6",
+    "@ecomplus/widget-tag-manager": "^1.1.0",
+    "@ecomplus/widget-trustvox": "^0.1.2",
+    "@ecomplus/widget-user": "^0.9.10",
     "@glidejs/glide": "^3.4.1",
     "bootswatch": "^4.4.1",
-    "core-js": "^3.6.0",
-    "ejs": "^3.0.1",
     "eventemitter3": "^4.0.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.2",
@@ -70,8 +72,8 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/cli": "^8.3.4",
+    "@commitlint/config-conventional": "^8.3.4",
     "babel-eslint": "^10.0.3",
     "husky": "^3.1.0",
     "standard": "^14.3.1",
@@ -83,9 +85,9 @@
     }
   },
   "browserslist": [
-    "last 1 version",
+    "> 0.5%",
     "not dead",
-    "> 0.2%"
+    "not ie 11"
   ],
   "standard": {
     "parser": "babel-eslint"

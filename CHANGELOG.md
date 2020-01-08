@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.26.6](https://github.com/ecomclub/storefront-template/compare/v1.26.5...v1.26.6) (2019-12-28)
+
+
+### Bug Fixes
+
+* **header:** fix position to relative to prevent childs overlaped ([a31f531](https://github.com/ecomclub/storefront-template/commit/a31f531d625a89572dc47c87081989d9d856ed91))
+* **widgets:** ensure widget start promise is always resolved ([cb856c2](https://github.com/ecomclub/storefront-template/commit/cb856c2a48dffa559abc1c732bcd275b28c75c77))
+* **widgets:** set widgets delay depending on hostname (dev server) ([d227a49](https://github.com/ecomclub/storefront-template/commit/d227a49a3f7d1fc4034fbb2213e6c54bd4588cad))
+
+### [1.26.5](https://github.com/ecomclub/storefront-template/compare/v1.26.4...v1.26.5) (2019-12-23)
+
+### [1.26.4](https://github.com/ecomclub/storefront-template/compare/v1.26.3...v1.26.4) (2019-12-21)
+
+### [1.26.3](https://github.com/ecomclub/storefront-template/compare/v1.26.2...v1.26.3) (2019-12-21)
+
+### [1.26.2](https://github.com/ecomclub/storefront-template/compare/v1.26.1...v1.26.2) (2019-12-21)
+
+### [1.26.1](https://github.com/ecomclub/storefront-template/compare/v1.26.0...v1.26.1) (2019-12-21)
+
+
+### Bug Fixes
+
+* **product-card:** add quantity to stored data ([bc7adad](https://github.com/ecomclub/storefront-template/commit/bc7adad50cb0fc08e83fb52b5009b33f995ce49a))
+
+## [1.26.0](https://github.com/ecomclub/storefront-template/compare/v1.25.5...v1.26.0) (2019-12-20)
+
+
+### Features
+
+* **product-card:** save part of item payload on data ([f8974db](https://github.com/ecomclub/storefront-template/commit/f8974dbb7865bc67392ef7d9fa6c022c06f97b30))
+
+### [1.25.5](https://github.com/ecomclub/storefront-template/compare/v1.25.4...v1.25.5) (2019-12-20)
+
 ### [1.25.4](https://github.com/ecomclub/storefront-template/compare/v1.25.3...v1.25.4) (2019-12-19)
 
 
