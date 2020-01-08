@@ -3,6 +3,7 @@ const recursiveCopy = require('@ecomplus/storefront-template/scripts/lib/recursi
 const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront-template/dist')
 const { dependencies, peerDependencies } = require('./package.json')
 const externals = require('@ecomplus/storefront-template/webpack.externals')
+const publicPath = require('./webpack.public-path')
 
 const devMode = process.env.NODE_ENV !== 'production'
 const libMode = !devMode && process.argv.indexOf('--lib') > -1
@@ -35,7 +36,7 @@ module.exports = {
   },
 
   // default public path for storefront-template on lib mode
-  publicPath: libMode ? '/assets/vendor/storefront-app/' : '/app/',
+  publicPath: libMode ? publicPath : '/app/',
   outputDir: devMode ? 'test' : libMode ? 'dist/lib' : 'dist/app',
   filenameHashing: !libMode,
 
