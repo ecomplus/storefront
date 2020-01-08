@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.26.7](https://github.com/ecomclub/storefront-template/compare/v1.26.6...v1.26.7) (2020-01-08)
+
+
+### Bug Fixes
+
+* **load-widgets:** fix imports and lib vars on global scope ([ab19d08](https://github.com/ecomclub/storefront-template/commit/ab19d0892ed547fb7fdaab3746b8aafe5bc67076))
+* **widgets:** import default module entry file ([4fd080e](https://github.com/ecomclub/storefront-template/commit/4fd080e38b9dddf10ed62822ec37ddff609f6bb1))
+
 ### [1.26.6](https://github.com/ecomclub/storefront-template/compare/v1.26.5...v1.26.6) (2019-12-28)
 
 
