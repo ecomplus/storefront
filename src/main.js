@@ -1,6 +1,7 @@
+import { name, version } from './../package.json'
 import Vue from 'vue'
 import '@ecomplus/storefront-twbs'
-import { _config, i18n } from '@ecomplus/utils'
+import { i18n } from '@ecomplus/utils'
 import App from './App.vue'
 import router from './router/'
 import store from './store/'
@@ -60,4 +61,4 @@ new Vue({
   render: h => h(App)
 }).$mount('#storefront-app')
 
-console.log(`* Starting Storefront App with Store ID #${_config.get('store_id')}`)
+console.log(`// Starting ${name}@${version} SPA`)
