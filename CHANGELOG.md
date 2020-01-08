@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.3](https://github.com/ecomclub/widget-minicart/compare/v0.7.2...v0.7.3) (2020-01-08)
+
+
+### Bug Fixes
+
+* **cart-item:** handle select=>input change directly on quantity watch ([95f7528](https://github.com/ecomclub/widget-minicart/commit/95f75288e18ff8334d0adbdfc821ffdc484b9b3d))
+
 ### [0.7.2](https://github.com/ecomclub/widget-minicart/compare/v0.7.1...v0.7.2) (2020-01-07)
 
 ### [0.7.1](https://github.com/ecomclub/widget-minicart/compare/v0.7.0...v0.7.1) (2020-01-07)
