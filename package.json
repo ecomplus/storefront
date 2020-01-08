@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@ecomplus/client": "^2.0.2",
-    "@ecomplus/passport-client": "^1.0.4",
+    "@ecomplus/passport-client": "^1.0.5",
     "@ecomplus/search-engine": "^2.0.2",
     "@ecomplus/shopping-cart": "^2.0.2",
     "@ecomplus/storefront-app": "^1.4.10",
