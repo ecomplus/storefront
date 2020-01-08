@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.3.2](https://github.com/ecomclub/storefront-framework/compare/v5.3.1...v5.3.2) (2020-01-08)
+
+
+### Bug Fixes
+
+* **deps:** terser-webpack-plugin 2 must be direct dependency (not dev) ([0a54db9](https://github.com/ecomclub/storefront-framework/commit/0a54db935c6f3cc6e92dced8d6508d38c4ff8b3b))
+
 ### [5.3.1](https://github.com/ecomclub/storefront-framework/compare/v5.3.0...v5.3.1) (2020-01-08)
 
 
