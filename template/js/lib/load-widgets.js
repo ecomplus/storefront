@@ -1,12 +1,11 @@
 import emitter from './emitter'
 import EcomSearch from '@ecomplus/search-engine'
-import EcomPassport from '@ecomplus/passport-client'
-import { ecomCart, EcomCart } from '@ecomplus/shopping-cart'
+import ecomPassport from '@ecomplus/passport-client'
+import ecomCart from '@ecomplus/shopping-cart'
 import widgetProductCard from '@ecomplus/widget-product-card'
 
 window.EcomSearch = EcomSearch
-window.EcomPassport = EcomPassport
-window.EcomCart = EcomCart
+window.ecomPassport = ecomPassport
 window.ecomCart = ecomCart
 
 emitter.emit('ecom:ready')
