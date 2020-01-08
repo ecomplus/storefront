@@ -3,7 +3,6 @@
   "version": "4.0.4",
   "description": "Bootstrap + Animate.css + FontAwesome wrapper for E-Com Plus Storefront",
   "main": "dist/storefront-twbs.min.js",
-  "module": "src/index.js",
   "browser": "dist/storefront-twbs.min.js",
   "scripts": {
     "build": "bash ./setup.sh && NODE_ENV=production webpack",
