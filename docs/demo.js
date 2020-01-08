@@ -15,7 +15,7 @@ ecomCart.addItem({
 })
 
 ecomCart.on('increaseItemQnt', () => {
-  window.alert('demo')
+  console.log('increaseItemQnt')
 })
 
 export default widget
