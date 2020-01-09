@@ -65,7 +65,7 @@ copyFolder({
   dirTemplate: path.join(process.cwd(), 'node_modules/@ecomplus/storefront-app'),
   pathFrom: 'dist/lib',
   pathDest: 'template',
-  pathsTo: ['public', 'assets', 'vendor', 'storefront-app']
+  pathsTo: ['public'].concat(require('@ecomplus/storefront-app/webpack.public-path').split('/'))
 })
 
 copyFolder({
