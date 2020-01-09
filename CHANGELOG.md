@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.27.1](https://github.com/ecomclub/storefront-template/compare/v1.27.0...v1.27.1) (2020-01-09)
+
+
+### Bug Fixes
+
+* **cms:** parse html on md content for preview ([#127](https://github.com/ecomclub/storefront-template/issues/127)) ([f5c06ed](https://github.com/ecomclub/storefront-template/commit/f5c06edcdaee3c31036ba350fccfc4280b669dff))
+
 ## [1.27.0](https://github.com/ecomclub/storefront-template/compare/v1.26.7...v1.27.0) (2020-01-09)
 
 
