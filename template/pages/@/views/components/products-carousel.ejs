@@ -5,6 +5,7 @@
     _.dictionary().popular_products
   const link = opt.link || (opt.collection && opt.collection.slug)
   %>
+
   <section
     class="products-carousel"
     data-size="<%= opt.items.length %>"
@@ -30,6 +31,7 @@
         </a>
       <% } %>
     </h4>
+
     <div
       class="glide"
       data-autoplay="<%= opt.autoplay %>"
@@ -45,6 +47,7 @@
             </li>
           <% } %>
         </ul>
+
         <div
           class="glide__arrows glide__arrows--outer"
           data-glide-el="controls"
