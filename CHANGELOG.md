@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.27.0](https://github.com/ecomclub/storefront-template/compare/v1.26.7...v1.27.0) (2020-01-09)
+
+
+### Features
+
+* **cms:** setting up homepage preview for Netlify CMS ([0595176](https://github.com/ecomclub/storefront-template/commit/05951768e3ab9af62c30cff08c6397536c98cb23))
+
 ### [1.26.7](https://github.com/ecomclub/storefront-template/compare/v1.26.6...v1.26.7) (2020-01-08)
 
 
