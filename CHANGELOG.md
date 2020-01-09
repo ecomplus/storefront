@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.3.3](https://github.com/ecomclub/storefront-framework/compare/v5.3.2...v5.3.3) (2020-01-09)
+
+
+### Bug Fixes
+
+* **build:** prerender exit with failure on renderer rejection ([10390b2](https://github.com/ecomclub/storefront-framework/commit/10390b28e00c99e2b994485d678342b0f5fc7006))
+* **renderer:** explicitly exit with failure on ejs.compile error ([dd0b8a0](https://github.com/ecomclub/storefront-framework/commit/dd0b8a0b28b8a5976364025377210ae575fa05b0))
+
 ### [5.3.2](https://github.com/ecomclub/storefront-framework/compare/v5.3.1...v5.3.2) (2020-01-08)
 
 
