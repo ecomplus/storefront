@@ -51,6 +51,7 @@ const compileTemplate = (filename, prop) => {
       template = ejs.compile(markup, { filename, async: true })
     } catch (err) {
       console.error(err)
+      process.exit(1)
     }
   }
 
