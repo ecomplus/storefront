@@ -101,7 +101,12 @@ const logo = _.settings.logo
         <div class="header__col col col-lg-3">
           <a href="/">
             <% if (logo && logo.url) { %>
-              <img id="logo" class="header__logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
+              <img
+                id="logo"
+                class="header__logo"
+                <%- _.attrs.imgSrc(logo.url) %>
+                alt="<%= logo.alt %>"
+              >
             <% } else { %>
               <%= _.settings.name || _.store.name %>
             <% } %>

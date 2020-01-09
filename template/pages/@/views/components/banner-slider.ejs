@@ -8,7 +8,7 @@
               <a href="<%= link %>" class="d-block">
                 <img
                   class="lozad fade img-fluid"
-                  data-src="<%= img %>"
+                  data-<%- _.attrs.imgSrc(img) %>
                   alt="<%= alt %>"
                 >
               </a>
