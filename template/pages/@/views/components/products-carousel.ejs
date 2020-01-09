@@ -1,4 +1,11 @@
 <% if (Array.isArray(opt.items) && opt.items.length) { %>
+  <%
+  const title = opt.title ||
+    (opt.collection && opt.collection.name) ||
+    _.dictionary().popular_products
+  const link = opt.link || (opt.collection && opt.collection.slug)
+  %>
+
   <section
     class="products-carousel"
     data-size="<%= opt.items.length %>"
