@@ -40,15 +40,15 @@ export default class HomePreview extends window.React.Component {
         newDoc = displayWidget('home', key, objCurr, vDoc)
       }
 
-      const $carousels = vDoc.querySelectorAll('.products-carousel')
-      // remove all carousels that do not have [data-cms-default=true]
-      if ($carousels.length) {
-        $carousels.forEach(el => {
-          if (!el.dataset.cmsDefault) {
-            el.remove()
-          }
-        })
-      }
+      // const $carousels = vDoc.querySelectorAll('.products-carousel')
+      // // remove all carousels that do not have [data-cms-default=true]
+      // if ($carousels.length) {
+      //   $carousels.forEach(el => {
+      //     if (!el.dataset.cmsDefault) {
+      //       el.remove()
+      //     }
+      //   })
+      // }
 
       // showcase
       if (!data.showcase || !data.showcase.length) {
