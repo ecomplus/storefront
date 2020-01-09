@@ -62,7 +62,7 @@
     "recursive-readdir": "^2.2.2",
     "sass-loader": "^7.3.1",
     "style-loader": "^1.1.2",
-    "terser-webpack-plugin": "^2.3.1",
+    "terser-webpack-plugin": "^2.3.2",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-middleware": "^3.7.2",
@@ -73,7 +73,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.3.4",
-    "husky": "^4.0.1",
+    "husky": "^4.0.3",
     "standard": "^14.3.1",
     "standard-version": "^7.0.1"
   },
