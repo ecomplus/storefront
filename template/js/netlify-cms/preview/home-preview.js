@@ -40,6 +40,11 @@ export default class HomePreview extends window.React.Component {
         const $showcase = vDoc.querySelectorAll('[data-cms-if="home.showcase"]')
         $showcase[0].style.display = 'none'
       }
+      
+      if (!entry.getIn(['data', 'slider', 'slides', 0, 'img'])) {
+        const $slider = vDoc.querySelectorAll('.glide')
+        $slider[0].style.display = 'none'
+      }
 
       // fix slider imagens
       this.props.widgetsFor('slider')
