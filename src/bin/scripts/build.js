@@ -16,7 +16,7 @@ const bundler = require('./../bundler')
 const renderer = require('./../../renderer')
 const { storeId } = require('./../../lib/config')
 
-const prerender = (url, route) => new Promise((resolve, reject) => {
+const prerender = (url, route) => new Promise(resolve => {
   // debug
   console.log()
   console.log('----  //  ----')
@@ -61,12 +61,19 @@ const prerender = (url, route) => new Promise((resolve, reject) => {
           }
           resolve()
         })
+      } else if (html === false) {
+        throw new Error('Render returns false')
       } else {
         console.log(clYellow, `Render output: ${JSON.stringify(html)}`)
         resolve()
       }
     })
-    .catch(err => console.error(clRed, err))
+
+    .catch(err => {
+      console.error(clRed, err)
+      // exit with failure
+      process.exit(1)
+    })
 })
 
 bundler.then(async () => {
