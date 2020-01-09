@@ -1,8 +1,27 @@
 <%
+// optional menu options from content
+const menu = _.cms('menu')
+
 // start grouping categories by parent slug
 const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
   return !parent || !parent.slug ? '_' : parent.slug
 })
+
+const mainCategories = categoryParents._
+if (mainCategories) {
+  const orderedCategorySlugs = menu && menu.sort_categories
+  if (Array.isArray(orderedCategorySlugs)) {
+    // reorder first level categories list
+    orderedCategorySlugs.reverse().forEach(slug => {
+      const categoryIndex = mainCategories.findIndex(category => category.slug === slug)
+      if (categoryIndex > -1) {
+        const category = mainCategories[categoryIndex]
+        mainCategories.splice(categoryIndex, 1)
+        mainCategories.unshift(category)
+      }
+    })
+  }
+}
 %>
 
 <aside id="menu" class="menu">

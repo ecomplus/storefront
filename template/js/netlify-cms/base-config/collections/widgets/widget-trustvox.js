@@ -23,6 +23,11 @@ export default {
       widget: 'boolean'
     },
     {
+      name: 'enableCheckout',
+      widget: 'hidden',
+      default: false
+    },
+    {
       label: 'Opções',
       name: 'options',
       widget: 'object',

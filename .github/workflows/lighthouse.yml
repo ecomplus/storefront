@@ -1,9 +1,6 @@
 name: Lighthouse
 
 on:
-  check_suite:
-    types:
-      - completed
   pull_request:
     types: [review_requested]
     branches:

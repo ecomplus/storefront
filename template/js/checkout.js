@@ -4,4 +4,4 @@ import './lib/utils'
 
 import '@ecomplus/storefront-app'
 
-import(/* webpackPrefetch: true */ './lib/load-widgets')
+import('./lib/load-widgets')
