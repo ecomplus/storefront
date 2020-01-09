@@ -7,8 +7,11 @@ const info = _.cms('info')
 <%- await include('components/banner-slider', { _, opt: home.slider }) %>
 <% if (home.pitbar) { %>
   <%- await include('components/pitbar', { _ }) %>
+<% } else { %>
+  <script type="html/text" data-cms-html>
+    <%- await include('components/pitbar', { _ }) %>
+  </script>
 <% } %>
-
 <div class="home container py-1 py-sm-2 py-lg-4">
   <% if (Array.isArray(home.showcase) && home.showcase.length) { %>
     <%
@@ -34,9 +37,9 @@ const info = _.cms('info')
     <%- await include('components/products-carousel', { _, opt: { items: _.items } }) %>
   <% } %>
 
-  <% if (home.additional_content) { %>
-    <section class="md-content">
+  <section class="md-content" data-cms-bind="home.additional_content" data-cms-md="true">
+    <% if (home.additional_content) { %>
       <%- _.md.render(home.additional_content) %>
-    </section>
-  <% } %>
+    <% } %>
+  </section>
 </div>
