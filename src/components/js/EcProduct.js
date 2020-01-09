@@ -102,10 +102,16 @@ export default {
     variationsGrids,
     specValueByText,
 
-    fetchProduct () {
+    fetchProduct (isRetry) {
       const vm = this
       const { storeId } = vm
-      store({ url: `/products/${vm.productId}.json`, storeId })
+      store({
+        url: `/products/${vm.productId}.json`,
+        storeId,
+        axiosConfig: {
+          timeout: isRetry ? 2500 : 6000
+        }
+      })
         .then(({ data }) => {
           vm.body = data
           if (getContextId() === vm.productId) {
@@ -114,15 +120,19 @@ export default {
         })
         .catch(err => {
           console.error(err)
-          const errorMsg = vm.lang === 'pt_br'
-            ? 'Não foi possível carregar informações do produto, por favor verifique sua conexão'
-            : 'Unable to load product information, please check your internet connection'
-          vm.$bvToast.toast(errorMsg, {
-            title: 'Offline',
-            variant: 'danger',
-            noAutoHide: true,
-            solid: true
-          })
+          if (!this.isRetry) {
+            this.fetchProduct(true)
+          } else {
+            const errorMsg = vm.lang === 'pt_br'
+              ? 'Não foi possível carregar informações do produto, por favor verifique sua conexão'
+              : 'Unable to load product information, please check your internet connection'
+            vm.$bvToast.toast(errorMsg, {
+              title: 'Offline',
+              variant: 'danger',
+              noAutoHide: true,
+              solid: true
+            })
+          }
         })
     },
 
