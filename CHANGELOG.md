@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.27.6](https://github.com/ecomclub/storefront-template/compare/v1.27.5...v1.27.6) (2020-01-10)
+
 ### [1.27.5](https://github.com/ecomclub/storefront-template/compare/v1.27.4...v1.27.5) (2020-01-10)
 
 ### [1.27.4](https://github.com/ecomclub/storefront-template/compare/v1.27.3...v1.27.4) (2020-01-10)
