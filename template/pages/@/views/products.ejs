@@ -24,6 +24,12 @@ breadcrumbs.push({
 
 <% if (pageProducts.pitbar) { %>
   <%- await include('components/pitbar', { _ }) %>
+<% } else { %>
+  <div>
+    <script type="html/text" data-cms-html>
+      <%- await include('components/pitbar', { _ }) %>
+    </script>
+  </div>
 <% } %>
 
 <div class="container py-1 py-sm-2 py-lg-4">
@@ -97,7 +103,7 @@ breadcrumbs.push({
             items = search.getItems()
           }
           %>
-          <%- await include('components/products-carousel', { _, opt: { items, title } }) %>
+          <%- await include('components/products-carousel', { _, opt: { items, title, showcaseType } }) %>
           <%
         } catch (err) {
           console.error(err)
@@ -151,11 +157,11 @@ breadcrumbs.push({
       </section>
     <% } %>
 
-    <% if (pageProducts.additional_content) { %>
-      <section class="md-content">
+    <section class="md-content" data-cms-bind="<%= _.currentPage %>.additional_content" data-cms-md="true">
+      <% if (pageProducts.additional_content) { %>
         <%- _.md.render(pageProducts.additional_content) %>
-      </section>
-    <% } %>
+      <% } %>
+    </section>
   </div>
 </div>
 
