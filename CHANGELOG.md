@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.27.7](https://github.com/ecomclub/storefront-template/compare/v1.27.6...v1.27.7) (2020-01-10)
+
+### [1.27.6](https://github.com/ecomclub/storefront-template/compare/v1.27.5...v1.27.6) (2020-01-10)
+
+### [1.27.5](https://github.com/ecomclub/storefront-template/compare/v1.27.4...v1.27.5) (2020-01-10)
+
+### [1.27.4](https://github.com/ecomclub/storefront-template/compare/v1.27.3...v1.27.4) (2020-01-10)
+
+### [1.27.3](https://github.com/ecomclub/storefront-template/compare/v1.27.2...v1.27.3) (2020-01-09)
+
+### [1.27.2](https://github.com/ecomclub/storefront-template/compare/v1.27.1...v1.27.2) (2020-01-09)
+
+### [1.27.1](https://github.com/ecomclub/storefront-template/compare/v1.27.0...v1.27.1) (2020-01-09)
+
+
+### Bug Fixes
+
+* **cms:** parse html on md content for preview ([#127](https://github.com/ecomclub/storefront-template/issues/127)) ([f5c06ed](https://github.com/ecomclub/storefront-template/commit/f5c06edcdaee3c31036ba350fccfc4280b669dff))
+
+## [1.27.0](https://github.com/ecomclub/storefront-template/compare/v1.26.7...v1.27.0) (2020-01-09)
+
+
+### Features
+
+* **cms:** setting up homepage preview for Netlify CMS ([0595176](https://github.com/ecomclub/storefront-template/commit/05951768e3ab9af62c30cff08c6397536c98cb23))
+
 ### [1.26.7](https://github.com/ecomclub/storefront-template/compare/v1.26.6...v1.26.7) (2020-01-08)
 
 

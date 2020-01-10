@@ -9,7 +9,15 @@ export default {
   config: {
     backend: {
       name: 'git-gateway',
-      branch: 'master'
+      branch: 'master',
+      commit_messages: {
+        create: 'Create {{collection}} “{{slug}}”',
+        update: 'Update {{collection}} “{{slug}}”',
+        delete: 'Delete {{collection}} “{{slug}}”',
+        uploadMedia: '[skip ci] Upload “{{path}}”',
+        deleteMedia: '[skip ci] Delete “{{path}}”',
+        openAuthoring: '{{message}}'
+      }
     },
     load_config_file: false,
     media_folder: 'template/public/img/uploads',

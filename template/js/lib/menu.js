@@ -1,44 +1,39 @@
 import $ from './$'
 import $overlay from './$overlay'
-import * as Slideout from 'slideout'
+import animateCss from './animate-css'
 
-const slideout = new Slideout({
-  panel: $('#main'),
-  menu: $('#menu'),
-  padding: 300,
-  tolerance: 70
-})
+const $menu = $('#menu')
 
-if (slideout) {
-  const $fixedNav = $('[data-slideout-fixed]')
+const sidenav = {
+  isVisible: false,
 
-  slideout.on('beforeopen', () => {
-    if ($fixedNav && window.navFixed && window.pageYOffset > 0) {
-      $fixedNav.style.position = 'absolute'
-      $fixedNav.style.top = `${window.pageYOffset}px`
+  toggle () {
+    if (!this.isVisible) {
+      $overlay.show()
+      $overlay.once('hide', () => {
+        this.close()
+      })
+      $menu.style.display = 'block'
+      animateCss($menu, 'slideInLeft')
+    } else {
+      animateCss($menu, 'slideOutLeft').then(() => {
+        $menu.style.display = null
+        $overlay.hide()
+      })
     }
+    this.isVisible = !this.isVisible
+  },
 
-    $overlay.show()
-    const close = $overlay.hide
-    slideout.once('close', close)
-    $overlay.once('hide', () => {
-      slideout.off('close', close)
-      slideout.close()
-    })
-  })
-
-  if ($fixedNav) {
-    slideout.on('close', () => {
-      $fixedNav.style.position = null
-      $fixedNav.style.top = null
-    })
+  close () {
+    this.isVisible = true
+    this.toggle()
   }
+}
 
-  window.toggleSidenav = () => {
-    slideout.toggle()
-  }
+window.toggleSidenav = () => {
+  sidenav.toggle()
+}
 
-  window.closeCollapsedMenu = () => {
-    $('#menu .collapse.show').classList.remove('show')
-  }
+window.closeCollapsedMenu = () => {
+  $('#menu .collapse.show').classList.remove('show')
 }

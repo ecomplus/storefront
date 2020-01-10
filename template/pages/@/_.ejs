@@ -1,0 +1,9 @@
+<%
+_.attrs = {
+  imgSrc (src) {
+    return src.endsWith('.webp')
+      ? `src="${src}" onerror="this.onerror=null; this.src='${src.replace('.webp', '.png')}'"`
+      : `src="${src}"`
+  }
+}
+%>

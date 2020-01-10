@@ -1,6 +1,13 @@
 .menu {
   display: none;
   background: var(--body-bg);
+  width: 300px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1090;
+  height: 100vh;
+  overflow-y: auto;
 
   &__list {
     padding-top: 40px;

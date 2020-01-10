@@ -11,7 +11,7 @@ export default (page, key, value, document) => {
       }
     } else if (typeof value === 'string') {
       if (cmsMd) {
-        const md = new markdownit()
+        const md = new markdownit({ html: true })
         $els[i].innerHTML = md.render(value)
       } else {
         $els[i].innerHTML = value

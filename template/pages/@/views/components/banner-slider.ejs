@@ -1,5 +1,5 @@
 <% if (Array.isArray(opt.slides) && opt.slides.length) { %>
-  <section class="banner-slider" data-cms-if="home.slider" data-slideout-ignore>
+  <section class="banner-slider" data-cms-if="home.slider">
     <div class="glide" data-autoplay="<%= opt.autoplay %>">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides banner-slider__slides">
@@ -8,7 +8,7 @@
               <a href="<%= link %>" class="d-block">
                 <img
                   class="lozad fade img-fluid"
-                  data-src="<%= img %>"
+                  data-<%- _.attrs.imgSrc(img) %>
                   alt="<%= alt %>"
                 >
               </a>
