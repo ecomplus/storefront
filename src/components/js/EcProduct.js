@@ -15,13 +15,10 @@ import EcShipping from './../EcShipping.vue'
 import dictionary from './../../lib/dictionary'
 
 const { storefront } = window
-const getContextId = () => {
-  if (storefront) {
-    const { context } = storefront
-    return context && context.body && context.body._id
-  }
-  return null
-}
+const getContextBody = storefront
+  ? storefront.context && storefront.context.body
+  : {}
+const getContextId = () => getContextBody()._id
 
 export default {
   name: 'EcProduct',
@@ -102,7 +99,7 @@ export default {
     variationsGrids,
     specValueByText,
 
-    fetchProduct (isRetry) {
+    fetchProduct (isRetry = false) {
       const vm = this
       const { storeId } = vm
       store({
@@ -123,15 +120,18 @@ export default {
           if (!this.isRetry) {
             this.fetchProduct(true)
           } else {
-            const errorMsg = vm.lang === 'pt_br'
-              ? 'Não foi possível carregar informações do produto, por favor verifique sua conexão'
-              : 'Unable to load product information, please check your internet connection'
-            vm.$bvToast.toast(errorMsg, {
-              title: 'Offline',
-              variant: 'danger',
-              noAutoHide: true,
-              solid: true
-            })
+            this.body = getContextBody()
+            if (!this.body.name || !this.body.price || !this.body.pictures) {
+              const errorMsg = vm.lang === 'pt_br'
+                ? 'Não foi possível carregar informações do produto, por favor verifique sua conexão'
+                : 'Unable to load product information, please check your internet connection'
+              vm.$bvToast.toast(errorMsg, {
+                title: 'Offline',
+                variant: 'danger',
+                noAutoHide: true,
+                solid: true
+              })
+            }
           }
         })
     },
