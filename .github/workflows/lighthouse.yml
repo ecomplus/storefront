@@ -11,10 +11,11 @@ on:
 
 jobs:
   lighthouse:
+    name: Audit URLs using Lighthouse
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Audit URLs using Lighthouse
+      - name: treosh/lighthouse-ci-action
         uses: treosh/lighthouse-ci-action@v2
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
