@@ -12,7 +12,7 @@
       data-collection-id="<%= opt.collection._id %>"
     <% } %>
     data-title="<%= title %>"
-    data-cms-if="<%= _.currentPage %>.<%= opt.showcaseType || 'showcase' %>"
+    data-cms-if="<%= _.pageName %>.<%= opt.showcaseType || 'showcase' %>"
   >
     <h4 class="products-carousel__title">
       <% if (opt.title || opt.collection) { %>

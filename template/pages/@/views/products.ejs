@@ -157,7 +157,7 @@ breadcrumbs.push({
       </section>
     <% } %>
 
-    <section class="md-content" data-cms-bind="<%= _.currentPage %>.additional_content" data-cms-md="true">
+    <section class="md-content" data-cms-bind="<%= _.pageName %>.additional_content" data-cms-md="true">
       <% if (pageProducts.additional_content) { %>
         <%- _.md.render(pageProducts.additional_content) %>
       <% } %>

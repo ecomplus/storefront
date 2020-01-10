@@ -8,8 +8,16 @@ switch (_.route.path) {
   case '/index':
     pathname = '/'
     page = _.cms('home')
+    _.pageName = 'home'
+    break
+  case '/search':
+    _.pageName = 'search'
+    break
+  default:
+    _.pageName = _.route.resource
     break
 }
+
 if (!page) {
   // try resource body or folder collection content
   const { body, content } = await _.resolveRoute()
@@ -38,19 +46,6 @@ if (url) {
   ogLocale = _.lang.length === 2 ? _.lang : _.lang.substr(0, 3) + _.lang.slice(3).toUpperCase()
 }
 
-// current page
-switch (_.route.path) {
-  case '/':
-  case '/index':
-    _.currentPage = 'home'    
-    break
-  case '/search':
-    _.currentPage = 'search'    
-    break
-  default:
-    _.currentPage = _.route.resource
-    break
-}
 %>
 
 <meta charset="utf-8">
