@@ -37,6 +37,20 @@ if (url) {
   social = _.cms('social')
   ogLocale = _.lang.length === 2 ? _.lang : _.lang.substr(0, 3) + _.lang.slice(3).toUpperCase()
 }
+
+// current page
+switch (_.route.path) {
+  case '/':
+  case '/index':
+    _.currentPage = 'home'    
+    break
+  case '/search':
+    _.currentPage = 'search'    
+    break
+  default:
+    _.currentPage = _.route.resource
+    break
+}
 %>
 
 <meta charset="utf-8">
