@@ -48,7 +48,7 @@ export default class ProductsPreview extends window.React.Component {
       const $related = vDoc.querySelectorAll('[data-cms-if="products.related"]')
 
       // hide by default
-      if (!entry.getIn(['data', 'related', 'showcase'])) {
+      if (!entry.getIn(['data', 'related', 'showcase']) && Array.isArray($related) && $related.length) {
         $related[0].style.display = 'none'
       }
 
@@ -81,7 +81,7 @@ export default class ProductsPreview extends window.React.Component {
       const $recommended = vDoc.querySelectorAll('[data-cms-if="products.recommended"]')
 
       // hide by default
-      if (!entry.getIn(['data', 'recommended', 'showcase'])) {
+      if (!entry.getIn(['data', 'recommended', 'showcase']) && Array.isArray($recommended) && $recommended.length) {
         $recommended[0].style.display = 'none'
       }
 
