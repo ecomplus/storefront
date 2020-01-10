@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.3](https://github.com/ecomclub/widget-product/compare/v0.4.2...v0.4.3) (2020-01-10)
+
+
+### Features
+
+* **fetch-fallback:** try product body from global context on fail ([74d90ea](https://github.com/ecomclub/widget-product/commit/74d90ea2f97e405adb7082f6df64dcacf4adf5da))
+* **retry-fetch:** edit fetch timeout and handle retry once ([fd640aa](https://github.com/ecomclub/widget-product/commit/fd640aa56249ae29264080943ed390058fd718f9))
+
+
+### Bug Fixes
+
+* **fetch-reject:** check response status before retry/fallback ([9987ca4](https://github.com/ecomclub/widget-product/commit/9987ca4141308d357884bc1c2bbc37a27732a1bf))
+
 ### [0.4.2](https://github.com/ecomclub/widget-product/compare/v0.4.1...v0.4.2) (2020-01-07)
 
 ### [0.4.1](https://github.com/ecomclub/widget-product/compare/v0.4.0...v0.4.1) (2020-01-06)

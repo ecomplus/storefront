@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-product",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Storefront plugin & Vue component for full product block",
   "module": "dist/widget-product.es.js",
   "browser": "dist/widget-product.min.js",
