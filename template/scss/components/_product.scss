@@ -19,13 +19,13 @@
     margin-bottom: 1.5rem;
   }
 
+  &__price {
+    font-size: 2.5rem;
+    color: var(--gray);
+  }
+
   &__buy {
-    .spinner-border {
-      width: 1.5rem;
-      height: 1.5rem;
-      margin-right: .5rem;
-      margin-bottom: .15rem;
-    }
+    margin-top: 1.5rem;
 
     @media (max-width: 575.98px) {
       display: block;
