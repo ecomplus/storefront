@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.28.0](https://github.com/ecomclub/storefront-template/compare/v1.27.8...v1.28.0) (2020-01-12)
+
+
+### Features
+
+* **cms:** products page preview ([#130](https://github.com/ecomclub/storefront-template/issues/130)) ([1afc8e4](https://github.com/ecomclub/storefront-template/commit/1afc8e416c789a2ece28b4fa477720509d9eddf6))
+
+
+### Bug Fixes
+
+* **footer:** fixing fone anchor to call the numer ([57063c0](https://github.com/ecomclub/storefront-template/commit/57063c0f7ac47c6061005152d070cb7c87459364))
+* **product-card:** skip showing spinner for all cards, show price ([0b315bd](https://github.com/ecomclub/storefront-template/commit/0b315bd628959525dce97ea22a47147ff6e85a13))
+* **product-view:** prerendered price and handle add to cart by default ([ef13fcd](https://github.com/ecomclub/storefront-template/commit/ef13fcdbce5a06f770fc1aedaa361fbccae2f251))
+
 ### [1.27.8](https://github.com/ecomclub/storefront-template/compare/v1.27.7...v1.27.8) (2020-01-10)
 
 ### [1.27.2](https://github.com/ecomclub/storefront-template/compare/v1.27.1...v1.27.2) (2020-01-09)
