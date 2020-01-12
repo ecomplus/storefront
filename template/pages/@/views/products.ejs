@@ -66,14 +66,27 @@ breadcrumbs.push({
         <h1 class="product__name">
           <%= _.ecomUtils.name(body) %>
         </h1>
-        <button
-          type="button"
-          class="product__buy btn btn-lg btn-primary"
-          disabled
-        >
+        <% if (body.available && body.visible && _.ecomUtils.inStock(body)) { %>
+          <strong class="product__price">
+            <%= _.ecomUtils.formatMoney(_.ecomUtils.price(body)) %>
+          </strong>
+        <% } %>
+        <hr>
+
+        <div>
           <div class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>
           </div>
+        </div>
+        <button
+          type="button"
+          class="product__buy btn btn-lg btn-primary"
+          onclick="ecomCart.addProduct(storefront.context.body)"
+          <% if (body.variations && body.variations.length) { %>
+            disabled
+          <% } %>
+        >
+          <i class="fas fa-shopping-bag mr-1"></i>
           <%= _.dictionary().buy %>
         </button>
         <% if (body.short_description) { %>
