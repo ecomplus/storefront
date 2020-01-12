@@ -19,7 +19,8 @@
     "release": "npm ddp && npm run build && standard-version && npm run snapshot",
     "snapshot": "cp ./dist.package.json ./dist/package.json; cp ./webpack.externals.js ./dist/",
     "test:install": "rm -rf ./copy && mkdir ./copy && TEMPLATE_DIR=copy node ./scripts/install.js",
-    "test:copy": "rm -rf ./copy && node ./scripts/copy.js --dest=copy"
+    "test:copy": "rm -rf ./copy && node ./scripts/copy.js --dest=copy",
+    "lint:js": "standard 'template/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -75,7 +76,7 @@
     "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.3.4",
     "babel-eslint": "^10.0.3",
-    "husky": "^4.0.6",
+    "husky": "^4.0.7",
     "standard": "^14.3.1",
     "standard-version": "^7.0.1"
   },
