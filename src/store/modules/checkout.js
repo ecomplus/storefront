@@ -54,6 +54,8 @@ const persistDiscountCoupon = couponCode => {
   }
 }
 
+let checkoutPromise
+
 const state = {
   cart: ecomCart.data,
   shippingService: {},
@@ -202,26 +204,33 @@ const actions = {
         discount_coupon: getters.discountCoupon
       }
     }
-    return ecomClient.modules({
-      url: '/@checkout.json',
-      method: 'post',
-      data: checkoutBody
-    }).then(({ data }) => {
-      const { order, transaction } = data
-      if (transaction.redirect_to_payment && transaction.payment_link) {
-        window.location = transaction.payment_link
-      } else {
-        order.transactions = order.transactions || []
-        order.transactions.push(transaction)
-      }
-      return {
-        status: 'open',
-        ...order
-      }
-    }).catch(err => {
-      console.error(err)
-      throw err
-    })
+    if (!checkoutPromise) {
+      checkoutPromise = ecomClient.modules({
+        url: '/@checkout.json',
+        method: 'post',
+        data: checkoutBody
+      }).then(({ data }) => {
+        setTimeout(() => {
+          checkoutPromise = null
+        }, 2000)
+        const { order, transaction } = data
+        if (transaction.redirect_to_payment && transaction.payment_link) {
+          window.location = transaction.payment_link
+        } else {
+          order.transactions = order.transactions || []
+          order.transactions.push(transaction)
+        }
+        return {
+          status: 'open',
+          ...order
+        }
+      }).catch(err => {
+        checkoutPromise = null
+        console.error(err)
+        throw err
+      })
+    }
+    return checkoutPromise
   }
 }
 
