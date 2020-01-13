@@ -43,10 +43,6 @@
     "url": "https://github.com/ecomclub/storefront-template/issues"
   },
   "homepage": "https://github.com/ecomclub/storefront-template#readme",
-  "peerDependencies": {
-    "core-js": "3.x",
-    "ejs": "3.x"
-  },
   "dependencies": {
     "@ecomplus/client": "^2.0.2",
     "@ecomplus/passport-client": "^1.0.5",
@@ -66,6 +62,8 @@
     "@ecomplus/widget-user": "^0.10.4",
     "@glidejs/glide": "^3.4.1",
     "bootswatch": "^4.4.1",
+    "core-js": ">=3.6.3 <3.7",
+    "ejs": "^3.0.1",
     "eventemitter3": "^4.0.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.2",
