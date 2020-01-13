@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.3.5](https://github.com/ecomclub/storefront-framework/compare/v5.3.4...v5.3.5) (2020-01-13)
+
 ### [5.3.4](https://github.com/ecomclub/storefront-framework/compare/v5.3.3...v5.3.4) (2020-01-13)
 
 ### [5.3.3](https://github.com/ecomclub/storefront-framework/compare/v5.3.2...v5.3.3) (2020-01-09)
