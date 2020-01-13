@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.12](https://github.com/ecomclub/storefront-app/compare/v1.4.11...v1.4.12) (2020-01-13)
+
 ### [1.4.11](https://github.com/ecomclub/storefront-app/compare/v1.4.10...v1.4.11) (2020-01-13)
 
 
