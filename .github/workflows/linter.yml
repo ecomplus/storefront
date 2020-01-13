@@ -1,0 +1,20 @@
+name: Linter
+
+on: pull_request
+
+jobs:
+  compress-images:
+    name: Linter
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Run Stardard JS linter
+        run: npm run lint:js
