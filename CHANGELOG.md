@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.29.0](https://github.com/ecomclub/storefront-template/compare/v1.28.0...v1.29.0) (2020-01-13)
+
+
+### Features
+
+* **scripts:** add abstracted pack script and 'storefront-tmpl-pack' bin ([a2fd1da](https://github.com/ecomclub/storefront-template/commit/a2fd1da988cceda5b66699ac45994259b8b24e2a))
+
 ## [1.28.0](https://github.com/ecomclub/storefront-template/compare/v1.27.8...v1.28.0) (2020-01-12)
 
 
