@@ -1,8 +1,9 @@
 import virtualDoc from './virtual-doc'
 import displayWidget from './display-widget'
+import fetchPage from './fetch-page'
 
 export default class HomePreview extends window.React.Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       vDoc: '',
@@ -10,14 +11,12 @@ export default class HomePreview extends window.React.Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.fetchPage()
   }
 
-  async fetchPage() {
-    fetch('/index.html').then(response => {
-      return response.text()
-    })
+  async fetchPage () {
+    fetchPage('/index.html')
       .then(html => {
         const vDoc = virtualDoc(html)
         this.setState({ html, vDoc })
@@ -27,7 +26,8 @@ export default class HomePreview extends window.React.Component {
       })
   }
 
-  render() {
+  render () {
+    /* global h */
     const { vDoc } = this.state
     let newDoc = vDoc
     let html
@@ -40,7 +40,7 @@ export default class HomePreview extends window.React.Component {
         const $showcase = vDoc.querySelectorAll('[data-cms-if="home.showcase"]')
         $showcase[0].style.display = 'none'
       }
-      
+
       if (!entry.getIn(['data', 'slider', 'slides', 0, 'img'])) {
         const $slider = vDoc.querySelectorAll('.glide')
         $slider[0].style.display = 'none'

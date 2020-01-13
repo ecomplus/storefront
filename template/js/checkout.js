@@ -4,4 +4,4 @@ import './lib/utils'
 
 import '@ecomplus/storefront-app'
 
-import('./lib/load-widgets')
+import('./lib/load-widgets').catch(console.error)
