@@ -34,9 +34,9 @@
   },
   "homepage": "https://github.com/ecomclub/storefront-framework#readme",
   "dependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
-    "@babel/preset-env": "^7.7.7",
+    "@babel/core": "^7.8.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.0",
+    "@babel/preset-env": "^7.8.2",
     "@ecomplus/client": "^2.0.2",
     "@ecomplus/search-engine": "^2.0.2",
     "@ecomplus/storefront-router": "^2.0.1",
@@ -46,8 +46,8 @@
     "browser-sync": "^2.26.7",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
-    "core-js": "^3.6.2",
-    "css-loader": "^3.4.1",
+    "core-js": "^3.6.3",
+    "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
     "ejs": "^3.0.1",
     "html-minifier": "^4.0.0",
@@ -73,7 +73,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.3.4",
-    "husky": "^4.0.3",
+    "husky": "^4.0.7",
     "standard": "^14.3.1",
     "standard-version": "^7.0.1"
   },
