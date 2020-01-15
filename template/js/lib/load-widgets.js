@@ -1,9 +1,11 @@
 import emitter from './emitter'
+import ecomClient from '@ecomplus/client'
 import EcomSearch from '@ecomplus/search-engine'
 import ecomPassport from '@ecomplus/passport-client'
 import ecomCart from '@ecomplus/shopping-cart'
 import widgetProductCard from '@ecomplus/widget-product-card'
 
+window.ecomClient = ecomClient
 window.EcomSearch = EcomSearch
 window.ecomPassport = ecomPassport
 window.ecomCart = ecomCart
