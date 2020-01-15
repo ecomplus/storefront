@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.29.2](https://github.com/ecomclub/storefront-template/compare/v1.29.1...v1.29.2) (2020-01-15)
+
+
+### Bug Fixes
+
+* **global-libs:** set ecomClient globally (window) for widgets ([76399ae](https://github.com/ecomclub/storefront-template/commit/76399ae1b07c3333dd40d6bb689165eac7e47d5d))
+
 ### [1.29.1](https://github.com/ecomclub/storefront-template/compare/v1.29.0...v1.29.1) (2020-01-13)
 
 ## [1.29.0](https://github.com/ecomclub/storefront-template/compare/v1.28.0...v1.29.0) (2020-01-13)
