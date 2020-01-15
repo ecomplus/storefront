@@ -11,9 +11,13 @@ on:
 
 jobs:
   lighthouse:
+    name: Lighthouse
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v1
+
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v2
         env:

@@ -40,11 +40,11 @@ window.storefront = {
 }
 
 setTimeout(() => {
-  import(/* webpackPreload: true */ './lib/fetch-info')
+  import(/* webpackPreload: true */ './lib/fetch-info').catch(console.error)
 }, 300)
 
 if (window.pluginPhotoswipe) {
-  import('./lib/photoswipe')
+  import('./lib/photoswipe').catch(console.error)
 }
 
 const { hash } = window.location

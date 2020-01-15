@@ -2,15 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.27.7](https://github.com/ecomclub/storefront-template/compare/v1.27.6...v1.27.7) (2020-01-10)
+### [1.29.1](https://github.com/ecomclub/storefront-template/compare/v1.29.0...v1.29.1) (2020-01-13)
 
-### [1.27.6](https://github.com/ecomclub/storefront-template/compare/v1.27.5...v1.27.6) (2020-01-10)
+## [1.29.0](https://github.com/ecomclub/storefront-template/compare/v1.28.0...v1.29.0) (2020-01-13)
 
-### [1.27.5](https://github.com/ecomclub/storefront-template/compare/v1.27.4...v1.27.5) (2020-01-10)
 
-### [1.27.4](https://github.com/ecomclub/storefront-template/compare/v1.27.3...v1.27.4) (2020-01-10)
+### Features
 
-### [1.27.3](https://github.com/ecomclub/storefront-template/compare/v1.27.2...v1.27.3) (2020-01-09)
+* **scripts:** add abstracted pack script and 'storefront-tmpl-pack' bin ([a2fd1da](https://github.com/ecomclub/storefront-template/commit/a2fd1da988cceda5b66699ac45994259b8b24e2a))
+
+## [1.28.0](https://github.com/ecomclub/storefront-template/compare/v1.27.8...v1.28.0) (2020-01-12)
+
+
+### Features
+
+* **cms:** products page preview ([#130](https://github.com/ecomclub/storefront-template/issues/130)) ([1afc8e4](https://github.com/ecomclub/storefront-template/commit/1afc8e416c789a2ece28b4fa477720509d9eddf6))
+
+
+### Bug Fixes
+
+* **footer:** fixing fone anchor to call the numer ([57063c0](https://github.com/ecomclub/storefront-template/commit/57063c0f7ac47c6061005152d070cb7c87459364))
+* **product-card:** skip showing spinner for all cards, show price ([0b315bd](https://github.com/ecomclub/storefront-template/commit/0b315bd628959525dce97ea22a47147ff6e85a13))
+* **product-view:** prerendered price and handle add to cart by default ([ef13fcd](https://github.com/ecomclub/storefront-template/commit/ef13fcdbce5a06f770fc1aedaa361fbccae2f251))
+
+### [1.27.8](https://github.com/ecomclub/storefront-template/compare/v1.27.7...v1.27.8) (2020-01-10)
 
 ### [1.27.2](https://github.com/ecomclub/storefront-template/compare/v1.27.1...v1.27.2) (2020-01-09)
 

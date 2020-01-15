@@ -43,10 +43,15 @@ if (imgObj) {
         <%= itemData.name %>
       </h3>
     </a>
+
     <div class="product-card__info">
-      <div class="spinner-border spinner-border-sm" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
+      <% if (opt.item.available && opt.item.visible && _.ecomUtils.inStock(opt.item)) { %>
+        <strong><%= _.ecomUtils.formatMoney(itemData.price) %></strong>
+      <% } else { %>
+        <div class="spinner-border spinner-border-sm" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      <% } %>
     </div>
   </div>
 </article>

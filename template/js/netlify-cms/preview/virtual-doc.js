@@ -1,6 +1,6 @@
 // creates DOM document object for preview
 export default html => {
-  const parser = new DOMParser()
+  const parser = new window.DOMParser()
   const vDocument = parser.parseFromString(html, 'text/html')
 
   // find script tags with hidden components
