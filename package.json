@@ -62,7 +62,7 @@
     "@ecomplus/widget-user": "^0.10.4",
     "@glidejs/glide": "^3.4.1",
     "bootswatch": "^4.4.1",
-    "core-js": ">=3.6.3 <3.7",
+    "core-js": ">=3.6.4 <3.7",
     "ejs": "^3.0.1",
     "eventemitter3": "^4.0.0",
     "lodash.clonedeep": "^4.5.0",
@@ -72,10 +72,10 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.4",
+    "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "babel-eslint": "^10.0.3",
-    "husky": "^4.0.7",
+    "husky": "^4.0.10",
     "standard": "^14.3.1",
     "standard-version": "^7.0.1"
   },
