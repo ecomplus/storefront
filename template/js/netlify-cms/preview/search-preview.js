@@ -96,7 +96,6 @@ export default class SearchPreview extends window.React.Component {
         $ecProductCardLink.appendChild($ecProductCardPictures)
         $ecProductCardLink.appendChild($h3)
 
-        //
         const $ecPrice = document.createElement('div')
         $ecPrice.className = 'ec-prices ec-product-card__prices'
 
