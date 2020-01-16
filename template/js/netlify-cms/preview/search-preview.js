@@ -116,7 +116,6 @@ export default class SearchPreview extends window.React.Component {
         $span.appendChild($ecDiscount)
         $ecPrice.appendChild($span)
 
-        //
         const $ecProductBuy = document.createElement('div')
         $ecProductBuy.className = 'ec-product-card__buy fade'
         const $btn = document.createElement('button')
