@@ -87,7 +87,6 @@ export default class SearchPreview extends window.React.Component {
         $img.className = 'lozad fade show'
         $img.setAttribute('data-loaded', true)
         $img.src = 'https://ecom-iblwbssm.sfo2.digitaloceanspaces.com/imgs/400px/@1568320190220-glass.png'
-        //
         const $h3 = document.createElement('h3')
         $h3.className = 'ec-product-card__name'
         $h3.innerText = 'Óculos'
