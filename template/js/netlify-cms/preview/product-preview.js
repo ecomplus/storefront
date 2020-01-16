@@ -37,6 +37,7 @@ export default class ProductsPreview extends window.React.Component {
   }
 
   render () {
+    /* global h */
     const { vDoc } = this.state
     let newDoc = vDoc
     let html
