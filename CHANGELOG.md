@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/ecomclub/storefront-app/compare/v1.4.11...v1.5.0) (2020-01-16)
+
+
+### Features
+
+* **payment:** supporting fetch (list) after payment selected ([3c219fd](https://github.com/ecomclub/storefront-app/commit/3c219fd06b849d0ab3ae958a6f90fab1c66f4140))
+
 ### [1.4.11](https://github.com/ecomclub/storefront-app/compare/v1.4.10...v1.4.11) (2020-01-13)
 
 
