@@ -81,7 +81,6 @@ export default class SearchPreview extends window.React.Component {
         $ecProductCardLink.className = 'ec-product-card__link'
         const $ecProductCardPictures = document.createElement('div')
         $ecProductCardPictures.className = 'ec-product-card__pictures'
-        //
         const $ecImage = document.createElement('div')
         $ecImage.className = 'ec-image ec-product-card__picture'
         //
