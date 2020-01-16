@@ -69,7 +69,6 @@ export default class SearchPreview extends window.React.Component {
         $col.className = 'col-6 col-md-4 col-lg-3'
         const $ecProductCard = document.createElement('div')
         $ecProductCard.className = 'ec-product-card ec-search-engine__item'
-        //
         const $section = document.createElement('section')
         if (i % 2 === 0) {
           const $offer = document.createElement('span')
