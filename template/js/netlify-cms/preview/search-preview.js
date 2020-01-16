@@ -83,7 +83,6 @@ export default class SearchPreview extends window.React.Component {
         $ecProductCardPictures.className = 'ec-product-card__pictures'
         const $ecImage = document.createElement('div')
         $ecImage.className = 'ec-image ec-product-card__picture'
-        //
         const $img = document.createElement('img')
         $img.className = 'lozad fade show'
         $img.setAttribute('data-loaded', true)
