@@ -1,12 +1,9 @@
 <div class="ec-payment">
   <slide-y-up-transition group>
-    <div
-      v-if="waiting"
-      key="waiting"
-      class="spinner-border spinner-border-sm"
-      role="status"
-    >
-      <span class="sr-only">Loading...</span>
+    <div v-if="waiting" key="waiting" class="ec-payment__loading">
+      <div class="spinner-grow" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
 
     <div v-else key="gateways" class="list-group">

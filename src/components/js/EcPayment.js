@@ -160,9 +160,11 @@ export default {
       return bestOption
     },
 
-    parsePaymentOptions (listResult = []) {
-      this.paymentGateways = []
-      this.loadedClients = {}
+    parsePaymentOptions (listResult = [], isUpdatingSelected) {
+      if (!isUpdatingSelected) {
+        this.paymentGateways = []
+        this.loadedClients = {}
+      }
       if (listResult.length) {
         listResult.forEach(appResult => {
           const { validated, error, response } = appResult
@@ -173,11 +175,18 @@ export default {
                 installment_option: this.installmentOption(gateway),
                 ...gateway
               }
-              this.paymentGateways.push(paymentGateway)
               const jsClient = paymentGateway.js_client
               if (jsClient) {
-                const gatewayIndex = this.paymentGateways.length - 1
+                const gatewayIndex = isUpdatingSelected
+                  ? this.selectedGateway
+                  : this.paymentGateways.length
                 this.loadedClients[gatewayIndex] = loadPaymentClient(jsClient, true)
+              }
+              if (!isUpdatingSelected) {
+                this.paymentGateways.push(paymentGateway)
+              } else {
+                this.paymentGateways[this.selectedGateway] = paymentGateway
+                isUpdatingSelected = false
               }
             })
           }
@@ -185,8 +194,8 @@ export default {
       }
     },
 
-    fetchPaymentGateways () {
-      const url = '/list_payments.json'
+    fetchPaymentGateways (appId) {
+      let url = '/list_payments.json'
       const method = 'POST'
       const { items } = this
       const amount = this.amount ? { ...this.amount } : {}
@@ -203,7 +212,8 @@ export default {
       const data = {
         items,
         amount,
-        domain: window.location.hostname
+        domain: window.location.hostname,
+        can_fetch_when_selected: true
       }
       if (this.customer) {
         data.customer = {}
@@ -214,9 +224,17 @@ export default {
           }
         }
       }
+      if (appId) {
+        url += `?app_id=${appId}`
+        if (this.paymentGateway.payment_method) {
+          data.payment_method = this.paymentGateway.payment_method
+        }
+      }
       this.waiting = true
       modules({ url, method, data })
-        .then(({ data }) => this.parsePaymentOptions(data.result))
+        .then(({ data }) => {
+          this.parsePaymentOptions(data.result, Boolean(appId && this.selectedGateway >= 0))
+        })
         .finally(() => {
           this.waiting = false
         })
@@ -233,7 +251,11 @@ export default {
   watch: {
     selectedGateway: {
       handler () {
-        this.$emit('gatewaySelected', this.paymentGateway)
+        const { paymentGateway } = this
+        this.$emit('gatewaySelected', paymentGateway)
+        if (paymentGateway.fetch_when_selected) {
+          this.fetchPaymentGateways(paymentGateway.app_id)
+        }
       },
       immediate: true
     }

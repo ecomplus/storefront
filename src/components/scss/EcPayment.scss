@@ -1,4 +1,15 @@
 .ec-payment {
+  &__loading {
+    width: 100%;
+    padding-top: 4rem;
+    text-align: center;
+
+    > div {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+
   &__head {
     display: flex;
     justify-content: space-between;
