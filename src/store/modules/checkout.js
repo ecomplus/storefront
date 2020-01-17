@@ -1,13 +1,5 @@
 import ecomCart from '@ecomplus/shopping-cart'
 import ecomClient from '@ecomplus/client'
-import { sendCart } from './../../lib/sync-cart'
-import { delay } from './../../lib/delay'
-import ecomPassport from '@ecomplus/passport-client'
-
-const handleSendCart = () => sendCart().catch(console.error)
-sendCart()
-  .catch(() => ecomPassport.once('login', handleSendCart))
-  .finally(() => ecomCart.on('change', delay(handleSendCart, 5000)))
 
 const fixMoneyValue = num => Math.round(num * 100) / 100
 
