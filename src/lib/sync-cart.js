@@ -12,28 +12,33 @@ const fetchCart = (_id) => {
   })
 }
 
-const prepareCartItem = item => {
-  const { _id, product_id, sku, name, quantity, price } = item
-  return {
-    _id,
-    product_id,
-    sku,
-    name,
-    quantity,
-    price
-  }
-}
+const prepareCartItem = item => ({
+  _id: item._id,
+  product_id: item.product_id,
+  sku: item.sku,
+  name: item.name,
+  quantity: item.quantity,
+  price: item.price
+})
 
 const prepareCart = cart => {
-  const { subtotal, created_at } = cart
-  const url = created_at ? `/carts/${cart._id}.json` : '/carts.json'
-  const method = created_at ? 'PATCH' : 'POST'
-  const items = []
-  for (const item of cart.items) {
-    items.push(prepareCartItem(item))
+  const { subtotal } = cart
+  let url, method
+  if (cart.created_at) {
+    url = `/carts/${cart._id}.json`
+    method = 'PATCH'
+  } else {
+    url = '/carts.json'
+    method = 'POST'
   }
-  const cleanedData = { subtotal, items }
-  return { url, method, cleanedData }
+  return {
+    url,
+    method,
+    cleanedData: {
+      subtotal,
+      items: cart.items.map(item => prepareCartItem(item))
+    }
+  }
 }
 
 const updateLocalCart = data => {
@@ -54,7 +59,7 @@ export const sendCart = () => {
           resolve(data)
         })
     } else {
-      throw 'Customer not authorized to save new cart'
+      throw new Error('Customer not authorized to save new cart')
     }
   })
 }

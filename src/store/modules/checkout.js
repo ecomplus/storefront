@@ -4,7 +4,7 @@ import { sendCart } from './../../lib/sync-cart'
 import { delay } from './../../lib/delay'
 import ecomPassport from '@ecomplus/passport-client'
 
-const handleSendCart = () => sendCart().catch(err => console.error)
+const handleSendCart = () => sendCart().catch(console.error)
 sendCart()
   .catch(() => ecomPassport.once('login', handleSendCart))
   .finally(() => ecomCart.on('change', delay(handleSendCart, 5000)))

@@ -1,10 +1,10 @@
 export const delay = (fn, milliseconds) => {
-  let timer;
+  let timer
   return () => {
     if (!timer) {
       timer = setTimeout(() => {
         fn()
-        timer = null;
+        timer = null
       }, milliseconds)
     }
   }

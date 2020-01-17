@@ -7,9 +7,7 @@ import router from './router/'
 import store from './store/'
 import './lib/clipboard'
 import './lib/credit-card'
-import ecomCart from '@ecomplus/shopping-cart'
-import { hasCartCreated, sendCart } from './lib/sync-cart'
-import ecomPassport from '@ecomplus/passport-client'
+import { hasCartCreated } from './lib/sync-cart'
 
 const { title } = document
 router.afterEach(to => {
