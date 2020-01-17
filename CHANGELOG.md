@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/ecomclub/storefront-app/compare/v1.5.0...v1.6.0) (2020-01-17)
+
+
+### Features
+
+* **cart:** create/update cart on store api ([#107](https://github.com/ecomclub/storefront-app/issues/107)) ([bacb912](https://github.com/ecomclub/storefront-app/commit/bacb9120188579d5a79ee942caaa15335097dda5))
+* **cart:** handling cart upsert and watch on cart view ([09c73bb](https://github.com/ecomclub/storefront-app/commit/09c73bbe68109d948dfd5668a1ed9b577b28f311))
+* **checkout:** also upsert cart document on checkout adding a flag ([d9437c7](https://github.com/ecomclub/storefront-app/commit/d9437c76ae9473eb598c4d82d01d48e5784015ff))
+* **confirmation:** update cart doc with completed bool and order id ([3b793bc](https://github.com/ecomclub/storefront-app/commit/3b793bcc12f7c989d0392f9e2775ad60bbdd7e59))
+* **router:** fetch cart from id param ([a3375c5](https://github.com/ecomclub/storefront-app/commit/a3375c560689be9432fbeea359eed185663da628))
+
+
+### Bug Fixes
+
+* **router:** update cart after permalink set ([9c89364](https://github.com/ecomclub/storefront-app/commit/9c8936419601ee43fffba0a8fc23e1eea5535761))
+* **sync-cart:** fix preparing cart items, refactor fetch and upsert ([8b344c5](https://github.com/ecomclub/storefront-app/commit/8b344c5bc6a412814a114b63c46831a29cb16c0d))
+* **upsert-cart:** fix handling update queue, add more cart fields ([4654d51](https://github.com/ecomclub/storefront-app/commit/4654d51ff3d21ee5a5fc1c89e127d3c09fadd585))
+
 ## [1.5.0](https://github.com/ecomclub/storefront-app/compare/v1.4.11...v1.5.0) (2020-01-16)
 
 
