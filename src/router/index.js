@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import ecomCart from '@ecomplus/shopping-cart'
+import { fetchCart, fetchingCartId } from './../lib/sync-cart-to-api'
 
 Vue.use(VueRouter)
 
@@ -62,6 +64,24 @@ const routes = [
 
 const router = new VueRouter({
   routes
+})
+
+router.afterEach(() => {
+  const { name, params } = router.currentRoute
+  if (name === 'cart' || name === 'checkout') {
+    if (params.id && ecomCart.data._id !== params.id) {
+      fetchCart(params.id)
+    }
+    fetchingCartId.then(id => {
+      if (params.id !== id && router.currentRoute.name === name) {
+        router.push({ name, params: { id } })
+        const { hostname, href } = window.location
+        if (/\.[a-z]+$/.test(hostname)) {
+          ecomCart.data.permalink = href
+        }
+      }
+    })
+  }
 })
 
 export default router
