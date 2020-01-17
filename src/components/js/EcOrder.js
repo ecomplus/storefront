@@ -1,13 +1,11 @@
 import { store } from '@ecomplus/client'
 import ecomPassport from '@ecomplus/passport-client'
-import EcOrderStep from './../EcOrderStep.vue'
 import EcOrderInfo from './../EcOrderInfo.vue'
 
 export default {
   name: 'EcOrder',
 
   components: {
-    EcOrderStep,
     EcOrderInfo
   },
 
