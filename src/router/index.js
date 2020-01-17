@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import ecomCart from '@ecomplus/shopping-cart'
-import { fetchCart, fetchingCartId } from './../lib/sync-cart-to-api'
+import { fetchCart, fetchingCartId, upsertCart } from './../lib/sync-cart-to-api'
 
 Vue.use(VueRouter)
 
@@ -78,6 +78,7 @@ router.afterEach(() => {
         const { hostname, href } = window.location
         if (/\.[a-z]+$/.test(hostname)) {
           ecomCart.data.permalink = href
+          setTimeout(upsertCart, 500)
         }
       }
     })
