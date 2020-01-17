@@ -1,4 +1,7 @@
 import { mapGetters, mapMutations, mapActions } from 'vuex'
+import ecomCart from '@ecomplus/shopping-cart'
+import ecomPassport from '@ecomplus/passport-client'
+import { upsertCart } from './../../lib/sync-cart-to-api'
 import EcCheckout from './../../components/EcCheckout.vue'
 
 export default {
@@ -122,7 +125,24 @@ export default {
     const update = () => this.fetchCartItems({ removeOnError: true })
     this.updateInterval = setInterval(update, 600000)
     this.triggerLoading(true)
-    update().finally(() => this.triggerLoading(false))
+    update()
+      .then(() => {
+        if (!ecomCart.data.flags) {
+          ecomCart.data.flags = []
+        }
+        if (ecomCart.data.flags.indexOf('open-checkout') === -1) {
+          ecomCart.data.flags.push('open-checkout')
+        }
+        const tryUpsertCart = () => {
+          if (ecomPassport.checkAuthorization()) {
+            upsertCart()
+          } else {
+            ecomPassport.once('login', tryUpsertCart)
+          }
+        }
+        setTimeout(tryUpsertCart, 300)
+      })
+      .finally(() => this.triggerLoading(false))
   },
 
   destroyed () {
