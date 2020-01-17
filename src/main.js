@@ -7,6 +7,9 @@ import router from './router/'
 import store from './store/'
 import './lib/clipboard'
 import './lib/credit-card'
+import ecomCart from '@ecomplus/shopping-cart'
+import { hasCartCreated, sendCart } from './lib/sync-cart'
+import ecomPassport from '@ecomplus/passport-client'
 
 const { title } = document
 router.afterEach(to => {
@@ -54,6 +57,13 @@ window.storefrontApp = {
     }
   }
 }
+
+hasCartCreated.then(_id => {
+  const { name, params } = router.currentRoute
+  if ((name === 'cart' || name === 'checkout') && params.id !== _id) {
+    router.push({ name, params: { id: _id } })
+  }
+})
 
 new Vue({
   router,
