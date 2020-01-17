@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.30.0](https://github.com/ecomclub/storefront-template/compare/v1.29.3...v1.30.0) (2020-01-17)
+
+
+### Features
+
+* **cms:** add search page preview ([#135](https://github.com/ecomclub/storefront-template/issues/135)) ([b06e797](https://github.com/ecomclub/storefront-template/commit/b06e7970997ecc8727957616c2a29c3cdf85fba0))
+
 ### [1.29.3](https://github.com/ecomclub/storefront-template/compare/v1.29.2...v1.29.3) (2020-01-16)
 
 ### [1.29.2](https://github.com/ecomclub/storefront-template/compare/v1.29.1...v1.29.2) (2020-01-15)
