@@ -1,4 +1,6 @@
 import { mapGetters, mapMutations, mapActions } from 'vuex'
+import ecomCart from '@ecomplus/shopping-cart'
+import { upsertCart } from './../../lib/sync-cart-to-api'
 import EcCart from './../../components/EcCart.vue'
 
 export default {
@@ -36,6 +38,12 @@ export default {
   },
 
   created () {
-    this.fetchCartItems({})
+    this.fetchCartItems({}).then(() => {
+      upsertCart()
+        .then(() => {
+          ecomCart.on('change', upsertCart)
+          this.$once('hook:beforeDestroy', () => ecomCart.off('change', upsertCart))
+        })
+    })
   }
 }
