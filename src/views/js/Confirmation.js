@@ -1,12 +1,20 @@
 import { mapGetters, mapMutations, mapActions } from 'vuex'
-import EcOrderInfo from './../../components/EcOrderInfo.vue'
+import ecomCart from '@ecomplus/shopping-cart'
 import ecomPassport from '@ecomplus/passport-client'
+import { upsertCart } from './../../lib/sync-cart-to-api'
+import EcOrderInfo from './../../components/EcOrderInfo.vue'
 
 export default {
   name: 'confirmation',
 
   components: {
     EcOrderInfo
+  },
+
+  data () {
+    return {
+      canUpsertCart: true
+    }
   },
 
   computed: {
@@ -46,7 +54,24 @@ export default {
     ]),
     ...mapActions([
       'saveCustomer'
-    ])
+    ]),
+
+    handleUpsertCart () {
+      if (this.canUpsertCart) {
+        this.canUpsertCart = false
+        const { status } = this.order
+        if (status && status !== 'cancelled') {
+          ecomCart.data.completed = true
+          if (this.orderId) {
+            if (!ecomCart.data.orders) {
+              ecomCart.data.orders = []
+            }
+            ecomCart.data.orders.push(this.orderId)
+          }
+          upsertCart().then(this.resetCart)
+        }
+      }
+    }
   },
 
   created () {
@@ -55,15 +80,15 @@ export default {
       if (customer.main_email && customer.doc_number) {
         ecomPassport.fetchLogin(customer.main_email, customer.doc_number).then(() => {
           this.saveCustomer({ ecomPassport })
+          this.handleUpsertCart()
         })
       }
     }
   },
 
   mounted () {
-    const { status } = this.order
-    if (status && status !== 'cancelled') {
-      this.resetCart()
+    if (ecomPassport.checkAuthorization()) {
+      this.handleUpsertCart()
     }
   }
 }
