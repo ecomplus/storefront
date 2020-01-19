@@ -99,7 +99,7 @@ const generalConfig = {
 
 if (devMode) {
   generalConfig.plugins.push(new HtmlWebpackPlugin({
-    template: path.resolve(templatePath, 'monitor-gamer-asus-rog-swift-led-24-widescreen-fhd-pg248q.html')
+    template: path.resolve(templatePath, 'headset-stereo-logitech-h110-cinza.html')
   }))
 }
 
