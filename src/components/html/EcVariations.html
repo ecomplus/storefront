@@ -1,38 +1,26 @@
-<div class="ec-variations" v-if="variations">
+<div class="ec-variations" v-if="product.variations">
   <div
-    class="ec-variations__specifications"
-    v-for="(values, grid) in options"
+    v-for="(options, grid) in variationsGrids"
+    :class="`ec-variations__grid ec-variations__grid--${grid}`"
   >
-    <div class="ec-variations__colors" v-if="grid === 'colors'">
-      <h5>{{ gridTitle(grid, grids) }}</h5>
+    <h5>{{ getGridTitle(grid) }}</h5>
 
-      <div class="ec-variations__options">
-        <a
-          :data-code="specValueByText(variations, value, grid)"
-          v-for="value in values"
-          :data-value="value"
-          href="#"
-          :style="{background: specValueByText(variations, value, grid)}"
-        ></a>
-      </div>
-    </div>
+    <template v-if="grid === 'colors' || options.length < 8">
+      <button
+        v-for="optionText in options"
+        class="ec-variations__option btn btn-light"
+        :class="selectedOptions[grid] === optionText ? 'ec-variations__option--selected' : null"
+        :style="grid === 'colors' ? `background:${getSpecValue(optionText, grid)}` : null"
+        @click="() => selectOption(optionText, grid)"
+      >
+        {{ optionText }}
+      </button>
+    </template>
 
-    <div v-else class="ec-variations__other" :id="`ec-variations__${grid}`">
-      <h5>{{ gridTitle(grid, grids) }}</h5>
-
-      <div class="ec-variations__options" v-if="quantityVariations < 30">
-        <a v-for="value in values" :data-value="value" href="#">
-          {{ value }}
-        </a>
-      </div>
-
-      <div v-else class="ec-variations__select">
-        <select class="select_var" name="variations_select">
-          <option v-for="value in values" :data-value="value">
-            {{ value }}
-          </option>
-        </select>
-      </div>
-    </div>
+    <select v-else class="ec-variations__select" :name="`ec-variations-${grid}`">
+      <option v-for="optionText in options">
+        {{ optionText }}
+      </option>
+    </select>
   </div>
 </div>

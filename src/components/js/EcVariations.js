@@ -1,58 +1,45 @@
-import { _config, specTextValue, specValueByText, variationsGrids, specValues, inStock, gridTitle } from '@ecomplus/utils'
+import {
+  specValueByText as getSpecValueByText,
+  variationsGrids as getVariationsGrids,
+  gridTitle as getGridTitle
+} from '@ecomplus/utils'
+
+const { storefront } = window
+const grids = (storefront && storefront.data && storefront.data.grids) || []
 
 export default {
   name: 'EcVariations',
 
   props: {
-    lang: {
-      type: String,
-      default: _config.get('lang')
-    },
     product: {
       type: Object,
       required: true
-    },
-    literal: {
-      type: Boolean
     }
   },
 
   data () {
     return {
-      body: {}
+      selectedOptions: {}
     }
   },
 
   methods: {
-    variationsGrids,
-    inStock,
-    specValues,
-    specValueByText,
-    specTextValue,
-    gridTitle
-  },
-
-  computed: {
-
-    options () {
-      return variationsGrids(this.product)
+    getSpecValue (optionText, grid) {
+      return getSpecValueByText(this.product.variations, optionText, grid)
     },
 
-    variations () {
-      const { variations } = this.product
-      return variations
+    getGridTitle (grid) {
+      return getGridTitle(grid, grids)
     },
 
-    grids () {
-      return window._data.grids
-    },
-
-    quantityVariations () {
-      const { variations } = this.product
-      return variations.length
+    selectOption (optionText, grid) {
+      this.$set(this.selectedOptions, grid, optionText)
     }
   },
 
-  created () {
+  computed: {
+    variationsGrids () {
+      return getVariationsGrids(this.product)
+    }
   }
 }

@@ -1,41 +1,36 @@
 .ec-variations {
-  &__select select {
+  &__grid {
+    margin-bottom: 1rem;
+
+    &--colors button {
+      font-size: 0;
+    }
+  }
+
+  &__option {
+    min-height: 2.3rem;
+    min-width: 2.3rem;
+    border: 2px solid transparent;
+
+    &:not(:last-of-type) {
+      margin-right: .4rem;
+    }
+
+    &--selected {
+      border-color: var(--secondary);
+    }
+  }
+
+  &__select {
     width: 100%;
     padding: .5rem;
     margin-bottom: .4rem;
-    border: 1px solid #e5e5e5;
+    border: 1px solid var(--light);
     border-radius: 4px;
 
     @media (min-width: 767px) {
       min-width: 50%;
       width: 50%;
     }
-  }
-
-  &__colors a {
-    align-items: center;
-    border: .1rem solid #ccc;
-    border-radius: 50%;
-    display: inline-flex;
-    font-size: 1.4rem;
-    height: 3rem;
-    justify-content: center;
-    margin: .5rem;
-    text-decoration: none;
-    width: 3rem;
-  }
-
-  &__other a {
-    align-items: center;
-    border: .1rem solid #ccc;
-    display: inline-flex;
-    font-size: 1.2rem;
-    justify-content: center;
-    min-width: 3rem;
-    height: 3rem;
-    margin: .5rem;
-    text-decoration: none;
-    padding-right: .5rem;
-    padding-left: .5rem;
   }
 }
