@@ -7,9 +7,10 @@ import {
   variationsGrids,
   specValueByText
 } from '@ecomplus/utils'
+
 import { store } from '@ecomplus/client'
 import EcPrices from './../EcPrices.vue'
-// import EcVariations from './../EcVariations.vue'
+import EcVariations from './../EcVariations.vue'
 import EcGallery from './../EcGallery.vue'
 import EcShipping from './../EcShipping.vue'
 import dictionary from './../../lib/dictionary'
@@ -26,7 +27,7 @@ export default {
   components: {
     EcPrices,
     EcGallery,
-    // EcVariations,
+    EcVariations,
     EcShipping
   },
 
@@ -43,12 +44,8 @@ export default {
       type: String,
       default: getContextId()
     },
-    product: {
-      type: Object
-    },
-    buyText: {
-      type: String
-    },
+    product: Object,
+    buyText: String,
     prerenderedHTML: String
   },
 
