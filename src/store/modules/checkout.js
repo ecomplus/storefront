@@ -156,6 +156,7 @@ const actions = {
         fetchProduct(item.product_id)
           .then(({ data }) => {
             Object.assign(item, data, {
+              variations: [],
               final_price: data.price,
               quantity: 0,
               body_html: '',
