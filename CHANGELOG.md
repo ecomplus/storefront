@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.4](https://github.com/ecomclub/widget-product/compare/v0.4.3...v0.4.4) (2020-01-20)
+
+
+### Features
+
+* **product:** handling variations select and add to cart with variation ([b3f7c55](https://github.com/ecomclub/widget-product/commit/b3f7c55fcd0a482b84a1966b4b7108dcbc5f2fff))
+* **variations:** handle variations selection on component ([43ef828](https://github.com/ecomclub/widget-product/commit/43ef828a84fde6257270b791031bca5b17a86f02))
+
+
+### Bug Fixes
+
+* **gallery:** supporting sync for 'current' prop ([4f43c7f](https://github.com/ecomclub/widget-product/commit/4f43c7f18938002a22785acd2765cd0d18d14300))
+
 ### [0.4.3](https://github.com/ecomclub/widget-product/compare/v0.4.2...v0.4.3) (2020-01-10)
 
 
