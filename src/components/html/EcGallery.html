@@ -5,7 +5,7 @@
       :key="'img-' + i"
       class="ec-gallery__item"
       :class="{ 'ec-gallery__item--selected': i === activeIndex }"
-      @click="go(i)"
+      @click="activeIndex = i"
     >
       <ec-image
         v-if="i < 4"

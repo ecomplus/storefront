@@ -30,7 +30,7 @@ export default {
   data () {
     return {
       glide: null,
-      activeIndex: this.current - 1
+      activeIndex: null
     }
   },
 
@@ -48,7 +48,7 @@ export default {
   methods: {
     go (index) {
       this.activeIndex = index
-      this.$emit('click', index + 1)
+      this.$emit('update:current', index + 1)
       if (this.glide) {
         this.glide.go('=' + index)
       }
@@ -67,6 +67,19 @@ export default {
   beforeDestroy () {
     if (this.glide) {
       this.glide.destroy()
+    }
+  },
+
+  watch: {
+    current: {
+      handler (current) {
+        this.activeIndex = current - 1
+      },
+      immediate: true
+    },
+
+    activeIndex (index) {
+      this.go(index)
     }
   }
 }
