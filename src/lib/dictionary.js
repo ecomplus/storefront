@@ -49,7 +49,11 @@ const dictionary = {
   },
   discount_of: {
     en_us: 'discount of',
-    pt_br:  'desconto de'
+    pt_br: 'desconto de'
+  },
+  select_variation: {
+    en_us: 'Please select an option in each field above',
+    pt_br: 'Por favor selecione uma opção em cada campo acima'
   }
 }
 
