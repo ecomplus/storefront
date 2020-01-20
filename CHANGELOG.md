@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.1](https://github.com/ecomclub/storefront-app/compare/v1.6.0...v1.6.1) (2020-01-20)
+
+
+### Bug Fixes
+
+* **cart-items:** ensure variations array is reseted ([928c653](https://github.com/ecomclub/storefront-app/commit/928c653e25ee4754157685697e69d9bd250c9b61))
+* **sync-cart:** check customer id on cart body ([77e4370](https://github.com/ecomclub/storefront-app/commit/77e437059a8829c132e40012d1a77a6169ee5ac6))
+
 ## [1.6.0](https://github.com/ecomclub/storefront-app/compare/v1.5.0...v1.6.0) (2020-01-17)
 
 
