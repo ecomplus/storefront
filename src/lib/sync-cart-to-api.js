@@ -46,8 +46,9 @@ const prepareCartItem = item => {
 
 const prepareCart = cart => {
   const { subtotal, completed, orders, flags } = cart
+  const customerId = ecomPassport.getCustomer()._id
   let url, method
-  if (cart.created_at) {
+  if (cart.created_at && Array.isArray(cart.customers) && cart.customers.includes(customerId)) {
     url = `/carts/${cart._id}.json`
     method = 'PATCH'
   } else {
