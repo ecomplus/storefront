@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.5](https://github.com/ecomclub/widget-product/compare/v0.4.4...v0.4.5) (2020-01-20)
+
+
+### Bug Fixes
+
+* **product:** fix calling ecomCart.addProduct with variation ([d09d845](https://github.com/ecomclub/widget-product/commit/d09d845f96f32c22555e1232fd670d73bef20dd1))
+
 ### [0.4.4](https://github.com/ecomclub/widget-product/compare/v0.4.3...v0.4.4) (2020-01-20)
 
 
