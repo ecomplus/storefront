@@ -17,7 +17,7 @@ export default {
       type: Object,
       required: true
     },
-    selectedVariationId: String
+    selectedId: String
   },
 
   data () {
@@ -67,7 +67,7 @@ export default {
           }
         }
       }
-      this.$emit('update:selectedVariationId', variations.length ? variations[0]._id : null)
+      this.$emit('update:selectedId', variations.length ? variations[0]._id : null)
     }
   },
 
