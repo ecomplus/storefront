@@ -1,26 +1,19 @@
 <div class="ec-variations" v-if="product.variations">
   <div
-    v-for="(options, grid) in variationsGrids"
+    v-for="(options, grid, index) in variationsGrids"
     :class="`ec-variations__grid ec-variations__grid--${grid}`"
   >
     <h5>{{ getGridTitle(grid) }}</h5>
 
-    <template v-if="grid === 'colors' || options.length < 8">
-      <button
-        v-for="optionText in options"
-        class="ec-variations__option btn btn-light"
-        :class="selectedOptions[grid] === optionText ? 'ec-variations__option--selected' : null"
-        :style="grid === 'colors' ? `background:${getSpecValue(optionText, grid)}` : null"
-        @click="() => selectOption(optionText, grid)"
-      >
-        {{ optionText }}
-      </button>
-    </template>
-
-    <select v-else class="ec-variations__select" :name="`ec-variations-${grid}`">
-      <option v-for="optionText in options">
-        {{ optionText }}
-      </option>
-    </select>
+    <button
+      v-for="optionText in options"
+      class="ec-variations__option btn btn-light"
+      :class="selectedOptions[grid] === optionText ? 'ec-variations__option--selected' : null"
+      :style="grid === 'colors' ? `background:${getSpecValue(optionText, grid)}` : null"
+      @click="() => selectOption(optionText, grid, index)"
+      :disabled="!filteredGrids[grid].includes(optionText)"
+    >
+      {{ optionText }}
+    </button>
   </div>
 </div>
