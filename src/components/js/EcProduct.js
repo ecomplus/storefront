@@ -47,6 +47,10 @@ export default {
     },
     product: Object,
     buyText: String,
+    canAddToCart: {
+      type: Boolean,
+      default: true
+    },
     prerenderedHTML: String
   },
 
@@ -161,18 +165,22 @@ export default {
 
     buy () {
       this.hasClickedBuy = true
-      const cartProduct = Object.assign({}, this.body)
-      delete cartProduct.body_html
-      delete cartProduct.body_text
-      delete cartProduct.specifications
+      const product = Object.assign({}, this.body)
+      delete product.body_html
+      delete product.body_text
+      delete product.specifications
+      let variationId
       if (this.hasVariations) {
         if (this.selectedVariationId) {
-          cartProduct.variationId = this.selectedVariationId
+          variationId = this.selectedVariationId
         } else {
           return
         }
       }
-      ecomCart.addProduct(cartProduct)
+      this.$emit('buy', { product, variationId })
+      if (this.canAddToCart) {
+        ecomCart.addProduct(product, variationId)
+      }
     }
   },
 
