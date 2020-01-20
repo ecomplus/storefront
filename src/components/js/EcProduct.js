@@ -9,6 +9,7 @@ import {
 } from '@ecomplus/utils'
 
 import { store } from '@ecomplus/client'
+import ecomCart from '@ecomplus/shopping-cart'
 import EcPrices from './../EcPrices.vue'
 import EcVariations from './../EcVariations.vue'
 import EcGallery from './../EcGallery.vue'
@@ -51,11 +52,24 @@ export default {
 
   data () {
     return {
-      body: {}
+      body: {},
+      selectedVariationId: null,
+      currentGalleyImg: 1,
+      hasClickedBuy: false
     }
   },
 
   computed: {
+    selectedVariation () {
+      return this.selectedVariationId
+        ? this.body.variations.find(({ _id }) => _id === this.selectedVariationId)
+        : {}
+    },
+
+    name () {
+      return this.selectedVariation.name || name(this.body)
+    },
+
     strBuy () {
       return this.buyText || this.dictionary('buy')
     },
@@ -65,6 +79,10 @@ export default {
       return onPromotion(body)
         ? Math.round(((body.base_price - price(body)) * 100) / body.base_price)
         : 0
+    },
+
+    hasVariations () {
+      return this.body.variations && this.body.variations.length
     },
 
     photoswipeImages () {
@@ -91,7 +109,6 @@ export default {
 
   methods: {
     dictionary,
-    name,
     inStock,
     variationsGrids,
     specValueByText,
@@ -140,6 +157,22 @@ export default {
       if (storefront && typeof storefront.photoswipe === 'function') {
         storefront.photoswipe(this.photoswipeImages, index)
       }
+    },
+
+    buy () {
+      this.hasClickedBuy = true
+      const cartProduct = Object.assign({}, this.body)
+      delete cartProduct.body_html
+      delete cartProduct.body_text
+      delete cartProduct.specifications
+      if (this.hasVariations) {
+        if (this.selectedVariationId) {
+          cartProduct.variationId = this.selectedVariationId
+        } else {
+          return
+        }
+      }
+      ecomCart.addProduct(cartProduct)
     }
   },
 
@@ -148,6 +181,22 @@ export default {
       this.body = this.product
     } else {
       this.fetchProduct()
+    }
+  },
+
+  watch: {
+    selectedVariationId (id) {
+      if (id) {
+        if (this.hasClickedBuy) {
+          this.hasClickedBuy = false
+        }
+        if (this.selectedVariation.picture_id) {
+          const pictureIndex = this.body.pictures.findIndex(({ _id }) => {
+            return _id === this.selectedVariation.picture_id
+          })
+          this.currentGalleyImg = pictureIndex + 1
+        }
+      }
     }
   }
 }

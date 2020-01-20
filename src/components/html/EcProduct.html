@@ -5,13 +5,14 @@
         <ec-gallery
           :sliderOptions="{ rewind: true }"
           :images="body.pictures"
+          :current.sync="currentGalleyImg"
           @click:stage="openPhotoswipe"
         />
       </div>
 
       <div class="col">
         <h1 class="ec-product__name">
-          {{ name(body) }}
+          {{ name }}
         </h1>
         <p class="ec-product__sku">
           COD: {{ body.sku }}
@@ -29,7 +30,7 @@
             <p class="ec-product__prices">
               <ec-prices
                 :lang="lang"
-                :product="body"
+                :product="{ ...body, ...selectedVariation }"
                 :literal="true"
                 :big="true"
               />
@@ -40,17 +41,30 @@
             </p>
           </slot>
 
-          <ec-variations
-            :product="body"
-            :lang="lang"
-          />
+          <template v-if="hasVariations">
+            <ec-variations
+              :product="body"
+              :selectedId.sync="selectedVariationId"
+            />
 
-          <div
-            @click="$emit('buy', { product: body })"
-            class="ec-product__buy"
-          >
+            <b-alert
+              :show="hasClickedBuy && !selectedVariationId"
+              dismissible
+              fade
+              variant="warning"
+            >
+              {{ dictionary('select_variation') }}
+            </b-alert>
+          </template>
+
+          <div class="ec-product__buy">
             <slot name="buy">
-              <button type="button" class="btn btn-lg btn-primary">
+              <button
+                type="button"
+                class="btn btn-lg btn-primary"
+                @click="buy"
+                :disabled="hasClickedBuy"
+              >
                 <i class="fas fa-shopping-bag mr-1"></i>
                 {{ strBuy }}
               </button>
