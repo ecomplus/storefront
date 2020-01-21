@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.31.0](https://github.com/ecomclub/storefront-template/compare/v1.30.0...v1.31.0) (2020-01-21)
+
+
+### Features
+
+* **cms:** handling json file for custom merged cms config ([b700ea8](https://github.com/ecomclub/storefront-template/commit/b700ea8069609856518bd515f34a01ca047aad58))
+
 ## [1.30.0](https://github.com/ecomclub/storefront-template/compare/v1.29.3...v1.30.0) (2020-01-17)
 
 
