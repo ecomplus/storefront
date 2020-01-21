@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/ecomclub/storefront-app/compare/v1.6.3...v1.7.0) (2020-01-21)
+
+
+### Features
+
+* **account-form:** handling sessionStorage and corporate name field ([#114](https://github.com/ecomclub/storefront-app/issues/114)) ([67261ac](https://github.com/ecomclub/storefront-app/commit/67261ac5deec668ad642090ad16a7ed8eb59ea89))
+
+
+### Bug Fixes
+
+* **account-form:** fix setting local field from session, perf inproves ([38b59c2](https://github.com/ecomclub/storefront-app/commit/38b59c2c4f39a54f06a357c681811a855e2de5c2))
+* **account-from:** fix handling session storage, save on interval ([ccfa01c](https://github.com/ecomclub/storefront-app/commit/ccfa01c205ca3d2cc63027e0d20a6bddc767c6ec))
+
 ### [1.6.3](https://github.com/ecomclub/storefront-app/compare/v1.6.2...v1.6.3) (2020-01-21)
 
 
