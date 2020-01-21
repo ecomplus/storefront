@@ -99,9 +99,7 @@ export default {
         return this.getPhoneStr(0)
       },
       set (phoneStr) {
-        if(`${typeof phoneStr}` === 'object')
-          this.localCustomer.phones[0] = phoneStr
-        else this.localCustomer.phones[0].number = this.parsePhoneStr(phoneStr.number)
+        if (`${typeof phoneStr}` === 'object') { this.localCustomer.phones[0] = phoneStr } else this.localCustomer.phones[0].number = this.parsePhoneStr(phoneStr.number)
       }
     },
 
@@ -149,7 +147,7 @@ export default {
         if (!this.localCustomer.display_name) {
           this.localCustomer.display_name = this.localCustomer.name.given_name
         }
-        sessionStorage.setItem('ecomSessionCustomer', JSON.stringify(this.localCustomer));
+        sessionStorage.setItem('ecomSessionCustomer', JSON.stringify(this.localCustomer))
         this.$emit('update:customer', this.localCustomer)
       }
       $form.classList.add('was-validated')
@@ -201,20 +199,19 @@ export default {
       }
     }
 
-    if(sessionCustomer){
-      localCustomerKeys.map(item=>{
+    if (sessionCustomer) {
+      localCustomerKeys.map(item => {
         let localValue = this.localCustomer[item]
         if (
-            (`${typeof localValue}` === 'object' && Object.keys(localValue).length === 0) || 
-            (Array.isArray(localValue) && localValue.length === 0) || 
-            localValue === ""
-          ){
-            if(sessionCustomer[item]){
-              localValue = sessionCustomer[item]
-            }
+          (`${typeof localValue}` === 'object' && Object.keys(localValue).length === 0) ||
+            (Array.isArray(localValue) && localValue.length === 0) ||
+            localValue === ''
+        ) {
+          if (sessionCustomer[item]) {
+            localValue = sessionCustomer[item]
+          }
         }
       })
     }
-
   }
 }
