@@ -7,6 +7,7 @@ import cloneDeep from 'lodash.clonedeep'
 import {
   Birthdate,
   Cellphone,
+  CorporateName,
   CompanyRegistration,
   ContactPhone,
   DocNumber,
@@ -58,6 +59,7 @@ export default {
         Birthdate,
         Cellphone,
         CompanyRegistration,
+        CorporateName,
         ContactPhone,
         DocNumber,
         EmailAddress,
@@ -97,7 +99,9 @@ export default {
         return this.getPhoneStr(0)
       },
       set (phoneStr) {
-        this.localCustomer.phones[0] = this.parsePhoneStr(phoneStr)
+        if(`${typeof phoneStr}` === 'object')
+          this.localCustomer.phones[0] = phoneStr
+        else this.localCustomer.phones[0].number = this.parsePhoneStr(phoneStr.number)
       }
     },
 
@@ -145,6 +149,7 @@ export default {
         if (!this.localCustomer.display_name) {
           this.localCustomer.display_name = this.localCustomer.name.given_name
         }
+        sessionStorage.setItem('ecomSessionCustomer', JSON.stringify(this.localCustomer));
         this.$emit('update:customer', this.localCustomer)
       }
       $form.classList.add('was-validated')
@@ -187,11 +192,29 @@ export default {
 
   mounted () {
     const $inputs = this.$el.querySelectorAll('input')
+    const sessionCustomer = JSON.parse(sessionStorage.getItem('ecomSessionCustomer'))
+    const localCustomerKeys = Object.keys(this.localCustomer)
     for (let i = 0; i < $inputs.length; i++) {
       if (!$inputs[i].value) {
         $inputs[i].focus()
         break
       }
     }
+
+    if(sessionCustomer){
+      localCustomerKeys.map(item=>{
+        let localValue = this.localCustomer[item]
+        if (
+            (`${typeof localValue}` === 'object' && Object.keys(localValue).length === 0) || 
+            (Array.isArray(localValue) && localValue.length === 0) || 
+            localValue === ""
+          ){
+            if(sessionCustomer[item]){
+              localValue = sessionCustomer[item]
+            }
+        }
+      })
+    }
+
   }
 }

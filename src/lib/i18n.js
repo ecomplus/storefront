@@ -128,6 +128,11 @@ export const DocNumber = {
   pt_br: 'Número do documento'
 }
 
+export const CorporateName = {
+  en_us: 'Corporate Name',
+  pt_br: 'Razão Social'
+}
+
 export const DoPaymentMsg = {
   en_us: 'Please finalize the payment to confirm your purchase',
   pt_br: 'Por favor finalize o pagamento para confirmar sua compra'

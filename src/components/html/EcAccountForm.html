@@ -145,6 +145,21 @@
       />
     </div>
   </div>
+  <div class="form-row" v-if="localCustomer.registry_type !== 'p'">
+    <div class="form-group col-lg-8">
+      <label for="ec-account-form-name">
+        {{ i18n('CorporateName') }}
+      </label>
+      <input
+        type="text"
+        pattern="[^\d\s]{2,}[\s][^\d\s]{2,}.*"
+        class="form-control"
+        id="ec-account-form-name"
+        v-model="localCustomer.corporate_name"
+        required
+      >
+    </div>
+  </div>
 
   <button class="btn btn-lg btn-primary" type="submit">
     <i class="fas fa-check mr-1"></i>
