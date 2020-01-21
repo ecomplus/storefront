@@ -23,6 +23,9 @@ import {
 
 const countryCode = _config.get('country_code')
 
+const { sessionStorage } = window
+const storageKey = 'ecomCustomerAccount'
+
 export default {
   name: 'EcAccountForm',
 
@@ -99,7 +102,11 @@ export default {
         return this.getPhoneStr(0)
       },
       set (phoneStr) {
-        if (`${typeof phoneStr}` === 'object') { this.localCustomer.phones[0] = phoneStr } else this.localCustomer.phones[0].number = this.parsePhoneStr(phoneStr.number)
+        if (typeof phoneStr === 'object') {
+          this.localCustomer.phones[0] = phoneStr
+        } else {
+          this.localCustomer.phones[0].number = this.parsePhoneStr(phoneStr.number)
+        }
       }
     },
 
@@ -147,7 +154,7 @@ export default {
         if (!this.localCustomer.display_name) {
           this.localCustomer.display_name = this.localCustomer.name.given_name
         }
-        sessionStorage.setItem('ecomSessionCustomer', JSON.stringify(this.localCustomer))
+        sessionStorage.setItem(storageKey, JSON.stringify(this.localCustomer))
         this.$emit('update:customer', this.localCustomer)
       }
       $form.classList.add('was-validated')
@@ -190,28 +197,24 @@ export default {
 
   mounted () {
     const $inputs = this.$el.querySelectorAll('input')
-    const sessionCustomer = JSON.parse(sessionStorage.getItem('ecomSessionCustomer'))
-    const localCustomerKeys = Object.keys(this.localCustomer)
     for (let i = 0; i < $inputs.length; i++) {
       if (!$inputs[i].value) {
         $inputs[i].focus()
         break
       }
     }
-
+    const sessionCustomer = JSON.parse(sessionStorage.getItem(storageKey))
     if (sessionCustomer) {
-      localCustomerKeys.map(item => {
-        let localValue = this.localCustomer[item]
+      for (const field in this.localCustomer) {
+        const localValue = this.localCustomer[field]
         if (
-          (`${typeof localValue}` === 'object' && Object.keys(localValue).length === 0) ||
-            (Array.isArray(localValue) && localValue.length === 0) ||
-            localValue === ''
+          localValue &&
+          sessionCustomer[field] &&
+          (typeof localValue !== 'object' || Object.keys(localValue).length > 0)
         ) {
-          if (sessionCustomer[item]) {
-            localValue = sessionCustomer[item]
-          }
+          this.localCustomer[field] = sessionCustomer[field]
         }
-      })
+      }
     }
   }
 }
