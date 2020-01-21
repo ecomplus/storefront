@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3](https://github.com/ecomclub/storefront-app/compare/v1.6.2...v1.6.3) (2020-01-21)
+
+
+### Bug Fixes
+
+* **vuex:** fix handling cart items with variations ([7687897](https://github.com/ecomclub/storefront-app/commit/7687897928960b6b2a7cb051337e7db9752d4f41))
+
 ### [1.6.2](https://github.com/ecomclub/storefront-app/compare/v1.6.1...v1.6.2) (2020-01-20)
 
 ### [1.6.1](https://github.com/ecomclub/storefront-app/compare/v1.6.0...v1.6.1) (2020-01-20)
