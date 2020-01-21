@@ -12,6 +12,7 @@
     :class="imgClasses"
     :data-iesrc="imgObj.url"
     :data-alt="imgObj.alt"
+    :onerror="src.zoom ? `this.onerror=null; this.src='${src.zoom.url}'` : null"
     ref="lazyImg"
   >
     <source
