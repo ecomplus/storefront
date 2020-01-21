@@ -155,6 +155,15 @@ const actions = {
       const promise = new Promise(resolve => {
         fetchProduct(item.product_id)
           .then(({ data }) => {
+            if (item.variation_id) {
+              const variation = data.variations &&
+                data.variations.find(({ _id }) => _id === item.variation_id)
+              if (!variation) {
+                ecomCart.removeItem(_id)
+              } else {
+                Object.assign(data, variation)
+              }
+            }
             Object.assign(item, data, {
               variations: [],
               final_price: data.price,
