@@ -52,7 +52,8 @@ export default {
   data () {
     return {
       localCustomer: cloneDeep(this.customer),
-      fullName: fullName(this.customer)
+      fullName: fullName(this.customer),
+      storageInterval: null
     }
   },
 
@@ -79,7 +80,7 @@ export default {
 
     birthdate: {
       get () {
-        return birthDate(this.customer)
+        return birthDate(this.localCustomer)
       },
       set (dateStr) {
         const dateNumber = (start, ln) => parseInt(dateStr.substr(start, ln), 10)
@@ -102,11 +103,7 @@ export default {
         return this.getPhoneStr(0)
       },
       set (phoneStr) {
-        if (typeof phoneStr === 'object') {
-          this.localCustomer.phones[0] = phoneStr
-        } else {
-          this.localCustomer.phones[0].number = this.parsePhoneStr(phoneStr.number)
-        }
+        this.localCustomer.phones[0] = this.parsePhoneStr(phoneStr)
       }
     },
 
@@ -127,9 +124,9 @@ export default {
     },
 
     getPhoneStr (index = 0) {
-      const { phones } = this.customer
+      const { phones } = this.localCustomer
       return phones[index]
-        ? phone(this.customer.phones[index])
+        ? phone(this.localCustomer.phones[index])
         : ''
     },
 
@@ -148,13 +145,34 @@ export default {
       return phoneObj
     },
 
+    mergeLocalCustomer (newCustomer) {
+      for (const field in newCustomer) {
+        if (newCustomer[field]) {
+          const localValue = this.localCustomer[field]
+          if (!localValue || (typeof localValue === 'object' && !Object.keys(localValue).length)) {
+            if (field === 'name') {
+              this.fullName = fullName({
+                name: newCustomer[field]
+              })
+            } else {
+              this.localCustomer[field] = newCustomer[field]
+            }
+          }
+        }
+      }
+    },
+
+    saveToStorage () {
+      sessionStorage.setItem(storageKey, JSON.stringify(this.localCustomer))
+    },
+
     submit (ev) {
       const $form = this.$el
       if ($form.checkValidity()) {
         if (!this.localCustomer.display_name) {
           this.localCustomer.display_name = this.localCustomer.name.given_name
         }
-        sessionStorage.setItem(storageKey, JSON.stringify(this.localCustomer))
+        this.saveToStorage()
         this.$emit('update:customer', this.localCustomer)
       }
       $form.classList.add('was-validated')
@@ -178,21 +196,22 @@ export default {
 
     customer: {
       handler () {
-        for (const field in this.customer) {
-          if (this.customer[field]) {
-            const localValue = this.localCustomer[field]
-            if (!localValue || (typeof localValue === 'object' && !Object.keys(localValue).length)) {
-              if (field === 'name') {
-                this.fullName = fullName(this.customer)
-              } else {
-                this.localCustomer[field] = this.customer[field]
-              }
-            }
-          }
-        }
+        this.mergeLocalCustomer(this.customer)
       },
       deep: true
     }
+  },
+
+  created () {
+    const sessionCustomer = JSON.parse(sessionStorage.getItem(storageKey))
+    if (sessionCustomer) {
+      this.mergeLocalCustomer(sessionCustomer)
+    }
+    this.storageInterval = setInterval(() => {
+      if (Object.keys(this.localCustomer).length) {
+        this.saveToStorage()
+      }
+    }, 7000)
   },
 
   mounted () {
@@ -203,18 +222,9 @@ export default {
         break
       }
     }
-    const sessionCustomer = JSON.parse(sessionStorage.getItem(storageKey))
-    if (sessionCustomer) {
-      for (const field in this.localCustomer) {
-        const localValue = this.localCustomer[field]
-        if (
-          localValue &&
-          sessionCustomer[field] &&
-          (typeof localValue !== 'object' || Object.keys(localValue).length > 0)
-        ) {
-          this.localCustomer[field] = sessionCustomer[field]
-        }
-      }
-    }
+  },
+
+  destroyed () {
+    clearInterval(this.storageInterval)
   }
 }
