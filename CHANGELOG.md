@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.1](https://github.com/ecomclub/storefront-app/compare/v1.8.0...v1.8.1) (2020-01-22)
+
+
+### Bug Fixes
+
+* **addresses:** fixes for switching address and form ([e84532a](https://github.com/ecomclub/storefront-app/commit/e84532a46c626bce3c1487b93fe824f695306bf7))
+* **identify:** add timeout to close waiting popup overlay ([a4503bf](https://github.com/ecomclub/storefront-app/commit/a4503bf87ee83f221e886ef0778c94a5960f117e))
+
 ## [1.8.0](https://github.com/ecomclub/storefront-app/compare/v1.7.0...v1.8.0) (2020-01-22)
 
 
