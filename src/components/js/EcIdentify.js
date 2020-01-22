@@ -129,6 +129,9 @@ export default {
     oauthPopup (link) {
       this.ecomPassport.popupOauthLink(link)
       this.waitingPopup = true
+      setTimeout(() => {
+        this.waitingPopup = false
+      }, 7500)
     },
 
     unsetLoginAlert () {
