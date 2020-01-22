@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/ecomclub/storefront-app/compare/v1.7.0...v1.8.0) (2020-01-22)
+
+
+### Features
+
+* **addresses:** persinsting last edited address to session storage ([637de4b](https://github.com/ecomclub/storefront-app/commit/637de4bda578d3affd483b33db7c409e588aa95b))
+* **payments-list:** handling optional payment apps sort ([b1caf8d](https://github.com/ecomclub/storefront-app/commit/b1caf8d8da0e65abb950339af01a0a7587c360fb))
+
+
+### Bug Fixes
+
+* **account-form:** fix handlinig birth date from date input ([c4ae5d7](https://github.com/ecomclub/storefront-app/commit/c4ae5d7baf0a8e00f86c256bdce19e4227a9a9ed))
+
 ## [1.7.0](https://github.com/ecomclub/storefront-app/compare/v1.6.3...v1.7.0) (2020-01-21)
 
 
