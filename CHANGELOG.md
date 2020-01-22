@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.7](https://github.com/ecomclub/widget-product/compare/v0.4.6...v0.4.7) (2020-01-22)
+
+
+### Bug Fixes
+
+* **shipping:** handling retry after first apps response with error ([d87a9e6](https://github.com/ecomclub/widget-product/commit/d87a9e6e0efa5f93ce27aae624a14359bac46883))
+
 ### [0.4.6](https://github.com/ecomclub/widget-product/compare/v0.4.5...v0.4.6) (2020-01-22)
 
 
