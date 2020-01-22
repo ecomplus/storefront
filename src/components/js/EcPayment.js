@@ -1,7 +1,8 @@
 import { i18n, price, formatMoney } from '@ecomplus/utils'
 import { modules } from '@ecomplus/client'
-import loadPaymentClient from './../../lib/load-payment-client'
 import ecomCart from '@ecomplus/shopping-cart'
+import loadPaymentClient from './../../lib/load-payment-client'
+import { sortApps } from './../../lib/utils'
 import EcCreditCard from './../EcCreditCard.vue'
 import { FadeTransition, SlideYUpTransition } from 'vue2-transitions'
 
@@ -40,11 +41,11 @@ export default {
       type: Object,
       required: true
     },
-    cartItems: {
-      type: Array
-    },
-    customer: {
-      type: Object
+    cartItems: Array,
+    customer: Object,
+    appsSort: {
+      type: Array,
+      default: () => window.ecomPaymentApps || []
     }
   },
 
@@ -166,6 +167,9 @@ export default {
         this.loadedClients = {}
       }
       if (listResult.length) {
+        if (Array.isArray(this.appsSort) && this.appsSort.length) {
+          sortApps(listResult, this.appsSort)
+        }
         listResult.forEach(appResult => {
           const { validated, error, response } = appResult
           if (validated && !error) {
