@@ -9,6 +9,9 @@ import {
   Remove
 } from './../../lib/i18n'
 
+const { sessionStorage } = window
+const storageKey = 'ecomCustomerAddress'
+
 export default {
   name: 'EcAddresses',
 
@@ -105,6 +108,7 @@ export default {
 
     selectAddress (address) {
       this.$emit('addressSelected', address._id)
+      sessionStorage.setItem(storageKey, JSON.stringify(address))
     },
 
     removeAddress (index) {
@@ -145,6 +149,21 @@ export default {
   created () {
     if (!this.addresses.length) {
       this.newAddress = true
+      const sessionAddress = JSON.parse(sessionStorage.getItem(storageKey))
+      if (sessionAddress) {
+        const address = {}
+        for (const field in sessionAddress) {
+          if (sessionAddress[field]) {
+            address[field] = sessionAddress[field]
+          }
+        }
+        if (address._id && address.zip && address.street) {
+          this.editedAddressIndex = 0
+          this.$nextTick(() => {
+            this.localAddress = address
+          })
+        }
+      }
     } else {
       let address
       if (this.zipCode) {
