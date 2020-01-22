@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.31.2](https://github.com/ecomclub/storefront-template/compare/v1.31.1...v1.31.2) (2020-01-22)
+
+
+### Bug Fixes
+
+* **accessibility:** fix aria labels on buttons ([#140](https://github.com/ecomclub/storefront-template/issues/140)) ([cacb138](https://github.com/ecomclub/storefront-template/commit/cacb138db667bba7de8ad627156f19788c08071e))
+
 ### [1.31.1](https://github.com/ecomclub/storefront-template/compare/v1.31.0...v1.31.1) (2020-01-22)
 
 
