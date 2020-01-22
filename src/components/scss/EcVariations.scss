@@ -10,7 +10,7 @@
   &__option {
     min-height: 2.3rem;
     min-width: 2.3rem;
-    border: 2px solid transparent;
+    border: 2px solid var(--light);
 
     &:not(:last-of-type) {
       margin-right: .4rem;
