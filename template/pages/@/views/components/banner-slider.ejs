@@ -21,12 +21,14 @@
             <button
               class="btn glide__arrow glide__arrow--left"
               data-glide-dir="<"
+              aria-label="arrow--left"
             >
               <i class="fas fa-chevron-left"></i>
             </button>
             <button
               class="btn glide__arrow glide__arrow--right"
               data-glide-dir=">"
+              aria-label="arrow--right"
             >
               <i class="fas fa-chevron-right"></i>
             </button>
@@ -34,7 +36,7 @@
 
           <div class="glide__bullets" data-glide-el="controls[nav]">
             <% opt.slides.forEach((_, index) => { %>
-              <button class="glide__bullet" data-glide-dir="=<%= index %>"></button>
+              <button class="glide__bullet" data-glide-dir="=<%= index %>" aria-label="glide__bullet"></button>
             <% }) %>
           </div>
         <% } %>

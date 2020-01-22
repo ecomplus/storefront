@@ -90,7 +90,7 @@ const logo = _.settings.logo
     <div class="container-fluid">
       <div class="row align-items-center">
         <div class="header__col col-auto">
-          <button class="btn header__toggler" type="button" onclick="toggleSidenav()">
+          <button class="btn header__toggler" type="button" onclick="toggleSidenav()" aria-label="toggleSidenav">
             <i class="header__toggler__icon fas fa-bars"></i>
             <span class="d-none d-lg-inline">
               Menu
@@ -127,6 +127,8 @@ const logo = _.settings.logo
               data-target="#search-bar"
               aria-expanded="true"
               aria-controls="search-bar"
+              aria-controls="search-bar"
+              aria-label="search-bar"
             >
               <i class="fas fa-search"></i>
             </button>
@@ -139,6 +141,7 @@ const logo = _.settings.logo
               data-toggle="tooltip"
               data-placement="bottom"
               title="<%= _.dictionary().my_account %>"
+              aria-label="user-button"
             >
               <i class="fas fa-user"></i>
             </a>
@@ -150,6 +153,7 @@ const logo = _.settings.logo
               data-toggle="tooltip"
               data-placement="bottom"
               title="<%= _.dictionary().open_cart %>"
+              aria-label="cart-button"
             >
               <i class="fas fa-shopping-bag"></i>
             </a>
