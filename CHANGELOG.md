@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.6](https://github.com/ecomclub/widget-product/compare/v0.4.5...v0.4.6) (2020-01-22)
+
+
+### Bug Fixes
+
+* **image:** add onerror fallback for webp images ([0f64e2b](https://github.com/ecomclub/widget-product/commit/0f64e2bb27b90077e1689929796aab36eb69a5e3))
+* **images:** fix handling webp images with fallback ([7253a7d](https://github.com/ecomclub/widget-product/commit/7253a7db6eab26d473b5e5b3ada447a34b06b54b))
+* **variations:** scss style fix for variation options ([ca59e0b](https://github.com/ecomclub/widget-product/commit/ca59e0b46de59489832d162920dfa24e4251c024))
+
 ### [0.4.5](https://github.com/ecomclub/widget-product/compare/v0.4.4...v0.4.5) (2020-01-20)
 
 
