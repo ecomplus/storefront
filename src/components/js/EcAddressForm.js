@@ -125,9 +125,13 @@ export default {
               this.localAddress.street = logradouro
               this.localAddress.borough = bairro
               this.addressFromZip = true
-              setTimeout(() => {
-                this.$refs.inputNumber.select()
-              }, 300)
+              this.$nextTick(() => {
+                setTimeout(() => {
+                  if (this.$refs.inputNumber) {
+                    this.$refs.inputNumber.select()
+                  }
+                }, 300)
+              })
             } else {
               this.addressFromZip = false
             }

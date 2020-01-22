@@ -122,9 +122,13 @@ export default {
   },
 
   watch: {
-    addresses (_, oldList) {
-      if (!oldList.length && this.newAddress) {
-        this.showForm = this.newAddress = false
+    addresses (newList, oldList) {
+      if (!oldList.length) {
+        if (this.newAddress) {
+          this.showForm = this.newAddress = false
+        }
+      } else if (!newList.length) {
+        this.showForm = this.newAddress = true
       }
     },
 
@@ -142,6 +146,12 @@ export default {
           this.selectAddress(address)
         }
         this.showForm = true
+      }
+    },
+
+    showForm (isVisible) {
+      if (!isVisible) {
+        this.editedAddressIndex = -1
       }
     }
   },
