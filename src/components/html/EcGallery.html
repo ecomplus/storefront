@@ -13,6 +13,7 @@
         :fade="false"
         :src="image.small.url"
         :alt="image.small.alt"
+        :fallback-src="image.zoom ? image.zoom.url : null"
       />
     </div>
 
@@ -39,7 +40,7 @@
               <ec-image
                 class="ec-gallery__big-image"
                 :src="picture"
-                :pictureBreakpoint="380"
+                :picture-breakpoint="380"
               />
             </div>
           </li>

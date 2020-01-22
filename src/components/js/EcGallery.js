@@ -36,10 +36,11 @@ export default {
 
   computed: {
     mapPictures () {
-      return this.images.map(({ normal, big }) => {
+      return this.images.map(({ normal, big, zoom }) => {
         return {
           small: normal,
-          normal: big
+          normal: big,
+          zoom
         }
       })
     }

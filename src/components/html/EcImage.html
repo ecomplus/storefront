@@ -10,9 +10,8 @@
   <picture
     v-else-if="src && imgObj"
     :class="imgClasses"
-    :data-iesrc="imgObj.url"
+    :data-iesrc="src.zoom ? src.zoom.url : imgObj.url"
     :data-alt="imgObj.alt"
-    :onerror="src.zoom ? `this.onerror=null; this.src='${src.zoom.url}'` : null"
     ref="lazyImg"
   >
     <source

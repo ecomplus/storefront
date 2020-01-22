@@ -5,9 +5,8 @@ export default {
   name: 'EcImage',
 
   props: {
-    src: {
-      type: [String, Object]
-    },
+    src: [String, Object],
+    fallbackSrc: String,
     alt: {
       type: String,
       default: ''
@@ -42,8 +41,19 @@ export default {
     const $img = this.$refs.lazyImg
     if ($img) {
       const observer = lozad($img, {
-        loaded ($el) {
+        loaded: $el => {
           $el.classList.add('show')
+          const fallbackSrc = this.fallbackSrc || (this.src.zoom && this.src.zoom.url)
+          if (fallbackSrc) {
+            const $img = $el.tagName === 'IMG' ? $el : $el.lastChild
+            $img.onerror = function () {
+              console.error(this)
+              $el.style.display = 'none'
+              const $newImg = document.createElement('IMG')
+              $newImg.src = fallbackSrc
+              $el.parentNode.insertBefore($newImg, $el.nextSibling)
+            }
+          }
         }
       })
       observer.observe()
