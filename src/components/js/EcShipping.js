@@ -91,8 +91,9 @@ export default {
       this.$emit('update:zipCode', this.zipCodeValue)
     },
 
-    parseShippingOptions (shippingResult = []) {
+    parseShippingOptions (shippingResult = [], isRetry) {
       this.shippingServices = []
+      let canRetry
       if (shippingResult.length) {
         shippingResult.forEach(appResult => {
           const { validated, error, response } = appResult
@@ -103,13 +104,21 @@ export default {
                 ...service
               })
             })
+          } else if (isRetry !== true && (!response || !response.error)) {
+            canRetry = true
           }
         })
-        this.setSelectedService(0)
+        if (!this.shippingServices.length) {
+          if (canRetry) {
+            this.fetchShippingServices(true)
+          }
+        } else {
+          this.setSelectedService(0)
+        }
       }
     },
 
-    fetchShippingServices () {
+    fetchShippingServices (isRetry) {
       const { storeId } = this
       const url = '/calculate_shipping.json'
       const method = 'POST'
@@ -127,7 +136,7 @@ export default {
       }
       this.waiting = true
       modules({ url, method, storeId, data })
-        .then(({ data }) => this.parseShippingOptions(data.result))
+        .then(({ data }) => this.parseShippingOptions(data.result, isRetry))
         .catch(console.error)
         .finally(() => {
           this.waiting = false
