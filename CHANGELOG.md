@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.31.1](https://github.com/ecomclub/storefront-template/compare/v1.31.0...v1.31.1) (2020-01-22)
+
+
+### Bug Fixes
+
+* **home:** fix array for home showcase (filter) ([29ae0ba](https://github.com/ecomclub/storefront-template/commit/29ae0ba9fdcbe75d099bb29d3fd4eeb49d93125b))
+* **home:** minor check on first showcase list object (check not empty) ([f0b6093](https://github.com/ecomclub/storefront-template/commit/f0b6093459416990b95ca9ff92afa1cf769a7d23))
+
 ## [1.31.0](https://github.com/ecomclub/storefront-template/compare/v1.30.0...v1.31.0) (2020-01-21)
 
 
