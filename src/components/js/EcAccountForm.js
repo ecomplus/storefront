@@ -83,18 +83,20 @@ export default {
         return birthDate(this.localCustomer)
       },
       set (dateStr) {
-        const dateNumber = (start, ln) => parseInt(dateStr.substr(start, ln), 10)
-        let day, month, year
-        if (countryCode === 'BR') {
-          day = dateNumber(0, 2)
-          month = dateNumber(2, 2)
-          year = dateNumber(4, 4)
-        } else {
-          day = dateNumber(6, 2)
-          month = dateNumber(4, 2)
-          year = dateNumber(0, 4)
+        if (dateStr.length === 8) {
+          const dateNumber = (start, ln) => parseInt(dateStr.substr(start, ln), 10)
+          let day, month, year
+          if (countryCode === 'BR') {
+            day = dateNumber(0, 2)
+            month = dateNumber(2, 2)
+            year = dateNumber(4, 4)
+          } else {
+            day = dateNumber(6, 2)
+            month = dateNumber(4, 2)
+            year = dateNumber(0, 4)
+          }
+          this.localCustomer.birth_date = { day, month, year }
         }
-        this.localCustomer.birth_date = { day, month, year }
       }
     },
 
