@@ -2,6 +2,10 @@
 // load home and general info content
 const home = _.cms('home')
 const info = _.cms('info')
+
+// fix array for home showcase
+const showcase = Array.isArray(home.showcase)
+  ? home.showcase.filter(({ collection }) => collection) : []
 %>
 
 <%- await include('components/banner-slider', { _, opt: home.slider }) %>
@@ -13,10 +17,10 @@ const info = _.cms('info')
   </script>
 <% } %>
 <div class="home container py-1 py-sm-2 py-lg-4">
-  <% if (Array.isArray(home.showcase) && home.showcase.length && home.showcase[0].collection) { %>
+  <% if (showcase.length) { %>
     <%
-    for (let i = 0; i < home.showcase.length; i++) {
-      const shelf = home.showcase[i]
+    for (let i = 0; i < showcase.length; i++) {
+      const shelf = showcase[i]
       // get collection body
       const res = await _.ecomClient.store({ url: `/collections/${shelf.collection}.json` })
       const collection = res.data
