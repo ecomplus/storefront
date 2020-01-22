@@ -90,7 +90,7 @@ const logo = _.settings.logo
     <div class="container-fluid">
       <div class="row align-items-center">
         <div class="header__col col-auto">
-          <button class="btn header__toggler" type="button" onclick="toggleSidenav()">
+          <button class="btn header__toggler" type="button" onclick="toggleSidenav()" aria-label="Toggle Side Navigation">
             <i class="header__toggler__icon fas fa-bars"></i>
             <span class="d-none d-lg-inline">
               Menu
@@ -127,6 +127,8 @@ const logo = _.settings.logo
               data-target="#search-bar"
               aria-expanded="true"
               aria-controls="search-bar"
+              aria-controls="search-bar"
+              aria-label="Search bar"
             >
               <i class="fas fa-search"></i>
             </button>
@@ -139,6 +141,7 @@ const logo = _.settings.logo
               data-toggle="tooltip"
               data-placement="bottom"
               title="<%= _.dictionary().my_account %>"
+              aria-label="User button"
             >
               <i class="fas fa-user"></i>
             </a>
@@ -150,6 +153,7 @@ const logo = _.settings.logo
               data-toggle="tooltip"
               data-placement="bottom"
               title="<%= _.dictionary().open_cart %>"
+              aria-label="Cart button"
             >
               <i class="fas fa-shopping-bag"></i>
             </a>
@@ -169,7 +173,7 @@ const logo = _.settings.logo
               class="header__search form-control form-control-lg"
               id="search-input"
             >
-            <button type="submit" class="header__search-btn">
+            <button type="submit" class="header__search-btn" aria-label="Search button">
               <i class="fas fa-search"></i>
             </button>
           </form>
