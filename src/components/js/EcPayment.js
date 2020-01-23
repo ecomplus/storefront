@@ -96,7 +96,6 @@ export default {
           }
           const payload = runOnloadExpression({ amount, customer, items })
           const transactionPromise = this.jsClient.transaction_promise
-          console.log(transactionPromise)
           if (transactionPromise && selectedGateway === this.selectedGateway) {
             try {
               window[transactionPromise]
