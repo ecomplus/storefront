@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.1](https://github.com/ecomclub/storefront-app/compare/v1.9.0...v1.9.1) (2020-01-23)
+
+
+### Bug Fixes
+
+* **discounts:** show coupon error msg only if coupon set ([44ca7ef](https://github.com/ecomclub/storefront-app/commit/44ca7ef1872193933179c009f2b9fe18f7b741b3))
+
 ## [1.9.0](https://github.com/ecomclub/storefront-app/compare/v1.8.1...v1.9.0) (2020-01-23)
 
 
