@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.31.3](https://github.com/ecomclub/storefront-template/compare/v1.31.2...v1.31.3) (2020-01-23)
+
+
+### Bug Fixes
+
+* **wp-links:** add +55 to phone number when not yet present ([319b77c](https://github.com/ecomclub/storefront-template/commit/319b77c82a21bb1df68eab35a7802037cd0980ec))
+
 ### [1.31.2](https://github.com/ecomclub/storefront-template/compare/v1.31.1...v1.31.2) (2020-01-22)
 
 
