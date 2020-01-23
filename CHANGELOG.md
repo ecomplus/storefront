@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/ecomclub/storefront-app/compare/v1.8.1...v1.9.0) (2020-01-23)
+
+
+### Features
+
+* **discounts:** handling discount by utm campaing ([f3c9d91](https://github.com/ecomclub/storefront-app/commit/f3c9d91f4adb31b8be52af597421a7eae10bc2ce))
+
+
+### Bug Fixes
+
+* **load-payment-client:** ensure all promises are resolved ([b37da49](https://github.com/ecomclub/storefront-app/commit/b37da49f7f63848041116ae59202a2bcd64b4340))
+* **payment:** trying transaction promise before checkout ([bac2499](https://github.com/ecomclub/storefront-app/commit/bac2499579552fe9b431e6767d1184d828935aa7))
+
 ### [1.8.1](https://github.com/ecomclub/storefront-app/compare/v1.8.0...v1.8.1) (2020-01-22)
 
 
