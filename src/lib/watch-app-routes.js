@@ -1,0 +1,84 @@
+import ecomCart from '@ecomplus/shopping-cart'
+import { currencyCode, getProductData } from './common'
+
+export default fbq => {
+  const router = window.storefrontApp && window.storefrontApp.router
+  if (router) {
+    let isCartSent = false
+    const getCartProductsList = () => {
+      const products = []
+      if (ecomCart.data && Array.isArray(ecomCart.data.items)) {
+        ecomCart.data.items.forEach(item => {
+          products.push(getProductData(item))
+        })
+      }
+      return products
+    }
+
+    const emitCheckout = (step, option) => {
+      const actionField = { step, option }
+      if (step <= 1 || !isCartSent) {
+        fbq('eec.checkout', {
+          ecommerce: {
+            currencyCode,
+            checkout: {
+              actionField,
+              products: getCartProductsList()
+            }
+          }
+        })
+        fbq('checkout')
+        isCartSent = true
+      } else {
+        fbq('eec.checkout_option', {
+          ecommerce: {
+            currencyCode,
+            checkout_option: { actionField }
+          }
+        })
+        fbq('checkoutOption')
+      }
+    }
+
+    const emitPurchase = orderId => {
+      const { amount } = window.storefrontApp
+      const revenue = (
+        (amount && amount.total) ||
+        (ecomCart.data && ecomCart.data.subtotal) ||
+        0
+      ).toFixed(2)
+
+      fbq('eec.purchase', {
+        ecommerce: {
+          currencyCode,
+          purchase: {
+            actionField: {
+              id: orderId,
+              revenue
+            },
+            products: getCartProductsList()
+          }
+        }
+      })
+    }
+
+    const addRouteToData = ({ name, params }) => {
+      switch (name) {
+        case 'cart':
+          emitCheckout(1, 'Review Cart')
+          break
+        case 'checkout':
+          emitCheckout(2, 'Confirm Purchase')
+          break
+        case 'confirmation':
+          emitPurchase(params.id)
+          break
+      }
+    }
+
+    if (router.currentRoute) {
+      addRouteToData(router.currentRoute)
+    }
+    router.afterEach(addRouteToData)
+  }
+}
