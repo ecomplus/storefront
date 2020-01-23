@@ -86,7 +86,7 @@ export default {
           }
           this.$emit('setDiscountRule', discountRule)
           this.alertVariant = 'info'
-        } else {
+        } else if (this.localCouponCode) {
           this.alertText = invalidCouponMsg || this.i19invalidCouponMsg
           this.alertVariant = 'warning'
         }
