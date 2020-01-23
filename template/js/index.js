@@ -9,6 +9,7 @@ import './lib/glide-slides'
 import './lib/menu'
 import './lib/header'
 import './lib/search'
+import './lib/persist-utm'
 
 import lozad from 'lozad'
 import Vue from 'vue'
