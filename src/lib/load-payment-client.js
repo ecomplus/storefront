@@ -13,7 +13,11 @@ export default (jsClient, skipOnloadExpression) => {
     $script = document.createElement('script')
     $script.async = true
     $script.defer = true
-    scriptRef = { src, $script }
+    scriptRef = {
+      src,
+      $script,
+      resolves: []
+    }
     startedScriptsRefs.push(scriptRef)
 
     setTimeout(() => {
@@ -44,12 +48,13 @@ export default (jsClient, skipOnloadExpression) => {
 
       if (!skipOnloadExpression) {
         runExpression()
-        resolve()
+        scriptRef.resolves.forEach(resolve => resolve())
       } else {
-        resolve(runExpression)
+        scriptRef.resolves.forEach(resolve => resolve(runExpression))
       }
     }
 
+    scriptRef.resolves.push(resolve)
     if (scriptRef.isLoaded) {
       $script.onload()
     }
