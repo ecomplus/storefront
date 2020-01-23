@@ -1,5 +1,6 @@
 import { i18n } from '@ecomplus/utils'
 import { modules } from '@ecomplus/client'
+import ecomPassportClient from '@ecomplus/passport-client'
 import baseModulesRequestData from './../../lib/base-modules-request-data'
 
 import {
@@ -46,6 +47,7 @@ export default {
     i19discountCoupon: () => i18n(i19discountCoupon),
     i19hasCouponOrVoucherQn: () => i18n(i19hasCouponOrVoucherQn),
     i19invalidCouponMsg: () => 'O cupom de desconto inserido é inválido.',
+    i19campaignAppliedMsg: () => 'Campanha de desconto aplicada com sucesso.',
 
     canAddCoupon () {
       return !this.couponCode || !this.isCouponApplied ||
@@ -76,9 +78,13 @@ export default {
           }
         })
         if (extraDiscountValue) {
-          this.$emit('update:couponCode', this.localCouponCode)
+          if (this.localCouponCode) {
+            this.$emit('update:couponCode', this.localCouponCode)
+            this.alertText = this.i19couponAppliedMsg
+          } else {
+            this.alertText = this.i19campaignAppliedMsg
+          }
           this.$emit('setDiscountRule', discountRule)
-          this.alertText = this.i19couponAppliedMsg
           this.alertVariant = 'info'
         } else {
           this.alertText = invalidCouponMsg || this.i19invalidCouponMsg
@@ -87,32 +93,46 @@ export default {
       }
     },
 
+    fetchDiscountOptions (data) {
+      this.isLoading = true
+      modules({
+        url: '/apply_discount.json',
+        method: 'POST',
+        data
+      })
+        .then(({ data }) => this.parseDiscountOptions(data.result))
+        .catch(err => {
+          this.alertText = null
+          console.error(err)
+          this.$bvToast.toast(this.i19discountCoupon, {
+            title: i18n(i19errorMsg),
+            variant: 'warning',
+            solid: true
+          })
+        })
+        .finally(() => {
+          this.isLoading = false
+        })
+    },
+
     submitCoupon () {
       if (this.canAddCoupon) {
-        this.isLoading = true
         const { amount, localCouponCode } = this
-        modules({
-          url: '/apply_discount.json',
-          method: 'POST',
-          data: {
-            discount_coupon: localCouponCode,
-            amount,
-            ...baseModulesRequestData
+        const data = {
+          discount_coupon: localCouponCode,
+          amount,
+          ...baseModulesRequestData
+        }
+        if (ecomPassportClient.checkLogin()) {
+          const customer = ecomPassportClient.getCustomer()
+          data.customer = {
+            _id: customer._id
           }
-        })
-          .then(({ data }) => this.parseDiscountOptions(data.result))
-          .catch(err => {
-            this.alertText = null
-            console.error(err)
-            this.$bvToast.toast(this.i19discountCoupon, {
-              title: i18n(i19errorMsg),
-              variant: 'warning',
-              solid: true
-            })
-          })
-          .finally(() => {
-            this.isLoading = false
-          })
+          if (customer.display_name) {
+            data.customer.display_name = customer.display_name
+          }
+        }
+        this.fetchDiscountOptions(data)
       }
     }
   },
@@ -143,8 +163,14 @@ export default {
   },
 
   created () {
+    const { utm } = baseModulesRequestData
     if (this.couponCode && !this.isCouponApplied) {
       this.submitCoupon()
+    } else if (utm && Object.keys(utm).length && this.amount) {
+      this.fetchDiscountOptions({
+        amount: this.amount,
+        ...baseModulesRequestData
+      })
     }
   }
 }
