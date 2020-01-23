@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.32.0](https://github.com/ecomclub/storefront-template/compare/v1.31.3...v1.32.0) (2020-01-23)
+
+
+### Features
+
+* **utm:** persisting utm params on session storage ([39f857e](https://github.com/ecomclub/storefront-template/commit/39f857e28045e0bf5d635b010de78016d429bc5d))
+
 ### [1.31.3](https://github.com/ecomclub/storefront-template/compare/v1.31.2...v1.31.3) (2020-01-23)
 
 
