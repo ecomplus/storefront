@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.2](https://github.com/ecomclub/storefront-app/compare/v1.9.1...v1.9.2) (2020-01-23)
+
+
+### Bug Fixes
+
+* **checkout:** ensure discount coupon is rechecked on checkout ([4de52a2](https://github.com/ecomclub/storefront-app/commit/4de52a2d22d827fad1cc8e41a7d6b9f9729735c4))
+
 ### [1.9.1](https://github.com/ecomclub/storefront-app/compare/v1.9.0...v1.9.1) (2020-01-23)
 
 
