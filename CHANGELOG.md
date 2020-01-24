@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.4.1](https://github.com/ecomclub/storefront-framework/compare/v5.4.0...v5.4.1) (2020-01-24)
+
+
+### Bug Fixes
+
+* **webpack:** set css chunkfilename and fix excluded babel loader files ([bd001f6](https://github.com/ecomclub/storefront-framework/commit/bd001f673ad0138b946b1497cb49e7b6250d15f7))
+
 ## [5.4.0](https://github.com/ecomclub/storefront-framework/compare/v5.3.6...v5.4.0) (2020-01-24)
 
 
