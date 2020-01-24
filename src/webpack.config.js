@@ -137,14 +137,18 @@ const config = {
 
       // transpile and polyfill JS with Babel
       {
-        test: /^(.(\.runtime|(?!\.min.js$)))+\.m?js$/,
+        test: /^(.(?!\.min\.js$))+\.m?js$/,
         exclude: process.env.BABEL_LOADER_EXCLUDE ||
-          /node_modules(\/(?![^/]+(\/[^/]+)?\/template\/js\/).+)/,
+          /node_modules(?!\/@ecomplus\/)/,
         use: {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-env', { useBuiltIns: 'usage', corejs: '3.6' }]
+              ['@babel/preset-env', {
+                useBuiltIns: 'usage',
+                corejs: '3.6',
+                modules: false
+              }]
             ],
             plugins: [
               '@babel/plugin-syntax-dynamic-import'
