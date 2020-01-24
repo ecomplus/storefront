@@ -97,7 +97,8 @@ const config = {
   plugins: [
     // extract CSS to file
     new MiniCssExtractPlugin({
-      filename: '[name].css'
+      filename: '[name].css',
+      chunkFilename: '[chunkhash].css'
     }),
     // handle Vue SFC
     new VueLoaderPlugin()
@@ -142,7 +143,7 @@ const config = {
       {
         test: /^(.(?!\.min\.js$))+\.m?js$/,
         exclude: process.env.BABEL_LOADER_EXCLUDE ||
-          /node_modules(?!\/@ecomplus\/)/,
+          /node_modules(?!\/@ecomplus\/[^/]+\/(?!dist))/,
         use: {
           loader: 'babel-loader',
           options: {
