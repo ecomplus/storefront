@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.3.6](https://github.com/ecomclub/storefront-framework/compare/v5.3.5...v5.3.6) (2020-01-24)
+
+
+### Bug Fixes
+
+* **babel-loader:** fix exclude rules and set env modules false ([1feba0e](https://github.com/ecomclub/storefront-framework/commit/1feba0e21518488cd0b9bae3896d77ec621e562a))
+* **webpack:** using mini css extract plugin always (win32) ([9459eef](https://github.com/ecomclub/storefront-framework/commit/9459eeff4d13192a359b9e2805161aa7ace3da4b))
+
 ### [5.3.5](https://github.com/ecomclub/storefront-framework/compare/v5.3.4...v5.3.5) (2020-01-13)
 
 ### [5.3.4](https://github.com/ecomclub/storefront-framework/compare/v5.3.3...v5.3.4) (2020-01-13)
