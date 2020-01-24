@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.4.0](https://github.com/ecomclub/storefront-framework/compare/v5.3.6...v5.4.0) (2020-01-24)
+
+
+### Features
+
+* **webpack:** adding Vue loader to compile SFC ([dea286b](https://github.com/ecomclub/storefront-framework/commit/dea286b35d80323c9e305b4832e90fea3a193f3f))
+
 ### [5.3.6](https://github.com/ecomclub/storefront-framework/compare/v5.3.5...v5.3.6) (2020-01-24)
 
 
