@@ -106,7 +106,7 @@ const config = {
       {
         test: /\.s?css$/,
         use: [
-          process.platform !== 'win32' ? MiniCssExtractPlugin.loader : 'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
 
           {
