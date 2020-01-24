@@ -10,6 +10,7 @@ const WebpackPwaManifest = require('webpack-pwa-manifest')
 const WorkboxPlugin = require('workbox-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const {
   devMode,
@@ -97,7 +98,9 @@ const config = {
     // extract CSS to file
     new MiniCssExtractPlugin({
       filename: '[name].css'
-    })
+    }),
+    // handle Vue SFC
+    new VueLoaderPlugin()
   ],
 
   module: {
@@ -153,6 +156,17 @@ const config = {
             plugins: [
               '@babel/plugin-syntax-dynamic-import'
             ]
+          }
+        }
+      },
+
+      // compile Vue component files to JS/CSS
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          compilerOptions: {
+            whitespace: devMode ? 'preserve' : 'condense'
           }
         }
       }
