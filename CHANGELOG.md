@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.32.1](https://github.com/ecomclub/storefront-template/compare/v1.32.0...v1.32.1) (2020-01-24)
+
+
+### Bug Fixes
+
+* **imports:** use import * as for lodash merge and cloneDeep ([5092e31](https://github.com/ecomclub/storefront-template/commit/5092e31d3b1d3cfa3b21ff66c191cd1f3f2966a2))
+
 ## [1.32.0](https://github.com/ecomclub/storefront-template/compare/v1.31.3...v1.32.0) (2020-01-23)
 
 
