@@ -1,4 +1,4 @@
-import merge from 'lodash.merge'
+import * as merge from 'lodash.merge'
 import baseConfig from './base-config/'
 import contentConfig from './../../../content/.config.json'
 

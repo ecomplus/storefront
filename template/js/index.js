@@ -13,8 +13,8 @@ import './lib/persist-utm'
 
 import lozad from 'lozad'
 import Vue from 'vue'
-import cloneDeep from 'lodash.clonedeep'
-import merge from 'lodash.merge'
+import * as cloneDeep from 'lodash.clonedeep'
+import * as merge from 'lodash.merge'
 import Glide from '@glidejs/glide'
 
 import $ from './lib/$'
