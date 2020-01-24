@@ -2,7 +2,7 @@
   "name": "@ecomplus/widget-product-card",
   "version": "0.3.1",
   "description": "Storefront plugin with Vue component for product cards",
-  "module": "dist/widget-product-card.es.js",
+  "module": "src/index.js",
   "browser": "dist/widget-product-card.min.js",
   "main": "dist/widget-product-card.min.js",
   "jsdelivr": "dist/public/widget-product-card.var.min.js",
