@@ -32,6 +32,9 @@ module.exports = {
     output: {
       library: '__storefront_app',
       libraryTarget: 'umd'
+    },
+    resolve: {
+      mainFields: ['module', 'browser', 'main']
     }
   },
 
