@@ -142,7 +142,7 @@ const mutations = {
     if (sessionStorage) {
       sessionStorage.removeItem(couponStorageKey)
     }
-    ecomCart.clear()
+    ecomCart.reset()
     state.cart = ecomCart.data
   }
 }
