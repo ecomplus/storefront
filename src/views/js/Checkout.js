@@ -142,7 +142,14 @@ export default {
         }
         setTimeout(tryUpsertCart, 300)
       })
-      .finally(() => this.triggerLoading(false))
+      .finally(() => {
+        if (!ecomCart.data.items.length) {
+          this.$router.push({
+            name: 'cart'
+          })
+        }
+        this.triggerLoading(false)
+      })
   },
 
   destroyed () {
