@@ -88,7 +88,14 @@ export default {
 
     confirmAccount () {
       const { checkLogin, checkAuthorization, getCustomer } = this.ecomPassport
-      return checkLogin() && !checkAuthorization() && getCustomer().main_email === this.email
+      const isIdentified = checkLogin() && !checkAuthorization() &&
+        getCustomer().main_email === this.email
+      if (isIdentified) {
+        this.$nextTick(() => {
+          this.$refs.InputDoc.$el.focus()
+        })
+      }
+      return isIdentified
     },
 
     submitLogin () {
@@ -183,9 +190,6 @@ export default {
         const customer = getCustomer()
         this.email = customer.main_email
         this.isCompany = customer.registry_type === 'j'
-        setTimeout(() => {
-          this.$refs.InputDoc.$el.focus()
-        }, 400)
       }
     }
     ecomPassport.on('login', () => {

@@ -158,9 +158,9 @@ export default {
 
     isFormVisible (isFormVisible) {
       if (isFormVisible) {
-        setTimeout(() => {
+        this.$nextTick(() => {
           this.$refs.input.focus()
-        }, 200)
+        })
       }
     }
   },
