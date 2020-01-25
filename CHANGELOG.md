@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/ecomclub/storefront-app/compare/v1.9.2...v1.10.0) (2020-01-25)
+
+
+### Features
+
+* **order-info:** add cancel button and handle order cancelation ([d0c9384](https://github.com/ecomclub/storefront-app/commit/d0c9384822ef7ef08b6765191887244f8aec8156))
+
+
+### Bug Fixes
+
+* **checkout:** back to cart when no items to buy ([844df62](https://github.com/ecomclub/storefront-app/commit/844df62e5ff34c1009717522a50bb1a79b7f8271))
+* **checkout:** fix reseting cart (after checkout done) ([95ee672](https://github.com/ecomclub/storefront-app/commit/95ee672b8471b967e3d4d01503745e6b07978682))
+* **vue:** minor fixes using nextTick for input focus ([cd3cbcc](https://github.com/ecomclub/storefront-app/commit/cd3cbcc16921230a5b4116f6bd7b129ab29b251f))
+
 ### [1.9.2](https://github.com/ecomclub/storefront-app/compare/v1.9.1...v1.9.2) (2020-01-23)
 
 
