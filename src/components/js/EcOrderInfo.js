@@ -3,9 +3,9 @@ import { store } from '@ecomplus/client'
 import ecomPassport from '@ecomplus/passport-client'
 import EcShippingLine from './../EcShippingLine.vue'
 import EcSummary from './../EcSummary.vue'
-import { SlideYUpTransition } from 'vue2-transitions'
 
 import {
+  // i19cancelOrder,
   i19codeCopied,
   i19copyCode,
   i19copyErrorMsg,
@@ -29,8 +29,7 @@ export default {
 
   components: {
     EcShippingLine,
-    EcSummary,
-    SlideYUpTransition
+    EcSummary
   },
 
   props: {
@@ -63,12 +62,14 @@ export default {
   data () {
     return {
       loaded: this.skipDataLoad || this.skipFirstDataLoad,
-      updateInterval: null,
+      isUpdating: false,
+      reloadInterval: null,
       orderBody: this.order
     }
   },
 
   computed: {
+    i19cancelOrder: () => 'Cancelar pedido',
     i19codeCopied: () => i18n(i19codeCopied),
     i19copyCode: () => i18n(i19copyCode),
     i19copyErrorMsg: () => i18n(i19copyErrorMsg),
@@ -107,6 +108,10 @@ export default {
         return localOrder.shipping_lines[0].to
       }
       return undefined
+    },
+
+    status () {
+      return this.localOrder.status
     },
 
     financialStatus () {
@@ -193,6 +198,24 @@ export default {
             ecomPassport.requestApi('/me.json', 'patch', { orders })
           })
       }
+    },
+
+    cancel () {
+      this.isUpdating = true
+      const data = {
+        status: 'cancelled',
+        cancel_reason: 'customer'
+      }
+      ecomPassport.requestApi(`/orders/${this.order._id}.json`, 'patch', data)
+        .then(() => {
+          this.localOrder = {
+            ...this.localOrder,
+            ...data
+          }
+        })
+        .finally(() => {
+          this.isUpdating = false
+        })
     }
   },
 
@@ -214,7 +237,7 @@ export default {
               console.error(err)
             })
         }
-        this.updateInterval = setInterval(update, 9000)
+        this.reloadInterval = setInterval(update, 9000)
         if (!this.skipFirstDataLoad) {
           setTimeout(() => {
             update().finally(() => {
@@ -227,6 +250,6 @@ export default {
   },
 
   beforeDestroy () {
-    clearInterval(this.updateInterval)
+    clearInterval(this.reloadInterval)
   }
 }

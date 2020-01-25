@@ -19,6 +19,11 @@
     }
   }
 
+  &__details {
+    margin-top: .75rem;
+    margin-bottom: 1.5rem;
+  }
+
   &__status,
   &__financial-status {
     font-weight: bold;
@@ -62,5 +67,11 @@
 
   &__summary {
     background: var(--light);
+  }
+
+  &__cancel {
+    display: block;
+    margin-left: auto;
+    margin-top: 1.5rem;
   }
 }
