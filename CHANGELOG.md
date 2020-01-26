@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.33.0](https://github.com/ecomclub/storefront-template/compare/v1.32.1...v1.33.0) (2020-01-26)
+
+
+### Features
+
+* **fetch-info:** handle 'apply_discount' with utm ([78b305d](https://github.com/ecomclub/storefront-template/commit/78b305dbe276dd1f1061406a6a1ffee42cbe3be3))
+
 ### [1.32.1](https://github.com/ecomclub/storefront-template/compare/v1.32.0...v1.32.1) (2020-01-24)
 
 
