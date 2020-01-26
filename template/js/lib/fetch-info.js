@@ -1,18 +1,32 @@
-import emitter from './emitter'
 import { modules } from '@ecomplus/client'
+import emitter from './emitter'
+import utm from './persist-utm'
 
 window._info = window._info || {}
 const fetchInfoPromises = []
+const modulesToFetch = [
+  { endpoint: 'list_payments' },
+  { endpoint: 'calculate_shipping' }
+]
+if (Object.keys(utm).length) {
+  modulesToFetch.push({
+    endpoint: 'apply_discount',
+    reqOptions: {
+      method: 'post',
+      data: { utm }
+    }
+  })
+}
 
-;[
-  'list_payments',
-  'calculate_shipping'
-].forEach(endpoint => {
+modulesToFetch.forEach(({ endpoint, reqOptions }) => {
   const modInfo = {}
   window._info[endpoint] = modInfo
 
   const promise = new Promise(resolve => {
-    modules({ url: `/${endpoint}.json` })
+    modules({
+      url: `/${endpoint}.json`,
+      ...reqOptions
+    })
 
       .then(({ data }) => {
         const { result } = data
@@ -30,7 +44,7 @@ const fetchInfoPromises = []
                   }
                   break
 
-                default:
+                case 'list_payments':
                   field = 'installments_option'
                   val = response[field]
                   if (val && (!modInfo[field] ||
@@ -39,6 +53,14 @@ const fetchInfoPromises = []
                     modInfo[field] = val
                   }
                   field = 'discount_option'
+                  val = response[field]
+                  if (val && (!modInfo[field] || val.value > modInfo[field].value)) {
+                    modInfo[field] = val
+                  }
+                  break
+
+                default:
+                  field = 'available_extra_discount'
                   val = response[field]
                   if (val && (!modInfo[field] || val.value > modInfo[field].value)) {
                     modInfo[field] = val

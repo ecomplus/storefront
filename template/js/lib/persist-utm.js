@@ -16,3 +16,5 @@ const urlParams = new URLSearchParams(window.location.search)
 if (isCurrentUtm) {
   sessionStorage.setItem(storageKey, JSON.stringify(utm))
 }
+
+export default utm
