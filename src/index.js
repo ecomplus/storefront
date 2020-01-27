@@ -21,10 +21,18 @@ export default (options = {}, elClass = 'product-card') => {
         },
         props: {
           ...options.props,
-          prerenderedHTML: $productCard.outerHTML,
           productId,
           product,
           isLoaded
+        },
+        scopedSlots: {
+          default () {
+            return h('div', {
+              domProps: {
+                innerHTML: $productCard.outerHTML
+              }
+            })
+          }
         }
       })
     }).$mount($productCard)

@@ -4,46 +4,57 @@
 >
   <transition enter-active-class="animated fadeIn">
     <section v-if="!isLoading">
-      <span v-if="isActive && discount > 0" class="ec-product-card__offer-stamp">
-        -<b>{{ discount }}</b>%
-      </span>
+      <slot name="discount-tag">
+        <span v-if="isActive && discount > 0" class="ec-product-card__offer-stamp">
+          -<b>{{ discount }}</b>%
+        </span>
+      </slot>
 
-      <a
-        class="ec-product-card__link"
-        :href="`/${body.slug}`"
-        :title="name(body)"
-      >
-        <div class="ec-product-card__pictures">
-          <template v-if="body.pictures && body.pictures.length">
-            <ec-image
-              class="ec-product-card__picture"
-              v-for="(picture, index) in body.pictures.slice(0, 2)"
-              :key="index"
-              :src="picture"
-              :pictureBreakpoint="300"
-            />
-          </template>
-          <ec-image v-else class="ec-product-card__picture"/>
-        </div>
+      <slot name="body">
+        <a
+          class="ec-product-card__link"
+          :href="`/${body.slug}`"
+          :title="name(body)"
+        >
+          <div class="ec-product-card__pictures">
+            <template v-if="body.pictures && body.pictures.length">
+              <ec-image
+                class="ec-product-card__picture"
+                v-for="(picture, index) in body.pictures.slice(0, 2)"
+                :key="index"
+                :src="picture"
+                :pictureBreakpoint="300"
+              />
+            </template>
+            <ec-image v-else class="ec-product-card__picture"/>
+          </div>
 
-        <h3 class="ec-product-card__name">
-          {{ name(body) }}
-        </h3>
-      </a>
+          <h3 class="ec-product-card__name">
+            {{ name(body) }}
+          </h3>
+        </a>
+      </slot>
 
-      <p v-if="!body.available || !body.visible" class="badge badge-warning">
-        {{ dictionary('unavailable') }}
-      </p>
-      <p v-else-if="!inStock(body)" class="badge badge-dark">
-        {{ dictionary('out_of_stock') }}
-      </p>
+      <slot name="unavailable" v-if="!body.available || !body.visible">
+        <p class="badge badge-warning">
+          {{ dictionary('unavailable') }}
+        </p>
+      </slot>
+
+      <slot name="out-of-stock" v-else-if="!inStock(body)">
+        <p class="badge badge-dark">
+          {{ dictionary('out_of_stock') }}
+        </p>
+      </slot>
 
       <template v-else>
-        <ec-prices
-          class="ec-product-card__prices"
-          :lang="lang"
-          :product="body"
-        />
+        <slot name="prices">
+          <ec-prices
+            class="ec-product-card__prices"
+            :lang="lang"
+            :product="body"
+          />
+        </slot>
 
         <div @click="buy" class="ec-product-card__buy fade">
           <slot name="buy">
@@ -54,13 +65,13 @@
           </slot>
         </div>
       </template>
+
+      <slot name="footer"/>
     </section>
   </transition>
 
   <template v-if="isLoading">
-    <slot>
-      <div v-html="prerenderedHTML"></div>
-    </slot>
+    <slot />
     <div class="alert alert-warning small" role="alert" v-if="error">
       {{ error }}
     </div>
