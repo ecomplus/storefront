@@ -50,8 +50,7 @@ export default {
     canAddToCart: {
       type: Boolean,
       default: true
-    },
-    prerenderedHTML: String
+    }
   },
 
   data () {
@@ -117,6 +116,11 @@ export default {
     variationsGrids,
     specValueByText,
 
+    setBody (data) {
+      this.body = data
+      this.$emit('update:product', data)
+    },
+
     fetchProduct (isRetry = false) {
       const vm = this
       const { storeId } = vm
@@ -128,7 +132,7 @@ export default {
         }
       })
         .then(({ data }) => {
-          vm.body = data
+          this.setBody(data)
           if (getContextId() === vm.productId) {
             storefront.context.body = data
           }
@@ -140,7 +144,7 @@ export default {
             if (!isRetry) {
               this.fetchProduct(true)
             } else {
-              this.body = getContextBody()
+              this.setBody(getContextBody())
               if (!this.body.name || !this.body.price || !this.body.pictures) {
                 const errorMsg = vm.lang === 'pt_br'
                   ? 'Não foi possível carregar informações do produto, por favor verifique sua conexão'
