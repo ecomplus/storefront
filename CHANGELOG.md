@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.10](https://github.com/ecomclub/widget-product/compare/v0.4.9...v0.4.10) (2020-01-27)
+
+
+### Bug Fixes
+
+* **get-scoped-slots:** preventing error with text nodes ([7d6fd29](https://github.com/ecomclub/widget-product/commit/7d6fd29c80bf61aec70553e11cf74dbfedf96b89))
+
 ### [0.4.9](https://github.com/ecomclub/widget-product/compare/v0.4.8...v0.4.9) (2020-01-27)
 
 
