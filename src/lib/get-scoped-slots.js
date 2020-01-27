@@ -11,12 +11,12 @@ export default ($el, h) => {
 
   const $childs = $el.childNodes
   for (let i = 0; i < $childs.length; i++) {
-    const { slot } = $childs[i].dataset
-    if (slot) {
-      scopedSlots[slot] = function () {
+    const { dataset, outerHTML } = $childs[i]
+    if (dataset && dataset.slot) {
+      scopedSlots[dataset.slot] = function () {
         return h('span', {
           domProps: {
-            innerHTML: $childs[i].outerHTML
+            innerHTML: outerHTML
           }
         })
       }
