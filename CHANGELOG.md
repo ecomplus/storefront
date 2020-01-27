@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.9](https://github.com/ecomclub/widget-product/compare/v0.4.8...v0.4.9) (2020-01-27)
+
+
+### Features
+
+* **prices:** handling extra discount ([13a10fe](https://github.com/ecomclub/widget-product/commit/13a10fef515d0b2ded74c8646bcd8ba846758435))
+* **variations:** supporting bg for multiple colors ([64da801](https://github.com/ecomclub/widget-product/commit/64da801473ce5475be6215575d826836132ee8aa))
+* **widget:** get scoped slots from prerendered html ([09fe508](https://github.com/ecomclub/widget-product/commit/09fe508c861a4cf10a93caaa0a949fb3ead87258))
+
+
+### Bug Fixes
+
+* **product:** remove perenderedHTML prop, support product.sync ([a2ddf68](https://github.com/ecomclub/widget-product/commit/a2ddf68f986ba256ec291fa239149db7bee312f1))
+
 ### [0.4.8](https://github.com/ecomclub/widget-product/compare/v0.4.7...v0.4.8) (2020-01-24)
 
 ### [0.4.7](https://github.com/ecomclub/widget-product/compare/v0.4.6...v0.4.7) (2020-01-22)
