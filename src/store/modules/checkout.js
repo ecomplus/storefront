@@ -1,5 +1,6 @@
 import ecomCart from '@ecomplus/shopping-cart'
 import ecomClient from '@ecomplus/client'
+import baseModulesRequestData from './../../lib/base-modules-request-data'
 
 const fixMoneyValue = num => Math.round(num * 100) / 100
 
@@ -20,8 +21,7 @@ const prepareTransaction = ({ customer, transaction }) => {
     buyer: {
       email: customer.main_email,
       fullname
-    },
-    domain: window.location.hostname
+    }
   })
   ;[
     'inscription_number',
@@ -200,6 +200,7 @@ const actions = {
       }
     }
     const checkoutBody = {
+      ...baseModulesRequestData,
       items: ecomCart.data.items,
       shipping: {
         ...getters.shippingService,
