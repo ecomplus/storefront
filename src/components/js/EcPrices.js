@@ -1,5 +1,21 @@
-import { $ecomConfig, price, onPromotion, formatMoney } from '@ecomplus/utils'
+import {
+  $ecomConfig,
+  price as getPrice,
+  onPromotion as checkOnPromotion,
+  formatMoney
+} from '@ecomplus/utils'
 import dictionary from './../../lib/dictionary'
+
+const getPriceWithDiscount = (price, discount) => {
+  const { type, value } = discount
+  if (value) {
+    if (type === 'percentage') {
+      return price * (100 - value) / 100
+    } else {
+      return price - value
+    }
+  }
+}
 
 export default {
   name: 'EcPrices',
@@ -38,13 +54,16 @@ export default {
         type: null,
         value: 0
       },
+      extraDiscount: {
+        type: null,
+        value: 0
+      },
       discountLabel: this.discountText
     }
   },
 
   methods: {
     dictionary,
-    onPromotion,
     formatMoney,
 
     updateInstallments (installments) {
@@ -67,18 +86,23 @@ export default {
 
   computed: {
     price () {
-      return price(this.product)
+      const price = getPrice(this.product)
+      if (this.extraDiscount.value) {
+        return getPriceWithDiscount(price, this.extraDiscount)
+      }
+      return price
+    },
+
+    comparePrice () {
+      if (checkOnPromotion(this.product)) {
+        return this.product.base_price
+      } else if (this.extraDiscount.value) {
+        return getPrice(this.product)
+      }
     },
 
     priceWithDiscount () {
-      const { type, value } = this.discount
-      if (value) {
-        if (type === 'percentage') {
-          return this.price * (100 - value) / 100
-        } else {
-          return this.price - value
-        }
-      }
+      return getPriceWithDiscount(this.price, this.discount)
     }
   },
 
@@ -97,6 +121,20 @@ export default {
         }
         if (!getPaymentInfo()) {
           storefront.on('info:list_payments', getPaymentInfo)
+        }
+        const getExtraDiscount = () => {
+          const discountCampaign = storefront.info && storefront.info.apply_discount
+          if (discountCampaign) {
+            const discount = discountCampaign.available_extra_discount
+            if (discount) {
+              this.extraDiscount = discount
+            }
+            return Object.keys(discountCampaign).length > 0
+          }
+          return false
+        }
+        if (!getExtraDiscount()) {
+          storefront.on('info:apply_discount', getExtraDiscount)
         }
       }
     } else {

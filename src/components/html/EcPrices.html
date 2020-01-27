@@ -2,13 +2,13 @@
   class="ec-prices"
   :class="{ 'ec-prices--literal': literal, 'ec-prices--big': big }"
 >
-  <span v-if="onPromotion(product)" class="ec-prices__compare">
+  <span v-if="comparePrice" class="ec-prices__compare">
     <template v-if="literal">
       {{ dictionary('from') }}
-      <s>{{ formatMoney(product.base_price) }}</s>
+      <s>{{ formatMoney(comparePrice) }}</s>
       {{ dictionary('to') }}
     </template>
-    <s v-else>{{ formatMoney(product.base_price) }}</s>
+    <s v-else>{{ formatMoney(comparePrice) }}</s>
   </span>
 
   <strong class="ec-prices__value">
