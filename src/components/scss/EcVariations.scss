@@ -10,7 +10,11 @@
   &__option {
     min-height: 2.3rem;
     min-width: 2.3rem;
-    border: 2px solid var(--light);
+    border: 2px solid var(--gray);
+
+    &:hover {
+      border-color: var(--secondary-light);
+    }
 
     &:not(:last-of-type) {
       margin-right: .4rem;

@@ -9,7 +9,7 @@
       v-for="optionText in options"
       class="ec-variations__option btn btn-light"
       :class="selectedOptions[grid] === optionText ? 'ec-variations__option--selected' : null"
-      :style="grid === 'colors' ? `background:${getSpecValue(optionText, grid)}` : null"
+      :style="grid === 'colors' ? getColorOptionBg(optionText) : null"
       @click="() => selectOption(optionText, grid, index)"
       :disabled="!filteredGrids[grid].includes(optionText)"
     >

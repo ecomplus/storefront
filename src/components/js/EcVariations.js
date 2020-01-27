@@ -28,8 +28,28 @@ export default {
   },
 
   methods: {
+    getColorOptionBg (optionText) {
+      const rgbs = optionText.split(',').map(colorName => {
+        return getSpecValueByText(this.product.variations, colorName.trim(), 'colors')
+      })
+      return rgbs.length > 1
+        ? `background:linear-gradient(to right bottom, ${rgbs[0]} 50%, ${rgbs[1]} 50%)`
+        : `background:${rgbs[0]}`
+    },
+
     getSpecValue (optionText, grid) {
-      return getSpecValueByText(this.product.variations, optionText, grid)
+      const { variations } = this.product
+      let values
+      if (grid === 'colors') {
+        const colorNames = optionText.split(',')
+        if (colorNames.length > 1) {
+          values = []
+          colorNames.forEach(color => {
+            values.push(getSpecValueByText(variations, color.trim(), grid))
+          })
+        }
+      }
+      return values || getSpecValueByText(variations, optionText, grid)
     },
 
     getGridTitle (grid) {
