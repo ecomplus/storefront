@@ -6,7 +6,7 @@ export default fbq => {
 
   const emitAddToCart = item => {
     const productData = getProductData(item)
-    fbq('eec.add', {
+    fbq('track', 'AddToCart', {
       ecommerce: {
         currencyCode,
         add: {
@@ -20,7 +20,7 @@ export default fbq => {
 
   const emitRemoveFromCart = item => {
     const productData = productsBySku[item.sku]
-    fbq('eec.remove', {
+    fbq('track', 'CustomEvent', {
       ecommerce: {
         currencyCode,
         remove: {

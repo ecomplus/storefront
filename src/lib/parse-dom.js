@@ -22,7 +22,7 @@ export default fbq => {
       }
     }
 
-    fbq('eec.impressions', {
+    fbq('track', 'ViewContent', {
       ecommerce: {
         currencyCode,
         impressions: skus.map(sku => {

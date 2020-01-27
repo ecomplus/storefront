@@ -8,7 +8,7 @@ export default fbq => {
 
     const productData = getProductData(body)
     const data = {
-      event: 'eec.detail',
+      event: 'ViewContent',
       ecommerce: {
         currencyCode,
         detail: {
@@ -29,6 +29,6 @@ export default fbq => {
       productData.brand = body.brands[0].name
     }
 
-    fbq(data.event, data.ecommerce)
+    fbq('track', data.event, data.ecommerce)
   }
 }
