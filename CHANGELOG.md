@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.4.2](https://github.com/ecomclub/storefront-framework/compare/v5.4.1...v5.4.2) (2020-01-27)
+
+
+### Bug Fixes
+
+* **server:** watch all files from template/js folder ([2a2f882](https://github.com/ecomclub/storefront-framework/commit/2a2f882b5151ca1d6347eeb3a8d4c591e2630fa4))
+
 ### [5.4.1](https://github.com/ecomclub/storefront-framework/compare/v5.4.0...v5.4.1) (2020-01-24)
 
 
