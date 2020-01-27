@@ -177,14 +177,26 @@
             </div>
           </div>
 
-          <button
-            v-if="status === 'open' && !fulfillmentStatus && !isUpdating"
-            class="ec-order-info__cancel btn btn-danger btn-sm"
-            @click="cancel"
-          >
-            <i class="fas fa-exclamation-triangle"></i>
-            {{ i19cancelOrder }}
-          </button>
+          <template v-if="!isUpdating">
+            <template v-if="status === 'open'">
+              <button
+                v-if="!fulfillmentStatus"
+                class="ec-order-info__toggle btn btn-danger btn-sm"
+                @click="toggle"
+              >
+                <i class="fas fa-exclamation-triangle mr-1"></i>
+                {{ i19cancelOrder }}
+              </button>
+            </template>
+            <button
+              v-else
+              class="ec-order-info__toggle btn btn-success btn-sm"
+              @click="toggle"
+            >
+              <i class="fas fa-check-circle mr-1"></i>
+              {{ i19reopenOrder }}
+            </button>
+          </template>
         </div>
       </div>
     </div>

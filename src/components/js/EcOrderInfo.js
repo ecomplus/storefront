@@ -17,6 +17,7 @@ import {
   i19printBillet,
   i19redirectToPayment,
   i19referenceCode,
+  // i19reopenOrder,
   i19transactionCode,
   i19ticketCode,
   i19FinancialStatus,
@@ -81,6 +82,7 @@ export default {
     i19printBillet: () => i18n(i19printBillet),
     i19redirectToPayment: () => i18n(i19redirectToPayment),
     i19referenceCode: () => i18n(i19referenceCode),
+    i19reopenOrder: () => 'Reabrir pedido',
     i19transactionCode: () => i18n(i19transactionCode),
     i19ticketCode: () => i18n(i19ticketCode),
 
@@ -200,12 +202,16 @@ export default {
       }
     },
 
-    cancel () {
+    toggle () {
       this.isUpdating = true
-      const data = {
-        status: 'cancelled',
-        cancel_reason: 'customer'
-      }
+      const data = this.localOrder.status === 'open'
+        ? {
+          status: 'cancelled',
+          cancel_reason: 'customer'
+        }
+        : {
+          status: 'open'
+        }
       ecomPassport.requestApi(`/orders/${this.order._id}.json`, 'patch', data)
         .then(() => {
           this.localOrder = {
