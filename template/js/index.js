@@ -1,4 +1,4 @@
 import ecomUtils from '@ecomplus/utils'
 
-window.alert('Hello Storefront!')
+window.alert('Hello from Storefront Framework!')
 window.ecomUtils = ecomUtils
