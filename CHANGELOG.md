@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.11.1](https://github.com/ecomclub/storefront-app/compare/v1.11.0...v1.11.1) (2020-01-27)
+
+
+### Bug Fixes
+
+* **orderinfo:** minor template fixes for reopen order button ([75cd91e](https://github.com/ecomclub/storefront-app/commit/75cd91ed0d7d851b549110d473d62a3c0688c605))
+
 ## [1.11.0](https://github.com/ecomclub/storefront-app/compare/v1.10.0...v1.11.0) (2020-01-27)
 
 
