@@ -189,8 +189,9 @@
               </button>
             </template>
             <button
-              v-else
-              class="ec-order-info__toggle btn btn-success btn-sm"
+              v-else-if="status !== 'closed' || fulfillmentStatus !== 'delivered'"
+              class="ec-order-info__toggle btn btn-sm"
+              :class="status === 'cancelled' ? 'btn-success' : 'btn-info'"
               @click="toggle"
             >
               <i class="fas fa-check-circle mr-1"></i>
