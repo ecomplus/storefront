@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/ecomclub/storefront-app/compare/v1.10.0...v1.11.0) (2020-01-27)
+
+
+### Features
+
+* **order-info:** add reopen order button (if cancelled) ([e18b077](https://github.com/ecomclub/storefront-app/commit/e18b077754e641257db4551d88488a21af8ee976))
+
+
+### Bug Fixes
+
+* **checkout:** add base modules data (utm) to checkout body ([f45fbf2](https://github.com/ecomclub/storefront-app/commit/f45fbf2c509fd676815986e13246ba564125dbf3))
+
 ## [1.10.0](https://github.com/ecomclub/storefront-app/compare/v1.9.2...v1.10.0) (2020-01-25)
 
 
