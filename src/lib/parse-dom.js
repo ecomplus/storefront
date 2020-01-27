@@ -22,18 +22,10 @@ export default fbq => {
       }
     }
 
-    fbq('track', 'ViewContent', {
-      ecommerce: {
-        currencyCode,
-        impressions: skus.map(sku => {
-          const listName = isSearchPage ? 'Search results' : listNameBySku[sku]
-          const item = { id: sku }
-          if (listName) {
-            item.list = listName
-          }
-          return item
-        })
-      }
+    fbq('track', 'Search', {
+      content_ids: skus,
+      currency: currencyCode,
+      search_string: `Search results: ${ $carousel.dataset.title }`
     })
   }
 }

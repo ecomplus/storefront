@@ -49,16 +49,10 @@ export default fbq => {
       ).toFixed(2)
 
       fbq('track', 'Purchase', {
-        ecommerce: {
-          currencyCode,
-          purchase: {
-            actionField: {
-              id: orderId,
-              revenue
-            },
-            products: getCartProductsList()
-          }
-        }
+        currency: currencyCode,
+        value: getCartProductsList().reduce((total, current)=> total.price + current.price),
+        contents: getCartProductsList(),
+        content_ids: getCartProductsList().map(item=>item.id)
       })
     }
 

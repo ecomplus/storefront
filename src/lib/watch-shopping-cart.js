@@ -7,12 +7,10 @@ export default fbq => {
   const emitAddToCart = item => {
     const productData = getProductData(item)
     fbq('track', 'AddToCart', {
-      ecommerce: {
-        currencyCode,
-        add: {
-          products: [productData]
-        }
-      }
+      content_ids: productData.id,
+      content_name: productData.name,
+      value: productData.price,
+      currency: currencyCode
     })
     fbq('addToCart')
     productsBySku[item.sku] = productData
