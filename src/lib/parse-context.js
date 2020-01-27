@@ -10,10 +10,11 @@ export default fbq => {
     const data = {
       event: 'ViewContent',
       ecommerce: {
-        currencyCode,
-        detail: {
-          products: [productData]
-        }
+        currency: currencyCode,
+        content_ids: productData.id,
+        content_name: productData.name,
+        value: productData.price,
+        content_type: 'product'
       }
     }
 
