@@ -8,7 +8,6 @@ import Vue from 'vue'
 import lozad from 'lozad'
 import '@ecomplus/storefront-twbs'
 import EcomSearch from '@ecomplus/search-engine'
-import getScopedSlots from '@ecomplus/widget-product/src/lib/get-scoped-slots'
 import EcProductCard from './components/EcProductCard.vue'
 
 export default (options = {}, elClass = 'product-card') => {
@@ -26,7 +25,15 @@ export default (options = {}, elClass = 'product-card') => {
           product,
           isLoaded
         },
-        scopedSlots: getScopedSlots($productCard, h)
+        scopedSlots: {
+          default () {
+            return h('div', {
+              domProps: {
+                innerHTML: $productCard.outerHTML
+              }
+            })
+          }
+        }
       })
     }).$mount($productCard)
   }
