@@ -7,6 +7,7 @@
 import Vue from 'vue'
 import '@ecomplus/storefront-twbs'
 import EcProduct from './components/EcProduct.vue'
+import getScopedSlots from './lib/get-scoped-slots'
 
 export default (options = {}, elId = 'product-block') => {
   const $productBlock = document.getElementById(elId)
@@ -18,9 +19,9 @@ export default (options = {}, elId = 'product-block') => {
           id: elId
         },
         props: {
-          ...options.props,
-          prerenderedHTML: $productBlock.outerHTML
-        }
+          ...options.props
+        },
+        scopedSlots: getScopedSlots($productBlock, h)
       })
     }).$mount($productBlock)
   }
