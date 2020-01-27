@@ -1,29 +1,38 @@
 <div class="ec-product">
   <transition enter-active-class="animated fadeIn slower">
     <div class="row" v-if="body._id">
-      <div class="col-12 col-md-6">
-        <ec-gallery
-          :sliderOptions="{ rewind: true }"
-          :images="body.pictures"
-          :current.sync="currentGalleyImg"
-          @click:stage="openPhotoswipe"
-        />
-      </div>
+      <slot name="gallery-col">
+        <div class="col-12 col-md-6">
+          <ec-gallery
+            :sliderOptions="{ rewind: true }"
+            :images="body.pictures"
+            :current.sync="currentGalleyImg"
+            @click:stage="openPhotoswipe"
+          />
+        </div>
+      </slot>
 
       <div class="col">
-        <h1 class="ec-product__name">
-          {{ name }}
-        </h1>
-        <p class="ec-product__sku">
-          COD: {{ body.sku }}
-        </p>
+        <slot name="heading">
+          <h1 class="ec-product__name">
+            {{ name }}
+          </h1>
+          <p class="ec-product__sku">
+            COD: {{ body.sku }}
+          </p>
+        </slot>
 
-        <p v-if="!body.available" class="ec-product__unavailable">
-          {{ dictionary('unavailable') }}
-        </p>
-        <p v-else-if="!inStock(body)" class="ec-product__out-of-stock">
-          {{ dictionary('out_of_stock') }}
-        </p>
+        <slot name="unavailable" v-if="!body.available">
+          <p class="ec-product__unavailable">
+            {{ dictionary('unavailable') }}
+          </p>
+        </slot>
+
+        <slot name="out-of-stock" v-else-if="!inStock(body)">
+          <p class="ec-product__out-of-stock">
+            {{ dictionary('out_of_stock') }}
+          </p>
+        </slot>
 
         <template v-else>
           <slot name="prices">
@@ -41,7 +50,7 @@
             </p>
           </slot>
 
-          <template v-if="hasVariations">
+          <slot name="variations" v-if="hasVariations">
             <ec-variations
               :product="body"
               :selectedId.sync="selectedVariationId"
@@ -55,7 +64,7 @@
             >
               {{ dictionary('select_variation') }}
             </b-alert>
-          </template>
+          </slot>
 
           <div class="ec-product__buy">
             <slot name="buy">
@@ -83,16 +92,16 @@
           </slot>
         </template>
 
-        <p v-if="body.short_description" class="ec-product__info lead">
-          {{ body.short_description }}
-        </p>
+        <slot name="short-description" v-if="body.short_description">
+          <p class="ec-product__info lead">
+            {{ body.short_description }}
+          </p>
+        </slot>
       </div>
     </div>
   </transition>
 
   <template v-if="!body._id">
-    <slot>
-      <div v-html="prerenderedHTML"></div>
-    </slot>
+    <slot />
   </template>
 </div>
