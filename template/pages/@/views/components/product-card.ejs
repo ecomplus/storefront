@@ -25,6 +25,10 @@ if (imgObj) {
     data-sku="<%= itemData.sku %>"
     data-to-render="true"
   >
+    <!--
+      `widgetProductCard` is rendered here,
+      for deeper customization take a look on `/template/js/components/ProductCard.vue`
+    -->
     <a
       href="/<%= itemData.slug %>"
       class="product-card__link"
