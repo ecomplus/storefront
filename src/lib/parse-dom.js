@@ -22,7 +22,7 @@ export default fbq => {
       }
     }
 
-    fbq('track', 'Search', {
+    fbq('Search', {
       content_ids: skus,
       currency: currencyCode,
       search_string: `Search results: ${ $carousel.dataset.title }`

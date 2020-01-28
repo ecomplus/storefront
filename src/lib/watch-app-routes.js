@@ -18,7 +18,7 @@ export default fbq => {
     const emitCheckout = (step, option) => {
       const actionField = { step, option }
       if (step <= 1 || !isCartSent) {
-        fbq('track', 'Purchase', {
+        fbq('Purchase', {
           ecommerce: {
             currencyCode,
             checkout: {
@@ -30,7 +30,7 @@ export default fbq => {
         fbq('checkout')
         isCartSent = true
       } else {
-        fbq('track', 'Purchase', {
+        fbq('Purchase', {
           ecommerce: {
             currencyCode,
             checkout_option: { actionField }
@@ -48,7 +48,7 @@ export default fbq => {
         0
       ).toFixed(2)
 
-      fbq('track', 'Purchase', {
+      fbq('Purchase', {
         currency: currencyCode,
         value: getCartProductsList().reduce((total, current)=> total.price + current.price),
         contents: getCartProductsList(),
