@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.33.4](https://github.com/ecomclub/storefront-template/compare/v1.33.3...v1.33.4) (2020-01-28)
+
+
+### Bug Fixes
+
+* **sidenav:** preventing loop error after sidenav close ([0217b23](https://github.com/ecomclub/storefront-template/commit/0217b2382caf8caa9e80af4d1a62686d3e03d858))
+
 ### [1.33.3](https://github.com/ecomclub/storefront-template/compare/v1.33.2...v1.33.3) (2020-01-27)
 
 ### [1.33.2](https://github.com/ecomclub/storefront-template/compare/v1.33.1...v1.33.2) (2020-01-27)
