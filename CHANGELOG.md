@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/ecomclub/widget-fb-pixel/compare/v0.0.2...v1.0.0) (2020-01-28)
+
+
+### Bug Fixes
+
+* **events:** fix tracking fbq default and custom events ([96d9b81](https://github.com/ecomclub/widget-fb-pixel/commit/96d9b816ecd158775d2d449afbe93be5e60f2e5b))
+* **track:** fix handling global window.fbq func ([3f568b1](https://github.com/ecomclub/widget-fb-pixel/commit/3f568b11bc609a9fe5b0e0df79bb2842132b0c9f))
+
 ### 0.0.2 (2020-01-28)
 
 
