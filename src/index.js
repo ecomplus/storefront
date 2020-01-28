@@ -6,17 +6,8 @@ import watchShoppingCart from './lib/watch-shopping-cart'
 export default (options = {}) => {
   const { parseDomMsDelay } = options
 
-  //Example Object
-  // {
-  //   content_name: 'Really Fast Running Shoes',
-  //   content_category: 'Apparel & Accessories > Shoes',
-  //   content_ids: ['1234'],
-  //   content_type: 'product',
-  //   value: 0.50,
-  //   currency: 'USD'
-  // }
-  const fbq = (event, item={}) => {
-    fbq('track', event, item);
+  const fbq = (evName, data = {}) => {
+    fbq('track', evName, data)
   }
 
   if (fbq) {
