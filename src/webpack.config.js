@@ -129,11 +129,13 @@ const config = {
             loader: 'sass-loader',
             options: {
               // inject brand colors
-              data: `$primary: ${primaryColor}; ` +
+              prependData: `$primary: ${primaryColor}; ` +
                 `$secondary: ${secondaryColor}; ` +
                 `$settings-theme: ${jsonSassVars.convertJs(settings.theme || {})}; `,
-              // include path to import from node modules
-              includePaths: [paths.modules]
+              sassOptions: {
+                // include path to import from node modules
+                includePaths: [paths.modules]
+              }
             }
           }
         ]
