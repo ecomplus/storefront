@@ -1,15 +1,17 @@
-import { $ecomConfig, name, price } from '@ecomplus/utils'
+import { $ecomConfig, price } from '@ecomplus/utils'
 
-export const currencyCode = $ecomConfig.get('currency') || 'BRL'
+export const currency = $ecomConfig.get('currency') || 'BRL'
 
-export const getProductData = item => {
-  const productData = {
-    name: name(item),
-    id: item.sku,
-    price: price(item).toFixed(2)
+export const getProductData = body => {
+  const data = {
+    currency,
+    content_ids: [body.sku],
+    content_name: body.name,
+    value: price(body),
+    content_type: 'product'
   }
-  if (item.quantity) {
-    productData.quantity = item.quantity
+  if (body.categories && body.categories.length) {
+    data.content_category = body.category_tree || body.categories[0].name
   }
-  return productData
+  return data
 }

@@ -1,58 +1,49 @@
 import ecomCart from '@ecomplus/shopping-cart'
-import { currencyCode, getProductData } from './common'
+import { currency } from './common'
 
 export default fbq => {
   const router = window.storefrontApp && window.storefrontApp.router
   if (router) {
     let isCartSent = false
-    const getCartProductsList = () => {
-      const products = []
+
+    const getPurchaseData = () => {
+      const { amount } = window.storefrontApp
+      const data = {
+        value: (
+          (amount && amount.total) ||
+          (ecomCart.data && ecomCart.data.subtotal) ||
+          0
+        ),
+        currency,
+        contents: [],
+        content_type: 'product'
+      }
       if (ecomCart.data && Array.isArray(ecomCart.data.items)) {
-        ecomCart.data.items.forEach(item => {
-          products.push(getProductData(item))
+        ecomCart.data.items.forEach(({ sku, quantity }) => {
+          data.contents.push({ id: sku, quantity })
         })
       }
-      return products
+      return data
     }
 
     const emitCheckout = (step, option) => {
-      const actionField = { step, option }
+      const customData = {
+        ...getPurchaseData(),
+        checkout_step: step,
+        checkout_option: option
+      }
       if (step <= 1 || !isCartSent) {
-        fbq('Purchase', {
-          ecommerce: {
-            currencyCode,
-            checkout: {
-              actionField,
-              products: getCartProductsList()
-            }
-          }
-        })
-        fbq('checkout')
+        fbq('Checkout', customData, true)
         isCartSent = true
       } else {
-        fbq('Purchase', {
-          ecommerce: {
-            currencyCode,
-            checkout_option: { actionField }
-          }
-        })
-        fbq('checkoutOption')
+        fbq('CheckoutOption', customData, true)
       }
     }
 
     const emitPurchase = orderId => {
-      const { amount } = window.storefrontApp
-      const revenue = (
-        (amount && amount.total) ||
-        (ecomCart.data && ecomCart.data.subtotal) ||
-        0
-      ).toFixed(2)
-
       fbq('Purchase', {
-        currency: currencyCode,
-        value: getCartProductsList().reduce((total, current)=> total.price + current.price),
-        contents: getCartProductsList(),
-        content_ids: getCartProductsList().map(item=>item.id)
+        ...getPurchaseData(),
+        order_id: orderId
       })
     }
 
