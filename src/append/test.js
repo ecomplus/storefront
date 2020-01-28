@@ -1,27 +1,6 @@
 export default (options = {}) => {
   const { fbqContainerId } = options
 
-  ;(function (w, d) {
-    w[d] = []
-    if (w.storefront && w.storefront.context) {
-      var context = w.storefront.context
-      if (context) {
-        var data = {
-          storefront: true
-        }
-        for (var field in context) {
-          if (typeof context[field] === 'string') {
-            data[field] = context[field]
-          }
-        }
-        if (context && context.body) {
-          data.resourceId = context.body._id
-        }
-        w[d].push(data)
-      }
-    }
-  }(window))
-
   const $scripts = document.getElementsByTagName('script')
   const $lastScript = $scripts[$scripts.length - 1]
   if ($lastScript) {
