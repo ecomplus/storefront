@@ -1,64 +1,55 @@
 {
-  "name": "@ecomplus/widget-example-name",
+  "name": "@ecomplus/widget-fb-pixel",
   "version": "0.0.1",
-  "description": "My E-Com Plus storefront plugin",
-  "module": "dist/widget-example-name.es.js",
-  "browser": "dist/widget-example-name.min.js",
-  "main": "dist/widget-example-name.min.js",
-  "jsdelivr": "dist/widget-example-name.root.min.js",
-  "unpkg": "dist/widget-example-name.root.min.js",
+  "description": "Storefront plugin to handle Facebook Pixel events",
+  "main": "dist/widget-fb-pixel.min.js",
+  "module": "src/index.js",
+  "browser": "dist/widget-fb-pixel.min.js",
+  "jsdelivr": "dist/public/widget-fb-pixel.var.min.js",
+  "unpkg": "dist/public/widget-fb-pixel.var.min.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "serve": "webpack-dev-server",
-    "release": "rm -rf ./dist && npm run build && standard-version"
+    "release": "rm -rf ./dist && npm ddp && npm run build && standard-version"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/widget-example-name.git"
+    "url": "git+https://github.com/ecomclub/widget-fb-pixel.git"
   },
   "keywords": [
     "ecomplus",
     "storefront",
-    "widget"
+    "fb-pixel",
+    "fbq",
+    "facebook",
+    "facebook-ads"
   ],
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/widget-example-name/issues"
+    "url": "https://github.com/ecomclub/widget-fb-pixel/issues"
   },
-  "homepage": "https://github.com/ecomclub/widget-example-name#readme",
+  "homepage": "https://github.com/ecomclub/widget-fb-pixel#readme",
   "peerDependencies": {
-    "@ecomplus/storefront-twbs": "4.x",
-    "@ecomplus/utils": "^1.2.0",
     "@ecomplus/shopping-cart": ">=1 <3",
-    "core-js": "3.x",
-    "vue": ">=2 <4"
+    "@ecomplus/utils": "1.x",
+    "core-js": "3.x"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
-    "@commitlint/cli": "^8.3.4",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@ecomplus/storefront-snapshot": "^1.1.0",
-    "@ecomplus/storefront-twbs": "^4.0.4",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@ecomplus/shopping-cart": "^2.0.1",
-    "@ecomplus/utils": "^1.2.8",
-    "autoprefixer": "^9.7.3",
+    "@ecomplus/storefront-snapshot": "^1.1.0",
+    "@ecomplus/utils": "^1.2.7",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
-    "core-js": "^3.6.2",
-    "css-loader": "^3.4.1",
-    "cssnano": "^4.1.10",
-    "file-loader": "^5.0.2",
+    "core-js": "^3.6.1",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.1.0",
-    "node-sass": "^4.13.0",
-    "postcss-loader": "^3.0.0",
-    "sass-loader": "^7.3.1",
     "standard": "^14.3.1",
     "standard-version": "^7.0.1",
-    "vue": "^2.6.11",
-    "vue-loader": "^15.8.3",
-    "vue-template-compiler": "^2.6.11",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
