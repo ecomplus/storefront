@@ -3,13 +3,16 @@ import watchAppRoutes from './lib/watch-app-routes'
 import watchShoppingCart from './lib/watch-shopping-cart'
 
 export default (options = {}) => {
-  const fbq = (evName, data = {}, isCustomEv = false) => {
-    fbq(isCustomEv ? 'trackCustom' : 'track', evName, data)
-  }
+  if (typeof window.fbq === 'function') {
+    const track = (evName, data = {}, isCustomEv = false) => {
+      if (options.debug) {
+        console.log('fbq', evName, data)
+      }
+      window.fbq(isCustomEv ? 'trackCustom' : 'track', evName, data)
+    }
 
-  if (fbq) {
-    parseContext(fbq)
-    watchAppRoutes(fbq)
-    watchShoppingCart(fbq)
+    parseContext(track)
+    watchAppRoutes(track)
+    watchShoppingCart(track)
   }
 }
