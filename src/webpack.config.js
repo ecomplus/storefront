@@ -16,7 +16,8 @@ const {
   devMode,
   settings,
   primaryColor,
-  secondaryColor
+  secondaryColor,
+  templatePkg
 } = require('./lib/config')
 
 // check for custom service worker file
@@ -80,7 +81,10 @@ const config = {
     maxAssetSize: 1000000
   },
   resolve: {
-    mainFields: ['module', 'browser', 'main']
+    mainFields: ['module', 'browser', 'main'],
+    alias: {
+      '~template': templatePkg
+    }
   },
 
   entry,

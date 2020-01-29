@@ -4,7 +4,7 @@
 const path = require('path')
 
 // input directories
-const baseDir = process.env.SF_TEMPLATE_DIR || process.cwd()
+const baseDir = process.env.STOREFRONT_BASE_DIR || process.cwd()
 const src = path.resolve(baseDir, 'template')
 const js = path.resolve(src, 'js')
 const scss = path.resolve(src, 'scss')

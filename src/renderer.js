@@ -14,7 +14,7 @@ const config = require('./lib/config')
 const lodash = require('lodash')
 const MarkdownIt = require('markdown-it')
 
-const { devMode, storeId, lang, settings } = config
+const { devMode, storeId, lang, settings, templatePkg } = config
 
 // setup E-Com Plus global config
 const { $ecomConfig } = ecomUtils
@@ -29,8 +29,15 @@ const { $ecomConfig } = ecomUtils
 })
 
 // parse EJS render file async function to promise
+const ejsOptions = {
+  root: path.join(
+    /^[./A-Z]/.test(templatePkg) ? templatePkg : path.join(paths.modules, templatePkg),
+    'template', 'pages'
+  ),
+  async: true
+}
 const renderFilePromise = (filename, params) => new Promise((resolve, reject) => {
-  ejs.renderFile(filename, params, { async: true }, (err, html) => {
+  ejs.renderFile(filename, params, ejsOptions, (err, html) => {
     if (err) {
       reject(err)
     } else {
@@ -48,7 +55,7 @@ const compileTemplate = (filename, prop) => {
     try {
       const markup = fs.readFileSync(filename, 'utf8')
       // EJS compile enabling includes and async/await support
-      template = ejs.compile(markup, { filename, async: true })
+      template = ejs.compile(markup, { filename, ...ejsOptions })
     } catch (err) {
       console.error(err)
       process.exit(1)
