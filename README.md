@@ -218,6 +218,17 @@ if (_.route.resource) {
 %>
 ```
 
+### Includes with absolute path
+
+Passing _absolute path_ (posix) you can import EJS files
+directly from `@ecomplus/storefront-template`
+(or other configured with `STOREFRONT_TEMPLATE` env)
+`template/pages`:
+
+```ejs
+<%- await include('/@/views/home', { _ }) %>
+```
+
 ## Project structure
 
 To work with this framework,
@@ -361,6 +372,22 @@ The easiest way to tweak the Webpack configuration is providing an object export
 The object will be merged into the final
 [config](https://github.com/ecomclub/storefront-framework/blob/master/src/webpack.config.js)
 using [webpack-merge](https://github.com/survivejs/webpack-merge).
+
+### Default Webpack aliases
+
+We've set `#template` as Webpack resolve alias to
+`@ecomplus/storefront-template/template`
+(or other pkg if configured with `STOREFRONT_TEMPLATE` env).
+
+So you can use, for example:
+
+```js
+import '#template/js/'
+```
+
+```scss
+@import '#template/scss/main'
+```
 
 ## Deploy with Netlify
 
