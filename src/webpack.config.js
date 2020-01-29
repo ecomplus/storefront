@@ -138,7 +138,15 @@ const config = {
                 `$settings-theme: ${jsonSassVars.convertJs(settings.theme || {})}; `,
               sassOptions: {
                 // include path to import from node modules
-                includePaths: [paths.modules]
+                includePaths: [paths.modules],
+                importer (file, prev, done) {
+                  if (file.startsWith('#template/')) {
+                    return done({
+                      file: path.join(paths.modules, templatePkg, file.substr(1))
+                    })
+                  }
+                  done({ file })
+                }
               }
             }
           }
