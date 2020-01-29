@@ -83,7 +83,7 @@ const config = {
   resolve: {
     mainFields: ['module', 'browser', 'main'],
     alias: {
-      '~template': templatePkg
+      Template: `${templatePkg}/template`
     }
   },
 
