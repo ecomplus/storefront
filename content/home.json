@@ -6,11 +6,11 @@
     "slides": [
       {
         "img": "/img/uploads/rect89.webp",
-        "alt": "Rect slider img 1"
+        "alt": "Sample banner one"
       },
       {
         "img": "/img/uploads/banner2.webp",
-        "alt": "Rect slider banner2 img 2"
+        "alt": "Sample banner two"
       }
     ]
   },
