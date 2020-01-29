@@ -5,10 +5,12 @@
     "autoplay": 9000,
     "slides": [
       {
-        "img": "/img/uploads/rect89.webp"
+        "img": "/img/uploads/rect89.webp",
+        "alt": "Rect slider img 1"
       },
       {
-        "img": "/img/uploads/banner2.webp"
+        "img": "/img/uploads/banner2.webp",
+        "alt": "Rect slider banner2 img 2"
       }
     ]
   },
