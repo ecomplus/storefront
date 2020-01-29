@@ -12,6 +12,10 @@
 // Template styles:
 // Custom theme components and modifiers
 
+@import '#template/scss/variables';
+@import '@ecomplus/storefront-twbs/scss/styles';
+@import '#template/scss/main';
+
 .link {
   color: $primary;
 }
