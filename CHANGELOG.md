@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.5.0](https://github.com/ecomclub/storefront-framework/compare/v5.4.2...v5.5.0) (2020-01-29)
+
+
+### Features
+
+* **alias:** set ejs root and webpack alias with template pkg ([da506c7](https://github.com/ecomclub/storefront-framework/commit/da506c740fa234b49e3873499a8f2831f14c0ca7))
+* **webpack:** set node sass importer function for alias (sass-loader) ([0a4bb32](https://github.com/ecomclub/storefront-framework/commit/0a4bb324fae2db2deb18a86c006c63c1f37fac8a))
+
+
+### Bug Fixes
+
+* **webpack:** update sass loader config to major v8 ([96f6b3e](https://github.com/ecomclub/storefront-framework/commit/96f6b3ebe8d9b942d007cabf8fc93871a13477fd))
+
 ### [5.4.2](https://github.com/ecomclub/storefront-framework/compare/v5.4.1...v5.4.2) (2020-01-27)
 
 
