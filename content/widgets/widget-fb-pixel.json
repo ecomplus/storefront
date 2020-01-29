@@ -1,1 +1,6 @@
-{}
+{
+  "active": true,
+  "options": {
+    "fbqContainerId": "123"
+  }
+}
