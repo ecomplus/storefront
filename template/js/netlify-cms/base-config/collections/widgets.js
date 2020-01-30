@@ -5,6 +5,7 @@ import ecomplusWidgetUser from './widgets/ecomplus-widget-user'
 import ecomplusWidgetProduct from './widgets/ecomplus-widget-product'
 import ecomplusWidgetSearchEngine from './widgets/ecomplus-widget-search-engine'
 import widgetTagManager from './widgets/widget-tag-manager'
+import widgetFbPixel from './widgets/widget-fb-pixel'
 import widgetTrustvox from './widgets/widget-trustvox'
 
 export default {
@@ -22,6 +23,7 @@ export default {
     ecomplusWidgetProduct,
     ecomplusWidgetSearchEngine,
     widgetTagManager,
+    widgetFbPixel,
     widgetTrustvox
   ]
 }

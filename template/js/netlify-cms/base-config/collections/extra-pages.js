@@ -1,6 +1,6 @@
 export default {
   name: 'extra_pages',
-  label: 'Extra Pages',
+  label: 'Páginas extra',
   description: 'Páginas extra para conteúdo como Sobre nós, Política de privacidade, etc',
   folder: 'content/pages',
   extension: 'json',
