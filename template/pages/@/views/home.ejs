@@ -8,12 +8,12 @@ const showcase = Array.isArray(home.showcase)
   ? home.showcase.filter(({ collection }) => collection) : []
 %>
 
-<%- await include('components/banner-slider', { _, opt: home.slider }) %>
+<%- await include('/@/views/components/banner-slider', { _, opt: home.slider }) %>
 <% if (home.pitbar) { %>
-  <%- await include('components/pitbar', { _ }) %>
+  <%- await include('/@/views/components/pitbar', { _ }) %>
 <% } else { %>
   <script type="html/text" data-cms-html>
-    <%- await include('components/pitbar', { _ }) %>
+    <%- await include('/@/views/components/pitbar', { _ }) %>
   </script>
 <% } %>
 <div class="home container py-1 py-sm-2 py-lg-4">
@@ -33,12 +33,12 @@ const showcase = Array.isArray(home.showcase)
       }
       const { title, link } = shelf
       %>
-      <%- await include('components/products-carousel', { _, opt: { items, collection, title, link } }) %>
+      <%- await include('/@/views/components/products-carousel', { _, opt: { items, collection, title, link } }) %>
       <%
     }
     %>
   <% } else { %>
-    <%- await include('components/products-carousel', { _, opt: { items: _.items } }) %>
+    <%- await include('/@/views/components/products-carousel', { _, opt: { items: _.items } }) %>
   <% } %>
 
   <section class="md-content" data-cms-bind="home.additional_content" data-cms-md="true">

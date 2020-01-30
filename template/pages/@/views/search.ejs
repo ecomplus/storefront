@@ -4,11 +4,11 @@ const pageSearch = _.cms('search')
 %>
 
 <% if (pageSearch.pitbar) { %>
-  <%- await include('components/pitbar', { _ }) %>
+  <%- await include('/@/views/components/pitbar', { _ }) %>
 <% } else { %>
   <div>
     <script type="html/text" data-cms-html>
-      <%- await include('components/pitbar', { _ }) %>
+      <%- await include('/@/views/components/pitbar', { _ }) %>
     </script>
   </div>
 <% } %>
@@ -20,7 +20,7 @@ const pageSearch = _.cms('search')
         `widgetSearchEngine` is rendered here:
         https://github.com/ecomclub/widget-search-engine
       -->
-      <%- await include('components/loading') %>
+      <%- await include('/@/views/components/loading') %>
     </div>
   </section>
 

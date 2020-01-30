@@ -18,11 +18,11 @@ if (body.products && body.products.length) {
 %>
 
 <% if (pageCollections.pitbar) { %>
-  <%- await include('components/pitbar', { _ }) %>
+  <%- await include('/@/views/components/pitbar', { _ }) %>
 <% } %>
 
 <div class="container py-1 py-sm-2 py-lg-4">
-  <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
+  <%- await include('/@/views/components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
 
   <div id="collection" class="collection">
     <h1 class="page-title collection__name">
@@ -44,7 +44,7 @@ if (body.products && body.products.length) {
     <% } %>
 
     <% if (search) { %>
-      <%- await include('components/retail-grid', { _, opt: { search } }) %>
+      <%- await include('/@/views/components/retail-grid', { _, opt: { search } }) %>
     <% } %>
 
     <% if (body.body_html) { %>

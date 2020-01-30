@@ -8,7 +8,7 @@ const breadcrumbs = [{
 %>
 
 <div class="blog container py-1 py-sm-2 py-lg-4">
-  <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
+  <%- await include('/@/views/components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
 
   <h1 class="page-title">
     <%= pageBlog.title %>

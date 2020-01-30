@@ -15,11 +15,11 @@ search.setBrandIds([body._id])
 %>
 
 <% if (pageBrands.pitbar) { %>
-  <%- await include('components/pitbar', { _ }) %>
+  <%- await include('/@/views/components/pitbar', { _ }) %>
 <% } %>
 
 <div class="container py-1 py-sm-2 py-lg-4">
-  <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
+  <%- await include('/@/views/components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
 
   <div id="brand" class="brand">
     <div class="brand__head">
@@ -49,7 +49,7 @@ search.setBrandIds([body._id])
       </div>
     <% } %>
 
-    <%- await include('components/retail-grid', { _, opt: { search } }) %>
+    <%- await include('/@/views/components/retail-grid', { _, opt: { search } }) %>
 
     <% if (body.body_html) { %>
       <section class="brand__description">

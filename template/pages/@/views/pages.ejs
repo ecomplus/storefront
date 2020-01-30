@@ -8,11 +8,11 @@ const breadcrumbs = [{
 %>
 
 <% if (content.pitbar) { %>
-  <%- await include('components/pitbar', { _ }) %>
+  <%- await include('/@/views/components/pitbar', { _ }) %>
 <% } %>
 
 <div class="extra-page container py-1 py-sm-2 py-lg-4">
-  <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
+  <%- await include('/@/views/components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
 
   <h1 class="page-title">
     <%= content.title %>

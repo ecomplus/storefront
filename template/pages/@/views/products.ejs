@@ -23,17 +23,17 @@ breadcrumbs.push({
 %>
 
 <% if (pageProducts.pitbar) { %>
-  <%- await include('components/pitbar', { _ }) %>
+  <%- await include('/@/views/components/pitbar', { _ }) %>
 <% } else { %>
   <div>
     <script type="html/text" data-cms-html>
-      <%- await include('components/pitbar', { _ }) %>
+      <%- await include('/@/views/components/pitbar', { _ }) %>
     </script>
   </div>
 <% } %>
 
 <div class="container py-1 py-sm-2 py-lg-4">
-  <%- await include('components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
+  <%- await include('/@/views/components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
 
   <div class="product" id="product">
     <section
@@ -120,7 +120,7 @@ breadcrumbs.push({
             items = search.getItems()
           }
           %>
-          <%- await include('components/products-carousel', { _, opt: { items, title, showcaseType } }) %>
+          <%- await include('/@/views/components/products-carousel', { _, opt: { items, title, showcaseType } }) %>
           <%
         } catch (err) {
           console.error(err)
