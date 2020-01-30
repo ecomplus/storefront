@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.34.0](https://github.com/ecomclub/storefront-template/compare/v1.33.5...v1.34.0) (2020-01-30)
+
+
+### Features
+
+* **cms:** add widget fb pixel to netlify cms config ([7c8fc33](https://github.com/ecomclub/storefront-template/commit/7c8fc337d2a0582b6127cf2ed2d212ef24424542))
+* **fb-pixel:** add widget for fb pixel ([c634baa](https://github.com/ecomclub/storefront-template/commit/c634baac11fa103a4531b6f6d3bb6b9b22757587))
+
+
+### Bug Fixes
+
+* **a11y:** adding aria-labels for a11y compliance ([#144](https://github.com/ecomclub/storefront-template/issues/144)) ([5dab4fb](https://github.com/ecomclub/storefront-template/commit/5dab4fbefcaff6efde5ae5812b616c26110cf5e1))
+* **pages:** move widgets to includes folder (@) ([5e9687c](https://github.com/ecomclub/storefront-template/commit/5e9687cf5e7171b88f0d1d389b581b04f1eeb4c8))
+* a11y fixes ([#143](https://github.com/ecomclub/storefront-template/issues/143)) ([56718ec](https://github.com/ecomclub/storefront-template/commit/56718ec20fb80c21e7e44ef538f57de14f917dec))
+
 ### [1.33.5](https://github.com/ecomclub/storefront-template/compare/v1.33.4...v1.33.5) (2020-01-28)
 
 
