@@ -92,6 +92,10 @@ Promise.all(widgetsLoadPromises).then(() => {
       () => import('@ecomplus/widget-tag-manager')
     )
     loadWidget(
+      '@ecomplus/widget-fb-pixel',
+      () => import('@ecomplus/widget-fb-pixel')
+    )
+    loadWidget(
       '@ecomplus/widget-trustvox',
       () => import('@ecomplus/widget-trustvox')
     )
