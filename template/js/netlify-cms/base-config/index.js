@@ -19,6 +19,7 @@ export default {
         openAuthoring: '{{message}}'
       }
     },
+    locale: 'pt',
     load_config_file: false,
     media_folder: 'template/public/img/uploads',
     public_folder: '/img/uploads',
