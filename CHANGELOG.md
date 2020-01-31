@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.6.0](https://github.com/ecomclub/storefront-framework/compare/v5.5.0...v5.6.0) (2020-01-31)
+
+
+### Features
+
+* **sitemap:** generating default sitemap.xml ([e41e6af](https://github.com/ecomclub/storefront-framework/commit/e41e6aff2ad0dbcd0c0b92b90714a7fce819f50a))
+
 ## [5.5.0](https://github.com/ecomclub/storefront-framework/compare/v5.4.2...v5.5.0) (2020-01-29)
 
 
