@@ -1,0 +1,90 @@
+<article class="ec-summary">
+  <h5 class="ec-summary__title">
+    {{ i19summary }}
+  </h5>
+
+  <slot name="list">
+    <div v-if="items" class="ec-summary__list">
+      <div
+        class="ec-summary__item"
+        v-for="item in items"
+      >
+        <img
+          v-if="img(item)"
+          :src="img(item).url"
+          :alt="img(item).alt"
+        />
+
+        <div>
+          <span class="badge badge-secondary">
+            {{ item.quantity }}
+          </span>
+          {{ formatMoney(price(item)) }}
+          <br>
+          <a v-if="item.slug" :href="`/${item.slug}`" target="_blank">
+            <small>{{ name(item) }}</small>
+          </a>
+          <small v-else>{{ name(item) }}</small>
+        </div>
+      </div>
+    </div>
+  </slot>
+
+  <slot name="amount">
+    <div class="ec-summary__amount">
+      <div class="ec-summary__amount__row">
+        <span>{{ i19subtotal }}</span>
+        <div>{{ formatMoney(amount.subtotal) }}</div>
+      </div>
+
+      <div class="ec-summary__amount__row">
+        <span>
+          {{ i19freight }}
+          <small v-if="shippingAddress">
+            {{ shippingAddress.street }}
+            <template v-if="shippingAddress.number">
+              {{ shippingAddress.number }}
+            </template>
+          </small>
+        </span>
+        <div>{{ formatMoney(amount.freight) }}</div>
+      </div>
+
+      <div class="ec-summary__amount__row" v-if="amount.discount">
+        <span>{{ i19discount }}</span>
+        <div>{{ formatMoney(amount.discount) }}</div>
+      </div>
+
+      <div class="ec-summary__amount__row ec-summary__amount__row--total">
+        <span>{{ i19total }}</span>
+        <div>{{ formatMoney(amount.total) }}</div>
+      </div>
+    </div>
+  </slot>
+
+  <slot/>
+
+  <slot name="buyer">
+    <div class="ec-summary__buyer" v-if="buyer">
+      <h5>{{ i19buyer }}</h5>
+      <p>
+        {{ buyerName }}
+        <br>
+        <small>{{ i19docNumber }}:</small>
+        {{ buyer.doc_number }}
+        <br>
+        <small>{{ i19contactPhone }}:</small>
+        {{ buyerPhone }}
+      </p>
+
+      <button
+        class="btn btn-sm btn-outline-secondary"
+        type="button"
+        @click="$emit('click:account')"
+      >
+        <i class="fas fa-pencil-alt mr-1"></i>
+        {{ i19myAccount }}
+      </button>
+    </div>
+  </slot>
+</article>

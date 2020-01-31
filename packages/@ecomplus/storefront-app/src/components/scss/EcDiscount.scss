@@ -1,0 +1,20 @@
+.ec-discount {
+  max-width: 30rem;
+
+  &__intro {
+    color: var(--secondary);
+  }
+
+  &__form{
+    margin-top: 1rem;
+  }
+
+  &__alert {
+    margin-top: 1rem;
+    font-size: .9rem;
+  }
+
+  &__input {
+    max-width: 200px;
+  }
+}
