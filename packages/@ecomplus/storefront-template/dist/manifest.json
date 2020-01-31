@@ -1,0 +1,37 @@
+{
+  "icons": [
+    {
+      "src": "/icon_512x512.a0ba80003b3cf0f275a47885c5bf31c0.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_384x384.0240fb21e4a86ec97b70a10a0be82bb6.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_192x192.d3b4a59e45ac4460fb8bca55139e47f4.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_128x128.c58f8562c132df87ecb10c0598db083c.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_96x96.570e1710e5824f55c3c7a5c606cbfc9c.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "My Shop",
+  "short_name": "MyShop",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "My PWA Shop",
+  "background_color": "#ffffff",
+  "theme_color": "#e83e8c"
+}

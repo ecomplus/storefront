@@ -1,0 +1,16 @@
+{
+  "name": "@ecomplus/storefront-snapshot",
+  "version": "1.2.0",
+  "description": "Compiled (no deps) storefront template version",
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "main": "storefront.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomclub/storefront-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ecomclub/storefront-template/issues"
+  },
+  "homepage": "https://github.com/ecomclub/storefront-template#readme"
+}
