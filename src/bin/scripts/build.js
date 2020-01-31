@@ -6,6 +6,7 @@ process.env.NODE_ENV = 'production'
 
 const fs = require('fs')
 const path = require('path')
+const ejs = require('ejs')
 const paths = require('./../../lib/paths')
 const recursiveReaddir = require('recursive-readdir')
 const mkdirp = require('mkdirp')
@@ -14,7 +15,7 @@ const StorefrontRouter = require('@ecomplus/storefront-router')
 const cmsCollections = require('./../../lib/cms-collections')
 const bundler = require('./../bundler')
 const renderer = require('./../../renderer')
-const { storeId } = require('./../../lib/config')
+const { storeId, settings } = require('./../../lib/config')
 
 const prerender = (url, route) => new Promise(resolve => {
   // debug
@@ -101,7 +102,9 @@ bundler.then(async () => {
           // get slug and url from filename
           const [, slug] = files[i].slice(collSrc.length).replace('.json', '').split(path.sep)
           const url = `/${collection}/${slug}`
-          await prerender(url, { path: url, collection, slug })
+          const route = { path: url, collection, slug }
+          routes.push(route)
+          await prerender(url, route)
         }
       }
     }
@@ -119,8 +122,22 @@ bundler.then(async () => {
         if (path.sep !== '/') {
           url = url.replace(path.sep, '/')
         }
+        routes.push({ path: url })
         await prerender(url)
       }
     }
+  }
+
+  if (!routes.find(({ path }) => path === '/sitemap.xml')) {
+    // generate Sitemap
+    const sitemapSrc = path.join(__dirname, '..', '..', 'assets', 'sitemap.xml.ejs')
+    ejs.renderFile(sitemapSrc, { domain: settings.domain, routes }, (err, xml) => {
+      if (err) {
+        console.error(err)
+      } else {
+        // save default sitemap.xml on output dir
+        fs.writeFileSync(path.join(paths.output, 'sitemap.xml'), xml)
+      }
+    })
   }
 })
