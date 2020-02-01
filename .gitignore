@@ -1,10 +1,15 @@
+/*/*/LICENSE
+/*/*/commitlint.config.js
 /*/*/dist
 /*/*/.serve
+
 /storefront/*/copy
+
 /storefront/template/**/storefront-template
 /storefront/template/public/assets/vendor/
 /storefront/template/public/admin/cms/
 /storefront/template/scss/styles.scss
+
 /storefront/twbs/scss/*/
 
 # Logs
