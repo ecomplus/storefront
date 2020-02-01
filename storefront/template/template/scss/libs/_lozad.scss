@@ -1,0 +1,13 @@
+.lozad {
+  transition: font-size .4s ease-in;
+
+  &:not([data-loaded]) {
+    @extend .spinner-grow;
+
+    background: var(--gray);
+    margin: 3rem auto 0;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 0;
+  }
+}

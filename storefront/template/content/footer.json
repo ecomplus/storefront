@@ -1,0 +1,46 @@
+{
+  "description": {
+    "title": "",
+    "text": ""
+  },
+  "links_1": {
+    "list_pages": true,
+    "title": "Pages",
+    "list": []
+  },
+  "links_2": {
+    "list_categories": true,
+    "title": "Categories",
+    "list": []
+  },
+  "contacts": {
+    "title": "Contacts",
+    "phone_wpp": true,
+    "socials": true,
+    "email": true,
+    "address": true
+  },
+  "stamps": [
+    {
+      "src": "/img/uploads/ssl-safe.png",
+      "alt": "Secure connection"
+    }
+  ],
+  "payment_methods": {
+    "bb": true,
+    "visa": true,
+    "boleto": true,
+    "aura": false,
+    "banrisul": false,
+    "elo": true,
+    "hipercard": false,
+    "hsbc": false,
+    "bradesco": true,
+    "santander": false,
+    "mastercard": true,
+    "citibank": false,
+    "mais": false,
+    "itau": true
+  },
+  "credits": ""
+}

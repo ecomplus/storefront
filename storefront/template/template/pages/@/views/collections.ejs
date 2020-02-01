@@ -1,0 +1,64 @@
+<%
+// load collections page content
+const pageCollections = _.cms('collections')
+
+// current collection body
+const { body } = await _.resolveRoute()
+const breadcrumbs = [{
+  name: _.ecomUtils.name(body),
+  link: `/${body.slug}`
+}]
+
+// setup search engine instance with filter by product IDs
+let search
+if (body.products && body.products.length) {
+  search = new _.EcomSearch()
+  search.setProductIds(body.products)
+}
+%>
+
+<% if (pageCollections.pitbar) { %>
+  <%- await include('/@/views/components/pitbar', { _ }) %>
+<% } %>
+
+<div class="container py-1 py-sm-2 py-lg-4">
+  <%- await include('/@/views/components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
+
+  <div id="collection" class="collection">
+    <h1 class="page-title collection__name">
+      <%= _.ecomUtils.name(body) %>
+    </h1>
+    <% if (body.short_description) { %>
+      <p class="lead collection__info">
+        <%= body.short_description %>
+      </p>
+    <% } %>
+    <% if (Array.isArray(body.pictures) && body.pictures.length) { %>
+      <div class="hero-banner collection__banner">
+        <img
+          class="img-fluid lozad fade"
+          data-src="<%= body.pictures[0].url %>"
+          alt="<%= body.pictures[0].alt %>"
+        >
+      </div>
+    <% } %>
+
+    <% if (search) { %>
+      <%- await include('/@/views/components/retail-grid', { _, opt: { search } }) %>
+    <% } %>
+
+    <% if (body.body_html) { %>
+      <section class="collection__description">
+        <div class="html-clearfix">
+          <%- body.body_html %>
+        </div>
+      </section>
+    <% } %>
+
+    <% if (pageCollections.additional_content) { %>
+      <section class="md-content">
+        <%- _.md.render(pageCollections.additional_content) %>
+      </section>
+    <% } %>
+  </div>
+</div>

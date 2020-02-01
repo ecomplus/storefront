@@ -1,0 +1,22 @@
+{
+  "store_id": 1011,
+  "name": "My Shop",
+  "domain": "storefront-demo.e-com.plus",
+  "short_name": "MyShop",
+  "description": "My PWA Shop",
+  "primary_color": "#e83e8c",
+  "secondary_color": "#333333",
+  "bg_color": "#ffffff",
+  "theme": {
+    "bootswatch": "_"
+  },
+  "logo": "/img/uploads/logo.webp",
+  "mini_logo": "",
+  "icon": "/img/icon.png",
+  "large_icon": "/img/large-icon.png",
+  "favicon": "/img/uploads/favicon.png",
+  "lang": "pt_br",
+  "currency": "BRL",
+  "currency_symbol": "R$",
+  "country_code": "BR"
+}

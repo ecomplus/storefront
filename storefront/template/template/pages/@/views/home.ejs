@@ -1,0 +1,49 @@
+<%
+// load home and general info content
+const home = _.cms('home')
+const info = _.cms('info')
+
+// fix array for home showcase
+const showcase = Array.isArray(home.showcase)
+  ? home.showcase.filter(({ collection }) => collection) : []
+%>
+
+<%- await include('/@/views/components/banner-slider', { _, opt: home.slider }) %>
+<% if (home.pitbar) { %>
+  <%- await include('/@/views/components/pitbar', { _ }) %>
+<% } else { %>
+  <script type="html/text" data-cms-html>
+    <%- await include('/@/views/components/pitbar', { _ }) %>
+  </script>
+<% } %>
+<div class="home container py-1 py-sm-2 py-lg-4">
+  <% if (showcase.length) { %>
+    <%
+    for (let i = 0; i < showcase.length; i++) {
+      const shelf = showcase[i]
+      // get collection body
+      const res = await _.ecomClient.store({ url: `/collections/${shelf.collection}.json` })
+      const collection = res.data
+      let items = []
+      if (Array.isArray(collection.products) && collection.products.length) {
+        // search collection items by IDs
+        const search = new _.EcomSearch()
+        await search.setProductIds(collection.products).fetch()
+        items = search.getItems()
+      }
+      const { title, link } = shelf
+      %>
+      <%- await include('/@/views/components/products-carousel', { _, opt: { items, collection, title, link } }) %>
+      <%
+    }
+    %>
+  <% } else { %>
+    <%- await include('/@/views/components/products-carousel', { _, opt: { items: _.items } }) %>
+  <% } %>
+
+  <section class="md-content" data-cms-bind="home.additional_content" data-cms-md="true">
+    <% if (home.additional_content) { %>
+      <%- _.md.render(home.additional_content) %>
+    <% } %>
+  </section>
+</div>

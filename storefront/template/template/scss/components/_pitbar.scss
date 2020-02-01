@@ -1,0 +1,66 @@
+.pitbar {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--secondary);
+  color: var(--secondary-yiq);
+
+  &:first-child {
+    @media (max-width: 767.98px) {
+      display: none;
+    }
+
+    .pitbar__nav {
+      overflow-x: auto;
+      min-width: 100%;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__nav {
+    @media (max-width: 767.98px) {
+      overflow-x: auto;
+      min-width: 100%;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__item {
+    text-transform: uppercase;
+    display: flex;
+    color: inherit;
+    align-items: center;
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: .9rem;
+    font-weight: 300;
+
+    @media (max-width: 575.98px) {
+      font-size: .8rem;
+      font-weight: 400;
+      max-width: 60vw;
+    }
+
+    &::after {
+      content: " ";
+      background: var(--light);
+      position: absolute;
+      left: 20%;
+      bottom: -3px;
+      height: .1rem;
+      width: 0;
+      transition: width .5s;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: inherit;
+
+      &::after {
+        width: 70%;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<%
+const contacts = _.cms('contacts') || {}
+const footer = _.cms('footer') || {}
+%>
+
+<footer class="app__footer">
+  <div class="container-fluid">
+    <ul class="app__stamps">
+      <% footer.stamps.forEach(({ src, alt, link }) => { %>
+        <% if (link) { %>
+          <li>
+            <a href="<%= link %>" target="_blank" rel="noopener">
+              <img src="<%= src %>" alt="<%= alt %>">
+            </a>
+          </li>
+          <% } else { %>
+          <li>
+            <img src="<%= src %>" alt="<%= alt %>">
+          </li>
+        <% } %>
+      <% }) %>
+    </ul>
+  </div>
+</footer>
+
+<div class="app__credits container">
+  <div>
+    <% if (footer.credits) { %>
+      <span><%= footer.credits %></span>
+    <% } else { %>
+      <span class="app__credits__name">© <%= _.settings.name %> </span>
+      <span class="app__credits__address"> - <%= contacts.address %> - </span>
+      <span class="app__credits__number"> <%= contacts.doc_number %></span>
+    <% } %>
+  </div>
+
+  <div class="ecom-credits">
+    <a href="https://e-com.plus" target="_blank" rel="noopener">
+      Powered by
+      <img src="https://ecom.nyc3.digitaloceanspaces.com/brand/plus/198x43.png" alt="E-Com Plus">
+    </a>
+  </div>
+</div>

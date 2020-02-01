@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+
+<head>
+  <%- await include('/@/head', { _ }) %>
+  <link rel="stylesheet" type="text/css" href="/storefront.css">
+</head>
+
+<body>
+  <%- await include('/@/layout/menu', { _ }) %>
+
+  <main role="main" id="main">
+    <%- await include('/@/layout/header', { _ }) %>
+
+    <article id="content">
+      <%- await include('/@/views/e500', { _ }) %>
+    </article>
+
+    <%- await include('/@/layout/footer', { _ }) %>
+
+    <div id="overlay" class="fade"></div>
+  </main>
+
+  <%- await include('/@/scripts', { _ }) %>
+  <script src="/storefront.js"></script>
+</body>
+
+</html>

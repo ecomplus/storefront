@@ -1,0 +1,69 @@
+<% if (Array.isArray(opt.items) && opt.items.length) { %>
+  <%
+  const title = opt.title ||
+    (opt.collection && opt.collection.name) ||
+    _.dictionary().popular_products
+  const link = opt.link || (opt.collection && opt.collection.slug)
+  %>
+  <section
+    class="products-carousel"
+    data-size="<%= opt.items.length %>"
+    <% if (opt.collection) { %>
+      data-collection-id="<%= opt.collection._id %>"
+    <% } %>
+    data-title="<%= title %>"
+    data-cms-if="<%= _.pageName %>.<%= opt.showcaseType || 'showcase' %>"
+  >
+    <h4 class="products-carousel__title">
+      <% if (opt.title || opt.collection) { %>
+        <% if (link) { %>
+          <a href="<%= link %>">
+            <%= title %>
+          </a>
+        <% } else { %>
+          <span><%= title %></span>
+        <% } %>
+      <% } else { %>
+        <a href="/search">
+          <%= title %>
+        </a>
+      <% } %>
+    </h4>
+    <div
+      class="glide"
+      data-autoplay="<%= opt.autoplay %>"
+      data-per-view="4"
+      data-per-view-md="3"
+      data-per-view-sm="2"
+    >
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides products-carousel__list">
+          <% for (let i = 0; i < opt.items.length; i++) { %>
+            <li class="glide__slide products-carousel__item">
+              <%- await include('/@/views/components/product-card', { _, opt: { item: opt.items[i] } }) %>
+            </li>
+          <% } %>
+        </ul>
+        <div
+          class="glide__arrows glide__arrows--outer"
+          data-glide-el="controls"
+        >
+          <button
+            class="btn glide__arrow glide__arrow--left"
+            data-glide-dir="<"
+            aria-label="Arrow left"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button
+            class="btn glide__arrow glide__arrow--right"
+            data-glide-dir=">"
+            aria-label="Arrow right"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+<% } %>

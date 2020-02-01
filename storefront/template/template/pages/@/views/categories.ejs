@@ -1,0 +1,66 @@
+<%
+// load categories page content
+const pageCategories = _.cms('categories')
+
+// current category body
+const { body } = await _.resolveRoute()
+const breadcrumbs = [{
+  name: _.ecomUtils.name(body),
+  link: `/${body.slug}`
+}]
+const { parent } = body
+if (parent) {
+  breadcrumbs.unshift({
+    name: _.ecomUtils.name(parent),
+    link: `/${parent.slug}`
+  })
+}
+
+// setup search engine instance with category filter
+const search = new _.EcomSearch()
+search.setCategoryIds([body._id])
+%>
+
+<% if (pageCategories.pitbar) { %>
+  <%- await include('/@/views/components/pitbar', { _ }) %>
+<% } %>
+
+<div class="container py-1 py-sm-2 py-lg-4">
+  <%- await include('/@/views/components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
+
+  <div id="category" class="category">
+    <h1 class="page-title category__name">
+      <%= _.ecomUtils.name(body) %>
+    </h1>
+    <% if (body.short_description) { %>
+      <p class="lead category__info">
+        <%= body.short_description %>
+      </p>
+    <% } %>
+    <% if (Array.isArray(body.pictures) && body.pictures.length) { %>
+      <div class="hero-banner category__banner">
+        <img
+          class="img-fluid lozad fade"
+          data-src="<%= body.pictures[0].url %>"
+          alt="<%= body.pictures[0].alt %>"
+        >
+      </div>
+    <% } %>
+
+    <%- await include('/@/views/components/retail-grid', { _, opt: { search } }) %>
+
+    <% if (body.body_html) { %>
+      <section class="category__description">
+        <div class="html-clearfix">
+          <%- body.body_html %>
+        </div>
+      </section>
+    <% } %>
+
+    <% if (pageCategories.additional_content) { %>
+      <section class="md-content">
+        <%- _.md.render(pageCategories.additional_content) %>
+      </section>
+    <% } %>
+  </div>
+</div>

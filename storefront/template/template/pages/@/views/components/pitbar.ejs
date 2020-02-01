@@ -1,0 +1,37 @@
+<%
+// mount pitbar columns with store info
+const info = _.cms('info')
+const cols = []
+;[
+  ['shipping', 'shipping-fast'],
+  ['installments', 'credit-card'],
+  ['exchange', 'exchange-alt'],
+  ['promo', 'percent']
+].forEach(([prop, icon]) => {
+  if (info[prop] && info[prop].show) {
+    const { link, text } = info[prop]
+    cols.push({ link, text, icon })
+  }
+})
+%>
+
+<% if (cols.length) { %>
+  <section class="pitbar" data-cms-if="<%= _.pageName %>.pitbar">
+    <div class="container">
+      <div class="row align-items-center pitbar__nav">
+        <% cols.forEach(({ link, icon, text }) => { %>
+          <div class="col-auto col-sm-6 col-lg">
+            <a class="pitbar__item" href="<%= link || 'javascript:;' %>">
+              <span class="rounded-icon">
+                <i class="fas fa-<%= icon %>"></i>
+              </span>
+              <div class="ml-2 ml-md-3">
+                <%= text %>
+              </div>
+            </a>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+<% } %>

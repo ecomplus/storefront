@@ -1,0 +1,62 @@
+.ec-payment {
+  &__loading {
+    width: 100%;
+    padding-top: 4rem;
+    text-align: center;
+
+    > div {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    width: 2em;
+    text-align: center;
+    margin-left: .25rem;
+  }
+
+  &__text {
+    display: block;
+    margin-top: .25rem;
+    font-size: .9rem;
+    color: var(--gray);
+  }
+
+  &__badges {
+    display: inline-block;
+    text-transform: lowercase;
+
+    .badge {
+      margin-right: .25rem;
+    }
+  }
+
+  &__stamp {
+    max-width: 100%;
+    margin: .75rem auto 0;
+  }
+
+  &__intermediator {
+    color: var(--gray);
+  }
+
+  &__back {
+    color: var(--gray);
+    font-size: .85rem;
+    padding: .15rem;
+
+    &:hover {
+      color: var(--black);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

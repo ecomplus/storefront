@@ -1,0 +1,117 @@
+<%
+// optional menu options from content
+const menu = _.cms('menu')
+
+// start grouping categories by parent slug
+const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
+  return !parent || !parent.slug ? '_' : parent.slug
+})
+
+const mainCategories = categoryParents._
+if (mainCategories) {
+  const orderedCategorySlugs = menu && menu.sort_categories
+  if (Array.isArray(orderedCategorySlugs)) {
+    // reorder first level categories list
+    orderedCategorySlugs.reverse().forEach(slug => {
+      const categoryIndex = mainCategories.findIndex(category => category.slug === slug)
+      if (categoryIndex > -1) {
+        const category = mainCategories[categoryIndex]
+        mainCategories.splice(categoryIndex, 1)
+        mainCategories.unshift(category)
+      }
+    })
+  }
+}
+%>
+
+<aside id="menu" class="menu shadow">
+  <nav class="accordion" id="accordion-menu">
+    <button
+      class="menu__btn menu__btn--close btn"
+      type="button"
+      onclick="toggleSidenav()"
+      aria-label="Toggle Side Navigation"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+
+    <% for (const slug in categoryParents) { %>
+      <% if (categoryParents.hasOwnProperty(slug)) { %>
+        <% let category, parent %>
+        <div
+          <% if (slug === '_') { %>
+            id="categories-nav"
+            class="collapse show"
+            aria-expanded="true"
+          <% } else { %>
+            id="a-<%= slug %>"
+            class="collapse"
+            aria-expanded="false"
+          <% } %>
+          data-parent="#accordion-menu"
+        >
+
+          <% if (slug !== '_') { %>
+            <% category = _.categories.find(category => category.slug === slug) %>
+            <% parent = category && category.parent %>
+            <button
+              class="menu__btn btn"
+              type="button"
+              data-toggle="collapse"
+              onclick="closeCollapsedMenu()"
+              <% if (!parent || !parent.slug) { %>
+                aria-expanded="true"
+                data-target="#categories-nav"
+                aria-controls="categories-nav"
+              <% } else { %>
+                aria-expanded="false"
+                data-target="#a-<%= parent.slug %>"
+                aria-controls="a-<%= parent.slug %>"
+              <% } %>
+            >
+              <i class="fas fa-arrow-left"></i>
+            </button>
+          <% } %>
+
+          <div class="menu__list">
+            <% categoryParents[slug].forEach(subcategory => { %>
+              <% const hasSubmenu = Array.isArray(categoryParents[subcategory.slug]) %>
+              <a
+                <% if (hasSubmenu) { %>
+                  href="#a-<%= subcategory.slug %>"
+                  data-toggle="collapse"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="a-<%= subcategory.slug %>"
+                  onclick="closeCollapsedMenu()"
+                <% } else { %>
+                  href="/<%= subcategory.slug %>"
+                <% } %>
+                id="c-<%= subcategory._id %>"
+                class="menu__item"
+              >
+                <% if (subcategory.icon) { %>
+                  <span class="menu__item__icon">
+                    <img
+                      src="<%= subcategory.icon.url %>"
+                      alt="<%= subcategory.icon.alt || subcategory.name %>"
+                    >
+                  </span>
+                <% } %>
+                <span>
+                  <%= subcategory.name %>
+                </span>
+              </a>
+            <% }) %>
+          </div>
+
+          <% if (category && category.slug) { %>
+            <a href="/<%= category.slug %>" class="menu__link">
+              <%= _.dictionary().see_all_category.replace(':name', category.name) %>
+            </a>
+          <% } %>
+        </div>
+      <% } %>
+    <% } %>
+  </nav>
+</aside>

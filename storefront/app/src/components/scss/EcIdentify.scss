@@ -1,0 +1,145 @@
+.ec-identify {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+
+  &__confirm {
+    max-width: 525px;
+    margin: 1rem auto 0;
+
+    .alert {
+      font-size: .9rem;
+    }
+  }
+
+  &__hello {
+    &::after {
+      color: var(--gray);
+      content: ' :)';
+    }
+  }
+
+  &__info {
+    padding: 1rem 2rem;
+    background: var(--light);
+    border-radius: .25rem;
+    text-align: left;
+    margin: 2rem auto 0;
+    max-width: 650px;
+    border-bottom: 5px solid var(--success);
+
+    &__title {
+      color: var(--secondary);
+      margin-bottom: .5rem;
+
+      i,
+      svg {
+        margin-right: .5rem;
+      }
+    }
+
+    &__row {
+      color: var(--gray);
+      font-size: .9rem;
+
+      i,
+      svg {
+        color: var(--success);
+        margin-right: .25rem;
+      }
+    }
+  }
+
+  &__oauth {
+    margin-top: 1.5rem;
+  }
+
+  &__btn {
+    color: #fff;
+    text-align: left;
+    line-height: 1.2rem;
+    padding: .5rem 1.2rem .7rem;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    @media (max-width: 575.98px) {
+      display: block;
+      width: 100%;
+      margin-left: 0;
+      text-align: right;
+      padding: .8rem;
+
+      &:not(:first-of-type) {
+        margin-top: .5rem;
+      }
+
+      i,
+      svg {
+        float: left;
+      }
+    }
+
+    @media (min-width: 576px) {
+      &:not(:first-of-type) {
+        margin-left: .5rem;
+      }
+
+      > small {
+        display: block;
+        text-align: center;
+        margin-bottom: .2rem;
+      }
+    }
+
+    &--facebook {
+      background: #3b5999;
+      border-color: #2f4d8a;
+
+      &:hover {
+        background: #274480;
+        border-color: #274480;
+      }
+    }
+
+    &--google {
+      background: #cb4023;
+      border-color: #be3419;
+
+      &:hover {
+        background: #c1361a;
+        border-color: #c1361a;
+      }
+    }
+
+    &--windowslive {
+      background: #329ffc;
+      border-color: #2996f2;
+
+      &:hover {
+        background: #1f8ce9;
+        border-color: #1f8ce9;
+      }
+    }
+  }
+
+  &__popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2100;
+    background: rgba(255, 255, 255, .9);
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
+  }
+}

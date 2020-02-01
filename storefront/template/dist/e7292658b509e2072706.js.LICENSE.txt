@@ -1,0 +1,5 @@
+/*!
+ * @ecomplus/widget-minicart
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the MIT License.
+ */

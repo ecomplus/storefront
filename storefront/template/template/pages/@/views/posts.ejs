@@ -1,0 +1,26 @@
+<%
+// load blog page and current post content
+const pageBlog = _.cms('blog')
+const { slug, content } = await _.resolveRoute()
+const breadcrumbs = [{
+  name: pageBlog.title,
+  link: `/blog`
+}, {
+  name: content.title,
+  link: `/posts/${slug}`
+}]
+%>
+
+<div class="blog-post container py-1 py-sm-2 py-lg-4">
+  <%- await include('/@/views/components/breadcrumbs', { _, opt: { breadcrumbs } }) %>
+
+  <h1 class="page-title">
+    <%= content.title %>
+  </h1>
+
+  <% if (content.body) { %>
+    <section class="md-content">
+      <%- _.md.render(content.body) %>
+    </section>
+  <% } %>
+</div>

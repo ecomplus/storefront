@@ -1,0 +1,32 @@
+.banner-slider {
+  width: 100%;
+  height: auto;
+  max-width: 80rem;
+  margin: 0 auto;
+
+  &__slides,
+  &__slides > li {
+    overflow: hidden;
+    margin: 0;
+
+    @media (max-width: 767.98px) {
+      min-height: 5rem;
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      min-height: 12rem;
+    }
+    @media (min-width: 992px) {
+      min-height: 18rem;
+    }
+
+    > a {
+      text-align: center;
+    }
+
+    > img,
+    > a > img {
+      line-height: 4;
+      width: 100%;
+    }
+  }
+}

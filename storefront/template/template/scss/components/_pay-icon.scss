@@ -1,0 +1,67 @@
+.pay-icon {
+  width: 40px;
+  height: 25px;
+  background-image: url('/assets/payments.png');
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin: 3px 3px 0 0;
+  background-size: 40px 451px;
+  background-position: 0 25px;
+
+  &--visa {
+    background-position: 0 0;
+  }
+  &--santander {
+    background-position: 0 -25px;
+  }
+  &--mastercard {
+    background-position: 0 -50px;
+  }
+  &--itau {
+    background-position: 0 -75px;
+  }
+  &--hsbc {
+    background-position: 0 -100px;
+  }
+  &--hipercard {
+    background-position: 0 -125px;
+  }
+  &--hiper {
+    background-position: 0 -150px;
+  }
+  &--elo {
+    background-position: 0 -175px;
+  }
+  &--diners,
+  &--diners-club {
+    background-position: 0 -200px;
+  }
+  &--citibank {
+    background-position: 0 -225px;
+  }
+  &--bradesco {
+    background-position: 0 -250px;
+  }
+  &--boleto {
+    background-position: 0 -275px;
+  }
+  &--banrisul {
+    background-position: 0 -300px;
+  }
+  &--bb {
+    background-position: 0 -325px;
+  }
+  &--aura {
+    background-position: 0 -350px;
+  }
+  &--amex,
+  &--american-express {
+    background-position: 0 -375px;
+  }
+  &--mais {
+    background-position: 0 -400px;
+  }
+  &--paypal {
+    background-position: 0 -425px;
+  }
+}

@@ -1,0 +1,15 @@
+/*!
+ * @ecomplus/search-engine
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the MIT License.
+ */
+
+/*!
+ * @ecomplus/widget-product-card
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the MIT License.
+ */
+
+/*! lozad.js - v1.14.0 - 2019-10-19
+* https://github.com/ApoorvSaxena/lozad.js
+* Copyright (c) 2019 Apoorv Saxena; Licensed MIT */

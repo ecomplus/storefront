@@ -1,0 +1,13 @@
+{
+  "pkg": "@ecomplus/widget-product-card",
+  "active": true,
+  "desktopOnly": false,
+  "options": {
+    "props": {
+      "buyText": ""
+    },
+    "slots": {
+      "buy": ""
+    }
+  }
+}
