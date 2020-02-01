@@ -1,8 +1,0 @@
-[build]
-  command = "npm run build:spa"
-  publish = "dist"
-
-[[redirects]]
-  from = "/*"
-  to = "/app/index.html"
-  status = 200
