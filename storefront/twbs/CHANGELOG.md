@@ -1,0 +1,155 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [5.0.0-alpha.3](https://github.com/ecomclub/storefront-twbs/compare/v5.0.0-alpha.2...v5.0.0-alpha.3) (2020-01-05)
+
+## [5.0.0-alpha.2](https://github.com/ecomclub/storefront-twbs/compare/v5.0.0-alpha.1...v5.0.0-alpha.2) (2020-01-04)
+
+## [5.0.0-alpha.1](https://github.com/ecomclub/storefront-twbs/compare/v5.0.0-alpha.0...v5.0.0-alpha.1) (2020-01-04)
+
+## [5.0.0-alpha.0](https://github.com/ecomclub/storefront-twbs/compare/v4.0.4...v5.0.0-alpha.0) (2020-01-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* **styles:** bootstrap-vue required styles removed from bundle
+* **js:** bundle changed, removed bootstrap-vue, js export changed
+
+### Bug Fixes
+
+* **browser-support:** import compiled bootstrap js ([595deee](https://github.com/ecomclub/storefront-twbs/commit/595deee1125145eef20247373c36b2cf4c2f9d04))
+
+
+* **js:** import/export jquery and bootstrap original components ([df23cad](https://github.com/ecomclub/storefront-twbs/commit/df23cad8c4520ee558609f9c0fef88c5104ca272))
+* **styles:** remove bootstrap-vue styles ([cce680d](https://github.com/ecomclub/storefront-twbs/commit/cce680d7a9f3886fa1338e772dcb1a6fe6052a67))
+
+### [4.0.4](https://github.com/ecomclub/storefront-twbs/compare/v4.0.3...v4.0.4) (2020-01-02)
+
+### [4.0.3](https://github.com/ecomclub/storefront-twbs/compare/v4.0.2...v4.0.3) (2019-12-02)
+
+
+### Bug Fixes
+
+* **animate:** changing default animate duration (faster) ([6a09a33](https://github.com/ecomclub/storefront-twbs/commit/6a09a33eea7e49001debc21a35039329958c8010))
+
+### [4.0.2](https://github.com/ecomclub/storefront-twbs/compare/v4.0.1...v4.0.2) (2019-11-29)
+
+### [4.0.1](https://github.com/ecomclub/storefront-twbs/compare/v4.0.0...v4.0.1) (2019-11-29)
+
+
+### Bug Fixes
+
+* **animate:** import scss files (renamed) instead of css ([5729480](https://github.com/ecomclub/storefront-twbs/commit/57294808a1c830ba9dbe585cdb2a706ff10d27a5))
+
+## [4.0.0](https://github.com/ecomclub/storefront-twbs/compare/v3.5.1...v4.0.0) (2019-11-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* **fa-icons:** shipping fontawesome dom and icons
+
+### Features
+
+* **animate.css:** add Animate.css base styles and selected animations ([23e25ac](https://github.com/ecomclub/storefront-twbs/commit/23e25ac37bd17b99b9e528d6d35415713a7f0da4))
+* **fa-icons:** add curated fontawesome svg icons to bundle ([0d4c8a2](https://github.com/ecomclub/storefront-twbs/commit/0d4c8a228caea20a38280c20c3ba2d46e276dbc6))
+
+### [3.5.1](https://github.com/ecomclub/storefront-twbs/compare/v3.5.0...v3.5.1) (2019-11-28)
+
+## [3.5.0](https://github.com/ecomclub/storefront-twbs/compare/v3.4.2...v3.5.0) (2019-09-17)
+
+
+### Features
+
+* **modal:** importing bootstrap native modal ([8bd1002](https://github.com/ecomclub/storefront-twbs/commit/8bd1002))
+* **portal-vue:** add portalVue mixin (already used by toast) ([feebb04](https://github.com/ecomclub/storefront-twbs/commit/feebb04))
+
+### [3.4.2](https://github.com/ecomclub/storefront-twbs/compare/v3.4.1...v3.4.2) (2019-09-16)
+
+### [3.4.1](https://github.com/ecomclub/storefront-twbs/compare/v3.4.0...v3.4.1) (2019-09-06)
+
+## [3.4.0](https://github.com/ecomclub/storefront-twbs/compare/v3.3.0...v3.4.0) (2019-08-25)
+
+
+### Features
+
+* **popover:** import bootstrap-vue popover component ([7f6187f](https://github.com/ecomclub/storefront-twbs/commit/7f6187f))
+
+## [3.3.0](https://github.com/ecomclub/storefront-twbs/compare/v3.2.0...v3.3.0) (2019-08-23)
+
+
+### Features
+
+* **window-assing:** assing js constructors on window ([ceddb14](https://github.com/ecomclub/storefront-twbs/commit/ceddb14))
+
+## [3.2.0](https://github.com/ecomclub/storefront-twbs/compare/v3.1.0...v3.2.0) (2019-08-20)
+
+
+### Features
+
+* **root:** adding brand colors rgb and body color to vars ([bc750a5](https://github.com/ecomclub/storefront-twbs/commit/bc750a5))
+
+## [3.1.0](https://github.com/ecomclub/storefront-twbs/compare/v3.0.5...v3.1.0) (2019-08-16)
+
+
+### Bug Fixes
+
+* **scss:** importing scss files locally ([b138e9c](https://github.com/ecomclub/storefront-twbs/commit/b138e9c))
+
+
+### Features
+
+* **js:** importing scripts from bootstrap.native ([9ebfa67](https://github.com/ecomclub/storefront-twbs/commit/9ebfa67))
+
+### [3.0.5](https://github.com/ecomclub/storefront-twbs/compare/v3.0.4...v3.0.5) (2019-08-13)
+
+### [3.0.4](https://github.com/ecomclub/storefront-twbs/compare/v3.0.3...v3.0.4) (2019-08-13)
+
+### [3.0.3](https://github.com/ecomclub/storefront-twbs/compare/v3.0.2...v3.0.3) (2019-08-13)
+
+### [3.0.2](https://github.com/ecomclub/storefront-twbs/compare/v3.0.1...v3.0.2) (2019-08-12)
+
+### [3.0.1](https://github.com/ecomclub/storefront-twbs/compare/v3.0.0...v3.0.1) (2019-08-12)
+
+## [3.0.0](https://github.com/ecomclub/storefront-twbs/compare/v2.0.0...v3.0.0) (2019-08-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* **scss:** importing old scss file wil l no more work
+* **bootstrap-vue:** form components plugin no more available
+
+* **bootstrap-vue:** removing form components by default ([6df7ce5](https://github.com/ecomclub/storefront-twbs/commit/6df7ce5))
+* **scss:** renaming entry scss file ([ea0c9a8](https://github.com/ecomclub/storefront-twbs/commit/ea0c9a8))
+
+## [2.0.0](https://github.com/ecomclub/storefront-twbs/compare/v2.0.0-alpha.3...v2.0.0) (2019-08-11)
+
+
+### Features
+
+* **bootstrap-vue:** loading some bootstrap vue components and styles ([6653a9a](https://github.com/ecomclub/storefront-twbs/commit/6653a9a))
+
+## [2.0.0-alpha.3](https://github.com/ecomclub/storefront-twbs/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2019-08-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* **js:** old scripts removed
+
+* **js:** cleaning src to start with bootstrap vue ([d6d5e50](https://github.com/ecomclub/storefront-twbs/commit/d6d5e50))
+
+## [2.0.0-alpha.2](https://github.com/ecomclub/storefront-twbs/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2019-08-11)
+
+
+### Features
+
+* **scss:** update styles, add custom root with css vars ([b373df5](https://github.com/ecomclub/storefront-twbs/commit/b373df5))
+
+## [2.0.0-alpha.1](https://github.com/ecomclub/storefront-twbs/compare/v1.2.1...v2.0.0-alpha.1) (2019-08-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* **dependencies:** removing bin, preparing new package for v3
+
+* **dependencies:** fix dependencies for v3 ([b64d0d1](https://github.com/ecomclub/storefront-twbs/commit/b64d0d1))

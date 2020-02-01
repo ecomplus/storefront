@@ -1,0 +1,131 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="storefront-twbs.min.css">
+    <title>Storefront Bootstrap 4 theme</title>
+    <style>
+      body {
+        background-color: rgba(var(--primary-rgb), 0.025);
+      }
+    </style>
+  </head>
+
+  <body style="padding: 3rem 0">
+    <div class="container">
+      <h1 class="animated slower bounce delay-1s">
+        <i class="fas fa-shopping-bag"></i> Storefront Bootstrap guide
+      </h1>
+
+      <p>
+        All E-Com Plus stores should include
+        <a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">Bootstrap 4.3</a>
+        theme to improve compatibility between brand colors,
+        store template and third party widgets, keeping as possible
+        a consistent visual identity.
+      </p>
+
+      <p>
+        To <b>create a new template</b>, you <i>SHOULD</i> use as possible the default bootstrap
+        <a href="https://getbootstrap.com/docs/4.3/components/" target="_blank">components</a>,
+        and/or adapt them to mirror your theme visual identity.
+      <p>
+
+      </p>
+        To <b>create a new widget</b>, you <i>MUST</i> use bootstrap components the
+        maximum as possible, to follow the theme and store brand visual identity, you
+        should also use
+        <a href="https://getbootstrap.com/docs/4.3/utilities/" target="_blank">utilities</a>
+        and avoid creating custom CSS.
+      </p>
+
+      <h2>Brand colors</h2>
+
+      <p>
+        The merchant would set the <i>primary</i> and <i>secondary</i> colors
+        following the store brand.
+      <p>
+
+      <h4>Primary</h4>
+
+      </p>
+       Should be used to drive attention to the main tasks that shoud be done while using the app.
+       It is meant to be used in major interactive elements of the page.
+      </p>
+
+      <p class="lead">
+       Use examples:
+       <i class="text-muted">Links</i>,
+       <i class="text-muted">Call to actions</i>,
+       <i class="text-muted">Obrigatory forms</i>,
+       <i class="text-muted">Check boxes</i>,
+       <i class="text-muted">Radio buttons</i>,
+       <i class="text-muted">Toggles</i>
+      </p>
+
+      <h4>Secondary</h4>
+
+      <p>
+        Should be used to drive attention in the elements with relevant info,
+        but  where the user is not intended to take action
+      </p>
+
+      <p class="lead">
+        Use examples:
+        <i class="text-muted">Secondary buttons</i>,
+        <i class="text-muted">Badges</i>,
+        <i class="text-muted">Sales tags</i>,
+        <i class="text-muted">Hotmarks</i>
+      </p>
+
+      <hr>
+
+      <div id="app">
+        <b-alert v-bind:show="true" variant="info" dismissible>
+          Also includes some Vue components from
+          <a href="https://bootstrap-vue.js.org/docs/" target="_blank">BootstrapVue</a>
+        </b-alert>
+        <b-dropdown id="dropdown-1" variant="primary" text="And dropdown button">
+          <b-dropdown-item>First Action</b-dropdown-item>
+          <b-dropdown-item>Second Action</b-dropdown-item>
+          <b-dropdown-item>Third Action</b-dropdown-item>
+          <b-dropdown-divider></b-dropdown-divider>
+          <b-dropdown-item active>Active action</b-dropdown-item>
+          <b-dropdown-item disabled>Disabled action</b-dropdown-item>
+        </b-dropdown>
+      </div>
+
+      <hr>
+
+      <div class="dropdown">
+        <p>
+          Some JS handlers/constructors from
+          <a href="http://thednp.github.io/bootstrap.native/">Bootstrap.native</a>
+        </p>
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="storefront-twbs.min.js"></script>
+    <script>
+      var app = new Vue({ el: '#app' })
+      console.log(__storefront_twbs)
+    </script>
+  </body>
+</html>
