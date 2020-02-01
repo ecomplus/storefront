@@ -1,0 +1,52 @@
+.ec-cart-item {
+  margin-bottom: 1rem;
+
+  &__name {
+    font-size: .88rem;
+    line-height: 1.2;
+    margin-bottom: .25rem;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+  }
+
+  &__picture {
+    max-width: 90px;
+    margin-right: 1rem;
+  }
+
+  &__edit {
+    margin-right: .25rem;
+  }
+
+  &__quantity {
+    display: inline-block;
+    width: 75px;
+  }
+
+  &__remove {
+    display: block;
+    text-align: center;
+    margin-top: .15rem;
+    color: var(--danger);
+    font-size: .85rem;
+    text-transform: lowercase;
+
+    &:hover {
+      color: var(--danger);
+    }
+  }
+
+  &__prices {
+    text-align: right;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+
+  &__price-un {
+    font-size: .83rem;
+    color: var(--gray);
+  }
+}

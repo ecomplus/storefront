@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>EcomMinicart demo</title>
+
+    <!-- Storefront Bootstrap theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-twbs@1/docs/storefront-twbs.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ecomplus/widget-minicart@0.3/dist/EcomMinicart.css">
+  </head>
+  <body style="padding: 30px">
+    <noscript>
+      <strong>We're sorry but widget-minicart doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+    </noscript>
+
+    <div id="minicart">
+      <demo></demo>
+    </div>
+
+    <!-- Shopping cart lib -->
+    <script src="https://cdn.jsdelivr.net/npm/@ecomplus/shopping-cart@0.3/dist/shopping-cart.min.js"></script>
+    <!-- Tests only -->
+    <script src="./demo.js"></script>
+    <!-- E-Com Plus Storefront Renderer (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-renderer@1/dist/storefront.min.js"></script>
+    <!-- Font Awesome icons -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@ecomplus/widget-minicart@0.3/dist/EcomMinicart.umd.js"></script>
+
+    <script>
+    new Vue({
+      components: {
+        demo: EcomMinicart
+      }
+    }).$mount('#minicart')
+    </script>
+  </body>
+</html>
