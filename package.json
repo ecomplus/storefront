@@ -77,6 +77,7 @@
   },
   "husky": {
     "hooks": {
+      "pre-commit": "lerna exec -- lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
