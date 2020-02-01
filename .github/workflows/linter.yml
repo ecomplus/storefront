@@ -24,8 +24,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Setup dependencies
+        run: lerna bootstrap
 
-      - name: Run Stardard JS linter
-        run: npm run lint:js
+      - name: Run linter on all packages staged files
+        run: lerna exec -- lint-staged
