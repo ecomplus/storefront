@@ -1,14 +1,25 @@
 {
   "packages": [
-    "packages/*"
+    "storefront/*",
+    "widgets/*"
   ],
-  "version": "independent",
-  "npmClient": "npm",
   "command": {
-    "bootstrap": {
-      "npmClientArgs": [
-        "--no-package-lock"
-      ]
+    "create": {
+      "homepage": "https://github.com/ecomclub/storefront-template",
+      "license": "MIT"
+    },
+    "version": {
+      "allowBranch": "master",
+      "conventionalCommits": true,
+      "gitRemote": "upstream",
+      "message": "chore(release): %s",
+      "preid": "beta"
     }
-  }
+  },
+  "ignoreChanges": [
+    "**/__fixtures__/**",
+    "**/__tests__/**",
+    "**/*.md"
+  ],
+  "version": "independent"
 }
