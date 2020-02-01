@@ -1,96 +1,85 @@
 {
-  "name": "@ecomplus/storefront-template",
-  "version": "1.34.0",
-  "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
-  "main": "template/js/index.js",
-  "jsdelivr": "dist/storefront.js",
-  "unpkg": "dist/storefront.js",
-  "bin": {
-    "storefront-tmpl": "./scripts/install.js",
-    "storefront-tmpl-copy": "./scripts/copy.js",
-    "storefront-tmpl-styles": "./scripts/styles.js",
-    "storefront-tmpl-pack": "./scripts/pack.js"
-  },
+  "name": "@ecomplus/storefront-monorepo",
+  "version": "1.0.0-monorepo",
+  "description": "Where Storefront magic happens",
+  "private": true,
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
   "scripts": {
-    "pack": "STOREFRONT_TEMPLATE=$INIT_CWD node ./scripts/pack.js",
-    "serve": "npm run pack serve",
-    "build": "ECOMCLIENT_NOTIMEOUT=true WEBPACK_BUILD_DEV=true npm run pack build",
-    "build:site": "ECOMCLIENT_NOTIMEOUT=true npm run pack build",
-    "build:lib": "NODE_ENV=production webpack",
-    "release": "npm ddp && npm run build && standard-version && npm run snapshot",
-    "snapshot": "cp ./dist.package.json ./dist/package.json; cp ./webpack.externals.js ./dist/",
-    "test:install": "rm -rf ./copy && mkdir ./copy && TEMPLATE_DIR=copy node ./scripts/install.js",
-    "test:copy": "rm -rf ./copy && node ./scripts/copy.js --dest=copy",
-    "lint:js": "standard 'template/**/*.js'"
+    "update": "lerna exec -- npm update && lerna exec -- npm ddp && lerna bootstrap",
+    "serve": "lerna run --scope @ecomplus/storefront-template serve",
+    "preversion": "lerna run build --stream",
+    "release": "lerna run build && lerna version"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/storefront-template.git"
+    "url": "git+https://github.com/ecomclub/storefront.git"
   },
-  "keywords": [
-    "ecomplus",
-    "storefront",
-    "jamstack-ecommerce",
-    "pwa-ecommerce",
-    "ejs-template",
-    "store-theme",
-    "ecommerce-template",
-    "ecommerce-theme"
-  ],
-  "author": "E-Com Club <ti@e-com.club>",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/storefront-template/issues"
+    "url": "https://github.com/ecomclub/storefront/issues"
   },
-  "homepage": "https://github.com/ecomclub/storefront-template#readme",
-  "dependencies": {
+  "homepage": "https://github.com/ecomclub/storefront#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "@ecomplus/client": "^2.0.2",
     "@ecomplus/passport-client": "^1.0.6",
     "@ecomplus/search-engine": "^2.0.3",
     "@ecomplus/shopping-cart": "^2.1.1",
-    "@ecomplus/storefront-app": "^1.11.1",
-    "@ecomplus/storefront-framework": "^5.5.0",
+    "@ecomplus/storefront-template": "^1.34.1",
     "@ecomplus/storefront-twbs": "^4.0.6",
     "@ecomplus/utils": "^1.2.8",
-    "@ecomplus/widget-fb-pixel": "^1.0.0",
     "@ecomplus/widget-minicart": "^0.7.4",
     "@ecomplus/widget-product": "^0.4.10",
-    "@ecomplus/widget-product-card": "^0.3.4",
     "@ecomplus/widget-search": "^0.6.1",
-    "@ecomplus/widget-search-engine": "^0.3.1",
-    "@ecomplus/widget-tag-manager": "^1.1.2",
-    "@ecomplus/widget-trustvox": "^1.0.0",
-    "@ecomplus/widget-user": "^0.10.5",
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-brands-svg-icons": "^5.12.0",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@glidejs/glide": "^3.4.1",
-    "bootswatch": "^4.4.1",
-    "core-js": ">=3.6.4 <3.7",
-    "ejs": "^3.0.1",
-    "eventemitter3": "^4.0.0",
-    "lodash.clonedeep": "^4.5.0",
-    "lodash.merge": "^4.6.2",
-    "lozad": "^1.14.0",
-    "photoswipe": "^4.1.3",
-    "vue": "^2.6.11"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
+    "@vue/cli-plugin-babel": "^4.1.2",
+    "@vue/cli-plugin-eslint": "^4.1.2",
+    "@vue/cli-plugin-router": "^4.1.2",
+    "@vue/cli-plugin-vuex": "^4.1.2",
+    "@vue/cli-service": "^4.1.2",
+    "@vue/eslint-config-standard": "^5.1.0",
+    "animate.css": "^3.7.2",
+    "autoprefixer": "^9.7.4",
     "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "bootstrap": "^4.4.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "core-js": "^3.6.4",
+    "css-loader": "^3.4.2",
+    "cssnano": "^4.1.10",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.1.2",
+    "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
     "husky": "^4.2.1",
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.0.7",
+    "lozad": "^1.14.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "popper.js": "^1.16.1",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.25.0",
+    "sass-loader": "^8.0.2",
     "standard": "^14.3.1",
-    "standard-version": "^7.1.0"
+    "vue": "^2.6.11",
+    "vue-loader": "^15.8.3",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.2"
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "browserslist": [
-    "> 0.5%",
-    "not dead",
-    "not ie 11",
-    "not ie_mob 11"
-  ],
   "standard": {
     "parser": "babel-eslint"
   }

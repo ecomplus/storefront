@@ -1,0 +1,8 @@
+{
+  "*.js": [
+    "standard"
+  ],
+  "*.vue": [
+    "vue-cli-service lint"
+  ]
+}

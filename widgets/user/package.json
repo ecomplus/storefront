@@ -1,0 +1,39 @@
+{
+  "name": "@ecomplus/widget-user",
+  "version": "0.10.5",
+  "description": "Storefront plugin with Vue component customer identification for E-Com Plus stores",
+  "module": "src/index.js",
+  "browser": "dist/widget-user.min.js",
+  "main": "dist/widget-user.min.js",
+  "jsdelivr": "dist/public/widget-user.var.min.js",
+  "unpkg": "dist/public/widget-user.var.min.js",
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "serve": "webpack-dev-server",
+    "release": "rm -rf ./dist && npm ddp && npm run build && standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomclub/widget-user.git"
+  },
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "widget-user",
+    "widget",
+    "customer-account"
+  ],
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomclub/widget-user/issues"
+  },
+  "homepage": "https://github.com/ecomclub/widget-user#readme",
+  "peerDependencies": {
+    "@ecomplus/passport-client": "1.x",
+    "@ecomplus/storefront-twbs": "4.x",
+    "@ecomplus/utils": "^1.2.0",
+    "core-js": "3.x",
+    "vue": ">=2 <4"
+  }
+}

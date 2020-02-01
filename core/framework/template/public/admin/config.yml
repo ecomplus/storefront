@@ -1,0 +1,86 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: 'template/public/img/uploads'
+public_folder: '/img/uploads'
+
+collections:
+
+  # static content for pages
+  # may vary by template
+  - name: 'pages'
+    label: 'Pages'
+    delete: false
+    files:
+      - name: 'home'
+        label: 'Homepage'
+        file: 'content/pages/home.json'
+        fields:
+          - {label: 'Name', name: 'name', widget: 'string'}
+          - {label: 'Logo', name: 'logo', widget: 'image'}
+          - {label: 'Primary Color', name: 'primary_color', widget: 'string'}
+          - {label: 'Secondary Color', name: 'secondary_color', widget: 'string'}
+          - {label: 'Icon', name: 'icon', widget: 'image'}
+          - {label: 'Large Icon', name: 'large_icon', widget: 'image'}
+          - {label: 'Favicon', name: 'favicon', widget: 'image'}
+
+  # default blog posts collection
+  # remove if your template does not support blog
+  - name: 'blog_posts'
+    label: 'Blog Posts'
+    description: 'Add extra content to the site with blog posts related to your store and clients'
+    folder: 'content/blog-posts'
+    extension: 'json'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - {label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog'}
+      - {label: 'Title', name: 'title', widget: 'string'}
+      - {label: 'Publish Date', name: 'date', widget: 'datetime'}
+      - {label: 'Featured Image', name: 'thumbnail', widget: 'image'}
+      - {label: 'Short Description', name: 'description', widget: 'text'}
+      - {label: 'Body', name: 'body', widget: 'markdown'}
+
+  # default extra pages collection
+  # eg.: 'about us', 'contact' and 'privacy'
+  - name: 'extra_pages'
+    label: 'Extra Pages'
+    description: 'Add extra content to the site with blog posts related to your store and clients'
+    folder: 'content/extra-pages'
+    extension: 'json'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - {label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog'}
+      - {label: 'Title', name: 'title', widget: 'string'}
+      - {label: 'Publish Date', name: 'date', widget: 'datetime'}
+      - {label: 'Featured Image', name: 'thumbnail', widget: 'image'}
+      - {label: 'Short Description', name: 'description', widget: 'text'}
+      - {label: 'Body', name: 'body', widget: 'markdown'}
+
+  # general site settings
+  # usually will be the same for any template
+  - name: 'settings'
+    label: 'Settings'
+    description: 'General settings to modify the site identity and metadata'
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: 'general'
+        label: 'Site Settings'
+        file: 'content/settings.json'
+        fields:
+          - {label: 'Name', name: 'name', widget: 'string'}
+          - {label: 'Short Name', name: 'short_name', widget: 'string'}
+          - {label: 'Short Description', name: 'description', widget: 'text'}
+          - {label: 'Language', name: 'lang', widget: 'string'}
+          - {label: 'Logo', name: 'logo', widget: 'image', required: false}
+          - {label: 'Mini Logo', name: 'mini_logo', widget: 'image', required: false}
+          - {label: 'Primary Color', name: 'primary_color', widget: 'string'}
+          - {label: 'Secondary Color', name: 'secondary_color', widget: 'string'}
+          - {label: 'App Background Color', name: 'bg_color', widget: 'string'}
+          - {label: 'Icon', name: 'icon', widget: 'image'}
+          - {label: 'Large Icon', name: 'large_icon', widget: 'image'}
+          - {label: 'Favicon', name: 'favicon', widget: 'image'}

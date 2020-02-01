@@ -1,0 +1,26 @@
+{
+  "packages": [
+    "core/*",
+    "widgets/*"
+  ],
+  "command": {
+    "create": {
+      "homepage": "https://github.com/ecomclub/storefront#readme",
+      "license": "MIT"
+    },
+    "version": {
+      "allowBranch": "master",
+      "conventionalCommits": true,
+      "createRelease": true,
+      "gitRemote": "upstream",
+      "message": "chore(release): %s",
+      "preid": "beta"
+    }
+  },
+  "ignoreChanges": [
+    "**/__fixtures__/**",
+    "**/__tests__/**",
+    "**/*.md"
+  ],
+  "version": "independent"
+}

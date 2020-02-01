@@ -1,0 +1,107 @@
+<div class="ec-product">
+  <transition enter-active-class="animated fadeIn slower">
+    <div class="row" v-if="body._id">
+      <slot name="gallery-col">
+        <div class="col-12 col-md-6">
+          <ec-gallery
+            :sliderOptions="{ rewind: true }"
+            :images="body.pictures"
+            :current.sync="currentGalleyImg"
+            @click:stage="openPhotoswipe"
+          />
+        </div>
+      </slot>
+
+      <div class="col">
+        <slot name="heading">
+          <h1 class="ec-product__name">
+            {{ name }}
+          </h1>
+          <p class="ec-product__sku">
+            COD: {{ body.sku }}
+          </p>
+        </slot>
+
+        <slot name="unavailable" v-if="!body.available">
+          <p class="ec-product__unavailable">
+            {{ dictionary('unavailable') }}
+          </p>
+        </slot>
+
+        <slot name="out-of-stock" v-else-if="!inStock(body)">
+          <p class="ec-product__out-of-stock">
+            {{ dictionary('out_of_stock') }}
+          </p>
+        </slot>
+
+        <template v-else>
+          <slot name="prices">
+            <p class="ec-product__prices">
+              <ec-prices
+                :lang="lang"
+                :product="{ ...body, ...selectedVariation }"
+                :literal="true"
+                :big="true"
+              />
+
+              <span class="ec-product__discount" v-if="discount > 0">
+                {{ dictionary('discount_of') }} <strong>{{ discount }}%</strong>
+              </span>
+            </p>
+          </slot>
+
+          <slot name="variations" v-if="hasVariations">
+            <ec-variations
+              :product="body"
+              :selectedId.sync="selectedVariationId"
+            />
+
+            <b-alert
+              :show="hasClickedBuy && !selectedVariationId"
+              dismissible
+              fade
+              variant="warning"
+            >
+              {{ dictionary('select_variation') }}
+            </b-alert>
+          </slot>
+
+          <div class="ec-product__buy">
+            <slot name="buy">
+              <button
+                type="button"
+                class="btn btn-lg btn-primary"
+                @click="buy"
+                :disabled="hasClickedBuy"
+              >
+                <i class="fas fa-shopping-bag mr-1"></i>
+                {{ strBuy }}
+              </button>
+            </slot>
+          </div>
+
+          <slot name="shipping">
+            <ec-shipping
+              :lang="lang"
+              :shippedItems="[{
+                ...body,
+                product_id: body._id,
+                quantity: body.min_quantity || 1
+              }]"
+            />
+          </slot>
+        </template>
+
+        <slot name="short-description" v-if="body.short_description">
+          <p class="ec-product__info lead">
+            {{ body.short_description }}
+          </p>
+        </slot>
+      </div>
+    </div>
+  </transition>
+
+  <template v-if="!body._id">
+    <slot />
+  </template>
+</div>

@@ -1,0 +1,27 @@
+{
+  "name": "@ecomplus/storefront-twbs",
+  "version": "5.0.0-alpha.3",
+  "description": "Bootstrap + Animate.css + FontAwesome wrapper for E-Com Plus Storefront",
+  "main": "dist/storefront-twbs.min.js",
+  "browser": "dist/storefront-twbs.min.js",
+  "scripts": {
+    "build": "bash ./setup.sh && NODE_ENV=production webpack",
+    "serve": "bash ./setup.sh && webpack-dev-server",
+    "release": "rm -rf ./dist && standard-version --prerelease alpha && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomclub/storefront-twbs.git"
+  },
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomclub/storefront-twbs/issues"
+  },
+  "homepage": "https://github.com/ecomclub/storefront-twbs#readme",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "store_id": 1011,
+  "name": "My Shop",
+  "domain": "storefront-demo.e-com.plus",
+  "short_name": "MyShop",
+  "description": "My PWA Shop",
+  "lang": "en_us",
+  "primary_color": "#e83e8c",
+  "secondary_color": "#6f42c1",
+  "bg_color": "#ffffff",
+  "logo": "/img/uploads/logo.png",
+  "icon": "/img/icon.png",
+  "large_icon": "/img/large-icon.png",
+  "favicon": "/img/uploads/favicon.png",
+  "theme": {
+    "custom-color": "#c5c5c5"
+  }
+}

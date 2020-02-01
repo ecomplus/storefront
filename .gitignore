@@ -1,10 +1,16 @@
-/dist
-/.serve
-/copy
-/template/**/storefront-template
-/template/public/assets/vendor/
-/template/public/admin/cms/
-/template/scss/styles.scss
+/*/*/LICENSE
+/*/*/commitlint.config.js
+/*/*/dist
+/*/*/.serve
+
+/core/*/copy
+/core/**/storefront-template
+
+/core/template/*/public/assets/vendor/
+/core/template/*/public/admin/cms/
+/core/template/template/scss/styles.scss
+
+/core/twbs/scss/*/
 
 # Logs
 logs
@@ -61,9 +67,3 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
-
-# dotenv environment variables file
-.env
-
-# next.js build output
-.next

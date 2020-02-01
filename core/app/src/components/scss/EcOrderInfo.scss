@@ -1,0 +1,77 @@
+.ec-order-info {
+  &__new {
+    text-align: center;
+    color: var(--success);
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  &__orders-link {
+    margin-top: 1.5rem;
+  }
+
+  &__number {
+    color: var(--gray);
+
+    span {
+      display: block;
+      color: var(--secondary);
+    }
+  }
+
+  &__details {
+    margin-top: .75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__status,
+  &__financial-status {
+    font-weight: bold;
+    font-size: 1.15rem;
+    margin: 1rem 0;
+  }
+
+  &__status {
+    &--open {
+      color: var(--info);
+    }
+
+    &--cancelled {
+      color: var(--danger);
+    }
+
+    &--closed {
+      color: var(--success);
+    }
+  }
+
+  &__financial-status {
+    &--pending {
+      color: var(--warning);
+    }
+
+    &--under_analysis {
+      color: var(--info);
+    }
+
+    &--unauthorized,
+    &--in_dispute,
+    &--voided {
+      color: var(--danger);
+    }
+
+    &--paid {
+      color: var(--success);
+    }
+  }
+
+  &__summary {
+    background: var(--light);
+  }
+
+  &__toggle {
+    display: block;
+    margin-left: auto;
+    margin-top: 1.5rem;
+  }
+}

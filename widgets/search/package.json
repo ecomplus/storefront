@@ -1,0 +1,40 @@
+{
+  "name": "@ecomplus/widget-search",
+  "version": "0.6.1",
+  "description": "Storefront plugin with Vue component for instant search engine on E-Com Plus stores",
+  "module": "src/index.js",
+  "browser": "dist/widget-search.min.js",
+  "main": "dist/widget-search.min.js",
+  "jsdelivr": "dist/public/widget-search.var.min.js",
+  "unpkg": "dist/public/widget-search.var.min.js",
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "serve": "webpack-dev-server",
+    "release": "rm -rf ./dist && npm run build && standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomclub/widget-search.git"
+  },
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "widget",
+    "widget-search",
+    "instant-search",
+    "search-engine"
+  ],
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomclub/widget-search/issues"
+  },
+  "homepage": "https://github.com/ecomclub/widget-search#readme",
+  "peerDependencies": {
+    "@ecomplus/search-engine": ">=1 <3",
+    "@ecomplus/storefront-twbs": "4.x",
+    "@ecomplus/utils": "^1.2.0",
+    "core-js": "3.x",
+    "vue": ">=2 <4"
+  }
+}

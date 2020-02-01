@@ -27,5 +27,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Stardard JS linter
-        run: npm run lint:js
+      - name: Lint staged files on all packages
+        run: npx lerna exec -- lint-staged

@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+  <%- await include('@/head', { title: 'Home', _ }) %>
+</head>
+<body>
+  <h1 class="link">
+    Hello <%= _.store.name %> !
+  </h1>
+  <h2 class="custom-color">
+    <%- _.cms('pages/home').title %>
+  </h2>
+  <h3 class="text-secondary">
+    Olá !
+  </h3>
+  <%- await include('@/scripts') %>
+</body>
+</html>
