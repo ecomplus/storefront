@@ -3,14 +3,14 @@
 /*/*/dist
 /*/*/.serve
 
-/storefront/*/copy
+/core/*/copy
 
-/storefront/template/**/storefront-template
-/storefront/template/public/assets/vendor/
-/storefront/template/public/admin/cms/
-/storefront/template/scss/styles.scss
+/core/template/**/storefront-template
+/core/template/public/assets/vendor/
+/core/template/public/admin/cms/
+/core/template/scss/styles.scss
 
-/storefront/twbs/scss/*/
+/core/twbs/scss/*/
 
 # Logs
 logs
