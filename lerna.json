@@ -5,7 +5,7 @@
   ],
   "command": {
     "create": {
-      "homepage": "https://github.com/ecomclub/storefront-template",
+      "homepage": "https://github.com/ecomclub/storefront#readme",
       "license": "MIT"
     },
     "version": {
