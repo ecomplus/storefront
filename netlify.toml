@@ -1,6 +1,7 @@
 [build]
-  command = "npm run build"
-  publish = "core/template/dist"
+  base = "core/template"
+  command = "npm run build:site"
+  publish = "dist"
 
 [[redirects]]
   from = "/admin/*"
