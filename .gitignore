@@ -4,11 +4,11 @@
 /*/*/.serve
 
 /core/*/copy
+/core/**/storefront-template
 
-/core/template/**/storefront-template
-/core/template/public/assets/vendor/
-/core/template/public/admin/cms/
-/core/template/scss/styles.scss
+/core/template/*/public/assets/vendor/
+/core/template/*/public/admin/cms/
+/core/template/template/scss/styles.scss
 
 /core/twbs/scss/*/
 
