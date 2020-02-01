@@ -5,6 +5,7 @@
 /storefront/template/public/assets/vendor/
 /storefront/template/public/admin/cms/
 /storefront/template/scss/styles.scss
+/storefront/twbs/scss/*/
 
 # Logs
 logs
@@ -61,9 +62,3 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
-
-# dotenv environment variables file
-.env
-
-# next.js build output
-.next
