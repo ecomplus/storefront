@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "core/template/dist"
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/app/*"
+  to = "/app/index.html"
+  status = 200
