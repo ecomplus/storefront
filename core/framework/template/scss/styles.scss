@@ -1,20 +1,6 @@
-// --- DO NOT OVERRIDE BOOTSTRAP STYLES HERE
-// --- Edit `@/template/scss/storefront-twbs/theme/*.scss` instead
-
-// Store brand colors are injected from Webpack SASS loader
-// Overrides \$primary and \$secondary
-
-// Storefront Bootstrap 4 theme
-// @import "@ecomplus/storefront-twbs/scss/storefront-twbs.scss";
-
-// Place below custom additional (non-Bootstrap) variables
-
-// Template styles:
-// Custom theme components and modifiers
-
-@import '#template/scss/variables';
-@import '@ecomplus/storefront-twbs/scss/styles';
-@import '#template/scss/main';
+// @import '#template/scss/variables';
+// @import '@ecomplus/storefront-twbs/scss/styles';
+// @import '#template/scss/main';
 
 .link {
   color: $primary;
