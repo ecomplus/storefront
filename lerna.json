@@ -1,7 +1,7 @@
 {
   "packages": [
-    "core/*",
-    "widgets/*"
+    "packages/*",
+    "packages/*/*"
   ],
   "command": {
     "create": {

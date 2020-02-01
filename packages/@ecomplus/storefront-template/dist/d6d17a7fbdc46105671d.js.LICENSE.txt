@@ -1,0 +1,5 @@
+/*!
+ * @ecomplus/widget-search-engine
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the MIT License.
+ */

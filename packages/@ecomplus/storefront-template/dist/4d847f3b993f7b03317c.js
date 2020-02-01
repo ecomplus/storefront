@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[15],{316:function(n,e,o){"use strict";o.r(e);var s=o(298),t=o(299),w=document.getElementsByClassName("pswp")[0];w&&(window.storefront.photoswipe=function(n,e){new s(w,t,n,{index:e}).init()})}}]);
+//# sourceMappingURL=4d847f3b993f7b03317c.js.map
