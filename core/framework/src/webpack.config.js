@@ -239,6 +239,7 @@ let customConfig
 try {
   customConfig = require(path.join(process.cwd(), 'storefront.webpack'))
 } catch (e) {
+  // ignore
 }
 
 // export Webpack config for storefront templates

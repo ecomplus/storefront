@@ -40,7 +40,7 @@ bundler.then(compiler => {
       path.join(paths.output, '/*.css'),
       {
         match: [path.join(paths.js, '/**/*')],
-        fn (event, file) {
+        fn () {
           setTimeout(() => browserSync.reload(), BROWSER_RELOAD_DELAY || 350)
         }
       }
