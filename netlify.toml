@@ -1,7 +1,7 @@
 [build]
-  base = "core/template"
+  base = "packages/@ecomplus/storefront-template"
   command = "npm run build:site"
-  publish = "core/template/dist"
+  publish = "packages/@ecomplus/storefront-template/dist"
 
 [[redirects]]
   from = "/admin/*"
