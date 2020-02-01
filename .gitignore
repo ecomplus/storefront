@@ -1,16 +1,17 @@
-/*/*/LICENSE
-/*/*/commitlint.config.js
-/*/*/dist
-/*/*/.serve
+/packages/*/LICENSE
+/packages/*/*/LICENSE
+/packages/*/dist
+/packages/*/*/dist
+/packages/**/.serve
+/packages/**/commitlint.config.js
 
-/core/*/copy
-/core/**/storefront-template
+**/@ecomplus/storefront-*/copy
+**/@ecomplus/storefront-*/storefront-template
 
-/core/template/*/public/assets/vendor/
-/core/template/*/public/admin/cms/
-/core/template/template/scss/styles.scss
+**/@ecomplus/storefront-template/template/public/assets/vendor/
+**/@ecomplus/storefront-template/template/scss/styles.scss
 
-/core/twbs/scss/*/
+**/@ecomplus/storefront-twbs/scss/*/
 
 # Logs
 logs
