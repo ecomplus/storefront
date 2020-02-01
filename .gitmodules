@@ -1,0 +1,3 @@
+[submodule "core/twbs/src/jquery"]
+	path = core/twbs/src/jquery
+	url = https://github.com/jquery/jquery

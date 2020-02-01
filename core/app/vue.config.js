@@ -1,6 +1,6 @@
 const path = require('path')
 const recursiveCopy = require('@ecomplus/storefront-template/scripts/lib/recursive-copy')
-const templatePath = path.join(process.cwd(), 'node_modules/@ecomplus/storefront-template/dist')
+const templatePath = path.join(process.cwd(), '../../node_modules/@ecomplus/storefront-template/dist')
 const { dependencies, peerDependencies } = require('./package.json')
 const externals = require('@ecomplus/storefront-template/webpack.externals')
 const publicPath = require('./webpack.public-path')

@@ -72,14 +72,6 @@
     "webpack-pwa-manifest": "^4.1.1",
     "workbox-webpack-plugin": "^4.3.1"
   },
-  "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@ecomplus/storefront-template": "^1.34.0",
-    "husky": "^4.2.1",
-    "standard": "^14.3.1",
-    "standard-version": "^7.1.0"
-  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"

@@ -31,27 +31,5 @@
   "homepage": "https://github.com/ecomclub/widget-trustvox#readme",
   "peerDependencies": {
     "core-js": "3.x"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@commitlint/cli": "^8.1.0",
-    "@commitlint/config-conventional": "^8.1.0",
-    "@ecomplus/storefront-snapshot": "^1.1.0",
-    "babel-loader": "^8.0.6",
-    "core-js": "^3.6.1",
-    "html-webpack-plugin": "^3.2.0",
-    "husky": "^3.1.0",
-    "postcss-loader": "^3.0.0",
-    "standard": "^14.2.0",
-    "standard-version": "^7.0.1",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.10.1"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   }
 }
