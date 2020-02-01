@@ -11,6 +11,7 @@
     "version": {
       "allowBranch": "master",
       "conventionalCommits": true,
+      "createRelease": true,
       "gitRemote": "upstream",
       "message": "chore(release): %s",
       "preid": "beta"
