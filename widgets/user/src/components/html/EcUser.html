@@ -1,0 +1,166 @@
+<div class="ec-user">
+  <slot name="button">
+    <button
+      type="button"
+      id="ec-user-popover"
+      class="btn btn-lg btn-light"
+      :title="dictionary('my_account')"
+      v-b-tooltip.hover.left
+    >
+      <i class="fas fa-user"></i>
+    </button>
+  </slot>
+
+  <b-popover
+    target="ec-user-popover"
+    :triggers="popoverTriggers"
+    :show.sync="showPopover"
+    :placement="popoverPlacement"
+    @hidden="resetPopover"
+  >
+    <template slot="title">
+      {{ greetings }}
+    </template>
+
+    <div class="ec-user__popover">
+      <b-alert
+        :show="loginErrorAlert"
+        fade
+        variant="warning"
+        class="ec-user__alert"
+      >
+        {{ dictionary('login_error') }}.
+      </b-alert>
+
+      <transition-group
+        enter-active-class="animated fadeIn"
+        leave-active-class="animated position-absolute fadeOut faster"
+      >
+        <div v-if="waiting" key="waiting">
+          <div class="spinner-border m-3" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+
+        <div v-else-if="isLogged" key="logged">
+          <div class="list-group list-group-flush">
+            <a
+              :href="ordersUrl"
+              class="list-group-item list-group-item-action"
+            >
+              {{ dictionary('my_orders') }}
+            </a>
+            <a
+              :href="accountUrl"
+              class="list-group-item list-group-item-action"
+            >
+              {{ dictionary('my_account') }}
+            </a>
+          </div>
+
+          <button
+            class="btn btn-block btn-danger ec-user__logout"
+            type="button"
+            @click="logout"
+          >
+            <i class="fas fa-sign-out-alt"></i>
+            {{ dictionary('logout') }}
+          </button>
+        </div>
+
+        <div v-else-if="!showLoginForm" key="oauth">
+          <b-alert
+            :show="!popupAlertCount && noProfileFound"
+            fade
+            variant="info"
+            class="ec-user__alert"
+          >
+            {{ dictionary('profile_not_found') }}
+            <b>{{ email }}</b>.
+            <br>
+            <a
+              href="javascript:;"
+              class="alert-link"
+              @click="noProfileFound = false"
+            >
+              {{ `${dictionary('sign_in_with')} ${dictionary('another')} ${dictionary('email')}` }}
+            </a>
+          </b-alert>
+
+          <b-alert
+            :show="popupAlertCount"
+            class="ec-user__alert"
+            dismissible
+            fade
+            variant="info"
+            @dismissed="popupAlertCount = 0"
+            @dismiss-count-down="popupAlertChanged"
+          >
+            {{ dictionary('continue_on_popup') }}.
+          </b-alert>
+
+          <button
+            v-for="({ link, faIcon, providerName, provider }) in oauthProviders"
+            type="button"
+            class="btn btn-block ec-user__btn"
+            :key="provider"
+            :class="`ec-user__btn--${provider}`"
+            @click="() => oauthPopup(link, provider)"
+          >
+            <span class="ec-user__btn__icon">
+              <i class="fab" :class="faIcon"></i>
+            </span>
+            {{ dictionary(noProfileFound ? 'sign_up_with' : 'sign_in_with') }}
+            {{ providerName }}
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-block btn-secondary ec-user__btn"
+            key="email"
+            @click="showLoginForm = true"
+            v-if="!noProfileFound"
+          >
+            <span class="ec-user__btn__icon">
+              <i class="fas fa-envelope"></i>
+            </span>
+            {{ `${dictionary('sign_in_with')} ${dictionary('email')}` }}
+          </button>
+          <div class="ec-user__visitor-info" v-else>
+            {{ dictionary('visitor_checkout') }}
+          </div>
+        </div>
+
+        <div v-else key="form">
+          <form @submit="emailLoginSubmit">
+            <div class="form-group">
+              <button
+                class="btn ec-user__back"
+                type="button"
+                @click="showLoginForm = false"
+              >
+                <i class="fas fa-arrow-left"></i>
+              </button>
+
+              <label for="ec-user-email">
+                {{ `${dictionary('sign_in_with')} ${dictionary('email')}` }}
+              </label>
+              <input
+                ref="input"
+                type="email"
+                class="form-control"
+                id="ec-user-email"
+                placeholder="email@mail.com"
+                v-model="email"
+                required
+              >
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">
+              {{ dictionary('login') }}
+            </button>
+          </form>
+        </div>
+      </transition-group>
+    </div>
+  </b-popover>
+</div>
