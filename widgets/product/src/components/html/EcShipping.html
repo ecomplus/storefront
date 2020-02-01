@@ -1,0 +1,71 @@
+<div class="ec-shipping">
+  <form
+    v-if="zipInput"
+    @submit.prevent="submitZipCode"
+    class="ec-shipping__form"
+  >
+    <div class="form-group">
+      <label for="ec-shipping-zip">
+        {{ dictionary('calculate_shipping') }}
+      </label>
+      <div class="input-group">
+        <cleave-input
+          type="tel"
+          class="form-control ec-shipping__input"
+          id="ec-shipping-zip"
+          :placeholder="dictionary('zip')"
+          :aria-label="dictionary('zip')"
+          :options="countryCode === 'BR'
+            ? { blocks: [5, 3], delimiter: '-' }
+            : { blocks: [30] }"
+          v-model="zipCodeValue"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit">
+            <i class="fas fa-shipping-fast"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="ec-shipping__services">
+    <transition-group
+      enter-active-class="animated fadeInDown"
+      leave-active-class="animated position-absolute fadeOutUp"
+    >
+      <div
+        v-if="waiting"
+        key="waiting"
+        class="spinner-border spinner-border-sm"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+
+      <div v-else key="services" class="list-group">
+        <component
+          :is="selectServices ? 'a' : 'div'"
+          :href="selectServices && '#'"
+          class="list-group-item"
+          v-for="(service, i) in shippingServices"
+          :key="i"
+          :class="{
+            'list-group-item-action': selectServices,
+            active: selectServices && selectedService === i
+          }"
+          @click.prevent="setSelectedService(i)"
+        >
+          <span class="ec-shipping__option">
+            <ec-shipping-line
+              :shippingLine="service.shipping_line"
+              :lang="lang"
+            />
+
+            <small>{{ service.label }}</small>
+          </span>
+        </component>
+      </div>
+    </transition-group>
+  </div>
+</div>

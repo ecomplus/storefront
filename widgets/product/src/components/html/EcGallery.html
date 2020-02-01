@@ -1,0 +1,51 @@
+<div class="ec-gallery" data-slideout-ignore>
+  <div class="ec-gallery__thumbs">
+    <div
+      v-for="(image, i) in images"
+      :key="'img-' + i"
+      class="ec-gallery__item"
+      :class="{ 'ec-gallery__item--selected': i === activeIndex }"
+      @click="activeIndex = i"
+    >
+      <ec-image
+        v-if="i < 4"
+        class="ec-gallery__thumb"
+        :fade="false"
+        :src="image.small.url"
+        :alt="image.small.alt"
+        :fallback-src="image.zoom ? image.zoom.url : null"
+      />
+    </div>
+
+    <button
+      v-if="images.length > 4"
+      class="btn btn-dark ec-gallery__open"
+      type="button"
+      @click.prevent="$emit('click:stage', { index: 4 })"
+    >
+      +{{ images.length - 4 }}
+    </button>
+  </div>
+
+  <div class="ec-gallery__stage">
+    <div class="glide" ref="glide">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <li
+            class="glide__slide"
+            v-for="(picture, index) in mapPictures"
+            :key="'slide-' + index"
+          >
+            <div @click="$emit('click:stage', { picture, index })">
+              <ec-image
+                class="ec-gallery__big-image"
+                :src="picture"
+                :picture-breakpoint="380"
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

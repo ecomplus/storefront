@@ -1,0 +1,49 @@
+.ec-variations {
+  &__grid {
+    margin-bottom: 1rem;
+
+    &--colors button {
+      font-size: 0;
+    }
+  }
+
+  &__option {
+    min-height: 2.3rem;
+    min-width: 2.3rem;
+    border: 2px solid var(--gray);
+
+    &:hover {
+      border-color: var(--secondary-light);
+    }
+
+    &:not(:last-of-type) {
+      margin-right: .4rem;
+    }
+
+    &--selected:not(:disabled) {
+      border-color: var(--secondary);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      position: relative;
+
+      &::after {
+        content: 'x';
+        text-align: center;
+        font-size: 10px;
+        line-height: 1;
+        padding-top: 1.5px;
+        background: var(--danger);
+        color: var(--danger-yiq);
+        height: 14px;
+        width: 14px;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        top: -3px;
+        right: -3px;
+      }
+    }
+  }
+}

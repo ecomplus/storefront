@@ -1,0 +1,20 @@
+.ec-shipping {
+  &__input {
+    max-width: 150px;
+  }
+
+  &__services {
+    max-width: 350px;
+    font-size: .9rem;
+
+    .active {
+      cursor: auto;
+    }
+  }
+
+  &__option {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

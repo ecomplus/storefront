@@ -1,0 +1,46 @@
+<div
+  class="ec-prices"
+  :class="{ 'ec-prices--literal': literal, 'ec-prices--big': big }"
+>
+  <span v-if="comparePrice" class="ec-prices__compare">
+    <template v-if="literal">
+      {{ dictionary('from') }}
+      <s>{{ formatMoney(comparePrice) }}</s>
+      {{ dictionary('to') }}
+    </template>
+    <s v-else>{{ formatMoney(comparePrice) }}</s>
+  </span>
+
+  <strong class="ec-prices__value">
+    {{ formatMoney(price) }}
+  </strong>
+
+  <transition-group enter-active-class="animated slideInDown">
+    <div
+      key="installments"
+      v-if="interestFreeInstallments > 1"
+      class="ec-prices__installments"
+    >
+      {{ interestFreeInstallments }}x
+      <span>
+        {{ formatMoney(price / interestFreeInstallments) }}
+      </span>
+      <small v-if="literal">
+        {{ dictionary('interest_free') }}
+      </small>
+    </div>
+
+    <div
+      key="discount"
+      v-if="typeof priceWithDiscount === 'number' && priceWithDiscount < price"
+      class="ec-prices__discount"
+    >
+      <span>
+        {{ formatMoney(priceWithDiscount) }}
+      </span>
+      <small v-if="typeof discountLabel === 'string'">
+        {{ discountLabel }}
+      </small>
+    </div>
+  </transition-group>
+</div>
