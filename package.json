@@ -8,8 +8,7 @@
   "scripts": {
     "update": "lerna exec -- npm update && lerna exec -- npm ddp && lerna bootstrap",
     "serve": "lerna run --scope @ecomplus/storefront-template serve",
-    "build:site": "lerna run --scope @ecomplus/storefront-template build:site --stream",
-    "build:pkgs": "lerna run build --stream",
+    "preversion": "lerna run build --stream",
     "release": "lerna run build && lerna version"
   },
   "repository": {
