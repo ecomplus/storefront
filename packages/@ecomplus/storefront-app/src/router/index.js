@@ -10,7 +10,7 @@ const routes = [
     path: '/cart/:id?',
     name: 'cart',
     component: () => import(
-      /* webpackChunkName: "cart" */
+      /* webpackChunkName: "app-cart" */
       './../views/Cart.vue'
     )
   },
@@ -18,7 +18,7 @@ const routes = [
     path: '/checkout/:id?',
     name: 'checkout',
     component: () => import(
-      /* webpackChunkName: "checkout" */
+      /* webpackChunkName: "app-checkout" */
       './../views/Checkout.vue'
     )
   },
@@ -26,7 +26,7 @@ const routes = [
     path: '/confirmation/:id?',
     name: 'confirmation',
     component: () => import(
-      /* webpackChunkName: "confirmation" */
+      /* webpackChunkName: "app-confirmation" */
       './../views/Confirmation.vue'
     )
   },
@@ -34,7 +34,7 @@ const routes = [
     path: '/order/:number/:id?',
     name: 'order',
     component: () => import(
-      /* webpackChunkName: "order" */
+      /* webpackChunkName: "app-order" */
       './../views/Order.vue'
     )
   },
@@ -42,7 +42,7 @@ const routes = [
     path: '/account/:tab?',
     name: 'account',
     component: () => import(
-      /* webpackChunkName: "account" */
+      /* webpackChunkName: "app-account" */
       './../views/Account.vue'
     ),
     children: [
