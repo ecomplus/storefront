@@ -1,6 +1,6 @@
 const path = require('path')
 const recursiveCopy = require('@ecomplus/storefront-template/scripts/lib/recursive-copy')
-const templatePath = path.join(process.cwd(), '../../node_modules/@ecomplus/storefront-template/dist')
+const templatePath = path.join(__dirname, '../../../node_modules/@ecomplus/storefront-template/dist')
 const { dependencies, peerDependencies } = require('./package.json')
 const externals = require('@ecomplus/storefront-template/webpack.externals')
 const publicPath = require('./webpack.public-path')
@@ -10,7 +10,7 @@ const libMode = !devMode && process.argv.indexOf('--lib') > -1
 
 if (!devMode && !libMode) {
   // copy template assets
-  recursiveCopy(templatePath, path.join(process.cwd(), 'public'))
+  recursiveCopy(templatePath, path.join(__dirname, 'public'))
 }
 
 module.exports = {
