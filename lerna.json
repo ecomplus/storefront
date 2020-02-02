@@ -20,6 +20,7 @@
   "ignoreChanges": [
     "**/__fixtures__/**",
     "**/__tests__/**",
+    "**/docs/**",
     "**/*.md"
   ],
   "version": "independent"
