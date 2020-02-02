@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "update": "lerna exec -- npm update && lerna exec -- npm ddp && lerna bootstrap",
-    "serve": "lerna run --scope @ecomplus/storefront-template serve",
+    "serve": "lerna run --scope @ecomplus/storefront-template serve --stream",
     "preversion": "lerna run build --stream",
     "release": "lerna run build && lerna version"
   },
