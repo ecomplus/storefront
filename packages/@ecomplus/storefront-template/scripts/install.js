@@ -62,13 +62,6 @@ const copyFolder = ({
 })
 
 copyFolder({
-  dirTemplate: path.join(process.cwd(), 'node_modules/@ecomplus/storefront-app'),
-  pathFrom: 'dist/lib',
-  pathDest: 'template',
-  pathsTo: ['public'].concat(require('@ecomplus/storefront-app/webpack.public-path').split('/'))
-})
-
-copyFolder({
   dirTemplate: path.join(process.cwd(), 'node_modules/photoswipe'),
   pathFrom: 'dist/default-skin',
   pathDest: 'template',
