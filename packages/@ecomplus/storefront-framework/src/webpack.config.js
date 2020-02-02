@@ -92,7 +92,7 @@ const config = {
     path: paths.output,
     publicPath: '/',
     filename: '[name].js',
-    chunkFilename: '[chunkhash].js'
+    chunkFilename: '[contenthash].js'
   },
 
   optimization: {
@@ -102,7 +102,8 @@ const config = {
     // extract CSS to file
     new MiniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[chunkhash].css'
+      chunkFilename: '[contenthash].css',
+      ignoreOrder: true
     }),
     // handle Vue SFC
     new VueLoaderPlugin()
