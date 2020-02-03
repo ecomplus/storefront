@@ -21,6 +21,16 @@ const copyFolder = ({
   overwrite = true,
   mergeJson = false
 }) => {
+  if (!fs.existsSync(dirTemplate)) {
+    const slitedDirs = dirTemplate.split('node_modules')
+    if (slitedDirs.length > 1) {
+      dirTemplate = path.join(
+        slitedDirs[0],
+        '../../../node_modules',
+        slitedDirs.slice(1).join('/')
+      )
+    }
+  }
   const dirDest = path.join(dirBase, pathDest)
 
   if (dirTemplate === dirDest) {
