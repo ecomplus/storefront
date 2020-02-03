@@ -6,7 +6,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const templatePath = path.join(__dirname, '../../../node_modules/@ecomplus/storefront-snapshot')
 const { dependencies, peerDependencies } = require('./package.json')
-const externals = require('@ecomplus/storefront-template/webpack.externals')
+const externals = require('./../storefront-template/webpack.externals')
 
 const output = {
   library: 'widgetMinicart',
