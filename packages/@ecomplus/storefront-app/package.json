@@ -4,7 +4,7 @@
   "description": "Vue.js ecommerce app with cart, checkout and account pages",
   "main": "dist/lib/js/app.js",
   "scripts": {
-    "serve": "vue-cli-service serve src/test.js",
+    "serve": "vue-cli-service serve __tests__/index.js",
     "build": "vue-cli-service build --lib",
     "build:spa": "vue-cli-service build",
     "lint": "vue-cli-service lint",
