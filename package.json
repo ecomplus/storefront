@@ -28,7 +28,7 @@
     "@ecomplus/passport-client": "^1.0.6",
     "@ecomplus/search-engine": "^2.0.3",
     "@ecomplus/shopping-cart": "^2.1.1",
-    "@ecomplus/storefront-template": "^1.34.1",
+    "@ecomplus/storefront-snapshot": "^1.2.0",
     "@ecomplus/storefront-twbs": "^4.0.6",
     "@ecomplus/utils": "^1.2.8",
     "@ecomplus/widget-minicart": "^0.7.4",
