@@ -35,6 +35,7 @@
       process.env.ECOM_STORE_OBJECT_ID = '5b1abe30a4d4531b8fe40725'
     }
 
+    console.log(' \n')
     console.log(
       // magenta
       '\x1b[35m%s\x1b[0m',
