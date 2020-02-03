@@ -3,7 +3,7 @@
 'use strict'
 
 const pkg = require('./../package.json')
-console.log(`[INSTALL] ${pkg.name}@${pkg.version}`)
+console.log(` \n[INSTALL] ${pkg.name}@${pkg.version}`)
 
 const path = require('path')
 const fs = require('fs')
