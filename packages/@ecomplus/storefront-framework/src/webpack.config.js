@@ -107,7 +107,11 @@ const config = {
                 `$settings-theme: ${jsonSassVars.convertJs(settings.theme || {})}; `,
               sassOptions: {
                 // include path to import from node modules
-                includePaths: [paths.modules],
+                includePaths: [
+                  paths.modules,
+                  // monorepo support
+                  path.join(__dirname, '../../../../node_modules')
+                ],
                 importer (file, prev, done) {
                   if (file.startsWith('#template/')) {
                     return done({
