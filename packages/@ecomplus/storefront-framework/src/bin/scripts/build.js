@@ -8,6 +8,7 @@ const fs = require('fs')
 const path = require('path')
 const ejs = require('ejs')
 const paths = require('./../../lib/paths')
+const entry = require('./../../lib/entry')
 const recursiveReaddir = require('recursive-readdir')
 const mkdirp = require('mkdirp')
 const htmlMinifier = require('html-minifier')
@@ -17,67 +18,87 @@ const bundler = require('./../bundler')
 const renderer = require('./../../renderer')
 const { storeId, settings } = require('./../../lib/config')
 
-const prerender = (url, route) => new Promise(resolve => {
-  // debug
-  console.log()
-  console.log('----  //  ----')
-  console.log()
-  console.log(url)
-  if (route) {
-    console.log(JSON.stringify(route, null, 2))
-  }
-  // console colors
-  const clGreen = '\x1b[32m%s\x1b[0m'
-  const clYellow = '\x1b[33m%s\x1b[0m'
-  const clRed = '\x1b[31m%s\x1b[0m'
-
-  // prerender view
-  renderer(url, route)
-    .then(html => {
-      if (html) {
-        // try to minify HTML output
-        try {
-          const htmlMin = htmlMinifier.minify(html, {
-            collapseWhitespace: true,
-            removeComments: true,
-            removeAttributeQuotes: true
-          })
-          if (htmlMin) {
-            html = htmlMin
-          }
-        } catch (e) {
-          // skip minification
+bundler.then(async ({ assetsByChunkName }) => {
+  // map assets to replace from absolute filename to output chunk with hash
+  const entryAssetsReference = {}
+  for (const entryName in entry) {
+    if (entry[entryName] && Array.isArray(assetsByChunkName[entryName])) {
+      assetsByChunkName[entryName].forEach(outputFilename => {
+        const ext = outputFilename.split('.').pop()
+        if (ext !== 'map') {
+          // eg.: storefront.js => storefront.{hash}.js
+          entryAssetsReference[`${entryName}.${ext}`] = outputFilename
         }
+      })
+    }
+  }
 
-        // save HTML file on output folder
-        const filename = /\.x?(ht)?ml$/.test(paths.output) ? url : `${url}.html`
-        const filepath = path.join(paths.output, filename)
-        // create directories for if needed
-        mkdirp(path.dirname(filepath), err => {
-          if (!err) {
-            fs.writeFile(filepath, html, err => err ? console.error(clRed, err) : true)
-            console.log(clGreen, 'DONE')
-          } else {
-            console.error(clRed, err)
+  const prerender = (url, route) => new Promise(resolve => {
+    // debug
+    console.log(' \n----  //  ----\n ')
+    console.log(url)
+    if (route) {
+      console.log(JSON.stringify(route, null, 2))
+    }
+    // console colors
+    const clGreen = '\x1b[32m%s\x1b[0m'
+    const clYellow = '\x1b[33m%s\x1b[0m'
+    const clRed = '\x1b[31m%s\x1b[0m'
+
+    // prerender view
+    renderer(url, route)
+      .then(html => {
+        if (html) {
+          // try to minify HTML output
+          try {
+            const htmlMin = htmlMinifier.minify(html, {
+              collapseWhitespace: true,
+              removeComments: true,
+              removeAttributeQuotes: true
+            })
+            if (htmlMin) {
+              html = htmlMin
+              // start replacing entry files references with respective outputs
+              for (const referenceFilename in entryAssetsReference) {
+                const outputFilename = entryAssetsReference[referenceFilename]
+                if (outputFilename) {
+                  const filenameRegex = new RegExp(`(=/)?${referenceFilename}(\\s)?`, 'g')
+                  html = html.replace(filenameRegex, `$1${outputFilename}$2`)
+                }
+              }
+            }
+          } catch (e) {
+            // skip minification
           }
+
+          // save HTML file on output folder
+          const filename = /\.x?(ht)?ml$/.test(paths.output) ? url : `${url}.html`
+          const filepath = path.join(paths.output, filename)
+          // create directories for if needed
+          mkdirp(path.dirname(filepath), err => {
+            if (!err) {
+              fs.writeFile(filepath, html, err => err ? console.error(clRed, err) : true)
+              console.log(clGreen, 'DONE')
+            } else {
+              console.error(clRed, err)
+            }
+            resolve()
+          })
+        } else if (html === false) {
+          throw new Error('Render returns false')
+        } else {
+          console.log(clYellow, `Render output: ${JSON.stringify(html)}`)
           resolve()
-        })
-      } else if (html === false) {
-        throw new Error('Render returns false')
-      } else {
-        console.log(clYellow, `Render output: ${JSON.stringify(html)}`)
-        resolve()
-      }
-    })
+        }
+      })
 
-    .catch(err => {
-      console.error(clRed, err)
-      // exit with failure
-      process.exit(1)
-    })
-})
+      .catch(err => {
+        console.error(clRed, err)
+        // exit with failure
+        process.exit(1)
+      })
+  })
 
-bundler.then(async () => {
   // list and prerender all storefront routes
   const router = new StorefrontRouter(storeId)
   const routes = await router.list()
@@ -130,7 +151,7 @@ bundler.then(async () => {
 
   if (!routes.find(({ path }) => path === '/sitemap.xml')) {
     // generate Sitemap
-    const sitemapSrc = path.join(__dirname, '..', '..', 'assets', 'sitemap.xml.ejs')
+    const sitemapSrc = path.join(__dirname, '../../assets/sitemap.xml.ejs')
     ejs.renderFile(sitemapSrc, { domain: settings.domain, routes }, (err, xml) => {
       if (err) {
         console.error(err)

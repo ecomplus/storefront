@@ -13,7 +13,7 @@ const browserSync = require('browser-sync').create()
 const renderer = require('./../renderer')
 
 // setup Browsersync server together with Webpack
-bundler.then(compiler => {
+bundler.then(({ compiler }) => {
   // get server port from CLI args
   let port
   for (let i = 0; i < process.argv.length; i++) {

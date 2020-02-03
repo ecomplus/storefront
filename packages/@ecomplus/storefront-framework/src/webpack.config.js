@@ -3,6 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const paths = require('./lib/paths')
+const entry = require('./lib/entry')
 const jsonSassVars = require('json-sass-vars')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -32,41 +33,8 @@ try {
   console.error(err)
 }
 
-// entry files
-const entry = {}
-// default module first
-entry.storefront = [path.resolve(paths.scss, 'styles.scss')]
-if (!devMode && !process.env.WEBPACK_BUILD_DEV) {
-  // start service worker on production only
-  entry.storefront.push(path.resolve(__dirname, 'assets/starter.js'))
-}
-// index.js must be the last to export lib correctly if any
-entry.storefront.push(path.resolve(paths.js, 'index.js'))
-
-// additional modules
-;['scss', 'js'].forEach(filetype => {
-  const srcPath = paths[filetype]
-  const ext = `.${filetype}`
-  fs.readdirSync(srcPath).forEach(file => {
-    switch (file) {
-      case 'index.js':
-      case 'styles.scss':
-        // already included on default module
-        break
-      default:
-        if (file.endsWith(ext) && !file.startsWith('_')) {
-          const name = file.replace(ext, '')
-          if (!entry[name]) {
-            const filepath = path.resolve(srcPath, file)
-            // ensure it's not a directory
-            if (!fs.statSync(filepath).isDirectory()) {
-              entry[name] = filepath
-            }
-          }
-        }
-    }
-  })
-})
+// base output name for entry files on production
+const filenameSchema = process.env.WEBPACK_OUTPUT_FILENAME || '[name].[contenthash]'
 
 // setup base Webpack config object
 const config = {
@@ -91,7 +59,7 @@ const config = {
   output: {
     path: paths.output,
     publicPath: '/',
-    filename: '[name].js',
+    filename: devMode ? '[name].js' : `${filenameSchema}.js`,
     chunkFilename: '[contenthash].js'
   },
 
@@ -101,7 +69,7 @@ const config = {
   plugins: [
     // extract CSS to file
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: devMode ? '[name].css' : `${filenameSchema}.css`,
       chunkFilename: '[contenthash].css',
       ignoreOrder: true
     }),
