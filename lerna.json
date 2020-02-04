@@ -11,6 +11,7 @@
     "version": {
       "allowBranch": "master",
       "conventionalCommits": true,
+      "createRelease": "github",
       "gitRemote": "origin",
       "message": "chore(release): publish",
       "preid": "beta"
