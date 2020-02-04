@@ -10,7 +10,7 @@
     "serve": "lerna run --scope @ecomplus/storefront-template serve --stream",
     "build": "lerna run --scope @ecomplus/storefront-template build --stream",
     "preversion": "lerna run build --stream",
-    "release": "GITHUB_TOKEN=$(grep GITHUB_TOKEN .env | cut -d '=' -f2) lerna version --create-release github"
+    "release": "GH_TOKEN=$(grep GH_TOKEN .env | cut -d '=' -f2) lerna publish from-git"
   },
   "repository": {
     "type": "git",
