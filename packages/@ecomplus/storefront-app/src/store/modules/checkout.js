@@ -1,5 +1,6 @@
 import ecomCart from '@ecomplus/shopping-cart'
 import ecomClient from '@ecomplus/client'
+import { price as getPrice } from '@ecomplus/utils'
 import baseModulesRequestData from './../../lib/base-modules-request-data'
 
 const fixMoneyValue = num => Math.round(num * 100) / 100
@@ -164,9 +165,11 @@ const actions = {
                 Object.assign(data, variation)
               }
             }
+            const price = getPrice(data)
             Object.assign(item, data, {
               variations: [],
-              final_price: data.price,
+              price,
+              final_price: price,
               quantity: 0,
               body_html: '',
               body_text: ''
