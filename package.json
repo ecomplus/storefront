@@ -10,7 +10,7 @@
     "serve": "lerna run --scope @ecomplus/storefront-template serve --stream",
     "build": "lerna run --scope @ecomplus/storefront-template build --stream",
     "preversion": "lerna run build --stream",
-    "release": "node -r dotenv/config lerna version --create-release github"
+    "release": "GITHUB_TOKEN=$(grep GITHUB_TOKEN .env | cut -d '=' -f2) lerna version --create-release github"
   },
   "repository": {
     "type": "git",
@@ -48,7 +48,6 @@
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
-    "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.1.2",
     "file-loader": "^5.0.2",
