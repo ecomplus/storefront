@@ -14,7 +14,6 @@ grunt custom:\
 -queue/delay,\
 +attributes,\
 +event,\
-+event/alias,\
 +event/trigger,\
 +manipulation,\
 -manipulation/_evalUrl,\
