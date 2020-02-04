@@ -36,7 +36,51 @@ try {
 // base output name for entry files on production
 const filenameSchema = process.env.WEBPACK_OUTPUT_FILENAME || '[name].[contenthash]'
 
-// setup base Webpack config object
+// setup base loaders for styles module
+// parse SCSS and fix compiled CSS with Postcss
+const baseScssModule = [
+  'css-loader',
+
+  {
+    loader: 'postcss-loader',
+    options: {
+      ident: 'postcss',
+      minimize: !devMode,
+      plugins: [
+        require('autoprefixer')(),
+        require('cssnano')({ preset: 'default' })
+      ]
+    }
+  },
+
+  {
+    loader: 'sass-loader',
+    options: {
+      // inject brand colors
+      prependData: `$primary: ${primaryColor}; ` +
+        `$secondary: ${secondaryColor}; ` +
+        `$settings-theme: ${jsonSassVars.convertJs(settings.theme || {})}; `,
+      sassOptions: {
+        // include path to import from node modules
+        includePaths: [
+          paths.modules,
+          // monorepo support
+          path.join(__dirname, '../../../../node_modules')
+        ],
+        importer (file, prev, done) {
+          if (file.startsWith('#template/')) {
+            return done({
+              file: path.join(paths.modules, templatePkg, file.substr(1))
+            })
+          }
+          done({ file })
+        }
+      }
+    }
+  }
+]
+
+// starter Webpack config object
 const config = {
   mode: devMode ? 'development' : 'production',
   stats: {
@@ -79,51 +123,16 @@ const config = {
 
   module: {
     rules: [
-      // parse SCSS and fix compiled CSS with Postcss
+      // extract CSS only for SCSS entries
+      // prevents multiple CSS files (per Vue component)
       {
         test: /\.s?css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              minimize: !devMode,
-              plugins: [
-                require('autoprefixer')(),
-                require('cssnano')({ preset: 'default' })
-              ]
-            }
-          },
-
-          {
-            loader: 'sass-loader',
-            options: {
-              // inject brand colors
-              prependData: `$primary: ${primaryColor}; ` +
-                `$secondary: ${secondaryColor}; ` +
-                `$settings-theme: ${jsonSassVars.convertJs(settings.theme || {})}; `,
-              sassOptions: {
-                // include path to import from node modules
-                includePaths: [
-                  paths.modules,
-                  // monorepo support
-                  path.join(__dirname, '../../../../node_modules')
-                ],
-                importer (file, prev, done) {
-                  if (file.startsWith('#template/')) {
-                    return done({
-                      file: path.join(paths.modules, templatePkg, file.substr(1))
-                    })
-                  }
-                  done({ file })
-                }
-              }
-            }
-          }
-        ]
+        oneOf: [{
+          resourceQuery: /^\?vue/,
+          use: ['vue-style-loader'].concat(baseScssModule)
+        }, {
+          use: [MiniCssExtractPlugin.loader].concat(baseScssModule)
+        }]
       },
 
       // transpile and polyfill JS with Babel

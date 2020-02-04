@@ -25,7 +25,7 @@ module.exports = new Promise((resolve, reject) => {
 
     // resolve with compiler itself and output chunks map
     resolve({ compiler, assetsByChunkName })
-    console.log(`\n \n--> Webpack compilation time: ${time}ms\n \n`)
+    console.log(`--> Webpack compilation time: ${time}ms\n \n`)
   })
 })
 
