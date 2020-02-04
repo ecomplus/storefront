@@ -72,17 +72,17 @@ const copyFolder = ({
 })
 
 copyFolder({
+  dirTemplate: path.join(__dirname, '../template'),
+  pathFrom: 'public/assets',
+  pathDest: 'template',
+  pathsTo: ['public', 'assets']
+})
+
+copyFolder({
   dirTemplate: path.join(process.cwd(), 'node_modules/photoswipe'),
   pathFrom: 'dist/default-skin',
   pathDest: 'template',
   pathsTo: ['public', 'assets', 'vendor', 'photoswipe']
-})
-
-copyFolder({
-  dirTemplate: path.join(__dirname, '../template'),
-  pathFrom: 'public/cms-preview.css',
-  pathDest: 'template',
-  pathsTo: ['public']
 })
 
 console.log('[DONE] @ecomplus/storefront-template')
