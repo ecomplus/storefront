@@ -27,7 +27,13 @@ bundler.then(async ({ assetsByChunkName }) => {
         const ext = outputFilename.split('.').pop()
         if (ext !== 'map') {
           // eg.: storefront.js => storefront.{hash}.js
-          entryAssetsReference[`${entryName}.${ext}`] = outputFilename
+          const refFilename = `${entryName}.${ext}`
+          entryAssetsReference[refFilename] = outputFilename
+          // copy file as fallback
+          fs.copyFileSync(
+            path.join(paths.output, outputFilename),
+            path.join(paths.output, refFilename)
+          )
         }
       })
     }
