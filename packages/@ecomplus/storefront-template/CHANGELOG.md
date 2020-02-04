@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.3](https://github.com/ecomclub/storefront-template/compare/@ecomplus/storefront-template@1.34.2...@ecomplus/storefront-template@1.34.3) (2020-02-04)
+
+
+### Bug Fixes
+
+* **install:** copy entire public/assets folder ([83992b6](https://github.com/ecomclub/storefront-template/commit/83992b6f4dee587fc16d540ccd51dd3fb4241f9b))
+
+
+
+
+
 ## 1.34.2 (2020-02-04)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.1](https://github.com/ecomclub/storefront-framework/compare/@ecomplus/storefront-framework@5.7.0...@ecomplus/storefront-framework@5.7.1) (2020-02-04)
+
+
+### Bug Fixes
+
+* **build:** copy entry files to reference filename (no hash) as fallback ([03184d6](https://github.com/ecomclub/storefront-framework/commit/03184d60df43a61b3a43d6b59321503e7d5e9d72))
+
+
+
+
+
 # 5.7.0 (2020-02-04)
 
 
