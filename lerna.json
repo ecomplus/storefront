@@ -12,7 +12,7 @@
       "allowBranch": "master",
       "conventionalCommits": true,
       "gitRemote": "origin",
-      "message": "chore(release): %s",
+      "message": "chore(release): publish",
       "preid": "beta"
     }
   },
