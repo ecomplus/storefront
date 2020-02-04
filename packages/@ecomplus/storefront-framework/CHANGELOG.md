@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.2](https://github.com/ecomclub/storefront-framework/compare/@ecomplus/storefront-framework@5.7.1...@ecomplus/storefront-framework@5.7.2) (2020-02-04)
+
+
+### Performance Improvements
+
+* **webpack:** extract CSS only for SCSS entries (prevent multiple css) ([fbc1b94](https://github.com/ecomclub/storefront-framework/commit/fbc1b94e73cae9044c6e3b9265f2b9ac27d04174))
+
+
+
+
+
 ## [5.7.1](https://github.com/ecomclub/storefront-framework/compare/@ecomplus/storefront-framework@5.7.0...@ecomplus/storefront-framework@5.7.1) (2020-02-04)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.4](https://github.com/ecomclub/storefront-template/compare/@ecomplus/storefront-template@1.34.3...@ecomplus/storefront-template@1.34.4) (2020-02-04)
+
+
+### Bug Fixes
+
+* **checkout:** remove no more compiled (not fouund) checkout.css entry ([d9a5126](https://github.com/ecomclub/storefront-template/commit/d9a5126c889cc67e37b679dc5e378e9887a95f82))
+
+
+
+
+
 ## [1.34.3](https://github.com/ecomclub/storefront-template/compare/@ecomplus/storefront-template@1.34.2...@ecomplus/storefront-template@1.34.3) (2020-02-04)
 
 
