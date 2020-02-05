@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "node ./setup.js",
-    "update:all": "lerna exec -- npm update && lerna exec -- npm ddp && lerna bootstrap --hoist",
+    "update:all": "npm update && npm ddp && lerna exec -- npm update && lerna bootstrap --hoist",
     "serve": "lerna run --scope @ecomplus/storefront-template serve --stream",
     "build": "lerna run --scope @ecomplus/storefront-template build --stream",
     "preversion": "lerna run build --since",
