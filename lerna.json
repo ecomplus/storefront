@@ -1,11 +1,11 @@
 {
   "packages": [
-    "packages/*",
-    "packages/*/*"
+    "@ecomplus/*"
   ],
   "command": {
     "create": {
       "homepage": "https://github.com/ecomclub/storefront#readme",
+      "author": "E-Com Club <ti@e-com.club>",
       "license": "MIT"
     },
     "version": {

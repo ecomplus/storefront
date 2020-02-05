@@ -11,7 +11,7 @@ const cssnano = require('cssnano')
 const devMode = NODE_ENV !== 'production'
 
 const { webpackOutput } = require(path.join(INIT_CWD, './package.json'))
-const externals = require('./packages/@ecomplus/storefront-template/webpack.externals')
+const externals = require('./@ecomplus/storefront-template/webpack.externals')
 const templatePath = path.join(__dirname, './node_modules/@ecomplus/storefront-snapshot')
 
 const output = {

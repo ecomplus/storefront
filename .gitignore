@@ -1,9 +1,9 @@
-/packages/*/LICENSE
-/packages/*/*/LICENSE
-/packages/*/dist
-/packages/*/*/dist
-/packages/**/.serve
-/packages/**/commitlint.config.js
+*/*/LICENSE
+*/*/*/LICENSE
+*/*/dist
+*/*/*/dist
+*/**/.serve
+*/**/commitlint.config.js
 
 **/@ecomplus/storefront-*/copy
 **/@ecomplus/storefront-*/storefront-template

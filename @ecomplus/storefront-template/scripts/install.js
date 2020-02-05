@@ -26,7 +26,7 @@ const copyFolder = ({
     if (slitedDirs.length > 1) {
       dirTemplate = path.join(
         slitedDirs[0],
-        '../../../node_modules',
+        '../../node_modules',
         slitedDirs.slice(1).join('/')
       )
     }

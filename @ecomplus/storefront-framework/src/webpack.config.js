@@ -65,7 +65,7 @@ const baseScssModule = [
         includePaths: [
           paths.modules,
           // monorepo support
-          path.join(__dirname, '../../../../node_modules')
+          path.join(__dirname, '../../../node_modules')
         ],
         importer (file, prev, done) {
           if (file.startsWith('#template/')) {

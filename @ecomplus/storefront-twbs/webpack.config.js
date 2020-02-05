@@ -20,7 +20,7 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: path.resolve(__dirname, 'test'),
+    contentBase: path.resolve(__dirname, '__tests__'),
     port: 3376,
     open: true
   },
