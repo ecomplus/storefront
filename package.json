@@ -6,8 +6,7 @@
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "scripts": {
-    "postinstall": "node ./setup.js",
-    "update:all": "npm update && npm ddp && lerna exec -- npm update && lerna bootstrap --hoist",
+    "postinstall": "lerna bootstrap --hoist && node ./setup.js",
     "serve": "lerna run --scope @ecomplus/storefront-template serve --stream",
     "build": "lerna run --scope @ecomplus/storefront-template build --stream",
     "preversion": "lerna run build --since",
@@ -71,7 +70,7 @@
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.2"
+    "webpack-dev-server": "^3.10.3"
   },
   "husky": {
     "hooks": {
