@@ -1,0 +1,32 @@
+{
+  "name": "@ecomplus/storefront-components",
+  "version": "0.1.0",
+  "description": "Vue components for E-Com Plus Storefront",
+  "main": "dist/storefront-components.min.js",
+  "jsdelivr": "dist/public/storefront-components.var.min.js",
+  "unpkg": "dist/public/storefront-components.var.min.js",
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "serve": "echo \"Info: run serve for template or app from root\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomclub/storefront.git"
+  },
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "ecommerce",
+    "vue-components",
+    "ui",
+    "vue-ui",
+    "vue",
+    "store-theme"
+  ],
+  "homepage": "https://github.com/ecomclub/storefront/tree/master/@ecomplus/storefront-components#readme",
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomclub/storefront/issues"
+  }
+}
