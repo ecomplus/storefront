@@ -5,13 +5,12 @@
   "main": "dist/storefront-twbs.min.js",
   "browser": "dist/storefront-twbs.min.js",
   "scripts": {
-    "build": "bash ./setup.sh && NODE_ENV=production webpack",
-    "serve": "bash ./setup.sh && webpack-dev-server",
-    "release": "rm -rf ./dist && standard-version --prerelease alpha && npm run build"
+    "build": "NODE_ENV=production webpack",
+    "serve": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/storefront-twbs.git"
+    "url": "git+https://github.com/ecomclub/storefront.git"
   },
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",

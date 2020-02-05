@@ -8,12 +8,11 @@
   },
   "scripts": {
     "build": "node ./bin.js build",
-    "serve": "node ./bin.js serve",
-    "release": "npm ddp && standard-version"
+    "serve": "node ./bin.js serve"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/storefront-framework.git"
+    "url": "git+https://github.com/ecomclub/storefront.git"
   },
   "keywords": [
     "ecomplus",
@@ -30,9 +29,9 @@
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/storefront-framework/issues"
+    "url": "https://github.com/ecomclub/storefront/issues"
   },
-  "homepage": "https://github.com/ecomclub/storefront-framework#readme",
+  "homepage": "https://github.com/ecomclub/storefront#readme",
   "dependencies": {
     "@babel/core": "^7.8.4",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
@@ -70,15 +69,5 @@
     "webpack-merge": "^4.2.2",
     "webpack-pwa-manifest": "^4.1.1",
     "workbox-webpack-plugin": "^4.3.1"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "browserslist": [
-    "last 1 version",
-    "not dead",
-    "> 0.2%"
-  ]
+  }
 }

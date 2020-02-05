@@ -9,12 +9,11 @@
   "unpkg": "dist/public/widget-user.var.min.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
-    "serve": "webpack-dev-server",
-    "release": "rm -rf ./dist && npm ddp && npm run build && standard-version"
+    "serve": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/widget-user.git"
+    "url": "git+https://github.com/ecomclub/storefront.git"
   },
   "keywords": [
     "ecomplus",
@@ -26,14 +25,18 @@
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/widget-user/issues"
+    "url": "https://github.com/ecomclub/storefront/issues"
   },
-  "homepage": "https://github.com/ecomclub/widget-user#readme",
+  "homepage": "https://github.com/ecomclub/storefront#readme",
   "peerDependencies": {
     "@ecomplus/passport-client": "1.x",
     "@ecomplus/storefront-twbs": "4.x",
     "@ecomplus/utils": "^1.2.0",
     "core-js": "3.x",
     "vue": ">=2 <4"
+  },
+  "webpackOutput": {
+    "library": "widgetUser",
+    "filename": "widget-user.min.js"
   }
 }

@@ -9,12 +9,11 @@
   "unpkg": "dist/public/widget-trustvox.var.min.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
-    "serve": "webpack-dev-server",
-    "release": "rm -rf ./dist && npm ddp && npm run build && standard-version"
+    "serve": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/widget-trustvox.git"
+    "url": "git+https://github.com/ecomclub/storefront.git"
   },
   "keywords": [
     "ecomplus",
@@ -26,10 +25,14 @@
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/widget-trustvox/issues"
+    "url": "https://github.com/ecomclub/storefront/issues"
   },
-  "homepage": "https://github.com/ecomclub/widget-trustvox#readme",
+  "homepage": "https://github.com/ecomclub/storefront#readme",
   "peerDependencies": {
     "core-js": "3.x"
+  },
+  "webpackOutput": {
+    "library": "widgetTrustvox",
+    "filename": "widget-trustvox.min.js"
   }
 }

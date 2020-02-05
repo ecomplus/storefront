@@ -6,13 +6,11 @@
   "scripts": {
     "serve": "vue-cli-service serve __tests__/index.js",
     "build": "vue-cli-service build --lib",
-    "build:spa": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "release": "npm ddp && standard-version && npm run build"
+    "build:spa": "vue-cli-service build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/storefront-app.git"
+    "url": "git+https://github.com/ecomclub/storefront.git"
   },
   "keywords": [
     "ecomplus",
@@ -26,9 +24,9 @@
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/storefront-app/issues"
+    "url": "https://github.com/ecomclub/storefron/issues"
   },
-  "homepage": "https://github.com/ecomclub/storefront-app#readme",
+  "homepage": "https://github.com/ecomclub/storefront#readme",
   "peerDependencies": {
     "@ecomplus/utils": "^1.2.0",
     "core-js": "3.x"
@@ -51,18 +49,9 @@
     "vue2-transitions": "^0.3.0",
     "vuex": "^3.1.2"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,vue}": [
-      "vue-cli-service lint",
-      "git add"
+  "babel": {
+    "presets": [
+      "@vue/cli-plugin-babel/preset"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   }
 }
