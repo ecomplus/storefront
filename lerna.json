@@ -13,7 +13,7 @@
       "conventionalCommits": true,
       "createRelease": "github",
       "gitRemote": "origin",
-      "message": "chore(release): publish",
+      "message": "chore(release): publish :tada:",
       "preid": "beta"
     }
   },
