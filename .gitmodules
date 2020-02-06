@@ -1,3 +1,0 @@
-[submodule "@ecomplus/storefront-twbs/src/jquery"]
-	path = @ecomplus/storefront-twbs/src/jquery
-	url = https://github.com/jquery/jquery
