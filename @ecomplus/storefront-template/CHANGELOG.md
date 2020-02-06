@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.6](https://github.com/ecomclub/storefront/compare/@ecomplus/storefront-template@1.34.5...@ecomplus/storefront-template@1.34.6) (2020-02-06)
+
+
+### Bug Fixes
+
+* **checkout:** add loading spinner for cart/checkout spa ([c2dd065](https://github.com/ecomclub/storefront/commit/c2dd065cb73c60184291990581caba1eba739500))
+
+
+
+
+
 ## [1.34.5](https://github.com/ecomclub/storefront/compare/@ecomplus/storefront-template@1.34.4...@ecomplus/storefront-template@1.34.5) (2020-02-05)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

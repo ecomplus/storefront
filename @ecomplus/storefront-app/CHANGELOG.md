@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.6](https://github.com/ecomclub/storefront/compare/@ecomplus/storefront-app@1.11.5...@ecomplus/storefront-app@1.11.6) (2020-02-06)
+
+
+### Bug Fixes
+
+* **credit-card:** save bin formatted with v-model to prevent breaks ([c426d03](https://github.com/ecomclub/storefront/commit/c426d034dfbe324bb016a0463f308fdd619e2a6d))
+
+
+
+
+
 ## [1.11.5](https://github.com/ecomclub/storefront/compare/@ecomplus/storefront-app@1.11.4...@ecomplus/storefront-app@1.11.5) (2020-02-05)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
