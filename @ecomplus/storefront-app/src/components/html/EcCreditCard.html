@@ -13,7 +13,8 @@
         class="form-control"
         :class="!numberPotentiallyValid && alert.bin ? 'is-invalid': null"
         id="ec-credit-card-bin"
-        v-model="card.bin"
+        v-model="formattedCardBin"
+        :raw="false"
         @blur="alert.bin = card.bin && !numberPotentiallyValid"
         :options="{ creditCard: true }"
         required

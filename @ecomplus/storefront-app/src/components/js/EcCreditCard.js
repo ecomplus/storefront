@@ -67,6 +67,7 @@ export default {
 
   data () {
     return {
+      formattedCardBin: '',
       card: {
         bin: '',
         name: '',
@@ -191,7 +192,8 @@ export default {
             number: bin,
             cvc: cvv,
             month: date.substr(0, 2),
-            year: date.substr(2, 2)
+            year: date.substr(2, 2),
+            brand: this.activeBrand
           })
         }
         return ''
@@ -273,9 +275,13 @@ export default {
   },
 
   watch: {
+    formattedCardBin (bin) {
+      this.card.bin = bin.replace(/\D/g, '')
+    },
+
     'card.bin' (bin) {
       this.numberValidated = this.numberPotentiallyValid = false
-      const numberCheck = cardValidator.number(bin.replace(/\D/g, ''))
+      const numberCheck = cardValidator.number(bin)
       if (numberCheck.isPotentiallyValid && numberCheck.card) {
         this.activeBrand = numberCheck.card.type
         if (numberCheck.isValid) {
