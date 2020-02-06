@@ -15,9 +15,6 @@
       "gitRemote": "origin",
       "message": "chore(release): publish :tada:",
       "preid": "beta"
-    },
-    "publish": {
-      "registry": "https://npm.pkg.github.com"
     }
   },
   "ignoreChanges": [
