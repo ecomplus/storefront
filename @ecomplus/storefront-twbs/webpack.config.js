@@ -6,18 +6,20 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = {
+const output = {
+  library: '__storefront_twbs',
+  libraryTarget: 'umd',
+  path: path.resolve(__dirname, 'dist'),
+  filename: 'storefront-twbs.min.js'
+}
+
+const webpackConfig = {
   mode: devMode ? 'development' : 'production',
   entry: [
     path.resolve(__dirname, 'scss/styles.scss'),
     path.resolve(__dirname, 'src/index.js')
   ],
-  output: {
-    library: '__storefront_twbs',
-    libraryTarget: 'umd',
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'storefront-twbs.min.js'
-  },
+  output,
 
   devServer: {
     contentBase: path.resolve(__dirname, '__tests__'),
@@ -68,7 +70,23 @@ module.exports = {
 
   resolve: {
     alias: {
-      jquery$: 'jquery/dist/jquery.slim'
+      jquery$: 'jquery/dist/jquery.slim',
+      '@ecomplus/storefront-twbs': __dirname
     }
   }
 }
+
+module.exports = [
+  {
+    ...webpackConfig,
+    entry: path.resolve(__dirname, 'src/index.js'),
+    output: {
+      ...output,
+      libraryTarget: 'var',
+      filename: output.filename.replace('.min.js', '.var.min.js'),
+      path: path.resolve(output.path, 'public')
+    }
+  },
+
+  webpackConfig
+]
