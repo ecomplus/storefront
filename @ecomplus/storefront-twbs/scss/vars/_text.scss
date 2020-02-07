@@ -1,0 +1,12 @@
+& {
+  --text-muted: #{$text-muted};
+
+  --font-weight-light: #{$font-weight-light};
+  --font-weight-normal: #{$font-weight-normal};
+  --font-weight-bold: #{$font-weight-bold};
+
+  // Use `inspect` for lists so that quoted items keep the quotes
+  // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
+  --font-family-sans-serif: #{inspect($font-family-sans-serif)};
+  --font-family-monospace: #{inspect($font-family-monospace)};
+}

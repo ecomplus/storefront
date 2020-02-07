@@ -1,0 +1,17 @@
+& {
+  @each $color, $value in $colors {
+    --#{$color}: #{$value};
+  }
+
+  @each $color, $value in $theme-colors {
+    --#{$color}: #{$value};
+    --#{$color}-yiq: #{color-yiq($value)};
+    --#{$color}-rgb: #{red($value)}, #{green($value)}, #{blue($value)};
+  }
+
+  @each $color, $value in $brand-colors {
+    --#{$color}: #{$value};
+    --#{$color}-yiq: #{color-yiq($value)};
+    --#{$color}-rgb: #{red($value)}, #{green($value)}, #{blue($value)};
+  }
+}

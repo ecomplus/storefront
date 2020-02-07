@@ -1,0 +1,13 @@
+// Brand colors
+$primary:   #e83e8c !default;
+$secondary: #333333 !default;
+
+// Map brand colors pallete
+$brand-colors: (
+  "primary-lightest": lighten($primary, 33%),
+  "primary-lighter": lighten($primary, 21%),
+  "primary-light": lighten($primary, 10%),
+  "secondary-lightest": lighten($secondary, 33%),
+  "secondary-lighter": lighten($secondary, 21%),
+  "secondary-light": lighten($secondary, 10%)
+);

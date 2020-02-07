@@ -1,0 +1,5 @@
+& {
+  @each $size, $length in $spacers {
+    --spacer-#{$size}: #{$length};
+  }
+}

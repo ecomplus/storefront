@@ -4,19 +4,26 @@
 // Enable RFS by default
 $enable-responsive-font-sizes: true !default;
 
-// Brand colors
-$primary:   #e83e8c !default;
-$secondary: #333333 !default;
+// Preset custom SCSS variables
+@import "variables";
 
-// Required Bootstrap SASS files
+// Required Bootstrap SASS
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
 
-// Custom root with additional CSS vars for brand colors
-@import "root";
+// Custom root with additional CSS vars
+:root {
+  @import "vars/body";
+  @import "vars/colors";
+  @import "vars/breakpoints";
+  @import "vars/borders";
+  @import "vars/shadows";
+  @import "vars/spacing";
+  @import "vars/text";
+}
 
-// Bootstrap components and utils
+// Base Bootstrap components
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/type";
 @import "bootstrap/scss/images";
@@ -48,7 +55,25 @@ $secondary: #333333 !default;
 @import "bootstrap/scss/popover";
 // @import "bootstrap/scss/carousel";
 @import "bootstrap/scss/spinners";
-@import "bootstrap/scss/utilities";
+
+// Additional Bootstrap utilities
+// @import "bootstrap/scss/utilities/align";
+// @import "bootstrap/scss/utilities/background";
+// @import "bootstrap/scss/utilities/borders";
+@import "bootstrap/scss/utilities/clearfix";
+@import "bootstrap/scss/utilities/display";
+@import "bootstrap/scss/utilities/embed";
+// @import "bootstrap/scss/utilities/flex";
+// @import "bootstrap/scss/utilities/float";
+// @import "bootstrap/scss/utilities/overflow";
+@import "bootstrap/scss/utilities/position";
+@import "bootstrap/scss/utilities/screenreaders";
+// @import "bootstrap/scss/utilities/shadows";
+// @import "bootstrap/scss/utilities/sizing";
+@import "bootstrap/scss/utilities/stretched-link";
+// @import "bootstrap/scss/utilities/spacing";
+// @import "bootstrap/scss/utilities/text";
+// @import "bootstrap/scss/utilities/visibility";
 @import "bootstrap/scss/print";
 
 // Animate.css base styles and selected animations

@@ -1,0 +1,10 @@
+& {
+  --border-width: #{$border-width};
+  --border-color: #{$border-color};
+
+  --border-radius-sm: #{$border-radius-sm};
+  --border-radius: #{$border-radius};
+  --border-radius-lg: #{$border-radius-lg};
+
+  --rounded-pill: #{$rounded-pill};
+}
