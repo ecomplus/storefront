@@ -2,8 +2,11 @@
   "name": "@ecomplus/storefront-twbs",
   "version": "5.0.1",
   "description": "Bootstrap + Animate.css + FontAwesome wrapper for E-Com Plus Storefront",
-  "main": "dist/storefront-twbs.min.js",
+  "module": "src/index.js",
   "browser": "dist/storefront-twbs.min.js",
+  "main": "dist/storefront-twbs.min.js",
+  "jsdelivr": "dist/public/storefront-twbs.var.min.js",
+  "unpkg": "dist/public/storefront-twbs.var.min.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "serve": "webpack-dev-server"
@@ -12,15 +15,20 @@
     "type": "git",
     "url": "git+https://github.com/ecomclub/storefront.git"
   },
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "ecommerce",
+    "store-theme",
+    "bootstrap",
+    "twbs",
+    "font-awesome",
+    "animate-css"
+  ],
+  "homepage": "https://github.com/ecomclub/storefront/tree/master/@ecomplus/storefront-twbs#readme",
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ecomclub/storefront-twbs/issues"
-  },
-  "homepage": "https://github.com/ecomclub/storefront-twbs#readme",
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   }
 }
