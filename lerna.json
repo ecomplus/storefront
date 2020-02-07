@@ -14,7 +14,7 @@
       "createRelease": "github",
       "gitRemote": "origin",
       "message": "chore(release): publish :tada:",
-      "preid": "beta"
+      "preid": "rc"
     }
   },
   "ignoreChanges": [
