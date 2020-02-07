@@ -1,4 +1,4 @@
-export default function ($el, animationName) {
+var animateCss = function ($el, animationName) {
   return new Promise(function (resolve) {
     function handleAnimationEnd () {
       $el.classList.remove('animated', animationName)
@@ -10,3 +10,7 @@ export default function ($el, animationName) {
     $el.addEventListener('animationend', handleAnimationEnd)
   })
 }
+
+window.animateCss = animateCss
+
+export default animateCss
