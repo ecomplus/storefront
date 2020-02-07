@@ -7,7 +7,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const output = {
-  library: '__storefront_twbs',
+  library: '__storefrontTwbs',
   libraryTarget: 'umd',
   path: path.resolve(__dirname, 'dist'),
   filename: 'storefront-twbs.min.js'
