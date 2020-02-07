@@ -1,1 +1,5 @@
-export default 'jquery/dist/jquery.slim'
+import $ from 'jquery/dist/jquery.slim'
+
+window.$ = window.jQuery = $
+
+export default $
