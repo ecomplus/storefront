@@ -78,6 +78,11 @@ const generalConfig = {
   stats: {
     colors: true
   },
+  resolve: {
+    alias: {
+      '#components': '@ecomplus/storefront-components/src'
+    }
+  },
   devtool: 'source-map',
   plugins: [
     new VueLoaderPlugin()
