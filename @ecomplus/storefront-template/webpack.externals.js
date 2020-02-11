@@ -64,6 +64,12 @@ module.exports = {
   '@ecomplus/storefront-twbs': {
     commonjs: '@ecomplus/storefront-twbs',
     commonjs2: '@ecomplus/storefront-twbs',
-    root: '__storefront_twbs'
+    root: '__storefrontTwbs'
+  },
+
+  jquery: {
+    commonjs: '@ecomplus/storefront-twbs',
+    commonjs2: '@ecomplus/storefront-twbs',
+    root: ['__storefrontTwbs', '$']
   }
 }
