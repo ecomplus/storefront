@@ -18,7 +18,8 @@ const {
   settings,
   primaryColor,
   secondaryColor,
-  templatePkg
+  templatePkg,
+  componentsPkg
 } = require('./lib/config')
 
 // check for custom service worker file
@@ -92,10 +93,13 @@ const config = {
     maxEntrypointSize: 1000000,
     maxAssetSize: 1000000
   },
+
   resolve: {
     mainFields: ['module', 'browser', 'main'],
+    extensions: ['.wasm', '.mjs', '.js', '.json', '.vue'],
     alias: {
-      '#template': `${templatePkg}/template`
+      '#template': `${templatePkg}/template`,
+      '#components': `${componentsPkg}/src`
     }
   },
 
@@ -217,14 +221,17 @@ if (!process.env.WEBPACK_BUILD_LIB) {
 }
 
 // optionally merge custom config object
+const customConfigFilename = 'storefront.webpack'
 let customConfig
 try {
-  customConfig = require(path.join(process.cwd(), 'storefront.webpack'))
+  customConfig = require(path.join(process.cwd(), customConfigFilename))
 } catch (e) {
   // ignore
 }
 
 // export Webpack config for storefront templates
+const webpackMerge = require('webpack-merge')
+const templateCustomConfig = require(`${templatePkg}/${customConfigFilename}`)
 module.exports = typeof customConfig === 'object' && customConfig
-  ? require('webpack-merge')(config, customConfig)
-  : config
+  ? webpackMerge(config, templateCustomConfig, customConfig)
+  : webpackMerge(config, templateCustomConfig)

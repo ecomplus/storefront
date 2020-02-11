@@ -21,8 +21,10 @@ let storeId = settings.store_id || process.env.ECOM_STORE_ID || 1011
 if (typeof storeId === 'string') {
   storeId = parseInt(storeId, 10)
 }
-// imported storefront template
+
+// imported storefront template and components packages
 const templatePkg = process.env.STOREFRONT_TEMPLATE || '@ecomplus/storefront-template'
+const componentsPkg = process.env.STOREFRONT_COMPONENTS || '@ecomplus/storefront-components'
 
 module.exports = {
   devMode,
@@ -31,5 +33,6 @@ module.exports = {
   storeId,
   primaryColor,
   secondaryColor,
-  templatePkg
+  templatePkg,
+  componentsPkg
 }
