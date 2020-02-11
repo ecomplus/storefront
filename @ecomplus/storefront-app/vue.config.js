@@ -34,7 +34,10 @@ module.exports = {
       libraryTarget: 'umd'
     },
     resolve: {
-      mainFields: ['module', 'browser', 'main']
+      mainFields: ['module', 'browser', 'main'],
+      alias: {
+        '#components': '@ecomplus/storefront-components/src'
+      }
     }
   },
 
