@@ -1,0 +1,22 @@
+// stylelint-disable declaration-no-important
+
+// Keeping only some helpers from:
+// https://github.com/twbs/bootstrap/blob/v4-dev/scss/utilities/_text.scss
+
+// Alignment
+
+.text-truncate {
+  @include text-truncate();
+}
+
+// Contextual colors
+
+.text-muted {
+  color: $text-muted !important;
+}
+
+// Misc
+
+.text-hide {
+  @include text-hide($ignore-warning: true);
+}

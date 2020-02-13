@@ -24,6 +24,7 @@ $enable-responsive-font-sizes: true !default;
 }
 
 // Base Bootstrap components
+// @import "bootstrap/scss/root";
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/type";
 @import "bootstrap/scss/images";
@@ -55,6 +56,7 @@ $enable-responsive-font-sizes: true !default;
 @import "bootstrap/scss/popover";
 // @import "bootstrap/scss/carousel";
 @import "bootstrap/scss/spinners";
+// @import "bootstrap/scss/print";
 
 // Additional Bootstrap utilities
 // @import "bootstrap/scss/utilities/align";
@@ -74,7 +76,10 @@ $enable-responsive-font-sizes: true !default;
 // @import "bootstrap/scss/utilities/spacing";
 // @import "bootstrap/scss/utilities/text";
 // @import "bootstrap/scss/utilities/visibility";
-@import "bootstrap/scss/print";
+
+// Customized utilities
+@import "utilities/spacing";
+@import "utilities/text";
 
 // Animate.css base styles and selected animations
 @import "animate";
