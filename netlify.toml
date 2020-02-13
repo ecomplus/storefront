@@ -1,6 +1,7 @@
 [build]
-  command = "npm run build:demo"
-  publish = "@ecomplus/storefront-template/dist"
+  base = "@ecomplus/storefront-template"
+  command = "npm run build:site"
+  publish = "dist"
 
 [[redirects]]
   from = "/admin/*"
