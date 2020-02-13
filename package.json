@@ -7,10 +7,11 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "lerna bootstrap --hoist && node ./setup.js",
-    "serve": "lerna run --scope=@ecomplus/storefront-template serve --stream",
+    "run:main": "lerna run --scope=@ecomplus/storefront-template --stream",
+    "serve": "npm run run:main -- serve",
+    "build": "npm run run:main -- build",
+    "build:demo": "npm run run:main -- build:site",
     "serve:starter": "lerna run --scope=@ecomplus/storefront serve",
-    "build": "lerna run --scope=@ecomplus/storefront-template build --stream",
-    "build:demo": "cd ./@ecomplus/storefront-template && npm run build:site",
     "preversion": "lerna run build --since",
     "release": "GH_TOKEN=$(grep GH_TOKEN .env | cut -d '=' -f2) lerna version && lerna publish from-git"
   },
