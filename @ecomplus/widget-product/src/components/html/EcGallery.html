@@ -11,8 +11,8 @@
         v-if="i < 4"
         class="ec-gallery__thumb"
         :fade="false"
-        :src="image.small.url"
-        :alt="image.small.alt"
+        :src="image.small ? image.small.url : image"
+        :alt="image.small ? image.small.alt : null"
         :fallback-src="image.zoom ? image.zoom.url : null"
       />
     </div>
