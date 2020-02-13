@@ -1,0 +1,3 @@
+[submodule "@ecomplus/storefront-starter"]
+	path = @ecomplus/storefront-starter
+	url = https://github.com/ecomplus/storefront-starter
