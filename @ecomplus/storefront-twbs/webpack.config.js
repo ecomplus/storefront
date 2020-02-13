@@ -3,14 +3,13 @@
 const devMode = process.env.NODE_ENV !== 'production'
 const path = require('path')
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const output = {
   library: '__storefrontTwbs',
   libraryTarget: 'umd',
   path: path.resolve(__dirname, 'dist'),
-  filename: 'storefront-twbs.min.js'
+  filename: 'storefront-twbs.bundle.min.js'
 }
 
 const webpackConfig = {
@@ -38,7 +37,6 @@ const webpackConfig = {
   },
 
   plugins: [
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'storefront-twbs.min.css'
     })
@@ -76,6 +74,19 @@ const webpackConfig = {
   }
 }
 
+const externals = {
+  jquery: {
+    commonjs: 'jquery/dist/jquery.slim',
+    commonjs2: 'jquery/dist/jquery.slim',
+    root: '$'
+  },
+  'popper.js': {
+    commonjs: 'popper.js',
+    commonjs2: 'popper.js',
+    root: 'Popper'
+  }
+}
+
 module.exports = [
   {
     ...webpackConfig,
@@ -83,9 +94,23 @@ module.exports = [
     output: {
       ...output,
       libraryTarget: 'var',
-      filename: output.filename.replace('.min.js', '.var.min.js'),
+      filename: output.filename.replace('.bundle', '.var'),
       path: path.resolve(output.path, 'public')
-    }
+    },
+    externals: Object.keys(externals).reduce((rootExternals, lib) => ({
+      ...rootExternals,
+      [lib]: externals[lib].root
+    }), {})
+  },
+
+  {
+    ...webpackConfig,
+    entry: path.resolve(__dirname, 'src/index.js'),
+    output: {
+      ...output,
+      filename: output.filename.replace('.bundle', '')
+    },
+    externals
   },
 
   webpackConfig
