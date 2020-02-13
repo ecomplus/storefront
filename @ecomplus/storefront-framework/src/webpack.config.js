@@ -82,7 +82,7 @@ const baseScssModule = [
 ]
 
 // starter Webpack config object
-const config = {
+let config = {
   mode: devMode ? 'development' : 'production',
   stats: {
     colors: true
@@ -220,18 +220,28 @@ if (!process.env.WEBPACK_BUILD_LIB) {
   }
 }
 
-// optionally merge custom config object
-const customConfigFilename = 'storefront.webpack'
-let customConfig
-try {
-  customConfig = require(path.join(process.cwd(), customConfigFilename))
-} catch (e) {
-  // ignore
+// optionally merge custom config objects
+const webpackMerge = require('webpack-merge')
+const tryConfigMerge = moduleName => {
+  let customConfig
+  try {
+    customConfig = require(moduleName)
+    config = webpackMerge(config, customConfig)
+  } catch (e) {
+    // ignore error
+    return false
+  }
+  return true
 }
 
+// merge configs from template package and current storefront deploy
+const configFilename = 'storefront.webpack'
+const templateConfigFilepath = `${templatePkg}/${configFilename}`
+if (!tryConfigMerge(templateConfigFilepath)) {
+  // monorepo support
+  tryConfigMerge(path.join(__dirname, `../../../${templateConfigFilepath}`))
+}
+tryConfigMerge(path.join(process.cwd(), configFilename))
+
 // export Webpack config for storefront templates
-const webpackMerge = require('webpack-merge')
-const templateCustomConfig = require(`${templatePkg}/${customConfigFilename}`)
-module.exports = typeof customConfig === 'object' && customConfig
-  ? webpackMerge(config, templateCustomConfig, customConfig)
-  : webpackMerge(config, templateCustomConfig)
+module.exports = config
