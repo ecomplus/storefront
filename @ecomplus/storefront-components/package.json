@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-components",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Vue components for E-Com Plus Storefront",
   "main": "dist/storefront-components.min.js",
   "jsdelivr": "dist/public/storefront-components.var.min.js",
@@ -30,6 +30,6 @@
     "url": "https://github.com/ecomplus/storefront/issues"
   },
   "dependencies": {
-    "@ecomplus/storefront-twbs": "^5.0.1"
+    "@ecomplus/storefront-twbs": "^5.1.0"
   }
 }

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.8.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.7.4...@ecomplus/storefront-framework@5.8.0) (2020-02-13)
+
+
+### Bug Fixes
+
+* **custom-config:** supporting monorepo directory structure ([60559ca](https://github.com/ecomplus/storefront/commit/60559caa937d1d857e36b5b0f53fd93f72214d7e))
+
+
+### Features
+
+* **webpack:** alias '#components' for storefront-components pkg ([5ce8c61](https://github.com/ecomplus/storefront/commit/5ce8c61834f92d57b1ed713158262435da6b94ab))
+
+
+
+
+
 ## [5.7.4](https://github.com/ecomclub/storefront/compare/@ecomplus/storefront-framework@5.7.3...@ecomplus/storefront-framework@5.7.4) (2020-02-06)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework
