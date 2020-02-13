@@ -9,6 +9,7 @@
     "postinstall": "lerna bootstrap --hoist && node ./setup.js",
     "serve": "lerna run --scope @ecomplus/storefront-template serve --stream",
     "build": "lerna run --scope @ecomplus/storefront-template build --stream",
+    "serve:starter": "lerna run --scope @ecomplus/storefront serve",
     "preversion": "lerna run build --since",
     "release": "GH_TOKEN=$(grep GH_TOKEN .env | cut -d '=' -f2) lerna version && lerna publish from-git"
   },
