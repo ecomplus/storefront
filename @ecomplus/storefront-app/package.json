@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/storefront.git"
+    "url": "git+https://github.com/ecomplus/storefront.git"
   },
   "keywords": [
     "ecomplus",
@@ -24,9 +24,9 @@
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/storefron/issues"
+    "url": "https://github.com/ecomplus/storefront/issues"
   },
-  "homepage": "https://github.com/ecomclub/storefront#readme",
+  "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-app#readme",
   "peerDependencies": {
     "@ecomplus/utils": "^1.2.0",
     "core-js": "3.x"

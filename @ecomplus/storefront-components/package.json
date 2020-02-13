@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/storefront.git"
+    "url": "git+https://github.com/ecomplus/storefront.git"
   },
   "keywords": [
     "ecomplus",
@@ -23,11 +23,11 @@
     "vue",
     "store-theme"
   ],
-  "homepage": "https://github.com/ecomclub/storefront/tree/master/@ecomplus/storefront-components#readme",
+  "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-components#readme",
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/storefront/issues"
+    "url": "https://github.com/ecomplus/storefront/issues"
   },
   "dependencies": {
     "@ecomplus/storefront-twbs": "^5.0.1"

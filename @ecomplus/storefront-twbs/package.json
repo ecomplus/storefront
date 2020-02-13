@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/storefront.git"
+    "url": "git+https://github.com/ecomplus/storefront.git"
   },
   "keywords": [
     "ecomplus",
@@ -24,10 +24,10 @@
     "font-awesome",
     "animate-css"
   ],
-  "homepage": "https://github.com/ecomclub/storefront/tree/master/@ecomplus/storefront-twbs#readme",
+  "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs#readme",
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/storefront-twbs/issues"
+    "url": "https://github.com/ecomplus/storefront-twbs/issues"
   }
 }

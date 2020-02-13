@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/storefront.git"
+    "url": "git+https://github.com/ecomplus/storefront.git"
   },
   "keywords": [
     "ecomplus",
@@ -24,9 +24,9 @@
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/storefront/issues"
+    "url": "https://github.com/ecomplus/storefront/issues"
   },
-  "homepage": "https://github.com/ecomclub/storefront#readme",
+  "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-product-card#readme",
   "peerDependencies": {
     "@ecomplus/client": ">=1 <3",
     "@ecomplus/search-engine": ">=1 <3",

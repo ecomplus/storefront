@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/storefront.git"
+    "url": "git+https://github.com/ecomplus/storefront.git"
   },
   "keywords": [
     "ecomplus",
@@ -39,9 +39,9 @@
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/storefront/issues"
+    "url": "https://github.com/ecomplus/storefront/issues"
   },
-  "homepage": "https://github.com/ecomclub/storefront#readme",
+  "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-template#readme",
   "dependencies": {
     "@ecomplus/client": "^2.0.2",
     "@ecomplus/passport-client": "^1.0.6",
