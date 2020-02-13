@@ -19,6 +19,22 @@ workbox.routing.registerRoute(
   })
 )
 
+// jQuery library
+workbox.routing.registerRoute(
+  /^https:\/\/code\.jquery\.com/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'cdn-jquery'
+  })
+)
+
+// Additional JS libraries from CDN
+workbox.routing.registerRoute(
+  /^https:\/\/cdn\.jsdelivr\.net/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'cdn-jsdelivr'
+  })
+)
+
 // underlying font files
 workbox.routing.registerRoute(
   /^https:\/\/fonts\.gstatic\.com/,
@@ -90,12 +106,12 @@ workbox.routing.registerRoute(
 
 /**
  * Images with unique URLs from E-Com Plus Storage
- * Check sizes: https://github.com/ecomclub/storage-api/blob/master/bin/web.js#L261
+ * Check sizes: https://github.com/ecomclub/storage-api/blob/master/bin/web.js#L282
  */
 
 // normal and thumbnail sizes
 workbox.routing.registerRoute(
-  /^https:\/\/ecom-[\w]+\.[\w]+\.digitaloceanspaces\.com\/imgs\/[12345]?[0-9]{2}px\//,
+  /^https:\/\/ecom-[\w]+\.[\w]+\.digitaloceanspaces\.com\/imgs\/([12345]?[0-9]{2}px|normal|small)\//,
   new workbox.strategies.CacheFirst({
     cacheName: 'pictures',
     plugins: [
@@ -111,7 +127,7 @@ workbox.routing.registerRoute(
 
 // big images
 workbox.routing.registerRoute(
-  /^https:\/\/ecom-[\w]+\.[\w]+\.digitaloceanspaces\.com\/imgs\/[678]?[0-9]{2}px\//,
+  /^https:\/\/ecom-[\w]+\.[\w]+\.digitaloceanspaces\.com\/imgs\/([678]?[0-9]{2}px|big)\//,
   new workbox.strategies.CacheFirst({
     cacheName: 'pictures-big',
     plugins: [
