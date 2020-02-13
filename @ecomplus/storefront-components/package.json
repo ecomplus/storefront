@@ -7,7 +7,7 @@
   "unpkg": "dist/public/storefront-components.var.min.js",
   "scripts": {
     "build": "echo \"Webpack ?\"",
-    "serve": "echo \"Info: run serve for template or app from root\" && exit 1"
+    "serve": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ecomclub/storefront/issues"
+  },
+  "dependencies": {
+    "@ecomplus/storefront-twbs": "^5.0.1"
   }
 }
