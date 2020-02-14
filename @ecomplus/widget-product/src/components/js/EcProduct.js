@@ -73,6 +73,14 @@ export default {
       return this.selectedVariation.name || name(this.body)
     },
 
+    selectedVariationQuantity () {
+      return (this.selectedVariation.quantity > 0 && this.selectedVariation.quantity < 13) ? this.selectedVariation.quantity : 0
+    },
+
+    almostOutOfStock () {
+      return (this.body.quantity > 0 && this.body.quantity < 13) ? this.body.quantity : 0
+    },
+
     strBuy () {
       return this.buyText || this.dictionary('buy')
     },

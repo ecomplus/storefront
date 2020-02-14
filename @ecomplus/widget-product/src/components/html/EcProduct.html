@@ -66,6 +66,17 @@
             </b-alert>
           </slot>
 
+          <p class="ec-product__short-stock" v-if="hasVariations && selectedVariationQuantity > 0">
+            <span>
+              {{ dictionary('just') }} <strong>{{ selectedVariationQuantity }}</strong> {{ dictionary('in_stock') }}
+            </span>
+          </p>
+          <p class="ec-product__short-stock" v-else-if="!hasVariations && almostOutOfStock > 0">
+            <span>
+              {{ dictionary('just') }} <strong>{{ almostOutOfStock }}</strong> {{ dictionary('in_stock') }}
+            </span>
+          </p>
+
           <div class="ec-product__buy">
             <slot name="buy">
               <button
