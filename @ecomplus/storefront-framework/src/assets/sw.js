@@ -19,22 +19,6 @@ workbox.routing.registerRoute(
   })
 )
 
-// jQuery library
-workbox.routing.registerRoute(
-  /^https:\/\/code\.jquery\.com/,
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: 'cdn-jquery'
-  })
-)
-
-// Additional JS libraries from CDN
-workbox.routing.registerRoute(
-  /^https:\/\/cdn\.jsdelivr\.net/,
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: 'cdn-jsdelivr'
-  })
-)
-
 // underlying font files
 workbox.routing.registerRoute(
   /^https:\/\/fonts\.gstatic\.com/,
@@ -50,6 +34,22 @@ workbox.routing.registerRoute(
         maxEntries: 30
       })
     ]
+  })
+)
+
+// jQuery library
+workbox.routing.registerRoute(
+  /^https:\/\/code\.jquery\.com/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'cdn-jquery'
+  })
+)
+
+// additional JS libraries from CDN
+workbox.routing.registerRoute(
+  /^https:\/\/cdn\.jsdelivr\.net/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'cdn-jsdelivr'
   })
 )
 
