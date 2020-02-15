@@ -1,0 +1,20 @@
+.picture {
+  display: inline-block;
+  width: 100%;
+  background-color: var(--gray);
+  transition: background-color 2s linear;
+
+  &:not(.loaded) {
+    opacity: .4;
+  }
+
+  &.loaded {
+    background-color: transparent;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+}

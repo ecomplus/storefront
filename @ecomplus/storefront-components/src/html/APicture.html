@@ -1,0 +1,21 @@
+<picture
+  class="picture"
+  :class="elClasses"
+  :data-iesrc="localFallbackSrc"
+  :data-alt="localAlt"
+  :style="{ height }"
+>
+  <template v-if="sources.length">
+    <source
+      v-for="({ srcset, type }, i) in sources"
+      :key="i"
+      :srcset="srcset"
+      :type="type"
+    >
+  </template>
+
+  <source
+    v-else
+    :srcset="localFallbackSrc"
+  >
+</picture>
