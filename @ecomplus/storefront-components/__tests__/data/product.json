@@ -1,0 +1,102 @@
+{
+    "visible": true,
+    "available": true,
+    "manage_stock": false,
+    "name": "MacBook Pro Modelo de 16 polegadas",
+    "sku": "LHM4086",
+    "price": 12000,
+    "quantity": 12,
+    "pictures": [
+        {
+            "zoom": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/@v2-1581704558843-display_hero_hw__d73ne9vbdmgm_large.jpg",
+                "size": "1136x667",
+                "alt": "display_hero_hw__d73ne9vbdmgm_large"
+            },
+            "big": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/big/@v2-1581704558843-display_hero_hw__d73ne9vbdmgm_large.jpg.webp",
+                "size": "700x411",
+                "alt": "display_hero_hw__d73ne9vbdmgm_large"
+            },
+            "normal": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/normal/@v2-1581704558843-display_hero_hw__d73ne9vbdmgm_large.jpg.webp",
+                "size": "350x206",
+                "alt": "display_hero_hw__d73ne9vbdmgm_large"
+            },
+            "_id": "245930158170460930200000"
+        },
+        {
+            "zoom": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/@v2-1581704579863-chip_static__lj1912v5qhme_large.jpg",
+                "size": "980x684",
+                "alt": "chip_static__lj1912v5qhme_large"
+            },
+            "big": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/big/@v2-1581704579863-chip_static__lj1912v5qhme_large.jpg.webp",
+                "size": "700x489",
+                "alt": "chip_static__lj1912v5qhme_large"
+            },
+            "normal": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/normal/@v2-1581704579863-chip_static__lj1912v5qhme_large.jpg.webp",
+                "size": "350x244",
+                "alt": "chip_static__lj1912v5qhme_large"
+            },
+            "_id": "245930158170460930200001"
+        },
+        {
+            "zoom": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/@v2-1581704580369-memory_static__c5fogcn85byq_large.jpg",
+                "size": "980x684",
+                "alt": "memory_static__c5fogcn85byq_large"
+            },
+            "big": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/big/@v2-1581704580369-memory_static__c5fogcn85byq_large.jpg.webp",
+                "size": "700x489",
+                "alt": "memory_static__c5fogcn85byq_large"
+            },
+            "normal": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/normal/@v2-1581704580369-memory_static__c5fogcn85byq_large.jpg.webp",
+                "size": "350x244",
+                "alt": "memory_static__c5fogcn85byq_large"
+            },
+            "_id": "245930158170460930200002"
+        },
+        {
+            "zoom": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/@v2-1581704588875-ac_video_poster_960x540.jpg",
+                "size": "960x540",
+                "alt": "ac_video_poster_960x540"
+            },
+            "big": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/big/@v2-1581704588875-ac_video_poster_960x540.jpg.webp",
+                "size": "700x394",
+                "alt": "ac_video_poster_960x540"
+            },
+            "normal": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/normal/@v2-1581704588875-ac_video_poster_960x540.jpg.webp",
+                "size": "350x197",
+                "alt": "ac_video_poster_960x540"
+            },
+            "_id": "245930158170460930200003"
+        }
+    ],
+    "slug": "macbook-pro-modelo-de-16-polegadas",
+    "commodity_type": "physical",
+    "ad_relevance": 0,
+    "currency_id": "BRL",
+    "currency_symbol": "R$",
+    "condition": "new",
+    "adult": false,
+    "auto_fill_related_products": true,
+    "views": 0,
+    "sales": 0,
+    "price_change_records": [
+        {
+            "date_of_change": "2020-02-14T18:24:45.327Z",
+            "price": 12000,
+            "currency_id": "BRL",
+            "currency_symbol": "R$",
+            "_id": "5e46e5ed62887026009fdbf1"
+        }
+    ]
+}
