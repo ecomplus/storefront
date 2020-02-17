@@ -50,6 +50,10 @@ export default {
     canAddToCart: {
       type: Boolean,
       default: true
+    },
+    maxQuantityWarn: {
+      type: Number,
+      default: 13
     }
   },
 
@@ -73,12 +77,16 @@ export default {
       return this.selectedVariation.name || name(this.body)
     },
 
-    selectedVariationQuantity () {
-      return (this.selectedVariation.quantity > 0 && this.selectedVariation.quantity < 13) ? this.selectedVariation.quantity : 0
+    productQuantity () {
+      if (this.selectedVariation.quantity) {
+        return this.selectedVariation.quantity
+      } else if (this.body.quantity) {
+        return this.body.quantity
+      }
     },
 
-    almostOutOfStock () {
-      return (this.body.quantity > 0 && this.body.quantity < 13) ? this.body.quantity : 0
+    almostDoneQuantity () {
+      return (this.productQuantity > 0 && this.productQuantity < this.maxQuantityWarn) ? this.productQuantity : false
     },
 
     strBuy () {
