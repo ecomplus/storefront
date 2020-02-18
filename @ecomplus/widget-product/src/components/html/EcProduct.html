@@ -66,12 +66,7 @@
             </b-alert>
           </slot>
 
-          <p class="ec-product__short-stock" v-if="hasVariations && almostDoneQuantity">
-            <span>
-              {{ dictionary('just') }} <strong>{{ almostDoneQuantity }}</strong> {{ dictionary('in_stock') }}
-            </span>
-          </p>
-          <p class="ec-product__short-stock" v-else-if="!hasVariations && almostDoneQuantity">
+          <p class="ec-product__short-stock" v-if="almostDoneQuantity">
             <span>
               {{ dictionary('just') }} <strong>{{ almostDoneQuantity }}</strong> {{ dictionary('in_stock') }}
             </span>
