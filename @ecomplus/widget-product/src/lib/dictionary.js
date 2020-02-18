@@ -15,6 +15,14 @@ const dictionary = {
     en_us: 'Out of stock',
     pt_br: 'Sem estoque'
   },
+  in_stock: {
+    en_us: 'units in stock',
+    pt_br: 'unidades em estoque'
+  },
+  just: {
+    en_us: 'Just',
+    pt_br: 'Apenas'
+  },
   buy: {
     en_us: 'Buy',
     pt_br: 'Comprar'

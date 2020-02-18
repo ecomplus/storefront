@@ -50,6 +50,10 @@ export default {
     canAddToCart: {
       type: Boolean,
       default: true
+    },
+    maxQuantityWarn: {
+      type: Number,
+      default: 13
     }
   },
 
@@ -71,6 +75,18 @@ export default {
 
     name () {
       return this.selectedVariation.name || name(this.body)
+    },
+
+    productQuantity () {
+      if (this.selectedVariation.quantity) {
+        return this.selectedVariation.quantity
+      } else if (this.body.quantity) {
+        return this.body.quantity
+      }
+    },
+
+    almostDoneQuantity () {
+      return (this.productQuantity > 0 && this.productQuantity < this.maxQuantityWarn) ? this.productQuantity : false
     },
 
     strBuy () {
