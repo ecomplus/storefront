@@ -161,6 +161,16 @@
                   </slot>
                 </div>
               </div>
+              <div class="row ec-order-info__notes" v-if="localOrder.notes">
+                <div class="col-12 col-lg-7">
+                  <p>
+                    <span class="h5">{{ i19observation }}:</span>
+                  </p>
+                  <p>
+                    <span>{{ localOrder.notes }}</span>
+                  </p>
+                </div>
+              </div>
             </article>
           </transition-group>
         </div>
