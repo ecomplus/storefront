@@ -13,6 +13,18 @@ module.exports = {
     root: 'Vue'
   },
 
+  jquery: {
+    commonjs: 'jquery/dist/jquery.slim',
+    commonjs2: 'jquery/dist/jquery.slim',
+    root: '$'
+  },
+
+  'popper.js': {
+    commonjs: 'popper.js',
+    commonjs2: 'popper.js',
+    root: 'Popper'
+  },
+
   'lodash.clonedeep': {
     commonjs: 'lodash.clonedeep',
     commonjs2: 'lodash.clonedeep',
@@ -65,11 +77,5 @@ module.exports = {
     commonjs: '@ecomplus/storefront-twbs',
     commonjs2: '@ecomplus/storefront-twbs',
     root: '__storefrontTwbs'
-  },
-
-  jquery: {
-    commonjs: '@ecomplus/storefront-twbs',
-    commonjs2: '@ecomplus/storefront-twbs',
-    root: ['__storefrontTwbs', '$']
   }
 }
