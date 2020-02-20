@@ -66,6 +66,12 @@
             </b-alert>
           </slot>
 
+          <p class="ec-product__short-stock" v-if="almostDoneQuantity">
+            <span>
+              {{ dictionary('just') }} <strong>{{ almostDoneQuantity }}</strong> {{ dictionary('in_stock') }}
+            </span>
+          </p>
+
           <div class="ec-product__buy">
             <slot name="buy">
               <button
