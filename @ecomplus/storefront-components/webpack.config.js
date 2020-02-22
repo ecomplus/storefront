@@ -86,25 +86,9 @@ const webpackConfig = {
 
   resolve: {
     alias: {
-      '@ecomplus/storefront-twbs': path.resolve(
-        __dirname,
-        '../storefront-twbs/dist/storefront-twbs.bundle.min'
-      ),
+      '@ecomplus/storefront-twbs': path.resolve(__dirname, '../storefront-twbs/'),
       '@ecomplus/storefront-components': __dirname,
       __: path.join(__dirname, '__tests__')
-    }
-  },
-
-  externals: {
-    jquery: {
-      commonjs: 'jquery/dist/jquery.slim',
-      commonjs2: 'jquery/dist/jquery.slim',
-      root: '$'
-    },
-    'popper.js': {
-      commonjs: 'popper.js',
-      commonjs2: 'popper.js',
-      root: 'Popper'
     }
   }
 }
