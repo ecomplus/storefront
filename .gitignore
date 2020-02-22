@@ -13,6 +13,8 @@
 
 **/@ecomplus/storefront-twbs/scss/animate.css/
 **/@ecomplus/storefront-twbs/scss/bootstrap/
+**/@ecomplus/storefront-twbs/scss/bootstrap-vue/
+!**/@ecomplus/storefront-twbs/dist/
 
 # Logs
 logs
