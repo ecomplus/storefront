@@ -22,34 +22,6 @@
   "peerDependencies": {
     "vue": ">=2"
   },
-  "devDependencies": {
-    "@commitlint/cli": "^8.3.4",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@fortawesome/fontawesome-svg-core": "^1.2.26",
-    "@fortawesome/free-brands-svg-icons": "^5.12.0",
-    "@fortawesome/free-solid-svg-icons": "^5.12.0",
-    "animate.css": "^3.7.2",
-    "autoprefixer": "^9.7.3",
-    "bootstrap": "^4.4.1",
-    "bootstrap-vue": "^2.1.0",
-    "bootstrap.native": "^2.0.27",
-    "bootstrap.native-loader": "^2.0.0",
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^3.4.1",
-    "cssnano": "^4.1.10",
-    "husky": "^4.0.1",
-    "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.13.0",
-    "portal-vue": "^2.1.7",
-    "postcss-loader": "^3.0.0",
-    "sass-loader": "^7.3.1",
-    "standard": "^14.3.1",
-    "standard-version": "^7.0.1",
-    "vue": "^2.6.11",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
-  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
