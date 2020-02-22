@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import '@ecomplus/storefront-twbs'
+  import '@ecomplus/storefront-twbs/src/'
   import TsBootstrap from '__/components/TsBootstrap.vue'
   import TsAPicture from '__/components/TsAPicture.vue'
 
