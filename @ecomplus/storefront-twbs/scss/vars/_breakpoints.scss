@@ -1,5 +1,0 @@
-& {
-  @each $bp, $value in $grid-breakpoints {
-    --breakpoint-#{$bp}: #{$value};
-  }
-}
