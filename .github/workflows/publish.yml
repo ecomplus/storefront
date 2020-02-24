@@ -1,0 +1,34 @@
+name: Publish
+
+on: registry_package
+
+jobs:
+  deploy:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Go to package folder
+        env:
+          PKG_NAME: ${{ github.event.package.name }}
+        run: cd @ecomplus/$PKG_NAME
+
+      - name: Edit package.json to remove custom registry config
+        run: |
+          node -p "const pkg = require('./package.json'); \
+          delete pkg.publishConfig.registry; \
+          JSON.stringify(pkg, null, 2)" > pkg.json && mv pkg.json package.json
+
+      - name: Publish package to npm registry
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish
