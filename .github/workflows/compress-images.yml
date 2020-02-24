@@ -4,7 +4,7 @@ on: pull_request
 
 jobs:
   compress-images:
-    name: Compress images
+    name: Try to optimize repo image files
     runs-on: ubuntu-latest
 
     steps:

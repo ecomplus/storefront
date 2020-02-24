@@ -11,7 +11,7 @@ on:
 
 jobs:
   lighthouse:
-    name: Lighthouse
+    name: Audit new site deploy preview
     runs-on: ubuntu-latest
 
     steps:
