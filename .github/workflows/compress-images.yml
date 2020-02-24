@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: Optimize with Calibre's image actions
         uses: docker://calibreapp/github-image-actions
