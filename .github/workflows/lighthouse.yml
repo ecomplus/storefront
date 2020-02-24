@@ -2,27 +2,24 @@ name: Lighthouse
 
 on:
   pull_request:
-    types: [review_requested]
     branches:
       - master
-    paths:
-      - 'template/**'
-      - 'content/**'
 
 jobs:
   lighthouse:
-    name: Audit new site deploy preview
+    name: Audit homepage using Lighthouse
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Test Netlify deploy preview
+        uses: jakejarvis/lighthouse-action@master
+        with:
+          netlify_site: 'storefront-template.netlify.com'
 
-      - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v2
+      - name: Save report artifact
+        uses: actions/upload-artifact@v1
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         with:
-          urls: |
-            https://deploy-preview-$PR_NUMBER--storefront-template.netlify.com/
-          temporaryPublicStorage: true
+          name: lighthouse
+          path: lighthouse-report-$PR_NUMBER
