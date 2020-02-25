@@ -32,7 +32,7 @@
   "peerDependencies": {
     "@ecomplus/shopping-cart": ">=1 <3",
     "@ecomplus/storefront-twbs": "4.x",
-    "@ecomplus/utils": "^1.2.0",
+    "@ecomplus/utils": "^1.3.0",
     "core-js": "3.x",
     "vue": ">=2 <4"
   },
