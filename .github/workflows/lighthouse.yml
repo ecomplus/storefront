@@ -2,24 +2,28 @@ name: Lighthouse
 
 on:
   pull_request:
+    types: [labeled]
     branches:
       - master
 
 jobs:
   lighthouse:
-    name: Audit homepage using Lighthouse
+    name: Audit site using Lighthouse
     runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'lighthouse')
 
     steps:
       - name: Test Netlify deploy preview
-        uses: jakejarvis/lighthouse-action@master
-        with:
-          netlify_site: 'storefront-template.netlify.com'
-
-      - name: Save report artifact
-        uses: actions/upload-artifact@v1
+        uses: treosh/lighthouse-ci-action@v2
         env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HOST_BASE: storefront-template.netlify.com
+          HOST_PREVIEW: deploy-preview-${{ github.event.pull_request.number }}--storefront-template.netlify.com
         with:
-          name: lighthouse
-          path: lighthouse-report-$PR_NUMBER
+          urls: |
+            https://$HOST_BASE/
+            https://$HOST_PREVIEW/
+            https://$HOST_BASE/slug
+            https://$HOST_PREVIEW/slug
+            https://$HOST_BASE/app/
+            https://$HOST_PREVIEW/app/
+          temporaryPublicStorage: true
