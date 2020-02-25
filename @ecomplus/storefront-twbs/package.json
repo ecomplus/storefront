@@ -2,6 +2,7 @@
   "name": "@ecomplus/storefront-twbs",
   "version": "5.1.0",
   "description": "Bootstrap + Animate.css + FontAwesome wrapper for E-Com Plus Storefront",
+  "module": "src/index.js",
   "browser": "dist/storefront-twbs.bundle.min.js",
   "main": "dist/storefront-twbs.bundle.min.js",
   "jsdelivr": "dist/public/storefront-twbs.var.min.js",
@@ -30,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/ecomplus/storefront-twbs/issues"
   },
-  "optionalDependencies": {
+  "dependencies": {
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1"
   }
