@@ -32,5 +32,5 @@ jobs:
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         with:
-          name: lighthouse
-          path: lighthouse-report-$PR_NUMBER
+          name: lighthouse-results
+          path: '.lighthouseci'
