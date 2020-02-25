@@ -26,4 +26,11 @@ jobs:
             https://$HOST_PREVIEW/slug
             https://$HOST_BASE/app/
             https://$HOST_PREVIEW/app/
-          temporaryPublicStorage: true
+
+      - name: Save report artifact
+        uses: actions/upload-artifact@v1
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        with:
+          name: lighthouse
+          path: lighthouse-report-$PR_NUMBER
