@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/storefront-twbs.git"
+    "url": "git+https://github.com/ecomplus/storefront.git"
   },
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/storefront-twbs/issues"
+    "url": "https://github.com/ecomplus/storefront/issues"
   },
-  "homepage": "https://github.com/ecomclub/storefront-twbs#readme",
+  "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs#readme",
   "peerDependencies": {
     "vue": ">=2"
   },
