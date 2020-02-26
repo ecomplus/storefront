@@ -23,4 +23,4 @@ npm i
 
 8. Congrats! Just wait a little for our review and merge.
 
-Thanks in advance :smile:
+**Thanks in advance** :smile:
