@@ -1,22 +1,22 @@
 <!--
-Thanks for submitting a pull request!
-Please make sure you've read and understood our contributing guidelines.
+  Thanks for submitting a pull request!
+  Please make sure you've read and understood our contributing guidelines.
 -->
 
 **Related issue**
 <!--
-Paste a link to related issue if any.
+  Paste a link to related issue if any.
 -->
 
 **Summary**
 <!--
-Explain what it changes and the motivations for making this change.
-You can skip it if already explained on related issue body/conversation.
+  Explain what it changes and the motivations for making this change.
+  You can skip it if already explained on related issue body/conversation.
 -->
 
 **Screenshots**
 <!--
-Screenshots/videos if the PR changes UI.
+  Screenshots/videos if the PR changes UI.
 -->
 
 **Checklist**
@@ -25,10 +25,10 @@ Screenshots/videos if the PR changes UI.
 - [ ] If changing UI, I've tested on most common viewports, desktop and mobile devices;
 
 <!--
-You may also add here custom commands you ran and their outputs for tests.
+  You may also add here custom commands you ran and their outputs for tests.
 -->
 
 **A picture of a cute animal**
 <!--
-Your pet? Not mandatory but encouraged :)
+  Your pet? Not mandatory but encouraged :)
 -->
