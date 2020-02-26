@@ -1,34 +1,39 @@
-/* global workbox */
+import { skipWaiting, clientsClaim } from 'workbox-core'
+import { precacheAndRoute } from 'workbox-precaching'
+import { registerRoute } from 'workbox-routing'
+import { StaleWhileRevalidate, CacheFirst, NetworkFirst } from 'workbox-strategies'
+import { CacheableResponsePlugin } from 'workbox-cacheable-response'
+import { ExpirationPlugin } from 'workbox-expiration'
 
-workbox.core.skipWaiting()
-workbox.core.clientsClaim()
+skipWaiting()
+clientsClaim()
 
 /* global self */
 
-workbox.precaching.precacheAndRoute(self.__precacheManifest)
+precacheAndRoute(self.__WB_MANIFEST)
 
 /**
  * Runtime caching
  */
 
 // Google Fonts stylesheets
-workbox.routing.registerRoute(
+registerRoute(
   /^https:\/\/fonts\.googleapis\.com/,
-  new workbox.strategies.StaleWhileRevalidate({
+  new StaleWhileRevalidate({
     cacheName: 'google-fonts-stylesheets'
   })
 )
 
 // underlying font files
-workbox.routing.registerRoute(
+registerRoute(
   /^https:\/\/fonts\.gstatic\.com/,
-  new workbox.strategies.CacheFirst({
+  new CacheFirst({
     cacheName: 'google-fonts-webfonts',
     plugins: [
-      new workbox.cacheableResponse.Plugin({
+      new CacheableResponsePlugin({
         statuses: [0, 200]
       }),
-      new workbox.expiration.Plugin({
+      new ExpirationPlugin({
         // large expiration time
         maxAgeSeconds: 60 * 60 * 24 * 365,
         maxEntries: 30
@@ -38,17 +43,17 @@ workbox.routing.registerRoute(
 )
 
 // jQuery library
-workbox.routing.registerRoute(
+registerRoute(
   /^https:\/\/code\.jquery\.com/,
-  new workbox.strategies.StaleWhileRevalidate({
+  new StaleWhileRevalidate({
     cacheName: 'cdn-jquery'
   })
 )
 
 // additional JS libraries from CDN
-workbox.routing.registerRoute(
+registerRoute(
   /^https:\/\/cdn\.jsdelivr\.net/,
-  new workbox.strategies.StaleWhileRevalidate({
+  new StaleWhileRevalidate({
     cacheName: 'cdn-jsdelivr'
   })
 )
@@ -60,13 +65,13 @@ workbox.routing.registerRoute(
  */
 
 // Main API and Storefront API cache
-workbox.routing.registerRoute(
+registerRoute(
   /^https:\/\/io(storefront)?\.ecvol\.com/,
-  new workbox.strategies.NetworkFirst({
+  new NetworkFirst({
     networkTimeoutSeconds: 3,
     cacheName: 'api-cache',
     plugins: [
-      new workbox.expiration.Plugin({
+      new ExpirationPlugin({
         maxEntries: 20
       })
     ]
@@ -74,13 +79,13 @@ workbox.routing.registerRoute(
 )
 
 // Store API cache
-workbox.routing.registerRoute(
+registerRoute(
   /^https:\/\/ioapi?\.ecvol\.com/,
-  new workbox.strategies.NetworkFirst({
+  new NetworkFirst({
     networkTimeoutSeconds: 3,
     cacheName: 'store-api-cache',
     plugins: [
-      new workbox.expiration.Plugin({
+      new ExpirationPlugin({
         maxEntries: 50,
         // purge large JSON files to release quota
         purgeOnQuotaError: true
@@ -90,12 +95,12 @@ workbox.routing.registerRoute(
 )
 
 // Live Store and Search API
-workbox.routing.registerRoute(
+registerRoute(
   /^https:\/\/(?:api|apx-search).e-com\.plus\/(api\/)?v[1-9]+\//,
-  new workbox.strategies.NetworkFirst({
+  new NetworkFirst({
     cacheName: 'live-api',
     plugins: [
-      new workbox.expiration.Plugin({
+      new ExpirationPlugin({
         maxEntries: 50,
         // keep for 5 minutes only
         maxAgeSeconds: 5 * 60
@@ -110,12 +115,12 @@ workbox.routing.registerRoute(
  */
 
 // normal and thumbnail sizes
-workbox.routing.registerRoute(
+registerRoute(
   /^https:\/\/ecom-[\w]+\.[\w]+\.digitaloceanspaces\.com\/imgs\/([12345]?[0-9]{2}px|normal|small)\//,
-  new workbox.strategies.CacheFirst({
+  new CacheFirst({
     cacheName: 'pictures',
     plugins: [
-      new workbox.expiration.Plugin({
+      new ExpirationPlugin({
         maxEntries: 100,
         // 30 days max age
         maxAgeSeconds: 60 * 60 * 24 * 30,
@@ -126,12 +131,12 @@ workbox.routing.registerRoute(
 )
 
 // big images
-workbox.routing.registerRoute(
+registerRoute(
   /^https:\/\/ecom-[\w]+\.[\w]+\.digitaloceanspaces\.com\/imgs\/([678]?[0-9]{2}px|big)\//,
-  new workbox.strategies.CacheFirst({
+  new CacheFirst({
     cacheName: 'pictures-big',
     plugins: [
-      new workbox.expiration.Plugin({
+      new ExpirationPlugin({
         maxEntries: 10,
         // 2 days only max age
         maxAgeSeconds: 60 * 60 * 24 * 2,
@@ -146,28 +151,28 @@ workbox.routing.registerRoute(
  */
 
 // theme assets directory
-workbox.routing.registerRoute(
+registerRoute(
   /\/assets\//,
-  new workbox.strategies.StaleWhileRevalidate({
+  new StaleWhileRevalidate({
     cacheName: 'assets'
   })
 )
 
 // logo image
-workbox.routing.registerRoute(
+registerRoute(
   /\/((?:img|assets).*)?logo\.(?:png|gif|jpg|jpeg|webp|svg)$/,
-  new workbox.strategies.StaleWhileRevalidate({
+  new StaleWhileRevalidate({
     cacheName: 'logo'
   })
 )
 
 // CMS image uploads
-workbox.routing.registerRoute(
+registerRoute(
   /\/img\/uploads\/.*\.(?:png|gif|jpg|jpeg|webp|svg)$/,
-  new workbox.strategies.StaleWhileRevalidate({
+  new StaleWhileRevalidate({
     cacheName: 'media',
     plugins: [
-      new workbox.expiration.Plugin({
+      new ExpirationPlugin({
         // keep at most 20 entries
         maxEntries: 20,
         // don't keep any entries for more than 30 days
@@ -184,15 +189,15 @@ workbox.routing.registerRoute(
  */
 
 // homepage
-workbox.routing.registerRoute('/', new workbox.strategies.NetworkFirst())
+registerRoute('/', new NetworkFirst())
 
 // any page URL slug
-workbox.routing.registerRoute(
+registerRoute(
   /\/((?!(?:admin|assets|img)(\/|$))[^.]+)(\.(?!js|css|xml|txt|png|gif|jpg|jpeg|webp|svg)[^.]+)*$/,
-  new workbox.strategies.NetworkFirst({
+  new NetworkFirst({
     cacheName: 'page',
     plugins: [
-      new workbox.expiration.Plugin({
+      new ExpirationPlugin({
         maxEntries: 50,
         // purge HTML files to release quota
         purgeOnQuotaError: true
