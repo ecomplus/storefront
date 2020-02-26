@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@0.4.15...@ecomplus/widget-product@0.5.0) (2020-02-26)
+
+
+### Features
+
+* **product:** alert last units in product block ([#153](https://github.com/ecomplus/storefront/issues/153))' ([eb6d367](https://github.com/ecomplus/storefront/commit/eb6d3671a6a4f56acecfe79781f967a1e101a4a0))
+
+
+
+
+
 ## [0.4.15](https://github.com/ecomplus/widget-product/compare/@ecomplus/widget-product@0.4.14...@ecomplus/widget-product@0.4.15) (2020-02-13)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@1.11.7...@ecomplus/storefront-app@1.12.0) (2020-02-26)
+
+
+### Features
+
+* **order:** show order notes into OrderInfo ([#155](https://github.com/ecomplus/storefront/issues/155)) ([bd781f4](https://github.com/ecomplus/storefront/commit/bd781f414e62cc11313f17ed243559cd58c3b783))
+
+
+
+
+
 ## [1.11.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@1.11.6...@ecomplus/storefront-app@1.11.7) (2020-02-13)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [4.0.7](https://github.com/ecomclub/storefront-twbs/compare/@ecomplus/storefront-twbs@5.1.0...@ecomplus/storefront-twbs@4.0.7) (2020-02-26)
+
+**Note:** Version bump only for package @ecomplus/storefront-twbs
+
+
+
+
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
