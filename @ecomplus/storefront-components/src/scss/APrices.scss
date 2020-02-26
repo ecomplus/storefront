@@ -1,0 +1,40 @@
+.prices {
+  line-height: var(--line-height-sm);
+
+  &:not(.prices--big) {
+    font-size: var(--font-size-sm);
+
+    .prices__installments {
+      font-weight: var(--font-light);
+    }
+  }
+
+  &__value {
+    display: block;
+    font-size: var(--font-size-lg);
+  }
+
+  &--big .prices__value {
+    font-size: var(--h1);
+    margin-bottom: var(--spacer-1);
+  }
+
+  &--literal {
+    .prices__installments,
+    .prices__discount {
+      span {
+        font-weight: var(--font-bold);
+      }
+    }
+
+    small {
+      font-size: 100%;
+    }
+  }
+
+  &:not(.prices--literal) {
+    .prices__compare {
+      color: var(--gray);
+    }
+  }
+}

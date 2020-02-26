@@ -1,0 +1,46 @@
+<div
+  class="prices"
+  :class="{ 'prices--literal': literal, 'prices--big': big }"
+>
+  <span v-if="comparePrice" class="prices__compare">
+    <template v-if="literal">
+      {{ i19from }}
+      <s>{{ formatMoney(comparePrice) }}</s>
+      {{ i19to }}
+    </template>
+    <s v-else>{{ formatMoney(comparePrice) }}</s>
+  </span>
+
+  <strong class="prices__value">
+    {{ formatMoney(price) }}
+  </strong>
+
+  <transition-group enter-active-class="animated slideInDown">
+    <div
+      key="installments"
+      v-if="interestFreeInstallments > 1"
+      class="prices__installments"
+    >
+      {{ interestFreeInstallments }}x
+      <span>
+        {{ formatMoney(price / interestFreeInstallments) }}
+      </span>
+      <small v-if="literal">
+        {{ i19interestFree }}
+      </small>
+    </div>
+
+    <div
+      key="discount"
+      v-if="typeof priceWithDiscount === 'number' && priceWithDiscount < price"
+      class="prices__discount"
+    >
+      <span>
+        {{ formatMoney(priceWithDiscount) }}
+      </span>
+      <small v-if="typeof discountLabel === 'string'">
+        {{ discountLabel }}
+      </small>
+    </div>
+  </transition-group>
+</div>
