@@ -87,7 +87,7 @@ const externals = {
   }
 }
 
-module.exports = [
+module.exports = devMode ? [webpackConfig] : [
   {
     ...webpackConfig,
     entry: path.resolve(__dirname, 'src/index.js'),
