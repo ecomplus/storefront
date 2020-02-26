@@ -85,7 +85,7 @@ export default {
     i19reopenOrder: () => 'Reabrir pedido',
     i19transactionCode: () => i18n(i19transactionCode),
     i19ticketCode: () => i18n(i19ticketCode),
-    i19observationOrder: () => 'Observações do pedido',
+    i19orderObservations: () => 'Observações do pedido',
 
     localOrder: {
       get () {
