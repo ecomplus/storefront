@@ -4,6 +4,7 @@
     "manage_stock": false,
     "name": "MacBook Pro Modelo de 16 polegadas",
     "sku": "LHM4086",
+    "base_price": 14000,
     "price": 12000,
     "quantity": 12,
     "pictures": [
