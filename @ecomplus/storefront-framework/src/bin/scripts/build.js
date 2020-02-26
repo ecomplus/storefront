@@ -81,15 +81,16 @@ bundler.then(async ({ assetsByChunkName }) => {
           const filename = /\.x?(ht)?ml$/.test(paths.output) ? url : `${url}.html`
           const filepath = path.join(paths.output, filename)
           // create directories for if needed
-          mkdirp(path.dirname(filepath), err => {
-            if (!err) {
+          mkdirp(path.dirname(filepath))
+            .then(() => {
               fs.writeFile(filepath, html, err => err ? console.error(clRed, err) : true)
               console.log(clGreen, 'DONE')
-            } else {
+              resolve()
+            })
+            .catch(err => {
               console.error(clRed, err)
-            }
-            resolve()
-          })
+              resolve()
+            })
         } else if (html === false) {
           throw new Error('Render returns false')
         } else {
