@@ -1,6 +1,7 @@
 <template>
   <div>
     <TsBootstrap/>
+    <TsAPrices/>
     <TsAPicture/>
   </div>
 </template>
@@ -9,12 +10,14 @@
   import '@ecomplus/storefront-twbs'
   import TsBootstrap from '__/components/TsBootstrap.vue'
   import TsAPicture from '__/components/TsAPicture.vue'
+  import TsAPrices from '__/components/TsAPrices.vue'
 
   export default {
     name: 'Playground',
     components: {
+      TsBootstrap,
       TsAPicture,
-      TsBootstrap
+      TsAPrices
     }
   }
 </script>
