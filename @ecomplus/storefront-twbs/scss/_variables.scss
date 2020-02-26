@@ -11,3 +11,6 @@ $brand-colors: (
   "secondary-lighter": lighten($secondary, 21%),
   "secondary-light": lighten($secondary, 10%)
 );
+
+// Additional defaults
+$line-height-sm: 1.2 !default;
