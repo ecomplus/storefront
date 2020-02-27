@@ -1,6 +1,6 @@
 # Storefront
 
-[![CodeFactor](https://www.codefactor.io/repository/github/ecomplus/storefront/badge)](https://www.codefactor.io/repository/github/ecomplus/storefront) [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Netlify Status](https://api.netlify.com/api/v1/badges/c5f6676c-5b7f-4d5b-b348-b714f56f83d0/deploy-status)](https://app.netlify.com/sites/storefront-template/deploys) [![Lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c5f6676c-5b7f-4d5b-b348-b714f56f83d0/deploy-status)](https://app.netlify.com/sites/storefront-template/deploys) ![Publish](https://github.com/ecomplus/storefront/workflows/Publish/badge.svg) [![CodeFactor](https://www.codefactor.io/repository/github/ecomplus/storefront/badge)](https://www.codefactor.io/repository/github/ecomplus/storefront) [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 :rocket: Modern and high performant **headless eCommerce Storefront**:
 
@@ -21,8 +21,6 @@
 ## Demo store
 
 :shopping: https://storefront-demo.e-com.plus
-
-![E-Com Plus Storefront banner](https://repository-images.githubusercontent.com/183649678/1c624a80-3180-11ea-8761-1f45e0f675a5)
 
 ## Development
 
