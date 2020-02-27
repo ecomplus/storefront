@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-search-engine",
-  "version": "1.0.0-next",
+  "version": "1.0.0-next.0",
   "description": "Storefront plugin & Vue component for dynamic search page",
   "module": "src/index.js",
   "browser": "dist/widget-search-engine.min.js",

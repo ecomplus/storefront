@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.1.0...@ecomplus/storefront-twbs@5.2.0) (2020-02-27)
+
+
+### Bug Fixes
+
+* **import:** import 'jquery' only, let webpack to alias to slim ([86bf632](https://github.com/ecomplus/storefront/commit/86bf63237bfd8e535de9a1a9f559e8bf6923b88e))
+
+
+### Features
+
+* **scss:** custom utilites (text and spacing helpers) ([f8dcdd8](https://github.com/ecomplus/storefront/commit/f8dcdd8e4efb23e15efbcca843358efbafc95907))
+* **vars:** complete set of text css vars (fs, fw, ln) ([a50e81c](https://github.com/ecomplus/storefront/commit/a50e81c0179a3d463ba380364264c99faf6f0b52))
+
+
+### Performance Improvements
+
+* **vars:** removing unecessary --spacer-0 var ([0b4534f](https://github.com/ecomplus/storefront/commit/0b4534ff719b540afcab2179987133e87a4e1928))
+
+
+
+
+
 # [5.1.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.0.1...@ecomplus/storefront-twbs@5.1.0) (2020-02-13)
 
 
