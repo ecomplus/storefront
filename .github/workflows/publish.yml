@@ -17,19 +17,14 @@ jobs:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org/'
 
-      - name: Go to package folder
+      - name: Edit package.json and publish to npm registry
         env:
-          PKG_OWNER: ${{ github.event.package.owner.login }}
-          PKG_NAME: ${{ github.event.package.name }}
-        run: cd ./@$PKG_OWNER/$PKG_NAME
-
-      - name: Edit package.json to remove custom registry config
-        run: |
-          node -p "const pkg = require('./package.json'); \
-          delete pkg.publishConfig.registry; \
-          JSON.stringify(pkg, null, 2)" > pkg.json && mv pkg.json package.json
-
-      - name: Publish package to npm registry
-        env:
+          PKG_OWNER: ${{ github.event.registry_package.owner.login }}
+          PKG_NAME: ${{ github.event.registry_package.name }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish
+        run: |
+          cd ./@$PKG_OWNER/$PKG_NAME && \
+          node -p "const pkg = require('./package.json'); \
+          if (pkg.publishConfig) delete pkg.publishConfig.registry; \
+          JSON.stringify(pkg, null, 2)" > pkg.json && mv pkg.json package.json && \
+          npm publish
