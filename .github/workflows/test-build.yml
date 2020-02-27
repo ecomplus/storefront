@@ -5,7 +5,8 @@ on:
     branches:
       - master
     paths:
-      - '@ecomplus/*/src/**'
+      - '/@ecomplus/*/src/**'
+      - '/__tests__/build-starter.sh'
 
 jobs:
   test-build:
@@ -36,4 +37,4 @@ jobs:
         run: npm ci
 
       - name: Run test script
-        run: sh ./__tests__/build-starter.sh
+        run: cd ./__tests__ && sh ./build-starter.sh
