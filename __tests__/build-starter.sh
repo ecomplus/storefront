@@ -3,6 +3,8 @@
 ROOT=${MONOREPO_DIR:-"$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/.."}
 ERROR=1
 
+ls $ROOT
+
 mkdir -p $ROOT/__tests__/packages/ && \
   cp -r $ROOT/@ecomplus $ROOT/__tests__/packages/ && \
   cd $ROOT/__tests__/storefront-starter && \
