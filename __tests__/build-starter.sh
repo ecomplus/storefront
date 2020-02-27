@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ROOT=${INIT_CWD:-"$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/.."}
+ROOT=${MONOREPO_DIR:-"$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/.."}
 ERROR=1
 
 mkdir -p $ROOT/__tests__/packages/ && \
