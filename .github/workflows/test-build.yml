@@ -5,8 +5,8 @@ on:
     branches:
       - master
     paths:
-      - '/@ecomplus/*/src/**'
-      - '/__tests__/build-starter.sh'
+      - '@ecomplus/*/src/**'
+      - '__tests__/build-starter.sh'
 
 jobs:
   test-build:
