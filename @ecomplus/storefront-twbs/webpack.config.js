@@ -68,8 +68,7 @@ const webpackConfig = {
 
   resolve: {
     alias: {
-      jquery$: 'jquery/dist/jquery.slim',
-      '@ecomplus/storefront-twbs/src': path.resolve(__dirname, 'src')
+      jquery$: 'jquery/dist/jquery.slim'
     }
   }
 }

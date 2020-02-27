@@ -86,9 +86,8 @@ const webpackConfig = {
 
   resolve: {
     alias: {
-      ...require('@ecomplus/storefront-twbs/webpack.config').pop().resolve.alias,
-      '@ecomplus/storefront-components': __dirname,
-      __: path.join(__dirname, '__tests__')
+      __: path.join(__dirname, '__tests__'),
+      '@ecomplus/storefront-components': __dirname
     }
   }
 }

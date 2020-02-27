@@ -6,10 +6,10 @@
 
 import { name, version } from './../package.json'
 
-import $ from '@ecomplus/storefront-twbs/src/$'
-import animateCss from '@ecomplus/storefront-twbs/src/animate-css'
-import '@ecomplus/storefront-twbs/src/bootstrap'
-import '@ecomplus/storefront-twbs/src/fontawesome-icons'
+import $ from './$'
+import animateCss from './animate-css'
+import './bootstrap'
+import './fontawesome-icons'
 
 const _self = name + '@' + version
 
