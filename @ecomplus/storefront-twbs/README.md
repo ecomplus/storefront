@@ -18,7 +18,7 @@
 
 > We're not importing those frameworks _as is_ to select only common and most useful components for Storefront themes. By this way we're reducing final bundle size and improving website **performance** :rocket:.
 
-> We generally use (and recommend partners to) Vue.js for [Storefront widgets](https://github.com/ecomclub?utf8=%E2%9C%93&q=widget&type=&language=), but remember that Bootstrap CSS, Font Awesome SVG and Animate.css **are all reusable with any JS framework**.
+> We generally use (and recommend partners to) Vue.js for Storefront components and widgets, but remember that Bootstrap CSS, Font Awesome SVG and Animate.css **are all reusable with any JS framework**.
 
 ## Installation
 
