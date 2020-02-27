@@ -48,4 +48,6 @@ jobs:
       - name: Run test script
         env:
           MONOREPO_DIR: .
-        run: sh ./__tests__/build-starter.sh
+        run: |
+          chmod +x ./__tests__/build-starter.sh
+          ./__tests__/build-starter.sh
