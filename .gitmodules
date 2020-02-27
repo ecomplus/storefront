@@ -1,0 +1,3 @@
+[submodule "__tests__/storefront-starter"]
+	path = __tests__/storefront-starter
+	url = git@github.com:ecomplus/storefront-starter.git
