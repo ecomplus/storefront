@@ -5,15 +5,15 @@
 */**/.serve
 */**/commitlint.config.js
 
-**/@ecomplus/storefront-*/copy
-**/@ecomplus/storefront-*/storefront-template
+/@ecomplus/storefront-*/copy
+/@ecomplus/storefront-*/storefront-template
 
-**/@ecomplus/storefront-template/template/public/assets/vendor/
-**/@ecomplus/storefront-template/template/scss/styles.scss
+/@ecomplus/storefront-template/template/public/assets/vendor/
+/@ecomplus/storefront-template/template/scss/styles.scss
 
-**/@ecomplus/storefront-twbs/scss/*/
-!**/@ecomplus/storefront-twbs/scss/utilities/
-!**/@ecomplus/storefront-twbs/scss/vars/
+/@ecomplus/storefront-twbs/scss/*/
+!/@ecomplus/storefront-twbs/scss/utilities/
+!/@ecomplus/storefront-twbs/scss/vars/
 
 /__tests__/packages
 
