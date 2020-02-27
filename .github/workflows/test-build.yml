@@ -1,0 +1,37 @@
+name: Test build
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '@ecomplus/*/src/**'
+
+jobs:
+  test-build:
+    name: Build Storefront Starter
+    runs-on: ubuntu-latest
+    if: !contains(github.event.head_commit.message, '[skip ci]')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run test script
+        run: sh ./__tests__/build-starter.sh
