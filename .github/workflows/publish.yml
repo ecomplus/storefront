@@ -6,6 +6,9 @@ jobs:
   deploy:
     name: Publish to npm
     runs-on: ubuntu-latest
+    env:
+      PKG_OWNER: ${{ github.event.registry_package.owner.login }}
+      PKG_NAME: ${{ github.event.registry_package.name }}
 
     steps:
       - name: Checkout
@@ -17,19 +20,18 @@ jobs:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org/'
 
-      - name: Go to package folder
-        env:
-          PKG_OWNER: ${{ github.event.registry_package.owner.login }}
-          PKG_NAME: ${{ github.event.registry_package.name }}
-        run: cd ./@$PKG_OWNER/$PKG_NAME
-
       - name: Edit package.json to remove custom registry config
+        working-directory: ./@$PKG_OWNER/$PKG_NAME
+        env:
+          PKG_VERSION: ${{ github.event.registry_package.package_version.version }}
         run: |
           node -p "const pkg = require('./package.json'); \
           if (pkg.publishConfig) delete pkg.publishConfig.registry; \
+          pkg.version = $PKG_VERSION; \
           JSON.stringify(pkg, null, 2)" > pkg.json && mv pkg.json package.json
 
       - name: Publish package to npm registry
+        working-directory: ./@$PKG_OWNER/$PKG_NAME
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish
