@@ -19,8 +19,8 @@ jobs:
 
       - name: Go to package folder
         env:
-          PKG_OWNER: ${{ github.event.package.owner.login }}
-          PKG_NAME: ${{ toJson(github.event) }}
+          PKG_OWNER: ${{ github.event.registry_package.owner.login }}
+          PKG_NAME: ${{ github.event.registry_package.name }}
         run: cd ./@$PKG_OWNER/$PKG_NAME
 
       - name: Edit package.json to remove custom registry config
