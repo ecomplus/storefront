@@ -1,20 +1,19 @@
 # Storefront Twbs
 
-[![npm version](https://img.shields.io/npm/v/@ecomplus/storefront-twbs/latest.svg)](https://www.npmjs.org/@ecomplus/storefront-twbs) [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://img.shields.io/npm/v/@ecomplus/storefront-twbs.svg)](https://www.npmjs.org/@ecomplus/storefront-twbs) [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-:nail_care: Foundation components for
-[E-Com Plus Storefront](https://github.com/ecomclub/storefront):
+:nail_care: Foundation components for [E-Com Plus Storefront](https://github.com/ecomclub/storefront):
 
 1. **[Boostrap 4.4](https://getbootstrap.com/docs/4.4/getting-started/introduction/)**:
-    - [`scss/styles.scss`](scss/styles.scss): Majority part (_but not all_) of Bootstrap CSS is imported, with almost all components, some utility classes and custom additional [CSS vars](#css-vars);
-    - [`src/bootstrap.js`](src/bootstrap.js): Bootstrap 4 scripts for respective components, using jQuery and Popper.js normally;
+    - [`scss/styles.scss`](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs/scss/styles.scss): Majority part (_but not all_) of Bootstrap CSS is imported, with almost all components, some utility classes and custom additional [CSS vars](#css-vars);
+    - [`src/bootstrap.js`](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs/src/bootstrap.js): Bootstrap 4 scripts for respective components, using jQuery and Popper.js normally;
 
 2. Some animations imported from **[Animate.css](https://daneden.github.io/animate.css/)**:
-    - [`scss/_animate.scss`](scss/_animate.scss): Curated CSS animations list;
-    - [`src/animate-css.js`](src/animate-css.js): Simple utility function to apply animations with JS;
+    - [`scss/_animate.scss`](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs/scss/_animate.scss): Curated CSS animations list;
+    - [`src/animate-css.js`](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs/src/animate-css.js): Simple utility function to apply animations with JS;
 
 3. Some SVG icons imported from **[Font Awesome 5](https://fontawesome.com/)**:
-    - [`src/fontawesome-icons.js`](src/fontawesome-icons.js): Curated SVG icons list;
+    - [`src/fontawesome-icons.js`](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs/src/fontawesome-icons.js): Curated SVG icons list;
 
 > We're not importing those frameworks _as is_ to select only common and most useful components for Storefront themes. By this way we're reducing final bundle size and improving website **performance** :rocket:.
 
@@ -50,7 +49,7 @@ import '@ecomplus/storefront-twbs'
 
 ## Styles
 
-We're including almost all Bootstrap 4.4 styles and components, just a few components aren't included by default as you can see at [`scss/styles.scss`](scss/styles.scss).
+We're including almost all Bootstrap 4.4 styles and components, just a few components aren't included by default as you can see at [`scss/styles.scss`](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs/scss/styles.scss).
 
 ### Theming
 
@@ -208,7 +207,7 @@ Beyond the default ones, more CSS vars are set on `:root` (brands colors, border
 
 ## JavaScript
 
-Some Bootstrap 4 JS plugins are included at [`src/bootstrap.js`](src/bootstrap.js). It requires jQuery 3 (slim) and Popper.js 1, both included to Storefront Twbs bundle script.
+Some Bootstrap 4 JS plugins are included at [`src/bootstrap.js`](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs/src/bootstrap.js). It requires jQuery 3 (slim) and Popper.js 1, both included to Storefront Twbs bundle script.
 
 ### Font Awesome
 
@@ -220,4 +219,4 @@ You can use FA icons by just adding respective CSS classes, eg.:
 <i class="fas fa-shopping-bag"></i>
 ```
 
-See available icons at [`src/fontawesome-icons.js`](src/fontawesome-icons.js).
+See available icons at [`src/fontawesome-icons.js`](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs/src/fontawesome-icons.js).
