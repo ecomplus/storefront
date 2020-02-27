@@ -1,7 +1,0 @@
-[build]
-  command = "npm run build"
-  publish = "dist"
-
-[template.environment]
-  ECOM_STORE_ID = "Your E-Com Plus Store ID"
-  ECOM_STORE_OBJECT_ID = "Your E-Com Plus Store Object ID"
