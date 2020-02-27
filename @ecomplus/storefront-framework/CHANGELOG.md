@@ -72,4 +72,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # Legacy Change Log
 
-## [2.14.0~5.6.0](LEGACY_CHANGELOGS/storefront-framework/v2.14.0~v5.6.0.md)
+## [2.14.0~5.6.0](/LEGACY_CHANGELOGS/storefront-framework/v2.14.0~v5.6.0.md)

@@ -56,4 +56,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # Legacy Change Log
 
-## [2.0.0-alpha.1~5.0.0-alpha.3](LEGACY_CHANGELOGS/storefront-twbs/2.0.0-alpha.1~v5.0.0-alpha.3.md)
+## [2.0.0-alpha.1~5.0.0-alpha.3](/LEGACY_CHANGELOGS/storefront-twbs/2.0.0-alpha.1~v5.0.0-alpha.3.md)
