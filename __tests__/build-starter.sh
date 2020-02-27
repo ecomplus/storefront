@@ -4,10 +4,10 @@ ROOT=${MONOREPO_DIR:-"$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 &
 ERROR=1
 
 ls "$ROOT/__tests__"
+mkdir -p $ROOT/__tests__/packages/ && cp -r $ROOT/@ecomplus $ROOT/__tests__/packages/
+echo "1. Packages copied"
 
-mkdir -p $ROOT/__tests__/packages/ && \
-  cp -r $ROOT/@ecomplus $ROOT/__tests__/packages/ && \
-  cd $ROOT/__tests__/storefront-starter && \
+cd $ROOT/__tests__/storefront-starter && \
   npm link $ROOT/__tests__/packages/@ecomplus/storefront-template && \
   npm run build && \
   ERROR=0
@@ -17,6 +17,7 @@ cd $ROOT/__tests__/packages/@ecomplus/storefront-template && npm unlink
 
 cd $ROOT
 rm -rf $ROOT/__tests__/packages/@ecomplus
+echo "2. Clear"
 
 if [ $ERROR -eq 0 ]
 then
