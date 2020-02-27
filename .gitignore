@@ -11,8 +11,9 @@
 **/@ecomplus/storefront-template/template/public/assets/vendor/
 **/@ecomplus/storefront-template/template/scss/styles.scss
 
-**/@ecomplus/storefront-twbs/scss/animate.css/
-**/@ecomplus/storefront-twbs/scss/bootstrap/
+**/@ecomplus/storefront-twbs/scss/*/
+!**/@ecomplus/storefront-twbs/scss/utilities/
+!**/@ecomplus/storefront-twbs/scss/vars/
 
 # Logs
 logs
