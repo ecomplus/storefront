@@ -69,3 +69,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * **long-term-cache:** add [contenthash] to default output filename ([5b68c70](https://github.com/ecomclub/storefront-framework/commit/5b68c70c5ac198affaa1c15aa3dd2a2d9da843e3))
+
+# Legacy Change Log
+
+## [2.14.0~5.6.0](LEGACY_CHANGELOGS/storefront-framework/v2.14.0~v5.6.0.md)

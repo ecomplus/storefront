@@ -52,3 +52,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 # 5.0.0-beta.0 (2020-02-04)
 
 **Note:** Version bump only for package @ecomplus/storefront-twbs
+
+
+# Legacy Change Log
+
+## [2.0.0-alpha.1~5.0.0-alpha.3](LEGACY_CHANGELOGS/storefront-twbs/2.0.0-alpha.1~v5.0.0-alpha.3.md)
