@@ -24,7 +24,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomplus/storefront.git"
+    "url": "git+https://github.com/ecomplus/storefront.git",
+    "directory": "@ecomplus/storefront-template"
   },
   "keywords": [
     "ecomplus",
