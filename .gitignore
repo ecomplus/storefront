@@ -15,6 +15,8 @@
 !**/@ecomplus/storefront-twbs/scss/utilities/
 !**/@ecomplus/storefront-twbs/scss/vars/
 
+/__tests__/packages
+
 # Logs
 logs
 *.log
