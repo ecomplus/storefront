@@ -20,6 +20,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Checkout submodules
+        shell: bash
+        run: |
+          git config --global url."https://github.com/".insteadOf "git@github.com:"
+          auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+          git submodule sync --recursive
+          git -c "http.extraheader=$auth_header" -c protocol.version=2 \
+            submodule update --init --force --recursive --depth=1
+
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
@@ -38,5 +47,5 @@ jobs:
 
       - name: Run test script
         env:
-          INIT_CWD: .
+          MONOREPO_DIR: .
         run: sh ./__tests__/build-starter.sh
