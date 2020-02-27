@@ -9,7 +9,7 @@
       "license": "MIT"
     },
     "version": {
-      "allowBranch": ["master", "v*-dev"],
+      "allowBranch": ["v*-dev"],
       "conventionalCommits": true,
       "createRelease": "github",
       "gitRemote": "origin",
