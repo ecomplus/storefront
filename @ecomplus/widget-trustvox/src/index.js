@@ -1,6 +1,7 @@
 import ratingCards from './lib/rating-products'
 import commentsProduct from './lib/comments-products'
 import ratingSearch from './lib/rating-search'
+import sealStore from './lib/seal-store'
 
 export default options => {
   if (options && options.trustvoxStoreId) {
@@ -16,6 +17,7 @@ export default options => {
     ratingCards(options)
     ratingSearch(options)
     commentsProduct(options)
+    sealStore(options)
   } else {
     console.error(new Error('Can\'t setup Trustvox widget without `trustvoxStoreId` option'))
   }
