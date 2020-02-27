@@ -37,4 +37,6 @@ jobs:
         run: npm ci
 
       - name: Run test script
-        run: cd ./__tests__ && sh ./build-starter.sh
+        env:
+          INIT_CWD: .
+        run: sh ./__tests__/build-starter.sh
