@@ -27,4 +27,4 @@ jobs:
           node -p "const pkg = require('./package.json'); \
           if (pkg.publishConfig) delete pkg.publishConfig.registry; \
           JSON.stringify(pkg, null, 2)" > pkg.json && mv pkg.json package.json && \
-          npm publish
+          npm ci && npm run build && npm publish

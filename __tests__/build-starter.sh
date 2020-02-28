@@ -5,29 +5,34 @@ ERROR=1
 
 ls "$ROOT/__tests__"
 
-mkdir -p $ROOT/__tests__/packages/ && cp -r $ROOT/@ecomplus $ROOT/__tests__/packages/
-echo "1. Packages copied"
+mkdir $ROOT/__tests__/tmp && \
+  cp -r $ROOT/@ecomplus $ROOT/__tests__/tmp/ && \
+  cp -r $ROOT/node_modules $ROOT/__tests__/tmp/
+echo "1. Local packages copied"
 
-cd $ROOT/__tests__/packages/@ecomplus/storefront-template && \
+if [ -z "$SKIP_GIT_CLONE" ]
+then
+  git clone -b master \
+    https://github.com/ecomplus/storefront-starter $ROOT/__tests__/tmp/@ecomplus/storefront-starter
+  echo "2. Storefront Starter repository cloned"
+fi
+
+cd $ROOT/__tests__/tmp/@ecomplus/storefront-template && \
   npm link && \
-  echo "1.1 Global npm link created" && \
-  cd ../../../storefront-starter && \
+  echo "3.1 Global npm link created" && \
+  cd ../storefront-starter && \
   npm link @ecomplus/storefront-template && \
-  echo "1.2 Link installed" && \
+  echo "3.2 Link installed" && \
   npm run build && \
   ERROR=0
 
-cd ../../
+cd ../../../../
 ls
 
-cd $ROOT/__tests__/storefront-starter && npm unlink --no-save @ecomplus/storefront-template
-cd ../..
-cd $ROOT/__tests__/packages/@ecomplus/storefront-template && npm unlink
+cd $ROOT/__tests__/tmp/@ecomplus/storefront-template && npm unlink
 cd ../../../..
-
-cd $ROOT
-rm -rf $ROOT/__tests__/packages/@ecomplus
-echo "3. Clear"
+rm -rf $ROOT/__tests__/tmp
+echo "4. Clear"
 
 if [ $ERROR -eq 0 ]
 then
