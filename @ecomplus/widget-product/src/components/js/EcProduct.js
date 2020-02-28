@@ -5,7 +5,8 @@ import {
   onPromotion,
   price,
   variationsGrids,
-  specValueByText
+  specValueByText,
+  i18n
 } from '@ecomplus/utils'
 
 import { store } from '@ecomplus/client'
@@ -15,6 +16,10 @@ import EcVariations from './../EcVariations.vue'
 import EcGallery from './../EcGallery.vue'
 import EcShipping from './../EcShipping.vue'
 import dictionary from './../../lib/dictionary'
+
+import {
+  i19loadProductErrorMsg
+} from '@ecomplus/i18n'
 
 const { storefront } = window
 const getContextBody = () => storefront
@@ -68,6 +73,8 @@ export default {
         ? this.body.variations.find(({ _id }) => _id === this.selectedVariationId)
         : {}
     },
+
+    i19loadProductErrorMsg: () => i18n(i19loadProductErrorMsg),
 
     name () {
       return this.selectedVariation.name || name(this.body)

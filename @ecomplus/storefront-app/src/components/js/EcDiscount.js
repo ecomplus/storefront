@@ -7,11 +7,12 @@ import {
   i19add,
   i19addDiscountCoupon,
   i19code,
-  // i19couponAppliedMsg,
+  i19couponAppliedMsg,
   i19discountCoupon,
   i19errorMsg,
-  i19hasCouponOrVoucherQn
-  // i19invalidCouponMsg
+  i19hasCouponOrVoucherQn,
+  i19invalidCouponMsg,
+  i19campaignAppliedMsg
 } from '@ecomplus/i18n'
 
 export default {
@@ -43,11 +44,11 @@ export default {
     i19add: () => i18n(i19add),
     i19addDiscountCoupon: () => i18n(i19addDiscountCoupon),
     i19code: () => i18n(i19code),
-    i19couponAppliedMsg: () => 'Cupom de desconto aplicado com sucesso.',
+    i19couponAppliedMsg: () => i18n(i19couponAppliedMsg),
     i19discountCoupon: () => i18n(i19discountCoupon),
     i19hasCouponOrVoucherQn: () => i18n(i19hasCouponOrVoucherQn),
-    i19invalidCouponMsg: () => 'O cupom de desconto inserido é inválido.',
-    i19campaignAppliedMsg: () => 'Campanha de desconto aplicada com sucesso.',
+    i19invalidCouponMsg: () => i18n(i19invalidCouponMsg),
+    i19campaignAppliedMsg: () => i18n(i19campaignAppliedMsg),
 
     canAddCoupon () {
       return !this.couponCode || !this.isCouponApplied ||

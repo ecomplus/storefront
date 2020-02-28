@@ -5,7 +5,7 @@ import EcShippingLine from './../EcShippingLine.vue'
 import EcSummary from './../EcSummary.vue'
 
 import {
-  // i19cancelOrder,
+  i19cancelOrder,
   i19codeCopied,
   i19copyCode,
   i19copyErrorMsg,
@@ -17,12 +17,13 @@ import {
   i19printBillet,
   i19redirectToPayment,
   i19referenceCode,
-  // i19reopenOrder,
+  i19reopenOrder,
   i19transactionCode,
   i19ticketCode,
   i19FinancialStatus,
   i19FulfillmentStatus,
-  i19OrderStatus
+  i19OrderStatus,
+  i19orderObservations
 } from '@ecomplus/i18n'
 
 export default {
@@ -70,7 +71,7 @@ export default {
   },
 
   computed: {
-    i19cancelOrder: () => 'Cancelar pedido',
+    i19cancelOrder: () => i18n(i19cancelOrder),
     i19codeCopied: () => i18n(i19codeCopied),
     i19copyCode: () => i18n(i19copyCode),
     i19copyErrorMsg: () => i18n(i19copyErrorMsg),
@@ -82,10 +83,10 @@ export default {
     i19printBillet: () => i18n(i19printBillet),
     i19redirectToPayment: () => i18n(i19redirectToPayment),
     i19referenceCode: () => i18n(i19referenceCode),
-    i19reopenOrder: () => 'Reabrir pedido',
+    i19reopenOrder: () => i18n(i19reopenOrder),
     i19transactionCode: () => i18n(i19transactionCode),
     i19ticketCode: () => i18n(i19ticketCode),
-    i19orderObservations: () => 'Observações do pedido',
+    i19orderObservations: () => i18n(i19orderObservations),
 
     localOrder: {
       get () {
