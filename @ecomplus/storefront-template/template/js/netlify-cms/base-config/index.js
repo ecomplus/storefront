@@ -20,7 +20,7 @@ export default {
       }
     },
     locale: 'pt',
-    load_config_file: false,
+    load_config_file: Boolean(window.CMS_LOAD_CONFIG_FILE),
     media_folder: 'template/public/img/uploads',
     public_folder: '/img/uploads',
     slug: {
