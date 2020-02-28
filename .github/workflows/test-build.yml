@@ -7,6 +7,11 @@ on:
     paths:
       - '@ecomplus/*/src/**'
       - '__tests__/build-starter.sh'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - '@ecomplus/*/src/**'
 
 jobs:
   test-build:
