@@ -6,12 +6,14 @@ on:
       - master
     paths:
       - '@ecomplus/*/src/**'
+      - '@ecomplus/*/template/**'
       - '__tests__/build-starter.sh'
   pull_request:
     branches:
       - master
     paths:
       - '@ecomplus/*/src/**'
+      - '@ecomplus/*/template/**'
 
 jobs:
   test-build:
