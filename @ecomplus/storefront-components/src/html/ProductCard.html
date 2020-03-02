@@ -1,2 +1,100 @@
-<article class="product-card">
-</article>
+<div
+  class="product-card"
+  :class="body._id && !isActive ? 'product-card--inactive' : null"
+>
+  <transition enter-active-class="animated fadeIn">
+    <section v-if="!isLoading">
+      <slot name="discount-tag">
+        <span
+          v-if="isActive && discount > 0"
+          class="product-card__offer-stamp"
+        >
+          -<b>{{ discount }}</b>%
+        </span>
+      </slot>
+
+      <slot name="body">
+        <a
+          class="product-card__link"
+          :href="`/${body.slug}`"
+          :title="getName(body)"
+        >
+          <div class="product-card__pictures">
+            <template v-if="body.pictures && body.pictures.length">
+              <a-picture
+                class="product-card__picture"
+                v-for="(picture, index) in body.pictures.slice(0, 2)"
+                :key="index"
+                :src="picture"
+                :can-calc-height="false"
+              />
+            </template>
+            <a-picture
+              v-else
+              class="product-card__picture"
+            />
+          </div>
+
+          <h3 class="product-card__name">
+            {{ getName(body) }}
+          </h3>
+        </a>
+      </slot>
+
+      <slot
+        name="unavailable"
+        v-if="!body.available || !body.visible"
+      >
+        <p class="badge badge-warning">
+          {{ i19unavailable }}
+        </p>
+      </slot>
+
+      <slot
+        name="out-of-stock"
+        v-else-if="!isInStock"
+      >
+        <p class="badge badge-dark">
+          {{ i19outOfStock }}
+        </p>
+      </slot>
+
+      <template v-else>
+        <slot name="prices">
+          <a-prices
+            class="product-card__prices"
+            :product="body"
+          />
+        </slot>
+
+        <div
+          @click="buy"
+          class="product-card__buy fade"
+        >
+          <slot name="buy">
+            <button
+              type="button"
+              class="btn btn-block btn-primary"
+            >
+              <i class="fas fa-shopping-bag mr-1"></i>
+              {{ strBuy }}
+            </button>
+          </slot>
+        </div>
+      </template>
+
+      <slot name="footer"/>
+    </section>
+  </transition>
+
+  <template v-if="isLoading">
+    <slot/>
+    <div
+      v-if="error"
+      class="alert alert-warning small"
+      role="alert"
+    >
+      {{ error }}
+    </div>
+  </template>
+</div>
