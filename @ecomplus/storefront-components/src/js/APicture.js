@@ -32,7 +32,11 @@ export default {
     src: [String, Object],
     fallbackSrc: String,
     alt: String,
-    fade: {
+    canFade: {
+      type: Boolean,
+      default: true
+    },
+    canCalcHeight: {
       type: Boolean,
       default: true
     },
@@ -61,7 +65,7 @@ export default {
 
   computed: {
     elClasses () {
-      return `lozad ${(this.fade ? 'fade' : 'show')}`
+      return `lozad ${(this.canFade ? 'fade' : 'show')}`
     },
 
     defaultImgObj () {
@@ -100,7 +104,7 @@ export default {
         const imgObj = this.src[getBestFitThumb(this.src, clientWidth, this.containerBreakpoints)]
         const { url, size } = (imgObj || this.defaultImgObj)
         srcset = url
-        if (size) {
+        if (size && this.canCalcHeight) {
           const [width, height] = size.split('x').map(px => parseInt(px, 10))
           if (height) {
             this.height = `${(clientWidth >= width ? height : clientWidth * height / width)}px`

@@ -30,8 +30,8 @@ export default {
       type: Object,
       required: true
     },
-    literal: Boolean,
-    big: Boolean,
+    isLiteral: Boolean,
+    isBig: Boolean,
     installmentsOption: Object,
     discountOption: Object,
     discountText: {

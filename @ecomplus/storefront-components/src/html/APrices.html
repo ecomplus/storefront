@@ -1,9 +1,12 @@
 <div
   class="prices"
-  :class="{ 'prices--literal': literal, 'prices--big': big }"
+  :class="{ 'prices--literal': isLiteral, 'prices--big': isBig }"
 >
-  <span v-if="comparePrice" class="prices__compare">
-    <template v-if="literal">
+  <span
+    v-if="comparePrice"
+    class="prices__compare"
+  >
+    <template v-if="isLiteral">
       {{ i19from }}
       <s>{{ formatMoney(comparePrice) }}</s>
       {{ i19to }}
@@ -25,7 +28,7 @@
       <span>
         {{ formatMoney(price / interestFreeInstallments) }}
       </span>
-      <small v-if="literal">
+      <small v-if="isLiteral">
         {{ i19interestFree }}
       </small>
     </div>
