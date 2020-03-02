@@ -3,13 +3,15 @@
   width: 100%;
   background-color: var(--gray);
   transition: background-color 2s linear;
+  overflow: hidden;
 
   &:not(.loaded) {
     opacity: .4;
+    height: 100%;
   }
 
   &.loaded {
-    background-color: transparent;
+    background-color: inherit;
   }
 
   img {

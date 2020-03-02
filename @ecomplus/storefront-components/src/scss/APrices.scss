@@ -14,9 +14,13 @@
     font-size: var(--font-size-lg);
   }
 
-  &--big .prices__value {
-    font-size: var(--h1);
-    margin-bottom: var(--spacer-1);
+  &--big {
+    font-size: var(--font-size);
+
+    .prices__value {
+      font-size: var(--h1);
+      margin-bottom: var(--spacer-1);
+    }
   }
 
   &--literal {
