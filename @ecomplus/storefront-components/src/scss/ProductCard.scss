@@ -67,7 +67,7 @@ $product-card-picture-lg: 250px;
     height: calc(var(--line-height-sm) * var(--font-size-sm) * 3);
     box-sizing: content-box;
     overflow: hidden;
-    font-weight: normal;
+    font-weight: var(--font-normal);
     display: block;
     z-index: 1;
   }
@@ -118,7 +118,9 @@ $product-card-picture-lg: 250px;
 
     .product-card__name {
       padding-top: var(--spacer-2);
-      height: calc(var(--line-height-sm) * var(--font-size-sm) * 2);
+      height: auto;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     .product-card__buy {

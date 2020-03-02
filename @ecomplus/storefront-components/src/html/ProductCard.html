@@ -39,15 +39,7 @@
           </div>
 
           <component :is="headingTag" class="product-card__name">
-            <template v-if="!isSmall">
-              {{ name }}
-            </template>
-            <abbr
-              v-else
-              :title="name"
-            >
-              {{ name }}
-            </abbr>
+            {{ name }}
           </component>
         </a>
       </slot>
