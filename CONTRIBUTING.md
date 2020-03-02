@@ -15,7 +15,7 @@ npm i
 
 4. Edit source files and test changes locally:
     - `npm run serve` to serve the entire template;
-    - `lerna run --scope=@ecomplus/{pkg} serve` to call specific tests for some widget or UI package;
+    - `npx lerna run --scope=@ecomplus/{pkg} serve` to call specific tests for some widget or UI package;
     - You may also want to edit test files at `@ecomplus/{pkg}/__tests__/` folder;
 
 5. Commit following [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/);
