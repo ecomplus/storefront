@@ -1,6 +1,9 @@
 <div
   class="product-card"
-  :class="body._id && !isActive ? 'product-card--inactive' : null"
+  :class="{
+    'product-card--inactive': body._id && !isActive,
+    'product-card--small': isSmall
+  }"
 >
   <transition enter-active-class="animated fadeIn">
     <section v-if="!isLoading">
@@ -17,7 +20,7 @@
         <a
           class="product-card__link"
           :href="`/${body.slug}`"
-          :title="getName(body)"
+          :title="name"
         >
           <div class="product-card__pictures">
             <template v-if="body.pictures && body.pictures.length">
@@ -35,9 +38,17 @@
             />
           </div>
 
-          <h3 class="product-card__name">
-            {{ getName(body) }}
-          </h3>
+          <component :is="headingTag" class="product-card__name">
+            <template v-if="!isSmall">
+              {{ name }}
+            </template>
+            <abbr
+              v-else
+              :title="name"
+            >
+              {{ name }}
+            </abbr>
+          </component>
         </a>
       </slot>
 
@@ -74,7 +85,8 @@
           <slot name="buy">
             <button
               type="button"
-              class="btn btn-block btn-primary"
+              class="btn btn-primary"
+              :class="isSmall ? 'btn-sm': 'btn-block'"
             >
               <i class="fas fa-shopping-bag mr-1"></i>
               {{ strBuy }}

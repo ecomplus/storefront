@@ -29,6 +29,11 @@ export default {
   props: {
     productId: String,
     product: Object,
+    isSmall: Boolean,
+    headingTag: {
+      type: String,
+      default: 'h3'
+    },
     buyText: String,
     canAddToCart: {
       type: Boolean,
@@ -48,6 +53,10 @@ export default {
   computed: {
     i19outOfStock: () => i18n(i19outOfStock),
     i19unavailable: () => i18n(i19unavailable),
+
+    name () {
+      return getName(this.body)
+    },
 
     strBuy () {
       return this.buyText || i18n(i19buy)
@@ -70,8 +79,6 @@ export default {
   },
 
   methods: {
-    getName,
-
     setBody (data) {
       this.body = Object.assign({}, data)
       delete this.body.body_html
