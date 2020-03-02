@@ -31,10 +31,10 @@
     "url": "https://github.com/ecomplus/storefront/issues"
   },
   "peerDependencies": {
-    "@ecomplus/utils": "^1.3.0"
+    "@ecomplus/utils": "^1.3.2"
   },
   "dependencies": {
-    "@ecomplus/i18n": "^1.3.1",
+    "@ecomplus/i18n": "^1.4.1",
     "@ecomplus/storefront-twbs": "^5.2.0"
   }
 }
