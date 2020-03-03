@@ -1,5 +1,5 @@
 {
-  "name": "@ecomplus/storefront-monorepo",
+  "name": "@ecomplus/storefront",
   "version": "2.0.0-monorepo",
   "description": "Where Storefront magic happens",
   "private": true,
