@@ -46,6 +46,7 @@ export default {
     return {
       body: {},
       isLoading: false,
+      isHovered: false,
       error: ''
     }
   },

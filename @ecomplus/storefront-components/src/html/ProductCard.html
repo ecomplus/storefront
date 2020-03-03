@@ -4,6 +4,7 @@
     'product-card--inactive': body._id && !isActive,
     'product-card--small': isSmall
   }"
+  @mouseover="isHovered = true"
 >
   <transition enter-active-class="animated fadeIn">
     <section v-if="!isLoading">
@@ -26,7 +27,8 @@
             <template v-if="body.pictures && body.pictures.length">
               <a-picture
                 class="product-card__picture"
-                v-for="(picture, index) in body.pictures.slice(0, 2)"
+                v-for="(picture, index) in body.pictures.slice(0, 2).reverse()"
+                v-if="body.pictures === 0 || index === 1 || isHovered"
                 :key="index"
                 :src="picture"
                 :can-calc-height="false"
