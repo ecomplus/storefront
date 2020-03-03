@@ -33,7 +33,7 @@
     "core-js": "3.x"
   },
   "dependencies": {
-    "@ecomplus/client": "^2.0.2",
+    "@ecomplus/client": "^2.0.3",
     "@ecomplus/i18n": "^1.4.1",
     "@ecomplus/passport-client": "^1.0.6",
     "@ecomplus/shopping-cart": "^2.1.1",
