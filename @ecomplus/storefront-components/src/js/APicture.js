@@ -53,6 +53,15 @@ export default {
           normal: 400
         }
       }
+    },
+    lozadOptions: {
+      type: Object,
+      default () {
+        return {
+          rootMargin: '350px 0px',
+          threshold: 0
+        }
+      }
     }
   },
 
@@ -135,8 +144,7 @@ export default {
     this.$nextTick(() => {
       const $picture = this.$el
       const observer = lozad($picture, {
-        rootMargin: '350px 0px',
-        threshold: 0,
+        ...this.lozadOptions,
         loaded: $el => {
           const { localFallbackSrc } = this
           const $img = $el.tagName === 'IMG' ? $el : $el.lastChild
@@ -147,7 +155,9 @@ export default {
             $newImg.src = localFallbackSrc
             $el.parentNode.insertBefore($newImg, $el.nextSibling)
           }
-          setTimeout(() => $el.classList.add('show', 'loaded'), 100)
+          $img.onload = function () {
+            $el.classList.add('show', 'loaded')
+          }
         }
       })
       observer.observe()
