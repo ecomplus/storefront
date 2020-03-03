@@ -41,10 +41,13 @@ bundler.then(async ({ assetsByChunkName }) => {
 
   const prerender = (url, route) => new Promise(resolve => {
     // debug
-    console.log(' \n----  //  ----\n ')
-    console.log(url)
-    if (route) {
-      console.log(JSON.stringify(route, null, 2))
+    const done = () => {
+      console.log(url)
+      if (route) {
+        console.log(JSON.stringify(route, null, 2))
+      }
+      console.log(' \n----  //  ----\n ')
+      resolve()
     }
     // console colors
     const clGreen = '\x1b[32m%s\x1b[0m'
@@ -85,21 +88,23 @@ bundler.then(async ({ assetsByChunkName }) => {
             .then(() => {
               fs.writeFile(filepath, html, err => err ? console.error(clRed, err) : true)
               console.log(clGreen, 'DONE')
-              resolve()
+              done()
             })
             .catch(err => {
               console.error(clRed, err)
-              resolve()
+              done()
             })
         } else if (html === false) {
           throw new Error('Render returns false')
         } else {
           console.log(clYellow, `Render output: ${JSON.stringify(html)}`)
-          resolve()
+          done()
         }
       })
 
       .catch(err => {
+        err.url = url
+        err.route = route
         console.error(clRed, err)
         // exit with failure
         process.exit(1)
@@ -109,10 +114,7 @@ bundler.then(async ({ assetsByChunkName }) => {
   // list and prerender all storefront routes
   const router = new StorefrontRouter(storeId)
   const routes = await router.list()
-  for (let i = 0; i < routes.length; i++) {
-    const route = routes[i]
-    await prerender(route.path, route)
-  }
+  await routes.forEach(route => prerender(route.path, route))
 
   // build all CMS folder collection slugs
   for (let i = 0; i < cmsCollections.length; i++) {
