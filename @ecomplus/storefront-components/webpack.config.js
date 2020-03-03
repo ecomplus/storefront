@@ -85,6 +85,7 @@ const webpackConfig = {
   },
 
   resolve: {
+    mainFields: ['module', 'browser', 'main'],
     alias: {
       __: path.join(__dirname, '__tests__'),
       '@ecomplus/storefront-components': __dirname
