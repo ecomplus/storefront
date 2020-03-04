@@ -1,15 +1,15 @@
 import {
+  i19from,
+  i19interestFree,
+  i19to
+} from '@ecomplus/i18n'
+
+import {
   i18n,
   price as getPrice,
   onPromotion as checkOnPromotion,
   formatMoney
 } from '@ecomplus/utils'
-
-import {
-  i19from,
-  i19interestFree,
-  i19to
-} from '@ecomplus/i18n'
 
 const getPriceWithDiscount = (price, discount) => {
   const { type, value } = discount

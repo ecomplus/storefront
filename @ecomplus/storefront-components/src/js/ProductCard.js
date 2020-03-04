@@ -1,17 +1,17 @@
 import {
+  i19buy,
+  i19outOfStock,
+  i19unavailable,
+  i19connectionErrorProductMsg
+} from '@ecomplus/i18n'
+
+import {
   i18n,
   name as getName,
   inStock as checkInStock,
   onPromotion as checkOnPromotion,
   price as getPrice
 } from '@ecomplus/utils'
-
-import {
-  i19buy,
-  i19outOfStock,
-  i19unavailable,
-  i19connectionErrorProductMsg
-} from '@ecomplus/i18n'
 
 import { store } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
