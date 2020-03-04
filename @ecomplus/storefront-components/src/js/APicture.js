@@ -32,10 +32,6 @@ export default {
     src: [String, Object],
     fallbackSrc: String,
     alt: String,
-    canFade: {
-      type: Boolean,
-      default: true
-    },
     canCalcHeight: {
       type: Boolean,
       default: true
@@ -73,10 +69,6 @@ export default {
   },
 
   computed: {
-    elClasses () {
-      return `lozad ${(this.canFade ? 'fade' : 'show')}`
-    },
-
     defaultImgObj () {
       return getImg(this.src) || {}
     },
@@ -156,7 +148,7 @@ export default {
             $el.parentNode.insertBefore($newImg, $el.nextSibling)
           }
           $img.onload = function () {
-            $el.classList.add('show', 'loaded')
+            $el.classList.add('loaded')
           }
         }
       })

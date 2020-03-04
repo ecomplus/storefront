@@ -2,7 +2,7 @@
   display: inline-block;
   width: 100%;
   background-color: var(--gray);
-  transition: background-color 2s linear;
+  transition: opacity .15s, background-color .1s;
   overflow: hidden;
 
   &:not(.loaded) {
