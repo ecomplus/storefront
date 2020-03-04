@@ -6,7 +6,7 @@ export default {
       type: Boolean,
       default: true
     },
-    canAutoClose: {
+    canAutoHide: {
       type: Boolean,
       default: true
     }
@@ -23,12 +23,14 @@ export default {
 
   methods: {
     handleClick () {
-      this.$emit('click')
-      if (this.canAutoClose) {
-        this.style.opacity = 0
-        setTimeout(() => {
-          this.$destroy()
-        }, 150)
+      if (this.isClickable) {
+        this.$emit('click')
+        if (this.canAutoHide) {
+          this.style.opacity = 0
+          setTimeout(() => {
+            this.$destroy()
+          }, 150)
+        }
       }
     }
   },
