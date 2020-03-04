@@ -1,5 +1,9 @@
 # APicture
 
+Basic image element with super powers.
+
+## Features
+
 - Supports both single `src` string and E-Com Plus picture objects;
 - Lazy load with fixed margin and threshold;
 - Responsive image load (best fit with container width);
