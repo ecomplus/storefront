@@ -41,9 +41,12 @@ $product-card-picture-lg: 250px;
     display: block;
     border-radius: var(--border-radius);
     flex: 0 0 100%;
-    opacity: 0;
 
-    &:last-child {
+    &:not(:last-child) {
+      opacity: 0;
+    }
+
+    &.loaded:last-child {
       transition: opacity .15s ease-out .1s;
       position: inherit;
       opacity: 1;
