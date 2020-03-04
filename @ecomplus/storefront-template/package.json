@@ -16,7 +16,6 @@
     "serve": "npm run pack serve",
     "build": "ECOMCLIENT_NOTIMEOUT=true WEBPACK_BUILD_DEV=true npm run pack build",
     "build:site": "ECOMCLIENT_NOTIMEOUT=true npm run pack build",
-    "build:lib": "NODE_ENV=production webpack",
     "release": "npm ddp && npm run build && standard-version && npm run snapshot",
     "snapshot": "cp ./dist.package.json ./dist/package.json; cp ./webpack.externals.js ./dist/",
     "test:install": "rm -rf ./copy && mkdir ./copy && TEMPLATE_DIR=copy node ./scripts/install.js",
