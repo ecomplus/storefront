@@ -48,7 +48,7 @@ Please read the [contribution guidelines](CONTRIBUTING.md).
 
 <details>
   <summary>
-  Check some example commands for development
+  Check some example useful commands
   </summary>
 
 #### Compile template for production
