@@ -46,6 +46,11 @@ They're published for both [npm](https://www.npmjs.com/) and [GPR](https://githu
 
 Please read the [contribution guidelines](CONTRIBUTING.md).
 
+<details>
+  <summary>
+  Check some example commands for development
+  </summary>
+
 #### Compile template for production
 
 ```bash
@@ -56,6 +61,18 @@ npm run build
 
 ```bash
 npx lerna exec -- build
+```
+
+#### Serve template locally
+
+```bash
+npm run serve
+```
+
+#### Serve some specific package tests
+
+```bash
+lerna run --scope=@ecomplus/{pkg} serve --stream
 ```
 
 #### Lint changed files
@@ -69,5 +86,7 @@ npx lerna exec -- lint-staged
 ```bash
 npm run release
 ```
+
+</details>
 
 ![E-Com Plus Storefront banner](https://repository-images.githubusercontent.com/183649678/1c624a80-3180-11ea-8761-1f45e0f675a5)
