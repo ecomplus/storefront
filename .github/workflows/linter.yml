@@ -3,7 +3,7 @@ name: Linter
 on: pull_request
 
 jobs:
-  compress-images:
+  linter:
     name: Run linter for changed files
     runs-on: ubuntu-latest
 

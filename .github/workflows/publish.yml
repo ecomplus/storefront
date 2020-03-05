@@ -3,7 +3,7 @@ name: Publish
 on: registry_package
 
 jobs:
-  deploy:
+  publish:
     name: Publish to npm
     runs-on: ubuntu-latest
 
