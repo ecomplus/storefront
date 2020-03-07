@@ -182,35 +182,39 @@ if (!process.env.WEBPACK_BUILD_LIB) {
       cleanStaleWebpackAssets: false
     }),
 
-    // create manifest.json file
-    new WebpackPwaManifest({
-      filename: 'manifest.json',
-      name: settings.name || 'My Shop',
-      short_name: settings.short_name || 'MyShop',
-      description: settings.description || 'My PWA Shop',
-      background_color: settings.bg_color || '#ffffff',
-      theme_color: primaryColor,
-      crossorigin: 'use-credentials',
-      icons: [{
-        src: settings.icon
-          ? path.join(paths.pub, settings.icon)
-          : path.resolve(paths.img, 'icon.png'),
-        // multiple icon sizes
-        sizes: [96, 128, 192]
-      }, {
-        src: settings.large_icon
-          ? path.join(paths.pub, settings.large_icon)
-          : path.resolve(paths.img, 'large-icon.png'),
-        sizes: [384, 512]
-      }]
-    }),
-
-    // create service worker file
-    new WorkboxPlugin.InjectManifest({ swSrc, swDest: 'sw.js' }),
-
     // copy files from public folders recursivily
     new CopyPlugin([{ from: paths.pub, to: paths.output }])
   )
+
+  if (!devMode) {
+    config.plugins.push(
+      // create manifest.json file
+      new WebpackPwaManifest({
+        filename: 'manifest.json',
+        name: settings.name || 'My Shop',
+        short_name: settings.short_name || 'MyShop',
+        description: settings.description || 'My PWA Shop',
+        background_color: settings.bg_color || '#ffffff',
+        theme_color: primaryColor,
+        crossorigin: 'use-credentials',
+        icons: [{
+          src: settings.icon
+            ? path.join(paths.pub, settings.icon)
+            : path.resolve(paths.img, 'icon.png'),
+          // multiple icon sizes
+          sizes: [96, 128, 192]
+        }, {
+          src: settings.large_icon
+            ? path.join(paths.pub, settings.large_icon)
+            : path.resolve(paths.img, 'large-icon.png'),
+          sizes: [384, 512]
+        }]
+      }),
+
+      // create service worker file
+      new WorkboxPlugin.InjectManifest({ swSrc, swDest: 'sw.js' })
+    )
+  }
 
   // handle configurable options by CLI args
   if (process.argv.indexOf('--verbose') === -1) {
