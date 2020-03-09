@@ -1,0 +1,13 @@
+.search-engine {
+  &__nav {
+    padding: var(--spacer-1);
+    background: var(--light);
+    color: var(--gray);
+
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
