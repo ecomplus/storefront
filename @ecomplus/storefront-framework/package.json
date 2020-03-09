@@ -34,9 +34,9 @@
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-framework#readme",
   "dependencies": {
-    "@babel/core": "^7.8.6",
+    "@babel/core": "^7.8.7",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-env": "^7.8.7",
     "@ecomplus/client": "^2.0.4",
     "@ecomplus/search-engine": "^2.0.3",
     "@ecomplus/storefront-router": "^2.0.1",
