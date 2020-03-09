@@ -1,0 +1,74 @@
+<section class="search-engine">
+  <transition enter-active-class="animated fadeInDown fast">
+    <div
+      v-if="isNavVisible"
+      class="search-engine__nav"
+    >
+      <div class="container">
+        <slot
+          name="nav"
+          v-bind="{ totalSearchResults, toggleFilters }"
+        >
+          <div class="search-engine__count">
+            <strong>{{ totalSearchResults }}</strong>
+            {{ i19items }}
+            <div
+              v-if="isSearching"
+              class="spinner-grow search-engine__spinner"
+              role="status"
+            >
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+
+          <div v-if="isFilterable">
+            <button
+              v-if="hasFilters"
+              class="btn btn-lg search-engine__toggle"
+              @click="toggleFilters(true)"
+              type="button"
+            >
+              <i class="fas fa-filter"></i>
+              {{ i19filter }}
+              <span class="d-none d-md-inline">
+                {{ i19results }}
+              </span>
+            </button>
+
+            <div class="dropdown">
+              <button
+                class="btn btn-lg btn-light search-engine__toggle"
+                type="button"
+                id="search-engine-sort"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="fas fa-sort"></i>
+                <span class="d-none d-md-inline">
+                  {{ i19sort }}
+                </span>
+              </button>
+
+              <div
+                class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="search-engine-sort"
+              >
+                <a
+                  v-for="({ value, label }, index) in sortOptions"
+                  :key="`sort-${index}`"
+                  class="dropdown-item"
+                  href="#"
+                  @click.prevent="setSortOrder(value)"
+                  :active="selectedSortOption === value"
+                >
+                  {{ label }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </slot>
+      </div>
+    </div>
+  </transition>
+</section>
