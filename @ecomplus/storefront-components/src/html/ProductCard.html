@@ -8,7 +8,10 @@
 >
   <transition enter-active-class="animated fadeIn">
     <section v-if="!isLoading">
-      <slot name="discount-tag">
+      <slot
+        name="discount-tag"
+        v-bind="{ discount }"
+      >
         <span
           v-if="isActive && discount > 0"
           class="product-card__offer-stamp"

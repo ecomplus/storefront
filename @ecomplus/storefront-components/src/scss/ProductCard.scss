@@ -19,8 +19,8 @@ $product-card-picture-lg: 250px;
     z-index: 9;
     top: 1rem;
     left: 0;
-    border-top-right-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
+    border-radius: var(--border-radius);
+    transition: border-radius .3s;
     opacity: .9;
   }
 
@@ -88,6 +88,11 @@ $product-card-picture-lg: 250px;
 
   &:hover {
     box-shadow: var(--box-shadow-sm);
+
+    .product-card__offer-stamp {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
 
     .product-card__picture.loaded {
       position: inherit;
