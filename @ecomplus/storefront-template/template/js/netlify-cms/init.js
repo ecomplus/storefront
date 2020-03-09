@@ -3,11 +3,12 @@ import axios from 'axios'
 import baseConfig from './base-config/'
 
 const initCms = config => {
-  if (config.identity_url && window.netlifyIdentity) {
+  const identityUrl = config.backend.identity_url
+  if (identityUrl && window.netlifyIdentity) {
     const fixGotrueApi = () => {
       const { api } = window.netlifyIdentity.gotrue
-      api.apiURL = config.identity_url
-      api._sameOrigin = config.identity_url.includes(window.location.host)
+      api.apiURL = identityUrl
+      api._sameOrigin = identityUrl.includes(window.location.host)
     }
     if (document.readyState !== 'loading') {
       fixGotrueApi()
