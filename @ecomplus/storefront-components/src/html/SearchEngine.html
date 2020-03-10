@@ -95,7 +95,10 @@
     </aside>
   </transition>
 
-  <transition enter-active-class="animated fadeInDown fast">
+  <transition
+    enter-active-class="animated fadeInDown"
+    leave-active-class="animated position-absolute fadeOutUp fast"
+  >
     <div
       v-if="isNavVisible"
       class="search-engine__nav"
@@ -167,5 +170,132 @@
         </slot>
       </div>
     </div>
+  </transition>
+
+  <transition enter-active-class="animated fadeIn slower">
+    <div
+      class="search-engine__results"
+      :style="{ opacity: isSearching && !isLoadingMore ? 0.4 : 1 }"
+      v-if="isResultsVisible"
+    >
+      <div class="container">
+        <div class="search-engine__info px-lg-4">
+          <template v-if="term">
+            <div
+              v-if="hasEmptyResult"
+              class="search-engine__no-results"
+            >
+              <p class="lead">
+                <span v-if="suggestedTerm">
+                  {{ i19didYouMean }}
+                  <a
+                    href="#"
+                    @click.prevent="$emit('update:term', suggestedTerm)"
+                    v-text="suggestedTerm"
+                  ></a>
+                  ?
+                </span>
+                {{ i19noResultsFor }}
+                <em>{{ term }}</em>
+              </p>
+              <h3 v-if="popularItems.length">
+                {{ i19popularProducts }}
+              </h3>
+            </div>
+
+            <div
+              v-else
+              class="search-engine__terms"
+            >
+              <span
+                v-if="noResultsTerm"
+                class="d-none d-lg-inline"
+              >
+                {{ i19noResultsFor }}
+                <s>{{ noResultsTerm }}</s>.
+              </span>
+              <span class="d-none d-md-inline">
+                {{ i19searchingFor }}:
+              </span>
+              <h1>{{ term }}</h1>
+            </div>
+          </template>
+
+          <transition
+            enter-active-class="animated fadeInDown"
+            leave-active-class="animated fadeOutUp"
+          >
+            <div v-if="hasSelectedOptions">
+              <button
+                class="btn btn-sm btn-outline-secondary"
+                type="button"
+                @click="clearFilters"
+              >
+                <i class="fas fa-trash-alt mr-1"></i>
+                {{ i19clearFilters }}
+              </button>
+
+              <template v-for="(options, filter) in selectedOptions">
+                <button
+                  class="search-engine__selected btn btn-sm btn-light"
+                  type="button"
+                  v-for="option in options"
+                  @click="setFilterOption(filter, option, false)"
+                >
+                  <i class="fas fa-times mr-1"></i>
+                  {{ option }}
+                  <small>{{ getFilterLabel(filter) }}</small>
+                </button>
+              </template>
+            </div>
+          </transition>
+        </div>
+
+        <article class="search-engine__retail">
+          <div class="row">
+            <div
+              class="col-6 col-md-4 col-lg-3"
+              v-for="product in suggestedItems"
+              :key="product._id"
+            >
+              <slot
+                name="product"
+                v-bind="{ product }"
+              >
+                <product-card
+                  class="search-engine__item"
+                  :product="product"
+                />
+              </slot>
+            </div>
+          </div>
+        </article>
+
+        <transition enter-active-class="animated fadeInDown">
+          <div
+            class="alert alert-warning"
+            role="alert"
+            v-if="hasNetworkError"
+          >
+            <i class="fas fa-wifi mr-2"></i>
+            {{ i19searchOfflineErrorMsg }}
+            <a
+              href="#"
+              class="alert-link"
+              @click.prevent="fetchItems"
+            >
+              {{ i19searchAgain }}
+            </a>
+          </div>
+        </transition>
+      </div>
+    </div>
+  </transition>
+
+  <transition
+    enter-active-class="animated fadeInDown"
+    leave-active-class="animated fadeOutUp"
+  >
+    <slot v-if="!hasSearched || isLoadingMore"/>
   </transition>
 </section>

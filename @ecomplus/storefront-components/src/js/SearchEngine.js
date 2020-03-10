@@ -7,10 +7,14 @@ import {
   i19items,
   i19lowestPrice,
   i19noResultsFor,
+  i19popularProducts,
   i19refineSearch,
   i19relevance,
   i19results,
   i19sales,
+  i19searchAgain,
+  i19searchingFor,
+  i19searchOfflineErrorMsg,
   i19sort
 } from '@ecomplus/i18n'
 
@@ -87,8 +91,8 @@ export default {
 
   data () {
     return {
+      noResultsTerm: '',
       suggestedTerm: '',
-      searchedTerm: '',
       resultItems: [],
       totalSearchResults: 0,
       hasSearched: false,
@@ -115,9 +119,13 @@ export default {
     i19filter: () => i18n(i19filter),
     i19items: () => i18n(i19items),
     i19noResultsFor: () => i18n(i19noResultsFor),
+    i19popularProducts: () => i18n(i19popularProducts),
     i19relevance: () => i18n(i19relevance),
     i19refineSearch: () => i18n(i19refineSearch),
     i19results: () => i18n(i19results),
+    i19searchAgain: () => i18n(i19searchAgain),
+    i19searchingFor: () => i18n(i19searchingFor),
+    i19searchOfflineErrorMsg: () => i18n(i19searchOfflineErrorMsg),
     i19sort: () => i18n(i19sort),
 
     ecomSearch: () => new EcomSearch(),
@@ -127,7 +135,7 @@ export default {
     },
 
     hasEmptyResult () {
-      return this.searchedTerm && !this.resultItems.length
+      return this.hasSearched && !this.resultItems.length
     },
 
     sortOptions: () => [
@@ -160,9 +168,17 @@ export default {
         (this.isSearching || this.totalSearchResults > 8 || this.hasSelectedOptions)
     },
 
+    isResultsVisible () {
+      return (this.hasSearched && !this.isSearching) || this.suggestedItems.length
+    },
+
     hasFilters () {
       return this.hasSelectedOptions ||
         this.filters.find(({ options }) => options.length)
+    },
+
+    suggestedItems () {
+      return this.resultItems.length ? this.resultItems : this.popularItems
     }
   },
 
@@ -257,6 +273,7 @@ export default {
       })
       if (suggestTerm !== term) {
         if (canAutoFix) {
+          this.noResultsTerm = term
           this.$emit('update:term', suggestTerm)
         } else {
           this.suggestedTerm = suggestTerm
@@ -273,7 +290,6 @@ export default {
       this.updateFilters()
       this.handleSuggestions()
       this.hasSearched = true
-      this.searchedTerm = this.term
       if (!this.totalSearchResults && this.hasPopularItems && !this.hasSetPopularItems) {
         this.fetchItems(false, true)
       }

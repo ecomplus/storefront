@@ -1,6 +1,6 @@
 .search-engine {
   &__nav {
-    padding: var(--spacer-1);
+    padding: var(--spacer-2);
     background: var(--light);
     color: var(--gray);
 
@@ -16,7 +16,7 @@
 
     button {
       margin-left: var(--spacer-1);
-      color: var(--gray);
+      color: var(--secondary);
     }
   }
 
@@ -108,5 +108,38 @@
     small {
       color: var(--gray);
     }
+  }
+
+  &__selected {
+    margin-left: var(--spacer-2);
+
+    > small {
+      color: var(--gray);
+
+      &::before {
+        content: ' / ';
+      }
+    }
+  }
+
+  &__info {
+    margin-bottom: var(--spacer-4);
+    padding-top: var(--spacer-3);
+  }
+
+  &__terms > span {
+    font-weight: var(--font-light);
+
+    &:not(:last-of-type) {
+      color: var(--text-muted);
+    }
+  }
+
+  &__retail {
+    padding-top: var(--spacer-2);
+  }
+
+  &__item {
+    margin-bottom: var(--spacer-3);
   }
 }
