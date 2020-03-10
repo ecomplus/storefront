@@ -1,0 +1,7 @@
+// Pointer on checkbox and radio
+.custom-control {
+  &-label,
+  &-input {
+    cursor: pointer;
+  }
+}
