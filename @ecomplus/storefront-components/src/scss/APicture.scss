@@ -1,17 +1,13 @@
 .picture {
   display: inline-block;
   width: 100%;
-  background-color: var(--gray);
-  transition: opacity .15s, background-color .1s;
+  transition: opacity .2s;
   overflow: hidden;
 
   &:not(.loaded) {
-    opacity: .4;
+    background: linear-gradient(25deg, var(--light) 40%, var(--gray) 200%);
+    opacity: .3;
     height: 100%;
-  }
-
-  &.loaded {
-    background-color: inherit;
   }
 
   img {

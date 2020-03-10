@@ -64,7 +64,8 @@ export default {
   data () {
     return {
       sources: [],
-      height: null
+      height: null,
+      opacity: null
     }
   },
 
@@ -140,6 +141,7 @@ export default {
         loaded: $el => {
           const { localFallbackSrc } = this
           const $img = $el.tagName === 'IMG' ? $el : $el.lastChild
+          $img.style.opacity = 0
           $img.onerror = function () {
             console.error(new Error('Image load error'), this)
             $el.style.display = 'none'
@@ -147,8 +149,12 @@ export default {
             $newImg.src = localFallbackSrc
             $el.parentNode.insertBefore($newImg, $el.nextSibling)
           }
-          $img.onload = function () {
+          $img.onload = () => {
+            this.opacity = 0
             $el.classList.add('loaded')
+            this.$nextTick(() => {
+              this.opacity = $img.style.opacity = null
+            })
           }
         }
       })
