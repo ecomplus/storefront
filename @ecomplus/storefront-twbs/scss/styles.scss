@@ -1,9 +1,6 @@
 // Theming Bootstrap:
 // https://getbootstrap.com/docs/4.3/getting-started/theming/
 
-// Enable RFS by default
-$enable-responsive-font-sizes: true !default;
-
 // Preset custom SCSS variables
 @import "variables";
 
@@ -23,13 +20,15 @@ $enable-responsive-font-sizes: true !default;
   @import "vars/text";
 }
 
-// Base Bootstrap components
+// Bootstrap layout and content styles
 // @import "bootstrap/scss/root";
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/type";
 @import "bootstrap/scss/images";
 @import "bootstrap/scss/code";
 @import "bootstrap/scss/grid";
+
+// Bootstrap components
 @import "bootstrap/scss/tables";
 @import "bootstrap/scss/forms";
 @import "bootstrap/scss/buttons";
