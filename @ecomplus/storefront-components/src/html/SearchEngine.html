@@ -1,4 +1,100 @@
 <section class="search-engine">
+  <a-backdrop :is-visible.sync="isAsideVisible"/>
+
+  <transition
+    enter-active-class="animated slideInRight"
+    leave-active-class="animated slideOutRight"
+  >
+    <aside
+      class="search-engine__aside card shadow"
+      v-show="isAsideVisible"
+    >
+      <slot name="filters">
+        <header class="card-header">
+          {{ i19refineSearch }}
+          <button
+            type="button"
+            class="close"
+            :aria-label="i19closeFilters"
+            @click="toggleFilters"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </header>
+
+        <div
+          class="card-body"
+          :key="searchFilterId"
+        >
+          <div
+            v-for="({ filter, options, isSpec }, i) in filters"
+            v-if="options.length"
+            :key="`filters-${filter}`"
+            class="search-engine__filter"
+            :class="`search-engine__filter--${filter}`"
+          >
+            <template v-once>
+              <button
+                class="btn"
+                type="button"
+                data-toggle="collapse"
+                :data-target="`#collapse-${filter}`"
+                :aria-expanded="i < 5 ? 'true' : 'false'"
+                :aria-controls="`collapse-${filter}`"
+              >
+                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-chevron-up"></i>
+                {{ getFilterLabel(filter) }}
+              </button>
+
+              <div
+                class="collapse"
+                :class="i < 5 ? 'show' : null"
+                :id="`collapse-${filter}`"
+              >
+                <div
+                  class="search-engine__option custom-control custom-checkbox"
+                  v-for="(opt, index) in options"
+                  :key="`${filter}-${index}`"
+                >
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    :id="`${filter}-${index}`"
+                    @change="ev => setFilterOption(filter, opt.key, ev.target.checked)"
+                    :checked="selectedOptions[filter].indexOf(opt.key) > -1"
+                  >
+                  <label
+                    class="custom-control-label"
+                    :for="`${filter}-${index}`"
+                  >
+                    {{ opt.key }}
+                    <small v-if="!isSpec">
+                      ({{ opt.doc_count }})
+                    </small>
+                  </label>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <footer class="card-footer">
+          <button
+            class="btn btn-sm btn-block btn-outline-secondary"
+            type="button"
+            @click="clearFilters"
+          >
+            <span class="mr-1">
+              <i class="fas fa-trash-alt"></i>
+            </span>
+            {{ i19clearFilters }}
+          </button>
+        </footer>
+      </slot>
+    </aside>
+  </transition>
+
   <transition enter-active-class="animated fadeInDown fast">
     <div
       v-if="isNavVisible"
@@ -14,40 +110,41 @@
             {{ i19items }}
             <div
               v-if="isSearching"
-              class="spinner-grow search-engine__spinner"
+              class="search-engine__spinner spinner-grow"
               role="status"
             >
               <span class="sr-only">Loading...</span>
             </div>
           </div>
 
-          <div v-if="isFilterable">
+          <div
+            v-if="isFilterable"
+            class="search-engine__toggles"
+          >
             <button
               v-if="hasFilters"
-              class="btn btn-lg search-engine__toggle"
+              class="btn btn-light"
               @click="toggleFilters(true)"
               type="button"
             >
-              <i class="fas fa-filter"></i>
+              <i class="fas fa-filter mr-1"></i>
               {{ i19filter }}
               <span class="d-none d-md-inline">
-                {{ i19results }}
+                {{ i19results.toLowerCase() }}
               </span>
             </button>
 
             <div class="dropdown">
               <button
-                class="btn btn-lg btn-light search-engine__toggle"
+                class="btn btn-light"
                 type="button"
                 id="search-engine-sort"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <i class="fas fa-sort"></i>
-                <span class="d-none d-md-inline">
-                  {{ i19sort }}
-                </span>
+                <i class="fas fa-sort mr-1"></i>
+                {{ i19sort }}
               </button>
 
               <div

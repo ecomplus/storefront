@@ -1,10 +1,15 @@
 import {
+  i19clearFilters,
+  i19closeFilters,
   i19didYouMean,
+  i19filter,
   i19highestPrice,
   i19items,
   i19lowestPrice,
   i19noResultsFor,
+  i19refineSearch,
   i19relevance,
+  i19results,
   i19sales,
   i19sort
 } from '@ecomplus/i18n'
@@ -69,6 +74,14 @@ export default {
     canRetry: {
       type: Boolean,
       default: true
+    },
+    gridsData: {
+      type: Array,
+      default () {
+        if (window.storefront && window.storefront.data) {
+          return window.storefront.data.grids
+        }
+      }
     }
   },
 
@@ -90,16 +103,23 @@ export default {
       hasNetworkError: false,
       popularItems: [],
       hasSetPopularItems: false,
-      isFilterVisible: false
+      isAsideVisible: false,
+      searchFilterId: 0
     }
   },
 
   computed: {
+    i19clearFilters: () => i18n(i19clearFilters),
+    i19closeFilters: () => i18n(i19closeFilters),
     i19didYouMean: () => i18n(i19didYouMean),
+    i19filter: () => i18n(i19filter),
     i19items: () => i18n(i19items),
     i19noResultsFor: () => i18n(i19noResultsFor),
     i19relevance: () => i18n(i19relevance),
+    i19refineSearch: () => i18n(i19refineSearch),
+    i19results: () => i18n(i19results),
     i19sort: () => i18n(i19sort),
+
     ecomSearch: () => new EcomSearch(),
 
     isSearching () {
@@ -142,7 +162,7 @@ export default {
 
     hasFilters () {
       return this.hasSelectedOptions ||
-        this.filters.find(({ filterObj }) => filterObj.options.length)
+        this.filters.find(({ options }) => options.length)
     }
   },
 
@@ -184,7 +204,36 @@ export default {
     },
 
     updateFilters () {
-
+      const updatedFilters = []
+      const addFilter = (filter, options, isSpec) => {
+        let filterIndex = this.filters.findIndex(filterObj => filterObj.filter === filter)
+        if (filter !== this.lastSelectedFilter) {
+          if (filterIndex === -1) {
+            filterIndex = this.filters.length
+          }
+          this.filters[filterIndex] = {
+            filter,
+            options,
+            isSpec
+          }
+          const optionsList = !this.selectedOptions[filter] ? []
+            : this.selectedOptions[filter]
+              .filter(option => options.find(({ key }) => key === option))
+          this.$set(this.selectedOptions, filter, optionsList)
+        }
+        updatedFilters.push(filterIndex)
+      }
+      ;['Brands', 'Categories'].forEach(filter => {
+        const presetOptions = this[filter.toLowerCase()]
+        if (!presetOptions || !presetOptions.length) {
+          addFilter(filter, this.ecomSearch[`get${filter}`]())
+        }
+      })
+      this.ecomSearch.getSpecs().forEach(({ key, options }, index) => {
+        addFilter(key, options, true)
+      })
+      this.filters = this.filters.filter((_, i) => updatedFilters.includes(i))
+      this.searchFilterId = Date.now()
     },
 
     handleSuggestions () {
@@ -248,8 +297,66 @@ export default {
     },
 
     toggleFilters (isVisible) {
-      this.isFilterVisible = typeof isVisible === 'boolean'
-        ? isVisible : !this.isFilterVisible
+      this.isAsideVisible = typeof isVisible === 'boolean'
+        ? isVisible : !this.isAsideVisible
+    },
+
+    getFilterLabel (filter) {
+      if (this.gridsData) {
+        const grid = this.gridsData.find(grid => grid.grid_id === filter)
+        if (grid) {
+          return grid.title || grid.grid_id
+        }
+      }
+      return filter
+    },
+
+    updateSearchFilter (filter) {
+      const { ecomSearch } = this
+      let setOptions = this.selectedOptions[filter]
+      if (!setOptions.length) {
+        setOptions = null
+      }
+      switch (filter) {
+        case 'Brands':
+          ecomSearch.setBrandNames(setOptions)
+          break
+        case 'Categories':
+          ecomSearch.setCategoryNames(setOptions)
+          break
+        default:
+          ecomSearch.setSpec(filter, setOptions)
+      }
+    },
+
+    setFilterOption (filter, option, isSet) {
+      const { selectedOptions } = this
+      const optionsList = selectedOptions[filter]
+      if (isSet) {
+        this.lastSelectedFilter = filter
+        optionsList.push(option)
+      } else {
+        const optionIndex = optionsList.indexOf(option)
+        if (optionIndex > -1) {
+          optionsList.splice(optionIndex, 1)
+        }
+        if (!optionsList.length && this.lastSelectedFilter === filter) {
+          this.lastSelectedFilter = null
+        }
+      }
+      this.updateSearchFilter(filter)
+      this.scheduleFetch()
+    },
+
+    clearFilters () {
+      const { selectedOptions } = this
+      for (const filter in selectedOptions) {
+        if (selectedOptions[filter]) {
+          selectedOptions[filter] = []
+          this.updateSearchFilter(filter)
+        }
+      }
+      this.fetchItems()
     }
   },
 
