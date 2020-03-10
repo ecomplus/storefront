@@ -8,6 +8,9 @@
     >
       <APicture :src="picture"/>
     </div>
+    <div class="p-4">
+      <APicture src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Big_Bear_Valley%2C_California.jpg/1200px-Big_Bear_Valley%2C_California.jpg"/>
+    </div>
   </article>
 </template>
 
