@@ -89,7 +89,7 @@ $product-card-picture-lg: 250px;
   }
 
   &__prices .prices__value:first-child {
-    margin-top: calc(var(--line-height-sm) * var(--font-size-sm));
+    margin-top: calc(var(--line-height) * var(--font-size));
   }
 
   &__buy {
