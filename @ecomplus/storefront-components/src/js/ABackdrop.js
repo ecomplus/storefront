@@ -19,14 +19,16 @@ export default {
   data () {
     return {
       opacity: 0,
-      zIndex: null
+      zIndex: null,
+      top: null
     }
   },
 
   computed: {
     style () {
-      const { zIndex, transitionMs, opacity } = this
+      const { top, zIndex, transitionMs, opacity } = this
       return {
+        top,
         transition: `opacity ${transitionMs}ms linear`,
         opacity,
         zIndex
@@ -36,7 +38,8 @@ export default {
 
   methods: {
     hide () {
-      this.$emit('update:isVisible', false)
+      this.$emit('update:is-visible', false)
+      this.$emit('hide')
     }
   },
 
@@ -48,10 +51,11 @@ export default {
     opacity (opacity) {
       if (opacity === 0) {
         setTimeout(() => {
-          this.zIndex = null
+          this.top = this.zIndex = null
         }, this.transitionMs)
       } else {
         this.zIndex = this.zIndexOnShow
+        this.top = 0
       }
     }
   },
