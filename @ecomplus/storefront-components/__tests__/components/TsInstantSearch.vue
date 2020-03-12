@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <article class="p-5">
     <button
       class="btn btn-primary"
       type="button"

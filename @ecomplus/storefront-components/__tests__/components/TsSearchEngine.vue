@@ -2,7 +2,7 @@
   <article>
     <SearchEngine
       :term.sync="term"
-      :is-visible.sync="isVisible"
+      :auto-fix-score="autoFixScore"
     />
   </article>
 </template>
@@ -20,14 +20,8 @@
     data () {
       return {
         term: '',
-        isVisible: false
+        autoFixScore: 0.8
       }
-    },
-
-    created () {
-      setTimeout(() => {
-        this.isVisible = true
-      }, 2000)
     }
   }
 </script>

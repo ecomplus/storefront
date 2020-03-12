@@ -4,8 +4,9 @@
     <!-- <TsAPrices/> -->
     <!-- <TsAPicture/> -->
     <!-- <TsABackdrop/> -->
-    <TsSearchEngine/>
     <!-- <TsProductCard/> -->
+    <!-- <TsSearchEngine/> -->
+    <TsInstantSearch/>
   </div>
 </template>
 
