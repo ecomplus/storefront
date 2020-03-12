@@ -27,8 +27,8 @@ export default {
   },
 
   props: {
-    productId: String,
     product: Object,
+    productId: String,
     isSmall: Boolean,
     headingTag: {
       type: String,
