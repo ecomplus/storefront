@@ -77,6 +77,13 @@
     overflow-y: auto;
     overflow-x: hidden;
     min-height: 7rem;
+    padding-left: 0;
+    padding-right: 0;
+
+    @media (min-width: 576px) {
+      padding-left: var(--spacer-2);
+      padding-right: var(--spacer-2);
+    }
 
     @media (min-width: 992px) {
       min-height: 10rem;
