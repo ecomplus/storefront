@@ -1,6 +1,7 @@
 .search-engine {
   &__nav {
     padding: var(--spacer-2);
+    margin-bottom: var(--spacer-3);
     background: var(--light);
     color: var(--gray);
 
@@ -123,8 +124,7 @@
   }
 
   &__info {
-    margin-bottom: var(--spacer-4);
-    padding-top: var(--spacer-3);
+    padding-bottom: var(--spacer-3);
   }
 
   &__terms > span {
@@ -136,7 +136,7 @@
   }
 
   &__retail {
-    padding-top: var(--spacer-2);
+    padding: var(--spacer-2) 0;
   }
 
   &__item {

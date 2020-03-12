@@ -97,7 +97,7 @@
 
   <transition
     enter-active-class="animated fadeInDown"
-    leave-active-class="animated position-absolute fadeOutUp fast"
+    leave-active-class="animated fadeOutUp fast position-absolute"
   >
     <div
       v-if="isNavVisible"
@@ -110,7 +110,7 @@
         >
           <div class="search-engine__count">
             <strong>{{ totalSearchResults }}</strong>
-            {{ i19items }}
+            {{ i19itemsFound }}
             <div
               v-if="isSearching"
               class="search-engine__spinner spinner-grow"
@@ -174,7 +174,7 @@
 
   <transition enter-active-class="animated fadeIn slower">
     <div
-      class="search-engine__results"
+      class="search-engine__results fade"
       :style="{ opacity: isSearching && !isLoadingMore ? 0.4 : 1 }"
       v-if="isResultsVisible"
     >
@@ -185,7 +185,7 @@
               v-if="hasEmptyResult"
               class="search-engine__no-results"
             >
-              <p class="lead">
+              <div class="lead mb-2">
                 <span v-if="suggestedTerm">
                   {{ i19didYouMean }}
                   <a
@@ -197,10 +197,10 @@
                 </span>
                 {{ i19noResultsFor }}
                 <em>{{ term }}</em>
-              </p>
-              <h3 v-if="popularItems.length">
+              </div>
+              <h4 v-if="popularItems.length">
                 {{ i19popularProducts }}
-              </h3>
+              </h4>
             </div>
 
             <div
@@ -220,6 +220,10 @@
               <h1>{{ term }}</h1>
             </div>
           </template>
+
+          <h3 v-else-if="popularItems.length">
+            {{ i19popularProducts }}
+          </h3>
 
           <transition
             enter-active-class="animated fadeInDown"
@@ -259,11 +263,12 @@
               :key="product._id"
             >
               <slot
-                name="product"
+                name="product-card"
                 v-bind="{ product }"
               >
                 <product-card
                   class="search-engine__item"
+                  v-bind="productCardProps"
                   :product="product"
                 />
               </slot>
@@ -292,10 +297,13 @@
     </div>
   </transition>
 
-  <transition
-    enter-active-class="animated fadeInDown"
-    leave-active-class="animated fadeOutUp"
-  >
+  <transition leave-active-class="animated fadeOut">
     <slot v-if="!hasSearched || isLoadingMore"/>
   </transition>
+
+  <div
+    :key="lastRequestId"
+    id="search-engine-load-more"
+    style="width: 100%; margin-top: 1rem; height: 5px"
+  ></div>
 </section>

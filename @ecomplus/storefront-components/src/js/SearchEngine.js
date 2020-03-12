@@ -4,7 +4,7 @@ import {
   i19didYouMean,
   i19filter,
   i19highestPrice,
-  i19items,
+  i19itemsFound,
   i19lowestPrice,
   i19noResultsFor,
   i19popularProducts,
@@ -19,6 +19,7 @@ import {
 } from '@ecomplus/i18n'
 
 import { i18n } from '@ecomplus/utils'
+import lozad from 'lozad'
 import EcomSearch from '@ecomplus/search-engine'
 import ABackdrop from '../ABackdrop.vue'
 import ProductCard from '../ProductCard.vue'
@@ -27,7 +28,6 @@ const resetEcomSearch = ({
   ecomSearch,
   term,
   page,
-  pageSize,
   brands,
   categories
 }) => {
@@ -37,9 +37,6 @@ const resetEcomSearch = ({
   }
   if (page) {
     ecomSearch.setPageNumber(page)
-  }
-  if (pageSize) {
-    ecomSearch.setPageSize(pageSize)
   }
   if (Array.isArray(brands) && brands.length) {
     ecomSearch.setBrandNames(brands)
@@ -59,8 +56,14 @@ export default {
 
   props: {
     term: String,
-    page: Number,
-    pageSize: Number,
+    page: {
+      type: Number,
+      default: 1
+    },
+    pageSize: {
+      type: Number,
+      default: 24
+    },
     brands: Array,
     categories: Array,
     autoFixScore: {
@@ -75,10 +78,15 @@ export default {
       type: Boolean,
       default: true
     },
+    canLoadMore: {
+      type: Boolean,
+      default: true
+    },
     canRetry: {
       type: Boolean,
       default: true
     },
+    productCardProps: Object,
     gridsData: {
       type: Array,
       default () {
@@ -91,11 +99,12 @@ export default {
 
   data () {
     return {
-      noResultsTerm: '',
       suggestedTerm: '',
       resultItems: [],
       totalSearchResults: 0,
       hasSearched: false,
+      noResultsTerm: '',
+      keepNoResultsTerm: false,
       filters: [],
       lastSelectedFilter: null,
       selectedOptions: {},
@@ -117,7 +126,7 @@ export default {
     i19closeFilters: () => i18n(i19closeFilters),
     i19didYouMean: () => i18n(i19didYouMean),
     i19filter: () => i18n(i19filter),
-    i19items: () => i18n(i19items),
+    i19itemsFound: () => i18n(i19itemsFound),
     i19noResultsFor: () => i18n(i19noResultsFor),
     i19popularProducts: () => i18n(i19popularProducts),
     i19relevance: () => i18n(i19relevance),
@@ -164,7 +173,7 @@ export default {
     },
 
     isNavVisible () {
-      return this.hasSearched &&
+      return this.hasSearched && this.isFilterable &&
         (this.isSearching || this.totalSearchResults > 8 || this.hasSelectedOptions)
     },
 
@@ -179,6 +188,15 @@ export default {
 
     suggestedItems () {
       return this.resultItems.length ? this.resultItems : this.popularItems
+    },
+
+    loadObserver () {
+      return this.canLoadMore && lozad('#search-engine-load-more', {
+        load: () => {
+          this.isLoadingMore = true
+          this.fetchItems()
+        }
+      })
     }
   },
 
@@ -188,10 +206,10 @@ export default {
       const requestId = Date.now()
       this.countOpenRequests++
       this.lastRequestId = requestId
-      if (!isPopularItems) {
-        this.isLoadingMore = this.page > 1
+      if (this.isLoadingMore) {
+        ecomSearch.setPageNumber(this.page + Math.ceil(this.resultItems.length / this.pageSize))
       }
-      ecomSearch.fetch()
+      const fetching = ecomSearch.setPageSize(this.pageSize).fetch()
         .then(() => {
           if (this.lastRequestId === requestId) {
             this.hasNetworkError = false
@@ -199,7 +217,7 @@ export default {
               this.handleSearchResult()
             }
           }
-          if (isPopularItems) {
+          if (isPopularItems || (!this.term && !this.brands && !this.categories)) {
             this.hasSetPopularItems = true
             this.popularItems = ecomSearch.getItems()
           }
@@ -216,7 +234,9 @@ export default {
         })
         .finally(() => {
           this.countOpenRequests--
+          this.isLoadingMore = false
         })
+      this.$emit('fetch', { ecomSearch, fetching })
     },
 
     updateFilters () {
@@ -271,9 +291,15 @@ export default {
           suggestTerm = suggestTerm.replace(text, opt.text)
         }
       })
+      if (!this.keepNoResultsTerm) {
+        this.noResultsTerm = ''
+      } else {
+        this.keepNoResultsTerm = false
+      }
       if (suggestTerm !== term) {
         if (canAutoFix) {
           this.noResultsTerm = term
+          this.keepNoResultsTerm = true
           this.$emit('update:term', suggestTerm)
         } else {
           this.suggestedTerm = suggestTerm
@@ -283,16 +309,18 @@ export default {
     },
 
     handleSearchResult () {
-      this.totalSearchResults = this.ecomSearch.getTotalCount()
+      const { ecomSearch } = this
+      this.totalSearchResults = ecomSearch.getTotalCount()
       this.resultItems = this.isLoadingMore
-        ? this.resultItems.concat(this.ecomSearch.getItems())
-        : this.ecomSearch.getItems()
+        ? this.resultItems.concat(ecomSearch.getItems())
+        : ecomSearch.getItems()
       this.updateFilters()
       this.handleSuggestions()
       this.hasSearched = true
       if (!this.totalSearchResults && this.hasPopularItems && !this.hasSetPopularItems) {
         this.fetchItems(false, true)
       }
+      this.$emit(this.isLoadingMore ? 'load-more' : 'search', { ecomSearch })
     },
 
     scheduleFetch () {
@@ -380,9 +408,6 @@ export default {
     term () {
       this.resetAndFetch()
     },
-    pageSize () {
-      this.resetAndFetch()
-    },
     brands () {
       this.resetAndFetch()
     },
@@ -391,8 +416,18 @@ export default {
     },
 
     page (page) {
-      this.ecomSearch.setPageNumber(page || 1)
+      this.ecomSearch.setPageNumber(page)
       this.scheduleFetch()
+    },
+
+    isSearching (isSearching) {
+      if (!isSearching && this.loadObserver) {
+        this.$nextTick(() => {
+          if (this.resultItems.length < this.totalSearchResults) {
+            this.loadObserver.observe()
+          }
+        })
+      }
     }
   },
 
