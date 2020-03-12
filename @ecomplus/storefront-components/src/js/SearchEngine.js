@@ -423,9 +423,7 @@ export default {
     isSearching (isSearching) {
       if (!isSearching && this.loadObserver) {
         this.$nextTick(() => {
-          if (this.resultItems.length < this.totalSearchResults) {
-            this.loadObserver.observe()
-          }
+          this.loadObserver.observe()
         })
       }
     }

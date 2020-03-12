@@ -302,8 +302,9 @@
   </transition>
 
   <div
+    v-if="resultItems.length < totalSearchResults"
     :key="lastRequestId"
     id="search-engine-load-more"
-    style="width: 100%; margin-top: 1rem; height: 5px"
+    style="width: 100%; margin-top: 20px; height: 5px"
   ></div>
 </section>
