@@ -4,9 +4,10 @@
     <!-- <TsAPrices/> -->
     <!-- <TsAPicture/> -->
     <!-- <TsABackdrop/> -->
-    <!-- <TsProductCard/> -->
     <!-- <TsSearchEngine/> -->
-    <TsInstantSearch/>
+    <!-- <TsInstantSearch/> -->
+    <TsCartItem/>
+    <TsProductCard/>
   </div>
 </template>
 
@@ -19,6 +20,7 @@
   import TsProductCard from '__/components/TsProductCard.vue'
   import TsSearchEngine from '__/components/TsSearchEngine.vue'
   import TsInstantSearch from '__/components/TsInstantSearch.vue'
+  import TsCartItem from '__/components/TsCartItem.vue'
 
   export default {
     name: 'Playground',
@@ -29,7 +31,8 @@
       TsAPrices,
       TsProductCard,
       TsSearchEngine,
-      TsInstantSearch
+      TsInstantSearch,
+      TsCartItem
     }
   }
 </script>
