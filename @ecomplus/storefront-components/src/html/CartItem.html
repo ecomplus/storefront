@@ -6,7 +6,7 @@
     <div class="cart-item__thumb">
       <component
         v-if="item.picture && Object.keys(item.picture).length"
-        :is="item.slug ? 'a' : 'span'"
+        :is="item.slug ? 'v-link' : 'span'"
         :href="`/${item.slug}`"
       >
         <a-picture

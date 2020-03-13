@@ -21,7 +21,7 @@
       </slot>
 
       <slot name="body">
-        <a
+        <v-link
           class="product-card__link"
           :href="`/${body.slug}`"
           :title="name"
@@ -46,7 +46,7 @@
           <component :is="headingTag" class="product-card__name">
             {{ name }}
           </component>
-        </a>
+        </v-link>
       </slot>
 
       <slot name="rating">
