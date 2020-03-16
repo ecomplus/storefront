@@ -1,4 +1,4 @@
-<div class="cart">
+<div class="minicart">
   <a-backdrop
     :is-visible="isVisible"
     @hide="toggle(false)"
@@ -10,7 +10,7 @@
   >
     <aside
       v-show="isVisible"
-      class="cart__aside card shadow"
+      class="minicart__aside card shadow"
     >
       <slot name="header">
         <header class="card-header">
@@ -26,10 +26,10 @@
         </header>
       </slot>
 
-      <article class="cart__body card-body">
+      <article class="minicart__body card-body">
         <transition-group enter-active-class="animated fadeIn slow">
           <div
-            class="cart__list"
+            class="minicart__list"
             v-if="cart.items.length"
             key="list"
           >
@@ -52,7 +52,7 @@
 
           <div
             v-else
-            class="cart__empty"
+            class="minicart__empty"
             key="empty"
           >
             <slot name="empty">
@@ -77,15 +77,15 @@
           class="card-footer"
           v-if="cart.subtotal || cart.items.length"
         >
-          <div class="cart__summary">
+          <div class="minicart__summary">
             <span>{{ i19subtotal }}</span>
-            <strong class="cart__subtotal">
+            <strong class="minicart__subtotal">
               {{ formatMoney(cart.subtotal) }}
             </strong>
           </div>
 
           <v-link
-            class="cart__btn-checkout btn btn-block btn-primary"
+            class="minicart__btn-checkout btn btn-block btn-primary"
             role="button"
             :href="checkoutUrl"
           >
@@ -93,7 +93,7 @@
             {{ i19checkout }}
           </v-link>
           <v-link
-            class="cart__btn-cart btn btn-block btn-outline-secondary"
+            class="minicart__btn-cart btn btn-block btn-outline-secondary"
             role="button"
             :href="cartUrl"
           >
