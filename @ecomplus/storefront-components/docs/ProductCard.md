@@ -12,7 +12,7 @@ Component that includes the product with image, title and allows editing of the 
 
 ### product
 
-Product image. It should be an url of the product.
+The product (item) data following [E-Com Plus Product Model](https://developers.e-com.plus/docs/api/#/store/products/product-object).
 
  ```js
 product: Object,
@@ -20,26 +20,26 @@ product: Object,
 
 ### product-id
 
-Product Identification.
+Product object ID (`_id`) to use only if `product` is not set, in this case product will be fetched by ID.
 
 ```js
 productId: String,
 ```
 
-### is-small:
+### is-small
 
 Sets the image size.
 
 ```js
 isSmall: {
-  type: Bollean
+  type: Bollean,
   default: false
 },
 ```
 
 ### heading-tag
 
-Defines the size of the product title.
+Heading tag for product name.
 
 ```js
 headingTag: {
