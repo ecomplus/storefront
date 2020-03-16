@@ -43,7 +43,7 @@ Defines the size of the product title.
 
 ```js
 headingTag: {
-  type: String
+  type: String,
   default: 'h3'
 },
 ```
@@ -53,10 +53,7 @@ headingTag: {
 Text that will be shown for the sale of the product
 
 ```js
-buyText: {
-  type: String
-  default: null
-},
+buyText: String,
 ```
 
 ### can-add-to-cart
