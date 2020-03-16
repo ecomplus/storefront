@@ -15,10 +15,7 @@ Component that includes the product with image, title and allows editing of the 
 Product image. It should be an url of the product.
 
  ```js
-product:{
-  type: Object
-  default: null
-},
+product: Object,
 ```
 
 ### product-id
@@ -26,10 +23,7 @@ product:{
 Product Identification.
 
 ```js
-productId:{
-  type: String
-  default: null
-},
+productId: String,
 ```
 
 ### is-small:
@@ -37,7 +31,7 @@ productId:{
 Sets the image size.
 
 ```js
-isSmall:{
+isSmall: {
   type: Bollean
   default: false
 },
@@ -48,7 +42,7 @@ isSmall:{
 Defines the size of the product title.
 
 ```js
-headingTag:{
+headingTag: {
   type: String
   default: 'h3'
 },
@@ -59,7 +53,7 @@ headingTag:{
 Text that will be shown for the sale of the product
 
 ```js
-buyText:{
+buyText: {
   type: String
   default: null
 },
