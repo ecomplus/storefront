@@ -12,7 +12,9 @@ Component that includes the product with image, title and allows editing of the 
 
 ### product
 
-The product (item) data following [E-Com Plus Product Model](https://developers.e-com.plus/docs/api/#/store/products/product-object).
+The product (item) data following [E-Com Plus Product Model](https://developers.e-com.plus/docs/api/#/store/products/product-object).  
+
+> May be used with `.sync` modifier.
 
  ```js
 product: Object,
@@ -69,6 +71,10 @@ canAddToCart: {
 
 ### is-loaded
 
+Wheter the `product` data is loaded up to date from APIs. If true, it'll prevent default fetch to GET product data.
+
+> May be used with `.sync` modifier.
+
 ```js
 isLoaded: {
   type: Boolean,
@@ -78,8 +84,49 @@ isLoaded: {
 
 ## Slots
 
+### discount-tag
+
+Place to customize discount badge when product has offer price.
+
+```vue
+<slot
+  name="discount-tag"
+  v-bind="{ discount }"
+>
+```
+
 ### rating
 
 ### unavailable
 
 ### out-of-stock
+
+## Events
+
+### buy
+
+Emitted when buy button is clicked.
+
+```js
+this.$emit('buy', { product })
+```
+
+### update:product
+
+Emitted once item data is fetched from API.
+
+> Triggers `.sync` modifier for [`product`](#product).
+
+```js
+this.$emit('update:product', data)
+```
+
+### update:is-loaded
+
+Emitted once item data is fetched from API.
+
+> Triggers `.sync` modifier for [`is-loaded`](#is-loaded).
+
+```js
+this.$emit('update:is-loaded', true)
+```
