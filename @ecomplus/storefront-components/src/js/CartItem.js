@@ -31,7 +31,6 @@ export default {
       type: Number,
       default: 35
     },
-    isSmall: Boolean,
     inputType: {
       type: String,
       default: 'select'
@@ -44,7 +43,6 @@ export default {
 
   data () {
     return {
-      isContainerSmall: false,
       quantity: 0,
       canInputSelect: false
     }
@@ -131,12 +129,5 @@ export default {
 
   created () {
     this.updateInputType()
-  },
-
-  mounted () {
-    const { clientWidth } = this.$el
-    if (clientWidth < 300) {
-      this.isContainerSmall = true
-    }
   }
 }

@@ -2,6 +2,10 @@
   margin-bottom: var(--spacer-3);
   overflow-x: auto;
 
+  @media (min-width: 992px) {
+    margin-bottom: var(--spacer-4);
+  }
+
   &__container {
     width: 100%;
     min-width: 250px;
@@ -11,7 +15,15 @@
 
   &__thumb {
     width: 90px;
-    margin-right: var(--spacer-3);
+    margin-right: var(--spacer-2);
+
+    @media (min-width: 576px) {
+      margin-right: var(--spacer-3);
+    }
+
+    .picture:not(.loaded) {
+      height: 90px;
+    }
   }
 
   &__data {
@@ -48,12 +60,5 @@
     padding: var(--spacer-2);
     color: var(--danger);
     font-size: var(--font-size);
-  }
-
-  &--small {
-    .cart-item__thumb {
-      width: 60px;
-      margin-right: var(--spacer-2);
-    }
   }
 }
