@@ -2,10 +2,6 @@
 
 Component that includes the product with image, title and allows editing of the size in the image and inclusion of the sale text.
 
-## Most common usage scenario
-![product-card](https://e-com-docs.s3.amazonaws.com/product-card.png)
-
-
 ## Features
 
 - Supports E-Com Plus product object;
@@ -18,8 +14,8 @@ Component that includes the product with image, title and allows editing of the 
   Product Identification
 ```js
 productId:{
-type: String
-default: null
+  type: String
+  default: null
 },
 ```
 
@@ -27,32 +23,32 @@ default: null
  Product image. It should be an url of the product
  ```js
 product:{
-type: Object
-default: null
+  type: Object
+  default: null
 },
 ```
  - ## isSmall:
   Sets the image size
-  ```js
+ ```js
 isSmall:{
-type: Bollean
-default: false
+  type: Bollean
+  default: false
 },
 ```
 - ## headingTag :
 Defines the size of the product title.
 ```js
 headingTag:{
-type: String
-default: 'h3'
+  type: String
+  default: 'h3'
 },
 ```
 - ## buyText:
 Text that will be shown for the sale of the product
 ```js
 buyText:{
-type: String
-default: null
+  type: String
+  default: null
 },
 ```
 - ## canAddToCart:
