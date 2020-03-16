@@ -8,10 +8,23 @@ Component that includes the product with image, title and allows editing of the 
 - Choose image size;
 - Product sale text;
 
-## Props:
+## Props
 
-- ## productId:
-  Product Identification
+### product
+
+Product image. It should be an url of the product.
+
+ ```js
+product:{
+  type: Object
+  default: null
+},
+```
+
+### product-id
+
+Product Identification.
+
 ```js
 productId:{
   type: String
@@ -19,56 +32,63 @@ productId:{
 },
 ```
 
-- ## product:
- Product image. It should be an url of the product
- ```js
-product:{
-  type: Object
-  default: null
-},
-```
- - ## isSmall:
-  Sets the image size
- ```js
+### is-small:
+
+Sets the image size.
+
+```js
 isSmall:{
   type: Bollean
   default: false
 },
 ```
-- ## headingTag :
+
+### heading-tag
+
 Defines the size of the product title.
+
 ```js
 headingTag:{
   type: String
   default: 'h3'
 },
 ```
-- ## buyText:
+
+### buy-text
+
 Text that will be shown for the sale of the product
+
 ```js
 buyText:{
   type: String
   default: null
 },
 ```
-- ## canAddToCart:
+
+### can-add-to-cart
+
 To inform if the product is in the 'shopping cart'
- ```js
- canAddToCart: {
-      type: Boolean,
-      default: true
-    },
-```
-- ## isLoaded:
- ```js
- isLoaded: {
-      type: Boolean,
-      default: false
-    },
+
+```js
+canAddToCart: {
+  type: Boolean,
+  default: true
+},
 ```
 
-### Slot
+### is-loaded
 
-+ rating
-+ unavailable
-+ out-of-stock
+```js
+isLoaded: {
+  type: Boolean,
+  default: false
+},
+```
+
+## Slots
+
+### rating
+
+### unavailable
+
+### out-of-stock
