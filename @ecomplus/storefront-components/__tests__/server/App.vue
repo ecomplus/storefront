@@ -6,8 +6,9 @@
     <!-- <TsABackdrop/> -->
     <!-- <TsSearchEngine/> -->
     <!-- <TsInstantSearch/> -->
-    <TsCartItem/>
-    <TsProductCard/>
+    <!-- <TsCartItem/> -->
+    <!-- <TsProductCard/> -->
+    <TsCartQuickview/>
   </div>
 </template>
 
@@ -21,6 +22,7 @@
   import TsSearchEngine from '__/components/TsSearchEngine.vue'
   import TsInstantSearch from '__/components/TsInstantSearch.vue'
   import TsCartItem from '__/components/TsCartItem.vue'
+  import TsCartQuickview from '__/components/TsCartQuickview.vue'
 
   export default {
     name: 'Playground',
@@ -32,7 +34,8 @@
       TsProductCard,
       TsSearchEngine,
       TsInstantSearch,
-      TsCartItem
+      TsCartItem,
+      TsCartQuickview
     }
   }
 </script>
