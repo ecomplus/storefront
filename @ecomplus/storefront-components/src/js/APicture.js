@@ -71,7 +71,10 @@ export default {
 
   computed: {
     defaultImgObj () {
-      return getImg(this.src) || {}
+      if (typeof this.src === 'object' && this.src) {
+        return getImg(this.src) || this.src
+      }
+      return {}
     },
 
     localFallbackSrc () {
