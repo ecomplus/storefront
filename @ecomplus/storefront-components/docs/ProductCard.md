@@ -5,14 +5,16 @@ Component that includes the product with image, title and allows editing of the 
 ## Features
 
 - Supports E-Com Plus product object;
-- Choose image size;
+-
 - Product sale text;
+- Change pictures: Possible to show 2 item pictures;
+- Component size variation to render using less space;
 
 ## Props
 
 ### product
 
-The product (item) data following [E-Com Plus Product Model](https://developers.e-com.plus/docs/api/#/store/products/product-object).  
+The product (item) data following [E-Com Plus Product Model](https://developers.e-com.plus/docs/api/#/store/products/product-object).
 
 > May be used with `.sync` modifier.
 
@@ -30,7 +32,7 @@ productId: String,
 
 ### is-small
 
-Sets the image size.
+Changes component style. Reduces the vertical size in a way that renders the component using less space. Ideal to use on a pop up screen for example.
 
 ```js
 isSmall: {
@@ -52,15 +54,14 @@ headingTag: {
 
 ### buy-text
 
-Text that will be shown for the sale of the product
-
+Text to use on the purchase button. It comes by default for the word `buy` (respecting the language of the page of whoever is accessing it). It can be changed for example to "Add to shopping cart", as you prefer.
 ```js
 buyText: String,
 ```
 
 ### can-add-to-cart
 
-To inform if the product is in the 'shopping cart'
+Allows the `product` to be added to the cart. If `false`, it is necessary to handle the next event.
 
 ```js
 canAddToCart: {
