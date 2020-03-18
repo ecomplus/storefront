@@ -12,7 +12,13 @@ module.exports = {
   title: "Storefront",
   themeConfig: {
     repo: 'ecomplus/storefront',
+    logo: '/assets/img/logo.png',
     sidebar: [
+      {
+        title: 'Getting Started',
+        collapsable: false,
+        children: ['']
+      },
       {
         title: 'Components',
         collapsable: true,
