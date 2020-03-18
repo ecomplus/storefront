@@ -1,18 +1,17 @@
 const path = require('path')
 const fs = require('fs')
-const directoryPath = path.join(__dirname, '../components')
+const directoryPath = path.join(__dirname, '../docs/components')
 const files = fs.readdirSync(directoryPath)
 const componentDocs = []
 for (let file of files) {
-  componentDocs.push(`/components/${file}`)
+  componentDocs.push(`/docs/components/${file}`)
 }
 
 
 module.exports = {
-  title: "Storefront",
   themeConfig: {
     repo: 'ecomplus/storefront',
-    logo: '/assets/img/logo.png',
+    logo: '/assets/img/logo.jpeg',
     sidebar: [
       {
         title: 'Getting Started',
