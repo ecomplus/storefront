@@ -67,7 +67,8 @@ import {
   faMapMarkerAlt,
   faStore,
   faBlog,
-  faWifi
+  faWifi,
+  faPlay
 } from '@fortawesome/free-solid-svg-icons'
 
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
@@ -138,7 +139,8 @@ library.add(
   faMapMarkerAlt,
   faStore,
   faBlog,
-  faWifi
+  faWifi,
+  faPlay
 )
 
 dom.watch()
