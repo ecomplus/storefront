@@ -1,10 +1,10 @@
 const path = require('path')
 const fs = require('fs')
-const directoryPath = path.join(__dirname, '../docs/components')
+const directoryPath = path.join(__dirname, '../components')
 const files = fs.readdirSync(directoryPath)
 const componentDocs = []
 for (let file of files) {
-  componentDocs.push(`/docs/components/${file}`)
+  componentDocs.push(`/components/${file}`)
 }
 
 
