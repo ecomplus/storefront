@@ -8,7 +8,8 @@
     <!-- <TsInstantSearch/> -->
     <!-- <TsCartItem/> -->
     <!-- <TsProductCard/> -->
-    <TsCartQuickview/>
+    <!-- <TsCartQuickview/> -->
+    <TsProductGallery/>
   </div>
 </template>
 
@@ -23,6 +24,7 @@
   import TsInstantSearch from '__/components/TsInstantSearch.vue'
   import TsCartItem from '__/components/TsCartItem.vue'
   import TsCartQuickview from '__/components/TsCartQuickview.vue'
+  import TsProductGallery from '__/components/TsProductGallery.vue'
 
   export default {
     name: 'Playground',
@@ -35,7 +37,8 @@
       TsSearchEngine,
       TsInstantSearch,
       TsCartItem,
-      TsCartQuickview
+      TsCartQuickview,
+      TsProductGallery
     }
   }
 </script>
