@@ -1,0 +1,122 @@
+.search {
+  &__box {
+    z-index: 1090;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+
+    @media (min-width: 576px) {
+      width: 90vw;
+      margin-left: 5vw;
+      max-height: 90vh;
+      margin-top: 5vh;
+      border-radius: var(--border-radius);
+    }
+
+    @media (min-width: 992px) {
+      width: 80vw;
+      margin-left: 10vw;
+    }
+  }
+
+  &__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__status .close {
+    transition: opacity .2s;
+
+    &:not(:only-child) {
+      opacity: 0;
+    }
+  }
+
+  &__spinner {
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    top: 50%;
+    margin-top: -1rem;
+    right: 1rem;
+  }
+
+  &__input-group {
+    position: relative;
+    width: 100%;
+    padding-right: var(--spacer-3);
+  }
+
+  &__input {
+    padding-right: var(--spacer-5);
+  }
+
+  &__submit {
+    border: none;
+    background: none;
+    position: absolute;
+    top: 50%;
+    margin-top: -1.25rem;
+    right: var(--spacer-4);
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: .5rem;
+    color: var(--secondary-lighter);
+    transition: color .15s;
+
+    &:hover {
+      color: var(--primary-light);
+    }
+  }
+
+  &__body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 7rem;
+    padding-left: 0;
+    padding-right: 0;
+
+    @media (min-width: 576px) {
+      padding-left: var(--spacer-2);
+      padding-right: var(--spacer-2);
+    }
+
+    @media (min-width: 992px) {
+      min-height: 10rem;
+    }
+  }
+
+  &__loading {
+    display: block;
+    height: 3rem;
+    width: 3rem;
+    margin: var(--spacer-5);
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__count {
+    color: var(--text-muted);
+    line-height: var(--line-height-lg);
+  }
+
+  &__history {
+    overflow-x: auto;
+    white-space: nowrap;
+    font-weight: var(--font-light);
+    font-size: var(--font-size-lg);
+    color: var(--text-muted);
+  }
+
+  &__history-link {
+    margin-left: var(--spacer-2);
+  }
+}

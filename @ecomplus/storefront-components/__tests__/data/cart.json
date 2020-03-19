@@ -1,0 +1,414 @@
+{
+    "_id": "858399158231091822400000",
+    "items": [
+        {
+            "visible": true,
+            "available": true,
+            "pictures": [
+                {
+                    "zoom": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550859372026-teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata.jpg",
+                        "size": "410x410",
+                        "alt": "teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata"
+                    },
+                    "small": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550859372026-teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata.jpg",
+                        "size": "100x100",
+                        "alt": "teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata"
+                    },
+                    "normal": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550859372026-teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata.jpg",
+                        "size": "400x400",
+                        "alt": "teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata"
+                    },
+                    "big": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550859372026-teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata.jpg",
+                        "size": "700x700",
+                        "alt": "teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata"
+                    },
+                    "_id": "808130155085938579200000"
+                },
+                {
+                    "zoom": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550859374030-lateral-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata.jpg",
+                        "size": "410x410",
+                        "alt": "lateral-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata"
+                    },
+                    "small": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550859374030-lateral-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata.jpg",
+                        "size": "100x100",
+                        "alt": "lateral-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata"
+                    },
+                    "normal": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550859374030-lateral-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata.jpg",
+                        "size": "400x400",
+                        "alt": "lateral-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata"
+                    },
+                    "big": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550859374030-lateral-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata.jpg",
+                        "size": "700x700",
+                        "alt": "lateral-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata"
+                    },
+                    "_id": "808130155085938579200001"
+                },
+                {
+                    "zoom": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550859377526-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata-fechado.jpg",
+                        "size": "410x410",
+                        "alt": "macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata-fechado"
+                    },
+                    "small": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550859377526-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata-fechado.jpg",
+                        "size": "100x100",
+                        "alt": "macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata-fechado"
+                    },
+                    "normal": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550859377526-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata-fechado.jpg",
+                        "size": "400x400",
+                        "alt": "macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata-fechado"
+                    },
+                    "big": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550859377526-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata-fechado.jpg",
+                        "size": "700x700",
+                        "alt": "macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata-fechado"
+                    },
+                    "_id": "808130155085938579200002"
+                }
+            ],
+            "name": "Macbook Apple Pro 15.4\" Intel Core i7 2.6GHz RAM 16GB SSD 512GB MR972LL/A Prata",
+            "sku": "nb-apl-154",
+            "price": 1600.55,
+            "base_price": 18407.9,
+            "brands": [
+                {
+                    "_id": "5c703b35c626be23430d5030",
+                    "name": "Apple"
+                }
+            ],
+            "categories": [
+                {
+                    "_id": "5c6ffab6c626be23430d4f5c",
+                    "name": "MacBook",
+                    "slug": "macbook"
+                },
+                {
+                    "_id": "5c6ffa6ec626be23430d4f56",
+                    "name": "Notebooks",
+                    "slug": "notebooks"
+                },
+                {
+                    "_id": "5ceecb3f887ef430f1f70c88",
+                    "name": "Promoções",
+                    "slug": "promocoes"
+                },
+                {
+                    "_id": "5e049465661b5405730b7ee3",
+                    "name": "Todos",
+                    "slug": "todos"
+                }
+            ],
+            "quantity": 1,
+            "slug": "macbook-apple-pro-15.4-intel-core-i7-2.6ghz-ram-16gb-ssd-512gb-mr972ll/a-prata",
+            "ad_relevance": 0,
+            "currency_id": "BRL",
+            "currency_symbol": "R$",
+            "condition": "new",
+            "views": 0,
+            "sales": 115,
+            "specs": [],
+            "_id": "5c703e79c626be23430d5038",
+            "product_id": "5c703e79c626be23430d5038",
+            "picture": {
+                "zoom": {
+                    "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550859372026-teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata.jpg",
+                    "size": "410x410",
+                    "alt": "teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata"
+                },
+                "small": {
+                    "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550859372026-teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata.jpg",
+                    "size": "100x100",
+                    "alt": "teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata"
+                },
+                "normal": {
+                    "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550859372026-teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata.jpg",
+                    "size": "400x400",
+                    "alt": "teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata"
+                },
+                "big": {
+                    "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550859372026-teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata.jpg",
+                    "size": "700x700",
+                    "alt": "teclas-macbook-apple-pro-tela-15-4-ssd-512gb-mr972ll-a-prata"
+                },
+                "_id": "808130155085938579200000"
+            }
+        },
+        {
+            "visible": true,
+            "available": true,
+            "pictures": [
+                {
+                    "zoom": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                        "size": "410x410",
+                        "alt": "frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                    },
+                    "small": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                        "size": "100x100",
+                        "alt": "frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                    },
+                    "normal": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                        "size": "400x400",
+                        "alt": "frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                    },
+                    "big": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                        "size": "700x700",
+                        "alt": "frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                    },
+                    "_id": "662940155085896258400000"
+                },
+                {
+                    "zoom": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                        "size": "410x410",
+                        "alt": "teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                    },
+                    "small": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                        "size": "100x100",
+                        "alt": "teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                    },
+                    "normal": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                        "size": "400x400",
+                        "alt": "teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                    },
+                    "big": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                        "size": "700x700",
+                        "alt": "teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                    },
+                    "_id": "662940155085896258400001"
+                },
+                {
+                    "zoom": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858955000-lateral-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                        "size": "410x410",
+                        "alt": "lateral-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                    },
+                    "small": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858955000-lateral-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                        "size": "100x100",
+                        "alt": "lateral-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                    },
+                    "normal": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858955000-lateral-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                        "size": "400x400",
+                        "alt": "lateral-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                    },
+                    "big": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858955000-lateral-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                        "size": "700x700",
+                        "alt": "lateral-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                    },
+                    "_id": "662940155085896258400002"
+                }
+            ],
+            "name": "MacBook Pro Apple 13.3\" Intel Core i5 RAM 8GB SSD 128GB MPXQ2BZ/A Cinza Espacial",
+            "sku": "nb-apl-1203",
+            "price": 660.15,
+            "base_price": 8000,
+            "quantity": 1,
+            "brands": [
+                {
+                    "_id": "5c703b35c626be23430d5030",
+                    "name": "Apple"
+                }
+            ],
+            "categories": [
+                {
+                    "_id": "5c6ffab6c626be23430d4f5c",
+                    "name": "MacBook",
+                    "slug": "macbook"
+                },
+                {
+                    "_id": "5ceecb3f887ef430f1f70c88",
+                    "name": "Promoções",
+                    "slug": "promocoes"
+                },
+                {
+                    "_id": "5e049465661b5405730b7ee3",
+                    "name": "Todos",
+                    "slug": "todos"
+                }
+            ],
+            "slug": "macbook-pro-apple-13.3-intel-core-i5-ram-8gb-ssd-128gb-mpxq2bz/a-cinza-espacial",
+            "ad_relevance": 0,
+            "currency_id": "BRL",
+            "currency_symbol": "R$",
+            "condition": "new",
+            "views": 0,
+            "sales": 18,
+            "specs": [],
+            "_id": "5c703c40c626be23430d5033",
+            "product_id": "5c703c40c626be23430d5033",
+            "picture": {
+                "zoom": {
+                    "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                    "size": "410x410",
+                    "alt": "frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                },
+                "small": {
+                    "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                    "size": "100x100",
+                    "alt": "frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                },
+                "normal": {
+                    "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                    "size": "400x400",
+                    "alt": "frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                },
+                "big": {
+                    "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+                    "size": "700x700",
+                    "alt": "frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a"
+                },
+                "_id": "662940155085896258400000"
+            }
+        },
+        {
+            "visible": true,
+            "available": true,
+            "pictures": [
+                {
+                    "zoom": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550850821727-embalagem-headset-gamer-corsair-raptor-hs40.jpg",
+                        "size": "410x410",
+                        "alt": "embalagem-headset-gamer-corsair-raptor-hs40"
+                    },
+                    "small": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550850821727-embalagem-headset-gamer-corsair-raptor-hs40.jpg",
+                        "size": "100x100",
+                        "alt": "embalagem-headset-gamer-corsair-raptor-hs40"
+                    },
+                    "normal": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550850821727-embalagem-headset-gamer-corsair-raptor-hs40.jpg",
+                        "size": "400x400",
+                        "alt": "embalagem-headset-gamer-corsair-raptor-hs40"
+                    },
+                    "big": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550850821727-embalagem-headset-gamer-corsair-raptor-hs40.jpg",
+                        "size": "700x700",
+                        "alt": "embalagem-headset-gamer-corsair-raptor-hs40"
+                    },
+                    "_id": "418070155085083747200000"
+                },
+                {
+                    "zoom": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550850822666-headset-gamer-corsair-raptor-hs40-ca9011122na.jpg",
+                        "size": "410x410",
+                        "alt": "headset-gamer-corsair-raptor-hs40-ca9011122na"
+                    },
+                    "small": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550850822666-headset-gamer-corsair-raptor-hs40-ca9011122na.jpg",
+                        "size": "100x100",
+                        "alt": "headset-gamer-corsair-raptor-hs40-ca9011122na"
+                    },
+                    "normal": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550850822666-headset-gamer-corsair-raptor-hs40-ca9011122na.jpg",
+                        "size": "400x400",
+                        "alt": "headset-gamer-corsair-raptor-hs40-ca9011122na"
+                    },
+                    "big": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550850822666-headset-gamer-corsair-raptor-hs40-ca9011122na.jpg",
+                        "size": "700x700",
+                        "alt": "headset-gamer-corsair-raptor-hs40-ca9011122na"
+                    },
+                    "_id": "418070155085083747200001"
+                },
+                {
+                    "zoom": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550850827637-corsair-raptor-hs40-ca9011122na.jpg",
+                        "size": "410x410",
+                        "alt": "corsair-raptor-hs40-ca9011122na"
+                    },
+                    "small": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550850827637-corsair-raptor-hs40-ca9011122na.jpg",
+                        "size": "100x100",
+                        "alt": "corsair-raptor-hs40-ca9011122na"
+                    },
+                    "normal": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550850827637-corsair-raptor-hs40-ca9011122na.jpg",
+                        "size": "400x400",
+                        "alt": "corsair-raptor-hs40-ca9011122na"
+                    },
+                    "big": {
+                        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550850827637-corsair-raptor-hs40-ca9011122na.jpg",
+                        "size": "700x700",
+                        "alt": "corsair-raptor-hs40-ca9011122na"
+                    },
+                    "_id": "418070155085083747200002"
+                }
+            ],
+            "name": "Headset Gamer Corsair HS40 Raptor CA-9011122-NA(AP) Vinho",
+            "sku": "hd-csr-303",
+            "price": 232,
+            "quantity": 1,
+            "base_price": 286,
+            "brands": [
+                {
+                    "_id": "5c700f19c626be23430d4faf",
+                    "name": "Corsair"
+                }
+            ],
+            "categories": [
+                {
+                    "_id": "5c700a53c626be23430d4f88",
+                    "name": "Headset",
+                    "slug": "headset"
+                }
+            ],
+            "slug": "headset-gamer-corsair-hs40-raptor-ca-9011122-naap-vinho",
+            "ad_relevance": 0,
+            "currency_id": "BRL",
+            "currency_symbol": "R$",
+            "condition": "new",
+            "views": 0,
+            "sales": 5,
+            "specs": [
+                {
+                    "grid": "canais",
+                    "text": "7.1"
+                }
+            ],
+            "_id": "5c701c8ac626be23430d4fe5",
+            "product_id": "5c701c8ac626be23430d4fe5",
+            "picture": {
+                "zoom": {
+                    "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550850821727-embalagem-headset-gamer-corsair-raptor-hs40.jpg",
+                    "size": "410x410",
+                    "alt": "embalagem-headset-gamer-corsair-raptor-hs40"
+                },
+                "small": {
+                    "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550850821727-embalagem-headset-gamer-corsair-raptor-hs40.jpg",
+                    "size": "100x100",
+                    "alt": "embalagem-headset-gamer-corsair-raptor-hs40"
+                },
+                "normal": {
+                    "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550850821727-embalagem-headset-gamer-corsair-raptor-hs40.jpg",
+                    "size": "400x400",
+                    "alt": "embalagem-headset-gamer-corsair-raptor-hs40"
+                },
+                "big": {
+                    "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550850821727-embalagem-headset-gamer-corsair-raptor-hs40.jpg",
+                    "size": "700x700",
+                    "alt": "embalagem-headset-gamer-corsair-raptor-hs40"
+                },
+                "_id": "418070155085083747200000"
+            }
+        }
+    ],
+    "subtotal": 2492.7
+}

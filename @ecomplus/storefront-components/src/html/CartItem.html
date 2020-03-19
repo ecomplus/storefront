@@ -1,0 +1,86 @@
+<section class="cart-item">
+  <div class="cart-item__container">
+    <div class="cart-item__thumb">
+      <component
+        v-if="item.picture && Object.keys(item.picture).length"
+        :is="item.slug ? 'v-link' : 'span'"
+        :href="`/${item.slug}`"
+      >
+        <a-picture
+          :src="img.url"
+          :alt="img.alt || item.name"
+        />
+      </component>
+    </div>
+
+    <div class="cart-item__data">
+      <button
+        type="button"
+        class="close"
+        :title="i19remove"
+        @click="remove"
+      >
+        <i class="fas fa-trash-alt"></i>
+      </button>
+
+      <div
+        class="cart-item__name"
+        :title="item.name"
+      >
+        <v-link
+          v-if="item.slug"
+          :href="`/${item.slug}`"
+        >
+          {{ name }}
+        </v-link>
+        <template v-else>
+          {{ name }}
+        </template>
+      </div>
+
+      <div
+        :title="i19quantity"
+        class="cart-item__quantity"
+      >
+        <select
+          v-if="canInputSelect && inputType === 'select'"
+          class="custom-select"
+          v-model.number="quantity"
+          @change="updateInputType"
+        >
+          <option
+            v-for="qnt in (item.max_quantity || 10)"
+            :value="qnt"
+            :selected="qnt === quantity"
+          >
+            {{ qnt }}
+          </option>
+          <option :value="11">
+            11+
+          </option>
+        </select>
+
+        <input
+          v-else
+          ref="input"
+          :type="inputType && inputType !== 'select' ? inputType : 'number'"
+          class="form-control"
+          placeholder="1"
+          v-model.number="quantity"
+          @blur="updateInputType"
+        >
+      </div>
+
+      <div class="cart-item__prices">
+        <div
+          class="cart-item__price-un fade"
+          :class="{ show: quantity > 1 }"
+        >
+          {{ formatMoney(price) }}
+          <small>/un</small>
+        </div>
+        {{ formatMoney(price * quantity) }}
+      </div>
+    </div>
+  </div>
+</section>

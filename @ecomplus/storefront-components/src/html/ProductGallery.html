@@ -1,0 +1,156 @@
+<section class="gallery">
+  <div class="gallery__thumbs">
+    <div
+      v-if="videoSrc"
+      class="gallery__item gallery__item--video"
+      :class="{ 'gallery__item--selected': localPictures.length === activeIndex }"
+      @click="activeIndex = localPictures.length"
+    >
+      <i class="fas fa-play"></i>
+      <span>{{ i19video }}</span>
+    </div>
+
+    <div
+      v-for="(picture, i) in localPictures"
+      :key="'img-' + i"
+      class="gallery__item"
+      :class="{ 'gallery__item--selected': i === activeIndex }"
+      @click="activeIndex = i"
+    >
+      <a-picture
+        v-if="i < 4"
+        class="gallery__thumb"
+        :src="getImg(picture, null, 'small')"
+      />
+    </div>
+
+    <button
+      v-if="localPictures.length > 4"
+      type="button"
+      class="gallery__open btn btn-dark"
+      :title="i19openGallery"
+      @click.prevent="isZoom = true"
+    >
+      +{{ localPictures.length - 4 }}
+    </button>
+  </div>
+
+  <div class="gallery__stage">
+    <div
+      class="glide"
+      ref="glide"
+    >
+      <div
+        class="glide__track"
+        data-glide-el="track"
+      >
+        <ul class="glide__slides">
+          <li
+            v-for="(picture, i) in localPictures"
+            class="glide__slide"
+            :key="'slide-' + i"
+          >
+            <div @click="openZoom(i)">
+              <a-picture
+                :id="`gallery-picture-${i}`"
+                class="gallery__big-image"
+                :src="getImg(picture, null, 'big')"
+              />
+            </div>
+          </li>
+
+          <li
+            v-if="videoSrc"
+            class="glide__slide"
+            :key="'slide-' + localPictures.length"
+          >
+            <div
+              class="embed-responsive"
+              :class="`embed-responsive-${videoAspectRatio}`"
+            >
+              <iframe
+                class="embed-responsive-item"
+                :src="videoSrc"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div
+    v-once
+    ref="pswp"
+    class="pswp"
+    tabindex="-1"
+    role="dialog"
+    aria-hidden="true"
+  >
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <div class="pswp__ui pswp__ui--hidden">
+        <div class="pswp__top-bar">
+          <div class="pswp__counter"></div>
+          <button
+            class="pswp__button pswp__button--close"
+            :title="`${i19close} (Esc)`"
+          ></button>
+          <button
+            class="pswp__button pswp__button--share"
+            :title="i19share"
+          ></button>
+          <button
+            class="pswp__button pswp__button--fs"
+            :title="i19fullscreen"
+          ></button>
+          <button
+            class="pswp__button pswp__button--zoom"
+            title="Zoom in/out"
+          ></button>
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button
+          class="pswp__button pswp__button--arrow--left"
+          :title="i19previous"
+        ></button>
+        <button
+          class="pswp__button pswp__button--arrow--right"
+          :title="i19next"
+        ></button>
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+
+        <button
+          v-if="canAddToCart"
+          type="button"
+          class="btn btn-success"
+          @click="buy"
+        >
+          <i class="fas fa-cart-arrow-down"></i>
+          <span class="d-none d-md-inline ml-1">
+            {{ i19addToCart }}
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

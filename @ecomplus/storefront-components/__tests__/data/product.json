@@ -7,6 +7,12 @@
     "base_price": 14000,
     "price": 12000,
     "quantity": 12,
+    "videos": [
+        {
+            "url": "https://www.youtube.com/watch?v=V7XQvAde51w",
+            "title": "esse MACBOOK vai me impressionar?! | Macbook Pro 13 Touchbar - Unboxing"
+        }
+    ],
     "pictures": [
         {
             "zoom": {
