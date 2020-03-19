@@ -1,7 +1,5 @@
-*/*/LICENSE
-*/*/*/LICENSE
-*/*/dist
-*/*/*/dist
+*/**/LICENSE
+*/**/dist
 */**/.serve
 */**/commitlint.config.js
 
@@ -15,7 +13,10 @@
 !/@ecomplus/storefront-twbs/scss/utilities/
 !/@ecomplus/storefront-twbs/scss/vars/
 
-__tests__/tmp
+__*__/tmp
+
+# Yarn lockfile (in favor of npm)
+yarn.lock
 
 # Logs
 logs
