@@ -16,12 +16,12 @@
           v-if="isActive && discount > 0"
           class="product-card__offer-stamp"
         >
-          -<b>{{ discount }}</b>%
+          <i class="fas fa-arrow-down"></i> <b>{{ discount }}</b>%
         </span>
       </slot>
 
       <slot name="body">
-        <a
+        <v-link
           class="product-card__link"
           :href="`/${body.slug}`"
           :title="name"
@@ -46,10 +46,16 @@
           <component :is="headingTag" class="product-card__name">
             {{ name }}
           </component>
-        </a>
+        </v-link>
       </slot>
 
-      <slot name="rating"/>
+      <slot name="rating">
+        <div
+          v-once
+          class="product-card__rating"
+          :data-sku="body.sku"
+        ></div>
+      </slot>
 
       <slot
         name="unavailable"

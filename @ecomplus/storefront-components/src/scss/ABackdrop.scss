@@ -1,10 +1,11 @@
 .backdrop {
   position: fixed;
-  top: 0;
+  top: -100vh;
   left: 0;
   width: 100vw;
   height: 100vh;
   background-color: var(--dark);
-  z-index: 1080;
-  transition: opacity .15s linear;
+  opacity: .5;
+  cursor: pointer;
+  z-index: -100;
 }

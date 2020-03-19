@@ -15,7 +15,7 @@ const output = {
 
 const webpackConfig = {
   mode: devMode ? 'development' : 'production',
-  entry: path.resolve(__dirname, devMode ? '__tests__/server/main.js' : 'src/_all.js'),
+  entry: path.resolve(__dirname, devMode ? '__tests__/server/main.js' : 'all.js'),
   output,
 
   devServer: {
@@ -109,7 +109,6 @@ if (!devMode) {
 module.exports = devMode ? webpackConfig : [
   {
     ...webpackConfig,
-    entry: path.resolve(__dirname, 'src/index.js'),
     output: {
       ...output,
       libraryTarget: 'var',

@@ -64,13 +64,17 @@ export default {
   data () {
     return {
       sources: [],
-      height: null
+      height: null,
+      opacity: null
     }
   },
 
   computed: {
     defaultImgObj () {
-      return getImg(this.src) || {}
+      if (typeof this.src === 'object' && this.src) {
+        return getImg(this.src) || this.src
+      }
+      return {}
     },
 
     localFallbackSrc () {
@@ -105,7 +109,7 @@ export default {
         const imgObj = this.src[getBestFitThumb(this.src, clientWidth, this.containerBreakpoints)]
         const { url, size } = (imgObj || this.defaultImgObj)
         srcset = url
-        if (size && this.canCalcHeight) {
+        if (clientWidth && size && this.canCalcHeight) {
           const [width, height] = size.split('x').map(px => parseInt(px, 10))
           if (height) {
             this.height = `${(clientWidth >= width ? height : clientWidth * height / width)}px`
@@ -140,6 +144,7 @@ export default {
         loaded: $el => {
           const { localFallbackSrc } = this
           const $img = $el.tagName === 'IMG' ? $el : $el.lastChild
+          $img.style.opacity = 0
           $img.onerror = function () {
             console.error(new Error('Image load error'), this)
             $el.style.display = 'none'
@@ -147,8 +152,12 @@ export default {
             $newImg.src = localFallbackSrc
             $el.parentNode.insertBefore($newImg, $el.nextSibling)
           }
-          $img.onload = function () {
+          $img.onload = () => {
+            this.opacity = 0
             $el.classList.add('loaded')
+            this.$nextTick(() => {
+              this.opacity = $img.style.opacity = null
+            })
           }
         }
       })

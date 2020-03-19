@@ -2,40 +2,69 @@ export default {
   name: 'ABackdrop',
 
   props: {
-    isClickable: {
+    isVisible: {
       type: Boolean,
       default: true
     },
-    canAutoHide: {
-      type: Boolean,
-      default: true
+    zIndexOnShow: {
+      type: Number,
+      default: 1080
+    },
+    transitionMs: {
+      type: Number,
+      default: 150
     }
   },
 
   data () {
     return {
-      style: {
-        cursor: this.isClickable ? 'pointer' : null,
-        opacity: 0.5
+      opacity: 0,
+      zIndex: null,
+      top: null
+    }
+  },
+
+  computed: {
+    style () {
+      const { top, zIndex, transitionMs, opacity } = this
+      return {
+        top,
+        transition: `opacity ${transitionMs}ms linear`,
+        opacity,
+        zIndex
       }
     }
   },
 
   methods: {
-    handleClick () {
-      if (this.isClickable) {
-        this.$emit('click')
-        if (this.canAutoHide) {
-          this.style.opacity = 0
-          setTimeout(() => {
-            this.$destroy()
-          }, 150)
-        }
+    hide () {
+      this.$emit('update:is-visible', false)
+      this.$emit('hide')
+    }
+  },
+
+  watch: {
+    isVisible (isVisible) {
+      this.opacity = isVisible ? null : 0
+    },
+
+    opacity (opacity) {
+      if (opacity === 0) {
+        setTimeout(() => {
+          this.top = this.zIndex = null
+        }, this.transitionMs)
+      } else {
+        this.zIndex = this.zIndexOnShow
+        this.top = 0
       }
     }
   },
 
-  beforeDestroy () {
-    this.$el.remove()
+  mounted () {
+    if (this.isVisible) {
+      setTimeout(() => {
+        this.opacity = null
+      }, this.transitionMs)
+    }
   }
 }

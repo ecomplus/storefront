@@ -26,6 +26,7 @@ import {
   faChevronDown,
   faChevronLeft,
   faChevronRight,
+  faArrowDown,
   faArrowLeft,
   faArrowRight,
   faAngleRight,
@@ -65,7 +66,9 @@ import {
   faGift,
   faMapMarkerAlt,
   faStore,
-  faBlog
+  faBlog,
+  faWifi,
+  faPlay
 } from '@fortawesome/free-solid-svg-icons'
 
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
@@ -95,6 +98,7 @@ library.add(
   faChevronDown,
   faChevronLeft,
   faChevronRight,
+  faArrowDown,
   faArrowLeft,
   faArrowRight,
   faAngleRight,
@@ -134,7 +138,9 @@ library.add(
   faGift,
   faMapMarkerAlt,
   faStore,
-  faBlog
+  faBlog,
+  faWifi,
+  faPlay
 )
 
 dom.watch()
