@@ -5,7 +5,10 @@ on:
     branches:
       - master
     paths:
-      - 'docs/**'
+      - '*.md'
+      - '@ecomplus/*.md'
+      - '@ecomplus/*/docs/**.md'
+      - '@ecomplus/*/docs/**.vue'
 
 jobs:
   build-docs:
@@ -40,4 +43,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: docs/.vuepress/dist
+          FOLDER: .vuepress/dist
