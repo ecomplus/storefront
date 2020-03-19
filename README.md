@@ -1,6 +1,6 @@
 # Storefront
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c5f6676c-5b7f-4d5b-b348-b714f56f83d0/deploy-status)](https://app.netlify.com/sites/storefront-template/deploys) [![Test build](https://github.com/ecomplus/storefront/workflows/Test%20build/badge.svg)](https://github.com/ecomplus/storefront/actions?workflow=Test+build) [![Publish](https://github.com/ecomplus/storefront/workflows/Publish/badge.svg)](https://github.com/ecomplus/storefront/actions?workflow=Publish) [![CodeFactor](https://www.codefactor.io/repository/github/ecomplus/storefront/badge)](https://www.codefactor.io/repository/github/ecomplus/storefront) [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c5f6676c-5b7f-4d5b-b348-b714f56f83d0/deploy-status)](https://app.netlify.com/sites/storefront-template/deploys) [![Test build](https://github.com/ecomplus/storefront/workflows/Test%20build/badge.svg)](https://github.com/ecomplus/storefront/actions?workflow=Test+build) [![Publish](https://github.com/ecomplus/storefront/workflows/Publish/badge.svg)](https://github.com/ecomplus/storefront/actions?workflow=Publish) [![Build docs](https://github.com/ecomplus/storefront/workflows/Build%20docs/badge.svg)](https://github.com/ecomplus/storefront/actions?workflow=Build+docs) [![CodeFactor](https://www.codefactor.io/repository/github/ecomplus/storefront/badge)](https://www.codefactor.io/repository/github/ecomplus/storefront) [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 :rocket: Modern and high performant **headless eCommerce Storefront**:
 
@@ -14,13 +14,11 @@
 - A11Y compliance;
 - Going for Lighthouse :100: overall;
 
+:page_with_curl: **[Explore the docs](https://developers.e-com.plus/storefront/)** · :shopping: [Demo store](https://storefront-demo.e-com.plus) · [Report bug](https://github.com/ecomplus/storefront/issues/new?template=bug_report.md) · [Request feature](https://github.com/ecomplus/storefront/issues/new?template=feature_request.md) · [Forum](https://community.e-com.plus/)
+
 ## Quick start for merchants
 
 > If you just want to deploy your [E-Com Plus](https://e-com.plus) store, take a look at the **[Storefront Starter](https://github.com/ecomplus/storefront-starter)**.
-
-## Demo store
-
-:shopping: https://storefront-demo.e-com.plus
 
 ## Development
 
@@ -89,4 +87,4 @@ npm run release
 
 </details>
 
-![E-Com Plus Storefront banner](https://repository-images.githubusercontent.com/183649678/1c624a80-3180-11ea-8761-1f45e0f675a5)
+![E-Com Plus Storefront banner](https://developers.e-com.plus/storefront/assets/img/banner.png)
