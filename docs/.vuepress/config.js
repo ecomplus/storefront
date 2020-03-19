@@ -11,7 +11,7 @@ for (let file of files) {
 module.exports = {
   themeConfig: {
     repo: 'ecomplus/storefront',
-    logo: '/assets/img/logo.jpeg',
+    logo: '/assets/img/logo.png',
     sidebar: [
       {
         title: 'Getting Started',
