@@ -16,10 +16,6 @@ module.exports = {
       {
         text: 'Home',
         link: '/'
-      },
-      {
-        text: 'GitHub',
-        link: 'https://github.com/ecomplus/storefront'
       }
     ],
     sidebar: [
