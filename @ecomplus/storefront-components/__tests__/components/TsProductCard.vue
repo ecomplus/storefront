@@ -1,12 +1,30 @@
 <template>
-  <article>
-    <div class="p-4">
-      <ProductCard :product="product"/>
+  <div class="container p-4">
+    <div class="row">
+      <div class="col col-lg-3">
+        <article>
+          <ProductCard :product="product" :is-loaded="true"/>
+        </article>
+      </div>
+      <div class="col col-lg-3">
+        <article>
+          <ProductCard :product="product" :is-loaded="true"/>
+        </article>
+      </div>
     </div>
-    <div class="p-4">
-      <ProductCard :product="product" :is-small="true"/>
+    <div class="row">
+      <div class="col col-lg-3">
+        <article>
+          <ProductCard :product="product" :is-small="true" :is-loaded="true"/>
+        </article>
+      </div>
+      <div class="col col-lg-3">
+        <article>
+          <ProductCard :product="product" :is-small="true"/>
+        </article>
+      </div>
     </div>
-  </article>
+  </div>
 </template>
 
 <script>
