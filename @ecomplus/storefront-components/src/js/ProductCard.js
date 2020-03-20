@@ -1,8 +1,8 @@
 import {
   i19buy,
+  i19connectionErrorProductMsg,
   i19outOfStock,
-  i19unavailable,
-  i19connectionErrorProductMsg
+  i19unavailable
 } from '@ecomplus/i18n'
 
 import {
