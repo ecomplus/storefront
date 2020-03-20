@@ -1,0 +1,20 @@
+.shipping-calculator {
+  &__input {
+    max-width: 150px;
+  }
+
+  &__services {
+    max-width: 350px;
+    font-size: var(--font-size-sm);
+
+    .active {
+      cursor: auto;
+    }
+  }
+
+  &__option {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

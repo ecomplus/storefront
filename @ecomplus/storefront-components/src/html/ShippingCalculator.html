@@ -1,0 +1,72 @@
+<div class="shipping-calculator">
+  <form
+    v-if="canInputZip"
+    @submit.prevent="submitZipCode"
+    class="shipping-calculator__form"
+  >
+    <div class="form-group">
+      <label for="shipping-calculator-zip">
+        {{ i19calculateShipping }}
+      </label>
+      <div class="input-group">
+        <cleave-input
+          type="tel"
+          class="form-control shipping-calculator__input"
+          id="shipping-calculator-zip"
+          :placeholder="i19zipCode"
+          :aria-label="i19zipCode"
+          :options="cleaveOptions"
+          v-model="localZipCode"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="submit"
+          >
+            <i class="fas fa-shipping-fast"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="shipping-calculator__services">
+    <transition-group
+      enter-active-class="animated fadeInDown"
+      leave-active-class="animated position-absolute fadeOutUp"
+    >
+      <div
+        v-if="isWaiting"
+        key="waiting"
+        class="spinner-border spinner-border-sm"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+
+      <div
+        v-else
+        key="services"
+        class="list-group"
+      >
+        <component
+          :is="canSelectServices ? 'a' : 'div'"
+          :href="canSelectServices && '#'"
+          class="list-group-item"
+          v-for="(service, i) in shippingServices"
+          :key="i"
+          :class="{
+            'list-group-item-action': canSelectServices,
+            active: canSelectServices && selectedService === i
+          }"
+          @click.prevent="setSelectedService(i)"
+        >
+          <span class="shipping-calculator__option">
+            <shipping-line :shipping-line="service.shipping_line"/>
+            <small>{{ service.label }}</small>
+          </span>
+        </component>
+      </div>
+    </transition-group>
+  </div>
+</div>

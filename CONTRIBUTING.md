@@ -17,6 +17,7 @@ npm i
     - `npm run serve` to serve the entire template;
     - `npx lerna run --scope=@ecomplus/{pkg} serve` to call specific tests for some widget or UI package;
     - You may also want to edit test files at `@ecomplus/{pkg}/__tests__/` folder;
+    - Documentation should be at `@ecomplus/{pkg}/docs/` folder and you can test it running [Vuepress](https://vuepress.vuejs.org/) with `npm run docs:dev`;
 
 5. Commit following [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/);
 

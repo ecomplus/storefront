@@ -14,8 +14,8 @@
     "serve:starter": "lerna run --scope=@ecomplus/storefront serve",
     "preversion": "lerna run build --since",
     "release": "GH_TOKEN=$(grep GH_TOKEN .env | cut -d '=' -f2) lerna version && lerna publish from-git",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:dev": "vuepress dev",
+    "docs:build": "vuepress build"
   },
   "repository": {
     "type": "git",

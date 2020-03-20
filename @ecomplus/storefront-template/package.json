@@ -3,8 +3,6 @@
   "version": "2.0.0-next.0",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "template/js/index.js",
-  "jsdelivr": "dist/storefront.js",
-  "unpkg": "dist/storefront.js",
   "bin": {
     "storefront-tmpl": "./scripts/install.js",
     "storefront-tmpl-copy": "./scripts/copy.js",
