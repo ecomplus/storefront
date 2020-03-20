@@ -6,7 +6,7 @@ import {
 import {
   $ecomConfig,
   i18n,
-  price,
+  price as getPrice,
   formatMoney
 } from '@ecomplus/utils'
 
@@ -145,7 +145,7 @@ export default {
       }
       if (this.shippedItems.length) {
         data.items = this.shippedItems.map(reduceItemBody)
-        const itemsToSubtotal = (subtotal, item) => subtotal + price(item) * item.quantity
+        const itemsToSubtotal = (subtotal, item) => subtotal + getPrice(item) * item.quantity
         data.subtotal = data.items.reduce(itemsToSubtotal, 0)
       }
       this.isWaiting = true
