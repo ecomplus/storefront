@@ -5,7 +5,6 @@ Component that includes the product with image, title and allows editing of the 
 ## Features
 
 - Supports E-Com Plus product object;
--
 - Product sale text;
 - Change pictures: Possible to show 2 item pictures;
 - Component size variation to render using less space;

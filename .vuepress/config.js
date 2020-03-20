@@ -5,7 +5,7 @@ const files = fs.readdirSync(componentsPath)
 const components = []
 
 for (const file of files) {
-  components.push(`/components/${file}`)
+  components.push(`../@ecomplus/storefront-components/docs/${file}`)
 }
 
 module.exports = {
@@ -30,6 +30,11 @@ module.exports = {
         title: 'Getting Started',
         collapsable: false,
         children: ['']
+      },
+      {
+        title: 'Components',
+        collapsable: false,
+        children: components
       }
     ]
   }
