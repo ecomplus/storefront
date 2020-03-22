@@ -3,10 +3,8 @@
   "version": "0.3.0",
   "description": "Vue components for E-Com Plus Storefront",
   "main": "dist/storefront-components.min.js",
-  "jsdelivr": "dist/public/storefront-components.var.min.js",
-  "unpkg": "dist/public/storefront-components.var.min.js",
   "scripts": {
-    "build": "echo \"Webpack ?\"",
+    "build": "NODE_ENV=production webpack",
     "serve": "webpack-dev-server"
   },
   "repository": {
