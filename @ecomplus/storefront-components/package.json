@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-components",
-  "version": "0.3.0",
+  "version": "1.0.0-beta",
   "description": "Vue components for E-Com Plus Storefront",
   "main": "dist/storefront-components.min.js",
   "scripts": {
