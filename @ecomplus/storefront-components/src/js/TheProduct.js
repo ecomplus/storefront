@@ -22,6 +22,7 @@ import {
 
 import { store } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
+import BAlert from '../_internal/BAlert.vue'
 import APrices from '../APrices.vue'
 import ProductVariations from '../ProductVariations.vue'
 import ProductGallery from '../ProductGallery.vue'
@@ -37,6 +38,7 @@ export default {
   name: 'TheProduct',
 
   components: {
+    BAlert,
     APrices,
     ProductVariations,
     ProductGallery,

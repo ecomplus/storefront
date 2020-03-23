@@ -77,21 +77,9 @@
               :selectedId.sync="selectedVariationId"
             />
 
-            <div
-              v-show="hasClickedBuy && !selectedVariationId"
-              class="alert alert-warning alert-dismissible fade show"
-              role="alert"
-            >
+            <b-alert :can-show="hasClickedBuy && !selectedVariationId">
               {{ i19selectVariation }}
-              <button
-                type="button"
-                class="close"
-                data-dismiss="alert"
-                :aria-label="i19close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
+            </b-alert>
           </slot>
 
           <div class="product__buy">
