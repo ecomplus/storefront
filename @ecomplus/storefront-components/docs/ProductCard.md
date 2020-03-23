@@ -97,10 +97,49 @@ Place to customize discount badge when product has offer price.
 
 ### rating
 
+Place to insert the product evaluation medium. It must be done through an external widget.
+
+```vue
+<slot
+  name="rating">
+  <div
+    v-once
+    class="product-card__rating"
+    :data-sku="body.sku"
+  ></div>
+</slot>
+```
+
 ### unavailable
+
+Show if the product is unavailable for purchase. By default it uses the `badge-warning`.
+
+```vue
+<slot
+  name="unavailable"
+  v-if="!body.available || !body.visible"
+>
+  <p class="badge badge-warning">
+    {{ i19unavailable }}
+  </p>
+</slot>
+```
 
 ### out-of-stock
 
+
+If it is identified that the product has no balance for sale, the `out-of-stock` is activated so that it is not available for sale. The shopkeeper can also activate manually. By default, the `badge-dark` is used.
+
+```vue
+<slot
+  name="out-of-stock"
+  v-else-if="!isInStock"
+>
+  <p class="badge badge-dark">
+    {{ i19outOfStock }}
+  </p>
+</slot>
+```
 ## Events
 
 ### buy
