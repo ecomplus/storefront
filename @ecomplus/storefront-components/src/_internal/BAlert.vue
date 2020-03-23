@@ -2,7 +2,8 @@
   <transition enter-active-class="animated fadeInDown fast">
     <div v-if="canShow">
       <div
-        class="alert alert-warning alert-dismissible fade show"
+        class="alert alert-dismissible fade show"
+        :class="`alert-${variant}`"
         role="alert"
         v-once
       >
@@ -28,7 +29,11 @@
     name: 'BAlert',
 
     props: {
-      canShow: Boolean
+      canShow: Boolean,
+      variant: {
+        type: String,
+        default: 'warning'
+      }
     },
 
     computed: {
