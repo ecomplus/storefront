@@ -29,7 +29,10 @@
     name: 'DismissableAlert',
 
     props: {
-      canShow: Boolean,
+      canShow: {
+        type: Boolean,
+        default: true
+      },
       variant: {
         type: String,
         default: 'warning'
