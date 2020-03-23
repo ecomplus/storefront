@@ -18,6 +18,7 @@ import {
 
 import { i18n } from '@ecomplus/utils'
 import ecomPassport from '@ecomplus/passport-client'
+import VLink from '../_internal/VLink.vue'
 import DismissableAlert from '../_internal/DismissableAlert.vue'
 import ABackdrop from '../ABackdrop.vue'
 
@@ -25,6 +26,7 @@ export default {
   name: 'LoginModal',
 
   components: {
+    VLink,
     DismissableAlert,
     ABackdrop
   },
@@ -198,17 +200,6 @@ export default {
     }
   },
 
-  mounted () {
-    ;['login', 'logout'].forEach(ev => {
-      this.ecomPassport.on(ev, payload => {
-        this.update()
-        this.$emit(ev, payload)
-      })
-    })
-    this.update()
-    this.setOauthProviders()
-  },
-
   watch: {
     hasNoProfileFound (newStatus) {
       if (newStatus === false) {
@@ -228,5 +219,16 @@ export default {
         })
       }
     }
+  },
+
+  mounted () {
+    ;['login', 'logout'].forEach(ev => {
+      this.ecomPassport.on(ev, payload => {
+        this.update()
+        this.$emit(ev, payload)
+      })
+    })
+    this.update()
+    this.setOauthProviders()
   }
 }
