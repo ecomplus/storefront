@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@ecomplus/client": "^2.0.4",
-    "@ecomplus/i18n": "^1.5.0",
+    "@ecomplus/i18n": "^1.6.0",
     "@ecomplus/passport-client": "^1.0.6",
     "@ecomplus/search-engine": "^2.0.3",
     "@ecomplus/shopping-cart": "^2.1.1",
