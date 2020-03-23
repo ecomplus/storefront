@@ -1,0 +1,101 @@
+.login-modal {
+  &__box {
+    z-index: 1090;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    border-radius: 0;
+
+    @media (min-width: 410px) {
+      width: 400px;
+      left: 50%;
+      margin-left: -200px;
+      top: var(--spacer-4);
+      border-radius: var(--border-radius);
+    }
+
+    @media (min-height: 400px) {
+      top: 15%;
+    }
+  }
+
+  .alert {
+    margin-bottom: var(--spacer-3);
+  }
+
+  &__logout {
+    margin-top: var(--spacer-3);
+  }
+
+  &__btn {
+    color: #fff;
+    text-align: left;
+    line-height: var(--line-height-lg);
+    padding: .7rem;
+    min-width: 15rem;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &--facebook {
+      background: #3b5999;
+      border-color: #2f4d8a;
+
+      &:hover {
+        background: #274480;
+        border-color: #274480;
+      }
+    }
+
+    &--google {
+      background: #cb4023;
+      border-color: #be3419;
+
+      &:hover {
+        background: #c1361a;
+        border-color: #c1361a;
+      }
+    }
+
+    &--windowslive {
+      background: #329ffc;
+      border-color: #2996f2;
+
+      &:hover {
+        background: #1f8ce9;
+        border-color: #1f8ce9;
+      }
+    }
+
+    &-icon {
+      display: inline-block;
+      width: 1.4rem;
+      text-align: center;
+      margin-right: var(--spacer-1);
+    }
+  }
+
+  &__back {
+    display: block;
+    padding-left: .3rem;
+    padding-right: .3rem;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &__visitor-info {
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacer-2);
+    text-align: center;
+    color: var(--text-muted);
+  }
+}
