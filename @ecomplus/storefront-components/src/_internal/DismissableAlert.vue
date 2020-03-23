@@ -26,7 +26,7 @@
   import { i18n } from '@ecomplus/utils'
 
   export default {
-    name: 'BAlert',
+    name: 'DismissableAlert',
 
     props: {
       canShow: Boolean,

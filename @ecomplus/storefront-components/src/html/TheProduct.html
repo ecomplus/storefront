@@ -77,9 +77,9 @@
               :selectedId.sync="selectedVariationId"
             />
 
-            <b-alert :can-show="hasClickedBuy && !selectedVariationId">
+            <dismissable-alert :can-show="hasClickedBuy && !selectedVariationId">
               {{ i19selectVariation }}
-            </b-alert>
+            </dismissable-alert>
           </slot>
 
           <div class="product__buy">
