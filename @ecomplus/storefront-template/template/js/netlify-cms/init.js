@@ -1,6 +1,6 @@
 import * as merge from 'lodash.merge'
 import axios from 'axios'
-import baseConfig from './base-config/'
+import getBaseConfig from './base-config/'
 
 const initCms = config => {
   const identityUrl = config.backend.identity_url
@@ -18,8 +18,8 @@ const initCms = config => {
   window.CMS.init({ config })
 }
 
-export default customConfig => new Promise(resolve => {
-  let config = merge(baseConfig, customConfig)
+export default (customConfig, baseDir) => new Promise(resolve => {
+  let config = merge(getBaseConfig({ baseDir }), customConfig)
 
   axios.get('/admin/config.json')
     .then(({ data }) => {

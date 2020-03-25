@@ -1,7 +1,7 @@
-export default {
+export default ({ baseDir }) => ({
   name: 'general',
   label: 'Configurações gerais',
-  file: 'content/settings.json',
+  file: `${baseDir}content/settings.json`,
   fields: [
     {
       label: 'Store ID',
@@ -195,4 +195,4 @@ export default {
       default: 'BR'
     }
   ]
-}
+})

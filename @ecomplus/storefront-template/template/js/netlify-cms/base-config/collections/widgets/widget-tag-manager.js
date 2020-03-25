@@ -1,7 +1,7 @@
-export default {
+export default ({ baseDir }) => ({
   label: 'Google Tag Manager',
   name: 'widget_tag_manager',
-  file: 'content/widgets/widget-tag-manager.json',
+  file: `${baseDir}content/widgets/widget-tag-manager.json`,
   fields: [
     {
       name: 'pkg',
@@ -61,4 +61,4 @@ export default {
       default: 'src/append/body'
     }
   ]
-}
+})

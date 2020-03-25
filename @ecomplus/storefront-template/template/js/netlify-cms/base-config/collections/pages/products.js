@@ -1,8 +1,8 @@
-export default {
+export default ({ baseDir }) => ({
   name: 'products',
   label: 'Produtos',
   hint: 'Configuração geral das páginas de produto',
-  file: 'content/products.json',
+  file: `${baseDir}content/products.json`,
   fields: [
     {
       label: 'Exibir barra de informações',
@@ -57,4 +57,4 @@ export default {
       required: false
     }
   ]
-}
+})

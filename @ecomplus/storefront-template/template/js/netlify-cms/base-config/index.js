@@ -1,11 +1,11 @@
-import settings from './collections/settings'
-import layout from './collections/layout'
-import pages from './collections/pages'
-import blogPosts from './collections/blog-posts'
-import extraPages from './collections/extra-pages'
-import widgets from './collections/widgets'
+import getSettings from './collections/settings'
+import getLayout from './collections/layout'
+import getPages from './collections/pages'
+import getBlogPosts from './collections/blog-posts'
+import getExtraPages from './collections/extra-pages'
+import getWidgets from './collections/widgets'
 
-export default {
+export default options => ({
   backend: {
     name: 'git-gateway',
     branch: 'master',
@@ -20,7 +20,7 @@ export default {
   },
   locale: 'pt',
   load_config_file: Boolean(window.CMS_LOAD_CONFIG_FILE),
-  media_folder: 'template/public/img/uploads',
+  media_folder: `${options.baseDir}template/public/img/uploads`,
   public_folder: '/img/uploads',
   slug: {
     encoding: 'ascii',
@@ -28,11 +28,11 @@ export default {
     sanitize_replacement: '-'
   },
   collections: [
-    settings,
-    layout,
-    pages,
-    blogPosts,
-    extraPages,
-    widgets
+    getSettings(options),
+    getLayout(options),
+    getPages(options),
+    getBlogPosts(options),
+    getExtraPages(options),
+    getWidgets(options)
   ]
-}
+})

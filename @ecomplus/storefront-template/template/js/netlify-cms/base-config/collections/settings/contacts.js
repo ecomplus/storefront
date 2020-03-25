@@ -1,6 +1,6 @@
-export default {
+export default ({ baseDir }) => ({
   name: 'contacts',
-  file: 'content/contacts.json',
+  file: `${baseDir}content/contacts.json`,
   label: 'Contatos',
   hint: 'Contatos da loja, exibidos em várias páginas',
   fields: [
@@ -71,4 +71,4 @@ export default {
       required: false
     }
   ]
-}
+})

@@ -1,7 +1,7 @@
-export default {
+export default ({ baseDir }) => ({
   label: 'Facebook Pixel',
   name: 'widget_fb_pixel',
-  file: 'content/widgets/widget-fb-pixel.json',
+  file: `${baseDir}content/widgets/widget-fb-pixel.json`,
   fields: [
     {
       name: 'pkg',
@@ -56,4 +56,4 @@ export default {
       default: 'src/append/body'
     }
   ]
-}
+})

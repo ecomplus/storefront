@@ -1,8 +1,8 @@
-export default {
+export default ({ baseDir }) => ({
   name: 'search',
   label: 'Busca',
   hint: 'Configuração geral das páginas de busca',
-  file: 'content/search.json',
+  file: `${baseDir}content/search.json`,
   fields: [
     {
       label: 'Exibir barra de informações',
@@ -19,4 +19,4 @@ export default {
       required: false
     }
   ]
-}
+})

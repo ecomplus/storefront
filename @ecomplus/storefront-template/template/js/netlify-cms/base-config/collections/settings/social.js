@@ -1,6 +1,6 @@
-export default {
+export default ({ baseDir }) => ({
   name: 'social',
-  file: 'content/social.json',
+  file: `${baseDir}content/social.json`,
   label: 'Sociais',
   hint: 'Configurações para compartilhamento da loja',
   fields: [
@@ -24,4 +24,4 @@ export default {
       widget: 'string'
     }
   ]
-}
+})

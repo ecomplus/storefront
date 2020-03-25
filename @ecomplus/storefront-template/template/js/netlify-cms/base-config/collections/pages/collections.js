@@ -1,8 +1,8 @@
-export default {
+export default ({ baseDir }) => ({
   name: 'collections',
   label: 'Coleções',
   hint: 'Configuração geral das páginas de coleções',
-  file: 'content/collections.json',
+  file: `${baseDir}content/collections.json`,
   fields: [
     {
       label: 'Exibir barra de informações',
@@ -19,4 +19,4 @@ export default {
       required: false
     }
   ]
-}
+})

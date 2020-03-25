@@ -1,8 +1,8 @@
-export default {
+export default ({ baseDir }) => ({
   name: 'extra_pages',
   label: 'Páginas extra',
   description: 'Páginas extra para conteúdo como Sobre nós, Política de privacidade, etc',
-  folder: 'content/pages',
+  folder: `${baseDir}content/pages`,
   extension: 'json',
   create: true,
   slug: '{{slug}}',
@@ -72,4 +72,4 @@ export default {
       required: false
     }
   ]
-}
+})
