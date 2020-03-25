@@ -17,6 +17,7 @@ export default {
   name: "DocProductCard",
   data() {
     return {
+      dynamicComponent: null,
       product
     };
   },
