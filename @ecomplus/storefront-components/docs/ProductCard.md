@@ -1,6 +1,7 @@
 # ProductCard
 
-Component that includes the product with image, title and allows editing of the size in the image and inclusion of the sale text.
+Component that includes the product with image, title and allows editing of the size in the image and inclusion of the sale text.The [ProductCard] is a unique and specific page for each item that explains its most relevant benefits.
+
 
 ## Features
 
@@ -9,7 +10,31 @@ Component that includes the product with image, title and allows editing of the 
 - Change pictures: Possible to show 2 item pictures;
 - Component size variation to render using less space;
 
+## Exemples
+
+
+Basic exemple:
+
+```vue
+<ProductCard :product="product" />
+```
 <DocProductCard />
+
+Complete exemple:
+
+```vue
+<ProductCard
+  :product.sync="product"
+  :is-small="true"
+  heading-tag="h4"
+  buy-text="Buy now!"
+  :can-add-to-cart="false"
+  :is-loaded.sync="isProductLoaded"
+  @buy="({ product }) => addToCart(product)"
+/>
+```
+<DocProductCardComplete />
+
 
 ## Props
 
@@ -83,65 +108,6 @@ isLoaded: {
   default: false
 },
 ```
-
-## Slots
-
-### discount-tag
-
-Place to customize discount badge when product has offer price.
-
-```vue
-<slot
-  name="discount-tag"
-  v-bind="{ discount }"
->
-```
-
-### rating
-
-Place to insert the product evaluation medium. It must be done through an external widget.
-
-```vue
-<slot
-  name="rating">
-  <div
-    v-once
-    class="product-card__rating"
-    :data-sku="body.sku"
-  ></div>
-</slot>
-```
-
-### unavailable
-
-Show if the product is unavailable for purchase. By default it uses the `badge-warning`.
-
-```vue
-<slot
-  name="unavailable"
-  v-if="!body.available || !body.visible"
->
-  <p class="badge badge-warning">
-    {{ i19unavailable }}
-  </p>
-</slot>
-```
-
-### out-of-stock
-
-
-If it is identified that the product has no balance for sale, the `out-of-stock` is activated so that it is not available for sale. The shopkeeper can also activate manually. By default, the `badge-dark` is used.
-
-```vue
-<slot
-  name="out-of-stock"
-  v-else-if="!isInStock"
->
-  <p class="badge badge-dark">
-    {{ i19outOfStock }}
-  </p>
-</slot>
-```
 ## Events
 
 ### buy
@@ -170,4 +136,49 @@ Emitted once item data is fetched from API.
 
 ```js
 this.$emit('update:is-loaded', true)
+```
+
+
+## Slots
+
+### discount-tag
+
+Place to customize discount badge when product has offer price.
+
+```vue
+<slot
+  name="discount-tag"
+  v-bind="{ discount }"
+>
+```
+
+### rating
+
+Place to insert the product evaluation medium. It must be done through an external widget.
+
+```vue
+<slot
+  name="rating"
+>
+```
+
+### unavailable
+
+Show if the product is unavailable for purchase. By default it uses the `badge-warning`.
+
+```vue
+<slot
+  name="unavailable"
+ >
+```
+
+### out-of-stock
+
+
+If it is identified that the product has no balance for sale, the `out-of-stock` is activated so that it is not available for sale. The shopkeeper can also activate manually. By default, the `badge-dark` is used.
+
+```vue
+<slot
+  name="out-of-stock"
+>
 ```
