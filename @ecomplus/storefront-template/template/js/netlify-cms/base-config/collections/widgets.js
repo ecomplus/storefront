@@ -1,14 +1,14 @@
-import ecomplusWidgetProductCard from './widgets/ecomplus-widget-product-card'
-import ecomplusWidgetSearch from './widgets/ecomplus-widget-search'
-import ecomplusWidgetMinicart from './widgets/ecomplus-widget-minicart'
-import ecomplusWidgetUser from './widgets/ecomplus-widget-user'
-import ecomplusWidgetProduct from './widgets/ecomplus-widget-product'
-import ecomplusWidgetSearchEngine from './widgets/ecomplus-widget-search-engine'
-import widgetTagManager from './widgets/widget-tag-manager'
-import widgetFbPixel from './widgets/widget-fb-pixel'
-import widgetTrustvox from './widgets/widget-trustvox'
+import getEcomplusWidgetProductCard from './widgets/ecomplus-widget-product-card'
+import getEcomplusWidgetSearch from './widgets/ecomplus-widget-search'
+import getEcomplusWidgetMinicart from './widgets/ecomplus-widget-minicart'
+import getEcomplusWidgetUser from './widgets/ecomplus-widget-user'
+import getEcomplusWidgetProduct from './widgets/ecomplus-widget-product'
+import getEcomplusWidgetSearchEngine from './widgets/ecomplus-widget-search-engine'
+import getWidgetTagManager from './widgets/widget-tag-manager'
+import getWidgetFbPixel from './widgets/widget-fb-pixel'
+import getWidgetTrustvox from './widgets/widget-trustvox'
 
-export default {
+export default options => ({
   name: 'widgets',
   label: 'Widgets',
   delete: false,
@@ -16,14 +16,14 @@ export default {
     preview: false
   },
   files: [
-    ecomplusWidgetProductCard,
-    ecomplusWidgetSearch,
-    ecomplusWidgetMinicart,
-    ecomplusWidgetUser,
-    ecomplusWidgetProduct,
-    ecomplusWidgetSearchEngine,
-    widgetTagManager,
-    widgetFbPixel,
-    widgetTrustvox
+    getEcomplusWidgetProductCard(options),
+    getEcomplusWidgetSearch(options),
+    getEcomplusWidgetMinicart(options),
+    getEcomplusWidgetUser(options),
+    getEcomplusWidgetProduct(options),
+    getEcomplusWidgetSearchEngine(options),
+    getWidgetTagManager(options),
+    getWidgetFbPixel(options),
+    getWidgetTrustvox(options)
   ]
-}
+})

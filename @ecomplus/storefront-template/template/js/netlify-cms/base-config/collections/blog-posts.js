@@ -1,7 +1,7 @@
-export default {
+export default ({ baseDir }) => ({
   name: 'blog_posts',
   label: 'Posts para o blog',
-  folder: 'content/posts',
+  folder: `${baseDir}content/posts`,
   extension: 'json',
   create: true,
   slug: '{{slug}}-{{year}}-{{month}}-{{day}}',
@@ -58,4 +58,4 @@ export default {
       required: false
     }
   ]
-}
+})

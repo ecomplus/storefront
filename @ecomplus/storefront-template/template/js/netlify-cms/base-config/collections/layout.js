@@ -1,7 +1,7 @@
-import header from './layout/header'
-import footer from './layout/footer'
+import getHeader from './layout/header'
+import getFooter from './layout/footer'
 
-export default {
+export default options => ({
   name: 'layout',
   label: 'Layout',
   description: 'Layout aplicado a todas páginas',
@@ -10,7 +10,7 @@ export default {
     preview: false
   },
   files: [
-    header,
-    footer
+    getHeader(options),
+    getFooter(options)
   ]
-}
+})

@@ -84,11 +84,12 @@ export default {
     i19video: () => i18n(i19video),
 
     localPictures () {
-      return this.pictures && this.pictures.length ? this.pictures : this.product.pictures
+      return this.pictures && this.pictures.length
+        ? this.pictures : (this.product.pictures || [])
     },
 
     videoSrc () {
-      const video = this.video || this.product.videos[0]
+      const video = this.video || (this.product.videos && this.product.videos[0])
       if (video && video.url) {
         return video.url.replace(/watch\?v=(V7XQvAde51w)/i, 'embed/$1?rel=0')
       }

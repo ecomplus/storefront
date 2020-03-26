@@ -1,7 +1,7 @@
-export default {
+export default ({ baseDir }) => ({
   label: 'Motor de busca',
   name: 'ecomplus_widget_search_engine',
-  file: 'content/widgets/ecomplus-widget-search-engine.json',
+  file: `${baseDir}content/widgets/ecomplus-widget-search-engine.json`,
   fields: [
     {
       name: 'pkg',
@@ -23,4 +23,4 @@ export default {
       widget: 'boolean'
     }
   ]
-}
+})

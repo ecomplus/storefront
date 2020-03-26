@@ -1,8 +1,8 @@
-export default {
+export default ({ baseDir }) => ({
   name: 'categories',
   label: 'Categorias',
   hint: 'Configuração geral das páginas de categorias',
-  file: 'content/categories.json',
+  file: `${baseDir}content/categories.json`,
   fields: [
     {
       label: 'Exibir barra de informações',
@@ -19,4 +19,4 @@ export default {
       required: false
     }
   ]
-}
+})

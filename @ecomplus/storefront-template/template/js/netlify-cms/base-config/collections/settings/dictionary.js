@@ -1,8 +1,8 @@
-export default {
+export default ({ baseDir }) => ({
   name: 'dictionary',
   label: 'Dicionário',
   delete: false,
-  file: 'content/dictionary/pt_br.json',
+  file: `${baseDir}content/dictionary/pt_br.json`,
   fields: [
     {
       label: 'Buscar produtos',
@@ -30,4 +30,4 @@ export default {
       widget: 'string'
     }
   ]
-}
+})

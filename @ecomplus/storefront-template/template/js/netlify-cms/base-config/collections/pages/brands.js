@@ -1,8 +1,8 @@
-export default {
+export default ({ baseDir }) => ({
   name: 'brands',
   label: 'Marcas',
   hint: 'Configuração geral das páginas de marca',
-  file: 'content/brands.json',
+  file: `${baseDir}content/brands.json`,
   fields: [
     {
       label: 'Exibir barra de informações',
@@ -19,4 +19,4 @@ export default {
       required: false
     }
   ]
-}
+})

@@ -9,7 +9,9 @@
     <!-- <TsCartItem/> -->
     <!-- <TsProductCard/> -->
     <!-- <TsCartQuickview/> -->
-    <TsProductGallery/>
+    <!-- <TsProductGallery/> -->
+    <!-- <TsTheProduct/> -->
+    <TsLoginModal/>
   </div>
 </template>
 
@@ -25,6 +27,8 @@
   import TsCartItem from '__/components/TsCartItem.vue'
   import TsCartQuickview from '__/components/TsCartQuickview.vue'
   import TsProductGallery from '__/components/TsProductGallery.vue'
+  import TsTheProduct from '__/components/TsTheProduct.vue'
+  import TsLoginModal from '__/components/TsLoginModal.vue'
 
   export default {
     name: 'Playground',
@@ -38,7 +42,9 @@
       TsInstantSearch,
       TsCartItem,
       TsCartQuickview,
-      TsProductGallery
+      TsProductGallery,
+      TsTheProduct,
+      TsLoginModal
     }
   }
 </script>

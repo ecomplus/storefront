@@ -1,10 +1,10 @@
-import general from './settings/general'
-import contacts from './settings/contacts'
-import info from './settings/info'
-import social from './settings/social'
-import dictionary from './settings/dictionary'
+import getGeneral from './settings/general'
+import getContacts from './settings/contacts'
+import getInfo from './settings/info'
+import getSocial from './settings/social'
+import getDictionary from './settings/dictionary'
 
-export default {
+export default options => ({
   name: 'settings',
   label: 'Configurações',
   description: 'Configurações gerais para identidade e metadados do site',
@@ -13,10 +13,10 @@ export default {
     preview: false
   },
   files: [
-    general,
-    contacts,
-    info,
-    social,
-    dictionary
+    getGeneral(options),
+    getContacts(options),
+    getInfo(options),
+    getSocial(options),
+    getDictionary(options)
   ]
-}
+})

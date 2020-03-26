@@ -1,7 +1,7 @@
-export default {
+export default ({ baseDir }) => ({
   label: 'Produtos',
   name: 'ecomplus_widget_product',
-  file: 'content/widgets/ecomplus-widget-product.json',
+  file: `${baseDir}content/widgets/ecomplus-widget-product.json`,
   fields: [
     {
       name: 'pkg',
@@ -59,4 +59,4 @@ export default {
       ]
     }
   ]
-}
+})

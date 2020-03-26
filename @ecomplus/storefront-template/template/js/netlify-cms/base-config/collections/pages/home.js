@@ -1,7 +1,7 @@
-export default {
+export default ({ baseDir }) => ({
   name: 'home',
   label: 'Página inicial',
-  file: 'content/home.json',
+  file: `${baseDir}content/$1`,
   fields: [
     {
       label: 'Meta title',
@@ -84,4 +84,4 @@ export default {
       required: false
     }
   ]
-}
+})

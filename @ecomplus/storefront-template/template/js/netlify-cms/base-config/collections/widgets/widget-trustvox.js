@@ -1,7 +1,7 @@
-export default {
+export default ({ baseDir }) => ({
   label: 'Trustvox',
   name: 'widget_trustvox',
-  file: 'content/widgets/widget-trustvox.json',
+  file: `${baseDir}content/widgets/widget-trustvox.json`,
   fields: [
     {
       name: 'pkg',
@@ -41,4 +41,4 @@ export default {
       ]
     }
   ]
-}
+})

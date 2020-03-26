@@ -1,0 +1,26 @@
+.product {
+  &__sku {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  &__buy {
+    cursor: pointer;
+    margin-bottom: var(--spacer-3);
+  }
+
+  &__unavailable,
+  &__out-of-stock {
+    font-weight: var(--font-bold);
+    font-size: var(--font-size-lg);
+    color: var(--warning);
+  }
+
+  &__discount {
+    color: var(--success);
+  }
+
+  &__short-stock {
+    color: var(--danger);
+  }
+}

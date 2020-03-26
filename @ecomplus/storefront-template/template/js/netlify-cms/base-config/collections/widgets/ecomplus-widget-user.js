@@ -1,7 +1,7 @@
-export default {
+export default ({ baseDir }) => ({
   label: 'Login de usuários',
   name: 'ecomplus_widget_user',
-  file: 'content/widgets/ecomplus-widget-user.json',
+  file: `${baseDir}content/widgets/ecomplus-widget-user.json`,
   fields: [
     {
       name: 'pkg',
@@ -23,4 +23,4 @@ export default {
       widget: 'boolean'
     }
   ]
-}
+})

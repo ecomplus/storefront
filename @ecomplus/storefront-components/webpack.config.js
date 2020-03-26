@@ -94,28 +94,18 @@ const webpackConfig = {
 }
 
 if (!devMode) {
-  webpackConfig.externals.vue = {
-    commonjs: 'vue',
-    commonjs2: 'vue',
-    root: 'Vue'
-  }
-  webpackConfig.externals['@ecomplus/storefront-twbs'] = {
-    commonjs: '@ecomplus/storefront-twbs',
-    commonjs2: '@ecomplus/storefront-twbs',
-    root: '__storefrontTwbs'
+  webpackConfig.externals = {
+    vue: {
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      root: 'Vue'
+    },
+    '@ecomplus/storefront-twbs': {
+      commonjs: '@ecomplus/storefront-twbs',
+      commonjs2: '@ecomplus/storefront-twbs',
+      root: '__storefrontTwbs'
+    }
   }
 }
 
-module.exports = devMode ? webpackConfig : [
-  {
-    ...webpackConfig,
-    output: {
-      ...output,
-      libraryTarget: 'var',
-      filename: output.filename.replace('.min.js', '.var.min.js'),
-      path: path.resolve(output.path, 'public')
-    }
-  },
-
-  webpackConfig
-]
+module.exports = webpackConfig

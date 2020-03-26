@@ -1,6 +1,6 @@
-export default {
+export default ({ baseDir }) => ({
   label: 'Informações',
-  file: 'content/info.json',
+  file: `${baseDir}content/info.json`,
   name: 'info',
   hint: 'Informações gerais da loja, exibidas em várias páginas',
   widget: 'object',
@@ -130,4 +130,4 @@ export default {
       ]
     }
   ]
-}
+})

@@ -1,0 +1,135 @@
+<section class="product">
+  <transition enter-active-class="animated fadeIn slower">
+    <div
+      v-if="body._id"
+      class="row"
+    >
+      <slot name="gallery-col">
+        <div class="col-12 col-md-6">
+          <productGallery
+            :product="body"
+            :current.sync="currentGalleyImg"
+          />
+        </div>
+      </slot>
+
+      <div class="col">
+        <slot name="heading">
+          <component
+            :is="headingTag"
+            class="product__name"
+          >
+            {{ name }}
+          </component>
+          <p class="product__sku">
+            COD: {{ body.sku }}
+          </p>
+        </slot>
+
+        <slot
+          name="unavailable"
+          v-if="!body.available"
+        >
+          <p class="product__unavailable">
+            {{ i19unavailable }}
+          </p>
+        </slot>
+
+        <slot
+          name="out-of-stock"
+          v-else-if="!isInStock"
+        >
+          <p class="product__out-of-stock">
+            {{ i19outOfStock }}
+          </p>
+        </slot>
+
+        <template v-else>
+          <slot name="prices">
+            <p class="product__prices">
+              <a-prices
+                :product="{ ...body, ...selectedVariation }"
+                :is-literal="true"
+                :is-big="true"
+              />
+
+              <slot
+                name="discount-tag"
+                v-bind="{ discount }"
+              >
+                <span
+                  v-if="discount > 0"
+                  class="product__discount"
+                >
+                  {{ i19discountOf }}
+                  <strong>{{ discount }}%</strong>
+                </span>
+              </slot>
+            </p>
+          </slot>
+
+          <slot
+            name="variations"
+            v-if="hasVariations"
+          >
+            <product-variations
+              :product="body"
+              :selectedId.sync="selectedVariationId"
+            />
+
+            <dismissable-alert :can-show="hasClickedBuy && !selectedVariationId">
+              {{ i19selectVariation }}
+            </dismissable-alert>
+          </slot>
+
+          <div class="product__buy">
+            <slot name="buy">
+              <button
+                type="button"
+                class="btn btn-lg btn-primary"
+                @click="buy"
+                :disabled="hasClickedBuy"
+              >
+                <i class="fas fa-shopping-bag mr-1"></i>
+                {{ strBuy }}
+              </button>
+            </slot>
+          </div>
+
+          <p
+            class="product__short-stock"
+            v-if="isLowQuantity"
+          >
+            <i class="fas fa-exclamation-triangle mr-1"></i>
+            {{ i19only }}
+            <strong>{{ productQuantity }}</strong>
+            {{ i19inStock }}
+          </p>
+
+          <slot name="shipping">
+            <shipping-calculator
+              :shippedItems="[{
+                ...body,
+                product_id: body._id,
+                quantity: body.min_quantity || 1
+              }]"
+            />
+          </slot>
+        </template>
+
+        <slot
+          name="short-description"
+          v-if="body.short_description"
+        >
+          <p class="product__info lead">
+            {{ body.short_description }}
+          </p>
+        </slot>
+      </div>
+    </div>
+  </transition>
+
+  <template v-if="!body._id">
+    <slot/>
+  </template>
+</section>
