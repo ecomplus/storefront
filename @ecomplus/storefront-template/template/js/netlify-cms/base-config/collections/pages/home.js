@@ -1,7 +1,7 @@
 export default ({ baseDir }) => ({
   name: 'home',
   label: 'Página inicial',
-  file: `${baseDir}content/$1`,
+  file: `${baseDir}content/home.json`,
   fields: [
     {
       label: 'Meta title',
