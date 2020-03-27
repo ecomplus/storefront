@@ -16,5 +16,16 @@
   },
   "pitbar": true,
   "showcase": [],
-  "additional_content": ""
+  "additional_content": "",
+  "sections": [
+    {
+      "type": "banners-grid",
+      "banners": [
+        {
+          "img": "/img/uploads/rect8589.png",
+          "alt": "Roupas"
+        }
+      ]
+    }
+  ]
 }
