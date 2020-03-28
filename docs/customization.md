@@ -1,6 +1,6 @@
 # Customization
 
-[WIP] How to customize (https://github.com/ecomplus/storefront/issues/177)
+[WIP] How to customize ([#177](https://github.com/ecomplus/storefront/issues/177))
 
 ## Build pages within CMS
 
