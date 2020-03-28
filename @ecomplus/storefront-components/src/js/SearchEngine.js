@@ -90,7 +90,7 @@ export default {
     gridsData: {
       type: Array,
       default () {
-        if (window.storefront && window.storefront.data) {
+        if (typeof window === 'object' && window.storefront && window.storefront.data) {
           return window.storefront.data.grids
         }
       }

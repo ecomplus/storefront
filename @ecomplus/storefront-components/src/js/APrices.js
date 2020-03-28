@@ -104,7 +104,7 @@ export default {
 
   created () {
     if (!this.installmentsOption && !this.discountOption) {
-      const { storefront } = window
+      const storefront = typeof window === 'object' && window.storefront
       if (storefront) {
         const getPaymentInfo = () => {
           const paymentInfo = storefront.info && storefront.info.list_payments

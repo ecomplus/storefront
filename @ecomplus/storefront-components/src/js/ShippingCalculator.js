@@ -14,7 +14,7 @@ import { modules } from '@ecomplus/client'
 import CleaveInput from 'vue-cleave-component'
 import ShippingLine from '../ShippingLine.vue'
 
-const { localStorage } = window
+const localStorage = typeof window === 'object' && window.localStorage
 const zipStorageKey = 'shipping-to-zip'
 
 const reduceItemBody = itemOrProduct => {
