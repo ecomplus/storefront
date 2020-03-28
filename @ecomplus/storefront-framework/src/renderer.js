@@ -28,14 +28,23 @@ const { $ecomConfig } = ecomUtils
   $ecomConfig.set(prop, settings[prop])
 })
 
-// parse EJS render file async function to promise
 const ejsOptions = {
+  async: true,
+  // resolve absolute includes from template pkg
   root: path.join(
     /^[./A-Z]/.test(templatePkg) ? templatePkg : path.join(paths.modules, templatePkg),
     'template', 'pages'
   ),
-  async: true
+  // add include paths from node modules and pages directory
+  views: [
+    paths.pages,
+    paths.modules,
+    // monorepo support
+    path.join(__dirname, '../../../node_modules')
+  ]
 }
+
+// parse EJS render file async function to promise
 const renderFilePromise = (filename, params) => new Promise((resolve, reject) => {
   ejs.renderFile(filename, params, ejsOptions, (err, html) => {
     if (err) {
@@ -125,7 +134,18 @@ const dataPromise = getStoreData().then(storeData => {
   }
 
   // abstraction for dictionary content
-  data.dictionary = () => data.cms(`dictionary/${lang}`)
+  data.dictionary = term => {
+    if (term) {
+      const i19 = require('@ecomplus/i18n')
+      if (i19[term]) {
+        return ecomUtils.i18n(i19[term], lang)
+      } else if (i19[`i19${term}`]) {
+        return ecomUtils.i18n(i19[`i19${term}`], lang)
+      }
+      return data.cms(`dictionary/${lang}`)[term] || ''
+    }
+    return data.cms(`dictionary/${lang}`)
+  }
 
   // markdown parser
   data.md = new MarkdownIt({ html: true })
