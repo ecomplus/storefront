@@ -18,7 +18,7 @@
 
 ## Quick start for merchants
 
-:zap: Take a look at the **[Storefront Starter](https://github.com/ecomplus/storefront-starter)** if you just want to deploy your [E-Com Plus](https://e-com.plus) store, or go to [customization docs](https://developers.e-com.plus/storefront/docs/customization) if you're searching for theming guides.
+:zap: Take a look at the **[Storefront Starter](https://github.com/ecomplus/storefront-starter)** if you just want to deploy your [E-Com Plus](https://e-com.plus) store, or go to [customization docs](docs/customization) if you're searching for theming guides.
 
 ## Development
 
