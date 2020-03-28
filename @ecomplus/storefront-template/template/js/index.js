@@ -1,4 +1,4 @@
-import { name, version } from './../../package.json'
+import { name, version } from '../../package.json'
 import './lib/config'
 import { events } from './lib/emitter'
 import '@ecomplus/storefront-twbs'
@@ -12,26 +12,17 @@ import './lib/search'
 import './lib/persist-utm'
 
 import lozad from 'lozad'
-import Vue from 'vue'
 import * as cloneDeep from 'lodash.clonedeep'
 import * as merge from 'lodash.merge'
 import Glide from '@glidejs/glide'
 
-import $ from './lib/$'
-import $overlay from './lib/$overlay'
+// import './lib/load-widgets'
 
-import './lib/load-widgets'
-
-window.lozad = lozad
-window.Vue = Vue
 window._ = { cloneDeep, merge }
+window.lozad = lozad
 window.Glide = Glide
-window.$ = $
-
-Vue.config.productionTip = false
 
 window.storefront = {
-  $overlay,
   settings: window._settings,
   info: window._info,
   widgets: window._widgets,
@@ -43,10 +34,6 @@ window.storefront = {
 setTimeout(() => {
   import(/* webpackPreload: true */ './lib/fetch-info').catch(console.error)
 }, 300)
-
-if (window.pluginPhotoswipe) {
-  import('./lib/photoswipe').catch(console.error)
-}
 
 const { hash } = window.location
 if (hash.indexOf('_token=') !== -1 || hash.indexOf('error=access_denied') !== -1) {
