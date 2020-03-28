@@ -1,4 +1,4 @@
-# storefront-template
+# Storefront Template
 
 [![npm version](https://img.shields.io/npm/v/@ecomplus/storefront-template.svg)](https://www.npmjs.org/@ecomplus/storefront-template) [![license mit](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Netlify Status](https://api.netlify.com/api/v1/badges/c5f6676c-5b7f-4d5b-b348-b714f56f83d0/deploy-status)](https://app.netlify.com/sites/storefront-template/deploys)
 

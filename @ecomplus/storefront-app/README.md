@@ -1,4 +1,4 @@
-# storefront-app
+# Storefront App
 
 [![CodeFactor](https://www.codefactor.io/repository/github/ecomclub/storefront-app/badge)](https://www.codefactor.io/repository/github/ecomclub/storefront-app)
 [![npm version](https://img.shields.io/npm/v/@ecomplus/storefront-app.svg)](https://www.npmjs.org/@ecomplus/storefront-app)

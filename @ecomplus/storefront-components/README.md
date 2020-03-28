@@ -1,4 +1,4 @@
-# `@ecomplus/storefront-components`
+# Storefront Components
 
 > TODO: description
 

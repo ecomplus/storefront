@@ -1,4 +1,4 @@
-# widget-trustvox
+# Widget Trustvox
 
 Storefront plugin for Trustvox reviews widgets
 

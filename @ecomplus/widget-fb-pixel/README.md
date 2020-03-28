@@ -1,2 +1,3 @@
-# storefront-widget-boilerplate
-Webpack + Babel + Vue boilerplate for widgets
+# Widget FB Pixel
+
+Storefront plugin to handle Facebook Pixel events

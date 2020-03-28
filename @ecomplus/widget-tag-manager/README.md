@@ -1,4 +1,4 @@
-# widget-tag-manager
+# Widget Tag Manager
 
 [![CodeFactor](https://www.codefactor.io/repository/github/ecomclub/widget-tag-manager/badge)](https://www.codefactor.io/repository/github/ecomclub/widget-tag-manager)
 [![npm version](https://img.shields.io/npm/v/@ecomplus/widget-tag-manager.svg)](https://www.npmjs.org/@ecomplus/widget-tag-manager)

@@ -1,4 +1,4 @@
-# widget-product
+# Widget Product
 
 [![CodeFactor](https://www.codefactor.io/repository/github/ecomclub/widget-product/badge)](https://www.codefactor.io/repository/github/ecomclub/widget-product)
 [![npm version](https://img.shields.io/npm/v/@ecomplus/widget-product.svg)](https://www.npmjs.org/@ecomplus/widget-product)
