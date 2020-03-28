@@ -6,16 +6,18 @@ body {
 
 @import 'components/app';
 @import 'components/banner-slider';
+@import 'components/banner';
 @import 'components/brand';
 @import 'components/header';
 @import 'components/hero-banner';
 @import 'components/html-clearfix';
 @import 'components/footer';
+@import 'components/info-bar';
+@import 'components/loading';
 @import 'components/menu';
 @import 'components/md-content';
 @import 'components/page-title';
 @import 'components/pay-icon';
-@import 'components/pitbar';
 @import 'components/product-card';
 @import 'components/product';
 @import 'components/products-carousel';
@@ -23,8 +25,6 @@ body {
 @import 'components/rounded-icon';
 
 @import 'libs/glide';
-@import 'libs/lozad';
-@import 'libs/photoswipe';
 
 #main {
   transform: none;

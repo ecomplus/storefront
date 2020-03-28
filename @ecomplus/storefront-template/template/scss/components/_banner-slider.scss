@@ -19,12 +19,13 @@
       min-height: 18rem;
     }
 
-    > a {
+    a {
       text-align: center;
     }
 
+    > div,
     > img,
-    > a > img {
+    a > img {
       line-height: 4;
       width: 100%;
     }

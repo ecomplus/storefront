@@ -1,0 +1,9 @@
+.loading {
+  text-align: center;
+
+  .spinner-border {
+    width: 4rem;
+    height: 4rem;
+    color: var(--primary);
+  }
+}

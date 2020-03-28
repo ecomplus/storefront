@@ -1,0 +1,13 @@
+.banner {
+  display: inline-block;
+  min-height: var(--spacer-5);
+  min-width: var(--spacer-5);
+
+  img {
+    margin: 0 auto;
+  }
+
+  .lozad:not([data-loaded="true"]) {
+    opacity: 0;
+  }
+}

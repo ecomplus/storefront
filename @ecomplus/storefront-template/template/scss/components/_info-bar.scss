@@ -1,3 +1,4 @@
+.info-bar,
 .pitbar {
   width: 100%;
   max-width: 80rem;
@@ -11,6 +12,7 @@
       display: none;
     }
 
+    .info-bar__nav,
     .pitbar__nav {
       overflow-x: auto;
       min-width: 100%;
