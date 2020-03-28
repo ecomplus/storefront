@@ -6,6 +6,9 @@ jobs:
   publish:
     name: Publish to npm
     runs-on: ubuntu-latest
+    env:
+      PKG_OWNER: ${{ github.event.registry_package.owner.login }}
+      PKG_NAME: ${{ github.event.registry_package.name }}
 
     steps:
       - name: Checkout
@@ -33,8 +36,6 @@ jobs:
 
       - name: Edit package.json and publish to npm registry
         env:
-          PKG_OWNER: ${{ github.event.registry_package.owner.login }}
-          PKG_NAME: ${{ github.event.registry_package.name }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           cd ./@$PKG_OWNER/$PKG_NAME && \
