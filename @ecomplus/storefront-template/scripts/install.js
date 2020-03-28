@@ -78,12 +78,5 @@ copyFolder({
   pathsTo: ['public', 'assets']
 })
 
-copyFolder({
-  dirTemplate: path.join(process.cwd(), 'node_modules/photoswipe'),
-  pathFrom: 'dist/default-skin',
-  pathDest: 'template',
-  pathsTo: ['public', 'assets', 'vendor', 'photoswipe']
-})
-
 console.log('[DONE] @ecomplus/storefront-template')
 console.log()
