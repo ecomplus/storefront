@@ -29,6 +29,12 @@ module.exports = {
     '@ecomplus/*/docs/**.md'
   ],
 
+  head: [
+    ['script', {
+      src: 'https://cdn.jsdelivr.net/npm/@ecomplus/storefront-twbs@5/dist/storefront-twbs.bundle.min.js'
+    }]
+  ],
+
   themeConfig: {
     repo: 'ecomplus/storefront',
     logo: '/assets/img/logo.png',

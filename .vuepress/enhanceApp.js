@@ -8,5 +8,4 @@ export default ({
   siteData,
   isServer
 }) => {
-  import('../@ecomplus/storefront-twbs/src/') // eslint-disable-line
 }
