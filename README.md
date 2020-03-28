@@ -14,11 +14,11 @@
 - A11Y compliance;
 - Going for Lighthouse :100: overall;
 
-:page_with_curl: **[Explore the docs](https://developers.e-com.plus/storefront/)** · :shopping: [Demo store](https://storefront-demo.e-com.plus) · [Report bug](https://github.com/ecomplus/storefront/issues/new?template=bug_report.md) · [Request feature](https://github.com/ecomplus/storefront/issues/new?template=feature_request.md) · [Forum](https://community.e-com.plus/)
+:page_with_curl: **[Explore the docs](https://developers.e-com.plus/storefront/)** · :shopping: [Demo store](https://storefront-demo.e-com.plus) · [Report bug](https://github.com/ecomplus/storefront/issues/new?template=bug_report.md) · [Request feature](https://github.com/ecomplus/storefront/issues/new?template=feature_request.md) · [Forum](https://community.e-com.plus/c/storefront/7) :brazil:
 
 ## Quick start for merchants
 
-> If you just want to deploy your [E-Com Plus](https://e-com.plus) store, take a look at the **[Storefront Starter](https://github.com/ecomplus/storefront-starter)**.
+:zap: Take a look at the **[Storefront Starter](https://github.com/ecomplus/storefront-starter)** if you just want to deploy your [E-Com Plus](https://e-com.plus) store, or go to [customization docs](https://developers.e-com.plus/storefront/customization) if you're searching for theming guides.
 
 ## Development
 
