@@ -5,10 +5,11 @@ on:
     branches:
       - master
     paths:
+      - '.vuepress/**'
       - '*.md'
-      - '@ecomplus/*.md'
+      - 'docs/**.md'
+      - '@ecomplus/*/*.md',
       - '@ecomplus/*/docs/**.md'
-      - '@ecomplus/*/docs/**.vue'
 
 jobs:
   build-docs:
