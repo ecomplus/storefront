@@ -10,12 +10,15 @@ for (const file of files) {
 
 module.exports = {
   base: '/storefront/',
+  port: 9110,
+
   patterns: [
     '*.md',
     '@ecomplus/*.md',
     '@ecomplus/*/docs/**.md',
     '@ecomplus/*/docs/**.vue'
   ],
+
   themeConfig: {
     repo: 'ecomplus/storefront',
     logo: '/assets/img/logo.png',
