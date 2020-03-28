@@ -46,7 +46,7 @@
       Move to your template project directory and run:
       storefront-pack <serve|build>
       ---//---
-      serve: Starts Webpack and Browsersync server on port 9123
+      serve: Starts Webpack and Browsersync server on port 9100
       build: Compile assets bundles for production and prerender e-commerce pages
       For more information, see https://github.com/ecomclub/storefront-framework.`)
   }
