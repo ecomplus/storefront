@@ -8,7 +8,7 @@ on:
       - '.vuepress/**'
       - '*.md'
       - 'docs/**.md'
-      - '@ecomplus/*/*.md',
+      - '@ecomplus/*/*.md'
       - '@ecomplus/*/docs/**.md'
 
 jobs:
