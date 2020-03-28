@@ -62,10 +62,12 @@ module.exports = {
       },
       {
         title: 'Template',
+        collapsable: false,
         children: getSidebarItems('storefront-template')
       },
       {
         title: 'Base UI',
+        collapsable: false,
         children: getSidebarItems('storefront-twbs')
       },
       {
