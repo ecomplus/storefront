@@ -1,11 +1,21 @@
 const path = require('path')
 const fs = require('fs')
-const componentsPath = path.join(__dirname, '../@ecomplus/storefront-components/docs')
-const files = fs.readdirSync(componentsPath)
-const components = []
 
-for (const file of files) {
-  components.push(`../@ecomplus/storefront-components/docs/${file}`)
+const pkgsPath = path.join(__dirname, '../@ecomplus')
+const sidebarPkgs = []
+for (const pkg of fs.readdirSync(pkgsPath)) {
+  sidebarPkgs.push([`/@ecomplus/${pkg}/`, pkg])
+}
+
+const getSidebarItems = pkg => {
+  const children = [
+    [`/@ecomplus/${pkg}/`, 'Introduction']
+  ]
+  const componentsPath = path.join(pkgsPath, pkg, 'docs')
+  for (const file of fs.readdirSync(componentsPath)) {
+    children.push(`/@ecomplus/${pkg}/docs/${file}`)
+  }
+  return children
 }
 
 module.exports = {
@@ -14,9 +24,9 @@ module.exports = {
 
   patterns: [
     '*.md',
-    '@ecomplus/*.md',
-    '@ecomplus/*/docs/**.md',
-    '@ecomplus/*/docs/**.vue'
+    'docs/**.md',
+    '@ecomplus/*/*.md',
+    '@ecomplus/*/docs/**.md'
   ],
 
   themeConfig: {
@@ -24,20 +34,46 @@ module.exports = {
     logo: '/assets/img/logo.png',
     nav: [
       {
-        text: 'Home',
+        text: 'Introduction',
         link: '/'
-      }
-    ],
-    sidebar: [
-      {
-        title: 'Getting Started',
-        collapsable: false,
-        children: ['']
       },
       {
-        title: 'Components',
+        text: 'Customization',
+        link: '/docs/customization'
+      }
+    ],
+
+    sidebar: [
+      {
+        title: 'Getting started',
         collapsable: false,
-        children: components
+        sidebarDepth: 2,
+        children: [
+          ['/', 'Introduction'],
+          '/docs/customization',
+          '/CONTRIBUTING'
+        ]
+      },
+      {
+        title: 'Template',
+        children: getSidebarItems('storefront-template')
+      },
+      {
+        title: 'Base UI',
+        children: getSidebarItems('storefront-twbs')
+      },
+      {
+        title: 'Vue components',
+        children: getSidebarItems('storefront-components')
+      },
+      {
+        title: 'Compiler',
+        children: getSidebarItems('storefront-framework')
+      },
+      {
+        title: 'All packages',
+        sidebarDepth: 0,
+        children: sidebarPkgs
       }
     ]
   }
