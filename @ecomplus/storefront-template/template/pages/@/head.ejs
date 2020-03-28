@@ -1,6 +1,4 @@
 <%
-await include('/@/_', { _ })
-
 // setup page object for current route
 let page, pathname
 switch (_.route.path) {
@@ -76,13 +74,9 @@ if (url) {
       const { pkg, active, options, headAppend } = widgetObjects[i]
       if (active && headAppend) {
         try {
-          %> <%- await include(`/@/widgets/${pkg}/head`, { _, options }) %> <%
-        } catch (e) {
-          try {
-            %> <%- await include(`/../../../${pkg}/${headAppend}`, { _, options }) %> <%
-          } catch (err) {
-            console.error(err)
-          }
+          %> <%- await include(`${pkg}/${headAppend}`, { _, options }) %> <%
+        } catch (err) {
+          console.error(err)
         }
       }
     }

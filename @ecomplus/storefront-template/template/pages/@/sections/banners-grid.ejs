@@ -1,0 +1,12 @@
+<% if (Array.isArray(opt.banners) && opt.banners.length) { %>
+  <% const colSize = Math.ceil(12 / opt.banners.length) %>
+  <div class="banners-grid mb-3 mb-lg-5">
+    <div class="row">
+      <% for (let i = 0; i < opt.banners.length; i++) { %>
+        <div class="col-12 col-lg-<%= colSize %> mb-3 mb-lg-0">
+          <%- await include('/@/sections/banner', { _, opt: opt.banners[i] }) %>
+        </div>
+      <% } %>
+    </div>
+  </div>
+<% } %>

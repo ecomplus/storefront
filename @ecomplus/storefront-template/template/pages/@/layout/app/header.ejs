@@ -23,7 +23,7 @@ const logo = _.settings.logo
       <div class="col">
         <div class="app__contact">
           <span class="d-none d-md-inline">
-            <%= _.dictionary().need_help %>? <%= _.dictionary().call_to %>
+            <%= _.dictionary('needHelpQn') %> <%= _.dictionary('callTo') %>
           </span>
           <% if (contacts.whatsapp) { %>
             <span><%= contacts.whatsapp %></span>
@@ -37,7 +37,7 @@ const logo = _.settings.logo
           <span class="app__safe__icon">
             <i class="fas fa-shield-alt"></i>
           </span>
-          <%= _.dictionary().safe_env %>
+          <%= _.dictionary('safeEnvMsg') %>
         </div>
       </div>
     </div>

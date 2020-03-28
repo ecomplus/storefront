@@ -91,7 +91,7 @@ breadcrumbs.push({
           <% } %>
         >
           <i class="fas fa-shopping-bag mr-1"></i>
-          <%= _.dictionary().buy %>
+          <%= _.dictionary('buy') %>
         </button>
         <% if (body.short_description) { %>
           <p class="lead product__info">
@@ -133,7 +133,7 @@ breadcrumbs.push({
       <section id="product-description" class="product__description">
         <p class="lead">
           <a href="#description" name="description">#</a>
-          <%= _.dictionary().product_description %>
+          <%= _.dictionary('productDescription') %>
         </p>
         <div class="html-clearfix">
           <%- body.body_html.replace(
@@ -151,7 +151,7 @@ breadcrumbs.push({
       <section id="product-specs" class="product__specs">
         <p class="lead">
           <a href="#specs" name="specs">#</a>
-          <%= _.dictionary().product_specifications %>
+          <%= _.dictionary('productSpecifications') %>
         </p>
         <table class="table table-striped">
           <tbody>

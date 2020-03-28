@@ -107,7 +107,7 @@ if (mainCategories) {
 
           <% if (category && category.slug) { %>
             <a href="/<%= category.slug %>" class="menu__link">
-              <%= _.dictionary().see_all_category.replace(':name', category.name) %>
+              <%= _.dictionary('seeAll$1Category').replace('$1', category.name) %>
             </a>
           <% } %>
         </div>

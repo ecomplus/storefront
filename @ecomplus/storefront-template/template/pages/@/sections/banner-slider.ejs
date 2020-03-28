@@ -5,7 +5,7 @@
         <ul class="glide__slides banner-slider__slides">
           <% for (let i = 0; i < opt.slides.length; i++) { %>
             <li class="glide__slide">
-              <%- await include('/@/views/components/banner', { _, opt: opt.slides[i] }) %>
+              <%- await include('/@/sections/banner', { _, opt: opt.slides[i] }) %>
             </li>
           <% } %>
         </ul>
