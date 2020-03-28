@@ -1,3 +1,5 @@
+import sections from './_sections'
+
 export default ({ baseDir }) => ({
   name: 'home',
   label: 'Página inicial',
@@ -82,6 +84,12 @@ export default ({ baseDir }) => ({
       widget: 'markdown',
       hint: 'Markdown exibido no fim do container da página inicial',
       required: false
+    },
+    {
+      label: 'Seções',
+      name: 'sections',
+      widget: 'list',
+      types: sections
     }
   ]
 })
