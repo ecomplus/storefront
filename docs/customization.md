@@ -1,4 +1,4 @@
-# Customization
+# Customization :pencil:
 
 [WIP] How to customize ([#177](https://github.com/ecomplus/storefront/issues/177))
 
