@@ -1,5 +1,7 @@
 import $ from 'jquery'
 
-window.$ = window.jQuery = $
+if (typeof window === 'object') {
+  window.$ = window.jQuery = $
+}
 
 export default $

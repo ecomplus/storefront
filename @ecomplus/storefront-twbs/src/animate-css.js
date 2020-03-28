@@ -11,6 +11,8 @@ var animateCss = function ($el, animationName) {
   })
 }
 
-window.animateCss = animateCss
+if (typeof window === 'object') {
+  window.animateCss = animateCss
+}
 
 export default animateCss
