@@ -16,6 +16,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const {
   devMode,
   settings,
+  lang,
   primaryColor,
   secondaryColor,
   templatePkg,
@@ -99,7 +100,8 @@ let config = {
     extensions: ['.wasm', '.mjs', '.js', '.json', '.vue'],
     alias: {
       '#template': `${templatePkg}/template`,
-      '#components': `${componentsPkg}/src`
+      '#components': `${componentsPkg}/src`,
+      '@ecomplus/i18n$': `@ecomplus/i18n/dist/i18n.${lang}.min.js`
     }
   },
 
@@ -170,6 +172,11 @@ let config = {
             whitespace: devMode ? 'preserve' : 'condense'
           }
         }
+      },
+
+      {
+        test: /\.(ejs|txt)$/,
+        use: 'raw-loader'
       }
     ]
   }
