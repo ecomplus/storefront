@@ -1,26 +1,36 @@
 # ProductCard
 
-Component that includes the product with image, title and allows editing of the size in the image and inclusion of the sale text.The [ProductCard] is a unique and specific page for each item that explains its most relevant benefits.
+Card with resumed product information including picture(s), title, prices, discount percentage, buy button and space for rating stars. Should be used on shelves and grids, links to the product details page.
 
+<DemoProductCard/>
 
 ## Features
 
-- Supports E-Com Plus product object;
-- Product sale text;
-- Change pictures: Possible to show 2 item pictures;
-- Component size variation to render using less space;
+- Supports [Store API product](https://developers.e-com.plus/docs/api/#/store/products/) and [Search API item](https://developers.e-com.plus/docs/api/#/search/items/) objects;
+- Handle fetch and retry if item data is not sent or out of date;
+- When item is available, handle buy adding to global [shopping cart](https://github.com/ecomplus/shopping-cart) instance by default;
+- Switch pictures on hover when item has at least 2 pictures;
+- Calculate discount percentage and shows on stamp;
+- Small size variation for floating display cases;
 
-## Exemples
+## Examples
 
-
-Basic exemple:
+#### Basic (minor required) example
 
 ```vue
-<ProductCard :product="product" />
+<ProductCard :product-id="productId"/>
 ```
-<DocProductCard />
 
-Complete exemple:
+#### With previously loaded item data
+
+```vue
+<ProductCard
+  :product="product"
+  :is-loaded="true"
+/>
+```
+
+#### All props/events
 
 ```vue
 <ProductCard
@@ -33,8 +43,6 @@ Complete exemple:
   @buy="({ product }) => addToCart(product)"
 />
 ```
-<DocProductCardComplete />
-
 
 ## Props
 
@@ -80,14 +88,15 @@ headingTag: {
 
 ### buy-text
 
-Text to use on the purchase button. It comes by default for the word `buy` (respecting the language of the page of whoever is accessing it). It can be changed for example to "Add to shopping cart", as you prefer.
+Text to use on the purchase button. It defaults to the word "Buy" respecting store default language, can be changed to "Add to shopping cart" for example.
+
 ```js
 buyText: String,
 ```
 
 ### can-add-to-cart
 
-Allows the `product` to be added to the cart. If `false`, it is necessary to handle the next event.
+Allows the `product` to be added to the cart. If false, will be necessary to manually handle the `@buy` event.
 
 ```js
 canAddToCart: {
@@ -108,6 +117,7 @@ isLoaded: {
   default: false
 },
 ```
+
 ## Events
 
 ### buy
@@ -138,47 +148,118 @@ Emitted once item data is fetched from API.
 this.$emit('update:is-loaded', true)
 ```
 
-
 ## Slots
+
+### default
+
+Shown while product data is being fetched (hydrated), usually can contain the pre-rendered element or a loading spinner.
+
+```vue
+<ProductCard :product-id="productId">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</ProductCard>
+```
+
+### buy
+
+Place to customize buy button.
+
+```vue
+<ProductCard :product-id="productId">
+  <template #buy>
+    <button
+      type="button"
+      class="product-card__custom-buy"
+    >
+      <img src="my-custom-buy-button-image.png"/>
+    </button>
+  </template>
+</ProductCard>
+```
 
 ### discount-tag
 
 Place to customize discount badge when product has offer price.
 
 ```vue
-<slot
-  name="discount-tag"
-  v-bind="{ discount }"
->
+<ProductCard :product-id="productId">
+  <template #discount-tag="{ discount }">
+    <span
+      v-if="discount > 0"
+      class="badge badge-success"
+    >
+      -<b>{{ discount }}</b>%
+    </span>
+  </template>
+</ProductCard>
 ```
 
 ### rating
 
-Place to insert the product evaluation medium. It must be done through an external widget.
+Place to insert the product average rating. Usually it should be done through an external widget.
 
 ```vue
-<slot
-  name="rating"
+<ProductCard
+  :product="product"
+  :is-loaded="true"
 >
+  <template #rating>
+    <span>{{ avarageRating }}/5</span>
+  </template>
+</ProductCard>
+```
+
+### prices
+
+Place to overwrite default `APrices` component.
+
+```vue
+<ProductCard
+  :product="product"
+  :is-loaded="true"
+>
+  <template #prices>
+    <span class="product-card__custom-price">
+      {{ formatMoney(product.price) }}
+    </span>
+  </template>
+</ProductCard>
 ```
 
 ### unavailable
 
-Show if the product is unavailable for purchase. By default it uses the `badge-warning`.
+Place to customize badge shown if the product is marked unavailable for purchase.
 
 ```vue
-<slot
-  name="unavailable"
- >
+<ProductCard :product-id="productId">
+  <template #unavailable>
+    <span class="badge badge-warning">
+      Product unavailable :/
+    </span>
+  </template>
+</ProductCard>
 ```
 
 ### out-of-stock
 
-
-If it is identified that the product has no balance for sale, the `out-of-stock` is activated so that it is not available for sale. The shopkeeper can also activate manually. By default, the `badge-dark` is used.
+Place to customize badge shown if the product stock quantity is zero or less than minimum.
 
 ```vue
-<slot
-  name="out-of-stock"
->
+<ProductCard :product-id="productId">
+  <template #out-of-stock>
+    <span class="badge badge-dark">
+      Product out of stock :(
+    </span>
+  </template>
+</ProductCard>
 ```
+
+### body
+
+Place to overwrite top part (almost entire) of card with product pictures and title.
+
+### footer
+
+Place to add custom content on card bottom.
