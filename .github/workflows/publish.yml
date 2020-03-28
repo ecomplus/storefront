@@ -17,6 +17,20 @@ jobs:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org/'
 
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build package
+        run: npx lerna run --scope=@$PKG_OWNER/$PKG_NAME build
+
       - name: Edit package.json and publish to npm registry
         env:
           PKG_OWNER: ${{ github.event.registry_package.owner.login }}
@@ -27,4 +41,4 @@ jobs:
           node -p "const pkg = require('./package.json'); \
           if (pkg.publishConfig) delete pkg.publishConfig.registry; \
           JSON.stringify(pkg, null, 2)" > pkg.json && mv pkg.json package.json && \
-          npm i && npm run build && npm publish
+          npm publish
