@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.9.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.8.1...@ecomplus/storefront-framework@5.9.0) (2020-03-28)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to ^1.7.0 ([8c2b1c7](https://github.com/ecomplus/storefront/commit/8c2b1c70e1fb131b69e38eb9893a46fc6b2157d5))
+* **deps:** update \@ecomplus/utils to v1.3.4 ([5b3b40a](https://github.com/ecomplus/storefront/commit/5b3b40a8f9d0d5154512a2401fff333239aabc1a))
+* **deps:** update all non-major dependencies ([#171](https://github.com/ecomplus/storefront/issues/171)) ([d94b3fe](https://github.com/ecomplus/storefront/commit/d94b3fec0726e5d92becd3dd53f3833c77bb03cc))
+* **deps:** update to @ecomplus/client v2.0.4 ([48e2ff4](https://github.com/ecomplus/storefront/commit/48e2ff4e3688200cdf598c2eba592c99bb93ff19))
+* **webpack:** manifest and sw plugins on production only ([92e1bd9](https://github.com/ecomplus/storefront/commit/92e1bd91ae516a4b49c0faac3d05d263cb5e7055))
+
+
+### Features
+
+* **renderer:** add ejs include paths for node modules and pages dir ([62ab492](https://github.com/ecomplus/storefront/commit/62ab492ea22faa3acd23118cf99c17dc89e01eda))
+* **webpack:** preset alias for @ecomplus/i18n, add raw-loader ([70a95ad](https://github.com/ecomplus/storefront/commit/70a95ad9a140c136f3d5056d8f1be71b8fdc55d4))
+
+
+### Performance Improvements
+
+* **build:** concurrency build resources routes ([bab4ab6](https://github.com/ecomplus/storefront/commit/bab4ab68fca42ca1fdd7b849f9a2bf654ba053a2))
+
+
+
+
+
 ## [5.8.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.8.0...@ecomplus/storefront-framework@5.8.1) (2020-02-27)
 
 

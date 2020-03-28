@@ -3,6 +3,61 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@0.3.0...@ecomplus/storefront-components@1.0.0-beta.0) (2020-03-28)
+
+
+### Bug Fixes
+
+* **atoms:** minor style fixes for prices/picture atoms ([0aee47d](https://github.com/ecomplus/storefront/commit/0aee47d05118ef2519d2ce64d884d0c745fcd17d))
+* **backdrop:** ensure invisible backdrop is out of screen ([1dbb499](https://github.com/ecomplus/storefront/commit/1dbb499e2b2a9a66342a639b8fa7e6ab0fca193c))
+* **backdrop:** rename prop to `canAutoHide`, check if clickable ([2fc3399](https://github.com/ecomplus/storefront/commit/2fc3399a7ffa18f65201bed579b168cb483c71c4))
+* **backdrop:** sync visibility state by prop, also ensure fade in ([c2b4d92](https://github.com/ecomplus/storefront/commit/c2b4d92672cee1f32b5403d6105659a87d304c92))
+* **deps:** fix pkg deps, update root @ecomplus/i18n to v1.5.0 ([89699e2](https://github.com/ecomplus/storefront/commit/89699e22bcb8ea1fa36e64babcf10f41f4e9805b))
+* **deps:** update @ecomplus/i18n to ^1.7.0 ([8c2b1c7](https://github.com/ecomplus/storefront/commit/8c2b1c70e1fb131b69e38eb9893a46fc6b2157d5))
+* **deps:** update \@ecomplus/utils to v1.3.4 ([5b3b40a](https://github.com/ecomplus/storefront/commit/5b3b40a8f9d0d5154512a2401fff333239aabc1a))
+* **deps:** update all non-major dependencies ([#171](https://github.com/ecomplus/storefront/issues/171)) ([d94b3fe](https://github.com/ecomplus/storefront/commit/d94b3fec0726e5d92becd3dd53f3833c77bb03cc))
+* **instant-search:** mobile style fixes ([7be8752](https://github.com/ecomplus/storefront/commit/7be87528f8c1e027111117665f01c2f5e2939ce6))
+* **js:** don't fire window directly to prevent ssr error ([7a248be](https://github.com/ecomplus/storefront/commit/7a248bee4b32dd2758ccb544633353a2a21d43c9))
+* **links:** check if route path exists to use router-link ([974b1b0](https://github.com/ecomplus/storefront/commit/974b1b09e964ca3af5c0754b78f7656643ee449c))
+* **links:** using internal VLink to support vue router ([0d60177](https://github.com/ecomplus/storefront/commit/0d60177bf29f7fb805b90b3cde498582e98a5e8a))
+* **login-modal:** use VLink for account menu to support router ([6836215](https://github.com/ecomplus/storefront/commit/6836215047a60ddd9dd741c33a50cb74c223ee8d))
+* **picture:** edit loading background, minor fix fade effect ([97fab5b](https://github.com/ecomplus/storefront/commit/97fab5b12c2238d25351b721c1f2d1aaf3c5b428))
+* **picture:** fix handling fade effect on load ([a8493a2](https://github.com/ecomplus/storefront/commit/a8493a228d5d6e8767f3f8abd7d26e5557ca93c1))
+* **picture:** properlly handling src as img object ([edf5eaf](https://github.com/ecomplus/storefront/commit/edf5eafb2bf91c89e2d846feb383dcaf228c0b5d))
+* **picture:** set height only if el 'clientWidth' is set ([9553d7d](https://github.com/ecomplus/storefront/commit/9553d7d6cb2435e1fb2063d28867dd8b9b22e1ee))
+* **product-card:** load secondary image on hover only, minor fade fix ([bccb1b3](https://github.com/ecomplus/storefront/commit/bccb1b320777f2a72b10c6539fb6f97c34499674))
+* **product-card:** minor pictures overlap fix, offer stamp prettier ([036371b](https://github.com/ecomplus/storefront/commit/036371bf57617dccb0c2a897ee1d79eed3fda853))
+* **product-card:** minor pictures style fixes ([ac91ea9](https://github.com/ecomplus/storefront/commit/ac91ea916ca599dea415c1c9da810d3ed2e455af))
+* **product-gallery:** prevent errors with undefined product props ([2c38a60](https://github.com/ecomplus/storefront/commit/2c38a606c75c2d1e7c64cd7488edd606f33f3951))
+* **props:** consistent boolean props naming ([69a7e6b](https://github.com/ecomplus/storefront/commit/69a7e6ba2748ea077563bde27774a4ad6b08576b))
+
+
+### Features
+
+* **backdrop:** add ABackdrop atom component ([5008b26](https://github.com/ecomplus/storefront/commit/5008b26df789117ad4e439d4f484c84a3ef32948))
+* **cart-item:** add CartItem component :tada: ([37ca938](https://github.com/ecomplus/storefront/commit/37ca9387b805da85c8beba984ca3f3e71f7cce86))
+* **cart-quickview:** add CartQuickview component :tada: ([a6467ff](https://github.com/ecomplus/storefront/commit/a6467ffaa7f291cd223030c4f6cdd2c98a0b8d0c))
+* **instant-search:** setup InstantSearch component :tada: ([33f9fc0](https://github.com/ecomplus/storefront/commit/33f9fc042a2328ce207b55a7bf8f6f928732cdf8))
+* **login-modal:** add new LoginModal component :tada: ([75238ca](https://github.com/ecomplus/storefront/commit/75238cab394927767261444b1cdd4e2db19aa45e))
+* **picture:** add lozad options props, handle $img onload ([fd6368f](https://github.com/ecomplus/storefront/commit/fd6368fcac821ab1a11e8ea5f120f2a3cf3f78fb))
+* **product-card:** add 'rating' scoped slot (empty by default) ([d558954](https://github.com/ecomplus/storefront/commit/d558954b2741bfe44f2ea2dff70cabb01b4be683))
+* **product-card:** prop for heading tag, small product card variation ([ab90a7b](https://github.com/ecomplus/storefront/commit/ab90a7b34feca7e7aea0099760a3bdd2cacab16e))
+* **product-card:** setting up ProductCard molecule component ([8b6230d](https://github.com/ecomplus/storefront/commit/8b6230d737deb06775aa452a5943786b5ae30c80))
+* **product-gallery:** add ProductGallery component :tada: ([5f79b52](https://github.com/ecomplus/storefront/commit/5f79b52eb77a4dfb80a37a1283d13d7527969626))
+* **product-variations:** add new ProductVariations component :tada: ([6ab36dc](https://github.com/ecomplus/storefront/commit/6ab36dc80ef48cad8b47353af99e8e60c81c9129))
+* **search-engine:** complete SearchEngine component ([daea95a](https://github.com/ecomplus/storefront/commit/daea95ae3284dcae04d2c0f9e5fc9e0d05c8e93e))
+* **search-engine:** handle load more on scroll (observer) ([a621a39](https://github.com/ecomplus/storefront/commit/a621a398c53bc4ba1cce63fff6ae539470c73237))
+* **search-engine:** handle search fetch with queue for props watch ([4ff86fa](https://github.com/ecomplus/storefront/commit/4ff86fac198d2a1f357d31567bcd182a9ce617ce))
+* **search-engine:** handling search filters with off canvas menu ([df47b2b](https://github.com/ecomplus/storefront/commit/df47b2b55868b85e2c83d52c8def6b498192a061))
+* **search-engine:** render search engine nav for info, sort and filter ([1a18828](https://github.com/ecomplus/storefront/commit/1a1882866e3d9459a4c9195a24e840631fe6b963))
+* **shipping-calculator:** add new ShippingCalculator component :tada: ([07a4094](https://github.com/ecomplus/storefront/commit/07a40945fff66cdf569775f7702a7f3417cedbda))
+* **shipping-line:** new ShippingLine component :tada: ([89f8d80](https://github.com/ecomplus/storefront/commit/89f8d802b76b6182491d633eeda520036880141d))
+* **the-product:** add new TheProduct component :tada: ([80141ca](https://github.com/ecomplus/storefront/commit/80141ca1023cbe6a66032515c14730b16ab44ed4))
+
+
+
+
+
 # [0.3.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@0.2.0...@ecomplus/storefront-components@0.3.0) (2020-02-27)
 
 

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.2.0...@ecomplus/storefront-twbs@5.3.0) (2020-03-28)
+
+
+### Bug Fixes
+
+* **scss:** minor hack to set container "almost fluid" ([6704477](https://github.com/ecomplus/storefront/commit/67044777fd3e6fa8982ec9aaa67246d49addcdd4))
+* **scss:** pointer on checkbox and radio inputs ([5332991](https://github.com/ecomplus/storefront/commit/533299109af54ec1e5df90c52280dd3da216044a))
+
+
+### Features
+
+* **icon:** add faPlay fa icon ([40446f5](https://github.com/ecomplus/storefront/commit/40446f529866ae3dc2fbf892413c10b408eab366))
+* **icons:** add faArrowDown and faWifi ([d6485f7](https://github.com/ecomplus/storefront/commit/d6485f75f70497670f17f8d92f95ec8f08b47161))
+* **icons:** add times-circle to fa collection ([878a470](https://github.com/ecomplus/storefront/commit/878a470150eee76b32aa610c35fe9cb10d4c40a2))
+
+
+
+
+
 # [5.2.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.1.0...@ecomplus/storefront-twbs@5.2.0) (2020-02-27)
 
 
