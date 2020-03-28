@@ -1,0 +1,16 @@
+.demo {
+  @import "../../@ecomplus/storefront-twbs/scss/variables";
+  @import "../../@ecomplus/storefront-twbs/scss/bootstrap/scss/functions";
+  @import "../../@ecomplus/storefront-twbs/scss/bootstrap/scss/variables";
+  @import "../../@ecomplus/storefront-twbs/scss/bootstrap/scss/mixins";
+
+  @import "../../@ecomplus/storefront-twbs/scss/vars/body";
+  @import "../../@ecomplus/storefront-twbs/scss/vars/colors";
+  @import "../../@ecomplus/storefront-twbs/scss/vars/breakpoints";
+  @import "../../@ecomplus/storefront-twbs/scss/vars/borders";
+  @import "../../@ecomplus/storefront-twbs/scss/vars/shadows";
+  @import "../../@ecomplus/storefront-twbs/scss/vars/spacing";
+  @import "../../@ecomplus/storefront-twbs/scss/vars/text";
+
+  @import "../../@ecomplus/storefront-twbs/scss/styles";
+}
