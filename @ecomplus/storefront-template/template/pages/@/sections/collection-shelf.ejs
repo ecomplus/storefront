@@ -12,8 +12,16 @@ if (opt.collection_id) {
   }
   const { title, link } = opt
 
+  %>
   <%- await include('/@/sections/inc/products-carousel', {
     _, opt: { items, collection, title, link }
   }) %>
+  <%
+} else {
+  %>
+  <%- await include('/@/sections/inc/products-carousel', {
+    _, opt: { items: _.items }
+  }) %>
+  <%
 }
 %>
