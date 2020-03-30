@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.3.0...@ecomplus/storefront-twbs@5.3.1) (2020-03-30)
+
+
+### Bug Fixes
+
+* **js:** prevent ssr error with window object ([b690aec](https://github.com/ecomplus/storefront/commit/b690aec4d91ddcc03c314190248fec3b4c3d1a7a))
+* **pkg:** fix entry files, no module entry ([82f2ea3](https://github.com/ecomplus/storefront/commit/82f2ea38ad5c9c8eaf2a7b6ae0228898422093ec))
+
+
+
+
+
 # [5.3.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.2.0...@ecomplus/storefront-twbs@5.3.0) (2020-03-28)
 
 
