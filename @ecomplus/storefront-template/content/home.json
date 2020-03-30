@@ -19,13 +19,26 @@
   "additional_content": "",
   "sections": [
     {
-      "type": "banners-grid",
-      "banners": [
+      "type": "banner-slider",
+      "autoplay": 9000,
+      "slides": [
         {
-          "img": "/img/uploads/rect8589.png",
-          "alt": "Roupas"
+          "img": "/img/uploads/rect89.webp",
+          "link": "/headset",
+          "alt": "Headset banner"
+        },
+        {
+          "img": "/img/uploads/banner2.webp",
+          "alt": "Banner sample two"
         }
       ]
+    },
+    {
+      "type": "info-bar",
+      "enabled": true
+    },
+    {
+      "type": "collection-shelf"
     }
   ]
 }
