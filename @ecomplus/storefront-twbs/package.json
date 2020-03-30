@@ -2,9 +2,8 @@
   "name": "@ecomplus/storefront-twbs",
   "version": "5.3.0",
   "description": "Storefront foundation components built with custom Bootstrap 4 + Animate.css + FontAwesome",
-  "module": "src/index.js",
-  "browser": "dist/storefront-twbs.bundle.min.js",
-  "main": "dist/storefront-twbs.bundle.min.js",
+  "browser": "dist/storefront-twbs.min.js",
+  "main": "dist/storefront-twbs.min.js",
   "jsdelivr": "dist/public/storefront-twbs.var.min.js",
   "unpkg": "dist/public/storefront-twbs.var.min.js",
   "scripts": {
