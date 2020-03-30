@@ -60,12 +60,6 @@ export default ({ baseDir }) => ({
       required: false
     },
     {
-      label: 'Inserir html',
-      name: 'code',
-      widget: 'text',
-      required: false
-    },
-    {
       label: 'Corpo',
       name: 'body',
       widget: 'markdown',
