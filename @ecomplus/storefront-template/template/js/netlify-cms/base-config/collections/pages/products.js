@@ -57,7 +57,6 @@ export default ({ baseDir }) => ({
           fields: [
             {
               label: 'Título da estante de produtos',
-              required: false,
               name: 'title',
               hint: 'Produtos relacionatos',
               widget: 'string'
@@ -71,7 +70,6 @@ export default ({ baseDir }) => ({
           fields: [
             {
               label: 'Título da estante de produtos',
-              required: false,
               name: 'title',
               hint: 'Quem comprou este produto, também comprou:',
               widget: 'string'

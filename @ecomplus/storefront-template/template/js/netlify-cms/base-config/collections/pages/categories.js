@@ -13,7 +13,7 @@ export default ({ baseDir }) => ({
       types: [
         {
           label: 'Produtos da categoria',
-          name: 'brand-retail',
+          name: 'category-retail',
           widget: 'object',
           fields: [
             {
