@@ -15,8 +15,5 @@ $brand-colors: (
 // Enable RFS by default
 $enable-responsive-font-sizes: true !default;
 
-// Minor hack to set container "almost fluid"
-$container-max-widths: (xl: 1400px) !default;
-
 // Additional defaults
 $line-height-sm: 1.2 !default;
