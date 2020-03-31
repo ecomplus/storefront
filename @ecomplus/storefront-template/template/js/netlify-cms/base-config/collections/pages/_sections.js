@@ -21,7 +21,7 @@ const bannerFields = [
 export default [
   {
     label: 'Banner responsivo',
-    name: 'banners',
+    name: 'responsive-banner',
     widget: 'object',
     fields: bannerFields
   },
@@ -93,7 +93,9 @@ export default [
     fields: [
       {
         label: 'Coleção de produtos',
+        required: false,
         name: 'collection_id',
+        hint: 'Se este campo não for preenchido, serão listados os produtos mais populares da loja',
         widget: 'collections'
       }
     ]
@@ -105,6 +107,33 @@ export default [
     fields: [
       {
         label: 'Exibir breadcrumbs',
+        name: 'enabled',
+        widget: 'boolean',
+        default: true
+      }
+    ]
+  },
+  {
+    label: 'Título da página',
+    name: 'page-title',
+    widget: 'object',
+    fields: [
+      {
+        label: 'Título',
+        required: false,
+        name: 'title',
+        hint: 'Por padrão será usado o título salvo no conteúdo ou nome do documento e descrição curta',
+        widget: 'string'
+      }
+    ]
+  },
+  {
+    label: 'Blog',
+    name: 'blog',
+    widget: 'object',
+    fields: [
+      {
+        label: 'Listar posts do blog',
         name: 'enabled',
         widget: 'boolean',
         default: true
