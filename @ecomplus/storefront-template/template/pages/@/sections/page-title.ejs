@@ -1,0 +1,10 @@
+<%
+const title = opt.title || _.page.title || _.page.name
+if (title) {
+  %>
+  <div class="page-title container mt-4 mb-4 mb-lg-5">
+    <h1 class="my-0">
+      <%= title %>
+    </h1>
+  </div>
+<% } %>

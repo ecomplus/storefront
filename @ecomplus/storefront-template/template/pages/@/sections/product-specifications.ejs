@@ -1,0 +1,29 @@
+<%
+const { body } = await _.resolveRoute()
+if (body.specifications) {
+  %>
+  <section id="product-specs" class="product-specs">
+    <p class="lead">
+      <a href="#specs" name="specs">#</a>
+      <%= _.dictionary('productSpecifications') %>
+    </p>
+    <table class="table table-striped">
+      <tbody>
+        <% for (const gridId in body.specifications) {
+          if (body.specifications[gridId]) {
+            %>
+            <tr>
+              <td class="text-muted">
+                <%= _.ecomUtils.gridTitle(gridId, _.grids) %>
+              </td>
+              <td>
+                <%= _.ecomUtils.specTextValue(body, gridId, _.grids) %>
+              </td>
+            </tr>
+            <%
+          }
+        } %>
+      </tbody>
+    </table>
+  </section>
+<% } %>

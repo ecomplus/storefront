@@ -1,0 +1,12 @@
+<%
+const { body } = await _.resolveRoute()
+if (body.body_html) {
+  const className = _.route.resource === 'categories' ? 'category'
+    : _.route.resource.slice(0, -1)
+  %>
+  <section class="<%= className %>-description">
+    <div class="html-clearfix">
+      <%- body.body_html %>
+    </div>
+  </section>
+<% } %>

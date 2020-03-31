@@ -8,7 +8,13 @@
 
 <body class="app">
   <%- await include('/@/layout/app/header', { _ }) %>
-  <%- await include('/@/views/app', { _ }) %>
+
+  <main id="spa">
+    <div id="storefront-app">
+      <%- await include('/@/sections/inc/loading') %>
+    </div>
+  </main>
+
   <%- await include('/@/layout/app/footer', { _ }) %>
 
   <%- await include('/@/json', { _ }) %>

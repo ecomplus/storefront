@@ -1,0 +1,103 @@
+<%
+const { body } = await _.resolveRoute()
+%>
+
+<div id="product" class="product container py-1 py-sm-2 py-lg-4">
+  <section
+    id="product-block"
+    class="product__block row"
+    data-to-render="true"
+  >
+    <% if (body.pictures) { %>
+      <% const imgObj = _.ecomUtils.img(body, null, 'big') %>
+      <% if (imgObj) { %>
+        <div class="col-12 col-md-6">
+          <div class="product__picture">
+            <picture
+              class="lozad fade"
+              data-iesrc="<%= imgObj.url %>"
+              data-alt="<%= imgObj.alt %>"
+            >
+              <source
+                srcset="<%= _.ecomUtils.img(body).url %>"
+                media="(max-width: 399.98px)"
+              >
+              <source srcset="<%= imgObj.url %>" media="(min-width: 400px)">
+            </picture>
+          </div>
+        </div>
+      <% } %>
+    <% } %>
+
+    <div class="col">
+      <h1 class="product__name">
+        <%= _.ecomUtils.name(body) %>
+      </h1>
+      <% if (body.available && body.visible && _.ecomUtils.inStock(body)) { %>
+        <strong class="product__price">
+          <%= _.ecomUtils.formatMoney(_.ecomUtils.price(body)) %>
+        </strong>
+      <% } %>
+      <hr>
+
+      <div>
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="product__buy btn btn-lg btn-primary"
+        onclick="ecomCart.addProduct(storefront.context.body)"
+        <% if (body.variations && body.variations.length) { %>
+          disabled
+        <% } %>
+      >
+        <i class="fas fa-shopping-bag mr-1"></i>
+        <%= _.dictionary('buy') %>
+      </button>
+      <% if (body.short_description) { %>
+        <p class="lead product__info">
+          <%= body.short_description %>
+        </p>
+      <% } %>
+    </div>
+  </section>
+</div>
+
+<%
+const productJsonLd = {
+  '@context': 'http://schema.org',
+  '@type': 'Product',
+  sku: body.sku,
+  description: body.short_description || body.meta_description || _.ecomUtils.name(body),
+  name: _.ecomUtils.name(body),
+  offers: {
+    '@type': 'Offer',
+    url: `https://${_.settings.domain}/${body.slug}`,
+    availability: `${(_.ecomUtils.inStock(body) ? 'In' : 'OutOf')}Stock`,
+    priceCurrency: _.settings.currency,
+    price: _.ecomUtils.price(body),
+    itemCondition: `http://schema.org/${(body.condition === 'new' ? 'New' : 'Used')}Condition`,
+    seller: {
+      '@type': 'Organization',
+      name: _.settings.name || _.store.name
+    }
+  }
+}
+if (body.brands && body.brands[0]) {
+  productJsonLd.brand = {
+    '@type': 'Brand',
+    name: body.brands[0].name
+  }
+}
+if (body.pictures && body.pictures.length) {
+  productJsonLd.image = _.ecomUtils.img(body, null, 'zoom').url
+}
+if (body.mpn && body.mpn[0]) {
+  productJsonLd.mpn = body.mpn[0]
+}
+%>
+<script type="application/ld+json"><%-
+  JSON.stringify(productJsonLd)
+%></script>

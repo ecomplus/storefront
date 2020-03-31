@@ -1,0 +1,14 @@
+<%
+const { body } = await _.resolveRoute()
+if (Array.isArray(body.pictures) && body.pictures.length) {
+  const className = _.route.resource === 'categories' ? 'category'
+    : _.route.resource.slice(0, -1)
+  %>
+  <div class="hero-banner <%= className %>-banner">
+    <img
+      class="img-fluid lozad fade"
+      data-src="<%= body.pictures[0].url %>"
+      alt="<%= body.pictures[0].alt %>"
+    >
+  </div>
+<% } %>

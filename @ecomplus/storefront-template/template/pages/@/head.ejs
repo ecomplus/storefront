@@ -1,30 +1,36 @@
 <%
 // setup page object for current route
-let page, pathname
-switch (_.route.path) {
+const { path, resource, collection } = _.route
+let pathname
+
+switch (path) {
   case '/':
   case '/index':
     pathname = '/'
-    page = _.cms('home')
+    _.page = _.cms('home')
     _.pageName = 'home'
     break
-  case '/search':
-    _.pageName = 'search'
-    break
   default:
-    _.pageName = _.route.resource
-    break
+    pathname = `/${path}`
+    if (resource) {
+      _.pageName = resource
+    } else if (collection) {
+      _.pageName = collection
+    } else {
+      _.pageName = path.slice(1)
+      _.page = _.cms(_.pageName)
+    }
 }
 
-if (!page) {
+if (!_.page) {
   // try resource body or folder collection content
   const { body, content } = await _.resolveRoute()
-  page = body || content || {}
+  _.page = body || content || {}
 }
 
 // page title and description
-const title = page.meta_title || page.name || _.settings.name
-const description = page.meta_description || page.short_description || _.settings.description
+const title = _.page.meta_title || _.page.name || _.page.title || _.settings.name
+const description = _.page.meta_description || _.page.short_description || _.settings.description
 let url
 if (pathname) {
   if (!_.settings.domain && _.store.domain) {
@@ -43,7 +49,6 @@ if (url) {
   social = _.cms('social')
   ogLocale = _.lang.length === 2 ? _.lang : _.lang.substr(0, 3) + _.lang.slice(3).toUpperCase()
 }
-
 %>
 
 <meta charset="utf-8">
@@ -59,9 +64,9 @@ if (url) {
   <link rel="canonical" href="<%= url %>">
 <% } %>
 
-<% if (!_.route.path.startsWith('/admin/')) { %>
+<% if (!path.startsWith('/admin/')) { %>
   <link rel="preload" href="/storefront.css" as="style">
-  <% if (!_.route.path.startsWith('/app/')) { %>
+  <% if (!path.startsWith('/app/')) { %>
     <link rel="preload" href="/storefront.js" as="script">
   <% } %>
 

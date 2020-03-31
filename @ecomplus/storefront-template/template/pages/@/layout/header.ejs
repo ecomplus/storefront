@@ -19,6 +19,8 @@ const logo = _.settings.logo
   : _.store.logo
 %>
 
+<div id="overlay" class="fade"></div>
+
 <header class="header" id="header">
   <% if (header.marketing_stripe) { %>
     <% if (header.marketing_stripe.text) { %>
@@ -90,7 +92,12 @@ const logo = _.settings.logo
     <div class="container-fluid">
       <div class="row align-items-center">
         <div class="header__col col-auto">
-          <button class="btn header__toggler" type="button" onclick="toggleSidenav()" aria-label="Toggle Side Navigation">
+          <button
+            class="btn header__toggler"
+            type="button"
+            onclick="toggleSidenav()"
+            aria-label="Toggle side navigation"
+          >
             <i class="header__toggler__icon fas fa-bars"></i>
             <span class="d-none d-lg-inline">
               Menu

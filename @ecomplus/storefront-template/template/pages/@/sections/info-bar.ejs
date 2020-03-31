@@ -14,10 +14,10 @@ const barCols = []
 })
 %>
 
-<% if (barCols.length) { %>
-  <section class="info-bar" data-cms-if="<%= _.pageName %>.pitbar">
+<% if (opt.enabled !== false && barCols.length) { %>
+  <section class="info-bar">
     <div class="container">
-      <div class="row align-items-center info-bar__nav">
+      <div class="info-bar__nav row">
         <% barCols.forEach(({ link, icon, text }) => { %>
           <div class="col-auto col-sm-6 col-lg">
             <a class="info-bar__item" href="<%= link || 'javascript:;' %>">

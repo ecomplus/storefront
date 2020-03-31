@@ -1,0 +1,9 @@
+<%
+const { body } = await _.resolveRoute()
+const search = new _.EcomSearch()
+search.setCategoryIds([body._id])
+%>
+
+<div class="category-retail">
+  <%- await include('/@/sections/inc/retail-grid', { _, opt: { search } }) %>
+</div>

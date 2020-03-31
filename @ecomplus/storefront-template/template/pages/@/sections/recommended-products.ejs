@@ -1,0 +1,9 @@
+<div class="recommended-products container">
+  <%
+  if (opt.enabled !== false) {
+    <%- await include('/@/sections/inc/recommendations-shelf', {
+      _, opt: { showcaseType: 'recommended' }
+    }) %>
+  }
+  %>
+</div>

@@ -1,11 +1,11 @@
 <% if (Array.isArray(opt.slides) && opt.slides.length) { %>
-  <div class="banner-slider" data-cms-if="home.slider">
+  <div class="banner-slider">
     <div class="glide" data-autoplay="<%= opt.autoplay %>">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides banner-slider__slides">
           <% for (let i = 0; i < opt.slides.length; i++) { %>
             <li class="glide__slide">
-              <%- await include('/@/sections/banner', { _, opt: opt.slides[i] }) %>
+              <%- await include('/@/sections/inc/banner', { _, opt: opt.slides[i] }) %>
             </li>
           <% } %>
         </ul>
