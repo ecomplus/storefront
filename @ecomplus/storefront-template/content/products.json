@@ -8,5 +8,29 @@
     "showcase": true,
     "title": "Quem comprou este produto, também comprou:"
   },
-  "additional_content": ""
+  "additional_content": "",
+  "sections": [
+    {
+      "type": "breadcrumbs",
+      "enabled": true
+    },
+    {
+      "type": "product-block",
+      "enabled": true
+    },
+    {
+      "type": "related-products"
+    },
+    {
+      "type": "recommended-products"
+    },
+    {
+      "type": "product-description",
+      "enabled": true
+    },
+    {
+      "type": "product-specifications",
+      "enabled": true
+    }
+  ]
 }
