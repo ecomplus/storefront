@@ -7,25 +7,22 @@ switch (path) {
   case '/':
   case '/index':
     pathname = '/'
-    _.page = _.cms('home')
     _.pageName = 'home'
     break
   default:
-    pathname = `/${path}`
+    pathname = path
     if (resource) {
       _.pageName = resource
-    } else if (collection) {
-      _.pageName = collection
     } else {
       _.pageName = path.slice(1)
-      _.page = _.cms(_.pageName)
     }
 }
 
-if (!_.page) {
-  // try resource body or folder collection content
+_.page = _.cms(_.pageName)
+if (resource || collection) {
+  // merge resource body or folder collection content
   const { body, content } = await _.resolveRoute()
-  _.page = body || content || {}
+  _.page = Object.assign({}, body || content, _.page)
 }
 
 // page title and description

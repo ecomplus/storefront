@@ -8,6 +8,13 @@ _.breadcrumbs = [{
   name: content.title,
   link: `/posts/${slug}`
 }]
+if (!content.sections || !content.sections.length) {
+  content.sections = [
+    { type: 'breadcrumbs' },
+    { type: 'page-title' },
+    { type: 'blog-post' }
+  ]
+}
 %>
 
 <%- await include('/@/view') %>

@@ -6,7 +6,7 @@
     if (Array.isArray(sections)) {
       for (let i = 0; i < sections.length; i++) {
         const opt = sections[i]
-        if (opt) {
+        if (opt && opt.enabled !== false) {
           %>
           <%- await include(`/@/sections/${opt.type}`, { _, opt }) %>
           <%

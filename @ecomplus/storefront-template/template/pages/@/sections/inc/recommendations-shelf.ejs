@@ -1,6 +1,6 @@
 <%
 const { body } = await _.resolveRoute()
-const { showcaseType } = opt
+const { title, showcaseType } = opt
 if (showcaseType) {
   const url = `/products/${body._id}/${showcaseType}.json`
   try {

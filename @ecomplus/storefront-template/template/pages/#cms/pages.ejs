@@ -4,6 +4,13 @@ _.breadcrumbs = [{
   name: content.title,
   link: `/pages/${slug}`
 }]
+if (!content.sections || !content.sections.length) {
+  content.sections = [
+    { type: 'breadcrumbs' },
+    { type: 'page-title' },
+    { type: 'extra-page' }
+  ]
+}
 %>
 
 <%- await include('/@/view') %>

@@ -1,9 +1,5 @@
-<div class="recommended-products container">
-  <%
-  if (opt.enabled !== false) {
-    <%- await include('/@/sections/inc/recommendations-shelf', {
-      _, opt: { showcaseType: 'related' }
-    }) %>
-  }
-  %>
+<div class="recommended-products">
+  <%- await include('/@/sections/inc/recommendations-shelf', {
+    _, opt: { ...opt, showcaseType: 'related' }
+  }) %>
 </div>
