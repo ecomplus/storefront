@@ -2,7 +2,7 @@
   <div class="sections pb-1 pb-sm-2 pb-lg-4">
     <%
     // load page sections and render each one
-    const { sections } = _.page
+    const { sections } = _.state
     if (Array.isArray(sections)) {
       for (let i = 0; i < sections.length; i++) {
         const opt = sections[i]

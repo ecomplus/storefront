@@ -7,6 +7,7 @@
 </head>
 
 <body
+  id="page-<%= _.pageName %>"
   <% if (_.route.resource) { %>
     data-resource="<%= _.route.resource %>"
   <% } else if (_.route.collection) { %>

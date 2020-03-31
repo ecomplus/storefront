@@ -3,6 +3,10 @@
   min-height: var(--spacer-5);
   min-width: var(--spacer-5);
 
+  > a {
+    display: block;
+  }
+
   img {
     margin: 0 auto;
   }

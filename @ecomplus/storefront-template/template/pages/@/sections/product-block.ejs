@@ -1,101 +1,97 @@
-<%
-const { body } = await _.resolveRoute()
-%>
+<div class="product-block pb-2 my-4 my-lg-5">
+  <div class="container">
+    <section id="product" class="product">
+      <div class="row" data-to-render="true">
+        <% if (_.state.pictures) { %>
+          <% const imgObj = _.ecomUtils.img(_.state, null, 'big') %>
+          <% if (imgObj) { %>
+            <div class="col-12 col-md-6">
+              <div class="product__picture">
+                <picture
+                  class="lozad fade"
+                  data-iesrc="<%= imgObj.url %>"
+                  data-alt="<%= imgObj.alt %>"
+                >
+                  <source
+                    srcset="<%= _.ecomUtils.img(_.state).url %>"
+                    media="(max-width: 399.98px)"
+                  >
+                  <source srcset="<%= imgObj.url %>" media="(min-width: 400px)">
+                </picture>
+              </div>
+            </div>
+          <% } %>
+        <% } %>
 
-<div id="product" class="product container py-1 py-sm-2 py-lg-4">
-  <section
-    id="product-block"
-    class="product__block row"
-    data-to-render="true"
-  >
-    <% if (body.pictures) { %>
-      <% const imgObj = _.ecomUtils.img(body, null, 'big') %>
-      <% if (imgObj) { %>
-        <div class="col-12 col-md-6">
-          <div class="product__picture">
-            <picture
-              class="lozad fade"
-              data-iesrc="<%= imgObj.url %>"
-              data-alt="<%= imgObj.alt %>"
-            >
-              <source
-                srcset="<%= _.ecomUtils.img(body).url %>"
-                media="(max-width: 399.98px)"
-              >
-              <source srcset="<%= imgObj.url %>" media="(min-width: 400px)">
-            </picture>
+        <div class="col">
+          <h1 class="product__name">
+            <%= _.ecomUtils.name(_.state) %>
+          </h1>
+          <% if (_.state.available && _.state.visible && _.ecomUtils.inStock(_.state)) { %>
+            <strong class="product__price">
+              <%= _.ecomUtils.formatMoney(_.ecomUtils.price(_.state)) %>
+            </strong>
+          <% } %>
+          <hr>
+
+          <div>
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
           </div>
-        </div>
-      <% } %>
-    <% } %>
-
-    <div class="col">
-      <h1 class="product__name">
-        <%= _.ecomUtils.name(body) %>
-      </h1>
-      <% if (body.available && body.visible && _.ecomUtils.inStock(body)) { %>
-        <strong class="product__price">
-          <%= _.ecomUtils.formatMoney(_.ecomUtils.price(body)) %>
-        </strong>
-      <% } %>
-      <hr>
-
-      <div>
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
+          <button
+            type="button"
+            class="product__buy btn btn-lg btn-primary"
+            onclick="ecomCart.addProduct(storefront.context.body)"
+            <% if (_.state.variations && _.state.variations.length) { %>
+              disabled
+            <% } %>
+          >
+            <i class="fas fa-shopping-bag mr-1"></i>
+            <%= _.dictionary('buy') %>
+          </button>
+          <% if (_.state.short_description) { %>
+            <p class="lead product__info">
+              <%= _.state.short_description %>
+            </p>
+          <% } %>
         </div>
       </div>
-      <button
-        type="button"
-        class="product__buy btn btn-lg btn-primary"
-        onclick="ecomCart.addProduct(storefront.context.body)"
-        <% if (body.variations && body.variations.length) { %>
-          disabled
-        <% } %>
-      >
-        <i class="fas fa-shopping-bag mr-1"></i>
-        <%= _.dictionary('buy') %>
-      </button>
-      <% if (body.short_description) { %>
-        <p class="lead product__info">
-          <%= body.short_description %>
-        </p>
-      <% } %>
-    </div>
-  </section>
+    </section>
+  </div>
 </div>
 
 <%
 const productJsonLd = {
   '@context': 'http://schema.org',
   '@type': 'Product',
-  sku: body.sku,
-  description: body.short_description || body.meta_description || _.ecomUtils.name(body),
-  name: _.ecomUtils.name(body),
+  sku: _.state.sku,
+  description: _.state.short_description || _.state.meta_description || _.ecomUtils.name(_.state),
+  name: _.ecomUtils.name(_.state),
   offers: {
     '@type': 'Offer',
-    url: `https://${_.settings.domain}/${body.slug}`,
-    availability: `${(_.ecomUtils.inStock(body) ? 'In' : 'OutOf')}Stock`,
+    url: `https://${_.settings.domain}/${_.state.slug}`,
+    availability: `${(_.ecomUtils.inStock(_.state) ? 'In' : 'OutOf')}Stock`,
     priceCurrency: _.settings.currency,
-    price: _.ecomUtils.price(body),
-    itemCondition: `http://schema.org/${(body.condition === 'new' ? 'New' : 'Used')}Condition`,
+    price: _.ecomUtils.price(_.state),
+    itemCondition: `http://schema.org/${(_.state.condition === 'new' ? 'New' : 'Used')}Condition`,
     seller: {
       '@type': 'Organization',
       name: _.settings.name || _.store.name
     }
   }
 }
-if (body.brands && body.brands[0]) {
+if (_.state.brands && _.state.brands[0]) {
   productJsonLd.brand = {
     '@type': 'Brand',
-    name: body.brands[0].name
+    name: _.state.brands[0].name
   }
 }
-if (body.pictures && body.pictures.length) {
-  productJsonLd.image = _.ecomUtils.img(body, null, 'zoom').url
+if (_.state.pictures && _.state.pictures.length) {
+  productJsonLd.image = _.ecomUtils.img(_.state, null, 'zoom').url
 }
-if (body.mpn && body.mpn[0]) {
-  productJsonLd.mpn = body.mpn[0]
+if (_.state.mpn && _.state.mpn[0]) {
+  productJsonLd.mpn = _.state.mpn[0]
 }
 %>
 <script type="application/ld+json"><%-

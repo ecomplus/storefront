@@ -1,10 +1,9 @@
 <%
-const { content } = await _.resolveRoute()
-if (content.body) {
+if (_.state.body) {
   %>
-  <div class="container py-1 py-sm-2 py-lg-4">
-    <section class="md-content">
-      <%- _.md.render(content.body) %>
-    </section>
-  </div>
+  <section class="md-content mb-5 pt-1 pt-sm-2 pt-lg-3">
+    <div class="container">
+      <%- _.md.render(_.state.body) %>
+    </div>
+  </section>
 <% } %>

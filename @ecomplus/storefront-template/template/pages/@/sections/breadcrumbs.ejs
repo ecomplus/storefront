@@ -1,8 +1,8 @@
 <%
 const breadcrumbs = opt.breadcrumbs && opt.breadcrumbs.length
   ? opt.breadcrumbs
-  : _.breadcrumbs || (_.page.title && [{
-    name: _.page.title,
+  : _.breadcrumbs || (_.state.title && [{
+    name: _.state.title,
     link: _.route.path
   }])
 
@@ -10,7 +10,7 @@ if (Array.isArray(breadcrumbs) && breadcrumbs.length) {
   %>
   <div class="container">
     <nav aria-label="breadcrumb">
-      <ol class="breadcrumb my-2 my-sm-3">
+      <ol class="breadcrumb my-2 my-sm-3<%= breadcrumbs.length < 2 ? ' d-none d-md-flex' : '' %>">
         <li class="breadcrumb-item d-none d-md-block">
           <a href="/">
             <i class="fas fa-home"></i>

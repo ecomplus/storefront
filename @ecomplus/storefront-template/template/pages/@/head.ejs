@@ -18,16 +18,16 @@ switch (path) {
     }
 }
 
-_.page = _.cms(_.pageName)
+_.state = _.cms(_.pageName)
 if (resource || collection) {
   // merge resource body or folder collection content
   const { body, content } = await _.resolveRoute()
-  _.page = Object.assign({}, body || content, _.page)
+  _.state = Object.assign({}, body || content, _.state)
 }
 
 // page title and description
-const title = _.page.meta_title || _.page.name || _.page.title || _.settings.name
-const description = _.page.meta_description || _.page.short_description || _.settings.description
+const title = _.state.meta_title || _.state.name || _.state.title || _.settings.name
+const description = _.state.meta_description || _.state.short_description || _.settings.description
 let url
 if (pathname) {
   if (!_.settings.domain && _.store.domain) {

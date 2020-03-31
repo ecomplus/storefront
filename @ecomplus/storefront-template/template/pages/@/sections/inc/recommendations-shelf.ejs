@@ -1,8 +1,7 @@
 <%
-const { body } = await _.resolveRoute()
 const { title, showcaseType } = opt
 if (showcaseType) {
-  const url = `/products/${body._id}/${showcaseType}.json`
+  const url = `/products/${_.state._id}/${showcaseType}.json`
   try {
     const { data } = await _.ecomClient.graphs({ url })
     const productIds = _.ecomUtils.recommendedIds(data)

@@ -1,7 +1,6 @@
 <%
-const { body } = await _.resolveRoute()
 const search = new _.EcomSearch()
-search.setCategoryIds([body._id])
+search.setCategoryIds([_.state._id])
 %>
 
 <div class="category-retail">

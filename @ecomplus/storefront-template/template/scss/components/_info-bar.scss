@@ -1,5 +1,4 @@
-.info-bar,
-.pitbar {
+.info-bar {
   width: 100%;
   max-width: 80rem;
   margin-left: auto;
@@ -12,8 +11,8 @@
       display: none;
     }
 
-    .info-bar__nav,
-    .pitbar__nav {
+    .info-bar__nav {
+      align-items: center;
       overflow-x: auto;
       min-width: 100%;
       flex-wrap: nowrap;

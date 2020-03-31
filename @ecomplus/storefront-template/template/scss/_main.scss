@@ -4,27 +4,27 @@ body {
   overflow-x: hidden;
 }
 
-@import 'components/app';
-@import 'components/banner-slider';
-@import 'components/banner';
-@import 'components/brand';
-@import 'components/header';
-@import 'components/hero-banner';
-@import 'components/html-clearfix';
-@import 'components/footer';
-@import 'components/info-bar';
-@import 'components/loading';
-@import 'components/menu';
-@import 'components/md-content';
-@import 'components/page-title';
-@import 'components/pay-icon';
-@import 'components/product-card';
-@import 'components/product';
-@import 'components/products-carousel';
-@import 'components/retail-grid';
-@import 'components/rounded-icon';
+@import "components/app";
+@import "components/banner-slider";
+@import "components/banner";
+@import "components/brand";
+@import "components/header";
+@import "components/hero-banner";
+@import "components/html-clearfix";
+@import "components/footer";
+@import "components/info-bar";
+@import "components/loading";
+@import "components/menu";
+@import "components/md-content";
+@import "components/page-title";
+@import "components/pay-icon";
+@import "components/product-card";
+@import "components/product";
+@import "components/products-carousel";
+@import "components/retail-grid";
+@import "components/rounded-icon";
 
-@import 'libs/glide';
+@import "libs/glide";
 
 #main {
   transform: none;
