@@ -1,8 +1,7 @@
 {
+  "title": "Blog",
   "meta_title": "Blog",
   "meta_description": "Blog",
-  "title": "Blog",
-  "additional_content": "",
   "sections": [
     {
       "type": "breadcrumbs",

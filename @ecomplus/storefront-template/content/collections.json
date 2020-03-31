@@ -1,6 +1,4 @@
 {
-  "pitbar": false,
-  "additional_content": "",
   "sections": [
     {
       "type": "breadcrumbs",
@@ -14,7 +12,7 @@
       "enabled": true
     },
     {
-      "type": "brand-retail",
+      "type": "collection-retail",
       "enabled": true
     },
     {

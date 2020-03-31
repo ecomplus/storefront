@@ -1,14 +1,4 @@
 {
-  "pitbar": false,
-  "related": {
-    "showcase": true,
-    "title": "Produtos relacionados"
-  },
-  "recommended": {
-    "showcase": true,
-    "title": "Quem comprou este produto, também comprou:"
-  },
-  "additional_content": "",
   "sections": [
     {
       "type": "breadcrumbs",
@@ -19,10 +9,12 @@
       "enabled": true
     },
     {
-      "type": "related-products"
+      "type": "related-products",
+      "title": "Produtos relacionados"
     },
     {
-      "type": "recommended-products"
+      "type": "recommended-products",
+      "title": "Quem comprou este produto, também comprou:"
     },
     {
       "type": "product-description",
