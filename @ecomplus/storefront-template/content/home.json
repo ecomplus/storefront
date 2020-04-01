@@ -23,6 +23,10 @@
     },
     {
       "type": "collection-shelf"
+    },
+    {
+      "type": "custom-html",
+      "html": "<div></div>"
     }
   ]
 }
