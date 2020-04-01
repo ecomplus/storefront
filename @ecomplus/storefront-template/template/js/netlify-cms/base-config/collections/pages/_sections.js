@@ -39,12 +39,12 @@ export default [
     ]
   },
   {
-    label: 'HTML customizado',
+    label: 'Conteúdo customizado',
     name: 'custom-content',
     widget: 'object',
     fields: [
       {
-        label: 'Conteúdo HTML customizado',
+        label: 'Conteúdo markdown customizado',
         name: 'markdown',
         widget: 'markdown',
         hint: 'Markdown parseado para HTML'
@@ -137,6 +137,20 @@ export default [
         name: 'enabled',
         widget: 'boolean',
         default: true
+      }
+    ]
+  },
+  {
+    label: 'Código HTML',
+    name: 'custom-html',
+    widget: 'object',
+    fields: [
+      {
+        label: 'Conteúdo HTML customizado',
+        name: 'html',
+        widget: 'code',
+        default_language: 'html',
+        output_code_only: true
       }
     ]
   }
