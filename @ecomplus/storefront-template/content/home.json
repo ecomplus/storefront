@@ -23,10 +23,6 @@
     },
     {
       "type": "collection-shelf"
-    },
-    {
-      "type": "custom-html",
-      "html": "<div class=\"test\">\n</div>"
     }
   ]
 }
