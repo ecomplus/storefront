@@ -31,7 +31,10 @@ InstantSearch is a component providing  helpers to help you build the best searc
   :pageSize="4"
   :autoFixScore="0.8"
   :searchEngineProps="{}"
-  :productCardProps ?????
+  :productCardProps="{
+    isSmall: false,
+    headingTag: 'h4'
+  }"
 />
 ```
 
