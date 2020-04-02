@@ -27,7 +27,7 @@ InstantSearch is a component providing  helpers to help you build the best searc
 ```vue
 <InstantSearch
   :term.sync="term"
-  :isVisible="true"
+  :isVisible.sync="isVisible"
   :pageSize="4"
   :autoFixScore="0.8"
   :searchEngineProp ?????
