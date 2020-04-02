@@ -13,6 +13,7 @@ const cmsCollections = require('./lib/cms-collections')
 const config = require('./lib/config')
 const lodash = require('lodash')
 const MarkdownIt = require('markdown-it')
+const imageSize = require('image-size')
 
 const { devMode, storeId, lang, settings, templatePkg } = config
 
@@ -104,7 +105,7 @@ cmsCollections.forEach(collection => {
 })
 
 // setup initial template data
-const data = { ...config, lodash, ecomUtils, ecomClient, EcomSearch }
+const data = { ...config, lodash, ecomUtils, ecomClient, EcomSearch, imageSize }
 
 const dataPromise = getStoreData().then(storeData => {
   Object.assign(data, storeData)
