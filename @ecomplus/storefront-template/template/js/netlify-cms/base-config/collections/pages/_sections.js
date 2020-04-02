@@ -97,6 +97,20 @@ export default [
         name: 'collection_id',
         hint: 'Se este campo não for preenchido, serão listados os produtos mais populares da loja',
         widget: 'collections'
+      },
+      {
+        label: 'Embaralhar produtos',
+        name: 'shuffle',
+        widget: 'boolean',
+        hint: 'Alterar ordem dos produtos aleatoriamente',
+        default: true
+      },
+      {
+        label: 'Título da estante',
+        required: false,
+        name: 'title',
+        hint: 'Usará o nome da coleção por padrão',
+        widget: 'string'
       }
     ]
   },
