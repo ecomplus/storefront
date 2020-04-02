@@ -6,10 +6,12 @@ InstantSearch is a component providing  helpers to help you build the best searc
 
 ## Features
 
-- Personalized and collaborative filtering;
-- Allows users to find the right products in seconds. It is highly configurable to allow store owners to personalize search results for a more enjoyable shopping experience;
-- Number of Products of search;
-- Automatic search while typing the product;
+ - Real-time search;
+ - Number of Products of search;
+ - Automatic search when typing the term;
+ - List with search history;
+ - It makes self-correction. If you enter a misspelled term for example, it will be suggested with the correct spelling.
+ - Returns the most popular items if the user enters a term that is not found.
 
 ## Examples
 
@@ -22,7 +24,7 @@ InstantSearch is a component providing  helpers to help you build the best searc
 />
 ```
 
-#### All props
+#### All props/events
 
 ```vue
 <InstantSearch
@@ -71,6 +73,8 @@ pageSize: {
 
 ### autoFixScore
 
+Automatic correction of term typing. If nothing is found that the fix suggests, it shows the most popular (most searched) items.
+
 ```js
 autoFixScore: {
   type: Number,
@@ -96,3 +100,12 @@ productCardProps: {
     isSmall: true
      }
 ```
+## Slots
+
+### header
+
+### search-engine
+
+### count-results
+
+### history
