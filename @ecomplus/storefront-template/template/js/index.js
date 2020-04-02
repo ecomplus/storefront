@@ -15,12 +15,12 @@ import lozad from 'lozad'
 import * as cloneDeep from 'lodash.clonedeep'
 import * as merge from 'lodash.merge'
 import Glide from '@glidejs/glide'
-
-// import './lib/load-widgets'
+import ProductCard from '@ecomplus/storefront-components/src/ProductCard.vue'
 
 window._ = { cloneDeep, merge }
 window.lozad = lozad
 window.Glide = Glide
+window.ProductCard = ProductCard
 
 window.storefront = {
   settings: window._settings,
@@ -30,6 +30,8 @@ window.storefront = {
   data: window._data,
   ...events
 }
+
+// import './lib/load-widgets'
 
 setTimeout(() => {
   import(/* webpackPreload: true */ './lib/fetch-info').catch(console.error)
