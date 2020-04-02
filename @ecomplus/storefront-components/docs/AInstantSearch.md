@@ -66,7 +66,8 @@ The number of products returned from the search. This is a way to limit the sear
 ```js
 pageSize: {
   type: Number,
-  default: 8}
+  default: 8
+},
 ```
 
 ### autoFixScore
