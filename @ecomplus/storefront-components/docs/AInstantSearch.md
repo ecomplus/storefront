@@ -45,7 +45,7 @@ For example: If you leave it set, `:term.sync= "chair";` the search will open wi
 term: {
   type: String,
   default: ''
-    }
+},
 ```
 
 ### isVisible
