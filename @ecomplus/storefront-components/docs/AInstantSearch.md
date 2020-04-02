@@ -95,5 +95,6 @@ productCardProps: {
   default () {
   return {
     isSmall: true
-     }
+  }
+},
 ```
