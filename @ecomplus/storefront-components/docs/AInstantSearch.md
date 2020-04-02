@@ -29,7 +29,7 @@ InstantSearch is a component providing  helpers to help you build the best searc
   :term.sync="term"
   :isVisible="true"
   :pageSize="4"
-  :autoFixScore="0.80"
+  :autoFixScore="0.8"
   :searchEngineProp ?????
   :productCardProps ?????
 />
