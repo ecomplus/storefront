@@ -33,7 +33,10 @@ InstantSearch is a component providing  helpers to help you build the best searc
   :pageSize="4"
   :autoFixScore="0.8"
   :searchEngineProps="{}"
-  :productCardProps ?????
+  :productCardProps="{
+    isSmall: false,
+    headingTag: 'h4'
+  }"
 />
 ```
 
@@ -47,7 +50,7 @@ For example: If you leave it set, `:term.sync= "chair";` the search will open wi
 term: {
   type: String,
   default: ''
-    }
+},
 ```
 
 ### isVisible
@@ -68,7 +71,8 @@ The number of products returned from the search. This is a way to limit the sear
 ```js
 pageSize: {
   type: Number,
-  default: 8}
+  default: 8
+},
 ```
 
 ### autoFixScore
@@ -98,7 +102,8 @@ productCardProps: {
   default () {
   return {
     isSmall: true
-     }
+  }
+},
 ```
 ## Slots
 
