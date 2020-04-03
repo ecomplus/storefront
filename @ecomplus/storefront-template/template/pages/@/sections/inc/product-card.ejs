@@ -24,33 +24,64 @@ if (imgObj) {
     data-sku="<%= itemData.sku %>"
     data-to-render="true"
   >
+    <!--
+      `ProductCard` should be rendered (hydrated) here:
+      https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/ProductCard.html
+    -->
     <a
       href="/<%= itemData.slug %>"
       class="product-card__link"
       title="<%= itemData.name %>"
     >
+      <!-- Custom code on product card top wrapped by link:
+      <span data-slot="header">
+      </span>
+      -->
+
       <div class="product-card__pictures">
+        <!-- Picture(s) will be inserted and loaded dynamically within `ProductCard` -->
         <% if (imgObj) { %>
-          <img
-            data-src="<%= imgObj.url %>"
-            alt="<%= imgObj.alt %>"
-            class="product-card__picture fade lozad img-fluid"
-          >
+          <picture class="product-card__picture">
+            <img
+              data-src="<%= imgObj.url %>"
+              alt="<%= imgObj.alt %>"
+              class="lozad fade"
+            >
+          </picture>
         <% } %>
       </div>
-      <h3 class="product-card__name">
-        <%= itemData.name %>
-      </h3>
+
+      <div data-slot="title">
+        <h3 class="product-card__name">
+          <%= itemData.name %>
+        </h3>
+      </div>
     </a>
 
-    <div class="product-card__info">
-      <% if (opt.item.available && opt.item.visible && _.ecomUtils.inStock(opt.item)) { %>
-        <strong><%= _.ecomUtils.formatMoney(itemData.price) %></strong>
-      <% } else { %>
-        <div class="spinner-border spinner-border-sm" role="status">
-          <span class="sr-only">Loading...</span>
-        </div>
-      <% } %>
+    <div class="product-card__prices prices">
+      <strong class="prices__value">
+        <% if (opt.item.available && opt.item.visible && _.ecomUtils.inStock(opt.item)) { %>
+          <%= _.ecomUtils.formatMoney(itemData.price) %>
+        <% } else { %>
+          --
+        <% } %>
+      </strong>
+    </div>
+
+    <!-- Customize add to cart button content:
+    <div data-slot="buy-button-content">
+      <i class="fas fa-shopping-bag mr-1"></i>
+      {{ _.dictionary('buy') }}
+    </div>
+    -->
+
+    <!-- Custom additional code on product card bottom:
+    <div data-slot="footer">
+    </div>
+    -->
+
+    <div class="spinner-border spinner-border-sm fade" role="status">
+      <span class="sr-only">Loading...</span>
     </div>
   </div>
 </article>

@@ -2,7 +2,6 @@
 /dist/lib/index.html
 
 __tests__
-__fixtures__
 /docs
 
 .DS_Store

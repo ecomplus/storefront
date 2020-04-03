@@ -1,0 +1,24 @@
+<%
+let dimensions
+if (opt.img.startsWith('/')) {
+  try {
+    dimensions = _.imageSize(`template/public${opt.img}`)
+  } catch (e) {
+    dimensions = null
+  }
+}
+%>
+
+<div class="banner">
+  <a href="<%= opt.link || 'javascript:;' %>">
+    <img
+      class="lozad fade img-fluid"
+      <% if (dimensions) { %>
+        data-width="<%= dimensions.width %>"
+        data-height="<%= dimensions.height %>"
+      <% } %>
+      data-src="<%= opt.img %>"
+      alt="<%= opt.alt %>"
+    >
+  </a>
+</div>

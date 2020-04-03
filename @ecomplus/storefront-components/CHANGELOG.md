@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.1...@ecomplus/storefront-components@1.0.0-beta.2) (2020-04-03)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/passport-client to v1.0.7 ([b2c624d](https://github.com/ecomplus/storefront/commit/b2c624d1780a6920d8227aa1e0e693630bfd2a92))
+
+
+### Features
+
+* **picture:** emit 'load' event when image is ready ([e5e568a](https://github.com/ecomplus/storefront/commit/e5e568a1818226e24a9f533ca8b8e1b3f2e948ff))
+* **product:** add some slots common for product page and ssr ([4aaf96d](https://github.com/ecomplus/storefront/commit/4aaf96d427315b0771dbe8ae0f468c9e9c08b30a))
+* **product-card:** add header, title and buy-buttont-content slots ([3818e20](https://github.com/ecomplus/storefront/commit/3818e2047dd6ef026ec6dab662f526ba0ff96542))
+* **product-gallery:** supporting a preloaded first image with slot ([1a163ea](https://github.com/ecomplus/storefront/commit/1a163ea23a042207b954d35c0a4f7e2aba259135))
+
+
+
+
+
 # [1.0.0-beta.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.0...@ecomplus/storefront-components@1.0.0-beta.1) (2020-03-30)
 
 **Note:** Version bump only for package @ecomplus/storefront-components

@@ -1,28 +1,16 @@
-<!doctype html>
-<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+<%
+const { slug, content } = await _.resolveRoute()
+_.breadcrumbs = [{
+  name: content.title,
+  link: `/pages/${slug}`
+}]
+if (!content.sections || !content.sections.length) {
+  content.sections = [
+    { type: 'breadcrumbs' },
+    { type: 'page-title' },
+    { type: 'extra-page' }
+  ]
+}
+%>
 
-<head>
-  <%- await include('/@/head', { _ }) %>
-  <link rel="stylesheet" type="text/css" href="/storefront.css">
-</head>
-
-<body>
-  <%- await include('/@/layout/menu', { _ }) %>
-
-  <main role="main" id="main">
-    <%- await include('/@/layout/header', { _ }) %>
-
-    <article id="content">
-      <%- await include('/@/views/pages', { _ }) %>
-    </article>
-
-    <%- await include('/@/layout/footer', { _ }) %>
-
-    <div id="overlay" class="fade"></div>
-  </main>
-
-  <%- await include('/@/json', { _ }) %>
-  <%- await include('/@/scripts', { _ }) %>
-</body>
-
-</html>
+<%- await include('/@/view') %>

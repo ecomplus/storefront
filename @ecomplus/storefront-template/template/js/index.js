@@ -16,8 +16,6 @@ import * as cloneDeep from 'lodash.clonedeep'
 import * as merge from 'lodash.merge'
 import Glide from '@glidejs/glide'
 
-// import './lib/load-widgets'
-
 window._ = { cloneDeep, merge }
 window.lozad = lozad
 window.Glide = Glide
@@ -30,6 +28,8 @@ window.storefront = {
   data: window._data,
   ...events
 }
+
+// import './lib/load-widgets'
 
 setTimeout(() => {
   import(/* webpackPreload: true */ './lib/fetch-info').catch(console.error)

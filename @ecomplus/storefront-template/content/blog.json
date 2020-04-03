@@ -1,6 +1,18 @@
 {
-  "meta_title": "Blog - My Shop",
-  "meta_description": "Blog - My Shop",
   "title": "Blog",
-  "additional_content": ""
+  "meta_title": "Blog",
+  "meta_description": "Blog",
+  "sections": [
+    {
+      "type": "breadcrumbs",
+      "enabled": true
+    },
+    {
+      "type": "page-title"
+    },
+    {
+      "type": "blog",
+      "enabled": true
+    }
+  ]
 }

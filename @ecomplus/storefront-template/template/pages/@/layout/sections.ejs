@@ -1,14 +1,18 @@
-<%
-// load page sections and render each one
-const { sections } = _.cms(_.pageName)
-if (Array.isArray(sections)) {
-  for (let i = 0; i < sections.length; i++) {
-    const opt = sections[i]
-    if (opt) {
-      %>
-      <%- await include(`/@/sections/${opt.type}`, { _, opt }) %>
-      <%
+<article id="content" class="page page--<%= _.pageName %>">
+  <div class="sections pb-1 pb-sm-2 pb-lg-4">
+    <%
+    // load page sections and render each one
+    const { sections } = _.state
+    if (Array.isArray(sections)) {
+      for (let i = 0; i < sections.length; i++) {
+        const opt = sections[i]
+        if (opt && opt.enabled !== false) {
+          %>
+          <%- await include(`/@/sections/${opt.type}`, { _, opt }) %>
+          <%
+        }
+      }
     }
-  }
-}
-%>
+    %>
+  </div>
+</article>

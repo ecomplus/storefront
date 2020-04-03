@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-framework",
-  "version": "5.9.0",
+  "version": "5.10.0",
   "description": "Framework for PWA and JAMstack e-commerce templates with E-Com Plus APIs",
   "main": "src/index.js",
   "bin": {
@@ -51,6 +51,7 @@
     "cssnano": "^4.1.10",
     "ejs": "^3.0.2",
     "html-minifier": "^4.0.0",
+    "image-size": "^0.8.3",
     "json-sass-vars": "^3.1.0",
     "lodash": "^4.17.15",
     "markdown-it": "^10.0.0",

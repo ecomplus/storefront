@@ -84,5 +84,13 @@ module.exports = {
         children: sidebarPkgs
       }
     ]
+  },
+
+  configureWebpack: {
+    resolve: {
+      alias: {
+        './scss/ProductCard.scss': path.resolve(__dirname, 'styles/components/DemoProductCard.scss')
+      }
+    }
   }
 }

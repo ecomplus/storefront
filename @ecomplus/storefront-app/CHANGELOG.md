@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-next.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-next.1...@ecomplus/storefront-app@2.0.0-next.2) (2020-04-03)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/passport-client to v1.0.7 ([b2c624d](https://github.com/ecomplus/storefront/commit/b2c624d1780a6920d8227aa1e0e693630bfd2a92))
+
+
+
+
+
 # [2.0.0-next.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-next.0...@ecomplus/storefront-app@2.0.0-next.1) (2020-03-28)
 
 

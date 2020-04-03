@@ -16,7 +16,7 @@
 
 <script>
   import ecomCart from '@ecomplus/shopping-cart'
-  import cart from '__/data/cart.json'
+  import cart from '__/__fixtures__/cart.json'
   import CartQuickview from '@ecomplus/storefront-components/src/CartQuickview.vue'
 
   if (!ecomCart.data.items.length) {

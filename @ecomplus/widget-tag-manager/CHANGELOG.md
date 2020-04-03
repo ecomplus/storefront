@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.9](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.1.8...@ecomplus/widget-tag-manager@1.1.9) (2020-04-03)
+
+**Note:** Version bump only for package @ecomplus/widget-tag-manager
+
+
+
+
+
 ## [1.1.8](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.1.7...@ecomplus/widget-tag-manager@1.1.8) (2020-03-28)
 
 **Note:** Version bump only for package @ecomplus/widget-tag-manager

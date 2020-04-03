@@ -1,7 +1,14 @@
 .products-carousel {
-  margin: 1.5rem auto;
+  margin: var(--spacer-4) auto;
   min-height: 6rem;
   max-width: 80rem;
+
+  @media (min-width: 768px){
+    padding: 0 3rem;
+  }
+  @media (min-width: 992px) {
+    padding: 0 4rem;
+  }
 
   &__list {
     margin-top: 0;
@@ -35,5 +42,9 @@
       padding-left: 1rem;
       padding-right: 1rem;
     }
+  }
+
+  &__item {
+    padding: var(--spacer-1);
   }
 }

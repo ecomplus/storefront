@@ -1,0 +1,27 @@
+
+<!doctype html>
+<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+
+<head>
+  <%- await include('/@/head') %>
+  <link rel="stylesheet" type="text/css" href="/storefront.css">
+</head>
+
+<body>
+  <%- await include('/@/layout/menu') %>
+
+  <main role="main" id="main">
+    <%- await include('/@/layout/header') %>
+
+    <div class="container py-1 py-sm-2 py-lg-4 text-center text-muted">
+      404 ~ Not found
+    </div>
+
+    <%- await include('/@/layout/footer') %>
+  </main>
+
+  <%- await include('/@/json') %>
+  <%- await include('/@/scripts') %>
+</body>
+
+</html>

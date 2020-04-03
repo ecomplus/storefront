@@ -1,3 +1,5 @@
+import sections from './_sections'
+
 export default ({ baseDir }) => ({
   name: 'search',
   label: 'Busca',
@@ -5,18 +7,24 @@ export default ({ baseDir }) => ({
   file: `${baseDir}content/search.json`,
   fields: [
     {
-      label: 'Exibir barra de informações',
-      name: 'pitbar',
-      widget: 'boolean',
-      default: false,
-      required: false
-    },
-    {
-      label: 'Conteúdo adicional',
-      name: 'additional_content',
-      widget: 'markdown',
-      hint: 'Markdown exibido no fim do container da página de busca',
-      required: false
+      label: 'Seções',
+      name: 'sections',
+      widget: 'list',
+      types: [
+        {
+          label: 'Motor de busca',
+          name: 'search-engine',
+          widget: 'object',
+          fields: [
+            {
+              label: 'Exibir resultados da busca',
+              name: 'enabled',
+              widget: 'boolean',
+              default: true
+            }
+          ]
+        }
+      ].concat(sections)
     }
   ]
 })

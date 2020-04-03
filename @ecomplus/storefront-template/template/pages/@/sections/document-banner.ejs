@@ -1,0 +1,13 @@
+<%
+if (Array.isArray(_.state.pictures) && _.state.pictures.length) {
+  const className = _.route.resource === 'categories' ? 'category'
+    : _.route.resource.slice(0, -1)
+  %>
+  <div class="hero-banner <%= className %>-banner">
+    <img
+      class="img-fluid lozad fade"
+      data-src="<%= _.state.pictures[0].url %>"
+      alt="<%= _.state.pictures[0].alt %>"
+    >
+  </div>
+<% } %>

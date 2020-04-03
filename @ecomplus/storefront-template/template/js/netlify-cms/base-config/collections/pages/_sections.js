@@ -21,7 +21,7 @@ const bannerFields = [
 export default [
   {
     label: 'Banner responsivo',
-    name: 'banners',
+    name: 'responsive-banner',
     widget: 'object',
     fields: bannerFields
   },
@@ -39,12 +39,12 @@ export default [
     ]
   },
   {
-    label: 'HTML customizado',
+    label: 'Conteúdo customizado',
     name: 'custom-content',
     widget: 'object',
     fields: [
       {
-        label: 'Conteúdo HTML customizado',
+        label: 'Conteúdo markdown customizado',
         name: 'markdown',
         widget: 'markdown',
         hint: 'Markdown parseado para HTML'
@@ -93,8 +93,24 @@ export default [
     fields: [
       {
         label: 'Coleção de produtos',
+        required: false,
         name: 'collection_id',
+        hint: 'Se este campo não for preenchido, serão listados os produtos mais populares da loja',
         widget: 'collections'
+      },
+      {
+        label: 'Embaralhar produtos',
+        name: 'shuffle',
+        widget: 'boolean',
+        hint: 'Alterar ordem dos produtos aleatoriamente',
+        default: true
+      },
+      {
+        label: 'Título da estante',
+        required: false,
+        name: 'title',
+        hint: 'Usará o nome da coleção por padrão',
+        widget: 'string'
       }
     ]
   },
@@ -108,6 +124,47 @@ export default [
         name: 'enabled',
         widget: 'boolean',
         default: true
+      }
+    ]
+  },
+  {
+    label: 'Título da página',
+    name: 'page-title',
+    widget: 'object',
+    fields: [
+      {
+        label: 'Título',
+        required: false,
+        name: 'title',
+        hint: 'Por padrão será usado o título salvo no conteúdo ou nome do documento e descrição curta',
+        widget: 'string'
+      }
+    ]
+  },
+  {
+    label: 'Blog',
+    name: 'blog',
+    widget: 'object',
+    fields: [
+      {
+        label: 'Listar posts do blog',
+        name: 'enabled',
+        widget: 'boolean',
+        default: true
+      }
+    ]
+  },
+  {
+    label: 'Código HTML',
+    name: 'custom-html',
+    widget: 'object',
+    fields: [
+      {
+        label: 'Conteúdo HTML customizado',
+        name: 'html',
+        widget: 'code',
+        default_language: 'html',
+        output_code_only: true
       }
     ]
   }

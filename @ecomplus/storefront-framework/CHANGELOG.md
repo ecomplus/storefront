@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.10.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.9.0...@ecomplus/storefront-framework@5.10.0) (2020-04-03)
+
+
+### Bug Fixes
+
+* **webpack:** fix i18n alias to src of respective lang ([8bd1337](https://github.com/ecomplus/storefront/commit/8bd1337bb27e67d85739cc423da1cd583e782832))
+
+
+### Features
+
+* **renderer:** add `imageSize` lib to default data ([23e1743](https://github.com/ecomplus/storefront/commit/23e1743631a37d7f6dbfbc6b4d93579162e4442c))
+
+
+
+
+
 # [5.9.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.8.1...@ecomplus/storefront-framework@5.9.0) (2020-03-28)
 
 

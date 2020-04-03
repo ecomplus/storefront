@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import product from '__/data/product.json'
+  import product from '__/__fixtures__/product.json'
   import APrices from '@ecomplus/storefront-components/src/APrices.vue'
 
   export default {

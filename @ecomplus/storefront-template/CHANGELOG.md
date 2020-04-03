@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-next.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-next.2...@ecomplus/storefront-template@2.0.0-next.3) (2020-04-03)
+
+
+### Bug Fixes
+
+* **cms:** minor pages config fixes ([ba10470](https://github.com/ecomplus/storefront/commit/ba10470e595b112a4dff2cdce7eea9e03b740009))
+* **cms:** removing code in extrapage config ([#192](https://github.com/ecomplus/storefront/issues/192)) ([e0f5bf5](https://github.com/ecomplus/storefront/commit/e0f5bf5c66f61df57eb393c4bdb05e612aa35326))
+* **deps:** update @ecomplus/passport-client to v1.0.7 ([b2c624d](https://github.com/ecomplus/storefront/commit/b2c624d1780a6920d8227aa1e0e693630bfd2a92))
+* **ejs:** general first fixes for pages and sections ([d536326](https://github.com/ecomplus/storefront/commit/d536326af3f7ab5af5ed5cf27e34a78961f55b2b))
+* **ejs:** product card and block predefined places for additional HTML ([cf0f3d5](https://github.com/ecomplus/storefront/commit/cf0f3d552f00c9318ff417d0517e107850f26e62))
+* **ejs:** syntax fix on collection shelf section partial ([7ba499c](https://github.com/ecomplus/storefront/commit/7ba499c8943356937428bb4058ac7b0467fcba05))
+* **js:** remove product.js entry, import ProductCard on widgets load ([d032bcd](https://github.com/ecomplus/storefront/commit/d032bcd31b2b48b9c9532115fa1c8ff1b12f3123))
+* **scss:** pre-importing some component styles ([db0f56c](https://github.com/ecomplus/storefront/commit/db0f56c937384187b5c1eacc7ca70878de43fd1c))
+* **styles:** fix some classes and scss with new sections approach ([1d5c706](https://github.com/ecomplus/storefront/commit/1d5c70645346593885051f53ffe77a33eaafc496))
+
+
+### Code Refactoring
+
+* **pages:** split views on sections, use sections on "all" pages ([3dab231](https://github.com/ecomplus/storefront/commit/3dab2317ded74309117a6c31b18cd4be53c08f91))
+
+
+### Features
+
+* **cms:** add custom html (with code widget) to sections ([feb03d6](https://github.com/ecomplus/storefront/commit/feb03d6a92ba7e0f3cc339aaedb29ed0e1602fdd))
+* **cms:** handling "page builder" with sections for all pages ([2383ffb](https://github.com/ecomplus/storefront/commit/2383ffb07fc1a7415253ecf933cd444e04e66791))
+* **cms:** supporting collection shelf items suffle (random) ([9fbe47e](https://github.com/ecomplus/storefront/commit/9fbe47e15822ed6a5a2d9c27eeac6b9c4ecd1d9a))
+* **js:** additional entry for product page with TheProduct component ([d1fe978](https://github.com/ecomplus/storefront/commit/d1fe978a93d1ec3b9fc03a0ae3c64a4abf4fd6ad))
+* **js:** sync import and set ProductCard globally ([1f9bbe7](https://github.com/ecomplus/storefront/commit/1f9bbe7c077ff8c1cdaa7711e5310297e671d101))
+
+
+### BREAKING CHANGES
+
+* **pages:** lot of ejs files removed or renamed
+
+https://github.com/ecomplus/storefront/issues/190
+
+
+
+
+
 # [2.0.0-next.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-next.1...@ecomplus/storefront-template@2.0.0-next.2) (2020-03-30)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

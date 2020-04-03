@@ -1,22 +1,6 @@
 {
   "meta_title": "",
   "meta_description": "",
-  "slider": {
-    "autoplay": 9000,
-    "slides": [
-      {
-        "img": "/img/uploads/rect89.webp",
-        "alt": "Sample banner one"
-      },
-      {
-        "img": "/img/uploads/banner2.webp",
-        "alt": "Sample banner two"
-      }
-    ]
-  },
-  "pitbar": true,
-  "showcase": [],
-  "additional_content": "",
   "sections": [
     {
       "type": "banner-slider",
@@ -38,7 +22,8 @@
       "enabled": true
     },
     {
-      "type": "collection-shelf"
+      "type": "collection-shelf",
+      "shuffle": true
     }
   ]
 }
