@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.3.1...@ecomplus/storefront-twbs@5.3.2) (2020-04-03)
+
+
+### Bug Fixes
+
+* **scss:** edit default container width (too large) to 1400px ([b863298](https://github.com/ecomplus/storefront/commit/b863298f324de0825165fa349e87fb4c21392eaa))
+
+
+### Reverts
+
+* **scss:** keep default bootstrap containers at all ([4a51583](https://github.com/ecomplus/storefront/commit/4a51583e8ea4424d46c84dde96fca0dc07b15a23))
+
+
+
+
+
 ## [5.3.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.3.0...@ecomplus/storefront-twbs@5.3.1) (2020-03-30)
 
 
