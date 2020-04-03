@@ -15,12 +15,10 @@ import lozad from 'lozad'
 import * as cloneDeep from 'lodash.clonedeep'
 import * as merge from 'lodash.merge'
 import Glide from '@glidejs/glide'
-import ProductCard from '@ecomplus/storefront-components/src/ProductCard.vue'
 
 window._ = { cloneDeep, merge }
 window.lozad = lozad
 window.Glide = Glide
-window.ProductCard = ProductCard
 
 window.storefront = {
   settings: window._settings,
