@@ -11,7 +11,6 @@
     "version": {
       "allowBranch": ["v*-dev"],
       "conventionalCommits": true,
-      "createRelease": "github",
       "gitRemote": "origin",
       "message": "chore(release): publish :tada:",
       "preid": "rc"
