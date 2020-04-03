@@ -1,29 +1,24 @@
-<div class="collection-shelf my-lg-5">
-  <%
-  if (opt.collection_id) {
-    const res = await _.ecomClient.store({
-      url: `/collections/${opt.collection_id}.json`
-    })
-    const collection = res.data
-    let items = []
-    if (Array.isArray(collection.products) && collection.products.length) {
-      const search = new _.EcomSearch()
-      await search.setProductIds(collection.products).fetch()
-      items = search.getItems()
-    }
-    const { title, link } = opt
-
-    %>
-    <%- await include('/@/sections/inc/products-carousel', {
-      _, opt: { items, collection, title, link }
-    }) %>
-    <%
-  } else {
-    %>
-    <%- await include('/@/sections/inc/products-carousel', {
-      _, opt: { items: _.items }
-    }) %>
-    <%
+<%
+const { title, link, shuffle } = opt
+let items, collection
+if (opt.collection_id) {
+  const res = await _.ecomClient.store({
+    url: `/collections/${opt.collection_id}.json`
+  })
+  collection = res.data
+  items = []
+  if (Array.isArray(collection.products) && collection.products.length) {
+    const search = new _.EcomSearch()
+    await search.setProductIds(collection.products).fetch()
+    items = search.getItems()
   }
-  %>
+} else {
+  items = _.items
+}
+%>
+
+<div class="collection-shelf my-lg-5">
+  <%- await include('/@/sections/inc/products-carousel', {
+    _, opt: { items, collection, title, link, shuffle }
+  }) %>
 </div>

@@ -1,9 +1,18 @@
-<% if (Array.isArray(opt.items) && opt.items.length) { %>
-  <%
+<% if (Array.isArray(opt.items) && opt.items.length) {
   const title = opt.title ||
     (opt.collection && opt.collection.name) ||
     _.dictionary('popularProducts')
   const link = opt.link || (opt.collection && opt.collection.slug)
+
+  if (opt.shuffle) {
+    let m = opt.items.length, t, i
+    while (m) {
+      i = Math.floor(Math.random() * m--)
+      t = opt.items[m]
+      opt.items[m] = opt.items[i]
+      opt.items[i] = t
+    }
+  }
   %>
 
   <section
