@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.7](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@0.3.6...@ecomplus/widget-search-engine@0.3.7) (2020-04-03)
+
+
+### Bug Fixes
+
+* **deps:** update (fix) dependencies ([eb12277](https://github.com/ecomplus/storefront/commit/eb1227744b8015f3150f257781f3a98e7dfc2db4))
+
+
+
+
+
 ## [0.3.6](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@0.3.5...@ecomplus/widget-search-engine@0.3.6) (2020-02-26)
 
 **Note:** Version bump only for package @ecomplus/widget-search-engine

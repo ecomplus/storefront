@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.9](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@1.34.8...@ecomplus/storefront-template@1.34.9) (2020-04-03)
+
+
+### Bug Fixes
+
+* **deps:** update (fix) dependencies ([eb12277](https://github.com/ecomplus/storefront/commit/eb1227744b8015f3150f257781f3a98e7dfc2db4))
+
+
+
+
+
 ## [1.34.8](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@1.34.7...@ecomplus/storefront-template@1.34.8) (2020-02-26)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
