@@ -30,7 +30,7 @@
   "peerDependencies": {
     "@ecomplus/client": ">=1 <3",
     "@ecomplus/shopping-cart": ">=1 <3",
-    "@ecomplus/utils": "^1.2.0",
+    "@ecomplus/utils": "^1.3.4",
     "@glidejs/glide": "3.x",
     "core-js": "3.x",
     "lozad": "1.x",
