@@ -1,59 +1,93 @@
-<div class="product-block pb-2 my-4 my-lg-5">
+<div class="product-block my-4 mb-lg-5">
   <div class="container">
     <section id="product" class="product">
+      <!--
+        `TheProduct` should be rendered (hydrated) here:
+        https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/TheProduct.html
+      -->
+
       <div class="row" data-to-render="true">
-        <% if (_.state.pictures) { %>
-          <% const imgObj = _.ecomUtils.img(_.state, null, 'big') %>
-          <% if (imgObj) { %>
-            <div class="col-12 col-md-6">
-              <div class="product__picture">
-                <picture
-                  class="lozad fade"
-                  data-iesrc="<%= imgObj.url %>"
-                  data-alt="<%= imgObj.alt %>"
-                >
+        <div class="col-12 col-md-6">
+          <!-- Picture(s) gallery will be inserted dynamically within `TheProduct` -->
+          <% if (_.state.pictures) { %>
+            <% const imgObj = _.ecomUtils.img(_.state, null, 'big') %>
+            <% if (imgObj) { %>
+              <div data-slot="first-picture">
+                <picture class="product__picture">
                   <source
                     srcset="<%= _.ecomUtils.img(_.state).url %>"
+                    type="image/webp"
                     media="(max-width: 399.98px)"
                   >
-                  <source srcset="<%= imgObj.url %>" media="(min-width: 400px)">
+                  <source
+                    srcset="<%= imgObj.url %>"
+                    type="image/webp"
+                    media="(min-width: 400px)"
+                  >
+                  <img
+                    src="<%= imgObj.url.replace(/\.webp$/, '') %>"
+                    alt="<%= imgObj.alt %>"
+                  >
                 </picture>
               </div>
-            </div>
+            <% } %>
           <% } %>
-        <% } %>
+
+          <div data-slot="gallery-footer">
+            <!-- Custom additional code on bottom of images gallery -->
+          </div>
+        </div>
 
         <div class="col">
-          <h1 class="product__name">
-            <%= _.ecomUtils.name(_.state) %>
-          </h1>
-          <% if (_.state.available && _.state.visible && _.ecomUtils.inStock(_.state)) { %>
-            <strong class="product__price">
-              <%= _.ecomUtils.formatMoney(_.ecomUtils.price(_.state)) %>
-            </strong>
-          <% } %>
-          <hr>
-
-          <div>
-            <div class="spinner-border" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-          </div>
-          <button
-            type="button"
-            class="product__buy btn btn-lg btn-primary"
-            onclick="ecomCart.addProduct(storefront.context.body)"
-            <% if (_.state.variations && _.state.variations.length) { %>
-              disabled
-            <% } %>
-          >
-            <i class="fas fa-shopping-bag mr-1"></i>
-            <%= _.dictionary('buy') %>
-          </button>
-          <% if (_.state.short_description) { %>
-            <p class="lead product__info">
-              <%= _.state.short_description %>
+          <div data-slot="heading">
+            <h1 class="product__name">
+              <%= _.ecomUtils.name(_.state) %>
+            </h1>
+            <p class="product__sku">
+              COD: <%= _.state.sku %>
             </p>
+          </div>
+
+          <% if (_.state.available && _.state.visible && _.ecomUtils.inStock(_.state)) { %>
+            <div class="product__price prices prices--big">
+              <strong class="prices__value">
+                <%= _.ecomUtils.formatMoney(_.ecomUtils.price(_.state)) %>
+              </strong>
+            </div>
+          <% } %>
+
+          <% if (_.state.variations && _.state.variations.length) { %>
+            <div data-slot="variations-info">
+              <!-- Custom info for products with variations, such as sizes table link -->
+            </div>
+          <% } %>
+
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+
+          <div class="product__buy">
+            <button
+              type="button"
+              class="btn btn-lg btn-primary"
+              onclick="ecomCart.addProduct(storefront.context.body)"
+              <% if (_.state.variations && _.state.variations.length) { %>
+                disabled
+              <% } %>
+            >
+              <div data-slot="buy-button-content">
+                <i class="fas fa-shopping-bag mr-1"></i>
+                <%= _.dictionary('buy') %>
+              </div>
+            </button>
+          </div>
+
+          <% if (_.state.short_description) { %>
+            <div data-slot="short-description">
+              <p class="product__info lead">
+                <%= _.state.short_description %>
+              </p>
+            </div>
           <% } %>
         </div>
       </div>
