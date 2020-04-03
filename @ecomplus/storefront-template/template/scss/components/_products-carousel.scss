@@ -43,4 +43,8 @@
       padding-right: 1rem;
     }
   }
+
+  &__item {
+    padding: var(--spacer-1);
+  }
 }

@@ -1,38 +1,19 @@
+@import "@ecomplus/storefront-components/src/scss/APicture";
+@import "@ecomplus/storefront-components/src/scss/APrices";
+@import "@ecomplus/storefront-components/src/scss/ProductCard";
+
 .product-card {
-  padding: 1rem;
-
-  a {
-    text-decoration: none;
+  .spinner-border {
+    position: absolute;
+    bottom: var(--spacer-3);
+    right: var(--spacer-3);
+    opacity: 0;
+    color: var(--gray);
   }
 
-  &__name {
-    margin-top: .5rem;
-    font-size: .88rem;
-    line-height: 1.2;
-    font-weight: 400;
-  }
-
-  &__pictures {
-    overflow: hidden;
-  }
-
-  &__picture,
-  &__picture img {
-    max-height: 250px;
-
-    @media (max-width: 575.98px) {
-      max-height: 180px;
+  &:hover {
+    .spinner-border {
+      opacity: .85;
     }
   }
-
-  &__info .spinner-border {
-    color: var(--gray);
-    opacity: .85;
-  }
-}
-
-.col > .product-card {
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
 }
