@@ -14,6 +14,10 @@
 
 > TODO
 
+### Note for product page and cards
+
+> About slots
+
 ## Additional scripts
 
 > TODO
