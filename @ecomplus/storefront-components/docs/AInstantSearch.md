@@ -61,7 +61,7 @@ Defines whether the search window will be opened or not when entering the page.
 isVisible: {
   type: Boolean,
   default: true
-    }
+}
 ```
 
 ### pageSize
