@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import product from '../../@ecomplus/storefront-components/__tests__/data/product'
+import product from '../../@ecomplus/storefront-components/__tests__/__fixtures__/product.json'
 
 export default {
   name: 'DemoProductCard',
