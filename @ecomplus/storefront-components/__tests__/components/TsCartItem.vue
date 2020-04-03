@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import cart from '__/data/cart.json'
+  import cart from '__/__fixtures__/cart.json'
   import CartItem from '@ecomplus/storefront-components/src/CartItem.vue'
 
   export default {
