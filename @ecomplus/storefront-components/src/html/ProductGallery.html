@@ -51,8 +51,14 @@
             :key="'slide-' + i"
           >
             <div @click="openZoom(i)">
+              <slot v-if="i === 0 && !isSliderMoved">
+                <a-picture
+                  class="gallery__big-image"
+                  :src="getImg(picture, null, 'big')"
+                />
+              </slot>
               <a-picture
-                :id="`gallery-picture-${i}`"
+                v-else
                 class="gallery__big-image"
                 :src="getImg(picture, null, 'big')"
               />
