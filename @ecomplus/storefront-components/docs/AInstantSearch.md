@@ -57,6 +57,8 @@ term: {
 
 Defines whether the search window will be opened or not when entering the page.
 
+> May be used with `.sync` modifier.
+
 ```js
 isVisible: {
   type: Boolean,
