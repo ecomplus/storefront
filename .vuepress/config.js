@@ -89,7 +89,8 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        './scss/ProductCard.scss': path.resolve(__dirname, 'styles/components/DemoProductCard.scss')
+        './scss/ProductCard.scss': path.resolve(__dirname, 'styles/components/DemoProductCard.scss'),
+        './scss/InstantSearch.scss': path.resolve(__dirname, 'styles/components/DemoInstantSearch.scss')
       }
     }
   }
