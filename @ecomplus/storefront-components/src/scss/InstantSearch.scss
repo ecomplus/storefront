@@ -68,6 +68,10 @@
     color: var(--secondary-lighter);
     transition: color .15s;
 
+    svg {
+      vertical-align: top;
+    }
+
     &:hover {
       color: var(--primary-light);
     }
