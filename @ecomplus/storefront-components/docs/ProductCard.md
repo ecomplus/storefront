@@ -2,6 +2,10 @@
 
 Card with resumed product information including picture(s), title, prices, discount percentage, buy button and space for rating stars. Should be used on shelves and grids, links to the product details page.
 
+```js
+import ProductCard from '@ecomplus/storefront-components/src/ProductCard.vue'
+```
+
 <DemoProductCard/>
 
 ## Features
