@@ -1,20 +1,32 @@
-import $ from './$'
+import $ from 'jquery'
+import { animateCss } from '@ecomplus/storefront-twbs'
 import $overlay from './$overlay'
-import animateCss from './animate-css'
 
-const $menu = $('#menu')
+const $menu = $('#menu')[0]
 let isVisible = false
 
-const toggleSidenav = (isClose) => {
+const toggleSidenav = (slug, isClose) => {
+  let $collapse
+  if (slug) {
+    $collapse = $(`#a-${slug}`)
+    if (!$collapse.length) {
+      window.location = `/${slug}`
+      return
+    }
+  }
+
   if (!isVisible) {
     if (isClose !== true) {
       $overlay.show()
       $overlay.once('hide', () => {
-        toggleSidenav(true)
+        toggleSidenav(null, true)
       })
       $menu.style.display = 'block'
       animateCss($menu, 'slideInLeft')
       isVisible = true
+      if ($collapse) {
+        $collapse.collapse('show')
+      }
     }
   } else {
     animateCss($menu, 'slideOutLeft').then(() => {
@@ -26,7 +38,3 @@ const toggleSidenav = (isClose) => {
 }
 
 window.toggleSidenav = toggleSidenav
-
-window.closeCollapsedMenu = () => {
-  $('#menu .collapse.show').classList.remove('show')
-}

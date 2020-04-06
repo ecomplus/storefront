@@ -7,7 +7,6 @@ import './lib/utils'
 import './lib/lazy-load'
 import './lib/glide-slides'
 import './lib/menu'
-import './lib/header'
 import './lib/search'
 import './lib/persist-utm'
 

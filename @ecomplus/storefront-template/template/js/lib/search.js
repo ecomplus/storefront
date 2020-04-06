@@ -1,24 +1,24 @@
-import $ from './$'
+import { isScreenLg } from './_env'
+import $ from 'jquery'
 
 const $searchBar = $('#search-bar')
 
 if ($searchBar) {
-  const { classList } = $searchBar
-  $searchBar.addEventListener('shown.bs.collapse', () => {
-    $('#search-input').focus()
+  $searchBar.on('shown.bs.collapse', () => {
+    $('#search-input').trigger('focus')
   })
 
   let resizeState
   const onResize = () => {
-    const lgDevice = document.body.offsetWidth >= 992
-    if (resizeState !== lgDevice) {
-      if (lgDevice) {
-        classList.add('d-none', 'show')
+    if (resizeState !== isScreenLg) {
+      if (isScreenLg) {
+        $searchBar.addClass('d-none')
+        $searchBar.collapse('show')
       } else {
-        classList.remove('show', 'd-none')
-        $('#mobile-search-btn').setAttribute('aria-expanded', 'false')
+        $searchBar.collapse('hide')
+        $searchBar.removeClass('d-none')
       }
-      resizeState = lgDevice
+      resizeState = isScreenLg
     }
   }
 
