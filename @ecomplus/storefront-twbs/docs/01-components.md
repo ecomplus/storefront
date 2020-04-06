@@ -637,13 +637,204 @@ ___
 
 
 ## Utilities
-### scss/utilities/clearfix
-### scss/utilities/display
-### scss/utilities/embed
-### scss/utilities/position
-### scss/utilities/screenreaders
-### scss/utilities/stretched-link
 
-## Customized utilities
-### utilities/spacing
-### utilities/text
+## Clearfix
+
+Easily clear `floats` by adding `.clearfix` **to the parent element**. Can also be used as a mixin.
+```html
+<div class="clearfix">...</div>
+```
+```js
+// Mixin itself
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+// Usage as a mixin
+.element {
+  @include clearfix;
+}
+```
+The following example shows how the clearfix can be used. Without the clearfix the wrapping div would not span around the buttons which would cause a broken layout.
+
+<DemoBootstrap :showClearfix="true" />
+```html
+<div class="bg-info clearfix">
+  <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
+  <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
+</div>
+```
+
+
+## Display
+
+**How it works:**
+Change the value of the [display property](https://developer.mozilla.org/en-US/docs/Web/CSS/display) with our responsive display utility classes. We purposely support only a subset of all possible values for `display`. Classes can be combined for various effects as you need.
+
+**Notation:**
+Display utility classes that apply to all [breakpoints](https://getbootstrap.com/docs/4.4/layout/overview/#responsive-breakpoints), from `xs` to `xl`, have no breakpoint abbreviation in them. This is because those classes are applied from `min-width: 0`; and up, and thus are not bound by a media query. The remaining breakpoints, however, do include a breakpoint abbreviation.
+
+As such, the classes are named using the format:
+
++ `d-{value}` for `xs`
++ `d-{breakpoint}-{value}` for `sm`, `md`, `lg`, and `xl`.
+
+Where value is one of:
+
++ `none`
++ `inline`
++ `inline-block`
++ `block`
++ `table`
++ `table-cell`
++ `table-row`
++ `flex`
++ `inline-flex`
+
+The display values can be altered by changing the `$displays` variable and recompiling the SCSS.
+
+The media queries effect screen widths with the given breakpoint or larger. For example, `.d-lg-none` sets `display: none;` on both `lg` and `xl` screens.
+
+**Examples:**
+
+<DemoBootstrap :showDisplay="true" />
+```html
+<div class="d-inline p-2 bg-primary text-white">d-inline</div>
+<div class="d-inline p-2 bg-dark text-white">d-inline</div>
+```
+
+### Hiding elements
+
+For faster mobile-friendly development, use responsive display classes for showing and hiding elements by device. Avoid creating entirely different versions of the same site, instead hide elements responsively for each screen size.
+
+To hide elements simply use the `.d-none` class or one of the `.d-{sm,md,lg,xl}-none` classes for any responsive screen variation.
+
+To show an element only on a given interval of screen sizes you can combine one `.d-*-none` class with a `.d-*-*` class, for example `.d-none` `.d-md-block` `.d-xl-none` will hide the element for all screen sizes except on medium and large devices.
+
+[See more](https://getbootstrap.com/docs/4.4/utilities/display/)
+
+
+## Embed
+
+Create responsive video or slideshow embeds based on the width of the parent by creating an intrinsic ratio that scales on any device.
+
+#### About
+Rules are directly applied to `<iframe>`, `<embed>`, `<video>`, and `<object>` elements; optionally use an explicit descendant class .embed-responsive-item when you want to match the styling for other attributes.
+
+Pro-Tip! You don’t need to include frameborder="0" in your `<iframe>`s as we override that for you.
+
+**Example:**
+Wrap any embed like an `<iframe>` in a parent element with `.embed-responsive` and an aspect ratio. The `.embed-responsive-item` isn’t strictly required, but we encourage it.
+
+<DemoBootstrap :showEmbed="true" />
+```html
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+</div>
+```
+
+[See more](https://getbootstrap.com/docs/4.4/utilities/embed/)
+
+
+## Position
+
+Use these shorthand utilities for quickly configuring the position of an element.
+
+### Common values
+Quick positioning classes are available, though they are not responsive.
+
+```html
+<div class="position-static">...</div>
+<div class="position-relative">...</div>
+<div class="position-absolute">...</div>
+<div class="position-fixed">...</div>
+<div class="position-sticky">...</div>
+```
+
+### Fixed top
+
+Position an element at the top of the viewport, from edge to edge. Be sure you understand the ramifications of fixed position in your project; you may need to add additional CSS.
+
+```html
+<div class="fixed-top">...</div>
+```
+
+### Fixed bottom
+Position an element at the bottom of the viewport, from edge to edge. Be sure you understand the ramifications of fixed position in your project; you may need to add additional CSS.
+
+```html
+<div class="fixed-bottom">...</div>
+```
+
+### Sticky top
+Position an element at the top of the viewport, from edge to edge, but only after you scroll past it. The `.sticky-top` utility uses CSS’s `position: sticky`, which isn’t fully supported in all browsers.
+
+**IE11 and IE10 will render** `position: sticky` as `position: relative`. As such, we wrap the styles in a `@supports` query, limiting the stickiness to only browsers that can render it properly.
+
+```html
+<div class="sticky-top">...</div>
+```
+
+
+## Screenreaders
+
+Use screen reader utilities to hide elements on all devices except screen readers.
+
+Hide an element to all devices **except screen readers** with `.sr-only`. Combine `.sr-only` with `.sr-only-focusable` to show the element again when it’s focused (e.g. by a keyboard-only user). Can also be used as mixins.
+
+```html
+<a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+```
+```js
+// Usage as a mixin
+.skip-navigation {
+  @include sr-only;
+  @include sr-only-focusable;
+}
+```
+
+
+## Stretched-link
+
+Make any HTML element or Bootstrap component clickable by “stretching” a nested link via CSS.
+
+Add `.stretched-link` to a link to make its [containing block](https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block) clickable via a `::after` pseudo element. In most cases, this means that an element with `position: relative`; that contains a link with the `.stretched-link` class is clickable.
+
+Cards have `position: relative` by default in Bootstrap, so in this case you can safely add the `.stretched-link` class to a link in the card without any other HTML changes.
+
+Multiple links and tap targets are not recommended with stretched links. However, some `position` and `z-index` styles can help should this be required.[See More](https://getbootstrap.com/docs/4.4/utilities/stretched-link/)
+
+<DemoBootstrap :showStretchedLink="true" />
+```html
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card with stretched link</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary stretched-link">Go somewhere</a>
+  </div>
+</div>
+```
+
+
+## Spacing
+
+Bootstrap includes a wide range of shorthand responsive margin and padding utility classes to modify an element’s appearance.
+
+Assign responsive-friendly `margin` or `padding` values to an element or a subset of its sides with shorthand classes. Includes support for individual properties, all properties, and vertical and horizontal properties. Classes are built from a default Sass map ranging from `.25rem` to `3rem`. [See more](https://getbootstrap.com/docs/4.4/utilities/spacing/)
+
+**Exemple:**
+
+<DemoBootstrap :showSpacing="true" />
+```html
+<div class="row mx-md-n5">
+  <div class="col px-md-5"><div class="p-3 border bg-light">Custom column padding</div></div>
+  <div class="col px-md-5"><div class="p-3 border bg-light">Custom column padding</div></div>
+</div>
+```
+
+## Text

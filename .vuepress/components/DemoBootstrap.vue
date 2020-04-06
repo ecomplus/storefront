@@ -372,6 +372,43 @@
         <span class="sr-only">Loading...</span>
       </div>
     </div>
+
+    <div v-if="showClearfix">
+      <div class="bg-info clearfix">
+        <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
+        <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
+      </div>
+    </div>
+
+    <div v-if="showDisplay">
+      <div class="d-inline p-2 bg-primary text-white">d-inline</div>
+      <div class="d-inline p-2 bg-dark text-white">d-inline</div>
+    </div>
+
+    <div v-if="showEmbed">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div v-if="showStretchedLink">
+      <div class="card" style="width: 18rem;">
+        <img src="/assets/img/banner.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card with stretched link</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary stretched-link">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="showSpacing">
+      <div class="row mx-md-n5">
+        <div class="col px-md-5"><div class="p-3 border bg-light">Custom column padding</div></div>
+        <div class="col px-md-5"><div class="p-3 border bg-light">Custom column padding</div></div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -441,6 +478,21 @@
         default:false
       },
       showSpinners: {
+        default:false
+      },
+      showClearfix: {
+        default:false
+      },
+      showDisplay: {
+        default:false
+      },
+      showEmbed: {
+        default:false
+      },
+      showStretchedLink: {
+        default:false
+      },
+      showSpacing: {
         default:false
       }
     },
