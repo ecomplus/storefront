@@ -4,10 +4,10 @@ export default ({ baseDir }) => ({
   file: `${baseDir}content/header.json`,
   fields: [
     {
-      label: 'Tarja de marketing ',
+      label: 'Tarja de marketing',
       name: 'marketing_stripe',
       widget: 'object',
-      hint: 'Tarja na cor secundária com texto e botão, caso não seja configurada não é exibida na loja',
+      hint: 'Tarja com anúncio em destaque no topo da loja',
       fields: [
         {
           label: 'Texto',
@@ -24,10 +24,10 @@ export default ({ baseDir }) => ({
       ]
     },
     {
-      label: 'Tarja de contatos',
+      label: 'Barra de contatos',
       name: 'contacts_stripe',
       widget: 'object',
-      hint: 'Tarja com contatos da loja, como páginas internas, telefones e redes sociais',
+      hint: 'Informações de contato, redes sociais e páginas institucionais importantes',
       fields: [
         {
           label: 'Páginas',
@@ -61,6 +61,15 @@ export default ({ baseDir }) => ({
           widget: 'boolean'
         }
       ]
+    },
+    {
+      label: 'Lista de categorias',
+      name: 'max_categories',
+      hint: 'Máximo de categorias principais exibidas diretamente no cabeçalho',
+      min: 0,
+      max: 20,
+      required: false,
+      widget: 'number'
     }
   ]
 })
