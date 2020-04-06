@@ -58,7 +58,6 @@ if (mainCategories) {
               class="menu__btn btn"
               type="button"
               data-toggle="collapse"
-              onclick="closeCollapsedMenu()"
               <% if (!parent || !parent.slug) { %>
                 aria-expanded="true"
                 data-target="#categories-nav"
@@ -83,7 +82,6 @@ if (mainCategories) {
                   role="button"
                   aria-expanded="false"
                   aria-controls="a-<%= subcategory.slug %>"
-                  onclick="closeCollapsedMenu()"
                 <% } else { %>
                   href="/<%= subcategory.slug %>"
                 <% } %>
