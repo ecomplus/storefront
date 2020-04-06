@@ -13,10 +13,10 @@
     max-width: 16rem;
     height: auto;
     max-height: 8rem;
-    margin-bottom: .5rem;
+    margin-bottom: var(--spacer-2);
 
     @media (max-width: 767.98px) {
-      margin-top: 1rem;
+      margin-top: var(--spacer-3);
 
       + .brand__name {
         display: none;
@@ -28,7 +28,7 @@
 
       &::before {
         content: ' # ';
-        font-weight: 400;
+        font-weight: var(--font-normal);
         font-size: 90%;
         opacity: .5;
       }

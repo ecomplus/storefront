@@ -47,4 +47,8 @@
   &__item {
     padding: var(--spacer-1);
   }
+
+  .glide__slides {
+    will-change: auto;
+  }
 }

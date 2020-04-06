@@ -23,12 +23,9 @@ body {
 @import "components/products-carousel";
 @import "components/retail-grid";
 @import "components/rounded-icon";
+@import "components/top-bar";
 
 @import "libs/glide";
-
-#main {
-  transform: none;
-}
 
 #overlay {
   position: fixed;

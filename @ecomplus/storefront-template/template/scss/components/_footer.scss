@@ -1,19 +1,19 @@
 .footer {
   background: var(--light);
-  border-top: .25rem solid var(--secondary);
+  border-top: var(--spacer-1) solid var(--secondary);
   color: var(--gray);
 
   &__title {
-    font-size: 1.25rem;
-    font-weight: 300;
-    margin-bottom: .5rem;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-light);
+    margin-bottom: var(--spacer-2);
     display: block;
     color: var(--dark);
   }
 
   &__store {
     color: var(--secondary);
-    font-weight: 500;
+    font-weight: var(--font-headings);
   }
 
   &__links {
