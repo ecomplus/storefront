@@ -43,7 +43,7 @@
   "dependencies": {
     "@ecomplus/client": "^2.0.4",
     "@ecomplus/i18n": "^1.7.0",
-    "@ecomplus/passport-client": "^1.0.7",
+    "@ecomplus/passport-client": "^1.0.9",
     "@ecomplus/search-engine": "^2.0.3",
     "@ecomplus/shopping-cart": "^2.1.1",
     "@ecomplus/storefront-app": "^1.11.7",
