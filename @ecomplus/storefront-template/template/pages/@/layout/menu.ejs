@@ -12,14 +12,15 @@ if (mainCategories) {
   const orderedCategorySlugs = menu && menu.sort_categories
   if (Array.isArray(orderedCategorySlugs)) {
     // reorder first level categories list
-    orderedCategorySlugs.reverse().forEach(slug => {
+    for (let i = orderedCategorySlugs.length - 1; i >= 0; i--) {
+      const slug = orderedCategorySlugs[i]
       const categoryIndex = mainCategories.findIndex(category => category.slug === slug)
       if (categoryIndex > -1) {
         const category = mainCategories[categoryIndex]
         mainCategories.splice(categoryIndex, 1)
         mainCategories.unshift(category)
       }
-    })
+    }
   }
 }
 %>
