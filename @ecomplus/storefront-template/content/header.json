@@ -18,20 +18,7 @@
     "socials": true
   },
   "categories_list": {
-    "featured": [
-      {
-        "slug": {
-          "name": "Promoções",
-          "slug": "promocoes"
-        }
-      },
-      {
-        "slug": {
-          "name": "Notebooks",
-          "slug": "notebooks"
-        }
-      }
-    ],
+    "featured": [],
     "random": 6
   },
   "search_input": true
