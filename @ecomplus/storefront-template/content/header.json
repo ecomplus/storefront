@@ -1,7 +1,7 @@
 {
   "marketing_stripe": {
     "text": "Enjoy our discounts of up to 40%!",
-    "link": "promotion"
+    "link": "/promotion"
   },
   "contacts_stripe": {
     "pages": [
@@ -17,5 +17,9 @@
     "phone_wpp": true,
     "socials": true
   },
-  "max_categories": 6
+  "categories_list": {
+    "featured": [],
+    "random": 6
+  },
+  "search_input": true
 }
