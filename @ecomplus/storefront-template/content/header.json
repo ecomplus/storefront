@@ -20,10 +20,13 @@
   "categories_list": {
     "featured": [
       {
-        "slug": "undefined?Notebooks"
+        "path_and_name": "/colecao-1?coleção 1"
       },
       {
-        "slug": "undefined?Promoções"
+        "path_and_name": "/notebooks?Notebooks"
+      },
+      {
+        "path_and_name": "/promocoes?Promoções"
       }
     ],
     "random": 6
