@@ -18,7 +18,14 @@
     "socials": true
   },
   "categories_list": {
-    "featured": [],
+    "featured": [
+      {
+        "slug": "undefined?Notebooks"
+      },
+      {
+        "slug": "undefined?Promoções"
+      }
+    ],
     "random": 6
   },
   "search_input": true
