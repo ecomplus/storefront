@@ -18,17 +18,7 @@
     "socials": true
   },
   "categories_list": {
-    "featured": [
-      {
-        "path_and_name": "/colecao-1?coleção 1"
-      },
-      {
-        "path_and_name": "/notebooks?Notebooks"
-      },
-      {
-        "path_and_name": "/promocoes?Promoções"
-      }
-    ],
+    "featured": [],
     "random": 6
   },
   "search_input": true
