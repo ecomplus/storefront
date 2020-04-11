@@ -1,7 +1,5 @@
 {
-  "sort_categories": [
-    "promocoes"
-  ],
+  "sort_categories": [],
   "phone_wpp": true,
   "socials": true
 }
