@@ -18,9 +18,7 @@
     "socials": true
   },
   "categories_list": {
-    "featured": [
-      "/promocoes?Promoções"
-    ],
+    "featured": [],
     "random": 6
   },
   "search_input": true
