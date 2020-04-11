@@ -21,7 +21,7 @@ const toggleSidenav = (slug, isClose) => {
       $overlay.once('hide', () => {
         toggleSidenav(null, true)
       })
-      $menu.style.display = 'block'
+      $menu.style.display = 'flex'
       animateCss($menu, 'slideInLeft')
       isVisible = true
       if ($collapse) {

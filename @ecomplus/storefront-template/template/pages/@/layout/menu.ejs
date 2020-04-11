@@ -1,6 +1,15 @@
 <%
-// optional menu options from content
-const menu = _.cms('menu')
+// load menu options and contacts from content
+const menu = _.cms('menu') || {}
+const contacts = _.cms('contacts') || {}
+
+// some social networks handled by contacts
+const networksWithColors = [
+  ['facebook', '#3b5998'],
+  ['youtube', '#ff0000'],
+  ['instagram', '#e1306c'],
+  ['twitter', '#1da1f2']
+]
 
 // start grouping categories by parent slug
 const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
@@ -9,11 +18,10 @@ const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
 
 const mainCategories = categoryParents._
 if (mainCategories) {
-  const orderedCategorySlugs = menu && menu.sort_categories
-  if (Array.isArray(orderedCategorySlugs)) {
+  if (Array.isArray(menu.sort_categories)) {
     // reorder first level categories list
-    for (let i = orderedCategorySlugs.length - 1; i >= 0; i--) {
-      const slug = orderedCategorySlugs[i]
+    for (let i = menu.sort_categories.length - 1; i >= 0; i--) {
+      const slug = menu.sort_categories[i]
       const categoryIndex = mainCategories.findIndex(category => category.slug === slug)
       if (categoryIndex > -1) {
         const category = mainCategories[categoryIndex]
@@ -113,4 +121,50 @@ if (mainCategories) {
       <% } %>
     <% } %>
   </nav>
+
+  <footer class="menu__footer">
+    <% if (menu.phone_wpp) { %>
+      <div class="menu__phone">
+        <% if (contacts.whatsapp) { %>
+          <a
+            href="javascript:;"
+            target="_blank"
+            rel="noopener"
+            class="whatsapp-link"
+            data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>"
+          >
+            <i class="fab fa-whatsapp mr-1"></i>
+            <%= contacts.whatsapp %>
+          </a>
+        <% } else if (contacts.phone) { %>
+          <a
+            href="tel:+<%= contacts.phone.replace(/\D/g, '') %>"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fas fa-phone mr-1"></i>
+            <%= contacts.phone %>
+          </a>
+        <% } %>
+      </div>
+    <% } %>
+
+    <% if (menu.socials) { %>
+      <div class="menu__social">
+        <% networksWithColors.forEach(([network, color]) => { %>
+          <% if (contacts[network]) { %>
+            <a
+              href="<%= contacts[network] %>"
+              target="_blank"
+              rel="noopener"
+              aria-label="<%= network %>"
+              style="color: <%= color %>"
+            >
+              <i class="fab fa-<%= network %>"></i>
+            </a>
+          <% } %>
+        <% }) %>
+      </div>
+    <% } %>
+  </footer>
 </aside>
