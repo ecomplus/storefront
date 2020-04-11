@@ -18,7 +18,7 @@ const bannerFields = [
   }
 ]
 
-export default [
+export default ({ state }) => [
   {
     label: 'Banner responsivo',
     name: 'responsive-banner',
@@ -60,7 +60,24 @@ export default [
         label: 'Slides',
         name: 'slides',
         widget: 'list',
-        fields: bannerFields
+        fields: bannerFields.concat([
+          {
+            label: 'Data de início',
+            required: false,
+            name: 'start',
+            widget: 'datetime',
+            dateFormat: 'DD/MM/YYYY',
+            timeFormat: 'HH:mm'
+          },
+          {
+            label: 'Data de encerramento',
+            required: false,
+            name: 'end',
+            widget: 'datetime',
+            dateFormat: 'DD/MM/YYYY',
+            timeFormat: 'HH:mm'
+          }
+        ])
       },
       {
         label: 'Slider autoplay',
@@ -96,7 +113,13 @@ export default [
         required: false,
         name: 'collection_id',
         hint: 'Se este campo não for preenchido, serão listados os produtos mais populares da loja',
-        widget: 'collections'
+        widget: 'select',
+        options: state.routes
+          .filter(({ resource }) => resource === 'collections')
+          .map(({ name, _id }) => ({
+            label: name,
+            value: _id
+          }))
       },
       {
         label: 'Embaralhar produtos',

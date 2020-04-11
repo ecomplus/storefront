@@ -1,16 +1,16 @@
 export default ({ baseDir }) => ({
-  label: 'Minicart',
-  name: 'ecomplus_widget_minicart',
-  file: `${baseDir}content/widgets/ecomplus-widget-minicart.json`,
+  label: 'Login de usuários',
+  name: 'component_user',
+  file: `${baseDir}content/widgets/component-user.json`,
   fields: [
     {
       name: 'pkg',
       widget: 'hidden',
-      default: '@ecomplus/widget-minicart'
+      default: '@ecomplus/widget-user'
     },
     {
       label: 'Ativar',
-      hint: 'Esse widget faz que o carrinho seja aberto na lateral da tela sem redirecionar da página',
+      hint: 'Caixa de login na página, sem redirecionar ou abrir nova guia',
       name: 'active',
       required: false,
       widget: 'boolean'

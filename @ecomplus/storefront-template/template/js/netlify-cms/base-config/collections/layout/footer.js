@@ -1,6 +1,6 @@
 export default ({ baseDir }) => ({
   name: 'footer',
-  label: 'Footer',
+  label: 'Rodapé',
   file: `${baseDir}content/footer.json`,
   fields: [
     {

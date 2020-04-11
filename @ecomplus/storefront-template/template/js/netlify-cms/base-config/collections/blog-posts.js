@@ -1,6 +1,4 @@
-import sections from './pages/_sections'
-
-export default ({ baseDir }) => ({
+export default ({ baseDir, sections }) => ({
   name: 'blog_posts',
   label: 'Posts para o blog',
   folder: `${baseDir}content/posts`,

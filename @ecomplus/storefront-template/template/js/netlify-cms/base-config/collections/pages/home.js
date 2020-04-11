@@ -1,6 +1,4 @@
-import sections from './_sections'
-
-export default ({ baseDir }) => ({
+export default ({ baseDir, sections }) => ({
   name: 'home',
   label: 'Página inicial',
   file: `${baseDir}content/home.json`,

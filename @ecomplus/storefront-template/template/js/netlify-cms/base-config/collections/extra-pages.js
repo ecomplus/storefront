@@ -1,6 +1,4 @@
-import sections from './pages/_sections'
-
-export default ({ baseDir }) => ({
+export default ({ baseDir, sections }) => ({
   name: 'extra_pages',
   label: 'Páginas extra',
   description: 'Páginas extra para conteúdo como Sobre nós, Política de privacidade, etc',

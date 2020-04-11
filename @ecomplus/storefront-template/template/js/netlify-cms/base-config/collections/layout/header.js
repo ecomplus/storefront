@@ -1,6 +1,6 @@
-export default ({ baseDir }) => ({
+export default ({ baseDir, state }) => ({
   name: 'header',
-  label: 'Header',
+  label: 'Cabeçalho',
   file: `${baseDir}content/header.json`,
   fields: [
     {
@@ -49,27 +49,52 @@ export default ({ baseDir }) => ({
           ]
         },
         {
-          label: 'Mostrar telefone e whatsapp',
+          label: 'Mostrar telefone e WhatsApp',
           name: 'phone_wpp',
-          required: false,
           widget: 'boolean'
         },
         {
           label: 'Mostrar redes sociais',
           name: 'socials',
-          required: false,
           widget: 'boolean'
         }
       ]
     },
     {
       label: 'Lista de categorias',
-      name: 'max_categories',
-      hint: 'Máximo de categorias principais exibidas diretamente no cabeçalho',
-      min: 0,
-      max: 20,
-      required: false,
-      widget: 'number'
+      name: 'categories_list',
+      widget: 'object',
+      hint: 'Categorias em destaque exibidas diretamente no cabeçalho',
+      fields: [
+        {
+          label: 'Categorias selecionadas',
+          name: 'featured',
+          widget: 'list',
+          field: {
+            label: 'Categoria/coleção/marca',
+            widget: 'select',
+            options: state.routes
+              .filter(({ resource, name }) => Boolean(resource !== 'products' && name))
+              .map(({ name, path }) => ({
+                label: name,
+                value: `${path}?${name}`
+              }))
+          }
+        },
+        {
+          label: 'Categorias aleatórias',
+          name: 'random',
+          widget: 'number',
+          min: 0,
+          max: 20,
+          hint: 'Máximo de categorias em primeiro nível escolhidas randomicamente'
+        }
+      ]
+    },
+    {
+      label: 'Mostrar input de busca',
+      name: 'search_input',
+      widget: 'boolean'
     }
   ]
 })

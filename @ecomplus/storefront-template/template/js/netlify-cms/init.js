@@ -18,8 +18,8 @@ const initCms = config => {
   window.CMS.init({ config })
 }
 
-export default (customConfig, baseDir) => new Promise(resolve => {
-  let config = merge(getBaseConfig({ baseDir }), customConfig)
+export default (customConfig, options) => new Promise(resolve => {
+  let config = merge(getBaseConfig(options), customConfig)
 
   axios.get('/admin/config.json')
     .then(({ data }) => {

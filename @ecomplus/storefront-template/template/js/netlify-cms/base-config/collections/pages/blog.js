@@ -1,6 +1,4 @@
-import sections from './_sections'
-
-export default ({ baseDir }) => ({
+export default ({ baseDir, sections }) => ({
   name: 'blog',
   label: 'Blog',
   hint: 'Configuração geral da página do blog',

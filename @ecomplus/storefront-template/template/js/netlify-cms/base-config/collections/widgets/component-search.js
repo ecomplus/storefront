@@ -1,16 +1,16 @@
 export default ({ baseDir }) => ({
-  label: 'Motor de busca',
-  name: 'ecomplus_widget_search_engine',
-  file: `${baseDir}content/widgets/ecomplus-widget-search-engine.json`,
+  label: 'Busca instantânea',
+  name: 'component_search',
+  file: `${baseDir}content/widgets/component-search.json`,
   fields: [
     {
       name: 'pkg',
       widget: 'hidden',
-      default: '@ecomplus/widget-search-engine'
+      default: '@ecomplus/widget-search'
     },
     {
       label: 'Ativar',
-      hint: 'Widget para exibir resultados de busca na página',
+      hint: 'Exibe uma prévia de resultado de busca logo abaixo do campo de pesquisa',
       name: 'active',
       required: false,
       widget: 'boolean'

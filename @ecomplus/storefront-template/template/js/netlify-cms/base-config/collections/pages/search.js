@@ -1,6 +1,4 @@
-import sections from './_sections'
-
-export default ({ baseDir }) => ({
+export default ({ baseDir, sections }) => ({
   name: 'search',
   label: 'Busca',
   hint: 'Configuração geral das páginas de busca',
