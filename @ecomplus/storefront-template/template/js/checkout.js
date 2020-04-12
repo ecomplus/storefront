@@ -1,7 +1,8 @@
 import './lib/config'
-import './lib/fetch-info'
+import '@ecomplus/storefront-twbs'
+
 import './lib/utils'
 
-import '@ecomplus/storefront-app/src/main'
+// import '@ecomplus/storefront-app/src/main'
 
-import('./lib/load-widgets').catch(console.error)
+// import('./lib/load-widgets').catch(console.error)
