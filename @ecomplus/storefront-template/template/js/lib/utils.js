@@ -1,4 +1,4 @@
-import { isSafari, isIOS, isIE, isMobile } from './_env'
+import { isSafari, isIOS, isIE, isMobile, isScreenXs } from './_env'
 import $ from 'jquery'
 
 if (isSafari || isIOS || isIE) {
@@ -22,3 +22,7 @@ $('.whatsapp-link').each(function () {
     $(this).attr('href', href)
   }
 })
+
+if (!isScreenXs) {
+  $('.footer .collapse').collapse('show')
+}
