@@ -10,6 +10,10 @@ if (isSafari || isIOS || isIE) {
   })
 }
 
+if (!isScreenXs) {
+  $('.footer .collapse').collapse('show')
+}
+
 $('.whatsapp-link').each(function () {
   const tel = $(this).data('tel').toString()
   if (tel) {
@@ -23,6 +27,20 @@ $('.whatsapp-link').each(function () {
   }
 })
 
-if (!isScreenXs) {
-  $('.footer .collapse').collapse('show')
+const $banners = $('.banner img[data-height]')
+if ($banners.length) {
+  const fixBannersHeight = () => {
+    $banners.each(function () {
+      const height = parseInt($(this).data('height'), 10)
+      if (height > 0) {
+        const width = parseInt($(this).data('width'), 10)
+        if (width > 0) {
+          const $parent = $(this).parent()
+          $parent.css('min-height', $parent.innerWidth() * height / width)
+        }
+      }
+    })
+  }
+  fixBannersHeight()
+  $(window).resize(fixBannersHeight)
 }
