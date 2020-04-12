@@ -12,16 +12,37 @@ if (Array.isArray(opt.slides)) {
     return true
   })
 }
-%>
 
-<% if (slides && slides.length) { %>
+if (slides && slides.length) {
+  let dimensions
+  const { img } = slides[0]
+  if (img.startsWith('/')) {
+    try {
+      dimensions = _.imageSize(`template/public${img}`)
+    } catch (e) {
+      dimensions = null
+    }
+  }
+  %>
+
   <div class="banner-slider">
-    <div class="glide" data-autoplay="<%= opt.autoplay %>">
+    <div
+      class="glide"
+      data-autoplay="<%= opt.autoplay %>"
+      <% if (dimensions) { %>
+        style="height: calc(100vw * <%= dimensions.height %> / <%= dimensions.width %>)"
+      <% } %>
+    >
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides banner-slider__slides">
           <% for (let i = 0; i < slides.length; i++) { %>
             <li class="glide__slide">
-              <%- await include('/@/sections/inc/banner', { _, opt: slides[i] }) %>
+              <%- await include('/@/sections/inc/banner', {
+                _, opt: {
+                  ...slides[i],
+                  height: dimensions && `calc(100vw * ${dimensions.height} / ${dimensions.width})`
+                }
+              }) %>
             </li>
           <% } %>
         </ul>

@@ -1,3 +1,36 @@
 .page-title {
-  color: var(--secondary);
+  &__head {
+    display: block;
+    color: var(--secondary);
+    margin-bottom: var(--spacer-2);
+
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    max-width: 16rem;
+    height: auto;
+    max-height: 6rem;
+
+    + h1 {
+      display: none;
+      color: var(--gray);
+
+      @media (min-width: 768px) {
+        display: inherit;
+      }
+
+      &::before {
+        content: ' # ';
+        font-weight: var(--font-normal);
+        font-size: 90%;
+        opacity: .5;
+        margin-right: var(--spacer-2);
+      }
+    }
+  }
 }

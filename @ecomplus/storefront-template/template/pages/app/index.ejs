@@ -17,7 +17,7 @@ const logo = _.settings.logo
 <body class="app">
   <header class="app__header">
     <div class="container-fluid">
-      <div class="row align-items-center">
+      <div class="row">
         <div class="col-12 col-sm-auto mb-2 mb-sm-0">
           <a href="/">
             <% if (logo && logo.url) { %>
@@ -42,7 +42,7 @@ const logo = _.settings.logo
           </div>
 
           <div class="app__safe">
-            <span class="app__safe__icon">
+            <span class="app__safe-icon">
               <i class="fas fa-shield-alt"></i>
             </span>
             <%= _.dictionary('safeEnvMsg') %>
@@ -58,47 +58,49 @@ const logo = _.settings.logo
     </div>
   </main>
 
-  <footer class="app__footer">
-    <div class="container-fluid">
-      <ul class="app__stamps">
-        <% footer.stamps.forEach(({ src, alt, link }) => { %>
-          <% if (link) { %>
-            <li>
-              <a href="<%= link %>" target="_blank" rel="noopener">
+  <footer>
+    <div class="app__footer">
+      <div class="container-fluid">
+        <ul class="app__stamps">
+          <% footer.stamps.forEach(({ src, alt, link }) => { %>
+            <% if (link) { %>
+              <li>
+                <a href="<%= link %>" target="_blank" rel="noopener">
+                  <img src="<%= src %>" alt="<%= alt %>">
+                </a>
+              </li>
+              <% } else { %>
+              <li>
                 <img src="<%= src %>" alt="<%= alt %>">
-              </a>
-            </li>
-            <% } else { %>
-            <li>
-              <img src="<%= src %>" alt="<%= alt %>">
-            </li>
-          <% } %>
-        <% }) %>
-      </ul>
+              </li>
+            <% } %>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="app__credits container">
+      <div>
+        <% if (footer.credits) { %>
+          <span><%= footer.credits %></span>
+        <% } else { %>
+          <span class="app__credits-name">© <%= _.settings.name %> </span>
+          <span class="app__credits-address"> - <%= contacts.address %> - </span>
+          <span class="app__credits-number"> <%= contacts.doc_number %></span>
+        <% } %>
+      </div>
+
+      <div class="ecom-credits">
+        <a href="https://e-com.plus" target="_blank" rel="noopener">
+          Powered by
+          <img src="https://ecom.nyc3.digitaloceanspaces.com/brand/plus/198x43.png" alt="E-Com Plus">
+        </a>
+      </div>
     </div>
   </footer>
 
-  <div class="app__credits container">
-    <div>
-      <% if (footer.credits) { %>
-        <span><%= footer.credits %></span>
-      <% } else { %>
-        <span class="app__credits__name">© <%= _.settings.name %> </span>
-        <span class="app__credits__address"> - <%= contacts.address %> - </span>
-        <span class="app__credits__number"> <%= contacts.doc_number %></span>
-      <% } %>
-    </div>
-
-    <div class="ecom-credits">
-      <a href="https://e-com.plus" target="_blank" rel="noopener">
-        Powered by
-        <img src="https://ecom.nyc3.digitaloceanspaces.com/brand/plus/198x43.png" alt="E-Com Plus">
-      </a>
-    </div>
-  </div>
-
   <%- await include('/@/json', { _ }) %>
-  <script src="/checkout.js"></script>
+  <%- await include('/@/scripts') %>
 </body>
 
 </html>

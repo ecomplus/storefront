@@ -24,6 +24,11 @@
 
   &__row {
     align-items: center;
+    min-height: 45px;
+
+    @media (min-width: 768px) {
+      min-height: 60px;
+    }
   }
 
   &__toggler {
@@ -45,7 +50,7 @@
       box-shadow: none;
     }
 
-    &__icon {
+    &-icon {
       color: var(--secondary);
       font-size: 1.3rem;
       margin-right: var(--spacer-1);

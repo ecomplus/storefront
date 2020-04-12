@@ -1,6 +1,6 @@
 <%
 let dimensions
-if (opt.img.startsWith('/')) {
+if (!opt.height && opt.img.startsWith('/')) {
   try {
     dimensions = _.imageSize(`template/public${opt.img}`)
   } catch (e) {
@@ -16,6 +16,8 @@ if (opt.img.startsWith('/')) {
       <% if (dimensions) { %>
         data-width="<%= dimensions.width %>"
         data-height="<%= dimensions.height %>"
+      <% } else if (opt.height) { %>
+        style="min-height: <%- opt.height %>"
       <% } %>
       data-src="<%= opt.img %>"
       alt="<%= opt.alt %>"

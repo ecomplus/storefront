@@ -18,7 +18,7 @@ switch (path) {
     }
 }
 
-_.state = _.cms(_.pageName)
+_.state = _.cms(_.pageName) || {}
 if (resource || collection) {
   // merge resource body or folder collection content
   const { body, content } = await _.resolveRoute()
@@ -49,7 +49,7 @@ if (url) {
 %>
 
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1">
 <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials">
 <meta name="theme-color" content="<%= _.primaryColor %>">
 <link rel="icon" href="<%= _.settings.favicon %>">
@@ -110,3 +110,16 @@ if (url) {
 <% } %>
 
 <meta name="ecom-store-id" content="<%= _.storeId %>">
+
+<%
+// inject custom code
+const customCode = _.cms('code') || {}
+if (customCode.css) {
+  %>
+  <style>
+    <%- customCode.css %>
+  </style>
+  <%
+}
+%>
+<%- customCode.html_head %>
