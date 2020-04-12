@@ -1,24 +1,25 @@
 .header {
+  position: sticky;
+  top: 0;
   width: 100%;
   background: var(--light);
-  padding: var(--spacer-2);
-  border-bottom: 2px solid var(--primary-lighter);
+  padding: var(--spacer-1);
+  border-bottom: 1px solid var(--primary-lighter);
   box-shadow: var(--box-shadow-sm);
   z-index: 900;
 
   @media (min-width: 576px) {
-    padding-left: var(--spacer-3);
-    padding-right: var(--spacer-3);
-  }
-
-  @media (min-height: 600px) {
-    position: sticky;
-    top: 0;
+    border-width: 2px;
+    padding: var(--spacer-2) var(--spacer-3);
   }
 
   &__container {
     max-width: 80rem;
-    margin: var(--spacer-1) auto;
+
+    @media (min-width: 768px) {
+      margin-top: var(--spacer-1);
+      margin-bottom: var(--spacer-1);
+    }
   }
 
   &__row {
@@ -27,17 +28,17 @@
 
   &__toggler {
     color: var(--text-muted);
+    min-width: 32px;
     opacity: .85;
-    padding: .5rem .2rem;
+    padding: var(--spacer-2) var(--spacer-1);
     height: 100%;
-    font-weight: 500;
+    font-weight: var(--font-headings);
     text-transform: uppercase;
     transition: opacity .15s;
     margin-top: -.15rem;
 
     &:hover {
       opacity: 1;
-      color: var(--gray);
     }
 
     &:focus {
@@ -47,19 +48,20 @@
     &__icon {
       color: var(--secondary);
       font-size: 1.3rem;
-      margin-right: .25rem;
+      margin-right: var(--spacer-1);
       margin-bottom: -.13rem;
     }
   }
 
   &__logo {
-    max-width: 300px;
-    max-height: 60px;
+    max-width: 125px;
+    max-height: calc(var(--font-size-lg) * var(--line-height-lg) + 2 * var(--spacer-2));
     width: auto;
     height: auto;
 
-    @media (max-width: 575.98px) {
-      max-width: 125px;
+    @media (min-width: 576px) {
+      max-width: 300px;
+      max-height: 60px;
     }
   }
 
@@ -84,8 +86,8 @@
   }
 
   &__buttons .btn {
-    padding: var(--spacer-2) var(--spacer-1);
-    margin-left: var(--spacer-2);
+    padding: var(--spacer-2);
+    margin-left: var(--spacer-1);
     color: var(--secondary);
     transition: color .2s;
     box-shadow: none;
@@ -96,7 +98,6 @@
 
     @media (min-width: 1200px) {
       font-size: var(--h4);
-      margin-left: var(--spacer-3);
     }
   }
 

@@ -18,11 +18,23 @@ const logo = _.settings.logo
   ? { url: _.settings.logo, alt: _.settings.name }
   : _.store.logo
 
-// list up to `max` main categories
+// list featured categories
 let categories = []
-if (header.max_categories) {
-  categories = _.categories.filter(({ parent }) => !parent || !parent.slug)
-    .slice(0, header.max_categories)
+if (header.categories_list) {
+  if (header.categories_list.featured.length) {
+    // selected categories/collections/brands
+    categories = header.categories_list.featured.map(pathAndName => {
+      const [path, name] = pathAndName.split('?')
+      return { slug: path.slice(1), name }
+    })
+  }
+  if (header.categories_list.random) {
+    // add up to `random` main categories
+    const mainCategories = _.categories.filter(({ parent }) => !parent || !parent.slug)
+    for (let i = 0; i < header.categories_list.random && i < mainCategories.length; i++) {
+      categories.push(mainCategories[i])
+    }
+  }
 }
 %>
 
@@ -31,17 +43,15 @@ if (header.max_categories) {
 <div class="top-bar">
   <% if (header.marketing_stripe) { %>
     <% if (header.marketing_stripe.text) { %>
-      <div class="d-none d-sm-block">
-        <% if (header.marketing_stripe.link) { %>
-          <a class="top-bar__countdown" href="<%= header.marketing_stripe.link %>">
-            <%= header.marketing_stripe.text %>
-          </a>
-        <% } else { %>
-          <div class="top-bar__countdown">
-            <%= header.marketing_stripe.text %>
-          </div>
-        <% } %>
-      </div>
+      <% if (header.marketing_stripe.link) { %>
+        <a class="top-bar__countdown" href="<%= header.marketing_stripe.link %>">
+          <%= header.marketing_stripe.text %>
+        </a>
+      <% } else { %>
+        <div class="top-bar__countdown">
+          <%= header.marketing_stripe.text %>
+        </div>
+      <% } %>
     <% } %>
   <% } %>
 
@@ -116,7 +126,7 @@ if (header.max_categories) {
         </button>
       </div>
 
-      <div class="col col-lg-auto">
+      <div class="col col-lg-auto pl-1 pl-md-2 pl-lg-3">
         <a href="/">
           <% if (logo && logo.url) { %>
             <img
@@ -162,8 +172,8 @@ if (header.max_categories) {
             aria-label="User button"
           >
             <!--
-              `widgetUser` is rendered here:
-              https://github.com/ecomclub/widget-user
+              `LoginModal` should be rendered here:
+              https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/LoginModal.html
             -->
             <i class="fas fa-user"></i>
           </a>
@@ -178,61 +188,64 @@ if (header.max_categories) {
             aria-label="Cart button"
           >
             <!--
-              `widgetMinicart` is rendered here:
-              https://github.com/ecomclub/widget-minicart
+              `CartQuickview` should be rendered here:
+              https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/CartQuickview.html
             -->
             <i class="fas fa-shopping-bag"></i>
           </a>
         </div>
       </div>
 
-      <div
-        class="d-none d-lg-block col-12 col-lg<%= categories.length ? '-3' : '' %> collapse show"
-        id="search-bar"
-      >
-        <form
-          class="header__search mt-2 mt-md-3 mt-lg-0"
-          id="search-form"
-          action="/search"
-          method="get"
+      <% if (header.search_input) { %>
+        <div
+          class="d-none d-lg-block col-12 col-lg<%= categories.length ? '-3' : '' %> collapse show"
+          id="search-bar"
         >
-          <input
-            type="search"
-            name="term"
-            placeholder="<%= _.dictionary('searchProducts') %>"
-            aria-label="<%= _.dictionary('searchProducts') %>"
-            class="header__search-input form-control"
-            id="search-input"
+          <form
+            class="header__search mt-2 mt-md-3 mt-lg-0"
+            id="search-form"
+            action="/search"
+            method="get"
           >
-          <!--
-            `widgetSearch` is rendered here:
-            https://github.com/ecomclub/widget-search
-          -->
-          <button
-            type="submit"
-            class="header__search-btn"
-            aria-label="<%= _.dictionary('searchProducts') %>"
-          >
-            <i class="fas fa-search"></i>
-          </button>
-        </form>
-        <% if (_.settings.domain) { %>
-          <script type="application/ld+json"><%-
-            JSON.stringify({
-              '@context': 'http://schema.org',
-              '@type': 'WebSite',
-              url: `https://${_.settings.domain}/`,
-              potentialAction: {
-                '@type': 'SearchAction',
-                target: `https://${_.settings.domain}/search?term={search_term_string}`,
-                'query-input': 'required name=search_term_string'
-              }
-            })
-          %></script>
-        <% } %>
-      </div>
+            <!--
+              `InstantSearch` should be open on input focus:
+              https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/InstantSearch.html
+            -->
+            <input
+              type="search"
+              name="term"
+              placeholder="<%= _.dictionary('searchProducts') %>"
+              aria-label="<%= _.dictionary('searchProducts') %>"
+              class="header__search-input form-control"
+              id="search-input"
+            >
+            <button
+              type="submit"
+              class="header__search-btn"
+              aria-label="<%= _.dictionary('searchProducts') %>"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
 
-      <% if (categories.length) { %>
+          <% if (_.settings.domain) { %>
+            <script type="application/ld+json"><%-
+              JSON.stringify({
+                '@context': 'http://schema.org',
+                '@type': 'WebSite',
+                url: `https://${_.settings.domain}/`,
+                potentialAction: {
+                  '@type': 'SearchAction',
+                  target: `https://${_.settings.domain}/search?term={search_term_string}`,
+                  'query-input': 'required name=search_term_string'
+                }
+              })
+            %></script>
+          <% } %>
+        </div>
+      <% } %>
+
+      <% if (categories && categories.length) { %>
         <div class="col d-none d-lg-block">
           <nav class="header__nav">
             <% categories.forEach(({ slug, name }) => { %>
