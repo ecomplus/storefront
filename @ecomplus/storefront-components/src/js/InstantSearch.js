@@ -108,9 +108,11 @@ export default {
   watch: {
     isVisible: {
       handler (isVisible) {
-        if (isVisible && this.$refs.input) {
+        if (isVisible) {
           this.$nextTick(() => {
-            this.$refs.input.focus()
+            if (this.$refs.input) {
+              this.$refs.input.focus()
+            }
           })
         }
       },
