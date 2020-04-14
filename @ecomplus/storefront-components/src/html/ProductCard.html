@@ -95,6 +95,7 @@
           class="product-card__buy fade"
         >
           <slot name="buy">
+            <div v-if="buyHtml" v-html="buyHtml"></div>
             <button
               type="button"
               class="btn btn-primary"
@@ -109,7 +110,9 @@
         </div>
       </template>
 
-      <slot name="footer"/>
+      <slot name="footer">
+        <div v-if="footerHtml" v-html="footerHtml"></div>
+      </slot>
     </section>
   </transition>
 

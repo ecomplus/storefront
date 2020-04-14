@@ -56,13 +56,15 @@ export default {
   computed: {
     i19outOfStock: () => i18n(i19outOfStock),
     i19unavailable: () => i18n(i19unavailable),
+    buyHtml: () => window.productCardBuyHtml,
+    footerHtml: () => window.productCardFooterHtml,
 
     name () {
       return getName(this.body)
     },
 
     strBuy () {
-      return this.buyText || i18n(i19buy)
+      return this.buyText || window.productCardBuyText || i18n(i19buy)
     },
 
     isInStock () {
