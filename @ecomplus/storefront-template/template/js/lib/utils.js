@@ -1,5 +1,5 @@
 import { isSafari, isIOS, isIE, isMobile, isScreenXs } from './_env'
-import $ from 'jquery'
+import { $ } from '@ecomplus/storefront-twbs'
 
 if (isSafari || isIOS || isIE) {
   $('img').each(function () {

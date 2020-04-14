@@ -1,5 +1,5 @@
 import { isScreenLg } from './_env'
-import $ from 'jquery'
+import { $ } from '@ecomplus/storefront-twbs'
 
 const $searchBar = $('#search-bar')
 

@@ -1,5 +1,4 @@
-import $ from 'jquery'
-import { animateCss } from '@ecomplus/storefront-twbs'
+import { animateCss, $ } from '@ecomplus/storefront-twbs'
 import $overlay from './$overlay'
 
 const $menu = $('#menu')[0]
