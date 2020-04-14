@@ -1,16 +1,16 @@
 export default ({ baseDir }) => ({
-  label: 'Produtos',
-  name: 'component_product',
-  file: `${baseDir}content/widgets/component-product.json`,
+  label: 'Card de produtos',
+  name: 'component_product_card',
+  file: `${baseDir}content/widgets/product-card.json`,
   fields: [
     {
       name: 'pkg',
       widget: 'hidden',
-      default: '@ecomplus/widget-product'
+      default: '@ecomplus/widget-product-card'
     },
     {
       label: 'Ativar',
-      hint: 'Produto a ser exibido na página de produto',
+      hint: 'Card de produtos exibido na vitrine e em vários outros pontos da loja',
       name: 'active',
       required: false,
       widget: 'boolean'

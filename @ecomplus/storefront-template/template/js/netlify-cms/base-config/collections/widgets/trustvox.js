@@ -1,16 +1,16 @@
 export default ({ baseDir }) => ({
-  label: 'Facebook Pixel',
-  name: 'widget_fb_pixel',
-  file: `${baseDir}content/widgets/widget-fb-pixel.json`,
+  label: 'Trustvox',
+  name: 'widget_trustvox',
+  file: `${baseDir}content/widgets/trustvox.json`,
   fields: [
     {
       name: 'pkg',
       widget: 'hidden',
-      default: '@ecomplus/widget-fb-pixel'
+      default: '@ecomplus/widget-trustvox'
     },
     {
       label: 'Ativar',
-      hint: 'Instalar o pixel do Facebook',
+      hint: 'Avaliações de produtos via Trustvox',
       name: 'active',
       required: false,
       widget: 'boolean'
@@ -25,7 +25,7 @@ export default ({ baseDir }) => ({
     {
       name: 'enableCheckout',
       widget: 'hidden',
-      default: true
+      default: false
     },
     {
       label: 'Opções',
@@ -34,26 +34,11 @@ export default ({ baseDir }) => ({
       hint: 'Personalizações do widget',
       fields: [
         {
-          label: 'ID do pixel',
-          name: 'fbqContainerId',
-          widget: 'string'
-        },
-        {
-          name: 'debug',
-          widget: 'hidden',
-          default: false
+          label: 'ID da loja na Trustvox',
+          name: 'trustvoxStoreId',
+          widget: 'number'
         }
       ]
-    },
-    {
-      name: 'headAppend',
-      widget: 'hidden',
-      default: 'src/append/head'
-    },
-    {
-      name: 'bodyAppend',
-      widget: 'hidden',
-      default: 'src/append/body'
     }
   ]
 })

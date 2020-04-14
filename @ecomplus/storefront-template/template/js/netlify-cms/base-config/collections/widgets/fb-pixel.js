@@ -1,16 +1,16 @@
 export default ({ baseDir }) => ({
-  label: 'Google Tag Manager',
-  name: 'widget_tag_manager',
-  file: `${baseDir}content/widgets/widget-tag-manager.json`,
+  label: 'Facebook Pixel',
+  name: 'widget_fb_pixel',
+  file: `${baseDir}content/widgets/fb-pixel.json`,
   fields: [
     {
       name: 'pkg',
       widget: 'hidden',
-      default: '@ecomplus/widget-tag-manager'
+      default: '@ecomplus/widget-fb-pixel'
     },
     {
       label: 'Ativar',
-      hint: 'Instalar o Gerenciador de tags do Google',
+      hint: 'Instalar o pixel do Facebook',
       name: 'active',
       required: false,
       widget: 'boolean'
@@ -34,19 +34,14 @@ export default ({ baseDir }) => ({
       hint: 'Personalizações do widget',
       fields: [
         {
-          label: 'Código do contêiner GTM',
-          name: 'gtmContainerId',
+          label: 'ID do pixel',
+          name: 'fbqContainerId',
           widget: 'string'
         },
         {
-          name: 'dataLayerVar',
+          name: 'debug',
           widget: 'hidden',
-          default: 'dataLayer'
-        },
-        {
-          name: 'parseDomMsDelay',
-          widget: 'hidden',
-          default: 300
+          default: false
         }
       ]
     },

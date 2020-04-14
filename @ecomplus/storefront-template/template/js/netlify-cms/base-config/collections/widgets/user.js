@@ -1,7 +1,7 @@
 export default ({ baseDir }) => ({
   label: 'Login de usuários',
   name: 'component_user',
-  file: `${baseDir}content/widgets/component-user.json`,
+  file: `${baseDir}content/widgets/user.json`,
   fields: [
     {
       name: 'pkg',

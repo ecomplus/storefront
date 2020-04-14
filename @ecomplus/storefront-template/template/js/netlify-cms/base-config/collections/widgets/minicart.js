@@ -1,16 +1,16 @@
 export default ({ baseDir }) => ({
-  label: 'Busca instantânea',
-  name: 'component_search',
-  file: `${baseDir}content/widgets/component-search.json`,
+  label: 'Minicart',
+  name: 'component_minicart',
+  file: `${baseDir}content/widgets/minicart.json`,
   fields: [
     {
       name: 'pkg',
       widget: 'hidden',
-      default: '@ecomplus/widget-search'
+      default: '@ecomplus/widget-minicart'
     },
     {
       label: 'Ativar',
-      hint: 'Exibe uma prévia de resultado de busca logo abaixo do campo de pesquisa',
+      hint: 'Esse widget faz que o carrinho seja aberto na lateral da tela sem redirecionar da página',
       name: 'active',
       required: false,
       widget: 'boolean'

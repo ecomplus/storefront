@@ -1,7 +1,7 @@
 export default ({ baseDir }) => ({
   label: 'Motor de busca',
   name: 'component_search_engine',
-  file: `${baseDir}content/widgets/component-search-engine.json`,
+  file: `${baseDir}content/widgets/search-engine.json`,
   fields: [
     {
       name: 'pkg',

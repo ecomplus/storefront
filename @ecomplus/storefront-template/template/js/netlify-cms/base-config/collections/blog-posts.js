@@ -1,6 +1,7 @@
 export default ({ baseDir, sections }) => ({
-  name: 'blog_posts',
-  label: 'Posts para o blog',
+  name: 'blog-posts',
+  label: 'Posts do blog',
+  description: 'Posts para o blog da loja com conteúdo atrativo para o seu público',
   folder: `${baseDir}content/posts`,
   extension: 'json',
   create: true,

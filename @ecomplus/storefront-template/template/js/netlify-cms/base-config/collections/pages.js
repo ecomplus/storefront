@@ -9,6 +9,7 @@ import getBlog from './pages/blog'
 export default options => ({
   name: 'pages',
   label: 'Páginas',
+  description: 'Páginas principais e pré-definidas da loja',
   delete: false,
   files: [
     getHome(options),

@@ -1,7 +1,7 @@
 export default ({ baseDir, sections }) => ({
-  name: 'extra_pages',
+  name: 'extra-pages',
   label: 'Páginas extra',
-  description: 'Páginas extra para conteúdo como Sobre nós, Política de privacidade, etc',
+  description: 'Páginas institucionais, regras e informações do site',
   folder: `${baseDir}content/pages`,
   extension: 'json',
   create: true,
