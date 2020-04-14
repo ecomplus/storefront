@@ -8,6 +8,7 @@ import './lib/lazy-load'
 import './lib/glide-slides'
 import './lib/menu'
 import './lib/search'
+import './lib/shopping-cart'
 import './lib/persist-utm'
 
 import lozad from 'lozad'

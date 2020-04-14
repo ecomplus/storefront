@@ -96,6 +96,7 @@
     color: var(--secondary);
     transition: color .2s;
     box-shadow: none;
+    position: relative;
 
     &:hover {
       color: var(--primary);
@@ -103,6 +104,13 @@
 
     @media (min-width: 1200px) {
       font-size: var(--h4);
+    }
+
+    .badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      font-size: .75rem;
     }
   }
 

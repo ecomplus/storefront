@@ -171,10 +171,6 @@ if (header.categories_list) {
             title="<%= _.dictionary('myAccount') %>"
             aria-label="User button"
           >
-            <!--
-              `LoginModal` should be rendered here:
-              https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/LoginModal.html
-            -->
             <i class="fas fa-user"></i>
           </a>
           <a
@@ -187,12 +183,22 @@ if (header.categories_list) {
             title="<%= _.dictionary('openCart') %>"
             aria-label="Cart button"
           >
-            <!--
-              `CartQuickview` should be rendered here:
-              https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/CartQuickview.html
-            -->
             <i class="fas fa-shopping-bag"></i>
+            <span id="cart-count" class="badge badge-primary"></span>
           </a>
+        </div>
+
+        <div id="login-modal">
+          <!--
+            `LoginModal` should be rendered here:
+            https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/LoginModal.html
+          -->
+        </div>
+        <div id="cart-quickview">
+          <!--
+            `CartQuickview` should be rendered here:
+            https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/CartQuickview.html
+          -->
         </div>
       </div>
 
@@ -207,10 +213,6 @@ if (header.categories_list) {
             action="/search"
             method="get"
           >
-            <!--
-              `InstantSearch` should be open on input focus:
-              https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/InstantSearch.html
-            -->
             <input
               type="search"
               name="term"
@@ -226,6 +228,12 @@ if (header.categories_list) {
             >
               <i class="fas fa-search"></i>
             </button>
+            <div id="instant-search">
+              <!--
+                `InstantSearch` should be open on input focus:
+                https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/InstantSearch.html
+              -->
+            </div>
           </form>
 
           <% if (_.settings.domain) { %>
