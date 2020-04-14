@@ -8,8 +8,9 @@ import Vue from 'vue'
 import InstantSearch from '#components/InstantSearch.vue'
 
 export default (options = {}, elId = 'instant-search', inputId = 'search-input') => {
+  const $instantSearch = document.getElementById(elId)
   const $searchInput = document.getElementById(inputId)
-  if ($searchInput) {
+  if ($instantSearch && $searchInput) {
     const getScopedSlots = window.storefront && window.storefront.getScopedSlots
 
     new Vue({
@@ -44,10 +45,10 @@ export default (options = {}, elId = 'instant-search', inputId = 'search-input')
             }
           },
           scopedSlots: typeof getScopedSlots === 'function'
-            ? getScopedSlots($searchInput.parentElement, createElement)
+            ? getScopedSlots($instantSearch, createElement)
             : undefined
         })
       }
-    }).$mount(document.getElementById(elId))
+    }).$mount($instantSearch)
   }
 }
