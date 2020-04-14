@@ -29,9 +29,7 @@
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-product-card#readme",
   "peerDependencies": {
-    "@ecomplus/client": ">=1 <3",
     "@ecomplus/search-engine": ">=1 <3",
-    "@ecomplus/shopping-cart": ">=1 <3",
     "@ecomplus/utils": "^1.3.4",
     "core-js": "3.x",
     "lozad": "1.x",
