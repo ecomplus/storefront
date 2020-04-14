@@ -1,7 +1,9 @@
 .banner-slider {
   width: 100%;
-  height: auto;
   max-width: 80rem;
+  height: auto;
+  height: calc(100vw * var(--banner-aspect-ratio) - 5px);
+  max-height: calc(80rem * var(--banner-aspect-ratio));
   margin: 0 auto;
 
   &__slides,

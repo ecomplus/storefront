@@ -27,10 +27,10 @@ $('.whatsapp-link').each(function () {
   }
 })
 
-const $banners = $('.banner img[data-height]')
-if ($banners.length) {
+const $pictures = $('.banner [data-height]')
+if ($pictures.length) {
   const fixBannersHeight = () => {
-    $banners.each(function () {
+    $pictures.each(function () {
       const height = parseInt($(this).data('height'), 10)
       if (height > 0) {
         const width = parseInt($(this).data('width'), 10)

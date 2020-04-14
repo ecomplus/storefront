@@ -7,9 +7,14 @@
     display: block;
   }
 
-  img {
+  picture {
     display: block;
     margin: 0 auto;
+    min-height: 1rem;
+
+    img {
+      width: 100%;
+    }
   }
 
   .lozad:not([data-loaded="true"]) {
