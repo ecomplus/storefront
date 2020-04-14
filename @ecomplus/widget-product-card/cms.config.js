@@ -1,7 +1,7 @@
 import { name } from './package.json'
 
 export default () => ({
-  label: 'Card de produtos',
+  label: 'Cards de produtos',
   fields: [
     {
       name: 'pkg',
