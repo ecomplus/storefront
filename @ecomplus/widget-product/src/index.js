@@ -5,23 +5,34 @@
  */
 
 import Vue from 'vue'
-import '@ecomplus/storefront-twbs'
-import EcProduct from './components/EcProduct.vue'
-import getScopedSlots from './lib/get-scoped-slots'
+import TheProduct from '#components/TheProduct.vue'
 
-export default (options = {}, elId = 'product-block') => {
+export default (options = {}, elId = 'product') => {
   const $productBlock = document.getElementById(elId)
-
   if ($productBlock) {
+    const getScopedSlots = window.storefront && window.storefront.getScopedSlots
+
     new Vue({
-      render: h => h(EcProduct, {
+      render: h => h(TheProduct, {
         attrs: {
           id: elId
         },
         props: {
-          ...options.props
+          buyText: options.buyText
         },
-        scopedSlots: getScopedSlots($productBlock, h)
+
+        scopedSlots: Object.assign(
+          {
+            buy: !options.buy ? undefined : function () {
+              return h('span', {
+                domProps: {
+                  innerHTML: options.buy
+                }
+              })
+            }
+          },
+          typeof getScopedSlots === 'function' ? getScopedSlots($productBlock, h) : {}
+        )
       })
     }).$mount($productBlock)
   }
