@@ -15,6 +15,12 @@ const bannerFields = [
     required: false,
     name: 'alt',
     widget: 'string'
+  },
+  {
+    label: 'Imagem para mobile',
+    required: false,
+    name: 'mobile_img',
+    widget: 'image'
   }
 ]
 
