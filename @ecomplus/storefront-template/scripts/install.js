@@ -60,15 +60,21 @@ const copyFolder = ({
   }
 }
 
-;['dictionary', 'widgets'].forEach(contentFolder => {
-  copyFolder({
-    dirTemplate: path.join(__dirname, '../content'),
-    pathFrom: contentFolder,
-    pathDest: 'content',
-    pathsTo: [contentFolder],
-    overwrite: false,
-    mergeJson: true
-  })
+copyFolder({
+  dirTemplate: path.join(__dirname, '../content'),
+  pathFrom: 'widgets',
+  pathDest: 'content',
+  pathsTo: ['widgets'],
+  overwrite: false,
+  mergeJson: true
+})
+
+copyFolder({
+  dirTemplate: path.join(__dirname, '../template'),
+  pathFrom: 'pages',
+  pathDest: 'template',
+  pathsTo: ['pages'],
+  overwrite: false
 })
 
 copyFolder({
@@ -76,6 +82,19 @@ copyFolder({
   pathFrom: 'public/assets',
   pathDest: 'template',
   pathsTo: ['public', 'assets']
+})
+
+const placeholderPath = path.join(__dirname, '../__fixtures__/placeholder.json')
+Object.keys(pkg.dependencies).forEach(pkgName => {
+  const parts = pkgName.match(/^(@ecomplus\/|storefront-)widget-(.*)/i)
+  if (parts && parts.length === 3) {
+    recursiveCopy(
+      placeholderPath,
+      path.join(__dirname, `../content/widgets/${parts[2]}.json`),
+      false,
+      false
+    )
+  }
 })
 
 console.log('[DONE] @ecomplus/storefront-template')
