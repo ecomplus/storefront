@@ -3,6 +3,8 @@
   "active": true,
   "desktopOnly": false,
   "options": {
-    "buyText": ""
+    "buyText": "",
+    "buy": "",
+    "footer": ""
   }
 }
