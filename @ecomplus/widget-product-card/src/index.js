@@ -30,6 +30,7 @@ export default (options = {}, elClass = 'product-card') => {
           'data-sku': sku
         },
         props: {
+          ...options.props,
           productId,
           product,
           isLoaded

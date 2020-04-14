@@ -18,6 +18,7 @@ export default (options = {}, elId = 'product') => {
           id: elId
         },
         props: {
+          ...options.props,
           buyText: options.buyText
         },
 
