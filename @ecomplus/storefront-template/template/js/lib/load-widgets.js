@@ -48,23 +48,11 @@ const loadWidget = (pkg, runImport) => {
   widgetsLoadPromises.push(waitWidgetResolve)
 }
 
-if (!isCheckout) {
-  /*
-  const { resource } = document.body.dataset
-  if (resource && resource.startsWith('product')) {
-    loadWidget(
-      '@ecomplus/widget-product',
-      () => import(/* webpackPrefetch: true /
-        '@ecomplus/widget-product')
-    )
-  } else if (document.getElementById('search')) {
-    loadWidget(
-      '@ecomplus/widget-search-engine',
-      () => import(/* webpackPrefetch: true /
-        '@ecomplus/widget-search-engine')
-    )
-  }
-  */
+if (!isCheckout && document.body.dataset.resource === 'products') {
+  loadWidget(
+    '@ecomplus/widget-product',
+    () => import(/* webpackPrefetch: true */ '@ecomplus/widget-product')
+  )
 }
 
 Promise.all(widgetsLoadPromises).then(() => {
@@ -73,13 +61,15 @@ Promise.all(widgetsLoadPromises).then(() => {
     () => Promise.resolve({ default: widgetProductCard })
   )
 
+  if (window.location.pathname === '/search') {
+    loadWidget(
+      '@ecomplus/widget-search-engine',
+      () => import(/* webpackPrefetch: true */ '@ecomplus/widget-search-engine')
+    )
+  }
+
   const startLowProrityWidgets = () => {
-    /*
     if (!isCheckout) {
-      loadWidget(
-        '@ecomplus/widget-user',
-        () => import('@ecomplus/widget-user')
-      )
       loadWidget(
         '@ecomplus/widget-search',
         () => import('@ecomplus/widget-search')
@@ -88,9 +78,16 @@ Promise.all(widgetsLoadPromises).then(() => {
         '@ecomplus/widget-minicart',
         () => import('@ecomplus/widget-minicart')
       )
+      /*
+      loadWidget(
+        '@ecomplus/widget-user',
+        () => import('@ecomplus/widget-user')
+      )
+      */
     }
 
     Promise.all(widgetsLoadPromises).then(() => {
+      /*
       loadWidget(
         '@ecomplus/widget-tag-manager',
         () => import('@ecomplus/widget-tag-manager')
@@ -103,8 +100,8 @@ Promise.all(widgetsLoadPromises).then(() => {
         '@ecomplus/widget-trustvox',
         () => import('@ecomplus/widget-trustvox')
       )
+      */
     })
-    */
   }
 
   if (typeof window.requestIdleCallback === 'function') {

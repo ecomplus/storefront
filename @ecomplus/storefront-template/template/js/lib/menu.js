@@ -1,5 +1,5 @@
 import { animateCss, $ } from '@ecomplus/storefront-twbs'
-import $overlay from './$overlay'
+import overlay from './overlay'
 
 const $menu = $('#menu')[0]
 let isVisible = false
@@ -16,8 +16,8 @@ const toggleSidenav = (slug, isClose) => {
 
   if (!isVisible) {
     if (isClose !== true) {
-      $overlay.show()
-      $overlay.once('hide', () => {
+      overlay.show()
+      overlay.once('hide', () => {
         toggleSidenav(null, true)
       })
       $menu.style.display = 'flex'
@@ -30,7 +30,7 @@ const toggleSidenav = (slug, isClose) => {
   } else {
     animateCss($menu, 'slideOutLeft').then(() => {
       $menu.style.display = null
-      $overlay.hide()
+      overlay.hide()
     })
     isVisible = false
   }
