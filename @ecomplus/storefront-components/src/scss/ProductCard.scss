@@ -48,6 +48,10 @@ $product-card-picture-lg: 250px;
     border-radius: var(--border-radius);
     flex: 0 0 100%;
 
+    img {
+      max-width: 100%;
+    }
+
     &:not(:last-child) {
       opacity: 0;
 
