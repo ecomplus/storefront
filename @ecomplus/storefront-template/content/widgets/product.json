@@ -3,12 +3,6 @@
   "active": true,
   "desktopOnly": false,
   "options": {
-    "props": {
-      "buyText": ""
-    },
-    "slots": {
-      "buy": ""
-    },
     "buyText": "",
     "buy": ""
   }
