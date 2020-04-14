@@ -238,7 +238,11 @@ const tryConfigMerge = moduleName => {
   let customConfig
   try {
     customConfig = require(moduleName)
-    config = webpackMerge(config, customConfig)
+    config = webpackMerge(
+      config,
+      typeof customConfig === 'function'
+        ? customConfig({ devMode }) : customConfig
+    )
   } catch (e) {
     // ignore error
     return false
