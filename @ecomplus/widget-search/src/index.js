@@ -27,6 +27,9 @@ export default (options = {}, elId = 'instant-search', inputId = 'search-input')
       render (createElement) {
         const vm = this
         return createElement(InstantSearch, {
+          attrs: {
+            id: elId
+          },
           props: {
             ...options.props,
             term: vm.term,
