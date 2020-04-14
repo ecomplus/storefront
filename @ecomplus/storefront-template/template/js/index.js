@@ -14,6 +14,9 @@ import lozad from 'lozad'
 import * as cloneDeep from 'lodash.clonedeep'
 import * as merge from 'lodash.merge'
 import Glide from '@glidejs/glide'
+import getScopedSlots from './lib/get-scoped-slots'
+
+import './lib/load-widgets'
 
 window._ = { cloneDeep, merge }
 window.lozad = lozad
@@ -25,14 +28,18 @@ window.storefront = {
   widgets: window._widgets,
   context: window._context,
   data: window._data,
+  getScopedSlots,
   ...events
 }
 
-// import './lib/load-widgets'
-
-setTimeout(() => {
+const fetchInfo = () => {
   import(/* webpackPreload: true */ './lib/fetch-info').catch(console.error)
-}, 300)
+}
+if (typeof window.requestIdleCallback === 'function') {
+  window.requestIdleCallback(fetchInfo)
+} else {
+  setTimeout(fetchInfo, 300)
+}
 
 const { hash } = window.location
 if (hash.indexOf('_token=') !== -1 || hash.indexOf('error=access_denied') !== -1) {
