@@ -21,24 +21,22 @@ const loadWidget = (pkg, runImport) => {
   const waitWidgetResolve = new Promise(resolve => {
     setTimeout(() => {
       const widget = window._widgets && window._widgets[pkg]
-      if (widget) {
-        const { active, options, desktopOnly, enableCheckout, disablePages } = widget
-        if (
-          active &&
-          (!desktopOnly || !isMobile) &&
-          (isCheckout ? enableCheckout : !disablePages)
-        ) {
-          return runImport()
-            .then(exp => {
-              if (typeof exp.default === 'function') {
-                exp.default(options)
-              }
-              emitter.emit(`widget:${pkg}`)
-              console.log(`Widget loaded: ${pkg}`)
-            })
-            .catch(console.error)
-            .finally(resolve)
-        }
+      if (
+        widget &&
+        widget.active &&
+        (!widget.desktopOnly || !isMobile) &&
+        (isCheckout ? widget.enableCheckout : !widget.disablePages)
+      ) {
+        return runImport()
+          .then(exp => {
+            if (typeof exp.default === 'function') {
+              exp.default(widget.options)
+            }
+            emitter.emit(`widget:${pkg}`)
+            console.log(`Widget loaded: ${pkg}`)
+          })
+          .catch(console.error)
+          .finally(resolve)
       }
 
       resolve()
@@ -78,16 +76,13 @@ Promise.all(widgetsLoadPromises).then(() => {
         '@ecomplus/widget-minicart',
         () => import('@ecomplus/widget-minicart')
       )
-      /*
       loadWidget(
         '@ecomplus/widget-user',
         () => import('@ecomplus/widget-user')
       )
-      */
     }
 
     Promise.all(widgetsLoadPromises).then(() => {
-      /*
       loadWidget(
         '@ecomplus/widget-tag-manager',
         () => import('@ecomplus/widget-tag-manager')
@@ -96,11 +91,6 @@ Promise.all(widgetsLoadPromises).then(() => {
         '@ecomplus/widget-fb-pixel',
         () => import('@ecomplus/widget-fb-pixel')
       )
-      loadWidget(
-        '@ecomplus/widget-trustvox',
-        () => import('@ecomplus/widget-trustvox')
-      )
-      */
     })
   }
 
