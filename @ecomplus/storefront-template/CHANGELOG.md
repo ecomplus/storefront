@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.0...@ecomplus/storefront-template@2.0.0-beta.1) (2020-04-16)
+
+
+### Bug Fixes
+
+* **deps:** bootstrap 4.4.1 not compatible with jquery 3.5.0 ([06c314a](https://github.com/ecomplus/storefront/commit/06c314a2c68d84d80fa68d38bb575b708268f0ab))
+
+
+
+
+
 # [2.0.0-beta.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-next.3...@ecomplus/storefront-template@2.0.0-beta.0) (2020-04-16)
 
 

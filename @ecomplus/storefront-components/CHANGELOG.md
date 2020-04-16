@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.3...@ecomplus/storefront-components@1.0.0-beta.4) (2020-04-16)
+
+
+### Bug Fixes
+
+* **product-card:** check window object to support ssr ([8dc2de2](https://github.com/ecomplus/storefront/commit/8dc2de21b657d7bf5ae5d0122bb1fb777bd1b50e))
+
+
+
+
+
 # [1.0.0-beta.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.2...@ecomplus/storefront-components@1.0.0-beta.3) (2020-04-16)
 
 
