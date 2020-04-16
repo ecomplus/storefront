@@ -1,14 +1,11 @@
 import getWidgetProductCard from '@ecomplus/widget-product-card/cms.config'
-/*
-import getEcomplusWidgetSearch from './widgets/search'
-import getEcomplusWidgetMinicart from './widgets/minicart'
-import getEcomplusWidgetUser from './widgets/user'
-import getEcomplusWidgetProduct from './widgets/product'
-import getEcomplusWidgetSearchEngine from './widgets/search-engine'
-import getWidgetTagManager from './widgets/tag-manager'
-import getWidgetFbPixel from './widgets/fb-pixel'
-import getWidgetTrustvox from './widgets/trustvox'
-*/
+import getWidgetProduct from '@ecomplus/widget-product/cms.config'
+import getWidgetSearchEngine from '@ecomplus/widget-search-engine/cms.config'
+import getWidgetSearch from '@ecomplus/widget-search/cms.config'
+import getWidgetMinicart from '@ecomplus/widget-minicart/cms.config'
+import getWidgetFbPixel from '@ecomplus/widget-fb-pixel/cms.config'
+import getWidgetTagManager from '@ecomplus/widget-tag-manager/cms.config'
+import getWidgetTrustvox from '@ecomplus/widget-trustvox/cms.config'
 
 const fixWidgetConfig = ({ baseDir }, getWidget) => {
   const baseConfig = getWidget()
@@ -30,16 +27,13 @@ export default options => ({
     preview: false
   },
   files: [
-    fixWidgetConfig(options, getWidgetProductCard)
-    /*,
-    getEcomplusWidgetSearch(options),
-    getEcomplusWidgetMinicart(options),
-    getEcomplusWidgetUser(options),
-    getEcomplusWidgetProduct(options),
-    getEcomplusWidgetSearchEngine(options),
-    getWidgetTagManager(options),
-    getWidgetFbPixel(options),
-    getWidgetTrustvox(options)
-    */
+    fixWidgetConfig(options, getWidgetProductCard),
+    fixWidgetConfig(options, getWidgetProduct),
+    fixWidgetConfig(options, getWidgetSearch),
+    fixWidgetConfig(options, getWidgetSearchEngine),
+    fixWidgetConfig(options, getWidgetMinicart),
+    fixWidgetConfig(options, getWidgetFbPixel),
+    fixWidgetConfig(options, getWidgetTagManager),
+    fixWidgetConfig(options, getWidgetTrustvox)
   ]
 })
