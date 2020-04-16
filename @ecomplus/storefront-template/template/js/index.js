@@ -1,6 +1,5 @@
 import { name, version } from '../../package.json'
 import './lib/config'
-import { events } from './lib/emitter'
 import '@ecomplus/storefront-twbs'
 
 import './lib/utils'
@@ -22,16 +21,7 @@ import './lib/load-widgets'
 window._ = { cloneDeep, merge }
 window.lozad = lozad
 window.Glide = Glide
-
-window.storefront = {
-  settings: window._settings,
-  info: window._info,
-  widgets: window._widgets,
-  context: window._context,
-  data: window._data,
-  getScopedSlots,
-  ...events
-}
+window.storefront.getScopedSlots = getScopedSlots
 
 const fetchInfo = () => {
   import(/* webpackPreload: true */ './lib/fetch-info').catch(console.error)
