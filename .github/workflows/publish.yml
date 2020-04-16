@@ -35,3 +35,9 @@ jobs:
           if (pkg.publishConfig) delete pkg.publishConfig.registry; \
           JSON.stringify(pkg, null, 2)" > pkg.json && mv pkg.json package.json && \
           npm publish
+
+      - name: Trigger Netlify deploy
+        if: github.event.registry_package.name == 'storefront-template'
+        env:
+          NETLIFY_HOOK_ENDPOINT: ${{ secrets.NETLIFY_HOOK_ENDPOINT }}
+        run: curl -X POST -d {} $NETLIFY_HOOK_ENDPOINT
