@@ -50,49 +50,19 @@
 
   &__footer {
     border-top: var(--spacer-1) solid var(--secondary);
-    background: var(--light);
+    background: linear-gradient(180deg, var(--light) 0%, var(--body-bg) 90%);
   }
 
   &__stamps {
-    list-style: none;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
     padding: var(--spacer-3) 0;
-    margin: 0;
-    max-width: 100%;
 
     @media (min-width: 768px) {
-      justify-content: flex-end;
       padding: var(--spacer-4);
-      flex-wrap: wrap;
+      margin-top: var(--spacer-2);
     }
 
-    & > li {
-      min-width: 120px;
-      padding: var(--spacer-3) 0;
-
-      @media (min-width: 768px) {
-        padding-top: var(--spacer-4);
-        padding-bottom: var(--spacer-4);
-        padding-right: var(--spacer-2);
-        min-width: auto;
-      }
-    }
-
-    li > img {
-      max-width: 120px;
-      height: auto;
-      width: 100%;
-    }
-
-    li:not(:first-child) {
-      margin-left: var(--spacer-4);
-    }
-
-    li {
-      align-items: center;
-      display: flex;
+    > .stamps {
+      justify-content: flex-end;
     }
   }
 
