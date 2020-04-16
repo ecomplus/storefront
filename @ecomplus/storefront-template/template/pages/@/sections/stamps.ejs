@@ -1,0 +1,21 @@
+<% if (Array.isArray(opt.stamps)) { %>
+  <ul class="stamps">
+    <% opt.stamps.forEach(({ src, alt, link }) => { %>
+      <% if (link) { %>
+        <li>
+          <a href="<%= link %>" target="_blank" rel="noopener">
+            <img src="<%= src %>" alt="<%= alt %>">
+          </a>
+        </li>
+        <% } else { %>
+        <li>
+          <img src="<%= src %>" alt="<%= alt %>">
+        </li>
+      <% } %>
+    <% }) %>
+
+    <%- await include('/@/helpers/widgets-append', {
+      _, opt: {}, field: 'stampsAppend'
+    }) %>
+  </ul>
+<% } %>

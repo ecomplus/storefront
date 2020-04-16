@@ -50,7 +50,7 @@
         <ul class="glide__slides products-carousel__list">
           <% for (let i = 0; i < opt.items.length; i++) { %>
             <li class="glide__slide products-carousel__item">
-              <%- await include('/@/sections/inc/product-card', {
+              <%- await include('/@/sections/inc/product-item', {
                 _, opt: { item: opt.items[i] }
               }) %>
             </li>

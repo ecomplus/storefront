@@ -17,7 +17,7 @@ if (imgObj) {
 }
 %>
 
-<article data-product="<%= JSON.stringify(itemData) %>">
+<article class="product-item" data-product="<%= JSON.stringify(itemData) %>">
   <div
     class="product-card"
     data-product-id="<%= itemData._id %>"
@@ -75,13 +75,16 @@ if (imgObj) {
     </div>
     -->
 
-    <!-- Custom additional code on product card bottom:
-    <div data-slot="footer">
-    </div>
-    -->
-
     <div class="spinner-border spinner-border-sm fade" role="status">
       <span class="sr-only">Loading...</span>
     </div>
+
+    <%- await include('/@/helpers/widgets-append', {
+      _, opt, field: 'productCardSlots'
+    }) %>
   </div>
+
+  <%- await include('/@/helpers/widgets-append', {
+    _, opt, field: 'productItemAppend'
+  }) %>
 </article>

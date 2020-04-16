@@ -1,12 +1,12 @@
-<div class="product-block my-4 mb-lg-5">
+<div id="product-block" class="product-block my-4 mb-lg-5">
   <div class="container">
-    <section id="product" class="product">
+    <section id="product" class="product" data-to-render="true">
       <!--
         `TheProduct` should be rendered (hydrated) here:
         https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/TheProduct.html
       -->
 
-      <div class="row" data-to-render="true">
+      <div class="row">
         <div class="col-12 col-md-6 mb-4">
           <!-- Picture(s) gallery will be inserted dynamically within `TheProduct` -->
           <% if (_.state.pictures) { %>
@@ -91,7 +91,15 @@
           <% } %>
         </div>
       </div>
+
+      <%- await include('/@/helpers/widgets-append', {
+        _, opt: {}, field: 'productSlots'
+      }) %>
     </section>
+
+    <%- await include('/@/helpers/widgets-append', {
+      _, opt: {}, field: 'productBlockAppend'
+    }) %>
   </div>
 </div>
 

@@ -61,21 +61,9 @@ const logo = _.settings.logo
   <footer>
     <div class="app__footer">
       <div class="container-fluid">
-        <ul class="app__stamps">
-          <% footer.stamps.forEach(({ src, alt, link }) => { %>
-            <% if (link) { %>
-              <li>
-                <a href="<%= link %>" target="_blank" rel="noopener">
-                  <img src="<%= src %>" alt="<%= alt %>">
-                </a>
-              </li>
-              <% } else { %>
-              <li>
-                <img src="<%= src %>" alt="<%= alt %>">
-              </li>
-            <% } %>
-          <% }) %>
-        </ul>
+        <div class="app__stamps">
+          <%- await include(`/@/sections/stamps`, { _, opt: { stamps: footer.stamps } }) %>
+        </div>
       </div>
     </div>
 

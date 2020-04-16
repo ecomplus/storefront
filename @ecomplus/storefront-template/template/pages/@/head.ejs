@@ -25,6 +25,14 @@ if (resource || collection) {
   _.state = Object.assign({}, body || content, _.state)
 }
 
+// preset global list of active widgets
+_.widgets = []
+const widgets = _.cms('widgets')
+if (Array.isArray(widgets)) {
+  _.widgets = widgets.map(slug => _.cms(`widgets/${slug}`))
+    .filter(({ pkg, active }) => Boolean(pkg && active))
+}
+
 // page title and description
 const title = _.state.meta_title || _.state.name || _.state.title || _.settings.name
 const description = _.state.meta_description || _.state.short_description || _.settings.description
@@ -69,19 +77,12 @@ if (url) {
 
   <%
   // setup preloaded widget partials (pixels, tags)
-  const widgets = _.cms('widgets')
-  if (Array.isArray(widgets)) {
-    const widgetObjects = widgets.map(slug => _.cms(`widgets/${slug}`))
-    for (let i = 0; i < widgetObjects.length; i++) {
-      const { pkg, active, options, headAppend } = widgetObjects[i]
-      if (active && headAppend) {
-        try {
-          %> <%- await include(`${pkg}/${headAppend}`, { _, options }) %> <%
-        } catch (err) {
-          console.error(err)
-        }
-      }
-    }
+  if (_.widgets.length) {
+    %>
+    <%- await include('/@/helpers/widgets-append', {
+      _, opt: {}, field: 'headAppend'
+    }) %>
+    <%
   }
   %>
 <% } %>
