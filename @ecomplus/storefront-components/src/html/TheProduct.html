@@ -29,6 +29,14 @@
           </p>
         </slot>
 
+        <slot name="rating">
+          <div
+            v-once
+            class="product__rating"
+            :data-sku="body.sku"
+          ></div>
+        </slot>
+
         <slot
           name="unavailable"
           v-if="!body.available"
