@@ -33,7 +33,7 @@
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-tag-manager#readme",
   "peerDependencies": {
     "@ecomplus/shopping-cart": ">=1 <3",
-    "@ecomplus/utils": "1.x",
+    "@ecomplus/utils": "^1.3.4",
     "core-js": "3.x"
   },
   "webpackOutput": {
