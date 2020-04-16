@@ -11,7 +11,21 @@ Bootstrap has several JavaScript plugins (jQuery) that make your daily life much
 Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 Alerts are available for any length of text, as well as an optional dismiss button.
 
-<DemoBootstrap :showAlert="true" />
+<div class="demo">
+  <div class="alert alert-primary" role="alert">
+  A simple primary alert—check it out!
+  </div>
+  <div class="alert alert-secondary" role="alert">
+  A simple secondary alert—check it out!
+  </div>
+  <div class="alert alert-primary" role="alert">
+  A simple primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+  </div>
+  <div class="alert alert-secondary" role="alert">
+  A simple secondary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+  </div>
+</div>
+
 ```html
 <div class="alert alert-primary" role="alert">
 A simple primary alert—check it out!
@@ -37,7 +51,12 @@ Documentation and examples for badges, our small count and labeling component.
 **Example:**
 Badges scale to match the size of the immediate parent element by using relative font sizing and em units.
 
-<DemoBootstrap :showBagde1="true" />
+<div class="demo">
+  <h1>Example heading <span class="badge badge-secondary">New</span></h1>
+  <h2>Example heading <span class="badge badge-secondary">New</span></h2>
+  <h3>Example heading <span class="badge badge-secondary">New</span></h3>
+</div>
+
 ```html
 <h1>Example heading <span class="badge badge-secondary">New</span></h1>
 <h2>Example heading <span class="badge badge-secondary">New</span></h2>
@@ -48,8 +67,14 @@ Note that depending on how they are used, badges may be confusing for users of s
 
 Unless the context is clear (as with the “Notifications” example, where it is understood that the “4” is the number of notifications), consider including additional context with a visually hidden piece of additional text.
 
+<div class="demo">
+  <button type="button" class="btn btn-primary">
+    Profile <span class="badge badge-light">9</span>
+    <span class="sr-only">unread messages</span>
+  </button>
+</div>
 
-<DemoBootstrap :showBagde2="true" />
+
 ```html
 <button type="button" class="btn btn-primary">
   Profile <span class="badge badge-light">9</span>
@@ -66,7 +91,28 @@ Indicate the current page’s location within a navigational hierarchy that auto
 
 **Example:**
 
-<DemoBootstrap :showBreadcrumb="true" />
+<div class="demo">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+  </nav>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Library</li>
+    </ol>
+  </nav>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Library</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Data</li>
+    </ol>
+  </nav>
+</div>
 
 ```html
 <nav aria-label="breadcrumb">
@@ -97,7 +143,14 @@ Indicate the current page’s location within a navigational hierarchy that auto
 
 Group a series of buttons together on a single line with the button group, and super-power them with JavaScript.Here are some examples:
 
-<DemoBootstrap :showButtonGroup="true" />
+<div class="demo">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-secondary">Left</button>
+    <button type="button" class="btn btn-secondary">Middle</button>
+    <button type="button" class="btn btn-secondary">Right</button>
+  </div>
+</div>
+
 ```html
 <div class="btn-group" role="group" aria-label="Basic example">
   <button type="button" class="btn btn-secondary">Left</button>
@@ -114,7 +167,16 @@ Group a series of buttons together on a single line with the button group, and s
 Includes several predefined button styles, each serving its own semantic purpose, with a few extras available for greater control.
 Here are some examples:
 
-<DemoBootstrap :showButtons="true" />
+<div class="demo">
+  <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+  <br><br>
+  <input class="btn btn-primary" type="submit" value="Submit">
+  <br><br>
+  <button type="button" class="btn btn-primary btn-lg">Large button</button>
+  <br><br>
+  <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+ </div>
+
 ```html
 <button type="button" class="btn btn-secondary btn-sm">Small button</button>
 <input class="btn btn-primary" type="submit" value="Submit">
@@ -133,7 +195,16 @@ Cards are built with as little markup and styles as possible, but still manage t
 
 Below is an example of a basic card with mixed content and a fixed width. Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element. This is easily customized with our various [sizing options](https://getbootstrap.com/docs/4.4/components/card/#sizing).
 
-<DemoBootstrap :showCard="true" />
+<div class="demo">
+  <div class="card" style="width: 18rem;">
+    <img src="/assets/img/banner.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
 
 ```html
 <div class="card" style="width: 18rem;">
@@ -149,13 +220,59 @@ Below is an example of a basic card with mixed content and a fixed width. Cards 
 [See more](https://getbootstrap.com/docs/4.4/components/card/)
 
 
-## Close ???
-
-
 ## Custom-forms
 Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
 
-<DemoBootstrap :showCustomForms="true" />
+<div class="demo">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">Options</label>
+    </div>
+    <select class="custom-select" id="inputGroupSelect01">
+      <option selected>Choose...</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
+
+  <div class="input-group mb-3">
+    <select class="custom-select" id="inputGroupSelect02">
+      <option selected>Choose...</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    <div class="input-group-append">
+      <label class="input-group-text" for="inputGroupSelect02">Options</label>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" type="button">Button</button>
+    </div>
+    <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+      <option selected>Choose...</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
+
+  <div class="input-group">
+    <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+      <option selected>Choose...</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button">Button</button>
+    </div>
+  </div>
+</div>
+
 ```html
 <div class="input-group mb-3">
   <div class="input-group-prepend">
@@ -219,7 +336,19 @@ Wrap the dropdown’s toggle (your button or link) and the dropdown menu within 
 
 **Example:**
 
-<DemoBootstrap :showDropdown="true" />
+<div class="demo">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown button
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+  </div>
+</div>
+
 ```html
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -242,7 +371,39 @@ Bootstrap’s form controls expand on [our Rebooted form styles](https://getboot
 
 **Example:**
 
-<DemoBootstrap :showForms="true"/>
+<div class="demo">
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Example select</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Example multiple select</label>
+      <select multiple class="form-control" id="exampleFormControlSelect2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Example textarea</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+  </form>
+</div>
+
 ``` html
 <form>
   <div class="form-group">
@@ -282,7 +443,47 @@ Bootstrap’s form controls expand on [our Rebooted form styles](https://getboot
 ## Input-group
 Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs, custom selects, and custom file inputs.Place one add-on or button on either side of an input. You may also place one on both sides of an input. Remember to place `<label>`s outside the input group.
 
-<DemoBootstrap :showInputGroup="true" />
+<div class="demo">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">@</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <span class="input-group-text" id="basic-addon2">@example.com</span>
+    </div>
+  </div>
+
+  <label for="basic-url">Your vanity URL</label>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+    </div>
+    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">$</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+    <div class="input-group-append">
+      <span class="input-group-text">.00</span>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">With textarea</span>
+    </div>
+    <textarea class="form-control" aria-label="With textarea"></textarea>
+  </div>
+</div>
+
 ```html
 <div class="input-group mb-3">
   <div class="input-group-prepend">
@@ -333,7 +534,16 @@ List groups are a flexible and powerful component for displaying a series of con
 The most basic list group is an unordered list with list items and the proper classes. Build upon it with the options that follow, or with your own CSS as needed.
 Here's a simple example:
 
-<DemoBootstrap :showListGroup1="true" />
+<div class="demo">
+  <ul class="list-group">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+</div>
+
 ```html
 <ul class="list-group">
   <li class="list-group-item">Cras justo odio</li>
@@ -350,7 +560,18 @@ Use `<a>`s or `<button>`s to create actionable list group items with hover, disa
 
 Be sure to not use the standard `.btn` classes here.
 
-<DemoBootstrap :showListGroup2="true" />
+<div class="demo">
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active">
+      Cras justo odio
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+    <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+    <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+    <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
+  </div>
+</div>
+
 ```html
 <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action active">
@@ -389,7 +610,39 @@ $('#myModal').on('shown.bs.modal', function () {
 
 **Example:**
 
-<DemoBootstrap :showModal="true" />
+<div class= "demo">
+  <button
+    onclick="clickToShowModal()"
+    class="btn btn-secondary btn-sm">
+    Click to show modal
+  </button>
+  <br />
+  <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function clickToShowModal() {
+   $('.modal').modal('show')
+   }
+</script>
+
 ```html
 <div class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
@@ -421,8 +674,24 @@ The base `.nav` component is built with flexbox and provide a strong foundation 
 
 The base `.nav` component does not include any `.active` state. The following examples include the class, mainly to demonstrate that this particular class does not trigger any special styling.
 
-<DemoBootstrap :showNav="true" />
-```htm
+<div class="demo">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>
+</div>
+
+```html
 <ul class="nav">
   <li class="nav-item">
     <a class="nav-link active" href="#">Active</a>
@@ -450,7 +719,18 @@ In addition, as pages likely have more than one such navigation section, it’s 
 
 **Exemple:**
 
-<DemoBootstrap :showPagination="true" />
+<div class="demo">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
+</div>
+
 ```html
 <nav aria-label="Page navigation example">
   <ul class="pagination">
@@ -491,7 +771,10 @@ Keep reading to see how popovers work with some examples.
 
 **Example:**
 
-<DemoBootstrap :showPopover="true" />
+<div class="demo">
+  <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+</div>
+
 ```html
 <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
 ```
@@ -504,7 +787,12 @@ For accessibility purposes, each loader here includes role="status" and a nested
 
 **Example:**
 
-<DemoBootstrap :showSpinners="true" />
+<div class="demo">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
 ```html
 <div class="spinner-border" role="status">
   <span class="sr-only">Loading...</span>
@@ -521,7 +809,39 @@ Using the most basic table markup, here’s how .table-based tables look in Boot
 
 **Example:**
 
-<DemoBootstrap :showTable="true"/>
+<div class="demo">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 ```html
 <table class="table">
   <thead>
@@ -573,8 +893,33 @@ ___
 The animation effect of this component is dependent on the `prefers-reduced-motion` media query. [See the reduced motion section of our accessibility documentation](https://getbootstrap.com/docs/4.4/getting-started/accessibility/#reduced-motion).
 ___
 
+<div class= "demo">
+  <button
+    onclick="clickToShowToast()"
+    class="btn btn-secondary btn-sm">
+    Click to show toast
+  </button>
+  <br />
+  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="/assets/img/banner.png" class="rounded mr-2" alt="...">
+      <strong class="mr-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>
+</div>
+<script>
+  function clickToShowToast() {
+   $('.toast').toast('show')
+   }
+</script>
 
-<DemoBootstrap :showToasts="true" />
 ```html
 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header">
@@ -617,7 +962,21 @@ ___
 
 **Example:**
 
-<DemoBootstrap :showTooltip="true" />
+<div class= "demo">
+  <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+    Tooltip on top
+  </button>
+  <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+    Tooltip on right
+  </button>
+  <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+    Tooltip on bottom
+  </button>
+  <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+    Tooltip on left
+  </button>
+</div>
+
 ```html
 <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
   Tooltip on top
@@ -633,8 +992,6 @@ ___
 </button>
 ```
 
-## Transitions ????
-
 
 ## Utilities
 
@@ -644,7 +1001,7 @@ Easily clear `floats` by adding `.clearfix` **to the parent element**. Can also 
 ```html
 <div class="clearfix">...</div>
 ```
-```js
+```scss
 // Mixin itself
 @mixin clearfix() {
   &::after {
@@ -718,26 +1075,6 @@ To show an element only on a given interval of screen sizes you can combine one 
 [See more](https://getbootstrap.com/docs/4.4/utilities/display/)
 
 
-## Embed
-
-Create responsive video or slideshow embeds based on the width of the parent by creating an intrinsic ratio that scales on any device.
-
-#### About
-Rules are directly applied to `<iframe>`, `<embed>`, `<video>`, and `<object>` elements; optionally use an explicit descendant class .embed-responsive-item when you want to match the styling for other attributes.
-
-Pro-Tip! You don’t need to include frameborder="0" in your `<iframe>`s as we override that for you.
-
-**Example:**
-Wrap any embed like an `<iframe>` in a parent element with `.embed-responsive` and an aspect ratio. The `.embed-responsive-item` isn’t strictly required, but we encourage it.
-
-<DemoBootstrap :showEmbed="true" />
-```html
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-</div>
-```
-
-[See more](https://getbootstrap.com/docs/4.4/utilities/embed/)
 
 
 ## Position
@@ -789,6 +1126,7 @@ Hide an element to all devices **except screen readers** with `.sr-only`. Combin
 ```html
 <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 ```
+
 ```js
 // Usage as a mixin
 .skip-navigation {
@@ -808,7 +1146,17 @@ Cards have `position: relative` by default in Bootstrap, so in this case you can
 
 Multiple links and tap targets are not recommended with stretched links. However, some `position` and `z-index` styles can help should this be required.[See More](https://getbootstrap.com/docs/4.4/utilities/stretched-link/)
 
-<DemoBootstrap :showStretchedLink="true" />
+<div class="demo">
+  <div class="card" style="width: 18rem;">
+    <img src="/assets/img/banner.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card with stretched link</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary stretched-link">Go somewhere</a>
+    </div>
+  </div>
+</div>
+
 ```html
 <div class="card" style="width: 18rem;">
   <img src="..." class="card-img-top" alt="...">
@@ -829,7 +1177,13 @@ Assign responsive-friendly `margin` or `padding` values to an element or a subse
 
 **Exemple:**
 
-<DemoBootstrap :showSpacing="true" />
+<div class ="demo">
+  <div class="row mx-md-n5">
+    <div class="col px-md-5"><div class="p-3 border bg-light">Custom column padding</div></div>
+    <div class="col px-md-5"><div class="p-3 border bg-light">Custom column padding</div></div>
+  </div>
+</div>
+
 ```html
 <div class="row mx-md-n5">
   <div class="col px-md-5"><div class="p-3 border bg-light">Custom column padding</div></div>
@@ -838,3 +1192,31 @@ Assign responsive-friendly `margin` or `padding` values to an element or a subse
 ```
 
 ## Text
+
+Documentation and examples for common text utilities to control alignment, wrapping, weight, and more.
+
+### Text alignment
+Easily realign text to components with text alignment classes.
+
+### Text wrapping and overflow
+Wrap text with a `.text-wrap` class.
+
+### Word break
+Prevent long strings of text from breaking your components’ layout by using `.text-break` to set `overflow-wrap: break-word` (and `word-break: break-word` for IE & Edge compatibility).
+
+### Text transform
+Transform text in components with text capitalization classes.
+
+### Font weight and italics
+Quickly change the weight (boldness) of text or italicize text.
+
+### Monospace
+Change a selection to our monospace font stack with `.text-monospace`.
+
+### Reset color
+Reset a text or link’s color with `.text-reset`, so that it inherits the color from its parent.
+
+### Text decoration
+Remove a text decoration with a `.text-decoration-none` class.
+
+[Click here and see the examples](https://getbootstrap.com/docs/4.4/utilities/text/)
