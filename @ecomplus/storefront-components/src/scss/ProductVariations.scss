@@ -1,4 +1,4 @@
-.ec-variations {
+.variations {
   &__grid {
     margin-bottom: var(--spacer-3);
 
@@ -10,7 +10,7 @@
   &__option {
     min-height: 2.3rem;
     min-width: 2.3rem;
-    border: 2px solid var(--gray);
+    border: var(--border-width) solid var(--border-color);
 
     &:hover {
       border-color: var(--secondary-light);
