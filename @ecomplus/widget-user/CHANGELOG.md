@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-user@1.0.0-next.2...@ecomplus/widget-user@1.0.0-beta.0) (2020-04-16)
+
+
+### Bug Fixes
+
+* **deps:** update/fix pkg dependencies ([e84bc08](https://github.com/ecomplus/storefront/commit/e84bc080552067cdcb7c232332733b4366cdc756))
+
+
+### Features
+
+* **cms:** setup widget-user config ([6cae7cf](https://github.com/ecomplus/storefront/commit/6cae7cf0b15f0d7adb5a8352f3e5c64484d69622))
+* **widget-user:** use `LoginModal` from @ecomplus/storefront-components ([06f8230](https://github.com/ecomplus/storefront/commit/06f82305b349b2fb95a986bcb1e1153979bf1315))
+
+
+
+
+
 # [1.0.0-next.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-user@1.0.0-next.1...@ecomplus/widget-user@1.0.0-next.2) (2020-04-03)
 
 **Note:** Version bump only for package @ecomplus/widget-user

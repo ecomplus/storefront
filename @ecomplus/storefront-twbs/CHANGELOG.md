@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.3.2...@ecomplus/storefront-twbs@5.4.0) (2020-04-16)
+
+
+### Bug Fixes
+
+* **animate-css:** add timer fallback (animationend event is unstable) ([5038b18](https://github.com/ecomplus/storefront/commit/5038b18fae7091d224a2350c923ded5f8a6b786f))
+
+
+### Features
+
+* **scss:** add new --font-headings css var ([47ac3b6](https://github.com/ecomplus/storefront/commit/47ac3b66e31fe0f4817462a68a3759df66a10561))
+
+
+
+
+
 ## [5.3.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.3.1...@ecomplus/storefront-twbs@5.3.2) (2020-04-03)
 
 

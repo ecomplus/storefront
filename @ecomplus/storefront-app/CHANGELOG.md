@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-next.2...@ecomplus/storefront-app@2.0.0-beta.0) (2020-04-16)
+
+
+### Bug Fixes
+
+* **components:** importing from @ecomplus/storefront-components ([60698dc](https://github.com/ecomplus/storefront/commit/60698dcb6e6c9779d713f4e1d1cd2a1c93ca7887))
+* **deps:** update all non-major dependencies ([#196](https://github.com/ecomplus/storefront/issues/196)) ([9a9c188](https://github.com/ecomplus/storefront/commit/9a9c18889a091c40064441e3079a9ed6d8905589))
+* **deps:** update deps, add @ecomplus/storefront-components ([8a3f46d](https://github.com/ecomplus/storefront/commit/8a3f46de33eb248e2a735b6741ea39c3abbb5dd3))
+
+
+### Features
+
+* **discount:** send items to apply discount module to support kits ([3c63104](https://github.com/ecomplus/storefront/commit/3c631042aabed58abc22c9db527b6441d6838f3a))
+
+
+
+
+
 # [2.0.0-next.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-next.1...@ecomplus/storefront-app@2.0.0-next.2) (2020-04-03)
 
 

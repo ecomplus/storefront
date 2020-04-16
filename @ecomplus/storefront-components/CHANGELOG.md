@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.2...@ecomplus/storefront-components@1.0.0-beta.3) (2020-04-16)
+
+
+### Bug Fixes
+
+* **backdrop:** lock body scrool on backdrop visible ([16f6079](https://github.com/ecomplus/storefront/commit/16f60794c310cac4efb853dda68c9c363b2bf7d4))
+* **deps:** update all non-major dependencies ([#196](https://github.com/ecomplus/storefront/issues/196)) ([9a9c188](https://github.com/ecomplus/storefront/commit/9a9c18889a091c40064441e3079a9ed6d8905589))
+* **instant-search:** `autoFixTerm` to `autoFixScore` ([3ce8ef7](https://github.com/ecomplus/storefront/commit/3ce8ef70e724bac1af8342aed91fd5fc6c7d7ff5))
+* **instant-search:** fix triggering input focus ([5634d4c](https://github.com/ecomplus/storefront/commit/5634d4c9395764b79bc83661f4af36c7bf3dc46a))
+* **instant-search:** properly set input value before parent form submit ([81199a4](https://github.com/ecomplus/storefront/commit/81199a4048cbc8ba8b0627df6c023a8870f64619))
+* **product-card:** ensure picture max width ([5e4c911](https://github.com/ecomplus/storefront/commit/5e4c911ee22625c74e9b12b4ef2f87f3224b452c))
+* **product-card:** ensure product name block box sizing ([f92abd5](https://github.com/ecomplus/storefront/commit/f92abd59959dad76a9b92d6c3041c20300f04777))
+* **product-variations:** fix scss class name and minor style fixes ([c06e527](https://github.com/ecomplus/storefront/commit/c06e527510fc6f0ee9f55e955c7a34e6cdb1c5b8))
+
+
+### Features
+
+* **product:** add 'rating' slot ([c917288](https://github.com/ecomplus/storefront/commit/c917288292ac2e0fc032b3279c3f7bf6f5502aa9))
+* **product-card:** try some vars from window to customize card ([81fe202](https://github.com/ecomplus/storefront/commit/81fe202cdf3eda934053fb976a8e1c31b2cc4034))
+
+
+
+
+
 # [1.0.0-beta.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.1...@ecomplus/storefront-components@1.0.0-beta.2) (2020-04-03)
 
 

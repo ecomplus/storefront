@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.11.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.10.0...@ecomplus/storefront-framework@5.11.0) (2020-04-16)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#196](https://github.com/ecomplus/storefront/issues/196)) ([9a9c188](https://github.com/ecomplus/storefront/commit/9a9c18889a091c40064441e3079a9ed6d8905589))
+
+
+### Features
+
+* **webpack:** support function to custom config (merge) ([0784ace](https://github.com/ecomplus/storefront/commit/0784acec243fb5507f91f60c91203f44715cb6a0))
+
+
+
+
+
 # [5.10.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.9.0...@ecomplus/storefront-framework@5.10.0) (2020-04-03)
 
 

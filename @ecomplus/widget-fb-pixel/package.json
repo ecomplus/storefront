@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-fb-pixel",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "Storefront plugin to handle Facebook Pixel events",
   "main": "dist/widget-fb-pixel.min.js",
   "module": "src/index.js",

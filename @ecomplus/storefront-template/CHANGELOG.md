@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-next.3...@ecomplus/storefront-template@2.0.0-beta.0) (2020-04-16)
+
+
+### Bug Fixes
+
+* **cms:** remove 'main_price' config (we need this ?) ([42bcd8e](https://github.com/ecomplus/storefront/commit/42bcd8eb8997f1af3875ce00d70f7e877ae53708))
+* **cms:** update header config fields ([4a42ac8](https://github.com/ecomplus/storefront/commit/4a42ac8aa82578b92f20c094234aef0c508d3d65))
+* **components:** update template styles for twbs v5 ([4bc9da4](https://github.com/ecomplus/storefront/commit/4bc9da451940b7bafd1cf32ec36b896091a67c21))
+* **deps:** fix widgets versions ([5e471ee](https://github.com/ecomplus/storefront/commit/5e471eee3270056128ac83f7fc2e1c9a237fbd6f))
+* **deps:** update @ecomplus/storefront-app to v2 ([e86e5e4](https://github.com/ecomplus/storefront/commit/e86e5e468913f147d35a37d042424180e349226c))
+* **deps:** update @ecomplus/storefront-router to v2.1.0 ([73a6d8b](https://github.com/ecomplus/storefront/commit/73a6d8bbb10ad7842afb4ff80f1408d34b48191e))
+* **deps:** update all non-major dependencies ([#196](https://github.com/ecomplus/storefront/issues/196)) ([9a9c188](https://github.com/ecomplus/storefront/commit/9a9c18889a091c40064441e3079a9ed6d8905589))
+* **header:** handle sticky with css only, edit stiles ([952ac39](https://github.com/ecomplus/storefront/commit/952ac3925311c4a2824c6551dfbcb6e657769ada))
+* **js:** back with all js widgets load ([834d5eb](https://github.com/ecomplus/storefront/commit/834d5eb7eb27ed40484faa7ade0234f757663b40))
+* **js:** import $ (jquery) from @ecomplus/storefront-twbs ([4310593](https://github.com/ecomplus/storefront/commit/4310593f418660200df67581ddf875ff05cc3a28))
+* **js:** importing storefront app for cart/checkout (revert) ([eb6317c](https://github.com/ecomplus/storefront/commit/eb6317c19fd8cb532838e5c3e28bfb76b1cebaa1))
+* **menu:** stop change original sort categories array (reverse) ([e1f7bd1](https://github.com/ecomplus/storefront/commit/e1f7bd13e7822f21e16f6d85a812b2b98b07f038))
+* **scss:** general component fixes for twbs v5, update sticky header ([388a23b](https://github.com/ecomplus/storefront/commit/388a23bd07c0d14cd9e84f8517faad4a7d292af3))
+* **vendors:** update vendors versions and sri ([79104b0](https://github.com/ecomplus/storefront/commit/79104b08784d4c9160538a83e1e9f542754b3d54))
+
+
+### Features
+
+* **banner:** supporting picture tag with mobile devices image ([cacc837](https://github.com/ecomplus/storefront/commit/cacc8379aed72f2167897bbf09279283ec7b6740))
+* **banner-slider:** check slides start/end timestamp ([666c205](https://github.com/ecomplus/storefront/commit/666c2053310c24425745a772afaeb29b45d8f08c))
+* **cms:** add menu config and custom code inject ([5a1c576](https://github.com/ecomplus/storefront/commit/5a1c57655ef0427930091ca16713d6719b9a217d))
+* **cms:** titles/descriptions fixes, programatically widgets config ([b44cea4](https://github.com/ecomplus/storefront/commit/b44cea4c8408117558a812c82d3b7cd3f8bc94d0))
+* **footer:** fix footer cols, handle accordion for links ul ([5132f3f](https://github.com/ecomplus/storefront/commit/5132f3f6ce51043a33d5406376282e84cbb96b8a))
+* **header:** showing cart items count on badge with animation ([82f86db](https://github.com/ecomplus/storefront/commit/82f86db82ead8b4fd56c7345a26ae1f2922564dc))
+* **header:** update header to be sticky, add categories list ([f933d47](https://github.com/ecomplus/storefront/commit/f933d476b9477d377ce731912d4f1e49730cec3a))
+* **js:** expose getScopedSlots as storefront helper ([b67bac7](https://github.com/ecomplus/storefront/commit/b67bac7c7917f5bf2b2bafcc79688a22f2964034))
+* **js:** handling banners height ([09e7470](https://github.com/ecomplus/storefront/commit/09e747010dd202a46bc55e2c5401e5d6540a4b6c))
+* **menu:** prettier menu, add phone number and social links ([5743c87](https://github.com/ecomplus/storefront/commit/5743c87fd0aab106d572013214f37de40b26243c))
+* **pages:** preset list of active widgets, append ejs from widgets ([228a7b7](https://github.com/ecomplus/storefront/commit/228a7b7553c09e8321df751cc7ffe4bf9ce99e9a))
+
+
+### Performance Improvements
+
+* **js:** remove header script, update menu and search with jquery ([636c4e9](https://github.com/ecomplus/storefront/commit/636c4e970a11d7ecee310662aa0e7b098d71c81a))
+
+
+
+
+
 # [2.0.0-next.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-next.2...@ecomplus/storefront-template@2.0.0-next.3) (2020-04-03)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-tag-manager",
-  "version": "1.1.9",
+  "version": "1.2.0",
   "description": "Storefront plugin to handle GTM with ecommerce data layer",
   "main": "dist/widget-tag-manager.min.js",
   "module": "src/index.js",

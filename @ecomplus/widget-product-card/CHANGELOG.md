@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-next.2...@ecomplus/widget-product-card@1.0.0-beta.0) (2020-04-16)
+
+
+### Bug Fixes
+
+* **deps:** remove non-direct dependencies ([2f63b2f](https://github.com/ecomplus/storefront/commit/2f63b2f6e8836266cde41e0c234c4647c923e519))
+* **deps:** update/fix pkg dependencies ([85b86e1](https://github.com/ecomplus/storefront/commit/85b86e1c8de35709a5fb2037b17126164bf196b6))
+* **observer:** add vertical 'rootMargin' to trigger load/render first ([54d0a21](https://github.com/ecomplus/storefront/commit/54d0a2137c8f9c28f88b09f2238190da4d46eb61))
+
+
+### Features
+
+* **cms:** setup widget cms config ([3f8010c](https://github.com/ecomplus/storefront/commit/3f8010cb2a0d2846595d67f2f1fdb7f856d8e557))
+* **options:** support passing props from options.props ([a3d6cb4](https://github.com/ecomplus/storefront/commit/a3d6cb483429a8e16cdb88b04134ca6caf32fd82))
+* **widget:** properlly handling customization from ejs and cms ([78ffb9b](https://github.com/ecomplus/storefront/commit/78ffb9b0219ef294092a90f9a1b6df704dad7971))
+
+
+
+
+
 # [1.0.0-next.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-next.1...@ecomplus/widget-product-card@1.0.0-next.2) (2020-04-03)
 
 **Note:** Version bump only for package @ecomplus/widget-product-card
