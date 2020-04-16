@@ -4,7 +4,7 @@
     text-align: center;
   }
 
-  .ec-cart-item {
+  .cart-item {
     padding-top: 1rem;
     border-top: 1px dotted var(--gray);
 
@@ -45,7 +45,7 @@
   &__total {
     margin: 1rem 0;
 
-    .ec-prices {
+    .prices {
       &__value {
         font-size: 1.5rem;
       }

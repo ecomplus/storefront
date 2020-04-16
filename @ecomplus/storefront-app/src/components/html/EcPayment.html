@@ -37,7 +37,7 @@
                 <template v-if="gateway.discount.type === 'percentage'">
                   {{ gateway.discount.value }}%
                 </template>
-                <span v-else class="text-uppercase">
+                <span v-else class="ec-payment__discount-value">
                   {{ formatMoney(gateway.discount.value) }}
                 </span>
                 {{ i18n('OfDiscount') }}

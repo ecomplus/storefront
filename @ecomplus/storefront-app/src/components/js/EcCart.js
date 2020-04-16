@@ -1,25 +1,30 @@
-import { $ecomConfig, i18n, formatMoney } from '@ecomplus/utils'
-import dictionary from '@ecomplus/widget-minicart/src/lib/dictionary'
+import {
+  $ecomConfig,
+  i18n,
+  formatMoney
+} from '@ecomplus/utils'
+
 import ecomCart from '@ecomplus/shopping-cart'
-import EcCartItem from '@ecomplus/widget-minicart/src/components/EcCartItem.vue'
-import EcShipping from '@ecomplus/widget-product/src/components/EcShipping.vue'
-import EcPrices from '@ecomplus/widget-product/src/components/EcPrices.vue'
+import APrices from '#components/APrices.vue'
+import CartItem from '#components/CartItem.vue'
+import ShippingCalculator from '#components/ShippingCalculator.vue'
 import EcDiscount from './../EcDiscount.vue'
-import { SlideYUpTransition } from 'vue2-transitions'
 
 import {
-  i19discount
+  i19checkout,
+  i19continueShopping,
+  i19discount,
+  i19emptyCart
 } from '@ecomplus/i18n'
 
 export default {
   name: 'EcCart',
 
   components: {
-    EcCartItem,
-    EcShipping,
-    EcPrices,
-    EcDiscount,
-    SlideYUpTransition
+    APrices,
+    CartItem,
+    ShippingCalculator,
+    EcDiscount
   },
 
   props: {
@@ -43,7 +48,10 @@ export default {
   },
 
   computed: {
+    i19checkout: () => i18n(i19checkout),
+    i19continueShopping: () => i18n(i19continueShopping),
     i19discount: () => i18n(i19discount),
+    i19emptyCart: () => i18n(i19emptyCart),
 
     cart () {
       return this.ecomCart.data
@@ -71,7 +79,6 @@ export default {
   },
 
   methods: {
-    dictionary,
     formatMoney
   }
 }

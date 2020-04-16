@@ -1,4 +1,16 @@
 .ec-checkout {
+  &__account {
+    > .lead {
+      text-align: center;
+    }
+  }
+
+  &__app {
+    min-height: 300px;
+    max-width: 90rem;
+    margin: 0 auto 2rem;
+  }
+
   &__steps {
     display: flex;
     margin-bottom: .5rem;
@@ -59,12 +71,6 @@
     }
   }
 
-  &__app {
-    min-height: 300px;
-    max-width: 90rem;
-    margin: 0 auto 2rem;
-  }
-
   &__info {
     background: var(--light);
 
@@ -112,7 +118,7 @@
     }
   }
 
-  .ec-shipping__services {
+  .shipping-calculator__services {
     max-width: 100%;
   }
 

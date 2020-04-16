@@ -1,5 +1,5 @@
 <div class="ec-checkout">
-  <fade-transition :duration="{ enter: 600, leave: 0 }" group>
+  <transition-group enter-active-class="animated fadeIn slower">
     <div class="ec-checkout__app" key="app" v-if="shownCheckoutStep">
       <div class="row">
         <div class="col-lg-8">
@@ -28,14 +28,14 @@
             >
               <div :class="shownCheckoutStep !== 1 ? 'd-none d-md-block' : null">
                 <div v-if="shippingAddress" class="ec-checkout__shipping">
-                  <slide-y-up-transition :duration="{ enter: 300, leave: 0 }" group>
+                  <transition-group enter-active-class="animated fadeInDown">
                     <div
                       v-if="shippingService && !editShippingService"
                       key="shipping"
                     >
                       <div class="ec-checkout__shipping-method">
                         <small>{{ shippingService.label }}</small>
-                        <ec-shipping-line :shippingLine="shippingService.shipping_line"/>
+                        <shipping-line :shipping-line="shippingService.shipping_line"/>
                       </div>
 
                       <a
@@ -48,16 +48,16 @@
                       </a>
                     </div>
 
-                    <ec-shipping
+                    <shipping-calculator
                       v-else
                       :key="`shipTo${localZipCode}`"
-                      :selectServices="true"
-                      :shippedItems="cart.items"
-                      :zipCode="localZipCode"
-                      :zipInput="false"
-                      @serviceSelected="service => $emit('update:shippingService', service)"
+                      :can-select-services="true"
+                      :shipped-items="cart.items"
+                      :zip-code="localZipCode"
+                      :can-input-zip="false"
+                      @select-service="service => $emit('update:shippingService', service)"
                     />
-                  </slide-y-up-transition>
+                  </transition-group>
                 </div>
 
                 <ec-addresses
@@ -75,30 +75,32 @@
               </div>
             </div>
 
-            <slide-x-right-transition
-              tag="div"
-              class="ec-checkout__col col-md-6"
-            >
-              <div
-                v-if="enabledCheckoutStep >= 2"
-                :class="shownCheckoutStep !== 2 ? 'd-none d-md-block' : null"
+            <div class="ec-checkout__col col-md-6">
+              <transition
+                enter-active-class="animated fadeInRight"
+                leave-active-class="animated fadeOutLeft faster position-absolute"
               >
-                <ec-payment
-                  :customer="localCustomer"
-                  :amount="amount"
-                  :key="paymentsListKey"
-                  @gatewaySelected="gateway => $emit('update:paymentGateway', gateway)"
-                  @checkout="transaction => $emit('checkout', transaction)"
-                />
-
                 <div
-                  class="ec-checkout__overlay fade"
-                  :class="shownCheckoutStep !== 2 ? 'show' : null"
-                  @click="toCheckoutStep = 2"
+                  v-if="enabledCheckoutStep >= 2"
+                  :class="shownCheckoutStep !== 2 ? 'd-none d-md-block' : null"
                 >
+                  <ec-payment
+                    :customer="localCustomer"
+                    :amount="amount"
+                    :key="paymentsListKey"
+                    @gatewaySelected="gateway => $emit('update:paymentGateway', gateway)"
+                    @checkout="transaction => $emit('checkout', transaction)"
+                  />
+
+                  <div
+                    class="ec-checkout__overlay fade"
+                    :class="shownCheckoutStep !== 2 ? 'show' : null"
+                    @click="toCheckoutStep = 2"
+                  >
+                  </div>
                 </div>
-              </div>
-            </slide-x-right-transition>
+              </transition>
+            </div>
           </div>
         </div>
 
@@ -141,9 +143,9 @@
       </slot>
     </div>
 
-    <div key="account" v-else>
+    <div key="account" class="ec-checkout__account" v-else>
       <slot name="account">
-        <p class="lead text-center">
+        <p class="lead">
           {{ i18n('RegisterToBuy') }}:
         </p>
 
@@ -153,5 +155,5 @@
         />
       </slot>
     </div>
-  </fade-transition>
+  </transition-group>
 </div>
