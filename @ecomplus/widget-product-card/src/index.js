@@ -111,6 +111,10 @@ export default (options = {}, elClass = 'product-card') => {
     }
   }
 
-  const observer = lozad($productCards, { load })
+  const observer = lozad($productCards, {
+    rootMargin: '350px 0px',
+    threshold: 0,
+    load
+  })
   observer.observe()
 }
