@@ -33,7 +33,7 @@
               <a-picture
                 class="product-card__picture"
                 v-for="(picture, index) in body.pictures.slice(0, 2).reverse()"
-                v-if="body.pictures === 0 || index === 1 || isHovered"
+                v-if="body.pictures.length === 1 || index === 1 || isHovered"
                 :key="index"
                 :src="picture"
                 :can-calc-height="false"
