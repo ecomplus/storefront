@@ -8,267 +8,267 @@ See the example of the available icons:
   <div class="wrapper">
     <div class="wrapper-icon">
       <i class="fab fa-facebook-f fa-4x"></i>
-      <span>facebook-f</span>
+      <code>fab fa-facebook-f</code>
     </div>
     <div class="wrapper-icon">
       <i class="fab fa-linkedin fa-4x"></i>
-      <span>linkedin</span>
+      <code>fab fa-linkedin</code>
     </div>
     <div class="wrapper-icon">
       <i class="fab fa-google fa-4x"></i>
-      <span>google</span>
+      <code>fab fa-google</code>
     </div>
     <div class="wrapper-icon">
       <i class="fab fa-windows fa-4x"></i>
-      <span>windows</span>
+      <code>fab fa-windows</code>
     </div>
     <div class="wrapper-icon">
       <i class="fab fa-pinterest fa-4x"></i>
-      <span>pinterest</span>
+      <code>fab fa-pinterest</code>
     </div>
     <div class="wrapper-icon">
       <i class="fab fa-twitter fa-4x"></i>
-      <span>twitter</span>
+      <code>fab fa-twitter</code>
     </div>
     <div class="wrapper-icon">
       <i class="fab fa-youtube fa-4x"></i>
-      <span>youtube</span>
+      <code>fab fa-youtube</code>
     </div>
     <div class="wrapper-icon">
       <i class="fab fa-instagram fa-4x"></i>
-      <span>instagram</span>
+      <code>fab fa-instagram</code>
     </div>
     <div class="wrapper-icon">
       <i class="fab fa-whatsapp fa-4x"></i>
-      <span>whatsapp</span>
+      <code>fab fa-whatsapp</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-tag fa-4x"></i>
-      <span>tag</span>
+      <code>fas fa-tag</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-hashtag fa-4x"></i>
-      <span>hashtag</span>
+      <code>fas fa-hashtag</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-user fa-4x"></i>
-      <span>user</span>
+      <code>fas fa-user</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-user-circle fa-4x"></i>
-      <span>user-circle</span>
+      <code>fas fa-user-circle</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-bell fa-4x"></i>
-      <span>bell</span>
+      <code>fas fa-bell</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-check fa-4x"></i>
-      <span>check</span>
+      <code>fas fa-check</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-check-circle fa-4x"></i>
-      <span>check-circle</span>
+      <code>fas fa-check-circle</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-truck fa-4x"></i>
-      <span>truck</span>
+      <code>fas fa-truck</code>
     </div>
         <div class="wrapper-icon">
       <i class="fas fa-lock fa-4x"></i>
-      <span>lock</span>
+      <code>fas fa-lock</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-shield-alt fa-4x"></i>
-      <span>shield-alt</span>
+      <code>fas fa-shield-alt</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-filter fa-4x"></i>
-      <span>filter</span>
+      <code>fas fa-filter</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-sort fa-4x"></i>
-      <span>sort</span>
+      <code>fas fa-sort</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-shopping-bag fa-4x"></i>
-      <span>shopping-bag</span>
+      <code>fas fa-shopping-bag</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-shopping-cart fa-4x"></i>
-      <span>shopping-cart</span>
+      <code>fas fa-shopping-cart</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-cart-arrow-down fa-4x"></i>
-      <span>cart-arrow-down</span>
+      <code>fas fa-cart-arrow-down</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-sign-out-alt fa-4x"></i>
-      <span>sign-out-alt</span>
+      <code>fas fa-sign-out-alt</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-plus fa-4x"></i>
-      <span>plus</span>
+      <code>fas fa-plus</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-search fa-4x"></i>
-      <span>search</span>
+      <code>fas fa-search</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-phone fa-4x"></i>
-      <span>phone</span>
+      <code>fas fa-phone</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-chevron-up fa-4x"></i>
-      <span>chevron-up</span>
+      <code>fas fa-chevron-up</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-chevron-down fa-4x"></i>
-      <span>chevron-down</span>
+      <code>fas fa-chevron-down</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-chevron-left fa-4x"></i>
-      <span>chevron-left</span>
+      <code>fas fa-chevron-left</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-chevron-right fa-4x"></i>
-      <span>chevron-right</span>
+      <code>fas fa-chevron-right</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-arrow-down fa-4x"></i>
-      <span>arrow-down</span>
+      <code>fas fa-arrow-down</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-arrow-left fa-4x"></i>
-      <span>arrow-left</span>
+      <code>fas fa-arrow-left</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-arrow-right fa-4x"></i>
-      <span>arrow-right</span>
+      <code>fas fa-arrow-right</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-angle-right fa-4x"></i>
-      <span>angle-right</span>
+      <code>fas fa-angle-right</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-times fa-4x"></i>
-      <span>times</span>
+      <code>fas fa-times</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-times-circle fa-4x"></i>
-      <span>times-circle</span>
+      <code>fas fa-times-circle</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-envelope fa-4x"></i>
-      <span>envelope</span>
+      <code>fas fa-envelope</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-history fa-4x"></i>
-      <span>history</span>
+      <code>fas fa-history</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-bars fa-4x"></i>
-      <span>bars</span>
+      <code>fas fa-bars</code>
     </div>
         <div class="wrapper-icon">
       <i class="fas fa-shipping-fast fa-4x"></i>
-      <span>shipping-fast</span>
+      <code>fas fa-shipping-fast</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-credit-card fa-4x"></i>
-      <span>credit-card</span>
+      <code>fas fa-credit-card</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-receipt fa-4x"></i>
-      <span>receipt</span>
+      <code>fas fa-receipt</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-barcode fa-4x"></i>
-      <span>barcode</span>
+      <code>fas fa-barcode</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-money-check fa-4x"></i>
-      <span>money-check</span>
+      <code>fas fa-money-check</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-exchange-alt fa-4x"></i>
-      <span>exchange-alt</span>
+      <code>fas fa-exchange-alt</code>
     </div>
         <div class="wrapper-icon">
       <i class="fas fa-percent fa-4x"></i>
-      <span>percent</span>
+      <code>fas fa-percent</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-home fa-4x"></i>
-      <span>home</span>
+      <code>fas fa-home</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-trash-alt fa-4x"></i>
-      <span>trash-alt</span>
+      <code>fas fa-trash-alt</code>
     </div>
         <div class="wrapper-icon">
       <i class="fas fa-pencil-alt fa-4x"></i>
-      <span>pencil-alt</span>
+      <code>fas fa-pencil-alt</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-copy fa-4x"></i>
-      <span>copy</span>
+      <code>fas fa-copy</code>
     </div>
         <div class="wrapper-icon">
       <i class="fas fa-print fa-4x"></i>
-      <span>print</span>
+      <code>fas fa-print</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-edit fa-4x"></i>
-      <span>edit</span>
+      <code>fas fa-edit</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-info-circle fa-4x"></i>
-      <span>info-circle</span>
+      <code>fas fa-info-circle</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-question-circle fa-4x"></i>
-      <span>question-circle</span>
+      <code>fas fa-question-circle</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-comment-dots fa-4x"></i>
-      <span>comment-dots</span>
+      <code>fas fa-comment-dots</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-heart fa-4x"></i>
-      <span>heart</span>
+      <code>fas fa-heart</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-stopwatch fa-4x"></i>
-      <span>stopwatch</span>
+      <code>fas fa-stopwatch</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-gift fa-4x"></i>
-      <span>-gift</span>
+      <code>fas fa-gift</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-store fa-4x"></i>
-      <span>store</span>
+      <code>fas fa-store</code>
     </div>
-        <div class="wrapper-icon">
+    <div class="wrapper-icon">
       <i class="fas fa-blog fa-4x"></i>
-      <span>blog</span>
+      <code>fas fa-blog</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-wifi fa-4x"></i>
-      <span>wifi</span>
+      <code>fas fa-wifi</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-play fa-4x"></i>
-      <span>play</span>
+      <code>fas fa-play</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-exclamation-triangle fa-4x"></i>
-      <span>exclamation-triangle</span>
+      <code>fas fa-exclamation-triangle</code>
     </div>
-        <div class="wrapper-icon">
+    <div class="wrapper-icon">
       <i class="fas fa-map-marker-alt fa-4x"></i>
-      <span>map-marker-alt</span>
+      <code>fas fa-map-marker-alt</code>
     </div>
      </div>
 </div>
