@@ -77,6 +77,8 @@ export default {
         doc: '',
         installment: this.installmentOptions ? 1 : 0
       },
+      isLoadingInstallments: false,
+      installmentList: [],
       alert: {
         bin: false,
         date: false,
@@ -136,12 +138,6 @@ export default {
 
     compareName () {
       return this.checkHolder.replace(/(\s.*)/, '')
-    },
-
-    installmentList () {
-      return this.installmentOptions.concat().sort((a, b) => {
-        return a.number - b.number
-      })
     }
   },
 
@@ -275,6 +271,17 @@ export default {
   },
 
   watch: {
+    installmentOptions: {
+      handler (installmentOptions) {
+        if (installmentOptions) {
+          this.installmentList = installmentOptions.concat().sort((a, b) => {
+            return a.number - b.number
+          })
+        }
+      },
+      immediate: true
+    },
+
     formattedCardBin (bin) {
       this.card.bin = bin.replace(/\D/g, '')
     },
@@ -288,6 +295,24 @@ export default {
           this.numberValidated = this.numberPotentiallyValid = true
         } else {
           this.numberPotentiallyValid = numberCheck.isPotentiallyValid
+        }
+        const cardInstallments = this.jsClient.cc_installments
+        if (cardInstallments && cardInstallments.function) {
+          const installmentList = window[cardInstallments.function]({
+            number: this.card.bin,
+            amount: this.amount.total
+          })
+          if (cardInstallments.is_promise) {
+            this.isLoadingInstallments = true
+            installmentList
+              .then(installmentList => {
+                this.installmentList = installmentList
+              }).finally(() => {
+                this.isLoadingInstallments = false
+              })
+          } else {
+            this.installmentList = installmentList
+          }
         }
       } else {
         this.activeBrand = ''

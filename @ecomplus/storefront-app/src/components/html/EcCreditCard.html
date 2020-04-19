@@ -135,6 +135,7 @@
     </label>
 
     <select
+      v-if="isLoadingInstallments"
       class="custom-select"
       id="ec-credit-card-installment"
       v-model="card.installment"
@@ -153,6 +154,14 @@
         </template>
       </option>
     </select>
+
+    <div
+      v-else
+      class="spinner-grow"
+      role="status"
+    >
+      <span class="sr-only">Loading...</span>
+    </div>
   </div>
 
   <button class="btn btn-lg btn-block btn-success" type="submit">
