@@ -127,41 +127,49 @@
   </div>
 
   <div
-    v-if="installmentOptions && installmentOptions.length"
+    v-if="installmentList.length || isLoadingInstallments"
     class="form-group"
   >
     <label for="ec-credit-card-installment">
       {{ i18n('ParcelIn') }}
     </label>
 
-    <select
-      v-if="!isLoadingInstallments"
-      class="custom-select"
-      id="ec-credit-card-installment"
-      v-model="card.installment"
+    <transition-group
+      enter-active-class="animated fadeInDown"
+      leave-active-class="d-none"
     >
-      <option :value="1">
-        {{ formatMoney(amount.total) }}
-        {{ i18n('AtSight').toLowerCase() }}
-      </option>
-      <option
-        v-for="({ number, value, tax }) in installmentList"
-        :value="number"
+      <select
+        key="installments"
+        v-if="!isLoadingInstallments"
+        class="custom-select"
+        id="ec-credit-card-installment"
+        v-model="card.installment"
       >
-        {{ `${number}x ${i18n('Of').toLowerCase()} ${formatMoney(value)}` }}
-        <template v-if="!tax">
-          {{ i18n('InterestFree').toLowerCase() }}
-        </template>
-      </option>
-    </select>
+        <option :value="1">
+          {{ formatMoney(amount.total) }}
+          {{ i18n('AtSight').toLowerCase() }}
+        </option>
+        <option
+          v-for="({ number, value, tax }) in installmentList"
+          v-if="number > 1"
+          :value="number"
+        >
+          {{ `${number}x ${i18n('Of').toLowerCase()} ${formatMoney(value)}` }}
+          <template v-if="!tax">
+            {{ i18n('InterestFree').toLowerCase() }}
+          </template>
+        </option>
+      </select>
 
-    <div
-      v-else
-      class="spinner-grow"
-      role="status"
-    >
-      <span class="sr-only">Loading...</span>
-    </div>
+      <div
+        key="loading"
+        v-else
+        class="spinner-grow"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+    </transition-group>
   </div>
 
   <button class="btn btn-lg btn-block btn-success" type="submit">

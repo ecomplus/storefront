@@ -177,6 +177,27 @@ export default {
         .cvv(this.card.cvv, this.activeBrand !== 'american-express' ? 3 : 4).isValid
     },
 
+    updateInstallmentList () {
+      const cardInstallments = this.jsClient.cc_installments
+      if (cardInstallments && cardInstallments.function) {
+        const installmentList = window[cardInstallments.function]({
+          number: this.card.bin,
+          amount: this.amount.total
+        })
+        if (cardInstallments.is_promise) {
+          this.isLoadingInstallments = true
+          installmentList
+            .then(installmentList => {
+              this.installmentList = installmentList
+            }).finally(() => {
+              this.isLoadingInstallments = false
+            })
+        } else {
+          this.installmentList = installmentList
+        }
+      }
+    },
+
     generateCardHash () {
       return this.loadPromise.then(() => {
         const cardHash = this.jsClient.cc_hash
@@ -290,29 +311,18 @@ export default {
       this.numberValidated = this.numberPotentiallyValid = false
       const numberCheck = cardValidator.number(bin)
       if (numberCheck.isPotentiallyValid && numberCheck.card) {
-        this.activeBrand = numberCheck.card.type
+        if (this.activeBrand !== numberCheck.card.type) {
+          this.activeBrand = numberCheck.card.type
+          if (this.activeBrand) {
+            this.updateInstallmentList()
+          }
+        } else if (!this.installmentList.length && this.card.bin.length >= 6) {
+          this.updateInstallmentList()
+        }
         if (numberCheck.isValid) {
           this.numberValidated = this.numberPotentiallyValid = true
         } else {
           this.numberPotentiallyValid = numberCheck.isPotentiallyValid
-        }
-        const cardInstallments = this.jsClient.cc_installments
-        if (cardInstallments && cardInstallments.function) {
-          const installmentList = window[cardInstallments.function]({
-            number: this.card.bin,
-            amount: this.amount.total
-          })
-          if (cardInstallments.is_promise) {
-            this.isLoadingInstallments = true
-            installmentList
-              .then(installmentList => {
-                this.installmentList = installmentList
-              }).finally(() => {
-                this.isLoadingInstallments = false
-              })
-          } else {
-            this.installmentList = installmentList
-          }
         }
       } else {
         this.activeBrand = ''
