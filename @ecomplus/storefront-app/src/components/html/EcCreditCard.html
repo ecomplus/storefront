@@ -135,7 +135,7 @@
     </label>
 
     <select
-      v-if="isLoadingInstallments"
+      v-if="!isLoadingInstallments"
       class="custom-select"
       id="ec-credit-card-installment"
       v-model="card.installment"
