@@ -29,7 +29,10 @@ sources.forEach(source => {
 %>
 
 <div class="banner">
-  <a href="<%= opt.link || 'javascript:;' %>">
+  <a
+    href="<%= opt.link || 'javascript:;' %>"
+    aria-label="<%= opt.alt %>"
+  >
     <picture
       class="lozad fade img-fluid"
       <% if (dimensions) { %>
