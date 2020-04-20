@@ -40,6 +40,7 @@
     "@ecomplus/storefront-components": "^1.0.0-beta.4",
     "@ecomplus/storefront-twbs": "^5.4.1",
     "axios": "^0.19.2",
+    "bootstrap-vue": "^2.11.0",
     "card-validator": "^6.2.0",
     "cleave.js": "^1.5.10",
     "credit-card-type": "^8.3.0",
