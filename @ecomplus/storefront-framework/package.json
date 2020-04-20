@@ -59,7 +59,7 @@
     "mkdirp": "^1.0.4",
     "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
-    "raw-loader": "^4.0.0",
+    "raw-loader": "^4.0.1",
     "recursive-readdir": "^2.2.2",
     "sass-loader": "^8.0.2",
     "terser-webpack-plugin": "^2.3.5",
