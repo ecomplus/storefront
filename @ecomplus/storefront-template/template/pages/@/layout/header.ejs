@@ -156,7 +156,7 @@ if (header.categories_list) {
             aria-expanded="true"
             aria-controls="search-bar"
             aria-controls="search-bar"
-            aria-label="Search bar"
+            title="<%= _.dictionary('searchProducts') %>"
           >
             <i class="fas fa-search"></i>
           </button>
@@ -166,10 +166,7 @@ if (header.categories_list) {
             class="btn btn-lg"
             role="button"
             href="/app/#/account/"
-            data-toggle="tooltip"
-            data-placement="bottom"
             title="<%= _.dictionary('myAccount') %>"
-            aria-label="User button"
           >
             <i class="fas fa-user"></i>
           </a>
@@ -178,10 +175,7 @@ if (header.categories_list) {
             class="btn btn-lg"
             role="button"
             href="/app/#/cart"
-            data-toggle="tooltip"
-            data-placement="bottom"
             title="<%= _.dictionary('openCart') %>"
-            aria-label="Cart button"
           >
             <i class="fas fa-shopping-bag"></i>
             <span id="cart-count" class="badge badge-primary"></span>
