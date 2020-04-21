@@ -74,14 +74,16 @@
     </transition-group>
   </template>
 
-  <b-alert
-    class="ec-discount__alert"
-    :variant="alertVariant"
-    dismissible
-    fade
-    :show="!isLoading && alertText"
-    @dismissed="alertText = null"
-  >
+  <div
+    :class="`alert alert-${alertVariant} alert-dismissible ec-discount__alert fade show`"
+    v-show="!isLoading && alertText"
+    role="alert">
     {{ alertText }}
-  </b-alert>
+    <button
+      type="button"
+      class="close"
+      @click.prevent="alertText = null">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 </div>

@@ -13,12 +13,11 @@
       </a>
     </div>
 
-    <b-tabs
-      class="ec-account__nav"
+    <ul class="nav ec-account__nav"
       content-class="ec-account__content"
       v-model="currentTab"
     >
-      <b-tab class="ec-account__registration" :title="i18n('Registration')">
+      <li class="ec-account__registration nav-item" :title="i18n('Registration')">
         <div class="row">
           <div class="col-lg-8 col-md-7">
             <ec-account-form :customer.sync="localCustomer"/>
@@ -29,15 +28,15 @@
             <ec-addresses :customer.sync="localCustomer"/>
           </div>
         </div>
-      </b-tab>
+      </li>
 
-      <b-tab class="ec-account__orders" :title="i18n('Orders')">
+      <li class="ec-account__orders nav-item" :title="i18n('Orders')">
         <ec-orders-list
           :ecomPassport="ecomPassport"
           @click:order="order => $emit('click:order', order)"
         />
-      </b-tab>
-    </b-tabs>
+      </li>
+    </ul>
   </div>
 
   <ec-identify
