@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <slide-y-up-transition>
+    <transition-group enter-active-class="animated fadeInDown">
       <div v-if="confirmAccount()" class="ec-identify__confirm">
         <div class="ec-identify__hello">
           {{ i18n('HelloAgain') }}
@@ -72,18 +72,18 @@
           </div>
         </div>
       </div>
-    </slide-y-up-transition>
+    </transition-group>
 
-    <slide-y-up-transition>
+    <transition-group enter-active-class="animated fadeInDown">
       <div class="alert alert-warning alert-dismissible mt-3 fade show" role="alert">
         {{ i18n('InvalidLoginInfo') }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    </slide-y-up-transition>
+    </transition-group>
 
-    <slide-y-up-transition>
+    <transition-group enter-active-class="animated fadeInDown">
       <div class="ec-identify__oauth" v-if="oauthProviders.length">
         <p class="lead">
           {{ i18n('OrProceedWith') }}:
@@ -102,7 +102,7 @@
           {{ providerName }}
         </button>
       </div>
-    </slide-y-up-transition>
+    </transition-group>
   </form>
 
   <div class="ec-identify__info">
@@ -120,7 +120,10 @@
     </div>
   </div>
 
-  <fade-transition>
+  <transition-group
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut"
+  >
     <div class="ec-identify__popup-overlay" v-if="waitingPopup">
       <div>
         <div class="spinner-border mb-3" role="status">
@@ -129,5 +132,5 @@
         <h5>{{ i18n('OauthOnPopup') }}</h5>
       </div>
     </div>
-  </fade-transition>
+  </transition-group>
 </div>

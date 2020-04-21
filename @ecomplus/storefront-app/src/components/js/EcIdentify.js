@@ -1,7 +1,6 @@
 import { i18n } from '@ecomplus/utils'
 import ecomPassport from '@ecomplus/passport-client'
 import InputDocNumber from './../_internal/InputDocNumber.vue'
-import { FadeTransition, SlideYUpTransition } from 'vue2-transitions'
 
 import {
   Continue,
@@ -24,9 +23,7 @@ export default {
   name: 'EcIdentify',
 
   components: {
-    InputDocNumber,
-    FadeTransition,
-    SlideYUpTransition
+    InputDocNumber
   },
 
   props: {
