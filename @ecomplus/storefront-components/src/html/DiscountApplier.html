@@ -1,4 +1,4 @@
-<div class="discount-coupon">
+<div class="discount-applier">
   <template v-if="hasCouponInput">
     <transition-group
       enter-active-class="animated fadeInDown"
@@ -10,13 +10,13 @@
       >
         <h6
           v-if="isAttentionWanted"
-          class="discount-coupon__intro"
+          class="discount-applier__intro"
         >
           {{ i19hasCouponOrVoucherQn }}
         </h6>
 
         <button
-          class="discount-coupon__coupon-btn btn btn-sm"
+          class="discount-applier__coupon-btn btn btn-sm"
           :class="`btn-${(isAttentionWanted ? 'secondary' : 'light')}`"
           @click.prevent="isFormVisible = !isFormVisible"
           type="button"
@@ -30,10 +30,10 @@
         v-else
         key="form"
         @submit.prevent="submitCoupon"
-        class="discount-coupon__form"
+        class="discount-applier__form"
       >
         <div class="form-group">
-          <label for="discount-coupon-coupon">
+          <label for="discount-applier-coupon">
             {{ i19discountCoupon }}
           </label>
 
@@ -41,8 +41,8 @@
             <input
               type="text"
               ref="input"
-              class="form-control discount-coupon__input"
-              id="discount-coupon-coupon"
+              class="form-control discount-applier__input"
+              id="discount-applier-coupon"
               required
               :readonly="isLoading"
               :placeholder="i19code"
