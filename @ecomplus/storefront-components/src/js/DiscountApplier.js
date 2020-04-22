@@ -14,9 +14,14 @@ import { i18n } from '@ecomplus/utils'
 import { modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import ecomPassport from '@ecomplus/passport-client'
+import DismissableAlert from '../_internal/DismissableAlert.vue'
 
 export default {
   name: 'DiscountApplier',
+
+  components: {
+    DismissableAlert
+  },
 
   props: {
     amount: Object,
