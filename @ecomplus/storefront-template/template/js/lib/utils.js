@@ -1,5 +1,5 @@
-import { isSafari, isIOS, isIE, isMobile } from './_env'
-import $ from 'jquery'
+import { isSafari, isIOS, isIE, isMobile, isScreenXs } from './_env'
+import { $ } from '@ecomplus/storefront-twbs'
 
 if (isSafari || isIOS || isIE) {
   $('img').each(function () {
@@ -8,6 +8,10 @@ if (isSafari || isIOS || isIE) {
       $(this).attr('src', src.replace('.webp', '.png'))
     }
   })
+}
+
+if (!isScreenXs) {
+  $('.footer .collapse').collapse('show')
 }
 
 $('.whatsapp-link').each(function () {
@@ -22,3 +26,21 @@ $('.whatsapp-link').each(function () {
     $(this).attr('href', href)
   }
 })
+
+const $pictures = $('.banner [data-height]')
+if ($pictures.length) {
+  const fixBannersHeight = () => {
+    $pictures.each(function () {
+      const height = parseInt($(this).data('height'), 10)
+      if (height > 0) {
+        const width = parseInt($(this).data('width'), 10)
+        if (width > 0) {
+          const $parent = $(this).parent()
+          $parent.css('min-height', $parent.innerWidth() * height / width)
+        }
+      }
+    })
+  }
+  fixBannersHeight()
+  $(window).resize(fixBannersHeight)
+}

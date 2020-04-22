@@ -13,7 +13,7 @@
       "conventionalCommits": true,
       "createRelease": "github",
       "gitRemote": "origin",
-      "message": "chore(release): publish :tada:"
+      "message": "chore(release): publish :tada: [skip ci]"
     },
     "publish": {
       "registry": "https://npm.pkg.github.com"

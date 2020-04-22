@@ -1,0 +1,26 @@
+<script>
+  window._trustvox_shelf_rate = window._trustvox_shelf_rate || [];
+  _trustvox_shelf_rate.push(['_storeId', '<%- options.trustvoxStoreId %>']);
+  _trustvox_shelf_rate.push(['_productContainer', '.products-carousel, .retail-grid']);
+</script>
+<script async src="https://rate.trustvox.com.br/widget.js"></script>
+
+<% if (_.route.resource === 'products') { %>
+  <script>
+    window._trustvox = [];
+    _trustvox.push(['_storeId', '<%- options.trustvoxStoreId %>']);
+    var body = window.storefront.context.body;
+    _trustvox.push(['_productId', body.sku]);
+    _trustvox.push(['_productName', body.name]);
+    if (body.pictures && body.pictures.length) {
+      _trustvox.push(['_productPhotos', body.pictures.map(function (picture) {
+        return ecomUtils.img(picture).url;
+      })]);
+    }
+  </script>
+  <script async src="https://static.trustvox.com.br/sincero/sincero.js"></script>
+<% } %>
+
+<% if (!options.disable_certificate) { %>
+  <script defer src="https://certificate.trustvox.com.br/widget.js"></script>
+<% } %>

@@ -1,22 +1,6 @@
 {
   "meta_title": "",
   "meta_description": "",
-  "slider": {
-    "autoplay": 9000,
-    "slides": [
-      {
-        "img": "/img/uploads/rect89.webp",
-        "alt": "Sample banner one"
-      },
-      {
-        "img": "/img/uploads/banner2.webp",
-        "alt": "Sample banner two"
-      }
-    ]
-  },
-  "pitbar": true,
-  "showcase": [],
-  "additional_content": "",
   "sections": [
     {
       "type": "banner-slider",
@@ -25,11 +9,15 @@
         {
           "img": "/img/uploads/rect89.webp",
           "link": "/headset",
-          "alt": "Headset banner"
+          "alt": "Headset banner",
+          "start": "2020-04-11T05:54:06.750Z",
+          "end": "2020-12-31T03:00:00.000Z"
         },
         {
           "img": "/img/uploads/banner2.webp",
-          "alt": "Banner sample two"
+          "alt": "Banner sample two",
+          "start": "",
+          "end": ""
         }
       ]
     },
@@ -38,7 +26,9 @@
       "enabled": true
     },
     {
-      "type": "collection-shelf"
+      "type": "collection-shelf",
+      "shuffle": true,
+      "collection_id": null
     }
   ]
 }

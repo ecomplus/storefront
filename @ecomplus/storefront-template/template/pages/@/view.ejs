@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+
+<head>
+  <%- await include('/@/head') %>
+  <link rel="stylesheet" type="text/css" href="/storefront.css">
+</head>
+
+<body
+  id="page-<%= _.pageName %>"
+  <% if (_.route.resource) { %>
+    data-resource="<%= _.route.resource %>"
+  <% } else if (_.route.collection) { %>
+    data-cms-collection="<%= _.route.collection %>"
+  <% } %>
+>
+  <%- await include('/@/layout/menu') %>
+
+  <main role="main" id="main">
+    <%- await include('/@/layout/header') %>
+    <%- await include('/@/layout/sections') %>
+    <%- await include('/@/layout/footer') %>
+  </main>
+
+  <%- await include('/@/json') %>
+  <%- await include('/@/scripts') %>
+</body>
+
+</html>

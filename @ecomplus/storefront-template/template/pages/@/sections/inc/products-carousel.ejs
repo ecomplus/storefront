@@ -1,9 +1,18 @@
-<% if (Array.isArray(opt.items) && opt.items.length) { %>
-  <%
+<% if (Array.isArray(opt.items) && opt.items.length) {
   const title = opt.title ||
     (opt.collection && opt.collection.name) ||
     _.dictionary('popularProducts')
   const link = opt.link || (opt.collection && opt.collection.slug)
+
+  if (opt.shuffle) {
+    let m = opt.items.length, t, i
+    while (m) {
+      i = Math.floor(Math.random() * m--)
+      t = opt.items[m]
+      opt.items[m] = opt.items[i]
+      opt.items[i] = t
+    }
+  }
   %>
 
   <section
@@ -13,7 +22,6 @@
       data-collection-id="<%= opt.collection._id %>"
     <% } %>
     data-title="<%= title %>"
-    data-cms-if="<%= _.pageName %>.<%= opt.showcaseType || 'showcase' %>"
   >
     <h4 class="products-carousel__title">
       <% if (opt.title || opt.collection) { %>
@@ -42,7 +50,7 @@
         <ul class="glide__slides products-carousel__list">
           <% for (let i = 0; i < opt.items.length; i++) { %>
             <li class="glide__slide products-carousel__item">
-              <%- await include('/@/sections/inc/product-card', {
+              <%- await include('/@/sections/inc/product-item', {
                 _, opt: { item: opt.items[i] }
               }) %>
             </li>

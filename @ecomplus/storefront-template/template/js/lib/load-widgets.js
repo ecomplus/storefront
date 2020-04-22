@@ -1,3 +1,4 @@
+import { isMobile } from './_env'
 import emitter from './emitter'
 import ecomClient from '@ecomplus/client'
 import EcomSearch from '@ecomplus/search-engine'
@@ -13,7 +14,6 @@ window.ecomCart = ecomCart
 emitter.emit('ecom:ready')
 
 const isCheckout = window.location.pathname.startsWith('/app/')
-const isMobile = window.screen.width < 768
 const widgetsLoadPromises = []
 const widgetsMsDelay = window.location.hostname === 'localhost' ? 50 : 1
 
@@ -21,24 +21,22 @@ const loadWidget = (pkg, runImport) => {
   const waitWidgetResolve = new Promise(resolve => {
     setTimeout(() => {
       const widget = window._widgets && window._widgets[pkg]
-      if (widget) {
-        const { active, options, desktopOnly, enableCheckout, disablePages } = widget
-        if (
-          active &&
-          (!desktopOnly || !isMobile) &&
-          (isCheckout ? enableCheckout : !disablePages)
-        ) {
-          return runImport()
-            .then(exp => {
-              if (typeof exp.default === 'function') {
-                exp.default(options)
-              }
-              emitter.emit(`widget:${pkg}`)
-              console.log(`Widget loaded: ${pkg}`)
-            })
-            .catch(console.error)
-            .finally(resolve)
-        }
+      if (
+        widget &&
+        widget.active &&
+        (!widget.desktopOnly || !isMobile) &&
+        (isCheckout ? widget.enableCheckout : !widget.disablePages)
+      ) {
+        return runImport()
+          .then(exp => {
+            if (typeof exp.default === 'function') {
+              exp.default(widget.options)
+            }
+            emitter.emit(`widget:${pkg}`)
+            console.log(`Widget loaded: ${pkg}`)
+          })
+          .catch(console.error)
+          .finally(resolve)
       }
 
       resolve()
@@ -48,21 +46,11 @@ const loadWidget = (pkg, runImport) => {
   widgetsLoadPromises.push(waitWidgetResolve)
 }
 
-if (!isCheckout) {
-  const { resource } = document.body.dataset
-  if (resource && resource.startsWith('product')) {
-    loadWidget(
-      '@ecomplus/widget-product',
-      () => import(/* webpackPrefetch: true */
-        '@ecomplus/widget-product')
-    )
-  } else if (document.getElementById('search')) {
-    loadWidget(
-      '@ecomplus/widget-search-engine',
-      () => import(/* webpackPrefetch: true */
-        '@ecomplus/widget-search-engine')
-    )
-  }
+if (!isCheckout && document.body.dataset.resource === 'products') {
+  loadWidget(
+    '@ecomplus/widget-product',
+    () => import(/* webpackPrefetch: true */ '@ecomplus/widget-product')
+  )
 }
 
 Promise.all(widgetsLoadPromises).then(() => {
@@ -71,33 +59,44 @@ Promise.all(widgetsLoadPromises).then(() => {
     () => Promise.resolve({ default: widgetProductCard })
   )
 
-  if (!isCheckout) {
+  if (window.location.pathname === '/search') {
     loadWidget(
-      '@ecomplus/widget-user',
-      () => import('@ecomplus/widget-user')
-    )
-    loadWidget(
-      '@ecomplus/widget-search',
-      () => import('@ecomplus/widget-search')
-    )
-    loadWidget(
-      '@ecomplus/widget-minicart',
-      () => import('@ecomplus/widget-minicart')
+      '@ecomplus/widget-search-engine',
+      () => import(/* webpackPrefetch: true */ '@ecomplus/widget-search-engine')
     )
   }
 
-  Promise.all(widgetsLoadPromises).then(() => {
-    loadWidget(
-      '@ecomplus/widget-tag-manager',
-      () => import('@ecomplus/widget-tag-manager')
-    )
-    loadWidget(
-      '@ecomplus/widget-fb-pixel',
-      () => import('@ecomplus/widget-fb-pixel')
-    )
-    loadWidget(
-      '@ecomplus/widget-trustvox',
-      () => import('@ecomplus/widget-trustvox')
-    )
-  })
+  const startLowProrityWidgets = () => {
+    if (!isCheckout) {
+      loadWidget(
+        '@ecomplus/widget-search',
+        () => import('@ecomplus/widget-search')
+      )
+      loadWidget(
+        '@ecomplus/widget-minicart',
+        () => import('@ecomplus/widget-minicart')
+      )
+      loadWidget(
+        '@ecomplus/widget-user',
+        () => import('@ecomplus/widget-user')
+      )
+    }
+
+    Promise.all(widgetsLoadPromises).then(() => {
+      loadWidget(
+        '@ecomplus/widget-tag-manager',
+        () => import('@ecomplus/widget-tag-manager')
+      )
+      loadWidget(
+        '@ecomplus/widget-fb-pixel',
+        () => import('@ecomplus/widget-fb-pixel')
+      )
+    })
+  }
+
+  if (typeof window.requestIdleCallback === 'function') {
+    window.requestIdleCallback(startLowProrityWidgets)
+  } else {
+    startLowProrityWidgets()
+  }
 })

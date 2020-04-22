@@ -67,7 +67,8 @@ const baseScssModule = [
         includePaths: [
           paths.modules,
           // monorepo support
-          path.join(__dirname, '../../../node_modules')
+          path.join(__dirname, '../../../node_modules'),
+          path.join(__dirname, '../../../../node_modules')
         ],
         importer (file, prev, done) {
           if (file.startsWith('#template/')) {
@@ -101,7 +102,7 @@ let config = {
     alias: {
       '#template': `${templatePkg}/template`,
       '#components': `${componentsPkg}/src`,
-      '@ecomplus/i18n$': `@ecomplus/i18n/dist/i18n.${lang}.min.js`
+      '@ecomplus/i18n$': `@ecomplus/i18n/src/${lang}/`
     }
   },
 
@@ -237,7 +238,11 @@ const tryConfigMerge = moduleName => {
   let customConfig
   try {
     customConfig = require(moduleName)
-    config = webpackMerge(config, customConfig)
+    config = webpackMerge(
+      config,
+      typeof customConfig === 'function'
+        ? customConfig({ devMode }) : customConfig
+    )
   } catch (e) {
     // ignore error
     return false

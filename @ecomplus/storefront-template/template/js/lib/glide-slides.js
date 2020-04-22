@@ -1,9 +1,8 @@
-import $ from './$'
 import Glide from '@glidejs/glide'
 import { observer } from './lazy-load'
 
 const glides = {}
-const $glides = $('.glide')
+const $glides = document.getElementsByClassName('glide')
 
 for (let i = 0; i < $glides.length; i++) {
   const $glide = $glides[i]

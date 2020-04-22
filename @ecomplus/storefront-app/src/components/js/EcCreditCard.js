@@ -77,6 +77,8 @@ export default {
         doc: '',
         installment: this.installmentOptions ? 1 : 0
       },
+      isLoadingInstallments: false,
+      installmentList: [],
       alert: {
         bin: false,
         date: false,
@@ -136,12 +138,6 @@ export default {
 
     compareName () {
       return this.checkHolder.replace(/(\s.*)/, '')
-    },
-
-    installmentList () {
-      return this.installmentOptions.concat().sort((a, b) => {
-        return a.number - b.number
-      })
     }
   },
 
@@ -179,6 +175,27 @@ export default {
     validateCvv () {
       return cardValidator
         .cvv(this.card.cvv, this.activeBrand !== 'american-express' ? 3 : 4).isValid
+    },
+
+    updateInstallmentList () {
+      const cardInstallments = this.jsClient.cc_installments
+      if (cardInstallments && cardInstallments.function) {
+        const installmentList = window[cardInstallments.function]({
+          number: this.card.bin,
+          amount: this.amount.total
+        })
+        if (cardInstallments.is_promise) {
+          this.isLoadingInstallments = true
+          installmentList
+            .then(installmentList => {
+              this.installmentList = installmentList
+            }).finally(() => {
+              this.isLoadingInstallments = false
+            })
+        } else {
+          this.installmentList = installmentList
+        }
+      }
     },
 
     generateCardHash () {
@@ -275,6 +292,17 @@ export default {
   },
 
   watch: {
+    installmentOptions: {
+      handler (installmentOptions) {
+        if (installmentOptions) {
+          this.installmentList = installmentOptions.concat().sort((a, b) => {
+            return a.number - b.number
+          })
+        }
+      },
+      immediate: true
+    },
+
     formattedCardBin (bin) {
       this.card.bin = bin.replace(/\D/g, '')
     },
@@ -283,7 +311,14 @@ export default {
       this.numberValidated = this.numberPotentiallyValid = false
       const numberCheck = cardValidator.number(bin)
       if (numberCheck.isPotentiallyValid && numberCheck.card) {
-        this.activeBrand = numberCheck.card.type
+        if (this.activeBrand !== numberCheck.card.type) {
+          this.activeBrand = numberCheck.card.type
+          if (this.activeBrand) {
+            this.updateInstallmentList()
+          }
+        } else if (!this.installmentList.length && this.card.bin.length >= 6) {
+          this.updateInstallmentList()
+        }
         if (numberCheck.isValid) {
           this.numberValidated = this.numberPotentiallyValid = true
         } else {

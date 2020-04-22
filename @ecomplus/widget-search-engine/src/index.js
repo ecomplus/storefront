@@ -5,55 +5,30 @@
  */
 
 import Vue from 'vue'
-import '@ecomplus/storefront-twbs'
-import EcSearchEngine from './components/EcSearchEngine.vue'
+import SearchEngine from '#components/SearchEngine.vue'
 
 export default (options = {}, elId = 'search-engine') => {
   const $searchEngine = document.getElementById(elId)
-
   if ($searchEngine) {
-    const { $overlay } = window.storefront
+    const getScopedSlots = window.storefront && window.storefront.getScopedSlots
     const urlParams = new URLSearchParams(window.location.search)
 
     new Vue({
-      data: {
-        showFilters: false
-      },
-
-      render (createElement) {
-        const vm = this
-        return createElement(EcSearchEngine, {
-          attrs: {
-            id: elId
-          },
-          props: {
-            ...options.props,
-            term: urlParams.get('term'),
-            page: parseInt(urlParams.get('page'), 10),
-            brands: urlParams.getAll('brands'),
-            categories: urlParams.getAll('categories'),
-            navbarId: 'header',
-            showFilters: vm.showFilters,
-            prerenderedHTML: $searchEngine.outerHTML
-          },
-
-          on: {
-            'update:showFilters' (canShow) {
-              vm.showFilters = canShow
-              if ($overlay) {
-                if (canShow) {
-                  $overlay.show()
-                  $overlay.once('hide', () => {
-                    vm.showFilters = false
-                  })
-                } else {
-                  $overlay.hide()
-                }
-              }
-            }
-          }
-        })
-      }
+      render: h => h(SearchEngine, {
+        attrs: {
+          id: elId
+        },
+        props: {
+          ...options.props,
+          term: urlParams.get('term'),
+          page: parseInt(urlParams.get('page'), 10) || 1,
+          brands: urlParams.getAll('brands'),
+          categories: urlParams.getAll('categories')
+        },
+        scopedSlots: typeof getScopedSlots === 'function'
+          ? getScopedSlots($searchEngine, h)
+          : undefined
+      })
     }).$mount($searchEngine)
   }
 }

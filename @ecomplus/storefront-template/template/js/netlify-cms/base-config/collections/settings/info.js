@@ -6,26 +6,6 @@ export default ({ baseDir }) => ({
   widget: 'object',
   fields: [
     {
-      label: 'Preço em destaque',
-      name: 'main_price',
-      hint: 'Preço que terá destaque ao exibir o produto',
-      widget: 'select',
-      options: [
-        {
-          label: 'Total',
-          value: 'total'
-        },
-        {
-          label: 'Com desconto',
-          value: 'discount'
-        },
-        {
-          label: 'Parcelado',
-          value: 'installments'
-        }
-      ]
-    },
-    {
       label: 'Frete',
       name: 'shipping',
       widget: 'object',

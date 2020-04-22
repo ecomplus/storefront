@@ -1,7 +1,15 @@
 .products-carousel {
-  margin: 1.5rem auto;
   min-height: 6rem;
   max-width: 80rem;
+  margin: var(--spacer-4) auto;
+  padding: 0 var(--spacer-2);
+
+  @media (min-width: 768px){
+    padding: 0 3rem;
+  }
+  @media (min-width: 992px) {
+    padding: 0 4rem;
+  }
 
   &__list {
     margin-top: 0;
@@ -12,7 +20,7 @@
     display: block;
     text-align: center;
     position: relative;
-    padding: 1rem;
+    padding: var(--spacer-3);
     margin: 0;
 
     &::before {
@@ -32,8 +40,16 @@
       display: inline-block;
       color: inherit;
       background: var(--body-bg);
-      padding-left: 1rem;
-      padding-right: 1rem;
+      padding-left: var(--spacer-3);
+      padding-right: var(--spacer-3);
     }
+  }
+
+  &__item {
+    padding: var(--spacer-1);
+  }
+
+  .glide__slides {
+    will-change: auto;
   }
 }

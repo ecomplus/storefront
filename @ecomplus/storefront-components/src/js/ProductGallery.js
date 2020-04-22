@@ -69,7 +69,8 @@ export default {
     return {
       glide: null,
       pswp: null,
-      activeIndex: null
+      activeIndex: null,
+      isSliderMoved: false
     }
   },
 
@@ -146,6 +147,9 @@ export default {
       this.$emit('update:current-slide', index + 1)
       if (this.glide) {
         this.glide.go('=' + index)
+      }
+      if (!this.isSliderMoved) {
+        this.isSliderMoved = true
       }
     },
 

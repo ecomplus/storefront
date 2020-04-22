@@ -1,0 +1,40 @@
+.stamps {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+
+  @media (min-width: 768px) {
+    flex-wrap: wrap;
+  }
+
+  > li {
+    min-width: 120px;
+    max-width: 180px;
+    padding: var(--spacer-3) 0;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      padding-right: var(--spacer-2);
+      min-width: auto;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    max-height: 55px;
+
+    @media (min-width: 768px) {
+      max-height: none;
+    }
+  }
+
+  li:not(:first-child) {
+    margin-left: var(--spacer-4);
+  }
+}

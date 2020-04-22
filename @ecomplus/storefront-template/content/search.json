@@ -1,4 +1,8 @@
 {
-  "pitbar": false,
-  "additional_content": ""
+  "sections": [
+    {
+      "type": "search-engine",
+      "enabled": true
+    }
+  ]
 }

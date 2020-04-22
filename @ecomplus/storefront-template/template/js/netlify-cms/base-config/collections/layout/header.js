@@ -1,13 +1,13 @@
-export default ({ baseDir }) => ({
+export default ({ baseDir, state }) => ({
   name: 'header',
-  label: 'Header',
+  label: 'Cabeçalho',
   file: `${baseDir}content/header.json`,
   fields: [
     {
-      label: 'Tarja de marketing ',
+      label: 'Tarja de marketing',
       name: 'marketing_stripe',
       widget: 'object',
-      hint: 'Tarja na cor secundária com texto e botão, caso não seja configurada não é exibida na loja',
+      hint: 'Tarja com anúncio em destaque no topo da loja',
       fields: [
         {
           label: 'Texto',
@@ -24,10 +24,10 @@ export default ({ baseDir }) => ({
       ]
     },
     {
-      label: 'Tarja de contatos',
+      label: 'Barra de contatos',
       name: 'contacts_stripe',
       widget: 'object',
-      hint: 'Tarja com contatos da loja, como páginas internas, telefones e redes sociais',
+      hint: 'Informações de contato, redes sociais e páginas institucionais importantes',
       fields: [
         {
           label: 'Páginas',
@@ -49,18 +49,52 @@ export default ({ baseDir }) => ({
           ]
         },
         {
-          label: 'Mostrar telefone e whatsapp',
+          label: 'Mostrar telefone e WhatsApp',
           name: 'phone_wpp',
-          required: false,
           widget: 'boolean'
         },
         {
           label: 'Mostrar redes sociais',
           name: 'socials',
-          required: false,
           widget: 'boolean'
         }
       ]
+    },
+    {
+      label: 'Lista de categorias',
+      name: 'categories_list',
+      widget: 'object',
+      hint: 'Categorias em destaque exibidas diretamente no cabeçalho',
+      fields: [
+        {
+          label: 'Categorias selecionadas',
+          name: 'featured',
+          widget: 'list',
+          field: {
+            label: 'Categoria/coleção/marca',
+            widget: 'select',
+            options: state.routes
+              .filter(({ resource, name }) => Boolean(resource !== 'products' && name))
+              .map(({ name, path }) => ({
+                label: name,
+                value: `${path}?${name}`
+              }))
+          }
+        },
+        {
+          label: 'Categorias aleatórias',
+          name: 'random',
+          widget: 'number',
+          min: 0,
+          max: 20,
+          hint: 'Máximo de categorias em primeiro nível escolhidas randomicamente'
+        }
+      ]
+    },
+    {
+      label: 'Mostrar input de busca',
+      name: 'search_input',
+      widget: 'boolean'
     }
   ]
 })

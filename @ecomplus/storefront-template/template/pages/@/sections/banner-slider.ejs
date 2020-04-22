@@ -1,16 +1,49 @@
-<% if (Array.isArray(opt.slides) && opt.slides.length) { %>
-  <div class="banner-slider" data-cms-if="home.slider">
+<%
+const timestamp = Date.now()
+let slides
+if (Array.isArray(opt.slides)) {
+  slides = opt.slides.filter(({ start, end }) => {
+    if (start && timestamp < new Date(start).getTime()) {
+      return false
+    }
+    if (end && timestamp > new Date(end).getTime()) {
+      return false
+    }
+    return true
+  })
+}
+
+if (slides && slides.length) {
+  let dimensions
+  const { img } = slides[0]
+  if (img.startsWith('/')) {
+    try {
+      dimensions = _.imageSize(`template/public${img}`)
+    } catch (e) {
+      dimensions = null
+    }
+  }
+  %>
+
+  <div
+    class="banner-slider"
+    <% if (dimensions) { %>
+      style="--banner-aspect-ratio: <%= Math.ceil(dimensions.height / dimensions.width * 1000) / 1000 %>"
+    <% } %>
+  >
     <div class="glide" data-autoplay="<%= opt.autoplay %>">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides banner-slider__slides">
-          <% for (let i = 0; i < opt.slides.length; i++) { %>
+          <% for (let i = 0; i < slides.length; i++) { %>
             <li class="glide__slide">
-              <%- await include('/@/sections/banner', { _, opt: opt.slides[i] }) %>
+              <%- await include('/@/sections/inc/banner', {
+                _, opt: { ...slides[i], height_auto: true }
+              }) %>
             </li>
           <% } %>
         </ul>
 
-        <% if (opt.slides.length > 1) { %>
+        <% if (slides.length > 1) { %>
           <div class="glide__arrows d-none d-md-block" data-glide-el="controls">
             <button
               class="btn glide__arrow glide__arrow--left"
@@ -29,7 +62,7 @@
           </div>
 
           <div class="glide__bullets" data-glide-el="controls[nav]">
-            <% opt.slides.forEach((_, index) => { %>
+            <% slides.forEach((_, index) => { %>
               <button
                 class="glide__bullet"
                 data-glide-dir="=<%= index %>"

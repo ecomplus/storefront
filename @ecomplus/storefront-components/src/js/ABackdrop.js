@@ -40,12 +40,23 @@ export default {
     hide () {
       this.$emit('update:is-visible', false)
       this.$emit('hide')
+    },
+
+    lockBodyScroll () {
+      document.body.style.maxWidth = `${document.body.offsetWidth}px`
+      document.body.style.overflow = 'hidden'
     }
   },
 
   watch: {
     isVisible (isVisible) {
-      this.opacity = isVisible ? null : 0
+      if (isVisible) {
+        this.opacity = null
+        this.lockBodyScroll()
+      } else {
+        this.opacity = 0
+        document.body.style.overflow = document.body.style.maxWidth = null
+      }
     },
 
     opacity (opacity) {
@@ -65,6 +76,7 @@ export default {
       setTimeout(() => {
         this.opacity = null
       }, this.transitionMs)
+      this.lockBodyScroll()
     }
   }
 }

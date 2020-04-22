@@ -37,6 +37,10 @@
     }
   }
 
+  &__discount-value {
+    text-transform: uppercase;
+  }
+
   &__stamp {
     max-width: 100%;
     margin: .75rem auto 0;

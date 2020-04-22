@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.3...@ecomplus/storefront-components@1.0.0-beta.4) (2020-04-16)
+
+
+### Bug Fixes
+
+* **product-card:** check window object to support ssr ([8dc2de2](https://github.com/ecomplus/storefront/commit/8dc2de21b657d7bf5ae5d0122bb1fb777bd1b50e))
+
+
+
+
+
+# [1.0.0-beta.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.2...@ecomplus/storefront-components@1.0.0-beta.3) (2020-04-16)
+
+
+### Bug Fixes
+
+* **backdrop:** lock body scrool on backdrop visible ([16f6079](https://github.com/ecomplus/storefront/commit/16f60794c310cac4efb853dda68c9c363b2bf7d4))
+* **deps:** update all non-major dependencies ([#196](https://github.com/ecomplus/storefront/issues/196)) ([9a9c188](https://github.com/ecomplus/storefront/commit/9a9c18889a091c40064441e3079a9ed6d8905589))
+* **instant-search:** `autoFixTerm` to `autoFixScore` ([3ce8ef7](https://github.com/ecomplus/storefront/commit/3ce8ef70e724bac1af8342aed91fd5fc6c7d7ff5))
+* **instant-search:** fix triggering input focus ([5634d4c](https://github.com/ecomplus/storefront/commit/5634d4c9395764b79bc83661f4af36c7bf3dc46a))
+* **instant-search:** properly set input value before parent form submit ([81199a4](https://github.com/ecomplus/storefront/commit/81199a4048cbc8ba8b0627df6c023a8870f64619))
+* **product-card:** ensure picture max width ([5e4c911](https://github.com/ecomplus/storefront/commit/5e4c911ee22625c74e9b12b4ef2f87f3224b452c))
+* **product-card:** ensure product name block box sizing ([f92abd5](https://github.com/ecomplus/storefront/commit/f92abd59959dad76a9b92d6c3041c20300f04777))
+* **product-variations:** fix scss class name and minor style fixes ([c06e527](https://github.com/ecomplus/storefront/commit/c06e527510fc6f0ee9f55e955c7a34e6cdb1c5b8))
+
+
+### Features
+
+* **product:** add 'rating' slot ([c917288](https://github.com/ecomplus/storefront/commit/c917288292ac2e0fc032b3279c3f7bf6f5502aa9))
+* **product-card:** try some vars from window to customize card ([81fe202](https://github.com/ecomplus/storefront/commit/81fe202cdf3eda934053fb976a8e1c31b2cc4034))
+
+
+
+
+
+# [1.0.0-beta.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.1...@ecomplus/storefront-components@1.0.0-beta.2) (2020-04-03)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/passport-client to v1.0.7 ([b2c624d](https://github.com/ecomplus/storefront/commit/b2c624d1780a6920d8227aa1e0e693630bfd2a92))
+
+
+### Features
+
+* **picture:** emit 'load' event when image is ready ([e5e568a](https://github.com/ecomplus/storefront/commit/e5e568a1818226e24a9f533ca8b8e1b3f2e948ff))
+* **product:** add some slots common for product page and ssr ([4aaf96d](https://github.com/ecomplus/storefront/commit/4aaf96d427315b0771dbe8ae0f468c9e9c08b30a))
+* **product-card:** add header, title and buy-buttont-content slots ([3818e20](https://github.com/ecomplus/storefront/commit/3818e2047dd6ef026ec6dab662f526ba0ff96542))
+* **product-gallery:** supporting a preloaded first image with slot ([1a163ea](https://github.com/ecomplus/storefront/commit/1a163ea23a042207b954d35c0a4f7e2aba259135))
+
+
+
+
+
 # [1.0.0-beta.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.0...@ecomplus/storefront-components@1.0.0-beta.1) (2020-03-30)
 
 **Note:** Version bump only for package @ecomplus/storefront-components

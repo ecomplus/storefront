@@ -1,4 +1,23 @@
 {
-  "pitbar": false,
-  "additional_content": ""
+  "sections": [
+    {
+      "type": "breadcrumbs",
+      "enabled": true
+    },
+    {
+      "type": "page-title"
+    },
+    {
+      "type": "document-banner",
+      "enabled": true
+    },
+    {
+      "type": "brand-retail",
+      "enabled": true
+    },
+    {
+      "type": "document-description",
+      "enabled": true
+    }
+  ]
 }

@@ -1,3 +1,11 @@
+<%
+const contacts = _.cms('contacts') || {}
+const footer = _.cms('footer') || {}
+const logo = _.settings.logo
+  ? { url: _.settings.logo, alt: _.settings.name }
+  : _.store.logo
+%>
+
 <!doctype html>
 <html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
 
@@ -7,12 +15,80 @@
 </head>
 
 <body class="app">
-  <%- await include('/@/layout/app/header', { _ }) %>
-  <%- await include('/@/views/app', { _ }) %>
-  <%- await include('/@/layout/app/footer', { _ }) %>
+  <header class="app__header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-sm-auto mb-2 mb-sm-0">
+          <a href="/">
+            <% if (logo && logo.url) { %>
+              <img class="app__logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
+            <% } else { %>
+              <%= _.settings.name || _.store.name %>
+            <% } %>
+          </a>
+        </div>
+
+        <div class="col">
+          <div class="app__contact">
+            <span class="d-none d-md-inline">
+              <%= _.dictionary('needHelpQn') %> <%= _.dictionary('callTo') %>
+            </span>
+            <% if (contacts.whatsapp) { %>
+              <span><%= contacts.whatsapp %></span>
+            <% } %>
+            <% if (contacts.phone) { %>
+              <span><%= contacts.phone %></span>
+            <% } %>
+          </div>
+
+          <div class="app__safe">
+            <span class="app__safe-icon">
+              <i class="fas fa-shield-alt"></i>
+            </span>
+            <%= _.dictionary('safeEnvMsg') %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="spa">
+    <div id="storefront-app">
+      <%- await include('/@/sections/inc/loading') %>
+    </div>
+  </main>
+
+  <footer>
+    <div class="app__footer">
+      <div class="container-fluid">
+        <div class="app__stamps">
+          <%- await include(`/@/sections/stamps`, { _, opt: { stamps: footer.stamps } }) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="app__credits container">
+      <div>
+        <% if (footer.credits) { %>
+          <span><%= footer.credits %></span>
+        <% } else { %>
+          <span class="app__credits-name">© <%= _.settings.name %> </span>
+          <span class="app__credits-address"> - <%= contacts.address %> - </span>
+          <span class="app__credits-number"> <%= contacts.doc_number %></span>
+        <% } %>
+      </div>
+
+      <div class="ecom-credits">
+        <a href="https://e-com.plus" target="_blank" rel="noopener">
+          Powered by
+          <img src="https://ecom.nyc3.digitaloceanspaces.com/brand/plus/198x43.png" alt="E-Com Plus">
+        </a>
+      </div>
+    </div>
+  </footer>
 
   <%- await include('/@/json', { _ }) %>
-  <script src="/checkout.js"></script>
+  <%- await include('/@/scripts') %>
 </body>
 
 </html>

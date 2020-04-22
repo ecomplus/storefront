@@ -6,14 +6,24 @@
 
 import Vue from 'vue'
 import lozad from 'lozad'
-import '@ecomplus/storefront-twbs'
 import EcomSearch from '@ecomplus/search-engine'
-import EcProductCard from './components/EcProductCard.vue'
+import ProductCard from '#components/ProductCard.vue'
 
 export default (options = {}, elClass = 'product-card') => {
+  if (options.buyText) {
+    window.productCardBuyText = options.buyText
+  }
+  if (options.buy) {
+    window.productCardBuyHtml = options.buy
+  }
+  if (options.footer) {
+    window.productCardFooterHtml = options.footer
+  }
+  const getScopedSlots = window.storefront && window.storefront.getScopedSlots
+
   const setupComponent = ($productCard, productId, sku, product, isLoaded) => {
     new Vue({
-      render: h => h(EcProductCard, {
+      render: h => h(ProductCard, {
         class: elClass,
         attrs: {
           'data-product-id': productId,
@@ -25,15 +35,9 @@ export default (options = {}, elClass = 'product-card') => {
           product,
           isLoaded
         },
-        scopedSlots: {
-          default () {
-            return h('div', {
-              domProps: {
-                innerHTML: $productCard.outerHTML
-              }
-            })
-          }
-        }
+        scopedSlots: typeof getScopedSlots === 'function'
+          ? getScopedSlots($productCard, h)
+          : undefined
       })
     }).$mount($productCard)
   }
@@ -107,6 +111,10 @@ export default (options = {}, elClass = 'product-card') => {
     }
   }
 
-  const observer = lozad($productCards, { load })
+  const observer = lozad($productCards, {
+    rootMargin: '350px 0px',
+    threshold: 0,
+    load
+  })
   observer.observe()
 }

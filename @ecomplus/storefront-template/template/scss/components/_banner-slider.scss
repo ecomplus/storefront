@@ -1,18 +1,18 @@
 .banner-slider {
   width: 100%;
-  height: auto;
   max-width: 80rem;
+  height: auto;
+  height: calc(100vw * var(--banner-aspect-ratio) - 5px);
+  max-height: calc(80rem * var(--banner-aspect-ratio));
   margin: 0 auto;
 
   &__slides,
   &__slides > li {
     overflow: hidden;
     margin: 0;
+    min-height: 5rem;
 
-    @media (max-width: 767.98px) {
-      min-height: 5rem;
-    }
-    @media (min-width: 768px) and (max-width: 991.98px) {
+    @media (min-width: 768px) {
       min-height: 12rem;
     }
     @media (min-width: 992px) {
@@ -29,5 +29,9 @@
       line-height: 4;
       width: 100%;
     }
+  }
+
+  .glide__slides {
+    will-change: auto;
   }
 }

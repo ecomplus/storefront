@@ -1,0 +1,8 @@
+<%
+const search = new _.EcomSearch()
+search.setBrandIds([_.state._id])
+%>
+
+<div class="brand-retail">
+  <%- await include('/@/sections/inc/retail-grid', { _, opt: { search } }) %>
+</div>

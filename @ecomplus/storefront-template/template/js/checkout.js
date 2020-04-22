@@ -1,4 +1,6 @@
 import './lib/config'
+import '@ecomplus/storefront-twbs'
+
 import './lib/fetch-info'
 import './lib/utils'
 

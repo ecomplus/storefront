@@ -6,10 +6,13 @@
     >
       <slot name="gallery-col">
         <div class="col-12 col-md-6">
-          <productGallery
+          <product-gallery
             :product="body"
             :current.sync="currentGalleyImg"
-          />
+          >
+            <slot name="first-picture"/>
+          </product-gallery>
+          <slot name="gallery-footer"/>
         </div>
       </slot>
 
@@ -24,6 +27,14 @@
           <p class="product__sku">
             COD: {{ body.sku }}
           </p>
+        </slot>
+
+        <slot name="rating">
+          <div
+            v-once
+            class="product__rating"
+            :data-sku="body.sku"
+          ></div>
         </slot>
 
         <slot
@@ -76,22 +87,27 @@
               :product="body"
               :selectedId.sync="selectedVariationId"
             />
-
             <dismissable-alert :can-show="hasClickedBuy && !selectedVariationId">
               {{ i19selectVariation }}
             </dismissable-alert>
+
+            <slot name="variations-info"/>
           </slot>
 
-          <div class="product__buy">
+          <div
+            class="product__buy"
+            @click="buy"
+          >
             <slot name="buy">
               <button
                 type="button"
                 class="btn btn-lg btn-primary"
-                @click="buy"
                 :disabled="hasClickedBuy"
               >
-                <i class="fas fa-shopping-bag mr-1"></i>
-                {{ strBuy }}
+                <slot name="buy-button-content">
+                  <i class="fas fa-shopping-bag mr-1"></i>
+                  {{ strBuy }}
+                </slot>
               </button>
             </slot>
           </div>

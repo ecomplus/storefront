@@ -48,6 +48,10 @@ $product-card-picture-lg: 250px;
     border-radius: var(--border-radius);
     flex: 0 0 100%;
 
+    img {
+      max-width: 100%;
+    }
+
     &:not(:last-child) {
       opacity: 0;
 
@@ -81,7 +85,7 @@ $product-card-picture-lg: 250px;
     font-size: var(--font-size-sm);
     line-height: var(--line-height-sm);
     height: calc(var(--line-height-sm) * var(--font-size-sm) * 3);
-    box-sizing: content-box;
+    box-sizing: content-box !important;
     overflow: hidden;
     font-weight: var(--font-normal);
     display: block;

@@ -1,29 +1,39 @@
-import getEcomplusWidgetProductCard from './widgets/ecomplus-widget-product-card'
-import getEcomplusWidgetSearch from './widgets/ecomplus-widget-search'
-import getEcomplusWidgetMinicart from './widgets/ecomplus-widget-minicart'
-import getEcomplusWidgetUser from './widgets/ecomplus-widget-user'
-import getEcomplusWidgetProduct from './widgets/ecomplus-widget-product'
-import getEcomplusWidgetSearchEngine from './widgets/ecomplus-widget-search-engine'
-import getWidgetTagManager from './widgets/widget-tag-manager'
-import getWidgetFbPixel from './widgets/widget-fb-pixel'
-import getWidgetTrustvox from './widgets/widget-trustvox'
+import getWidgetProductCard from '@ecomplus/widget-product-card/cms.config'
+import getWidgetProduct from '@ecomplus/widget-product/cms.config'
+import getWidgetSearchEngine from '@ecomplus/widget-search-engine/cms.config'
+import getWidgetSearch from '@ecomplus/widget-search/cms.config'
+import getWidgetMinicart from '@ecomplus/widget-minicart/cms.config'
+import getWidgetFbPixel from '@ecomplus/widget-fb-pixel/cms.config'
+import getWidgetTagManager from '@ecomplus/widget-tag-manager/cms.config'
+import getWidgetTrustvox from '@ecomplus/widget-trustvox/cms.config'
+
+const fixWidgetConfig = ({ baseDir }, getWidget) => {
+  const baseConfig = getWidget()
+  const pkgName = baseConfig.fields.find(({ name }) => name === 'pkg').default
+  const name = pkgName.replace(/^(@ecomplus\/|storefront-)widget-/i, '')
+  return {
+    ...baseConfig,
+    name,
+    file: `${baseDir}content/widgets/${name}.json`
+  }
+}
 
 export default options => ({
   name: 'widgets',
   label: 'Widgets',
+  description: 'Plugins, tags e componentes adicionais',
   delete: false,
   editor: {
     preview: false
   },
   files: [
-    getEcomplusWidgetProductCard(options),
-    getEcomplusWidgetSearch(options),
-    getEcomplusWidgetMinicart(options),
-    getEcomplusWidgetUser(options),
-    getEcomplusWidgetProduct(options),
-    getEcomplusWidgetSearchEngine(options),
-    getWidgetTagManager(options),
-    getWidgetFbPixel(options),
-    getWidgetTrustvox(options)
+    fixWidgetConfig(options, getWidgetProductCard),
+    fixWidgetConfig(options, getWidgetProduct),
+    fixWidgetConfig(options, getWidgetSearch),
+    fixWidgetConfig(options, getWidgetSearchEngine),
+    fixWidgetConfig(options, getWidgetMinicart),
+    fixWidgetConfig(options, getWidgetFbPixel),
+    fixWidgetConfig(options, getWidgetTagManager),
+    fixWidgetConfig(options, getWidgetTrustvox)
   ]
 })

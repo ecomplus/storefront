@@ -1,0 +1,10 @@
+{
+  "pkg": "@ecomplus/widget-product-card",
+  "active": true,
+  "desktopOnly": false,
+  "options": {
+    "buyText": "",
+    "buy": "",
+    "footer": ""
+  }
+}

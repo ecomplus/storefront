@@ -1,0 +1,11 @@
+<%
+if (_.state.products && _.state.products.length) {
+  const search = new _.EcomSearch()
+  search.setProductIds(_.state.products)
+  %>
+  <div class="collection-retail">
+    <%- await include('/@/sections/inc/retail-grid', { _, opt: { search } }) %>
+  </div>
+  <%
+}
+%>

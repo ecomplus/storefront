@@ -9,3 +9,5 @@ export const isIE = !!document.documentMode
 export const isMobile = isIOS || /Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(userAgent)
 
 export const isScreenXs = window.screen.width <= 575.98
+
+export const isScreenLg = window.screen.width >= 992

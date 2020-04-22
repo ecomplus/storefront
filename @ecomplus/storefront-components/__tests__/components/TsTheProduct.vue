@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import product from '__/data/product.json'
+  import product from '__/__fixtures__/product.json'
   import TheProduct from '@ecomplus/storefront-components/src/TheProduct.vue'
 
   export default {

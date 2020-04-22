@@ -157,6 +157,7 @@ export default {
             $el.classList.add('loaded')
             this.$nextTick(() => {
               this.opacity = $img.style.opacity = null
+              this.$emit('load')
             })
           }
         }

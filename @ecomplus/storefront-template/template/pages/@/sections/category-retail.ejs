@@ -1,0 +1,8 @@
+<%
+const search = new _.EcomSearch()
+search.setCategoryIds([_.state._id])
+%>
+
+<div class="category-retail">
+  <%- await include('/@/sections/inc/retail-grid', { _, opt: { search } }) %>
+</div>

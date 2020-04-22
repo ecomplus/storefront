@@ -1,39 +1,36 @@
 import { name, version } from '../../package.json'
 import './lib/config'
-import { events } from './lib/emitter'
 import '@ecomplus/storefront-twbs'
 
 import './lib/utils'
 import './lib/lazy-load'
 import './lib/glide-slides'
 import './lib/menu'
-import './lib/header'
 import './lib/search'
+import './lib/shopping-cart'
 import './lib/persist-utm'
 
 import lozad from 'lozad'
 import * as cloneDeep from 'lodash.clonedeep'
 import * as merge from 'lodash.merge'
 import Glide from '@glidejs/glide'
+import getScopedSlots from './lib/get-scoped-slots'
 
-// import './lib/load-widgets'
+import './lib/load-widgets'
 
 window._ = { cloneDeep, merge }
 window.lozad = lozad
 window.Glide = Glide
+window.storefront.getScopedSlots = getScopedSlots
 
-window.storefront = {
-  settings: window._settings,
-  info: window._info,
-  widgets: window._widgets,
-  context: window._context,
-  data: window._data,
-  ...events
-}
-
-setTimeout(() => {
+const fetchInfo = () => {
   import(/* webpackPreload: true */ './lib/fetch-info').catch(console.error)
-}, 300)
+}
+if (typeof window.requestIdleCallback === 'function') {
+  window.requestIdleCallback(fetchInfo)
+} else {
+  setTimeout(fetchInfo, 300)
+}
 
 const { hash } = window.location
 if (hash.indexOf('_token=') !== -1 || hash.indexOf('error=access_denied') !== -1) {

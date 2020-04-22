@@ -1,5 +1,6 @@
 import { i18n } from '@ecomplus/utils'
 import { modules } from '@ecomplus/client'
+import ecomCart from '@ecomplus/shopping-cart'
 import ecomPassportClient from '@ecomplus/passport-client'
 import baseModulesRequestData from './../../lib/base-modules-request-data'
 
@@ -172,7 +173,8 @@ export default {
     } else if (utm && Object.keys(utm).length && this.amount) {
       this.fetchDiscountOptions({
         amount: this.amount,
-        ...baseModulesRequestData
+        ...baseModulesRequestData,
+        items: ecomCart.data.items
       })
     }
   }

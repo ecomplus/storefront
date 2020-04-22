@@ -6,7 +6,40 @@
 </head>
 
 <body>
-  <%- await include('/@/views/cms', { _ }) %>
+  <div id="cms"></div>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/10.0.0/markdown-it.min.js"
+  ></script>
+  <script>
+    if (!window.MarkdownIt) {
+      window.MarkdownIt = markdownit;
+    }
+  </script>
+
+  <script
+    src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin
+  ></script>
+  <script
+    src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+  ></script>
+
+  <script>
+    window.CMS_MANUAL_INIT = true;
+    window.CMS_LOAD_CONFIG_FILE = false;
+    window.CMS_CUSTOM_CONFIG = {};
+  </script>
+  <script
+    src="https://unpkg.com/netlify-cms@2/dist/netlify-cms.js"
+  ></script>
+
+  <script
+    src="https://unpkg.com/netlify-cms-widget-native-color/dist/umd/native-color.min.js"
+  ></script>
+  <script>
+    CMS.registerWidget('color', NetlifyCMSWidgetNativeColor.Control);
+  </script>
+
   <%- await include('/@/json', { _ }) %>
   <script src="/admin.js"></script>
 </body>

@@ -5,26 +5,50 @@
  */
 
 import Vue from 'vue'
-import '@ecomplus/storefront-twbs'
-import EcSearch from './components/EcSearch.vue'
+import InstantSearch from '#components/InstantSearch.vue'
 
-export default (options = {}, elId = 'search-input') => {
-  const $searchInput = document.getElementById(elId)
-
-  if ($searchInput) {
-    const attrs = {}
-    for (let i = $searchInput.attributes.length - 1; i >= 0; i--) {
-      const { name, value } = $searchInput.attributes[i]
-      attrs[name] = value
-    }
+export default (options = {}, elId = 'instant-search', inputId = 'search-input') => {
+  const $instantSearch = document.getElementById(elId)
+  const $searchInput = document.getElementById(inputId)
+  if ($instantSearch && $searchInput) {
+    const getScopedSlots = window.storefront && window.storefront.getScopedSlots
 
     new Vue({
-      render: h => h(EcSearch, {
-        props: options.props,
-        scopedSlots: {
-          input: () => h('input', { attrs })
-        }
-      })
-    }).$mount($searchInput)
+      data: {
+        isVisible: false,
+        term: ''
+      },
+      created () {
+        $searchInput.addEventListener('focusin', () => {
+          this.isVisible = true
+          this.term = $searchInput.value
+        })
+      },
+
+      render (createElement) {
+        const vm = this
+        return createElement(InstantSearch, {
+          attrs: {
+            id: elId
+          },
+          props: {
+            ...options.props,
+            term: vm.term,
+            isVisible: vm.isVisible
+          },
+          on: {
+            'update:is-visible' (isVisible) {
+              vm.isVisible = isVisible
+            },
+            'update:term' (term) {
+              $searchInput.value = term
+            }
+          },
+          scopedSlots: typeof getScopedSlots === 'function'
+            ? getScopedSlots($instantSearch, createElement)
+            : undefined
+        })
+      }
+    }).$mount($instantSearch)
   }
 }

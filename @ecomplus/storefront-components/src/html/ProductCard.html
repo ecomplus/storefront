@@ -26,12 +26,14 @@
           :href="`/${body.slug}`"
           :title="name"
         >
+          <slot name="header"/>
+
           <div class="product-card__pictures">
             <template v-if="body.pictures && body.pictures.length">
               <a-picture
                 class="product-card__picture"
                 v-for="(picture, index) in body.pictures.slice(0, 2).reverse()"
-                v-if="body.pictures === 0 || index === 1 || isHovered"
+                v-if="body.pictures.length === 1 || index === 1 || isHovered"
                 :key="index"
                 :src="picture"
                 :can-calc-height="false"
@@ -43,12 +45,14 @@
             />
           </div>
 
-          <component
-            :is="headingTag"
-            class="product-card__name"
-          >
-            {{ name }}
-          </component>
+          <slot name="title">
+            <component
+              :is="headingTag"
+              class="product-card__name"
+            >
+              {{ name }}
+            </component>
+          </slot>
         </v-link>
       </slot>
 
@@ -91,19 +95,24 @@
           class="product-card__buy fade"
         >
           <slot name="buy">
+            <div v-if="buyHtml" v-html="buyHtml"></div>
             <button
               type="button"
               class="btn btn-primary"
               :class="isSmall ? 'btn-sm': 'btn-block'"
             >
-              <i class="fas fa-shopping-bag mr-1"></i>
-              {{ strBuy }}
+              <slot name="buy-button-content">
+                <i class="fas fa-shopping-bag mr-1"></i>
+                {{ strBuy }}
+              </slot>
             </button>
           </slot>
         </div>
       </template>
 
-      <slot name="footer"/>
+      <slot name="footer">
+        <div v-if="footerHtml" v-html="footerHtml"></div>
+      </slot>
     </section>
   </transition>
 

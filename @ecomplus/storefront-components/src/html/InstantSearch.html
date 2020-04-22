@@ -13,7 +13,10 @@
       v-if="isVisible || hasSearched"
       v-show="isVisible"
     >
-      <slot name="header">
+      <slot
+        name="header"
+        v-bind="{ isSearching }"
+      >
         <header class="search__header card-header">
           <div class="search__input-group">
             <input
@@ -59,7 +62,7 @@
           v-bind="{ term: searchTerm }"
         >
           <SearchEngine
-            v-bind="{ ...searchEngineProps, pageSize, autoFixTerm }"
+            v-bind="{ ...searchEngineProps, pageSize, autoFixScore }"
             :term.sync="searchTerm"
             :is-filterable="false"
             :product-card-props="productCardProps"

@@ -74,6 +74,13 @@ export default {
     setSearchTerm (term) {
       const $form = this.$el.parentElement
       if ($form && $form.tagName === 'FORM') {
+        const $inputs = $form.elements
+        for (let i = 0; i < $inputs.length; i++) {
+          if ($inputs[i].name === 'term') {
+            $inputs[i].value = term
+            break
+          }
+        }
         $form.submit()
       } else {
         this.localTerm = term
@@ -101,9 +108,11 @@ export default {
   watch: {
     isVisible: {
       handler (isVisible) {
-        if (isVisible && this.$refs.input) {
+        if (isVisible) {
           this.$nextTick(() => {
-            this.$refs.input.focus()
+            if (this.$refs.input) {
+              this.$refs.input.focus()
+            }
           })
         }
       },

@@ -1,0 +1,18 @@
+<%
+await opt.search.fetch()
+const items = await opt.search.getItems()
+%>
+
+<section class="retail-grid">
+  <div class="container">
+    <div class="row">
+      <% for (let i = 0; i < items.length; i++) { %>
+        <div class="col-6 col-md-4 col-lg-3">
+          <%- await include('/@/sections/inc/product-item', {
+            _, opt: { item: items[i] }
+          }) %>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</section>

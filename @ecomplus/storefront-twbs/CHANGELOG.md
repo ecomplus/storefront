@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.4.0...@ecomplus/storefront-twbs@5.4.1) (2020-04-16)
+
+
+### Bug Fixes
+
+* **deps:** bootstrap 4.4.1 not compatible with jquery 3.5.0 ([06c314a](https://github.com/ecomplus/storefront/commit/06c314a2c68d84d80fa68d38bb575b708268f0ab))
+
+
+
+
+
+# [5.4.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.3.2...@ecomplus/storefront-twbs@5.4.0) (2020-04-16)
+
+
+### Bug Fixes
+
+* **animate-css:** add timer fallback (animationend event is unstable) ([5038b18](https://github.com/ecomplus/storefront/commit/5038b18fae7091d224a2350c923ded5f8a6b786f))
+
+
+### Features
+
+* **scss:** add new --font-headings css var ([47ac3b6](https://github.com/ecomplus/storefront/commit/47ac3b66e31fe0f4817462a68a3759df66a10561))
+
+
+
+
+
+## [5.3.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.3.1...@ecomplus/storefront-twbs@5.3.2) (2020-04-03)
+
+
+### Bug Fixes
+
+* **scss:** edit default container width (too large) to 1400px ([b863298](https://github.com/ecomplus/storefront/commit/b863298f324de0825165fa349e87fb4c21392eaa))
+
+
+### Reverts
+
+* **scss:** keep default bootstrap containers at all ([4a51583](https://github.com/ecomplus/storefront/commit/4a51583e8ea4424d46c84dde96fca0dc07b15a23))
+
+
+
+
+
 ## [5.3.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.3.0...@ecomplus/storefront-twbs@5.3.1) (2020-03-30)
 
 

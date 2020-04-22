@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  import { pictures } from '__/data/product.json'
+  import { pictures } from '__/__fixtures__/product.json'
   import APicture from '@ecomplus/storefront-components/src/APicture.vue'
 
   export default {

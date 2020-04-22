@@ -2,6 +2,10 @@
 
 Card with resumed product information including picture(s), title, prices, discount percentage, buy button and space for rating stars. Should be used on shelves and grids, links to the product details page.
 
+```js
+import ProductCard from '@ecomplus/storefront-components/src/ProductCard.vue'
+```
+
 <DemoProductCard/>
 
 ## Features
@@ -18,13 +22,13 @@ Card with resumed product information including picture(s), title, prices, disco
 #### Basic (minor required) example
 
 ```vue
-<ProductCard :product-id="productId"/>
+<product-card :product-id="productId"/>
 ```
 
 #### With previously loaded item data
 
 ```vue
-<ProductCard
+<product-card
   :product="product"
   :is-loaded="true"
 />
@@ -33,7 +37,7 @@ Card with resumed product information including picture(s), title, prices, disco
 #### All props/events
 
 ```vue
-<ProductCard
+<product-card
   :product.sync="product"
   :is-small="true"
   heading-tag="h4"
@@ -155,11 +159,11 @@ this.$emit('update:is-loaded', true)
 Shown while product data is being fetched (hydrated), usually can contain the pre-rendered element or a loading spinner.
 
 ```vue
-<ProductCard :product-id="productId">
+<product-card :product-id="productId">
   <div class="spinner-border" role="status">
     <span class="sr-only">Loading...</span>
   </div>
-</ProductCard>
+</product-card>
 ```
 
 ### buy
@@ -167,7 +171,7 @@ Shown while product data is being fetched (hydrated), usually can contain the pr
 Place to customize buy button.
 
 ```vue
-<ProductCard :product-id="productId">
+<product-card :product-id="productId">
   <template #buy>
     <button
       type="button"
@@ -176,7 +180,36 @@ Place to customize buy button.
       <img src="my-custom-buy-button-image.png"/>
     </button>
   </template>
-</ProductCard>
+</product-card>
+```
+
+### buy-button-content
+
+Place to use default buy button but customize inner content.
+
+```vue
+<product-card :product-id="productId">
+  <template #buy-button-content>
+    <img src="my-custom-buy-button-image.png"/>
+  </template>
+</product-card>
+```
+
+### title
+
+Place to overwrite default heading tag with product name.
+
+```vue
+<product-card
+  :product="product"
+  :is-loaded="true"
+>
+  <template #title>
+    <h3 class="product-card__name">
+      {{ product.name }}
+    </h3>
+  </template>
+</product-card>
 ```
 
 ### discount-tag
@@ -184,7 +217,7 @@ Place to customize buy button.
 Place to customize discount badge when product has offer price.
 
 ```vue
-<ProductCard :product-id="productId">
+<product-card :product-id="productId">
   <template #discount-tag="{ discount }">
     <span
       v-if="discount > 0"
@@ -193,7 +226,7 @@ Place to customize discount badge when product has offer price.
       -<b>{{ discount }}</b>%
     </span>
   </template>
-</ProductCard>
+</product-card>
 ```
 
 ### rating
@@ -201,14 +234,14 @@ Place to customize discount badge when product has offer price.
 Place to insert the product average rating. Usually it should be done through an external widget.
 
 ```vue
-<ProductCard
+<product-card
   :product="product"
   :is-loaded="true"
 >
   <template #rating>
     <span>{{ avarageRating }}/5</span>
   </template>
-</ProductCard>
+</product-card>
 ```
 
 ### prices
@@ -216,7 +249,7 @@ Place to insert the product average rating. Usually it should be done through an
 Place to overwrite default `APrices` component.
 
 ```vue
-<ProductCard
+<product-card
   :product="product"
   :is-loaded="true"
 >
@@ -225,7 +258,7 @@ Place to overwrite default `APrices` component.
       {{ formatMoney(product.price) }}
     </span>
   </template>
-</ProductCard>
+</product-card>
 ```
 
 ### unavailable
@@ -233,13 +266,13 @@ Place to overwrite default `APrices` component.
 Place to customize badge shown if the product is marked unavailable for purchase.
 
 ```vue
-<ProductCard :product-id="productId">
+<product-card :product-id="productId">
   <template #unavailable>
     <span class="badge badge-warning">
       Product unavailable :/
     </span>
   </template>
-</ProductCard>
+</product-card>
 ```
 
 ### out-of-stock
@@ -247,18 +280,22 @@ Place to customize badge shown if the product is marked unavailable for purchase
 Place to customize badge shown if the product stock quantity is zero or less than minimum.
 
 ```vue
-<ProductCard :product-id="productId">
+<product-card :product-id="productId">
   <template #out-of-stock>
     <span class="badge badge-dark">
       Product out of stock :(
     </span>
   </template>
-</ProductCard>
+</product-card>
 ```
 
 ### body
 
 Place to overwrite top part (almost entire) of card with product pictures and title.
+
+### header
+
+Place to add content on product card top, wrapped by link.
 
 ### footer
 

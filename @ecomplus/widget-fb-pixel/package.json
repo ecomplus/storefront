@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-fb-pixel",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Storefront plugin to handle Facebook Pixel events",
   "main": "dist/widget-fb-pixel.min.js",
   "module": "src/index.js",
@@ -32,7 +32,7 @@
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-fb-pixel#readme",
   "peerDependencies": {
     "@ecomplus/shopping-cart": ">=1 <3",
-    "@ecomplus/utils": "1.x",
+    "@ecomplus/utils": "^1.3.4",
     "core-js": "3.x"
   },
   "webpackOutput": {

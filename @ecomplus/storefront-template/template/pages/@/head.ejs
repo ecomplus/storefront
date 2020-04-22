@@ -1,30 +1,41 @@
 <%
 // setup page object for current route
-let page, pathname
-switch (_.route.path) {
+const { path, resource, collection } = _.route
+let pathname
+
+switch (path) {
   case '/':
   case '/index':
     pathname = '/'
-    page = _.cms('home')
     _.pageName = 'home'
     break
-  case '/search':
-    _.pageName = 'search'
-    break
   default:
-    _.pageName = _.route.resource
-    break
+    pathname = path
+    if (resource) {
+      _.pageName = resource
+    } else {
+      _.pageName = path.slice(1)
+    }
 }
 
-if (!page) {
-  // try resource body or folder collection content
+_.state = _.cms(_.pageName) || {}
+if (resource || collection) {
+  // merge resource body or folder collection content
   const { body, content } = await _.resolveRoute()
-  page = body || content || {}
+  _.state = Object.assign({}, body || content, _.state)
+}
+
+// preset global list of active widgets
+_.widgets = []
+const widgets = _.cms('widgets')
+if (Array.isArray(widgets)) {
+  _.widgets = widgets.map(slug => _.cms(`widgets/${slug}`))
+    .filter(({ pkg, active }) => Boolean(pkg && active))
 }
 
 // page title and description
-const title = page.meta_title || page.name || _.settings.name
-const description = page.meta_description || page.short_description || _.settings.description
+const title = _.state.meta_title || _.state.name || _.state.title || _.settings.name
+const description = _.state.meta_description || _.state.short_description || _.settings.description
 let url
 if (pathname) {
   if (!_.settings.domain && _.store.domain) {
@@ -43,11 +54,10 @@ if (url) {
   social = _.cms('social')
   ogLocale = _.lang.length === 2 ? _.lang : _.lang.substr(0, 3) + _.lang.slice(3).toUpperCase()
 }
-
 %>
 
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1">
 <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials">
 <meta name="theme-color" content="<%= _.primaryColor %>">
 <link rel="icon" href="<%= _.settings.favicon %>">
@@ -59,27 +69,20 @@ if (url) {
   <link rel="canonical" href="<%= url %>">
 <% } %>
 
-<% if (!_.route.path.startsWith('/admin/')) { %>
+<% if (!path.startsWith('/admin/')) { %>
   <link rel="preload" href="/storefront.css" as="style">
-  <% if (!_.route.path.startsWith('/app/')) { %>
+  <% if (!path.startsWith('/app/')) { %>
     <link rel="preload" href="/storefront.js" as="script">
   <% } %>
 
   <%
   // setup preloaded widget partials (pixels, tags)
-  const widgets = _.cms('widgets')
-  if (Array.isArray(widgets)) {
-    const widgetObjects = widgets.map(slug => _.cms(`widgets/${slug}`))
-    for (let i = 0; i < widgetObjects.length; i++) {
-      const { pkg, active, options, headAppend } = widgetObjects[i]
-      if (active && headAppend) {
-        try {
-          %> <%- await include(`${pkg}/${headAppend}`, { _, options }) %> <%
-        } catch (err) {
-          console.error(err)
-        }
-      }
-    }
+  if (_.widgets.length) {
+    %>
+    <%- await include('/@/helpers/widgets-append', {
+      _, opt: {}, field: 'headAppend'
+    }) %>
+    <%
   }
   %>
 <% } %>
@@ -108,3 +111,16 @@ if (url) {
 <% } %>
 
 <meta name="ecom-store-id" content="<%= _.storeId %>">
+
+<%
+// inject custom code
+const customCode = _.cms('code') || {}
+if (customCode.css) {
+  %>
+  <style>
+    <%- customCode.css %>
+  </style>
+  <%
+}
+%>
+<%- customCode.html_head %>

@@ -56,13 +56,17 @@ export default {
   computed: {
     i19outOfStock: () => i18n(i19outOfStock),
     i19unavailable: () => i18n(i19unavailable),
+    buyHtml: () => typeof window === 'object' && window.productCardBuyHtml,
+    footerHtml: () => typeof window === 'object' && window.productCardFooterHtml,
 
     name () {
       return getName(this.body)
     },
 
     strBuy () {
-      return this.buyText || i18n(i19buy)
+      return this.buyText ||
+        (typeof window === 'object' && window.productCardBuyText) ||
+        i18n(i19buy)
     },
 
     isInStock () {

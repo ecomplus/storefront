@@ -3,8 +3,18 @@
   min-height: var(--spacer-5);
   min-width: var(--spacer-5);
 
-  img {
+  > a {
+    display: block;
+  }
+
+  picture {
+    display: block;
     margin: 0 auto;
+    min-height: 1rem;
+
+    img {
+      width: 100%;
+    }
   }
 
   .lozad:not([data-loaded="true"]) {

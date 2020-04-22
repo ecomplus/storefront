@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import product from '__/data/product.json'
+  import product from '__/__fixtures__/product.json'
   import ProductGallery from '@ecomplus/storefront-components/src/ProductGallery.vue'
 
   export default {

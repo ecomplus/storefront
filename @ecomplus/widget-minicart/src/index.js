@@ -5,48 +5,45 @@
  */
 
 import Vue from 'vue'
-import '@ecomplus/storefront-twbs'
-import EcMinicart from './components/EcMinicart.vue'
+import CartQuickview from '#components/CartQuickview.vue'
 
-export default (options = {}, elId = 'cart-button') => {
-  const $cartButton = document.getElementById(elId)
-
-  if ($cartButton) {
-    const { $overlay } = window.storefront
+export default (options = {}, elId = 'cart-quickview', buttonId = 'cart-button') => {
+  const $cartQuickview = document.getElementById(elId)
+  const $cartButton = document.getElementById(buttonId)
+  if ($cartQuickview && $cartButton) {
+    const getScopedSlots = window.storefront && window.storefront.getScopedSlots
 
     new Vue({
       data: {
-        showCart: false
+        isVisible: false
+      },
+      created () {
+        $cartButton.addEventListener('click', e => {
+          e.preventDefault()
+          this.isVisible = true
+        })
       },
 
       render (createElement) {
         const vm = this
-        return createElement(EcMinicart, {
+        return createElement(CartQuickview, {
           attrs: {
             id: elId
           },
           props: {
             ...options.props,
-            showCart: vm.showCart
+            isVisible: vm.isVisible
           },
-
           on: {
-            'update:showCart' (isVisible) {
-              vm.showCart = isVisible
-              if ($overlay) {
-                if (isVisible) {
-                  $overlay.show()
-                  $overlay.once('hide', () => {
-                    vm.showCart = false
-                  })
-                } else {
-                  $overlay.hide()
-                }
-              }
+            'update:is-visible' (isVisible) {
+              vm.isVisible = isVisible
             }
-          }
+          },
+          scopedSlots: typeof getScopedSlots === 'function'
+            ? getScopedSlots($cartQuickview, createElement)
+            : undefined
         })
       }
-    }).$mount($cartButton)
+    }).$mount($cartQuickview)
   }
 }

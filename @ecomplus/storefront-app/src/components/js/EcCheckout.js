@@ -1,16 +1,20 @@
-import { i18n, name, formatMoney, price, img } from '@ecomplus/utils'
+import {
+  i18n,
+  name,
+  formatMoney,
+  price,
+  img
+} from '@ecomplus/utils'
+
 import ecomCart from '@ecomplus/shopping-cart'
+import ShippingLine from '#components/ShippingLine.vue'
+import ShippingCalculator from '#components/ShippingCalculator.vue'
 import EcIdentify from './../EcIdentify.vue'
 import EcAccountForm from './../EcAccountForm.vue'
 import EcAddresses from './../EcAddresses.vue'
 import EcPayment from './../EcPayment.vue'
 import EcDiscount from './../EcDiscount.vue'
 import EcSummary from './../EcSummary.vue'
-import EcCartItem from '@ecomplus/widget-minicart/src/components/EcCartItem.vue'
-import EcShipping from '@ecomplus/widget-product/src/components/EcShipping.vue'
-import EcShippingLine from '@ecomplus/widget-product/src/components/EcShippingLine.vue'
-import EcPrices from '@ecomplus/widget-product/src/components/EcPrices.vue'
-import { FadeTransition, SlideYUpTransition, SlideXRightTransition } from 'vue2-transitions'
 
 import {
   Bag,
@@ -34,19 +38,14 @@ export default {
   name: 'EcCheckout',
 
   components: {
+    ShippingLine,
+    ShippingCalculator,
     EcIdentify,
     EcAccountForm,
     EcAddresses,
     EcPayment,
     EcDiscount,
-    EcSummary,
-    EcCartItem,
-    EcShipping,
-    EcShippingLine,
-    EcPrices,
-    FadeTransition,
-    SlideYUpTransition,
-    SlideXRightTransition
+    EcSummary
   },
 
   props: {

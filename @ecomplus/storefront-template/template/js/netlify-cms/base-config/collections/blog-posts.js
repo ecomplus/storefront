@@ -1,6 +1,7 @@
-export default ({ baseDir }) => ({
-  name: 'blog_posts',
-  label: 'Posts para o blog',
+export default ({ baseDir, sections }) => ({
+  name: 'blog-posts',
+  label: 'Posts do blog',
+  description: 'Posts para o blog da loja com conteúdo atrativo para o seu público',
   folder: `${baseDir}content/posts`,
   extension: 'json',
   create: true,
@@ -25,13 +26,6 @@ export default ({ baseDir }) => ({
       hint: 'Sugerimos 900px como largura máxima'
     },
     {
-      label: 'Alt da imagem',
-      name: 'alt',
-      widget: 'string',
-      required: false,
-      hint: 'Alt tag da imagem'
-    },
-    {
       label: 'Descrição curta',
       name: 'description',
       widget: 'text',
@@ -47,15 +41,37 @@ export default ({ baseDir }) => ({
       label: 'Meta title',
       name: 'meta_title',
       widget: 'string',
-      hint: 'Título da página exibido na aba do navegador e nas respostas em motores de busca, relevante para SEO',
+      hint: 'Título exibido na aba do navegador e nos resultados de motores de busca, relevante para SEO',
       required: false
     },
     {
       label: 'Meta description',
       name: 'meta_description',
       widget: 'string',
-      hint: 'Ddescrição da página exibida nos resultados de motores de busca, relevante para SEO',
+      hint: 'Descrição exibida nos resultados de motores de busca, relevante para SEO',
       required: false
+    },
+    {
+      label: 'Seções',
+      name: 'sections',
+      required: false,
+      hint: 'Por padrão o layout será composto por breadcrumbs, título e corpo do post',
+      widget: 'list',
+      types: [
+        {
+          label: 'Corpo do post',
+          name: 'blog-post',
+          widget: 'object',
+          fields: [
+            {
+              label: 'Exibir conteúdo do post',
+              name: 'enabled',
+              widget: 'boolean',
+              default: true
+            }
+          ]
+        }
+      ].concat(sections)
     }
   ]
 })
