@@ -1,8 +1,3 @@
-import { i18n } from '@ecomplus/utils'
-import { modules } from '@ecomplus/client'
-import ecomCart from '@ecomplus/shopping-cart'
-import ecomPassport from '@ecomplus/passport-client'
-
 import {
   i19add,
   i19addDiscountCoupon,
@@ -14,6 +9,11 @@ import {
   i19hasCouponOrVoucherQn,
   i19invalidCouponMsg
 } from '@ecomplus/i18n'
+
+import { i18n } from '@ecomplus/utils'
+import { modules } from '@ecomplus/client'
+import ecomCart from '@ecomplus/shopping-cart'
+import ecomPassport from '@ecomplus/passport-client'
 
 export default {
   name: 'DiscountApplier',
