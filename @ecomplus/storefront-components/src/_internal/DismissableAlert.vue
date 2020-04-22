@@ -13,6 +13,7 @@
           class="close"
           data-dismiss="alert"
           :aria-label="i19close"
+          @click="$emit('dismiss')"
         >
           <span aria-hidden="true">&times;</span>
         </button>
