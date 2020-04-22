@@ -1,1 +1,142 @@
 # CSS animations
+
+[Animate.css](https://daneden.github.io/animate.css/) is a bunch of cool, fun, and cross-browser animations for you to use in your projects. Great for emphasis, home pages, sliders, and general just-add-water-awesomeness.
+
+**See the types of animations used:**
+
+<DemoAnimateCss />
+
+
+See an application made here in the component [InstantSearch](https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/InstantSearch.html):
+
+
+```html
+<div class="search">
+  <a-backdrop
+    :is-visible="isVisible"
+    @hide="hide"
+  />
+
+  <transition
+    enter-active-class="animated zoomIn"
+    leave-active-class="animated fadeOutUp slow"
+  >
+    <div
+      class="search__box card"
+      v-if="isVisible || hasSearched"
+      v-show="isVisible"
+    >
+      <slot
+        name="header"
+        v-bind="{ isSearching }"
+      >
+        <header class="search__header card-header">
+          <div class="search__input-group">
+            <input
+              type="search"
+              autocomplete="off"
+              class="search__input form-control form-control-lg"
+              :placeholder="i19searchProducts"
+              ref="input"
+              v-model="localTerm"
+            >
+            <button
+              type="submit"
+              class="search__submit"
+              :aria-label="i19search"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+
+          <div class="search__status">
+            <div
+              v-if="isSearching"
+              class="search__spinner spinner-grow"
+              role="status"
+            >
+              <span class="sr-only">Loading...</span>
+            </div>
+            <button
+              type="button"
+              class="close"
+              :aria-label="i19close"
+              @click="hide"
+            >
+              <i class="fas fa-times-circle"></i>
+            </button>
+          </div>
+        </header>
+      </slot>
+
+      <article class="search__body card-body">
+        <slot
+          name="search-engine"
+          v-bind="{ term: searchTerm }"
+        >
+          <SearchEngine
+            v-bind="{ ...searchEngineProps, pageSize, autoFixScore }"
+            :term.sync="searchTerm"
+            :is-filterable="false"
+            :product-card-props="productCardProps"
+            @fetch="handleFetching"
+            @search="handleSearch"
+          >
+            <div
+              class="search__loading spinner-border"
+              role="status"
+            >
+              <span class="sr-only">Loading...</span>
+            </div>
+          </SearchEngine>
+        </slot>
+      </article>
+
+      <footer class="search__footer card-footer">
+        <slot
+          name="count-results"
+          v-bind="{ hasSearched, totalSearchResults }"
+        >
+          <transition enter-active-class="animated fadeInDown">
+            <div
+              v-if="hasSearched"
+              class="search__count"
+            >
+              <strong>{{ totalSearchResults }}</strong>
+              {{ i19items.toLowerCase() }}
+              <button
+                type="submit"
+                v-if="totalSearchResults > pageSize"
+                class="ml-2 btn btn-primary"
+              >
+                {{ i19seeAll }}
+              </button>
+            </div>
+          </transition>
+        </slot>
+
+        <slot
+          name="history"
+          v-bind="{ history }"
+        >
+          <transition enter-active-class="animated fadeInDown">
+            <div
+              v-if="history.length"
+              class="search__history d-none d-lg-block"
+            >
+              <i class="fas fa-history"></i>
+              <a
+                class="search__history-link"
+                v-for="term in history"
+                href="#"
+                @click.prevent="setSearchTerm(term)"
+                v-text="term"
+              ></a>
+            </div>
+          </transition>
+        </slot>
+      </footer>
+    </div>
+  </transition>
+</div>
+```
