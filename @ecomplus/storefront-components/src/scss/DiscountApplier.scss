@@ -1,0 +1,20 @@
+.discount-applier {
+  max-width: 30rem;
+
+  &__intro {
+    color: var(--secondary);
+  }
+
+  &__form {
+    margin-top: var(--spacer-3);
+  }
+
+  .alert {
+    margin-top: var(--spacer-3);
+    font-size: var(--font-size-sm);
+  }
+
+  &__input {
+    max-width: 200px;
+  }
+}
