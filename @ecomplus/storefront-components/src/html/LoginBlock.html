@@ -1,0 +1,162 @@
+<div class="login">
+  <form @submit.prevent="submitLogin">
+    <label
+      class="h4"
+      for="login-email"
+    >
+      {{ i19enterYourEmailMsg }}
+    </label>
+
+    <div class="input-group input-group-lg">
+      <input
+        ref="inputEmail"
+        type="email"
+        class="form-control"
+        id="login-email"
+        placeholder="email@mail.com"
+        v-model="email"
+        :readonly="isWaitingLogin"
+        required
+      >
+
+      <div class="input-group-append">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          :disabled="isWaitingLogin"
+        >
+          <span
+            v-if="!isWaitingLogin"
+            key="login"
+          >
+            <i class="fas fa-arrow-right"></i>
+            <span class="d-none d-md-inline ml-1">
+              {{ i19continue }}
+            </span>
+          </span>
+
+          <span
+            v-else
+            key="loading"
+            class="spinner-border spinner-border-sm mb-1 mr-1"
+            role="status"
+          >
+            <span class="sr-only">Loading...</span>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <transition
+      enter-active-class="animated fadeInDown"
+      leave-active-class="animated position-absolute fadeOutUp"
+    >
+      <div
+        v-if="confirmAccount()"
+        class="login__confirm"
+      >
+        <div class="login__hello">
+          {{ i19helloAgain }}
+          <strong>{{ ecomPassport.getCustomerName() }}</strong>
+        </div>
+        <label
+          class="lead"
+          for="login-doc"
+        >
+          {{ i19enterYourDocNumberMsg }}
+        </label>
+
+        <div class="input-group input-group-lg">
+          <input-doc-number
+            ref="InputDoc"
+            id="login-doc"
+            v-model="docNumber"
+            :isCompany="isCompany"
+            :readonly="isWaitingLogin"
+            required
+          />
+
+          <div class="input-group-append">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              :disabled="isWaitingLogin"
+              :aria-label="i19continue"
+            >
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </transition>
+
+    <dismissable-alert
+      class="mt-3"
+      :can-show="canAlertLoginFail"
+    >
+      {{ i19invalidLoginInfoMsg }}
+    </dismissable-alert>
+
+    <transition enter-active-class="animated fadeInUp">
+      <div
+        v-if="oauthProviders.length"
+        class="login__oauth"
+      >
+        <p class="lead">
+          {{ i19orProceedWith }}:
+        </p>
+
+        <button
+          v-for="({ link, faIcon, providerName, provider }) in oauthProviders"
+          type="button"
+          class="btn login__btn"
+          :key="provider"
+          :class="`login__btn--${provider}`"
+          @click="() => oauthPopup(link)"
+        >
+          <small>{{ i19signInWith }}</small>
+          <i
+            class="fab mr-2"
+            :class="faIcon"
+          ></i>
+          {{ providerName }}
+        </button>
+      </div>
+    </transition>
+  </form>
+
+  <div class="login__info">
+    <div class="login__info-title">
+      <i class="fas fa-lock"></i>
+      {{ i19weUseYourDataToMsg }}:
+    </div>
+
+    <div
+      class="login__info-row"
+      v-for="label in [i19identifyYourAccount, i19notifyAboutOrders, i19manageYourPurchaseHistory]"
+    >
+      <i class="fas fa-check"></i>
+      {{ label }}
+    </div>
+  </div>
+
+  <transition
+    enter-active-class="animated fadeIn slow"
+    leave-active-class="animated fadeOut"
+  >
+    <div
+      v-if="isWaitingPopup"
+      class="login__popup-overlay"
+    >
+      <div>
+        <div
+          class="spinner-border mb-3"
+          role="status"
+        >
+          <span class="sr-only">Popup...</span>
+        </div>
+        <h5>{{ i19oauthOnPopup }}</h5>
+      </div>
+    </div>
+  </transition>
+</div>
