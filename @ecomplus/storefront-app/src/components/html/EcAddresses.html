@@ -1,5 +1,7 @@
 <div class="ec-addresses">
-  <transition-group enter-active-class="animated fadeInDown">
+  <transition-group
+    enter-active-class="animated fadeInDown"
+    leave-active-class="animated fadeIntUp">
     <ec-address-form
       key="form"
       v-if="showForm"

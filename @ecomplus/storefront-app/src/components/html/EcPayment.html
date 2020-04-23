@@ -78,7 +78,9 @@
         </small>
       </a>
 
-      <fade-transition>
+      <transition
+        enter-active-class="animated fadeInDown"
+        leave-active-class="animated fadeInUp">
         <div
           class="ec-payment__method list-group-item"
           v-if="selectedGateway > -1"
@@ -137,7 +139,7 @@
             {{ i18n('ChangePaymentMethod') }}
           </button>
         </div>
-      </fade-transition>
+      </transition>
     </div>
   </transition-group>
 </div>

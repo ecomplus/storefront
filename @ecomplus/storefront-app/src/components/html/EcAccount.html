@@ -13,11 +13,54 @@
       </a>
     </div>
 
-    <ul class="nav ec-account__nav"
-      content-class="ec-account__content"
-      v-model="currentTab"
-    >
-      <li class="ec-account__registration nav-item" :title="i18n('Registration')">
+    <ul class="nav nav-tabs ec-account__nav"
+      content-class="ec-account__content">
+      <li class="ec-account__registration nav-item">
+        <a :class="`nav-link ${currentTab === 1 ? 'active' : ''}`"
+          id="registration-tab"
+          data-toggle="tab"
+          href="#registration"
+          role="tab"
+          aria-controls="registration"
+          aria-selected="true"
+          @click="currentTab = 1">{{ i18n('Registration') }}</a>
+      </li>
+      <li class="ec-account__orders nav-item">
+        <a :class="`nav-link ${currentTab === 0 ? 'active' : ''}`"
+          id="adresses-tab"
+          data-toggle="tab"
+          href="#adresses"
+          role="tab"
+          aria-controls="adresses"
+          aria-selected="true"
+          @click="currentTab = 0">{{ i18n('Orders') }}</a>
+      </li>
+    </ul>
+    <div class="tab-content mt-3" id="myTabContent">
+      <div :class="`tab-pane fade ${currentTab === 1 ? 'show active' : ''}`" id="registration" role="tabpanel" aria-labelledby="registration-tab">
+        <div class="row">
+          <div class="col-lg-8 col-md-7">
+            <ec-account-form :customer.sync="localCustomer"/>
+          </div>
+
+          <div class="col-lg-4 col-md-5 mt-3 mt-md-0">
+            <h4>{{ i18n('Addresses') }}</h4>
+            <ec-addresses :customer.sync="localCustomer"/>
+          </div>
+        </div>
+      </div>
+      <div :class="`tab-pane fade ${currentTab === 0 ? 'show active' : ''}`" id="addresses" role="tabpanel" aria-labelledby="addresses-tab">
+        <div class="row">
+          <div class="col-12">
+            <ec-orders-list
+              :ecomPassport="ecomPassport"
+              @click:order="order => $emit('click:order', order)"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- <li class="ec-account__registration nav-item" :title="i18n('Registration')">
         <div class="row">
           <div class="col-lg-8 col-md-7">
             <ec-account-form :customer.sync="localCustomer"/>
@@ -35,8 +78,8 @@
           :ecomPassport="ecomPassport"
           @click:order="order => $emit('click:order', order)"
         />
-      </li>
-    </ul>
+      </li> -->
+
   </div>
 
   <ec-identify

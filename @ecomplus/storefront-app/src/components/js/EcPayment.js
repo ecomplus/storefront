@@ -22,8 +22,7 @@ export default {
   name: 'EcPayment',
 
   components: {
-    EcCreditCard,
-    FadeTransition
+    EcCreditCard
   },
 
   props: {
