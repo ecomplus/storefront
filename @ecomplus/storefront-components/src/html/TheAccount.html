@@ -1,0 +1,75 @@
+<div class="account">
+  <div
+    v-if="localCustomer._id"
+    class="account__logged"
+  >
+    <h2 class="account__greetings">
+      <i class="fas fa-user-circle"></i>
+      {{ `${i19hello} ${nickname}` }}
+    </h2>
+
+    <div class="account__logout">
+      {{ `${i19isNotYou}?` }}
+      <a
+        href="#"
+        @click.prevent="logout"
+      >
+        <i class="fas fa-sign-out-alt"></i>
+        {{ i19logout }}
+      </a>
+    </div>
+
+    <ul class="account__nav nav nav-tabs">
+      <li
+        v-for="(label, i) in [i19registration, i19orders]"
+        class="nav-item"
+      >
+        <a
+          class="nav-link"
+          :class="activeTab === i ? 'active' : null"
+          href="#"
+          @click.prevent="activeTab = i"
+        >
+          {{ label }}
+        </a>
+      </li>
+    </ul>
+
+    <div class="account__content">
+      <transition
+        enter-active-class="animated fadeInLeft slow"
+        leave-active-class="animated fadeOutLeft"
+      >
+        <div v-if="!isOrdersList">
+          <slot name="registration">
+            <div class="row">
+              <div class="col-lg-8 col-md-7">
+                <slot name="account-form"/>
+              </div>
+              <div class="col-lg-4 col-md-5 mt-3 mt-md-0">
+                <h4>{{ i19addresses }}</h4>
+                <slot name="account-addresses"/>
+              </div>
+            </div>
+          </slot>
+        </div>
+      </transition>
+
+      <transition
+        enter-active-class="animated fadeInRight slow"
+        leave-active-class="animated fadeOutRight position-absolute"
+      >
+        <div v-if="isOrdersList">
+          <slot name="orders-list"/>
+        </div>
+      </transition>
+    </div>
+  </div>
+
+  <login-block
+    v-else
+    class="account__login"
+    @login="login"
+    :can-accept-guest="false"
+  />
+</div>
