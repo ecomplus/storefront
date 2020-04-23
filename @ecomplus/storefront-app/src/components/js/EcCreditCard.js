@@ -5,7 +5,6 @@ import loadPaymentClient from './../../lib/load-payment-client'
 import InputDocNumber from '#components/InputDocNumber.vue'
 import InputDate from './../_internal/InputDate.vue'
 import CleaveInput from 'vue-cleave-component'
-import { SlideYUpTransition } from 'vue2-transitions'
 
 import {
   AboutCvv,
@@ -33,8 +32,7 @@ export default {
   components: {
     InputDate,
     InputDocNumber,
-    CleaveInput,
-    SlideYUpTransition
+    CleaveInput
   },
 
   props: {

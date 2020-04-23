@@ -1,6 +1,5 @@
 import { i18n } from '@ecomplus/utils'
 import EcAddressForm from './../EcAddressForm.vue'
-import { SlideYUpTransition } from 'vue2-transitions'
 
 import {
   Edit,
@@ -16,8 +15,7 @@ export default {
   name: 'EcAddresses',
 
   components: {
-    EcAddressForm,
-    SlideYUpTransition
+    EcAddressForm
   },
 
   props: {

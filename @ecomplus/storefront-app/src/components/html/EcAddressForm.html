@@ -48,7 +48,10 @@
     </div>
   </div>
 
-  <slide-y-up-transition>
+  <transition
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut fast"
+  >
     <div v-show="zipReady">
       <div class="form-group">
         <label for="ec-address-form-number">
@@ -184,5 +187,5 @@
         {{ i18n('Save') }}
       </button>
     </div>
-  </slide-y-up-transition>
+  </transition>
 </form>

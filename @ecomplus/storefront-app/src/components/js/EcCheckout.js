@@ -203,8 +203,10 @@ export default {
     },
 
     autoMoveStep () {
+      if ('activeElement' in document) {
+        document.activeElement.blur()
+      }
       this.toCheckoutStep = this.enabledCheckoutStep
-      document.body.focus()
     },
 
     updateZipCode () {

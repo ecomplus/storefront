@@ -52,7 +52,10 @@
     </div>
   </div>
 
-  <slide-y-up-transition>
+  <transition
+    enter-active-class="animated fadeInDown"
+    leave-active-class="animated fadeOutUp position-absolute"
+  >
     <div v-if="!hideHolderFields">
       <div class="form-group">
         <label for="ec-credit-card-birth">
@@ -75,7 +78,7 @@
         />
       </div>
     </div>
-  </slide-y-up-transition>
+  </transition>
 
   <div class="form-row">
     <div class="form-group col-lg-6">

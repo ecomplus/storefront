@@ -1,5 +1,5 @@
 <div class="ec-addresses">
-  <slide-y-up-transition group>
+  <transition-group enter-active-class="animated fadeIn">
     <ec-address-form
       key="form"
       v-if="showForm"
@@ -73,5 +73,5 @@
         {{ i18n('NewAddress') }}
       </button>
     </div>
-  </slide-y-up-transition>
+  </transition-group>
 </div>
