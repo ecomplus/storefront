@@ -119,6 +119,10 @@ export default {
       }
     },
 
+    canShowGatewayIcon () {
+      return this.selectedGateway === -1 || !this.jsClient || !this.jsClient.container_html
+    },
+
     isCompany () {
       return this.customer && this.customer.registry_type !== 'p'
     },

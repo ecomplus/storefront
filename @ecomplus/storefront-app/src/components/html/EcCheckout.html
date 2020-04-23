@@ -113,11 +113,11 @@
               :shippingAddress="shippingAddress"
               @click:account="editAccount = true"
             >
-              <ec-discount
+              <discount-applier
                 class="ec-checkout__discount"
                 :amount="amount"
-                :couponCode.sync="localDiscountCoupon"
-                @setDiscountRule="discountRule => $emit('setDiscountRule', discountRule)"
+                :coupon-code.sync="localDiscountCoupon"
+                @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
                 is-attention-wanted
               />
             </ec-summary>
@@ -135,10 +135,10 @@
 
     <div key="login" v-else-if="!isUserIdentified">
       <slot name="login">
-        <ec-identify
+        <login-block
           @login="login"
           @update="isUserIdentified = true"
-          :customerEmail.sync="customerEmail"
+          :customer-email.sync="customerEmail"
         />
       </slot>
     </div>

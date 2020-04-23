@@ -64,18 +64,19 @@
           </span>
         </span>
 
-        <img
-          class="ec-payment__stamp"
-          v-if="gateway.icon"
-          :src="gateway.icon"
-        />
-
-        <small
-          v-else-if="gateway.intermediator && gateway.intermediator.name"
-          class="ec-payment__intermediator"
-        >
-          {{ gateway.intermediator.name }}
-        </small>
+        <template v-if="canShowGatewayIcon">
+          <img
+            class="ec-payment__stamp"
+            v-if="gateway.icon"
+            :src="gateway.icon"
+          >
+          <small
+            v-else-if="gateway.intermediator && gateway.intermediator.name"
+            class="ec-payment__intermediator"
+          >
+            {{ gateway.intermediator.name }}
+          </small>
+        </template>
       </a>
 
       <fade-transition>

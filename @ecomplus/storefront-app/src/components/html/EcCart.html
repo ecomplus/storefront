@@ -18,12 +18,12 @@
           </slot>
         </div>
 
-        <ec-discount
+        <discount-applier
           class="ec-cart__discount"
           :amount="amount"
-          :couponCode.sync="localDiscountCoupon"
+          :coupon-code.sync="localDiscountCoupon"
           :is-coupon-applied="Boolean(discountCoupon && amount.discount)"
-          @setDiscountRule="discountRule => $emit('setDiscountRule', discountRule)"
+          @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
         />
       </div>
 

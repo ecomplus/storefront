@@ -104,8 +104,13 @@
         CVV
         <span
           class="text-muted"
-          v-b-popover.hover.top="i18n('AboutCvv')"
           :title="i18n('SecurityCode')"
+          data-container="body"
+          data-toggle="popover"
+          data-trigger="hover"
+          data-placement="top"
+          :data-content="i18n('AboutCvv')"
+          v-once
         >
           <i class="fas fa-question-circle"></i>
         </span>

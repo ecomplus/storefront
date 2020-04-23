@@ -7,8 +7,8 @@ import {
 import ecomCart from '@ecomplus/shopping-cart'
 import APrices from '#components/APrices.vue'
 import CartItem from '#components/CartItem.vue'
+import DiscountApplier from '#components/DiscountApplier.vue'
 import ShippingCalculator from '#components/ShippingCalculator.vue'
-import EcDiscount from './../EcDiscount.vue'
 
 import {
   i19checkout,
@@ -23,8 +23,8 @@ export default {
   components: {
     APrices,
     CartItem,
-    ShippingCalculator,
-    EcDiscount
+    DiscountApplier,
+    ShippingCalculator
   },
 
   props: {
