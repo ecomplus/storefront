@@ -71,19 +71,29 @@ const mutations = {
 
 const actions = {
   fetchCustomer ({ commit }, { ecomPassport }) {
-    return ecomPassport.requestApi('/me.json')
-      .then(({ data }) => {
-        commit('setCustomer', data)
-        ecomPassport.setCustomer(data)
-      })
-      .catch(err => {
-        const { response } = err
-        if (response && response.status === 401) {
-          ecomPassport.logout()
-        } else {
-          console.error(err)
-        }
-      })
+    return new Promise((resolve, reject) => {
+      let isRetry = false
+      const sendRequest = () => {
+        ecomPassport.requestApi('/me.json')
+          .then(({ data }) => {
+            commit('setCustomer', data)
+            ecomPassport.setCustomer(data)
+            resolve()
+          })
+          .catch(err => {
+            if (!isRetry && ecomPassport.checkAuthorization()) {
+              isRetry = true
+              return setTimeout(sendRequest, 1500)
+            } else if (err.response && err.response.status === 401) {
+              ecomPassport.logout()
+            } else {
+              console.error(err)
+            }
+            reject(err)
+          })
+      }
+      sendRequest()
+    })
   },
 
   saveCustomer ({ getters, commit }, { ecomPassport, customer }) {
