@@ -1,24 +1,30 @@
 <template>
-  <transition enter-active-class="animated fadeInDown fast">
-    <div v-if="canShow">
+  <div>
+    <transition enter-active-class="animated fadeInDown fast">
       <div
-        class="alert alert-dismissible fade show"
-        :class="`alert-${variant}`"
-        role="alert"
-        v-once
+        v-if="canShow"
+        :key="count"
       >
-        <slot/>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="alert"
-          :aria-label="i19close"
+        <div
+          class="alert alert-dismissible fade show"
+          :class="`alert-${variant}`"
+          role="alert"
+          v-once
         >
-          <span aria-hidden="true">&times;</span>
-        </button>
+          <slot/>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            :aria-label="i19close"
+            @click="$emit('dismiss')"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
       </div>
-    </div>
-  </transition>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -39,8 +45,22 @@
       }
     },
 
+    data () {
+      return {
+        count: 1
+      }
+    },
+
     computed: {
       i19close: () => i18n(i19close)
+    },
+
+    watch: {
+      canShow (canShow) {
+        if (canShow) {
+          this.count++
+        }
+      }
     }
   }
 </script>
