@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.11.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.11.0...@ecomplus/storefront-framework@5.11.1) (2020-04-23)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to 1.7.1 ([6a55c90](https://github.com/ecomplus/storefront/commit/6a55c90b370ae5e872ee96c0763febc94462484d))
+* **deps:** update @ecomplus/i18n to v1.8.0 ([63140b8](https://github.com/ecomplus/storefront/commit/63140b837537442f92532ae98a8e14caa55edc55))
+
+
+
+
+
 # [5.11.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.10.0...@ecomplus/storefront-framework@5.11.0) (2020-04-16)
 
 

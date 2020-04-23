@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.1...@ecomplus/storefront-app@2.0.0-beta.2) (2020-04-23)
+
+
+### Bug Fixes
+
+* **credit-card:** fix updating installment list, add transition ([5125b5f](https://github.com/ecomplus/storefront/commit/5125b5ff27b5ce758dda136b722dd670c292802c))
+* **deps:** update @ecomplus/i18n to v1.8.0 ([63140b8](https://github.com/ecomplus/storefront/commit/63140b837537442f92532ae98a8e14caa55edc55))
+* **transitions:** fixing app and checkout views transitions ([ea9876c](https://github.com/ecomplus/storefront/commit/ea9876c852e39652369b99783a08ce0497b52c06))
+* remove bootstrap vue at all, updates with storefront-components ([ca82c42](https://github.com/ecomplus/storefront/commit/ca82c420fb4542e3eebd4cb4cee74ed3009f0218))
+* **credit-card:** fix handling loading installments state ([6a926d8](https://github.com/ecomplus/storefront/commit/6a926d8f6587c85df2312f0c98a2bc07dc8bd676))
+* **deps:** add bootstrap-vue ([1fb803e](https://github.com/ecomplus/storefront/commit/1fb803ed39bcf093c36d52089a7fd940c7ad05f9))
+* **deps:** update @ecomplus/i18n to 1.7.1 ([6a55c90](https://github.com/ecomplus/storefront/commit/6a55c90b370ae5e872ee96c0763febc94462484d))
+* **vuex:** retry fetch customer (async first access) ([ce9e7b3](https://github.com/ecomplus/storefront/commit/ce9e7b34538589a8193f6254c65ef05881949428))
+
+
+### Features
+
+* **credit-card:** handling 'cc_installments' (if any) on payment client ([9d35716](https://github.com/ecomplus/storefront/commit/9d3571678a37bf527ca204506bd1c5c1146c6c01))
+
+
+### Performance Improvements
+
+* **components:** not using vue2-transitions anymore ([20dd3a9](https://github.com/ecomplus/storefront/commit/20dd3a93e6b1a24efa80c4b5ed87e8fbc401f551))
+
+
+
+
+
 # [2.0.0-beta.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.0...@ecomplus/storefront-app@2.0.0-beta.1) (2020-04-16)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
