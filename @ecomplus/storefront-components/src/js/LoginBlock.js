@@ -36,7 +36,9 @@ export default {
     },
     ecomPassport: {
       type: Object,
-      default: () => ecomPassport
+      default () {
+        return ecomPassport
+      }
     }
   },
 
