@@ -1,4 +1,4 @@
-.ec-orders-list {
+.orders-list {
   max-width: 700px;
   margin: 0 auto;
 
@@ -18,7 +18,7 @@
     }
 
     &:hover {
-      .ec-orders-list__number {
+      .orders-list__number {
         text-decoration: underline;
       }
     }

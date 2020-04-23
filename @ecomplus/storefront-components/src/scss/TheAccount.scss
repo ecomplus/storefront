@@ -1,0 +1,28 @@
+.account {
+  &__greetings {
+    i,
+    svg {
+      color: var(--success);
+      margin-right: var(--spacer-1);
+    }
+  }
+
+  &__logout {
+    color: var(--text-muted);
+    margin: var(--spacer-3) 0;
+
+    a {
+      margin: 0 var(--spacer-2);
+      color: var(--danger);
+    }
+  }
+
+  &__nav {
+    margin-top: var(--spacer-5);
+  }
+
+  &__content {
+    position: relative;
+    padding-top: var(--spacer-5);
+  }
+}

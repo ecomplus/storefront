@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.1...@ecomplus/storefront-template@2.0.0-beta.2) (2020-04-23)
+
+
+### Bug Fixes
+
+* **banners:** add aria-label to banner link ([f849258](https://github.com/ecomplus/storefront/commit/f849258f0a8515db5122efd01973cef9267c930b))
+* **deps:** update @ecomplus/i18n to 1.7.1 ([6a55c90](https://github.com/ecomplus/storefront/commit/6a55c90b370ae5e872ee96c0763febc94462484d))
+* **deps:** update @ecomplus/i18n to v1.8.0 ([63140b8](https://github.com/ecomplus/storefront/commit/63140b837537442f92532ae98a8e14caa55edc55))
+
+
+
+
+
 # [2.0.0-beta.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.0...@ecomplus/storefront-template@2.0.0-beta.1) (2020-04-16)
 
 

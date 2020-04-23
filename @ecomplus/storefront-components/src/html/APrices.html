@@ -38,12 +38,23 @@
       v-if="typeof priceWithDiscount === 'number' && priceWithDiscount < price"
       class="prices__discount"
     >
-      <span>
-        {{ formatMoney(priceWithDiscount) }}
-      </span>
-      <small v-if="typeof discountLabel === 'string'">
-        {{ discountLabel }}
-      </small>
+      <template v-if="typeof discountLabel === 'string' && discountLabel">
+        <span>
+          {{ formatMoney(priceWithDiscount) }}
+        </span>
+        <small>
+          {{ discountLabel }}
+        </small>
+      </template>
+
+      <template v-else>
+        <small>
+          {{ i19asOf }}
+        </small>
+        <span>
+          {{ formatMoney(priceWithDiscount) }}
+        </span>
+      </template>
     </div>
   </transition-group>
 </div>

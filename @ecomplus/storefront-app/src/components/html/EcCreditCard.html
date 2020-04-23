@@ -1,10 +1,10 @@
 <form
-  class="ec-credit-card needs-validation"
+  class="credit-card needs-validation"
   @submit.prevent="submit"
   novalidate
 >
-  <div class="form-group ec-credit-card__bin">
-    <label for="ec-credit-card-bin">
+  <div class="form-group credit-card__bin">
+    <label for="credit-card-bin">
       {{ i18n('CardNumber') }}
     </label>
     <div class="input-group">
@@ -12,7 +12,7 @@
         type="tel"
         class="form-control"
         :class="!numberPotentiallyValid && alert.bin ? 'is-invalid': null"
-        id="ec-credit-card-bin"
+        id="credit-card-bin"
         v-model="formattedCardBin"
         :raw="false"
         @blur="alert.bin = card.bin && !numberPotentiallyValid"
@@ -34,8 +34,8 @@
     </div>
   </div>
 
-  <div class="form-group ec-credit-card__name">
-    <label for="ec-credit-card-name">
+  <div class="form-group credit-card__name">
+    <label for="credit-card-name">
       {{ i18n('HolderName') }}
     </label>
     <div class="input-group">
@@ -43,7 +43,7 @@
         type="text"
         pattern="[^\d\s]{3,}.*"
         class="form-control"
-        id="ec-credit-card-name"
+        id="credit-card-name"
         :placeholder="i18n('NameOnCard')"
         v-model="card.name"
         @change="checkName"
@@ -52,41 +52,44 @@
     </div>
   </div>
 
-  <slide-y-up-transition>
+  <transition
+    enter-active-class="animated fadeInDown"
+    leave-active-class="animated fadeOutUp position-absolute"
+  >
     <div v-if="!hideHolderFields">
       <div class="form-group">
-        <label for="ec-credit-card-birth">
+        <label for="credit-card-birth">
           {{ i18n('Birthdate') }}
         </label>
         <input-date
-          id="ec-credit-card-birth"
+          id="credit-card-birth"
           v-model="card.birth"
         />
       </div>
 
       <div class="form-group">
-        <label for="ec-credit-card-doc">
+        <label for="credit-card-doc">
           {{ i18n('DocNumber') }}
         </label>
         <input-doc-number
-          id="ec-credit-card-doc"
+          id="credit-card-doc"
           :isCompany="isCompany"
           v-model="card.doc"
         />
       </div>
     </div>
-  </slide-y-up-transition>
+  </transition>
 
   <div class="form-row">
     <div class="form-group col-lg-6">
-      <label for="ec-credit-card-validate">
+      <label for="credit-card-validate">
         {{ i18n('ValidThru') }}
       </label>
       <cleave-input
         type="tel"
         class="form-control"
         :class="alert.date ? 'is-invalid': null"
-        id="ec-credit-card-validate"
+        id="credit-card-validate"
         pattern="[\d]{2}\/[\d]{2}"
         :placeholder="`mm/${(lang === 'pt_br' ? 'aa' : 'yy')}`"
         @blur="() => { alert.date = card.date && !validateDate() }"
@@ -100,12 +103,17 @@
     </div>
 
     <div class="form-group col-lg-6">
-      <label for="ec-credit-card-cvv">
+      <label for="credit-card-cvv">
         CVV
         <span
           class="text-muted"
-          v-b-popover.hover.top="i18n('AboutCvv')"
           :title="i18n('SecurityCode')"
+          data-container="body"
+          data-toggle="popover"
+          data-trigger="hover"
+          data-placement="top"
+          :data-content="i18n('AboutCvv')"
+          v-once
         >
           <i class="fas fa-question-circle"></i>
         </span>
@@ -115,7 +123,7 @@
         type="number"
         class="form-control"
         :class="alert.cvv ? 'is-invalid': null"
-        id="ec-credit-card-cvv"
+        id="credit-card-cvv"
         min="100"
         max="9999"
         placeholder="123"
@@ -130,7 +138,7 @@
     v-if="installmentList.length || isLoadingInstallments"
     class="form-group"
   >
-    <label for="ec-credit-card-installment">
+    <label for="credit-card-installment">
       {{ i18n('ParcelIn') }}
     </label>
 
@@ -142,7 +150,7 @@
         key="installments"
         v-if="!isLoadingInstallments"
         class="custom-select"
-        id="ec-credit-card-installment"
+        id="credit-card-installment"
         v-model="card.installment"
       >
         <option :value="1">

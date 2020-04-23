@@ -1,6 +1,6 @@
-<div class="ec-payment">
-  <slide-y-up-transition group>
-    <div v-if="waiting" key="waiting" class="ec-payment__loading">
+<div class="payment">
+  <transition-group enter-active-class="animated fadeIn slow">
+    <div v-if="waiting" key="waiting" class="payment__loading">
       <div class="spinner-grow" role="status">
         <span class="sr-only">Loading...</span>
       </div>
@@ -9,17 +9,17 @@
     <div v-else key="gateways" class="list-group">
       <a
         href="#"
-        class="ec-payment__gateway list-group-item list-group-item-action"
+        class="payment__gateway list-group-item list-group-item-action"
         v-for="(gateway, i) in paymentGateways"
         v-show="selectedGateway === -1 || selectedGateway === i"
         :key="gateway.app_id + gateway.payment_method.code + i"
         @click.prevent="selectedGateway = selectedGateway === i ? -1 : i"
         :data-intermediator="gateway.intermediator && gateway.intermediator.code"
       >
-        <span class="ec-payment__head">
-          <span class="ec-payment__title">
+        <span class="payment__head">
+          <span class="payment__title">
             <span
-              class="ec-payment__back"
+              class="payment__back"
               v-if="selectedGateway === i"
               :aria-label="i18n('ChangePaymentMethod')"
             >
@@ -29,15 +29,15 @@
           </span>
 
           <span>
-            <span class="ec-payment__badges">
+            <span class="payment__badges">
               <span
-                class="badge badge-success ec-payment__discount"
+                class="badge badge-success payment__discount"
                 v-if="gateway.discount && gateway.discount.value > 0"
               >
                 <template v-if="gateway.discount.type === 'percentage'">
                   {{ gateway.discount.value }}%
                 </template>
-                <span v-else class="ec-payment__discount-value">
+                <span v-else class="payment__discount-value">
                   {{ formatMoney(gateway.discount.value) }}
                 </span>
                 {{ i18n('OfDiscount') }}
@@ -47,7 +47,7 @@
               </span>
 
               <span
-                class="badge badge-info ec-payment__installment"
+                class="badge badge-info payment__installment"
                 v-else-if="gateway.installment_option"
               >
                 {{ i18n('UpTo') }}
@@ -58,33 +58,34 @@
               </span>
             </span>
 
-            <span class="ec-payment__icon">
+            <span class="payment__icon">
               <i class="fas" :class="`fa-${gatewayIcon(gateway)}`"></i>
             </span>
           </span>
         </span>
 
-        <img
-          class="ec-payment__stamp"
-          v-if="gateway.icon"
-          :src="gateway.icon"
-        />
-
-        <small
-          v-else-if="gateway.intermediator && gateway.intermediator.name"
-          class="ec-payment__intermediator"
-        >
-          {{ gateway.intermediator.name }}
-        </small>
+        <template v-if="canShowGatewayIcon">
+          <img
+            class="payment__stamp"
+            v-if="gateway.icon"
+            :src="gateway.icon"
+          >
+          <small
+            v-else-if="gateway.intermediator && gateway.intermediator.name"
+            class="payment__intermediator"
+          >
+            {{ gateway.intermediator.name }}
+          </small>
+        </template>
       </a>
 
-      <fade-transition>
+      <transition enter-active-class="animated fadeIn">
         <div
-          class="ec-payment__method list-group-item"
+          class="payment__method list-group-item"
           v-if="selectedGateway > -1"
         >
           <p
-            class="ec-payment__text"
+            class="payment__text"
             v-if="paymentGateway.text"
             v-html="paymentGateway.text"
           ></p>
@@ -110,13 +111,13 @@
           />
 
           <div v-else>
-            <p class="ec-payment__total">
+            <p class="payment__total">
               {{ i18n('Total') }}:
               <strong>{{ formatMoney(amount.total) }}</strong>
             </p>
 
             <button
-              class="btn btn-success btn-lg btn-block ec-payment__pay"
+              class="btn btn-success btn-lg btn-block payment__pay"
               @click="handleCheckout"
             >
               <i class="fas fa-check mr-1"></i>
@@ -137,7 +138,7 @@
             {{ i18n('ChangePaymentMethod') }}
           </button>
         </div>
-      </fade-transition>
+      </transition>
     </div>
-  </slide-y-up-transition>
+  </transition-group>
 </div>

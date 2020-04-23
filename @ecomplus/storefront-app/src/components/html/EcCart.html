@@ -1,8 +1,8 @@
-<div class="ec-cart">
+<div class="cart">
   <transition-group enter-active-class="animated fadeInDown">
     <div class="row" v-if="cart.items.length" key="list">
       <div class="col-md-7 col-lg-8">
-        <div class="ec-cart__list">
+        <div class="cart__list">
           <slot name="list" v-bind="{ items: cart.items }">
             <transition-group
               enter-active-class="animated fadeInDown"
@@ -18,25 +18,25 @@
           </slot>
         </div>
 
-        <ec-discount
-          class="ec-cart__discount"
+        <discount-applier
+          class="cart__discount"
           :amount="amount"
-          :couponCode.sync="localDiscountCoupon"
+          :coupon-code.sync="localDiscountCoupon"
           :is-coupon-applied="Boolean(discountCoupon && amount.discount)"
-          @setDiscountRule="discountRule => $emit('setDiscountRule', discountRule)"
+          @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
         />
       </div>
 
       <div class="col-md-5 col-lg-4">
-        <div class="ec-cart__info">
+        <div class="cart__info">
           <slot name="info">
-            <div class="ec-cart__summary-row">
+            <div class="cart__summary-row">
               <span>Subtotal</span>
               <div>{{ formatMoney(cart.subtotal) }}</div>
             </div>
 
             <transition enter-active-class="animated fadeInDown">
-              <div class="ec-cart__summary-row mt-1" v-if="amount.discount">
+              <div class="cart__summary-row mt-1" v-if="amount.discount">
                 <span>
                   <i class="fas fa-tag mr-1"></i>
                   {{ i19discount }}
@@ -46,14 +46,14 @@
             </transition>
 
             <shipping-calculator
-              class="ec-cart__shipping"
+              class="cart__shipping"
               :can-select-services="true"
               :shipped-items="cart.items"
               @select-service="val => $emit('shippingService', val)"
               @update:zip-code="val => $emit('update:zipCode', val)"
             />
 
-            <div class="ec-cart__summary-row ec-cart__total">
+            <div class="cart__summary-row cart__total">
               <span>Total</span>
               <a-prices
                 :product="asProduct"
@@ -63,7 +63,7 @@
 
             <slot name="checkout">
               <a
-                class="ec-cart__btn-checkout btn btn-lg btn-block btn-success"
+                class="cart__btn-checkout btn btn-lg btn-block btn-success"
                 role="button"
                 :href="checkoutUrl"
               >
@@ -80,7 +80,7 @@
 
     <div
       v-else
-      class="ec-cart__empty"
+      class="cart__empty"
       key="empty"
     >
       <slot name="empty">

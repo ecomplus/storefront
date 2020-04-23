@@ -1,16 +1,16 @@
 <form
-  class="ec-account-form needs-validation"
+  class="account-form needs-validation"
   @submit.prevent="submit"
   novalidate
 >
   <div class="form-group">
-    <label for="ec-account-form-email">
+    <label for="account-form-email">
       {{ i18n('EmailAddress') }}
     </label>
     <input
       type="email"
       class="form-control"
-      id="ec-account-form-email"
+      id="account-form-email"
       v-model="localCustomer.main_email"
       placeholder="email@mail.com"
       required
@@ -19,28 +19,28 @@
 
   <div class="form-row">
     <div class="form-group col-lg-8">
-      <label for="ec-account-form-name">
+      <label for="account-form-name">
         {{ i18n('FullName') }}
       </label>
       <input
         type="text"
         pattern="[^\d\s]{2,}[\s][^\d\s]{2,}.*"
         class="form-control"
-        id="ec-account-form-name"
+        id="account-form-name"
         v-model="fullName"
         required
       >
     </div>
 
     <div class="form-group col-lg-4" v-if="!short">
-      <label for="ec-account-form-nickname">
+      <label for="account-form-nickname">
         {{ i18n('Nickname') }}
       </label>
       <input
         type="text"
         pattern="[^\d\s]{2,}.*"
         class="form-control"
-        id="ec-account-form-nickname"
+        id="account-form-nickname"
         v-model="localCustomer.display_name"
       >
     </div>
@@ -57,15 +57,15 @@
     >
       <input
         type="radio"
-        name="ec-account-form-gender"
+        name="account-form-gender"
         class="custom-control-input"
-        :id="`ec-account-form-gender-${value}`"
+        :id="`account-form-gender-${value}`"
         :value="value"
         v-model="localCustomer.gender"
       >
       <label
         class="custom-control-label"
-        :for="`ec-account-form-gender-${value}`"
+        :for="`account-form-gender-${value}`"
       >
         {{ i18n(label) }}
       </label>
@@ -74,32 +74,32 @@
 
   <div class="form-row">
     <div class="form-group col-lg-4">
-      <label for="ec-account-form-phone">
+      <label for="account-form-phone">
         {{ i18n('ContactPhone') }}
       </label>
       <input-phone
-        id="ec-account-form-phone"
+        id="account-form-phone"
         v-model="phoneNumber"
         required
       />
     </div>
 
     <div class="form-group col-lg-4" v-if="!short">
-      <label for="ec-account-form-cell">
+      <label for="account-form-cell">
         {{ i18n('Cellphone') }}
       </label>
       <input-phone
-        id="ec-account-form-cell"
+        id="account-form-cell"
         v-model="secondPhoneNumber"
       />
     </div>
 
     <div class="form-group col-lg-4">
-      <label for="ec-account-form-birth">
+      <label for="account-form-birth">
         {{ i18n('Birthdate') }}
       </label>
       <input-date
-        id="ec-account-form-birth"
+        id="account-form-birth"
         v-model="birthdate"
         required
       />
@@ -116,16 +116,16 @@
     >
       <input
         type="radio"
-        name="ec-account-form-type"
+        name="account-form-type"
         class="custom-control-input"
-        :id="`ec-account-form-type-${value}`"
+        :id="`account-form-type-${value}`"
         :value="value"
         v-model="localCustomer.registry_type"
         required
       >
       <label
         class="custom-control-label"
-        :for="`ec-account-form-type-${value}`"
+        :for="`account-form-type-${value}`"
       >
         {{ i18n(label) }}
       </label>
@@ -134,11 +134,11 @@
 
   <div class="form-row">
     <div class="form-group col-lg-6">
-      <label for="ec-account-form-doc">
+      <label for="account-form-doc">
         {{ i18n('DocNumber') }}
       </label>
       <input-doc-number
-        id="ec-account-form-doc"
+        id="account-form-doc"
         v-model="localCustomer.doc_number"
         :isCompany="localCustomer.registry_type !== 'p'"
         required
@@ -147,14 +147,14 @@
   </div>
   <div class="form-row" v-if="localCustomer.registry_type !== 'p'">
     <div class="form-group col-lg-8">
-      <label for="ec-account-form-name">
+      <label for="account-form-name">
         {{ i18n('CorporateName') }}
       </label>
       <input
         type="text"
         pattern="[^\d\s]{2,}[\s][^\d\s]{2,}.*"
         class="form-control"
-        id="ec-account-form-name"
+        id="account-form-name"
         v-model="localCustomer.corporate_name"
         required
       >

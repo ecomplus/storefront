@@ -1,7 +1,6 @@
 import { _config, i18n, randomObjectId } from '@ecomplus/utils'
 import axios from 'axios'
 import InputZipCode from './../_internal/InputZipCode.vue'
-import { SlideYUpTransition } from 'vue2-transitions'
 
 import {
   Borough,
@@ -24,8 +23,7 @@ export default {
   name: 'EcAddressForm',
 
   components: {
-    InputZipCode,
-    SlideYUpTransition
+    InputZipCode
   },
 
   props: {

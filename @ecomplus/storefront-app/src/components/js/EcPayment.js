@@ -4,7 +4,6 @@ import ecomCart from '@ecomplus/shopping-cart'
 import loadPaymentClient from './../../lib/load-payment-client'
 import { sortApps } from './../../lib/utils'
 import EcCreditCard from './../EcCreditCard.vue'
-import { FadeTransition, SlideYUpTransition } from 'vue2-transitions'
 
 import {
   ChangePaymentMethod,
@@ -23,9 +22,7 @@ export default {
   name: 'EcPayment',
 
   components: {
-    EcCreditCard,
-    FadeTransition,
-    SlideYUpTransition
+    EcCreditCard
   },
 
   props: {
@@ -117,6 +114,10 @@ export default {
       } else {
         return Promise.resolve()
       }
+    },
+
+    canShowGatewayIcon () {
+      return this.selectedGateway === -1 || !this.jsClient || !this.jsClient.container_html
     },
 
     isCompany () {

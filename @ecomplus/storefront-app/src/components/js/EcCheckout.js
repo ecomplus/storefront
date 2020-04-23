@@ -7,13 +7,13 @@ import {
 } from '@ecomplus/utils'
 
 import ecomCart from '@ecomplus/shopping-cart'
-import ShippingLine from '#components/ShippingLine.vue'
+import DiscountApplier from '#components/DiscountApplier.vue'
+import LoginBlock from '#components/LoginBlock.vue'
 import ShippingCalculator from '#components/ShippingCalculator.vue'
-import EcIdentify from './../EcIdentify.vue'
+import ShippingLine from '#components/ShippingLine.vue'
 import EcAccountForm from './../EcAccountForm.vue'
 import EcAddresses from './../EcAddresses.vue'
 import EcPayment from './../EcPayment.vue'
-import EcDiscount from './../EcDiscount.vue'
 import EcSummary from './../EcSummary.vue'
 
 import {
@@ -38,13 +38,13 @@ export default {
   name: 'EcCheckout',
 
   components: {
+    DiscountApplier,
+    LoginBlock,
     ShippingLine,
     ShippingCalculator,
-    EcIdentify,
     EcAccountForm,
     EcAddresses,
     EcPayment,
-    EcDiscount,
     EcSummary
   },
 
@@ -203,6 +203,9 @@ export default {
     },
 
     autoMoveStep () {
+      if ('activeElement' in document) {
+        document.activeElement.blur()
+      }
       this.toCheckoutStep = this.enabledCheckoutStep
     },
 

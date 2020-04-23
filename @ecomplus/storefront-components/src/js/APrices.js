@@ -1,4 +1,5 @@
 import {
+  i19asOf,
   i19from,
   i19interestFree,
   i19to
@@ -56,6 +57,7 @@ export default {
   },
 
   computed: {
+    i19asOf: () => i18n(i19asOf),
     i19from: () => i18n(i19from),
     i19interestFree: () => i18n(i19interestFree),
     i19to: () => i18n(i19to),

@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.4...@ecomplus/storefront-components@1.0.0-beta.5) (2020-04-23)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to 1.7.1 ([6a55c90](https://github.com/ecomplus/storefront/commit/6a55c90b370ae5e872ee96c0763febc94462484d))
+* **deps:** update @ecomplus/i18n to v1.8.0 ([63140b8](https://github.com/ecomplus/storefront/commit/63140b837537442f92532ae98a8e14caa55edc55))
+* **discount-applier:** fix el class names ([c011832](https://github.com/ecomplus/storefront/commit/c011832d7c28470b4f93b8df48968527a3ef7dcf))
+* **discount-applier:** fix emitted events (kebab case) ([c03cfac](https://github.com/ecomplus/storefront/commit/c03cfaca0ff39576614ffcb82f914d9f3c48205b))
+* **discount-applier:** import alert component (internal) ([1b1c120](https://github.com/ecomplus/storefront/commit/1b1c12079e4c4f14b799f6073199d2c39a09f6b5))
+* **prices:** handle discount option without label ([417e8ee](https://github.com/ecomplus/storefront/commit/417e8eed212765abcca1ad6f6a3cce2cf15aab06))
+* **product-card:** fix handling product with one picture only ([53b8c1a](https://github.com/ecomplus/storefront/commit/53b8c1a9c72e26314e0af621bc6ee4194e8b0a5a))
+* **the-product:** minor style fixes for stock alert ([2c3c5c8](https://github.com/ecomplus/storefront/commit/2c3c5c8d2371e4e2f75bb01ef60f20e4f9b7bdf3))
+
+
+### Features
+
+* **account:** add new TheAccount component :tada: ([6e11fd1](https://github.com/ecomplus/storefront/commit/6e11fd1aa8d99c951da908962063f8cab30457b1))
+* **discount-applier:** add DiscountApplier component :tada: ([f4f1eb3](https://github.com/ecomplus/storefront/commit/f4f1eb34d464dd789dde6e43d0cb33daaed71727))
+* **input-doc-number:** add InputDocNumber component :tada: ([f8873f7](https://github.com/ecomplus/storefront/commit/f8873f723ecea52d6b13ae1cc712fc78f1bc0b5d))
+* **login-block:** add new LoginBlock component :tada: ([3e72b87](https://github.com/ecomplus/storefront/commit/3e72b87d482e93416c274ee3993fb9ebc26de59b))
+
+
+
+
+
 # [1.0.0-beta.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.3...@ecomplus/storefront-components@1.0.0-beta.4) (2020-04-16)
 
 

@@ -1,12 +1,18 @@
 import ecomPassport from '@ecomplus/passport-client'
 import { mapMutations, mapActions } from 'vuex'
-import EcAccount from './../../components/EcAccount.vue'
+import TheAccount from '#components/TheAccount.vue'
+import EcAccountForm from '../../components/EcAccountForm.vue'
+import EcAddresses from '../../components/EcAddresses.vue'
+import EcOrdersList from '../../components/EcOrdersList.vue'
 
 export default {
   name: 'account',
 
   components: {
-    EcAccount
+    TheAccount,
+    EcAccountForm,
+    EcAddresses,
+    EcOrdersList
   },
 
   data () {
@@ -31,15 +37,15 @@ export default {
       }
     },
 
-    showOrders: {
+    isOrdersList: {
       get () {
         return this.$route.params.tab === 'orders'
       },
-      set (showOrders) {
+      set (isShowOrders) {
         this.$router.push({
           name: 'account',
           params: {
-            tab: showOrders ? 'orders' : null
+            tab: isShowOrders ? 'orders' : null
           }
         })
       }

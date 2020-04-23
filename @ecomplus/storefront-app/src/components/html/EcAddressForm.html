@@ -1,27 +1,27 @@
 <form
-  class="ec-address-form needs-validation"
+  class="address-form needs-validation"
   @submit.prevent="submit"
   novalidate
 >
-  <div class="form-group ec-address-form__name">
-    <label for="ec-address-form-name">
+  <div class="form-group address-form__name">
+    <label for="address-form-name">
       {{ i18n('Recipient') }}
     </label>
     <input
       type="text"
       pattern="[^\d\s]{2,}.*"
       class="form-control"
-      id="ec-address-form-name"
+      id="address-form-name"
       v-model="localAddress.name"
       :placeholder="i18n('Name')"
       required
     >
   </div>
 
-  <div class="form-group ec-address-form__zip">
+  <div class="form-group address-form__zip">
     <div class="input-group">
       <input-zip-code
-        id="ec-address-form-zip"
+        id="address-form-zip"
         v-model="localAddress.zip"
         :aria-label="i18n('ZipCode')"
         required
@@ -48,19 +48,22 @@
     </div>
   </div>
 
-  <slide-y-up-transition>
+  <transition
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut fast"
+  >
     <div v-show="zipReady">
       <div class="form-group">
-        <label for="ec-address-form-number">
+        <label for="address-form-number">
           {{ i18n('Number') }}
         </label>
 
-        <div class="row ec-address-form__number">
+        <div class="row address-form__number">
           <div class="col-5 col-lg-4">
             <input
               type="number"
               class="form-control"
-              id="ec-address-form-number"
+              id="address-form-number"
               :required="!noNumber"
               :readonly="noNumber"
               v-model.number="localAddress.number"
@@ -73,12 +76,12 @@
               <input
                 type="checkbox"
                 class="custom-control-input"
-                id="ec-address-form-no-number"
+                id="address-form-no-number"
                 v-model="noNumber"
               >
               <label
                 class="custom-control-label"
-                for="ec-address-form-no-number"
+                for="address-form-no-number"
               >
                 {{ i18n('NoNumber') }}
               </label>
@@ -89,25 +92,25 @@
 
       <div class="form-row">
         <div class="form-group col-lg-6">
-          <label for="ec-address-form-compl">
+          <label for="address-form-compl">
             {{ i18n('Complement') }}
           </label>
           <input
             type="text"
             class="form-control"
-            id="ec-address-form-compl"
+            id="address-form-compl"
             v-model="localAddress.complement"
           >
         </div>
 
         <div class="form-group col-lg-6">
-          <label for="ec-address-form-ref">
+          <label for="address-form-ref">
             {{ i18n('Reference') }}
           </label>
           <input
             type="text"
             class="form-control"
-            id="ec-address-form-ref"
+            id="address-form-ref"
             v-model="localAddress.near_to"
           >
         </div>
@@ -115,13 +118,13 @@
 
       <div class="form-row">
         <div class="form-group col-lg-6">
-          <label for="ec-address-form-street">
+          <label for="address-form-street">
             {{ i18n('Street') }}
           </label>
           <input
             type="text"
             class="form-control"
-            id="ec-address-form-street"
+            id="address-form-street"
             v-model="localAddress.street"
             :readonly="addressFromZip && Boolean(localAddress.street)"
             @click="({ target }) => target.select()"
@@ -130,13 +133,13 @@
         </div>
 
         <div class="form-group col-lg-6">
-          <label for="ec-address-form-borough">
+          <label for="address-form-borough">
             {{ i18n('Borough') }}
           </label>
           <input
             type="text"
             class="form-control"
-            id="ec-address-form-borough"
+            id="address-form-borough"
             v-model="localAddress.borough"
             :readonly="addressFromZip && Boolean(localAddress.borough)"
             @click="({ target }) => target.select()"
@@ -146,13 +149,13 @@
 
       <div class="form-row">
         <div class="form-group col-lg-6 col-7">
-          <label for="ec-address-form-city">
+          <label for="address-form-city">
             {{ i18n('City') }}
           </label>
           <input
             type="text"
             class="form-control"
-            id="ec-address-form-city"
+            id="address-form-city"
             v-model="localAddress.city"
             :readonly="addressFromZip"
             @click="({ target }) => target.select()"
@@ -161,13 +164,13 @@
         </div>
 
         <div class="form-group col-lg-4 col">
-          <label for="ec-address-form-pc">
+          <label for="address-form-pc">
             {{ i18n('ProvinceCode') }}
           </label>
           <input
             type="text"
             class="form-control"
-            id="ec-address-form-pc"
+            id="address-form-pc"
             pattern="[a-z]{2}"
             maxlength="2"
             placeholder="AA"
@@ -184,5 +187,5 @@
         {{ i18n('Save') }}
       </button>
     </div>
-  </slide-y-up-transition>
+  </transition>
 </form>

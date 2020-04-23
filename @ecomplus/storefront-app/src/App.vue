@@ -1,35 +1,35 @@
 <template>
   <div id="storefront-app">
-    <fade-transition :duration="700">
+    <transition
+      enter-active-class="animated fadeIn slower"
+      leave-active-class="animated fadeOut position-absolute"
+    >
       <div id="loading" v-show="$store.state.loading">
         <div class="spinner-grow text-primary" role="status">
           <span class="sr-only">Loading...</span>
         </div>
       </div>
-    </fade-transition>
+    </transition>
 
     <div :class="$store.state.fluidPage ? 'container-fluid' : 'container'">
       <h1 v-show="!$store.state.fluidPage && $store.state.title">
         {{ $store.state.title }}
       </h1>
-      <slide-x-left-transition :duration="{ enter: 400, leave: 0 }">
+      <transition
+        enter-active-class="animated fadeIn slow"
+        leave-active-class="d-none"
+      >
         <router-view/>
-      </slide-x-left-transition>
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { FadeTransition, SlideXLeftTransition } from 'vue2-transitions'
 
 export default {
   name: 'StorefrontApp',
-
-  components: {
-    FadeTransition,
-    SlideXLeftTransition
-  },
 
   computed: {
     ...mapGetters([
