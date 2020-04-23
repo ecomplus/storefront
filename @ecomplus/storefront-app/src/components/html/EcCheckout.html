@@ -1,15 +1,15 @@
-<div class="ec-checkout">
+<div class="checkout">
   <transition-group enter-active-class="animated fadeIn slower">
-    <div class="ec-checkout__app" key="app" v-if="shownCheckoutStep">
+    <div class="checkout__app" key="app" v-if="shownCheckoutStep">
       <div class="row">
         <div class="col-lg-8">
-          <nav class="ec-checkout__steps">
+          <nav class="checkout__steps">
             <a
               href="#"
-              class="ec-checkout__step"
+              class="checkout__step"
               v-for="(label, i) in [null, 'Delivery', 'Payment']"
               v-if="label"
-              :class="'ec-checkout__step--' + (
+              :class="'checkout__step--' + (
                 shownCheckoutStep === i ? 'current'
                   : enabledCheckoutStep < i ? 'disabled'
                     : shownCheckoutStep > i ? 'past' : 'next'
@@ -23,17 +23,17 @@
 
           <div class="row">
             <div
-              class="ec-checkout__col col-md-6"
+              class="checkout__col col-md-6"
               :class="enabledCheckoutStep === 1 ? 'offset-lg-3' : null"
             >
               <div :class="shownCheckoutStep !== 1 ? 'd-none d-md-block' : null">
-                <div v-if="shippingAddress" class="ec-checkout__shipping">
+                <div v-if="shippingAddress" class="checkout__shipping">
                   <transition-group enter-active-class="animated fadeInDown">
                     <div
                       v-if="shippingService && !editShippingService"
                       key="shipping"
                     >
-                      <div class="ec-checkout__shipping-method">
+                      <div class="checkout__shipping-method">
                         <small>{{ shippingService.label }}</small>
                         <shipping-line :shipping-line="shippingService.shipping_line"/>
                       </div>
@@ -67,7 +67,7 @@
                 />
 
                 <div
-                  class="ec-checkout__overlay fade"
+                  class="checkout__overlay fade"
                   :class="shownCheckoutStep !== 1 ? 'show' : null"
                   @click="toCheckoutStep = 1"
                 >
@@ -75,7 +75,7 @@
               </div>
             </div>
 
-            <div class="ec-checkout__col col-md-6">
+            <div class="checkout__col col-md-6">
               <transition
                 enter-active-class="animated fadeInRight slow"
                 leave-active-class="animated fadeOutLeft fast position-absolute"
@@ -93,7 +93,7 @@
                   />
 
                   <div
-                    class="ec-checkout__overlay fade"
+                    class="checkout__overlay fade"
                     :class="shownCheckoutStep !== 2 ? 'show' : null"
                     @click="toCheckoutStep = 2"
                   >
@@ -104,8 +104,8 @@
           </div>
         </div>
 
-        <div class="col-lg-4 ec-checkout__info">
-          <div class="ec-checkout__summary">
+        <div class="col-lg-4 checkout__info">
+          <div class="checkout__summary">
             <ec-summary
               :amount="amount"
               :items="cart.items"
@@ -114,7 +114,7 @@
               @click:account="editAccount = true"
             >
               <discount-applier
-                class="ec-checkout__discount"
+                class="checkout__discount"
                 :amount="amount"
                 :coupon-code.sync="localDiscountCoupon"
                 @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
@@ -122,7 +122,7 @@
               />
             </ec-summary>
 
-            <div class="ec-checkout__back">
+            <div class="checkout__back">
               <a :href="cartUrl" class="btn btn-sm btn-light">
                 <i class="fas fa-chevron-left mr-1"></i>
                 {{ i18n('BackToCart') }}
@@ -143,7 +143,7 @@
       </slot>
     </div>
 
-    <div key="account" class="ec-checkout__account" v-else>
+    <div key="account" class="checkout__account" v-else>
       <slot name="account">
         <p class="lead">
           {{ i18n('RegisterToBuy') }}:

@@ -1,7 +1,7 @@
 import { i18n, formatMoney } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
 import ecomPassport from '@ecomplus/passport-client'
-import EcShippingLine from './../EcShippingLine.vue'
+import ShippingLine from '#components/ShippingLine.vue'
 import EcSummary from './../EcSummary.vue'
 
 import {
@@ -29,7 +29,7 @@ export default {
   name: 'EcOrderInfo',
 
   components: {
-    EcShippingLine,
+    ShippingLine,
     EcSummary
   },
 

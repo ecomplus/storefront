@@ -1,12 +1,12 @@
-<article class="ec-summary">
-  <h5 class="ec-summary__title">
+<article class="summary">
+  <h5 class="summary__title">
     {{ i19summary }}
   </h5>
 
   <slot name="list">
-    <div v-if="items" class="ec-summary__list">
+    <div v-if="items" class="summary__list">
       <div
-        class="ec-summary__item"
+        class="summary__item"
         v-for="item in items"
       >
         <img
@@ -31,13 +31,13 @@
   </slot>
 
   <slot name="amount">
-    <div class="ec-summary__amount">
-      <div class="ec-summary__amount__row">
+    <div class="summary__amount">
+      <div class="summary__amount__row">
         <span>{{ i19subtotal }}</span>
         <div>{{ formatMoney(amount.subtotal) }}</div>
       </div>
 
-      <div class="ec-summary__amount__row">
+      <div class="summary__amount__row">
         <span>
           {{ i19freight }}
           <small v-if="shippingAddress">
@@ -50,12 +50,12 @@
         <div>{{ formatMoney(amount.freight) }}</div>
       </div>
 
-      <div class="ec-summary__amount__row" v-if="amount.discount">
+      <div class="summary__amount__row" v-if="amount.discount">
         <span>{{ i19discount }}</span>
         <div>{{ formatMoney(amount.discount) }}</div>
       </div>
 
-      <div class="ec-summary__amount__row ec-summary__amount__row--total">
+      <div class="summary__amount__row summary__amount__row--total">
         <span>{{ i19total }}</span>
         <div>{{ formatMoney(amount.total) }}</div>
       </div>
@@ -65,7 +65,7 @@
   <slot/>
 
   <slot name="buyer">
-    <div class="ec-summary__buyer" v-if="buyer">
+    <div class="summary__buyer" v-if="buyer">
       <h5>{{ i19buyer }}</h5>
       <p>
         {{ buyerName }}

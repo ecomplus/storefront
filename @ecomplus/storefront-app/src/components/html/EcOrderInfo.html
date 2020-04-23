@@ -1,5 +1,5 @@
-<div class="ec-order-info py-4">
-  <div v-if="isNew" class="ec-order-info__new">
+<div class="order-info py-4">
+  <div v-if="isNew" class="order-info__new">
     {{ i19orderConfirmationMsg }}!
   </div>
 
@@ -13,7 +13,7 @@
     <div key="loaded" v-else>
       <div class="row">
         <div class="col-12 col-lg-7">
-          <p class="ec-order-info__number">
+          <p class="order-info__number">
             {{ i19orderNumber }}:
             <span class="h4">{{ localOrder.number }}</span>
           </p>
@@ -27,15 +27,15 @@
 
             <article v-else key="uptodate">
               <div
-                class="ec-order-info__status"
-                :class="`ec-order-info__status--${status}`"
+                class="order-info__status"
+                :class="`order-info__status--${status}`"
                 v-if="status"
               >
                 {{ i19OrderStatus(status) }}
               </div>
 
               <template v-if="transaction.status && transaction.status.current === 'pending'">
-                <div class="ec-order-info__billet" v-if="transaction.banking_billet">
+                <div class="order-info__billet" v-if="transaction.banking_billet">
                   <p class="lead">{{ i19doPaymentMsg }}</p>
 
                   <template v-if="transaction.banking_billet.code">
@@ -64,7 +64,7 @@
                   </a>
                 </div>
 
-                <div class="ec-order-info__redirect" v-else-if="transaction.payment_link">
+                <div class="order-info__redirect" v-else-if="transaction.payment_link">
                   <p class="lead">{{ i19doPaymentMsg }}</p>
 
                   <a
@@ -78,19 +78,19 @@
                 </div>
               </template>
 
-              <div class="row ec-order-info__details">
+              <div class="row order-info__details">
                 <div class="col-12 col-md-6">
                   <slot name="payment" v-bind="{ order: localOrder, transaction }">
-                    <div class="ec-order-info__payment">
+                    <div class="order-info__payment">
                       <div
-                        class="ec-order-info__financial-status"
-                        :class="`ec-order-info__financial-status--${financialStatus}`"
+                        class="order-info__financial-status"
+                        :class="`order-info__financial-status--${financialStatus}`"
                       >
                         {{ i19FinancialStatus(financialStatus) }}
                       </div>
 
                       <div v-for="transaction in localOrder.transactions">
-                        <p class="ec-order-info__payment-value">
+                        <p class="order-info__payment-value">
                           {{ transaction.payment_method.name || localOrder.payment_method_label }}:
                           <strong v-if="transaction.installments && transaction.installments.value">
                             {{ transaction.installments.number }}x
@@ -104,7 +104,7 @@
 
                         <p
                           v-if="transaction.credit_card"
-                          class="ec-order-info__credit-card"
+                          class="order-info__credit-card"
                         >
                           {{ transaction.credit_card.company }}
                           <span v-if="transaction.credit_card.last_digits">
@@ -117,7 +117,7 @@
 
                         <template v-if="transaction.intermediator">
                           <div
-                            class="ec-order-info__transaction-code"
+                            class="order-info__transaction-code"
                             v-if="transaction.intermediator.transaction_code"
                           >
                             <small>{{ i19transactionCode }}</small>
@@ -125,7 +125,7 @@
                             {{ transaction.intermediator.transaction_code }}
                           </div>
                           <div
-                            class="ec-order-info__transaction-reference"
+                            class="order-info__transaction-reference"
                             v-if="transaction.intermediator.transaction_reference"
                           >
                             <small>{{ i19referenceCode }}</small>
@@ -140,11 +140,11 @@
 
                 <div class="col-12 col-md-6">
                   <slot name="shipping" v-bind="{ order: localOrder, shippingAddress }">
-                    <div class="ec-order-info__shipping">
+                    <div class="order-info__shipping">
                       <div
                         v-if="fulfillmentStatus"
-                        class="ec-order-info__fulfillment-status"
-                        :class="`ec-order-info__fulfillment-status--${financialStatus}`"
+                        class="order-info__fulfillment-status"
+                        :class="`order-info__fulfillment-status--${financialStatus}`"
                       >
                         {{ i19FulfillmentStatus(fulfillmentStatus) }}
                       </div>
@@ -166,7 +166,7 @@
         </div>
 
         <div class="col-12 col-lg-5" v-if="localOrder.amount">
-          <div class="ec-order-info__summary card">
+          <div class="order-info__summary card">
             <div class="card-body">
               <ec-summary
                 :amount="localOrder.amount"
@@ -181,7 +181,7 @@
             <template v-if="status === 'open'">
               <button
                 v-if="!fulfillmentStatus"
-                class="ec-order-info__toggle btn btn-danger btn-sm"
+                class="order-info__toggle btn btn-danger btn-sm"
                 @click="toggle"
               >
                 <i class="fas fa-exclamation-triangle mr-1"></i>
@@ -190,7 +190,7 @@
             </template>
             <button
               v-else-if="status !== 'closed' || fulfillmentStatus !== 'delivered'"
-              class="ec-order-info__toggle btn btn-sm"
+              class="order-info__toggle btn btn-sm"
               :class="status === 'cancelled' ? 'btn-success' : 'btn-info'"
               @click="toggle"
             >
@@ -206,7 +206,7 @@
   <a
     v-if="isNew && accountOrdersUrl"
     :href="accountOrdersUrl"
-    class="ec-order-info__orders-link btn btn-sm btn-light"
+    class="order-info__orders-link btn btn-sm btn-light"
   >
     {{ i19myOrders }}
   </a>

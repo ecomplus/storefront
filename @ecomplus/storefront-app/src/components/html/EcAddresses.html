@@ -1,4 +1,4 @@
-<div class="ec-addresses">
+<div class="account-addresses">
   <transition-group enter-active-class="animated fadeIn">
     <ec-address-form
       key="form"
@@ -8,7 +8,7 @@
 
     <div key="list" v-else-if="addresses.length">
       <div
-        class="ec-addresses__card card"
+        class="account-addresses__card card"
         v-for="(address, i) in addresses"
         :key="address._id"
       >
@@ -24,21 +24,21 @@
             >
 
             <label class="custom-control-label" :for="`ec-address-${i}`">
-              <address class="ec-addresses__address">
-                <span class="ec-addresses__line">
+              <address class="account-addresses__address">
+                <span class="account-addresses__line">
                   {{ getLineAddress(address) }}
                 </span>
-                <span v-if="address.city" class="ec-addresses__city">
+                <span v-if="address.city" class="account-addresses__city">
                   {{ `${address.city} / ${address.province_code || address.province}` }}
                 </span>
-                <span class="ec-addresses__zip">
+                <span class="account-addresses__zip">
                   {{ address.zip }}
                 </span>
               </address>
             </label>
           </div>
 
-          <div class="ec-addresses__actions">
+          <div class="account-addresses__actions">
             <button
               class="btn btn-sm btn-light"
               type="button"
@@ -59,7 +59,7 @@
           </div>
         </div>
 
-        <div class="ec-addresses__recipient card-footer">
+        <div class="account-addresses__recipient card-footer">
           {{ address.name }}
         </div>
       </div>
