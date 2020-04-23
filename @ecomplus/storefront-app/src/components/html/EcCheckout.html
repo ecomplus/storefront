@@ -1,5 +1,8 @@
 <div class="checkout">
-  <transition-group enter-active-class="animated fadeIn slower">
+  <transition-group
+    enter-active-class="animated fadeIn"
+    leave-active-class="d-none"
+  >
     <div class="checkout__app" key="app" v-if="shownCheckoutStep">
       <div class="row">
         <div class="col-lg-8">
@@ -78,7 +81,7 @@
             <div class="checkout__col col-md-6">
               <transition
                 enter-active-class="animated fadeInRight slow"
-                leave-active-class="animated fadeOutLeft fast position-absolute"
+                leave-active-class="animated fadeOutRight fast position-absolute"
               >
                 <div
                   v-if="enabledCheckoutStep >= 2"
