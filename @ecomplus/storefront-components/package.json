@@ -41,6 +41,7 @@
     "@glidejs/glide": "^3.4.1",
     "lozad": "^1.14.0",
     "photoswipe": "^4.1.3",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-cleave-component": "^2.1.3"
   }
 }
