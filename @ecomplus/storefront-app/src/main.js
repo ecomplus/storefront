@@ -1,11 +1,11 @@
 import { name, version } from './../package.json'
-import Vue from 'vue'
-import '@ecomplus/storefront-twbs'
 import { i18n } from '@ecomplus/utils'
+import Vue from 'vue'
 import App from './App.vue'
 import router from './router/'
 import store from './store/'
-import './lib/clipboard'
+import './plugins/clipboard'
+import './plugins/toast'
 import './lib/credit-card'
 
 const { title } = document
