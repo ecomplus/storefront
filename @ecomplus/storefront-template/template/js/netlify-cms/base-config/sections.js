@@ -140,6 +140,13 @@ export default ({ state }) => [
         name: 'title',
         hint: 'Usará o nome da coleção por padrão',
         widget: 'string'
+      },
+      {
+        label: 'Link no título',
+        required: false,
+        name: 'link',
+        hint: 'Usará o slug da coleção por padrão',
+        widget: 'string'
       }
     ]
   },
