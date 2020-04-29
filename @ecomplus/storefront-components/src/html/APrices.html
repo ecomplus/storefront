@@ -21,14 +21,14 @@
   <transition-group enter-active-class="animated slideInDown">
     <div
       key="installments"
-      v-if="interestFreeInstallments > 1"
+      v-if="installmentsNumber > 1"
       class="prices__installments"
     >
-      {{ interestFreeInstallments }}x
+      {{ installmentsNumber }}x
       <span>
-        {{ formatMoney(price / interestFreeInstallments) }}
+        {{ formatMoney(installmentValue) }}
       </span>
-      <small v-if="isLiteral">
+      <small v-if="!monthlyInterest && isLiteral">
         {{ i19interestFree }}
       </small>
     </div>

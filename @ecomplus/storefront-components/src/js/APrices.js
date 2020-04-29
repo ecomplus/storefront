@@ -43,7 +43,8 @@ export default {
 
   data () {
     return {
-      interestFreeInstallments: 0,
+      installmentsNumber: 0,
+      monthlyInterest: 0,
       discount: {
         type: null,
         value: 0
@@ -80,6 +81,19 @@ export default {
 
     priceWithDiscount () {
       return getPriceWithDiscount(this.price, this.discount)
+    },
+
+    installmentValue () {
+      if (this.installmentsNumber >= 2) {
+        if (!this.monthlyInterest) {
+          return this.price / this.installmentsNumber
+        } else {
+          const interest = this.monthlyInterest / 100
+          return this.price * interest /
+            (1 - Math.pow(1 + interest, -this.installmentsNumber))
+        }
+      }
+      return 0
     }
   },
 
@@ -87,10 +101,11 @@ export default {
     formatMoney,
 
     updateInstallments (installments) {
-      if (installments && !installments.monthly_interest) {
+      if (installments) {
+        this.monthlyInterest = installments.monthly_interest
         const minInstallment = installments.min_installment || 5
         const installmentsNumber = parseInt(this.price / minInstallment, 10)
-        this.interestFreeInstallments = Math.min(installmentsNumber, installments.max_number)
+        this.installmentsNumber = Math.min(installmentsNumber, installments.max_number)
       }
     },
 
