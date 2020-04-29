@@ -1,0 +1,7 @@
+<component
+  :is="isRouter ? 'router-link' : 'a'"
+  :href="isRouter ? null : href"
+  :to="isRouter ? (to || href) : null"
+>
+  <slot/>
+</component>
