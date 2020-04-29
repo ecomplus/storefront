@@ -1,7 +1,7 @@
 import { _config, i18n, fullName, birthDate, phone } from '@ecomplus/utils'
 import InputDocNumber from '#components/InputDocNumber.vue'
-import InputPhone from './../_internal/InputPhone.vue'
-import InputDate from './../_internal/InputDate.vue'
+import InputPhone from '#components/InputPhone.vue'
+import InputDate from '#components/InputDate.vue'
 import cloneDeep from 'lodash.clonedeep'
 
 import {

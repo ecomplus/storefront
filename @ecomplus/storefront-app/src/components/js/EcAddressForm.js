@@ -1,6 +1,6 @@
 import { _config, i18n, randomObjectId } from '@ecomplus/utils'
 import axios from 'axios'
-import InputZipCode from './../_internal/InputZipCode.vue'
+import InputZipCode from '#components/InputZipCode.vue'
 
 import {
   Borough,

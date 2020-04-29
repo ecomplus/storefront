@@ -87,11 +87,11 @@
                   v-if="enabledCheckoutStep >= 2"
                   :class="shownCheckoutStep !== 2 ? 'd-none d-md-block' : null"
                 >
-                  <ec-payment
-                    :customer="localCustomer"
-                    :amount="amount"
+                  <payment-methods
                     :key="paymentsListKey"
-                    @gatewaySelected="gateway => $emit('update:paymentGateway', gateway)"
+                    :amount="amount"
+                    :customer="localCustomer"
+                    @select-gateway="gateway => $emit('update:paymentGateway', gateway)"
                     @checkout="transaction => $emit('checkout', transaction)"
                   />
 

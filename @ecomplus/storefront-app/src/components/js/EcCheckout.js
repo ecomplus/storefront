@@ -11,10 +11,10 @@ import DiscountApplier from '#components/DiscountApplier.vue'
 import LoginBlock from '#components/LoginBlock.vue'
 import ShippingCalculator from '#components/ShippingCalculator.vue'
 import ShippingLine from '#components/ShippingLine.vue'
-import EcAccountForm from './../EcAccountForm.vue'
-import EcAddresses from './../EcAddresses.vue'
-import EcPayment from './../EcPayment.vue'
-import EcSummary from './../EcSummary.vue'
+import PaymentMethods from '../PaymentMethods.vue'
+import EcAccountForm from '../EcAccountForm.vue'
+import EcAddresses from '../EcAddresses.vue'
+import EcSummary from '../EcSummary.vue'
 
 import {
   Bag,
@@ -42,9 +42,9 @@ export default {
     LoginBlock,
     ShippingLine,
     ShippingCalculator,
+    PaymentMethods,
     EcAccountForm,
     EcAddresses,
-    EcPayment,
     EcSummary
   },
 
