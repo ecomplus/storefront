@@ -1,6 +1,8 @@
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import { i19paymentError, i19paymentErrorMsg } from '@ecomplus/i18n'
+import { i18n } from '@ecomplus/utils'
 import ecomCart from '@ecomplus/shopping-cart'
 import ecomPassport from '@ecomplus/passport-client'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 import { upsertCart } from './../../lib/sync-cart-to-api'
 import EcCheckout from './../../components/EcCheckout.vue'
 
@@ -107,6 +109,13 @@ export default {
             params: {
               id: order._id
             }
+          })
+        })
+        .catch(() => {
+          this.$toast({
+            title: i18n(i19paymentError),
+            body: i18n(i19paymentErrorMsg),
+            variant: 'danger'
           })
         })
         .finally(() => this.triggerLoading(false))
