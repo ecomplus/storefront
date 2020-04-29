@@ -5,11 +5,12 @@ import ShippingLine from '#components/ShippingLine.vue'
 import EcSummary from './../EcSummary.vue'
 
 import {
-  // i19cancelOrder,
+  i19cancelOrder,
   i19codeCopied,
   i19copyCode,
   i19copyErrorMsg,
   i19doPaymentMsg,
+  i19freight,
   i19myOrders,
   i19of,
   i19orderConfirmationMsg,
@@ -17,7 +18,8 @@ import {
   i19printBillet,
   i19redirectToPayment,
   i19referenceCode,
-  // i19reopenOrder,
+  i19reopenOrder,
+  i19shippingAddress,
   i19transactionCode,
   i19ticketCode,
   i19FinancialStatus,
@@ -70,11 +72,12 @@ export default {
   },
 
   computed: {
-    i19cancelOrder: () => 'Cancelar pedido',
+    i19cancelOrder: () => i18n(i19cancelOrder),
     i19codeCopied: () => i18n(i19codeCopied),
     i19copyCode: () => i18n(i19copyCode),
     i19copyErrorMsg: () => i18n(i19copyErrorMsg),
     i19doPaymentMsg: () => i18n(i19doPaymentMsg),
+    i19freight: () => i18n(i19freight),
     i19myOrders: () => i18n(i19myOrders),
     i19of: () => i18n(i19of),
     i19orderConfirmationMsg: () => i18n(i19orderConfirmationMsg),
@@ -82,7 +85,8 @@ export default {
     i19printBillet: () => i18n(i19printBillet),
     i19redirectToPayment: () => i18n(i19redirectToPayment),
     i19referenceCode: () => i18n(i19referenceCode),
-    i19reopenOrder: () => 'Reabrir pedido',
+    i19reopenOrder: () => i18n(i19reopenOrder),
+    i19shippingAddress: () => i18n(i19shippingAddress),
     i19transactionCode: () => i18n(i19transactionCode),
     i19ticketCode: () => i18n(i19ticketCode),
 
@@ -118,6 +122,17 @@ export default {
 
     financialStatus () {
       const { localOrder, transaction } = this
+      if (localOrder.payments_history) {
+        let statusRecord
+        localOrder.payments_history.forEach(record => {
+          if (record && (!statusRecord || !record.date_time || record.date_time >= statusRecord.date_time)) {
+            statusRecord = record
+          }
+        })
+        if (statusRecord) {
+          return statusRecord.status
+        }
+      }
       const status = localOrder.financial_status && localOrder.financial_status.current
       if (status) {
         return status
@@ -152,25 +167,26 @@ export default {
 
     toClipboard (text) {
       this.$copyText(text).then(() => {
-        this.$bvToast.toast(text, {
+        this.$toast({
           title: this.i18n('CodeCopied'),
+          body: text,
           variant: 'success',
-          solid: true,
-          autoHideDelay: 1500
+          delay: 2000
         })
       }, err => {
         console.error(err)
-        this.$bvToast.toast('Oops', {
-          title: `${this.i18n('copyErrorMsg')}: ${text}`,
+        this.$toast({
+          title: 'Oops',
+          body: `${this.i18n('copyErrorMsg')}: <i>${text}</i>`,
           variant: 'warning',
-          solid: true
+          delay: 3000
         })
       })
     },
 
     saveCustomerOrder () {
       const { localOrder, ecomPassport } = this
-      if (!this.skipCustomerUpdate && localOrder.number && ecomPassport && ecomPassport.checkAuthorization()) {
+      if (!this.skipCustomerUpdate && localOrder.number && ecomPassport.checkAuthorization()) {
         ecomPassport.requestApi('/me.json')
           .then(({ data }) => {
             const orders = data.orders || []
@@ -231,8 +247,12 @@ export default {
         this.saveCustomerOrder()
       }
       if (!this.skipDataLoad) {
+        const url = `/orders/${this.order._id}.json`
         const update = () => {
-          return store({ url: `/orders/${this.order._id}.json` })
+          const request = this.ecomPassport.checkAuthorization()
+            ? this.ecomPassport.requestApi(url)
+            : store({ url })
+          return request
             .then(({ data }) => {
               this.localOrder = {
                 ...this.localOrder,

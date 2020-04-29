@@ -139,23 +139,59 @@
                 </div>
 
                 <div class="col-12 col-md-6">
-                  <slot name="shipping" v-bind="{ order: localOrder, shippingAddress }">
+                  <slot
+                    name="shipping"
+                    v-bind="{ order: localOrder, shippingAddress }"
+                  >
                     <div class="order-info__shipping">
                       <div
                         v-if="fulfillmentStatus"
                         class="order-info__fulfillment-status"
-                        :class="`order-info__fulfillment-status--${financialStatus}`"
+                        :class="`order-info__fulfillment-status--${fulfillmentStatus}`"
                       >
                         {{ i19FulfillmentStatus(fulfillmentStatus) }}
                       </div>
 
+                      <div
+                        v-if="shippingAddress && shippingAddress.street"
+                        class="order-info__shipping-address"
+                      >
+                        <div class="text-muted">
+                          <i class="fas fa-map-marker-alt mr-1"></i>
+                          {{ i19shippingAddress }}
+                        </div>
+
+                        <address>
+                          {{ shippingAddress.street }}
+                          <template v-if="shippingAddress.number">
+                            {{ shippingAddress.number }}
+                          </template>
+                          <br>
+                          <span
+                            v-for="(field, i) in ['borough', 'city', 'province_code']"
+                            v-if="shippingAddress[field]"
+                            :key="field"
+                          >
+                            {{ shippingAddress[field] + (i === 2 ? '.' : ',') }}
+                          </span>
+                          <br>
+                          <mark class="small">
+                            {{ shippingAddress.zip }}
+                          </mark>
+                        </address>
+                      </div>
+
                       <template v-if="localOrder.shipping_lines">
-                        <ec-shipping-line
+                        <div
                           v-for="shippingLine in localOrder.shipping_lines"
                           :key="shippingLine._id"
-                          :shipping-line="shippingLine"
-                          :financialStatus="financialStatus"
-                        />
+                        >
+                          <div class="text-muted">
+                            <i class="fas fa-truck mr-1"></i>
+                            {{ i19freight }}
+                          </div>
+                          <shipping-line :shipping-line="shippingLine"/>
+                        </div>
                       </template>
                     </div>
                   </slot>
