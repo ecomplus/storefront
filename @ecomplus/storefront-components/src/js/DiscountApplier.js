@@ -14,13 +14,13 @@ import { i18n } from '@ecomplus/utils'
 import { modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import ecomPassport from '@ecomplus/passport-client'
-import DismissableAlert from '../_internal/DismissableAlert.vue'
+import AAlert from '../AAlert.vue'
 
 export default {
   name: 'DiscountApplier',
 
   components: {
-    DismissableAlert
+    AAlert
   },
 
   props: {
@@ -129,13 +129,9 @@ export default {
       })
         .then(({ data }) => this.parseDiscountOptions(data.result))
         .catch(err => {
-          this.alertText = null
           console.error(err)
-          this.$bvToast.toast(this.i19discountCoupon, {
-            title: i18n(i19errorMsg),
-            variant: 'warning',
-            solid: true
-          })
+          this.alertVariant = 'danger'
+          this.alertText = i18n(i19errorMsg)
         })
         .finally(() => {
           this.isLoading = false

@@ -90,12 +90,12 @@
       </div>
     </transition>
 
-    <dismissable-alert
+    <a-alert
       class="mt-3"
-      :can-show="canAlertLoginFail"
+      :can-show="Boolean(failAlertText)"
     >
-      {{ i19invalidLoginInfoMsg }}
-    </dismissable-alert>
+      {{ failAlertText }}
+    </a-alert>
 
     <transition enter-active-class="animated fadeInUp">
       <div

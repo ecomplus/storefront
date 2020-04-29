@@ -3,7 +3,7 @@
     <div class="cart-item__thumb">
       <component
         v-if="item.picture && Object.keys(item.picture).length"
-        :is="item.slug ? 'v-link' : 'span'"
+        :is="item.slug ? 'a-link' : 'span'"
         :href="`/${item.slug}`"
       >
         <a-picture
@@ -27,12 +27,12 @@
         class="cart-item__name"
         :title="item.name"
       >
-        <v-link
+        <a-link
           v-if="item.slug"
           :href="`/${item.slug}`"
         >
           {{ name }}
-        </v-link>
+        </a-link>
         <template v-else>
           {{ name }}
         </template>

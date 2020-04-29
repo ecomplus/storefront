@@ -56,18 +56,18 @@
             key="logged"
           >
             <div class="list-group list-group-flush">
-              <v-link
+              <a-link
                 :href="ordersUrl"
                 class="list-group-item list-group-item-action"
               >
                 {{ i19myOrders }}
-              </v-link>
-              <v-link
+              </a-link>
+              <a-link
                 :href="accountUrl"
                 class="list-group-item list-group-item-action"
               >
                 {{ i19myAccount }}
-              </v-link>
+              </a-link>
             </div>
 
             <button
@@ -101,12 +101,12 @@
               </a>
             </div>
 
-            <dismissable-alert
+            <a-alert
               :can-show="isWaitingPopup"
               variant="info"
             >
               {{ i19continueLoginOnPopup }}.
-            </dismissable-alert>
+            </a-alert>
 
             <button
               v-for="({ link, faIcon, providerName, provider }) in oauthProviders"

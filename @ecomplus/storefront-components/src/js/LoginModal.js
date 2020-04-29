@@ -18,16 +18,16 @@ import {
 
 import { i18n } from '@ecomplus/utils'
 import ecomPassport from '@ecomplus/passport-client'
-import VLink from '../_internal/VLink.vue'
-import DismissableAlert from '../_internal/DismissableAlert.vue'
+import ALink from '../ALink.vue'
+import AAlert from '../AAlert.vue'
 import ABackdrop from '../ABackdrop.vue'
 
 export default {
   name: 'LoginModal',
 
   components: {
-    VLink,
-    DismissableAlert,
+    ALink,
+    AAlert,
     ABackdrop
   },
 

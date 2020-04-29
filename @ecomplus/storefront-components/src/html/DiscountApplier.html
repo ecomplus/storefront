@@ -86,12 +86,12 @@
     </transition-group>
   </template>
 
-  <dismissable-alert
+  <a-alert
     :key="`alert-${alertVariant}`"
     :can-show="!isLoading && Boolean(alertText)"
     :variant="alertVariant"
     @dismiss="alertText = null"
   >
     {{ alertText }}
-  </dismissable-alert>
+  </a-alert>
 </div>

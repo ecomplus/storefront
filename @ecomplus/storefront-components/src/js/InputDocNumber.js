@@ -16,9 +16,7 @@ export default {
       type: [String, Number],
       required: true
     },
-    isCompany: {
-      type: Boolean
-    }
+    isCompany: Boolean
   },
 
   computed: {

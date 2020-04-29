@@ -6,6 +6,7 @@ import {
   i19loadProductErrorMsg,
   i19only,
   i19outOfStock,
+  // i19retry,
   i19selectVariation,
   i19unavailable
 } from '@ecomplus/i18n'
@@ -22,7 +23,7 @@ import {
 
 import { store } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
-import DismissableAlert from '../_internal/DismissableAlert.vue'
+import AAlert from '../AAlert.vue'
 import APrices from '../APrices.vue'
 import ProductVariations from '../ProductVariations.vue'
 import ProductGallery from '../ProductGallery.vue'
@@ -38,7 +39,7 @@ export default {
   name: 'TheProduct',
 
   components: {
-    DismissableAlert,
+    AAlert,
     APrices,
     ProductVariations,
     ProductGallery,
@@ -73,7 +74,8 @@ export default {
       body: {},
       selectedVariationId: null,
       currentGalleyImg: 1,
-      hasClickedBuy: false
+      hasClickedBuy: false,
+      hasLoadError: false
     }
   },
 
@@ -81,8 +83,10 @@ export default {
     i19close: () => i18n(i19close),
     i19discountOf: () => i18n(i19discountOf),
     i19inStock: () => i18n(i19inStock),
+    i19loadProductErrorMsg: () => i18n(i19loadProductErrorMsg),
     i19only: () => i18n(i19only),
     i19outOfStock: () => i18n(i19outOfStock),
+    i19retry: () => 'Tentar novamente',
     i19selectVariation: () => i18n(i19selectVariation),
     i19unavailable: () => i18n(i19unavailable),
 
@@ -152,6 +156,7 @@ export default {
           if (getContextId() === productId) {
             storefront.context.body = data
           }
+          this.hasLoadError = false
         })
         .catch(err => {
           console.error(err)
@@ -162,12 +167,7 @@ export default {
             } else {
               this.setBody(getContextBody())
               if (!this.body.name || !this.body.price || !this.body.pictures) {
-                this.$bvToast.toast(i18n(i19loadProductErrorMsg), {
-                  title: 'Offline',
-                  variant: 'danger',
-                  noAutoHide: true,
-                  solid: true
-                })
+                this.hasLoadError = true
               }
             }
           }

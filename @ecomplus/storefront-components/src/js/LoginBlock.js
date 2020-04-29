@@ -2,7 +2,6 @@ import {
   i19continue,
   i19enterYourDocNumberMsg,
   i19enterYourEmailMsg,
-  i19error,
   i19helloAgain,
   i19identifyYourAccount,
   i19invalidLoginInfoMsg,
@@ -17,14 +16,14 @@ import {
 
 import { i18n } from '@ecomplus/utils'
 import ecomPassport from '@ecomplus/passport-client'
-import DismissableAlert from '../_internal/DismissableAlert.vue'
+import AAlert from '../AAlert.vue'
 import InputDocNumber from '../InputDocNumber.vue'
 
 export default {
   name: 'LoginBlock',
 
   components: {
-    DismissableAlert,
+    AAlert,
     InputDocNumber
   },
 
@@ -50,7 +49,7 @@ export default {
       oauthProviders: [],
       isWaitingPopup: false,
       isWaitingLogin: false,
-      canAlertLoginFail: false
+      failAlertText: null
     }
   },
 
@@ -60,7 +59,6 @@ export default {
     i19enterYourEmailMsg: () => i18n(i19enterYourEmailMsg),
     i19helloAgain: () => i18n(i19helloAgain),
     i19identifyYourAccount: () => i18n(i19identifyYourAccount),
-    i19invalidLoginInfoMsg: () => i18n(i19invalidLoginInfoMsg),
     i19manageYourPurchaseHistory: () => i18n(i19manageYourPurchaseHistory),
     i19notifyAboutOrders: () => i18n(i19notifyAboutOrders),
     i19oauthOnPopup: () => i18n(i19oauthOnPopup),
@@ -85,7 +83,7 @@ export default {
     submitLogin () {
       if (!this.isWaitingLogin) {
         this.isWaitingLogin = true
-        this.canAlertLoginFail = false
+        this.failAlertText = null
         const { email, docNumber } = this
         const isAccountConfirm = this.confirmAccount()
         const emitUpdate = () => this.$emit('update', { email, docNumber })
@@ -99,16 +97,12 @@ export default {
             const { response } = err
             if (!response || response.status !== 403) {
               console.error(err)
-              this.$bvToast.toast(i18n(i19loginErrorMsg), {
-                title: i18n(i19error),
-                variant: 'warning',
-                solid: true
-              })
+              this.failAlertText = i18n(i19loginErrorMsg)
             } else if (!isAccountConfirm && this.canAcceptGuest) {
               this.$emit('update:customer-email', email)
               emitUpdate()
             } else {
-              this.canAlertLoginFail = true
+              this.failAlertText = i18n(i19invalidLoginInfoMsg)
             }
           })
           .finally(() => {
@@ -123,22 +117,16 @@ export default {
       setTimeout(() => {
         this.isWaitingPopup = false
       }, 7500)
-    },
-
-    unsetLoginAlert () {
-      if (this.canAlertLoginFail) {
-        this.canAlertLoginFail = false
-      }
     }
   },
 
   watch: {
     email () {
-      this.unsetLoginAlert()
+      this.failAlertText = null
     },
 
     docNumber () {
-      this.unsetLoginAlert()
+      this.failAlertText = null
     }
   },
 

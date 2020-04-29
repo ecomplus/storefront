@@ -80,7 +80,7 @@ export default {
 
   data () {
     return {
-      localZipCode: this.zipCode,
+      localZipCode: null,
       shippingServices: [],
       selectedService: null,
       isWaiting: false
@@ -157,7 +157,7 @@ export default {
         })
     },
 
-    submitZipCode (e) {
+    submitZipCode () {
       this.updateZipCode()
       if (localStorage) {
         localStorage.setItem(zipStorageKey, this.localZipCode)
@@ -173,21 +173,37 @@ export default {
     }
   },
 
-  created () {
-    if (localStorage) {
-      if (!this.zipCode) {
-        const storedZip = localStorage.getItem(zipStorageKey)
-        if (storedZip) {
-          this.localZipCode = storedZip
-          this.updateZipCode()
-        }
+  watch: {
+    localZipCode (zipCode) {
+      if (this.countryCode === 'BR' && zipCode.replace(/\D/g, '').length === 8) {
+        this.submitZipCode()
       }
-      if (!this.shippingResult.length) {
-        if (this.localZipCode) {
-          this.fetchShippingServices()
+    },
+
+    zipCode: {
+      handler (zipCode) {
+        if (zipCode) {
+          this.localZipCode = zipCode
         }
-      } else {
-        this.parseShippingOptions(this.shippingResult)
+      },
+      immediate: true
+    },
+
+    shippingResult: {
+      handler (result) {
+        if (result.length) {
+          this.parseShippingOptions(result)
+        }
+      },
+      immediate: true
+    }
+  },
+
+  created () {
+    if (!this.zipCode && localStorage) {
+      const storedZip = localStorage.getItem(zipStorageKey)
+      if (storedZip) {
+        this.localZipCode = storedZip
       }
     }
   }

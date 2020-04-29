@@ -14,7 +14,7 @@ import {
 } from '@ecomplus/utils'
 
 import ecomCart from '@ecomplus/shopping-cart'
-import VLink from '../_internal/VLink.vue'
+import ALink from '../ALink.vue'
 import ABackdrop from '../ABackdrop.vue'
 import CartItem from '../CartItem.vue'
 
@@ -22,7 +22,7 @@ export default {
   name: 'CartQuickview',
 
   components: {
-    VLink,
+    ALink,
     ABackdrop,
     CartItem
   },

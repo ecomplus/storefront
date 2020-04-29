@@ -15,7 +15,7 @@ import {
 
 import { store } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
-import VLink from '../_internal/VLink.vue'
+import ALink from '../ALink.vue'
 import APicture from '../APicture.vue'
 import APrices from '../APrices.vue'
 
@@ -23,7 +23,7 @@ export default {
   name: 'ProductCard',
 
   components: {
-    VLink,
+    ALink,
     APicture,
     APrices
   },

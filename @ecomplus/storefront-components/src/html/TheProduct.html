@@ -1,4 +1,18 @@
 <section class="product">
+  <a-alert
+    :can-show="hasLoadError"
+    variant="danger"
+  >
+    {{ i19loadProductErrorMsg }}
+    <a
+      href="#"
+      class="alert-link"
+      @click.prevent="fetchProduct"
+    >
+      {{ i19retry }}
+    </a>
+  </a-alert>
+
   <transition enter-active-class="animated fadeIn slower">
     <div
       v-if="body._id"
@@ -87,9 +101,9 @@
               :product="body"
               :selectedId.sync="selectedVariationId"
             />
-            <dismissable-alert :can-show="hasClickedBuy && !selectedVariationId">
+            <a-alert :can-show="hasClickedBuy && !selectedVariationId">
               {{ i19selectVariation }}
-            </dismissable-alert>
+            </a-alert>
 
             <slot name="variations-info"/>
           </slot>

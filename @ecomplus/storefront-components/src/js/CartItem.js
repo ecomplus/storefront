@@ -11,14 +11,14 @@ import {
 } from '@ecomplus/utils'
 
 import ecomCart from '@ecomplus/shopping-cart'
-import VLink from '../_internal/VLink.vue'
+import ALink from '../ALink.vue'
 import APicture from '../APicture.vue'
 
 export default {
   name: 'CartItem',
 
   components: {
-    VLink,
+    ALink,
     APicture
   },
 
