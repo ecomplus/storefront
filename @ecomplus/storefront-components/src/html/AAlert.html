@@ -1,0 +1,26 @@
+<div>
+  <transition enter-active-class="animated fadeInDown fast">
+    <div
+      v-if="canShow"
+      :key="count"
+    >
+      <div
+        class="alert alert-dismissible fade show"
+        :class="`alert-${variant}`"
+        role="alert"
+        v-once
+      >
+        <slot/>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          :aria-label="i19close"
+          @click="$emit('dismiss')"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </transition>
+</div>
