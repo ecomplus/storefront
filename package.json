@@ -9,7 +9,7 @@
     "postinstall": "lerna bootstrap --hoist && npm run startup",
     "startup": "node ./setup.js && lerna run --scope=@ecomplus/storefront-twbs build",
     "run:main": "lerna run --scope=@ecomplus/storefront-template --stream",
-    "serve": "npm run run:main -- serve",
+    "serve": "MONOREPO_SERVER=true npm run run:main -- serve",
     "build": "npm run run:main -- build",
     "build:demo": "npm run run:main -- build:site",
     "preversion": "lerna run build --since",
