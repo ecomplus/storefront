@@ -2,7 +2,7 @@
   const title = opt.title ||
     (opt.collection && opt.collection.name) ||
     _.dictionary('popularProducts')
-  const link = opt.link || (opt.collection && opt.collection.slug)
+  const link = opt.link || (opt.collection && `/${opt.collection.slug}`)
 
   if (opt.shuffle) {
     let m = opt.items.length, t, i
