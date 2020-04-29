@@ -13,6 +13,7 @@ module.exports = ({ devMode }) => {
       }
     }
   }
+
   if (!devMode) {
     customConfig.externals = {
       // imported from CDN
@@ -21,7 +22,13 @@ module.exports = ({ devMode }) => {
       'popper.js': 'Popper'
     }
   } else {
-    customConfig.resolve.alias.jquery$ = 'jquery/dist/jquery.slim'
+    // dev server improves
+    const { alias } = customConfig.resolve
+    alias.jquery$ = 'jquery/dist/jquery.slim'
+    if (process.env.MONOREPO_SERVER) {
+      alias['@ecomplus/storefront-twbs$'] = path.resolve(__dirname, '../storefront-twbs/src/')
+    }
   }
+
   return customConfig
 }
