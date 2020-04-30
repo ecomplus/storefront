@@ -19,6 +19,15 @@
 <script src="/<%= _.route.path.startsWith('/app/') ? 'checkout' : 'storefront' %>.js"></script>
 
 <%
+if (Array.isArray(_.widgets) && _.widgets.length) {
+  // append widgets additional HTML
+  %>
+  <%- await include('/@/helpers/widgets-append', {
+    _, opt: {}, field: 'bodyAppend'
+  }) %>
+  <%
+}
+
 // custom HTML before /body
 const customCode = _.cms('code')
 if (customCode) {

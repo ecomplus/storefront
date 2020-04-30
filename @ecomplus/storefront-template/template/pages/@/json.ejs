@@ -72,14 +72,3 @@ if (Array.isArray(_.widgets)) {
     logo: (_.store.logo && _.store.logo.url) || `https://${_.settings.domain}${_.settings.logo}`
   })
 %></script>
-
-<%
-if (!_.route.path.startsWith('/admin/') && Array.isArray(_.widgets) && _.widgets.length) {
-  // append widgets additional HTML
-  %>
-  <%- await include('/@/helpers/widgets-append', {
-    _, opt: {}, field: 'bodyAppend'
-  }) %>
-  <%
-}
-%>
