@@ -26,17 +26,6 @@
       "enabled": true
     },
     {
-      "type": "offers-timer",
-      "max_hours": 24,
-      "start": "2020-04-30T01:13:01.884Z",
-      "end": "2020-05-01T16:13:01.967Z",
-      "notes": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      "offers": [
-        "5c7698adc626be23430d509c",
-        "5d81378df11b5b64ea01cf42"
-      ]
-    },
-    {
       "type": "collection-shelf",
       "shuffle": true,
       "collection_id": null
