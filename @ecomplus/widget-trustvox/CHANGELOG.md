@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-trustvox@2.0.0...@ecomplus/widget-trustvox@2.0.1) (2020-05-01)
+
+
+### Bug Fixes
+
+* **product-page-rating:** fix sku js variable name ([1bd1f2f](https://github.com/ecomplus/storefront/commit/1bd1f2f7557afd650079bdb9c16e61084d34ff29))
+
+
+
+
+
 # [2.0.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-trustvox@1.0.7...@ecomplus/widget-trustvox@2.0.0) (2020-04-16)
 
 

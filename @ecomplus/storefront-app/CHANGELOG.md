@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.2...@ecomplus/storefront-app@2.0.0-beta.3) (2020-05-01)
+
+
+### Bug Fixes
+
+* **checkout:** fix toast provider from vue prototype ([b2ae286](https://github.com/ecomplus/storefront/commit/b2ae286b8ab73fbf0a3aaef0759b63f6e129c5fd))
+* **credit-card-form:** fix using toast, component api and template ([876779a](https://github.com/ecomplus/storefront/commit/876779ac8816417129d22c502a956be83c216a9c))
+* **payment-methods:** fix using toast, component api and template ([d8406b2](https://github.com/ecomplus/storefront/commit/d8406b2935dab503ad1c838116c2a8815891b892))
+
+
+### Features
+
+* **order-info:** fix using toast, properly show shipping info ([465995b](https://github.com/ecomplus/storefront/commit/465995bcb3ef1e0e30796db5ea26242286d4e879))
+* **toast:** add toast handler as vue plugin (prototype) ([cb4fea0](https://github.com/ecomplus/storefront/commit/cb4fea0bb7a1e402c6776ac546aa5f3a2d90f64a))
+
+
+
+
+
 # [2.0.0-beta.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.1...@ecomplus/storefront-app@2.0.0-beta.2) (2020-04-23)
 
 

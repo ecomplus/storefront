@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.5...@ecomplus/storefront-components@1.0.0-beta.6) (2020-05-01)
+
+
+### Bug Fixes
+
+* **components:** fix importing and declaring alert/link components ([c7318c1](https://github.com/ecomplus/storefront/commit/c7318c1109df41a0a3a57d7f7ead6acd6736b957))
+
+
+### Features
+
+* **alert:** expose AAlert component (was internal) ([e4ba211](https://github.com/ecomplus/storefront/commit/e4ba21133f65fa12a142defd8892262c35e7dff1))
+* **input-date:** date input with format ([93a3d51](https://github.com/ecomplus/storefront/commit/93a3d516fae8faaacc15f1ef3cbca36cd87ea6d2))
+* **input-phone:** phone number input with format ([8561df0](https://github.com/ecomplus/storefront/commit/8561df0924a8bb2d025de66bc73dd8e0b7774e2e))
+* **input-zip-code:** zip code (CEP) input with format ([1969622](https://github.com/ecomplus/storefront/commit/196962266dac093e6225e5e93748e3c20a8de2e7))
+* **link:** expose ALink component (was internal) ([b8663bf](https://github.com/ecomplus/storefront/commit/b8663bf34ef622b1ce071cc7efb3971248a78e37))
+* **prices:** showing installments option even with interest ([eaf702f](https://github.com/ecomplus/storefront/commit/eaf702fe1525bba47c391d0f2f386deff9092978))
+
+
+
+
+
 # [1.0.0-beta.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.4...@ecomplus/storefront-components@1.0.0-beta.5) (2020-04-23)
 
 

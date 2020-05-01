@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.2...@ecomplus/storefront-template@2.0.0-beta.3) (2020-05-01)
+
+
+### Bug Fixes
+
+* **banner-slider:** handling aspect ratio for mobile image ([3fa5d7a](https://github.com/ecomplus/storefront/commit/3fa5d7a08f83076ff690e105dea1aa13b4795fe4))
+* **carousel:** fix setting title link from collection slug ([687d62e](https://github.com/ecomplus/storefront/commit/687d62ecaed7c28b951cfe9f02b3692f1faffd08))
+* **deps:** update @ecomplus/storefront-router to v2.2.0 ([0b15965](https://github.com/ecomplus/storefront/commit/0b1596560eb6262128b601af6cb026b44480c647))
+* **ejs:** move widgets 'bodyAppend' to scripts ([d33f84d](https://github.com/ecomplus/storefront/commit/d33f84dcd23b9d528aa00451f78e30004a4e4fb0))
+
+
+### Features
+
+* **offers-timer:** create offers timer section and add to cms ([580bb18](https://github.com/ecomplus/storefront/commit/580bb189541f831f42b410f50ee1e86188e7b9ea))
+
+
+
+
+
 # [2.0.0-beta.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.1...@ecomplus/storefront-template@2.0.0-beta.2) (2020-04-23)
 
 

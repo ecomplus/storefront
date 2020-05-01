@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.12.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.11.1...@ecomplus/storefront-framework@5.12.0) (2020-05-01)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/storefront-router to v2.2.0 ([0b15965](https://github.com/ecomplus/storefront/commit/0b1596560eb6262128b601af6cb026b44480c647))
+
+
+### Features
+
+* **server:** support monorepo hot reload with MONOREPO_SERVER ([a754d00](https://github.com/ecomplus/storefront/commit/a754d00917a07b652cbd6155db70bdf28894f399))
+
+
+
+
+
 ## [5.11.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.11.0...@ecomplus/storefront-framework@5.11.1) (2020-04-23)
 
 
