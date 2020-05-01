@@ -6,6 +6,11 @@
   max-height: calc(80rem * var(--banner-aspect-ratio));
   margin: 0 auto;
 
+  @media (max-width: 575.98px) {
+    height: calc(100vw * var(--banner-aspect-ratio-mobile, --banner-aspect-ratio) - 5px);
+    max-height: calc(80rem * var(--banner-aspect-ratio-mobile, --banner-aspect-ratio));
+  }
+
   &__slides,
   &__slides > li {
     overflow: hidden;

@@ -14,23 +14,27 @@ if (Array.isArray(opt.slides)) {
 }
 
 if (slides && slides.length) {
-  let dimensions
-  const { img } = slides[0]
-  if (img.startsWith('/')) {
-    try {
-      dimensions = _.imageSize(`template/public${img}`)
-    } catch (e) {
-      dimensions = null
+  let style = ''
+  for (let i = 0; i < 2; i++) {
+    const img = slides[0][i ? 'mobile_img' : 'img']
+    if (img && img.startsWith('/')) {
+      let dimensions
+      try {
+        dimensions = _.imageSize(`template/public${img}`)
+      } catch (e) {
+      }
+      if (dimensions && dimensions.width) {
+        style += '--banner-aspect-ratio'
+        if (i > 0) {
+          style += '-mobile'
+        }
+        style += `:${Math.ceil(dimensions.height / dimensions.width * 1000) / 1000};`
+      }
     }
   }
   %>
 
-  <div
-    class="banner-slider"
-    <% if (dimensions) { %>
-      style="--banner-aspect-ratio: <%= Math.ceil(dimensions.height / dimensions.width * 1000) / 1000 %>"
-    <% } %>
-  >
+  <div class="banner-slider" style="<%- style %>">
     <div class="glide" data-autoplay="<%= opt.autoplay %>">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides banner-slider__slides">
