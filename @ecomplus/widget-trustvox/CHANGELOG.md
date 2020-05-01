@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-trustvox@2.0.1...@ecomplus/widget-trustvox@2.0.2) (2020-05-01)
+
+
+### Bug Fixes
+
+* **product-page:** minor fixes for product block rating ([5027c67](https://github.com/ecomplus/storefront/commit/5027c672b694841d9e6f655162309a0e6c35a0b4))
+* **trustvox-script:** use legacy script by default (new one is buggy) ([86ab507](https://github.com/ecomplus/storefront/commit/86ab507c58b445b69f815425c8d7c6884cce554d))
+
+
+
+
+
 ## [2.0.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-trustvox@2.0.0...@ecomplus/widget-trustvox@2.0.1) (2020-05-01)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.3...@ecomplus/storefront-template@2.0.0-beta.4) (2020-05-01)
+
+
+### Bug Fixes
+
+* **scss:** minor style fixes (general) ([c42eaa3](https://github.com/ecomplus/storefront/commit/c42eaa3241189311cf7e440be49c0cb3bdb850e8))
+
+
+
+
+
 # [2.0.0-beta.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.2...@ecomplus/storefront-template@2.0.0-beta.3) (2020-05-01)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.3...@ecomplus/storefront-app@2.0.0-beta.4) (2020-05-01)
+
+
+### Bug Fixes
+
+* **toast:** handle aside z-index properly ([5b05279](https://github.com/ecomplus/storefront/commit/5b052796c229359e901457070038ff3ca63a2848))
+
+
+
+
+
 # [2.0.0-beta.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.2...@ecomplus/storefront-app@2.0.0-beta.3) (2020-05-01)
 
 
