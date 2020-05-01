@@ -7,9 +7,11 @@ const $toastDock = $('<div>', {
   style: 'position: absolute; top: 0; right: 0'
 })
 
-$('<aside>', {
-  style: 'position: fixed; top: 15px; right: 15px; width: 100%; max-width: 300px; z-index: 3000'
+const $toastAside = $('<aside>', {
+  style: 'position: fixed; top: 15px; right: 15px; width: 100%; max-width: 300px; z-index: -1'
 })
+
+$toastAside
   .append(
     $('<div>', {
       'aria-live': 'polite',
@@ -61,5 +63,13 @@ Vue.prototype.$toast = ({ title, body, variant, delay } = {}) => {
   </div>`
 
   $toast.appendTo($toastDock)
+  $toast.on('show.bs.toast', () => {
+    $toastAside.css('z-index', 3000)
+  })
+  $toast.on('hidden.bs.toast', () => {
+    if ($toastDock.children().length <= 1) {
+      $toastAside.css('z-index', -1)
+    }
+  })
   $toast.toast('show')
 }
