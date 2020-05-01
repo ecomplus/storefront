@@ -34,7 +34,7 @@
     }
   }
 
-  li:not(:first-child) {
-    margin-left: var(--spacer-4);
+  li:not(:last-child) {
+    margin-right: var(--spacer-4);
   }
 }
