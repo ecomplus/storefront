@@ -18,7 +18,10 @@
       })]);
     }
   </script>
-  <script async src="https://static.trustvox.com.br/sincero/sincero.js"></script>
+  <script
+    async
+    src="<%- options.widgetSrc || 'https://static.trustvox.com.br/assets/widget.js' %>"
+  ></script>
 <% } %>
 
 <% if (!options.disable_certificate) { %>
