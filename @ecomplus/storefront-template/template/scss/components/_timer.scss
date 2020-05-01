@@ -1,0 +1,28 @@
+.timer {
+  margin-right: var(--spacer-4);
+  margin-bottom: var(--spacer-3);
+  text-align: right;
+
+  @media (min-width: 768px) {
+    padding-top: var(--spacer-5);
+  }
+
+  &__icon {
+    font-size: var(--h1);
+    color: var(--secondary);
+  }
+
+  &__count {
+    display: inline-block;
+    background: var(--secondary);
+    padding: var(--spacer-1) var(--spacer-2);
+    border-radius: var(--border-radius);
+    font-size: var(--h3);
+    color: var(--secondary-yiq);
+  }
+
+  &__notes {
+    margin-top: var(--spacer-2);
+    color: var(--text-muted);
+  }
+}

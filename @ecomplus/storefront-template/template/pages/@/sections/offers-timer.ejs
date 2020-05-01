@@ -1,0 +1,28 @@
+<%
+if (Array.isArray(opt.offers) && opt.offers.length) {
+  const search = new _.EcomSearch()
+  await search.setProductIds(opt.offers).fetch()
+  const items = search.getItems().filter(item => _.ecomUtils.inStock(item))
+  %>
+  <section class="offers-timer my-4 my-lg-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-5">
+          <%- await include('/@/sections/inc/timer', { _, opt }) %>
+        </div>
+
+        <div class="col-12 col-md-7">
+          <div class="row">
+            <% for (let i = 0; i < items.length; i++) { %>
+              <div class="col-6 col-md">
+                <%- await include('/@/sections/inc/product-item', {
+                  _, opt: { item: items[i] }
+                }) %>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<% } %>

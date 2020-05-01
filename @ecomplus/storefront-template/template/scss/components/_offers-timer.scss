@@ -1,0 +1,14 @@
+.offers-timer {
+  border-bottom: var(--spacer-1) solid var(--secondary-light);
+  padding-bottom: var(--spacer-2);
+
+  .product-card {
+    &__name {
+      height: auto;
+    }
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}

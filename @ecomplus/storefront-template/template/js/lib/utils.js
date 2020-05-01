@@ -44,3 +44,40 @@ if ($pictures.length) {
   fixBannersHeight()
   $(window).resize(fixBannersHeight)
 }
+
+const $timers = $('.timer')
+if ($timers.length) {
+  const formatTime = timeNumber => timeNumber.toString().padStart(2, '0')
+  $timers.each(function () {
+    const { end, maxHours } = $(this)[0].dataset
+    const diffSeconds = Math.min(
+      (new Date(end).getTime() - Date.now()) / 1000,
+      maxHours * 3600
+    )
+
+    if (diffSeconds > 0) {
+      let hours = Math.floor(diffSeconds / 3600)
+      const hoursAsSeconds = hours * 3600
+      let minutes = Math.floor((diffSeconds - hoursAsSeconds) / 60)
+      let seconds = parseInt(diffSeconds - hoursAsSeconds - minutes * 60, 10)
+      const $timerCount = $(this).find('.timer__count')
+
+      const updateTimerCount = () => {
+        if (seconds > 0) {
+          seconds--
+        } else if (minutes > 0) {
+          minutes--
+          seconds = 59
+        } else if (hours > 0) {
+          hours--
+          seconds = minutes = 59
+        } else {
+          return clearInterval(stopwatch)
+        }
+        $timerCount.text(`${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`)
+      }
+      const stopwatch = setInterval(updateTimerCount, 1000)
+      updateTimerCount()
+    }
+  })
+}

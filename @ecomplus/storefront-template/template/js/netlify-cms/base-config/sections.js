@@ -97,6 +97,58 @@ export default ({ state }) => [
     ]
   },
   {
+    label: 'Temporizador de ofertas',
+    name: 'offers-timer',
+    widget: 'object',
+    fields: [
+      {
+        label: 'Ofertas',
+        name: 'offers',
+        widget: 'list',
+        field: {
+          label: 'SKU do produto',
+          name: 'product_id',
+          widget: 'select',
+          options: state.routes
+            .filter(({ sku }) => typeof sku === 'string')
+            .map(({ _id, sku }) => ({
+              label: sku,
+              value: _id
+            }))
+        }
+      },
+      {
+        label: 'Data de início',
+        required: false,
+        name: 'start',
+        widget: 'datetime',
+        dateFormat: 'DD/MM/YYYY',
+        timeFormat: 'HH:mm'
+      },
+      {
+        label: 'Data de encerramento',
+        name: 'end',
+        widget: 'datetime',
+        dateFormat: 'DD/MM/YYYY',
+        timeFormat: 'HH:mm'
+      },
+      {
+        label: 'Notas',
+        required: false,
+        name: 'notes',
+        hint: 'Descrição auxiliar sobre a promoção',
+        widget: 'text'
+      },
+      {
+        label: 'Máximo de horas',
+        name: 'max_hours',
+        hint: 'Tempo máximo exibido no contador',
+        widget: 'number',
+        default: 24
+      }
+    ]
+  },
+  {
     label: 'Barra de informações',
     name: 'info-bar',
     widget: 'object',
