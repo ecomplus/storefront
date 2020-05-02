@@ -1,8 +1,31 @@
 <%
 const search = new _.EcomSearch()
 search.setCategoryIds([_.state._id])
+await search.fetch()
+let items = await search.getItems()
+let link
+
+if (!items.length) {
+  const childCategories = _.categories.filter(({ parent }) => {
+    return parent && parent._id === _.state._id
+  })
+  if (childCategories.length) {
+    search.setCategoryIds(childCategories.map(({ _id }) => _id))
+    await search.fetch()
+    items = await search.getItems()
+    link = '/search?'
+    childCategories.forEach(({ name }) => {
+      link += `categories[]=${encodeURIComponent(name)}&`
+    })
+  }
+}
+if (!link) {
+  link = `/search?categories[]=${encodeURIComponent(_.state.name)}`
+}
 %>
 
 <div class="category-retail">
-  <%- await include('/@/sections/inc/retail-grid', { _, opt: { search } }) %>
+  <%- await include('/@/sections/inc/retail-grid', {
+    _, opt: { items, search, link }
+  }) %>
 </div>
