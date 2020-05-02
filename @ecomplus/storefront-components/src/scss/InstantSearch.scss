@@ -110,6 +110,7 @@
   &__count {
     color: var(--text-muted);
     line-height: var(--line-height-lg);
+    min-width: 250px;
   }
 
   &__history {
