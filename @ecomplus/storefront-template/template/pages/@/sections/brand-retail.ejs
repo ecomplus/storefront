@@ -1,8 +1,11 @@
 <%
 const search = new _.EcomSearch()
 search.setBrandIds([_.state._id])
+const link = `/search?brands[]=${encodeURIComponent(_.state.name)}`
 %>
 
 <div class="brand-retail">
-  <%- await include('/@/sections/inc/retail-grid', { _, opt: { search } }) %>
+  <%- await include('/@/sections/inc/retail-grid', {
+    _, opt: { search, link }
+  }) %>
 </div>
