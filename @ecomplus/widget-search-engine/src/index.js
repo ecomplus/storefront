@@ -22,8 +22,8 @@ export default (options = {}, elId = 'search-engine') => {
           ...options.props,
           term: urlParams.get('term'),
           page: parseInt(urlParams.get('page'), 10) || 1,
-          brands: urlParams.getAll('brands'),
-          categories: urlParams.getAll('categories')
+          brands: urlParams.getAll('brands[]'),
+          categories: urlParams.getAll('categories[]')
         },
         scopedSlots: typeof getScopedSlots === 'function'
           ? getScopedSlots($searchEngine, h)
