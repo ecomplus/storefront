@@ -17,3 +17,7 @@
     </div>
   </section>
 <% } %>
+
+<%- await include('/@/helpers/widgets-append', {
+  _, opt: {}, field: 'productDescriptionAppend'
+}) %>
