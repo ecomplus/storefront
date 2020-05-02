@@ -43,7 +43,7 @@ export default () => ({
       default: 'src/append/body'
     },
     {
-      name: 'productBlockAppend',
+      name: 'productDescriptionAppend',
       widget: 'hidden',
       default: 'src/append/product-block'
     },
