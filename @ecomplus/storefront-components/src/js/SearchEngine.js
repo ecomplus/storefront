@@ -1,4 +1,6 @@
 import {
+  i19brands,
+  i19categories,
   i19clearFilters,
   i19closeFilters,
   i19didYouMean,
@@ -24,25 +26,13 @@ import EcomSearch from '@ecomplus/search-engine'
 import ABackdrop from '../ABackdrop.vue'
 import ProductCard from '../ProductCard.vue'
 
-const resetEcomSearch = ({
-  ecomSearch,
-  term,
-  page,
-  brands,
-  categories
-}) => {
+const resetEcomSearch = ({ ecomSearch, term, page }) => {
   ecomSearch.reset()
   if (term) {
     ecomSearch.setSearchTerm(term)
   }
   if (page) {
     ecomSearch.setPageNumber(page)
-  }
-  if (Array.isArray(brands) && brands.length) {
-    ecomSearch.setBrandNames(brands)
-  }
-  if (Array.isArray(categories) && categories.length) {
-    ecomSearch.setCategoryNames(categories)
   }
 }
 
@@ -259,12 +249,8 @@ export default {
         }
         updatedFilters.push(filterIndex)
       }
-      ;['Brands', 'Categories'].forEach(filter => {
-        const presetOptions = this[filter.toLowerCase()]
-        if (!presetOptions || !presetOptions.length) {
-          addFilter(filter, this.ecomSearch[`get${filter}`]())
-        }
-      })
+      addFilter('Brands', this.ecomSearch.getBrands())
+      addFilter('Categories', this.ecomSearch.getCategories())
       this.ecomSearch.getSpecs().forEach(({ key, options }, index) => {
         addFilter(key, options, true)
       })
@@ -337,6 +323,7 @@ export default {
 
     resetAndFetch () {
       resetEcomSearch(this)
+      this.handlePresetedOptions()
       this.scheduleFetch()
     },
 
@@ -346,13 +333,30 @@ export default {
     },
 
     getFilterLabel (filter) {
-      if (this.gridsData) {
-        const grid = this.gridsData.find(grid => grid.grid_id === filter)
-        if (grid) {
-          return grid.title || grid.grid_id
-        }
+      switch (filter) {
+        case 'Brands':
+          return i18n(i19brands)
+        case 'Categories':
+          return i18n(i19categories)
+        default:
+          if (this.gridsData) {
+            const grid = this.gridsData.find(grid => grid.grid_id === filter)
+            if (grid) {
+              return grid.title || grid.grid_id
+            }
+          }
       }
       return filter
+    },
+
+    handlePresetedOptions () {
+      ;['brands', 'categories'].forEach(prop => {
+        if (this[prop] && this[prop].length) {
+          const filter = prop.charAt(0).toUpperCase() + prop.slice(1)
+          this.selectedOptions[filter] = this[prop]
+          this.updateSearchFilter(filter)
+        }
+      })
     },
 
     updateSearchFilter (filter) {
@@ -431,6 +435,7 @@ export default {
 
   created () {
     resetEcomSearch(this)
+    this.handlePresetedOptions()
     this.fetchItems()
   }
 }

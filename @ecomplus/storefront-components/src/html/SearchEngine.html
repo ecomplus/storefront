@@ -229,7 +229,7 @@
             enter-active-class="animated fadeInDown"
             leave-active-class="animated fadeOutUp"
           >
-            <div v-if="hasSelectedOptions">
+            <div v-if="hasSelectedOptions && isFilterable">
               <button
                 class="btn btn-sm btn-outline-secondary"
                 type="button"
