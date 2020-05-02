@@ -1,6 +1,11 @@
 <%
-await opt.search.fetch()
-const items = await opt.search.getItems()
+let items
+if (!opt.items) {
+  await opt.search.fetch()
+  items = await opt.search.getItems()
+} else {
+  items = opt.items
+}
 %>
 
 <section class="retail-grid">
@@ -14,5 +19,21 @@ const items = await opt.search.getItems()
         </div>
       <% } %>
     </div>
+
+    <% if (opt.link && opt.search.getTotalCount() > items.length) { %>
+      <div class="retail-grid__see-all mt-3">
+        <span class="lead">
+          <strong><%= opt.search.getTotalCount() %></strong>
+          <%= _.dictionary('items').toLowerCase() %>
+        </span>
+        <a
+          class="btn btn-outline-primary btn-lg ml-3"
+          href="<%= opt.link %>"
+        >
+          <i class="fas fa-search mr-1"></i>
+          <%= _.dictionary('seeAll') %>
+        </a>
+      </div>
+    <% } %>
   </div>
 </section>
