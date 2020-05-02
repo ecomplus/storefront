@@ -4,6 +4,7 @@ if (Array.isArray(opt.offers) && opt.offers.length) {
   await search.setProductIds(opt.offers).fetch()
   const items = search.getItems().filter(item => _.ecomUtils.inStock(item))
   %>
+
   <section class="offers-timer my-4 my-lg-5">
     <div class="container">
       <div class="row">
