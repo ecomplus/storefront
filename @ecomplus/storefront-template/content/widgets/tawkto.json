@@ -1,0 +1,10 @@
+{
+  "pkg": "@ecomplus/widget-tawkto",
+  "active": false,
+  "desktopOnly": false,
+  "enableCheckout": true,
+  "options": {
+    "tawktoWidgetCode": ""
+  },
+  "bodyAppend": "src/append/body"
+}
