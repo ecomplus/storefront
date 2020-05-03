@@ -16,14 +16,16 @@
         return ecomUtils.img(picture).url;
       })]);
     }
+
     storefront.on('widget:@ecomplus/widget-product', function () {
       setTimeout(function () {
-        var $trustvoxScript = document.createElement('script')
-        $trustvoxScript.src = 'https://rate.trustvox.com.br/widget.js'
-        document.body.appendChild($trustvoxScript)
-      }, 800)
-    })
+        var $trustvoxScript = document.createElement('script');
+        $trustvoxScript.src = 'https://rate.trustvox.com.br/widget.js';
+        document.body.appendChild($trustvoxScript);
+      }, 800);
+    });
   </script>
+
   <script
     async
     src="<%- options.widgetSrc || 'https://static.trustvox.com.br/assets/widget.js' %>"
