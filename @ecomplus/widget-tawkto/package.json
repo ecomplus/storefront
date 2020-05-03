@@ -2,11 +2,11 @@
   "name": "@ecomplus/widget-tawkto",
   "version": "1.1.0",
   "description": "Storefront plugin for Tawk.to chat",
-  "main": "dist/widget-trustvox.min.js",
+  "main": "dist/widget-tawkto.min.js",
   "module": "src/index.js",
-  "browser": "dist/widget-trustvox.min.js",
-  "jsdelivr": "dist/public/widget-trustvox.var.min.js",
-  "unpkg": "dist/public/widget-trustvox.var.min.js",
+  "browser": "dist/widget-tawkto.min.js",
+  "jsdelivr": "dist/public/widget-tawkto.var.min.js",
+  "unpkg": "dist/public/widget-tawkto.var.min.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "serve": "webpack-dev-server"
@@ -14,26 +14,26 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ecomplus/storefront.git",
-    "directory": "@ecomplus/widget-trustvox"
+    "directory": "@ecomplus/widget-tawkto"
   },
   "keywords": [
     "ecomplus",
     "storefront",
     "widget",
-    "trustvox",
-    "reviews"
+    "tawkto",
+    "chat"
   ],
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ecomplus/storefront/issues"
   },
-  "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-trustvox#readme",
+  "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-tawkto#readme",
   "peerDependencies": {
     "core-js": "3.x"
   },
   "webpackOutput": {
-    "library": "widgetTrustvox",
-    "filename": "widget-trustvox.min.js"
+    "library": "widgetTawkto",
+    "filename": "widget-tawkto.min.js"
   }
 }
