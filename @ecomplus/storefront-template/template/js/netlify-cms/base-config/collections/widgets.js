@@ -5,6 +5,7 @@ import getWidgetSearch from '@ecomplus/widget-search/cms.config'
 import getWidgetMinicart from '@ecomplus/widget-minicart/cms.config'
 import getWidgetFbPixel from '@ecomplus/widget-fb-pixel/cms.config'
 import getWidgetTagManager from '@ecomplus/widget-tag-manager/cms.config'
+import getWidgetTawkto from '@ecomplus/widget-tawkto/cms.config'
 import getWidgetTrustvox from '@ecomplus/widget-trustvox/cms.config'
 
 const fixWidgetConfig = ({ baseDir }, getWidget) => {
@@ -34,6 +35,7 @@ export default options => ({
     fixWidgetConfig(options, getWidgetMinicart),
     fixWidgetConfig(options, getWidgetFbPixel),
     fixWidgetConfig(options, getWidgetTagManager),
+    fixWidgetConfig(options, getWidgetTawkto),
     fixWidgetConfig(options, getWidgetTrustvox)
   ]
 })
