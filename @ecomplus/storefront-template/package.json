@@ -59,6 +59,7 @@
     "@ecomplus/widget-search": "^1.0.0-beta.3",
     "@ecomplus/widget-search-engine": "^1.0.0-beta.3",
     "@ecomplus/widget-tag-manager": "^1.2.0",
+    "@ecomplus/widget-tawkto": "^1.0.0",
     "@ecomplus/widget-trustvox": "^2.0.2",
     "@ecomplus/widget-user": "^1.0.0-beta.3",
     "@glidejs/glide": "^3.4.1",
