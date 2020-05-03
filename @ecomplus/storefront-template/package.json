@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-template",
-  "version": "2.0.0-beta.5",
+  "version": "2.0.0-beta.6",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "template/js/index.js",
   "bin": {
@@ -59,7 +59,7 @@
     "@ecomplus/widget-search": "^1.0.0-beta.4",
     "@ecomplus/widget-search-engine": "^1.0.0-beta.4",
     "@ecomplus/widget-tag-manager": "^1.2.0",
-    "@ecomplus/widget-tawkto": "^1.1.0",
+    "@ecomplus/widget-tawkto": "^1.1.1",
     "@ecomplus/widget-trustvox": "^2.0.3",
     "@ecomplus/widget-user": "^1.0.0-beta.4",
     "@glidejs/glide": "^3.4.1",

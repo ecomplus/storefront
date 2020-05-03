@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-tawkto",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Storefront plugin for Tawk.to chat",
   "main": "dist/widget-tawkto.min.js",
   "module": "src/index.js",
