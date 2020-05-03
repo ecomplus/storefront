@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.6...@ecomplus/storefront-components@1.0.0-beta.7) (2020-05-03)
+
+
+### Bug Fixes
+
+* **instant-search:** minor style fix for results count block ([24eeece](https://github.com/ecomplus/storefront/commit/24eeeced67d8edb8d3168af2dc356391e9a83899))
+* **search-engine:** fix preseted brands/categories options (filterable) ([cbb286a](https://github.com/ecomplus/storefront/commit/cbb286a2f47de05a4595d488fe9b042a53ced432))
+
+
+
+
+
 # [1.0.0-beta.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.5...@ecomplus/storefront-components@1.0.0-beta.6) (2020-05-01)
 
 

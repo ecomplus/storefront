@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.4...@ecomplus/storefront-template@2.0.0-beta.5) (2020-05-03)
+
+
+### Features
+
+* **brand-retail:** add 'see all' link to search engine page ([5ed0a62](https://github.com/ecomplus/storefront/commit/5ed0a62608c0383ed92774e23e16b11ba51a7abe))
+* **category-retail:** try subcategory items when category is empty ([3edb24a](https://github.com/ecomplus/storefront/commit/3edb24a683aae0fb0fbe734815760270d6629b55))
+* **cms:** add tawkto widget ([b0560a9](https://github.com/ecomplus/storefront/commit/b0560a9ac1003a31fe34201566a65def52bcc1cc))
+* **retail-grid:** add 'see all' link for categories/brands pages ([44f954d](https://github.com/ecomplus/storefront/commit/44f954d2246351f5600a97592b33d76d18e4255a))
+* **widgets-appends:** handle 'productDescriptionAppend' field ([6b10f32](https://github.com/ecomplus/storefront/commit/6b10f32ad5045288a937e46bd45b79de52350b63))
+
+
+
+
+
 # [2.0.0-beta.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.3...@ecomplus/storefront-template@2.0.0-beta.4) (2020-05-01)
 
 

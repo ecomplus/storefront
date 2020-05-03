@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-trustvox",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Storefront plugin for Trustvox product reviews",
   "main": "dist/widget-trustvox.min.js",
   "module": "src/index.js",

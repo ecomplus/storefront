@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-trustvox@2.0.2...@ecomplus/widget-trustvox@2.0.3) (2020-05-03)
+
+
+### Bug Fixes
+
+* **cms:** replace 'productBlockAppend' with 'productDescriptionAppend' ([a585b43](https://github.com/ecomplus/storefront/commit/a585b433106681a7d3b3c61f83fffdc2628f6d13))
+* **product-page:** load rating trustvox widget after component rendered ([3f0b5da](https://github.com/ecomplus/storefront/commit/3f0b5daae465312feca35fffc8761e7c28f1d9f6))
+
+
+
+
+
 ## [2.0.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-trustvox@2.0.1...@ecomplus/widget-trustvox@2.0.2) (2020-05-01)
 
 
