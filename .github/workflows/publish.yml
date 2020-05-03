@@ -34,7 +34,7 @@ jobs:
           node -p "const pkg = require('./package.json'); \
           if (pkg.publishConfig) delete pkg.publishConfig.registry; \
           JSON.stringify(pkg, null, 2)" > pkg.json && mv pkg.json package.json && \
-          npm publish
+          npm publish --access public
 
       - name: Trigger Netlify deploy
         if: github.event.registry_package.name == 'storefront-template'
