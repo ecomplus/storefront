@@ -29,9 +29,6 @@
     "url": "https://github.com/ecomplus/storefront/issues"
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-trustvox#readme",
-  "peerDependencies": {
-    "core-js": "3.x"
-  },
   "webpackOutput": {
     "library": "widgetTrustvox",
     "filename": "widget-trustvox.min.js"

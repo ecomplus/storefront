@@ -29,9 +29,6 @@
     "url": "https://github.com/ecomplus/storefront/issues"
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-tawkto#readme",
-  "peerDependencies": {
-    "core-js": "3.x"
-  },
   "webpackOutput": {
     "library": "widgetTawkto",
     "filename": "widget-tawkto.min.js"
