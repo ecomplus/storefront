@@ -1,28 +1,21 @@
 # Customization :pencil:
 
-How Storefront V2 may be customized (from easier to harder) and TODOs:
+It is faster to make changes and customizations. Through a configuration page it is possible to define:
 
-Insert `HTML`, `JS` and `CSS` with specified files predefined at Storefront Starter:
-
-Split views in new partials to make possible to insert HTML in more (any) places;
-
-Update Storefront Starter pages with new insert partials and respective imports;
-
-Edit prerendered `HTML` through `EJS` or dynamically update `DOM` with custom `JS` (can use `jQuery`):
-
-Template EJS components may have predefined places for additional HTML;
-Vue components must have slots to support most common additional HTML cases;
-Widgets must try to keep custom prerendered HTML, preferably trough respective component slots;
-
-Use Webpack aliases on `storefront.webpack.js` to make deeper edits on Vue component parts (`HTML`, `JS` or `SCSS`);
++ General settings such as: Contact, address, logo;
++ Choose Colors with your store's identity;
++ Organize your page: choosing how the layout and organization of your screen will be;
++ Configure the extra pages: delivery conditions, payment methods, exchanges and returns;
++ An instructive and simple tool that makes it possible to define the header, side menu, footer, among others;
++ Possibility to include settings directly with `HTML`,` JS` and `CSS` code;
 
 ## Build pages within CMS
 
-Access the administrative part of your website by adding `/ admin`.
+Access the administrative part of your website at `https://yourdomain.com/admin/`.
 The options to be modified are at your fingertips on the left side of the screen.
 See below:
 
-<img src="/assets/img/doc_customization1.png" alt="...">
+<img src="/assets/img/doc_customization1.png" alt="CMS">
 
 ### Configuration :wrench:
 
@@ -30,11 +23,11 @@ Here's how to set up and where changes will be affected on your website:
 
 **Change colors, themes in a simple way and keep your store's identity:**
 
-<img src="/assets/img/doc_customization2.png" alt="...">
+<img src="/assets/img/doc_customization2.png" alt="CMS">
 
 **Define colors:**
 
-<img src="/assets/img/doc_customization3.png" alt="...">
+<img src="/assets/img/doc_customization3.png" alt="CMS">
 
 Build the `header`,` footer` maintaining the identity of your store.
 
@@ -71,7 +64,7 @@ Include css code to customize your site.
 
 <img src="/assets/img/doc_customization5.png" alt="...">
 
-+ If you want to change many style sheets, there are a few options:
++ Considering your deploy was generated from [Storefront Starter](https://github.com/ecomplus/storefront-starter), we recommend one of the following ways to edit lot of CSS code (SCSS) directly from GitHub or locally on your preferred code editor:
 
 1. Change directly in the code at:
 `/ template / scss / custom-css / _styles.scss`
@@ -79,7 +72,7 @@ Include css code to customize your site.
 2. To override some variables, you can also access `/ template / scss / _variables.scss` and change the variables directly. For example, change the button as shown below:
 put button
 
-3. you can edit main.scss. All scss are imported from the storefront template. You can remove the css that you don't want to use and for example make your own footer.
+3. You can edit `main.scss` if you don't want to import entire [Storefront Template styles](https://github.com/ecomplus/storefront/tree/master/%40ecomplus/storefront-template/template/scss), for example to make your own footer styles and prevent importing those ones from our default template.
 
 This way, you are reducing useless css codes.
 
