@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.8](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.7...@ecomplus/storefront-components@1.0.0-beta.8) (2020-05-05)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.9.0 ([534a235](https://github.com/ecomplus/storefront/commit/534a23571d6d054a9f8186fb0d9e069dac78836f))
+* **input-phone:** minor fix for br phone number placeholder ([363a686](https://github.com/ecomplus/storefront/commit/363a686bc985b54658cf649f07ea1ee1a898ceb2))
+
+
+
+
+
 # [1.0.0-beta.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.6...@ecomplus/storefront-components@1.0.0-beta.7) (2020-05-03)
 
 
