@@ -163,6 +163,9 @@ export default {
           installmentList
             .then(installmentList => {
               this.installmentList = installmentList
+              if (installmentList.length) {
+                this.card.installment = 1
+              }
             }).finally(() => {
               this.isLoadingInstallments = false
             })
