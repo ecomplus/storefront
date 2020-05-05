@@ -22,7 +22,7 @@ export default {
   computed: {
     placeholder () {
       return countryCode === 'BR'
-        ? '(11) 9 9999-9999'
+        ? '11 9 9999-9999'
         : '+1 999 9999 9999'
     },
 
