@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-twbs",
-  "version": "5.4.1",
+  "version": "5.4.2",
   "description": "Storefront foundation components built with custom Bootstrap 4 + Animate.css + FontAwesome",
   "browser": "dist/storefront-twbs.min.js",
   "main": "dist/storefront-twbs.min.js",
@@ -32,7 +32,7 @@
     "url": "https://github.com/ecomplus/storefront-twbs/issues"
   },
   "dependencies": {
-    "jquery": "3.4.1",
+    "jquery": "3.5.1",
     "popper.js": "^1.16.1"
   }
 }

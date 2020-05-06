@@ -121,6 +121,7 @@
                 :amount="amount"
                 :coupon-code.sync="localDiscountCoupon"
                 @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
+                :modules-payload="modulesPayload"
                 is-attention-wanted
               />
             </ec-summary>

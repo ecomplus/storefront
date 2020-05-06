@@ -5,6 +5,7 @@ import {
 } from '@ecomplus/utils'
 
 import ecomCart from '@ecomplus/shopping-cart'
+import baseModulesRequestData from '../../lib/base-modules-request-data'
 import APrices from '#components/APrices.vue'
 import CartItem from '#components/CartItem.vue'
 import DiscountApplier from '#components/DiscountApplier.vue'
@@ -52,6 +53,7 @@ export default {
     i19continueShopping: () => i18n(i19continueShopping),
     i19discount: () => i18n(i19discount),
     i19emptyCart: () => i18n(i19emptyCart),
+    modulesPayload: () => baseModulesRequestData,
 
     cart () {
       return this.ecomCart.data

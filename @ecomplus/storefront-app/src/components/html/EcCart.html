@@ -24,6 +24,7 @@
           :coupon-code.sync="localDiscountCoupon"
           :is-coupon-applied="Boolean(discountCoupon && amount.discount)"
           @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
+          :modules-payload="modulesPayload"
         />
       </div>
 

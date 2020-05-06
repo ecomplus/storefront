@@ -4,27 +4,36 @@
   </h5>
 
   <slot name="list">
-    <div v-if="items" class="summary__list">
+    <div
+      v-if="items"
+      class="summary__list"
+    >
       <div
         class="summary__item"
         v-for="item in items"
       >
-        <img
-          v-if="img(item)"
-          :src="img(item).url"
-          :alt="img(item).alt"
+        <a-picture
+          v-if="getImg(item)"
+          :src="getImg(item).url"
+          :alt="getImg(item).alt || item.name"
         />
 
         <div>
           <span class="badge badge-secondary">
             {{ item.quantity }}
           </span>
-          {{ formatMoney(price(item)) }}
+          {{ formatMoney(getPrice(item)) }}
           <br>
-          <a v-if="item.slug" :href="`/${item.slug}`" target="_blank">
-            <small>{{ name(item) }}</small>
-          </a>
-          <small v-else>{{ name(item) }}</small>
+          <a-link
+            v-if="item.slug"
+            :href="`/${item.slug}`"
+            target="_blank"
+          >
+            <small>{{ getName(item) }}</small>
+          </a-link>
+          <small v-else>
+            {{ getName(item) }}
+          </small>
         </div>
       </div>
     </div>
@@ -50,7 +59,10 @@
         <div>{{ formatMoney(amount.freight) }}</div>
       </div>
 
-      <div class="summary__amount__row" v-if="amount.discount">
+      <div
+        v-if="amount.discount"
+        class="summary__amount__row"
+      >
         <span>{{ i19discount }}</span>
         <div>{{ formatMoney(amount.discount) }}</div>
       </div>
@@ -65,7 +77,10 @@
   <slot/>
 
   <slot name="buyer">
-    <div class="summary__buyer" v-if="buyer">
+    <div
+      v-if="buyer"
+      class="summary__buyer"
+    >
       <h5>{{ i19buyer }}</h5>
       <p>
         {{ buyerName }}

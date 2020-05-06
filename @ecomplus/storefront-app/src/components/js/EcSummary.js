@@ -1,5 +1,3 @@
-import { i18n, name, formatMoney, price, img, phone } from '@ecomplus/utils'
-
 import {
   i19buyer,
   i19contactPhone,
@@ -12,8 +10,25 @@ import {
   i19total
 } from '@ecomplus/i18n'
 
+import {
+  i18n,
+  name as getName,
+  price as getPrice,
+  img as getImg,
+  phone as getPhone,
+  formatMoney
+} from '@ecomplus/utils'
+
+import ALink from '#components/ALink.vue'
+import APicture from '#components/APicture.vue'
+
 export default {
   name: 'EcSummary',
+
+  components: {
+    ALink,
+    APicture
+  },
 
   props: {
     amount: {
@@ -45,14 +60,14 @@ export default {
     },
 
     buyerPhone () {
-      return phone(this.buyer)
+      return getPhone(this.buyer)
     }
   },
 
   methods: {
-    name,
-    price,
+    getName,
+    getPrice,
     formatMoney,
-    img: item => img(item, null, 'small')
+    getImg: item => getImg(item, null, 'small')
   }
 }

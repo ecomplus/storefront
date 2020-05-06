@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.6...@ecomplus/storefront-template@2.0.0-beta.7) (2020-05-05)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.9.0 ([534a235](https://github.com/ecomplus/storefront/commit/534a23571d6d054a9f8186fb0d9e069dac78836f))
+
+
+
+
+
 # [2.0.0-beta.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.5...@ecomplus/storefront-template@2.0.0-beta.6) (2020-05-03)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

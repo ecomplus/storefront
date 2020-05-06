@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.5...@ecomplus/storefront-app@2.0.0-beta.6) (2020-05-05)
+
+
+### Bug Fixes
+
+* **checkout:** pass base modules payload to discount applier component ([07159bf](https://github.com/ecomplus/storefront/commit/07159bfcabc95db3bc30f82e18c1b2b1bc40160e))
+* **credit-card-form:** set installment after updating installments list ([ac2d27f](https://github.com/ecomplus/storefront/commit/ac2d27fa4c15769ba150f991b48e2fd0f66ecf8b))
+* **deps:** update @ecomplus/i18n to v1.9.0 ([534a235](https://github.com/ecomplus/storefront/commit/534a23571d6d054a9f8186fb0d9e069dac78836f))
+* **summary:** using ALink/APicture to propperly handle product picture ([e68fbab](https://github.com/ecomplus/storefront/commit/e68fbab158920392ae45fbb2983bc50b009e0347))
+
+
+
+
+
 # [2.0.0-beta.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.4...@ecomplus/storefront-app@2.0.0-beta.5) (2020-05-03)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

@@ -7,6 +7,7 @@ import {
 } from '@ecomplus/utils'
 
 import ecomCart from '@ecomplus/shopping-cart'
+import baseModulesRequestData from '../../lib/base-modules-request-data'
 import DiscountApplier from '#components/DiscountApplier.vue'
 import LoginBlock from '#components/LoginBlock.vue'
 import ShippingCalculator from '#components/ShippingCalculator.vue'
@@ -97,6 +98,8 @@ export default {
   },
 
   computed: {
+    modulesPayload: () => baseModulesRequestData,
+
     dictionary () {
       return {
         Bag,
