@@ -17,7 +17,7 @@ See below:
 
 <img src="/assets/img/doc_customization1.png" alt="CMS">
 
-### Configuration :wrench:
+#### Configuration :wrench:
 
 Here's how to set up and where changes will be affected on your website:
 
@@ -42,17 +42,23 @@ _____
 Page Builder: Remove block from the page, add code and organize the page as you prefer.
 _____
 
-### See below how to organize the session:
+#### See below how to organize the session:
 
 Easily organize the layout of the sessions by dragging with the mouse according to the order you want to display on the screen.
 
 <img src="/assets/img/doc_customization.gif" alt="...">
 
-### Personalize by entering html codes.
+#### Personalize by entering html codes.
 
-Enter html codes using CMS. Easily creating an identity for your store:
+Enter html codes using CMS. Easily creating an identity for your store.
+
++ You can insert `html` code in any section and organize the position where it will be on the screen:
 
 <img src="/assets/img/doc_customization4.png" alt="...">
+
++ Add `HTML` code that can be used to link external` CSS` or create `meta tags` and also to import external` JS` or insert `HTML` after footers and credits:
+
+<img src="/assets/img/doc_customization5.png" alt="CMS">
 
 ## Theme/overwrite styles
 
@@ -62,7 +68,7 @@ Include css code to customize your site.
 
 `Layout> Insert code` (as example):
 
-<img src="/assets/img/doc_customization5.png" alt="...">
+<img src="/assets/img/doc_customization6.png" alt="CMS">
 
 + Considering your deploy was generated from [Storefront Starter](https://github.com/ecomplus/storefront-starter), we recommend one of the following ways to edit lot of CSS code (SCSS) directly from GitHub or locally on your preferred code editor:
 
@@ -78,7 +84,38 @@ This way, you are reducing useless css codes.
 
 ## Edit pre-rendered views
 
-> TODO
+In `CMS` it is possible to include `HTML` codes, but to edit the standard views it is necessary to edit the sections that are in the `EJS` language.
+
+For example, if you want to edit the product block or source code of any section, you must change the `EJS`.
+
+See for example:
+
+`/template/pages/@/sections/info-bar.ejs`
+
+<img src="/assets/img/doc_customization7.png" alt="...">
+
+Add conditions, looping, change colors, change the default meta tags:
+
+<img src="/assets/img/doc_customization8.png" alt="...">
+
+In the `product-item.ejs` files `product-block.ejs`, for example to make changes, it is necessary to use **slot**.
+
+If only normal html is inserted, without using the slot:
+
++ In pre-rendering, it uses the html that was inserted, but at runtime when rendering the `vue` component, the change will be replaced.
+
++ It is important to use `slots` so that when rendering the code, your change is not overwritten.
+
+See the example:
+
+**Customize add to cart button content:**
+
+```html
+    <div data-slot="buy-button-content">
+      <i class="fas fa-shopping-bag mr-1"></i>
+      {{ _.dictionary('buy') }}
+    </div>
+```
 
 ### Note for product page and cards
 
