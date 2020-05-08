@@ -2,7 +2,8 @@ import {
   i19asOf,
   i19from,
   i19interestFree,
-  i19to
+  i19to,
+  i19upTo
 } from '@ecomplus/i18n'
 
 import {
@@ -62,6 +63,7 @@ export default {
     i19from: () => i18n(i19from),
     i19interestFree: () => i18n(i19interestFree),
     i19to: () => i18n(i19to),
+    i19upTo: () => i18n(i19upTo),
 
     price () {
       const price = getPrice(this.product)
