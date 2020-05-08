@@ -21,13 +21,15 @@ import {
 
 import ALink from '#components/ALink.vue'
 import APicture from '#components/APicture.vue'
+import APrices from '#components/APrices.vue'
 
 export default {
   name: 'EcSummary',
 
   components: {
     ALink,
-    APicture
+    APicture,
+    APrices
   },
 
   props: {
@@ -37,7 +39,8 @@ export default {
     },
     items: Array,
     buyer: Object,
-    shippingAddress: Object
+    shippingAddress: Object,
+    canShowPriceOptions: Boolean
   },
 
   computed: {
@@ -61,6 +64,15 @@ export default {
 
     buyerPhone () {
       return getPhone(this.buyer)
+    },
+
+    asProduct () {
+      const { total, discount } = this.amount
+      const body = { price: total }
+      if (discount > 0) {
+        body.base_price = body.price + discount
+      }
+      return body
     }
   },
 

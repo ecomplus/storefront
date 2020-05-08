@@ -114,6 +114,7 @@
               :items="cart.items"
               :buyer="customer"
               :shippingAddress="shippingAddress"
+              :can-show-price-options="!(paymentGateway && paymentGateway.app_id)"
               @click:account="editAccount = true"
             >
               <discount-applier
