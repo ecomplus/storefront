@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.6...@ecomplus/storefront-app@2.0.0-beta.7) (2020-05-08)
+
+
+### Bug Fixes
+
+* **summary:** installments/discount options while payment not selected ([0f4b110](https://github.com/ecomplus/storefront/commit/0f4b110528343f9aecaef1a07b69d0c196290516))
+
+
+
+
+
 # [2.0.0-beta.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.5...@ecomplus/storefront-app@2.0.0-beta.6) (2020-05-05)
 
 

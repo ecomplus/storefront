@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.8](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.7...@ecomplus/storefront-template@2.0.0-beta.8) (2020-05-08)
+
+
+### Bug Fixes
+
+* **extra-pages-view:** ensure 'extra-page' section is present ([9748898](https://github.com/ecomplus/storefront/commit/9748898dbfdc4e8dba56bf4c6237bce6a25a52ab))
+* **posts-view:** ensure 'blog-post' section is present ([c3a0861](https://github.com/ecomplus/storefront/commit/c3a08619e072900b8408c886463356e2458d16e6))
+
+
+
+
+
 # [2.0.0-beta.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.6...@ecomplus/storefront-template@2.0.0-beta.7) (2020-05-05)
 
 

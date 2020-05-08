@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.9](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.8...@ecomplus/storefront-components@1.0.0-beta.9) (2020-05-08)
+
+
+### Bug Fixes
+
+* **product-gallery:** open photoswipe with 1000x1000 if size undefined ([4a509e8](https://github.com/ecomplus/storefront/commit/4a509e8539fcda30d2495a88169950f5ab89d573))
+
+
+### Features
+
+* **cart-quickview:** show installment/discount options with APrice ([104154f](https://github.com/ecomplus/storefront/commit/104154f9198cf6fe0fe421befb81f6948c666572))
+
+
+
+
+
 # [1.0.0-beta.8](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.7...@ecomplus/storefront-components@1.0.0-beta.8) (2020-05-05)
 
 
