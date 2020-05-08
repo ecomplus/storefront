@@ -6,7 +6,7 @@ import {
   i19loadProductErrorMsg,
   i19only,
   i19outOfStock,
-  // i19retry,
+  i19retry,
   i19selectVariation,
   i19unavailable
 } from '@ecomplus/i18n'
@@ -86,7 +86,7 @@ export default {
     i19loadProductErrorMsg: () => i18n(i19loadProductErrorMsg),
     i19only: () => i18n(i19only),
     i19outOfStock: () => i18n(i19outOfStock),
-    i19retry: () => 'Tentar novamente',
+    i19retry: () => i18n(i19retry),
     i19selectVariation: () => i18n(i19selectVariation),
     i19unavailable: () => i18n(i19unavailable),
 
