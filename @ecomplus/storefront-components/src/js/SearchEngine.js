@@ -406,6 +406,7 @@ export default {
       }
       this.fetchItems()
     },
+
     setSortOrder (sort) {
       this.selectedSortOption = sort
       this.ecomSearch.setSortOrder(sort)
