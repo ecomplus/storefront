@@ -410,7 +410,7 @@ export default {
     setSortOrder (sort) {
       this.selectedSortOption = sort
       this.ecomSearch.setSortOrder(sort)
-      this.fetchItems()
+      this.scheduleFetch()
     }
   },
 
