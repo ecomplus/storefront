@@ -80,7 +80,10 @@
           <div class="minicart__summary">
             <span>{{ i19subtotal }}</span>
             <strong class="minicart__subtotal">
-              {{ formatMoney(cart.subtotal) }}
+              <a-prices
+                :product="{ price: cart.subtotal }"
+                :is-literal="true"
+              />
             </strong>
           </div>
 

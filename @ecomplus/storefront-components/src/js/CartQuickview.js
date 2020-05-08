@@ -16,6 +16,7 @@ import {
 import ecomCart from '@ecomplus/shopping-cart'
 import ALink from '../ALink.vue'
 import ABackdrop from '../ABackdrop.vue'
+import APrices from '../APrices.vue'
 import CartItem from '../CartItem.vue'
 
 export default {
@@ -24,6 +25,7 @@ export default {
   components: {
     ALink,
     ABackdrop,
+    APrices,
     CartItem
   },
 
