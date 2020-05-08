@@ -2,6 +2,7 @@ import {
   i19asOf,
   i19from,
   i19interestFree,
+  i19of,
   i19to,
   i19upTo
 } from '@ecomplus/i18n'
@@ -62,6 +63,7 @@ export default {
     i19asOf: () => i18n(i19asOf),
     i19from: () => i18n(i19from),
     i19interestFree: () => i18n(i19interestFree),
+    i19of: () => i18n(i19of),
     i19to: () => i18n(i19to),
     i19upTo: () => i18n(i19upTo),
 

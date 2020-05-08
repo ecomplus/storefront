@@ -28,6 +28,9 @@
         {{ i19upTo }}
       </small>
       {{ installmentsNumber }}x
+      <small v-if="isLiteral">
+        {{ i19of }}
+      </small>
       <span>
         {{ formatMoney(installmentValue) }}
       </span>
