@@ -108,7 +108,7 @@
   }
 }
 
-.ecom-credits {
+.ecom-credits {  
   padding: 1.5rem;
   background: #fff;
   text-align: center;
@@ -126,4 +126,11 @@
     display: inline-block;
     width: auto;
   }
+
+  button {
+    position: absolute;
+    right: 0;
+    margin-right: 1.5rem;
+  }
+  
 }

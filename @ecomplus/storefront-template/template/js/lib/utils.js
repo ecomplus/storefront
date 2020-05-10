@@ -81,3 +81,11 @@ if ($timers.length) {
     }
   })
 }
+
+$('#go-to-top').on('click', function() {
+  window.scroll({
+    top: 0,     
+    behavior: 'smooth'
+  });
+})
+  
