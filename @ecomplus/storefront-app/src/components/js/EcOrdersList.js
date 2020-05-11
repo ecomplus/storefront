@@ -3,8 +3,9 @@ import ecomPassport from '@ecomplus/passport-client'
 import EcOrderInfo from './../EcOrderInfo.vue'
 
 import {
-  _OrderStatus
-} from './../../lib/i18n'
+  i19FinancialStatus,
+  i19OrderStatus
+} from '@ecomplus/i18n'
 
 export default {
   name: 'EcOrdersList',
@@ -31,22 +32,11 @@ export default {
     }
   },
 
-  computed: {
-    dictionary () {
-      return {
-        _OrderStatus,
-        ...this.mergeDictionary
-      }
-    }
-  },
-
   methods: {
     formatDate,
     formatMoney,
-
-    i18n (label, prop) {
-      return i18n(prop ? this.dictionary[label][prop] : this.dictionary[label])
-    }
+    i19FinancialStatus: prop => i18n(i19FinancialStatus)[prop],
+    i19OrderStatus: prop => i18n(i19OrderStatus)[prop]
   },
 
   created () {
