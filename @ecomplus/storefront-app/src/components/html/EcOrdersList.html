@@ -33,7 +33,7 @@
       </span>
 
       <span
-        v-else-if="order.financial_status && order.status !== 'cancelled'"
+        v-else
         class="orders-list__financial-status"
         :class="`orders-list__financial-status--${order.financial_status.current}`"
       >
