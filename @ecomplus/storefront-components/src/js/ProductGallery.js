@@ -100,16 +100,24 @@ export default {
     pswpItems () {
       const pswpItems = []
       this.localPictures.forEach(({ zoom }) => {
-        if (zoom && zoom.size) {
-          const sizes = zoom.size.split('x')
-          if (sizes.length === 2) {
-            pswpItems.push({
-              src: zoom.url,
-              title: getName(this.product) || zoom.alt,
-              w: parseInt(sizes[0], 10),
-              h: parseInt(sizes[1], 10)
-            })
+        if (zoom) {
+          let w, h
+          if (zoom.size) {
+            const sizes = zoom.size.split('x')
+            if (sizes.length === 2) {
+              w = parseInt(sizes[0], 10)
+              h = parseInt(sizes[1], 10)
+            }
           }
+          if (!w || !h) {
+            w = h = 1000
+          }
+          pswpItems.push({
+            src: zoom.url,
+            title: getName(this.product) || zoom.alt,
+            w,
+            h
+          })
         }
       })
       return pswpItems

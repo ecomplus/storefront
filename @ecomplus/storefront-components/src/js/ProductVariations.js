@@ -15,6 +15,10 @@ export default {
       required: true
     },
     selectedId: String,
+    maxOptionsBtns: {
+      type: Number,
+      default: 6
+    },
     gridsData: {
       type: Array,
       default () {

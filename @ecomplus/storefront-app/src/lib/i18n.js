@@ -353,6 +353,11 @@ export const Payment = {
   pt_br: 'Pagamento'
 }
 
+export const ProceedToPayment = {
+  en_us: 'Proceed to payment',
+  pt_br: 'Prosseguir para pagamento'
+}
+
 export const PaymentConfirmed = {
   en_us: 'Payment',
   pt_br: 'Pagamento confirmado'

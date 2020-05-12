@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-search",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.7",
   "description": "Storefront plugin with Vue component for instant search engine on E-Com Plus stores",
   "module": "src/index.js",
   "browser": "dist/widget-search.min.js",
@@ -36,7 +36,7 @@
     "vue": ">=2 <4"
   },
   "dependencies": {
-    "@ecomplus/storefront-components": "^1.0.0-beta.8"
+    "@ecomplus/storefront-components": "^1.0.0-beta.10"
   },
   "webpackOutput": {
     "library": "widgetSearch",

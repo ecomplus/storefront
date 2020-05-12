@@ -1,5 +1,5 @@
 import { i18n } from '@ecomplus/utils'
-import EcAddressForm from './../EcAddressForm.vue'
+import AddressForm from '#components/AddressForm.vue'
 
 import {
   Edit,
@@ -15,7 +15,7 @@ export default {
   name: 'EcAddresses',
 
   components: {
-    EcAddressForm
+    AddressForm
   },
 
   props: {

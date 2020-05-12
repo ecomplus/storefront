@@ -24,7 +24,13 @@
       v-if="installmentsNumber > 1"
       class="prices__installments"
     >
+      <small v-if="isLiteral">
+        {{ i19upTo }}
+      </small>
       {{ installmentsNumber }}x
+      <small v-if="isLiteral">
+        {{ i19of }}
+      </small>
       <span>
         {{ formatMoney(installmentValue) }}
       </span>

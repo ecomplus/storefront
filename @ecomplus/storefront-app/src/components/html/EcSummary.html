@@ -69,7 +69,14 @@
 
       <div class="summary__amount__row summary__amount__row--total">
         <span>{{ i19total }}</span>
-        <div>{{ formatMoney(amount.total) }}</div>
+        <a-prices
+          v-if="canShowPriceOptions"
+          :product="asProduct"
+          :is-literal="true"
+        />
+        <div v-else>
+          {{ formatMoney(amount.total) }}
+        </div>
       </div>
     </div>
   </slot>

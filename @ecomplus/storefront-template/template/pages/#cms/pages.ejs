@@ -10,6 +10,8 @@ if (!content.sections || !content.sections.length) {
     { type: 'page-title' },
     { type: 'extra-page' }
   ]
+} else if (!content.sections.find(({ type }) => type === 'extra-page')) {
+  content.sections.push({ type: 'extra-page' })
 }
 %>
 

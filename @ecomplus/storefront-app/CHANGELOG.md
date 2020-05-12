@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.8](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.7...@ecomplus/storefront-app@2.0.0-beta.8) (2020-05-12)
+
+
+### Bug Fixes
+
+* **address-form:** using @ecomplus/storefront-components AddressForm ([41ae215](https://github.com/ecomplus/storefront/commit/41ae2158a447e490fc0f1df6d8f339f93f794a31))
+* **deps:** update all non-major dependencies ([#220](https://github.com/ecomplus/storefront/issues/220)) ([86646fc](https://github.com/ecomplus/storefront/commit/86646fcf9658d42f21f14ef7a683ee1ab289601b))
+* **orders-list:** show financial status for 'open' orders ([#223](https://github.com/ecomplus/storefront/issues/223)) ([e9177f8](https://github.com/ecomplus/storefront/commit/e9177f8d9e732b9a9be9c70d89d2017a76ca56a2))
+
+
+### Features
+
+* **checkout:** add proceed to payment button on shipping step ready ([8ac438c](https://github.com/ecomplus/storefront/commit/8ac438cabb8073316994041f35736bc9c35895e2))
+* **checkout:** smooth scroll on step change ([0111c5a](https://github.com/ecomplus/storefront/commit/0111c5ab98ee4b9a5658a27a5f51a61116cb2c86))
+
+
+
+
+
+# [2.0.0-beta.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.6...@ecomplus/storefront-app@2.0.0-beta.7) (2020-05-08)
+
+
+### Bug Fixes
+
+* **summary:** installments/discount options while payment not selected ([0f4b110](https://github.com/ecomplus/storefront/commit/0f4b110528343f9aecaef1a07b69d0c196290516))
+
+
+
+
+
 # [2.0.0-beta.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.5...@ecomplus/storefront-app@2.0.0-beta.6) (2020-05-05)
 
 
