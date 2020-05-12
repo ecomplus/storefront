@@ -10,6 +10,7 @@
   &__option {
     min-height: 2.3rem;
     min-width: 2.3rem;
+    margin-bottom: var(--spacer-2);
     border: var(--border-width) solid var(--border-color);
 
     &:hover {
@@ -45,5 +46,9 @@
         right: -3px;
       }
     }
+  }
+
+  &__select {
+    max-width: 350px;
   }
 }
