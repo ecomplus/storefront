@@ -15,7 +15,7 @@ Access the administrative part of your website at `https://yourdomain.com/admin/
 The options to be modified are at your fingertips on the left side of the screen.
 See below:
 
-<img src="/assets/img/doc_customization1.png" alt="CMS">
+<img src="/storefront/assets/img/doc_customization1.png" alt="CMS">
 
 #### Configuration :wrench:
 
@@ -27,7 +27,7 @@ Here's how to set up and where changes will be affected on your website:
 
 **Define colors:**
 
-<img src="/assets/img/doc_customization3.png" alt="CMS">
+<img src="/storefront/assets/img/doc_customization3.png" alt="CMS">
 
 Build the `header`,` footer` maintaining the identity of your store.
 
@@ -46,7 +46,7 @@ _____
 
 Easily organize the layout of the sessions by dragging with the mouse according to the order you want to display on the screen.
 
-<img src="/assets/img/doc_customization.gif" alt="...">
+<img src="/storefront/assets/img/doc_customization.gif" alt="...">
 
 #### Personalize by entering html codes.
 
@@ -54,11 +54,11 @@ Enter html codes using CMS. Easily creating an identity for your store.
 
 + You can insert `html` code in any section and organize the position where it will be on the screen:
 
-<img src="/assets/img/doc_customization4.png" alt="...">
+<img src="/storefront/assets/img/doc_customization4.png" alt="...">
 
 + Add `HTML` code that can be used to link external` CSS` or create `meta tags` and also to import external` JS` or insert `HTML` after footers and credits:
 
-<img src="/assets/img/doc_customization5.png" alt="CMS">
+<img src="/storefront/assets/img/doc_customization5.png" alt="CMS">
 
 ## Theme/overwrite styles
 
@@ -68,12 +68,23 @@ Include css code to customize your site.
 
 `Layout> Insert code` (as example):
 
-<img src="/assets/img/doc_customization6.png" alt="CMS">
+<img src="/storefront/assets/img/doc_customization6.png" alt="CMS">
 
 + Considering your deploy was generated from [Storefront Starter](https://github.com/ecomplus/storefront-starter), we recommend one of the following ways to edit lot of CSS code (SCSS) directly from GitHub or locally on your preferred code editor:
 
 1. Change directly in the code at:
 `/ template / scss / custom-css / _styles.scss`
+
+See exemple:
+
+```scss
+.top-bar {
+  background-color: var(--secondary);
+}
+```
+<img src="/storefront/assets/img/doc_customization9.png" alt="CMS">
+
+Using `variables`, you optimize time, maintaining the store's identity in case you need to change any color for example!
 
 2. To override some variables, you can also access `/ template / scss / _variables.scss` and change the variables directly. For example, change the button as shown below:
 put button
@@ -92,11 +103,11 @@ See for example:
 
 `/template/pages/@/sections/info-bar.ejs`
 
-<img src="/assets/img/doc_customization7.png" alt="...">
+<img src="/storefront/assets/img/doc_customization7.png" alt="...">
 
 Add conditions, looping, change colors, change the default meta tags:
 
-<img src="/assets/img/doc_customization8.png" alt="...">
+<img src="/storefront/assets/img/doc_customization8.png" alt="...">
 
 In the `product-item.ejs` files `product-block.ejs`, for example to make changes, it is necessary to use **slot**.
 
