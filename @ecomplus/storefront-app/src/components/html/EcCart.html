@@ -26,6 +26,19 @@
           @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
           :modules-payload="modulesPayload"
         />
+
+        <slot name="back-shopping">
+          <div class="cart__back d-none d-md-block my-4">
+            <a
+              class="cart__btn-back btn btn-sm btn-light"
+              role="button"
+              href="/"
+            >
+              <i class="fas fa-arrow-left mr-1"></i>
+              {{ i19continueShopping }}
+            </a>
+          </div>
+        </slot>
       </div>
 
       <div class="col-md-5 col-lg-4">
