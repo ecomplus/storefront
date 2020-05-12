@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-user",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0-beta.7",
   "description": "Storefront plugin with Vue component customer identification for E-Com Plus stores",
   "module": "src/index.js",
   "browser": "dist/widget-user.min.js",
@@ -35,7 +35,7 @@
     "vue": ">=2 <4"
   },
   "dependencies": {
-    "@ecomplus/storefront-components": "^1.0.0-beta.9"
+    "@ecomplus/storefront-components": "^1.0.0-beta.10"
   },
   "webpackOutput": {
     "library": "widgetUser",
