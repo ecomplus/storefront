@@ -1,0 +1,12 @@
+.address-form {
+  max-width: 600px;
+  margin: 0 auto;
+
+  &__zip {
+    max-width: 225px;
+  }
+
+  &__number {
+    align-items: center;
+  }
+}
