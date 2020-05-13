@@ -1,6 +1,8 @@
 <%
 const search = new _.EcomSearch()
-search.setCategoryIds([_.state._id])
+search
+  .setCategoryIds([_.state._id])
+  .setSortOrder('sales')
 await search.fetch()
 let items = await search.getItems()
 let link
@@ -10,7 +12,9 @@ if (!items.length) {
     return parent && parent._id === _.state._id
   })
   if (childCategories.length) {
-    search.setCategoryIds(childCategories.map(({ _id }) => _id))
+    search
+      .setCategoryIds(childCategories.map(({ _id }) => _id))
+      .setSortOrder('sales')
     await search.fetch()
     items = await search.getItems()
     link = '/search?'
