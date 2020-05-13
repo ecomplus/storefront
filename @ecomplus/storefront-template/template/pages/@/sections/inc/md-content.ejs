@@ -1,7 +1,9 @@
-<% if (_.state.body) { %>
+<%
+const markdown = (typeof opt === 'object' && opt.markdown) || _.state.body
+if (markdown) { %>
   <section class="md-content mb-5 pt-1 pt-sm-2 pt-lg-3">
     <div class="container">
-      <%- _.md.render(_.state.body) %>
+      <%- _.md.render(markdown) %>
     </div>
   </section>
 <% } %>
