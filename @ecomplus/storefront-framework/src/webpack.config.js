@@ -41,7 +41,12 @@ const filenameSchema = process.env.WEBPACK_OUTPUT_FILENAME || '[name].[contentha
 // setup base loaders for styles module
 // parse SCSS and fix compiled CSS with Postcss
 const baseScssModule = [
-  'css-loader',
+  {
+    loader: 'css-loader',
+    options: {
+      sourceMap: true
+    }
+  },
 
   {
     loader: 'postcss-loader',
@@ -51,7 +56,8 @@ const baseScssModule = [
       plugins: [
         require('autoprefixer')(),
         require('cssnano')({ preset: 'default' })
-      ]
+      ],
+      sourceMap: true
     }
   },
 
@@ -78,7 +84,8 @@ const baseScssModule = [
           }
           done({ file })
         }
-      }
+      },
+      sourceMap: true
     }
   }
 ]
