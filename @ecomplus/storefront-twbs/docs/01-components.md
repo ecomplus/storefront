@@ -41,7 +41,7 @@ A simple secondary alert with <a href="#" class="alert-link">an example link</a>
 </div>
 ```
 
-[See more](https://getbootstrap.com/docs/4.4/components/alerts/)
+[See more](https://getbootstrap.com/docs/4.5/components/alerts/)
 
 
 ## Badge
@@ -82,7 +82,7 @@ Unless the context is clear (as with the “Notifications” example, where it i
 </button>
 ```
 
-[See more](https://getbootstrap.com/docs/4.4/components/badge/)
+[See more](https://getbootstrap.com/docs/4.5/components/badge/)
 
 
 ## Breadcrumb
@@ -136,7 +136,7 @@ Indicate the current page’s location within a navigational hierarchy that auto
   </ol>
 </nav>
 ```
-[See More](https://getbootstrap.com/docs/4.4/components/breadcrumb/)
+[See More](https://getbootstrap.com/docs/4.5/components/breadcrumb/)
 
 
 ## Button-group
@@ -159,7 +159,7 @@ Group a series of buttons together on a single line with the button group, and s
 </div>
 ```
 
-[See more](https://getbootstrap.com/docs/4.4/components/button-group/)
+[See more](https://getbootstrap.com/docs/4.5/components/button-group/)
 
 
 ## Buttons
@@ -184,16 +184,16 @@ Here are some examples:
 <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
 ```
 
-[See more](https://getbootstrap.com/docs/4.4/components/buttons/)
+[See more](https://getbootstrap.com/docs/4.5/components/buttons/)
 
 
 ## Card
 
 A **card** is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.
 
-Cards are built with as little markup and styles as possible, but still manage to deliver a ton of control and customization. Built with flexbox, they offer easy alignment and mix well with other Bootstrap components. They have no `margin`; by default, so use [spacing utilities](https://getbootstrap.com/docs/4.4/utilities/spacing/) as needed.
+Cards are built with as little markup and styles as possible, but still manage to deliver a ton of control and customization. Built with flexbox, they offer easy alignment and mix well with other Bootstrap components. They have no `margin`; by default, so use [spacing utilities](https://getbootstrap.com/docs/4.5/utilities/spacing/) as needed.
 
-Below is an example of a basic card with mixed content and a fixed width. Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element. This is easily customized with our various [sizing options](https://getbootstrap.com/docs/4.4/components/card/#sizing).
+Below is an example of a basic card with mixed content and a fixed width. Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element. This is easily customized with our various [sizing options](https://getbootstrap.com/docs/4.5/components/card/#sizing).
 
 <div class="demo">
   <div class="card" style="width: 18rem;">
@@ -217,7 +217,7 @@ Below is an example of a basic card with mixed content and a fixed width. Cards 
 </div>
 ```
 
-[See more](https://getbootstrap.com/docs/4.4/components/card/)
+[See more](https://getbootstrap.com/docs/4.5/components/card/)
 
 
 ## Custom-forms
@@ -323,7 +323,7 @@ Input groups include support for custom selects and custom file inputs. Browser 
 </div>
 ```
 
-[See more](https://getbootstrap.com/docs/4.4/components/input-group/#custom-forms)
+[See more](https://getbootstrap.com/docs/4.5/components/input-group/#custom-forms)
 
 
 ## Dropdown
@@ -362,12 +362,12 @@ Wrap the dropdown’s toggle (your button or link) and the dropdown menu within 
 </div>
 ```
 
-[See more](https://getbootstrap.com/docs/4.4/components/dropdowns/)
+[See more](https://getbootstrap.com/docs/4.5/components/dropdowns/)
 
 
 ## Forms
 
-Bootstrap’s form controls expand on [our Rebooted form styles](https://getbootstrap.com/docs/4.4/content/reboot/#forms) with classes. Use these classes to opt into their customized displays for a more consistent rendering across browsers and devices.
+Bootstrap’s form controls expand on [our Rebooted form styles](https://getbootstrap.com/docs/4.5/content/reboot/#forms) with classes. Use these classes to opt into their customized displays for a more consistent rendering across browsers and devices.
 
 **Example:**
 
@@ -437,7 +437,7 @@ Bootstrap’s form controls expand on [our Rebooted form styles](https://getboot
 </form>
 ```
 
-[See more](https://getbootstrap.com/docs/4.4/components/forms/)
+[See more](https://getbootstrap.com/docs/4.5/components/forms/)
 
 
 ## Input-group
@@ -525,7 +525,7 @@ Easily extend form controls by adding text, buttons, or button groups on either 
 </div>
 ```
 
-[See more](https://getbootstrap.com/docs/4.4/components/input-group/)
+[See more](https://getbootstrap.com/docs/4.5/components/input-group/)
 
 
 ## List-group
@@ -584,7 +584,7 @@ Be sure to not use the standard `.btn` classes here.
 </div>
 ```
 
-[See more](https://getbootstrap.com/docs/4.4/components/list-group/)
+[See more](https://getbootstrap.com/docs/4.5/components/list-group/)
 
 
 ## Modal
@@ -598,7 +598,7 @@ Before getting started with Bootstrap’s modal component, be sure to read the f
 + Clicking on the modal “backdrop” will automatically close the modal.
 + Bootstrap only supports one modal window at a time. Nested modals aren’t supported as we believe them to be poor user experiences.
 + Modals use `position: fixed`, which can sometimes be a bit particular about its rendering. Whenever possible, place your modal HTML in a top-level position to avoid potential interference from other elements. You’ll likely run into issues when nesting a `.modal` within another fixed element.
-+ Once again, due to `position: fixed`, there are some caveats with using modals on mobile devices. [See our browser support docs for details](https://getbootstrap.com/docs/4.4/getting-started/browsers-devices/#modals-and-dropdowns-on-mobile).
++ Once again, due to `position: fixed`, there are some caveats with using modals on mobile devices. [See our browser support docs for details](https://getbootstrap.com/docs/4.5/getting-started/browsers-devices/#modals-and-dropdowns-on-mobile).
 + Due to how HTML5 defines its semantics, [the autofocus HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autofocus) has no effect in Bootstrap modals. To achieve the same effect, use some custom JavaScript:
 
 ```js
@@ -606,7 +606,7 @@ $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
 })
 ```
-[See more](https://getbootstrap.com/docs/4.4/components/modal/)
+[See more](https://getbootstrap.com/docs/4.5/components/modal/)
 
 **Example:**
 
@@ -708,7 +708,7 @@ The base `.nav` component does not include any `.active` state. The following ex
 </ul>
 ```
 
-[See more](https://getbootstrap.com/docs/4.4/components/navs/)
+[See more](https://getbootstrap.com/docs/4.5/components/navs/)
 
 
 ## Pagination
@@ -743,7 +743,7 @@ In addition, as pages likely have more than one such navigation section, it’s 
 </nav>
 ```
 
-[See More](https://getbootstrap.com/docs/4.4/components/pagination/)
+[See More](https://getbootstrap.com/docs/4.5/components/pagination/)
 
 
 ## Popover
@@ -751,8 +751,8 @@ In addition, as pages likely have more than one such navigation section, it’s 
 Things to know when using the popover plugin:
 
 + Popovers rely on the 3rd party library [Popper.js](https://popper.js.org/) for positioning. You must include [popper.min.js](https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js) before bootstrap.js or use `bootstrap.bundle.min.js` / `bootstrap.bundle.js` which contains Popper.js in order for popovers to work!
-+ Popovers require the [tooltip plugin](https://getbootstrap.com/docs/4.4/components/tooltips/) as a dependency.
-+ If you’re building our JavaScript from source, it [requires util.js](https://getbootstrap.com/docs/4.4/getting-started/javascript/#util).
++ Popovers require the [tooltip plugin](https://getbootstrap.com/docs/4.5/components/tooltips/) as a dependency.
++ If you’re building our JavaScript from source, it [requires util.js](https://getbootstrap.com/docs/4.5/getting-started/javascript/#util).
 + Popovers are opt-in for performance reasons, **so you must initialize them yourself**.
 + Zero-length `title` and `content` values will never show a popover.
 + Specify `container: 'body'` to avoid rendering problems in more complex components (like our input groups, button groups, etc).
@@ -767,7 +767,7 @@ The animation effect of this component is dependent on the prefers-reduced-motio
 ___
 
 Keep reading to see how popovers work with some examples.
-[See more](https://getbootstrap.com/docs/4.4/components/popovers/)
+[See more](https://getbootstrap.com/docs/4.5/components/popovers/)
 
 **Example:**
 
@@ -798,7 +798,7 @@ For accessibility purposes, each loader here includes role="status" and a nested
   <span class="sr-only">Loading...</span>
 </div>
 ```
-[See More](https://getbootstrap.com/docs/4.4/components/spinners/)
+[See More](https://getbootstrap.com/docs/4.5/components/spinners/)
 
 
 ## Tables
@@ -875,7 +875,7 @@ Using the most basic table markup, here’s how .table-based tables look in Boot
 </table>
 ```
 
-[See more](https://getbootstrap.com/docs/4.4/content/tables/)
+[See more](https://getbootstrap.com/docs/4.5/content/tables/)
 
 
 ## Toasts
@@ -884,13 +884,13 @@ Toasts are lightweight notifications designed to mimic the push notifications th
 
 Things to know when using the toast plugin:
 
-+ If you’re building our JavaScript from source, it requires [util.js](https://getbootstrap.com/docs/4.4/getting-started/javascript/#util).
++ If you’re building our JavaScript from source, it requires [util.js](https://getbootstrap.com/docs/4.5/getting-started/javascript/#util).
 + Toasts are opt-in for performance reasons, so you must initialize them yourself.
 + Please note that you are responsible for positioning toasts.
 + Toasts will automatically hide if you do not specify `autohide: false`.
 
 ___
-The animation effect of this component is dependent on the `prefers-reduced-motion` media query. [See the reduced motion section of our accessibility documentation](https://getbootstrap.com/docs/4.4/getting-started/accessibility/#reduced-motion).
+The animation effect of this component is dependent on the `prefers-reduced-motion` media query. [See the reduced motion section of our accessibility documentation](https://getbootstrap.com/docs/4.5/getting-started/accessibility/#reduced-motion).
 ___
 
 <div class= "demo">
@@ -936,7 +936,7 @@ ___
 </div>
 ```
 
-[See more](https://getbootstrap.com/docs/4.4/components/toasts/)
+[See more](https://getbootstrap.com/docs/4.5/components/toasts/)
 
 
 ## Tooltip
@@ -944,7 +944,7 @@ ___
 Things to know when using the tooltip plugin:
 
 + Tooltips rely on the 3rd party library [Popper.js](https://popper.js.org/) for positioning. You must include [popper.min.js](https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js) before bootstrap.js or use `bootstrap.bundle.min.js` / `bootstrap.bundle.js` which contains Popper.js in order for tooltips to work!
-+ If you’re building our JavaScript from source, it [requires util.js](https://getbootstrap.com/docs/4.4/getting-started/javascript/#util).
++ If you’re building our JavaScript from source, it [requires util.js](https://getbootstrap.com/docs/4.5/getting-started/javascript/#util).
 + Tooltips are opt-in for performance reasons, so **you must initialize them yourself**.
 + Tooltips with zero-length titles are never displayed.
 + Specify `container: 'body'` to avoid rendering problems in more complex components (like our input groups, button groups, etc).
@@ -955,10 +955,10 @@ Things to know when using the tooltip plugin:
 + Tooltips can be triggered thanks to an element inside a shadow DOM.
 
 ___
-The animation effect of this component is dependent on the `prefers-reduced-motion` media query. See the [reduced motion section of our accessibility documentation](https://getbootstrap.com/docs/4.4/getting-started/accessibility/#reduced-motion).
+The animation effect of this component is dependent on the `prefers-reduced-motion` media query. See the [reduced motion section of our accessibility documentation](https://getbootstrap.com/docs/4.5/getting-started/accessibility/#reduced-motion).
 ___
 
-[See more](https://getbootstrap.com/docs/4.4/components/tooltips/)
+[See more](https://getbootstrap.com/docs/4.5/components/tooltips/)
 
 **Example:**
 
@@ -1033,7 +1033,7 @@ The following example shows how the clearfix can be used. Without the clearfix t
 Change the value of the [display property](https://developer.mozilla.org/en-US/docs/Web/CSS/display) with our responsive display utility classes. We purposely support only a subset of all possible values for `display`. Classes can be combined for various effects as you need.
 
 **Notation:**
-Display utility classes that apply to all [breakpoints](https://getbootstrap.com/docs/4.4/layout/overview/#responsive-breakpoints), from `xs` to `xl`, have no breakpoint abbreviation in them. This is because those classes are applied from `min-width: 0`; and up, and thus are not bound by a media query. The remaining breakpoints, however, do include a breakpoint abbreviation.
+Display utility classes that apply to all [breakpoints](https://getbootstrap.com/docs/4.5/layout/overview/#responsive-breakpoints), from `xs` to `xl`, have no breakpoint abbreviation in them. This is because those classes are applied from `min-width: 0`; and up, and thus are not bound by a media query. The remaining breakpoints, however, do include a breakpoint abbreviation.
 
 As such, the classes are named using the format:
 
@@ -1072,7 +1072,7 @@ To hide elements simply use the `.d-none` class or one of the `.d-{sm,md,lg,xl}-
 
 To show an element only on a given interval of screen sizes you can combine one `.d-*-none` class with a `.d-*-*` class, for example `.d-none` `.d-md-block` `.d-xl-none` will hide the element for all screen sizes except on medium and large devices.
 
-[See more](https://getbootstrap.com/docs/4.4/utilities/display/)
+[See more](https://getbootstrap.com/docs/4.5/utilities/display/)
 
 
 
@@ -1144,7 +1144,7 @@ Add `.stretched-link` to a link to make its [containing block](https://developer
 
 Cards have `position: relative` by default in Bootstrap, so in this case you can safely add the `.stretched-link` class to a link in the card without any other HTML changes.
 
-Multiple links and tap targets are not recommended with stretched links. However, some `position` and `z-index` styles can help should this be required.[See More](https://getbootstrap.com/docs/4.4/utilities/stretched-link/)
+Multiple links and tap targets are not recommended with stretched links. However, some `position` and `z-index` styles can help should this be required.[See More](https://getbootstrap.com/docs/4.5/utilities/stretched-link/)
 
 <div class="demo">
   <div class="card" style="width: 18rem;">
@@ -1173,7 +1173,7 @@ Multiple links and tap targets are not recommended with stretched links. However
 
 Bootstrap includes a wide range of shorthand responsive margin and padding utility classes to modify an element’s appearance.
 
-Assign responsive-friendly `margin` or `padding` values to an element or a subset of its sides with shorthand classes. Includes support for individual properties, all properties, and vertical and horizontal properties. Classes are built from a default Sass map ranging from `.25rem` to `3rem`. [See more](https://getbootstrap.com/docs/4.4/utilities/spacing/)
+Assign responsive-friendly `margin` or `padding` values to an element or a subset of its sides with shorthand classes. Includes support for individual properties, all properties, and vertical and horizontal properties. Classes are built from a default Sass map ranging from `.25rem` to `3rem`. [See more](https://getbootstrap.com/docs/4.5/utilities/spacing/)
 
 **Exemple:**
 
@@ -1219,4 +1219,4 @@ Reset a text or link’s color with `.text-reset`, so that it inherits the color
 ### Text decoration
 Remove a text decoration with a `.text-decoration-none` class.
 
-[Click here and see the examples](https://getbootstrap.com/docs/4.4/utilities/text/)
+[Click here and see the examples](https://getbootstrap.com/docs/4.5/utilities/text/)

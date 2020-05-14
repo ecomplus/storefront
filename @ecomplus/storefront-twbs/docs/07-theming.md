@@ -1,7 +1,7 @@
 # Theming
 
 ### Styles
-We're including almost all Bootstrap 4.4 styles and components, just a few components aren't included by default as you can see at scss/styles.scss.
+We're including almost all Bootstrap 4.5 styles and components, just a few components aren't included by default as you can see at scss/styles.scss.
 
 ### Theming
 You may use Sass to create a custom theme, you just have to import your own variables before @ecomplus/storefront-twbs/scss/styles:
