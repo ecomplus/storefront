@@ -902,7 +902,7 @@ ___
   <br />
   <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
-      <img src="/assets/img/banner.png" class="rounded mr-2" alt="...">
+      <img src="/storefront/assets/img/banner.png" class="rounded mr-2" alt="...">
       <strong class="mr-auto">Bootstrap</strong>
       <small>11 mins ago</small>
       <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
@@ -1148,7 +1148,7 @@ Multiple links and tap targets are not recommended with stretched links. However
 
 <div class="demo">
   <div class="card" style="width: 18rem;">
-    <img src="/assets/img/banner.png" class="card-img-top" alt="...">
+    <img src="/storefront/assets/img/banner.png" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Card with stretched link</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
