@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.3...@ecomplus/storefront-framework@5.12.4) (2020-05-14)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.1.0 ([7458273](https://github.com/ecomplus/storefront/commit/745827394b3255105a666c55f829fd97c8845a10))
+* **webpack:** set sourceMap option for all (s)css modules ([fbceee0](https://github.com/ecomplus/storefront/commit/fbceee050a4887e028215021e90bd7066233e791))
+
+
+
+
+
 ## [5.12.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.2...@ecomplus/storefront-framework@5.12.3) (2020-05-12)
 
 

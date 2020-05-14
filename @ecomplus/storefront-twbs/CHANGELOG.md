@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.4.2...@ecomplus/storefront-twbs@5.5.0) (2020-05-14)
+
+
+### Features
+
+* **bootstrap:** updating to bootstrap v4.5.0 ([22e94fb](https://github.com/ecomplus/storefront/commit/22e94fbd335d8e8f1fc9640a92fce55b40fa4610))
+
+
+
+
+
 ## [5.4.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.4.1...@ecomplus/storefront-twbs@5.4.2) (2020-05-05)
 
 **Note:** Version bump only for package @ecomplus/storefront-twbs

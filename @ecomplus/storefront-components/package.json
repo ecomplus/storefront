@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-components",
-  "version": "1.0.0-beta.10",
+  "version": "1.0.0-beta.11",
   "description": "Vue components for E-Com Plus Storefront",
   "main": "dist/storefront-components.min.js",
   "scripts": {
@@ -37,7 +37,7 @@
     "@ecomplus/passport-client": "^1.0.9",
     "@ecomplus/search-engine": "^2.1.0",
     "@ecomplus/shopping-cart": "^2.1.1",
-    "@ecomplus/storefront-twbs": "^5.4.2",
+    "@ecomplus/storefront-twbs": "^5.5.0",
     "@glidejs/glide": "^3.4.1",
     "cleave.js": "^1.5.10",
     "lozad": "^1.14.0",

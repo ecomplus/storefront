@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.9...@ecomplus/storefront-template@2.0.0-beta.10) (2020-05-14)
+
+
+### Bug Fixes
+
+* **custom-content:** fix rendering custom content section ('markdown') ([04dec13](https://github.com/ecomplus/storefront/commit/04dec13d860c6856ca60a8b035ff2cc74bd8aa8f))
+* **deps:** update @ecomplus/search-engine to v2.1.0 ([7458273](https://github.com/ecomplus/storefront/commit/745827394b3255105a666c55f829fd97c8845a10))
+* **scss:** importing custom variables before theme variables ([e0cc5ea](https://github.com/ecomplus/storefront/commit/e0cc5eab21dd67b43887b4e2af43b82af9e0cf8c))
+
+
+### Features
+
+* **scroll-to-top:** add scroll to top button on footer ([#219](https://github.com/ecomplus/storefront/issues/219)) ([ff86c60](https://github.com/ecomplus/storefront/commit/ff86c60dd263fd806c402b0a38aef020d1ea461a))
+
+
+
+
+
 # [2.0.0-beta.9](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.8...@ecomplus/storefront-template@2.0.0-beta.9) (2020-05-12)
 
 
