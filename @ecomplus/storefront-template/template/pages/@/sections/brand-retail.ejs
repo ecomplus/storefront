@@ -1,6 +1,8 @@
 <%
 const search = new _.EcomSearch()
-search.setBrandIds([_.state._id])
+search
+  .setBrandIds([_.state._id])
+  .setSortOrder('sales')
 const link = `/search?brands[]=${encodeURIComponent(_.state.name)}`
 %>
 

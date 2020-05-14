@@ -8,15 +8,32 @@
   >
     <h5>{{ getGridTitle(grid) }}</h5>
 
-    <button
-      v-for="optionText in options"
-      class="variations__option btn btn-light"
-      :class="selectedOptions[grid] === optionText ? 'variations__option--selected' : null"
-      :style="grid === 'colors' ? getColorOptionBg(optionText) : null"
-      @click="selectOption(optionText, grid, index)"
-      :disabled="!filteredGrids[grid].includes(optionText)"
+    <template v-if="options.length <= maxOptionsBtns">
+      <button
+        v-for="optionText in options"
+        class="variations__option btn btn-light"
+        :class="selectedOptions[grid] === optionText ? 'variations__option--selected' : null"
+        :style="grid === 'colors' ? getColorOptionBg(optionText) : null"
+        @click="selectOption(optionText, grid, index)"
+        :disabled="!filteredGrids[grid].includes(optionText)"
+      >
+        {{ optionText }}
+      </button>
+    </template>
+
+    <select
+      v-else
+      class="variations__select custom-select"
+      @change="$event => selectOption($event.target.value, grid, index)"
     >
-      {{ optionText }}
-    </button>
+      <option
+        v-for="optionText in options"
+        :value="optionText"
+        :selected="selectedOptions[grid] === optionText"
+        :disabled="!filteredGrids[grid].includes(optionText)"
+      >
+        {{ optionText }}
+      </option>
+    </select>
   </div>
 </div>

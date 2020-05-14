@@ -25,10 +25,19 @@
       <span>{{ formatDate(order.created_at) }}</span>
 
       <span
+        v-if="order.status === 'cancelled' || !order.financial_status"
         class="orders-list__status"
         :class="`orders-list__status--${order.status}`"
       >
-        {{ i18n('_OrderStatus', order.status) }}
+        {{ i19OrderStatus(order.status) }}
+      </span>
+
+      <span
+        v-else
+        class="orders-list__financial-status"
+        :class="`orders-list__financial-status--${order.financial_status.current}`"
+      >
+        {{ i19FinancialStatus(order.financial_status.current) }}
       </span>
     </a>
   </div>

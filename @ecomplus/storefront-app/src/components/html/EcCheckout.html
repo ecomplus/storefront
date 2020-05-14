@@ -30,7 +30,10 @@
               :class="enabledCheckoutStep === 1 ? 'offset-lg-3' : null"
             >
               <div :class="shownCheckoutStep !== 1 ? 'd-none d-md-block' : null">
-                <div v-if="shippingAddress" class="checkout__shipping">
+                <div
+                  v-if="shippingAddress"
+                  class="checkout__shipping"
+                >
                   <transition-group enter-active-class="animated fadeInDown">
                     <div
                       v-if="shippingService && !editShippingService"
@@ -68,6 +71,20 @@
                   :zipCode="shippingZipCode"
                   @addressSelected="selectAddress"
                 />
+
+                <transition
+                  enter-active-class="animated fadeInDown"
+                  leave-active-class="animated fadeOutUp"
+                >
+                  <button
+                    v-if="shownCheckoutStep === 1 && shippingService"
+                    class="checkout__btn-proceed btn btn-success mt-4"
+                    @click="toCheckoutStep = 2"
+                  >
+                    <i class="fas fa-chevron-right mr-1"></i>
+                    {{ i18n('ProceedToPayment') }}
+                  </button>
+                </transition>
 
                 <div
                   class="checkout__overlay fade"

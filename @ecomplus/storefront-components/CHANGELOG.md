@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.9...@ecomplus/storefront-components@1.0.0-beta.10) (2020-05-12)
+
+
+### Bug Fixes
+
+* **prices:** fix literal installments text (upto x of y) ([61f9fca](https://github.com/ecomplus/storefront/commit/61f9fcae2ae87c6d552438747ffeb09a64f5f8d1))
+* **product-gallery:** fix opening zoom on excedent images button ([b44fbdb](https://github.com/ecomplus/storefront/commit/b44fbdba3e6f70978836c2865dab0eb328a26bf9))
+* **product-variations:** minor style fix for multiple grid options cases ([52cf785](https://github.com/ecomplus/storefront/commit/52cf7850e7b1a6a099e88b2c519f72bd908d4873))
+* **search-engine:** handle search engine sort order change ([#213](https://github.com/ecomplus/storefront/issues/213)) ([9879e69](https://github.com/ecomplus/storefront/commit/9879e694b63733d40b38d85e91efd6956dad1f65)), closes [#212](https://github.com/ecomplus/storefront/issues/212)
+
+
+### Features
+
+* **address-form:** add new 'AddressForm' component :tada: ([ebafa32](https://github.com/ecomplus/storefront/commit/ebafa32cdac6d70bd573578c14e8812be5937f88))
+* **product-variations:** handle 'maxOptionsBtns' prop ([73ec095](https://github.com/ecomplus/storefront/commit/73ec0953bd03fe2f23382fa084c7e0b208293be7))
+
+
+
+
+
 # [1.0.0-beta.9](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.8...@ecomplus/storefront-components@1.0.0-beta.9) (2020-05-08)
 
 

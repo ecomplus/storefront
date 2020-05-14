@@ -31,6 +31,7 @@ import {
   Logout,
   MyAccount,
   Payment,
+  ProceedToPayment,
   RegisterToBuy,
   Summary
 } from './../../lib/i18n'
@@ -115,6 +116,7 @@ export default {
         Logout,
         MyAccount,
         Payment,
+        ProceedToPayment,
         RegisterToBuy,
         Summary,
         ...this.mergeDictionary
@@ -238,6 +240,10 @@ export default {
 
     toCheckoutStep (stepNumber) {
       this.$emit('update:checkoutStep', stepNumber)
+      window.scroll({
+        top: this.$el.offsetTop - 15,
+        behavior: 'smooth'
+      })
     },
 
     enabledCheckoutStep () {

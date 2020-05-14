@@ -12,7 +12,7 @@
       }
 
       > span {
-        flex: 1 1 0;
+        flex: 1.4 1 0;
         text-align: right;
       }
     }
@@ -40,13 +40,16 @@
     }
   }
 
-  &__status {
+  &__status,
+  &__financial-status {
     font-weight: bold;
 
     @media (max-width: 767.98px) {
       float: right;
     }
+  }
 
+  &__status {
     &--open {
       color: var(--info);
     }
@@ -55,6 +58,26 @@
     }
     &--cancelled {
       color: var(--danger);
+    }
+  }
+
+  &__financial-status {
+    &--pending {
+      color: var(--warning);
+    }
+
+    &--under_analysis {
+      color: var(--info);
+    }
+
+    &--unauthorized,
+    &--in_dispute,
+    &--voided {
+      color: var(--danger);
+    }
+
+    &--paid {
+      color: var(--success);
     }
   }
 }
