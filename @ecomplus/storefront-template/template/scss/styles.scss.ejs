@@ -1,9 +1,10 @@
+@import "variables";
+
 <% if (bootswatch && bootswatch.length > 1) { %>
   @import "<%- themesPath %>/<%- bootswatch %>/variables";
   @import "bootswatch/dist/<%- bootswatch %>/variables";
 <% } %>
 
-@import "variables";
 @import "@ecomplus/storefront-twbs/scss/styles";
 
 <% if (bootswatch && bootswatch.length > 1) { %>

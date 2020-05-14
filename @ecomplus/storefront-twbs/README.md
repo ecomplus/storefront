@@ -4,7 +4,7 @@
 
 :nail_care: Foundation components for [E-Com Plus Storefront](https://github.com/ecomclub/storefront):
 
-1. **[Boostrap 4.4](https://getbootstrap.com/docs/4.4/getting-started/introduction/)**:
+1. **[Boostrap 4.5](https://getbootstrap.com/docs/4.5/getting-started/introduction/)**:
     - [`scss/styles.scss`](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs/scss/styles.scss): Majority part (_but not all_) of Bootstrap CSS is imported, with almost all components, some utility classes and custom additional [CSS vars](#css-vars);
     - [`src/bootstrap.js`](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs/src/bootstrap.js): Bootstrap 4 scripts for respective components, using jQuery and Popper.js normally;
 
@@ -49,7 +49,7 @@ import '@ecomplus/storefront-twbs'
 
 ## Styles
 
-We're including almost all Bootstrap 4.4 styles and components, just a few components aren't included by default as you can see at [`scss/styles.scss`](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs/scss/styles.scss).
+We're including almost all Bootstrap 4.5 styles and components, just a few components aren't included by default as you can see at [`scss/styles.scss`](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs/scss/styles.scss).
 
 ### Theming
 
