@@ -82,7 +82,7 @@ if ($timers.length) {
   })
 }
 
-$('#go-to-top').on('click', function() {
+$('#go-to-top').on('click', () => {
   window.scroll({
     top: 0,     
     behavior: 'smooth'
