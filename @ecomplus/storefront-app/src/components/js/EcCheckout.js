@@ -165,7 +165,9 @@ export default {
 
     shippingAddress () {
       const { addresses } = this.customer
-      return addresses && addresses.find(addr => addr.default)
+      return addresses && addresses.find(addr => {
+        return Boolean(addr.default && addr.street && addr.city && addr.province_code)
+      })
     },
 
     enabledCheckoutStep () {
