@@ -70,7 +70,8 @@
             <div class="cart__summary-row cart__total">
               <span>Total</span>
               <a-prices
-                :product="asProduct"
+                :product="{ price: amount.total || cart.subtotal }"
+                :discount-option="{ value: amount.discount }"
                 :is-literal="true"
               />
             </div>

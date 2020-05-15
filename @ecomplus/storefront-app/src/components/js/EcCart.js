@@ -59,17 +59,6 @@ export default {
       return this.ecomCart.data
     },
 
-    asProduct () {
-      const { total, discount } = this.amount
-      const body = {
-        price: total >= 0 ? total : this.cart.subtotal
-      }
-      if (discount > 0) {
-        body.base_price = body.price + discount
-      }
-      return body
-    },
-
     localDiscountCoupon: {
       get () {
         return this.discountCoupon

@@ -71,7 +71,8 @@
         <span>{{ i19total }}</span>
         <a-prices
           v-if="canShowPriceOptions"
-          :product="asProduct"
+          :product="{ price: amount.total }"
+          :discount-option="{ value: amount.discount }"
           :is-literal="true"
         />
         <div v-else>
