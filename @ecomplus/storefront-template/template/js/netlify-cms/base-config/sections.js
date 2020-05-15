@@ -180,10 +180,37 @@ export default ({ state }) => [
           }))
       },
       {
+        label: 'Ordenação',
+        required: false,
+        name: 'sort',
+        widget: 'select',
+        options: [
+          {
+            label: 'Mais vendidos',
+            value: 'sales'
+          },
+          {
+            label: 'Lançamento',
+            value: 'news'
+          },
+          {
+            label: 'Ofertas',
+            value: 'offers'
+          },
+          {
+            label: 'Menor preço',
+            value: 'lowest_price'
+          },
+          {
+            label: 'Maior preço',
+            value: 'highest_price'
+          }
+        ]
+      },
+      {
         label: 'Embaralhar produtos',
         name: 'shuffle',
         widget: 'boolean',
-        hint: 'Alterar ordem dos produtos aleatoriamente',
         default: true
       },
       {

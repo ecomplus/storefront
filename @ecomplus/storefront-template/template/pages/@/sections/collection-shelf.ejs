@@ -1,15 +1,34 @@
 <%
 const { title, link, shuffle } = opt
 let items, collection
-if (opt.collection_id) {
-  const res = await _.ecomClient.store({
-    url: `/collections/${opt.collection_id}.json`
-  })
-  collection = res.data
-  items = []
-  if (Array.isArray(collection.products) && collection.products.length) {
-    const search = new _.EcomSearch()
-    await search.setProductIds(collection.products).fetch()
+if (opt.sort || opt.collection_id) {
+  let search
+  if (opt.collection_id) {
+    let res
+    try {
+      res = await _.ecomClient.store({
+        url: `/collections/${opt.collection_id}.json`
+      })
+    } catch (err) {
+      console.error(err)
+    }
+    if (res) {
+      collection = res.data
+      items = []
+      if (Array.isArray(collection.products) && collection.products.length) {
+        search = new _.EcomSearch()
+        search.setProductIds(collection.products)
+      }
+    }
+  } else {
+    search = new _.EcomSearch()
+  }
+
+  if (search) {
+    if (opt.sort) {
+      search.setSortOrder(opt.sort)
+    }
+    await search.fetch()
     items = search.getItems()
   }
 } else {
