@@ -124,39 +124,40 @@ export default {
   },
 
   created () {
-    if (!this.installmentsOption && !this.discountOption) {
-      const storefront = typeof window === 'object' && window.storefront
-      if (storefront) {
-        const getPaymentInfo = () => {
-          const paymentInfo = storefront.info && storefront.info.list_payments
-          if (paymentInfo) {
-            this.updateInstallments(paymentInfo.installments_option)
-            this.updateDiscount(paymentInfo.discount_option)
-            return Object.keys(paymentInfo).length > 0
-          }
-          return false
-        }
-        if (!getPaymentInfo()) {
-          storefront.on('info:list_payments', getPaymentInfo)
-        }
-        const getExtraDiscount = () => {
-          const discountCampaign = storefront.info && storefront.info.apply_discount
-          if (discountCampaign) {
-            const discount = discountCampaign.available_extra_discount
-            if (discount) {
-              this.extraDiscount = discount
-            }
-            return Object.keys(discountCampaign).length > 0
-          }
-          return false
-        }
-        if (!getExtraDiscount()) {
-          storefront.on('info:apply_discount', getExtraDiscount)
-        }
-      }
-    } else {
-      this.updateInstallments(this.installmentsOption)
+    const storefront = typeof window === 'object' && window.storefront
+    if (this.discountOption) {
       this.updateDiscount(this.discountOption)
+    } else if (storefront) {
+      const getExtraDiscount = () => {
+        const discountCampaign = storefront.info && storefront.info.apply_discount
+        if (discountCampaign) {
+          const discount = discountCampaign.available_extra_discount
+          if (discount) {
+            this.extraDiscount = discount
+          }
+          return Object.keys(discountCampaign).length > 0
+        }
+        return false
+      }
+      if (!getExtraDiscount()) {
+        storefront.on('info:apply_discount', getExtraDiscount)
+      }
+    }
+    if (this.installmentsOption) {
+      this.updateInstallments(this.installmentsOption)
+    } else if (storefront) {
+      const getPaymentInfo = () => {
+        const paymentInfo = storefront.info && storefront.info.list_payments
+        if (paymentInfo) {
+          this.updateInstallments(paymentInfo.installments_option)
+          this.updateDiscount(paymentInfo.discount_option)
+          return Object.keys(paymentInfo).length > 0
+        }
+        return false
+      }
+      if (!getPaymentInfo()) {
+        storefront.on('info:list_payments', getPaymentInfo)
+      }
     }
   }
 }
