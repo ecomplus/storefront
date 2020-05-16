@@ -1,0 +1,66 @@
+<div class="payment-option">
+  <div class="row">
+    <div class="col-lg">
+      <img
+        v-if="paymentGateway.icon"
+        class="payment-option__icon"
+        :src="paymentGateway.icon"
+      >
+      <div
+        v-else
+        class="payment-option__label"
+      >
+        {{ paymentGateway.label }}
+      </div>
+    </div>
+
+    <div
+      v-if="discount || installmentOptions"
+      class="payment-option__details col-lg-6 col-xl-5 mt-1 mt-lg-0"
+    >
+      <div
+        v-if="price"
+        class="payment-option__price"
+      >
+        {{ formatMoney(priceWithDiscount) }}
+        <small>{{ i19atSight }}</small>
+      </div>
+
+      <span
+        v-if="discount"
+        class="payment-option__discount badge badge-success"
+      >
+        <template v-if="discount.type === 'percentage'">
+          {{ discount.value }}%
+        </template>
+        <span
+          v-else
+          class="payment-option__discount-value"
+        >
+          {{ formatMoney(discount.value) }}
+        </span>
+        {{ i19ofDiscount }}
+        <template v-if="discount.apply_at === 'freight'">
+          {{ i19onFreight }}
+        </template>
+      </span>
+
+      <ul
+        v-if="installmentOptions"
+        class="payment-option__installment list-unstyled"
+      >
+        <option
+          v-for="({ number, value, tax }) in installmentOptions"
+          v-if="number > 1"
+        >
+          {{ `${number}x` }}
+          <small>{{ i19of }}</small>
+          {{ formatMoney(value) }}
+          <small v-if="!tax">
+            {{ i19interestFree }}
+          </small>
+        </option>
+      </ul>
+    </div>
+  </div>
+</div>

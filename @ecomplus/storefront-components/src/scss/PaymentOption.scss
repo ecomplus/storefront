@@ -1,0 +1,36 @@
+.payment-option {
+  > .row {
+    align-items: center;
+  }
+
+  &:not(:first-of-type) {
+    margin-top: var(--spacer-3);
+  }
+
+  &__icon {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__label {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-light);
+  }
+
+  &__price {
+    font-weight: var(--font-bold);
+  }
+
+  &__discount {
+    text-transform: lowercase;
+    font-size: var(--font-size);
+  }
+
+  &__installment {
+    margin-bottom: 0;
+  }
+
+  small {
+    text-transform: lowercase;
+  }
+}
