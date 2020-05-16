@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.12...@ecomplus/storefront-components@1.0.0-beta.13) (2020-05-16)
+
+
+### Bug Fixes
+
+* **product:** move payment options to after buy button, start hide ([dd712e5](https://github.com/ecomplus/storefront/commit/dd712e5d1b304b45f727917908fde6e7b0ee7989))
+
+
+
+
+
 # [1.0.0-beta.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.11...@ecomplus/storefront-components@1.0.0-beta.12) (2020-05-16)
 
 

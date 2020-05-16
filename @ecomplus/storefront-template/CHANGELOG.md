@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.11...@ecomplus/storefront-template@2.0.0-beta.12) (2020-05-16)
+
+
+### Bug Fixes
+
+* **footer:** minor footer cols and credits style fixes ([db69180](https://github.com/ecomplus/storefront/commit/db69180a122e17cacc266cbe6b9ab2d49eb18900))
+
+
+
+
+
 # [2.0.0-beta.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.10...@ecomplus/storefront-template@2.0.0-beta.11) (2020-05-16)
 
 
