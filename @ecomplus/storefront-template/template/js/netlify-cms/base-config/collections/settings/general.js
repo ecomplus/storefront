@@ -11,6 +11,11 @@ export default ({ baseDir }) => ({
       widget: 'number'
     },
     {
+      label: 'Domínio',
+      name: 'domain',
+      widget: 'string'
+    },
+    {
       label: 'Name',
       name: 'name',
       widget: 'string'
