@@ -6,6 +6,7 @@ import {
   i19loadProductErrorMsg,
   i19only,
   i19outOfStock,
+  i19paymentOptions,
   i19retry,
   i19selectVariation,
   i19unavailable
@@ -21,19 +22,28 @@ import {
   specValueByText as getSpecValueByText
 } from '@ecomplus/utils'
 
-import { store } from '@ecomplus/client'
+import { store, modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import AAlert from '../AAlert.vue'
 import APrices from '../APrices.vue'
 import ProductVariations from '../ProductVariations.vue'
 import ProductGallery from '../ProductGallery.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
+import PaymentOption from '../PaymentOption.vue'
 
 const storefront = typeof window === 'object' && window.storefront
 const getContextBody = () => storefront
   ? storefront.context && storefront.context.body
   : {}
 const getContextId = () => getContextBody()._id
+
+const sanitizeProductBody = body => {
+  const product = Object.assign({}, body)
+  delete product.body_html
+  delete product.body_text
+  delete product.specifications
+  return product
+}
 
 export default {
   name: 'TheProduct',
@@ -43,7 +53,8 @@ export default {
     APrices,
     ProductVariations,
     ProductGallery,
-    ShippingCalculator
+    ShippingCalculator,
+    PaymentOption
   },
 
   props: {
@@ -72,10 +83,12 @@ export default {
   data () {
     return {
       body: {},
+      fixedPrice: null,
       selectedVariationId: null,
       currentGalleyImg: 1,
       hasClickedBuy: false,
-      hasLoadError: false
+      hasLoadError: false,
+      paymentGateways: []
     }
   },
 
@@ -86,6 +99,7 @@ export default {
     i19loadProductErrorMsg: () => i18n(i19loadProductErrorMsg),
     i19only: () => i18n(i19only),
     i19outOfStock: () => i18n(i19outOfStock),
+    i19paymentOptions: () => i18n(i19paymentOptions),
     i19retry: () => i18n(i19retry),
     i19selectVariation: () => i18n(i19selectVariation),
     i19unavailable: () => i18n(i19unavailable),
@@ -176,10 +190,7 @@ export default {
 
     buy () {
       this.hasClickedBuy = true
-      const product = Object.assign({}, this.body)
-      delete product.body_html
-      delete product.body_text
-      delete product.specifications
+      const product = sanitizeProductBody(this.body)
       let variationId
       if (this.hasVariations) {
         if (this.selectedVariationId) {
@@ -206,6 +217,42 @@ export default {
             return _id === this.selectedVariation.picture_id
           })
           this.currentGalleyImg = pictureIndex + 1
+        }
+      }
+    },
+
+    fixedPrice (price) {
+      if (price > 0) {
+        const fetchPaymentOptions = () => {
+          modules({
+            url: '/list_payments.json',
+            method: 'POST',
+            data: {
+              amount: {
+                total: price
+              },
+              items: [{
+                ...sanitizeProductBody(this.body),
+                product_id: this.body._id
+              }]
+            }
+          })
+            .then(({ data }) => {
+              this.paymentGateways = data.result
+                .reduce((paymentGateways, { validated, response }) => {
+                  return validated
+                    ? paymentGateways.concat(response.payment_gateways)
+                    : paymentGateways
+                }, []).sort((a, b) => {
+                  return a.discount && !b.discount ? -1 : 1
+                })
+            })
+            .catch(console.error)
+        }
+        if (typeof window.requestIdleCallback === 'function') {
+          window.requestIdleCallback(fetchPaymentOptions)
+        } else {
+          setTimeout(fetchPaymentOptions, 500)
         }
       }
     }
