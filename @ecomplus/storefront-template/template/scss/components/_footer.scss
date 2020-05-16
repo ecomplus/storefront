@@ -3,6 +3,12 @@
   border-top: var(--spacer-1) solid var(--secondary);
   color: var(--gray);
 
+  &__contacts {
+    @media (min-width: 992px) {
+      max-width: 250px;
+    }
+  }
+
   &__title {
     font-size: var(--font-size-lg);
     font-weight: var(--font-light);
@@ -101,16 +107,13 @@
   }
 
   &__credits {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding-top: var(--spacer-3);
     margin-top: var(--spacer-3);
     border-top: var(--border-width) solid var(--border-color);
     font-size: var(--font-size-sm);
-    
-    button {
-      position: absolute;
-      right: 0;
-      margin-right: 1.5rem;
-    }
   }
 }
 

@@ -18,78 +18,80 @@ const networksWithColors = [
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-auto order-lg-last">
-        <% if (footer.contacts.title) { %>
-          <div class="footer__title">
-            <%= footer.contacts.title %>
-          </div>
-        <% } %>
+        <div class="footer__contacts">
+          <% if (footer.contacts.title) { %>
+            <div class="footer__title">
+              <%= footer.contacts.title %>
+            </div>
+          <% } %>
 
-        <ul class="list-unstyled">
-          <% if (footer.contacts.phone_wpp) { %>
-            <% if (contacts.whatsapp) { %>
-              <li>
-                <span class="footer__list-icon">
-                  <i class="fab fa-whatsapp"></i>
-                </span>
-                <a
-                  href="javascript:;"
-                  target="_blank"
-                  rel="noopener"
-                  class="whatsapp-link"
-                  data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>"
-                >
-                  <%= contacts.whatsapp %>
-                </a>
-              </li>
-            <% } %>
-            <% if (contacts.phone) { %>
-              <li>
-                <span class="footer__list-icon">
-                  <i class="fas fa-phone"></i>
-                </span>
-                <a
-                  href="tel:+<%= contacts.phone.replace(/\D/g, '') %>"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <%= contacts.phone %>
-                </a>
-              </li>
-            <% } %>
-          <% } %>
-          <% if (footer.contacts.email) { %>
-            <li>
-              <a href="mailto:<%= contacts.email %>" target="_blank" rel="noopener">
-                <%= contacts.email %>
-              </a>
-            </li>
-          <% } %>
-          <% if (footer.contacts.address) { %>
-            <li>
-              <address>
-                <%= contacts.address %>
-              </address>
-            </li>
-          <% } %>
-        </ul>
-
-        <% if (footer.contacts.socials) { %>
-          <p class="footer__social">
-            <% networksWithColors.forEach(([network, color]) => { %>
-              <% if (contacts[network]) { %>
-                <a
-                  href="<%= contacts[network] %>"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="<%= network %>"
-                  style="color: <%= color %>"
-                >
-                  <i class="fab fa-<%= network %>"></i>
-                </a>
+          <ul class="list-unstyled">
+            <% if (footer.contacts.phone_wpp) { %>
+              <% if (contacts.whatsapp) { %>
+                <li>
+                  <span class="footer__list-icon">
+                    <i class="fab fa-whatsapp"></i>
+                  </span>
+                  <a
+                    href="javascript:;"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-link"
+                    data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>"
+                  >
+                    <%= contacts.whatsapp %>
+                  </a>
+                </li>
               <% } %>
-            <% }) %>
-          </p>
-        <% } %>
+              <% if (contacts.phone) { %>
+                <li>
+                  <span class="footer__list-icon">
+                    <i class="fas fa-phone"></i>
+                  </span>
+                  <a
+                    href="tel:+<%= contacts.phone.replace(/\D/g, '') %>"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <%= contacts.phone %>
+                  </a>
+                </li>
+              <% } %>
+            <% } %>
+            <% if (footer.contacts.email) { %>
+              <li>
+                <a href="mailto:<%= contacts.email %>" target="_blank" rel="noopener">
+                  <%= contacts.email %>
+                </a>
+              </li>
+            <% } %>
+            <% if (footer.contacts.address) { %>
+              <li>
+                <address>
+                  <%= contacts.address %>
+                </address>
+              </li>
+            <% } %>
+          </ul>
+
+          <% if (footer.contacts.socials) { %>
+            <p class="footer__social">
+              <% networksWithColors.forEach(([network, color]) => { %>
+                <% if (contacts[network]) { %>
+                  <a
+                    href="<%= contacts[network] %>"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="<%= network %>"
+                    style="color: <%= color %>"
+                  >
+                    <i class="fab fa-<%= network %>"></i>
+                  </a>
+                <% } %>
+              <% }) %>
+            </p>
+          <% } %>
+        </div>
       </div>
 
       <div class="col-12 col-sm-6 col-lg">
@@ -193,8 +195,15 @@ const networksWithColors = [
     </div>
 
     <div class="footer__credits">
-      <%= footer.credits || `© ${_.store.name} / ${contacts.address} / ${contacts.doc_number}` %>
-      <button id="go-to-top" class="btn btn-primary" aria-label="Go to top">
+      <span>
+        <%= footer.credits || `© ${_.store.name} / ${contacts.address} / ${contacts.doc_number}` %>
+      </span>
+      <button
+        id="go-to-top"
+        class="btn btn-primary ml-3"
+        type="button"
+        aria-label="<%= _.dictionary('goToTop') %>"
+      >
         <i class="fas fa-chevron-up"></i>
       </button>
     </div>
