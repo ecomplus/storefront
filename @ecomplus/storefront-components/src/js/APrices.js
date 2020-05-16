@@ -123,6 +123,15 @@ export default {
     }
   },
 
+  watch: {
+    price: {
+      handler (price) {
+        this.$emit('fix-price', price)
+      },
+      immediate: true
+    }
+  },
+
   created () {
     const storefront = typeof window === 'object' && window.storefront
     if (this.discountOption) {
