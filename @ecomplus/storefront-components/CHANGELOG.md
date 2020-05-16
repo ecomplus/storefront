@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.11...@ecomplus/storefront-components@1.0.0-beta.12) (2020-05-16)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.10.1 ([143d40a](https://github.com/ecomplus/storefront/commit/143d40a4d2cc407882dc30caba67fddb4cc71373))
+* **deps:** update @ecomplus/search-engine to v2.2.1 ([3da510f](https://github.com/ecomplus/storefront/commit/3da510fbd6024ddd05e3ef9721d24d6e9a91473f))
+* **prices:** check installment/discount options from props separately ([e2e3356](https://github.com/ecomplus/storefront/commit/e2e3356df67aff655a6c2b277fca7485afca230e))
+* **prices:** minor template fix for compared prices ([971ee3c](https://github.com/ecomplus/storefront/commit/971ee3ce6ae591feea86a3e339ba89bca90abee1))
+
+
+### Features
+
+* **payment-option:** add new 'PaymentOption' component :tada: ([c4c001b](https://github.com/ecomplus/storefront/commit/c4c001b8a42797b1baef962f4c87d0f136ffc6d2))
+* **prices:** emit 'fix-price' to pass price with extra discount ([d854fb1](https://github.com/ecomplus/storefront/commit/d854fb1eabb4c2155d10570a58d11db192a4df32))
+* **product:** handling fixed price and list payment options ([03c3f62](https://github.com/ecomplus/storefront/commit/03c3f6205a2aa9ce2ebb905beb138ee176d0f6de))
+
+
+
+
+
 # [1.0.0-beta.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.10...@ecomplus/storefront-components@1.0.0-beta.11) (2020-05-14)
 
 

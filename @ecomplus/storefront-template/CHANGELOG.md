@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.10...@ecomplus/storefront-template@2.0.0-beta.11) (2020-05-16)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.10.1 ([143d40a](https://github.com/ecomplus/storefront/commit/143d40a4d2cc407882dc30caba67fddb4cc71373))
+* **deps:** update @ecomplus/search-engine to v2.2.1 ([3da510f](https://github.com/ecomplus/storefront/commit/3da510fbd6024ddd05e3ef9721d24d6e9a91473f))
+
+
+### Features
+
+* **shelf-sort-option:** handle sort option on collection shelf section ([ae23476](https://github.com/ecomplus/storefront/commit/ae234761087b27ab76250e6fdd7b3ed8330ea821))
+
+
+
+
+
 # [2.0.0-beta.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.9...@ecomplus/storefront-template@2.0.0-beta.10) (2020-05-14)
 
 

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.9...@ecomplus/storefront-app@2.0.0-beta.10) (2020-05-16)
+
+
+### Bug Fixes
+
+* **checkout:** check shipping address required fields ([c4372b6](https://github.com/ecomplus/storefront/commit/c4372b6f6c195739cce75cf355fde94502c2298b))
+* **deps:** update @ecomplus/i18n to v1.10.1 ([143d40a](https://github.com/ecomplus/storefront/commit/143d40a4d2cc407882dc30caba67fddb4cc71373))
+* **summary:** ensure discount is not duplicated on APrices ([7fc2732](https://github.com/ecomplus/storefront/commit/7fc27325c7aa521cb1443f68466b3c56de2ac0fd))
+
+
+
+
+
 # [2.0.0-beta.9](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.8...@ecomplus/storefront-app@2.0.0-beta.9) (2020-05-14)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
