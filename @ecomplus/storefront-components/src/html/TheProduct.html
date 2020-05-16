@@ -137,6 +137,49 @@
             {{ i19inStock }}
           </p>
 
+          <transition enter-active-class="animated fadeInUp">
+            <slot
+              name="payment-gateways"
+              v-bind="{ paymentGateways }"
+              v-if="paymentGateways.length"
+            >
+              <article :key="`payment-${fixedPrice}`">
+                <div
+                  v-once
+                  class="product__payment card mb-3"
+                >
+                  <a
+                    id="product-payment-header"
+                    class="card-header"
+                    role="button"
+                    href="#product-payment"
+                    data-toggle="collapse"
+                    aria-expanded="false"
+                    aria-controls="product-payment"
+                  >
+                    <span>{{ i19paymentOptions }}</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+
+                  <div
+                    id="product-payment"
+                    class="collapse"
+                    aria-labelledby="product-payment-header"
+                  >
+                    <div class="card-body">
+                      <payment-option
+                        v-for="(gateway, i) in paymentGateways"
+                        :key="i"
+                        :payment-gateway="gateway"
+                        :price="fixedPrice"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </slot>
+          </transition>
+
           <slot name="shipping">
             <shipping-calculator
               :shippedItems="[{
@@ -156,52 +199,6 @@
             {{ body.short_description }}
           </p>
         </slot>
-
-        <transition enter-active-class="animated fadeInDown">
-          <slot
-            name="payment-gateways"
-            v-bind="{ paymentGateways }"
-            v-if="paymentGateways.length"
-          >
-            <article :key="`payment-${fixedPrice}`">
-              <div
-                v-once
-                class="product__payment card mt-3"
-              >
-                <div
-                  id="product-payment-header"
-                  class="card-header"
-                >
-                  <button
-                    class="btn btn-link btn-block text-left"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#product-payment"
-                    aria-expanded="true"
-                    aria-controls="product-payment"
-                  >
-                    <i class="fas fa-chevron-down mr-1"></i> {{ i19paymentOptions }}
-                  </button>
-                </div>
-
-                <div
-                  id="product-payment"
-                  class="collapse show"
-                  aria-labelledby="product-payment-header"
-                >
-                  <div class="card-body">
-                    <payment-option
-                      v-for="(gateway, i) in paymentGateways"
-                      :key="i"
-                      :payment-gateway="gateway"
-                      :price="fixedPrice"
-                    />
-                  </div>
-                </div>
-              </div>
-            </article>
-          </slot>
-        </transition>
       </div>
     </div>
   </transition>

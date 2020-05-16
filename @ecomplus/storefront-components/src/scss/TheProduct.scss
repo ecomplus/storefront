@@ -25,4 +25,10 @@
     font-weight: var(--font-light);
     text-transform: lowercase;
   }
+
+  &__payment > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
