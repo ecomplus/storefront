@@ -1,0 +1,105 @@
+#ec-user-popover {
+  margin-right: 0.5rem;
+  a {
+    color: var(--yellow);
+  }
+  a:hover {
+    color: var(--red);
+  }
+}
+
+.breadcrumb {
+  padding-left: 1rem;
+}
+
+.breadcrumb-item {
+  a {
+    color: var(--gray-dark);
+  }
+}
+
+.footer {
+  &__social {
+    a {
+      svg {
+        color: var(--gray);
+      }
+    }
+  }
+}
+
+.menu {
+  &__social {
+    a {
+      svg {
+        color: var(--gray);
+      }
+    }
+  }
+}
+
+.menu {
+  &__footer {
+    a {
+      color: var(--dark) !important;
+    }
+  }
+}
+
+.menu {
+  &__list {
+    a {
+      color: var(--gray);
+    }
+  }
+}
+
+.top-bar {
+  &__countdown {
+    background-color: var(--dark) !important;
+    color: var(--white) !important;
+    font-weight: var(--font-bold) !important;
+  }
+}
+
+#search-input {
+  border: solid 2px;
+  border-radius: 10px 40px 40px 10px;
+}
+
+.header {
+  &__toggler {
+    svg {
+      color: var(--dark);
+    }
+  }
+}
+
+#go-to-top {
+  background-color: var(--light);
+  color: var(--dark);
+  border-color: var(--dark);
+}
+
+#go-to-top:hover {
+  color: var(--white);
+  background-color: var(--gray);
+}
+
+.product-card {
+  a {
+    text-decoration: none !important;
+  }
+  &__name {
+    color: var(--dark);
+    &:hover {
+      color: var(--gray);
+    }
+  }
+}
+
+.header__search-btn {
+  svg {
+    color: var(--gray);
+  }
+}
