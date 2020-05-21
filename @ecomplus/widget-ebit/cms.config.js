@@ -25,6 +25,11 @@ export default () => ({
       default: true
     },
     {
+      name: 'disablePages',
+      widget: 'hidden',
+      default: true
+    },
+    {
       label: 'Opções',
       name: 'options',
       widget: 'object',
