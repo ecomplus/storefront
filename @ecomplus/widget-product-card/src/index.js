@@ -46,8 +46,8 @@ export default (options = {}, elClass = 'product-card') => {
   const productIds = []
   for (let i = 0; i < $productCards.length; i++) {
     if ($productCards[i]) {
-      const { productId } = $productCards[i].dataset
-      if (productIds.indexOf(productId) === -1) {
+      const { productId, toRender } = $productCards[i].dataset
+      if (toRender && productIds.indexOf(productId) === -1) {
         productIds.push(productId)
       }
     }
