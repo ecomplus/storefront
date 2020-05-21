@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.11](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.10...@ecomplus/widget-search-engine@1.0.0-beta.11) (2020-05-21)
+
+
+### Features
+
+* **search-engine:** also handling brands/categories pages ([7180cd0](https://github.com/ecomplus/storefront/commit/7180cd016a6f213624dca8d4179594bccf084535))
+
+
+
+
+
 # [1.0.0-beta.10](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.9...@ecomplus/widget-search-engine@1.0.0-beta.10) (2020-05-16)
 
 **Note:** Version bump only for package @ecomplus/widget-search-engine

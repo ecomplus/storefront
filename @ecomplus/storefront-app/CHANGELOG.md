@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.11...@ecomplus/storefront-app@2.0.0-beta.12) (2020-05-21)
+
+
+### Bug Fixes
+
+* **addesses:** check address properties to select ([430c7c5](https://github.com/ecomplus/storefront/commit/430c7c54a84a59b918a4d7bed0ec726e00d8b541))
+* **deps:** update @ecomplus/passport-client to v1.0.10 ([ff72116](https://github.com/ecomplus/storefront/commit/ff721164afc001d02431601bd083c3beb417fada))
+
+
+
+
+
 # [2.0.0-beta.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.10...@ecomplus/storefront-app@2.0.0-beta.11) (2020-05-16)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

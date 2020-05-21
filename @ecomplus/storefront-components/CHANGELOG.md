@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.13...@ecomplus/storefront-components@1.0.0-beta.14) (2020-05-21)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/passport-client to v1.0.10 ([ff72116](https://github.com/ecomplus/storefront/commit/ff721164afc001d02431601bd083c3beb417fada))
+* **discount-applier:** updating discoutn value when amout is changed ([afedcab](https://github.com/ecomplus/storefront/commit/afedcab50756c06812f0133322758cee749ad8a9))
+* **search-engine:** add 'isFixedBrands' and 'isFixedCategories' props ([8b9407b](https://github.com/ecomplus/storefront/commit/8b9407bc26407f8d0e425afba3480cbe5d1f1f92))
+
+
+
+
+
 # [1.0.0-beta.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.12...@ecomplus/storefront-components@1.0.0-beta.13) (2020-05-16)
 
 

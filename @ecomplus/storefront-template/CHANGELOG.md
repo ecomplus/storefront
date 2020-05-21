@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.12...@ecomplus/storefront-template@2.0.0-beta.13) (2020-05-21)
+
+
+### Bug Fixes
+
+* **cms:** add domain entry to settings ([cc13a6f](https://github.com/ecomplus/storefront/commit/cc13a6fead6f5b0289e29e7f6a0ca64454acc51c))
+* **deps:** update @ecomplus/passport-client to v1.0.10 ([ff72116](https://github.com/ecomplus/storefront/commit/ff721164afc001d02431601bd083c3beb417fada))
+
+
+### Features
+
+* **categories/brands:** hydrating search engine on retail grid ([9b5f6fd](https://github.com/ecomplus/storefront/commit/9b5f6fd3e2b0780166bd350bb6cc24d954950e95))
+* **ebit:** storefront plugin for ebit reviews ([#234](https://github.com/ecomplus/storefront/issues/234)) ([fc356aa](https://github.com/ecomplus/storefront/commit/fc356aadd7fbf1c653525ab9ebbb06df183eddfa))
+
+
+
+
+
 # [2.0.0-beta.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.11...@ecomplus/storefront-template@2.0.0-beta.12) (2020-05-16)
 
 
