@@ -34,7 +34,7 @@ export default () => ({
           label: 'Store Id Ebit',
           name: 'ebitStoreId',
           widget: 'number',
-          hint: 'Store Id que está no email de boas vindas do Ebit'
+          hint: 'Store Id que está no e-mail de boas vindas do Ebit'
         }
       ]
     },
