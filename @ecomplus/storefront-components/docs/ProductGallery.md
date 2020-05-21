@@ -74,8 +74,8 @@ Sets the aspect ratio of the video in the gallery.
 
 ```js
 videoAspectRatio: {
-    type: String,
-    default: '4by3'
+  type: String,
+  default: '4by3'
 },
 ```
 
