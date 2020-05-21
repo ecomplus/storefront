@@ -46,7 +46,8 @@ const loadWidget = (pkg, runImport) => {
   widgetsLoadPromises.push(waitWidgetResolve)
 }
 
-if (!isCheckout && document.body.dataset.resource === 'products') {
+const { resource } = document.body.dataset
+if (!isCheckout && resource === 'products') {
   loadWidget(
     '@ecomplus/widget-product',
     () => import(/* webpackPrefetch: true */ '@ecomplus/widget-product')
@@ -59,7 +60,11 @@ Promise.all(widgetsLoadPromises).then(() => {
     () => Promise.resolve({ default: widgetProductCard })
   )
 
-  if (window.location.pathname === '/search') {
+  if (
+    window.location.pathname === '/search' ||
+    resource === 'categories' ||
+    resource === 'brands'
+  ) {
     loadWidget(
       '@ecomplus/widget-search-engine',
       () => import(/* webpackPrefetch: true */ '@ecomplus/widget-search-engine')
