@@ -105,7 +105,15 @@ Defines how the transition from one image to another will be.
 
 ```js
 glideOptions: {
-    type: Object,
+  type: Object,
+  default () {
+    return {
+      type: 'slider',
+      autoplay: false,
+      rewind: false
+    }
+  }
+},
 ```
 
 ## Events
