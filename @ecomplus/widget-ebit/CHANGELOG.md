@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-ebit@1.1.0...@ecomplus/widget-ebit@1.1.1) (2020-05-21)
+
+
+### Bug Fixes
+
+* **widget-ebit:** fix formatting bith date to ebit param ([9affd68](https://github.com/ecomplus/storefront/commit/9affd68e0c392e6edda48b6fec65c3b13f3032ac))
+
+
+
+
+
 # 1.1.0 (2020-05-21)
 
 
