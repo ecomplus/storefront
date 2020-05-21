@@ -1,78 +1,133 @@
-import ecomPassport from '@ecomplus/passport-client'
 import { $ } from '@ecomplus/storefront-twbs'
+import { price as getPrice } from '@ecomplus/utils'
+import ecomPassport from '@ecomplus/passport-client'
 
-export default options => {
-  if (options && options.ebitStoreId && window.storefrontApp) {
+export default (options = {}) => {
+  const { ebitStoreId } = options
+  if (ebitStoreId) {
     const router = window.storefrontApp && window.storefrontApp.router
-    const addRouteToData = ({ name, params }) => {
-      if (name === 'confirmation') {
-        const client = ecomPassport.getCustomer()
-        ecomPassport.fetchOrder(params.id).then(order => {
-          const orderData = order
-          const gender = orderData.buyers[0].gender ? '&gender=' + orderData.buyers[0].gender.toUpperCase() : ''
-          const birthday = client.birth_date ? '&birthday=' + client.birth_date.day + '-' + (client.birth_date.month.length === 1 ? '0' + client.birth_date.month : client.birth_date.month) + '-' + client.birth_date.year : ''
-          const parcel = orderData.transactions[0].installments ? '&parcels=' + orderData.transactions[0].installments.number : '&parcels=1'
-          const freight = orderData.amount.freight ? '&deliveryTax=' + orderData.amount.freight : '&deliveryTax=' + 0
-          const deliveryTime = orderData.shipping_lines[0].delivery_time ? '&deliveryTime=' + orderData.shipping_lines[0].delivery_time.days : '&deliveryTime=0'
-          const valueItems = orderData.items.map(e => (e.final_price || e.price)).join('|')
-          const unitItems = orderData.items.map(e => e.quantity).join('|')
-          const nameItems = encodeURI(orderData.items.map(e => e.name).join('|'))
-          const skuItems = orderData.items.map(e => e.sku).join('|')
-          const cardTestFlag = (orderData) => {
-            switch (orderData.transactions[0].credit_card.company) {
-              case 'visa':
-                return 6
-              case 'mastercard':
-                return 5
-              case 'american express':
-                return 1
-              case 'elo':
-                return 8
-              case 'aura':
-                return 2
-              case 'hipercard':
-                return 4
-              case 'diners club':
-                return 3
-              case 'outros':
-                return 7
-            }
-          }
-          const cardFlag = orderData.transactions[0].credit_card ? '&cardFlag=' + cardTestFlag(orderData) : ''
-          const paymentType = (orderData) => {
-            switch (orderData.transactions[0].payment_method.code) {
-              case 'credit_card':
-                return '0' + 5
-              case 'banking_billet':
-                return '0' + 8
-              case 'debit_card':
-                return 28
-              case 'account_deposit':
-                return 28
-              case 'online_debit':
-                return 28
-              case 'balance_on_intermediary':
-                return 14
-              case 'loyalty_points':
-                return 24
-              case 'other':
-                return 14
-            }
-          }
-          var banner = '<div> ' +
-          ' <param id="ebitParam" value="storeId=' + options.ebitStoreId + '&platform=ecomplus&email=' + orderData.buyers[0].main_email + gender + birthday + '&zipCode=' + orderData.shipping_lines[0].to.zip + parcel + freight + deliveryTime + '&mktSaleId=0&totalSpent=' + orderData.amount.total + '&value=' + valueItems + '&quantity=' + unitItems + '&productName=' + nameItems + '&transactionId=' + orderData.number + '&paymentType=' + paymentType(orderData) + cardFlag + '&sku=' + skuItems + '"> ' +
-          ' <a id="bannerEbit"></a>' +
-          ' <script type="text/javascript" id="getSelo" src="https://imgs.ebit.com.br/ebitBR/selo-ebit/js/getSelo.js?' + options.ebitStoreId + '&lightbox=true"></script>' +
-          '</div>'
-          $('body').append(banner)
-        })
+    if (router) {
+      const addConfirmationBanner = ({ name, params }) => {
+        if (name === 'confirmation') {
+          ecomPassport.fetchOrder(params.id)
+            .then(order => {
+              const customer = ecomPassport.getCustomer()
+              let ebitParam = `storeId=${ebitStoreId}&mktSaleId=0&platform=ecomplus` +
+                `&totalSpent=${order.amount.total}` +
+                `&deliveryTax=${(order.amount.freight || 0)}` +
+                `&transactionId=${(order.number || order._id)}` +
+                `&email=${customer.main_email}`
+
+              if (customer.gender) {
+                ebitParam += `&gender=${customer.gender.toUpperCase()}`
+              }
+              if (customer.birth_date) {
+                const { day, month, year } = customer.birth_date
+                ebitParam += `&birthday=${day.padStart(2, '0')}-${month.padStart(2, '0')}-${year}`
+              }
+
+              const { items } = order
+              if (items && items.length) {
+                let skus = items[0].sku
+                let values = getPrice(items[0])
+                let quantities = items[0].quantity
+                let names = encodeURIComponent(items[0].name)
+                for (let i = 1; i < items.length; i++) {
+                  skus += `|${items[i].sku}`
+                  values += `|${getPrice(items[i])}`
+                  quantities += `|${items[i].quantity}`
+                  names += `|${encodeURIComponent(items[i].name)}`
+                }
+                ebitParam += `&sku=${skus}&value=${values}&quantity=${quantities}&productName=${names}`
+              }
+
+              if (order.shipping_lines && order.shipping_lines[0]) {
+                const shippingLine = order.shipping_lines[0]
+                ebitParam += `&deliveryTime=${(shippingLine.delivery_time.days || 0)}` +
+                  `&zipCode=${shippingLine.to.zip}`
+              }
+
+              if (order.transactions && order.transactions[0]) {
+                const transaction = order.transactions[0]
+                ebitParam += `&parcels=${((transaction.installments && transaction.installments.number) || 1)}`
+                ebitParam += '&paymentType='
+                switch (transaction.payment_method.code) {
+                  case 'credit_card':
+                    ebitParam += '05'
+                    break
+                  case 'banking_billet':
+                    ebitParam += '08'
+                    break
+                  case 'debit_card':
+                  case 'online_debit':
+                  case 'account_deposit':
+                    ebitParam += '28'
+                    break
+                  case 'loyalty_points':
+                    ebitParam += '24'
+                    break
+                  default:
+                    ebitParam += '14'
+                }
+
+                if (transaction.credit_card && transaction.credit_card.company) {
+                  ebitParam += '&cardFlag='
+                  switch (transaction.credit_card.company.toLowerCase()) {
+                    case 'visa':
+                      ebitParam += 6
+                      break
+                    case 'mastercard':
+                      ebitParam += 5
+                      break
+                    case 'american express':
+                    case 'amex':
+                      ebitParam += 1
+                      break
+                    case 'elo':
+                      ebitParam += 8
+                      break
+                    case 'aura':
+                      ebitParam += 2
+                      break
+                    case 'hipercard':
+                      ebitParam += 4
+                      break
+                    case 'diners club':
+                      ebitParam += 3
+                      break
+                    default:
+                      ebitParam += 7
+                  }
+                }
+              }
+
+              const appendBanner = () => {
+                const $confirmation = $('#confirmation')
+                if ($confirmation.length) {
+                  $confirmation.append(`<div>
+                    <param id="ebitParam" value="${ebitParam}">
+                    <a id="bannerEbit"></a>
+                    <script
+                      type="text/javascript"
+                      id="getSelo"
+                      src="https://imgs.ebit.com.br/ebitBR/selo-ebit/js/getSelo.js?${ebitStoreId}&lightbox=true"
+                    ></script>
+                  </div>`)
+                  clearInterval(tryAppendInterval)
+                }
+              }
+              const tryAppendInterval = setInterval(appendBanner, 200)
+            })
+            .catch(console.error)
+        }
       }
+
+      if (router.currentRoute) {
+        addConfirmationBanner(router.currentRoute)
+      }
+      router.afterEach(addConfirmationBanner)
     }
-    if (router.currentRoute) {
-      addRouteToData(router.currentRoute)
-    }
-    router.afterEach(addRouteToData)
   } else {
-    console.error(new Error('Can\'t show lightbox without checkout'))
+    console.error(new Error('Can\'t show lightbox without `ebitStoreId` option'))
   }
 }
