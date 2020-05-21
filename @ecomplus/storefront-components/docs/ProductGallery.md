@@ -93,8 +93,8 @@ canAddToCart: {
 
 ```js
 currentSlide: {
-    type: Number,
-    default: 1
+  type: Number,
+  default: 1
 },
 ```
 
