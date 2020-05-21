@@ -5,11 +5,15 @@
   @import "bootswatch/dist/<%- bootswatch %>/variables";
 <% } %>
 
+@import "bootswatch/dist/thais/variables";
+
 @import "@ecomplus/storefront-twbs/scss/styles";
 
 <% if (bootswatch && bootswatch.length > 1) { %>
   @import "bootswatch/dist/<%- bootswatch %>/bootswatch";
   @import "<%- themesPath %>/<%- bootswatch %>/custom";
 <% } %>
+
+@import "bootswatch/dist/thais/custom";
 
 @import "main";
