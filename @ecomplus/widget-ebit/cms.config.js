@@ -28,7 +28,7 @@ export default () => ({
       label: 'Opções',
       name: 'options',
       widget: 'object',
-      hint: 'Configurar ebit',
+      hint: 'Personalizações do widget',
       fields: [
         {
           label: 'Store Id Ebit',
