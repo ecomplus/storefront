@@ -1,7 +1,7 @@
 import { name } from './package.json'
 
 export default () => ({
-  label: 'Chat Tawk.to',
+  label: 'Avaliações Ebit',
   fields: [
     {
       name: 'pkg',
