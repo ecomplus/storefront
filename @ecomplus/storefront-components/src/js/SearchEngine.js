@@ -56,6 +56,8 @@ export default {
     },
     brands: Array,
     categories: Array,
+    isFixedBrands: Boolean,
+    isFixedCategories: Boolean,
     autoFixScore: {
       type: Number,
       default: 0.6
@@ -302,11 +304,17 @@ export default {
         : ecomSearch.getItems()
       this.updateFilters()
       this.handleSuggestions()
-      this.hasSearched = true
       if (!this.totalSearchResults && this.hasPopularItems && !this.hasSetPopularItems) {
         this.fetchItems(false, true)
       }
       this.$emit(this.isLoadingMore ? 'load-more' : 'search', { ecomSearch })
+      if (!this.hasSearched) {
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.hasSearched = true
+          }, 100)
+        })
+      }
     },
 
     scheduleFetch () {
@@ -353,15 +361,19 @@ export default {
       ;['brands', 'categories'].forEach(prop => {
         if (this[prop] && this[prop].length) {
           const filter = prop.charAt(0).toUpperCase() + prop.slice(1)
-          this.selectedOptions[filter] = this[prop]
-          this.updateSearchFilter(filter)
+          if (this[`isFixed${filter}`]) {
+            this.selectedOptions[filter] = this[prop]
+          }
+          this.updateSearchFilter(filter, this[prop])
         }
       })
     },
 
-    updateSearchFilter (filter) {
+    updateSearchFilter (filter, setOptions) {
       const { ecomSearch } = this
-      let setOptions = this.selectedOptions[filter]
+      if (!setOptions) {
+        setOptions = this.selectedOptions[filter]
+      }
       if (!setOptions.length) {
         setOptions = null
       }
