@@ -115,22 +115,7 @@ glideOptions: {
 Emitted when buy button is clicked.
 
 ```js
-buy () {
-    const { product } = this
-    this.$emit('buy', { product })
-    if (product.variations && product.variations.length) {
-        if (window.location.pathname !== `/${product.slug}`) {
-            window.location = `/${product.slug}`
-        } else {
-            window.location = '#variations'
-        }
-      } else {
-        ecomCart.addProduct(product)
-      }
-    if (this.pswp) {
-        this.pswp.close()
-    }
-}
+this.$emit('buy', { product })
 ```
 
 ### openZoom
