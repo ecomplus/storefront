@@ -54,7 +54,11 @@ export default {
       alertVariant: null,
       isFormVisible: this.isFormAlwaysVisible || this.couponCode,
       isLoading: false,
-      localCouponCode: this.couponCode
+      localCouponCode: this.couponCode,
+      localAmountTotal: this.amount.total || 0,
+      localAmountDiscount: this.amount.discount || 0,
+      extraDiscountValue: 0,
+      isUpdateSheduled: false
     }
   },
 
@@ -76,16 +80,17 @@ export default {
 
   methods: {
     parseDiscountOptions (listResult = []) {
+      this.extraDiscountValue = 0
       if (listResult.length) {
-        let discountRule, extraDiscountValue, invalidCouponMsg
+        let discountRule, invalidCouponMsg
         listResult.forEach(appResult => {
           const { validated, error, response } = appResult
           if (validated && !error) {
             const appDiscountRule = response.discount_rule
             if (appDiscountRule) {
               const discountRuleValue = appDiscountRule.extra_discount.value
-              if (!(extraDiscountValue > discountRuleValue)) {
-                extraDiscountValue = discountRuleValue
+              if (!(this.extraDiscountValue > discountRuleValue)) {
+                this.extraDiscountValue = discountRuleValue
                 discountRule = {
                   app_id: appResult.app_id,
                   ...appDiscountRule
@@ -96,7 +101,7 @@ export default {
             }
           }
         })
-        if (extraDiscountValue) {
+        if (this.extraDiscountValue) {
           if (this.localCouponCode) {
             this.$emit('update:coupon-code', this.localCouponCode)
             this.alertText = this.i19couponAppliedMsg
@@ -122,7 +127,11 @@ export default {
         method: 'POST',
         data: {
           ...this.modulesPayload,
-          amount: this.amount,
+          amount: {
+            ...this.amount,
+            total: this.localAmountTotal,
+            discount: this.localAmountDiscount
+          },
           items: this.ecomCart.data.items,
           ...data
         }
@@ -138,8 +147,8 @@ export default {
         })
     },
 
-    submitCoupon () {
-      if (this.canAddCoupon) {
+    submitCoupon (isForceUpdate) {
+      if (isForceUpdate || this.canAddCoupon) {
         const { localCouponCode } = this
         const data = {
           discount_coupon: localCouponCode
@@ -154,6 +163,16 @@ export default {
           }
         }
         this.fetchDiscountOptions(data)
+      }
+    },
+
+    updateDiscount (isForceUpdate = true) {
+      if (this.couponCode) {
+        if (isForceUpdate || !this.isCouponApplied) {
+          this.submitCoupon(isForceUpdate)
+        }
+      } else if (isForceUpdate || (this.amount && this.amount.total)) {
+        this.fetchDiscountOptions()
       }
     }
   },
@@ -180,14 +199,34 @@ export default {
           this.$refs.input.focus()
         })
       }
+    },
+
+    localAmountTotal () {
+      if (!this.isUpdateSheduled) {
+        this.isUpdateSheduled = true
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.updateDiscount()
+            this.isUpdateSheduled = false
+          }, 150)
+        })
+      }
+    },
+
+    amount: {
+      handler (amount) {
+        const discountDiff = amount.discount - this.extraDiscountValue
+        this.localAmountDiscount = discountDiff > 0.01 ? discountDiff : 0
+        const fixedTotal = amount.total + this.extraDiscountValue
+        if (Math.abs(fixedTotal - this.localAmountTotal) > 0.01) {
+          this.localAmountTotal = fixedTotal
+        }
+      },
+      deep: true
     }
   },
 
   created () {
-    if (this.couponCode && !this.isCouponApplied) {
-      this.submitCoupon()
-    } else if (this.amount && this.amount.total) {
-      this.fetchDiscountOptions()
-    }
+    this.updateDiscount(false)
   }
 }
