@@ -45,7 +45,6 @@ import ProductGallery from '@ecomplus/storefront-components/src/ProductGallery.v
 
 The product (item) data following [E-Com Plus Product Model](https://developers.e-com.plus/docs/api/#/store/products/product-object).
 
-> May be used with `.sync` modifier.
 
  ```js
 product: Object,
