@@ -161,9 +161,9 @@ activeIndex (index) {
 
 ```html
 <slot v-if="i === 0 && !isSliderMoved">
-   <a-picture
-   class="gallery__big-image"
-   :src="getImg(picture, null, 'big')"
-   />
+  <a-picture
+    class="gallery__big-image"
+    :src="getImg(picture, null, 'big')"
+  />
 </slot>
 ```
