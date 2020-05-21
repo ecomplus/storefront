@@ -29,13 +29,13 @@ import ProductGallery from '@ecomplus/storefront-components/src/ProductGallery.v
 
 ```vue
 <ProductGallery
-    :product.sync="product"
-    :pictures="pictures"
-    :video="video"
-    :videoAspectRatio="4by3"
-    :canAddToCart="true"
-    :currentSlide="1"
-    :glideOptions=" "
+  :product="product"
+  :pictures="pictures"
+  :video="video"
+  videoAspectRatio="4by3"
+  :canAddToCart="true"
+  :currentSlide.sync="currentSlide"
+  :glideOptions="glideOptions"
 />
 ```
 
