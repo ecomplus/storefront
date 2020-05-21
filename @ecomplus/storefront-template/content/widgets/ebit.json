@@ -3,6 +3,7 @@
   "active": false,
   "desktopOnly": false,
   "enableCheckout": true,
+  "disablePages": true,
   "options": {
     "ebitStoreId": ""
   },
