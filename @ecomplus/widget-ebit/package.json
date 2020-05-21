@@ -29,6 +29,11 @@
     "url": "https://github.com/ecomplus/storefront/issues"
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-ebit#readme",
+  "peerDependencies": {
+    "@ecomplus/storefront-twbs": "^5.5.0",
+    "@ecomplus/utils": "^1.3.4",
+    "core-js": "3.x"
+  },
   "webpackOutput": {
     "library": "widgetEbit",
     "filename": "widget-ebit.min.js"
