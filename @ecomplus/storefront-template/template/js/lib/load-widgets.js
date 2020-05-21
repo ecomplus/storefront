@@ -91,6 +91,10 @@ Promise.all(widgetsLoadPromises).then(() => {
         '@ecomplus/widget-fb-pixel',
         () => import('@ecomplus/widget-fb-pixel')
       )
+      loadWidget(
+        '@ecomplus/widget-ebit',
+        () => import('@ecomplus/widget-ebit')
+      )
     })
   }
 

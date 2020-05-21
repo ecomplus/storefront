@@ -1,7 +1,7 @@
 import { name } from './package.json'
 
 export default () => ({
-  label: 'Chat Tawk.to',
+  label: 'Avaliações Ebit',
   fields: [
     {
       name: 'pkg',
@@ -28,13 +28,13 @@ export default () => ({
       label: 'Opções',
       name: 'options',
       widget: 'object',
-      hint: 'Configurar ebit',
+      hint: 'Personalizações do widget',
       fields: [
         {
           label: 'Store Id Ebit',
           name: 'ebitStoreId',
-          widget: 'number',
-          hint: 'Store Id que está no email de boas vindas do Ebit'
+          widget: 'string',
+          hint: 'Store Id que está no e-mail de boas vindas do Ebit'
         }
       ]
     },
