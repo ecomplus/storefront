@@ -1,4 +1,3 @@
-import { $ } from '@ecomplus/storefront-twbs'
 import { price as getPrice } from '@ecomplus/utils'
 import ecomPassport from '@ecomplus/passport-client'
 
@@ -102,17 +101,20 @@ export default (options = {}) => {
               }
 
               const appendBanner = () => {
-                const $confirmation = $('#confirmation')
-                if ($confirmation.length) {
-                  $confirmation.append(`<div>
-                    <param id="ebitParam" value="${ebitParam}">
-                    <a id="bannerEbit"></a>
-                    <script
-                      type="text/javascript"
-                      id="getSelo"
-                      src="https://imgs.ebit.com.br/ebitBR/selo-ebit/js/getSelo.js?${ebitStoreId}&lightbox=true"
-                    ></script>
-                  </div>`)
+                const $confirmation = document.getElementById('confirmation')
+                if ($confirmation) {
+                  $confirmation.insertAdjacentHTML(
+                    'beforeend',
+                    `<div>
+                      <param id="ebitParam" value="${ebitParam}">
+                      <a id="bannerEbit"></a>
+                      <script
+                        type="text/javascript"
+                        id="getSelo"
+                        src="https://imgs.ebit.com.br/ebitBR/selo-ebit/js/getSelo.js?${ebitStoreId}&lightbox=true"
+                      ></script>
+                    </div>`
+                  )
                   clearInterval(tryAppendInterval)
                 }
               }
