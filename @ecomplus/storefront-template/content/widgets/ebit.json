@@ -4,7 +4,7 @@
   "desktopOnly": false,
   "enableCheckout": true,
   "options": {
-    "ebitStoreId": "75539"
+    "ebitStoreId": ""
   },
   "stampsAppend": "src/append/stamps"
 }
