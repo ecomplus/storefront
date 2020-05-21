@@ -72,7 +72,6 @@ export default options => {
             $('body').append(banner)
           })
         }
-        console.log(dataOrder(params))
       }
     }
     router.afterEach(addRouteToData)
