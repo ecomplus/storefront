@@ -85,8 +85,8 @@ Allows the `product` to be added to the cart. If false, will be necessary to man
 
 ```js
 canAddToCart: {
-    type: Boolean,
-    default: true
+  type: Boolean,
+  default: true
 },
 ```
 
