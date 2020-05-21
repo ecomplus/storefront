@@ -173,14 +173,22 @@ export default {
         }
       }
     } else {
-      let address
+      let addressIndex
       if (this.zipCode) {
-        address = this.addresses.find(addr => addr.zip === this.zipCode)
+        addressIndex = this.addresses.findIndex(addr => addr.zip === this.zipCode)
       }
-      if (!address) {
-        address = this.addresses.find(addr => addr.default) || this.addresses[0]
+      if (!(addressIndex >= 0)) {
+        addressIndex = this.addresses.findIndex(addr => addr.default)
+        if (addressIndex === -1) {
+          addressIndex = 0
+        }
       }
-      this.selectAddress(address)
+      const address = this.addresses[addressIndex]
+      if (address.name && address.street && address.city) {
+        this.selectAddress(address)
+      } else {
+        this.editedAddressIndex = addressIndex
+      }
     }
   }
 }
