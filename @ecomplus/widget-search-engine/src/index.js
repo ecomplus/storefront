@@ -25,7 +25,7 @@ export default (options = {}, elId = 'search-engine') => {
       case 'categories':
       case 'brands':
         props[resource] = [window.storefront.context.body.name]
-        props.fixedFilters = resource
+        props[`isFixed${resource.charAt(0).toUpperCase()}${resource.slice(1)}`] = true
         break
     }
 
