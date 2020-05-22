@@ -20,14 +20,21 @@ export default (options = {}, elId = 'search-engine') => {
       brands: urlParams.getAll('brands[]'),
       categories: urlParams.getAll('categories[]')
     }
-    const { resource } = document.body.dataset
-    switch (resource) {
-      case 'categories':
-      case 'brands':
-        props[resource] = [window.storefront.context.body.name]
-        props[`isFixed${resource.charAt(0).toUpperCase()}${resource.slice(1)}`] = true
-        break
-    }
+
+    ;['brands', 'categories'].forEach(resource => {
+      if ($searchEngine.dataset[resource]) {
+        try {
+          props[resource] = JSON.parse($searchEngine.dataset[resource])
+        } catch (err) {
+          console.error(err)
+          return
+        }
+        if (props[resource] && props[resource].length < 2) {
+          props[`isFixed${resource.charAt(0).toUpperCase()}${resource.slice(1)}`] = true
+        }
+        props.hasPopularItems = false
+      }
+    })
 
     new Vue({
       render: h => h(SearchEngine, {
