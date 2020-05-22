@@ -27,8 +27,11 @@ import EcomSearch from '@ecomplus/search-engine'
 import ABackdrop from '../ABackdrop.vue'
 import ProductCard from '../ProductCard.vue'
 
-const resetEcomSearch = ({ ecomSearch, term, page }) => {
+const resetEcomSearch = ({ ecomSearch, term, page, defaultSort }) => {
   ecomSearch.reset()
+  if (defaultSort) {
+    ecomSearch.setSortOrder(defaultSort)
+  }
   if (term) {
     ecomSearch.setSearchTerm(term)
   }
@@ -59,6 +62,7 @@ export default {
     categories: Array,
     isFixedBrands: Boolean,
     isFixedCategories: Boolean,
+    defaultSort: String,
     autoFixScore: {
       type: Number,
       default: 0.6
