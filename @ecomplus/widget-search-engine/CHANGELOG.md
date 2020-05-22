@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.13](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.12...@ecomplus/widget-search-engine@1.0.0-beta.13) (2020-05-22)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/utils to v1.4.0 ([551e02e](https://github.com/ecomplus/storefront/commit/551e02e0e1e3bee6ce7002fd84d0c91f9cb8fb08))
+* **widget-seacrh-engine:** set default sort 'sales' for category/brands ([bf99ca5](https://github.com/ecomplus/storefront/commit/bf99ca5671182a02aff5d1e7876d29bf7da85d3e))
+* **widget-search-engine:** get filters from data for categories/brands ([4d0acae](https://github.com/ecomplus/storefront/commit/4d0acaea65d584f2d59386adb1532344aa8315d5))
+
+
+
+
+
 # [1.0.0-beta.12](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.11...@ecomplus/widget-search-engine@1.0.0-beta.12) (2020-05-22)
 
 

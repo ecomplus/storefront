@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-ebit@1.1.1...@ecomplus/widget-ebit@1.1.2) (2020-05-22)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/utils to v1.4.0 ([551e02e](https://github.com/ecomplus/storefront/commit/551e02e0e1e3bee6ce7002fd84d0c91f9cb8fb08))
+
+
+
+
+
 ## [1.1.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-ebit@1.1.0...@ecomplus/widget-ebit@1.1.1) (2020-05-21)
 
 

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.16](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.15...@ecomplus/storefront-components@1.0.0-beta.16) (2020-05-22)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.11.0 ([07414f3](https://github.com/ecomplus/storefront/commit/07414f3d9e16238b87653df5bac1a601c7c25421))
+* **deps:** update @ecomplus/utils to v1.4.0 ([551e02e](https://github.com/ecomplus/storefront/commit/551e02e0e1e3bee6ce7002fd84d0c91f9cb8fb08))
+
+
+### Features
+
+* **seacrh-engine:** add/handle new 'defaultSort' prop ([1528d67](https://github.com/ecomplus/storefront/commit/1528d67f40109b0fb57b808201eb1b522966c7b2))
+* **search-engine:** add fixed right filter/loading button ([8ca2149](https://github.com/ecomplus/storefront/commit/8ca2149f3c76f44c40ff41e69108aee5653e1cd6))
+
+
+
+
+
 # [1.0.0-beta.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.14...@ecomplus/storefront-components@1.0.0-beta.15) (2020-05-22)
 
 

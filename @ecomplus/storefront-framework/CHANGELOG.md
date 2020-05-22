@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.6...@ecomplus/storefront-framework@5.12.7) (2020-05-22)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.11.0 ([07414f3](https://github.com/ecomplus/storefront/commit/07414f3d9e16238b87653df5bac1a601c7c25421))
+* **deps:** update @ecomplus/utils to v1.4.0 ([551e02e](https://github.com/ecomplus/storefront/commit/551e02e0e1e3bee6ce7002fd84d0c91f9cb8fb08))
+* **deps:** update dependency copy-webpack-plugin to v6 ([#230](https://github.com/ecomplus/storefront/issues/230)) ([478642d](https://github.com/ecomplus/storefront/commit/478642dc7420b69e1f84907969ad4c076c923e0d))
+* **webpack:** fix config for copy plugin v6 ([1a577c4](https://github.com/ecomplus/storefront/commit/1a577c4a946399e938b9d34886ce645ea2c8ebd2))
+
+
+
+
+
 ## [5.12.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.5...@ecomplus/storefront-framework@5.12.6) (2020-05-21)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework
