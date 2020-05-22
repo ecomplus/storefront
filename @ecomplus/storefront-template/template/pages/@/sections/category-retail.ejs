@@ -5,7 +5,7 @@ search
   .setSortOrder('sales')
 await search.fetch()
 let items = await search.getItems()
-let link
+const categoryNames = [_.state.name]
 
 if (!items.length) {
   const childCategories = _.categories.filter(({ parent }) => {
@@ -17,19 +17,12 @@ if (!items.length) {
       .setSortOrder('sales')
     await search.fetch()
     items = await search.getItems()
-    link = '/search?'
-    childCategories.forEach(({ name }) => {
-      link += `categories[]=${encodeURIComponent(name)}&`
-    })
   }
-}
-if (!link) {
-  link = `/search?categories[]=${encodeURIComponent(_.state.name)}`
 }
 %>
 
 <div class="category-retail">
   <%- await include('/@/sections/inc/retail-grid', {
-    _, opt: { items, search, link }
+    _, opt: { items, search, categories_names: categoryNames }
   }) %>
 </div>

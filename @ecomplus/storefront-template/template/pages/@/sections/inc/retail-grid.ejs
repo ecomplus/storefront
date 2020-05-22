@@ -10,7 +10,15 @@ if (!opt.items) {
 
 <section class="retail-grid">
   <div class="container">
-    <div id="search-engine">
+    <div
+      id="search-engine"
+      <% if (opt.categories) { %>
+        data-categories="<%= JSON.stringify(opt.categories) %>"
+      <% } %>
+      <% if (opt.brands) { %>
+        data-brands="<%= JSON.stringify(opt.brands) %>"
+      <% } %>
+    >
       <!--
         `SearchEngine` should be hydrated here:
         https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/SearchEngine.html
