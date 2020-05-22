@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.14...@ecomplus/storefront-components@1.0.0-beta.15) (2020-05-22)
+
+
+### Bug Fixes
+
+* **search-engine:** fix handling `isFixed${filter}` props ([8810fd2](https://github.com/ecomplus/storefront/commit/8810fd236973c6c8cb1c4168d9bc98eedc4bb481))
+
+
+
+
+
 # [1.0.0-beta.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.13...@ecomplus/storefront-components@1.0.0-beta.14) (2020-05-21)
 
 

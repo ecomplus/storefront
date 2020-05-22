@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.12](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.11...@ecomplus/widget-search-engine@1.0.0-beta.12) (2020-05-22)
+
+
+### Bug Fixes
+
+* **widget-search-engine:** fix setting props on brands/categories pages ([c5a3dd0](https://github.com/ecomplus/storefront/commit/c5a3dd06e6c865846f95e061357097d3e804bff3))
+
+
+
+
+
 # [1.0.0-beta.11](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.10...@ecomplus/widget-search-engine@1.0.0-beta.11) (2020-05-21)
 
 
