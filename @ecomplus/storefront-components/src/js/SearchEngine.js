@@ -239,6 +239,12 @@ export default {
           if (filterIndex === -1) {
             filterIndex = this.filters.length
           }
+          if (this[`isFixed${filter}`]) {
+            const presetedOptions = this[filter.toLowerCase()]
+            if (presetedOptions) {
+              options = options.filter(({ key }) => presetedOptions.indexOf(key) === -1)
+            }
+          }
           this.filters[filterIndex] = {
             filter,
             options,
@@ -361,20 +367,23 @@ export default {
       ;['brands', 'categories'].forEach(prop => {
         if (this[prop] && this[prop].length) {
           const filter = prop.charAt(0).toUpperCase() + prop.slice(1)
-          if (this[`isFixed${filter}`]) {
+          if (!this[`isFixed${filter}`]) {
             this.selectedOptions[filter] = this[prop]
           }
-          this.updateSearchFilter(filter, this[prop])
+          this.updateSearchFilter(filter)
         }
       })
     },
 
-    updateSearchFilter (filter, setOptions) {
+    updateSearchFilter (filter) {
       const { ecomSearch } = this
-      if (!setOptions) {
-        setOptions = this.selectedOptions[filter]
-      }
-      if (!setOptions.length) {
+      let setOptions = this.selectedOptions[filter]
+      if (this[`isFixed${filter}`]) {
+        const presetedOptions = this[filter.toLowerCase()]
+        if (presetedOptions) {
+          setOptions = setOptions ? setOptions.concat(presetedOptions) : presetedOptions
+        }
+      } else if (setOptions === undefined || !setOptions.length) {
         setOptions = null
       }
       switch (filter) {
