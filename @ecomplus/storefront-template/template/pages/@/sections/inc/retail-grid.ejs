@@ -12,11 +12,11 @@ if (!opt.items) {
   <div class="container">
     <div
       id="search-engine"
-      <% if (opt.categories) { %>
-        data-categories="<%= JSON.stringify(opt.categories) %>"
+      <% if (opt.category_names) { %>
+        data-categories="<%= JSON.stringify(opt.category_names) %>"
       <% } %>
-      <% if (opt.brands) { %>
-        data-brands="<%= JSON.stringify(opt.brands) %>"
+      <% if (opt.brand_names) { %>
+        data-brands="<%= JSON.stringify(opt.brand_names) %>"
       <% } %>
     >
       <!--

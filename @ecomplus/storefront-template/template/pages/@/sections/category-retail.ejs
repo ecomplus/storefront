@@ -12,8 +12,13 @@ if (!items.length) {
     return parent && parent._id === _.state._id
   })
   if (childCategories.length) {
+    let categoryIds = []
+    childCategories.forEach(({ _id, name }) => {
+      categoryIds.push(_id)
+      categoryNames.push(name)
+    })
     search
-      .setCategoryIds(childCategories.map(({ _id }) => _id))
+      .setCategoryIds(categoryIds)
       .setSortOrder('sales')
     await search.fetch()
     items = await search.getItems()
@@ -23,6 +28,6 @@ if (!items.length) {
 
 <div class="category-retail">
   <%- await include('/@/sections/inc/retail-grid', {
-    _, opt: { items, search, categories_names: categoryNames }
+    _, opt: { items, search, category_names: categoryNames }
   }) %>
 </div>
