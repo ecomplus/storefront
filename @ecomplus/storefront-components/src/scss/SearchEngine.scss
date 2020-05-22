@@ -1,4 +1,6 @@
 .search-engine {
+  position: relative;
+
   &__nav {
     padding: var(--spacer-2);
     margin-bottom: var(--spacer-3);
@@ -48,6 +50,24 @@
     .card {
       &-body {
         overflow-y: auto;
+      }
+    }
+
+    &-open {
+      position: fixed;
+      right: 0;
+      bottom: 50vh;
+      text-align: right;
+      z-index: 890;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+
+      .spinner-border {
+        margin-bottom: 3px;
+      }
+
+      .fa-search {
+        opacity: .6;
       }
     }
   }
