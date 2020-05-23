@@ -38,9 +38,13 @@ export default (options = {}, elId = 'search-engine') => {
     })
 
     const { resource } = window.document.body.dataset
-    if (resource && props[resource] && !props[resource].length) {
-      console.error(new Error(`Skipping SearchEngine with empty '${resource}' filter`))
-      return
+    switch (resource) {
+      case 'brands':
+      case 'categories':
+        if (!props[resource] || !props[resource].length) {
+          console.error(new Error(`Skipping SearchEngine with empty '${resource}' filter`))
+          return
+        }
     }
 
     new Vue({
