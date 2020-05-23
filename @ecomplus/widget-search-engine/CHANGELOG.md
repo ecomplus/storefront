@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.15](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.14...@ecomplus/widget-search-engine@1.0.0-beta.15) (2020-05-23)
+
+
+### Bug Fixes
+
+* **widget-search-engine:** ensure checking filters for brands/categories ([7d525e3](https://github.com/ecomplus/storefront/commit/7d525e3e6e70f0298270370b2208b457bfbd2449))
+
+
+
+
+
 # [1.0.0-beta.14](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.13...@ecomplus/widget-search-engine@1.0.0-beta.14) (2020-05-22)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.18](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.17...@ecomplus/storefront-template@2.0.0-beta.18) (2020-05-23)
+
+
+### Features
+
+* **config:** set $ecomConfig props from global ECOM_CONFIG if any ([36f1db2](https://github.com/ecomplus/storefront/commit/36f1db21abb87a49f543c853c4658ac75111af34))
+
+
+
+
+
 # [2.0.0-beta.17](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.16...@ecomplus/storefront-template@2.0.0-beta.17) (2020-05-22)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
