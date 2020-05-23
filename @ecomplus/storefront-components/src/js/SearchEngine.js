@@ -384,20 +384,25 @@ export default {
     updateSearchFilter (filter) {
       const { ecomSearch } = this
       let setOptions = this.selectedOptions[filter]
-      if (this[`isFixed${filter}`]) {
-        const presetedOptions = this[filter.toLowerCase()]
-        if (presetedOptions) {
-          setOptions = setOptions ? setOptions.concat(presetedOptions) : presetedOptions
-        }
-      } else if (setOptions === undefined || !setOptions.length) {
+      if (setOptions === undefined || !setOptions.length) {
         setOptions = null
       }
       switch (filter) {
         case 'Brands':
+          if (this.isFixedBrands && this.brands) {
+            setOptions = setOptions ? setOptions.concat(this.brands) : this.brands
+          }
           ecomSearch.setBrandNames(setOptions)
           break
         case 'Categories':
           ecomSearch.setCategoryNames(setOptions)
+          if (this.isFixedCategories && this.categories) {
+            ecomSearch.mergeFilter({
+              terms: {
+                'categories.name': this.categories
+              }
+            })
+          }
           break
         default:
           ecomSearch.setSpec(filter, setOptions)
