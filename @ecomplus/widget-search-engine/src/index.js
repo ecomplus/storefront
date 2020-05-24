@@ -48,15 +48,30 @@ export default (options = {}, elId = 'search-engine') => {
     }
 
     new Vue({
-      render: h => h(SearchEngine, {
-        attrs: {
-          id: elId
-        },
-        props,
-        scopedSlots: typeof getScopedSlots === 'function'
-          ? getScopedSlots($searchEngine, h)
-          : undefined
-      })
+      data: {
+        term: props.term
+      },
+
+      render (createElement) {
+        const vm = this
+        return createElement(SearchEngine, {
+          attrs: {
+            id: elId
+          },
+          props: {
+            ...props,
+            term: vm.term
+          },
+          on: {
+            'update:term' (term) {
+              vm.term = term
+            }
+          },
+          scopedSlots: typeof getScopedSlots === 'function'
+            ? getScopedSlots($searchEngine, createElement)
+            : undefined
+        })
+      }
     }).$mount($searchEngine)
   }
 }
