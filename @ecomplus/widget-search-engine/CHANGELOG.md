@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.16](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.15...@ecomplus/widget-search-engine@1.0.0-beta.16) (2020-05-24)
+
+
+### Bug Fixes
+
+* **widget-search-engine:** handling term prop update (sync) ([e69877e](https://github.com/ecomplus/storefront/commit/e69877e87711bc77b1cd7ce0abbf53ca5b50ac31))
+
+
+
+
+
 # [1.0.0-beta.15](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.14...@ecomplus/widget-search-engine@1.0.0-beta.15) (2020-05-23)
 
 

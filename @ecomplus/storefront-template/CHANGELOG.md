@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.19](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.18...@ecomplus/storefront-template@2.0.0-beta.19) (2020-05-24)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine v2.3.0 ([f544a71](https://github.com/ecomplus/storefront/commit/f544a7146c60429709e5f18853df8808ae2aaf69))
+
+
+
+
+
 # [2.0.0-beta.18](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.17...@ecomplus/storefront-template@2.0.0-beta.18) (2020-05-23)
 
 

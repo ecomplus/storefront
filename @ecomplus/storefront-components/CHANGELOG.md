@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.17](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.16...@ecomplus/storefront-components@1.0.0-beta.17) (2020-05-24)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine v2.3.0 ([f544a71](https://github.com/ecomplus/storefront/commit/f544a7146c60429709e5f18853df8808ae2aaf69))
+* **search-engine:** fix handling fixed categories filters ([f1fc397](https://github.com/ecomplus/storefront/commit/f1fc3977593b32509bd5634ee670a663639174be))
+
+
+### Features
+
+* **picture:** check configured default img size and container height ([eb7c8bb](https://github.com/ecomplus/storefront/commit/eb7c8bbe6e9041887f3209d5032cb736aec24fab))
+
+
+
+
+
 # [1.0.0-beta.16](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.15...@ecomplus/storefront-components@1.0.0-beta.16) (2020-05-22)
 
 
