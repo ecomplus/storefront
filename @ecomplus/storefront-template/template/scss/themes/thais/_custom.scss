@@ -3,24 +3,44 @@
 }
 
 .top-bar {
+  background-color: var(--dark) !important;
   &__countdown {
-    background-color: var(--dark) !important;
+    background-color: black !important;
     color: var(--white) !important;
     font-weight: var(--font-bold) !important;
   }
+  &__page-links {
+    a {
+      color: var(--white) !important;
+    }
+    
+  }
+}
+
+.col{
+  color: var(--white);
 }
 
 .header {
-  background-color: var(--light) !important;
+  align-self: center !important; 
+  justify-content: space-between !important;
+  background-color: var(--dark) !important;
   border-color: var(--dark) !important;
   &__toggler {
     svg {
-      color: var(--dark);
+      color: var(--white);
     }
   }
   &__search-btn {
     svg {
-      color: var(--dark) !important;
+      color: var(--white) !important;
+    }
+  }
+  &__search-input{
+    background-color: var(--gray);
+    border-color: var(--blue) !important;
+    &::placeholder {
+      color: var(--light);
     }
   }
   &__nav {
@@ -33,6 +53,20 @@
       background-color: var(--gray) !important;
     }
   }
+}
+
+#user-button {
+  color: var(--gray);
+}
+#user-button:hover {
+  color: var(--white);
+}
+
+#cart-button {
+  color: var(--gray);
+}
+#cart-button:hover {
+  color: var(--white);
 }
 
 .breadcrumb {
@@ -67,10 +101,10 @@
       border-color: var(--dark);
     }
     button:focus {
-      background-color: var(--dark);
-      color: var(--white);
-      border-color: var(--light);
-      box-shadow: 0 0 0 0.2rem rgba(#6c757d, 0.25);
+      background-color: var(--dark) !important;
+      color: var(--white) !important;
+      border-color: var(--light) !important;
+      box-shadow: 0 0 0 0.2rem rgba(#6c757d, 0.25) !important;
     }
   }
 }
@@ -196,11 +230,14 @@
     font-weight: var(--font-bold) !important;
   }
   &__list-icon {
+    svg {
+      color: var(--white);
+    }
     a {
       color: var(--white) !important;
     }
   }
-  background-image: linear-gradient(-90deg, var(--gray-dark), var(--light)) !important;
+  background-color: var(--dark) !important;
 }
 
 .menu {
