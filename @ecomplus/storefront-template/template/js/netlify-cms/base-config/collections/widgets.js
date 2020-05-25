@@ -7,6 +7,7 @@ import getWidgetFbPixel from '@ecomplus/widget-fb-pixel/cms.config'
 import getWidgetTagManager from '@ecomplus/widget-tag-manager/cms.config'
 import getWidgetTawkto from '@ecomplus/widget-tawkto/cms.config'
 import getWidgetTrustvox from '@ecomplus/widget-trustvox/cms.config'
+import getWidgetEbit from '@ecomplus/widget-ebit/cms.config'
 
 const fixWidgetConfig = ({ baseDir }, getWidget) => {
   const baseConfig = getWidget()
@@ -36,6 +37,7 @@ export default options => ({
     fixWidgetConfig(options, getWidgetFbPixel),
     fixWidgetConfig(options, getWidgetTagManager),
     fixWidgetConfig(options, getWidgetTawkto),
-    fixWidgetConfig(options, getWidgetTrustvox)
+    fixWidgetConfig(options, getWidgetTrustvox),
+    fixWidgetConfig(options, getWidgetEbit)
   ]
 })
