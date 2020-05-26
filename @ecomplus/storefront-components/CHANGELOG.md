@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.19](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.18...@ecomplus/storefront-components@1.0.0-beta.19) (2020-05-26)
+
+
+### Features
+
+* **product-card:** accepting preseted picture size variables (!default) ([7f4de60](https://github.com/ecomplus/storefront/commit/7f4de605dcc367e812157f57a64d3c47015e7a6e))
+
+
+
+
+
 # [1.0.0-beta.18](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.17...@ecomplus/storefront-components@1.0.0-beta.18) (2020-05-26)
 
 **Note:** Version bump only for package @ecomplus/storefront-components
