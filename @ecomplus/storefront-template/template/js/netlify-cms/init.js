@@ -1,6 +1,7 @@
 import * as merge from 'lodash.merge'
 import axios from 'axios'
 import getBaseConfig from './base-config/'
+import './pages-preview'
 
 const initCms = config => {
   const identityUrl = config.backend.identity_url
