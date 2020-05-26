@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-search-engine#readme",
   "peerDependencies": {
-    "@ecomplus/utils": "^1.4.0",
+    "@ecomplus/utils": "^1.4.1",
     "core-js": "3.x",
     "vue": ">=2 <4"
   },
