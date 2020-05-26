@@ -120,12 +120,11 @@
       </label>
 
       <input
-        type="number"
+        type="tel"
         class="form-control"
         :class="alert.cvv ? 'is-invalid': null"
         id="credit-card-cvv"
-        min="100"
-        max="9999"
+        pattern="\d{3,4}"
         placeholder="123"
         v-model="card.cvv"
         @blur="() => { alert.cvv = card.cvv && !validateCvv() }"
