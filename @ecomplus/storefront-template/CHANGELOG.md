@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.20](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.19...@ecomplus/storefront-template@2.0.0-beta.20) (2020-05-26)
+
+
+### Features
+
+* **cms:** add ebit widget ([#237](https://github.com/ecomplus/storefront/issues/237)) ([5b29e99](https://github.com/ecomplus/storefront/commit/5b29e990e19c3b8adad010d6e4f14e149eabc646))
+* **cms:** pages preview ([#238](https://github.com/ecomplus/storefront/issues/238)) ([78cbfee](https://github.com/ecomplus/storefront/commit/78cbfee287a04e9a69380b33510763c5cc16ebc9))
+
+
+
+
+
 # [2.0.0-beta.19](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.18...@ecomplus/storefront-template@2.0.0-beta.19) (2020-05-24)
 
 

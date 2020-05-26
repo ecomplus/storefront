@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.16](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.15...@ecomplus/storefront-app@2.0.0-beta.16) (2020-05-26)
+
+
+### Bug Fixes
+
+* **credit-card:** fix cvv input form (not number, may have left 0) ([8aacbb2](https://github.com/ecomplus/storefront/commit/8aacbb20f183855c1989585bd7ee412c700b52e6))
+
+
+
+
+
 # [2.0.0-beta.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.14...@ecomplus/storefront-app@2.0.0-beta.15) (2020-05-24)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
