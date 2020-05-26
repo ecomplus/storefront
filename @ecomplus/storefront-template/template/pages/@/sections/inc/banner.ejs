@@ -1,56 +1,60 @@
 <%
-let dimensions
-if (!opt.height_auto && opt.img.startsWith('/')) {
-  try {
-    dimensions = _.imageSize(`template/public${opt.img}`)
-  } catch (e) {
-    dimensions = null
+if (opt.img) {
+  let dimensions
+  if (!opt.height_auto && opt.img.startsWith('/')) {
+    try {
+      dimensions = _.imageSize(`template/public${opt.img}`)
+    } catch (e) {
+      dimensions = null
+    }
   }
-}
 
-const sources = [{ src: opt.img }]
-if (opt.mobile_img) {
-  sources[0].media = '(min-width: 576px)'
-  sources.push({
-    src: opt.mobile_img,
-    media: '(min-width: 100px)'
-  })
-}
-sources.forEach(source => {
-  if (source.src.endsWith('.webp')) {
-    source.type = 'image/webp'
+  const sources = [{ src: opt.img }]
+  if (opt.mobile_img) {
+    sources[0].media = '(min-width: 576px)'
     sources.push({
-      src: source.src.replace('.webp', '.png'),
-      media: source.media,
-      type: 'image/png'
+      src: opt.mobile_img,
+      media: '(min-width: 100px)'
     })
   }
-})
-%>
+  sources.forEach(source => {
+    if (source.src.endsWith('.webp')) {
+      source.type = 'image/webp'
+      sources.push({
+        src: source.src.replace('.webp', '.png'),
+        media: source.media,
+        type: 'image/png'
+      })
+    }
+  })
+  %>
 
-<div class="banner">
-  <a
-    href="<%= opt.link || 'javascript:;' %>"
-    aria-label="<%= opt.alt %>"
-  >
-    <picture
-      class="lozad fade img-fluid"
-      <% if (dimensions) { %>
-        data-width="<%= dimensions.width %>"
-        data-height="<%= dimensions.height %>"
-      <% } %>
-      data-iesrc="<%= opt.img.replace('.webp', '.png') %>"
-      data-alt="<%= opt.alt %>"
+  <div class="banner">
+    <a
+      href="<%= opt.link || 'javascript:;' %>"
+      aria-label="<%= opt.alt %>"
     >
-      <% sources.forEach(({ src, media, type }) => { %>
-        <source
-          srcset="<%= src %>"
-          media="<%- media %>"
-          <% if (type) { %>
-            type="<%- type %>"
-          <% } %>
-        >
-      <% }) %>
-    </picture>
-  </a>
-</div>
+      <picture
+        class="lozad fade img-fluid"
+        <% if (dimensions) { %>
+          data-width="<%= dimensions.width %>"
+          data-height="<%= dimensions.height %>"
+        <% } %>
+        data-iesrc="<%= opt.img.replace('.webp', '.png') %>"
+        data-alt="<%= opt.alt %>"
+      >
+        <% sources.forEach(({ src, media, type }) => { %>
+          <source
+            srcset="<%= src %>"
+            media="<%- media %>"
+            <% if (type) { %>
+              type="<%- type %>"
+            <% } %>
+          >
+        <% }) %>
+      </picture>
+    </a>
+  </div>
+  <%
+}
+%>
