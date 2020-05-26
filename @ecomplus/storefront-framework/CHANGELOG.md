@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.9...@ecomplus/storefront-framework@5.12.10) (2020-05-26)
+
+
+### Bug Fixes
+
+* **sw:** ignoring precache files by extension or /admin/ path ([679004c](https://github.com/ecomplus/storefront/commit/679004c529be56130f2f03ab2edc9cca5837e1c8))
+
+
+
+
+
 ## [5.12.9](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.8...@ecomplus/storefront-framework@5.12.9) (2020-05-26)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework
