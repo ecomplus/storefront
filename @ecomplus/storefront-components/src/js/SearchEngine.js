@@ -5,6 +5,7 @@ import {
   i19closeFilters,
   i19didYouMean,
   i19filter,
+  i19filterResults,
   i19highestPrice,
   i19itemsFound,
   i19lowestPrice,
@@ -26,8 +27,11 @@ import EcomSearch from '@ecomplus/search-engine'
 import ABackdrop from '../ABackdrop.vue'
 import ProductCard from '../ProductCard.vue'
 
-const resetEcomSearch = ({ ecomSearch, term, page }) => {
+const resetEcomSearch = ({ ecomSearch, term, page, defaultSort }) => {
   ecomSearch.reset()
+  if (defaultSort) {
+    ecomSearch.setSortOrder(defaultSort)
+  }
   if (term) {
     ecomSearch.setSearchTerm(term)
   }
@@ -56,6 +60,9 @@ export default {
     },
     brands: Array,
     categories: Array,
+    isFixedBrands: Boolean,
+    isFixedCategories: Boolean,
+    defaultSort: String,
     autoFixScore: {
       type: Number,
       default: 0.6
@@ -116,6 +123,7 @@ export default {
     i19closeFilters: () => i18n(i19closeFilters),
     i19didYouMean: () => i18n(i19didYouMean),
     i19filter: () => i18n(i19filter),
+    i19filterResults: () => i18n(i19filterResults),
     i19itemsFound: () => i18n(i19itemsFound),
     i19noResultsFor: () => i18n(i19noResultsFor),
     i19popularProducts: () => i18n(i19popularProducts),
@@ -237,6 +245,12 @@ export default {
           if (filterIndex === -1) {
             filterIndex = this.filters.length
           }
+          if (this[`isFixed${filter}`]) {
+            const presetedOptions = this[filter.toLowerCase()]
+            if (presetedOptions) {
+              options = options.filter(({ key }) => presetedOptions.indexOf(key) === -1)
+            }
+          }
           this.filters[filterIndex] = {
             filter,
             options,
@@ -302,11 +316,17 @@ export default {
         : ecomSearch.getItems()
       this.updateFilters()
       this.handleSuggestions()
-      this.hasSearched = true
       if (!this.totalSearchResults && this.hasPopularItems && !this.hasSetPopularItems) {
         this.fetchItems(false, true)
       }
       this.$emit(this.isLoadingMore ? 'load-more' : 'search', { ecomSearch })
+      if (!this.hasSearched) {
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.hasSearched = true
+          }, 100)
+        })
+      }
     },
 
     scheduleFetch () {
@@ -353,7 +373,9 @@ export default {
       ;['brands', 'categories'].forEach(prop => {
         if (this[prop] && this[prop].length) {
           const filter = prop.charAt(0).toUpperCase() + prop.slice(1)
-          this.selectedOptions[filter] = this[prop]
+          if (!this[`isFixed${filter}`]) {
+            this.selectedOptions[filter] = this[prop]
+          }
           this.updateSearchFilter(filter)
         }
       })
@@ -362,15 +384,25 @@ export default {
     updateSearchFilter (filter) {
       const { ecomSearch } = this
       let setOptions = this.selectedOptions[filter]
-      if (!setOptions.length) {
+      if (setOptions === undefined || !setOptions.length) {
         setOptions = null
       }
       switch (filter) {
         case 'Brands':
+          if (this.isFixedBrands && this.brands) {
+            setOptions = setOptions ? setOptions.concat(this.brands) : this.brands
+          }
           ecomSearch.setBrandNames(setOptions)
           break
         case 'Categories':
           ecomSearch.setCategoryNames(setOptions)
+          if (this.isFixedCategories && this.categories) {
+            ecomSearch.mergeFilter({
+              terms: {
+                'categories.name': this.categories
+              }
+            })
+          }
           break
         default:
           ecomSearch.setSpec(filter, setOptions)

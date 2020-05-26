@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.17](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.16...@ecomplus/storefront-components@1.0.0-beta.17) (2020-05-24)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine v2.3.0 ([f544a71](https://github.com/ecomplus/storefront/commit/f544a7146c60429709e5f18853df8808ae2aaf69))
+* **search-engine:** fix handling fixed categories filters ([f1fc397](https://github.com/ecomplus/storefront/commit/f1fc3977593b32509bd5634ee670a663639174be))
+
+
+### Features
+
+* **picture:** check configured default img size and container height ([eb7c8bb](https://github.com/ecomplus/storefront/commit/eb7c8bbe6e9041887f3209d5032cb736aec24fab))
+
+
+
+
+
+# [1.0.0-beta.16](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.15...@ecomplus/storefront-components@1.0.0-beta.16) (2020-05-22)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.11.0 ([07414f3](https://github.com/ecomplus/storefront/commit/07414f3d9e16238b87653df5bac1a601c7c25421))
+* **deps:** update @ecomplus/utils to v1.4.0 ([551e02e](https://github.com/ecomplus/storefront/commit/551e02e0e1e3bee6ce7002fd84d0c91f9cb8fb08))
+
+
+### Features
+
+* **seacrh-engine:** add/handle new 'defaultSort' prop ([1528d67](https://github.com/ecomplus/storefront/commit/1528d67f40109b0fb57b808201eb1b522966c7b2))
+* **search-engine:** add fixed right filter/loading button ([8ca2149](https://github.com/ecomplus/storefront/commit/8ca2149f3c76f44c40ff41e69108aee5653e1cd6))
+
+
+
+
+
+# [1.0.0-beta.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.14...@ecomplus/storefront-components@1.0.0-beta.15) (2020-05-22)
+
+
+### Bug Fixes
+
+* **search-engine:** fix handling `isFixed${filter}` props ([8810fd2](https://github.com/ecomplus/storefront/commit/8810fd236973c6c8cb1c4168d9bc98eedc4bb481))
+
+
+
+
+
+# [1.0.0-beta.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.13...@ecomplus/storefront-components@1.0.0-beta.14) (2020-05-21)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/passport-client to v1.0.10 ([ff72116](https://github.com/ecomplus/storefront/commit/ff721164afc001d02431601bd083c3beb417fada))
+* **discount-applier:** updating discoutn value when amout is changed ([afedcab](https://github.com/ecomplus/storefront/commit/afedcab50756c06812f0133322758cee749ad8a9))
+* **search-engine:** add 'isFixedBrands' and 'isFixedCategories' props ([8b9407b](https://github.com/ecomplus/storefront/commit/8b9407bc26407f8d0e425afba3480cbe5d1f1f92))
+
+
+
+
+
 # [1.0.0-beta.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.12...@ecomplus/storefront-components@1.0.0-beta.13) (2020-05-16)
 
 

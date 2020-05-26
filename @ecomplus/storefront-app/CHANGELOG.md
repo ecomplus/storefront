@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.14...@ecomplus/storefront-app@2.0.0-beta.15) (2020-05-24)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.13...@ecomplus/storefront-app@2.0.0-beta.14) (2020-05-22)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.11.0 ([07414f3](https://github.com/ecomplus/storefront/commit/07414f3d9e16238b87653df5bac1a601c7c25421))
+* **deps:** update @ecomplus/utils to v1.4.0 ([551e02e](https://github.com/ecomplus/storefront/commit/551e02e0e1e3bee6ce7002fd84d0c91f9cb8fb08))
+
+
+
+
+
+# [2.0.0-beta.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.12...@ecomplus/storefront-app@2.0.0-beta.13) (2020-05-22)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.11...@ecomplus/storefront-app@2.0.0-beta.12) (2020-05-21)
+
+
+### Bug Fixes
+
+* **addesses:** check address properties to select ([430c7c5](https://github.com/ecomplus/storefront/commit/430c7c54a84a59b918a4d7bed0ec726e00d8b541))
+* **deps:** update @ecomplus/passport-client to v1.0.10 ([ff72116](https://github.com/ecomplus/storefront/commit/ff721164afc001d02431601bd083c3beb417fada))
+
+
+
+
+
 # [2.0.0-beta.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.10...@ecomplus/storefront-app@2.0.0-beta.11) (2020-05-16)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

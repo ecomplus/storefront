@@ -12,6 +12,15 @@ const { $ecomConfig } = ecomUtils
   $ecomConfig.set(prop, window._settings[prop])
 })
 
+const { ECOM_CONFIG } = window
+if (ECOM_CONFIG) {
+  for (const prop in ECOM_CONFIG) {
+    if (ECOM_CONFIG[prop]) {
+      $ecomConfig.set(prop, ECOM_CONFIG[prop])
+    }
+  }
+}
+
 window.ecomUtils = ecomUtils
 
 window.storefront = {

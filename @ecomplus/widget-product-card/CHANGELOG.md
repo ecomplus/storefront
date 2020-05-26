@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.14](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.13...@ecomplus/widget-product-card@1.0.0-beta.14) (2020-05-24)
+
+**Note:** Version bump only for package @ecomplus/widget-product-card
+
+
+
+
+
+# [1.0.0-beta.13](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.12...@ecomplus/widget-product-card@1.0.0-beta.13) (2020-05-22)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/utils to v1.4.0 ([551e02e](https://github.com/ecomplus/storefront/commit/551e02e0e1e3bee6ce7002fd84d0c91f9cb8fb08))
+
+
+
+
+
+# [1.0.0-beta.12](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.11...@ecomplus/widget-product-card@1.0.0-beta.12) (2020-05-22)
+
+**Note:** Version bump only for package @ecomplus/widget-product-card
+
+
+
+
+
+# [1.0.0-beta.11](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.10...@ecomplus/widget-product-card@1.0.0-beta.11) (2020-05-21)
+
+
+### Performance Improvements
+
+* **product-card:** skip cards without toRender dataset ([a9b2c45](https://github.com/ecomplus/storefront/commit/a9b2c45d2278b1d1f393ee6eb9044ed1c4186d5f))
+
+
+
+
+
 # [1.0.0-beta.10](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.9...@ecomplus/widget-product-card@1.0.0-beta.10) (2020-05-16)
 
 **Note:** Version bump only for package @ecomplus/widget-product-card

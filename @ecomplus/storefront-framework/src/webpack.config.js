@@ -198,7 +198,11 @@ if (!process.env.WEBPACK_BUILD_LIB) {
     }),
 
     // copy files from public folders recursivily
-    new CopyPlugin([{ from: paths.pub, to: paths.output }])
+    new CopyPlugin({
+      patterns: [
+        { from: paths.pub, to: paths.output }
+      ]
+    })
   )
 
   if (!devMode) {

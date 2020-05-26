@@ -22,7 +22,9 @@ if (imgObj) {
     class="product-card"
     data-product-id="<%= itemData._id %>"
     data-sku="<%= itemData.sku %>"
-    data-to-render="true"
+    <% if (!opt.static) { %>
+      data-to-render="true"
+    <% } %>
   >
     <!--
       `ProductCard` should be rendered (hydrated) here:
