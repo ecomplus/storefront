@@ -10,7 +10,19 @@ clientsClaim()
 
 /* global self */
 
-precacheAndRoute(self.__WB_MANIFEST)
+if (Array.isArray(self.__WB_MANIFEST)) {
+  precacheAndRoute(self.__WB_MANIFEST.filter(entry => {
+    if (entry) {
+      const url = typeof entry === 'string' ? entry : entry.url
+      if (typeof url === 'string' && (/\.(txt|xml|toml)$/.test(url) || url.startsWith('/admin/'))) {
+        return false
+      }
+    }
+    return true
+  }))
+} else {
+  precacheAndRoute(self.__WB_MANIFEST)
+}
 
 /**
  * Runtime caching
