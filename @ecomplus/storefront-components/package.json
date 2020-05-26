@@ -29,7 +29,7 @@
     "url": "https://github.com/ecomplus/storefront/issues"
   },
   "peerDependencies": {
-    "@ecomplus/utils": "^1.4.0"
+    "@ecomplus/utils": "^1.4.1"
   },
   "dependencies": {
     "@ecomplus/client": "^2.0.4",
@@ -39,8 +39,8 @@
     "@ecomplus/shopping-cart": "^2.1.1",
     "@ecomplus/storefront-twbs": "^5.5.0",
     "@glidejs/glide": "^3.4.1",
-    "cleave.js": "^1.5.10",
-    "lozad": "^1.14.0",
+    "cleave.js": "^1.6.0",
+    "lozad": "^1.15.0",
     "photoswipe": "^4.1.3",
     "vue": "^2.6.11",
     "vue-cleave-component": "^2.1.3"
