@@ -5,7 +5,9 @@
       <div class="row">
         <% for (let i = 0; i < opt.banners.length; i++) { %>
           <div class="col-12 col-lg-<%= colSize %> mb-3 mb-lg-0">
-            <%- await include('/@/sections/inc/banner', { _, opt: opt.banners[i] }) %>
+            <% if (opt.banners[i].img) { %>
+              <%- await include('/@/sections/inc/banner', { _, opt: opt.banners[i] }) %>
+            <% } %>
           </div>
         <% } %>
       </div>

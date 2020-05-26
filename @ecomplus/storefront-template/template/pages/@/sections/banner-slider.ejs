@@ -39,11 +39,13 @@ if (slides && slides.length) {
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides banner-slider__slides">
           <% for (let i = 0; i < slides.length; i++) { %>
-            <li class="glide__slide">
-              <%- await include('/@/sections/inc/banner', {
-                _, opt: { ...slides[i], height_auto: true }
-              }) %>
-            </li>
+            <% if (slides[i].img) { %>
+              <li class="glide__slide">
+                <%- await include('/@/sections/inc/banner', {
+                  _, opt: { ...slides[i], height_auto: true }
+                }) %>
+              </li>
+            <% } %>
           <% } %>
         </ul>
 
