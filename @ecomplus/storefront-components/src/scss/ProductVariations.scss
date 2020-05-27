@@ -5,6 +5,10 @@
     &--colors button {
       font-size: 0;
     }
+
+    &__title {
+      display: flex;
+    }
   }
 
   &__option {
