@@ -28,7 +28,7 @@
         />
 
         <slot name="back-shopping">
-          <div class="cart__back d-md-block my-4">
+          <div class="cart__back d-none d-md-block my-4">
             <a
               class="cart__btn-back btn btn-sm btn-light"
               role="button"
@@ -86,6 +86,17 @@
                   <i class="fas fa-shopping-bag"></i>
                 </span>
                 {{ i19checkout }}
+              </a>
+
+              <a
+                class="cart__btn-checkout btn btn-block btn-outline-secondary d-md-none"
+                role="button"
+                href="/"
+              >
+                <span class="mr-1">
+                  <i class="fas fa-arrow-left mr-1"></i>
+                </span>
+                {{ i19continueShopping }}
               </a>
             </slot>
           </slot>
