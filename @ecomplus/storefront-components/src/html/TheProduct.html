@@ -140,6 +140,7 @@
           <slot name="share">
             <a-share
               v-if="body.slug"
+              class="mb-3"
               :url="`/${body.slug}`"
               :title="body.name"
               :description="body.short_description"
