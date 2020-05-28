@@ -4,7 +4,7 @@
   }
 
   &:not(:first-of-type) {
-    margin-top: var(--spacer-3);
+    margin-top: var(--spacer-2);
   }
 
   &__icon {
@@ -29,6 +29,11 @@
   &__installment {
     margin-bottom: 0;
     font-size: var(--font-size-sm);
+
+    > li {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   small {

@@ -49,17 +49,19 @@
         v-if="installmentOptions"
         class="payment-option__installment list-unstyled"
       >
-        <option
+        <li
           v-for="({ number, value, tax }) in installmentOptions"
           v-if="number > 1"
         >
-          {{ `${number}x` }}
-          <small>{{ i19of }}</small>
-          {{ formatMoney(value) }}
+          <span>
+            {{ `${number}x` }}
+            <small>{{ i19of }}</small>
+            {{ formatMoney(value) }}
+          </span>
           <small v-if="!tax">
             {{ i19interestFree }}
           </small>
-        </option>
+        </li>
       </ul>
     </div>
   </div>
