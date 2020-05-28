@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.20](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.19...@ecomplus/storefront-components@1.0.0-beta.20) (2020-05-28)
+
+
+### Bug Fixes
+
+* **back-shopping:** 'continue shopping' button on quickview and cart page ([#241](https://github.com/ecomplus/storefront/issues/241)) ([47f1064](https://github.com/ecomplus/storefront/commit/47f1064b1640cfb95f486c6c6b9b8dd31decf321))
+* **deps:** update @ecomplus/i18n to v1.11.1 ([0d3a041](https://github.com/ecomplus/storefront/commit/0d3a041e4985555482ca5c3965149d28b439fbbf))
+* **deps:** update @ecomplus/search-engine to v2.3.1 ([471416d](https://github.com/ecomplus/storefront/commit/471416d80c4a54e1c7c5245bafbb9fb631321813))
+* **product:** fix using ProductGalery component (`current-slide`) ([8123d2f](https://github.com/ecomplus/storefront/commit/8123d2f73b142066baf04a022afaaed385c0b540))
+* **product:** handling payment with 'installments_option' ([095ca74](https://github.com/ecomplus/storefront/commit/095ca740a68e17d3a080246d10843a89bbed1dce))
+* **product:** minor fix for unselected variations message ([5a67b7d](https://github.com/ecomplus/storefront/commit/5a67b7d121a0bfba12489f74377efcea319b09c4))
+* **share:** stop forcing vertical margin ([1347012](https://github.com/ecomplus/storefront/commit/134701261d191f59e31b69ab8133d8f5ee793672))
+
+
+### Features
+
+* **payment-option:** add `installmentsOption` prop ([726b2de](https://github.com/ecomplus/storefront/commit/726b2de92f8c6019c6dfc953c33b4a34666d83b6))
+* **product:** add share buttons after buy button ([e707e3d](https://github.com/ecomplus/storefront/commit/e707e3d56d597d55f5d07a23a8c5a5c5c594b63f))
+* **product-variations:** better showing selected option value ([d111a44](https://github.com/ecomplus/storefront/commit/d111a449e4c6cfd3ccd97f51a30c85e258ddad5f))
+* **share:** add new AShare component :tada: ([2018619](https://github.com/ecomplus/storefront/commit/201861922b8355ee1e733d34d9ccf47ca8cfa1c9))
+
+
+
+
+
 # [1.0.0-beta.19](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.18...@ecomplus/storefront-components@1.0.0-beta.19) (2020-05-26)
 
 

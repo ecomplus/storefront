@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.18](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.17...@ecomplus/storefront-app@2.0.0-beta.18) (2020-05-28)
+
+
+### Bug Fixes
+
+* **back-shopping:** 'continue shopping' button on quickview and cart page ([#241](https://github.com/ecomplus/storefront/issues/241)) ([47f1064](https://github.com/ecomplus/storefront/commit/47f1064b1640cfb95f486c6c6b9b8dd31decf321))
+* **deps:** update @ecomplus/i18n to v1.11.1 ([0d3a041](https://github.com/ecomplus/storefront/commit/0d3a041e4985555482ca5c3965149d28b439fbbf))
+
+
+
+
+
 # [2.0.0-beta.17](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.16...@ecomplus/storefront-app@2.0.0-beta.17) (2020-05-26)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

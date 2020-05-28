@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.5.0...@ecomplus/storefront-twbs@5.6.0) (2020-05-28)
+
+
+### Features
+
+* **icons:** add 'fa-telegram' icon ([d92eb6a](https://github.com/ecomplus/storefront/commit/d92eb6a74d22bd4ecaed0f233c1e9fb612acd165))
+* **icons:** add fa-forward icon ([08f210e](https://github.com/ecomplus/storefront/commit/08f210eb12e6046d92c95d0744e5809ea24f404f))
+
+
+
+
+
 # [5.5.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.4.2...@ecomplus/storefront-twbs@5.5.0) (2020-05-14)
 
 
