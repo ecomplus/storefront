@@ -15,6 +15,7 @@ const networksWithColors = [
 const categoryParents = _.lodash.groupBy(_.categories, ({ parent }) => {
   return !parent || !parent.slug ? '_' : parent.slug
 })
+const getSubmenuId = slug => `a-${slug.replace(/\//g, '_')}`
 
 const mainCategories = categoryParents._
 if (mainCategories) {
@@ -53,7 +54,7 @@ if (mainCategories) {
             class="collapse show"
             aria-expanded="true"
           <% } else { %>
-            id="a-<%= slug %>"
+            id="<%= getSubmenuId(slug) %>"
             class="collapse"
             aria-expanded="false"
           <% } %>
@@ -71,10 +72,12 @@ if (mainCategories) {
                 aria-expanded="true"
                 data-target="#categories-nav"
                 aria-controls="categories-nav"
-              <% } else { %>
+              <% } else {
+                const submenuId = getSubmenuId(parent.slug)
+                %>
                 aria-expanded="false"
-                data-target="#a-<%= parent.slug %>"
-                aria-controls="a-<%= parent.slug %>"
+                data-target="#<%= submenuId %>"
+                aria-controls="<%= submenuId %>"
               <% } %>
             >
               <i class="fas fa-arrow-left"></i>
@@ -85,12 +88,14 @@ if (mainCategories) {
             <% categoryParents[slug].forEach(subcategory => { %>
               <% const hasSubmenu = Array.isArray(categoryParents[subcategory.slug]) %>
               <a
-                <% if (hasSubmenu) { %>
-                  href="#a-<%= subcategory.slug %>"
+                <% if (hasSubmenu) {
+                  const submenuId = getSubmenuId(subcategory.slug)
+                  %>
+                  href="#<%= submenuId %>"
                   data-toggle="collapse"
                   role="button"
                   aria-expanded="false"
-                  aria-controls="a-<%= subcategory.slug %>"
+                  aria-controls="<%= submenuId %>"
                 <% } else { %>
                   href="/<%= subcategory.slug %>"
                 <% } %>
