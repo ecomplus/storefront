@@ -24,6 +24,7 @@ import {
 
 import { store, modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
+import ALink from '../ALink.vue'
 import AAlert from '../AAlert.vue'
 import APrices from '../APrices.vue'
 import AShare from '../AShare.vue'
@@ -50,6 +51,7 @@ export default {
   name: 'TheProduct',
 
   components: {
+    ALink,
     AAlert,
     APrices,
     AShare,
@@ -79,6 +81,10 @@ export default {
     lowQuantityToWarn: {
       type: Number,
       default: 12
+    },
+    cartUrl: {
+      type: String,
+      default: '/app/#/cart'
     }
   },
 
@@ -88,6 +94,7 @@ export default {
       fixedPrice: null,
       selectedVariationId: null,
       currentGalleyImg: 1,
+      isOnCart: false,
       hasClickedBuy: false,
       hasLoadError: false,
       paymentOptions: []
@@ -205,6 +212,7 @@ export default {
       if (this.canAddToCart) {
         ecomCart.addProduct(product, variationId)
       }
+      this.isOnCart = true
     }
   },
 

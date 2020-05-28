@@ -109,22 +109,34 @@
             <slot name="variations-info"/>
           </slot>
 
-          <div
-            class="product__buy"
-            @click="buy"
-          >
-            <slot name="buy">
-              <button
-                type="button"
-                class="btn btn-lg btn-primary"
-                :disabled="hasClickedBuy"
+          <div class="product__buy">
+            <span @click="buy">
+              <slot
+                name="buy"
+                v-bind="{ hasClickedBuy, isOnCart }"
               >
-                <slot name="buy-button-content">
-                  <i class="fas fa-shopping-bag mr-1"></i>
-                  {{ strBuy }}
-                </slot>
-              </button>
-            </slot>
+                <button
+                  type="button"
+                  class="btn btn-lg btn-primary"
+                  :disabled="hasClickedBuy && !isOnCart"
+                >
+                  <slot name="buy-button-content">
+                    <i class="fas fa-shopping-bag mr-1"></i>
+                    {{ strBuy }}
+                  </slot>
+                </button>
+              </slot>
+            </span>
+
+            <transition enter-active-class="animated fadeInLeft">
+              <a-link
+                v-if="isOnCart"
+                :href="cartUrl"
+                class="product__on-cart ml-2 btn btn-lg btn-outline-success"
+              >
+                <i class="fas fa-cart-arrow-down"></i>
+              </a-link>
+            </transition>
           </div>
 
           <p
