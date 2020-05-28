@@ -140,8 +140,8 @@
           <transition enter-active-class="animated fadeInUp">
             <slot
               name="payment-gateways"
-              v-bind="{ paymentGateways }"
-              v-if="paymentGateways.length"
+              v-bind="{ paymentOptions }"
+              v-if="paymentOptions.length"
             >
               <article :key="`payment-${fixedPrice}`">
                 <div
@@ -166,13 +166,21 @@
                     class="collapse"
                     aria-labelledby="product-payment-header"
                   >
-                    <div class="card-body">
-                      <payment-option
-                        v-for="(gateway, i) in paymentGateways"
-                        :key="i"
-                        :payment-gateway="gateway"
-                        :price="fixedPrice"
-                      />
+                    <div class="card-body pb-0">
+                      <div
+                        v-for="paymentOption in paymentOptions"
+                        :key="paymentOption.app_id"
+                        :id="`product-payment-${paymentOption.app_id}`"
+                        class="mb-3"
+                      >
+                        <payment-option
+                          v-for="(gateway, i) in paymentOption.payment_gateways"
+                          :key="`${paymentOption.app_id}-${i}`"
+                          :payment-gateway="gateway"
+                          :installments-option="paymentOption.installments_option"
+                          :price="fixedPrice"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>

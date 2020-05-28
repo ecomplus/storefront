@@ -88,7 +88,7 @@ export default {
       currentGalleyImg: 1,
       hasClickedBuy: false,
       hasLoadError: false,
-      paymentGateways: []
+      paymentOptions: []
     }
   },
 
@@ -238,13 +238,20 @@ export default {
             }
           })
             .then(({ data }) => {
-              this.paymentGateways = data.result
-                .reduce((paymentGateways, { validated, response }) => {
-                  return validated
-                    ? paymentGateways.concat(response.payment_gateways)
-                    : paymentGateways
-                }, []).sort((a, b) => {
-                  return a.discount && !b.discount ? -1 : 1
+              this.paymentOptions = data.result
+                .reduce((paymentOptions, appResult) => {
+                  if (appResult.validated) {
+                    paymentOptions.push({
+                      app_id: appResult.app_id,
+                      ...appResult.response
+                    })
+                  }
+                  return paymentOptions
+                }, [])
+                .sort((a, b) => {
+                  return a.discount_option && a.discount_option.value &&
+                    !(b.discount_option && b.discount_option.value)
+                    ? -1 : 1
                 })
             })
             .catch(console.error)
