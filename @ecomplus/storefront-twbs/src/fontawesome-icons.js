@@ -68,7 +68,8 @@ import {
   faStore,
   faBlog,
   faWifi,
-  faPlay
+  faPlay,
+  faForward
 } from '@fortawesome/free-solid-svg-icons'
 
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
@@ -140,7 +141,8 @@ library.add(
   faStore,
   faBlog,
   faWifi,
-  faPlay
+  faPlay,
+  faForward
 )
 
 dom.watch()
