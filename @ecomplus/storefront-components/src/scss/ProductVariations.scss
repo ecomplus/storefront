@@ -7,6 +7,18 @@
     }
   }
 
+  &__value {
+    margin-left: var(--spacer-2);
+
+    .fa-check {
+      color: var(--success);
+    }
+
+    &--empty {
+      color: var(--text-muted);
+    }
+  }
+
   &__option {
     min-height: 2.3rem;
     min-width: 2.3rem;
@@ -23,6 +35,7 @@
 
     &--selected:not(:disabled) {
       border-color: var(--secondary);
+      box-shadow: 0 0 0 .1rem rgba(var(--secondary-rgb), .6);
     }
 
     &:disabled {

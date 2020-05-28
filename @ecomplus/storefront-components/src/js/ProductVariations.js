@@ -1,4 +1,7 @@
+import { i19selectVariation } from '@ecomplus/i18n'
+
 import {
+  i18n,
   inStock as checkStock,
   specValueByText as getSpecValueByText,
   specTextValue as getSpecTextValue,
@@ -33,6 +36,18 @@ export default {
     return {
       selectedOptions: {},
       filteredGrids: getVariationsGrids(this.product, null, true)
+    }
+  },
+
+  computed: {
+    i19selectVariation: () => i18n(i19selectVariation),
+
+    variationsGrids () {
+      return getVariationsGrids(this.product)
+    },
+
+    orderedGrids () {
+      return Object.keys(this.variationsGrids)
     }
   },
 
@@ -97,16 +112,6 @@ export default {
         }
       }
       this.$emit('update:selected-id', variations.length ? variations[0]._id : null)
-    }
-  },
-
-  computed: {
-    variationsGrids () {
-      return getVariationsGrids(this.product)
-    },
-
-    orderedGrids () {
-      return Object.keys(this.variationsGrids)
     }
   }
 }
