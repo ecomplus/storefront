@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.25](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.24...@ecomplus/storefront-template@2.0.0-beta.25) (2020-05-28)
+
+
+### Bug Fixes
+
+* **menu:** sanitize category slug for collapse elements ids ([2ae31d0](https://github.com/ecomplus/storefront/commit/2ae31d070d063bf3bfa83e429fa6492688a8da50))
+* **menu:** sanitize category slug for collapse elements ids ([0e33974](https://github.com/ecomplus/storefront/commit/0e33974cd02b4a7fcb301eb14514b3c216fc7c08))
+* **reatil-grid:** fix setting static (and not) product items ([08d4da1](https://github.com/ecomplus/storefront/commit/08d4da1f8c41adffd5df9cb5c15c1b986a471faa))
+
+
+
+
+
 # [2.0.0-beta.24](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.23...@ecomplus/storefront-template@2.0.0-beta.24) (2020-05-28)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

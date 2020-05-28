@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.22](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.21...@ecomplus/storefront-components@1.0.0-beta.22) (2020-05-28)
+
+
+### Bug Fixes
+
+* **variations:** fix skipping out of stock variation on select ([d38978a](https://github.com/ecomplus/storefront/commit/d38978aff4fa6ce98a91ed5b2c5b61f5d56f12a3))
+
+
+
+
+
 # [1.0.0-beta.21](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.20...@ecomplus/storefront-components@1.0.0-beta.21) (2020-05-28)
 
 
