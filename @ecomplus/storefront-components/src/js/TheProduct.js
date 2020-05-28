@@ -9,7 +9,8 @@ import {
   i19paymentOptions,
   i19retry,
   i19selectVariationMsg,
-  i19unavailable
+  i19unavailable,
+  i19unitsInStock
 } from '@ecomplus/i18n'
 
 import {
@@ -103,6 +104,7 @@ export default {
     i19retry: () => i18n(i19retry),
     i19selectVariationMsg: () => i18n(i19selectVariationMsg),
     i19unavailable: () => i18n(i19unavailable),
+    i19unitsInStock: () => i18n(i19unitsInStock),
 
     selectedVariation () {
       return this.selectedVariationId
