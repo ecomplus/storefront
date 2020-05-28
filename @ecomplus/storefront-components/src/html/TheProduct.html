@@ -22,7 +22,7 @@
         <div class="col-12 col-md-6">
           <product-gallery
             :product="body"
-            :current.sync="currentGalleyImg"
+            :current-slide.sync="currentGalleyImg"
           >
             <slot name="first-picture"/>
           </product-gallery>
@@ -131,10 +131,10 @@
             class="product__short-stock"
             v-if="isLowQuantity"
           >
-            <i class="fas fa-exclamation-triangle mr-1"></i>
+            <i class="fas fa-forward mr-1"></i>
             {{ i19only }}
             <strong>{{ productQuantity }}</strong>
-            {{ i19inStock }}
+            {{ i19unitsInStock }}
           </p>
 
           <transition enter-active-class="animated fadeInUp">
