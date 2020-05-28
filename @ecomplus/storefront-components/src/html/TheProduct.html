@@ -137,6 +137,15 @@
             {{ i19unitsInStock }}
           </p>
 
+          <slot name="share">
+            <a-share
+              v-if="body.slug"
+              :url="`/${body.slug}`"
+              :title="body.name"
+              :description="body.short_description"
+            />
+          </slot>
+
           <transition enter-active-class="animated fadeInUp">
             <slot
               name="payment-gateways"

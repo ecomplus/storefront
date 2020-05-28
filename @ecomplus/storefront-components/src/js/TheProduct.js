@@ -2,7 +2,6 @@ import {
   i19buy,
   i19close,
   i19discountOf,
-  i19inStock,
   i19loadProductErrorMsg,
   i19only,
   i19outOfStock,
@@ -27,6 +26,7 @@ import { store, modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import AAlert from '../AAlert.vue'
 import APrices from '../APrices.vue'
+import AShare from '../AShare.vue'
 import ProductVariations from '../ProductVariations.vue'
 import ProductGallery from '../ProductGallery.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
@@ -52,6 +52,7 @@ export default {
   components: {
     AAlert,
     APrices,
+    AShare,
     ProductVariations,
     ProductGallery,
     ShippingCalculator,
@@ -96,7 +97,6 @@ export default {
   computed: {
     i19close: () => i18n(i19close),
     i19discountOf: () => i18n(i19discountOf),
-    i19inStock: () => i18n(i19inStock),
     i19loadProductErrorMsg: () => i18n(i19loadProductErrorMsg),
     i19only: () => i18n(i19only),
     i19outOfStock: () => i18n(i19outOfStock),
