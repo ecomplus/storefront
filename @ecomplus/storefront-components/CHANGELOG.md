@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.21](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.20...@ecomplus/storefront-components@1.0.0-beta.21) (2020-05-28)
+
+
+### Features
+
+* **product:** show success button when product on cart ([069e0c0](https://github.com/ecomplus/storefront/commit/069e0c09c6d97c98f5d62306ef8688d930c5de86))
+
+
+
+
+
 # [1.0.0-beta.20](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.19...@ecomplus/storefront-components@1.0.0-beta.20) (2020-05-28)
 
 
