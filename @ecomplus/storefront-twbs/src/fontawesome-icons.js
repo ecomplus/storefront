@@ -8,7 +8,8 @@ import {
   faTwitter,
   faYoutube,
   faInstagram,
-  faWhatsapp
+  faWhatsapp,
+  faTelegram
 } from '@fortawesome/free-brands-svg-icons'
 
 import {
@@ -85,6 +86,7 @@ library.add(
   faYoutube,
   faInstagram,
   faWhatsapp,
+  faTelegram,
   faTag,
   faHashtag,
   faShoppingBag,
