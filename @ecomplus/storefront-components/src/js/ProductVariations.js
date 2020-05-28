@@ -100,6 +100,7 @@ export default {
         const variation = variations[i]
         if (!checkStock(variation)) {
           variations.splice(i, 1)
+          i--
         } else {
           const { specifications } = variation
           for (const grid in specifications) {
