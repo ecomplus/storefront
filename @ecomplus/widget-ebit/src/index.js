@@ -106,16 +106,14 @@ export default (options = {}) => {
                 if ($confirmation) {
                   $confirmation.insertAdjacentHTML(
                     'beforeend',
-                    `<div>
-                      <param id="ebitParam" value="${ebitParam}">
-                      <a id="bannerEbit"></a>
-                      <script
-                        type="text/javascript"
-                        id="getSelo"
-                        src="https://imgs.ebit.com.br/ebitBR/selo-ebit/js/getSelo.js?${ebitStoreId}&lightbox=true"
-                      ></script>
-                    </div>`
+                    `<div> <param id="ebitParam" value="${ebitParam}"> <a id="bannerEbit"></a> </div>`
                   )
+                  const $script = document.createElement('script')
+                  $script.id = 'getSelo'
+                  $script.type = 'text/javascript'
+                  $script.src = 'https://imgs.ebit.com.br/ebitBR/selo-ebit/js/getSelo.js' +
+                    `?${ebitStoreId}&lightbox=true`
+                  document.body.appendChild($script)
                   clearInterval(tryAppendInterval)
                 }
               }
