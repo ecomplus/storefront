@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-ebit@1.1.3...@ecomplus/widget-ebit@1.1.4) (2020-05-29)
+
+
+### Bug Fixes
+
+* **ebit-lightbox:** fix loading ebit script dynamically ([0fb0d51](https://github.com/ecomplus/storefront/commit/0fb0d51b64cdf17d469488b0404e77b6b8635c08))
+
+
+
+
+
 ## [1.1.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-ebit@1.1.2...@ecomplus/widget-ebit@1.1.3) (2020-05-26)
 
 **Note:** Version bump only for package @ecomplus/widget-ebit

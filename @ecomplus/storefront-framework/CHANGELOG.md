@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.11...@ecomplus/storefront-framework@5.12.12) (2020-05-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency markdown-it to v11 ([#236](https://github.com/ecomplus/storefront/issues/236)) ([7728fd3](https://github.com/ecomplus/storefront/commit/7728fd32a3fc27a95426edd8aaaf3699f3f4e59c))
+
+
+
+
+
 ## [5.12.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.10...@ecomplus/storefront-framework@5.12.11) (2020-05-28)
 
 
