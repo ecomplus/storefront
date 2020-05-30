@@ -24,6 +24,7 @@ import {
 
 import { store, modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
+import sortApps from './lib/sort-apps'
 import ALink from '../ALink.vue'
 import AAlert from '../AAlert.vue'
 import APrices from '../APrices.vue'
@@ -85,6 +86,12 @@ export default {
     cartUrl: {
       type: String,
       default: '/app/#/cart'
+    },
+    paymentAppsSort: {
+      type: Array,
+      default () {
+        return window.ecomPaymentApps || []
+      }
     }
   },
 
@@ -248,6 +255,9 @@ export default {
             }
           })
             .then(({ data }) => {
+              if (Array.isArray(this.paymentAppsSort) && this.paymentAppsSort.length) {
+                sortApps(data.result, this.paymentAppsSort)
+              }
               this.paymentOptions = data.result
                 .reduce((paymentOptions, appResult) => {
                   if (appResult.validated) {
