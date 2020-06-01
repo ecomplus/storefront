@@ -13,19 +13,18 @@
     a {
       color: var(--white) !important;
     }
-    
   }
 }
 
-.col{
+.col {
   color: var(--white);
 }
 
 .header {
-  align-self: center !important; 
+  align-self: center !important;
   justify-content: space-between !important;
   background-color: var(--dark) !important;
-  border-color: var(--dark) !important;
+  border-color: black !important;
   &__toggler {
     svg {
       color: var(--white);
@@ -36,9 +35,8 @@
       color: var(--white) !important;
     }
   }
-  &__search-input{
+  &__search-input {
     background-color: var(--gray);
-    border-color: var(--blue) !important;
     &::placeholder {
       color: var(--light);
     }
@@ -94,7 +92,6 @@
       color: var(--white);
       background-color: var(--gray);
       border-color: var(--dark);
-      
     }
     button:hover {
       background-color: var(--dark);
@@ -114,7 +111,7 @@
   &__name {
     color: var(--dark);
   }
-  &__prices{
+  &__prices {
     color: black;
   }
   &__buy {
@@ -244,7 +241,7 @@
       color: var(--white) !important;
     }
   }
-  background-color: var(--dark) !important;
+  background-color: var(--gray) !important;
 }
 
 .menu {
