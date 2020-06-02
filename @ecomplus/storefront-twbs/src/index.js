@@ -13,6 +13,8 @@ import './fontawesome-icons'
 
 const _self = name + '@' + version
 
+export * from './_env'
+
 export {
   _self,
   $,
