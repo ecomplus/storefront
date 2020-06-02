@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.23](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.22...@ecomplus/storefront-components@1.0.0-beta.23) (2020-06-02)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.3.2 ([042f082](https://github.com/ecomplus/storefront/commit/042f082e89ee8c4627407d3bbf3e38804ef3fb92))
+* **discount-applier:** fix local amount calc ([1f6c38e](https://github.com/ecomplus/storefront/commit/1f6c38e4842a87f505cb692f519731b813b28eac))
+* **shipping-calculator:** ensure skip progress bar if no 50% for free ([841ca10](https://github.com/ecomplus/storefront/commit/841ca1090737de1bcbd722ee2be20329710600f3))
+
+
+### Features
+
+* **product:** add 'free shipping from' info ([397bad5](https://github.com/ecomplus/storefront/commit/397bad555a91095870fbc22588efa9fe830b00f1))
+* **product:** handling optional payment apps sort array ([550aad3](https://github.com/ecomplus/storefront/commit/550aad38fdff0fc7ef8ac57657af160be18b72ff))
+* **recommended-items:** new 'RecommendedItems' component :tada: ([083ddd7](https://github.com/ecomplus/storefront/commit/083ddd7d4b1b675103524753e86523fa625cc112))
+* **shipping-calculator:** add 'free-from-value' and 'option' slots ([6a91188](https://github.com/ecomplus/storefront/commit/6a911885b6440dd9041002304284416f992ffd27))
+
+
+
+
+
 # [1.0.0-beta.22](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.21...@ecomplus/storefront-components@1.0.0-beta.22) (2020-05-28)
 
 

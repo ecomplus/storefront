@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.12...@ecomplus/storefront-framework@5.12.13) (2020-06-02)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.3.2 ([042f082](https://github.com/ecomplus/storefront/commit/042f082e89ee8c4627407d3bbf3e38804ef3fb92))
+
+
+
+
+
 ## [5.12.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.11...@ecomplus/storefront-framework@5.12.12) (2020-05-29)
 
 

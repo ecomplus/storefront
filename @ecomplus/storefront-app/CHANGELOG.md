@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.21](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.20...@ecomplus/storefront-app@2.0.0-beta.21) (2020-06-02)
+
+
+### Features
+
+* **cart/checkout:** handle recommended products ([344a06d](https://github.com/ecomplus/storefront/commit/344a06d3cd8b8fe5eb3e7fad7446a985b603346b))
+
+
+
+
+
 # [2.0.0-beta.20](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.19...@ecomplus/storefront-app@2.0.0-beta.20) (2020-05-28)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.27](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.26...@ecomplus/storefront-template@2.0.0-beta.27) (2020-06-02)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.3.2 ([042f082](https://github.com/ecomplus/storefront/commit/042f082e89ee8c4627407d3bbf3e38804ef3fb92))
+* **meta-tags:** og:image for resource pages with document picture ([3122125](https://github.com/ecomplus/storefront/commit/31221258aebb65dfc8f3325d85622deeb6f7ee42))
+* **offers-timer:** better grid cols by number of items ([a0f90b9](https://github.com/ecomplus/storefront/commit/a0f90b9b42ac13c6b684108a94d092d8bfb1a700))
+
+
+
+
+
 # [2.0.0-beta.26](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.25...@ecomplus/storefront-template@2.0.0-beta.26) (2020-05-29)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
