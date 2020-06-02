@@ -12,7 +12,8 @@ import {
 import { graphs } from '@ecomplus/client'
 import EcomSearch from '@ecomplus/search-engine'
 import ecomCart from '@ecomplus/shopping-cart'
-import addIdleCallback from './lib/add-idle-callback'
+import { isMobile } from '@ecomplus/storefront-twbs'
+import addIdleCallback from './helpers/add-idle-callback'
 import ProductCard from '../ProductCard.vue'
 
 export default {
@@ -25,7 +26,7 @@ export default {
   props: {
     pageSize: {
       type: Number,
-      default: 4
+      default: !isMobile ? 4 : 2
     },
     sortOrder: {
       type: String,
@@ -48,7 +49,9 @@ export default {
       default () {
         return {
           isSmall: true,
-          buyText: i18n(i19add)
+          buyText: i18n(i19add),
+          installmentsOption: {},
+          discountOption: {}
         }
       }
     },

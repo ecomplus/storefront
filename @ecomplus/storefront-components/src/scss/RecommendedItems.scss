@@ -1,7 +1,11 @@
 .recommended-items {
-  &__title,
+  &__title {
+    text-align: center;
+  }
+
   &__load-more {
     text-align: center;
+    margin-bottom: var(--spacer-3);
   }
 
   .row {
@@ -10,5 +14,11 @@
 
   .product-card {
     margin-bottom: var(--spacer-2);
+
+    &__buy {
+      opacity: 1;
+      position: static;
+      display: block;
+    }
   }
 }
