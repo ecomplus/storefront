@@ -16,15 +16,13 @@
   }
 }
 
-.col {
-  color: var(--white);
-}
+
 
 .header {
   align-self: center !important;
   justify-content: space-between !important;
   background-color: var(--dark) !important;
-  border-color: black !important;
+  border-color: var(--dark) !important;
   &__toggler {
     svg {
       color: var(--white);
@@ -37,6 +35,7 @@
   }
   &__search-input {
     background-color: var(--gray);
+    border-color: var(--blue) !important;
     &::placeholder {
       color: var(--light);
     }
@@ -131,6 +130,28 @@
       background-color: var(--gray) !important;
       border-color: var(--dark) !important;
     }
+  }
+}
+
+.prices {
+  &__value {
+    color: var(--dark);
+  }
+  &__installments {
+    color: var(--dark);
+  }
+}
+
+.minicart {
+  &__aside {
+    .prices {
+      &__value {
+        color: var(--light);
+      }
+      &__installments {
+        color: var(--light);
+      }
+    }    
   }
 }
 
@@ -266,6 +287,7 @@
 
 .list-unstyled {
   li {
+    color: var(--white);
     a {
       color: var(--white);
     }
