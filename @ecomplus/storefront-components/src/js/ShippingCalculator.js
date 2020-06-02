@@ -209,10 +209,15 @@ export default {
     shippedItems: {
       handler () {
         this.localShippedItems = this.shippedItems.map(reduceItemBody)
+        const { amountSubtotal } = this
         this.amountSubtotal = this.shippedItems.reduce((subtotal, item) => {
           return subtotal + getPrice(item) * item.quantity
         }, 0)
-        if (this.hasCalculated) {
+        if (
+          this.hasCalculated &&
+          (this.canSelectServices || amountSubtotal !== this.amountSubtotal ||
+            (!this.shippingServices.length && !this.isWaiting))
+        ) {
           this.fetchShippingServices()
         }
       },
