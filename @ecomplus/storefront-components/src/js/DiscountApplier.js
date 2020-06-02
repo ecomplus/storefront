@@ -114,6 +114,8 @@ export default {
           if (this.localCouponCode) {
             this.alertText = invalidCouponMsg || this.i19invalidCouponMsg
             this.alertVariant = 'warning'
+          } else {
+            this.alertText = null
           }
           this.$emit('set-discount-rule', {})
         }
@@ -201,26 +203,23 @@ export default {
       }
     },
 
-    localAmountTotal () {
-      if (!this.isUpdateSheduled) {
+    localAmountTotal (total, oldTotal) {
+      if (Math.abs(total - oldTotal) > 0.01 && !this.isUpdateSheduled) {
         this.isUpdateSheduled = true
         this.$nextTick(() => {
           setTimeout(() => {
             this.updateDiscount()
             this.isUpdateSheduled = false
-          }, 150)
+          }, 400)
         })
       }
     },
 
     amount: {
-      handler (amount) {
-        const discountDiff = amount.discount - this.extraDiscountValue
+      handler ({ subtotal, freight, discount }, oldAmount) {
+        const discountDiff = discount - this.extraDiscountValue
         this.localAmountDiscount = discountDiff > 0.01 ? discountDiff : 0
-        const fixedTotal = amount.total + this.extraDiscountValue
-        if (Math.abs(fixedTotal - this.localAmountTotal) > 0.01) {
-          this.localAmountTotal = fixedTotal
-        }
+        this.localAmountTotal = subtotal + freight - discountDiff
       },
       deep: true
     }
