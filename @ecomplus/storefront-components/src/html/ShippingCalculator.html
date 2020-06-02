@@ -91,9 +91,11 @@
             <strong>{{ i19freeShipping }}</strong>
           </span>
 
-          <div class="progress">
+          <div
+            v-if="freeFromPercentage >= 50"
+            class="progress"
+          >
             <div
-              v-if="freeFromPercentage >= 50"
               class="progress-bar progress-bar-striped"
               role="progressbar"
               :style="`width: ${freeFromPercentage}%`"
