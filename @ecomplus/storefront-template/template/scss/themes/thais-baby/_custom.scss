@@ -1,0 +1,340 @@
+#ec-user-popover {
+  margin-right: 0.5rem;
+}
+
+.top-bar {
+  background-color: var(--indigo) !important;
+  &__countdown {
+    background-color: var(--pink) !important;
+    color: var(--light) !important;
+    font-weight: var(--font-bold) !important;
+  }
+  &__nav {
+    a {
+      color: var(--cyan) !important;
+    }
+  }
+}
+
+.col-auto {
+  a {
+    svg {
+      path {
+        color: var(--cyan);
+      }
+    }
+  }
+}
+
+.header {
+  background-color: var(--indigo) !important;
+  border-color: var(--pink) !important;
+  &__toggler {
+    svg {
+      color: var(--pink);
+    }
+  }
+  &__search-btn {
+    svg {
+      color: var(--light) !important;
+    }
+  }
+  &__search-input {
+    background-color: var(--cyan);
+    &::placeholder {
+      color: var(--light);
+    }
+  }
+  &__nav {
+    a {
+      color: var(--cyan);
+      background-color: var(--indigo);
+    }
+    a:hover {
+      color: var(--indigo);
+      background-color: var(--cyan) !important;
+      font-weight: var(--font-bold) !important;
+    }
+  }
+}
+
+#user-button {
+  color: var(--pink);
+}
+#user-button:hover {
+  color: var(--cyan);
+}
+
+#cart-button {
+  color: var(--pink);
+}
+#cart-button:hover {
+  color: var(--cyan);
+}
+
+.breadcrumb {
+  padding-left: 1rem;
+  a {
+    color: var(--cyan);
+  }
+}
+
+.info-bar {
+  background-color: var(--pink) !important;
+  color: var(--light) !important;
+  font-weight: var(--font-bold) !important;
+}
+
+.product-card {
+  a {
+    text-decoration: none !important;
+  }
+  &__name {
+    color: var(--pink) !important;
+    &:hover {
+      color: var(--cyan) !important;
+    }
+  }
+  &__buy {
+    button {
+      color: var(--light);
+      background-color: var(--cyan);
+      border-color: var(--indigo);
+    }
+    button:hover {
+      background-color: var(--pink);
+      color: var(--light);
+      border-color: var(--pink);
+      font-weight: var(--font-bold) !important;
+    }
+    button:focus {
+      background-color: var(--indigo) !important;
+      color: var(--pink) !important;
+      border-color: var(--cyan) !important;
+    }
+  }
+}
+
+.product {
+  &__name {
+    color: var(--cyan);
+  }
+  &__prices {
+    color: var(--pink);
+    font-weight: var(--font-bold);
+  }
+  &__buy {
+    button {
+      background-color: var(--pink) !important;
+      color: var(--indigo) !important;
+      border-color: var(--indigo) !important;
+    }
+    button:hover {
+      background-color: var(--indigo) !important;
+      color: var(--pink) !important;
+      border-color: var(--cyan) !important;
+      box-shadow: 0 0 0 0.2rem rgba(#6c757d, 0.25) !important;
+    }
+    button:focus {
+      color: var(--pink) !important;
+      background-color: var(--cyan) !important;
+      border-color: var(--indigo) !important;
+    }
+  }
+}
+
+.summary {
+  color: var(--pink);
+  font-weight: var(--font-bold);
+  &__buyer {
+    button {
+      color: var(--indigo);
+      background-color: var(--pink);
+      border-color: var(--pink);
+    }
+    button:hover {
+      background-color: var(--cyan);
+      color: var(--indigo);
+      border-color: var(--indigo);
+      font-weight: var(--font-bold);
+    }
+  }
+  &__item {
+    background-color: var(--indigo);
+    color: var(--cyan);
+    span {
+      background-color: var(--pink);
+    }
+  }
+}
+
+.prices {
+  &__value {
+    color: var(--cyan) !important;
+  }
+}
+
+.discount-applier {
+  &__coupon-btn {
+    background-color: var(--cyan);
+    color: var(--indigo);
+    border-color: var(--indigo);
+  }
+  &__coupon-btn:hover {
+    color: var(--indigo);
+    background-color: var(--pink);
+    border-color: var(--pink);
+    font-weight: var(--font-bold);
+  }
+}
+
+.cart-item {
+  &__data {
+    color: var(--cyan) !important;
+    svg {
+      color: var(--cyan);
+    }
+  }
+}
+
+#cart-count {
+  background-color: var(--pink);
+}
+
+.card-header {
+  background-color: var(--indigo);
+  color: var(--pink);
+  button {
+    color: var(--pink);
+  }
+}
+
+.card-footer {
+  background-color: var(--indigo) !important;
+  .minicart {
+    &__summary {
+      font-weight: var(--font-bold);
+      color: var(--cyan);
+    }
+    &__btn-checkout {
+      background-color: var(--pink);
+      color: var(--indigo);
+      border-color: var(--cyan);
+    }
+    &__btn-checkout:hover {
+      border-color: var(--pink) !important;
+      box-shadow: 0 0 0 0.2rem rgba(var(--pink), 0.25);
+      font-weight: var(--font-bold) !important;
+    }
+    &__btn-cart {
+      background-color: var(--light);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+    &__btn-cart:hover {
+      border-color: var(--pink) !important;
+      font-weight: var(--font-bold) !important;
+    }
+  }
+}
+
+.search {
+  &__input-group {
+    input:focus {
+      border-color: var(--pink) !important;
+      box-shadow: 0 0 0 0.2rem rgba(var(--pink), 0.25);
+    }
+    button {
+      svg:hover {
+        color: var(--cyan);
+      }
+      svg {
+        color: var(--pink);
+      }
+    }
+  }
+  &__count {
+    button {
+      background-color: var(--indigo);
+      color: var(--pink);
+      border-color: var(--indigo);
+    }
+    button:hover {
+      color: var(--pink);
+      background-color: var(--indigo);
+      border-color: var(--indigo);
+    }
+  }
+}
+
+.footer {
+  &__social {
+    a {
+      svg {
+        color: var(--pink);
+      }
+    }
+  }
+  &__links {
+    li {
+      color: var(--pink) !important;
+      a {
+        color: var(--pink);
+      }
+    }
+  }
+  &__title {
+    color: var(--pink) !important;
+    font-weight: var(--font-bold) !important;
+  }
+  &__list-icon {
+    svg {
+      color: var(--pink);
+    }
+    a {
+      color: var(--pink) !important;
+    }
+  }
+  background-color: var(--indigo) !important;
+}
+
+.menu {
+  &__footer {
+    a {
+      color: var(--indigo) !important;
+    }
+  }
+  &__list {
+    a {
+      color: var(--cyan);
+    }
+  }
+  &__social {
+    a {
+      svg {
+        color: var(--cyan);
+      }
+    }
+  }
+}
+
+.list-unstyled {
+  li {
+    a {
+      color: var(--pink);
+    }
+  }
+  color: var(--cyan);
+}
+
+#go-to-top {
+  background-color: var(--cyan);
+  color: var(--light);
+  border-color: var(--cyan);
+}
+
+#go-to-top:hover {
+  color: var(--light);
+  background-color: var(--pink);
+  border-color: var(--pink);
+}
