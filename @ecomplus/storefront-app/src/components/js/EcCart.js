@@ -10,6 +10,7 @@ import APrices from '#components/APrices.vue'
 import CartItem from '#components/CartItem.vue'
 import DiscountApplier from '#components/DiscountApplier.vue'
 import ShippingCalculator from '#components/ShippingCalculator.vue'
+import RecommendedItems from '#components/RecommendedItems.vue'
 
 import {
   i19checkout,
@@ -25,7 +26,8 @@ export default {
     APrices,
     CartItem,
     DiscountApplier,
-    ShippingCalculator
+    ShippingCalculator,
+    RecommendedItems
   },
 
   props: {

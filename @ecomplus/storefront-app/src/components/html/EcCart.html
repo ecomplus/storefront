@@ -18,6 +18,8 @@
           </slot>
         </div>
 
+        <recommended-items/>
+
         <slot name="back-shopping">
           <div class="cart__back d-none d-md-block my-4">
             <a
@@ -30,15 +32,6 @@
             </a>
           </div>
         </slot>
-
-        <discount-applier
-          class="cart__discount"
-          :amount="amount"
-          :coupon-code.sync="localDiscountCoupon"
-          :is-coupon-applied="Boolean(discountCoupon && amount.discount)"
-          @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
-          :modules-payload="modulesPayload"
-        />
       </div>
 
       <div class="col-md-5 col-lg-4">
@@ -99,6 +92,17 @@
             </slot>
           </slot>
         </div>
+
+        <slot name="discount-applier">
+          <discount-applier
+            class="cart__discount"
+            :amount="amount"
+            :coupon-code.sync="localDiscountCoupon"
+            :is-coupon-applied="Boolean(discountCoupon && amount.discount)"
+            @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
+            :modules-payload="modulesPayload"
+          />
+        </slot>
       </div>
     </div>
 

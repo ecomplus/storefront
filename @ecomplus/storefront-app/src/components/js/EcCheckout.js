@@ -1,4 +1,11 @@
 import {
+  // i19addToCart,
+  // i19buyAlsoMsg,
+  i19checkout
+  // i19selectedOffers
+} from '@ecomplus/i18n'
+
+import {
   i18n,
   name,
   formatMoney,
@@ -12,6 +19,7 @@ import DiscountApplier from '#components/DiscountApplier.vue'
 import LoginBlock from '#components/LoginBlock.vue'
 import ShippingCalculator from '#components/ShippingCalculator.vue'
 import ShippingLine from '#components/ShippingLine.vue'
+import RecommendedItems from '#components/RecommendedItems.vue'
 import PaymentMethods from '../PaymentMethods.vue'
 import EcAccountForm from '../EcAccountForm.vue'
 import EcAddresses from '../EcAddresses.vue'
@@ -44,6 +52,7 @@ export default {
     LoginBlock,
     ShippingLine,
     ShippingCalculator,
+    RecommendedItems,
     PaymentMethods,
     EcAccountForm,
     EcAddresses,
@@ -89,16 +98,22 @@ export default {
 
   data () {
     return {
+      checkoutAppId: 1,
       toCheckoutStep: this.checkoutStep,
       customerEmail: this.customer.main_email,
       isUserIdentified: Boolean(this.customer.main_email),
       editAccount: false,
       editShippingService: !this.shippingService,
-      localZipCode: this.shippingZipCode
+      localZipCode: this.shippingZipCode,
+      hasMoreOffers: false
     }
   },
 
   computed: {
+    i19addToCart: () => 'Adicionar ao carrinho',
+    i19buyAlsoMsg: () => 'Aproveite e leve também',
+    i19checkout: () => i18n(i19checkout),
+    i19selectedOffers: () => 'Ofertas selecionadas',
     modulesPayload: () => baseModulesRequestData,
 
     dictionary () {
@@ -225,6 +240,20 @@ export default {
     selectAddress (addressId) {
       this.$emit('addressSelected', addressId)
       this.updateZipCode()
+    },
+
+    goToTop () {
+      window.scroll({
+        top: this.$el.offsetTop - 15,
+        behavior: 'smooth'
+      })
+    },
+
+    goToOffers () {
+      window.scroll({
+        top: this.$refs.offers.$el.offsetTop - 15,
+        behavior: 'smooth'
+      })
     }
   },
 
@@ -242,10 +271,7 @@ export default {
 
     toCheckoutStep (stepNumber) {
       this.$emit('update:checkoutStep', stepNumber)
-      window.scroll({
-        top: this.$el.offsetTop - 15,
-        behavior: 'smooth'
-      })
+      this.goToTop()
     },
 
     enabledCheckoutStep () {
@@ -256,5 +282,11 @@ export default {
   created () {
     this.autoMoveStep()
     this.updateZipCode()
+    this.ecomCart.on('addItem', () => {
+      this.checkoutAppId++
+      this.$nextTick(() => {
+        this.goToTop()
+      })
+    })
   }
 }
