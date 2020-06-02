@@ -18,12 +18,12 @@
           </slot>
         </div>
 
-        <recommended-items/>
+        <recommended-items col-class-name="col-6 col-lg-3"/>
 
         <slot name="back-shopping">
           <div class="cart__back d-none d-md-block my-4">
             <a
-              class="cart__btn-back btn btn-light"
+              class="cart__btn-back btn btn-link"
               role="button"
               href="/"
             >
@@ -34,7 +34,7 @@
         </slot>
       </div>
 
-      <div class="col-md-5 col-lg-4">
+      <div class="col-md-5 col-lg-4 mt-3 mt-md-0">
         <div class="cart__info">
           <slot name="info">
             <div class="cart__summary-row">
