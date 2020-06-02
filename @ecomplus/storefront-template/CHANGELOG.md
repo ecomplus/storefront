@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.28](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.27...@ecomplus/storefront-template@2.0.0-beta.28) (2020-06-02)
+
+
+### Bug Fixes
+
+* **cms:** skip collection shelf sections on retail pages ([f5926eb](https://github.com/ecomplus/storefront/commit/f5926ebf8be6b7e236da6691ffbb701736e13b30))
+
+
+
+
+
 # [2.0.0-beta.27](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.26...@ecomplus/storefront-template@2.0.0-beta.27) (2020-06-02)
 
 

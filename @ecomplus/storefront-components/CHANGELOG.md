@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.24](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.23...@ecomplus/storefront-components@1.0.0-beta.24) (2020-06-02)
+
+
+### Bug Fixes
+
+* **recommended-items:** fix handling pagination (load more) ([d3e4802](https://github.com/ecomplus/storefront/commit/d3e4802bfc0d6ac4d428b1de07ca426277c3cf1f))
+* **recommended-items:** styles/props fixes for mobile ([c174b5d](https://github.com/ecomplus/storefront/commit/c174b5debcf7b804abe0996f010252bbd323038b))
+* **shipping-calculator:** preventing unecessary update fetch ([e718eff](https://github.com/ecomplus/storefront/commit/e718effb05e08e5d22e7a1db563937e1b2edf795))
+
+
+### Features
+
+* **product-card:** add 'installmentsOption' and 'discountOption' ([4e3217f](https://github.com/ecomplus/storefront/commit/4e3217f037e6a5a461cd7066d17134e2689564af))
+
+
+
+
+
 # [1.0.0-beta.23](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.22...@ecomplus/storefront-components@1.0.0-beta.23) (2020-06-02)
 
 

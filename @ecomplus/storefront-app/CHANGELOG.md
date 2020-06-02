@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.22](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.21...@ecomplus/storefront-app@2.0.0-beta.22) (2020-06-02)
+
+
+### Bug Fixes
+
+* **cart:** minor spacing fix for mobile view ([4675a62](https://github.com/ecomplus/storefront/commit/4675a629dd9ba12065177bae665c2002a10fae78))
+
+
+
+
+
 # [2.0.0-beta.21](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.20...@ecomplus/storefront-app@2.0.0-beta.21) (2020-06-02)
 
 
