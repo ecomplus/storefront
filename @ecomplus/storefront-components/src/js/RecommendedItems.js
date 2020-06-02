@@ -91,7 +91,7 @@ export default {
   methods: {
     fetchItems () {
       delete this.ecomSearch.dsl.aggs
-      this.ecomSearch.fetch().then(() => {
+      this.ecomSearch.setPageNumber(this.pageNumber).fetch().then(() => {
         this.items = this.items.concat(this.ecomSearch.getItems())
         this.totalCount = this.ecomSearch.getTotalCount()
         if (this.totalCount) {
