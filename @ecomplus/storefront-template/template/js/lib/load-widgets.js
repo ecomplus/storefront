@@ -1,4 +1,4 @@
-import { isMobile } from './_env'
+import { isMobile } from '@ecomplus/storefront-twbs'
 import emitter from './emitter'
 import ecomClient from '@ecomplus/client'
 import EcomSearch from '@ecomplus/search-engine'

@@ -1,5 +1,4 @@
-import { isScreenLg } from './_env'
-import { $ } from '@ecomplus/storefront-twbs'
+import { isScreenLg, $ } from '@ecomplus/storefront-twbs'
 
 const $searchBar = $('#search-bar')
 
