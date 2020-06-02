@@ -39,4 +39,9 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  &__free-shipping-from {
+    font-size: var(--font-size);
+    color: var(--secondary);
+  }
 }
