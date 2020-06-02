@@ -1,0 +1,14 @@
+.recommended-items {
+  &__title,
+  &__load-more {
+    text-align: center;
+  }
+
+  .row {
+    justify-content: space-around;
+  }
+
+  .product-card {
+    margin-bottom: var(--spacer-2);
+  }
+}
