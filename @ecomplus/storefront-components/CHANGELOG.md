@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.26](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.25...@ecomplus/storefront-components@1.0.0-beta.26) (2020-06-03)
+
+
+### Bug Fixes
+
+* **search-engine:** check term string to handle suggestions ([89800f4](https://github.com/ecomplus/storefront/commit/89800f422cd211891001c4afeb509faf1b2d937b))
+
+
+
+
+
 # [1.0.0-beta.25](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.24...@ecomplus/storefront-components@1.0.0-beta.25) (2020-06-03)
 
 
