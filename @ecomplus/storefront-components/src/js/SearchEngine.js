@@ -273,40 +273,42 @@ export default {
     },
 
     handleSuggestions () {
-      const { ecomSearch } = this
-      const term = this.term.toLowerCase()
-      let suggestTerm = term
-      let canAutoFix = false
-      this.suggestedTerm = ''
-      ecomSearch.getTermSuggestions().forEach(({ options, text }) => {
-        if (options.length) {
-          const opt = options[0]
-          const optTerm = opt.text.toLowerCase()
-          if (
-            !this.totalSearchResults &&
-            this.autoFixScore > 0 &&
-            opt.score >= this.autoFixScore &&
-            optTerm.indexOf(term) === -1
-          ) {
-            canAutoFix = true
+      if (this.term) {
+        const { ecomSearch } = this
+        const term = this.term.toLowerCase()
+        let suggestTerm = term
+        let canAutoFix = false
+        this.suggestedTerm = ''
+        ecomSearch.getTermSuggestions().forEach(({ options, text }) => {
+          if (options.length) {
+            const opt = options[0]
+            const optTerm = opt.text.toLowerCase()
+            if (
+              !this.totalSearchResults &&
+              this.autoFixScore > 0 &&
+              opt.score >= this.autoFixScore &&
+              optTerm.indexOf(term) === -1
+            ) {
+              canAutoFix = true
+            }
+            suggestTerm = suggestTerm.replace(new RegExp(text, 'i'), optTerm)
           }
-          suggestTerm = suggestTerm.replace(new RegExp(text, 'i'), optTerm)
-        }
-      })
-      if (!this.keepNoResultsTerm) {
-        this.noResultsTerm = ''
-      } else {
-        this.keepNoResultsTerm = false
-      }
-      if (suggestTerm !== term) {
-        if (canAutoFix) {
-          this.noResultsTerm = term
-          this.keepNoResultsTerm = true
-          this.$emit('update:term', suggestTerm)
+        })
+        if (!this.keepNoResultsTerm) {
+          this.noResultsTerm = ''
         } else {
-          this.suggestedTerm = suggestTerm
+          this.keepNoResultsTerm = false
         }
-        ecomSearch.history.shift()
+        if (suggestTerm !== term) {
+          if (canAutoFix) {
+            this.noResultsTerm = term
+            this.keepNoResultsTerm = true
+            this.$emit('update:term', suggestTerm)
+          } else {
+            this.suggestedTerm = suggestTerm
+          }
+          ecomSearch.history.shift()
+        }
       }
     },
 
