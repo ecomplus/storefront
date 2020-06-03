@@ -273,22 +273,24 @@ export default {
     },
 
     handleSuggestions () {
-      const { ecomSearch, term } = this
+      const { ecomSearch } = this
+      const term = this.term.toLowerCase()
       let suggestTerm = term
       let canAutoFix = false
       this.suggestedTerm = ''
       ecomSearch.getTermSuggestions().forEach(({ options, text }) => {
         if (options.length) {
           const opt = options[0]
+          const optTerm = opt.text.toLowerCase()
           if (
             !this.totalSearchResults &&
             this.autoFixScore > 0 &&
             opt.score >= this.autoFixScore &&
-            opt.text.indexOf(term) === -1
+            optTerm.indexOf(term) === -1
           ) {
             canAutoFix = true
           }
-          suggestTerm = suggestTerm.replace(text, opt.text)
+          suggestTerm = suggestTerm.replace(new RegExp(text, 'i'), optTerm)
         }
       })
       if (!this.keepNoResultsTerm) {
