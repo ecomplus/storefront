@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.25](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.24...@ecomplus/storefront-components@1.0.0-beta.25) (2020-06-03)
+
+
+### Bug Fixes
+
+* **product-card:** style fix for chrome mobile ([38d9415](https://github.com/ecomplus/storefront/commit/38d9415d91ac58ea5dcaafdafd3be78c0329f94b))
+* **search-engine:** fix handling suggestions with case insensitive terms ([c5d682b](https://github.com/ecomplus/storefront/commit/c5d682b10eedda7491bc93bdbe087ed7842a3bf5))
+
+
+
+
+
 # [1.0.0-beta.24](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.23...@ecomplus/storefront-components@1.0.0-beta.24) (2020-06-02)
 
 
