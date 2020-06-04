@@ -8,3 +8,17 @@
     }
 }
 
+.header {
+    &__nav {
+        display: flex;
+        justify-content: space-around;
+        a {
+            color: $black;
+            font-weight: var(--font-bold) !important;
+        }
+        a:hover {
+            background-color: transparent !important;
+            border-bottom: solid 2px $gray-600;
+        }
+    }
+}
