@@ -22,7 +22,12 @@
           <span class="badge badge-secondary">
             {{ item.quantity }}
           </span>
-          {{ formatMoney(getPrice(item)) }}
+          <component
+            :is="Array.isArray(item.flags) && item.flags.includes('freebie')
+              ? 's' : 'span'"
+          >
+            {{ formatMoney(getPrice(item)) }}
+          </component>
           <br>
           <a-link
             v-if="item.slug"
