@@ -1,4 +1,7 @@
-<section class="cart-item">
+<section
+  class="cart-item"
+  :class="isFreebie ? 'cart-item--freebie' : null"
+>
   <div class="cart-item__container">
     <div class="cart-item__thumb">
       <component
@@ -15,6 +18,7 @@
 
     <div class="cart-item__data">
       <button
+        v-if="!isFreebie"
         type="button"
         class="close"
         :title="i19remove"
@@ -22,6 +26,13 @@
       >
         <i class="fas fa-trash-alt"></i>
       </button>
+      <span
+        v-else
+        class="cart-item__freebie"
+      >
+        <i class="fas fa-gift mr-1"></i>
+        {{ i19freebie }}
+      </span>
 
       <div
         class="cart-item__name"
