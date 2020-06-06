@@ -23,13 +23,18 @@
           <span class="badge badge-secondary">
             {{ item.quantity }}
           </span>
-          <component
-            :is="Array.isArray(item.flags) && item.flags.includes('freebie')
-              ? 's' : 'span'"
-          >
+          <template v-if="Array.isArray(item.flags) && item.flags.includes('freebie')">
+            <s>{{ formatMoney(getPrice(item)) }}</s>
+            <small class="text-muted">
+              <i class="fas fa-gift ml-2 mr-1"></i>
+              {{ i19freebie }}
+            </small>
+          </template>
+          <template v-else>
             {{ formatMoney(getPrice(item)) }}
-          </component>
+          </template>
           <br>
+
           <a-link
             v-if="item.slug"
             :href="`/${item.slug}`"
