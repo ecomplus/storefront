@@ -2,6 +2,7 @@ import { name, version } from '../../package.json'
 import './lib/config'
 import '@ecomplus/storefront-twbs'
 
+import './lib/clearfix'
 import './lib/utils'
 import './lib/lazy-load'
 import './lib/glide-slides'
