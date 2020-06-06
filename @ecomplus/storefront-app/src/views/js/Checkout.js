@@ -170,6 +170,7 @@ export default {
   },
 
   destroyed () {
+    this.selectPaymentGateway(null)
     this.setFluidPage(false)
     clearInterval(this.updateInterval)
   }
