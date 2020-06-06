@@ -254,6 +254,11 @@ export default {
         top: this.$refs.offers.$el.offsetTop - 15,
         behavior: 'smooth'
       })
+    },
+
+    selectPaymentGateway (gateway) {
+      this.$emit('update:paymentGateway', gateway)
+      this.goToTop()
     }
   },
 

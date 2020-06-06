@@ -122,7 +122,7 @@
                     :key="paymentsListKey"
                     :amount="amount"
                     :customer="localCustomer"
-                    @select-gateway="gateway => $emit('update:paymentGateway', gateway)"
+                    @select-gateway="selectPaymentGateway"
                     @checkout="transaction => $emit('checkout', transaction)"
                   />
 
@@ -162,6 +162,7 @@
               </template>
 
               <discount-applier
+                v-if="enabledCheckoutStep > 1"
                 class="checkout__discount"
                 :amount="amount"
                 :coupon-code.sync="localDiscountCoupon"
