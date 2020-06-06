@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.27](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.26...@ecomplus/storefront-components@1.0.0-beta.27) (2020-06-06)
+
+
+### Features
+
+* **cart-item:** handling freebie items by flag ([2867e52](https://github.com/ecomplus/storefront/commit/2867e52d1af0e611a9b688fc710ceb62f749641e))
+* **discount-applier:** handle new 'canAddFreebieItems' prop ([5bfb52f](https://github.com/ecomplus/storefront/commit/5bfb52f61178c418f05d5f6a0fc610f326a192d4))
+
+
+
+
+
 # [1.0.0-beta.26](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.25...@ecomplus/storefront-components@1.0.0-beta.26) (2020-06-03)
 
 

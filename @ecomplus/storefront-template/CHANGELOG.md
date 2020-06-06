@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.31](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.30...@ecomplus/storefront-template@2.0.0-beta.31) (2020-06-06)
+
+
+### Bug Fixes
+
+* **checkout:** add clearfix lib, import on pages and checkout ([29181cc](https://github.com/ecomplus/storefront/commit/29181cc3e2ce0cfca3ef5f70d058eb64701e6188))
+* **shopping-cart:** remove temporary items on page load ([5c26b3c](https://github.com/ecomplus/storefront/commit/5c26b3c80e787f3f88ef56b1e77eabb98c5a33a1))
+
+
+### Performance Improvements
+
+* **banner-slider:** sync load first banner (lower lcp) ([c968e2e](https://github.com/ecomplus/storefront/commit/c968e2e03b796e78df52763e4586e21e87f2a316))
+* **glide:** remove opacity transition (try better lcp score) ([2afcb59](https://github.com/ecomplus/storefront/commit/2afcb59f973c76703233643165f2d2b3eec329da))
+
+
+
+
+
 # [2.0.0-beta.30](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.29...@ecomplus/storefront-template@2.0.0-beta.30) (2020-06-03)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
