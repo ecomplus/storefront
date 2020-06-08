@@ -1,10 +1,11 @@
 <template>
   <div id="cart">
-    <ec-cart
+    <the-cart
       :amount="amount"
-      @shippingService="selectShippingService"
-      :discountCoupon.sync="discountCoupon"
-      @setDiscountRule="setDiscountRule"
+      :discount-coupon.sync="discountCoupon"
+      :base-modules-request-data="baseModulesRequestData"
+      @shipping-service="selectShippingService"
+      @set-discount-rule="setDiscountRule"
     />
   </div>
 </template>
