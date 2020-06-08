@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.25](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.24...@ecomplus/storefront-app@2.0.0-beta.25) (2020-06-06)
+
+
+### Bug Fixes
+
+* **checkout:** unselect payment gateway on checkout destroy ([8903a49](https://github.com/ecomplus/storefront/commit/8903a49c7b15925d1b14cdedf0fc0c0677a3c626))
+* **summary:** add key (_id) to items list ([45b7cdf](https://github.com/ecomplus/storefront/commit/45b7cdf8772418a90178b55903c70c4a7959b9ac))
+* **summary:** prettier freebie items marks on list ([8f54a8d](https://github.com/ecomplus/storefront/commit/8f54a8dd9d291db06de923b60fa646b7ea173050))
+
+
+### Features
+
+* **checkout:** check freebie items and mark on summary ([5157495](https://github.com/ecomplus/storefront/commit/51574952104aa9c168bef1a321b0df93e644c5b6))
+
+
+### Performance Improvements
+
+* **cart/checkout:** fix handling discount/shipping steps ([c4341d2](https://github.com/ecomplus/storefront/commit/c4341d20aa07b6a9e9ececf2e7acf096de679338))
+
+
+
+
+
 # [2.0.0-beta.24](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.23...@ecomplus/storefront-app@2.0.0-beta.24) (2020-06-03)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

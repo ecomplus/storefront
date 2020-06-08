@@ -50,6 +50,12 @@ export default {
     discountCoupon: String
   },
 
+  data () {
+    return {
+      hasShippingService: false
+    }
+  },
+
   computed: {
     i19checkout: () => i18n(i19checkout),
     i19continueShopping: () => i18n(i19continueShopping),
@@ -72,6 +78,23 @@ export default {
   },
 
   methods: {
-    formatMoney
+    formatMoney,
+
+    selectShippingService (service) {
+      this.$emit('shippingService', service)
+      this.$nextTick(() => {
+        this.hasShippingService = true
+      })
+    }
+  },
+
+  mounted () {
+    const cartWatcher = () => {
+      this.hasShippingService = false
+    }
+    this.ecomCart.on('change', cartWatcher)
+    this.$once('hook:beforeDestroy', () => {
+      this.ecomCart.off('change', cartWatcher)
+    })
   }
 }

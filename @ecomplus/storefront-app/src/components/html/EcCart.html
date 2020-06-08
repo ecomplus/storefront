@@ -56,7 +56,7 @@
               class="cart__shipping"
               :can-select-services="true"
               :shipped-items="cart.items"
-              @select-service="val => $emit('shippingService', val)"
+              @select-service="selectShippingService"
               @update:zip-code="val => $emit('update:zipCode', val)"
             />
 
@@ -93,16 +93,14 @@
           </slot>
         </div>
 
-        <slot name="discount-applier">
-          <discount-applier
-            class="cart__discount"
-            :amount="amount"
-            :coupon-code.sync="localDiscountCoupon"
-            :is-coupon-applied="Boolean(discountCoupon && amount.discount)"
-            @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
-            :modules-payload="modulesPayload"
-          />
-        </slot>
+        <discount-applier
+          v-if="hasShippingService"
+          class="cart__discount"
+          :amount="amount"
+          :coupon-code.sync="localDiscountCoupon"
+          @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
+          :modules-payload="modulesPayload"
+        />
       </div>
     </div>
 
