@@ -9,13 +9,11 @@ $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black: #000 !default;
-$red: #dc3545 !default;
+
+$enable-shadows: true !default;
 
 $border-radius: 0.1rem !default;
 $border-radius-lg: 0rem !default;
-
-$card-cap-bg: rgba($red, .03);
-$card-bg: $gray-100 !default;
 
 $info: $gray-200 ;
 $secondary: $gray-900;
