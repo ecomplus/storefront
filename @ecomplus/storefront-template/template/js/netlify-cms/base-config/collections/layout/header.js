@@ -88,6 +88,11 @@ export default ({ baseDir, state }) => ({
           min: 0,
           max: 20,
           hint: 'Máximo de categorias em primeiro nível escolhidas randomicamente'
+        },
+        {
+          label: 'Exibir em largura total',
+          name: 'full_width',
+          widget: 'boolean'
         }
       ]
     },
