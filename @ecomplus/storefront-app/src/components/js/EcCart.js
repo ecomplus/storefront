@@ -89,12 +89,22 @@ export default {
   },
 
   mounted () {
-    const cartWatcher = () => {
+    const { ecomCart } = this
+    let oldSubtotal = ecomCart.data.subtotal
+    const cartWatcher = ({ data }) => {
       this.hasShippingService = false
+      if (oldSubtotal > data.subtotal) {
+        ecomCart.data.items.forEach(({ _id, quantity, flags }) => {
+          if (Array.isArray(flags) && flags.includes('freebie') && quantity === 1) {
+            ecomCart.removeItem(_id)
+          }
+        })
+      }
+      oldSubtotal = data.subtotal
     }
-    this.ecomCart.on('change', cartWatcher)
+    ecomCart.on('change', cartWatcher)
     this.$once('hook:beforeDestroy', () => {
-      this.ecomCart.off('change', cartWatcher)
+      ecomCart.off('change', cartWatcher)
     })
   }
 }
