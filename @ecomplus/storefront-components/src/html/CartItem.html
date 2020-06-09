@@ -57,6 +57,7 @@
           v-if="canInputSelect && inputType === 'select'"
           class="custom-select"
           v-model.number="quantity"
+          :disabled="!price"
           @change="updateInputType"
         >
           <option
@@ -78,11 +79,15 @@
           class="form-control"
           placeholder="1"
           v-model.number="quantity"
+          :readonly="!price"
           @blur="updateInputType"
         >
       </div>
 
-      <div class="cart-item__prices">
+      <div
+        v-if="!isFreebie || price > 0"
+        class="cart-item__prices"
+      >
         <div
           class="cart-item__price-un fade"
           :class="{ show: quantity > 1 }"
