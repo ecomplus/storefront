@@ -1,6 +1,6 @@
 import {
-  // i19addToCart,
-  // i19buyAlsoMsg,
+  i19addToCart,
+  i19buyAlsoMsg,
   i19checkout
   // i19selectedOffers
 } from '@ecomplus/i18n'
@@ -110,8 +110,8 @@ export default {
   },
 
   computed: {
-    i19addToCart: () => 'Adicionar ao carrinho',
-    i19buyAlsoMsg: () => 'Aproveite e leve também',
+    i19addToCart: () => i18n(i19addToCart),
+    i19buyAlsoMsg: () => i18n(i19buyAlsoMsg),
     i19checkout: () => i18n(i19checkout),
     i19selectedOffers: () => 'Ofertas selecionadas',
     modulesPayload: () => baseModulesRequestData,
