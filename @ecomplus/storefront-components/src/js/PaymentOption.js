@@ -19,6 +19,7 @@ export default {
       type: Object,
       required: true
     },
+    installmentsOption: Object,
     price: Number
   },
 
@@ -43,6 +44,31 @@ export default {
         return this.paymentGateway.installment_options.concat().sort((a, b) => {
           return a.number - b.number
         })
+      } else if (
+        this.price &&
+        this.installmentsOption &&
+        this.paymentGateway.payment_method.code === 'credit_card'
+      ) {
+        const installmentOptions = []
+        for (let number = 2; number <= this.installmentsOption.max_number; number++) {
+          const tax = this.installmentsOption.monthly_interest > 0
+          const minInstallment = this.installmentsOption.min_installment || 5
+          let value
+          if (!tax) {
+            value = this.price / number
+          } else {
+            const interest = this.installmentsOption.monthly_interest / 100
+            value = this.price * interest / (1 - Math.pow(1 + interest, -number))
+          }
+          if (value >= minInstallment) {
+            installmentOptions.push({
+              number,
+              value,
+              tax
+            })
+          }
+        }
+        return installmentOptions
       }
     },
 

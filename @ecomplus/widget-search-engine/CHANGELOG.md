@@ -3,6 +3,154 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.26](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.25...@ecomplus/widget-search-engine@1.0.0-beta.26) (2020-06-06)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.25](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.24...@ecomplus/widget-search-engine@1.0.0-beta.25) (2020-06-03)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.24](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.23...@ecomplus/widget-search-engine@1.0.0-beta.24) (2020-06-03)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.23](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.22...@ecomplus/widget-search-engine@1.0.0-beta.23) (2020-06-02)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.22](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.21...@ecomplus/widget-search-engine@1.0.0-beta.22) (2020-06-02)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.21](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.20...@ecomplus/widget-search-engine@1.0.0-beta.21) (2020-05-28)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.20](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.19...@ecomplus/widget-search-engine@1.0.0-beta.20) (2020-05-28)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.19](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.18...@ecomplus/widget-search-engine@1.0.0-beta.19) (2020-05-28)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.18](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.17...@ecomplus/widget-search-engine@1.0.0-beta.18) (2020-05-26)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.17](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.16...@ecomplus/widget-search-engine@1.0.0-beta.17) (2020-05-26)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.16](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.15...@ecomplus/widget-search-engine@1.0.0-beta.16) (2020-05-24)
+
+
+### Bug Fixes
+
+* **widget-search-engine:** handling term prop update (sync) ([e69877e](https://github.com/ecomplus/storefront/commit/e69877e87711bc77b1cd7ce0abbf53ca5b50ac31))
+
+
+
+
+
+# [1.0.0-beta.15](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.14...@ecomplus/widget-search-engine@1.0.0-beta.15) (2020-05-23)
+
+
+### Bug Fixes
+
+* **widget-search-engine:** ensure checking filters for brands/categories ([7d525e3](https://github.com/ecomplus/storefront/commit/7d525e3e6e70f0298270370b2208b457bfbd2449))
+
+
+
+
+
+# [1.0.0-beta.14](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.13...@ecomplus/widget-search-engine@1.0.0-beta.14) (2020-05-22)
+
+
+### Bug Fixes
+
+* **widget-search-engine:** prevent no filters on categories/brands pages ([9742b1a](https://github.com/ecomplus/storefront/commit/9742b1abcb262a48cd8e38455290d939a28acd38))
+
+
+
+
+
+# [1.0.0-beta.13](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.12...@ecomplus/widget-search-engine@1.0.0-beta.13) (2020-05-22)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/utils to v1.4.0 ([551e02e](https://github.com/ecomplus/storefront/commit/551e02e0e1e3bee6ce7002fd84d0c91f9cb8fb08))
+* **widget-seacrh-engine:** set default sort 'sales' for category/brands ([bf99ca5](https://github.com/ecomplus/storefront/commit/bf99ca5671182a02aff5d1e7876d29bf7da85d3e))
+* **widget-search-engine:** get filters from data for categories/brands ([4d0acae](https://github.com/ecomplus/storefront/commit/4d0acaea65d584f2d59386adb1532344aa8315d5))
+
+
+
+
+
+# [1.0.0-beta.12](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.11...@ecomplus/widget-search-engine@1.0.0-beta.12) (2020-05-22)
+
+
+### Bug Fixes
+
+* **widget-search-engine:** fix setting props on brands/categories pages ([c5a3dd0](https://github.com/ecomplus/storefront/commit/c5a3dd06e6c865846f95e061357097d3e804bff3))
+
+
+
+
+
+# [1.0.0-beta.11](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.10...@ecomplus/widget-search-engine@1.0.0-beta.11) (2020-05-21)
+
+
+### Features
+
+* **search-engine:** also handling brands/categories pages ([7180cd0](https://github.com/ecomplus/storefront/commit/7180cd016a6f213624dca8d4179594bccf084535))
+
+
+
+
+
 # [1.0.0-beta.10](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.9...@ecomplus/widget-search-engine@1.0.0-beta.10) (2020-05-16)
 
 **Note:** Version bump only for package @ecomplus/widget-search-engine

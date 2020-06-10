@@ -1,5 +1,11 @@
-import { isSafari, isIOS, isIE, isMobile, isScreenXs } from './_env'
-import { $ } from '@ecomplus/storefront-twbs'
+import {
+  isSafari,
+  isIOS,
+  isIE,
+  isMobile,
+  isScreenXs,
+  $
+} from '@ecomplus/storefront-twbs'
 
 if (isSafari || isIOS || isIE) {
   $('img').each(function () {
@@ -84,8 +90,7 @@ if ($timers.length) {
 
 $('#go-to-top').on('click', () => {
   window.scroll({
-    top: 0,     
+    top: 0,
     behavior: 'smooth'
   })
 })
-  

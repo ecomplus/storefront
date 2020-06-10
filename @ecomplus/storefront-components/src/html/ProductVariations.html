@@ -6,7 +6,27 @@
     v-for="(options, grid, index) in variationsGrids"
     :class="`variations__grid variations__grid--${grid}`"
   >
-    <h5>{{ getGridTitle(grid) }}</h5>
+    <div class="mb-2">
+      <span class="variations__grid-title h5">
+        {{ getGridTitle(grid) }}
+      </span>
+
+      <span
+        v-if="selectedOptions[grid]"
+        key="success"
+        class="variations__value variations__value"
+      >
+        <i class="fas fa-check mr-1"></i>
+        {{ selectedOptions[grid] }}
+      </span>
+      <span
+        v-else
+        class="variations__value variations__value--empty"
+      >
+        <i class="fas fa-arrow-down mr-1"></i>
+        {{ i19selectVariation }}
+      </span>
+    </div>
 
     <template v-if="options.length <= maxOptionsBtns">
       <button

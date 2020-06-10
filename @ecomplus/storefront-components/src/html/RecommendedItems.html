@@ -1,0 +1,45 @@
+<section class="recommended-items">
+  <transition enter-active-class="animated fadeIn">
+    <div v-if="items.length">
+      <div class="recommended-items__title">
+        <slot name="title">
+          <p class="lead">
+            {{ i19weRecommendToYou }}
+          </p>
+        </slot>
+      </div>
+
+      <div :class="rowClassName">
+        <div
+          v-for="item in items"
+          :key="item._id"
+          :class="colClassName"
+        >
+          <slot
+            name="item"
+            v-bind="{ item }"
+          >
+            <product-card
+              :product="item"
+              :is-loaded="true"
+              v-bind="productCardProps"
+            />
+          </slot>
+        </div>
+      </div>
+
+      <div
+        v-if="canLoadMore"
+        class="recommended-items__load-more"
+      >
+        <button
+          v-if="totalCount >= pageSize * (pageNumber + 1)"
+          class="btn btn-sm btn-outline-secondary"
+          @click="pageNumber++"
+        >
+          <i class="fas fa-plus mr-1"></i> {{ i19seeMore }}
+        </button>
+      </div>
+    </div>
+  </transition>
+</section>

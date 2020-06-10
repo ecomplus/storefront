@@ -2,14 +2,16 @@ import {
   i19buy,
   i19close,
   i19discountOf,
-  i19inStock,
+  i19freeShippingFrom,
   i19loadProductErrorMsg,
   i19only,
   i19outOfStock,
   i19paymentOptions,
   i19retry,
-  i19selectVariation,
-  i19unavailable
+  i19selectVariationMsg,
+  i19unavailable,
+  i19units,
+  i19unitsInStock
 } from '@ecomplus/i18n'
 
 import {
@@ -24,8 +26,12 @@ import {
 
 import { store, modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
+import sortApps from './helpers/sort-apps'
+import addIdleCallback from './helpers/add-idle-callback'
+import ALink from '../ALink.vue'
 import AAlert from '../AAlert.vue'
 import APrices from '../APrices.vue'
+import AShare from '../AShare.vue'
 import ProductVariations from '../ProductVariations.vue'
 import ProductGallery from '../ProductGallery.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
@@ -49,8 +55,10 @@ export default {
   name: 'TheProduct',
 
   components: {
+    ALink,
     AAlert,
     APrices,
+    AShare,
     ProductVariations,
     ProductGallery,
     ShippingCalculator,
@@ -77,6 +85,16 @@ export default {
     lowQuantityToWarn: {
       type: Number,
       default: 12
+    },
+    cartUrl: {
+      type: String,
+      default: '/app/#/cart'
+    },
+    paymentAppsSort: {
+      type: Array,
+      default () {
+        return window.ecomPaymentApps || []
+      }
     }
   },
 
@@ -86,23 +104,26 @@ export default {
       fixedPrice: null,
       selectedVariationId: null,
       currentGalleyImg: 1,
+      isOnCart: false,
       hasClickedBuy: false,
       hasLoadError: false,
-      paymentGateways: []
+      paymentOptions: []
     }
   },
 
   computed: {
     i19close: () => i18n(i19close),
     i19discountOf: () => i18n(i19discountOf),
-    i19inStock: () => i18n(i19inStock),
+    i19freeShippingFrom: () => i18n(i19freeShippingFrom),
     i19loadProductErrorMsg: () => i18n(i19loadProductErrorMsg),
     i19only: () => i18n(i19only),
     i19outOfStock: () => i18n(i19outOfStock),
     i19paymentOptions: () => i18n(i19paymentOptions),
     i19retry: () => i18n(i19retry),
-    i19selectVariation: () => i18n(i19selectVariation),
+    i19selectVariationMsg: () => i18n(i19selectVariationMsg),
     i19unavailable: () => i18n(i19unavailable),
+    i19units: () => i18n(i19units).toLowerCase(),
+    i19unitsInStock: () => i18n(i19unitsInStock),
 
     selectedVariation () {
       return this.selectedVariationId
@@ -203,6 +224,7 @@ export default {
       if (this.canAddToCart) {
         ecomCart.addProduct(product, variationId)
       }
+      this.isOnCart = true
     }
   },
 
@@ -223,7 +245,7 @@ export default {
 
     fixedPrice (price) {
       if (price > 0) {
-        const fetchPaymentOptions = () => {
+        addIdleCallback(() => {
           modules({
             url: '/list_payments.json',
             method: 'POST',
@@ -238,22 +260,27 @@ export default {
             }
           })
             .then(({ data }) => {
-              this.paymentGateways = data.result
-                .reduce((paymentGateways, { validated, response }) => {
-                  return validated
-                    ? paymentGateways.concat(response.payment_gateways)
-                    : paymentGateways
-                }, []).sort((a, b) => {
-                  return a.discount && !b.discount ? -1 : 1
+              if (Array.isArray(this.paymentAppsSort) && this.paymentAppsSort.length) {
+                sortApps(data.result, this.paymentAppsSort)
+              }
+              this.paymentOptions = data.result
+                .reduce((paymentOptions, appResult) => {
+                  if (appResult.validated) {
+                    paymentOptions.push({
+                      app_id: appResult.app_id,
+                      ...appResult.response
+                    })
+                  }
+                  return paymentOptions
+                }, [])
+                .sort((a, b) => {
+                  return a.discount_option && a.discount_option.value &&
+                    !(b.discount_option && b.discount_option.value)
+                    ? -1 : 1
                 })
             })
             .catch(console.error)
-        }
-        if (typeof window.requestIdleCallback === 'function') {
-          window.requestIdleCallback(fetchPaymentOptions)
-        } else {
-          setTimeout(fetchPaymentOptions, 500)
-        }
+        })
       }
     }
   },

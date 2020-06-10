@@ -17,4 +17,17 @@
     justify-content: space-between;
     width: 100%;
   }
+
+  &__free-from-value {
+    margin-top: var(--spacer-2);
+
+    .progress {
+      height: 1.5rem;
+      margin-top: var(--spacer-1);
+
+      &-bar {
+        background-color: var(--info);
+      }
+    }
+  }
 }

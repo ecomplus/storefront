@@ -48,7 +48,7 @@ export default ({ baseDir, sections }) => ({
             }
           ]
         }
-      ].concat(sections)
+      ].concat(sections.filter(({ name }) => name !== 'collection-shelf'))
     }
   ]
 })

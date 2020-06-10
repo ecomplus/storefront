@@ -21,14 +21,27 @@
   }
 
   &__short-stock {
-    color: var(--danger);
     font-weight: var(--font-light);
     text-transform: lowercase;
+    background: rgba(var(--info-rgb), .2);
+    display: inline-block;
+    padding: var(--spacer-1) var(--spacer-3);
+    border-radius: var(--border-radius-sm);
+
+    i,
+    svg {
+      color: var(--info);
+    }
   }
 
   &__payment > a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__free-shipping-from {
+    font-size: var(--font-size);
+    color: var(--secondary);
   }
 }

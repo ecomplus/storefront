@@ -62,11 +62,56 @@
           @click.prevent="setSelectedService(i)"
         >
           <span class="shipping-calculator__option">
-            <shipping-line :shipping-line="service.shipping_line"/>
-            <small>{{ service.label }}</small>
+            <slot
+              name="option"
+              v-bind="{ service }"
+            >
+              <shipping-line :shipping-line="service.shipping_line"/>
+              <small>{{ service.label }}</small>
+            </slot>
           </span>
         </component>
       </div>
     </transition-group>
+
+    <transition
+      enter-active-class="animated fadeInUp"
+      leave-active-class="animated fadeOutDown"
+    >
+      <div
+        v-if="freeFromPercentage"
+        class="shipping-calculator__free-from-value"
+      >
+        <slot
+          name="free-from-value"
+          v-bind="{ amountSubtotal, freeFromValue, freeFromPercentage }"
+        >
+          <span>
+            {{ i19add$1ToEarn.replace('$1', formatMoney(freeFromValue - amountSubtotal)) }}
+            <strong>{{ i19freeShipping }}</strong>
+          </span>
+
+          <div
+            v-if="freeFromPercentage >= 33"
+            class="progress"
+          >
+            <div
+              class="progress-bar progress-bar-striped"
+              role="progressbar"
+              :style="`width: ${freeFromPercentage}%`"
+              :aria-valuenow="freeFromPercentage"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              <span>
+                {{ i19freeShipping }}
+                <i class="fas fa-truck mx-1"></i>
+                <strong>{{ freeFromPercentage }}%</strong>
+              </span>
+            </div>
+          </div>
+        </slot>
+      </div>
+    </transition>
   </div>
 </div>

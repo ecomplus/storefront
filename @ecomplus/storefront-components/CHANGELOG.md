@@ -3,6 +3,205 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.27](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.26...@ecomplus/storefront-components@1.0.0-beta.27) (2020-06-06)
+
+
+### Features
+
+* **cart-item:** handling freebie items by flag ([2867e52](https://github.com/ecomplus/storefront/commit/2867e52d1af0e611a9b688fc710ceb62f749641e))
+* **discount-applier:** handle new 'canAddFreebieItems' prop ([5bfb52f](https://github.com/ecomplus/storefront/commit/5bfb52f61178c418f05d5f6a0fc610f326a192d4))
+
+
+
+
+
+# [1.0.0-beta.26](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.25...@ecomplus/storefront-components@1.0.0-beta.26) (2020-06-03)
+
+
+### Bug Fixes
+
+* **search-engine:** check term string to handle suggestions ([89800f4](https://github.com/ecomplus/storefront/commit/89800f422cd211891001c4afeb509faf1b2d937b))
+
+
+
+
+
+# [1.0.0-beta.25](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.24...@ecomplus/storefront-components@1.0.0-beta.25) (2020-06-03)
+
+
+### Bug Fixes
+
+* **product-card:** style fix for chrome mobile ([38d9415](https://github.com/ecomplus/storefront/commit/38d9415d91ac58ea5dcaafdafd3be78c0329f94b))
+* **search-engine:** fix handling suggestions with case insensitive terms ([c5d682b](https://github.com/ecomplus/storefront/commit/c5d682b10eedda7491bc93bdbe087ed7842a3bf5))
+
+
+
+
+
+# [1.0.0-beta.24](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.23...@ecomplus/storefront-components@1.0.0-beta.24) (2020-06-02)
+
+
+### Bug Fixes
+
+* **recommended-items:** fix handling pagination (load more) ([d3e4802](https://github.com/ecomplus/storefront/commit/d3e4802bfc0d6ac4d428b1de07ca426277c3cf1f))
+* **recommended-items:** styles/props fixes for mobile ([c174b5d](https://github.com/ecomplus/storefront/commit/c174b5debcf7b804abe0996f010252bbd323038b))
+* **shipping-calculator:** preventing unecessary update fetch ([e718eff](https://github.com/ecomplus/storefront/commit/e718effb05e08e5d22e7a1db563937e1b2edf795))
+
+
+### Features
+
+* **product-card:** add 'installmentsOption' and 'discountOption' ([4e3217f](https://github.com/ecomplus/storefront/commit/4e3217f037e6a5a461cd7066d17134e2689564af))
+
+
+
+
+
+# [1.0.0-beta.23](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.22...@ecomplus/storefront-components@1.0.0-beta.23) (2020-06-02)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.3.2 ([042f082](https://github.com/ecomplus/storefront/commit/042f082e89ee8c4627407d3bbf3e38804ef3fb92))
+* **discount-applier:** fix local amount calc ([1f6c38e](https://github.com/ecomplus/storefront/commit/1f6c38e4842a87f505cb692f519731b813b28eac))
+* **shipping-calculator:** ensure skip progress bar if no 50% for free ([841ca10](https://github.com/ecomplus/storefront/commit/841ca1090737de1bcbd722ee2be20329710600f3))
+
+
+### Features
+
+* **product:** add 'free shipping from' info ([397bad5](https://github.com/ecomplus/storefront/commit/397bad555a91095870fbc22588efa9fe830b00f1))
+* **product:** handling optional payment apps sort array ([550aad3](https://github.com/ecomplus/storefront/commit/550aad38fdff0fc7ef8ac57657af160be18b72ff))
+* **recommended-items:** new 'RecommendedItems' component :tada: ([083ddd7](https://github.com/ecomplus/storefront/commit/083ddd7d4b1b675103524753e86523fa625cc112))
+* **shipping-calculator:** add 'free-from-value' and 'option' slots ([6a91188](https://github.com/ecomplus/storefront/commit/6a911885b6440dd9041002304284416f992ffd27))
+
+
+
+
+
+# [1.0.0-beta.22](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.21...@ecomplus/storefront-components@1.0.0-beta.22) (2020-05-28)
+
+
+### Bug Fixes
+
+* **variations:** fix skipping out of stock variation on select ([d38978a](https://github.com/ecomplus/storefront/commit/d38978aff4fa6ce98a91ed5b2c5b61f5d56f12a3))
+
+
+
+
+
+# [1.0.0-beta.21](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.20...@ecomplus/storefront-components@1.0.0-beta.21) (2020-05-28)
+
+
+### Features
+
+* **product:** show success button when product on cart ([069e0c0](https://github.com/ecomplus/storefront/commit/069e0c09c6d97c98f5d62306ef8688d930c5de86))
+
+
+
+
+
+# [1.0.0-beta.20](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.19...@ecomplus/storefront-components@1.0.0-beta.20) (2020-05-28)
+
+
+### Bug Fixes
+
+* **back-shopping:** 'continue shopping' button on quickview and cart page ([#241](https://github.com/ecomplus/storefront/issues/241)) ([47f1064](https://github.com/ecomplus/storefront/commit/47f1064b1640cfb95f486c6c6b9b8dd31decf321))
+* **deps:** update @ecomplus/i18n to v1.11.1 ([0d3a041](https://github.com/ecomplus/storefront/commit/0d3a041e4985555482ca5c3965149d28b439fbbf))
+* **deps:** update @ecomplus/search-engine to v2.3.1 ([471416d](https://github.com/ecomplus/storefront/commit/471416d80c4a54e1c7c5245bafbb9fb631321813))
+* **product:** fix using ProductGalery component (`current-slide`) ([8123d2f](https://github.com/ecomplus/storefront/commit/8123d2f73b142066baf04a022afaaed385c0b540))
+* **product:** handling payment with 'installments_option' ([095ca74](https://github.com/ecomplus/storefront/commit/095ca740a68e17d3a080246d10843a89bbed1dce))
+* **product:** minor fix for unselected variations message ([5a67b7d](https://github.com/ecomplus/storefront/commit/5a67b7d121a0bfba12489f74377efcea319b09c4))
+* **share:** stop forcing vertical margin ([1347012](https://github.com/ecomplus/storefront/commit/134701261d191f59e31b69ab8133d8f5ee793672))
+
+
+### Features
+
+* **payment-option:** add `installmentsOption` prop ([726b2de](https://github.com/ecomplus/storefront/commit/726b2de92f8c6019c6dfc953c33b4a34666d83b6))
+* **product:** add share buttons after buy button ([e707e3d](https://github.com/ecomplus/storefront/commit/e707e3d56d597d55f5d07a23a8c5a5c5c594b63f))
+* **product-variations:** better showing selected option value ([d111a44](https://github.com/ecomplus/storefront/commit/d111a449e4c6cfd3ccd97f51a30c85e258ddad5f))
+* **share:** add new AShare component :tada: ([2018619](https://github.com/ecomplus/storefront/commit/201861922b8355ee1e733d34d9ccf47ca8cfa1c9))
+
+
+
+
+
+# [1.0.0-beta.19](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.18...@ecomplus/storefront-components@1.0.0-beta.19) (2020-05-26)
+
+
+### Features
+
+* **product-card:** accepting preseted picture size variables (!default) ([7f4de60](https://github.com/ecomplus/storefront/commit/7f4de605dcc367e812157f57a64d3c47015e7a6e))
+
+
+
+
+
+# [1.0.0-beta.18](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.17...@ecomplus/storefront-components@1.0.0-beta.18) (2020-05-26)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.17](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.16...@ecomplus/storefront-components@1.0.0-beta.17) (2020-05-24)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine v2.3.0 ([f544a71](https://github.com/ecomplus/storefront/commit/f544a7146c60429709e5f18853df8808ae2aaf69))
+* **search-engine:** fix handling fixed categories filters ([f1fc397](https://github.com/ecomplus/storefront/commit/f1fc3977593b32509bd5634ee670a663639174be))
+
+
+### Features
+
+* **picture:** check configured default img size and container height ([eb7c8bb](https://github.com/ecomplus/storefront/commit/eb7c8bbe6e9041887f3209d5032cb736aec24fab))
+
+
+
+
+
+# [1.0.0-beta.16](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.15...@ecomplus/storefront-components@1.0.0-beta.16) (2020-05-22)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.11.0 ([07414f3](https://github.com/ecomplus/storefront/commit/07414f3d9e16238b87653df5bac1a601c7c25421))
+* **deps:** update @ecomplus/utils to v1.4.0 ([551e02e](https://github.com/ecomplus/storefront/commit/551e02e0e1e3bee6ce7002fd84d0c91f9cb8fb08))
+
+
+### Features
+
+* **seacrh-engine:** add/handle new 'defaultSort' prop ([1528d67](https://github.com/ecomplus/storefront/commit/1528d67f40109b0fb57b808201eb1b522966c7b2))
+* **search-engine:** add fixed right filter/loading button ([8ca2149](https://github.com/ecomplus/storefront/commit/8ca2149f3c76f44c40ff41e69108aee5653e1cd6))
+
+
+
+
+
+# [1.0.0-beta.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.14...@ecomplus/storefront-components@1.0.0-beta.15) (2020-05-22)
+
+
+### Bug Fixes
+
+* **search-engine:** fix handling `isFixed${filter}` props ([8810fd2](https://github.com/ecomplus/storefront/commit/8810fd236973c6c8cb1c4168d9bc98eedc4bb481))
+
+
+
+
+
+# [1.0.0-beta.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.13...@ecomplus/storefront-components@1.0.0-beta.14) (2020-05-21)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/passport-client to v1.0.10 ([ff72116](https://github.com/ecomplus/storefront/commit/ff721164afc001d02431601bd083c3beb417fada))
+* **discount-applier:** updating discoutn value when amout is changed ([afedcab](https://github.com/ecomplus/storefront/commit/afedcab50756c06812f0133322758cee749ad8a9))
+* **search-engine:** add 'isFixedBrands' and 'isFixedCategories' props ([8b9407b](https://github.com/ecomplus/storefront/commit/8b9407bc26407f8d0e425afba3480cbe5d1f1f92))
+
+
+
+
+
 # [1.0.0-beta.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.12...@ecomplus/storefront-components@1.0.0-beta.13) (2020-05-16)
 
 

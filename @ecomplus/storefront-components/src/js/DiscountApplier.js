@@ -11,10 +11,30 @@ import {
 } from '@ecomplus/i18n'
 
 import { i18n } from '@ecomplus/utils'
-import { modules } from '@ecomplus/client'
+import { store, modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import ecomPassport from '@ecomplus/passport-client'
 import AAlert from '../AAlert.vue'
+
+const addFreebieItems = (ecomCart, productIds) => {
+  if (Array.isArray(productIds)) {
+    productIds.forEach(productId => {
+      if (!ecomCart.data.items.find(item => item.product_id === productId)) {
+        store({ url: `/products/${productId}.json` })
+          .then(({ data }) => {
+            ecomCart.addProduct({
+              ...data,
+              quantity: productIds.reduce((qnt, _id) => {
+                return _id === productId ? qnt + 1 : qnt
+              }, 0),
+              flags: ['freebie', '__tmp']
+            })
+          })
+          .catch(console.error)
+      }
+    })
+  }
+}
 
 export default {
   name: 'DiscountApplier',
@@ -33,6 +53,10 @@ export default {
     isFormAlwaysVisible: Boolean,
     isCouponApplied: Boolean,
     isAttentionWanted: Boolean,
+    canAddFreebieItems: {
+      type: Boolean,
+      default: true
+    },
     modulesPayload: Object,
     ecomCart: {
       type: Object,
@@ -54,7 +78,9 @@ export default {
       alertVariant: null,
       isFormVisible: this.isFormAlwaysVisible || this.couponCode,
       isLoading: false,
-      localCouponCode: this.couponCode
+      localCouponCode: this.couponCode,
+      localAmountTotal: null,
+      isUpdateSheduled: false
     }
   },
 
@@ -75,9 +101,17 @@ export default {
   },
 
   methods: {
+    fixAmount () {
+      const amount = this.amount || {
+        subtotal: this.ecomCart.data.subtotal
+      }
+      this.localAmountTotal = (amount.subtotal || 0) + (amount.freight || 0)
+    },
+
     parseDiscountOptions (listResult = []) {
+      let extraDiscountValue = 0
       if (listResult.length) {
-        let discountRule, extraDiscountValue, invalidCouponMsg
+        let discountRule, invalidCouponMsg
         listResult.forEach(appResult => {
           const { validated, error, response } = appResult
           if (validated && !error) {
@@ -94,6 +128,9 @@ export default {
             } else if (response.invalid_coupon_message) {
               invalidCouponMsg = response.invalid_coupon_message
             }
+            if (this.canAddFreebieItems) {
+              addFreebieItems(this.ecomCart, response.freebie_product_ids)
+            }
           }
         })
         if (extraDiscountValue) {
@@ -109,6 +146,8 @@ export default {
           if (this.localCouponCode) {
             this.alertText = invalidCouponMsg || this.i19invalidCouponMsg
             this.alertVariant = 'warning'
+          } else {
+            this.alertText = null
           }
           this.$emit('set-discount-rule', {})
         }
@@ -122,7 +161,12 @@ export default {
         method: 'POST',
         data: {
           ...this.modulesPayload,
-          amount: this.amount,
+          amount: {
+            subtotal: this.localAmountTotal,
+            ...this.amount,
+            total: this.localAmountTotal,
+            discount: 0
+          },
           items: this.ecomCart.data.items,
           ...data
         }
@@ -138,8 +182,8 @@ export default {
         })
     },
 
-    submitCoupon () {
-      if (this.canAddCoupon) {
+    submitCoupon (isForceUpdate) {
+      if (isForceUpdate || this.canAddCoupon) {
         const { localCouponCode } = this
         const data = {
           discount_coupon: localCouponCode
@@ -154,6 +198,19 @@ export default {
           }
         }
         this.fetchDiscountOptions(data)
+      }
+    },
+
+    updateDiscount (isForceUpdate = true) {
+      if (this.couponCode) {
+        if (isForceUpdate || !this.isCouponApplied) {
+          this.submitCoupon(isForceUpdate)
+        }
+      } else if (
+        isForceUpdate ||
+        (!this.isUpdateSheduled && this.amount && this.amount.total)
+      ) {
+        this.fetchDiscountOptions()
       }
     }
   },
@@ -180,14 +237,30 @@ export default {
           this.$refs.input.focus()
         })
       }
+    },
+
+    localAmountTotal (total, oldTotal) {
+      if (oldTotal !== null && Math.abs(total - oldTotal) > 0.01 && !this.isUpdateSheduled) {
+        this.isUpdateSheduled = true
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.updateDiscount()
+            this.isUpdateSheduled = false
+          }, 600)
+        })
+      }
+    },
+
+    amount: {
+      handler () {
+        this.fixAmount()
+      },
+      deep: true
     }
   },
 
-  created () {
-    if (this.couponCode && !this.isCouponApplied) {
-      this.submitCoupon()
-    } else if (this.amount && this.amount.total) {
-      this.fetchDiscountOptions()
-    }
+  mounted () {
+    this.fixAmount()
+    this.updateDiscount(false)
   }
 }

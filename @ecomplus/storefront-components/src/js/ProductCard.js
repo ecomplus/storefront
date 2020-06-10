@@ -41,7 +41,9 @@ export default {
       type: Boolean,
       default: true
     },
-    isLoaded: Boolean
+    isLoaded: Boolean,
+    installmentsOption: Object,
+    discountOption: Object
   },
 
   data () {

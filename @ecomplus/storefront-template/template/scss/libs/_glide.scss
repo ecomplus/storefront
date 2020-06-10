@@ -1,13 +1,6 @@
 @import '@glidejs/glide/src/assets/sass/glide.core';
 
 .glide {
-  opacity: 0;
-  transition: opacity .3s;
-
-  &--slider {
-    opacity: 1;
-  }
-
   &__arrow {
     z-index: 2;
     opacity: .7;

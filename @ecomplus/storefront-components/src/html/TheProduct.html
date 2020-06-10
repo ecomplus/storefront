@@ -22,7 +22,7 @@
         <div class="col-12 col-md-6">
           <product-gallery
             :product="body"
-            :current.sync="currentGalleyImg"
+            :current-slide.sync="currentGalleyImg"
           >
             <slot name="first-picture"/>
           </product-gallery>
@@ -103,45 +103,57 @@
               :selectedId.sync="selectedVariationId"
             />
             <a-alert :can-show="hasClickedBuy && !selectedVariationId">
-              {{ i19selectVariation }}
+              {{ i19selectVariationMsg }}
             </a-alert>
 
             <slot name="variations-info"/>
           </slot>
 
-          <div
-            class="product__buy"
-            @click="buy"
-          >
-            <slot name="buy">
-              <button
-                type="button"
-                class="btn btn-lg btn-primary"
-                :disabled="hasClickedBuy"
+          <div class="product__buy">
+            <span @click="buy">
+              <slot
+                name="buy"
+                v-bind="{ hasClickedBuy, isOnCart }"
               >
-                <slot name="buy-button-content">
-                  <i class="fas fa-shopping-bag mr-1"></i>
-                  {{ strBuy }}
-                </slot>
-              </button>
-            </slot>
+                <button
+                  type="button"
+                  class="btn btn-lg btn-primary"
+                  :disabled="hasClickedBuy && !isOnCart"
+                >
+                  <slot name="buy-button-content">
+                    <i class="fas fa-shopping-bag mr-1"></i>
+                    {{ strBuy }}
+                  </slot>
+                </button>
+              </slot>
+            </span>
           </div>
 
           <p
             class="product__short-stock"
             v-if="isLowQuantity"
           >
-            <i class="fas fa-exclamation-triangle mr-1"></i>
+            <i class="fas fa-forward mr-1"></i>
             {{ i19only }}
             <strong>{{ productQuantity }}</strong>
-            {{ i19inStock }}
+            {{ i19unitsInStock }}
           </p>
+
+          <slot name="share">
+            <a-share
+              v-if="body.slug"
+              class="mb-3"
+              :url="`/${body.slug}`"
+              :title="body.name"
+              :description="body.short_description"
+            />
+          </slot>
 
           <transition enter-active-class="animated fadeInUp">
             <slot
               name="payment-gateways"
-              v-bind="{ paymentGateways }"
-              v-if="paymentGateways.length"
+              v-bind="{ paymentOptions }"
+              v-if="paymentOptions.length"
             >
               <article :key="`payment-${fixedPrice}`">
                 <div
@@ -166,13 +178,21 @@
                     class="collapse"
                     aria-labelledby="product-payment-header"
                   >
-                    <div class="card-body">
-                      <payment-option
-                        v-for="(gateway, i) in paymentGateways"
-                        :key="i"
-                        :payment-gateway="gateway"
-                        :price="fixedPrice"
-                      />
+                    <div class="card-body pb-0">
+                      <div
+                        v-for="paymentOption in paymentOptions"
+                        :key="paymentOption.app_id"
+                        :id="`product-payment-${paymentOption.app_id}`"
+                        class="mb-3"
+                      >
+                        <payment-option
+                          v-for="(gateway, i) in paymentOption.payment_gateways"
+                          :key="`${paymentOption.app_id}-${i}`"
+                          :payment-gateway="gateway"
+                          :installments-option="paymentOption.installments_option"
+                          :price="fixedPrice"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -187,7 +207,17 @@
                 product_id: body._id,
                 quantity: body.min_quantity || 1
               }]"
-            />
+            >
+              <template v-slot:free-from-value="{ amountSubtotal, freeFromValue }">
+                <div class="product__free-shipping-from">
+                  {{ i19freeShippingFrom }}
+                  <strong>
+                    {{ Math.ceil(freeFromValue / amountSubtotal) }}
+                    {{ i19units }}
+                  </strong>
+                </div>
+              </template>
+            </shipping-calculator>
           </slot>
         </template>
 

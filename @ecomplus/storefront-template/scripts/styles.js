@@ -11,7 +11,7 @@ const themesPath = INIT_CWD === path.resolve(__dirname, '..')
   ? 'themes' : '@ecomplus/storefront-template/template/scss/themes'
 
 const templateFile = path.resolve(__dirname, '../template/scss/styles.scss.ejs')
-ejs.renderFile(templateFile, { themesPath, ...theme }, {}, (err, scss) => {
+ejs.renderFile(templateFile, { themesPath, theme }, {}, (err, scss) => {
   if (err) {
     console.error(err)
   } else {

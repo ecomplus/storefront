@@ -7,7 +7,7 @@ let isVisible = false
 const toggleSidenav = (slug, isClose) => {
   let $collapse
   if (slug) {
-    $collapse = $(`#a-${slug}`)
+    $collapse = $(`#a-${slug.replace(/\//g, '_')}`)
     if (!$collapse.length) {
       window.location = `/${slug}`
       return

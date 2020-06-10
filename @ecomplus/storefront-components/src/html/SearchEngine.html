@@ -96,6 +96,34 @@
   </transition>
 
   <transition
+    enter-active-class="animated fadeInRight slower"
+    leave-active-class="animated fadeOutRight"
+  >
+    <button
+      v-if="isNavVisible && hasFilters"
+      class="search-engine__aside-open btn btn-secondary"
+      @click="toggleFilters(true)"
+      type="button"
+      :aria-label="i19filterResults"
+      :disabled="isSearching"
+    >
+      <span
+        v-if="isSearching"
+        class="spinner-border spinner-border-sm"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </span>
+      <span v-else>
+        <span class="d-none d-md-inline">
+          <i class="fas fa-search"></i>
+        </span>
+        <i class="fas fa-filter"></i>
+      </span>
+    </button>
+  </transition>
+
+  <transition
     enter-active-class="animated fadeInDown"
     leave-active-class="animated fadeOutUp fast position-absolute"
   >
@@ -131,9 +159,11 @@
               type="button"
             >
               <i class="fas fa-filter mr-1"></i>
-              {{ i19filter }}
               <span class="d-none d-md-inline">
-                {{ i19results.toLowerCase() }}
+                {{ i19filterResults }}
+              </span>
+              <span class="d-md-none">
+                {{ i19filter }}
               </span>
             </button>
 

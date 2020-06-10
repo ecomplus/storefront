@@ -1,0 +1,31 @@
+<div>
+  <share-network
+    v-for="({ network, icon, name, color }, i) in shareNetworks"
+    :key="network"
+    tag="button"
+    :class="`btn share share--${network} px-2`"
+    :network="network"
+    :url="localUrl"
+    :title="title"
+    :description="description"
+    :aria-label="`${i19share} ${i19on} ${name}`"
+  >
+    <i
+      v-if="icon"
+      :class="icon"
+      :style="`color: ${color}`"
+    ></i>
+    <strong
+      v-else
+      :style="`color: ${color}`"
+    >
+      {{ name }}
+    </strong>
+
+    <template v-if="i === 0">
+      <span class="ml-1 d-none d-xl-inline">
+        {{ `${i19share} ${i19on} ${name}` }}
+      </span>
+    </template>
+  </share-network>
+</div>

@@ -3,6 +3,211 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.31](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.30...@ecomplus/storefront-template@2.0.0-beta.31) (2020-06-06)
+
+
+### Bug Fixes
+
+* **checkout:** add clearfix lib, import on pages and checkout ([29181cc](https://github.com/ecomplus/storefront/commit/29181cc3e2ce0cfca3ef5f70d058eb64701e6188))
+* **shopping-cart:** remove temporary items on page load ([5c26b3c](https://github.com/ecomplus/storefront/commit/5c26b3c80e787f3f88ef56b1e77eabb98c5a33a1))
+
+
+### Performance Improvements
+
+* **banner-slider:** sync load first banner (lower lcp) ([c968e2e](https://github.com/ecomplus/storefront/commit/c968e2e03b796e78df52763e4586e21e87f2a316))
+* **glide:** remove opacity transition (try better lcp score) ([2afcb59](https://github.com/ecomplus/storefront/commit/2afcb59f973c76703233643165f2d2b3eec329da))
+
+
+
+
+
+# [2.0.0-beta.30](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.29...@ecomplus/storefront-template@2.0.0-beta.30) (2020-06-03)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.29](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.28...@ecomplus/storefront-template@2.0.0-beta.29) (2020-06-03)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.28](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.27...@ecomplus/storefront-template@2.0.0-beta.28) (2020-06-02)
+
+
+### Bug Fixes
+
+* **cms:** skip collection shelf sections on retail pages ([f5926eb](https://github.com/ecomplus/storefront/commit/f5926ebf8be6b7e236da6691ffbb701736e13b30))
+
+
+
+
+
+# [2.0.0-beta.27](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.26...@ecomplus/storefront-template@2.0.0-beta.27) (2020-06-02)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.3.2 ([042f082](https://github.com/ecomplus/storefront/commit/042f082e89ee8c4627407d3bbf3e38804ef3fb92))
+* **meta-tags:** og:image for resource pages with document picture ([3122125](https://github.com/ecomplus/storefront/commit/31221258aebb65dfc8f3325d85622deeb6f7ee42))
+* **offers-timer:** better grid cols by number of items ([a0f90b9](https://github.com/ecomplus/storefront/commit/a0f90b9b42ac13c6b684108a94d092d8bfb1a700))
+
+
+
+
+
+# [2.0.0-beta.26](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.25...@ecomplus/storefront-template@2.0.0-beta.26) (2020-05-29)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.25](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.24...@ecomplus/storefront-template@2.0.0-beta.25) (2020-05-28)
+
+
+### Bug Fixes
+
+* **menu:** sanitize category slug for collapse elements ids ([2ae31d0](https://github.com/ecomplus/storefront/commit/2ae31d070d063bf3bfa83e429fa6492688a8da50))
+* **menu:** sanitize category slug for collapse elements ids ([0e33974](https://github.com/ecomplus/storefront/commit/0e33974cd02b4a7fcb301eb14514b3c216fc7c08))
+* **reatil-grid:** fix setting static (and not) product items ([08d4da1](https://github.com/ecomplus/storefront/commit/08d4da1f8c41adffd5df9cb5c15c1b986a471faa))
+
+
+
+
+
+# [2.0.0-beta.24](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.23...@ecomplus/storefront-template@2.0.0-beta.24) (2020-05-28)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.23](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.22...@ecomplus/storefront-template@2.0.0-beta.23) (2020-05-28)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.11.1 ([0d3a041](https://github.com/ecomplus/storefront/commit/0d3a041e4985555482ca5c3965149d28b439fbbf))
+* **deps:** update @ecomplus/search-engine to v2.3.1 ([471416d](https://github.com/ecomplus/storefront/commit/471416d80c4a54e1c7c5245bafbb9fb631321813))
+
+
+
+
+
+# [2.0.0-beta.22](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.21...@ecomplus/storefront-template@2.0.0-beta.22) (2020-05-26)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.21](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.20...@ecomplus/storefront-template@2.0.0-beta.21) (2020-05-26)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.20](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.19...@ecomplus/storefront-template@2.0.0-beta.20) (2020-05-26)
+
+
+### Features
+
+* **cms:** add ebit widget ([#237](https://github.com/ecomplus/storefront/issues/237)) ([5b29e99](https://github.com/ecomplus/storefront/commit/5b29e990e19c3b8adad010d6e4f14e149eabc646))
+* **cms:** pages preview ([#238](https://github.com/ecomplus/storefront/issues/238)) ([78cbfee](https://github.com/ecomplus/storefront/commit/78cbfee287a04e9a69380b33510763c5cc16ebc9))
+
+
+
+
+
+# [2.0.0-beta.19](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.18...@ecomplus/storefront-template@2.0.0-beta.19) (2020-05-24)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine v2.3.0 ([f544a71](https://github.com/ecomplus/storefront/commit/f544a7146c60429709e5f18853df8808ae2aaf69))
+
+
+
+
+
+# [2.0.0-beta.18](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.17...@ecomplus/storefront-template@2.0.0-beta.18) (2020-05-23)
+
+
+### Features
+
+* **config:** set $ecomConfig props from global ECOM_CONFIG if any ([36f1db2](https://github.com/ecomplus/storefront/commit/36f1db21abb87a49f543c853c4658ac75111af34))
+
+
+
+
+
+# [2.0.0-beta.17](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.16...@ecomplus/storefront-template@2.0.0-beta.17) (2020-05-22)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.16](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.15...@ecomplus/storefront-template@2.0.0-beta.16) (2020-05-22)
+
+
+### Bug Fixes
+
+* **brand/category:** storing filter on #search-engine dataset ([fd5daf2](https://github.com/ecomplus/storefront/commit/fd5daf294f65bf01dc6d71017e6d86e520244b3a))
+* **deps:** update @ecomplus/i18n to v1.11.0 ([07414f3](https://github.com/ecomplus/storefront/commit/07414f3d9e16238b87653df5bac1a601c7c25421))
+* **deps:** update @ecomplus/utils to v1.4.0 ([551e02e](https://github.com/ecomplus/storefront/commit/551e02e0e1e3bee6ce7002fd84d0c91f9cb8fb08))
+* **retail-grid:** fix handling options for search engine filters ([f9c4c25](https://github.com/ecomplus/storefront/commit/f9c4c2568b4af5927366fe871f68665d4f845cff))
+
+
+
+
+
+# [2.0.0-beta.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.14...@ecomplus/storefront-template@2.0.0-beta.15) (2020-05-22)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.13...@ecomplus/storefront-template@2.0.0-beta.14) (2020-05-21)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.12...@ecomplus/storefront-template@2.0.0-beta.13) (2020-05-21)
+
+
+### Bug Fixes
+
+* **cms:** add domain entry to settings ([cc13a6f](https://github.com/ecomplus/storefront/commit/cc13a6fead6f5b0289e29e7f6a0ca64454acc51c))
+* **deps:** update @ecomplus/passport-client to v1.0.10 ([ff72116](https://github.com/ecomplus/storefront/commit/ff721164afc001d02431601bd083c3beb417fada))
+
+
+### Features
+
+* **categories/brands:** hydrating search engine on retail grid ([9b5f6fd](https://github.com/ecomplus/storefront/commit/9b5f6fd3e2b0780166bd350bb6cc24d954950e95))
+* **ebit:** storefront plugin for ebit reviews ([#234](https://github.com/ecomplus/storefront/issues/234)) ([fc356aa](https://github.com/ecomplus/storefront/commit/fc356aadd7fbf1c653525ab9ebbb06df183eddfa))
+
+
+
+
+
 # [2.0.0-beta.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.11...@ecomplus/storefront-template@2.0.0-beta.12) (2020-05-16)
 
 

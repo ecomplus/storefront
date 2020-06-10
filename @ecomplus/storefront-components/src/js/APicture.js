@@ -1,7 +1,11 @@
-import { img as getImg } from '@ecomplus/utils'
+import {
+  $ecomConfig,
+  img as getImg
+} from '@ecomplus/utils'
+
 import lozad from 'lozad'
 
-const getBestFitThumb = (picture, containerWidth, containerBreakpoints) => {
+const getBestFitThumb = (picture, containerWidth, containerHeight, containerBreakpoints) => {
   let bestFitThumb, bestFitBreakpoint
   for (const thumb in containerBreakpoints) {
     const thumbBreakpoint = containerBreakpoints[thumb]
@@ -13,6 +17,7 @@ const getBestFitThumb = (picture, containerWidth, containerBreakpoints) => {
           }
         } else if (
           thumbBreakpoint < containerWidth ||
+          thumbBreakpoint - 50 <= containerHeight ||
           (bestFitBreakpoint !== null && thumbBreakpoint > bestFitBreakpoint)
         ) {
           continue
@@ -46,7 +51,7 @@ export default {
         return {
           zoom: null,
           big: 800,
-          normal: 400
+          [$ecomConfig.get('default_img_size') || 'normal']: 400
         }
       }
     },
@@ -105,8 +110,9 @@ export default {
       const sources = []
       let srcset
       if (typeof this.src === 'object') {
-        const { clientWidth } = this.$el
-        const imgObj = this.src[getBestFitThumb(this.src, clientWidth, this.containerBreakpoints)]
+        const { clientWidth, clientHeight } = this.$el
+        const thumb = getBestFitThumb(this.src, clientWidth, clientHeight, this.containerBreakpoints)
+        const imgObj = this.src[thumb]
         const { url, size } = (imgObj || this.defaultImgObj)
         srcset = url
         if (clientWidth && size && this.canCalcHeight) {

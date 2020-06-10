@@ -1,6 +1,6 @@
-$product-card-picture-xs: 180px;
-$product-card-picture-sm: 200px;
-$product-card-picture-lg: 250px;
+$product-card-picture-xs: 180px !default;
+$product-card-picture-sm: 200px !default;
+$product-card-picture-lg: 250px !default;
 
 .product-card {
   position: relative;
@@ -45,7 +45,6 @@ $product-card-picture-lg: 250px;
   &__picture {
     position: absolute;
     display: block;
-    border-radius: var(--border-radius);
     flex: 0 0 100%;
 
     img {

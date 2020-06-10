@@ -48,11 +48,15 @@ if (pathname) {
   }
 }
 
-let social, ogLocale
+let social, ogLocale, ogImage
 if (url) {
   // content for og metatags
   social = _.cms('social')
   ogLocale = _.lang.length === 2 ? _.lang : _.lang.substr(0, 3) + _.lang.slice(3).toUpperCase()
+}
+if (resource) {
+  const picture = _.ecomUtils.img(_.state, null, 'zoom')
+  ogImage = picture && picture.url
 }
 %>
 
@@ -97,7 +101,9 @@ if (url) {
   <meta property="og:description" content="<%= description %>">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="<%= ogLocale %>">
-  <% if (social.og_image) { %>
+  <% if (ogImage) { %>
+    <meta property="og:image" content="<%= ogImage %>">
+  <% } else if (social.og_image) { %>
     <meta property="og:image" content="<%= social.og_image %>">
   <% } %>
   <% if (social.fb_app_id) { %>

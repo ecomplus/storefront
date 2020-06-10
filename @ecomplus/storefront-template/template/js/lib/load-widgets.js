@@ -1,4 +1,4 @@
-import { isMobile } from './_env'
+import { isMobile } from '@ecomplus/storefront-twbs'
 import emitter from './emitter'
 import ecomClient from '@ecomplus/client'
 import EcomSearch from '@ecomplus/search-engine'
@@ -46,7 +46,8 @@ const loadWidget = (pkg, runImport) => {
   widgetsLoadPromises.push(waitWidgetResolve)
 }
 
-if (!isCheckout && document.body.dataset.resource === 'products') {
+const { resource } = document.body.dataset
+if (!isCheckout && resource === 'products') {
   loadWidget(
     '@ecomplus/widget-product',
     () => import(/* webpackPrefetch: true */ '@ecomplus/widget-product')
@@ -59,7 +60,11 @@ Promise.all(widgetsLoadPromises).then(() => {
     () => Promise.resolve({ default: widgetProductCard })
   )
 
-  if (window.location.pathname === '/search') {
+  if (
+    window.location.pathname === '/search' ||
+    resource === 'categories' ||
+    resource === 'brands'
+  ) {
     loadWidget(
       '@ecomplus/widget-search-engine',
       () => import(/* webpackPrefetch: true */ '@ecomplus/widget-search-engine')
@@ -90,6 +95,10 @@ Promise.all(widgetsLoadPromises).then(() => {
       loadWidget(
         '@ecomplus/widget-fb-pixel',
         () => import('@ecomplus/widget-fb-pixel')
+      )
+      loadWidget(
+        '@ecomplus/widget-ebit',
+        () => import('@ecomplus/widget-ebit')
       )
     })
   }

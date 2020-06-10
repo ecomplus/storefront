@@ -8,7 +8,8 @@ import {
   faTwitter,
   faYoutube,
   faInstagram,
-  faWhatsapp
+  faWhatsapp,
+  faTelegram
 } from '@fortawesome/free-brands-svg-icons'
 
 import {
@@ -68,7 +69,8 @@ import {
   faStore,
   faBlog,
   faWifi,
-  faPlay
+  faPlay,
+  faForward
 } from '@fortawesome/free-solid-svg-icons'
 
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
@@ -84,6 +86,7 @@ library.add(
   faYoutube,
   faInstagram,
   faWhatsapp,
+  faTelegram,
   faTag,
   faHashtag,
   faShoppingBag,
@@ -140,7 +143,8 @@ library.add(
   faStore,
   faBlog,
   faWifi,
-  faPlay
+  faPlay,
+  faForward
 )
 
 dom.watch()

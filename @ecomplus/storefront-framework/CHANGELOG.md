@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.12...@ecomplus/storefront-framework@5.12.13) (2020-06-02)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.3.2 ([042f082](https://github.com/ecomplus/storefront/commit/042f082e89ee8c4627407d3bbf3e38804ef3fb92))
+
+
+
+
+
+## [5.12.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.11...@ecomplus/storefront-framework@5.12.12) (2020-05-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency markdown-it to v11 ([#236](https://github.com/ecomplus/storefront/issues/236)) ([7728fd3](https://github.com/ecomplus/storefront/commit/7728fd32a3fc27a95426edd8aaaf3699f3f4e59c))
+
+
+
+
+
+## [5.12.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.10...@ecomplus/storefront-framework@5.12.11) (2020-05-28)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.11.1 ([0d3a041](https://github.com/ecomplus/storefront/commit/0d3a041e4985555482ca5c3965149d28b439fbbf))
+* **deps:** update @ecomplus/search-engine to v2.3.1 ([471416d](https://github.com/ecomplus/storefront/commit/471416d80c4a54e1c7c5245bafbb9fb631321813))
+
+
+
+
+
+## [5.12.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.9...@ecomplus/storefront-framework@5.12.10) (2020-05-26)
+
+
+### Bug Fixes
+
+* **sw:** ignoring precache files by extension or /admin/ path ([679004c](https://github.com/ecomplus/storefront/commit/679004c529be56130f2f03ab2edc9cca5837e1c8))
+
+
+
+
+
+## [5.12.9](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.8...@ecomplus/storefront-framework@5.12.9) (2020-05-26)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.12.8](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.7...@ecomplus/storefront-framework@5.12.8) (2020-05-24)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine v2.3.0 ([f544a71](https://github.com/ecomplus/storefront/commit/f544a7146c60429709e5f18853df8808ae2aaf69))
+
+
+
+
+
+## [5.12.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.6...@ecomplus/storefront-framework@5.12.7) (2020-05-22)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.11.0 ([07414f3](https://github.com/ecomplus/storefront/commit/07414f3d9e16238b87653df5bac1a601c7c25421))
+* **deps:** update @ecomplus/utils to v1.4.0 ([551e02e](https://github.com/ecomplus/storefront/commit/551e02e0e1e3bee6ce7002fd84d0c91f9cb8fb08))
+* **deps:** update dependency copy-webpack-plugin to v6 ([#230](https://github.com/ecomplus/storefront/issues/230)) ([478642d](https://github.com/ecomplus/storefront/commit/478642dc7420b69e1f84907969ad4c076c923e0d))
+* **webpack:** fix config for copy plugin v6 ([1a577c4](https://github.com/ecomplus/storefront/commit/1a577c4a946399e938b9d34886ce645ea2c8ebd2))
+
+
+
+
+
+## [5.12.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.5...@ecomplus/storefront-framework@5.12.6) (2020-05-21)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
 ## [5.12.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.4...@ecomplus/storefront-framework@5.12.5) (2020-05-16)
 
 
