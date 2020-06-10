@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.32](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.31...@ecomplus/storefront-template@2.0.0-beta.32) (2020-06-10)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.12.0 ([eadefea](https://github.com/ecomplus/storefront/commit/eadefea96ee224f0d403686b3c8ff6ca574a6b50))
+
+
+### Features
+
+* **cms:** add 'full_width' option to header categories list ([bb521eb](https://github.com/ecomplus/storefront/commit/bb521eb03b780c9cce1ddeb684300c3a464e18bc))
+* **cms:** new custom logo (storefront editor) ([80caa46](https://github.com/ecomplus/storefront/commit/80caa4673398cfd7e8bb78bb3749d01a3f772698))
+* **header:** handling categories nav with full width option ([1d408e4](https://github.com/ecomplus/storefront/commit/1d408e4f8e9dc4c9bd383d408458e9444e49b104))
+* **theme-clean-gray:** new gray scale theme ([#233](https://github.com/ecomplus/storefront/issues/233)) ([4c4c496](https://github.com/ecomplus/storefront/commit/4c4c496930156fbc2586f2df4a8fc1d97cf99fce))
+
+
+
+
+
 # [2.0.0-beta.31](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.30...@ecomplus/storefront-template@2.0.0-beta.31) (2020-06-06)
 
 

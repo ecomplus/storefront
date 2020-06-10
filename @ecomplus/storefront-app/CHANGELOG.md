@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.26](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.25...@ecomplus/storefront-app@2.0.0-beta.26) (2020-06-10)
+
+
+### Bug Fixes
+
+* **cart:** fix handling freebie items on cart changes ([41e8dc0](https://github.com/ecomplus/storefront/commit/41e8dc05fbdf87d37e254dc1e86f31b915c8f065))
+* **deps:** update @ecomplus/i18n to v1.12.0 ([eadefea](https://github.com/ecomplus/storefront/commit/eadefea96ee224f0d403686b3c8ff6ca574a6b50))
+* **i18n:** update (import) some new words ([e55bbfd](https://github.com/ecomplus/storefront/commit/e55bbfd321b6808970bdf81e2a19ec95c72e1a9f))
+
+
+
+
+
 # [2.0.0-beta.25](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.24...@ecomplus/storefront-app@2.0.0-beta.25) (2020-06-06)
 
 
