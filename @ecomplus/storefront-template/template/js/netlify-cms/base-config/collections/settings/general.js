@@ -7,7 +7,6 @@ export default ({ baseDir }) => ({
       label: 'Store ID',
       name: 'store_id',
       hint: 'Id da loja, pode ser encontrado na página de configurações do painel',
-      required: false,
       widget: 'number'
     },
     {
@@ -16,33 +15,33 @@ export default ({ baseDir }) => ({
       widget: 'string'
     },
     {
-      label: 'Name',
+      label: 'Nome da loja',
       name: 'name',
       widget: 'string'
     },
     {
-      label: 'Short Name',
+      label: 'Nome curto',
       name: 'short_name',
       widget: 'string',
-      hint: 'Deve conter apenas letras, sem caracteres especiais ou espaços'
+      hint: 'Título do aplicativo quando instalado (PWA)'
     },
     {
-      label: 'Short Description',
+      label: 'Descrição curta',
       name: 'description',
       widget: 'text'
     },
     {
-      label: 'Primary Color',
+      label: 'Cor primária',
       name: 'primary_color',
       widget: 'color'
     },
     {
-      label: 'Secondary Color',
+      label: 'Cor secundária',
       name: 'secondary_color',
       widget: 'color'
     },
     {
-      label: 'App Background Color',
+      label: 'Cor de fundo do app',
       name: 'bg_color',
       widget: 'color'
     },
@@ -52,12 +51,28 @@ export default ({ baseDir }) => ({
       widget: 'object',
       fields: [
         {
-          label: 'Estilo',
-          name: 'bootswatch',
+          label: 'Storefront',
+          name: 'custom',
           widget: 'select',
           options: [
             {
-              label: 'Padrão',
+              label: 'Storefront padrão',
+              value: '_'
+            },
+            {
+              label: 'Clean: Escala de cinza',
+              value: 'clean-gray'
+            }
+          ]
+        },
+        {
+          label: 'UI base',
+          name: 'bootswatch',
+          hint: 'Powered by https://bootswatch.com/',
+          widget: 'select',
+          options: [
+            {
+              label: 'Bootstrap padrão',
               value: '_'
             },
             {
@@ -151,22 +166,15 @@ export default ({ baseDir }) => ({
     {
       label: 'Logo',
       name: 'logo',
-      widget: 'image',
-      required: false
+      widget: 'image'
     },
     {
-      label: 'Mini Logo',
-      name: 'mini_logo',
-      widget: 'image',
-      required: false
-    },
-    {
-      label: 'Icon',
+      label: 'Ícone do app',
       name: 'icon',
       widget: 'image'
     },
     {
-      label: 'Large Icon',
+      label: 'Ícone grande',
       name: 'large_icon',
       widget: 'image'
     },
