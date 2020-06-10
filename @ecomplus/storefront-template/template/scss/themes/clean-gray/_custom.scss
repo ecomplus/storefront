@@ -1,0 +1,31 @@
+main {
+  .top-bar {
+    display: flex;
+    flex-direction: column-reverse;
+
+    &__nav {
+      font-size: 85%;
+    }
+
+    a.top-bar__countdown {
+      background-color: $secondary;
+    }
+  }
+
+  .header {
+    border-bottom: none;
+
+    &__nav a {
+      color: $secondary;
+      border-bottom: solid 2px transparent;
+
+      &:hover {
+        border-bottom-color: $gray-600;
+      }
+    }
+  }
+
+  #search-input{
+    border: solid 1px $gray-600;
+  }
+}

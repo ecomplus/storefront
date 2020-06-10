@@ -10,21 +10,17 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black: #000 !default;
 
-$enable-shadows: true !default;
+$border-radius: .05rem !default;
+$border-radius-sm: .025rem !default;
+$border-radius-lg: .1rem !default;
 
-$border-radius: 0.1rem !default;
-$border-radius-lg: 0rem !default;
+$info: $gray-300;
+$secondary: $gray-800;
 
-$info: $gray-200 ;
-$secondary: $gray-900;
-
-$list-group-color: $black;
+$list-group-color: $secondary;
 $list-group-bg: $gray-100;
-$list-group-border-color: rgba($black, 1) !default;
+$list-group-border-color: $secondary;
 
-$breadcrumb-padding-y: 0.9rem;
-$breadcrumb-bg: $white;
 $breadcrumb-divider-color: $gray-500;
-$breadcrumb-active-color: $black;
-$breadcrumb-divider: quote("-");
-
+$breadcrumb-active-color: $secondary;
+$breadcrumb-divider: quote("·");
