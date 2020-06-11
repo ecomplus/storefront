@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.27](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.26...@ecomplus/storefront-app@2.0.0-beta.27) (2020-06-11)
+
+
+### Bug Fixes
+
+* **cart:** fix controller for discount applier (enable without zip code) ([3114412](https://github.com/ecomplus/storefront/commit/311441221f8ef0205f0fdb7cbef461a55a3eff72))
+
+
+
+
+
 # [2.0.0-beta.26](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.25...@ecomplus/storefront-app@2.0.0-beta.26) (2020-06-10)
 
 
