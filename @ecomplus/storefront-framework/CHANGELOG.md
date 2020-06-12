@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.14...@ecomplus/storefront-framework@5.12.15) (2020-06-12)
+
+
+### Bug Fixes
+
+* **build:** fix handling folder slugs (/index.html) ([a23b455](https://github.com/ecomplus/storefront/commit/a23b4557f356fdeedf52e8f055dacb2a0737c8fb))
+
+
+
+
+
 ## [5.12.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.13...@ecomplus/storefront-framework@5.12.14) (2020-06-10)
 
 
