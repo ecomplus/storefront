@@ -81,7 +81,8 @@ bundler.then(async ({ assetsByChunkName }) => {
           }
 
           // save HTML file on output folder
-          const filename = /\.x?(ht)?ml$/.test(paths.output) ? url : `${url}.html`
+          const filename = /\.x?(ht)?ml$/.test(paths.output) ? url
+            : url.endsWith('/') ? `${url}index.html` : `${url}.html`
           const filepath = path.join(paths.output, filename)
           // create directories for if needed
           mkdirp(path.dirname(filepath))
