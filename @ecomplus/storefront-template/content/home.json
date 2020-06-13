@@ -30,7 +30,8 @@
       "shuffle": false,
       "collection_id": null,
       "sort": "offers",
-      "title": ""
+      "title": "",
+      "no_head": true
     }
   ]
 }
