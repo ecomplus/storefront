@@ -1,5 +1,5 @@
 <%
-const { title, link, shuffle } = opt
+const { title, link, shuffle, headless } = opt
 let items, collection
 if (opt.sort || opt.collection_id) {
   let search
@@ -38,6 +38,6 @@ if (opt.sort || opt.collection_id) {
 
 <div class="collection-shelf my-lg-5">
   <%- await include('/@/sections/inc/products-carousel', {
-    _, opt: { items, collection, title, link, shuffle }
+    _, opt: { items, collection, title, link, shuffle, headless }
   }) %>
 </div>
