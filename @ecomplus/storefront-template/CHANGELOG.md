@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.35](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.34...@ecomplus/storefront-template@2.0.0-beta.35) (2020-06-13)
+
+
+### Bug Fixes
+
+* **scss:** minor fix for products carousel title ([d3793f5](https://github.com/ecomplus/storefront/commit/d3793f59dedf95c56371bbde58ac645d4d542596))
+
+
+### Features
+
+* **collection-shelf:** additional 'headless' boolean option ([b07baeb](https://github.com/ecomplus/storefront/commit/b07baeb885c460c4f43cbf73bc9e79c2c871242a))
+
+
+
+
+
 # [2.0.0-beta.34](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.33...@ecomplus/storefront-template@2.0.0-beta.34) (2020-06-12)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
