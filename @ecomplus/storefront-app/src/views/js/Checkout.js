@@ -131,7 +131,7 @@ export default {
   },
 
   created () {
-    const update = () => this.fetchCartItems({ removeOnError: true })
+    const update = items => this.fetchCartItems({ removeOnError: true, items })
     this.updateInterval = setInterval(update, 600000)
     this.triggerLoading(true)
     update()
@@ -156,12 +156,21 @@ export default {
           this.$router.push({
             name: 'cart'
           })
+        } else {
+          const fetchAddedItem = ({ item }) => {
+            update([item])
+          }
+          ecomCart.on('addItem', fetchAddedItem)
+          this.$once('hook:beforeDestroy', () => {
+            ecomCart.off('addItem', fetchAddedItem)
+          })
         }
         this.triggerLoading(false)
       })
   },
 
   destroyed () {
+    this.selectPaymentGateway(null)
     this.setFluidPage(false)
     clearInterval(this.updateInterval)
   }

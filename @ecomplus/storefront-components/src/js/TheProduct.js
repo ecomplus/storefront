@@ -2,6 +2,7 @@ import {
   i19buy,
   i19close,
   i19discountOf,
+  i19freeShippingFrom,
   i19loadProductErrorMsg,
   i19only,
   i19outOfStock,
@@ -9,6 +10,7 @@ import {
   i19retry,
   i19selectVariationMsg,
   i19unavailable,
+  i19units,
   i19unitsInStock
 } from '@ecomplus/i18n'
 
@@ -24,7 +26,8 @@ import {
 
 import { store, modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
-import sortApps from './lib/sort-apps'
+import sortApps from './helpers/sort-apps'
+import addIdleCallback from './helpers/add-idle-callback'
 import ALink from '../ALink.vue'
 import AAlert from '../AAlert.vue'
 import APrices from '../APrices.vue'
@@ -111,6 +114,7 @@ export default {
   computed: {
     i19close: () => i18n(i19close),
     i19discountOf: () => i18n(i19discountOf),
+    i19freeShippingFrom: () => i18n(i19freeShippingFrom),
     i19loadProductErrorMsg: () => i18n(i19loadProductErrorMsg),
     i19only: () => i18n(i19only),
     i19outOfStock: () => i18n(i19outOfStock),
@@ -118,6 +122,7 @@ export default {
     i19retry: () => i18n(i19retry),
     i19selectVariationMsg: () => i18n(i19selectVariationMsg),
     i19unavailable: () => i18n(i19unavailable),
+    i19units: () => i18n(i19units).toLowerCase(),
     i19unitsInStock: () => i18n(i19unitsInStock),
 
     selectedVariation () {
@@ -240,7 +245,7 @@ export default {
 
     fixedPrice (price) {
       if (price > 0) {
-        const fetchPaymentOptions = () => {
+        addIdleCallback(() => {
           modules({
             url: '/list_payments.json',
             method: 'POST',
@@ -275,12 +280,7 @@ export default {
                 })
             })
             .catch(console.error)
-        }
-        if (typeof window.requestIdleCallback === 'function') {
-          window.requestIdleCallback(fetchPaymentOptions)
-        } else {
-          setTimeout(fetchPaymentOptions, 500)
-        }
+        })
       }
     }
   },

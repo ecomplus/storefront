@@ -42,7 +42,14 @@ export default {
       upsertCart()
         .then(() => {
           ecomCart.on('change', upsertCart)
-          this.$once('hook:beforeDestroy', () => ecomCart.off('change', upsertCart))
+          const fetchAddedItem = ({ item }) => {
+            this.fetchCartItems({ items: [item] })
+          }
+          ecomCart.on('addItem', fetchAddedItem)
+          this.$once('hook:beforeDestroy', () => {
+            ecomCart.off('change', upsertCart)
+            ecomCart.off('addItem', fetchAddedItem)
+          })
         })
     })
   }

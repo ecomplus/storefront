@@ -1,15 +1,32 @@
 @import "variables";
 
-<% if (bootswatch && bootswatch.length > 1) { %>
-  @import "<%- themesPath %>/<%- bootswatch %>/variables";
-  @import "bootswatch/dist/<%- bootswatch %>/variables";
-<% } %>
+<%
+const importThemeFiles = isVariables => {
+  let scss = ''
+  for (const themeColl in theme) {
+    const themeName = theme[themeColl]
+    if (themeName && themeName.length > 1) {
+      if (isVariables) {
+        scss += `@import "${themesPath}/${themeName}/variables"; `
+        if (themeColl !== 'custom') {
+          scss += `@import "${themeColl}/dist/${themeName}/variables"; `
+        }
+      } else {
+        if (themeColl !== 'custom') {
+          scss += `@import "${themeColl}/dist/${themeName}/${themeColl}"; `
+        }
+        scss += `@import "${themesPath}/${themeName}/custom"; `
+      }
+    }
+  }
+  return scss
+}
+%>
+
+<%- importThemeFiles(true) %>
 
 @import "@ecomplus/storefront-twbs/scss/styles";
 
-<% if (bootswatch && bootswatch.length > 1) { %>
-  @import "bootswatch/dist/<%- bootswatch %>/bootswatch";
-  @import "<%- themesPath %>/<%- bootswatch %>/custom";
-<% } %>
+<%- importThemeFiles() %>
 
 @import "main";

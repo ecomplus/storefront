@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.8.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.7.0...@ecomplus/storefront-twbs@5.8.0) (2020-06-02)
+
+
+### Features
+
+* **js-env:** export env info by user agent and screen size ([6e6974b](https://github.com/ecomplus/storefront/commit/6e6974ba43973240d7fb426254e6438275ea319c))
+
+
+
+
+
+# [5.7.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.6.0...@ecomplus/storefront-twbs@5.7.0) (2020-06-02)
+
+
+### Features
+
+* **scss:** add progress bootstrap default component ([7dd8d43](https://github.com/ecomplus/storefront/commit/7dd8d4302013887ae0b3d750104eb50653ef9ba8))
+
+
+
+
+
 # [5.6.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.5.0...@ecomplus/storefront-twbs@5.6.0) (2020-05-28)
 
 

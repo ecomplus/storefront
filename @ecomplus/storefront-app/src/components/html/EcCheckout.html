@@ -3,10 +3,24 @@
     enter-active-class="animated fadeIn"
     leave-active-class="d-none"
   >
-    <div class="checkout__app" key="app" v-if="shownCheckoutStep">
+    <div
+      v-if="shownCheckoutStep"
+      :key="`app${checkoutAppId}`"
+      class="checkout__app"
+    >
       <div class="row">
         <div class="col-lg-8">
           <nav class="checkout__steps">
+            <a
+              :href="cartUrl"
+              class="checkout__step"
+              :title="i18n('BackToCart')"
+            >
+              <i class="fas fa-arrow-left"></i>
+              <span class="d-none d-md-inline">
+                <i class="fas fa-shopping-cart"></i>
+              </span>
+            </a>
             <a
               href="#"
               class="checkout__step"
@@ -108,7 +122,7 @@
                     :key="paymentsListKey"
                     :amount="amount"
                     :customer="localCustomer"
-                    @select-gateway="gateway => $emit('update:paymentGateway', gateway)"
+                    @select-gateway="selectPaymentGateway"
                     @checkout="transaction => $emit('checkout', transaction)"
                   />
 
@@ -134,7 +148,21 @@
               :can-show-price-options="!(paymentGateway && paymentGateway.app_id)"
               @click:account="editAccount = true"
             >
+              <template #more-offers>
+                <transition enter-active-class="animated fadeInDown">
+                  <button
+                    v-if="hasMoreOffers"
+                    class="checkout__btn-offers btn btn-sm btn-link"
+                    @click="goToOffers"
+                  >
+                    <i class="fas fa-plus mr-1"></i>
+                    {{ i19selectedOffers }}
+                  </button>
+                </transition>
+              </template>
+
               <discount-applier
+                v-if="enabledCheckoutStep > 1"
                 class="checkout__discount"
                 :amount="amount"
                 :coupon-code.sync="localDiscountCoupon"
@@ -153,6 +181,33 @@
           </div>
         </div>
       </div>
+
+      <recommended-items
+        ref="offers"
+        class="mt-5 pt-lg-3 mx-xl-3"
+        sort-order="offers"
+        :can-load-more="false"
+        row-class-name="row mt-4"
+        :product-card-props="{ buyText: i19addToCart }"
+        @recommend-items="hasMoreOffers = true"
+      >
+        <template #title>
+          <h3>
+            {{ i19buyAlsoMsg }}
+            <small class="d-block text-muted">
+              {{ i19selectedOffers }}
+            </small>
+          </h3>
+        </template>
+      </recommended-items>
+
+      <button
+        class="checkout__btn-top btn btn-link"
+        @click="goToTop"
+      >
+        <i class="fas fa-chevron-up mr-1"></i>
+        {{ i19checkout }}
+      </button>
     </div>
 
     <div key="login" v-else-if="!isUserIdentified">

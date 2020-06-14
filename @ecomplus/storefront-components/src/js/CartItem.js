@@ -1,4 +1,5 @@
 import {
+  // i19freebie,
   i19quantity,
   i19remove
 } from '@ecomplus/i18n'
@@ -49,6 +50,7 @@ export default {
   },
 
   computed: {
+    i19freebie: () => 'Brinde',
     i19quantity: () => i18n(i19quantity),
     i19remove: () => i18n(i19remove),
 
@@ -73,6 +75,12 @@ export default {
           return `${name.substr(0, this.nameMaxLength)}...`
         }
       }
+    },
+
+    isFreebie () {
+      return Array.isArray(this.item.flags)
+        ? this.item.flags.includes('freebie')
+        : false
     }
   },
 
@@ -116,7 +124,10 @@ export default {
           newQuantity: qnt
         })
         if (this.itemId && this.canUpdateCart) {
-          ecomCart.increaseItemQnt(this.itemId, quantityToAdd)
+          const item = ecomCart.increaseItemQnt(this.itemId, quantityToAdd)
+          if (this.isFreebie) {
+            item.flags = item.flags.filter(flag => !flag.startsWith('freebie'))
+          }
         }
       }
       if (qnt > 10 && oldQnt <= 10) {

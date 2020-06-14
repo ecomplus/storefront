@@ -149,44 +149,45 @@ const mutations = {
 }
 
 const actions = {
-  fetchCartItems ({ commit }, { removeOnError }) {
+  fetchCartItems ({ commit }, { removeOnError, items }) {
     const promises = []
-    ecomCart.data.items.forEach(item => {
-      const { _id, quantity } = item
-      const promise = new Promise(resolve => {
-        fetchProduct(item.product_id)
-          .then(({ data }) => {
-            if (item.variation_id) {
-              const variation = data.variations &&
-                data.variations.find(({ _id }) => _id === item.variation_id)
-              if (!variation) {
-                ecomCart.removeItem(_id)
-              } else {
-                Object.assign(data, variation)
+    ;(Array.isArray(items) && items.length ? items : ecomCart.data.items)
+      .forEach(item => {
+        const { _id, quantity } = item
+        const promise = new Promise(resolve => {
+          fetchProduct(item.product_id)
+            .then(({ data }) => {
+              if (item.variation_id) {
+                const variation = data.variations &&
+                  data.variations.find(({ _id }) => _id === item.variation_id)
+                if (!variation) {
+                  ecomCart.removeItem(_id)
+                } else {
+                  Object.assign(data, variation)
+                }
               }
-            }
-            const price = getPrice(data)
-            Object.assign(item, data, {
-              variations: [],
-              price,
-              final_price: price,
-              quantity: 0,
-              body_html: '',
-              body_text: ''
+              const price = getPrice(data)
+              Object.assign(item, data, {
+                variations: [],
+                price,
+                final_price: price,
+                quantity: 0,
+                body_html: '',
+                body_text: ''
+              })
+              ecomCart.increaseItemQnt(_id, quantity, false)
             })
-            ecomCart.increaseItemQnt(_id, quantity, false)
-          })
-          .catch(err => {
-            console.error(err)
-            const status = err.response && err.response.status
-            if (removeOnError || (status >= 400 && status < 500)) {
-              ecomCart.removeItem(_id, false)
-            }
-          })
-          .finally(resolve)
+            .catch(err => {
+              console.error(err)
+              const status = err.response && err.response.status
+              if (removeOnError || (status >= 400 && status < 500)) {
+                ecomCart.removeItem(_id, false)
+              }
+            })
+            .finally(resolve)
+        })
+        promises.push(promise)
       })
-      promises.push(promise)
-    })
     return Promise.all(promises).then(() => {
       ecomCart.save()
     })

@@ -45,7 +45,6 @@ $product-card-picture-lg: 250px !default;
   &__picture {
     position: absolute;
     display: block;
-    border-radius: var(--border-radius);
     flex: 0 0 100%;
 
     img {

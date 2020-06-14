@@ -35,13 +35,17 @@ if (opt.img) {
       aria-label="<%= opt.alt %>"
     >
       <picture
-        class="lozad fade img-fluid"
+        <% if (opt.sync_load) { %>
+          class="img-fluid"
+        <% } else { %>
+          class="lozad fade img-fluid"
+          data-iesrc="<%= opt.img.replace('.webp', '.png') %>"
+          data-alt="<%= opt.alt %>"
+        <% } %>
         <% if (dimensions) { %>
           data-width="<%= dimensions.width %>"
           data-height="<%= dimensions.height %>"
         <% } %>
-        data-iesrc="<%= opt.img.replace('.webp', '.png') %>"
-        data-alt="<%= opt.alt %>"
       >
         <% sources.forEach(({ src, media, type }) => { %>
           <source
@@ -52,6 +56,9 @@ if (opt.img) {
             <% } %>
           >
         <% }) %>
+        <% if (opt.sync_load) { %>
+          <img src="<%= opt.img.replace('.webp', '.png') %>" alt="<%= opt.alt %>">
+        <% } %>
       </picture>
     </a>
   </div>

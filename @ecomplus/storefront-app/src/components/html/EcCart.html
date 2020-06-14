@@ -18,10 +18,12 @@
           </slot>
         </div>
 
+        <recommended-items col-class-name="col-6 col-lg-3"/>
+
         <slot name="back-shopping">
           <div class="cart__back d-none d-md-block my-4">
             <a
-              class="cart__btn-back btn btn-light"
+              class="cart__btn-back btn btn-link"
               role="button"
               href="/"
             >
@@ -30,18 +32,9 @@
             </a>
           </div>
         </slot>
-
-        <discount-applier
-          class="cart__discount"
-          :amount="amount"
-          :coupon-code.sync="localDiscountCoupon"
-          :is-coupon-applied="Boolean(discountCoupon && amount.discount)"
-          @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
-          :modules-payload="modulesPayload"
-        />
       </div>
 
-      <div class="col-md-5 col-lg-4">
+      <div class="col-md-5 col-lg-4 mt-3 mt-md-0">
         <div class="cart__info">
           <slot name="info">
             <div class="cart__summary-row">
@@ -63,8 +56,8 @@
               class="cart__shipping"
               :can-select-services="true"
               :shipped-items="cart.items"
-              @select-service="val => $emit('shippingService', val)"
-              @update:zip-code="val => $emit('update:zipCode', val)"
+              :zip-code.sync="localZipCode"
+              @select-service="selectShippingService"
             />
 
             <div class="cart__summary-row cart__total">
@@ -99,6 +92,15 @@
             </slot>
           </slot>
         </div>
+
+        <discount-applier
+          v-if="canApplyDiscount"
+          class="cart__discount"
+          :amount="amount"
+          :coupon-code.sync="localDiscountCoupon"
+          @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
+          :modules-payload="modulesPayload"
+        />
       </div>
     </div>
 

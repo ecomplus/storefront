@@ -10,6 +10,7 @@ import APrices from '#components/APrices.vue'
 import CartItem from '#components/CartItem.vue'
 import DiscountApplier from '#components/DiscountApplier.vue'
 import ShippingCalculator from '#components/ShippingCalculator.vue'
+import RecommendedItems from '#components/RecommendedItems.vue'
 
 import {
   i19checkout,
@@ -25,7 +26,8 @@ export default {
     APrices,
     CartItem,
     DiscountApplier,
-    ShippingCalculator
+    ShippingCalculator,
+    RecommendedItems
   },
 
   props: {
@@ -45,7 +47,15 @@ export default {
       type: Object,
       default: () => {}
     },
+    zipCode: String,
     discountCoupon: String
+  },
+
+  data () {
+    return {
+      localZipCode: this.zipCode,
+      canApplyDiscount: false
+    }
   },
 
   computed: {
@@ -70,6 +80,42 @@ export default {
   },
 
   methods: {
-    formatMoney
+    formatMoney,
+
+    selectShippingService (service) {
+      this.$emit('shippingService', service)
+      this.$nextTick(() => {
+        this.canApplyDiscount = true
+      })
+    }
+  },
+
+  watch: {
+    localZipCode (zipCode) {
+      this.$emit('update:zipCode', zipCode)
+    }
+  },
+
+  mounted () {
+    this.$nextTick(() => {
+      this.canApplyDiscount = !this.localZipCode
+    })
+    const { ecomCart } = this
+    let oldSubtotal = ecomCart.data.subtotal
+    const cartWatcher = ({ data }) => {
+      this.canApplyDiscount = !this.localZipCode
+      if (oldSubtotal > data.subtotal) {
+        ecomCart.data.items.forEach(({ _id, quantity, flags }) => {
+          if (Array.isArray(flags) && flags.includes('freebie') && quantity === 1) {
+            ecomCart.removeItem(_id)
+          }
+        })
+      }
+      oldSubtotal = data.subtotal
+    }
+    ecomCart.on('change', cartWatcher)
+    this.$once('hook:beforeDestroy', () => {
+      ecomCart.off('change', cartWatcher)
+    })
   }
 }

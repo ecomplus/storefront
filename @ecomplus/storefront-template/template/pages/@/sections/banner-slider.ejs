@@ -41,7 +41,7 @@ if (slides && slides.length) {
           <% for (let i = 0; i < slides.length; i++) { %>
             <li class="glide__slide">
               <%- await include('/@/sections/inc/banner', {
-                _, opt: { ...slides[i], height_auto: true }
+                _, opt: { ...slides[i], height_auto: true, sync_load: i === 0 }
               }) %>
             </li>
           <% } %>
@@ -70,7 +70,7 @@ if (slides && slides.length) {
               <button
                 class="glide__bullet"
                 data-glide-dir="=<%= index %>"
-                aria-label="<%= `${index}° _.dictionary('banner')` %>"
+                aria-label="<%= `${(index + 1)}° banner` %>"
               ></button>
             <% }) %>
           </div>

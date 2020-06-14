@@ -8,7 +8,7 @@
   &__app {
     min-height: 300px;
     max-width: 90rem;
-    margin: 0 auto 2rem;
+    margin: 0 auto 1rem;
   }
 
   &__steps {
@@ -68,6 +68,15 @@
 
     &:focus {
       outline: none;
+    }
+
+    .fa-arrow-left {
+      opacity: .75;
+    }
+
+    .fa-shopping-cart {
+      color: var(--success);
+      opacity: .5;
     }
   }
 
@@ -155,5 +164,14 @@
     small {
       color: var(--gray);
     }
+  }
+
+  &__btn-top {
+    margin: var(--spacer-5) auto 0;
+    display: block;
+  }
+
+  .product-card__buy {
+    opacity: 1;
   }
 }

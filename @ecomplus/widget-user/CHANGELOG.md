@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.25](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-user@1.0.0-beta.24...@ecomplus/widget-user@1.0.0-beta.25) (2020-06-10)
+
+**Note:** Version bump only for package @ecomplus/widget-user
+
+
+
+
+
+# [1.0.0-beta.24](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-user@1.0.0-beta.23...@ecomplus/widget-user@1.0.0-beta.24) (2020-06-06)
+
+**Note:** Version bump only for package @ecomplus/widget-user
+
+
+
+
+
+# [1.0.0-beta.23](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-user@1.0.0-beta.22...@ecomplus/widget-user@1.0.0-beta.23) (2020-06-03)
+
+**Note:** Version bump only for package @ecomplus/widget-user
+
+
+
+
+
+# [1.0.0-beta.22](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-user@1.0.0-beta.21...@ecomplus/widget-user@1.0.0-beta.22) (2020-06-03)
+
+**Note:** Version bump only for package @ecomplus/widget-user
+
+
+
+
+
+# [1.0.0-beta.21](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-user@1.0.0-beta.20...@ecomplus/widget-user@1.0.0-beta.21) (2020-06-02)
+
+**Note:** Version bump only for package @ecomplus/widget-user
+
+
+
+
+
+# [1.0.0-beta.20](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-user@1.0.0-beta.19...@ecomplus/widget-user@1.0.0-beta.20) (2020-06-02)
+
+**Note:** Version bump only for package @ecomplus/widget-user
+
+
+
+
+
 # [1.0.0-beta.19](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-user@1.0.0-beta.18...@ecomplus/widget-user@1.0.0-beta.19) (2020-05-28)
 
 **Note:** Version bump only for package @ecomplus/widget-user

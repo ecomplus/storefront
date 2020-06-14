@@ -11,10 +11,30 @@ import {
 } from '@ecomplus/i18n'
 
 import { i18n } from '@ecomplus/utils'
-import { modules } from '@ecomplus/client'
+import { store, modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import ecomPassport from '@ecomplus/passport-client'
 import AAlert from '../AAlert.vue'
+
+const addFreebieItems = (ecomCart, productIds) => {
+  if (Array.isArray(productIds)) {
+    productIds.forEach(productId => {
+      if (!ecomCart.data.items.find(item => item.product_id === productId)) {
+        store({ url: `/products/${productId}.json` })
+          .then(({ data }) => {
+            ecomCart.addProduct({
+              ...data,
+              quantity: productIds.reduce((qnt, _id) => {
+                return _id === productId ? qnt + 1 : qnt
+              }, 0),
+              flags: ['freebie', '__tmp']
+            })
+          })
+          .catch(console.error)
+      }
+    })
+  }
+}
 
 export default {
   name: 'DiscountApplier',
@@ -33,6 +53,10 @@ export default {
     isFormAlwaysVisible: Boolean,
     isCouponApplied: Boolean,
     isAttentionWanted: Boolean,
+    canAddFreebieItems: {
+      type: Boolean,
+      default: true
+    },
     modulesPayload: Object,
     ecomCart: {
       type: Object,
@@ -55,9 +79,7 @@ export default {
       isFormVisible: this.isFormAlwaysVisible || this.couponCode,
       isLoading: false,
       localCouponCode: this.couponCode,
-      localAmountTotal: this.amount.total || 0,
-      localAmountDiscount: this.amount.discount || 0,
-      extraDiscountValue: 0,
+      localAmountTotal: null,
       isUpdateSheduled: false
     }
   },
@@ -79,8 +101,15 @@ export default {
   },
 
   methods: {
+    fixAmount () {
+      const amount = this.amount || {
+        subtotal: this.ecomCart.data.subtotal
+      }
+      this.localAmountTotal = (amount.subtotal || 0) + (amount.freight || 0)
+    },
+
     parseDiscountOptions (listResult = []) {
-      this.extraDiscountValue = 0
+      let extraDiscountValue = 0
       if (listResult.length) {
         let discountRule, invalidCouponMsg
         listResult.forEach(appResult => {
@@ -89,8 +118,8 @@ export default {
             const appDiscountRule = response.discount_rule
             if (appDiscountRule) {
               const discountRuleValue = appDiscountRule.extra_discount.value
-              if (!(this.extraDiscountValue > discountRuleValue)) {
-                this.extraDiscountValue = discountRuleValue
+              if (!(extraDiscountValue > discountRuleValue)) {
+                extraDiscountValue = discountRuleValue
                 discountRule = {
                   app_id: appResult.app_id,
                   ...appDiscountRule
@@ -99,9 +128,12 @@ export default {
             } else if (response.invalid_coupon_message) {
               invalidCouponMsg = response.invalid_coupon_message
             }
+            if (this.canAddFreebieItems) {
+              addFreebieItems(this.ecomCart, response.freebie_product_ids)
+            }
           }
         })
-        if (this.extraDiscountValue) {
+        if (extraDiscountValue) {
           if (this.localCouponCode) {
             this.$emit('update:coupon-code', this.localCouponCode)
             this.alertText = this.i19couponAppliedMsg
@@ -114,6 +146,8 @@ export default {
           if (this.localCouponCode) {
             this.alertText = invalidCouponMsg || this.i19invalidCouponMsg
             this.alertVariant = 'warning'
+          } else {
+            this.alertText = null
           }
           this.$emit('set-discount-rule', {})
         }
@@ -128,9 +162,10 @@ export default {
         data: {
           ...this.modulesPayload,
           amount: {
+            subtotal: this.localAmountTotal,
             ...this.amount,
             total: this.localAmountTotal,
-            discount: this.localAmountDiscount
+            discount: 0
           },
           items: this.ecomCart.data.items,
           ...data
@@ -171,7 +206,10 @@ export default {
         if (isForceUpdate || !this.isCouponApplied) {
           this.submitCoupon(isForceUpdate)
         }
-      } else if (isForceUpdate || (this.amount && this.amount.total)) {
+      } else if (
+        isForceUpdate ||
+        (!this.isUpdateSheduled && this.amount && this.amount.total)
+      ) {
         this.fetchDiscountOptions()
       }
     }
@@ -201,32 +239,28 @@ export default {
       }
     },
 
-    localAmountTotal () {
-      if (!this.isUpdateSheduled) {
+    localAmountTotal (total, oldTotal) {
+      if (oldTotal !== null && Math.abs(total - oldTotal) > 0.01 && !this.isUpdateSheduled) {
         this.isUpdateSheduled = true
         this.$nextTick(() => {
           setTimeout(() => {
             this.updateDiscount()
             this.isUpdateSheduled = false
-          }, 150)
+          }, 600)
         })
       }
     },
 
     amount: {
-      handler (amount) {
-        const discountDiff = amount.discount - this.extraDiscountValue
-        this.localAmountDiscount = discountDiff > 0.01 ? discountDiff : 0
-        const fixedTotal = amount.total + this.extraDiscountValue
-        if (Math.abs(fixedTotal - this.localAmountTotal) > 0.01) {
-          this.localAmountTotal = fixedTotal
-        }
+      handler () {
+        this.fixAmount()
       },
       deep: true
     }
   },
 
-  created () {
+  mounted () {
+    this.fixAmount()
     this.updateDiscount(false)
   }
 }

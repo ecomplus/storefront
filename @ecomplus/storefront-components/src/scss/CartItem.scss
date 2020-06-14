@@ -57,8 +57,20 @@
   }
 
   .close {
-    padding: var(--spacer-2);
+    padding-left: var(--spacer-2);
     color: var(--danger);
     font-size: var(--font-size);
+  }
+
+  &__freebie {
+    float: right;
+    padding: 0 var(--spacer-2);
+    text-transform: lowercase;
+    color: var(--success);
+  }
+
+  &--freebie .cart-item__prices {
+    text-decoration: line-through;
+    font-size: var(--font-size-sm);
   }
 }

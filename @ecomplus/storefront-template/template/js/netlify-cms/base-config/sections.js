@@ -226,6 +226,13 @@ export default ({ state }) => [
         name: 'link',
         hint: 'Usará o slug da coleção por padrão',
         widget: 'string'
+      },
+      {
+        label: 'Sem cabeçalho',
+        required: false,
+        name: 'headless',
+        widget: 'boolean',
+        hint: 'Mostrar apenas a lista de produtos, sem título ou link'
       }
     ]
   },

@@ -3,6 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.28](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.27...@ecomplus/storefront-components@1.0.0-beta.28) (2020-06-10)
+
+
+### Bug Fixes
+
+* **cart-item:** disable input (quantity edit) if no price ([cc8d8e4](https://github.com/ecomplus/storefront/commit/cc8d8e49345c1b31eb97dcf875a789400176d8b1))
+* **deps:** update @ecomplus/i18n to v1.12.0 ([eadefea](https://github.com/ecomplus/storefront/commit/eadefea96ee224f0d403686b3c8ff6ca574a6b50))
+* **deps:** update all non-major dependencies ([#249](https://github.com/ecomplus/storefront/issues/249)) ([6762fac](https://github.com/ecomplus/storefront/commit/6762fac914c7a272e115ce79c497d918c8518416))
+* **i18n:** update (import) some new words ([e55bbfd](https://github.com/ecomplus/storefront/commit/e55bbfd321b6808970bdf81e2a19ec95c72e1a9f))
+
+
+
+
+
+# [1.0.0-beta.27](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.26...@ecomplus/storefront-components@1.0.0-beta.27) (2020-06-06)
+
+
+### Features
+
+* **cart-item:** handling freebie items by flag ([2867e52](https://github.com/ecomplus/storefront/commit/2867e52d1af0e611a9b688fc710ceb62f749641e))
+* **discount-applier:** handle new 'canAddFreebieItems' prop ([5bfb52f](https://github.com/ecomplus/storefront/commit/5bfb52f61178c418f05d5f6a0fc610f326a192d4))
+
+
+
+
+
+# [1.0.0-beta.26](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.25...@ecomplus/storefront-components@1.0.0-beta.26) (2020-06-03)
+
+
+### Bug Fixes
+
+* **search-engine:** check term string to handle suggestions ([89800f4](https://github.com/ecomplus/storefront/commit/89800f422cd211891001c4afeb509faf1b2d937b))
+
+
+
+
+
+# [1.0.0-beta.25](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.24...@ecomplus/storefront-components@1.0.0-beta.25) (2020-06-03)
+
+
+### Bug Fixes
+
+* **product-card:** style fix for chrome mobile ([38d9415](https://github.com/ecomplus/storefront/commit/38d9415d91ac58ea5dcaafdafd3be78c0329f94b))
+* **search-engine:** fix handling suggestions with case insensitive terms ([c5d682b](https://github.com/ecomplus/storefront/commit/c5d682b10eedda7491bc93bdbe087ed7842a3bf5))
+
+
+
+
+
+# [1.0.0-beta.24](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.23...@ecomplus/storefront-components@1.0.0-beta.24) (2020-06-02)
+
+
+### Bug Fixes
+
+* **recommended-items:** fix handling pagination (load more) ([d3e4802](https://github.com/ecomplus/storefront/commit/d3e4802bfc0d6ac4d428b1de07ca426277c3cf1f))
+* **recommended-items:** styles/props fixes for mobile ([c174b5d](https://github.com/ecomplus/storefront/commit/c174b5debcf7b804abe0996f010252bbd323038b))
+* **shipping-calculator:** preventing unecessary update fetch ([e718eff](https://github.com/ecomplus/storefront/commit/e718effb05e08e5d22e7a1db563937e1b2edf795))
+
+
+### Features
+
+* **product-card:** add 'installmentsOption' and 'discountOption' ([4e3217f](https://github.com/ecomplus/storefront/commit/4e3217f037e6a5a461cd7066d17134e2689564af))
+
+
+
+
+
+# [1.0.0-beta.23](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.22...@ecomplus/storefront-components@1.0.0-beta.23) (2020-06-02)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.3.2 ([042f082](https://github.com/ecomplus/storefront/commit/042f082e89ee8c4627407d3bbf3e38804ef3fb92))
+* **discount-applier:** fix local amount calc ([1f6c38e](https://github.com/ecomplus/storefront/commit/1f6c38e4842a87f505cb692f519731b813b28eac))
+* **shipping-calculator:** ensure skip progress bar if no 50% for free ([841ca10](https://github.com/ecomplus/storefront/commit/841ca1090737de1bcbd722ee2be20329710600f3))
+
+
+### Features
+
+* **product:** add 'free shipping from' info ([397bad5](https://github.com/ecomplus/storefront/commit/397bad555a91095870fbc22588efa9fe830b00f1))
+* **product:** handling optional payment apps sort array ([550aad3](https://github.com/ecomplus/storefront/commit/550aad38fdff0fc7ef8ac57657af160be18b72ff))
+* **recommended-items:** new 'RecommendedItems' component :tada: ([083ddd7](https://github.com/ecomplus/storefront/commit/083ddd7d4b1b675103524753e86523fa625cc112))
+* **shipping-calculator:** add 'free-from-value' and 'option' slots ([6a91188](https://github.com/ecomplus/storefront/commit/6a911885b6440dd9041002304284416f992ffd27))
+
+
+
+
+
 # [1.0.0-beta.22](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.21...@ecomplus/storefront-components@1.0.0-beta.22) (2020-05-28)
 
 

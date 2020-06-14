@@ -3,6 +3,115 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.35](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.34...@ecomplus/storefront-template@2.0.0-beta.35) (2020-06-13)
+
+
+### Bug Fixes
+
+* **scss:** minor fix for products carousel title ([d3793f5](https://github.com/ecomplus/storefront/commit/d3793f59dedf95c56371bbde58ac645d4d542596))
+
+
+### Features
+
+* **collection-shelf:** additional 'headless' boolean option ([b07baeb](https://github.com/ecomplus/storefront/commit/b07baeb885c460c4f43cbf73bc9e79c2c871242a))
+
+
+
+
+
+# [2.0.0-beta.34](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.33...@ecomplus/storefront-template@2.0.0-beta.34) (2020-06-12)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.33](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.32...@ecomplus/storefront-template@2.0.0-beta.33) (2020-06-11)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.32](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.31...@ecomplus/storefront-template@2.0.0-beta.32) (2020-06-10)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.12.0 ([eadefea](https://github.com/ecomplus/storefront/commit/eadefea96ee224f0d403686b3c8ff6ca574a6b50))
+
+
+### Features
+
+* **cms:** add 'full_width' option to header categories list ([bb521eb](https://github.com/ecomplus/storefront/commit/bb521eb03b780c9cce1ddeb684300c3a464e18bc))
+* **cms:** new custom logo (storefront editor) ([80caa46](https://github.com/ecomplus/storefront/commit/80caa4673398cfd7e8bb78bb3749d01a3f772698))
+* **header:** handling categories nav with full width option ([1d408e4](https://github.com/ecomplus/storefront/commit/1d408e4f8e9dc4c9bd383d408458e9444e49b104))
+* **theme-clean-gray:** new gray scale theme ([#233](https://github.com/ecomplus/storefront/issues/233)) ([4c4c496](https://github.com/ecomplus/storefront/commit/4c4c496930156fbc2586f2df4a8fc1d97cf99fce))
+
+
+
+
+
+# [2.0.0-beta.31](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.30...@ecomplus/storefront-template@2.0.0-beta.31) (2020-06-06)
+
+
+### Bug Fixes
+
+* **checkout:** add clearfix lib, import on pages and checkout ([29181cc](https://github.com/ecomplus/storefront/commit/29181cc3e2ce0cfca3ef5f70d058eb64701e6188))
+* **shopping-cart:** remove temporary items on page load ([5c26b3c](https://github.com/ecomplus/storefront/commit/5c26b3c80e787f3f88ef56b1e77eabb98c5a33a1))
+
+
+### Performance Improvements
+
+* **banner-slider:** sync load first banner (lower lcp) ([c968e2e](https://github.com/ecomplus/storefront/commit/c968e2e03b796e78df52763e4586e21e87f2a316))
+* **glide:** remove opacity transition (try better lcp score) ([2afcb59](https://github.com/ecomplus/storefront/commit/2afcb59f973c76703233643165f2d2b3eec329da))
+
+
+
+
+
+# [2.0.0-beta.30](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.29...@ecomplus/storefront-template@2.0.0-beta.30) (2020-06-03)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.29](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.28...@ecomplus/storefront-template@2.0.0-beta.29) (2020-06-03)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.28](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.27...@ecomplus/storefront-template@2.0.0-beta.28) (2020-06-02)
+
+
+### Bug Fixes
+
+* **cms:** skip collection shelf sections on retail pages ([f5926eb](https://github.com/ecomplus/storefront/commit/f5926ebf8be6b7e236da6691ffbb701736e13b30))
+
+
+
+
+
+# [2.0.0-beta.27](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.26...@ecomplus/storefront-template@2.0.0-beta.27) (2020-06-02)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.3.2 ([042f082](https://github.com/ecomplus/storefront/commit/042f082e89ee8c4627407d3bbf3e38804ef3fb92))
+* **meta-tags:** og:image for resource pages with document picture ([3122125](https://github.com/ecomplus/storefront/commit/31221258aebb65dfc8f3325d85622deeb6f7ee42))
+* **offers-timer:** better grid cols by number of items ([a0f90b9](https://github.com/ecomplus/storefront/commit/a0f90b9b42ac13c6b684108a94d092d8bfb1a700))
+
+
+
+
+
 # [2.0.0-beta.26](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.25...@ecomplus/storefront-template@2.0.0-beta.26) (2020-05-29)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
