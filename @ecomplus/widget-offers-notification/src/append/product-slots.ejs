@@ -1,0 +1,15 @@
+<div data-slot="out-of-stock" class="d-none">
+  <% if(options.enabledOutOfStock && _.state.quantity === 0){ %>
+  <button type="button" class="btn btn-lg btn-primary mt-3 offers-notification" data-criterias="out_of_stock"
+    data-store_id="<%- _.state.store_id %>" data-product_id="<%- _.state._id %> ">Me
+    Avise</button>
+  <% }%>
+</div>
+
+<div data-slot="prices" class="d-none">
+  <% if(options.enabledPriceChange && _.state.quantity > 0){ %>
+  <button type="button" class="btn btn-lg btn-primary mb-3 mt-3 offers-notification" data-criterias="price_change"
+    data-store_id="<%- _.state.store_id %>" data-product_id="<%- _.state._id %> ">Acompanhar
+    preço</button>
+  <% }%>
+</div>
