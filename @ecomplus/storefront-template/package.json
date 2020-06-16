@@ -63,6 +63,7 @@
     "@ecomplus/widget-tawkto": "^1.1.2",
     "@ecomplus/widget-trustvox": "^2.0.4",
     "@ecomplus/widget-user": "^1.0.0-beta.25",
+    "@ecomplus/widget-offers-notification": "^1.0.0",
     "@glidejs/glide": "^3.4.1",
     "bootswatch": "^4.5.0",
     "core-js": ">=3.6.4 <3.7",
