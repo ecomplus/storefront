@@ -1,9 +1,10 @@
 {
   "pkg": "@ecomplus/widget-offers-notification",
   "active": true,
-  "enabledOutOfStock": true,
-  "enabledPriceChange": true,
   "desktopOnly": false,
-  "options": {},
-  "stampsAppend": "src/append/stamps"
+  "options": {
+    "enabledOutOfStock": true,
+    "enabledPriceChange": true
+  },
+  "productSlots": "src/append/product-slots"
 }
