@@ -64,9 +64,6 @@ export default {
     i19continueShopping: () => i18n(i19continueShopping),
     i19discount: () => i18n(i19discount),
     i19emptyCart: () => i18n(i19emptyCart),
-    modulesPayload () {
-      return this.baseModulesRequestData
-    },
     cart () {
       return this.ecomCart.data
     },
@@ -75,12 +72,28 @@ export default {
         return this.discountCoupon
       },
       set (couponCode) {
-        this.$emit('update:discountCoupon', couponCode)
+        this.$emit('update:discount-coupon', couponCode)
       }
     }
   },
 
   methods: {
-    formatMoney
+    formatMoney,
+    selectShippingService (service) {
+      this.$emit('shipping-service', service)
+      this.$nextTick(() => {
+        this.hasShippingService = true
+      })
+    }
+  },
+
+  mounted () {
+    const cartWatcher = () => {
+      this.hasShippingService = false
+    }
+    this.ecomCart.on('change', cartWatcher)
+    this.$once('hook:beforeDestroy', () => {
+      this.ecomCart.off('change', cartWatcher)
+    })
   }
 }
