@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.36](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.35...@ecomplus/storefront-template@2.0.0-beta.36) (2020-06-18)
+
+
+### Bug Fixes
+
+* **cms:** do not [skip ci] on image upload ([94da564](https://github.com/ecomplus/storefront/commit/94da564658a557aa9c398b7f63d3b194f78dc1d1))
+* **cms:** rollback to v2.10.50 (v2.10.51 is buggy) ([870d8d5](https://github.com/ecomplus/storefront/commit/870d8d52472847e501ec33a57399e75b3b377dc0))
+* **deps:** update all non-major dependencies ([#251](https://github.com/ecomplus/storefront/issues/251)) ([d08be72](https://github.com/ecomplus/storefront/commit/d08be7258f1f0d55f2d6b6b53fd3f5fb1b6a4bbe))
+
+
+
+
+
 # [2.0.0-beta.35](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.34...@ecomplus/storefront-template@2.0.0-beta.35) (2020-06-13)
 
 
