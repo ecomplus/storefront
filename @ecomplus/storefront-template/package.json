@@ -55,6 +55,7 @@
     "@ecomplus/widget-ebit": "^1.1.4",
     "@ecomplus/widget-fb-pixel": "^1.1.2",
     "@ecomplus/widget-minicart": "^1.0.0-beta.26",
+    "@ecomplus/widget-offers-notification": "^1.0.0",
     "@ecomplus/widget-product": "^1.0.0-beta.26",
     "@ecomplus/widget-product-card": "^1.0.0-beta.26",
     "@ecomplus/widget-search": "^1.0.0-beta.26",

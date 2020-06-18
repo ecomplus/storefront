@@ -1,0 +1,40 @@
+<%
+const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app/offers/notification' +
+  `?store_id=${_.state.store_id}&productId=${_.state._id}`
+%>
+
+<div class="d-none">
+  <div data-slot="out-of-stock">
+    <% if (options.enableOutOfStock) { %>
+      <button
+        type="button"
+        class="btn btn-lg btn-primary mt-3 offers-notification"
+        onclick="window.open('<%- url %>&criterias=out_of_stock', '_blank', '<%- options.popupOptions %>')"
+      >
+        <i class="fas fa-bell mr-1"></i>
+        <%= _.ecomUtils.i18n({
+          en_us: 'Notify me when available',
+          pt_br: 'Avise-me quando chegar'
+        }) %>
+      </button>
+    <% } %>
+  </div>
+</div>
+
+<div class="d-none">
+  <div data-slot="track-price">
+    <% if (options.enablePriceChange) { %>
+      <button
+        type="button"
+        class="btn btn-sm btn-light mt-3 offers-notification"
+        onclick="window.open('<%- url %>&criterias=price_change', '_blank', '<%- options.popupOptions %>')"
+      >
+        <i class="fas fa-bell mr-1"></i>
+        <%= _.ecomUtils.i18n({
+          en_us: 'Notify me if the price drops',
+          pt_br: 'Avise-me se o preço baixar'
+        }) %>
+      </button>
+    <% } %>
+  </div>
+</div>
