@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.29](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.28...@ecomplus/storefront-components@1.0.0-beta.29) (2020-06-18)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#251](https://github.com/ecomplus/storefront/issues/251)) ([d08be72](https://github.com/ecomplus/storefront/commit/d08be7258f1f0d55f2d6b6b53fd3f5fb1b6a4bbe))
+
+
+
+
+
+# [1.0.0-beta.28](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.27...@ecomplus/storefront-components@1.0.0-beta.28) (2020-06-10)
+
+
+### Bug Fixes
+
+* **cart-item:** disable input (quantity edit) if no price ([cc8d8e4](https://github.com/ecomplus/storefront/commit/cc8d8e49345c1b31eb97dcf875a789400176d8b1))
+* **deps:** update @ecomplus/i18n to v1.12.0 ([eadefea](https://github.com/ecomplus/storefront/commit/eadefea96ee224f0d403686b3c8ff6ca574a6b50))
+* **deps:** update all non-major dependencies ([#249](https://github.com/ecomplus/storefront/issues/249)) ([6762fac](https://github.com/ecomplus/storefront/commit/6762fac914c7a272e115ce79c497d918c8518416))
+* **i18n:** update (import) some new words ([e55bbfd](https://github.com/ecomplus/storefront/commit/e55bbfd321b6808970bdf81e2a19ec95c72e1a9f))
+
+
+
+
+
 # [1.0.0-beta.27](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.26...@ecomplus/storefront-components@1.0.0-beta.27) (2020-06-06)
 
 

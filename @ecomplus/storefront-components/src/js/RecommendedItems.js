@@ -1,7 +1,7 @@
 import {
   i19add,
-  i19seeMore
-  // i19weRecommendedForYou
+  i19seeMore,
+  i19weRecommendToYou
 } from '@ecomplus/i18n'
 
 import {
@@ -85,7 +85,7 @@ export default {
 
   computed: {
     i19seeMore: () => i18n(i19seeMore),
-    i19weRecommendedForYou: () => 'Nós recomendados para você'
+    i19weRecommendToYou: () => i18n(i19weRecommendToYou)
   },
 
   methods: {

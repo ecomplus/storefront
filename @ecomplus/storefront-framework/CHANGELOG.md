@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.16](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.15...@ecomplus/storefront-framework@5.12.16) (2020-06-18)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#251](https://github.com/ecomplus/storefront/issues/251)) ([d08be72](https://github.com/ecomplus/storefront/commit/d08be7258f1f0d55f2d6b6b53fd3f5fb1b6a4bbe))
+
+
+
+
+
+## [5.12.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.14...@ecomplus/storefront-framework@5.12.15) (2020-06-12)
+
+
+### Bug Fixes
+
+* **build:** fix handling folder slugs (/index.html) ([a23b455](https://github.com/ecomplus/storefront/commit/a23b4557f356fdeedf52e8f055dacb2a0737c8fb))
+
+
+
+
+
+## [5.12.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.13...@ecomplus/storefront-framework@5.12.14) (2020-06-10)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.12.0 ([eadefea](https://github.com/ecomplus/storefront/commit/eadefea96ee224f0d403686b3c8ff6ca574a6b50))
+* **deps:** update all non-major dependencies ([#249](https://github.com/ecomplus/storefront/issues/249)) ([6762fac](https://github.com/ecomplus/storefront/commit/6762fac914c7a272e115ce79c497d918c8518416))
+
+
+
+
+
 ## [5.12.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.12...@ecomplus/storefront-framework@5.12.13) (2020-06-02)
 
 

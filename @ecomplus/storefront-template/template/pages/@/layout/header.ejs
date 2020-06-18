@@ -20,6 +20,7 @@ const logo = _.settings.logo
 
 // list featured categories
 let categories = []
+let isCategoriesNavFull
 if (header.categories_list) {
   if (header.categories_list.featured.length) {
     // selected categories/collections/brands
@@ -35,6 +36,7 @@ if (header.categories_list) {
       categories.push(mainCategories[i])
     }
   }
+  isCategoriesNavFull = header.categories_list.full_width
 }
 %>
 
@@ -196,9 +198,11 @@ if (header.categories_list) {
         </div>
       </div>
 
-      <% if (header.search_input) { %>
+      <% if (header.search_input) {
+        const searchColSize = !isCategoriesNavFull && categories.length ? '-3' : ''
+        %>
         <div
-          class="d-none d-lg-block col-12 col-lg<%= categories.length ? '-3' : '' %> collapse show"
+          class="d-none d-lg-block col-12 col-lg<%= searchColSize %> collapse show"
           id="search-bar"
         >
           <form
@@ -248,8 +252,8 @@ if (header.categories_list) {
       <% } %>
 
       <% if (categories && categories.length) { %>
-        <div class="col d-none d-lg-block">
-          <nav class="header__nav">
+        <div class="d-none d-lg-block <%= isCategoriesNavFull ? 'col-12 order-lg-last' : 'col' %>">
+          <nav class="header__nav<%= isCategoriesNavFull ? ' header__nav--full' : '' %>">
             <% categories.forEach(({ slug, name }) => { %>
               <a href="javascript:;" onclick="toggleSidenav('<%= slug %>')">
                 <%= ` ${name} ` %>

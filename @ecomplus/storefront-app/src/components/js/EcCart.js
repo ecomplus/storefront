@@ -47,12 +47,14 @@ export default {
       type: Object,
       default: () => {}
     },
+    zipCode: String,
     discountCoupon: String
   },
 
   data () {
     return {
-      hasShippingService: false
+      localZipCode: this.zipCode,
+      canApplyDiscount: false
     }
   },
 
@@ -83,18 +85,37 @@ export default {
     selectShippingService (service) {
       this.$emit('shippingService', service)
       this.$nextTick(() => {
-        this.hasShippingService = true
+        this.canApplyDiscount = true
       })
     }
   },
 
-  mounted () {
-    const cartWatcher = () => {
-      this.hasShippingService = false
+  watch: {
+    localZipCode (zipCode) {
+      this.$emit('update:zipCode', zipCode)
     }
-    this.ecomCart.on('change', cartWatcher)
+  },
+
+  mounted () {
+    this.$nextTick(() => {
+      this.canApplyDiscount = !this.localZipCode
+    })
+    const { ecomCart } = this
+    let oldSubtotal = ecomCart.data.subtotal
+    const cartWatcher = ({ data }) => {
+      this.canApplyDiscount = !this.localZipCode
+      if (oldSubtotal > data.subtotal) {
+        ecomCart.data.items.forEach(({ _id, quantity, flags }) => {
+          if (Array.isArray(flags) && flags.includes('freebie') && quantity === 1) {
+            ecomCart.removeItem(_id)
+          }
+        })
+      }
+      oldSubtotal = data.subtotal
+    }
+    ecomCart.on('change', cartWatcher)
     this.$once('hook:beforeDestroy', () => {
-      this.ecomCart.off('change', cartWatcher)
+      ecomCart.off('change', cartWatcher)
     })
   }
 }

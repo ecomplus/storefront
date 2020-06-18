@@ -23,21 +23,23 @@
     <% } %>
     data-title="<%= title %>"
   >
-    <h4 class="products-carousel__title">
-      <% if (opt.title || opt.collection) { %>
-        <% if (link) { %>
-          <a href="<%= link %>">
+    <% if (!opt.headless) { %>
+      <h4 class="products-carousel__title">
+        <% if (opt.title || opt.collection) { %>
+          <% if (link) { %>
+            <a href="<%= link %>">
+              <%= title %>
+            </a>
+          <% } else { %>
+            <span><%= title %></span>
+          <% } %>
+        <% } else { %>
+          <a href="/search">
             <%= title %>
           </a>
-        <% } else { %>
-          <span><%= title %></span>
         <% } %>
-      <% } else { %>
-        <a href="/search">
-          <%= title %>
-        </a>
-      <% } %>
-    </h4>
+      </h4>
+    <% } %>
 
     <div
       class="glide"

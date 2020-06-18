@@ -56,8 +56,8 @@
               class="cart__shipping"
               :can-select-services="true"
               :shipped-items="cart.items"
+              :zip-code.sync="localZipCode"
               @select-service="selectShippingService"
-              @update:zip-code="val => $emit('update:zipCode', val)"
             />
 
             <div class="cart__summary-row cart__total">
@@ -94,7 +94,7 @@
         </div>
 
         <discount-applier
-          v-if="hasShippingService"
+          v-if="canApplyDiscount"
           class="cart__discount"
           :amount="amount"
           :coupon-code.sync="localDiscountCoupon"

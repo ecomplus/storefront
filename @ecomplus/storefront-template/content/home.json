@@ -29,7 +29,9 @@
       "type": "collection-shelf",
       "shuffle": false,
       "collection_id": null,
-      "sort": "offers"
+      "sort": "offers",
+      "title": "",
+      "headless": false
     }
   ]
 }
