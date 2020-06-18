@@ -1,7 +1,7 @@
 import { name } from './package.json'
 
 export default () => ({
-  label: 'Notificações de Ofertas',
+  label: 'Notificação de ofertas e estoque',
   fields: [
     {
       name: 'pkg',
@@ -10,9 +10,14 @@ export default () => ({
     },
     {
       label: 'Ativar',
-      hint: 'Habilitar Notificações de Ofertas',
+      hint: 'Habilitar notificações de ofertas',
       name: 'active',
       widget: 'boolean'
+    },
+    {
+      name: 'desktopOnly',
+      widget: 'hidden',
+      default: false
     },
     {
       label: 'Opções',
@@ -21,24 +26,25 @@ export default () => ({
       hint: 'Personalizações do widget',
       fields: [
         {
-          label: 'Acompanhar Preço',
-          hint: 'Habilitar opção `Acompanhar Preço` na página de produtos',
-          name: 'enabledPriceChange',
-          widget: 'boolean'
+          label: 'Habilitar "avise-me quando chegar"',
+          hint: 'Notifica clientes cadastrados quando produtos sem estoque ficam disponíveis novamente',
+          name: 'enableOutOfStock',
+          widget: 'boolean',
+          default: true
         },
         {
-          label: 'Me Avise',
-          hint: 'Habilitar opção `Me Avise` na página de produtos com estoque zerado',
-          name: 'enabledOutOfStock',
-          widget: 'boolean'
+          label: 'Habilitar alerta de preço',
+          hint: 'Notificações de redução de preço',
+          name: 'enablePriceChange',
+          widget: 'boolean',
+          default: true
+        },
+        {
+          name: 'popupOptions',
+          widget: 'hidden',
+          default: 'location=yes,height=400,width=320,status=yes'
         }
       ]
-    },
-    {
-      label: 'Apenas em desktops',
-      name: 'desktopOnly',
-      hint: 'Desativa o widget em dispositivos móveis',
-      widget: 'boolean'
     },
     {
       name: 'productSlots',
