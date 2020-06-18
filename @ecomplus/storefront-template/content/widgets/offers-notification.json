@@ -3,8 +3,9 @@
   "active": true,
   "desktopOnly": false,
   "options": {
-    "enabledOutOfStock": true,
-    "enabledPriceChange": true
+    "enableOutOfStock": true,
+    "enablePriceChange": true,
+    "popupOptions": "location=yes,height=400,width=320,status=yes"
   },
   "productSlots": "src/append/product-slots"
 }
