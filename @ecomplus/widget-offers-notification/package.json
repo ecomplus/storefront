@@ -1,7 +1,7 @@
 {
   "name": "@ecomplus/widget-offers-notification",
   "version": "1.0.0",
-  "description": "Storefront plugin for @ecomplus/app-offers-notification",
+  "description": "Storefront plugin for product stock and offers notification",
   "main": "dist/widget-offers-notification.min.js",
   "module": "src/index.js",
   "browser": "dist/widget-offers-notification.min.js",
@@ -29,10 +29,6 @@
     "url": "https://github.com/ecomplus/storefront/issues"
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-offers-notification#readme",
-  "peerDependencies": {
-    "@ecomplus/utils": "^1.4.1",
-    "core-js": "3.x"
-  },
   "webpackOutput": {
     "library": "widgetOffersNotification",
     "filename": "widget-offers-notification.min.js"
