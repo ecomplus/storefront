@@ -100,12 +100,6 @@ Promise.all(widgetsLoadPromises).then(() => {
         '@ecomplus/widget-ebit',
         () => import('@ecomplus/widget-ebit')
       )
-      if (resource === 'products') {
-        loadWidget(
-          '@ecomplus/widget-offers-notification',
-          () => import('@ecomplus/widget-offers-notification')
-        )
-      }
     })
   }
 
