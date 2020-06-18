@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-product-card",
-  "version": "1.0.0-beta.26",
+  "version": "1.0.0-beta.27",
   "description": "Storefront plugin with Vue component for product cards",
   "module": "src/index.js",
   "browser": "dist/widget-product-card.min.js",
@@ -36,7 +36,7 @@
     "vue": ">=2 <4"
   },
   "dependencies": {
-    "@ecomplus/storefront-components": "^1.0.0-beta.29"
+    "@ecomplus/storefront-components": "^1.0.0-beta.30"
   },
   "webpackOutput": {
     "library": "widgetProductCard",
