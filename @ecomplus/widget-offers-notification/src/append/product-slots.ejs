@@ -1,15 +1,31 @@
+<% 
+const i19NotifyMe = _.ecomUtils.i18n({
+  en_us: 'Notify me',
+  pt_br: 'Me avise'
+})
+
+const i19TrackPrice =  _.ecomUtils.i18n({
+  en_us: 'Track price change',
+  pt_br: 'Acompanhar preço'
+})
+
+const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app/offers/notification' +
+`?store_id=${_.state.store_id}`+
+`&productId=${_.state._id}`
+%>
+
 <div data-slot="out-of-stock" class="d-none">
   <% if(options.enabledOutOfStock && _.state.quantity === 0){ %>
   <button type="button" class="btn btn-lg btn-primary mt-3 offers-notification" data-criterias="out_of_stock"
-    data-store_id="<%- _.state.store_id %>" data-product_id="<%- _.state._id %> ">Me
-    Avise</button>
+    data-store_id="<%- _.state.store_id %>" data-product_id="<%- _.state._id %> "
+    onclick="window.open('<%- url %>&criterias=out_of_stock', '_blank', 'location=yes,height=280,width=320,status=yes')"><%- i19NotifyMe %></button>
   <% }%>
 </div>
 
-<div data-slot="prices" class="d-none">
+<div data-slot="track-price" class="d-none">
   <% if(options.enabledPriceChange && _.state.quantity > 0){ %>
   <button type="button" class="btn btn-lg btn-primary mb-3 mt-3 offers-notification" data-criterias="price_change"
-    data-store_id="<%- _.state.store_id %>" data-product_id="<%- _.state._id %> ">Acompanhar
-    preço</button>
+    data-store_id="<%- _.state.store_id %>" data-product_id="<%- _.state._id %> "
+    onclick="window.open('<%- url %>&criterias=price_change', '_blank', 'location=yes,height=280,width=320,status=yes')"><%- i19TrackPrice %></button>
   <% }%>
 </div>
