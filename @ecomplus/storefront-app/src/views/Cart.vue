@@ -3,8 +3,8 @@
     <the-cart
       :amount="amount"
       :discount-coupon.sync="discountCoupon"
-      :base-modules-request-data="baseModulesRequestData"
-      @shipping-service="selectShippingService"
+      :modules-payload="baseModulesRequestData"
+      @select-shipping="selectShippingService"
       @set-discount-rule="setDiscountRule"
     />
   </div>

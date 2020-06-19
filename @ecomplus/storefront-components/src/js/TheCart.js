@@ -1,5 +1,4 @@
 import {
-  $ecomConfig,
   i18n,
   formatMoney
 } from '@ecomplus/utils'
@@ -36,10 +35,6 @@ export default {
         return ecomCart
       }
     },
-    lang: {
-      type: String,
-      default: $ecomConfig.get('lang')
-    },
     checkoutUrl: {
       type: String,
       default: '/app/#/checkout'
@@ -50,12 +45,20 @@ export default {
         return {}
       }
     },
+    zipCode: String,
     discountCoupon: String,
-    baseModulesRequestData: {
+    modulesPayload: {
       type: Object,
       default () {
         return {}
       }
+    }
+  },
+
+  data () {
+    return {
+      localZipCode: this.zipCode,
+      canApplyDiscount: false
     }
   },
 
@@ -64,9 +67,11 @@ export default {
     i19continueShopping: () => i18n(i19continueShopping),
     i19discount: () => i18n(i19discount),
     i19emptyCart: () => i18n(i19emptyCart),
+
     cart () {
       return this.ecomCart.data
     },
+
     localDiscountCoupon: {
       get () {
         return this.discountCoupon
@@ -79,21 +84,41 @@ export default {
 
   methods: {
     formatMoney,
+
     selectShippingService (service) {
-      this.$emit('shipping-service', service)
+      this.$emit('select-shipping', service)
       this.$nextTick(() => {
-        this.hasShippingService = true
+        this.canApplyDiscount = true
       })
     }
   },
 
-  mounted () {
-    const cartWatcher = () => {
-      this.hasShippingService = false
+  watch: {
+    localZipCode (zipCode) {
+      this.$emit('update:zip-code', zipCode)
     }
-    this.ecomCart.on('change', cartWatcher)
+  },
+
+  mounted () {
+    this.$nextTick(() => {
+      this.canApplyDiscount = !this.localZipCode
+    })
+    const { ecomCart } = this
+    let oldSubtotal = ecomCart.data.subtotal
+    const cartWatcher = ({ data }) => {
+      this.canApplyDiscount = !this.localZipCode
+      if (oldSubtotal > data.subtotal) {
+        ecomCart.data.items.forEach(({ _id, quantity, flags }) => {
+          if (Array.isArray(flags) && flags.includes('freebie') && quantity === 1) {
+            ecomCart.removeItem(_id)
+          }
+        })
+      }
+      oldSubtotal = data.subtotal
+    }
+    ecomCart.on('change', cartWatcher)
     this.$once('hook:beforeDestroy', () => {
-      this.ecomCart.off('change', cartWatcher)
+      ecomCart.off('change', cartWatcher)
     })
   }
 }

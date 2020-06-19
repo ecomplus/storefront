@@ -26,6 +26,7 @@ export default {
         this.setDiscountCoupon(couponCode)
       }
     },
+
     baseModulesRequestData () {
       return baseModulesRequestData
     }
