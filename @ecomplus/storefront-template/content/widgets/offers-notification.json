@@ -1,6 +1,6 @@
 {
   "pkg": "@ecomplus/widget-offers-notification",
-  "active": false,
+  "active": true,
   "desktopOnly": false,
   "options": {
     "enableOutOfStock": true,
