@@ -1,4 +1,13 @@
-:root {
-    --pink: #fd9da2 !important;
-    --indigo: #e6f9f8 !important;
-}
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+
+$border-radius: 1.05rem !default;
+$border-radius-sm: 3rem !default;
+$border-radius-lg: 3rem !default;
+
+$list-group-color: $secondary;
+$list-group-bg: $gray-100;
+$list-group-border-color: $secondary;
+
+$breadcrumb-active-color: $secondary;
+$breadcrumb-divider: quote(".");
