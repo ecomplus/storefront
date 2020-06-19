@@ -41,6 +41,13 @@ export default {
             orders.push(order)
           }
           this.setOrders(orders)
+          if (!this.$route.params.json) {
+            this.$router.push({
+              params: {
+                json: encodeURIComponent(JSON.stringify(order))
+              }
+            })
+          }
         }
       }
     }
