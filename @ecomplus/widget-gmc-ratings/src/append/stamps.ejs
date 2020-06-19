@@ -1,0 +1,28 @@
+<% if (options.gmcMerchantId) {
+  let lang = _.ecomUtils.$ecomConfig.get('lang')
+  if (lang.indexOf('_') > -1) {
+    const [idiom, country] = lang.split('_')
+    lang = `${idiom}_${country.toUpperCase()}`
+  }
+  %>
+
+  <script src="https://apis.google.com/js/platform.js?onload=renderGmcBadge" async defer></script>
+  <script>
+    window.renderGmcBadge = function() {
+      var ratingBadgeContainer = document.createElement('div');
+      document.body.appendChild(ratingBadgeContainer);
+      window.gapi.load('ratingbadge', function() {
+        window.gapi.ratingbadge.render(
+          ratingBadgeContainer, {
+            merchant_id: <%- options.gmcMerchantId %>,
+            position: "<%- (options.badgePosition || 'BOTTOM_LEFT') %>"
+          });
+      });
+    }
+  </script>
+  <script>
+    window.___gcfg = {
+      lang: "<%- lang %>"
+    };
+  </script>
+<% } %>
