@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.29](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@1.0.0-beta.28...@ecomplus/widget-product@1.0.0-beta.29) (2020-06-21)
+
+**Note:** Version bump only for package @ecomplus/widget-product
+
+
+
+
+
 # [1.0.0-beta.28](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@1.0.0-beta.27...@ecomplus/widget-product@1.0.0-beta.28) (2020-06-21)
 
 **Note:** Version bump only for package @ecomplus/widget-product

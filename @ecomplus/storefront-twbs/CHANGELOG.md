@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.9.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.9.0...@ecomplus/storefront-twbs@5.9.1) (2020-06-21)
+
+
+### Performance Improvements
+
+* **scss:** woff2 and woff for icons web fonts only ([8c26e7a](https://github.com/ecomplus/storefront/commit/8c26e7a852d979d949d4de9fd175a48aa750065b))
+
+
+
+
+
 # [5.9.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.8.0...@ecomplus/storefront-twbs@5.9.0) (2020-06-21)
 
 

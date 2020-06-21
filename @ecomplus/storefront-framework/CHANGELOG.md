@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.13.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.1...@ecomplus/storefront-framework@5.13.2) (2020-06-21)
+
+
+### Performance Improvements
+
+* **webpack:** bigger limit for url-loader on woff2 format ([38abf62](https://github.com/ecomplus/storefront/commit/38abf629bd47ce1cda49f0712fb234765efd8f07))
+
+
+
+
+
 ## [5.13.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.0...@ecomplus/storefront-framework@5.13.1) (2020-06-21)
 
 
