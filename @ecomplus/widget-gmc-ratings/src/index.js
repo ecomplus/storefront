@@ -51,15 +51,17 @@ export default (options = {}) => {
             deliveryDate = addDays(14)
           }
 
-          window.gapi.surveyoptin.render({
-            merchant_id: gmcMerchantId,
-            order_id: params.number || params.id,
-            email: customerEmail,
-            delivery_country: deliveryCountry,
-            estimated_delivery_date: deliveryDate.getFullYear() +
-              `-${(deliveryDate.getMonth() + 1).toString().padStart(2, '0')}-` +
-              deliveryDate.getDate().toString().padStart(2, '0'),
-            opt_in_style: dialogPosition || 'CENTER_DIALOG'
+          window.gapi.load('surveyoptin', function () {
+            window.gapi.surveyoptin.render({
+              merchant_id: gmcMerchantId,
+              order_id: params.number || params.id,
+              email: customerEmail,
+              delivery_country: deliveryCountry,
+              estimated_delivery_date: deliveryDate.getFullYear() +
+                `-${(deliveryDate.getMonth() + 1).toString().padStart(2, '0')}-` +
+                deliveryDate.getDate().toString().padStart(2, '0'),
+              opt_in_style: dialogPosition || 'CENTER_DIALOG'
+            })
           })
         }
       }
