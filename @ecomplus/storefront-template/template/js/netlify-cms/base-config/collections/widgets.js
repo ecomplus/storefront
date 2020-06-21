@@ -9,6 +9,7 @@ import getWidgetGmcRatings from '@ecomplus/widget-gmc-ratings/cms.config'
 import getWidgetTawkto from '@ecomplus/widget-tawkto/cms.config'
 import getWidgetTrustvox from '@ecomplus/widget-trustvox/cms.config'
 import getWidgetEbit from '@ecomplus/widget-ebit/cms.config'
+import getWidgetOffersNotification from '@ecomplus/widget-offers-notification/cms.config'
 
 const fixWidgetConfig = ({ baseDir }, getWidget) => {
   const baseConfig = getWidget()
@@ -40,6 +41,7 @@ export default options => ({
     fixWidgetConfig(options, getWidgetGmcRatings),
     fixWidgetConfig(options, getWidgetTawkto),
     fixWidgetConfig(options, getWidgetTrustvox),
-    fixWidgetConfig(options, getWidgetEbit)
+    fixWidgetConfig(options, getWidgetEbit),
+    fixWidgetConfig(options, getWidgetOffersNotification)
   ]
 })
