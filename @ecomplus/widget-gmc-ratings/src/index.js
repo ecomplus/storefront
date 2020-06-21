@@ -1,4 +1,5 @@
 import { $ecomConfig } from '@ecomplus/utils'
+import { store } from '@ecomplus/client'
 import ecomPassport from '@ecomplus/passport-client'
 
 export default (options = {}) => {
@@ -51,16 +52,43 @@ export default (options = {}) => {
             deliveryDate = addDays(14)
           }
 
-          window.gapi.load('surveyoptin', function () {
-            window.gapi.surveyoptin.render({
-              merchant_id: gmcMerchantId,
-              order_id: params.number || params.id,
-              email: customerEmail,
-              delivery_country: deliveryCountry,
-              estimated_delivery_date: deliveryDate.getFullYear() +
-                `-${(deliveryDate.getMonth() + 1).toString().padStart(2, '0')}-` +
-                deliveryDate.getDate().toString().padStart(2, '0'),
-              opt_in_style: dialogPosition || 'CENTER_DIALOG'
+          const promises = []
+          const gtins = []
+          const optInConfig = {
+            merchant_id: gmcMerchantId,
+            order_id: params.number || params.id,
+            email: customerEmail,
+            delivery_country: deliveryCountry,
+            estimated_delivery_date: deliveryDate.getFullYear() +
+              `-${(deliveryDate.getMonth() + 1).toString().padStart(2, '0')}-` +
+              deliveryDate.getDate().toString().padStart(2, '0'),
+            opt_in_style: dialogPosition || 'CENTER_DIALOG'
+          }
+
+          if (order && order.items) {
+            for (let i = 0; i < order.items.length && i <= 4; i++) {
+              promises.push(
+                store({ url: `/products/${order.items[i].product_id}.json` })
+                  .then(({ data }) => {
+                    if (data.gtin) {
+                      data.gtin.forEach(gtinCode => {
+                        if (!gtins.includes(gtinCode)) {
+                          gtins.push(gtinCode)
+                        }
+                      })
+                    }
+                  })
+                  .catch(console.error)
+              )
+            }
+          }
+
+          Promise.allSettled(promises).then(() => {
+            if (gtins.length) {
+              optInConfig.products = gtins.map(gtin => ({ gtin }))
+            }
+            window.gapi.load('surveyoptin', function () {
+              window.gapi.surveyoptin.render(optInConfig)
             })
           })
         }
