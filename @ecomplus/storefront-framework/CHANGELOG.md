@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.13.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.0...@ecomplus/storefront-framework@5.13.1) (2020-06-21)
+
+
+### Bug Fixes
+
+* **deps:** add file-loader to direct dependencies ([9d309dd](https://github.com/ecomplus/storefront/commit/9d309dd26a89ad313078cbf46ce5e6984d0c5f29))
+
+
+
+
+
 # [5.13.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.16...@ecomplus/storefront-framework@5.13.0) (2020-06-21)
 
 
