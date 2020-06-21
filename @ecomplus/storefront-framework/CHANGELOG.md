@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.13.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.16...@ecomplus/storefront-framework@5.13.0) (2020-06-21)
+
+
+### Bug Fixes
+
+* **deps:** add url-loader and resolve-url-loader for font files ([7a59f71](https://github.com/ecomplus/storefront/commit/7a59f714c27d25f606b4ab76c83cf5d4b86607e3))
+
+
+### Features
+
+* **webpack:** and url loader for files and optional bundle analyzer ([3b70f08](https://github.com/ecomplus/storefront/commit/3b70f083857280c45d9cadc463fb77d765e49694))
+
+
+
+
+
 ## [5.12.16](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.12.15...@ecomplus/storefront-framework@5.12.16) (2020-06-18)
 
 

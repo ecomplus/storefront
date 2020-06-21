@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.9.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.8.0...@ecomplus/storefront-twbs@5.9.0) (2020-06-21)
+
+
+### Features
+
+* **scss:** add curated font awesome icons web fonts ([3f10d21](https://github.com/ecomplus/storefront/commit/3f10d215d9832a3887a0999bc701c14d4693a261))
+
+
+### Performance Improvements
+
+* **js:** stop importing fontawesome svg js ([f86101a](https://github.com/ecomplus/storefront/commit/f86101a458430eee3f1054ca30ca413d11b7f15d))
+
+
+
+
+
 # [5.8.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.7.0...@ecomplus/storefront-twbs@5.8.0) (2020-06-02)
 
 
