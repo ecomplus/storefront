@@ -41,7 +41,7 @@ export default options => ({
     fixWidgetConfig(options, getWidgetGmcRatings),
     fixWidgetConfig(options, getWidgetTawkto),
     fixWidgetConfig(options, getWidgetTrustvox),
-    fixWidgetConfig(options, getWidgetEbit)
+    fixWidgetConfig(options, getWidgetEbit),
     fixWidgetConfig(options, getWidgetOffersNotification)
   ]
 })
