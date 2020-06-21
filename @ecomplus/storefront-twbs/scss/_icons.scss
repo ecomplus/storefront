@@ -2,14 +2,11 @@
 // Font files generated with http://fontello.com
 @font-face {
   font-family: "storefront-fa";
-  src: url("../assets/icons/font/storefront-fa.eot");
-  src: url("../assets/icons/font/storefront-fa.eot#iefix") format("embedded-opentype"),
-       url("../assets/icons/font/storefront-fa.woff2") format("woff2"),
-       url("../assets/icons/font/storefront-fa.woff") format("woff"),
-       url("../assets/icons/font/storefront-fa.ttf") format("truetype"),
-       url("../assets/icons/font/storefront-fa.svg#storefront-fa") format("svg");
+  src: url("../assets/icons/font/storefront-fa.woff2") format("woff2"),
+       url("../assets/icons/font/storefront-fa.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 // Adapted Font Awesome core
