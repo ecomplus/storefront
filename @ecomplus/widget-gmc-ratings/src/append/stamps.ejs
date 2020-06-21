@@ -6,14 +6,14 @@
   }
   %>
 
+  <div id="gmc-ratings-badge"><div></div></div>
   <script src="https://apis.google.com/js/platform.js?onload=renderGmcBadge" async defer></script>
   <script>
     window.renderGmcBadge = function() {
-      var ratingBadgeContainer = document.createElement('div');
-      document.body.appendChild(ratingBadgeContainer);
+      var $ratingBadge = document.getElementById('gmc-ratings-badge').firstChild;
       window.gapi.load('ratingbadge', function() {
         window.gapi.ratingbadge.render(
-          ratingBadgeContainer, {
+          $ratingBadge, {
             merchant_id: <%- options.gmcMerchantId %>,
             position: "<%- (options.badgePosition || 'BOTTOM_LEFT') %>"
           });
