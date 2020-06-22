@@ -47,6 +47,12 @@ const baseScssModule = [
       sourceMap: true
     }
   },
+  {
+    loader: 'resolve-url-loader',
+    options: {
+      sourceMap: true
+    }
+  },
 
   {
     loader: 'postcss-loader',
@@ -182,6 +188,31 @@ let config = {
         }
       },
 
+      // inline small fonts and images
+      // fallback to file loader by default
+      {
+        test: /\.woff2$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 16384
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff|svg|eot|ttf|png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
+      },
+
       {
         test: /\.(ejs|txt)$/,
         use: 'raw-loader'
@@ -233,6 +264,10 @@ if (!process.env.WEBPACK_BUILD_LIB) {
       // create service worker file
       new WorkboxPlugin.InjectManifest({ swSrc, swDest: 'sw.js' })
     )
+  } else if (process.argv.indexOf('--analyze') > -1) {
+    // start JS bundle analyzer
+    const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+    config.plugins.push(new BundleAnalyzerPlugin())
   }
 
   // handle configurable options by CLI args

@@ -18,6 +18,15 @@ const getSidebarItems = pkg => {
   return children
 }
 
+const alias = {
+  './scss/ProductCard.scss': path.resolve(__dirname, 'styles/components/DemoProductCard.scss'),
+  './scss/InstantSearch.scss': path.resolve(__dirname, 'styles/components/DemoInstantSearch.scss')
+}
+;['eot', 'woff2', 'woff', 'svg', 'ttf'].forEach(fontExt => {
+  const filepath = `assets/icons/font/storefront-fa.${fontExt}`
+  alias[`../${filepath}`] = path.resolve(__dirname, `../@ecomplus/storefront-twbs/${filepath}`)
+})
+
 module.exports = {
   base: '/storefront/',
   port: 9110,
@@ -88,10 +97,7 @@ module.exports = {
 
   configureWebpack: {
     resolve: {
-      alias: {
-        './scss/ProductCard.scss': path.resolve(__dirname, 'styles/components/DemoProductCard.scss'),
-        './scss/InstantSearch.scss': path.resolve(__dirname, 'styles/components/DemoInstantSearch.scss')
-      }
+      alias
     }
   }
 }

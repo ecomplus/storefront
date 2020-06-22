@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.32](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.31...@ecomplus/storefront-components@1.0.0-beta.32) (2020-06-21)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.31](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.30...@ecomplus/storefront-components@1.0.0-beta.31) (2020-06-21)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.30](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.29...@ecomplus/storefront-components@1.0.0-beta.30) (2020-06-18)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.29](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.28...@ecomplus/storefront-components@1.0.0-beta.29) (2020-06-18)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#251](https://github.com/ecomplus/storefront/issues/251)) ([d08be72](https://github.com/ecomplus/storefront/commit/d08be7258f1f0d55f2d6b6b53fd3f5fb1b6a4bbe))
+
+
+
+
+
 # [1.0.0-beta.28](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.27...@ecomplus/storefront-components@1.0.0-beta.28) (2020-06-10)
 
 

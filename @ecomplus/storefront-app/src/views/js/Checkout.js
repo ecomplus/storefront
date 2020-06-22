@@ -24,6 +24,7 @@ export default {
   computed: {
     ...mapGetters([
       'amount',
+      'shippingService',
       'shippingZipCode',
       'selectedAddress'
     ]),
@@ -107,7 +108,8 @@ export default {
           this.$router.push({
             name: 'confirmation',
             params: {
-              id: order._id
+              id: order._id,
+              number: order.number
             }
           })
         })

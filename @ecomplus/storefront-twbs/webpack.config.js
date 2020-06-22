@@ -62,6 +62,18 @@ const webpackConfig = {
           },
           'sass-loader'
         ]
+      },
+
+      {
+        test: /\.(woff|woff2|svg|eot|ttf|png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
       }
     ]
   },
