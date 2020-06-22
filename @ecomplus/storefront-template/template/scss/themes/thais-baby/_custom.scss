@@ -54,3 +54,11 @@ main {
 .card-header {
   font-weight: var(--font-bold);
 }
+
+.fa-shopping-bag:before {
+  content: "___";
+  background-image: url("/img/uploads/carro.png");
+  background-repeat: no-repeat;
+  width: 20px !important;
+  height: 20px !important;
+}
