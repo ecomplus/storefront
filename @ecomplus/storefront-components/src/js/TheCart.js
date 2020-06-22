@@ -58,7 +58,8 @@ export default {
   data () {
     return {
       localZipCode: this.zipCode,
-      canApplyDiscount: false
+      canApplyDiscount: false,
+      canApplyCoupon: false
     }
   },
 
@@ -90,12 +91,27 @@ export default {
       this.$nextTick(() => {
         this.canApplyDiscount = true
       })
+    },
+
+    setDiscountRule (discountRule) {
+      this.$emit('set-discount-rule', discountRule)
+      this.$nextTick(() => {
+        this.canApplyDiscount = true
+        this.canApplyCoupon = Boolean(this.discountCoupon && this.amount.discount)
+      })
+      this.$forceUpdate()
     }
   },
 
   watch: {
     localZipCode (zipCode) {
       this.$emit('update:zip-code', zipCode)
+    },
+
+    canApplyDiscount (isApplyDiscount) {
+      if (!isApplyDiscount) {
+        this.canApplyCoupon = false
+      }
     }
   },
 
