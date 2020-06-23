@@ -1,0 +1,140 @@
+<div class="cart">
+  <transition-group enter-active-class="animated fadeInDown">
+    <div
+      class="row"
+      v-if="cart.items.length"
+      key="list"
+    >
+      <div class="col-md-7 col-lg-8">
+        <div class="cart__list">
+          <slot
+            name="list"
+            v-bind="{ items: cart.items }"
+          >
+            <transition-group
+              enter-active-class="animated fadeInDown"
+              leave-active-class="animated fadeOutUp faster position-absolute"
+            >
+              <cart-item
+                v-for="item in cart.items"
+                :key="item._id"
+                :item="item"
+                :name-max-length="80"
+              />
+            </transition-group>
+          </slot>
+        </div>
+
+        <recommended-items col-class-name="col-6 col-lg-3"/>
+
+        <slot name="back-shopping">
+          <div class="cart__back d-none d-md-block my-4">
+            <a
+              class="cart__btn-back btn btn-link"
+              role="button"
+              href="/"
+            >
+              <i class="fas fa-arrow-left mr-1"></i>
+              {{ i19continueShopping }}
+            </a>
+          </div>
+        </slot>
+      </div>
+
+      <div class="col-md-5 col-lg-4 mt-3 mt-md-0">
+        <div class="cart__info">
+          <slot name="info">
+            <div class="cart__summary-row">
+              <span>Subtotal</span>
+              <div>{{ formatMoney(cart.subtotal) }}</div>
+            </div>
+
+            <transition enter-active-class="animated fadeInDown">
+              <div
+                class="cart__summary-row mt-1"
+                v-if="amount.discount"
+              >
+                <span>
+                  <i class="fas fa-tag mr-1"></i>
+                  {{ i19discount }}
+                </span>
+                <div>{{ formatMoney(amount.discount) }}</div>
+              </div>
+            </transition>
+
+            <shipping-calculator
+              class="cart__shipping"
+              :can-select-services="true"
+              :shipped-items="cart.items"
+              :zip-code.sync="localZipCode"
+              @select-service="selectShippingService"
+            />
+
+            <div class="cart__summary-row cart__total">
+              <span>Total</span>
+              <a-prices
+                :product="{ price: amount.total || cart.subtotal }"
+                :discount-option="{ value: amount.discount }"
+                :is-literal="true"
+              />
+            </div>
+
+            <slot name="checkout">
+              <a
+                class="cart__btn-checkout btn btn-lg btn-block btn-success"
+                role="button"
+                :href="checkoutUrl"
+              >
+                <span class="mr-1">
+                  <i class="fas fa-shopping-bag"></i>
+                </span>
+                {{ i19checkout }}
+              </a>
+
+              <a
+                class="cart__btn-back btn btn-block btn-outline-secondary d-md-none"
+                role="button"
+                href="/"
+              >
+                <i class="fas fa-arrow-left mr-1"></i>
+                {{ i19continueShopping }}
+              </a>
+            </slot>
+          </slot>
+        </div>
+
+        <discount-applier
+          v-if="canApplyDiscount"
+          class="cart__discount"
+          :amount="amount"
+          :is-coupon-applied="isCouponApplied"
+          :coupon-code.sync="localDiscountCoupon"
+          @set-discount-rule="setDiscountRule"
+          :modules-payload="modulesPayload"
+        />
+        
+      </div>
+    </div>
+
+    <div
+      v-else
+      class="cart__empty"
+      key="empty"
+    >
+      <slot name="empty">
+        <p class="lead text-muted">
+          {{ i19emptyCart }} ...
+        </p>
+        <a
+          class="btn btn-primary"
+          href="/"
+        >
+          <span class="mr-1">
+            <i class="fas fa-arrow-left"></i>
+          </span>
+          {{ i19continueShopping }}
+        </a>
+      </slot>
+    </div>
+  </transition-group>
+</div>
