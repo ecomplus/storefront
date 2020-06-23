@@ -15,9 +15,10 @@ export default () => ({
       widget: 'boolean'
     },
     {
+      label: 'Apenas em desktops',
       name: 'desktopOnly',
-      widget: 'hidden',
-      default: false
+      hint: 'Desativa o widget em dispositivos móveis',
+      widget: 'boolean'
     },
     {
       name: 'enableCheckout',

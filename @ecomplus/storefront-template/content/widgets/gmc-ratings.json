@@ -1,0 +1,12 @@
+{
+  "pkg": "@ecomplus/widget-gmc-ratings",
+  "active": false,
+  "desktopOnly": false,
+  "enableCheckout": true,
+  "disablePages": true,
+  "options": {
+    "badgePosition": "BOTTOM_LEFT",
+    "dialogPosition": "CENTER_DIALOG"
+  },
+  "stampsAppend": "src/append/stamps"
+}

@@ -52,6 +52,8 @@ Compile assets bundles for production and prerender e-commerce pages;
 Change the dev server port number, you may replace _8080_ by what you want;
 - `--verbose`:
 Detailed output of Webpack compilation process;
+- `--analyze`:
+Open [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) with dev server;
 
 ### NPM scripts
 

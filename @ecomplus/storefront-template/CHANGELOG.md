@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.41](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.40...@ecomplus/storefront-template@2.0.0-beta.41) (2020-06-21)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.40](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.39...@ecomplus/storefront-template@2.0.0-beta.40) (2020-06-21)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.39](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.38...@ecomplus/storefront-template@2.0.0-beta.39) (2020-06-21)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.38](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.37...@ecomplus/storefront-template@2.0.0-beta.38) (2020-06-19)
+
+
+### Bug Fixes
+
+* **deps:** add @ecomplus/widget-gmc-ratings ([c439398](https://github.com/ecomplus/storefront/commit/c439398f0417d8870c03d6b32de012f21cec6c47))
+
+
+### Features
+
+* **gmc-ratings:** setup widget script, cms config and default content ([c39b565](https://github.com/ecomplus/storefront/commit/c39b565278eacd7000a279282d9e9c2550a79e6c))
+
+
+
+
+
+# [2.0.0-beta.37](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.36...@ecomplus/storefront-template@2.0.0-beta.37) (2020-06-18)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
 # [2.0.0-beta.36](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.35...@ecomplus/storefront-template@2.0.0-beta.36) (2020-06-18)
 
 

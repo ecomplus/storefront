@@ -219,6 +219,14 @@
               </template>
             </shipping-calculator>
           </slot>
+
+          <slot name="track-price">
+            <div
+              v-once
+              class="product__track-price"
+              :data-sku="body.sku"
+            ></div>
+          </slot>
         </template>
 
         <slot

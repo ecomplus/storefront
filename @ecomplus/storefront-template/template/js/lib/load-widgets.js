@@ -97,6 +97,10 @@ Promise.all(widgetsLoadPromises).then(() => {
         () => import('@ecomplus/widget-fb-pixel')
       )
       loadWidget(
+        '@ecomplus/widget-gmc-ratings',
+        () => import('@ecomplus/widget-gmc-ratings')
+      )
+      loadWidget(
         '@ecomplus/widget-ebit',
         () => import('@ecomplus/widget-ebit')
       )

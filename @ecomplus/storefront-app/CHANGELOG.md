@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.32](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.31...@ecomplus/storefront-app@2.0.0-beta.32) (2020-06-21)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.31](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.30...@ecomplus/storefront-app@2.0.0-beta.31) (2020-06-21)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.30](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.29...@ecomplus/storefront-app@2.0.0-beta.30) (2020-06-19)
+
+
+### Features
+
+* **confirmation:** add 'number' and 'json' optional route params ([58292a7](https://github.com/ecomplus/storefront/commit/58292a7b9ec2e4f834def746e5437e327351a51e))
+
+
+
+
+
+# [2.0.0-beta.29](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.28...@ecomplus/storefront-app@2.0.0-beta.29) (2020-06-18)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
 # [2.0.0-beta.28](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.27...@ecomplus/storefront-app@2.0.0-beta.28) (2020-06-18)
 
 

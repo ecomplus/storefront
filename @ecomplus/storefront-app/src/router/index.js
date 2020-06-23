@@ -23,7 +23,7 @@ const routes = [
     )
   },
   {
-    path: '/confirmation/:id?',
+    path: '/confirmation/:id?/:number?/:json?',
     name: 'confirmation',
     component: () => import(
       /* webpackChunkName: "app-confirmation" */

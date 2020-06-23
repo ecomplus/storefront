@@ -1,0 +1,100 @@
+// Font Awesome 5 curated icons list
+// Font files generated with http://fontello.com
+@font-face {
+  font-family: "storefront-fa";
+  src: url("../assets/icons/font/storefront-fa.woff2") format("woff2"),
+       url("../assets/icons/font/storefront-fa.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Adapted Font Awesome core
+i[class^="fa-"],
+i[class*=" fa-"] {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  text-decoration: inherit;
+  text-transform: none;
+  line-height: 1;
+  font-family: "storefront-fa";
+  font-weight: normal;
+}
+
+// Solid
+.fa-tag:before { content: '\e800'; }
+.fa-hashtag:before { content: '\e801'; }
+.fa-shopping-bag:before { content: '\e802'; }
+.fa-shopping-cart:before { content: '\e803'; }
+.fa-cart-arrow-down:before { content: '\e805'; }
+.fa-user:before { content: '\e806'; }
+.fa-user-circle:before { content: '\e807'; }
+.fa-sign-out-alt:before { content: '\e808'; }
+.fa-bell:before { content: '\e809'; }
+.fa-search:before { content: '\e80a'; }
+.fa-chevron-up:before { content: '\e80b'; }
+.fa-chevron-down:before { content: '\e80c'; }
+.fa-chevron-left:before { content: '\e80d'; }
+.fa-chevron-right:before { content: '\e80e'; }
+.fa-arrow-down:before { content: '\e80f'; }
+.fa-arrow-left:before { content: '\e810'; }
+.fa-arrow-right:before { content: '\e811'; }
+.fa-arrow-up:before { content: '\e812'; }
+.fa-times:before { content: '\e813'; }
+.fa-times-circle:before { content: '\e814'; }
+.fa-phone:before { content: '\e815'; }
+.fa-envelope:before { content: '\e816'; }
+.fa-history:before { content: '\e817'; }
+.fa-bars:before { content: '\e818'; }
+.fa-shipping-fast:before { content: '\e819'; }
+.fa-credit-card:before { content: '\e81a'; }
+.fa-receipt:before { content: '\e81b'; }
+.fa-barcode:before { content: '\e81c'; }
+.fa-money-check:before { content: '\e81d'; }
+.fa-exchange-alt:before { content: '\e81e'; }
+.fa-percent:before { content: '\e81f'; }
+.fa-home:before { content: '\e820'; }
+.fa-trash-alt:before { content: '\e821'; }
+.fa-check:before { content: '\e822'; }
+.fa-check-circle:before { content: '\e823'; }
+.fa-truck:before { content: '\e824'; }
+.fa-lock:before { content: '\e825'; }
+.fa-shield-alt:before { content: '\e826'; }
+.fa-filter:before { content: '\e827'; }
+.fa-sort:before { content: '\e828'; }
+.fa-pencil-alt:before { content: '\e829'; }
+.fa-copy:before { content: '\e82a'; }
+.fa-print:before { content: '\e82b'; }
+.fa-edit:before { content: '\e82c'; }
+.fa-plus:before { content: '\e82d'; }
+.fa-info-circle:before { content: '\e82e'; }
+.fa-question-circle:before { content: '\e82f'; }
+.fa-exclamation-triangle:before { content: '\e830'; }
+.fa-comment-dots:before { content: '\e831'; }
+.fa-heart:before { content: '\e832'; }
+.fa-stopwatch:before { content: '\e833'; }
+.fa-gift:before { content: '\e834'; }
+.fa-map-marked-alt:before { content: '\e835'; }
+.fa-store:before { content: '\e836'; }
+.fa-blog:before { content: '\e837'; }
+.fa-wifi:before { content: '\e838'; }
+.fa-play:before { content: '\e839'; }
+.fa-forward:before { content: '\e83a'; }
+
+// Brands
+.fa-facebook:before { content: '\e83b'; }
+.fa-facebook-f:before { content: '\e83c'; }
+.fa-linkedin:before { content: '\e83d'; }
+.fa-google:before { content: '\e83e'; }
+.fa-windows:before { content: '\e83f'; }
+.fa-pinterest:before { content: '\e840'; }
+.fa-twitter:before { content: '\e841'; }
+.fa-youtube:before { content: '\e842'; }
+.fa-instagram:before { content: '\e843'; }
+.fa-whatsapp:before { content: '\e844'; }
+.fa-telegram:before { content: '\e845'; }
+.fa-facebook-messenger:before { content: '\e846'; }
