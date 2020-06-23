@@ -42,6 +42,34 @@ main {
     border: solid 1px;
   }
 
+  .cart {
+    &__btn-checkout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  #cart-button {
+    i:before {
+      content: "";
+      display: inline-block;
+      background-repeat: no-repeat;
+      width: 36px;
+      height: 36px;
+      -webkit-mask: url("/img/uploads/carro.svg") no-repeat 50% 50%;
+      mask: url("/img/uploads/carro.svg") no-repeat 50% 50%;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+    }
+    .fa-shopping-bag:before {
+      background-color: $secondary;
+    }
+    .fa-shopping-bag:hover:before {
+      background-color: $primary;
+    }
+  }
+
   .footer {
     background: linear-gradient(rgba($gray-100, 1), rgba($white, 0.8)), url("/img/uploads/theme_baby.webp");
   }
@@ -53,12 +81,4 @@ main {
 
 .card-header {
   font-weight: var(--font-bold);
-}
-
-.fa-shopping-bag:before {
-  content: "___";
-  background-image: url("/img/uploads/carro.png");
-  background-repeat: no-repeat;
-  width: 20px !important;
-  height: 20px !important;
 }
