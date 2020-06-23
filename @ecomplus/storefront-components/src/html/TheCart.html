@@ -107,7 +107,7 @@
           v-if="canApplyDiscount"
           class="cart__discount"
           :amount="amount"
-          :is-coupon-applied="canApplyCoupon"
+          :is-coupon-applied="isCouponApplied"
           :coupon-code.sync="localDiscountCoupon"
           @set-discount-rule="setDiscountRule"
           :modules-payload="modulesPayload"

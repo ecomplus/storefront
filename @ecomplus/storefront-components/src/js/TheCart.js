@@ -59,7 +59,7 @@ export default {
     return {
       localZipCode: this.zipCode,
       canApplyDiscount: false,
-      canApplyCoupon: false
+      isCouponApplied: false
     }
   },
 
@@ -96,10 +96,8 @@ export default {
     setDiscountRule (discountRule) {
       this.$emit('set-discount-rule', discountRule)
       this.$nextTick(() => {
-        this.canApplyDiscount = true
-        this.canApplyCoupon = Boolean(this.discountCoupon && this.amount.discount)
+        this.isCouponApplied = Boolean(this.discountCoupon && this.amount.discount)
       })
-      this.$forceUpdate()
     }
   },
 
@@ -110,7 +108,7 @@ export default {
 
     canApplyDiscount (isApplyDiscount) {
       if (!isApplyDiscount) {
-        this.canApplyCoupon = false
+        this.isCouponApplied = false
       }
     }
   },
