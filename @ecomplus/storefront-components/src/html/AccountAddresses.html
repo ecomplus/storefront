@@ -19,8 +19,8 @@
           <div class="custom-control custom-radio">
             <input
               type="radio"
-              :id="`ec-address-${index}`"
-              name="ec-address-selected"
+              :id="`account-address-${index}`"
+              name="account-address-selected"
               class="custom-control-input"
               :checked="address.default"
               @change="selectAddress(address)"
@@ -28,7 +28,7 @@
 
             <label 
               class="custom-control-label" 
-              :for="`ec-address-${index}`"
+              :for="`account-address-${index}`"
             >
               <address class="account-addresses__address">
                 <span class="account-addresses__line">
@@ -53,7 +53,7 @@
               class="btn btn-sm btn-light"
               type="button"
               :aria-label="i19edit"
-              @click="editedAddressIndex = index"
+              @click="editAddressIndex = index"
             >
               <i class="fas fa-pencil-alt"></i>
             </button>
@@ -62,7 +62,7 @@
               class="btn btn-sm btn-danger"
               type="button"
               :aria-label="i19remove"
-              @click="() => removeAddress(index)"
+              @click="removeAddress(index)"
             >
               <i class="fas fa-trash-alt"></i>
             </button>

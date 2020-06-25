@@ -18,12 +18,6 @@ export default {
   },
 
   props: {
-    mergeDictionary: {
-      type: Object,
-      default () {
-        return {}
-      }
-    },
     customer: {
       type: Object,
       default () {
@@ -39,7 +33,7 @@ export default {
     return {
       canShowForm: false,
       newAddress: false,
-      editedAddressIndex: -1
+      editAddressIndex: -1
     }
   },
 
@@ -55,7 +49,7 @@ export default {
 
     localAddress: {
       get () {
-        let address = this.addresses[this.editedAddressIndex]
+        let address = this.addresses[this.editAddressIndex]
         if (!address) {
           address = {}
           if (this.zipCode) {
@@ -69,7 +63,7 @@ export default {
       },
       set (address) {
         const addresses = [].concat(this.addresses)
-        addresses[this.editedAddressIndex] = address
+        addresses[this.editAddressIndex] = address
         this.$emit('update:customer', {
           ...this.customer,
           addresses
@@ -128,12 +122,12 @@ export default {
 
     newAddress (addAddress) {
       if (addAddress) {
-        this.editedAddressIndex = this.addresses.length
+        this.editAddressIndex = this.addresses.length
         this.canShowForm = true
       }
     },
 
-    editedAddressIndex (index) {
+    editAddressIndex (index) {
       if (index > -1) {
         const address = this.addresses[index]
         if (address) {
@@ -145,7 +139,7 @@ export default {
 
     canShowForm (isVisible) {
       if (!isVisible) {
-        this.editedAddressIndex = -1
+        this.editAddressIndex = -1
       }
     }
   },
@@ -162,7 +156,7 @@ export default {
           }
         }
         if (address._id && address.zip && address.street) {
-          this.editedAddressIndex = 0
+          this.editAddressIndex = 0
           this.$nextTick(() => {
             this.localAddress = address
           })
@@ -183,7 +177,7 @@ export default {
       if (address.name && address.street && address.city) {
         this.selectAddress(address)
       } else {
-        this.editedAddressIndex = addressIndex
+        this.editAddressIndex = addressIndex
       }
     }
   }
