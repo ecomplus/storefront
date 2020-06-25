@@ -29,28 +29,23 @@ export default {
   },
 
   props: {
-    ecomCart: {
-      type: Object,
-      default () {
-        return ecomCart
-      }
-    },
-    checkoutUrl: {
-      type: String,
-      default: '/app/#/checkout'
-    },
     amount: {
       type: Object,
       default () {
         return {}
       }
     },
+    checkoutUrl: {
+      type: String,
+      default: '/app/#/checkout'
+    },
     zipCode: String,
     discountCoupon: String,
-    modulesPayload: {
+    modulesPayload: Object,
+    ecomCart: {
       type: Object,
       default () {
-        return {}
+        return ecomCart
       }
     }
   },
@@ -106,8 +101,8 @@ export default {
       this.$emit('update:zip-code', zipCode)
     },
 
-    canApplyDiscount (isApplyDiscount) {
-      if (!isApplyDiscount) {
+    canApplyDiscount (canApplyDiscount) {
+      if (!canApplyDiscount) {
         this.isCouponApplied = false
       }
     }
