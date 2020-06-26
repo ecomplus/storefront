@@ -24,15 +24,13 @@ export default {
         return {}
       }
     },
-    zipCode: {
-      type: String
-    }
+    zipCode: String
   },
 
   data () {
     return {
       canShowForm: false,
-      newAddress: false,
+      isNewAddress: false,
       editAddressIndex: -1
     }
   },
@@ -69,7 +67,7 @@ export default {
           addresses
         })
         if (address.zip) {
-          this.newAddress = false
+          this.isNewAddress = false
           this.selectAddress(address)
         }
         this.canShowForm = false
@@ -78,7 +76,6 @@ export default {
   },
 
   methods: {
-
     getLineAddress (address) {
       if (address.line_address) {
         return address.line_address
@@ -112,16 +109,16 @@ export default {
   watch: {
     addresses (newList, oldList) {
       if (!oldList.length) {
-        if (this.newAddress) {
-          this.canShowForm = this.newAddress = false
+        if (this.isNewAddress) {
+          this.canShowForm = this.isNewAddress = false
         }
       } else if (!newList.length) {
-        this.canShowForm = this.newAddress = true
+        this.canShowForm = this.isNewAddress = true
       }
     },
 
-    newAddress (addAddress) {
-      if (addAddress) {
+    isNewAddress (isAddAddress) {
+      if (isAddAddress) {
         this.editAddressIndex = this.addresses.length
         this.canShowForm = true
       }
@@ -146,7 +143,7 @@ export default {
 
   created () {
     if (!this.addresses.length) {
-      this.newAddress = true
+      this.isNewAddress = true
       const sessionAddress = JSON.parse(sessionStorage.getItem(storageKey))
       if (sessionAddress) {
         const address = {}
