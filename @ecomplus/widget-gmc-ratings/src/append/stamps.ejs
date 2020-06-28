@@ -10,7 +10,6 @@
   <script>
     window.renderGmcBadge = function () {
       var $ratingBadge = document.getElementById('gmc-ratings-badge').firstChild;
-      console.log('GMC rating badge:', $ratingBadge);
       window.gapi.load('ratingbadge', function () {
         window.gapi.ratingbadge.render(
           $ratingBadge, {
