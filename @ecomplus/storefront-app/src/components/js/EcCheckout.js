@@ -22,7 +22,7 @@ import ShippingLine from '#components/ShippingLine.vue'
 import RecommendedItems from '#components/RecommendedItems.vue'
 import PaymentMethods from '../PaymentMethods.vue'
 import EcAccountForm from '../EcAccountForm.vue'
-import EcAddresses from '../EcAddresses.vue'
+import AccountAddresses from '#components/AccountAddresses.vue'
 import EcSummary from '../EcSummary.vue'
 
 import {
@@ -55,7 +55,7 @@ export default {
     RecommendedItems,
     PaymentMethods,
     EcAccountForm,
-    EcAddresses,
+    AccountAddresses,
     EcSummary
   },
 
