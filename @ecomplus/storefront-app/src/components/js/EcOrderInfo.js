@@ -3,6 +3,7 @@ import { store } from '@ecomplus/client'
 import ecomPassport from '@ecomplus/passport-client'
 import ShippingLine from '#components/ShippingLine.vue'
 import EcSummary from './../EcSummary.vue'
+import ecomCart from '@ecomplus/shopping-cart'
 
 import {
   i19cancelOrder,
@@ -24,7 +25,10 @@ import {
   i19ticketCode,
   i19FinancialStatus,
   i19FulfillmentStatus,
-  i19OrderStatus
+  i19OrderStatus,
+  i19buyAgain
+  // i19updatedCart
+  // i19addToCartMsg
 } from '@ecomplus/i18n'
 
 export default {
@@ -72,6 +76,8 @@ export default {
   },
 
   computed: {
+    i19addToCartMsg: () => 'Produtos disponíveis foram adicionados ao carrinho',
+    i19buyAgain: () => i18n(i19buyAgain),
     i19cancelOrder: () => i18n(i19cancelOrder),
     i19codeCopied: () => i18n(i19codeCopied),
     i19copyCode: () => i18n(i19copyCode),
@@ -89,6 +95,7 @@ export default {
     i19shippingAddress: () => i18n(i19shippingAddress),
     i19transactionCode: () => i18n(i19transactionCode),
     i19ticketCode: () => i18n(i19ticketCode),
+    i19updatedCart: () => 'Carrinho atualizado',
 
     localOrder: {
       get () {
@@ -215,6 +222,27 @@ export default {
             }
             ecomPassport.requestApi('/me.json', 'patch', { orders })
           })
+      }
+    },
+
+    buyAgain () {
+      const { localOrder } = this
+      if (localOrder.items) {
+        const { items } = localOrder
+        let countAddItems = 0
+        items.forEach(item => {
+          ecomCart.addItem(item)
+          countAddItems++
+          if (countAddItems === localOrder.items.length) {
+            this.$toast({
+              title: `${this.i19updatedCart}`,
+              body: `${this.i19addToCartMsg}`,
+              variant: 'success',
+              delay: 1000
+            })
+          }
+        })
+        ecomCart.save()
       }
     },
 

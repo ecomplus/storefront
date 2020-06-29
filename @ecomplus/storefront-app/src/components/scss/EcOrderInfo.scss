@@ -74,4 +74,9 @@
     margin-left: auto;
     margin-top: 1.5rem;
   }
+  &__buyAgain {
+    display: flex;
+    justify-content: end;
+    margin-top: 1rem;
+  }
 }
