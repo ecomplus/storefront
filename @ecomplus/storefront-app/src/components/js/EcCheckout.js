@@ -21,7 +21,7 @@ import ShippingCalculator from '#components/ShippingCalculator.vue'
 import ShippingLine from '#components/ShippingLine.vue'
 import RecommendedItems from '#components/RecommendedItems.vue'
 import PaymentMethods from '../PaymentMethods.vue'
-import EcAccountForm from '../EcAccountForm.vue'
+import AccountForm from '#components/AccountForm.vue'
 import EcAddresses from '../EcAddresses.vue'
 import EcSummary from '../EcSummary.vue'
 
@@ -54,7 +54,7 @@ export default {
     ShippingCalculator,
     RecommendedItems,
     PaymentMethods,
-    EcAccountForm,
+    AccountForm,
     EcAddresses,
     EcSummary
   },
