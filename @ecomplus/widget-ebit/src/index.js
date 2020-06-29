@@ -6,8 +6,10 @@ export default (options = {}) => {
   if (ebitStoreId) {
     const router = window.storefrontApp && window.storefrontApp.router
     if (router) {
+      let countConfirmation = 0
       const addConfirmationBanner = ({ name, params }) => {
-        if (name === 'confirmation') {
+        if (name === 'confirmation' && countConfirmation === 0) {
+          countConfirmation++
           ecomPassport.fetchOrder(params.id)
             .then(order => {
               const customer = ecomPassport.getCustomer()
