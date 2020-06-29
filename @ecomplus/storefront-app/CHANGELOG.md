@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.33](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.32...@ecomplus/storefront-app@2.0.0-beta.33) (2020-06-25)
+
+
+### Features
+
+* **the-cart:** add TheCart component ([#248](https://github.com/ecomplus/storefront/issues/248)) ([2116548](https://github.com/ecomplus/storefront/commit/2116548faad452acfd2f08786bb68e4645bc1d26)), closes [#182](https://github.com/ecomplus/storefront/issues/182)
+
+
+
+
+
 # [2.0.0-beta.32](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.31...@ecomplus/storefront-app@2.0.0-beta.32) (2020-06-21)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

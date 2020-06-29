@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.2.0...@ecomplus/widget-gmc-ratings@1.2.1) (2020-06-25)
+
+
+### Bug Fixes
+
+* **append-scripts:** ensure 'renderGmcBadge' function is declared first ([4feb9d1](https://github.com/ecomplus/storefront/commit/4feb9d170dafc7099fd25234882963bce2612088))
+
+
+
+
+
 # [1.2.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.1.0...@ecomplus/widget-gmc-ratings@1.2.0) (2020-06-21)
 
 

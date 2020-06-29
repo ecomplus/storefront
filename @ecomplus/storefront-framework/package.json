@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-framework",
-  "version": "5.13.2",
+  "version": "5.13.3",
   "description": "Framework for PWA and JAMstack e-commerce templates with E-Com Plus APIs",
   "main": "src/index.js",
   "bin": {
@@ -42,7 +42,7 @@
     "@ecomplus/search-engine": "^2.3.2",
     "@ecomplus/storefront-router": "^2.2.0",
     "@ecomplus/utils": "^1.4.1",
-    "autoprefixer": "^9.8.2",
+    "autoprefixer": "^9.8.4",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.0.2",
@@ -66,7 +66,7 @@
     "sass-loader": "^8.0.2",
     "terser-webpack-plugin": "^3.0.6",
     "url-loader": "^4.1.0",
-    "vue-loader": "^15.9.2",
+    "vue-loader": "^15.9.3",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",

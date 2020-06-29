@@ -1,9 +1,16 @@
 <div class="cart">
   <transition-group enter-active-class="animated fadeInDown">
-    <div class="row" v-if="cart.items.length" key="list">
+    <div
+      class="row"
+      v-if="cart.items.length"
+      key="list"
+    >
       <div class="col-md-7 col-lg-8">
         <div class="cart__list">
-          <slot name="list" v-bind="{ items: cart.items }">
+          <slot
+            name="list"
+            v-bind="{ items: cart.items }"
+          >
             <transition-group
               enter-active-class="animated fadeInDown"
               leave-active-class="animated fadeOutUp faster position-absolute"
@@ -43,7 +50,10 @@
             </div>
 
             <transition enter-active-class="animated fadeInDown">
-              <div class="cart__summary-row mt-1" v-if="amount.discount">
+              <div
+                class="cart__summary-row mt-1"
+                v-if="amount.discount"
+              >
                 <span>
                   <i class="fas fa-tag mr-1"></i>
                   {{ i19discount }}
@@ -97,8 +107,9 @@
           v-if="canApplyDiscount"
           class="cart__discount"
           :amount="amount"
+          :is-coupon-applied="isCouponApplied"
           :coupon-code.sync="localDiscountCoupon"
-          @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
+          @set-discount-rule="setDiscountRule"
           :modules-payload="modulesPayload"
         />
       </div>
@@ -113,7 +124,10 @@
         <p class="lead text-muted">
           {{ i19emptyCart }} ...
         </p>
-        <a class="btn btn-primary" href="/">
+        <a
+          class="btn btn-primary"
+          href="/"
+        >
           <span class="mr-1">
             <i class="fas fa-arrow-left"></i>
           </span>
