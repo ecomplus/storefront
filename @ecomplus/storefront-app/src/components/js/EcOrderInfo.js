@@ -229,11 +229,9 @@ export default {
       const { localOrder } = this
       if (localOrder.items) {
         const { items } = localOrder
-        let countAddItems = 0
-        items.forEach(item => {
+        items.forEach((item, i) => {
           ecomCart.addItem(item)
-          countAddItems++
-          if (countAddItems === localOrder.items.length) {
+          if (i + 1 === localOrder.items.length) {
             this.$toast({
               title: this.i19updatedCart,
               body: this.i19addToCartMsg,
