@@ -235,8 +235,8 @@ export default {
           countAddItems++
           if (countAddItems === localOrder.items.length) {
             this.$toast({
-              title: `${this.i19updatedCart}`,
-              body: `${this.i19addToCartMsg}`,
+              title: this.i19updatedCart,
+              body: this.i19addToCartMsg,
               variant: 'success',
               delay: 1000
             })
