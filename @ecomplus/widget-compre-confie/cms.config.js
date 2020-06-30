@@ -40,7 +40,7 @@ export default () => ({
           label: 'Store Id Compre confie',
           name: 'compreConfieStoreId',
           widget: 'string',
-          hint: 'Store Id que é informado pelo Compre confie'
+          hint: 'ID da loja que é informado pelo Compre & Confie'
         }
       ]
     },
