@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.34](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.33...@ecomplus/storefront-components@1.0.0-beta.34) (2020-06-30)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.1.2 ([d4fb6b0](https://github.com/ecomplus/storefront/commit/d4fb6b032b82519f7e3b433fd6faad3715746fbf))
+* **deps:** update @ecomplus/shopping-cart to v2.1.3 ([0a71d3b](https://github.com/ecomplus/storefront/commit/0a71d3b161b8f2b4258ec72df0772a5ac9e8b3c0))
+* **input-doc-number:** valid cpf/cnpj only when input is filled ([9c04909](https://github.com/ecomplus/storefront/commit/9c049093d21684e01bf9396cb902f62dc10f88a6))
+
+
+### Features
+
+* **account-addresses:** add new AccountAddresses component :tada: ([#256](https://github.com/ecomplus/storefront/issues/256)) ([a37811e](https://github.com/ecomplus/storefront/commit/a37811e58cb810d1295cccba4606a8f536131b7b))
+* **input-doc-number:** checking br cpf/cnpj ([067d398](https://github.com/ecomplus/storefront/commit/067d3981536aa979777944390ac0c94d59f75d36))
+
+
+
+
+
 # [1.0.0-beta.33](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.32...@ecomplus/storefront-components@1.0.0-beta.33) (2020-06-25)
 
 
