@@ -11,6 +11,14 @@ export default (options = {}) => {
           ecomPassport.fetchOrder(params.id)
             .then(order => {
               const customer = ecomPassport.getCustomer()
+              const buyers = order.buyers[0]
+              const transaction = order.transactions[0]
+              let consumerFullname
+              if (buyers && buyers.name) {
+                consumerFullname = buyers.name.given_name + ' ' + buyers.name.family_name
+              } else {
+                consumerFullname = customer.name.given_name + ' ' + customer.name.family_name
+              }
               const createdAt = new Date()
               let compreParam = `orderSellerID=${compreConfieStoreId}&orderPlatform=ecomplus` +
                 `&orderTotalSpent=${order.amount.total}` +
@@ -18,7 +26,7 @@ export default (options = {}) => {
                 `&orderID=${(order.number || order._id)}` +
                 `&consumerEmail=${customer.main_email}` +
                 `&billingEmail=${customer.main_email}` +
-                `&consumerName=${encodeURIComponent(order.buyers.name ? (order.buyers.name.given_name + ' ' + order.buyers.name.family_name) : (customer.name.given_name + ' ' + customer.name.family_name))}` +
+                `&consumerName=${encodeURIComponent(consumerFullname)}` +
                 `&orderDate=${createdAt.getDate() + '/' + (createdAt.getMonth() + 1) + '/' + createdAt.getFullYear() + ' | ' + createdAt.getHours() + ':' + createdAt.getMinutes() + ':' + createdAt.getSeconds()}`
               if (customer.gender === 'm') {
                 compreParam += '&consumerGender=Masculino&billingGender=Masculino'
@@ -26,8 +34,8 @@ export default (options = {}) => {
                 compreParam += '&consumerGender=Feminino&billingGender=Feminino'
               }
               if (customer.registry_type === 'p') {
-                compreParam += `&consumerCPF=${customer.doc_number || (order.transactions[0].payer && order.transactions[0].payer.doc_number)}` +
-                `&billingCPF=${order.transactions[0].payer ? order.transactions[0].payer.doc_number : customer.doc_number}`
+                compreParam += `&consumerCPF=${customer.doc_number || (transaction.payer && transaction.payer.doc_number)}` +
+                `&billingCPF=${transaction.payer ? transaction.payer.doc_number : customer.doc_number}`
               }
               if (customer.birth_date) {
                 const { day, month, year } = customer.birth_date
@@ -79,12 +87,11 @@ export default (options = {}) => {
                   `&productDeliveryTime=${(shippingLine.delivery_time.days || 0)}`
               }
 
-              if (order.transactions && order.transactions[0]) {
-                const transaction = order.transactions[0]
+              if (order.transactions && transaction) {
                 if (transaction.app && transaction.app.intermediator && transaction.app.intermediator.name) {
                   compreParam += `&orderPartnerPayment=${transaction.app.intermediator.name}`
                 }
-                compreParam += `&billingName=${encodeURIComponent(transaction.payer ? transaction.payer.fullname : (order.buyers.name ? (order.buyers.name.given_name + ' ' + order.buyers.name.family_name) : (customer.name.given_name + ' ' + customer.name.family_name)))}`
+                compreParam += `&billingName=${encodeURIComponent(transaction.payer ? transaction.payer.fullname : consumerFullname)}`
                 compreParam += `&orderParcels=${((transaction.installments && transaction.installments.number) || 1)}`
                 compreParam += '&orderPaymentType='
                 switch (transaction.payment_method.code) {
