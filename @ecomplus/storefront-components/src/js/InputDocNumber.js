@@ -47,9 +47,14 @@ export default {
 
     isInvalid () {
       if (countryCode === 'BR') {
-        return this.isCompany
-          ? !validateCNPJ(this.localValue)
-          : !validateCPF(this.localValue)
+        const docNumber = this.localValue.toString().replace(/D/g, '')
+        if (this.isCompany) {
+          if (docNumber.length === 14) {
+            return !validateCNPJ(this.localValue)
+          }
+        } else if (docNumber.length === 11) {
+          return !validateCPF(this.localValue)
+        }
       }
       return false
     },
