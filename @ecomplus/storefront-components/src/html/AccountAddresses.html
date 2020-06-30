@@ -1,0 +1,86 @@
+<div class="account-addresses">
+  <transition-group enter-active-class="animated fadeIn">
+    <address-form 
+      key="form" 
+      v-if="canShowForm" 
+      :address.sync="localAddress" 
+    />
+
+    <div 
+      key="list" 
+      v-else-if="addresses.length"
+    >
+      <div
+        class="account-addresses__card card"
+        v-for="(address, index) in addresses"
+        :key="address._id"
+      >
+        <div class="card-body">
+          <div class="custom-control custom-radio">
+            <input
+              type="radio"
+              :id="`account-address-${index}`"
+              name="account-address-selected"
+              class="custom-control-input"
+              :checked="address.default"
+              @change="selectAddress(address)"
+            />
+
+            <label 
+              class="custom-control-label" 
+              :for="`account-address-${index}`"
+            >
+              <address class="account-addresses__address">
+                <span class="account-addresses__line">
+                  {{ getLineAddress(address) }}
+                </span>
+                <span 
+                  v-if="address.city" 
+                  class="account-addresses__city"
+                >
+                  {{ `${address.city} / ${address.province_code ||
+                  address.province}` }}
+                </span>
+                <span class="account-addresses__zip">
+                  {{ address.zip }}
+                </span>
+              </address>
+            </label>
+          </div>
+
+          <div class="account-addresses__actions">
+            <button
+              class="btn btn-sm btn-light"
+              type="button"
+              :aria-label="i19edit"
+              @click="editAddressIndex = index"
+            >
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+
+            <button
+              class="btn btn-sm btn-danger"
+              type="button"
+              :aria-label="i19remove"
+              @click="removeAddress(index)"
+            >
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </div>
+        <div class="account-addresses__recipient card-footer">
+          {{ address.name }}
+        </div>
+      </div>
+
+      <button
+        class="btn btn-sm btn-outline-secondary"
+        @click="isNewAddress = true"
+        type="button"
+      >
+        <i class="fas fa-plus mr-1"></i>
+        {{ i19newAddress }}
+      </button>
+    </div>
+  </transition-group>
+</div>

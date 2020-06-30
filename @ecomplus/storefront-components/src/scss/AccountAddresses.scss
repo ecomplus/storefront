@@ -1,0 +1,27 @@
+.account-addresses {
+  &__card {
+    margin-bottom: 1rem;
+    font-size: .9rem;
+
+    label {
+      width: 100%;
+    }
+  }
+
+  &__actions {
+    margin-top: .5rem;
+
+    .btn {
+      margin-right: .5rem;
+    }
+  }
+
+  &__address {
+    margin-bottom: 0;
+  }
+
+  &__line,
+  &__city {
+    display: block;
+  }
+}

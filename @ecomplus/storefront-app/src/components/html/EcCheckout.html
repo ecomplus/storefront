@@ -80,10 +80,10 @@
                   </transition-group>
                 </div>
 
-                <ec-addresses
+                <account-addresses
                   :customer.sync="localCustomer"
                   :zipCode="shippingZipCode"
-                  @addressSelected="selectAddress"
+                  @select-address="selectAddress"
                 />
 
                 <transition
