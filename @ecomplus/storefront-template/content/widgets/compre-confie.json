@@ -3,7 +3,7 @@
   "active": false,
   "desktopOnly": false,
   "enableCheckout": true,
-  "disablePages": false,
+  "disablePages": true,
   "options": {
     "compreConfieStoreId": ""
   },
