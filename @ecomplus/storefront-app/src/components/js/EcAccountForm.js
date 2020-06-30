@@ -168,16 +168,20 @@ export default {
       sessionStorage.setItem(storageKey, JSON.stringify(this.localCustomer))
     },
 
-    submit (ev) {
+    submit () {
       const $form = this.$el
-      if ($form.checkValidity()) {
-        if (!this.localCustomer.display_name) {
-          this.localCustomer.display_name = this.localCustomer.name.given_name
+      if (!document.querySelectorAll('.account-form input.is-invalid').length) {
+        if ($form.checkValidity()) {
+          if (!this.localCustomer.display_name) {
+            this.localCustomer.display_name = this.localCustomer.name.given_name
+          }
+          this.saveToStorage()
+          this.$emit('update:customer', this.localCustomer)
         }
-        this.saveToStorage()
-        this.$emit('update:customer', this.localCustomer)
+        $form.classList.add('was-validated')
+      } else {
+        $form.classList.remove('was-validated')
       }
-      $form.classList.add('was-validated')
     }
   },
 

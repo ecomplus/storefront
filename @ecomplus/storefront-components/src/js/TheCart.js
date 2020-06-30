@@ -1,4 +1,11 @@
 import {
+  i19checkout,
+  i19continueShopping,
+  i19discount,
+  i19emptyCart
+} from '@ecomplus/i18n'
+
+import {
   i18n,
   formatMoney
 } from '@ecomplus/utils'
@@ -9,13 +16,6 @@ import CartItem from './../CartItem.vue'
 import DiscountApplier from './../DiscountApplier.vue'
 import ShippingCalculator from './../ShippingCalculator.vue'
 import RecommendedItems from './../RecommendedItems.vue'
-
-import {
-  i19checkout,
-  i19continueShopping,
-  i19discount,
-  i19emptyCart
-} from '@ecomplus/i18n'
 
 export default {
   name: 'TheCart',

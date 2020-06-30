@@ -4,7 +4,7 @@ import { currencyCode, getProductData } from './common'
 export default dataLayer => {
   const router = window.storefrontApp && window.storefrontApp.router
   if (router) {
-    let isCartSent = false
+    let isCartSent, isCheckoutSent, isPurchaseSent
     const getCartProductsList = () => {
       const products = []
       if (ecomCart.data && Array.isArray(ecomCart.data.items)) {
@@ -30,7 +30,7 @@ export default dataLayer => {
         })
         dataLayer.push({ event: 'checkout' })
         isCartSent = true
-      } else {
+      } else if (!isCheckoutSent) {
         dataLayer.push({
           event: 'eec.checkout_option',
           ecommerce: {
@@ -39,30 +39,34 @@ export default dataLayer => {
           }
         })
         dataLayer.push({ event: 'checkoutOption' })
+        isCheckoutSent = true
       }
     }
 
     const emitPurchase = orderId => {
-      const { amount } = window.storefrontApp
-      const revenue = (
-        (amount && amount.total) ||
-        (ecomCart.data && ecomCart.data.subtotal) ||
-        0
-      ).toFixed(2)
+      if (!isPurchaseSent) {
+        const { amount } = window.storefrontApp
+        const revenue = (
+          (amount && amount.total) ||
+          (ecomCart.data && ecomCart.data.subtotal) ||
+          0
+        ).toFixed(2)
 
-      dataLayer.push({
-        event: 'eec.purchase',
-        ecommerce: {
-          currencyCode,
-          purchase: {
-            actionField: {
-              id: orderId,
-              revenue
-            },
-            products: getCartProductsList()
+        dataLayer.push({
+          event: 'eec.purchase',
+          ecommerce: {
+            currencyCode,
+            purchase: {
+              actionField: {
+                id: orderId,
+                revenue
+              },
+              products: getCartProductsList()
+            }
           }
-        }
-      })
+        })
+        isPurchaseSent = true
+      }
     }
 
     const addRouteToData = ({ name, params }) => {

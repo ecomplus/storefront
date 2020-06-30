@@ -80,10 +80,10 @@
                   </transition-group>
                 </div>
 
-                <ec-addresses
+                <account-addresses
                   :customer.sync="localCustomer"
                   :zipCode="shippingZipCode"
-                  @addressSelected="selectAddress"
+                  @select-address="selectAddress"
                 />
 
                 <transition
@@ -91,7 +91,7 @@
                   leave-active-class="animated fadeOutUp"
                 >
                   <button
-                    v-if="shownCheckoutStep === 1 && shippingService"
+                    v-if="shownCheckoutStep === 1 && enabledCheckoutStep >= 2 && shippingService"
                     class="checkout__btn-proceed btn btn-success mt-4"
                     @click="toCheckoutStep = 2"
                   >
