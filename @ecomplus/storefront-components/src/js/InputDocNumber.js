@@ -1,5 +1,11 @@
 import { i19docNumber } from '@ecomplus/i18n'
 import { $ecomConfig, i18n } from '@ecomplus/utils'
+
+import {
+  isValidCPF as validateCPF,
+  isValidCNPJ as validateCNPJ
+} from '@brazilian-utils/brazilian-utils'
+
 import CleaveInput from 'vue-cleave-component'
 
 const countryCode = $ecomConfig.get('country_code')
@@ -37,6 +43,15 @@ export default {
         }
       }
       return '[\\d]+{9,19}'
+    },
+
+    isInvalid () {
+      if (countryCode === 'BR') {
+        return this.isCompany
+          ? !validateCNPJ(this.localValue)
+          : !validateCPF(this.localValue)
+      }
+      return false
     },
 
     localValue: {
