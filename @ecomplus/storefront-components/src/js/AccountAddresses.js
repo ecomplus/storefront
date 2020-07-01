@@ -1,62 +1,53 @@
 import { i18n } from '@ecomplus/utils'
-import AddressForm from '#components/AddressForm.vue'
-
 import {
-  Edit,
-  NewAddress,
-  NoNumber,
-  Remove
-} from './../../lib/i18n'
+  i19edit,
+  i19newAddress,
+  i19noNumber,
+  i19remove
+} from '@ecomplus/i18n'
+import AddressForm from './../AddressForm.vue'
 
 const { sessionStorage } = window
 const storageKey = 'ecomCustomerAddress'
 
 export default {
-  name: 'EcAddresses',
+  name: 'AccountAddresses',
 
   components: {
     AddressForm
   },
 
   props: {
-    mergeDictionary: {
-      type: Object,
-      default: () => {}
-    },
     customer: {
-      type: Object
+      type: Object,
+      default () {
+        return {}
+      }
     },
-    zipCode: {
-      type: String
-    }
+    zipCode: String
   },
 
   data () {
     return {
-      showForm: false,
-      newAddress: false,
-      editedAddressIndex: -1
+      canShowForm: false,
+      isNewAddress: false,
+      editAddressIndex: -1
     }
   },
 
   computed: {
+    i19edit: () => i18n(i19edit),
+    i19newAddress: () => i18n(i19newAddress),
+    i19remove: () => i18n(i19remove),
+    i19noNumber: () => i18n(i19noNumber),
+
     addresses () {
       return this.customer.addresses || []
     },
 
-    dictionary () {
-      return {
-        Edit,
-        NewAddress,
-        NoNumber,
-        Remove,
-        ...this.mergeDictionary
-      }
-    },
-
     localAddress: {
       get () {
-        let address = this.addresses[this.editedAddressIndex]
+        let address = this.addresses[this.editAddressIndex]
         if (!address) {
           address = {}
           if (this.zipCode) {
@@ -70,30 +61,26 @@ export default {
       },
       set (address) {
         const addresses = [].concat(this.addresses)
-        addresses[this.editedAddressIndex] = address
+        addresses[this.editAddressIndex] = address
         this.$emit('update:customer', {
           ...this.customer,
           addresses
         })
         if (address.zip) {
-          this.newAddress = false
+          this.isNewAddress = false
           this.selectAddress(address)
         }
-        this.showForm = false
+        this.canShowForm = false
       }
     }
   },
 
   methods: {
-    i18n (label) {
-      return i18n(this.dictionary[label])
-    },
-
     getLineAddress (address) {
       if (address.line_address) {
         return address.line_address
       } else {
-        let lineAddress = `${address.street} ${(address.number || this.i18n('NoNumber'))}`
+        let lineAddress = `${address.street} ${(address.number || this.i19noNumber)}`
         if (address.complement) {
           lineAddress += ` - ${address.complement}`
         }
@@ -105,7 +92,7 @@ export default {
     },
 
     selectAddress (address) {
-      this.$emit('addressSelected', address._id)
+      this.$emit('select-address', address._id)
       sessionStorage.setItem(storageKey, JSON.stringify(address))
     },
 
@@ -122,41 +109,41 @@ export default {
   watch: {
     addresses (newList, oldList) {
       if (!oldList.length) {
-        if (this.newAddress) {
-          this.showForm = this.newAddress = false
+        if (this.isNewAddress) {
+          this.canShowForm = this.isNewAddress = false
         }
       } else if (!newList.length) {
-        this.showForm = this.newAddress = true
+        this.canShowForm = this.isNewAddress = true
       }
     },
 
-    newAddress (addAddress) {
-      if (addAddress) {
-        this.editedAddressIndex = this.addresses.length
-        this.showForm = true
+    isNewAddress (isAddAddress) {
+      if (isAddAddress) {
+        this.editAddressIndex = this.addresses.length
+        this.canShowForm = true
       }
     },
 
-    editedAddressIndex (i) {
-      if (i > -1) {
-        const address = this.addresses[i]
+    editAddressIndex (index) {
+      if (index > -1) {
+        const address = this.addresses[index]
         if (address) {
           this.selectAddress(address)
         }
-        this.showForm = true
+        this.canShowForm = true
       }
     },
 
-    showForm (isVisible) {
+    canShowForm (isVisible) {
       if (!isVisible) {
-        this.editedAddressIndex = -1
+        this.editAddressIndex = -1
       }
     }
   },
 
   created () {
     if (!this.addresses.length) {
-      this.newAddress = true
+      this.isNewAddress = true
       const sessionAddress = JSON.parse(sessionStorage.getItem(storageKey))
       if (sessionAddress) {
         const address = {}
@@ -166,7 +153,7 @@ export default {
           }
         }
         if (address._id && address.zip && address.street) {
-          this.editedAddressIndex = 0
+          this.editAddressIndex = 0
           this.$nextTick(() => {
             this.localAddress = address
           })
@@ -187,7 +174,7 @@ export default {
       if (address.name && address.street && address.city) {
         this.selectAddress(address)
       } else {
-        this.editedAddressIndex = addressIndex
+        this.editAddressIndex = addressIndex
       }
     }
   }

@@ -1,6 +1,7 @@
 <cleave-input
   type="tel"
   class="form-control"
+  :class="isInvalid ? 'is-invalid' : null"
   :pattern="pattern"
   :options="cleaveOptions"
   v-model="localValue"

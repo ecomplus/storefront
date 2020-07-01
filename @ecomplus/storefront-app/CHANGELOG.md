@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.34](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.33...@ecomplus/storefront-app@2.0.0-beta.34) (2020-06-30)
+
+
+### Bug Fixes
+
+* **account-form:** check manually invalidated fields on submit ([e693a42](https://github.com/ecomplus/storefront/commit/e693a42b406b1ba7d1fbc5a38843ba1ab70e9f0c))
+* **checkout:** prevent proceed to payment whitout second step enabled ([f28fe81](https://github.com/ecomplus/storefront/commit/f28fe811a4c58f601f500452f1120708400510cd))
+* **deps:** update @ecomplus/shopping-cart to v2.1.2 ([d4fb6b0](https://github.com/ecomplus/storefront/commit/d4fb6b032b82519f7e3b433fd6faad3715746fbf))
+* **deps:** update @ecomplus/shopping-cart to v2.1.3 ([0a71d3b](https://github.com/ecomplus/storefront/commit/0a71d3b161b8f2b4258ec72df0772a5ac9e8b3c0))
+* **vuex:** prevent editing original item _id on fetch ([25a7b6a](https://github.com/ecomplus/storefront/commit/25a7b6afa8f45efa3c2055ffa1b64525a4b827ea))
+
+
+### Features
+
+* **account-addresses:** add new AccountAddresses component :tada: ([#256](https://github.com/ecomplus/storefront/issues/256)) ([a37811e](https://github.com/ecomplus/storefront/commit/a37811e58cb810d1295cccba4606a8f536131b7b))
+
+
+
+
+
+# [2.0.0-beta.33](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.32...@ecomplus/storefront-app@2.0.0-beta.33) (2020-06-25)
+
+
+### Features
+
+* **the-cart:** add TheCart component ([#248](https://github.com/ecomplus/storefront/issues/248)) ([2116548](https://github.com/ecomplus/storefront/commit/2116548faad452acfd2f08786bb68e4645bc1d26)), closes [#182](https://github.com/ecomplus/storefront/issues/182)
+
+
+
+
+
 # [2.0.0-beta.32](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.31...@ecomplus/storefront-app@2.0.0-beta.32) (2020-06-21)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

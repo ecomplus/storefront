@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-ebit@1.1.5...@ecomplus/widget-ebit@1.1.6) (2020-06-30)
+
+
+### Bug Fixes
+
+* **ebit-banner:** fix duplicated lightbox error ([#259](https://github.com/ecomplus/storefront/issues/259)) ([cfaccbf](https://github.com/ecomplus/storefront/commit/cfaccbf105ef37d11f08832c562f5d655fc0797b))
+
+
+
+
+
 ## [1.1.5](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-ebit@1.1.4...@ecomplus/widget-ebit@1.1.5) (2020-06-19)
 
 **Note:** Version bump only for package @ecomplus/widget-ebit
