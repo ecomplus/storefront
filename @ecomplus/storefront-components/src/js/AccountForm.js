@@ -1,5 +1,5 @@
 import {
-  _config,
+  $ecomConfig,
   i18n,
   fullName,
   birthDate,
@@ -26,7 +26,7 @@ import InputPhone from './../InputPhone.vue'
 import InputDate from './../InputDate.vue'
 import cloneDeep from 'lodash.clonedeep'
 
-const countryCode = _config.get('country_code')
+const countryCode = $ecomConfig.get('country_code')
 
 const { sessionStorage } = window
 const storageKey = 'ecomCustomerAccount'
@@ -162,14 +162,18 @@ export default {
 
     submit (ev) {
       const $form = this.$el
-      if ($form.checkValidity()) {
-        if (!this.localCustomer.display_name) {
-          this.localCustomer.display_name = this.localCustomer.name.given_name
+      if (!document.querySelectorAll('.account-form input.is-invalid').length) {
+        if ($form.checkValidity()) {
+          if (!this.localCustomer.display_name) {
+            this.localCustomer.display_name = this.localCustomer.name.given_name
+          }
+          this.saveToStorage()
+          this.$emit('update:customer', this.localCustomer)
         }
-        this.saveToStorage()
-        this.$emit('update:customer', this.localCustomer)
+        $form.classList.add('was-validated')
+      } else {
+        $form.classList.remove('was-validated')
       }
-      $form.classList.add('was-validated')
     }
   },
 
