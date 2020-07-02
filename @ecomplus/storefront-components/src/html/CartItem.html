@@ -67,7 +67,10 @@
           >
             {{ qnt }}
           </option>
-          <option :value="11">
+          <option
+            v-if="!item.max_quantity || item.max_quantity > 10"
+            :value="11"
+          >
             11+
           </option>
         </select>
