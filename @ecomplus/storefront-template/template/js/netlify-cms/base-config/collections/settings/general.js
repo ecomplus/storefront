@@ -62,6 +62,10 @@ export default ({ baseDir }) => ({
             {
               label: 'Clean: Escala de cinza',
               value: 'clean-gray'
+            },
+            {
+              label: 'Nicho: Bebê',
+              value: 'niche-baby'
             }
           ]
         },

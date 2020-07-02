@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.1.2...@ecomplus/widget-fb-pixel@1.1.3) (2020-06-30)
+
+
+### Bug Fixes
+
+* **purchase-events:** prevent duplicated spa (routes) events ([d3f366f](https://github.com/ecomplus/storefront/commit/d3f366f431e18b8b75468a0ded6f8b102ab7ceb6))
+
+
+
+
+
 ## [1.1.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.1.1...@ecomplus/widget-fb-pixel@1.1.2) (2020-05-26)
 
 **Note:** Version bump only for package @ecomplus/widget-fb-pixel

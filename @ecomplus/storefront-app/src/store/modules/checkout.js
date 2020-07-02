@@ -168,6 +168,7 @@ const actions = {
               }
               const price = getPrice(data)
               Object.assign(item, data, {
+                _id,
                 variations: [],
                 price,
                 final_price: price,

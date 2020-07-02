@@ -1,0 +1,104 @@
+main {
+  .top-bar {
+    &__nav {
+      font-size: 80%;
+    }
+
+    a.top-bar__countdown {
+      background-image: linear-gradient(rgba($primary, 0.5), rgba($primary, 0.7)), url("https://res.cloudinary.com/ecomplus/image/upload/v1593054601/theme-baby-bg_hfgquo.webp");
+      font-weight: var(--font-bold);
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .info-bar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    border-bottom: none;
+    &__nav {
+      color: $secondary;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__nav a {
+      &:hover {
+        border-radius: unset;
+        background-color: transparent;
+        border-bottom: solid 2px;
+      }
+    }
+  }
+
+  #search-input {
+    border: solid 1px;
+  }
+
+  .cart {
+    &__btn-checkout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  #cart-button {
+    i:before {
+      content: "";
+      display: inline-block;
+      background-repeat: no-repeat;
+      width: 36px;
+      height: 36px;
+      -webkit-mask: url("https://res.cloudinary.com/ecomplus/image/upload/v1593054601/baby-cart_zvdtgo.svg") no-repeat 50% 50%;
+      mask: url("https://res.cloudinary.com/ecomplus/image/upload/v1593054601/baby-cart_zvdtgo.svg") no-repeat 50% 50%;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+    }
+    .fa-shopping-bag:before {
+      background-color: $secondary;
+    }
+    .fa-shopping-bag:hover:before {
+      background-color: $primary;
+    }
+  }
+
+  #user-button {
+    i:before {
+      content: "";
+      display: inline-block;
+      background-repeat: no-repeat;
+      width: 36px;
+      height: 36px;
+      -webkit-mask: url("https://res.cloudinary.com/ecomplus/image/upload/v1593054349/login-baby_pc1w0t.svg") no-repeat 50% 50%;
+      mask: url("https://res.cloudinary.com/ecomplus/image/upload/v1593054349/login-baby_pc1w0t.svg") no-repeat 50% 50%;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+    }
+    .fa-user:before {
+      background-color: $secondary;
+    }
+    .fa-user:hover:before {
+      background-color: $primary;
+    }
+  }
+
+  .footer {
+    background: linear-gradient(rgba($gray-100, 1), rgba($white, 0.8)), url("https://res.cloudinary.com/ecomplus/image/upload/v1593054601/theme-baby-bg_hfgquo.webp");
+  }
+}
+
+.menu__social {
+  background-image: linear-gradient(rgba($gray-100, 1), rgba($white, 0.4)), url("https://res.cloudinary.com/ecomplus/image/upload/v1593054601/theme-baby-bg_hfgquo.webp");
+}
+
+.card-header {
+  font-weight: var(--font-bold);
+}

@@ -7,11 +7,10 @@
   %>
 
   <div id="gmc-ratings-badge"><div></div></div>
-  <script src="https://apis.google.com/js/platform.js?onload=renderGmcBadge" async defer></script>
   <script>
-    window.renderGmcBadge = function() {
+    window.renderGmcBadge = function () {
       var $ratingBadge = document.getElementById('gmc-ratings-badge').firstChild;
-      window.gapi.load('ratingbadge', function() {
+      window.gapi.load('ratingbadge', function () {
         window.gapi.ratingbadge.render(
           $ratingBadge, {
             merchant_id: <%- options.gmcMerchantId %>,
@@ -20,6 +19,7 @@
       });
     }
   </script>
+  <script src="https://apis.google.com/js/platform.js?onload=renderGmcBadge" async defer></script>
   <script>
     window.___gcfg = {
       lang: "<%- lang %>"
