@@ -1,5 +1,7 @@
 .checkout {
   &__account {
+    max-width: 600px;
+    margin: 0 auto;
     > .lead {
       text-align: center;
     }
