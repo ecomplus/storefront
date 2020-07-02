@@ -173,10 +173,19 @@ const actions = {
                 price,
                 final_price: price,
                 quantity: 0,
+                min_quantity: data.min_quantity,
+                max_quantity: data.quantity,
                 body_html: '',
                 body_text: ''
               })
-              ecomCart.increaseItemQnt(_id, quantity, false)
+              ecomCart.increaseItemQnt(
+                _id,
+                quantity <= data.quantity
+                  ? !data.min_quantity || quantity >= data.min_quantity
+                    ? quantity : data.min_quantity
+                  : data.quantity,
+                false
+              )
             })
             .catch(err => {
               console.error(err)

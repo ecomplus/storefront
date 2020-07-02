@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.35](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.34...@ecomplus/storefront-app@2.0.0-beta.35) (2020-07-02)
+
+
+### Bug Fixes
+
+* **deps:** fix @ecomplus/shopping-cart to v2.1.5 ([9d5d68c](https://github.com/ecomplus/storefront/commit/9d5d68c2218226d5984f648fb7f6914c93e4ec20))
+* **fetch-cart-items:** check item min/max quantity ([b89a797](https://github.com/ecomplus/storefront/commit/b89a797f7636627eb7c0f764cb19aef829481351))
+
+
+
+
+
 # [2.0.0-beta.34](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.33...@ecomplus/storefront-app@2.0.0-beta.34) (2020-06-30)
 
 

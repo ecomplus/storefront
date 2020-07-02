@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.35](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.34...@ecomplus/storefront-components@1.0.0-beta.35) (2020-07-02)
+
+
+### Bug Fixes
+
+* **cart-item:** ignore 11+ quantity option if max quantity lt 10 ([29b5159](https://github.com/ecomplus/storefront/commit/29b5159338334cd6fcdbcc13513526e725d8a3ba))
+* **deps:** fix @ecomplus/shopping-cart to v2.1.5 ([9d5d68c](https://github.com/ecomplus/storefront/commit/9d5d68c2218226d5984f648fb7f6914c93e4ec20))
+* **discount-applier:** fix setting quantity when adding freebie item ([27224c3](https://github.com/ecomplus/storefront/commit/27224c3a42de01596feb87a53fedd674874b8d86))
+
+
+
+
+
 # [1.0.0-beta.34](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.33...@ecomplus/storefront-components@1.0.0-beta.34) (2020-06-30)
 
 
