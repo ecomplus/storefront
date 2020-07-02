@@ -3,7 +3,7 @@ import { mapMutations, mapActions } from 'vuex'
 import TheAccount from '#components/TheAccount.vue'
 import EcAccountForm from '../../components/EcAccountForm.vue'
 import AccountAddresses from '#components/AccountAddresses.vue'
-import EcOrdersList from '../../components/EcOrdersList.vue'
+import OrdersList from '#components/OrdersList.vue'
 
 export default {
   name: 'account',
@@ -12,7 +12,7 @@ export default {
     TheAccount,
     EcAccountForm,
     AccountAddresses,
-    EcOrdersList
+    OrdersList
   },
 
   data () {

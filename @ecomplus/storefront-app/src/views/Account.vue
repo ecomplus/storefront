@@ -14,8 +14,7 @@
         <account-addresses :customer.sync="customer"/>
       </template>
       <template #orders-list>
-        <ec-orders-list
-          :ecom-passport="ecomPassport"
+        <orders-list
           @click:order="viewOrder"
         />
       </template>
