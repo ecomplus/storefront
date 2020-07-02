@@ -1,11 +1,11 @@
 {
   "pkg": "@ecomplus/widget-compre-confie",
-  "active": false,
+  "active": true,
   "desktopOnly": false,
   "enableCheckout": true,
   "disablePages": true,
   "options": {
-    "compreConfieStoreId": ""
+    "compreConfieStoreId": "2000202"
   },
   "stampsAppend": "src/append/stamps"
 }
