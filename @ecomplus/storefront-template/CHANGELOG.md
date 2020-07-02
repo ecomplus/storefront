@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.44](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.43...@ecomplus/storefront-template@2.0.0-beta.44) (2020-07-02)
+
+
+### Bug Fixes
+
+* **deps:** fix @ecomplus/shopping-cart to v2.1.5 ([9d5d68c](https://github.com/ecomplus/storefront/commit/9d5d68c2218226d5984f648fb7f6914c93e4ec20))
+
+
+
+
+
 # [2.0.0-beta.43](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.42...@ecomplus/storefront-template@2.0.0-beta.43) (2020-06-30)
 
 
