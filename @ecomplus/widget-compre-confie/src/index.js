@@ -17,7 +17,8 @@ export default (options = {}) => {
           if (orderJson) {
             try {
               order = JSON.parse(orderJson)
-            } catch (e) {}
+            } catch (e) {
+            }
           }
 
           if (order) {
