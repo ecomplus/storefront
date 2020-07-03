@@ -34,7 +34,7 @@
     "core-js": "3.x"
   },
   "webpackOutput": {
-    "library": "widget-compre-confie",
+    "library": "widgetCompreConfie",
     "filename": "widget-compre-confie.min.js"
   }
 }
