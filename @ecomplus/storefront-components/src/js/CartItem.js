@@ -147,10 +147,12 @@ export default {
           this.$refs.input.focus()
         })
       }
-      if (qnt < this.minQuantity) {
-        this.quantity = this.minQuantity
-      } else if (qnt > this.maxQuantity) {
-        this.quantity = this.maxQuantity
+      if (this.minQuantity <= this.maxQuantity) {
+        if (qnt < this.minQuantity) {
+          this.quantity = this.minQuantity
+        } else if (qnt > this.maxQuantity) {
+          this.quantity = this.maxQuantity
+        }
       }
     }
   },
