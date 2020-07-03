@@ -1,3 +1,3 @@
-# Widget Compre e Confie
+# Widget Compre & Confie
 
-Storefront plugin for Compre e Confie to order avaliation
+Storefront plugin for Compre & Confie to buyer review and store reliability
