@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.36](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.35...@ecomplus/storefront-app@2.0.0-beta.36) (2020-07-03)
+
+
+### Bug Fixes
+
+* **orders-list:** ensure customer orders is fully filled ([1d89e31](https://github.com/ecomplus/storefront/commit/1d89e31c0684e0e984ce879cf8675dfe62dd75d6))
+
+
+### Features
+
+* **account-form:** create new AccountForm component ([#261](https://github.com/ecomplus/storefront/issues/261)) ([0b1e319](https://github.com/ecomplus/storefront/commit/0b1e31960ce020fd4d1a267ce78dab9b911635b5))
+
+
+
+
+
 # [2.0.0-beta.35](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.34...@ecomplus/storefront-app@2.0.0-beta.35) (2020-07-02)
 
 

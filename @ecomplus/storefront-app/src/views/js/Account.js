@@ -1,7 +1,7 @@
 import ecomPassport from '@ecomplus/passport-client'
 import { mapMutations, mapActions } from 'vuex'
 import TheAccount from '#components/TheAccount.vue'
-import EcAccountForm from '../../components/EcAccountForm.vue'
+import AccountForm from '#components/AccountForm.vue'
 import AccountAddresses from '#components/AccountAddresses.vue'
 import OrdersList from '#components/OrdersList.vue'
 
@@ -10,7 +10,7 @@ export default {
 
   components: {
     TheAccount,
-    EcAccountForm,
+    AccountForm,
     AccountAddresses,
     OrdersList
   },

@@ -5,7 +5,7 @@
 >
   <div class="form-group">
     <label for="account-form-email">
-      {{ i18n('EmailAddress') }}
+      {{ i19emailAddress }}
     </label>
     <input
       type="email"
@@ -20,7 +20,7 @@
   <div class="form-row">
     <div class="form-group col-lg-8">
       <label for="account-form-name">
-        {{ i18n('FullName') }}
+        {{ i19fullName }}
       </label>
       <input
         type="text"
@@ -32,9 +32,12 @@
       >
     </div>
 
-    <div class="form-group col-lg-4" v-if="!short">
+    <div
+      class="form-group col-lg-4"
+      v-if="!isShort"
+    >
       <label for="account-form-nickname">
-        {{ i18n('Nickname') }}
+        {{ i19nickname }}
       </label>
       <input
         type="text"
@@ -46,14 +49,13 @@
     </div>
   </div>
 
-  <div class="form-group" v-if="!short">
+  <div
+    class="form-group"
+    v-if="!isShort"
+  >
     <div
       class="custom-control custom-radio custom-control-inline"
-      v-for="(label, value) in {
-        f: 'Female',
-        m: 'Male',
-        x: 'GenderX'
-      }"
+      v-for="(label, value) in i19Gender"
     >
       <input
         type="radio"
@@ -67,7 +69,7 @@
         class="custom-control-label"
         :for="`account-form-gender-${value}`"
       >
-        {{ i18n(label) }}
+        {{ label }}
       </label>
     </div>
   </div>
@@ -75,7 +77,7 @@
   <div class="form-row">
     <div class="form-group col-lg-4">
       <label for="account-form-phone">
-        {{ i18n('ContactPhone') }}
+        {{ i19contactPhone }}
       </label>
       <input-phone
         id="account-form-phone"
@@ -84,9 +86,12 @@
       />
     </div>
 
-    <div class="form-group col-lg-4" v-if="!short">
+    <div
+      class="form-group col-lg-4"
+      v-if="!isShort"
+    >
       <label for="account-form-cell">
-        {{ i18n('Cellphone') }}
+        {{ i19cellphone }}
       </label>
       <input-phone
         id="account-form-cell"
@@ -96,7 +101,7 @@
 
     <div class="form-group col-lg-4">
       <label for="account-form-birth">
-        {{ i18n('Birthdate') }}
+        {{ i19birthdate }}
       </label>
       <input-date
         id="account-form-birth"
@@ -110,8 +115,8 @@
     <div
       class="custom-control custom-radio custom-control-inline"
       v-for="(label, value) in {
-        p: 'PersonalRegistration',
-        j: 'CompanyRegistration'
+        p: i19personalRegistration,
+        j: i19companyRegistration
       }"
     >
       <input
@@ -127,7 +132,7 @@
         class="custom-control-label"
         :for="`account-form-type-${value}`"
       >
-        {{ i18n(label) }}
+        {{ label }}
       </label>
     </div>
   </div>
@@ -135,7 +140,7 @@
   <div class="form-row">
     <div class="form-group col-lg-6">
       <label for="account-form-doc">
-        {{ i18n('DocNumber') }}
+        {{ i19docNumber }}
       </label>
       <input-doc-number
         id="account-form-doc"
@@ -145,10 +150,13 @@
       />
     </div>
   </div>
-  <div class="form-row" v-if="localCustomer.registry_type !== 'p'">
+  <div
+    class="form-row"
+    v-if="localCustomer.registry_type !== 'p'"
+  >
     <div class="form-group col-lg-8">
       <label for="account-form-name">
-        {{ i18n('CorporateName') }}
+        {{ i19corporateName }}
       </label>
       <input
         type="text"
@@ -161,8 +169,11 @@
     </div>
   </div>
 
-  <button class="btn btn-lg btn-primary" type="submit">
+  <button
+    class="btn btn-lg btn-primary"
+    type="submit"
+  >
     <i class="fas fa-check mr-1"></i>
-    {{ i18n('Save') }}
+    {{ i19save }}
   </button>
 </form>

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.36](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.35...@ecomplus/storefront-components@1.0.0-beta.36) (2020-07-03)
+
+
+### Bug Fixes
+
+* **cart-item:** prevent so much quantity options (with max quantity) ([f532b72](https://github.com/ecomplus/storefront/commit/f532b721790e02c68dca4c962f342a456cbaeb55))
+* **picture:** fallback for legacy storage api v1 ([926f444](https://github.com/ecomplus/storefront/commit/926f4445e4dd55a3544d49e6db17f2c77c8d2f4f))
+
+
+### Features
+
+* **account-form:** create new AccountForm component ([#261](https://github.com/ecomplus/storefront/issues/261)) ([0b1e319](https://github.com/ecomplus/storefront/commit/0b1e31960ce020fd4d1a267ce78dab9b911635b5))
+
+
+
+
+
 # [1.0.0-beta.35](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.34...@ecomplus/storefront-components@1.0.0-beta.35) (2020-07-02)
 
 

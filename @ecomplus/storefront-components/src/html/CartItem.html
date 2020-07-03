@@ -61,7 +61,7 @@
           @change="updateInputType"
         >
           <option
-            v-for="qnt in (item.max_quantity || 10)"
+            v-for="qnt in Math.min(item.max_quantity, 10)"
             :value="qnt"
             :selected="qnt === quantity"
           >

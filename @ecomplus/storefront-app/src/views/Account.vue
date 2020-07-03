@@ -8,7 +8,7 @@
       @logout="resetAccount"
     >
       <template #account-form>
-        <ec-account-form :customer.sync="customer"/>
+        <account-form :customer.sync="customer"/>
       </template>
       <template #account-addresses>
         <account-addresses :customer.sync="customer"/>
