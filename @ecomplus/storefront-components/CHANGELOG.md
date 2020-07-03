@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.37](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.36...@ecomplus/storefront-components@1.0.0-beta.37) (2020-07-03)
+
+
+### Bug Fixes
+
+* **cart-item:** fix handling optionals min/max quantity ([7d3acd6](https://github.com/ecomplus/storefront/commit/7d3acd6f144be0bc460b9d75478de820ae8defa2))
+
+
+
+
+
 # [1.0.0-beta.36](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.35...@ecomplus/storefront-components@1.0.0-beta.36) (2020-07-03)
 
 
