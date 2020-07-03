@@ -17,7 +17,10 @@
         >
         </samp>
 
-        <strong v-if="order.amount" class="orders-list__amount">
+        <strong 
+          v-if="order.amount" 
+          class="orders-list__amount"
+        >
           {{ formatMoney(order.amount.total) }}
         </strong>
       </div>

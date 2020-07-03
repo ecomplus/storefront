@@ -15,6 +15,7 @@
       </template>
       <template #orders-list>
         <orders-list
+          :ecom-passport="ecomPassport"
           @click:order="viewOrder"
         />
       </template>

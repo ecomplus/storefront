@@ -14,13 +14,11 @@ export default {
   name: 'OrdersList',
 
   props: {
-    mergeDictionary: {
-      type: Object,
-      default: () => {}
-    },
     ecomPassport: {
       type: Object,
-      default: () => ecomPassport
+      default () {
+        return ecomPassport
+      }
     }
   },
 
@@ -43,7 +41,18 @@ export default {
       .then(result => {
         this.orders = result
       })
-    update()
+      .catch(console.error)
+    if (this.ecomPassport.checkAuthorization()) {
+      this.ecomPassport.requestApi('/orders.json')
+        .then(({ data }) => {
+          const { result } = data
+          this.ecomPassport.setCustomer({ orders: result })
+          this.orders = result
+        })
+        .catch(update)
+    } else {
+      update()
+    }
     this.updateInterval = setInterval(update, 5000)
   },
 
