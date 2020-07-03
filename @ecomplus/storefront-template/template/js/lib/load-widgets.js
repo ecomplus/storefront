@@ -104,6 +104,10 @@ Promise.all(widgetsLoadPromises).then(() => {
         '@ecomplus/widget-ebit',
         () => import('@ecomplus/widget-ebit')
       )
+      loadWidget(
+        '@ecomplus/widget-compre-confie',
+        () => import('@ecomplus/widget-compre-confie')
+      )
     })
   }
 
