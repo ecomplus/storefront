@@ -1,4 +1,8 @@
-import { price as getPrice } from '@ecomplus/utils'
+import {
+  price as getPrice,
+  fullName as getFullName
+} from '@ecomplus/utils'
+
 import ecomPassport from '@ecomplus/passport-client'
 
 export default (options = {}) => {
@@ -15,37 +19,35 @@ export default (options = {}) => {
               order = JSON.parse(orderJson)
             } catch (e) {}
           }
+
           if (order) {
             const customer = ecomPassport.getCustomer()
-            const buyers = order.buyers[0]
-            const transaction = order.transactions[0]
-            let consumerFullname
-            if (buyers && buyers.name) {
-              consumerFullname = buyers.name.given_name + ' ' + buyers.name.family_name
-            } else {
-              consumerFullname = customer.name.given_name + ' ' + customer.name.family_name
-            }
-            const createdAt = new Date()
-            let compreParam = `orderSellerID=${compreConfieStoreId}&orderPlatform=ecomplus` +
+            const transaction = order.transactions && order.transactions[0]
+            const payer = transaction && transaction.payer
+            const customerName = getFullName(customer)
+            const date = new Date()
+
+            let ccParam = `orderSellerID=${compreConfieStoreId}&orderPlatform=ecomplus` +
               `&orderTotalSpent=${order.amount.total}` +
               `&orderDeliveryTax=${(order.amount.freight || 0)}` +
               `&orderID=${(order.number || order._id)}` +
               `&consumerEmail=${customer.main_email}` +
               `&billingEmail=${customer.main_email}` +
-              `&consumerName=${encodeURIComponent(consumerFullname)}` +
-              `&orderDate=${createdAt.getDate() + '/' + (createdAt.getMonth() + 1) + '/' + createdAt.getFullYear() + ' | ' + createdAt.getHours() + ':' + createdAt.getMinutes() + ':' + createdAt.getSeconds()}`
+              `&consumerName=${encodeURIComponent(customerName)}` +
+              `&orderDate=${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} | ` +
+                `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
             if (customer.gender === 'm') {
-              compreParam += '&consumerGender=Masculino&billingGender=Masculino'
+              ccParam += '&consumerGender=Masculino&billingGender=Masculino'
             } else if (customer.gender === 'f') {
-              compreParam += '&consumerGender=Feminino&billingGender=Feminino'
+              ccParam += '&consumerGender=Feminino&billingGender=Feminino'
             }
-            if (customer.registry_type === 'p') {
-              compreParam += `&consumerCPF=${customer.doc_number || (transaction.payer && transaction.payer.doc_number)}` +
-              `&billingCPF=${transaction.payer ? transaction.payer.doc_number : customer.doc_number}`
+            if (customer.registry_type === 'p' && customer.doc_number) {
+              ccParam += `&consumerCPF=${customer.doc_number}` +
+                `&billingCPF=${((payer && payer.doc_number) || customer.doc_number)}`
             }
             if (customer.birth_date) {
               const { day, month, year } = customer.birth_date
-              compreParam += `&consumerBirthDate=${day.toString().padStart(2, '0')}` +
+              ccParam += `&consumerBirthDate=${day.toString().padStart(2, '0')}` +
                 `/${month.toString().padStart(2, '0')}/${year}`
             }
 
@@ -63,91 +65,91 @@ export default (options = {}) => {
                 names += `|${encodeURIComponent(items[i].name)}`
                 productMktSaleID += '|0'
               }
-              compreParam += `&productSKU=${skus}&productValue=${values}&productQuantity=${quantities}&ProductName=${names}&ProductMktSaleID=${productMktSaleID}`
+              ccParam += `&productSKU=${skus}&productValue=${values}&productQuantity=${quantities}` +
+                `&ProductName=${names}&ProductMktSaleID=${productMktSaleID}`
             }
 
             if (order.shipping_lines && order.shipping_lines[0]) {
               const shippingLine = order.shipping_lines[0]
               if (shippingLine.app && shippingLine.app.label) {
-                compreParam += '&orderDeliveryType='
-                switch (shippingLine.app.label) {
-                  case 'PAC':
-                  case 'Pac':
-                    compreParam += '0'
+                ccParam += '&orderDeliveryType='
+                switch (shippingLine.app.label.toLowerCase()) {
+                  case 'pac':
+                    ccParam += '0'
                     break
-                  case 'SEDEX':
-                  case 'Sedex':
-                    compreParam += '1'
+                  case 'sedex':
+                    ccParam += '1'
                     break
-                  case 'Retirar na loja':
                   case 'retirar na loja':
-                    compreParam += '3'
+                    ccParam += '3'
                     break
                   default:
-                    compreParam += '4'
+                    ccParam += '4'
                 }
               }
-              compreParam += `&orderDeliveryTime=${(shippingLine.delivery_time.days || 0)}` +
-                `&consumerZipcode=${shippingLine.to.zip}` +
-                `&billingZipcode=${shippingLine.to.zip}` +
-                `&productDeliveryTime=${(shippingLine.delivery_time.days || 0)}`
+              if (shippingLine.delivery_time && shippingLine.delivery_time.days) {
+                ccParam += `&orderDeliveryTime=${shippingLine.delivery_time.days}` +
+                  `&productDeliveryTime=${shippingLine.delivery_time.days}`
+              }
+              ccParam += `&consumerZipcode=${shippingLine.to.zip}` +
+                `&billingZipcode=${shippingLine.to.zip}`
             }
 
-            if (order.transactions && transaction) {
+            if (transaction) {
               if (transaction.app && transaction.app.intermediator && transaction.app.intermediator.name) {
-                compreParam += `&orderPartnerPayment=${transaction.app.intermediator.name}`
+                ccParam += `&orderPartnerPayment=${transaction.app.intermediator.name}`
               }
-              compreParam += `&billingName=${encodeURIComponent(transaction.payer ? transaction.payer.fullname : consumerFullname)}`
-              compreParam += `&orderParcels=${((transaction.installments && transaction.installments.number) || 1)}`
-              compreParam += '&orderPaymentType='
+              ccParam += `&billingName=${encodeURIComponent((payer && payer.fullname) || customerName)}`
+              ccParam += `&orderParcels=${((transaction.installments && transaction.installments.number) || 1)}`
+              ccParam += '&orderPaymentType='
               switch (transaction.payment_method.code) {
                 case 'credit_card':
-                  compreParam += '1'
+                  ccParam += '1'
                   break
                 case 'banking_billet':
-                  compreParam += '2'
+                  ccParam += '2'
                   break
                 case 'debit_card':
                 case 'online_debit':
-                  compreParam += '9'
+                  ccParam += '9'
                   break
                 case 'account_deposit':
-                  compreParam += '6'
+                  ccParam += '6'
                   break
                 case 'loyalty_points':
-                  compreParam += '8'
+                  ccParam += '8'
                   break
                 default:
-                  compreParam += '3'
+                  ccParam += '3'
               }
 
               if (transaction.credit_card && transaction.credit_card.company) {
-                compreParam += '&orderCardFlag='
+                ccParam += '&orderCardFlag='
                 switch (transaction.credit_card.company.toLowerCase()) {
                   case 'visa':
-                    compreParam += 3
+                    ccParam += 3
                     break
                   case 'mastercard':
-                    compreParam += 2
+                    ccParam += 2
                     break
                   case 'american express':
                   case 'amex':
-                    compreParam += 5
+                    ccParam += 5
                     break
                   case 'elo':
-                    compreParam += 8
+                    ccParam += 8
                     break
                   case 'aura':
-                    compreParam += 7
+                    ccParam += 7
                     break
                   case 'hipercard':
-                    compreParam += 6
+                    ccParam += 6
                     break
                   case 'diners club':
-                    compreParam += 1
+                    ccParam += 1
                     break
                   default:
-                    compreParam += 9
+                    ccParam += 9
                 }
               }
             }
@@ -157,7 +159,7 @@ export default (options = {}) => {
               if ($confirmation) {
                 $confirmation.insertAdjacentHTML(
                   'beforeend',
-                  `<a id="bannerEconfy"></a> <param id="TagEConfy" value="${compreParam}">`
+                  `<a id="bannerEconfy"></a> <param id="TagEConfy" value="${ccParam}">`
                 )
                 const $script = document.createElement('script')
                 $script.id = 'getData'
