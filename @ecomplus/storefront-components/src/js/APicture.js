@@ -130,8 +130,10 @@ export default {
             srcset,
             type: 'image/webp'
           }, {
-            srcset: srcset.replace(/\.webp$/, ''),
-            type: `image/${(srcset.substr(-9, 4) === 'png' ? 'png' : 'jpeg')}`
+            srcset: /\/imgs\/[0-9]{3}px/.test(srcset)
+              ? srcset.replace(/\/imgs\/[0-9]{3}px/, '')
+              : srcset.replace(/\.webp$/, ''),
+            type: `image/${(srcset.substr(-9, 4) === '.png' ? 'png' : 'jpeg')}`
           })
         } else {
           sources.push({ srcset })
