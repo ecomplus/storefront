@@ -1,7 +1,7 @@
 import { name } from './package.json'
 
 export default () => ({
-  label: 'Avaliações Compre confie',
+  label: 'Avaliações Compre & Confie',
   fields: [
     {
       name: 'pkg',
@@ -10,7 +10,7 @@ export default () => ({
     },
     {
       label: 'Ativar',
-      hint: 'Instalar Compre confie',
+      hint: 'Instalar selo Compre & Confie',
       name: 'active',
       widget: 'boolean'
     },
