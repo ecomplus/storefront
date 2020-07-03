@@ -57,18 +57,20 @@
           v-if="canInputSelect && inputType === 'select'"
           class="custom-select"
           v-model.number="quantity"
-          :disabled="!price"
+          :disabled="!price || maxQuantity === 0"
           @change="updateInputType"
         >
           <option
-            v-for="qnt in Math.min(item.max_quantity, 10)"
+            v-for="qnt in Math.min(maxQuantity, 10)"
+            v-if="qnt >= minQuantity"
+            :key="`qnt-${qnt}`"
             :value="qnt"
             :selected="qnt === quantity"
           >
             {{ qnt }}
           </option>
           <option
-            v-if="!item.max_quantity || item.max_quantity > 10"
+            v-if="maxQuantity > 10"
             :value="11"
           >
             11+
@@ -79,6 +81,8 @@
           v-else
           ref="input"
           :type="inputType && inputType !== 'select' ? inputType : 'number'"
+          :min="minQuantity"
+          :max="maxQuantity"
           class="form-control"
           placeholder="1"
           v-model.number="quantity"
