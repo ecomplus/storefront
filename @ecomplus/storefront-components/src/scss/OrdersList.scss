@@ -80,4 +80,9 @@
       color: var(--success);
     }
   }
+
+  &__pagination {
+    width: 600px;
+    margin: 0 auto
+  }
 }

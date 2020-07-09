@@ -4,6 +4,7 @@ import {
   formatMoney
 } from '@ecomplus/utils'
 import ecomPassport from '@ecomplus/passport-client'
+import Pagination from './../Pagination.vue'
 
 import {
   i19FinancialStatus,
@@ -12,6 +13,8 @@ import {
 
 export default {
   name: 'OrdersList',
+
+  components: { Pagination },
 
   props: {
     ecomPassport: {
@@ -24,8 +27,21 @@ export default {
 
   data () {
     return {
+      numberPage: 0,
+      itemPerPage: 2,
       updateInterval: null,
       orders: []
+    }
+  },
+
+  computed: {
+    startPage: {
+      get () {
+        return this.numberPage
+      },
+      set (value) {
+        this.numberPage = value
+      }
     }
   },
 
@@ -37,7 +53,7 @@ export default {
   },
 
   created () {
-    const update = () => this.ecomPassport.fetchOrdersList()
+    const update = () => this.ecomPassport.fetchOrdersList(this.startPage, this.itemPerPage)
       .then(result => {
         this.orders = result
       })
@@ -53,6 +69,7 @@ export default {
     } else {
       update()
     }
+    console.log(this.ecomPassport)
     this.updateInterval = setInterval(update, 5000)
   },
 

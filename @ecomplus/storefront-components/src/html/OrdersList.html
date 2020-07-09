@@ -44,4 +44,11 @@
       </span>
     </a>
   </div>
+  <div>
+    <pagination
+      :items="orders"
+      :number-page.sync="numberPage"
+      :items-per-page="itemPerPage"
+    />
+  </div>
 </div>
