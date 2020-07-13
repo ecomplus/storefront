@@ -71,7 +71,7 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
-    "webpack-merge": "^4.2.2",
+    "webpack-merge": "^5.0.9",
     "webpack-pwa-manifest": "^4.2.0",
     "workbox-webpack-plugin": "^5.1.3"
   }
