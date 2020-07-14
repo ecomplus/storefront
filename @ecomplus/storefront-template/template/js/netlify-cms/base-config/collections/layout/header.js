@@ -28,7 +28,7 @@ export default ({ baseDir, state }) => ({
         },
         {
           label: 'Cor do texto da tarja',
-          name: 'color_tarja',
+          name: 'color',
           widget: 'color'
         }
       ]
