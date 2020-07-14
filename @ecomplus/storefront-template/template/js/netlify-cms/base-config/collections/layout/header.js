@@ -23,7 +23,7 @@ export default ({ baseDir, state }) => ({
         },
         {
           label: 'Cor de fundo da tarja',
-          name: 'bg_color_tarja',
+          name: 'background',
           widget: 'color'
         },
         {
