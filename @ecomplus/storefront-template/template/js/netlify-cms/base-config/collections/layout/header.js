@@ -20,6 +20,16 @@ export default ({ baseDir, state }) => ({
           name: 'link',
           required: false,
           widget: 'string'
+        },
+        {
+          label: 'Cor de fundo da tarja',
+          name: 'bg_color_tarja',
+          widget: 'color'
+        },
+        {
+          label: 'Cor do texto da tarja',
+          name: 'color_tarja',
+          widget: 'color'
         }
       ]
     },

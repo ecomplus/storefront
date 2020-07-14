@@ -46,11 +46,27 @@ if (header.categories_list) {
   <% if (header.marketing_stripe) { %>
     <% if (header.marketing_stripe.text) { %>
       <% if (header.marketing_stripe.link) { %>
-        <a class="top-bar__countdown" href="<%= header.marketing_stripe.link %>">
+        <a class="top-bar__countdown"
+        <% if (header.marketing_stripe.bg_color_tarja && header.marketing_stripe.color_tarja) { %>
+         style="background: <%= header.marketing_stripe.bg_color_tarja %>; color: <%= header.marketing_stripe.color_tarja %>"
+        <% } else if (header.marketing_stripe.bg_color_tarja && !header.marketing_stripe.color_tarja) { %>
+          style="background: <%= header.marketing_stripe.bg_color_tarja %>"
+        <% } else if (!header.marketing_stripe.bg_color_tarja && header.marketing_stripe.color_tarja) { %>
+          style="color: <%= header.marketing_stripe.color_tarja %>"
+        <% }  %>
+         href="<%= header.marketing_stripe.link %>">
           <%= header.marketing_stripe.text %>
         </a>
       <% } else { %>
-        <div class="top-bar__countdown">
+        <div class="top-bar__countdown"
+        <% if (header.marketing_stripe.bg_color_tarja && header.marketing_stripe.color_tarja) { %>
+         style="background: <%= header.marketing_stripe.bg_color_tarja %>; color: <%= header.marketing_stripe.color_tarja %>"
+        <% } else if (header.marketing_stripe.bg_color_tarja && !header.marketing_stripe.color_tarja) { %>
+          style="background: <%= header.marketing_stripe.bg_color_tarja %>"
+        <% } else if (!header.marketing_stripe.bg_color_tarja && header.marketing_stripe.color_tarja) { %>
+          style="color: <%= header.marketing_stripe.color_tarja %>"
+        <% }  %>
+          >
           <%= header.marketing_stripe.text %>
         </div>
       <% } %>
