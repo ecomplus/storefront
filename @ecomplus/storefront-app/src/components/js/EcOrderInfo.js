@@ -26,9 +26,12 @@ import {
   i19FinancialStatus,
   i19FulfillmentStatus,
   i19OrderStatus,
-  i19buyAgain
+  i19buyAgain,
+  i19yes,
+  i19no
   // i19updatedCart
-  // i19addToCartMsg
+  // i19goToCart
+
 } from '@ecomplus/i18n'
 
 export default {
@@ -76,7 +79,7 @@ export default {
   },
 
   computed: {
-    i19addToCartMsg: () => 'Produtos disponíveis foram adicionados ao carrinho',
+    i19goToCart: () => 'Ir para o carrinho',
     i19buyAgain: () => i18n(i19buyAgain),
     i19cancelOrder: () => i18n(i19cancelOrder),
     i19codeCopied: () => i18n(i19codeCopied),
@@ -96,6 +99,8 @@ export default {
     i19transactionCode: () => i18n(i19transactionCode),
     i19ticketCode: () => i18n(i19ticketCode),
     i19updatedCart: () => 'Carrinho atualizado',
+    i19yes: () => i18n(i19yes),
+    i19no: () => i18n(i19no),
 
     localOrder: {
       get () {
@@ -231,16 +236,16 @@ export default {
         const { items } = localOrder
         items.forEach((item, i) => {
           ecomCart.addItem(item)
-          if (i + 1 === localOrder.items.length) {
+          if (i + 1 === localOrder.items.length && ecomCart.data._id) {
+            ecomCart.save()
             this.$toast({
               title: this.i19updatedCart,
-              body: this.i19addToCartMsg,
+              body: '<span>' + this.i19goToCart + '?</span><div><a href="/app/#/cart/' + ecomCart.data._id + '" class="btn btn-sm btn-success">' + this.i19yes + '</a><a class="ml-2 btn btn-sm btn-danger" data-dismiss="toast"> ' + this.i19no + '</a></div>',
               variant: 'success',
-              delay: 1000
+              delay: 10000
             })
           }
         })
-        ecomCart.save()
       }
     },
 
