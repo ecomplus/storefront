@@ -22,13 +22,16 @@ export default ({ baseDir, state }) => ({
           widget: 'string'
         },
         {
-          label: 'Cor de fundo da tarja',
+          label: 'Cor de fundo',
           name: 'background',
-          widget: 'color'
+          required: false,
+          widget: 'color',
+          hint: 'A cor primária da loja é usada por padrão'
         },
         {
-          label: 'Cor do texto da tarja',
+          label: 'Cor da fonte',
           name: 'color',
+          required: false,
           widget: 'color'
         }
       ]
