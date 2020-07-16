@@ -236,7 +236,7 @@ export default {
         const { items } = localOrder
         items.forEach((item, i) => {
           ecomCart.addItem(item)
-          if (i + 1 === localOrder.items.length && ecomCart.data._id) {
+          if (i + 1 === items.length) {
             ecomCart.save()
             this.$toast({
               title: this.i19updatedCart,
