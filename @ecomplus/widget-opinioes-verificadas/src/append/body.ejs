@@ -1,0 +1,4 @@
+<% if (options.tagJs) { %>
+  <% _.USE_JQUERY_FULL = true %>
+  <%- options.tagJs.replace('"></script>', '" async></script>') %>
+<% } %>
