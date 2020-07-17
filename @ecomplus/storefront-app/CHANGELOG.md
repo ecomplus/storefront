@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.40](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.39...@ecomplus/storefront-app@2.0.0-beta.40) (2020-07-17)
+
+
+### Bug Fixes
+
+* **credit-card-form:** fix importar 'card-validator' v9 ([5853913](https://github.com/ecomplus/storefront/commit/5853913a0f5eaad360ec7d5e08665dfbd60650cf))
+
+
+
+
+
 # [2.0.0-beta.39](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.38...@ecomplus/storefront-app@2.0.0-beta.39) (2020-07-17)
 
 
