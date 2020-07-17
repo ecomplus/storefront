@@ -22,6 +22,11 @@ export default () => ({
     {
       name: 'enableCheckout',
       widget: 'hidden',
+      default: false
+    },
+    {
+      name: 'disablePages',
+      widget: 'hidden',
       default: true
     },
     {
