@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.39](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.38...@ecomplus/storefront-app@2.0.0-beta.39) (2020-07-17)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.14.0 ([ea9f37c](https://github.com/ecomplus/storefront/commit/ea9f37c80401653eee18c7c9c2b384935c1ed298))
+* **deps:** update dependency card-validator to v7 ([#266](https://github.com/ecomplus/storefront/issues/266)) ([8976a7b](https://github.com/ecomplus/storefront/commit/8976a7b932b6a11ab0411f9f5bc873b40f770a23))
+* **deps:** update dependency credit-card-type to v9 ([#267](https://github.com/ecomplus/storefront/issues/267)) ([e749ba0](https://github.com/ecomplus/storefront/commit/e749ba022db99702650029279be0f96c78f3152f))
+
+
+
+
+
 # [2.0.0-beta.38](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.37...@ecomplus/storefront-app@2.0.0-beta.38) (2020-07-03)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

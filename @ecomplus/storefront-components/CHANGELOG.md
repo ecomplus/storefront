@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.39](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.38...@ecomplus/storefront-components@1.0.0-beta.39) (2020-07-17)
+
+
+### Bug Fixes
+
+* **account-form:** regex pattern for email input (check domain) ([1f77c2a](https://github.com/ecomplus/storefront/commit/1f77c2ae1cc1691f9396c6da0babb22b8ec4ccc4))
+* **deps:** update @ecomplus/i18n to v1.14.0 ([ea9f37c](https://github.com/ecomplus/storefront/commit/ea9f37c80401653eee18c7c9c2b384935c1ed298))
+* **deps:** update all non-major dependencies ([#265](https://github.com/ecomplus/storefront/issues/265)) ([f85b9be](https://github.com/ecomplus/storefront/commit/f85b9bea392fd7107cd2dcd8b42e5b09b44663a3))
+
+
+
+
+
 # [1.0.0-beta.38](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.37...@ecomplus/storefront-components@1.0.0-beta.38) (2020-07-03)
 
 
