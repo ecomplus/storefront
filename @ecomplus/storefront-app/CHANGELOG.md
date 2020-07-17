@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.38](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.37...@ecomplus/storefront-app@2.0.0-beta.38) (2020-07-03)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.37](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.36...@ecomplus/storefront-app@2.0.0-beta.37) (2020-07-03)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.36](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.35...@ecomplus/storefront-app@2.0.0-beta.36) (2020-07-03)
+
+
+### Bug Fixes
+
+* **orders-list:** ensure customer orders is fully filled ([1d89e31](https://github.com/ecomplus/storefront/commit/1d89e31c0684e0e984ce879cf8675dfe62dd75d6))
+
+
+### Features
+
+* **account-form:** create new AccountForm component ([#261](https://github.com/ecomplus/storefront/issues/261)) ([0b1e319](https://github.com/ecomplus/storefront/commit/0b1e31960ce020fd4d1a267ce78dab9b911635b5))
+
+
+
+
+
+# [2.0.0-beta.35](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.34...@ecomplus/storefront-app@2.0.0-beta.35) (2020-07-02)
+
+
+### Bug Fixes
+
+* **deps:** fix @ecomplus/shopping-cart to v2.1.5 ([9d5d68c](https://github.com/ecomplus/storefront/commit/9d5d68c2218226d5984f648fb7f6914c93e4ec20))
+* **fetch-cart-items:** check item min/max quantity ([b89a797](https://github.com/ecomplus/storefront/commit/b89a797f7636627eb7c0f764cb19aef829481351))
+
+
+
+
+
+# [2.0.0-beta.34](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.33...@ecomplus/storefront-app@2.0.0-beta.34) (2020-06-30)
+
+
+### Bug Fixes
+
+* **account-form:** check manually invalidated fields on submit ([e693a42](https://github.com/ecomplus/storefront/commit/e693a42b406b1ba7d1fbc5a38843ba1ab70e9f0c))
+* **checkout:** prevent proceed to payment whitout second step enabled ([f28fe81](https://github.com/ecomplus/storefront/commit/f28fe811a4c58f601f500452f1120708400510cd))
+* **deps:** update @ecomplus/shopping-cart to v2.1.2 ([d4fb6b0](https://github.com/ecomplus/storefront/commit/d4fb6b032b82519f7e3b433fd6faad3715746fbf))
+* **deps:** update @ecomplus/shopping-cart to v2.1.3 ([0a71d3b](https://github.com/ecomplus/storefront/commit/0a71d3b161b8f2b4258ec72df0772a5ac9e8b3c0))
+* **vuex:** prevent editing original item _id on fetch ([25a7b6a](https://github.com/ecomplus/storefront/commit/25a7b6afa8f45efa3c2055ffa1b64525a4b827ea))
+
+
+### Features
+
+* **account-addresses:** add new AccountAddresses component :tada: ([#256](https://github.com/ecomplus/storefront/issues/256)) ([a37811e](https://github.com/ecomplus/storefront/commit/a37811e58cb810d1295cccba4606a8f536131b7b))
+
+
+
+
+
 # [2.0.0-beta.33](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.32...@ecomplus/storefront-app@2.0.0-beta.33) (2020-06-25)
 
 

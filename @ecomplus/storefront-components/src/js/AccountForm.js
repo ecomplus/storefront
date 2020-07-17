@@ -1,33 +1,38 @@
-import { _config, i18n, fullName, birthDate, phone } from '@ecomplus/utils'
-import InputDocNumber from '#components/InputDocNumber.vue'
-import InputPhone from '#components/InputPhone.vue'
-import InputDate from '#components/InputDate.vue'
+import {
+  $ecomConfig,
+  i18n,
+  fullName,
+  birthDate,
+  phone
+} from '@ecomplus/utils'
+import {
+  i19birthdate,
+  i19cellphone,
+  i19corporateName,
+  i19contactPhone,
+  i19docNumber,
+  i19emailAddress,
+  i19female,
+  i19fullName,
+  i19Gender,
+  i19male,
+  i19nickname,
+  i19personalRegistration,
+  i19companyRegistration,
+  i19save
+} from '@ecomplus/i18n'
+import InputDocNumber from './../InputDocNumber.vue'
+import InputPhone from './../InputPhone.vue'
+import InputDate from './../InputDate.vue'
 import cloneDeep from 'lodash.clonedeep'
 
-import {
-  Birthdate,
-  Cellphone,
-  CorporateName,
-  CompanyRegistration,
-  ContactPhone,
-  DocNumber,
-  EmailAddress,
-  Female,
-  FullName,
-  GenderX,
-  Male,
-  Nickname,
-  PersonalRegistration,
-  Save
-} from './../../lib/i18n'
-
-const countryCode = _config.get('country_code')
+const countryCode = $ecomConfig.get('country_code')
 
 const { sessionStorage } = window
 const storageKey = 'ecomCustomerAccount'
 
 export default {
-  name: 'EcAccountForm',
+  name: 'AccountForm',
 
   components: {
     InputDocNumber,
@@ -36,16 +41,12 @@ export default {
   },
 
   props: {
-    mergeDictionary: {
-      type: Object,
-      default: () => {}
-    },
-    short: {
-      type: Boolean
-    },
+    isShort: Boolean,
     customer: {
       type: Object,
-      required: true
+      default () {
+        return {}
+      }
     }
   },
 
@@ -58,25 +59,20 @@ export default {
   },
 
   computed: {
-    dictionary () {
-      return {
-        Birthdate,
-        Cellphone,
-        CompanyRegistration,
-        CorporateName,
-        ContactPhone,
-        DocNumber,
-        EmailAddress,
-        Female,
-        FullName,
-        GenderX,
-        Male,
-        Nickname,
-        PersonalRegistration,
-        Save,
-        ...this.mergeDictionary
-      }
-    },
+    i19birthdate: () => i18n(i19birthdate),
+    i19cellphone: () => i18n(i19cellphone),
+    i19corporateName: () => i18n(i19corporateName),
+    i19contactPhone: () => i18n(i19contactPhone),
+    i19docNumber: () => i18n(i19docNumber),
+    i19emailAddress: () => i18n(i19emailAddress),
+    i19female: () => i18n(i19female),
+    i19fullName: () => i18n(i19fullName),
+    i19Gender: () => i18n(i19Gender),
+    i19male: () => i18n(i19male),
+    i19nickname: () => i18n(i19nickname),
+    i19companyRegistration: () => i18n(i19companyRegistration),
+    i19personalRegistration: () => i18n(i19personalRegistration),
+    i19save: () => i18n(i19save),
 
     birthdate: {
       get () {
@@ -121,10 +117,6 @@ export default {
   },
 
   methods: {
-    i18n (label) {
-      return i18n(this.dictionary[label])
-    },
-
     getPhoneStr (index = 0) {
       const { phones } = this.localCustomer
       return phones[index]
@@ -170,14 +162,18 @@ export default {
 
     submit (ev) {
       const $form = this.$el
-      if ($form.checkValidity()) {
-        if (!this.localCustomer.display_name) {
-          this.localCustomer.display_name = this.localCustomer.name.given_name
+      if (!document.querySelectorAll('.account-form input.is-invalid').length) {
+        if ($form.checkValidity()) {
+          if (!this.localCustomer.display_name) {
+            this.localCustomer.display_name = this.localCustomer.name.given_name
+          }
+          this.saveToStorage()
+          this.$emit('update:customer', this.localCustomer)
         }
-        this.saveToStorage()
-        this.$emit('update:customer', this.localCustomer)
+        $form.classList.add('was-validated')
+      } else {
+        $form.classList.remove('was-validated')
       }
-      $form.classList.add('was-validated')
     }
   },
 

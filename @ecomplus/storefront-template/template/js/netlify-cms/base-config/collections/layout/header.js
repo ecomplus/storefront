@@ -20,6 +20,19 @@ export default ({ baseDir, state }) => ({
           name: 'link',
           required: false,
           widget: 'string'
+        },
+        {
+          label: 'Cor de fundo',
+          name: 'background',
+          required: false,
+          widget: 'color',
+          hint: 'A cor primária da loja é usada por padrão'
+        },
+        {
+          label: 'Cor da fonte',
+          name: 'color',
+          required: false,
+          widget: 'color'
         }
       ]
     },

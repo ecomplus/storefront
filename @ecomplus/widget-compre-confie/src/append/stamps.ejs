@@ -1,0 +1,15 @@
+<% if (options.compreConfieStoreId) { %>
+  <li>
+    <a
+      id="seloEconfy"
+      href="https://www.compreconfie.com.br/<%- options.compreConfieStoreId %>"
+      target="_blank"
+      data-noop="redir(this.href);"
+    ></a>
+    <script
+      type="text/javascript"
+      id="getData"
+      src="https://selo.compreconfie.com.br/scripts/getData.js?sellerId=<%- options.compreConfieStoreId %>"
+    ></script>
+  </li>
+<% } %>

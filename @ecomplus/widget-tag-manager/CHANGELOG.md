@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.2.2...@ecomplus/widget-tag-manager@1.2.3) (2020-06-30)
+
+
+### Bug Fixes
+
+* **purchase-events:** prevent duplicated spa (routes) events ([82d2760](https://github.com/ecomplus/storefront/commit/82d2760f9bbf7a91119efa9af456dc8aff455901))
+
+
+
+
+
 ## [1.2.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.2.1...@ecomplus/widget-tag-manager@1.2.2) (2020-05-26)
 
 **Note:** Version bump only for package @ecomplus/widget-tag-manager

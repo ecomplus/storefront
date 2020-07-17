@@ -22,13 +22,16 @@ const addFreebieItems = (ecomCart, productIds) => {
       if (!ecomCart.data.items.find(item => item.product_id === productId)) {
         store({ url: `/products/${productId}.json` })
           .then(({ data }) => {
-            ecomCart.addProduct({
-              ...data,
-              quantity: productIds.reduce((qnt, _id) => {
+            ecomCart.addProduct(
+              {
+                ...data,
+                flags: ['freebie', '__tmp']
+              },
+              null,
+              productIds.reduce((qnt, _id) => {
                 return _id === productId ? qnt + 1 : qnt
-              }, 0),
-              flags: ['freebie', '__tmp']
-            })
+              }, 0)
+            )
           })
           .catch(console.error)
       }

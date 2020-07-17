@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.47](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.46...@ecomplus/storefront-template@2.0.0-beta.47) (2020-07-03)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.46](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.45...@ecomplus/storefront-template@2.0.0-beta.46) (2020-07-03)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.45](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.44...@ecomplus/storefront-template@2.0.0-beta.45) (2020-07-03)
+
+
+### Features
+
+* **compre-config:** compre & confie storefront widget ([#258](https://github.com/ecomplus/storefront/issues/258)) ([0400e40](https://github.com/ecomplus/storefront/commit/0400e40231604a5ffc8ae22fefa67ae3cc034bae))
+
+
+
+
+
+# [2.0.0-beta.44](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.43...@ecomplus/storefront-template@2.0.0-beta.44) (2020-07-02)
+
+
+### Bug Fixes
+
+* **deps:** fix @ecomplus/shopping-cart to v2.1.5 ([9d5d68c](https://github.com/ecomplus/storefront/commit/9d5d68c2218226d5984f648fb7f6914c93e4ec20))
+
+
+
+
+
+# [2.0.0-beta.43](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.42...@ecomplus/storefront-template@2.0.0-beta.43) (2020-06-30)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.1.2 ([d4fb6b0](https://github.com/ecomplus/storefront/commit/d4fb6b032b82519f7e3b433fd6faad3715746fbf))
+* **deps:** update @ecomplus/shopping-cart to v2.1.3 ([0a71d3b](https://github.com/ecomplus/storefront/commit/0a71d3b161b8f2b4258ec72df0772a5ac9e8b3c0))
+
+
+
+
+
 # [2.0.0-beta.42](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.41...@ecomplus/storefront-template@2.0.0-beta.42) (2020-06-25)
 
 

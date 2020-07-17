@@ -81,6 +81,18 @@ export default {
       return Array.isArray(this.item.flags)
         ? this.item.flags.includes('freebie')
         : false
+    },
+
+    minQuantity () {
+      const minQuantity = this.item.min_quantity
+      return typeof minQuantity === 'number' && minQuantity >= 0
+        ? minQuantity : 1
+    },
+
+    maxQuantity () {
+      const maxQuantity = this.item.max_quantity
+      return typeof maxQuantity === 'number' && maxQuantity >= 0
+        ? maxQuantity : 9999999
     }
   },
 
@@ -134,6 +146,13 @@ export default {
         this.$nextTick(() => {
           this.$refs.input.focus()
         })
+      }
+      if (this.minQuantity <= this.maxQuantity) {
+        if (qnt < this.minQuantity) {
+          this.quantity = this.minQuantity
+        } else if (qnt > this.maxQuantity) {
+          this.quantity = this.maxQuantity
+        }
       }
     }
   },

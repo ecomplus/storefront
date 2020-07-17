@@ -1,0 +1,11 @@
+{
+  "pkg": "@ecomplus/widget-compre-confie",
+  "active": false,
+  "desktopOnly": false,
+  "enableCheckout": true,
+  "disablePages": true,
+  "options": {
+    "compreConfieStoreId": ""
+  },
+  "stampsAppend": "src/append/stamps"
+}

@@ -3,6 +3,77 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.38](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.37...@ecomplus/storefront-components@1.0.0-beta.38) (2020-07-03)
+
+
+### Bug Fixes
+
+* **cart-item:** check min quantity not gt max before fixing current qnt ([ceaba7b](https://github.com/ecomplus/storefront/commit/ceaba7b12a9fb65d853c698596535ac49932891c))
+
+
+
+
+
+# [1.0.0-beta.37](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.36...@ecomplus/storefront-components@1.0.0-beta.37) (2020-07-03)
+
+
+### Bug Fixes
+
+* **cart-item:** fix handling optionals min/max quantity ([7d3acd6](https://github.com/ecomplus/storefront/commit/7d3acd6f144be0bc460b9d75478de820ae8defa2))
+
+
+
+
+
+# [1.0.0-beta.36](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.35...@ecomplus/storefront-components@1.0.0-beta.36) (2020-07-03)
+
+
+### Bug Fixes
+
+* **cart-item:** prevent so much quantity options (with max quantity) ([f532b72](https://github.com/ecomplus/storefront/commit/f532b721790e02c68dca4c962f342a456cbaeb55))
+* **picture:** fallback for legacy storage api v1 ([926f444](https://github.com/ecomplus/storefront/commit/926f4445e4dd55a3544d49e6db17f2c77c8d2f4f))
+
+
+### Features
+
+* **account-form:** create new AccountForm component ([#261](https://github.com/ecomplus/storefront/issues/261)) ([0b1e319](https://github.com/ecomplus/storefront/commit/0b1e31960ce020fd4d1a267ce78dab9b911635b5))
+
+
+
+
+
+# [1.0.0-beta.35](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.34...@ecomplus/storefront-components@1.0.0-beta.35) (2020-07-02)
+
+
+### Bug Fixes
+
+* **cart-item:** ignore 11+ quantity option if max quantity lt 10 ([29b5159](https://github.com/ecomplus/storefront/commit/29b5159338334cd6fcdbcc13513526e725d8a3ba))
+* **deps:** fix @ecomplus/shopping-cart to v2.1.5 ([9d5d68c](https://github.com/ecomplus/storefront/commit/9d5d68c2218226d5984f648fb7f6914c93e4ec20))
+* **discount-applier:** fix setting quantity when adding freebie item ([27224c3](https://github.com/ecomplus/storefront/commit/27224c3a42de01596feb87a53fedd674874b8d86))
+
+
+
+
+
+# [1.0.0-beta.34](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.33...@ecomplus/storefront-components@1.0.0-beta.34) (2020-06-30)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.1.2 ([d4fb6b0](https://github.com/ecomplus/storefront/commit/d4fb6b032b82519f7e3b433fd6faad3715746fbf))
+* **deps:** update @ecomplus/shopping-cart to v2.1.3 ([0a71d3b](https://github.com/ecomplus/storefront/commit/0a71d3b161b8f2b4258ec72df0772a5ac9e8b3c0))
+* **input-doc-number:** valid cpf/cnpj only when input is filled ([9c04909](https://github.com/ecomplus/storefront/commit/9c049093d21684e01bf9396cb902f62dc10f88a6))
+
+
+### Features
+
+* **account-addresses:** add new AccountAddresses component :tada: ([#256](https://github.com/ecomplus/storefront/issues/256)) ([a37811e](https://github.com/ecomplus/storefront/commit/a37811e58cb810d1295cccba4606a8f536131b7b))
+* **input-doc-number:** checking br cpf/cnpj ([067d398](https://github.com/ecomplus/storefront/commit/067d3981536aa979777944390ac0c94d59f75d36))
+
+
+
+
+
 # [1.0.0-beta.33](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.32...@ecomplus/storefront-components@1.0.0-beta.33) (2020-06-25)
 
 

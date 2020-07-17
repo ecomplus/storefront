@@ -1,0 +1,40 @@
+{
+  "name": "@ecomplus/widget-compre-confie",
+  "version": "1.1.0",
+  "description": "Storefront plugin for compre-confie",
+  "main": "dist/widget-compre-confie.min.js",
+  "module": "src/index.js",
+  "browser": "dist/widget-compre-confie.min.js",
+  "jsdelivr": "dist/public/widget-compre-confie.var.min.js",
+  "unpkg": "dist/public/widget-compre-confie.var.min.js",
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "serve": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomplus/storefront.git",
+    "directory": "@ecomplus/widget-compre-confie"
+  },
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "widget",
+    "compre-confie",
+    "evaluate"
+  ],
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomplus/storefront/issues"
+  },
+  "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-compre-confie#readme",
+  "peerDependencies": {
+    "@ecomplus/utils": "^1.4.1",
+    "core-js": "3.x"
+  },
+  "webpackOutput": {
+    "library": "widgetCompreConfie",
+    "filename": "widget-compre-confie.min.js"
+  }
+}
