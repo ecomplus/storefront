@@ -48,20 +48,22 @@ let echoWidgets = {}
 if (Array.isArray(_.widgets)) {
   // parse active widgets list to object
   echoWidgets = _.widgets.reduce((obj, widget) => {
-    obj[widget.pkg] = { ...widget }
-    delete obj[widget.pkg].pkg
+    if (!widget.disablePages || widget.enableCheckout) {
+      obj[widget.pkg] = { ...widget }
+      delete obj[widget.pkg].pkg
+    }
     return obj
   }, {})
 }
 %>
 
-<script><%-
+<script>/*<!--*/<%-
   `window._settings=${JSON.stringify(_.settings)};` +
   `window._info=${JSON.stringify(_.cms('info'))};` +
   `window._widgets=${JSON.stringify(echoWidgets)};` +
   `window._context=${JSON.stringify(echoContext)};` +
   `window._data=${JSON.stringify(echoData)};`
-%></script>
+%>/*-->*/</script>
 
 <script type="application/ld+json"><%-
   JSON.stringify({
