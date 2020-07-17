@@ -34,7 +34,7 @@
   "dependencies": {
     "@brazilian-utils/brazilian-utils": "^1.0.0-rc.9",
     "@ecomplus/client": "^2.0.4",
-    "@ecomplus/i18n": "^1.13.0",
+    "@ecomplus/i18n": "^1.14.0",
     "@ecomplus/passport-client": "^1.0.10",
     "@ecomplus/search-engine": "^2.3.2",
     "@ecomplus/shopping-cart": "^2.1.5",
