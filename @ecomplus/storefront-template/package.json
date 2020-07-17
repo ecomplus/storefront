@@ -59,6 +59,7 @@
     "@ecomplus/widget-gmc-ratings": "^1.2.2",
     "@ecomplus/widget-minicart": "^1.0.0-beta.35",
     "@ecomplus/widget-offers-notification": "^1.0.1",
+    "@ecomplus/widget-opinioes-verificadas": "^1.0.0",
     "@ecomplus/widget-product": "^1.0.0-beta.35",
     "@ecomplus/widget-product-card": "^1.0.0-beta.35",
     "@ecomplus/widget-search": "^1.0.0-beta.35",
