@@ -11,6 +11,7 @@ import getWidgetTawkto from '@ecomplus/widget-tawkto/cms.config'
 import getWidgetTrustvox from '@ecomplus/widget-trustvox/cms.config'
 import getWidgetEbit from '@ecomplus/widget-ebit/cms.config'
 import getWidgetCompreConfie from '@ecomplus/widget-compre-confie/cms.config'
+import getWidgetOpinioesVerificadas from '@ecomplus/widget-opinioes-verificadas/cms.config'
 
 const fixWidgetConfig = ({ baseDir }, getWidget) => {
   const baseConfig = getWidget()
@@ -44,6 +45,7 @@ export default options => ({
     fixWidgetConfig(options, getWidgetTawkto),
     fixWidgetConfig(options, getWidgetTrustvox),
     fixWidgetConfig(options, getWidgetEbit),
-    fixWidgetConfig(options, getWidgetCompreConfie)
+    fixWidgetConfig(options, getWidgetCompreConfie),
+    fixWidgetConfig(options, getWidgetOpinioesVerificadas)
   ]
 })
