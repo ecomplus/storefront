@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.40](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.39...@ecomplus/storefront-components@1.0.0-beta.40) (2020-07-20)
+
+
+### Bug Fixes
+
+* **shipping-calculator:** fix handling retry when no valid shipping options ([837e9cf](https://github.com/ecomplus/storefront/commit/837e9cf4fe60f32bdfd971ed9c81aa64719d601a))
+
+
+
+
+
 # [1.0.0-beta.39](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.38...@ecomplus/storefront-components@1.0.0-beta.39) (2020-07-17)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.41](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.40...@ecomplus/storefront-app@2.0.0-beta.41) (2020-07-20)
+
+
+### Bug Fixes
+
+* **payment-methods:** ensure payments list is refreshed when amount total is changed ([223461e](https://github.com/ecomplus/storefront/commit/223461e99416c1aeba994210885245afc500305a))
+
+
+
+
+
 # [2.0.0-beta.40](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.39...@ecomplus/storefront-app@2.0.0-beta.40) (2020-07-17)
 
 
