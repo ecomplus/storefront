@@ -263,6 +263,12 @@ export default {
         }
       },
       immediate: true
+    },
+
+    'amount.total' () {
+      if (!this.isWaiting) {
+        this.fetchPaymentGateways()
+      }
     }
   },
 
