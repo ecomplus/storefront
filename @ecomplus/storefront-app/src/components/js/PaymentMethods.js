@@ -230,13 +230,15 @@ export default {
         }
       }
       this.isWaiting = true
-      modules({ url, method, data })
-        .then(({ data }) => {
-          this.parsePaymentOptions(data.result, Boolean(appId && this.selectedGateway >= 0))
-        })
-        .finally(() => {
-          this.isWaiting = false
-        })
+      setTimeout(() => {
+        modules({ url, method, data })
+          .then(({ data }) => {
+            this.parsePaymentOptions(data.result, Boolean(appId && this.selectedGateway >= 0))
+          })
+          .finally(() => {
+            this.isWaiting = false
+          })
+      }, appId ? 5 : 50)
     },
 
     handleCheckout () {
@@ -273,8 +275,6 @@ export default {
   },
 
   created () {
-    setTimeout(() => {
-      this.fetchPaymentGateways()
-    }, 50)
+    this.fetchPaymentGateways()
   }
 }
