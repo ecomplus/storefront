@@ -19,6 +19,7 @@ module.exports = ({ devMode }) => {
       // imported from CDN
       vue: 'Vue',
       jquery: '$',
+      'jquery/dist/jquery.slim': '$',
       'popper.js': 'Popper'
     }
   } else {
