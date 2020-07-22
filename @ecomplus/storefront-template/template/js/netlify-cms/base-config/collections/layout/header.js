@@ -85,6 +85,7 @@ export default ({ baseDir, state }) => ({
           widget: 'list',
           field: {
             label: 'Categoria/coleção/marca',
+            name: 'path',
             widget: 'select',
             options: state.routes
               .filter(({ resource, name }) => Boolean(resource !== 'products' && name))

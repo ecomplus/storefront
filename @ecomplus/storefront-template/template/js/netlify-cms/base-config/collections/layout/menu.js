@@ -10,6 +10,7 @@ export default ({ baseDir, state }) => ({
       hint: 'Ordenar categorias em primeiro nível',
       field: {
         label: 'Categoria',
+        name: 'slug',
         widget: 'select',
         options: state.routes
           .filter(({ resource, name }) => resource === 'categories')
