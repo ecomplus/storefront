@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.52](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.51...@ecomplus/storefront-template@2.0.0-beta.52) (2020-07-22)
+
+
+### Bug Fixes
+
+* **cms:** fill 'name' prop where missing ([1dffd46](https://github.com/ecomplus/storefront/commit/1dffd461b4070aa1d52c56f5a952782232180ddb))
+* **cms:** getting addional deps from window (cdn) ([02d2595](https://github.com/ecomplus/storefront/commit/02d25959e343fb6d7e97b5036577292d9182b6b8))
+
+
+
+
+
 # [2.0.0-beta.51](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.50...@ecomplus/storefront-template@2.0.0-beta.51) (2020-07-20)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
