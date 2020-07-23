@@ -74,9 +74,10 @@
     margin-left: auto;
     margin-top: 1.5rem;
   }
+
   &__buy-again {
     display: flex;
-    justify-content: end;
-    margin-top: 1rem;
+    justify-content: flex-end;
+    margin-top: var(--spacer-3);
   }
 }

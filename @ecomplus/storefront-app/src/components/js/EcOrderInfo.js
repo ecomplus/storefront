@@ -6,6 +6,7 @@ import EcSummary from './../EcSummary.vue'
 import ecomCart from '@ecomplus/shopping-cart'
 
 import {
+  i19buyAgain,
   i19cancelOrder,
   i19codeCopied,
   i19copyCode,
@@ -25,13 +26,7 @@ import {
   i19ticketCode,
   i19FinancialStatus,
   i19FulfillmentStatus,
-  i19OrderStatus,
-  i19buyAgain,
-  i19yes,
-  i19no
-  // i19updatedCart
-  // i19goToCart
-
+  i19OrderStatus
 } from '@ecomplus/i18n'
 
 export default {
@@ -66,6 +61,10 @@ export default {
     accountOrdersUrl: {
       type: String,
       default: '/app/#/account/orders'
+    },
+    cartUrl: {
+      type: String,
+      default: '/app/#/cart'
     }
   },
 
@@ -79,7 +78,6 @@ export default {
   },
 
   computed: {
-    i19goToCart: () => 'Ir para o carrinho',
     i19buyAgain: () => i18n(i19buyAgain),
     i19cancelOrder: () => i18n(i19cancelOrder),
     i19codeCopied: () => i18n(i19codeCopied),
@@ -98,9 +96,6 @@ export default {
     i19shippingAddress: () => i18n(i19shippingAddress),
     i19transactionCode: () => i18n(i19transactionCode),
     i19ticketCode: () => i18n(i19ticketCode),
-    i19updatedCart: () => 'Carrinho atualizado',
-    i19yes: () => i18n(i19yes),
-    i19no: () => i18n(i19no),
 
     localOrder: {
       get () {
@@ -238,12 +233,7 @@ export default {
           ecomCart.addItem(item)
           if (i + 1 === items.length) {
             ecomCart.save()
-            this.$toast({
-              title: this.i19updatedCart,
-              body: '<span>' + this.i19goToCart + '?</span><div><a href="/app/#/cart/' + ecomCart.data._id + '" class="btn btn-sm btn-success">' + this.i19yes + '</a><a class="ml-2 btn btn-sm btn-danger" data-dismiss="toast"> ' + this.i19no + '</a></div>',
-              variant: 'success',
-              delay: 10000
-            })
+            window.location = this.cartUrl
           }
         })
       }
