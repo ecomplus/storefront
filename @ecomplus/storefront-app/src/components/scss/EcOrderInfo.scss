@@ -69,15 +69,10 @@
     background: var(--light);
   }
 
-  &__toggle {
+  &__toggle,
+  &__buy-again {
     display: block;
     margin-left: auto;
-    margin-top: 1.5rem;
-  }
-
-  &__buy-again {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: var(--spacer-3);
+    margin-top: var(--spacer-4);
   }
 }

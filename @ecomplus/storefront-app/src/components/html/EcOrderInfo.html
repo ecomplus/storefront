@@ -235,18 +235,16 @@
             </button>
           </template>
 
-          <div class="order-info__buy-again">
-            <slot name="buy">
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="buyAgain"
-              >
-                <i class="fas fa-shopping-bag mr-1"></i>
-                {{ i19buyAgain }}
-              </button>
-            </slot>
-          </div>
+          <slot name="buy">
+            <button
+              type="button"
+              class="order-info__buy-again btn btn-primary"
+              @click="buyAgain"
+            >
+              <i class="fas fa-shopping-bag mr-1"></i>
+              {{ i19buyAgain }}
+            </button>
+          </slot>
         </div>
       </div>
     </div>
