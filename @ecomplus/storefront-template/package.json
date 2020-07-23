@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-template",
-  "version": "2.0.0-beta.52",
+  "version": "2.0.0-beta.53",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "template/js/index.js",
   "bin": {
@@ -47,7 +47,7 @@
     "@ecomplus/passport-client": "^1.0.10",
     "@ecomplus/search-engine": "^2.3.2",
     "@ecomplus/shopping-cart": "^2.1.5",
-    "@ecomplus/storefront-app": "^2.0.0-beta.41",
+    "@ecomplus/storefront-app": "^2.0.0-beta.42",
     "@ecomplus/storefront-components": "^1.0.0-beta.40",
     "@ecomplus/storefront-framework": "^5.13.7",
     "@ecomplus/storefront-router": "^2.2.0",
@@ -59,7 +59,7 @@
     "@ecomplus/widget-gmc-ratings": "^1.2.3",
     "@ecomplus/widget-minicart": "^1.0.0-beta.37",
     "@ecomplus/widget-offers-notification": "^1.0.1",
-    "@ecomplus/widget-opinioes-verificadas": "^1.1.0",
+    "@ecomplus/widget-opinioes-verificadas": "^1.1.1",
     "@ecomplus/widget-product": "^1.0.0-beta.37",
     "@ecomplus/widget-product-card": "^1.0.0-beta.37",
     "@ecomplus/widget-search": "^1.0.0-beta.37",

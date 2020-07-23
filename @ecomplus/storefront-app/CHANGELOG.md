@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.42](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.41...@ecomplus/storefront-app@2.0.0-beta.42) (2020-07-23)
+
+
+### Bug Fixes
+
+* **payment-methods:** prevent reloading list when payment selected ([2baf1ec](https://github.com/ecomplus/storefront/commit/2baf1ec84bf9078234462b323fd91024a44cb6e7))
+
+
+### Features
+
+* **order-info:** add buy again button ([#260](https://github.com/ecomplus/storefront/issues/260)) ([91744b9](https://github.com/ecomplus/storefront/commit/91744b9b436ce0b756c90cdc58097ae23afca864))
+
+
+
+
+
 # [2.0.0-beta.41](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.40...@ecomplus/storefront-app@2.0.0-beta.41) (2020-07-20)
 
 
