@@ -3,8 +3,10 @@ import { store } from '@ecomplus/client'
 import ecomPassport from '@ecomplus/passport-client'
 import ShippingLine from '#components/ShippingLine.vue'
 import EcSummary from './../EcSummary.vue'
+import ecomCart from '@ecomplus/shopping-cart'
 
 import {
+  i19buyAgain,
   i19cancelOrder,
   i19codeCopied,
   i19copyCode,
@@ -59,6 +61,10 @@ export default {
     accountOrdersUrl: {
       type: String,
       default: '/app/#/account/orders'
+    },
+    cartUrl: {
+      type: String,
+      default: '/app/#/cart'
     }
   },
 
@@ -72,6 +78,7 @@ export default {
   },
 
   computed: {
+    i19buyAgain: () => i18n(i19buyAgain),
     i19cancelOrder: () => i18n(i19cancelOrder),
     i19codeCopied: () => i18n(i19codeCopied),
     i19copyCode: () => i18n(i19copyCode),
@@ -215,6 +222,20 @@ export default {
             }
             ecomPassport.requestApi('/me.json', 'patch', { orders })
           })
+      }
+    },
+
+    buyAgain () {
+      const { localOrder } = this
+      if (localOrder.items) {
+        const { items } = localOrder
+        items.forEach((item, i) => {
+          ecomCart.addItem(item)
+          if (i + 1 === items.length) {
+            ecomCart.save()
+            window.location = this.cartUrl
+          }
+        })
       }
     },
 
