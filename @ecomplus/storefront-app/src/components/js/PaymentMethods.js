@@ -268,7 +268,7 @@ export default {
     },
 
     'amount.total' () {
-      if (!this.isWaiting) {
+      if (!this.isWaiting && this.selectedGateway === -1) {
         this.fetchPaymentGateways()
       }
     }
