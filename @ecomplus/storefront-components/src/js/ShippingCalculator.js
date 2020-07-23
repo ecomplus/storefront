@@ -123,7 +123,6 @@ export default {
 
     parseShippingOptions (shippingResult = [], isRetry) {
       this.shippingServices = []
-      let canRetry
       if (shippingResult.length) {
         shippingResult.forEach(appResult => {
           const { validated, error, response } = appResult
@@ -141,13 +140,17 @@ export default {
             ) {
               this.freeFromValue = freeShippingFromValue
             }
-          } else if (isRetry !== true && (!response || !response.error)) {
-            canRetry = true
           }
         })
         if (!this.shippingServices.length) {
-          if (canRetry) {
+          if (!isRetry) {
             this.fetchShippingServices(true)
+          } else {
+            setTimeout(() => {
+              if (this.localZipCode && !this.shippingServices.length) {
+                this.fetchShippingServices(true)
+              }
+            }, 7500)
           }
         } else {
           this.setSelectedService(0)

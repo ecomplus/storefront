@@ -1,7 +1,7 @@
 import { name } from './package.json'
 
 export default () => ({
-  label: 'Trustvox',
+  label: 'Opiniões Verificadas',
   fields: [
     {
       name: 'pkg',
@@ -10,7 +10,7 @@ export default () => ({
     },
     {
       label: 'Ativar',
-      hint: 'Instalar avaliações de produtos via Trustvox',
+      hint: 'Instalar selo e avaliações via Opiniões Verificadas',
       name: 'active',
       widget: 'boolean'
     },
@@ -36,11 +36,29 @@ export default () => ({
       hint: 'Personalizações do widget',
       fields: [
         {
-          label: 'ID da loja na Trustvox',
-          name: 'trustvoxStoreId',
-          widget: 'number'
+          label: 'HTML do selo',
+          required: false,
+          name: 'stamp',
+          widget: 'code',
+          hint: 'Código copiado de "Integração > Selos e Carrosel" no painel do Opiniões Verificadas',
+          default_language: 'html',
+          output_code_only: true
+        },
+        {
+          label: 'Tag script para avaliações de produtos',
+          required: false,
+          name: 'tagJs',
+          widget: 'code',
+          hint: 'Código copiado do passo 1 do aplicativo TagJS em "Integração > Aplicativos"',
+          default_language: 'html',
+          output_code_only: true
         }
       ]
+    },
+    {
+      name: 'headAppend',
+      widget: 'hidden',
+      default: 'src/append/head'
     },
     {
       name: 'bodyAppend',
@@ -66,6 +84,11 @@ export default () => ({
       name: 'stampsAppend',
       widget: 'hidden',
       default: 'src/append/stamps'
+    },
+    {
+      name: 'useJquery',
+      widget: 'hidden',
+      default: true
     }
   ]
 })

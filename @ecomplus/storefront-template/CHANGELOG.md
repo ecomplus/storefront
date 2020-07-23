@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.52](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.51...@ecomplus/storefront-template@2.0.0-beta.52) (2020-07-22)
+
+
+### Bug Fixes
+
+* **cms:** fill 'name' prop where missing ([1dffd46](https://github.com/ecomplus/storefront/commit/1dffd461b4070aa1d52c56f5a952782232180ddb))
+* **cms:** getting addional deps from window (cdn) ([02d2595](https://github.com/ecomplus/storefront/commit/02d25959e343fb6d7e97b5036577292d9182b6b8))
+
+
+
+
+
+# [2.0.0-beta.51](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.50...@ecomplus/storefront-template@2.0.0-beta.51) (2020-07-20)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.50](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.49...@ecomplus/storefront-template@2.0.0-beta.50) (2020-07-20)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.49](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.48...@ecomplus/storefront-template@2.0.0-beta.49) (2020-07-17)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.48](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.47...@ecomplus/storefront-template@2.0.0-beta.48) (2020-07-17)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.14.0 ([ea9f37c](https://github.com/ecomplus/storefront/commit/ea9f37c80401653eee18c7c9c2b384935c1ed298))
+* **ejs:** prevent syntax error with js in html, optional jquery full ([8021d2e](https://github.com/ecomplus/storefront/commit/8021d2e25eb93be3ad814039c0dd34f7dd052447))
+
+
+### Features
+
+* **cms:** add widget "Opiniões Verificadas" ([735504b](https://github.com/ecomplus/storefront/commit/735504b8ce80fcf9b10e2b69317848600c77c0bd))
+* **cms:** optional custom colors for marketing stripe ([#270](https://github.com/ecomplus/storefront/issues/270)) ([6310dbf](https://github.com/ecomplus/storefront/commit/6310dbf4172cfc95d72d6f407ea907cc56cebdee))
+
+
+
+
+
 # [2.0.0-beta.47](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.46...@ecomplus/storefront-template@2.0.0-beta.47) (2020-07-03)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

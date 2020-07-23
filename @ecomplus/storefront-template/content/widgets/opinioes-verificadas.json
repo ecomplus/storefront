@@ -1,15 +1,18 @@
 {
-  "pkg": "@ecomplus/widget-trustvox",
+  "pkg": "@ecomplus/widget-opinioes-verificadas",
   "active": false,
   "desktopOnly": false,
   "enableCheckout": false,
   "disablePages": true,
   "options": {
-    "trustvoxStoreId": ""
+    "stamp": "",
+    "tagJs": ""
   },
+  "headAppend": "src/append/head",
   "bodyAppend": "src/append/body",
-  "productDescriptionAppend": "src/append/product-block",
   "productCardSlots": "src/append/product-card-slots",
   "productSlots": "src/append/product-slots",
-  "stampsAppend": "src/append/stamps"
+  "productDescriptionAppend": "src/append/product-block",
+  "stampsAppend": "src/append/stamps",
+  "useJquery": true
 }
