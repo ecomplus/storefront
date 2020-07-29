@@ -11,40 +11,42 @@
   })();
   // End of Tawk.to Script
 
-  var customer;
-  if (ecomPassport.checkLogin()) {
-    customer = ecomPassport.getCustomer();
-    Tawk_API.visitor = {
-      name: ecomPassport.getCustomerName(),
-      email: customer.main_email
-    };
-  }
+  (function () {
+    var customer;
+    if (ecomPassport.checkLogin()) {
+      customer = ecomPassport.getCustomer();
+      Tawk_API.visitor = {
+        name: ecomPassport.getCustomerName(),
+        email: customer.main_email
+      };
+    }
 
-  Tawk_API.onLoad = function () {
-    var tawkAttrs = {};
-    var addTawkAttrs = function (prefix, obj) {
-      if (obj) {
-        for (var field in obj) {
-          if (obj[field] && field.substr(0, 4) !== 'body') {
-            switch (typeof obj[field]) {
-              case 'string':
-              case 'number':
-                tawkAttrs[prefix + '-' + field.replace(/[^a-z0-9]/ig, '-')] = obj[field].toString();
-                break;
+    Tawk_API.onLoad = function () {
+      var tawkAttrs = {};
+      var addTawkAttrs = function (prefix, obj) {
+        if (obj) {
+          for (var field in obj) {
+            if (obj[field] && field.substr(0, 4) !== 'body') {
+              switch (typeof obj[field]) {
+                case 'string':
+                case 'number':
+                  tawkAttrs[prefix + '-' + field.replace(/[^a-z0-9]/ig, '-')] = obj[field].toString();
+                  break;
+              }
             }
           }
         }
-      }
+      };
+      addTawkAttrs('customer', customer);
+      addTawkAttrs('context', storefront.context);
+      addTawkAttrs('cart', ecomCart.data);
+      Tawk_API.setAttributes(tawkAttrs, function (error) {
+        if (typeof error !== 'undefined') {
+          var err = new Error('tawk.to: ' + error);
+          err.attributes = tawkAttrs;
+          console.error(err);
+        }
+      });
     };
-    addTawkAttrs('customer', customer);
-    addTawkAttrs('context', storefront.context);
-    addTawkAttrs('cart', ecomCart.data);
-    Tawk_API.setAttributes(tawkAttrs, function (error) {
-      if (typeof error !== 'undefined') {
-        var err = new Error('tawk.to: ' + error);
-        err.attributes = tawkAttrs;
-        console.error(err);
-      }
-    });
-  };
+  }());
 </script>
