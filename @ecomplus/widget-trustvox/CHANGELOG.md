@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-trustvox@2.0.5...@ecomplus/widget-trustvox@2.1.0) (2020-07-29)
+
+
+### Features
+
+* **trustvox-product-id:** handling custom id from metafield (if set) ([479d39b](https://github.com/ecomplus/storefront/commit/479d39b5c726bca872f29b39cd247e6493c546ab))
+
+
+
+
+
 ## [2.0.5](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-trustvox@2.0.4...@ecomplus/widget-trustvox@2.0.5) (2020-07-17)
 
 **Note:** Version bump only for package @ecomplus/widget-trustvox

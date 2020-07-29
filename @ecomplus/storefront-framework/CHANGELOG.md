@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.13.8](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.7...@ecomplus/storefront-framework@5.13.8) (2020-07-29)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/client to ^2.1.0 ([95139fe](https://github.com/ecomplus/storefront/commit/95139fef754897d7618f5d81fed00493f93eae17))
+
+
+
+
+
 ## [5.13.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.6...@ecomplus/storefront-framework@5.13.7) (2020-07-20)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

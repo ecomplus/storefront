@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.41](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.40...@ecomplus/storefront-components@1.0.0-beta.41) (2020-07-29)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/client to ^2.1.0 ([95139fe](https://github.com/ecomplus/storefront/commit/95139fef754897d7618f5d81fed00493f93eae17))
+* **input-phone:** minor pattern fix (br ddd) ([602e795](https://github.com/ecomplus/storefront/commit/602e795a0925aad65ec424d293c539c20a8722fe))
+
+
+
+
+
 # [1.0.0-beta.40](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.39...@ecomplus/storefront-components@1.0.0-beta.40) (2020-07-20)
 
 
