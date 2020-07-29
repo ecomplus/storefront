@@ -1,17 +1,6 @@
 import { isMobile } from '@ecomplus/storefront-twbs'
 import emitter from './emitter'
-import ecomClient from '@ecomplus/client'
-import EcomSearch from '@ecomplus/search-engine'
-import ecomPassport from '@ecomplus/passport-client'
-import ecomCart from '@ecomplus/shopping-cart'
 import widgetProductCard from '@ecomplus/widget-product-card'
-
-window.ecomClient = ecomClient
-window.EcomSearch = EcomSearch
-window.ecomPassport = ecomPassport
-window.ecomCart = ecomCart
-
-emitter.emit('ecom:ready')
 
 const isCheckout = window.location.pathname.startsWith('/app/')
 const widgetsLoadPromises = []
@@ -71,7 +60,17 @@ Promise.all(widgetsLoadPromises).then(() => {
     )
   }
 
-  const startLowProrityWidgets = () => {
+  const requestIdleCallback = fn => {
+    if (typeof window.requestIdleCallback === 'function') {
+      setTimeout(() => window.requestIdleCallback(fn), 200)
+    } else {
+      setTimeout(fn, 800)
+    }
+  }
+
+  requestIdleCallback(() => {
+    emitter.emit('load:lcp')
+
     if (!isCheckout) {
       loadWidget(
         '@ecomplus/widget-search',
@@ -88,6 +87,8 @@ Promise.all(widgetsLoadPromises).then(() => {
     }
 
     Promise.all(widgetsLoadPromises).then(() => {
+      requestIdleCallback(() => emitter.emit('load:components'))
+
       loadWidget(
         '@ecomplus/widget-tag-manager',
         () => import('@ecomplus/widget-tag-manager')
@@ -109,11 +110,5 @@ Promise.all(widgetsLoadPromises).then(() => {
         () => import('@ecomplus/widget-compre-confie')
       )
     })
-  }
-
-  if (typeof window.requestIdleCallback === 'function') {
-    window.requestIdleCallback(startLowProrityWidgets)
-  } else {
-    startLowProrityWidgets()
-  }
+  })
 })
