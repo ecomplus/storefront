@@ -7,6 +7,7 @@ import {
   i19onFreight,
   i19paymentError,
   i19paymentErrorMsg,
+  // i19recurrent,
   i19total,
   i19upTo
 } from '@ecomplus/i18n'
@@ -67,6 +68,7 @@ export default {
     i19interestFree: () => i18n(i19interestFree),
     i19ofDiscount: () => i18n(i19ofDiscount),
     i19onFreight: () => i18n(i19onFreight),
+    i19recurrent: () => 'Recorrente',
     i19total: () => i18n(i19total),
     i19upTo: () => i18n(i19upTo),
 

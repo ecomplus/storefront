@@ -44,6 +44,13 @@
           <span>
             <span class="payment__badges">
               <span
+                class="badge badge-secondary payment__recurrence"
+                v-if="gateway.type === 'recurrence'"
+              >
+                {{ i19recurrent }}
+              </span>
+
+              <span
                 class="badge badge-success payment__discount"
                 v-if="gateway.discount && gateway.discount.value > 0"
               >
