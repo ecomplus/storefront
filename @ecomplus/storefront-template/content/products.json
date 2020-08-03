@@ -23,6 +23,14 @@
     {
       "type": "product-specifications",
       "enabled": true
+    },
+    {
+      "type": "product-block",
+      "enabled": true
+    },
+    {
+      "type": "custom-html",
+      "html": "<iframe id=\"myQAIframe\" scrolling=\"no\" style=\"overflow: hidden; height: 49px; border: 0px; width: 100%\"></iframe>\n<script>\n  var category = window.storefront.context.body.categories ? window.storefront.context.body.categories[0].slug : ''\n  var productPage = window.location.href\n  var url = '//cl.avis-verifies.com/medias/components/html/iframe/8c7c2c69-7520-d754-f544-483d6a0625cb_iframe.html#?idWebsite=8c7c2c69-7520-d754-f544-483d6a0625cb&' +\n    `productId=${window.storefront.context.body.sku}&` +\n    'token=b7767691b8dd6d4a70f0f2c5893318225e330777&' +\n    'firstName=&lastName=&email=&' +\n    `category=${category}&` +\n    `productPage=${productPage}`\n  document.getElementById('myQAIframe').src = url\n  console.log('myQAIframe loaded')\n</script>\n<script type=\"text/javascript\" src=\"//cl.avis-verifies.com/medias/components/html/js/iframeResizer.min.js\"></script>\n<script type=\"text/javascript\"> (function () { iFrameResize({ log: true }, \"#myQAIframe\"); })(); </script>"
     }
   ]
 }
