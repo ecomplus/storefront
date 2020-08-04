@@ -59,7 +59,7 @@ export default {
             address.zip = this.zipCode
           }
           if (this.customer.name) {
-            address.name = getFullName(this.customer)
+            address.name = getFullName(this.customer).substr(0, 70)
           }
         }
         return address
