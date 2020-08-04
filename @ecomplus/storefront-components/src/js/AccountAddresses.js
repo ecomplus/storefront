@@ -1,10 +1,15 @@
-import { i18n } from '@ecomplus/utils'
 import {
   i19edit,
   i19newAddress,
   i19noNumber,
   i19remove
 } from '@ecomplus/i18n'
+
+import {
+  i18n,
+  fullName as getFullName
+} from '@ecomplus/utils'
+
 import AddressForm from './../AddressForm.vue'
 
 const { sessionStorage } = window
@@ -54,7 +59,7 @@ export default {
             address.zip = this.zipCode
           }
           if (this.customer.name) {
-            address.name = this.customer.name.given_name
+            address.name = getFullName(this.customer)
           }
         }
         return address
