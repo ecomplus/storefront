@@ -172,6 +172,20 @@
               />
             </ec-summary>
 
+            <div class="checkout__notes mt-4">
+              <div class="form-group">
+                <label for="order-notes">{{ i19additionalComments }}</label>
+                <textarea
+                  class="form-control"
+                  :placeholder="i19orderNotesInputMsg"
+                  id="order-notes"
+                  rows="3"
+                  v-model="localNotes"
+                  maxlength="255"
+                ></textarea>
+              </div>
+            </div>
+
             <div class="checkout__back">
               <a :href="cartUrl" class="btn btn-sm btn-light">
                 <i class="fas fa-chevron-left mr-1"></i>

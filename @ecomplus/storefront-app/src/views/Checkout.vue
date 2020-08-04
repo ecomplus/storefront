@@ -10,6 +10,7 @@
       :shippingService.sync="shippingService"
       :paymentGateway.sync="paymentGateway"
       :discountCoupon.sync="discountCoupon"
+      :notes.sync="notes"
       @setDiscountRule="setDiscountRule"
       @checkout="checkout"
     />

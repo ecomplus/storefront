@@ -1,8 +1,10 @@
 import {
   i19addToCart,
+  // i19additionalComments,
   i19buyAlsoMsg,
-  i19checkout
-  // i19selectedOffers
+  i19checkout,
+  // i19orderNotesInputMsg,
+  i19selectedOffers
 } from '@ecomplus/i18n'
 
 import {
@@ -93,7 +95,8 @@ export default {
       type: Object,
       default: () => ecomCart
     },
-    discountCoupon: String
+    discountCoupon: String,
+    notes: String
   },
 
   data () {
@@ -111,9 +114,11 @@ export default {
 
   computed: {
     i19addToCart: () => i18n(i19addToCart),
+    i19additionalComments: () => 'Comentários adicionais',
     i19buyAlsoMsg: () => i18n(i19buyAlsoMsg),
     i19checkout: () => i18n(i19checkout),
-    i19selectedOffers: () => 'Ofertas selecionadas',
+    i19orderNotesInputMsg: () => 'Campo opcional para informações customizadas ou anotações do pedido.',
+    i19selectedOffers: () => i18n(i19selectedOffers),
     modulesPayload: () => baseModulesRequestData,
 
     dictionary () {
@@ -167,6 +172,15 @@ export default {
       },
       set (couponCode) {
         this.$emit('update:discountCoupon', couponCode)
+      }
+    },
+
+    localNotes: {
+      get () {
+        return this.notes
+      },
+      set (notes) {
+        this.$emit('update:notes', notes)
       }
     },
 
@@ -243,10 +257,12 @@ export default {
     },
 
     goToTop () {
-      window.scroll({
-        top: this.$el.offsetTop - 15,
-        behavior: 'smooth'
-      })
+      if (this.$el) {
+        window.scroll({
+          top: this.$el.offsetTop - 15,
+          behavior: 'smooth'
+        })
+      }
     },
 
     goToOffers () {
