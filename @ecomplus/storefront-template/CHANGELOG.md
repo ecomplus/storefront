@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.55](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.54...@ecomplus/storefront-template@2.0.0-beta.55) (2020-08-04)
+
+
+### Features
+
+* **events:** emiting 'load:lcp' and 'load:components' for widgets ([6557271](https://github.com/ecomplus/storefront/commit/6557271e7bd9e70b5a602eadd54e2c566ce4d9fe))
+* **globals:** expose axios instance, import ecom libs separately ([f02da35](https://github.com/ecomplus/storefront/commit/f02da35bd27f13e45a3dc9d5a24374e3d132b419))
+
+
+
+
+
 # [2.0.0-beta.54](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.53...@ecomplus/storefront-template@2.0.0-beta.54) (2020-07-29)
 
 

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.42](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.41...@ecomplus/storefront-components@1.0.0-beta.42) (2020-08-04)
+
+
+### Bug Fixes
+
+* **account-addresses:** passing customer full name to address recipient ([#278](https://github.com/ecomplus/storefront/issues/278)) ([1000832](https://github.com/ecomplus/storefront/commit/100083258c5024a59c37795ac7785fdb55ea7542))
+* **account-addresses:** prevent exceed maximum number of characters in the recipient's name ([3d99fb0](https://github.com/ecomplus/storefront/commit/3d99fb0d8d6b7005fb9089c4a56d478fba7736df))
+* **discount-applier:** always sending custom on params (if logged) ([5db55bc](https://github.com/ecomplus/storefront/commit/5db55bca522c3a3ca76e466d3ce99b3f3604a732))
+* **shipping-calculator:** sort shipping services by price and delivery time ([#280](https://github.com/ecomplus/storefront/issues/280)) ([bb08539](https://github.com/ecomplus/storefront/commit/bb08539e996e07453e0b4c7a22465c92ceafda87))
+
+
+
+
+
 # [1.0.0-beta.41](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.40...@ecomplus/storefront-components@1.0.0-beta.41) (2020-07-29)
 
 

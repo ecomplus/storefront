@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.44](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.43...@ecomplus/storefront-app@2.0.0-beta.44) (2020-08-04)
+
+
+### Features
+
+* **checkout:** add optional field for order notes (textarea) ([d519e1c](https://github.com/ecomplus/storefront/commit/d519e1c2dc36775d9f42994cbcc1cb193b945823))
+
+
+
+
+
 # [2.0.0-beta.43](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.42...@ecomplus/storefront-app@2.0.0-beta.43) (2020-07-29)
 
 
