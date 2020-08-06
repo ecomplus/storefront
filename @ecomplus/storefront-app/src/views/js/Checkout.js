@@ -69,6 +69,15 @@ export default {
       set (gateway) {
         this.selectPaymentGateway(gateway)
       }
+    },
+
+    notes: {
+      get () {
+        return this.$store.getters.notes
+      },
+      set (notes) {
+        this.setNotes(notes)
+      }
     }
   },
 
@@ -78,6 +87,7 @@ export default {
       'setFluidPage',
       'setDiscountCoupon',
       'setDiscountRule',
+      'setNotes',
       'selectShippingService',
       'selectPaymentGateway',
       'setCustomer',

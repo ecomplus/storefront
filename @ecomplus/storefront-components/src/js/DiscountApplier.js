@@ -157,8 +157,17 @@ export default {
       }
     },
 
-    fetchDiscountOptions (data) {
+    fetchDiscountOptions (data = {}) {
       this.isLoading = true
+      if (this.ecomPassport.checkLogin()) {
+        const customer = this.ecomPassport.getCustomer()
+        data.customer = {
+          _id: customer._id
+        }
+        if (customer.display_name) {
+          data.customer.display_name = customer.display_name
+        }
+      }
       modules({
         url: '/apply_discount.json',
         method: 'POST',
@@ -190,15 +199,6 @@ export default {
         const { localCouponCode } = this
         const data = {
           discount_coupon: localCouponCode
-        }
-        if (this.ecomPassport.checkLogin()) {
-          const customer = this.ecomPassport.getCustomer()
-          data.customer = {
-            _id: customer._id
-          }
-          if (customer.display_name) {
-            data.customer.display_name = customer.display_name
-          }
         }
         this.fetchDiscountOptions(data)
       }

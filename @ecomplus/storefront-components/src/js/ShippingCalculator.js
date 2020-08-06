@@ -123,7 +123,6 @@ export default {
 
     parseShippingOptions (shippingResult = [], isRetry) {
       this.shippingServices = []
-      let canRetry
       if (shippingResult.length) {
         shippingResult.forEach(appResult => {
           const { validated, error, response } = appResult
@@ -141,15 +140,25 @@ export default {
             ) {
               this.freeFromValue = freeShippingFromValue
             }
-          } else if (isRetry !== true && (!response || !response.error)) {
-            canRetry = true
           }
         })
         if (!this.shippingServices.length) {
-          if (canRetry) {
+          if (!isRetry) {
             this.fetchShippingServices(true)
+          } else {
+            setTimeout(() => {
+              if (this.localZipCode && !this.shippingServices.length) {
+                this.fetchShippingServices(true)
+              }
+            }, 7500)
           }
         } else {
+          this.shippingServices = this.shippingServices.sort((a, b) => {
+            const priceDiff = a.shipping_line.total_price - b.shipping_line.total_price
+            return priceDiff < 0 ? -1 : priceDiff > 0 ? 1
+              : a.shipping_line.delivery_time && b.shipping_line.delivery_time &&
+                a.shipping_line.delivery_time.days < b.shipping_line.delivery_time.days ? -1 : 1
+          })
           this.setSelectedService(0)
           this.hasFreeOption = Boolean(this.shippingServices.find(service => {
             return !service.shipping_line.total_price && !service.shipping_line.price

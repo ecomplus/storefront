@@ -1,0 +1,18 @@
+{
+  "pkg": "@ecomplus/widget-opinioes-verificadas",
+  "active": false,
+  "desktopOnly": false,
+  "enableCheckout": false,
+  "disablePages": true,
+  "options": {
+    "stamp": "",
+    "tagJs": ""
+  },
+  "headAppend": "src/append/head",
+  "bodyAppend": "src/append/body",
+  "productCardSlots": "src/append/product-card-slots",
+  "productSlots": "src/append/product-slots",
+  "productDescriptionAppend": "src/append/product-block",
+  "stampsAppend": "src/append/stamps",
+  "useJquery": true
+}

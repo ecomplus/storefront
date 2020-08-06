@@ -24,7 +24,7 @@ export default (options = {}, elClass = 'product-card') => {
   const setupComponent = ($productCard, productId, sku, product, isLoaded) => {
     new Vue({
       render: h => h(ProductCard, {
-        class: elClass,
+        class: elClass !== 'product-card' ? elClass : null,
         attrs: {
           'data-product-id': productId,
           'data-sku': sku

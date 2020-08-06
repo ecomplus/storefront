@@ -1,0 +1,9 @@
+<div
+  class="NETREVIEWS_PRODUCT_REVIEWS"
+  data-product-id="<%- _.state.sku %>"
+  data-product-price="<%- _.ecomUtils.price(_.state) %>"
+  data-product-name="<%- _.ecomUtils.name(_.state) %>"
+  data-product-url="<%- `https://${_.settings.domain}/${_.state.slug}` %>"
+  data-product-img-url="<%- _.ecomUtils.img(_.state, null, 'big') %>"
+  data-product-rs-id="<%- _.state.sku %>"
+></div>

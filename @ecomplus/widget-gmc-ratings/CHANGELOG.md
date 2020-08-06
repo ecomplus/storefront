@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.2.3...@ecomplus/widget-gmc-ratings@1.2.4) (2020-07-29)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/client to ^2.1.0 ([95139fe](https://github.com/ecomplus/storefront/commit/95139fef754897d7618f5d81fed00493f93eae17))
+
+
+
+
+
+## [1.2.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.2.2...@ecomplus/widget-gmc-ratings@1.2.3) (2020-07-17)
+
+
+### Bug Fixes
+
+* **pkg:** fix direct js dependencies ([f1d29cf](https://github.com/ecomplus/storefront/commit/f1d29cfb90df8393c5ff2f82e74f043594e3f08f))
+
+
+
+
+
 ## [1.2.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.2.1...@ecomplus/widget-gmc-ratings@1.2.2) (2020-06-30)
 
 **Note:** Version bump only for package @ecomplus/widget-gmc-ratings

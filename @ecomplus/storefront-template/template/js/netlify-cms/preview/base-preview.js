@@ -1,9 +1,6 @@
-import * as i19 from '@ecomplus/i18n'
 import ecomUtils from '@ecomplus/utils'
 import ecomClient from '@ecomplus/client'
 import EcomSearch from '@ecomplus/search-engine'
-import MarkdownIt from 'markdown-it'
-import { lodash, isEmpty, isEqual, xorWith } from 'lodash'
 
 import BannerSliderEJS from '../../../pages/@/sections/banner-slider.ejs'
 import InforBarEJS from '../../../pages/@/sections/info-bar.ejs'
@@ -36,11 +33,22 @@ import CategoryRetailEJS from '../../../pages/@/sections/category-retail.ejs'
 import CollectionRetailEJS from '../../../pages/@/sections/collection-retail.ejs'
 import CollectionShelfEJS from '../../../pages/@/sections/collection-shelf.ejs'
 
-const isArrayEqual = (x, y) => isEmpty(xorWith(x, y, isEqual))
-const lang = 'pt_br'
-const { _data, _info, _settings, ejs } = window
+const {
+  _data,
+  _info,
+  _settings,
+  lodash,
+  ejs,
+  React,
+  h,
+  MarkdownIt,
+  i18n
+} = window
 
-export default class BasePreview extends window.React.Component {
+const isArrayEqual = (x, y) => lodash.isEmpty(lodash.xorWith(x, y, lodash.isEqual))
+const lang = 'pt_br'
+
+export default class BasePreview extends React.Component {
   constructor () {
     super()
 
@@ -80,10 +88,10 @@ export default class BasePreview extends window.React.Component {
 
       dictionary: function (term) {
         if (term) {
-          if (i19[term]) {
-            return ecomUtils.i18n(i19[term], lang)
-          } else if (i19[`i19${term}`]) {
-            return ecomUtils.i18n(i19[`i19${term}`], lang)
+          if (i18n[term]) {
+            return ecomUtils.i18n(i18n[term], lang)
+          } else if (i18n[`i19${term}`]) {
+            return ecomUtils.i18n(i18n[`i19${term}`], lang)
           }
           return this._.cms(`dictionary/${lang}`)[term] || ''
         }

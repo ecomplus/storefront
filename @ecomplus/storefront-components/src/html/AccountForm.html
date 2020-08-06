@@ -9,6 +9,7 @@
     </label>
     <input
       type="email"
+      pattern="\S+@\S+\.\S{2,}"
       class="form-control"
       id="account-form-email"
       v-model="localCustomer.main_email"

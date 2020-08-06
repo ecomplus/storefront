@@ -13,6 +13,14 @@ const networks = [
   'linkedin'
 ]
 
+// marketing stripe custom styles
+let marketingStripeStyle = ''
+;['background', 'color'].forEach(prop => {
+  if (header.marketing_stripe[prop]) {
+    marketingStripeStyle += `${prop}:${header.marketing_stripe[prop]};`
+  }
+})
+
 // store logo object
 const logo = _.settings.logo
   ? { url: _.settings.logo, alt: _.settings.name }
@@ -46,11 +54,15 @@ if (header.categories_list) {
   <% if (header.marketing_stripe) { %>
     <% if (header.marketing_stripe.text) { %>
       <% if (header.marketing_stripe.link) { %>
-        <a class="top-bar__countdown" href="<%= header.marketing_stripe.link %>">
+        <a
+          class="top-bar__countdown"
+          style="<%= marketingStripeStyle %>"
+          href="<%= header.marketing_stripe.link %>"
+        >
           <%= header.marketing_stripe.text %>
         </a>
       <% } else { %>
-        <div class="top-bar__countdown">
+        <div class="top-bar__countdown" style="<%= marketingStripeStyle %>">
           <%= header.marketing_stripe.text %>
         </div>
       <% } %>

@@ -1,11 +1,4 @@
 import {
-  $ecomConfig,
-  i18n,
-  fullName,
-  birthDate,
-  phone
-} from '@ecomplus/utils'
-import {
   i19birthdate,
   i19cellphone,
   i19corporateName,
@@ -21,6 +14,15 @@ import {
   i19companyRegistration,
   i19save
 } from '@ecomplus/i18n'
+
+import {
+  $ecomConfig,
+  i18n,
+  fullName as getFullName,
+  birthDate as getBirthDate,
+  phone as getPhone
+} from '@ecomplus/utils'
+
 import InputDocNumber from './../InputDocNumber.vue'
 import InputPhone from './../InputPhone.vue'
 import InputDate from './../InputDate.vue'
@@ -53,7 +55,7 @@ export default {
   data () {
     return {
       localCustomer: cloneDeep(this.customer),
-      fullName: fullName(this.customer),
+      fullName: getFullName(this.customer),
       storageInterval: null
     }
   },
@@ -76,7 +78,7 @@ export default {
 
     birthdate: {
       get () {
-        return birthDate(this.localCustomer)
+        return getBirthDate(this.localCustomer)
       },
       set (dateStr) {
         if (dateStr.length === 8) {
@@ -120,7 +122,7 @@ export default {
     getPhoneStr (index = 0) {
       const { phones } = this.localCustomer
       return phones[index]
-        ? phone(this.localCustomer.phones[index])
+        ? getPhone(this.localCustomer.phones[index])
         : ''
     },
 
@@ -145,7 +147,7 @@ export default {
           const localValue = this.localCustomer[field]
           if (!localValue || (typeof localValue === 'object' && !Object.keys(localValue).length)) {
             if (field === 'name') {
-              this.fullName = fullName({
+              this.fullName = getFullName({
                 name: newCustomer[field]
               })
             } else {

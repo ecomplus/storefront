@@ -2,7 +2,8 @@
   "pkg": "@ecomplus/widget-trustvox",
   "active": false,
   "desktopOnly": false,
-  "enableCheckout": true,
+  "enableCheckout": false,
+  "disablePages": true,
   "options": {
     "trustvoxStoreId": ""
   },

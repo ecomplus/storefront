@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-components",
-  "version": "1.0.0-beta.36",
+  "version": "1.0.0-beta.42",
   "description": "Vue components for E-Com Plus Storefront",
   "main": "dist/storefront-components.min.js",
   "scripts": {
@@ -32,9 +32,9 @@
     "@ecomplus/utils": "^1.4.1"
   },
   "dependencies": {
-    "@brazilian-utils/brazilian-utils": "^1.0.0-rc.8",
-    "@ecomplus/client": "^2.0.4",
-    "@ecomplus/i18n": "^1.13.0",
+    "@brazilian-utils/brazilian-utils": "^1.0.0-rc.10",
+    "@ecomplus/client": "^2.1.0",
+    "@ecomplus/i18n": "^1.14.0",
     "@ecomplus/passport-client": "^1.0.10",
     "@ecomplus/search-engine": "^2.3.2",
     "@ecomplus/shopping-cart": "^2.1.5",

@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.42](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.41...@ecomplus/storefront-components@1.0.0-beta.42) (2020-08-04)
+
+
+### Bug Fixes
+
+* **account-addresses:** passing customer full name to address recipient ([#278](https://github.com/ecomplus/storefront/issues/278)) ([1000832](https://github.com/ecomplus/storefront/commit/100083258c5024a59c37795ac7785fdb55ea7542))
+* **account-addresses:** prevent exceed maximum number of characters in the recipient's name ([3d99fb0](https://github.com/ecomplus/storefront/commit/3d99fb0d8d6b7005fb9089c4a56d478fba7736df))
+* **discount-applier:** always sending custom on params (if logged) ([5db55bc](https://github.com/ecomplus/storefront/commit/5db55bca522c3a3ca76e466d3ce99b3f3604a732))
+* **shipping-calculator:** sort shipping services by price and delivery time ([#280](https://github.com/ecomplus/storefront/issues/280)) ([bb08539](https://github.com/ecomplus/storefront/commit/bb08539e996e07453e0b4c7a22465c92ceafda87))
+
+
+
+
+
+# [1.0.0-beta.41](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.40...@ecomplus/storefront-components@1.0.0-beta.41) (2020-07-29)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/client to ^2.1.0 ([95139fe](https://github.com/ecomplus/storefront/commit/95139fef754897d7618f5d81fed00493f93eae17))
+* **input-phone:** minor pattern fix (br ddd) ([602e795](https://github.com/ecomplus/storefront/commit/602e795a0925aad65ec424d293c539c20a8722fe))
+
+
+
+
+
+# [1.0.0-beta.40](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.39...@ecomplus/storefront-components@1.0.0-beta.40) (2020-07-20)
+
+
+### Bug Fixes
+
+* **shipping-calculator:** fix handling retry when no valid shipping options ([837e9cf](https://github.com/ecomplus/storefront/commit/837e9cf4fe60f32bdfd971ed9c81aa64719d601a))
+
+
+
+
+
+# [1.0.0-beta.39](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.38...@ecomplus/storefront-components@1.0.0-beta.39) (2020-07-17)
+
+
+### Bug Fixes
+
+* **account-form:** regex pattern for email input (check domain) ([1f77c2a](https://github.com/ecomplus/storefront/commit/1f77c2ae1cc1691f9396c6da0babb22b8ec4ccc4))
+* **deps:** update @ecomplus/i18n to v1.14.0 ([ea9f37c](https://github.com/ecomplus/storefront/commit/ea9f37c80401653eee18c7c9c2b384935c1ed298))
+* **deps:** update all non-major dependencies ([#265](https://github.com/ecomplus/storefront/issues/265)) ([f85b9be](https://github.com/ecomplus/storefront/commit/f85b9bea392fd7107cd2dcd8b42e5b09b44663a3))
+
+
+
+
+
+# [1.0.0-beta.38](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.37...@ecomplus/storefront-components@1.0.0-beta.38) (2020-07-03)
+
+
+### Bug Fixes
+
+* **cart-item:** check min quantity not gt max before fixing current qnt ([ceaba7b](https://github.com/ecomplus/storefront/commit/ceaba7b12a9fb65d853c698596535ac49932891c))
+
+
+
+
+
+# [1.0.0-beta.37](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.36...@ecomplus/storefront-components@1.0.0-beta.37) (2020-07-03)
+
+
+### Bug Fixes
+
+* **cart-item:** fix handling optionals min/max quantity ([7d3acd6](https://github.com/ecomplus/storefront/commit/7d3acd6f144be0bc460b9d75478de820ae8defa2))
+
+
+
+
+
 # [1.0.0-beta.36](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.35...@ecomplus/storefront-components@1.0.0-beta.36) (2020-07-03)
 
 

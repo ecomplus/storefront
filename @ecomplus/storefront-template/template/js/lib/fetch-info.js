@@ -25,7 +25,10 @@ modulesToFetch.forEach(({ endpoint, reqOptions }) => {
   const promise = new Promise(resolve => {
     modules({
       url: `/${endpoint}.json`,
-      ...reqOptions
+      ...reqOptions,
+      axiosConfig: {
+        timeout: 10000
+      }
     })
 
       .then(({ data }) => {

@@ -23,7 +23,7 @@ import {
 } from '@ecomplus/utils'
 
 import { $ } from '@ecomplus/storefront-twbs'
-import cardValidator from 'card-validator'
+import * as cardValidator from 'card-validator'
 import loadPaymentClient from './../../lib/load-payment-client'
 import InputDate from '#components/InputDate.vue'
 import InputDocNumber from '#components/InputDocNumber.vue'

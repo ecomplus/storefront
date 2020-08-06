@@ -69,10 +69,10 @@
 
                   <a
                     target="_blank"
-                    class="btn btn-lg btn-primary"
+                    class="btn btn-lg btn-success"
                     :href="transaction.payment_link"
                   >
-                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-arrow-right mr-1"></i>
                     {{ i19redirectToPayment }}
                   </a>
                 </div>
@@ -157,7 +157,7 @@
                         class="order-info__shipping-address"
                       >
                         <div class="text-muted">
-                          <i class="fas fa-map-marker-alt mr-1"></i>
+                          <i class="fas fa-map-marked-alt mr-1"></i>
                           {{ i19shippingAddress }}
                         </div>
 
@@ -234,6 +234,18 @@
               {{ i19reopenOrder }}
             </button>
           </template>
+
+          <slot name="buy">
+            <button
+              type="button"
+              class="order-info__buy-again btn"
+              :class="isNew ? 'btn-outline-secondary btn-sm' : 'btn-primary'"
+              @click="buyAgain"
+            >
+              <i class="fas fa-shopping-bag mr-1"></i>
+              {{ i19buyAgain }}
+            </button>
+          </slot>
         </div>
       </div>
     </div>

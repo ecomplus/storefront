@@ -1,7 +1,6 @@
-import './lib/config'
+import './lib/ecom'
 import '@ecomplus/storefront-twbs'
 
-import './lib/clearfix'
 import './lib/fetch-info'
 import './lib/utils'
 

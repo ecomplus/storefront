@@ -62,7 +62,8 @@ const state = {
   shippingService: {},
   discountCoupon: (sessionStorage && sessionStorage.getItem(couponStorageKey)) || '',
   discountRule: {},
-  paymentGateway: {}
+  paymentGateway: {},
+  notes: ''
 }
 
 const getters = {
@@ -113,12 +114,18 @@ const getters = {
 
   shippingService: ({ shippingService }) => shippingService.app_id ? shippingService : undefined,
 
-  paymentGateway: ({ paymentGateway }) => paymentGateway.app_id ? paymentGateway : undefined
+  paymentGateway: ({ paymentGateway }) => paymentGateway.app_id ? paymentGateway : undefined,
+
+  notes: ({ notes }) => notes
 }
 
 const mutations = {
   selectShippingService (state, shippingService) {
     state.shippingService = shippingService || {}
+  },
+
+  selectPaymentGateway (state, paymentGateway) {
+    state.paymentGateway = paymentGateway || {}
   },
 
   setDiscountCoupon (state, discountCoupon) {
@@ -135,8 +142,8 @@ const mutations = {
     state.discountRule = discountRule || {}
   },
 
-  selectPaymentGateway (state, paymentGateway) {
-    state.paymentGateway = paymentGateway || {}
+  setNotes (state, notes) {
+    state.notes = notes
   },
 
   resetCart (state) {
@@ -221,7 +228,8 @@ const actions = {
         to: customer.addresses.find(addr => addr.default)
       },
       transaction: prepareTransaction(payload),
-      customer
+      customer,
+      notes: getters.notes
     }
     if (getters.discountRule) {
       checkoutBody.discount = {

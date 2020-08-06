@@ -1,7 +1,7 @@
 {
   "name": "@ecomplus/widget-compre-confie",
-  "version": "1.1.0",
-  "description": "Storefront plugin for compre-confie",
+  "version": "1.1.1",
+  "description": "Storefront plugin for Compre & Confie",
   "main": "dist/widget-compre-confie.min.js",
   "module": "src/index.js",
   "browser": "dist/widget-compre-confie.min.js",
@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-compre-confie#readme",
   "peerDependencies": {
+    "@ecomplus/passport-client": "^1.0.10",
     "@ecomplus/utils": "^1.4.1",
     "core-js": "3.x"
   },

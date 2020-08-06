@@ -1,0 +1,27 @@
+<%
+if (options.tagJs) {
+  if (_.route.resource !== 'products') {
+    %><%- options.tagJs.replace('"></script>', '" async defer></script>') %><%
+  } else {
+    let src
+    const splitScript = options.tagJs.split(/["'=]/)
+    for (let i = 0; i < splitScript.length; i++) {
+      if (splitScript[i].startsWith('http') || splitScript[i].startsWith('//')) {
+        src = splitScript[i]
+      }
+    }
+    %>
+
+    <script>
+      storefront.on('widget:@ecomplus/widget-product', function () {
+        setTimeout(function () {
+          var $ovTagScript = document.createElement('script');
+          $ovTagScript.src = '<%- src %>';
+          document.body.appendChild($ovTagScript);
+        }, 800);
+      });
+    </script>
+    <%
+  }
+}
+%>
