@@ -257,12 +257,12 @@ export default {
     },
 
     goToTop () {
-      if (this.$el) {
+      this.$nextTick(() => {
         window.scroll({
           top: this.$el.offsetTop - 15,
           behavior: 'smooth'
         })
-      }
+      })
     },
 
     goToOffers () {
