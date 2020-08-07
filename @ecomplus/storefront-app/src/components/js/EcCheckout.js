@@ -37,7 +37,6 @@ import {
   Delivery,
   Discount,
   DocNumber,
-  Freight,
   Logout,
   MyAccount,
   Payment,
@@ -132,7 +131,6 @@ export default {
         Delivery,
         Discount,
         DocNumber,
-        Freight,
         Logout,
         MyAccount,
         Payment,
@@ -242,7 +240,11 @@ export default {
       if ('activeElement' in document) {
         document.activeElement.blur()
       }
-      this.toCheckoutStep = this.enabledCheckoutStep
+      if (window.screen.width >= 768) {
+        this.toCheckoutStep = this.enabledCheckoutStep
+      } else if (this.enabledCheckoutStep && !this.toCheckoutStep) {
+        this.toCheckoutStep = 1
+      }
     },
 
     updateZipCode () {
@@ -274,7 +276,9 @@ export default {
 
     selectPaymentGateway (gateway) {
       this.$emit('update:paymentGateway', gateway)
-      this.goToTop()
+      if (this.checkoutStep === 2) {
+        this.goToTop()
+      }
     }
   },
 
