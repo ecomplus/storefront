@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.1.3...@ecomplus/widget-fb-pixel@1.2.0) (2020-08-07)
+
+
+### Features
+
+* **fb-pixel:** track default event 'InitiateCheckout' ([f0d4540](https://github.com/ecomplus/storefront/commit/f0d45408c8d3e1530a80eed1f9fb60e34fdf7ad6))
+
+
+
+
+
 ## [1.1.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.1.2...@ecomplus/widget-fb-pixel@1.1.3) (2020-06-30)
 
 

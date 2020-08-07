@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.45](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.44...@ecomplus/storefront-app@2.0.0-beta.45) (2020-08-07)
+
+
+### Bug Fixes
+
+* **checkout:** do not skip shipping step on mobile devices ([78f6660](https://github.com/ecomplus/storefront/commit/78f666022b3a0a2f91c5eadd934ac3328f6e7e37))
+* **checkout:** go to top on step change with vue $nextTick ([c631342](https://github.com/ecomplus/storefront/commit/c631342db06ef61299d6df4ca3e57be590abebd2))
+* **deps:** update dependency card-validator to v8 ([#277](https://github.com/ecomplus/storefront/issues/277)) ([3bd3a35](https://github.com/ecomplus/storefront/commit/3bd3a3580b14b8560172ef28f122bcd7eae1f0be))
+
+
+
+
+
 # [2.0.0-beta.44](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.43...@ecomplus/storefront-app@2.0.0-beta.44) (2020-08-04)
 
 
