@@ -27,12 +27,14 @@ export default fbq => {
     }
 
     const emitCheckout = (step, option) => {
+      const purchaseData = getPurchaseData()
       const customData = {
-        ...getPurchaseData(),
+        ...purchaseData,
         checkout_step: step,
         checkout_option: option
       }
       if (step <= 1 || !isCartSent) {
+        fbq('InitiateCheckout', purchaseData)
         fbq('Checkout', customData, true)
         isCartSent = true
       } else if (!isCheckoutSent) {
