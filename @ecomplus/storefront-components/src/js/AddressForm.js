@@ -20,6 +20,7 @@ import {
 } from '@ecomplus/utils'
 
 import axios from 'axios'
+import checkFormValidity from './helpers/check-form-validity'
 import InputZipCode from '../InputZipCode.vue'
 
 const countryCode = $ecomConfig.get('country_code')
@@ -87,7 +88,7 @@ export default {
 
     submit (ev) {
       const $form = this.$el
-      if ($form.checkValidity()) {
+      if (checkFormValidity($form)) {
         this.$emit('update:address', this.localAddress)
       }
       $form.classList.add('was-validated')
