@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.43](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.42...@ecomplus/storefront-components@1.0.0-beta.43) (2020-08-10)
+
+
+### Features
+
+* **account-form:** better ux response on submit ([0829f2d](https://github.com/ecomplus/storefront/commit/0829f2d1e1a7b69bd42d8f9d6c6b94bbd07a615e))
+* **shipping-calculator:** add `shippingAppsSort` prop ([f21d7e5](https://github.com/ecomplus/storefront/commit/f21d7e5bb625ee99ecbd1693825a7ddcdd88b906))
+
+
+
+
+
 # [1.0.0-beta.42](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.41...@ecomplus/storefront-components@1.0.0-beta.42) (2020-08-04)
 
 

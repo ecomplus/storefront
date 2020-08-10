@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.46](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.45...@ecomplus/storefront-app@2.0.0-beta.46) (2020-08-10)
+
+
+### Bug Fixes
+
+* **checkout:** try fixing checkout account -> steps flux with $nextTick ([a41ddd9](https://github.com/ecomplus/storefront/commit/a41ddd99bb4583a980905d4f5abb96717f35ec9b))
+
+
+
+
+
 # [2.0.0-beta.45](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.44...@ecomplus/storefront-app@2.0.0-beta.45) (2020-08-07)
 
 

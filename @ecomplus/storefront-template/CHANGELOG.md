@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.57](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.56...@ecomplus/storefront-template@2.0.0-beta.57) (2020-08-10)
+
+
+### Features
+
+* **views:** identify route with class and resource id on body el ([65c6422](https://github.com/ecomplus/storefront/commit/65c642201e59838aed0549645e779ce833273e96))
+
+
+
+
+
 # [2.0.0-beta.56](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.55...@ecomplus/storefront-template@2.0.0-beta.56) (2020-08-07)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
