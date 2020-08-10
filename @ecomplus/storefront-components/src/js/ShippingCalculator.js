@@ -13,6 +13,7 @@ import {
 } from '@ecomplus/utils'
 
 import { modules } from '@ecomplus/client'
+import sortApps from './helpers/sort-apps'
 import CleaveInput from 'vue-cleave-component'
 import ShippingLine from '../ShippingLine.vue'
 
@@ -76,6 +77,12 @@ export default {
       type: Object,
       default () {
         return {}
+      }
+    },
+    shippingAppsSort: {
+      type: Array,
+      default () {
+        return window.ecomShippingApps || []
       }
     }
   },
@@ -163,6 +170,9 @@ export default {
           this.hasFreeOption = Boolean(this.shippingServices.find(service => {
             return !service.shipping_line.total_price && !service.shipping_line.price
           }))
+          if (Array.isArray(this.shippingAppsSort) && this.shippingAppsSort.length) {
+            this.shippingServices = sortApps(this.shippingServices, this.shippingAppsSort)
+          }
         }
       }
     },
