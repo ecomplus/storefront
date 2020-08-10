@@ -69,7 +69,7 @@
     "@ecomplus/widget-trustvox": "^2.1.0",
     "@ecomplus/widget-user": "^1.0.0-beta.39",
     "@glidejs/glide": "^3.4.1",
-    "bootswatch": "^4.5.0",
+    "bootswatch": "^4.5.1",
     "core-js": ">=3.6.4 <3.7",
     "ejs": "^3.1.3",
     "eventemitter3": "^4.0.4",
