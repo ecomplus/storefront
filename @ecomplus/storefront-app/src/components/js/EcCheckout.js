@@ -159,8 +159,10 @@ export default {
         return this.customer
       },
       set (customer) {
-        this.editAccount = false
         this.$emit('update:customer', customer)
+        this.$nextTick(() => {
+          this.editAccount = false
+        })
       }
     },
 
@@ -240,11 +242,13 @@ export default {
       if ('activeElement' in document) {
         document.activeElement.blur()
       }
-      if (window.screen.width >= 768) {
-        this.toCheckoutStep = this.enabledCheckoutStep
-      } else if (this.enabledCheckoutStep && !this.toCheckoutStep) {
-        this.toCheckoutStep = 1
-      }
+      this.$nextTick(() => {
+        if (document.body.offsetWidth >= 768) {
+          this.toCheckoutStep = this.enabledCheckoutStep
+        } else if (this.enabledCheckoutStep && !(this.toCheckoutStep > 1)) {
+          this.toCheckoutStep = 1
+        }
+      })
     },
 
     updateZipCode () {
