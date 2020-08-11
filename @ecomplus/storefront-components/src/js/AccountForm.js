@@ -199,7 +199,7 @@ export default {
 
   watch: {
     fullName (nameStr) {
-      const names = nameStr.split(' ')
+      const names = nameStr.trim().split(' ')
       this.localCustomer.name = {
         given_name: names.shift()
       }
@@ -207,7 +207,7 @@ export default {
       if (names.length) {
         name.family_name = names.pop()
         if (names.length) {
-          name.middle_name = names.join(' ')
+          name[name.family_name ? 'middle_name' : 'family_name'] = names.join(' ')
         }
       }
     },
