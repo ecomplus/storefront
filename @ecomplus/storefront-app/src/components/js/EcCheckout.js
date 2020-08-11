@@ -290,7 +290,7 @@ export default {
     customerEmail (email) {
       if (email) {
         this.$emit('update:customer', { ...this.customer, main_email: email })
-        this.isUserIdentified = true
+        this.isUserIdentified = this.editAccount = true
       }
     },
 
