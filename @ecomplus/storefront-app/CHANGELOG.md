@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.48](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.47...@ecomplus/storefront-app@2.0.0-beta.48) (2020-08-11)
+
+
+### Reverts
+
+* **checkout:** set  manually only ([fa22933](https://github.com/ecomplus/storefront/commit/fa229333a42c0e26e5c9796601cd31fbb6f26e99))
+
+
+
+
+
 # [2.0.0-beta.47](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.46...@ecomplus/storefront-app@2.0.0-beta.47) (2020-08-11)
 
 
