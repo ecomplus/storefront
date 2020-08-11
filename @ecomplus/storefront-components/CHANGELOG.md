@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.44](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.43...@ecomplus/storefront-components@1.0.0-beta.44) (2020-08-11)
+
+
+### Bug Fixes
+
+* **account-form:** fix parting full name str to name object (ensure familly name) ([d938d07](https://github.com/ecomplus/storefront/commit/d938d075238f4ad6f67865b522020dc32cea3311))
+
+
+
+
+
 # [1.0.0-beta.43](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.42...@ecomplus/storefront-components@1.0.0-beta.43) (2020-08-10)
 
 

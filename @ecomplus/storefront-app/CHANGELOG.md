@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.47](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.46...@ecomplus/storefront-app@2.0.0-beta.47) (2020-08-11)
+
+
+### Bug Fixes
+
+* **checkout:** ensure `editAccount` is set when account form is shown ([38642ae](https://github.com/ecomplus/storefront/commit/38642ae1c809d34cdde2eee02831126233f52dc9))
+
+
+
+
+
 # [2.0.0-beta.46](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.45...@ecomplus/storefront-app@2.0.0-beta.46) (2020-08-10)
 
 
