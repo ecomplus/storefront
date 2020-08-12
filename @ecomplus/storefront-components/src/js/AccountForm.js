@@ -199,15 +199,20 @@ export default {
 
   watch: {
     fullName (nameStr) {
-      const names = nameStr.trim().split(' ')
-      this.localCustomer.name = {
-        given_name: names.shift()
-      }
-      const { name } = this.localCustomer
-      if (names.length) {
-        name.family_name = names.pop()
+      const fixedFullName = nameStr.replace(/\s{2,}/g, ' ')
+      if (fixedFullName !== this.fullName) {
+        this.fullName = fixedFullName
+      } else {
+        const names = fixedFullName.trim().split(' ')
+        this.localCustomer.name = {
+          given_name: names.shift()
+        }
+        const { name } = this.localCustomer
         if (names.length) {
-          name[name.family_name ? 'middle_name' : 'family_name'] = names.join(' ')
+          name.family_name = names.pop()
+          if (names.length) {
+            name[name.family_name ? 'middle_name' : 'family_name'] = names.join(' ')
+          }
         }
       }
     },
