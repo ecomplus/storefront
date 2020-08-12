@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.45](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.44...@ecomplus/storefront-components@1.0.0-beta.45) (2020-08-12)
+
+
+### Bug Fixes
+
+* **account-form:** fixing full name string (sequential spaces) ([04b46bf](https://github.com/ecomplus/storefront/commit/04b46bf363039bdc1b1975628fb5243e64054ab5))
+* **address-form:** better handling zip code and address fetch ([38f3577](https://github.com/ecomplus/storefront/commit/38f35778b1cdf894e78eb8662ebf4b694898f81c))
+* **deps:** update @ecomplus/shopping-cart to ^2.1.6 ([499004b](https://github.com/ecomplus/storefront/commit/499004bbb1442b5852f5b2099711340064f8d863))
+* **product-variations:** ensure no option is selected by default ([0598f07](https://github.com/ecomplus/storefront/commit/0598f07ea492dc3b339e4785a65ac47f1330b971))
+
+
+
+
+
 # [1.0.0-beta.44](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.43...@ecomplus/storefront-components@1.0.0-beta.44) (2020-08-11)
 
 
