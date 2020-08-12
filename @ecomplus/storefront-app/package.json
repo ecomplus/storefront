@@ -36,7 +36,7 @@
     "@ecomplus/client": "^2.1.0",
     "@ecomplus/i18n": "^1.14.0",
     "@ecomplus/passport-client": "^1.0.10",
-    "@ecomplus/shopping-cart": "^2.1.5",
+    "@ecomplus/shopping-cart": "^2.1.6",
     "@ecomplus/storefront-components": "^1.0.0-beta.44",
     "@ecomplus/storefront-twbs": "^5.9.1",
     "axios": "^0.19.2",
