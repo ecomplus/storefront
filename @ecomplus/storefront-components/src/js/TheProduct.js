@@ -98,10 +98,7 @@ export default {
         return window.ecomPaymentApps || []
       }
     },
-    isSSR: {
-      type: Boolean,
-      default: false
-    }
+    isSSR: Boolean
   },
 
   data () {
