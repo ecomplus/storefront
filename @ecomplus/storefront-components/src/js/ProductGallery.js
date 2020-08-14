@@ -62,6 +62,10 @@ export default {
           rewind: false
         }
       }
+    },
+    isSSR: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -70,7 +74,8 @@ export default {
       glide: null,
       pswp: null,
       activeIndex: null,
-      isSliderMoved: false
+      isSliderMoved: false,
+      elFirstPicture: null
     }
   },
 
@@ -203,6 +208,14 @@ export default {
   },
 
   mounted () {
+    if (this.isSSR) {
+      this.elFirstPicture = document.querySelector('#product-gallery .product__picture')
+      if (this.elFirstPicture) {
+        this.$nextTick(() => {
+          this.$refs.firstPicture[0].appendChild(this.elFirstPicture)
+        })
+      }
+    }
     const glide = new Glide(this.$refs.glide, this.glideOptions)
     glide.on('run', () => {
       this.moveSlider(glide.index)
