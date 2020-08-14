@@ -1,8 +1,9 @@
 import { $ } from '@ecomplus/storefront-twbs'
 
-export default ($el, h) => {
-  const scopedSlots = {
-    default () {
+export default ($el, h, canSetDefault = true) => {
+  const scopedSlots = {}
+  if (canSetDefault) {
+    scopedSlots.default = function () {
       return h('div', {
         domProps: {
           innerHTML: $el.outerHTML
