@@ -63,10 +63,7 @@ export default {
         }
       }
     },
-    isSSR: {
-      type: Boolean,
-      default: false
-    }
+    isSSR: Boolean
   },
 
   data () {
