@@ -37,6 +37,10 @@ export default {
       default: 'h3'
     },
     buyText: String,
+    transitionClass: {
+      type: String,
+      default: 'animated fadeIn'
+    },
     canAddToCart: {
       type: Boolean,
       default: true
