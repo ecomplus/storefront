@@ -12,3 +12,9 @@ const lazyLoad = className => {
 const observer = lazyLoad('lozad')
 
 export { observer, lazyLoad }
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    lazyLoad('lozad-delay')
+  }, 2000)
+})
