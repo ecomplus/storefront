@@ -10,6 +10,7 @@ import SearchEngine from '#components/SearchEngine.vue'
 export default (options = {}, elId = 'search-engine') => {
   const $searchEngine = document.getElementById(elId)
   if ($searchEngine) {
+    const $dock = document.getElementById(`${elId}-dock`)
     const getScopedSlots = window.storefront && window.storefront.getScopedSlots
 
     const urlParams = new URLSearchParams(window.location.search)
@@ -49,29 +50,48 @@ export default (options = {}, elId = 'search-engine') => {
 
     new Vue({
       data: {
+        countRequests: 0,
+        canShowItems: !$dock,
         term: props.term
       },
 
       render (createElement) {
         const vm = this
+        const on = {
+          'update:term' (term) {
+            vm.term = term
+          }
+        }
+        if ($dock) {
+          on.fetch = function ({ fetching }) {
+            fetching.then(() => {
+              vm.countRequests++
+              if (vm.countRequests > 1 && !vm.canShowItems) {
+                vm.canShowItems = true
+                const $snap = document.getElementById('search-engine-snap')
+                if ($snap) {
+                  $snap.remove()
+                }
+              }
+            })
+          }
+        }
+
         return createElement(SearchEngine, {
           attrs: {
-            id: elId
+            id: $dock ? null : elId
           },
           props: {
             ...props,
-            term: vm.term
+            term: vm.term,
+            canShowItems: vm.canShowItems
           },
-          on: {
-            'update:term' (term) {
-              vm.term = term
-            }
-          },
+          on,
           scopedSlots: typeof getScopedSlots === 'function'
-            ? getScopedSlots($searchEngine, createElement)
+            ? getScopedSlots($searchEngine, createElement, !$dock)
             : undefined
         })
       }
-    }).$mount($searchEngine)
+    }).$mount($dock || $searchEngine)
   }
 }
