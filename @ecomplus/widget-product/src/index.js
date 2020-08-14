@@ -25,7 +25,10 @@ export default (options = {}, elId = 'product') => {
         },
         on: {
           'update:product' () {
-            document.getElementById('product-loading').remove()
+            const $loading = document.getElementById('product-loading')
+            if ($loading) {
+              $loading.remove()
+            }
             delete $productBlock.dataset.toRender
           }
         },
