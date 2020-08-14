@@ -40,6 +40,7 @@
     "@ecomplus/shopping-cart": "^2.1.6",
     "@ecomplus/storefront-twbs": "^5.9.2",
     "@glidejs/glide": "^3.4.1",
+    "@linusborg/vue-simple-portal": "^0.1.4",
     "cleave.js": "^1.6.0",
     "lodash.clonedeep": "^4.5.0",
     "lozad": "^1.15.0",
