@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.46](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.45...@ecomplus/storefront-components@1.0.0-beta.46) (2020-08-14)
+
+
+### Bug Fixes
+
+* **account-form:** validating phone number country code (int) ([b999e83](https://github.com/ecomplus/storefront/commit/b999e83e3296dc5bd786902b650ddc750abbebf1))
+
+
+### Features
+
+* **product-card:** add `transitionClass` prop ([a68f712](https://github.com/ecomplus/storefront/commit/a68f712ae05bde2999e3f0dbbc664914508bb6d6))
+* **product-gallery:** handle first picture pre loaded without reload ([96ab0d8](https://github.com/ecomplus/storefront/commit/96ab0d8e46e04b915c4b05a031951ff844faf775))
+* **search-engine:** add  boolean prop (true by default) ([06b4585](https://github.com/ecomplus/storefront/commit/06b45851a6948cd05e5ce7f4e19c580ad039c888))
+* **the-product:** handlers for painless hydration using portals ([59999eb](https://github.com/ecomplus/storefront/commit/59999eb1bf21e91fe4ba04d55c1e2679528a0afe))
+
+
+
+
+
 # [1.0.0-beta.45](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.44...@ecomplus/storefront-components@1.0.0-beta.45) (2020-08-12)
 
 

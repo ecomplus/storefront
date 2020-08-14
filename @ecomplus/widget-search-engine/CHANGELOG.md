@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.45](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.44...@ecomplus/widget-search-engine@1.0.0-beta.45) (2020-08-14)
+
+
+### Performance Improvements
+
+* **widget-search-engine:** better hydration for brands/categories ([93fac25](https://github.com/ecomplus/storefront/commit/93fac25362602a6776db83b51944537cf5ac6aa8))
+
+
+
+
+
 # [1.0.0-beta.44](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.43...@ecomplus/widget-search-engine@1.0.0-beta.44) (2020-08-12)
 
 **Note:** Version bump only for package @ecomplus/widget-search-engine

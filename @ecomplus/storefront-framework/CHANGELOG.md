@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.13.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.10...@ecomplus/storefront-framework@5.13.11) (2020-08-14)
+
+
+### Bug Fixes
+
+* **webpack:** add vue alias (always strongly recommended) ([50550c0](https://github.com/ecomplus/storefront/commit/50550c09800c77942f5bbe7680448b33a5a8ce25))
+
+
+
+
+
 ## [5.13.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.9...@ecomplus/storefront-framework@5.13.10) (2020-08-10)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

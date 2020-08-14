@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.43](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@1.0.0-beta.42...@ecomplus/widget-product@1.0.0-beta.43) (2020-08-14)
+
+
+### Performance Improvements
+
+* **widget-product:** better handling hydration by default ([0b182d7](https://github.com/ecomplus/storefront/commit/0b182d7dc61d037c85c827b4e670b143edd30b9c))
+
+
+
+
+
 # [1.0.0-beta.42](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@1.0.0-beta.41...@ecomplus/widget-product@1.0.0-beta.42) (2020-08-12)
 
 **Note:** Version bump only for package @ecomplus/widget-product

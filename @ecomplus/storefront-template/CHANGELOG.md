@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.61](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.60...@ecomplus/storefront-template@2.0.0-beta.61) (2020-08-14)
+
+
+### Performance Improvements
+
+* **product-card:** prevent loading product image multiple times ([9a85a97](https://github.com/ecomplus/storefront/commit/9a85a97a657a3d10e63c65ddd2bdc9f18318bc08))
+* **product-page:** preparing ejs for hydration with less dom ([f143ffd](https://github.com/ecomplus/storefront/commit/f143ffd67cefcee8edf150cad5ad3574efc16d65))
+* **retail-grid:** preparing ejs for hydration with less dom ([6770a69](https://github.com/ecomplus/storefront/commit/6770a696b5228133ab6064830701e64448610ec1))
+
+
+
+
+
 # [2.0.0-beta.60](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.59...@ecomplus/storefront-template@2.0.0-beta.60) (2020-08-12)
 
 
