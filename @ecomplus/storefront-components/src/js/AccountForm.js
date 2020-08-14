@@ -136,13 +136,13 @@ export default {
     parsePhoneStr (phoneStr) {
       let code, number
       if (phoneStr.charAt(0) === '+') {
-        code = phoneStr.substr(1, 2)
+        code = parseInt(phoneStr.substr(1, 2))
         number = phoneStr.substr(3)
       } else {
         number = phoneStr
       }
       const phoneObj = { number }
-      if (code) {
+      if (code >= 1 && code <= 999) {
         phoneObj.country_code = code
       }
       return phoneObj
