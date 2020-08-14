@@ -221,7 +221,7 @@ export default {
         domain: window.location.hostname,
         can_fetch_when_selected: true
       }
-      if (this.customer) {
+      if (!isRetry && this.customer) {
         data.customer = {}
         for (const prop in this.customer) {
           const val = this.customer[prop]
@@ -249,7 +249,7 @@ export default {
               if (!isRetry) {
                 setTimeout(() => {
                   this.fetchPaymentGateways(appId, true)
-                }, 500)
+                }, err.response && err.response.status === 400 ? 50 : 500)
               }
             })
             .finally(() => {
