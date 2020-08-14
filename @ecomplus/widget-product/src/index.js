@@ -10,16 +10,24 @@ import TheProduct from '#components/TheProduct.vue'
 export default (options = {}, elId = 'product') => {
   const $productBlock = document.getElementById(elId)
   if ($productBlock) {
+    const $dock = document.getElementById(`${elId}-dock`)
     const getScopedSlots = window.storefront && window.storefront.getScopedSlots
 
     new Vue({
       render: h => h(TheProduct, {
         attrs: {
-          id: elId
+          id: $dock ? null : elId
         },
         props: {
           ...options.props,
-          buyText: options.buyText
+          buyText: options.buyText,
+          isSSR: Boolean($dock)
+        },
+        on: {
+          'update:product' () {
+            document.getElementById('product-loading').remove()
+            delete $productBlock.dataset.toRender
+          }
         },
 
         scopedSlots: Object.assign(
@@ -32,9 +40,10 @@ export default (options = {}, elId = 'product') => {
               })
             }
           },
-          typeof getScopedSlots === 'function' ? getScopedSlots($productBlock, h) : {}
+          typeof getScopedSlots === 'function'
+            ? getScopedSlots($productBlock, h, !$dock) : {}
         )
       })
-    }).$mount($productBlock)
+    }).$mount($dock || $productBlock)
   }
 }
