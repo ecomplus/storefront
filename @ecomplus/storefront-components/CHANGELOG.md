@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.47](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.46...@ecomplus/storefront-components@1.0.0-beta.47) (2020-08-17)
+
+
+### Features
+
+* **search-engine:** add `loadMoreSelector` to move lozad observed el with portal ([e142729](https://github.com/ecomplus/storefront/commit/e142729b1a345a672dbd9a27e45a1cc2e9216c31))
+
+
+
+
+
 # [1.0.0-beta.46](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.45...@ecomplus/storefront-components@1.0.0-beta.46) (2020-08-14)
 
 
