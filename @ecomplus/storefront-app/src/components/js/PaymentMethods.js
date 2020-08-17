@@ -1,4 +1,5 @@
 import {
+  // i19anyPaymentMethodMsg,
   i19changePaymentMethod,
   i19checkout,
   i19generateBillet,
@@ -9,6 +10,7 @@ import {
   i19paymentErrorMsg,
   // i19recurrent,
   i19total,
+  i19tryAgain,
   i19upTo
 } from '@ecomplus/i18n'
 
@@ -55,6 +57,7 @@ export default {
   data () {
     return {
       isWaiting: false,
+      processingAppId: undefined,
       paymentGateways: [],
       selectedGateway: -1,
       loadedClients: {}
@@ -62,6 +65,7 @@ export default {
   },
 
   computed: {
+    i19anyPaymentMethodMsg: () => 'Nenhuma forma de pagamento disponível.',
     i19changePaymentMethod: () => i18n(i19changePaymentMethod),
     i19checkout: () => i18n(i19checkout),
     i19generateBillet: () => i18n(i19generateBillet),
@@ -70,6 +74,7 @@ export default {
     i19onFreight: () => i18n(i19onFreight),
     i19recurrent: () => 'Recorrente',
     i19total: () => i18n(i19total),
+    i19tryAgain: () => i18n(i19tryAgain),
     i19upTo: () => i18n(i19upTo),
 
     items () {
@@ -195,7 +200,7 @@ export default {
       }
     },
 
-    fetchPaymentGateways (appId) {
+    fetchPaymentGateways (appId = null, isRetry = false) {
       let url = '/list_payments.json'
       const method = 'POST'
       const { items } = this
@@ -216,7 +221,7 @@ export default {
         domain: window.location.hostname,
         can_fetch_when_selected: true
       }
-      if (this.customer) {
+      if (!isRetry && this.customer) {
         data.customer = {}
         for (const prop in this.customer) {
           const val = this.customer[prop]
@@ -231,16 +236,27 @@ export default {
           data.payment_method = this.paymentGateway.payment_method
         }
       }
-      this.isWaiting = true
-      setTimeout(() => {
-        modules({ url, method, data })
-          .then(({ data }) => {
-            this.parsePaymentOptions(data.result, Boolean(appId && this.selectedGateway >= 0))
-          })
-          .finally(() => {
-            this.isWaiting = false
-          })
-      }, appId ? 5 : 50)
+      if (!this.isWaiting || this.processingAppId !== appId) {
+        this.isWaiting = true
+        this.processingAppId = appId
+        setTimeout(() => {
+          modules({ url, method, data })
+            .then(({ data }) => {
+              this.parsePaymentOptions(data.result, Boolean(appId && this.selectedGateway >= 0))
+            })
+            .catch(err => {
+              console.error(err)
+              if (!isRetry) {
+                setTimeout(() => {
+                  this.fetchPaymentGateways(appId, true)
+                }, err.response && err.response.status === 400 ? 50 : 500)
+              }
+            })
+            .finally(() => {
+              this.isWaiting = false
+            })
+        }, appId ? 5 : 50)
+      }
     },
 
     handleCheckout () {

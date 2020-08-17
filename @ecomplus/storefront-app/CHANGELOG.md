@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.50](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.49...@ecomplus/storefront-app@2.0.0-beta.50) (2020-08-14)
+
+
+### Bug Fixes
+
+* **payment-methods:** skip customer (optional) on body when retrying ([c19241e](https://github.com/ecomplus/storefront/commit/c19241e0521b0b9c73f100671190c3064c358ce0))
+
+
+
+
+
+# [2.0.0-beta.49](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.48...@ecomplus/storefront-app@2.0.0-beta.49) (2020-08-12)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to ^2.1.6 ([499004b](https://github.com/ecomplus/storefront/commit/499004bbb1442b5852f5b2099711340064f8d863))
+* **payment-methods:** retry fetching payments list, message when any option ([1a01868](https://github.com/ecomplus/storefront/commit/1a0186867d2174ba935067e8015a7eddedb5d245))
+
+
+
+
+
 # [2.0.0-beta.48](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.47...@ecomplus/storefront-app@2.0.0-beta.48) (2020-08-11)
 
 

@@ -67,6 +67,8 @@
             <template v-if="shippingAddress.number">
               {{ shippingAddress.number }}
             </template>
+            {{ shippingAddress.city }}
+            {{ shippingAddress.province_code }}
           </small>
         </span>
         <div>{{ formatMoney(amount.freight) }}</div>

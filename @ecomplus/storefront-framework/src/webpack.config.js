@@ -115,7 +115,8 @@ let config = {
     alias: {
       '#template': `${templatePkg}/template`,
       '#components': `${componentsPkg}/src`,
-      '@ecomplus/i18n$': `@ecomplus/i18n/src/${lang}/`
+      '@ecomplus/i18n$': `@ecomplus/i18n/src/${lang}/`,
+      vue: 'vue/dist/vue.runtime.esm'
     }
   },
 

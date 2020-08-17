@@ -83,6 +83,10 @@ export default {
       type: Boolean,
       default: true
     },
+    canShowItems: {
+      type: Boolean,
+      default: true
+    },
     productCardProps: Object,
     gridsData: {
       type: Array,
