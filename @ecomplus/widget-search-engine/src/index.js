@@ -104,7 +104,7 @@ export default (options = {}, elId = 'search-engine') => {
         const observer = new window.MutationObserver(() => {
           clearTimeout(fallbackTimer)
           observer.disconnect()
-          mount()
+          setTimeout(mount, 150)
         })
         observer.observe($productItems[0], {
           childList: true
