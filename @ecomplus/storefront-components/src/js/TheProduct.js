@@ -28,6 +28,7 @@ import { store, modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import sortApps from './helpers/sort-apps'
 import addIdleCallback from './helpers/add-idle-callback'
+import { Portal } from '@linusborg/vue-simple-portal'
 import ALink from '../ALink.vue'
 import AAlert from '../AAlert.vue'
 import APrices from '../APrices.vue'
@@ -55,6 +56,7 @@ export default {
   name: 'TheProduct',
 
   components: {
+    Portal,
     ALink,
     AAlert,
     APrices,
@@ -95,7 +97,8 @@ export default {
       default () {
         return window.ecomPaymentApps || []
       }
-    }
+    },
+    isSSR: Boolean
   },
 
   data () {

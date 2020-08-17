@@ -148,7 +148,7 @@ export default {
     hasBuyerInfo () {
       const { customer } = this
       return this.customerEmail &&
-        customer.name && customer.name.given_name && customer.name.family_name &&
+        customer.name && customer.name.given_name &&
         customer.birth_date && customer.birth_date.day &&
         customer.registry_type && customer.doc_number &&
         customer.phones && customer.phones.length
@@ -188,7 +188,7 @@ export default {
       if (!this.hasBuyerInfo || this.editAccount) {
         return 0
       } else {
-        return this.toCheckoutStep
+        return Math.min(this.enabledCheckoutStep, this.toCheckoutStep)
       }
     },
 

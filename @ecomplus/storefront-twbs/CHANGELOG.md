@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.9.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.9.1...@ecomplus/storefront-twbs@5.9.2) (2020-08-12)
+
+
+### Bug Fixes
+
+* **env:** set \'isScreenXs\' and \'isScreenLg\' with body width ([735d45f](https://github.com/ecomplus/storefront/commit/735d45f967ca463b998c8a01460b5492559cb687))
+
+
+
+
+
 ## [5.9.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.9.0...@ecomplus/storefront-twbs@5.9.1) (2020-06-21)
 
 

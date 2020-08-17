@@ -6,7 +6,7 @@
   }"
   @mouseover="isHovered = true"
 >
-  <transition enter-active-class="animated fadeIn">
+  <transition :enter-active-class="transitionClass">
     <section v-if="!isLoading">
       <slot
         name="discount-tag"
