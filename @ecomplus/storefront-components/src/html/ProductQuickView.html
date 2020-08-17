@@ -1,0 +1,21 @@
+<div class="quickview-modal">
+  <transition
+    enter-active-class="animated zoomIn"
+    leave-active-class="animated fadeOutUp slow"
+  >
+
+  <div 
+    class="quickview-modal__box"
+  >
+    <slot name="header">
+      <div class="quickview-modal__header card-header">
+        Selectionar variação
+      </div>
+    </slot>
+
+    <div class="quickview-modal__body card-body">
+
+    </div>
+  </div>
+  </transition>
+</div>
