@@ -4,6 +4,7 @@
  * Released under the MIT License.
  */
 
+import { $ } from '@ecomplus/storefront-twbs'
 import Vue from 'vue'
 import SearchEngine from '#components/SearchEngine.vue'
 
@@ -48,7 +49,7 @@ export default (options = {}, elId = 'search-engine') => {
         }
     }
 
-    new Vue({
+    const vueApp = new Vue({
       data: {
         countRequests: 0,
         canShowItems: !$dock,
@@ -68,10 +69,7 @@ export default (options = {}, elId = 'search-engine') => {
               vm.countRequests++
               if (vm.countRequests > 1 && !vm.canShowItems) {
                 vm.canShowItems = true
-                const $snap = document.getElementById('search-engine-snap')
-                if ($snap) {
-                  $snap.remove()
-                }
+                $('#search-engine-snap').remove()
               }
             })
           }
@@ -84,7 +82,8 @@ export default (options = {}, elId = 'search-engine') => {
           props: {
             ...props,
             term: vm.term,
-            canShowItems: vm.canShowItems
+            canShowItems: vm.canShowItems,
+            loadMoreSelector: $dock ? '#search-engine-load' : null
           },
           on,
           scopedSlots: typeof getScopedSlots === 'function'
@@ -92,6 +91,33 @@ export default (options = {}, elId = 'search-engine') => {
             : undefined
         })
       }
-    }).$mount($dock || $searchEngine)
+    })
+
+    if ($dock) {
+      $($searchEngine).append($('<div>', {
+        id: 'search-engine-load'
+      }))
+
+      const mount = () => vueApp.$mount($dock)
+      const $productItems = $('#search-engine-snap .product-item')
+      if ($productItems.length) {
+        const observer = new window.MutationObserver(() => {
+          clearTimeout(fallbackTimer)
+          observer.disconnect()
+          mount()
+        })
+        observer.observe($productItems[0], {
+          childList: true
+        })
+        const fallbackTimer = setTimeout(() => {
+          observer.disconnect()
+          mount()
+        }, 3000)
+      } else {
+        mount()
+      }
+    } else {
+      vueApp.$mount($searchEngine)
+    }
   }
 }
