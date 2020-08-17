@@ -19,13 +19,16 @@ import ALink from '../ALink.vue'
 import APicture from '../APicture.vue'
 import APrices from '../APrices.vue'
 
+const ProductQuickView = () => import('../ProductQuickView.vue')
+
 export default {
   name: 'ProductCard',
 
   components: {
     ALink,
     APicture,
-    APrices
+    APrices,
+    ProductQuickView
   },
 
   props: {
@@ -122,7 +125,9 @@ export default {
       if (this.canAddToCart) {
         const { variations, slug } = product
         if (variations && variations.length) {
-          window.location = `/${slug}`
+          this.isLoading = true
+          // window.location = `/${slug}`
+          
         } else {
           ecomCart.addProduct(product)
         }
