@@ -57,6 +57,7 @@ export default {
   data () {
     return {
       isWaiting: false,
+      fetching: null,
       processingAppId: undefined,
       paymentGateways: [],
       selectedGateway: -1,
@@ -230,7 +231,7 @@ export default {
           }
         }
       }
-      if (appId) {
+      if (appId > 0) {
         url += `?app_id=${appId}`
         if (this.paymentGateway.payment_method) {
           data.payment_method = this.paymentGateway.payment_method
@@ -240,7 +241,7 @@ export default {
         this.isWaiting = true
         this.processingAppId = appId
         setTimeout(() => {
-          modules({ url, method, data })
+          this.fetching = modules({ url, method, data })
             .then(({ data }) => {
               this.parsePaymentOptions(data.result, Boolean(appId && this.selectedGateway >= 0))
             })
@@ -285,9 +286,16 @@ export default {
       immediate: true
     },
 
-    'amount.total' () {
-      if (!this.isWaiting && this.selectedGateway === -1) {
-        this.fetchPaymentGateways()
+    'amount.total' (total, oldTotal) {
+      if (
+        ((total && !oldTotal) || Math.abs(total - oldTotal) > 0.1) &&
+        this.selectedGateway === -1
+      ) {
+        if (!this.isWaiting) {
+          this.fetchPaymentGateways()
+        } else {
+          this.fetching.then(this.fetchPaymentGateways)
+        }
       }
     }
   },
