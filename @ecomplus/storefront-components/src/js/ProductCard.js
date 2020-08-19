@@ -96,6 +96,8 @@ export default {
       this.body = Object.assign({}, data)
       delete this.body.body_html
       delete this.body.body_text
+      delete this.body.inventory_records
+      delete this.body.price_change_records
     },
 
     fetchItem () {

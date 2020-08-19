@@ -183,7 +183,9 @@ const actions = {
                 min_quantity: data.min_quantity,
                 max_quantity: data.quantity,
                 body_html: '',
-                body_text: ''
+                body_text: '',
+                inventory_records: [],
+                price_change_records: []
               })
               ecomCart.increaseItemQnt(
                 _id,

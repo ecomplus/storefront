@@ -53,6 +53,8 @@ const sanitizeProductBody = body => {
   delete product.body_html
   delete product.body_text
   delete product.specifications
+  delete product.inventory_records
+  delete product.price_change_records
   return product
 }
 
