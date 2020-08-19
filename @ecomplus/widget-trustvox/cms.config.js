@@ -44,8 +44,7 @@ export default () => ({
           label: 'Link do script do widget',
           name: 'widgetSrc',
           widget: 'string',
-          required: false,
-          default: 'https://static.trustvox.com.br/assets/widget.js'
+          required: false
         }
       ]
     },
