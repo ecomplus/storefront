@@ -222,6 +222,9 @@
               <strong>
                 {{ body.production_time.days }}
                 {{ body.production_time.working_days ? i19workingDays : i19days }}
+                <template v-if="body.production_time.cumulative">
+                  {{ i19perUnit }}
+                </template>
               </strong>
             </p>
 
