@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.63](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.62...@ecomplus/storefront-template@2.0.0-beta.63) (2020-08-19)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shoppint-cart to ^2.1.7 ([beb198b](https://github.com/ecomplus/storefront/commit/beb198be29a4f689450cf0d2743b6ebcafce5a23))
+
+
+### Performance Improvements
+
+* **demo:** resize demo mobile banners ([ef89609](https://github.com/ecomplus/storefront/commit/ef896092dc72c128a579d74a113b99054b738a1b))
+
+
+
+
+
 # [2.0.0-beta.62](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.61...@ecomplus/storefront-template@2.0.0-beta.62) (2020-08-17)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

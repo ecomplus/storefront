@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.52](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.51...@ecomplus/storefront-app@2.0.0-beta.52) (2020-08-19)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shoppint-cart to ^2.1.7 ([beb198b](https://github.com/ecomplus/storefront/commit/beb198be29a4f689450cf0d2743b6ebcafce5a23))
+* **payment-methods:** fix watching amount changes to refetch list payments ([f0db919](https://github.com/ecomplus/storefront/commit/f0db91982927048a3614c3a9dad110736dbcfb43))
+
+
+
+
+
 # [2.0.0-beta.51](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.50...@ecomplus/storefront-app@2.0.0-beta.51) (2020-08-17)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
