@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.53](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.52...@ecomplus/storefront-app@2.0.0-beta.53) (2020-08-20)
+
+
+### Bug Fixes
+
+* **cart:** fix checking cart items available quantity ([4d37360](https://github.com/ecomplus/storefront/commit/4d373604dceebf54a6eddff9766291c7ff88a7b1))
+* **cart:** prevent duplicating items quantity on cart after sync ([cd50c00](https://github.com/ecomplus/storefront/commit/cd50c00824162643e4c950e946d908d619338464))
+* **checkout:** fix handling optional product 'min_quantity' ([c8cc625](https://github.com/ecomplus/storefront/commit/c8cc62576ae783011458e76913f97d1f47b2b625))
+* **checkout:** watch 'customer.main_email' to update local 'customerEmail' ([7a40447](https://github.com/ecomplus/storefront/commit/7a40447916713fdb59baed7ac7ea7934e45ae652))
+
+
+### Performance Improvements
+
+* **product-data:** unset/delete inventory_records and price_change_records when not needed ([d7c6777](https://github.com/ecomplus/storefront/commit/d7c6777573faafd5890ac8c4eae1f6ac68e413aa))
+
+
+
+
+
 # [2.0.0-beta.52](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.51...@ecomplus/storefront-app@2.0.0-beta.52) (2020-08-19)
 
 

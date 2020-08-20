@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.64](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.63...@ecomplus/storefront-template@2.0.0-beta.64) (2020-08-20)
+
+
+### Performance Improvements
+
+* **product-data:** unset/delete inventory_records and price_change_records when not needed ([d7c6777](https://github.com/ecomplus/storefront/commit/d7c6777573faafd5890ac8c4eae1f6ac68e413aa))
+
+
+
+
+
 # [2.0.0-beta.63](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.62...@ecomplus/storefront-template@2.0.0-beta.63) (2020-08-19)
 
 

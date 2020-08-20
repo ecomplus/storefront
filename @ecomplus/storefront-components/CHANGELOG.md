@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.49](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.48...@ecomplus/storefront-components@1.0.0-beta.49) (2020-08-20)
+
+
+### Bug Fixes
+
+* **cart:** skip some components when cart has any valid item ([ad486bd](https://github.com/ecomplus/storefront/commit/ad486bdb74aa164d54c405d1eee8821d9497e51b))
+
+
+### Features
+
+* **cart-item:** check item stock and show properly message ([654127b](https://github.com/ecomplus/storefront/commit/654127b5e3e73f6c18523cde8cd68335a647f473))
+
+
+### Performance Improvements
+
+* **product-data:** unset/delete inventory_records and price_change_records when not needed ([d7c6777](https://github.com/ecomplus/storefront/commit/d7c6777573faafd5890ac8c4eae1f6ac68e413aa))
+
+
+
+
+
 # [1.0.0-beta.48](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.47...@ecomplus/storefront-components@1.0.0-beta.48) (2020-08-19)
 
 
