@@ -187,14 +187,16 @@ const actions = {
                 inventory_records: [],
                 price_change_records: []
               })
-              ecomCart.increaseItemQnt(
-                _id,
-                quantity <= data.quantity
-                  ? !data.min_quantity || quantity >= data.min_quantity
-                    ? quantity : data.min_quantity
-                  : data.quantity,
-                false
-              )
+              const newQnt = data.quantity >= data.min_quantity
+                ? Math.min(data.quantity, quantity)
+                : 0
+              if (newQnt > 0) {
+                ecomCart.increaseItemQnt(_id, newQnt, false)
+              } else if (removeOnError) {
+                ecomCart.removeItem(_id, false)
+              } else {
+                ecomCart.save()
+              }
             })
             .catch(err => {
               console.error(err)

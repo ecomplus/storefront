@@ -8,8 +8,26 @@ const fetchingCartId = new Promise(resolve => (resolveCartId = resolve))
 const fetchCart = _id => ecomClient.store({
   url: `/carts/${_id || ecomCart.data._id}.json`
 }).then(({ data }) => {
-  Object.assign(ecomCart.data, data)
-  ecomCart.save()
+  const isCartOwner = Array.isArray(data.customers) &&
+    data.customers.includes(ecomPassport.getCustomer()._id)
+  for (const field in data) {
+    if (data[field] && field !== 'items' && field !== 'subtotal') {
+      switch (field) {
+        case 'items':
+        case 'subtotal':
+          continue
+        case '_id':
+        case 'customers':
+        case 'created_at':
+        case 'updated_at':
+          if (!isCartOwner) {
+            continue
+          }
+      }
+      ecomCart.data[field] = data[field]
+    }
+  }
+  data.items.forEach(item => ecomCart.addItem(item))
   resolveCartId(data._id)
   return data
 })

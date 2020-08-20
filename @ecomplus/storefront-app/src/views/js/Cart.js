@@ -43,18 +43,18 @@ export default {
   },
 
   created () {
+    const fetchAddedItem = ({ item }) => {
+      this.fetchCartItems({ items: [item] })
+    }
+    ecomCart.on('addItem', fetchAddedItem)
     this.fetchCartItems({}).then(() => {
       upsertCart().then(() => {
         ecomCart.on('change', upsertCart)
-        const fetchAddedItem = ({ item }) => {
-          this.fetchCartItems({ items: [item] })
-        }
-        ecomCart.on('addItem', fetchAddedItem)
-        this.$once('hook:beforeDestroy', () => {
-          ecomCart.off('change', upsertCart)
-          ecomCart.off('addItem', fetchAddedItem)
-        })
       })
+    })
+    this.$once('hook:beforeDestroy', () => {
+      ecomCart.off('change', upsertCart)
+      ecomCart.off('addItem', fetchAddedItem)
     })
   }
 }
