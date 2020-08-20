@@ -49,61 +49,70 @@
         </template>
       </div>
 
-      <div
-        :title="i19quantity"
-        class="cart-item__quantity"
+      <small
+        v-if="maxQuantity === 0"
+        class="cart-item__out-of-stock"
       >
-        <select
-          v-if="canInputSelect && inputType === 'select'"
-          class="custom-select"
-          v-model.number="quantity"
-          :disabled="!price || maxQuantity === 0"
-          @change="updateInputType"
-        >
-          <option
-            v-for="qnt in Math.min(maxQuantity, 10)"
-            v-if="qnt >= minQuantity"
-            :key="`qnt-${qnt}`"
-            :value="qnt"
-            :selected="qnt === quantity"
-          >
-            {{ qnt }}
-          </option>
-          <option
-            v-if="maxQuantity > 10"
-            :value="11"
-          >
-            11+
-          </option>
-        </select>
+        {{ i19outOfStock }}
+      </small>
 
-        <input
-          v-else
-          ref="input"
-          :type="inputType && inputType !== 'select' ? inputType : 'number'"
-          :min="minQuantity"
-          :max="maxQuantity"
-          class="form-control"
-          placeholder="1"
-          v-model.number="quantity"
-          :readonly="!price"
-          @blur="updateInputType"
-        >
-      </div>
-
-      <div
-        v-if="!isFreebie || price > 0"
-        class="cart-item__prices"
-      >
+      <template v-else>
         <div
-          class="cart-item__price-un fade"
-          :class="{ show: quantity > 1 }"
+          :title="i19quantity"
+          class="cart-item__quantity"
         >
-          {{ formatMoney(price) }}
-          <small>/un</small>
+          <select
+            v-if="canInputSelect && inputType === 'select'"
+            class="custom-select"
+            v-model.number="quantity"
+            :disabled="!price"
+            @change="updateInputType"
+          >
+            <option
+              v-for="qnt in Math.min(maxQuantity, 10)"
+              v-if="qnt >= minQuantity"
+              :key="`qnt-${qnt}`"
+              :value="qnt"
+              :selected="qnt === quantity"
+            >
+              {{ qnt }}
+            </option>
+            <option
+              v-if="maxQuantity > 10"
+              :value="11"
+            >
+              11+
+            </option>
+          </select>
+
+          <input
+            v-else
+            ref="input"
+            :type="inputType && inputType !== 'select' ? inputType : 'number'"
+            :min="minQuantity"
+            :max="maxQuantity"
+            class="form-control"
+            placeholder="1"
+            v-model.number="quantity"
+            :readonly="!price"
+            @blur="updateInputType"
+          >
         </div>
-        {{ formatMoney(price * quantity) }}
-      </div>
+
+        <div
+          v-if="!isFreebie || price > 0"
+          class="cart-item__prices"
+        >
+          <div
+            class="cart-item__price-un fade"
+            :class="{ show: quantity > 1 }"
+          >
+            {{ formatMoney(price) }}
+            <small>/un</small>
+          </div>
+          {{ formatMoney(price * quantity) }}
+        </div>
+      </template>
     </div>
   </div>
 </section>
