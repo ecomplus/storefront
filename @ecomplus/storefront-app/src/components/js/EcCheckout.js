@@ -63,7 +63,9 @@ export default {
   props: {
     mergeDictionary: {
       type: Object,
-      default: () => {}
+      default () {
+        return {}
+      }
     },
     cartUrl: {
       type: String,
@@ -71,11 +73,15 @@ export default {
     },
     amount: {
       type: Object,
-      default: () => {}
+      default () {
+        return {}
+      }
     },
     customer: {
       type: Object,
-      default: () => {}
+      default () {
+        return {}
+      }
     },
     shippingZipCode: {
       type: String
@@ -92,7 +98,9 @@ export default {
     },
     ecomCart: {
       type: Object,
-      default: () => ecomCart
+      default () {
+        return ecomCart
+      }
     },
     discountCoupon: String,
     notes: String
@@ -289,8 +297,19 @@ export default {
   watch: {
     customerEmail (email) {
       if (email) {
-        this.$emit('update:customer', { ...this.customer, main_email: email })
+        if (this.customer.main_email !== email) {
+          this.$emit('update:customer', {
+            ...this.customer,
+            main_email: email
+          })
+        }
         this.isUserIdentified = true
+      }
+    },
+
+    'customer.main_email' (email) {
+      if (email) {
+        this.customerEmail = email
       }
     },
 
