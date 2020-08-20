@@ -180,14 +180,14 @@ const actions = {
                 price,
                 final_price: price,
                 quantity: 0,
-                min_quantity: data.min_quantity,
+                min_quantity: typeof data.min_quantity === 'number' ? data.min_quantity : 1,
                 max_quantity: data.quantity,
                 body_html: '',
                 body_text: '',
                 inventory_records: [],
                 price_change_records: []
               })
-              const newQnt = data.quantity >= data.min_quantity
+              const newQnt = data.quantity >= item.min_quantity
                 ? Math.min(data.quantity, quantity)
                 : 0
               if (newQnt > 0) {
