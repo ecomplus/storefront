@@ -49,38 +49,41 @@
               <div>{{ formatMoney(cart.subtotal) }}</div>
             </div>
 
-            <transition enter-active-class="animated fadeInDown">
-              <div
-                class="cart__summary-row mt-1"
-                v-if="amount.discount"
-              >
-                <span>
-                  <i class="fas fa-tag mr-1"></i>
-                  {{ i19discount }}
-                </span>
-                <div>{{ formatMoney(amount.discount) }}</div>
-              </div>
-            </transition>
+            <template v-if="isValidCart">
+              <transition enter-active-class="animated fadeInDown">
+                <div
+                  class="cart__summary-row mt-1"
+                  v-if="amount.discount"
+                >
+                  <span>
+                    <i class="fas fa-tag mr-1"></i>
+                    {{ i19discount }}
+                  </span>
+                  <div>{{ formatMoney(amount.discount) }}</div>
+                </div>
+              </transition>
 
-            <shipping-calculator
-              class="cart__shipping"
-              :can-select-services="true"
-              :shipped-items="cart.items"
-              :zip-code.sync="localZipCode"
-              @select-service="selectShippingService"
-            />
-
-            <div class="cart__summary-row cart__total">
-              <span>Total</span>
-              <a-prices
-                :product="{ price: amount.total || cart.subtotal }"
-                :discount-option="{ value: amount.discount }"
-                :is-literal="true"
+              <shipping-calculator
+                class="cart__shipping"
+                :can-select-services="true"
+                :shipped-items="cart.items"
+                :zip-code.sync="localZipCode"
+                @select-service="selectShippingService"
               />
-            </div>
+
+              <div class="cart__summary-row cart__total">
+                <span>Total</span>
+                <a-prices
+                  :product="{ price: amount.total || cart.subtotal }"
+                  :discount-option="{ value: amount.discount }"
+                  :is-literal="true"
+                />
+              </div>
+            </template>
 
             <slot name="checkout">
               <a
+                v-if="isValidCart"
                 class="cart__btn-checkout btn btn-lg btn-block btn-success"
                 role="button"
                 :href="checkoutUrl"
@@ -92,7 +95,8 @@
               </a>
 
               <a
-                class="cart__btn-back btn btn-block btn-outline-secondary d-md-none"
+                class="cart__btn-back btn btn-block btn-outline-secondary"
+                :class="isValidCart ? 'd-md-none' : 'mt-3'"
                 role="button"
                 href="/"
               >
@@ -104,7 +108,7 @@
         </div>
 
         <discount-applier
-          v-if="canApplyDiscount"
+          v-if="isValidCart && canApplyDiscount"
           class="cart__discount"
           :amount="amount"
           :is-coupon-applied="isCouponApplied"
