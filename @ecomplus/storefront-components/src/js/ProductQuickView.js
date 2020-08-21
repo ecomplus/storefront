@@ -36,7 +36,11 @@ export default {
   },
 
   created () {
-    // const portal = document.createElement('div')
-    // portal.setAttribute('id', 'portal-quickview')
+    if (!document.getElementById(this.portalId)) {
+      const portal = document.createElement('div')
+      portal.setAttribute('id', this.portalId)
+      document.body.appendChild(portal)
+    }
+    this.isReady = true
   }
 }
