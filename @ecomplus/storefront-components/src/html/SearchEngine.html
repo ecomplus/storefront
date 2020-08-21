@@ -334,10 +334,15 @@
     <slot v-if="!hasSearched || isLoadingMore"/>
   </transition>
 
-  <div
-    v-if="resultItems.length < totalSearchResults"
-    :key="lastRequestId"
-    id="search-engine-load-more"
-    style="width: 100%; margin-top: 20px; height: 5px"
-  ></div>
+  <component
+    :is="loadMoreSelector ? 'portal' : 'div'"
+    :selector="loadMoreSelector"
+  >
+    <div
+      v-if="resultItems.length < totalSearchResults"
+      :key="lastRequestId"
+      id="search-engine-load-more"
+      style="width: 100%; margin-top: 20px; height: 5px"
+    ></div>
+  </component>
 </section>

@@ -1,17 +1,21 @@
 import {
   i19buy,
   i19close,
+  i19days,
   i19discountOf,
   i19freeShippingFrom,
   i19loadProductErrorMsg,
   i19only,
   i19outOfStock,
   i19paymentOptions,
+  // i19perUnit,
+  // i19productioDeadline,
   i19retry,
   i19selectVariationMsg,
   i19unavailable,
   i19units,
-  i19unitsInStock
+  i19unitsInStock,
+  i19workingDays
 } from '@ecomplus/i18n'
 
 import {
@@ -49,6 +53,8 @@ const sanitizeProductBody = body => {
   delete product.body_html
   delete product.body_text
   delete product.specifications
+  delete product.inventory_records
+  delete product.price_change_records
   return product
 }
 
@@ -116,17 +122,21 @@ export default {
 
   computed: {
     i19close: () => i18n(i19close),
+    i19days: () => i18n(i19days),
     i19discountOf: () => i18n(i19discountOf),
     i19freeShippingFrom: () => i18n(i19freeShippingFrom),
     i19loadProductErrorMsg: () => i18n(i19loadProductErrorMsg),
     i19only: () => i18n(i19only),
     i19outOfStock: () => i18n(i19outOfStock),
     i19paymentOptions: () => i18n(i19paymentOptions),
+    i19perUnit: () => 'Por unidade',
+    i19productioDeadline: () => 'Prazo de produção',
     i19retry: () => i18n(i19retry),
     i19selectVariationMsg: () => i18n(i19selectVariationMsg),
     i19unavailable: () => i18n(i19unavailable),
     i19units: () => i18n(i19units).toLowerCase(),
     i19unitsInStock: () => i18n(i19unitsInStock),
+    i19workingDays: () => i18n(i19workingDays),
 
     selectedVariation () {
       return this.selectedVariationId

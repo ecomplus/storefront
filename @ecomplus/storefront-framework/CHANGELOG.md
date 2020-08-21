@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.13.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.11...@ecomplus/storefront-framework@5.13.12) (2020-08-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency terser-webpack-plugin to v4 ([#284](https://github.com/ecomplus/storefront/issues/284)) ([728efdd](https://github.com/ecomplus/storefront/commit/728efdd29a6720cd1e2171092d2a983eddfbd18c))
+
+
+
+
+
 ## [5.13.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.10...@ecomplus/storefront-framework@5.13.11) (2020-08-14)
 
 

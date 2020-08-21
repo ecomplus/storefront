@@ -144,6 +144,17 @@ export default {
 
   created () {
     const update = items => this.fetchCartItems({ removeOnError: true, items })
+    const fetchAddedItem = ({ item }) => {
+      update([item])
+    }
+    ecomCart.on('addItem', fetchAddedItem)
+    const checkCart = ({ data }) => {
+      if (!data.items.length) {
+        this.$router.push({
+          name: 'cart'
+        })
+      }
+    }
     this.updateInterval = setInterval(update, 600000)
     this.triggerLoading(true)
     update()
@@ -164,21 +175,14 @@ export default {
         setTimeout(tryUpsertCart, 300)
       })
       .finally(() => {
-        if (!ecomCart.data.items.length) {
-          this.$router.push({
-            name: 'cart'
-          })
-        } else {
-          const fetchAddedItem = ({ item }) => {
-            update([item])
-          }
-          ecomCart.on('addItem', fetchAddedItem)
-          this.$once('hook:beforeDestroy', () => {
-            ecomCart.off('addItem', fetchAddedItem)
-          })
-        }
         this.triggerLoading(false)
+        checkCart(ecomCart)
+        ecomCart.on('change', checkCart)
       })
+    this.$once('hook:beforeDestroy', () => {
+      ecomCart.off('addItem', fetchAddedItem)
+      ecomCart.off('change', checkCart)
+    })
   },
 
   destroyed () {

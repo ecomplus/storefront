@@ -39,6 +39,13 @@ export default () => ({
           label: 'ID da loja na Trustvox',
           name: 'trustvoxStoreId',
           widget: 'number'
+        },
+        {
+          label: 'Link do script da Trustvox',
+          hint: 'Customize para utilizar a versão 2 do widget de avaliações',
+          name: 'widgetSrc',
+          widget: 'string',
+          required: false
         }
       ]
     },
