@@ -19,16 +19,13 @@ import ALink from '../ALink.vue'
 import APicture from '../APicture.vue'
 import APrices from '../APrices.vue'
 
-const ProductQuickView = () => import('../ProductQuickView.vue')
-
 export default {
   name: 'ProductCard',
 
   components: {
     ALink,
     APicture,
-    APrices,
-    ProductQuickView
+    APrices
   },
 
   props: {
@@ -40,10 +37,6 @@ export default {
       default: 'h3'
     },
     buyText: String,
-    transitionClass: {
-      type: String,
-      default: 'animated fadeIn'
-    },
     canAddToCart: {
       type: Boolean,
       default: true
@@ -91,6 +84,10 @@ export default {
       return checkOnPromotion(body)
         ? Math.round(((body.base_price - getPrice(body)) * 100) / body.base_price)
         : 0
+    },
+
+    loadQuickview () {
+      return () => import('../ProductQuickView.vue')
     }
   },
 
@@ -129,13 +126,19 @@ export default {
       if (this.canAddToCart) {
         const { variations, slug } = product
         if (variations && variations.length) {
-          this.isLoading = true
-          // window.location = `/${slug}`
-          
+          this.openQuickview(product)
         } else {
           ecomCart.addProduct(product)
         }
       }
+    },
+
+    openQuickview (productBody) {
+      this.loadQuickview().then(quickview => {
+        quickview.default.methods.loadProduct(productBody)
+        quickview.default.created()
+        console.log(quickview.default)
+      })
     }
   },
 
