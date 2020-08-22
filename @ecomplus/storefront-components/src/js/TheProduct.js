@@ -104,7 +104,11 @@ export default {
         return window.ecomPaymentApps || []
       }
     },
-    isSSR: Boolean
+    isSSR: Boolean,
+    isQuickview: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data () {
