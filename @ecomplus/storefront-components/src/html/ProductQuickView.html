@@ -1,23 +1,36 @@
-<portal selector="#portal-quickview">
+<portal selector="#quickview" ref="quickview">
   <div class="quickview-modal">
+    <a-backdrop
+      :is-visible="isVisible"
+      @hide="hide"
+    />
+  
     <transition
       enter-active-class="animated zoomIn"
       leave-active-class="animated fadeOutUp slow"
     >
+      <div
+        class="quickview-modal__box card"
+        v-show="isVisible"
+      >
+        <slot name="header">
+          <div class="quickview-modal__header card-header">
+            {{i19selectVariation}}
+            <button
+              type="button"
+              class="close"
+              :aria-label="i19close"
+              @click="hide"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </slot>
   
-    <div 
-      class="quickview-modal__box"
-    >
-      <slot name="header">
-        <div class="quickview-modal__header card-header">
-          Selectionar variação
+        <div class="quickview-modal__body card-body">
+          <the-product :productId="product._id" :isQuickview="true" />
         </div>
-      </slot>
-  
-      <div class="quickview-modal__body card-body">
-        {{productBody}}
       </div>
-    </div>
     </transition>
-  </div>
+  </div>  
 </portal>
