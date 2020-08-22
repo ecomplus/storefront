@@ -13,6 +13,7 @@ import {
   price as getPrice
 } from '@ecomplus/utils'
 
+import Vue from 'vue'
 import { store } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import ALink from '../ALink.vue'
@@ -137,9 +138,14 @@ export default {
 
     openQuickview (productBody) {
       this.loadQuickview().then(quickview => {
-        quickview.default.methods.loadProduct(productBody)
-        quickview.default.created()
-        console.log(quickview.default)
+        const ProductQuickview = quickview.default
+        new Vue({
+          render: h => h(ProductQuickview, {
+            props: {
+              product: productBody
+            }
+          })
+        }).$mount(this.$refs.quickview)
       })
     }
   },
