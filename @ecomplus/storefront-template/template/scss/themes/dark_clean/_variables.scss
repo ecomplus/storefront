@@ -12,6 +12,7 @@ $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black: #000 !default;
+$light: $gray-700;
 
 $border-radius: 0.1rem !default;
 $border-radius-sm: 0.1rem !default;
@@ -41,3 +42,4 @@ $custom-select-disabled-bg: $gray-600 !default;
 $component-active-bg: $white !default;
 
 $breadcrumb-bg: $black;
+

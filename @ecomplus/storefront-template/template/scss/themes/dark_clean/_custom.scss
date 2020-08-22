@@ -12,7 +12,7 @@ main {
 
     a.top-bar__countdown {
       background-color: $black;
-      color: $white;
+      color: $secondary;
       filter: drop-shadow(1px 1px 2px $gray-500);
     }
   }
@@ -22,7 +22,7 @@ main {
     background-color: $black;
 
     &__nav a {
-      color: $white;
+      color: $secondary;
 
       &:hover {
         border-bottom-color: $gray-100;
@@ -32,6 +32,7 @@ main {
     }
   }
 
+  
   #search-input {
     border: solid 1px $gray-600;
   }
@@ -81,6 +82,11 @@ main {
     color: $gray-200;
   }
 
+  .account-addresses {
+    &__card {
+      background-color: $gray-900;
+    }
+  }
   .footer {
     background-color: $black;
     &__title {
@@ -93,10 +99,21 @@ main {
     }
   }
 
-  .account-addresses {
-    &__card {
-      background-color: $gray-900;
+  .close {
+    color: $secondary;
+  }
+
+  .search {
+    &__box {
+      background-color: $gray-800;
     }
+  }
+
+  .search-engine {
+    &__nav {
+      background-color: $gray-800;
+    }
+    
   }
 
   .checkout__info {
@@ -125,16 +142,22 @@ main {
   .card-body {
     background-color: $gray-900;
   }
-}
 
-body {
+  .html-clearfix {
+    background-color: $gray-800;
+    
+  }
+
+
+}
+ body {
   .app {
     &__header {
       background-color: $black;
     }
     &__footer {
-      border-top: var(--spacer-1) solid $white;
-      background: $white;
+      border-top: var(--spacer-1) solid $secondary;
+      background: $secondary;
     }
     &__credits.container {
       background-color: $white;
@@ -144,3 +167,4 @@ body {
     }
   }
 }
+
