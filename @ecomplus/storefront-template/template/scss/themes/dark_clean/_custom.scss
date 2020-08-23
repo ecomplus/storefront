@@ -144,16 +144,6 @@ main {
   .html-clearfix {
     background-color: $gray-800;
   }
-
-  .menu {
-    &__item-icon {
-      img{
-        background-color: red;
-        filter: contrast(0.5) important!;
-      }
-      
-    }
-  }
 }
 body {
   .app {

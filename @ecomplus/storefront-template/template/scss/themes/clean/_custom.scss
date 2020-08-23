@@ -10,16 +10,16 @@ main {
     a.top-bar__countdown {
       background-color: $white;
       color: $gray-700;
-      filter:drop-shadow(8px 8px 10px $gray-500) ;
+      filter: drop-shadow(8px 8px 10px $gray-500);
     }
   }
 
   .header {
     border-bottom: none;
-    background-color:$white;
+    background-color: $white;
 
     &__nav a {
-      color: $black;
+      color: $secondary;
       &:hover {
         border-bottom-color: $gray-600;
         color: $gray-500;
@@ -28,11 +28,10 @@ main {
     }
   }
 
-  #search-input{
+  #search-input {
     border: solid 1px $gray-200;
   }
 
- 
   #cart-button {
     i:before {
       content: "";
@@ -52,7 +51,7 @@ main {
       background-color: $primary;
     }
   }
-  
+
   #user-button {
     i:before {
       content: "";
@@ -73,7 +72,7 @@ main {
     }
   }
 
-  .info-bar{
+  .info-bar {
     background-color: $secondary;
   }
 
@@ -81,10 +80,7 @@ main {
     background-color: $white;
   }
 
- .go-to-top{
-  background-color: $secondary;
- } 
+  .go-to-top {
+    background-color: $secondary;
+  }
 }
-
-
-
