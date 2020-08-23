@@ -68,6 +68,10 @@ export default {
       return this.ecomCart.data
     },
 
+    isValidCart () {
+      return this.ecomCart.data.items.find(({ quantity }) => quantity)
+    },
+
     localDiscountCoupon: {
       get () {
         return this.discountCoupon

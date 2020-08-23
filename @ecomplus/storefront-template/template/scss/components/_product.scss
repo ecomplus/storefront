@@ -11,3 +11,9 @@
     }
   }
 }
+
+@media (min-width: 992px) {
+  #product-gallery > .product__picture {
+    margin-left: 110px;
+  }
+}

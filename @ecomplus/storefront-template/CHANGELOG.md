@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.64](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.63...@ecomplus/storefront-template@2.0.0-beta.64) (2020-08-20)
+
+
+### Performance Improvements
+
+* **product-data:** unset/delete inventory_records and price_change_records when not needed ([d7c6777](https://github.com/ecomplus/storefront/commit/d7c6777573faafd5890ac8c4eae1f6ac68e413aa))
+
+
+
+
+
+# [2.0.0-beta.63](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.62...@ecomplus/storefront-template@2.0.0-beta.63) (2020-08-19)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shoppint-cart to ^2.1.7 ([beb198b](https://github.com/ecomplus/storefront/commit/beb198be29a4f689450cf0d2743b6ebcafce5a23))
+
+
+### Performance Improvements
+
+* **demo:** resize demo mobile banners ([ef89609](https://github.com/ecomplus/storefront/commit/ef896092dc72c128a579d74a113b99054b738a1b))
+
+
+
+
+
+# [2.0.0-beta.62](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.61...@ecomplus/storefront-template@2.0.0-beta.62) (2020-08-17)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.61](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.60...@ecomplus/storefront-template@2.0.0-beta.61) (2020-08-14)
+
+
+### Performance Improvements
+
+* **product-card:** prevent loading product image multiple times ([9a85a97](https://github.com/ecomplus/storefront/commit/9a85a97a657a3d10e63c65ddd2bdc9f18318bc08))
+* **product-page:** preparing ejs for hydration with less dom ([f143ffd](https://github.com/ecomplus/storefront/commit/f143ffd67cefcee8edf150cad5ad3574efc16d65))
+* **retail-grid:** preparing ejs for hydration with less dom ([6770a69](https://github.com/ecomplus/storefront/commit/6770a696b5228133ab6064830701e64448610ec1))
+
+
+
+
+
+# [2.0.0-beta.60](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.59...@ecomplus/storefront-template@2.0.0-beta.60) (2020-08-12)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to ^2.1.6 ([499004b](https://github.com/ecomplus/storefront/commit/499004bbb1442b5852f5b2099711340064f8d863))
+
+
+
+
+
+# [2.0.0-beta.59](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.58...@ecomplus/storefront-template@2.0.0-beta.59) (2020-08-11)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.58](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.57...@ecomplus/storefront-template@2.0.0-beta.58) (2020-08-11)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.57](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.56...@ecomplus/storefront-template@2.0.0-beta.57) (2020-08-10)
+
+
+### Features
+
+* **views:** identify route with class and resource id on body el ([65c6422](https://github.com/ecomplus/storefront/commit/65c642201e59838aed0549645e779ce833273e96))
+
+
+
+
+
 # [2.0.0-beta.56](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.55...@ecomplus/storefront-template@2.0.0-beta.56) (2020-08-07)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

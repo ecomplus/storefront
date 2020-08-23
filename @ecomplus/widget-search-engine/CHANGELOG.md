@@ -3,6 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.48](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.47...@ecomplus/widget-search-engine@1.0.0-beta.48) (2020-08-20)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.47](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.46...@ecomplus/widget-search-engine@1.0.0-beta.47) (2020-08-19)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.46](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.45...@ecomplus/widget-search-engine@1.0.0-beta.46) (2020-08-17)
+
+
+### Bug Fixes
+
+* **deps:** add @ecomplus/storefront-twbs to direct deps ([cf9d0ad](https://github.com/ecomplus/storefront/commit/cf9d0adf0c8d261b9e68c9076f342d644aad9e7c))
+* **widget-search-engine:** use `loadMoreSelector` when retail is prerendered (ssr) ([8eaeb68](https://github.com/ecomplus/storefront/commit/8eaeb68f27946163a64026a62c38cdaad71ccf3d))
+
+
+
+
+
+# [1.0.0-beta.45](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.44...@ecomplus/widget-search-engine@1.0.0-beta.45) (2020-08-14)
+
+
+### Performance Improvements
+
+* **widget-search-engine:** better hydration for brands/categories ([93fac25](https://github.com/ecomplus/storefront/commit/93fac25362602a6776db83b51944537cf5ac6aa8))
+
+
+
+
+
+# [1.0.0-beta.44](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.43...@ecomplus/widget-search-engine@1.0.0-beta.44) (2020-08-12)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.43](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.42...@ecomplus/widget-search-engine@1.0.0-beta.43) (2020-08-11)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.42](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.41...@ecomplus/widget-search-engine@1.0.0-beta.42) (2020-08-10)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
 # [1.0.0-beta.41](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.40...@ecomplus/widget-search-engine@1.0.0-beta.41) (2020-08-04)
 
 **Note:** Version bump only for package @ecomplus/widget-search-engine

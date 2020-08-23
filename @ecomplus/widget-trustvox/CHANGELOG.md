@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-trustvox@2.1.0...@ecomplus/widget-trustvox@2.2.0) (2020-08-19)
+
+
+### Features
+
+* **cms:** add trustvox script field (support trustvox widget v2) ([#292](https://github.com/ecomplus/storefront/issues/292)) ([083273f](https://github.com/ecomplus/storefront/commit/083273f9b7bfaaa16d484e2918bacddebb2163a9))
+
+
+
+
+
 # [2.1.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-trustvox@2.0.5...@ecomplus/widget-trustvox@2.1.0) (2020-07-29)
 
 

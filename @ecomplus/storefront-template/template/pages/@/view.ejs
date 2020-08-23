@@ -7,8 +7,10 @@
 
 <body
   id="page-<%= _.pageName %>"
+  class="_<%= _.route.path.replace(/\//g, '_') %>"
   <% if (_.route.resource) { %>
     data-resource="<%= _.route.resource %>"
+    data-resource-id="<%= _.state._id %>"
   <% } else if (_.route.collection) { %>
     data-cms-collection="<%= _.route.collection %>"
   <% } %>

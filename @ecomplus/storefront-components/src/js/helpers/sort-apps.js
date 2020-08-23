@@ -1,5 +1,5 @@
 export default (results, order) => {
-  results.sort((a, b) => {
+  return results.sort((a, b) => {
     if (a.app_id === b.app_id) {
       return 0
     }

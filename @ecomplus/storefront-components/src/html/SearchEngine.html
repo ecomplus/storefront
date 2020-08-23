@@ -285,7 +285,10 @@
           </transition>
         </div>
 
-        <article class="search-engine__retail">
+        <article
+          v-if="canShowItems"
+          class="search-engine__retail"
+        >
           <div class="row">
             <div
               class="col-6 col-md-4 col-lg-3"
@@ -331,10 +334,15 @@
     <slot v-if="!hasSearched || isLoadingMore"/>
   </transition>
 
-  <div
-    v-if="resultItems.length < totalSearchResults"
-    :key="lastRequestId"
-    id="search-engine-load-more"
-    style="width: 100%; margin-top: 20px; height: 5px"
-  ></div>
+  <component
+    :is="loadMoreSelector ? 'portal' : 'div'"
+    :selector="loadMoreSelector"
+  >
+    <div
+      v-if="resultItems.length < totalSearchResults"
+      :key="lastRequestId"
+      id="search-engine-load-more"
+      style="width: 100%; margin-top: 20px; height: 5px"
+    ></div>
+  </component>
 </section>

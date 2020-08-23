@@ -16,7 +16,7 @@
     </div>
 
     <div
-      v-else
+      v-else-if="paymentGateways.length"
       key="gateways"
       class="list-group"
     >
@@ -163,6 +163,20 @@
           </button>
         </div>
       </transition>
+    </div>
+
+    <div
+      v-else
+      key="empty"
+      class="payment__empty"
+    >
+      <p>{{ i19anyPaymentMethodMsg }}</p>
+      <button
+        class="btn btn-primary"
+        @click="() => fetchPaymentGateways()"
+      >
+        {{ i19tryAgain }}
+      </button>
     </div>
   </transition-group>
 </div>

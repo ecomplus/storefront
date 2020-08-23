@@ -63,7 +63,9 @@ export default {
   props: {
     mergeDictionary: {
       type: Object,
-      default: () => {}
+      default () {
+        return {}
+      }
     },
     cartUrl: {
       type: String,
@@ -71,11 +73,15 @@ export default {
     },
     amount: {
       type: Object,
-      default: () => {}
+      default () {
+        return {}
+      }
     },
     customer: {
       type: Object,
-      default: () => {}
+      default () {
+        return {}
+      }
     },
     shippingZipCode: {
       type: String
@@ -92,7 +98,9 @@ export default {
     },
     ecomCart: {
       type: Object,
-      default: () => ecomCart
+      default () {
+        return ecomCart
+      }
     },
     discountCoupon: String,
     notes: String
@@ -148,7 +156,7 @@ export default {
     hasBuyerInfo () {
       const { customer } = this
       return this.customerEmail &&
-        customer.name && customer.name.given_name && customer.name.family_name &&
+        customer.name && customer.name.given_name &&
         customer.birth_date && customer.birth_date.day &&
         customer.registry_type && customer.doc_number &&
         customer.phones && customer.phones.length
@@ -159,8 +167,10 @@ export default {
         return this.customer
       },
       set (customer) {
-        this.editAccount = false
         this.$emit('update:customer', customer)
+        this.$nextTick(() => {
+          this.editAccount = false
+        })
       }
     },
 
@@ -186,7 +196,7 @@ export default {
       if (!this.hasBuyerInfo || this.editAccount) {
         return 0
       } else {
-        return this.toCheckoutStep
+        return Math.min(this.enabledCheckoutStep, this.toCheckoutStep)
       }
     },
 
@@ -240,11 +250,13 @@ export default {
       if ('activeElement' in document) {
         document.activeElement.blur()
       }
-      if (window.screen.width >= 768) {
-        this.toCheckoutStep = this.enabledCheckoutStep
-      } else if (this.enabledCheckoutStep && !this.toCheckoutStep) {
-        this.toCheckoutStep = 1
-      }
+      this.$nextTick(() => {
+        if (document.body.offsetWidth >= 768) {
+          this.toCheckoutStep = this.enabledCheckoutStep
+        } else if (this.enabledCheckoutStep && !(this.toCheckoutStep > 1)) {
+          this.toCheckoutStep = 1
+        }
+      })
     },
 
     updateZipCode () {
@@ -285,8 +297,19 @@ export default {
   watch: {
     customerEmail (email) {
       if (email) {
-        this.$emit('update:customer', { ...this.customer, main_email: email })
+        if (this.customer.main_email !== email) {
+          this.$emit('update:customer', {
+            ...this.customer,
+            main_email: email
+          })
+        }
         this.isUserIdentified = true
+      }
+    },
+
+    'customer.main_email' (email) {
+      if (email) {
+        this.customerEmail = email
       }
     },
 

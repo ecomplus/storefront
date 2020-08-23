@@ -12,7 +12,8 @@ import {
   i19nickname,
   i19personalRegistration,
   i19companyRegistration,
-  i19save
+  i19save,
+  i19saved
 } from '@ecomplus/i18n'
 
 import {
@@ -23,15 +24,21 @@ import {
   phone as getPhone
 } from '@ecomplus/utils'
 
+import cloneDeep from 'lodash.clonedeep'
+import checkFormValidity from './helpers/check-form-validity'
 import InputDocNumber from './../InputDocNumber.vue'
 import InputPhone from './../InputPhone.vue'
 import InputDate from './../InputDate.vue'
-import cloneDeep from 'lodash.clonedeep'
 
 const countryCode = $ecomConfig.get('country_code')
 
 const { sessionStorage } = window
 const storageKey = 'ecomCustomerAccount'
+
+const countInvalidInputs = (attr = ':invalid') => {
+  return document.querySelectorAll(`.account-form input${attr}`).length
+}
+const formValidateClass = 'was-validated'
 
 export default {
   name: 'AccountForm',
@@ -56,7 +63,8 @@ export default {
     return {
       localCustomer: cloneDeep(this.customer),
       fullName: getFullName(this.customer),
-      storageInterval: null
+      storageInterval: null,
+      btnLabel: i18n(i19save)
     }
   },
 
@@ -74,7 +82,6 @@ export default {
     i19nickname: () => i18n(i19nickname),
     i19companyRegistration: () => i18n(i19companyRegistration),
     i19personalRegistration: () => i18n(i19personalRegistration),
-    i19save: () => i18n(i19save),
 
     birthdate: {
       get () {
@@ -129,13 +136,13 @@ export default {
     parsePhoneStr (phoneStr) {
       let code, number
       if (phoneStr.charAt(0) === '+') {
-        code = phoneStr.substr(1, 2)
+        code = parseInt(phoneStr.substr(1, 2))
         number = phoneStr.substr(3)
       } else {
         number = phoneStr
       }
       const phoneObj = { number }
-      if (code) {
+      if (code >= 1 && code <= 999) {
         phoneObj.country_code = code
       }
       return phoneObj
@@ -164,32 +171,48 @@ export default {
 
     submit (ev) {
       const $form = this.$el
-      if (!document.querySelectorAll('.account-form input.is-invalid').length) {
-        if ($form.checkValidity()) {
-          if (!this.localCustomer.display_name) {
-            this.localCustomer.display_name = this.localCustomer.name.given_name
-          }
-          this.saveToStorage()
-          this.$emit('update:customer', this.localCustomer)
+      if (!countInvalidInputs('.is-invalid')) {
+        if (!this.localCustomer.display_name) {
+          this.localCustomer.display_name = this.localCustomer.name.given_name
         }
-        $form.classList.add('was-validated')
+        if (checkFormValidity($form)) {
+          this.saveToStorage()
+          this.save()
+        } else if ($form.classList.contains(formValidateClass) && !countInvalidInputs()) {
+          this.save()
+        }
+        $form.classList.add(formValidateClass)
       } else {
-        $form.classList.remove('was-validated')
+        $form.classList.remove(formValidateClass)
       }
+    },
+
+    save () {
+      this.$emit('update:customer', this.localCustomer)
+      this.$emit('submit', this.localCustomer)
+      this.btnLabel = i18n(i19saved) + '...'
+      setTimeout(() => {
+        this.btnLabel = i18n(i19save)
+      }, 3000)
     }
   },
 
   watch: {
     fullName (nameStr) {
-      const names = nameStr.split(' ')
-      this.localCustomer.name = {
-        given_name: names.shift()
-      }
-      const { name } = this.localCustomer
-      if (names.length) {
-        name.family_name = names.pop()
+      const fixedFullName = nameStr.replace(/\s{2,}/g, ' ')
+      if (fixedFullName !== this.fullName) {
+        this.fullName = fixedFullName
+      } else {
+        const names = fixedFullName.trim().split(' ')
+        this.localCustomer.name = {
+          given_name: names.shift()
+        }
+        const { name } = this.localCustomer
         if (names.length) {
-          name.middle_name = names.join(' ')
+          name.family_name = names.pop()
+          if (names.length) {
+            name[name.family_name ? 'middle_name' : 'family_name'] = names.join(' ')
+          }
         }
       }
     },

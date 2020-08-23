@@ -4,12 +4,14 @@
  * Released under the MIT License.
  */
 
+import { $ } from '@ecomplus/storefront-twbs'
 import Vue from 'vue'
 import SearchEngine from '#components/SearchEngine.vue'
 
 export default (options = {}, elId = 'search-engine') => {
   const $searchEngine = document.getElementById(elId)
   if ($searchEngine) {
+    const $dock = document.getElementById(`${elId}-dock`)
     const getScopedSlots = window.storefront && window.storefront.getScopedSlots
 
     const urlParams = new URLSearchParams(window.location.search)
@@ -47,31 +49,75 @@ export default (options = {}, elId = 'search-engine') => {
         }
     }
 
-    new Vue({
+    const vueApp = new Vue({
       data: {
+        countRequests: 0,
+        canShowItems: !$dock,
         term: props.term
       },
 
       render (createElement) {
         const vm = this
+        const on = {
+          'update:term' (term) {
+            vm.term = term
+          }
+        }
+        if ($dock) {
+          on.fetch = function ({ fetching }) {
+            fetching.then(() => {
+              vm.countRequests++
+              if (vm.countRequests > 1 && !vm.canShowItems) {
+                vm.canShowItems = true
+                $('#search-engine-snap').remove()
+              }
+            })
+          }
+        }
+
         return createElement(SearchEngine, {
           attrs: {
-            id: elId
+            id: $dock ? null : elId
           },
           props: {
             ...props,
-            term: vm.term
+            term: vm.term,
+            canShowItems: vm.canShowItems,
+            loadMoreSelector: $dock ? '#search-engine-load' : null
           },
-          on: {
-            'update:term' (term) {
-              vm.term = term
-            }
-          },
+          on,
           scopedSlots: typeof getScopedSlots === 'function'
-            ? getScopedSlots($searchEngine, createElement)
+            ? getScopedSlots($searchEngine, createElement, !$dock)
             : undefined
         })
       }
-    }).$mount($searchEngine)
+    })
+
+    if ($dock) {
+      $($searchEngine).append($('<div>', {
+        id: 'search-engine-load'
+      }))
+
+      const mount = () => vueApp.$mount($dock)
+      const $productItems = $('#search-engine-snap .product-item')
+      if ($productItems.length) {
+        const observer = new window.MutationObserver(() => {
+          clearTimeout(fallbackTimer)
+          observer.disconnect()
+          setTimeout(mount, 150)
+        })
+        observer.observe($productItems[0], {
+          childList: true
+        })
+        const fallbackTimer = setTimeout(() => {
+          observer.disconnect()
+          mount()
+        }, 3000)
+      } else {
+        mount()
+      }
+    } else {
+      vueApp.$mount($searchEngine)
+    }
   }
 }

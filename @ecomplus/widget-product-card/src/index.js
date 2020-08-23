@@ -33,7 +33,8 @@ export default (options = {}, elClass = 'product-card') => {
           ...options.props,
           productId,
           product,
-          isLoaded
+          isLoaded,
+          transitionClass: null
         },
         scopedSlots: typeof getScopedSlots === 'function'
           ? getScopedSlots($productCard, h)

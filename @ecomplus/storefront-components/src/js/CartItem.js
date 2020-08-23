@@ -1,5 +1,6 @@
 import {
-  // i19freebie,
+  i19freebie,
+  i19outOfStock,
   i19quantity,
   i19remove
 } from '@ecomplus/i18n'
@@ -50,7 +51,8 @@ export default {
   },
 
   computed: {
-    i19freebie: () => 'Brinde',
+    i19freebie: () => i18n(i19freebie),
+    i19outOfStock: () => i18n(i19outOfStock),
     i19quantity: () => i18n(i19quantity),
     i19remove: () => i18n(i19remove),
 
@@ -144,7 +146,9 @@ export default {
       }
       if (qnt > 10 && oldQnt <= 10) {
         this.$nextTick(() => {
-          this.$refs.input.focus()
+          if (this.$refs.input) {
+            this.$refs.input.focus()
+          }
         })
       }
       if (this.minQuantity <= this.maxQuantity) {

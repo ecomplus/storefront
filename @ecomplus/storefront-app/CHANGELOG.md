@@ -3,6 +3,101 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.53](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.52...@ecomplus/storefront-app@2.0.0-beta.53) (2020-08-20)
+
+
+### Bug Fixes
+
+* **cart:** fix checking cart items available quantity ([4d37360](https://github.com/ecomplus/storefront/commit/4d373604dceebf54a6eddff9766291c7ff88a7b1))
+* **cart:** prevent duplicating items quantity on cart after sync ([cd50c00](https://github.com/ecomplus/storefront/commit/cd50c00824162643e4c950e946d908d619338464))
+* **checkout:** fix handling optional product 'min_quantity' ([c8cc625](https://github.com/ecomplus/storefront/commit/c8cc62576ae783011458e76913f97d1f47b2b625))
+* **checkout:** watch 'customer.main_email' to update local 'customerEmail' ([7a40447](https://github.com/ecomplus/storefront/commit/7a40447916713fdb59baed7ac7ea7934e45ae652))
+
+
+### Performance Improvements
+
+* **product-data:** unset/delete inventory_records and price_change_records when not needed ([d7c6777](https://github.com/ecomplus/storefront/commit/d7c6777573faafd5890ac8c4eae1f6ac68e413aa))
+
+
+
+
+
+# [2.0.0-beta.52](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.51...@ecomplus/storefront-app@2.0.0-beta.52) (2020-08-19)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shoppint-cart to ^2.1.7 ([beb198b](https://github.com/ecomplus/storefront/commit/beb198be29a4f689450cf0d2743b6ebcafce5a23))
+* **payment-methods:** fix watching amount changes to refetch list payments ([f0db919](https://github.com/ecomplus/storefront/commit/f0db91982927048a3614c3a9dad110736dbcfb43))
+
+
+
+
+
+# [2.0.0-beta.51](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.50...@ecomplus/storefront-app@2.0.0-beta.51) (2020-08-17)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.50](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.49...@ecomplus/storefront-app@2.0.0-beta.50) (2020-08-14)
+
+
+### Bug Fixes
+
+* **payment-methods:** skip customer (optional) on body when retrying ([c19241e](https://github.com/ecomplus/storefront/commit/c19241e0521b0b9c73f100671190c3064c358ce0))
+
+
+
+
+
+# [2.0.0-beta.49](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.48...@ecomplus/storefront-app@2.0.0-beta.49) (2020-08-12)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to ^2.1.6 ([499004b](https://github.com/ecomplus/storefront/commit/499004bbb1442b5852f5b2099711340064f8d863))
+* **payment-methods:** retry fetching payments list, message when any option ([1a01868](https://github.com/ecomplus/storefront/commit/1a0186867d2174ba935067e8015a7eddedb5d245))
+
+
+
+
+
+# [2.0.0-beta.48](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.47...@ecomplus/storefront-app@2.0.0-beta.48) (2020-08-11)
+
+
+### Reverts
+
+* **checkout:** set  manually only ([fa22933](https://github.com/ecomplus/storefront/commit/fa229333a42c0e26e5c9796601cd31fbb6f26e99))
+
+
+
+
+
+# [2.0.0-beta.47](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.46...@ecomplus/storefront-app@2.0.0-beta.47) (2020-08-11)
+
+
+### Bug Fixes
+
+* **checkout:** ensure `editAccount` is set when account form is shown ([38642ae](https://github.com/ecomplus/storefront/commit/38642ae1c809d34cdde2eee02831126233f52dc9))
+
+
+
+
+
+# [2.0.0-beta.46](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.45...@ecomplus/storefront-app@2.0.0-beta.46) (2020-08-10)
+
+
+### Bug Fixes
+
+* **checkout:** try fixing checkout account -> steps flux with $nextTick ([a41ddd9](https://github.com/ecomplus/storefront/commit/a41ddd99bb4583a980905d4f5abb96717f35ec9b))
+
+
+
+
+
 # [2.0.0-beta.45](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.44...@ecomplus/storefront-app@2.0.0-beta.45) (2020-08-07)
 
 

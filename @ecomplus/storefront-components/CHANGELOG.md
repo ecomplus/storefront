@@ -3,6 +3,110 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.49](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.48...@ecomplus/storefront-components@1.0.0-beta.49) (2020-08-20)
+
+
+### Bug Fixes
+
+* **cart:** skip some components when cart has any valid item ([ad486bd](https://github.com/ecomplus/storefront/commit/ad486bdb74aa164d54c405d1eee8821d9497e51b))
+
+
+### Features
+
+* **cart-item:** check item stock and show properly message ([654127b](https://github.com/ecomplus/storefront/commit/654127b5e3e73f6c18523cde8cd68335a647f473))
+
+
+### Performance Improvements
+
+* **product-data:** unset/delete inventory_records and price_change_records when not needed ([d7c6777](https://github.com/ecomplus/storefront/commit/d7c6777573faafd5890ac8c4eae1f6ac68e413aa))
+
+
+
+
+
+# [1.0.0-beta.48](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.47...@ecomplus/storefront-components@1.0.0-beta.48) (2020-08-19)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shoppint-cart to ^2.1.7 ([beb198b](https://github.com/ecomplus/storefront/commit/beb198be29a4f689450cf0d2743b6ebcafce5a23))
+
+
+### Features
+
+* **product:** handle production time info ([#273](https://github.com/ecomplus/storefront/issues/273)) ([1348b03](https://github.com/ecomplus/storefront/commit/1348b0352fd69cb01b90a232293e8c1336f826dd))
+
+
+
+
+
+# [1.0.0-beta.47](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.46...@ecomplus/storefront-components@1.0.0-beta.47) (2020-08-17)
+
+
+### Features
+
+* **search-engine:** add `loadMoreSelector` to move lozad observed el with portal ([e142729](https://github.com/ecomplus/storefront/commit/e142729b1a345a672dbd9a27e45a1cc2e9216c31))
+
+
+
+
+
+# [1.0.0-beta.46](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.45...@ecomplus/storefront-components@1.0.0-beta.46) (2020-08-14)
+
+
+### Bug Fixes
+
+* **account-form:** validating phone number country code (int) ([b999e83](https://github.com/ecomplus/storefront/commit/b999e83e3296dc5bd786902b650ddc750abbebf1))
+
+
+### Features
+
+* **product-card:** add `transitionClass` prop ([a68f712](https://github.com/ecomplus/storefront/commit/a68f712ae05bde2999e3f0dbbc664914508bb6d6))
+* **product-gallery:** handle first picture pre loaded without reload ([96ab0d8](https://github.com/ecomplus/storefront/commit/96ab0d8e46e04b915c4b05a031951ff844faf775))
+* **search-engine:** add  boolean prop (true by default) ([06b4585](https://github.com/ecomplus/storefront/commit/06b45851a6948cd05e5ce7f4e19c580ad039c888))
+* **the-product:** handlers for painless hydration using portals ([59999eb](https://github.com/ecomplus/storefront/commit/59999eb1bf21e91fe4ba04d55c1e2679528a0afe))
+
+
+
+
+
+# [1.0.0-beta.45](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.44...@ecomplus/storefront-components@1.0.0-beta.45) (2020-08-12)
+
+
+### Bug Fixes
+
+* **account-form:** fixing full name string (sequential spaces) ([04b46bf](https://github.com/ecomplus/storefront/commit/04b46bf363039bdc1b1975628fb5243e64054ab5))
+* **address-form:** better handling zip code and address fetch ([38f3577](https://github.com/ecomplus/storefront/commit/38f35778b1cdf894e78eb8662ebf4b694898f81c))
+* **deps:** update @ecomplus/shopping-cart to ^2.1.6 ([499004b](https://github.com/ecomplus/storefront/commit/499004bbb1442b5852f5b2099711340064f8d863))
+* **product-variations:** ensure no option is selected by default ([0598f07](https://github.com/ecomplus/storefront/commit/0598f07ea492dc3b339e4785a65ac47f1330b971))
+
+
+
+
+
+# [1.0.0-beta.44](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.43...@ecomplus/storefront-components@1.0.0-beta.44) (2020-08-11)
+
+
+### Bug Fixes
+
+* **account-form:** fix parting full name str to name object (ensure familly name) ([d938d07](https://github.com/ecomplus/storefront/commit/d938d075238f4ad6f67865b522020dc32cea3311))
+
+
+
+
+
+# [1.0.0-beta.43](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.42...@ecomplus/storefront-components@1.0.0-beta.43) (2020-08-10)
+
+
+### Features
+
+* **account-form:** better ux response on submit ([0829f2d](https://github.com/ecomplus/storefront/commit/0829f2d1e1a7b69bd42d8f9d6c6b94bbd07a615e))
+* **shipping-calculator:** add `shippingAppsSort` prop ([f21d7e5](https://github.com/ecomplus/storefront/commit/f21d7e5bb625ee99ecbd1693825a7ddcdd88b906))
+
+
+
+
+
 # [1.0.0-beta.42](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.41...@ecomplus/storefront-components@1.0.0-beta.42) (2020-08-04)
 
 

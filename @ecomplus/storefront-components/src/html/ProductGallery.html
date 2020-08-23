@@ -53,10 +53,17 @@
             <div @click="openZoom(i)">
               <slot v-if="i === 0 && !isSliderMoved">
                 <a-picture
+                  v-if="!elFirstPicture"
                   class="gallery__big-image"
                   :src="getImg(picture, null, 'big')"
                 />
+                <div
+                  v-else
+                  ref="firstPicture"
+                  class="gallery__big-image"
+                ></div>
               </slot>
+
               <a-picture
                 v-else
                 class="gallery__big-image"

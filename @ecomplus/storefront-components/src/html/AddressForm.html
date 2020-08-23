@@ -28,13 +28,13 @@
       />
 
       <div
-        v-if="!isZipReady"
+        v-if="zipLoading || zipInfoLink"
         class="input-group-append"
       >
         <span class="input-group-text">
           <a
-            v-if="!isZipLoading"
-            href="http://www.buscacep.correios.com.br/sistemas/buscacep/default.cfm"
+            v-if="!zipLoading"
+            :href="zipInfoLink"
             target="_blank"
           >
             <i class="fas fa-question-circle"></i>

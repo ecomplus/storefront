@@ -24,6 +24,7 @@ import {
 import { i18n } from '@ecomplus/utils'
 import lozad from 'lozad'
 import EcomSearch from '@ecomplus/search-engine'
+import { Portal } from '@linusborg/vue-simple-portal'
 import ABackdrop from '../ABackdrop.vue'
 import ProductCard from '../ProductCard.vue'
 
@@ -44,6 +45,7 @@ export default {
   name: 'SearchEngine',
 
   components: {
+    Portal,
     ABackdrop,
     ProductCard
   },
@@ -79,7 +81,12 @@ export default {
       type: Boolean,
       default: true
     },
+    loadMoreSelector: String,
     canRetry: {
+      type: Boolean,
+      default: true
+    },
+    canShowItems: {
       type: Boolean,
       default: true
     },

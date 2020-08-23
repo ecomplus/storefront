@@ -1,4 +1,7 @@
-import { i19selectVariation } from '@ecomplus/i18n'
+import {
+  i19select,
+  i19selectVariation
+} from '@ecomplus/i18n'
 
 import {
   i18n,
@@ -40,6 +43,7 @@ export default {
   },
 
   computed: {
+    i19select: () => i18n(i19select),
     i19selectVariation: () => i18n(i19selectVariation),
 
     variationsGrids () {
