@@ -32,7 +32,6 @@ main {
     }
   }
 
-  
   #search-input {
     border: solid 1px $gray-600;
   }
@@ -113,7 +112,6 @@ main {
     &__nav {
       background-color: $gray-800;
     }
-    
   }
 
   .checkout__info {
@@ -145,12 +143,19 @@ main {
 
   .html-clearfix {
     background-color: $gray-800;
-    
   }
 
-
+  .menu {
+    &__item-icon {
+      img{
+        background-color: red;
+        filter: contrast(0.5) important!;
+      }
+      
+    }
+  }
 }
- body {
+body {
   .app {
     &__header {
       background-color: $black;
@@ -167,4 +172,3 @@ main {
     }
   }
 }
-
