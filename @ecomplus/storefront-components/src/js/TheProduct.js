@@ -104,11 +104,7 @@ export default {
         return window.ecomPaymentApps || []
       }
     },
-    isSSR: Boolean,
-    isQuickview: {
-      type: Boolean,
-      default: false
-    }
+    isSSR: Boolean
   },
 
   data () {
@@ -205,7 +201,8 @@ export default {
       })
         .then(({ data }) => {
           this.setBody(data)
-          if (getContextId() === productId) {
+          const contextBody = getContextBody()
+          if (contextBody && contextBody._id === productId) {
             storefront.context.body = data
           }
           this.hasLoadError = false
