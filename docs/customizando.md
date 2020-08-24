@@ -222,7 +222,7 @@ Geralmente, recomendamos que seja utilizado apenas para substituir HTML de um co
 apesar de também funcionar para scripts e estilos.
 
 Você deve começar buscando o arquivo original no
-[Repositório GitHub](https://github.com/ecomplus/storefront/tree/master/%40ecomplus/storefront-components/src/html),
+[repositório do GitHub](https://github.com/ecomplus/storefront/tree/master/%40ecomplus/storefront-components/src/html),
 copiar o arquivo que deseja substituir e colar dentro de
 `/template/js/custom-js/`, edite o arquivo conforme desejar e crie um arquivo
 `storefront.webpack.js` no root do seu repositório, como por exemplo:
