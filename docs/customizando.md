@@ -184,7 +184,7 @@ Se você necessita de uma customização mais profunda no componente, considere 
 `./html/ProductCard.html` (veja [substituindo componente Vue](#replace-vue-components)).
 :::
 
-> **Você não precisa saber Vue.js para customizar o storefront**,
+> **Você não precisa saber Vue.js para customizar o Storefront**,
 Vue é bem simples de aprender e incrível pelo ganho de produtividade em customizações mais avançadas.
 Mas você não precisa dele, conforme já falamos :v:
 
