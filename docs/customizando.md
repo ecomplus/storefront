@@ -195,7 +195,7 @@ Para mais detalhes, por favor verifique a
 [UI base](../@ecomplus/storefront-twbs/docs/06-javascript.md) e
 [globais do JS](../@ecomplus/storefront-template/docs/05-javascript.md).
 
-- Se você precisa adicionar apenas alguns JS, faça diretamente no CMS em _Layout > Inserir Código > Custom CSS_
+- Se você precisa adicionar apenas scripts pequenos, faça diretamente no CMS em _Layout > Inserir Código_
 adicionando as tags `<script>` antes de `/body` ou `/head` (se necessário). Além disso,
 você consegue adicionar scripts em páginas específicas utilizando blocos de _Código HTML_;
 
