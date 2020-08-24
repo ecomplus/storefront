@@ -193,7 +193,7 @@ mas não é um requisito :v:
 Por padrão, você pode utilizar jQuery 3 (slim), Vue.js 2 e algumas pequenas bibliotecas que estão disponíveis globalmente.
 Para mais detalhes, por favor verifique a
 [UI base](../@ecomplus/storefront-twbs/docs/06-javascript.md) e
-[JS globais](../@ecomplus/storefront-template/docs/05-javascript.md).
+[globais do JS](../@ecomplus/storefront-template/docs/05-javascript.md).
 
 - Se você precisa adicionar apenas alguns JS, faça diretamente no CMS em _Layout > Inserir Código > Custom CSS_
 adicionando as tags `<script>` antes de `/body` ou `/head` (se necessário). Além disso,
