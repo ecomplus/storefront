@@ -177,7 +177,7 @@ Nesses casos, é sugerido que utilize o atributo `data-slot` para preservar a su
 ```
 
 O valor do atributo `data-slot` deve corresponder ao nome do [slot](https://vuejs.org/v2/guide/components-slots.html) respectivo no componente Vue, por favor
-cheque [`<ProductCard>` slots here](../@ecomplus/storefront-components/docs/ProductCard.md#slots).
+cheque os [slots do `<ProductCard>` aqui](../@ecomplus/storefront-components/docs/ProductCard.md#slots).
 
 ::: tip Dica PRO
 Se você necessita de uma customização mais profunda no componente, considere criar um arquivo semelhante via Webpack para substituir o original
