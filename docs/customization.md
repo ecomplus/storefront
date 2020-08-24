@@ -237,6 +237,6 @@ module.exports = () => ({
 })
 ```
 
-> Note that all [Storefront components](../@ecomplus/storefront-components/) are
+> Note that all [Storefront Components](../@ecomplus/storefront-components/) are
 composed by 4 files (Vue/HTML/JS/SCSS), the Vue file always imports the
 HTML one with `./html/{ComponentName}.html`.
