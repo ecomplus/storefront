@@ -1,5 +1,7 @@
 # Customization :pencil:
 
+[:brazil: Tradução em português](./customization@pt.md)
+
 > Here we're considering you already heave a deploy created from
 [Storefront Starter](https://github.com/ecomplus/storefront-starter) and using our default
 `@ecomplus/storefront-template`. If you're an E-Com Plus merchant, we did it for you :wink:
