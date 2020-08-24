@@ -28,7 +28,10 @@
         </slot>
   
         <div class="quickview-modal__body card-body">
-          <the-product :productId="product._id" :isQuickview="true" />
+          <the-product
+            :product-id="product._id"
+            :is-quickview="true"
+          />
         </div>
       </div>
     </transition>
