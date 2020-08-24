@@ -1,10 +1,10 @@
 # Bootstrap components
 
-Bootstrap is a popular structure around the world for creating responsive websites for mobile devices.
+We're including almost all Bootstrap 4.5 styles and components, just a few components aren't included by default as you can see at [`scss/styles.scss`](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs/scss/styles.scss).
 
-Bootstrap has several JavaScript plugins (jQuery) that make your daily life much easier. With numerous ready-made libraries available, what needs to be done is just to include them in your projects.
+You can check below the main components included.
 
-**See the components used:**
+> WIP
 
 ## Alert
 

@@ -1,50 +1,35 @@
 # Colors guide
 
-Convey meaning through color with a handful of color utility classes. Includes support for styling links with hover states, too.
+All E-Com Plus stores should include Storefront Twbs to improve compatibility between brand colors, store template and third party widgets, keeping as possible a consistent visual identity.
 
-<DemoBootstrap :showColor1="true" />
-```html
-<p class="text-primary">.text-primary</p>
-<p class="text-muted">.text-muted</p>
-```
-Contextual text classes also work well on anchors with the provided hover and focus states. Note that the `.text-white` and `.text-muted` class has no additional link styling beyond underline.
+**To create a new template**, you _SHOULD_ use as possible the default Bootstrap components, and/or adapt them to mirror your theme visual identity.
 
-<DemoBootstrap :showColor2="true" />
-```html
-<p><a href="#" class="text-primary">Primary link</a></p>
-<p><a href="#" class="text-muted">Muted link</a></p>
-```
+**To create a new widget**, you _MUST_ use Bootstrap components the maximum as possible, to follow the theme and store brand visual identity, you should also use CSS vars and utilities.
 
-### Background color
+## Brand colors
 
-Similar to the contextual text color classes, easily set the background of an element to any contextual class. Anchor components will darken on hover, just like the text classes. Background utilities **do not set** `color`, so in some cases you’ll want to use `.text-* `utilities.
+The merchant would set the `$primary` and `$secondary` colors following the store brand.
 
-<DemoBootstrap :showColor3="true" />
+### Primary
 
-```html
-<div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
-```
+Should be used to drive attention to the main tasks that should be done while using the app. It is meant to be used in major interactive elements of the page.
 
-### Background gradient
-When $enable-gradients is set to true (default is false), you can use .bg-gradient- utility classes. Learn about our Sass options to enable these classes and more.
+Usage examples:
 
-+ `.bg-gradient-primary`
-+ `.bg-gradient-secondary`
-+ `.bg-gradient-success`
-+ `.bg-gradient-danger`
-+ `.bg-gradient-warning`
-+ `.bg-gradient-info`
-+ `.bg-gradient-light`
-+ `.bg-gradient-dark`
+- Links;
+- Call to actions;
+- Obligatory forms;
+- Check boxes;
+- Radio buttons;
+- Toggles;
 
-___
-### Dealing with specificity
-Sometimes contextual classes cannot be applied due to the specificity of another selector. In some cases, a sufficient workaround is to wrap your element’s content in a `<div>` with the class.
-___
+### Secondary
 
-___
-### Conveying meaning to assistive technologies
-Using color to add meaning only provides a visual indication, which will not be conveyed to users of assistive technologies – such as screen readers. Ensure that information denoted by the color is either obvious from the content itself (e.g. the visible text), or is included through alternative means, such as additional text hidden with the .sr-only class.
-___
+Should be used to drive attention in the elements with relevant info, but where the user is not intended to take action.
 
-[See more](https://getbootstrap.com/docs/4.5/utilities/colors/)
+Usage examples:
+
+- Secondary buttons;
+- Badges;
+- Sales tags;
+- Hotmarks;
