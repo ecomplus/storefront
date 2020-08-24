@@ -1,45 +1,52 @@
 <template>
   <div class="demo">
-      <div class="row">
-        <div class="col-md-6">
-          <select class="form-control"  v-model="selectedOption" @change="toggleAnimation()">
-            <option
-              v-for="option of options"
-              :value="option">
-              {{option}}
-            </option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <button class="btn btn-primary" @click="toggleAnimation()">Animate it</button>
-        </div>
+    <div class="row">
+      <div class="col-6">
+        <select
+          class="form-control"
+          v-model="transition"
+        >
+          <option
+            v-for="option of options"
+            :value="option"
+          >
+            {{option}}
+          </option>
+        </select>
       </div>
-      <br/>
-      <div class="row">
-        <div class="col col-md-12">
-          <div class="demo-transition">
-            <transition
-            :enter-active-class="`animated ${selectedOption}`"
-            leave-active-class="`animated fadeOutUp slow"
-            >
-              <img v-if="showElement" src="/assets/img/banner.png">
-            </transition>
-          </div>
-        </div>
+      <div class="col-6">
+        <button
+          class="btn btn-primary"
+          @click="animate"
+        >
+          Animate it
+        </button>
       </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col col-md-12">
+        <transition
+          :enter-active-class="enterClass"
+          :leave-active-class="leaveClass"
+        >
+          <img
+            v-if="isVisible"
+            src="/storefront/assets/img/banner.png"
+          >
+        </transition>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   export default {
     name: 'DemoAnimateCss',
-    data: () => {
+    data () {
       return {
-        showElement: true,
-        selectedOption: 'slideInLeft',
+        isVisible: true,
+        transition: 'fadeOut',
         options: [
-          'slideInLeft',
-          'fadeOutUp',
           'bounce',
           'flash',
           'pulse',
@@ -69,16 +76,31 @@
         ]
       }
     },
+    computed: {
+      isLeaveTransition () {
+        return this.transition.indexOf('Out') > -1
+      },
+      leaveClass () {
+        return this.isLeaveTransition
+          ? `animated slow ${this.transition}`
+          : null
+      },
+      enterClass () {
+        return !this.isLeaveTransition
+          ? `animated slow ${this.transition}`
+          : null
+      }
+    },
     methods: {
-      toggleAnimation() {
-        setTimeout(()=> { this.showElement= false }, 500)
-        setTimeout(()=> { this.showElement= true }, 1000)
+      animate () {
+        this.isVisible = this.isLeaveTransition
+        this.$nextTick(() => {
+          this.isVisible = !this.isVisible
+          setTimeout(() => {
+            this.isVisible = true
+          }, 700)
+        })
       }
     }
   }
 </script>
-<style>
-  .demo-transition{
-    height: 380px;
-  }
-</style>
