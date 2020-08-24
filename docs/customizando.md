@@ -180,7 +180,7 @@ O valor do atributo `data-slot` deve corresponder ao nome do [slot](https://vuej
 cheque os [slots do `<ProductCard>` aqui](../@ecomplus/storefront-components/docs/ProductCard.md#slots).
 
 ::: tip Dica PRO
-Se você necessita de uma customização mais profunda no componente, considere criar um arquivo semelhante via Webpack para substituir o original
+Se você necessita de uma customização mais profunda no componente, considere criar Webpack alias para 
 `./html/ProductCard.html` (veja [substituindo componente Vue](#replace-vue-components)).
 :::
 
