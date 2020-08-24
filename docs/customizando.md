@@ -219,7 +219,7 @@ Quando métodos mais fáceis não são suficientes para o nível de personaliza�
 tente [Webpack 4 aliases](https://webpack.js.org/configuration/resolve/#resolvealias).
 
 Geralmente, recomendamos que seja utilizado apenas para substituir HTML de um componente Vue :triangular_ruler:,
-apesar de funcionar para scripts e estilos.
+apesar de também funcionar para scripts e estilos.
 
 Você deve começar buscando o arquivo original no
 [Repositório GitHub](https://github.com/ecomplus/storefront/tree/master/%40ecomplus/storefront-components/src/html),
