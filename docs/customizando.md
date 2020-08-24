@@ -40,10 +40,10 @@ do seu deploy do Storefront em `https://www.seudominio.com.br/admin/`, depois do
   <div class="container">
     <div class="row">
       <div class="col">
-        <img src="/storefront/assets/img/doc_customization1.png" alt="CMS">
+        <img src="/storefront/assets/img/cms-config.png" alt="CMS config">
       </div>
       <div class="col">
-        <img src="/assets/img/doc_customization2.png" alt="CMS">
+        <img src="/storefront/assets/img/cms-info.png" alt="CMS info">
       </div>
     </div>
   </div>
@@ -51,11 +51,11 @@ do seu deploy do Storefront em `https://www.seudominio.com.br/admin/`, depois do
 
 + Inserir as cores da identidade da loja:
 
-<img src="/storefront/assets/img/doc_customization3.png" alt="CMS" style="max-height: 180px">
+<img src="/storefront/assets/img/cms-colors.png" alt="CMS colors" style="max-height: 180px">
 
 + Organizar todas as páginas adicionando, movendo ou removendo seções (arraste e solte):
 
-<img src="/storefront/assets/img/doc_customization.gif" alt="CMS" style="max-height: 240px">
+<img src="/storefront/assets/img/cms-dd.gif" alt="CMS drag'n drop" style="max-height: 240px">
 
 + Adicionar código HTML, JS ou CSS extra para cada página ou todo o site:
 
@@ -63,10 +63,10 @@ do seu deploy do Storefront em `https://www.seudominio.com.br/admin/`, depois do
   <div class="container">
     <div class="row">
       <div class="col">
-        <img src="/storefront/assets/img/doc_customization4.png" alt="CMS">
+        <img src="/storefront/assets/img/cms-html-section.png" alt="CMS custom HTML section">
       </div>
       <div class="col">
-        <img src="/storefront/assets/img/doc_customization5.png" alt="CMS">
+        <img src="/storefront/assets/img/cms-insert-code.png" alt="CMS insert code">
       </div>
     </div>
   </div>
@@ -101,7 +101,7 @@ diretamente no GitHub ou usando seu editor de código preferido:
     e optar por criar do zero por exemplo os estilos do rodapé, também é possível. Inclusive indicamos isso para evitar duplicidade, caso saiba o que esteja fazendo.
     (perf optim :rocket:, não tão fácil quanto as opções anteriores);
 
-::: tip
+::: tip DICA
 Encorajamos a utilização de
 [CSS vars](../@ecomplus/storefront-twbs/docs/05-vars.md)
 sempre que possível, para tornar seu código adicional
@@ -114,7 +114,7 @@ facilmente customizável e extensível.
   background-color: var(--secondary);
 }
 ```
-<img src="/storefront/assets/img/doc_customization9.png" alt="CMS" style="max-height: 180px">
+<img src="/storefront/assets/img/css-vars.png" alt="CSS vars example" style="max-height: 180px">
 :::
 
 Como exemplo você também pode analisar o SCSS aplicado por
@@ -131,13 +131,13 @@ editar as views padrão você deve editar os arquivos
 + `/template/pages/@/meta.ejs` para customizar meta tags
 (especialmente para SEO):
 
-<img src="/storefront/assets/img/doc_customization8.png" alt="CMS" width="400">
+<img src="/storefront/assets/img/ejs-meta.png" alt="EJS meta tags" width="400">
 
 + `/template/pages/@/sections/` para editar vários componentes reutilizáveis :pushpin:,
 estes renderizam o conteúdo principal das páginas e são
 configurados no arraste e solte do CMS:
 
-<img src="/storefront/assets/img/doc_customization7.png" alt="CMS" width="400">
+<img src="/storefront/assets/img/ejs-info-bar.png" alt="EJS info bar" width="400">
 
 + `/template/pages/@/layout/` para editar organismos comuns do
 layout (rodapé, cabeçalho e menu);
@@ -148,7 +148,7 @@ Antes de começar a editar HTML, deve ser útil checar os
 [componentes](../@ecomplus/storefront-twbs/docs/01-components.md) e
 classes CSS utilitárias disponíveis por padrão.
 
-::: tip
+::: tip DICA
 EJS é uma linguaguem de template simples baseada em JS
 para gerar markup HTML programaticamente,
 claro que você pode apenas escrever HTML padrão,
@@ -176,11 +176,11 @@ Nesses casos, é sugerido que utilize o atributo `data-slot` para preservar a su
 </div>
 ```
 
-O valor do atributo `data-slot` deve corresponder ao nome do [slot](https://vuejs.org/v2/guide/components-slots.html) respectivo no componente Vue, por favor
+O valor do atributo `data-slot` deve corresponder ao nome do [slot](https://vuejs.org/v2/guide/components-slots.html) respectivo no componente Vue,
 cheque os [slots do `<ProductCard>` aqui](../@ecomplus/storefront-components/docs/ProductCard.md#slots).
 
-::: tip Dica PRO
-Se você necessita de uma customização mais profunda no componente, considere criar Webpack alias para 
+::: tip DICA PRO
+Se você necessita de uma customização mais profunda no componente, considere criar Webpack alias para
 `./html/ProductCard.html` (veja [substituindo componente Vue](#replace-vue-components)).
 :::
 
@@ -191,7 +191,7 @@ mas não é um requisito :v:
 ## Scripts adicionais
 
 Por padrão, você pode utilizar jQuery 3 (slim), Vue.js 2 e algumas pequenas bibliotecas que estão disponíveis globalmente.
-Para mais detalhes, por favor verifique a
+Para mais detalhes, verifique a
 [UI base](../@ecomplus/storefront-twbs/docs/06-javascript.md) e
 [globais do JS](../@ecomplus/storefront-template/docs/05-javascript.md).
 
@@ -202,14 +202,14 @@ você consegue adicionar scripts em páginas específicas utilizando blocos de _
 - Se está planejando inserir bastante JS (ou ES), sugerimos fortemente que insira diretamente na pasta `/template/js/custom-js/` no Github ou em seu editor de código preferido. Você também pode criar um novo arquivo e
 [importar](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/import) devidamente.
 
-::: tip
+::: tip DICA
 Quando editar arquivos em `/template/js/`, você pode utilizar ES6 sem se preocupar com suporte do navegador,
 os códigos inseridos serão parseados e minificados.
 :::
 
 ## Substituir componentes Vue
 
-::: warning
+::: warning ALERTA
 Use-o com moderação e apenas quando realmente necessário,
 evite utilizar para implementações diferentes das citados abaixo, especialmente se não conhecer muito bem Webpack.
 :::

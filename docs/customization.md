@@ -38,10 +38,10 @@ of your Storefront deploy at `https://yourdomain.com/admin/`, after login you'll
   <div class="container">
     <div class="row">
       <div class="col">
-        <img src="/storefront/assets/img/doc_customization1.png" alt="CMS">
+        <img src="/storefront/assets/img/cms-config.png" alt="CMS config">
       </div>
       <div class="col">
-        <img src="/assets/img/doc_customization2.png" alt="CMS">
+        <img src="/storefront/assets/img/cms-info.png" alt="CMS info">
       </div>
     </div>
   </div>
@@ -49,11 +49,11 @@ of your Storefront deploy at `https://yourdomain.com/admin/`, after login you'll
 
 + Set your store's identity colors:
 
-<img src="/storefront/assets/img/doc_customization3.png" alt="CMS" style="max-height: 180px">
+<img src="/storefront/assets/img/cms-colors.png" alt="CMS colors" style="max-height: 180px">
 
 + Organize all pages adding, moving or removing sections (drag and drop):
 
-<img src="/storefront/assets/img/doc_customization.gif" alt="CMS" style="max-height: 240px">
+<img src="/storefront/assets/img/cms-dd.gif" alt="CMS drag'n drop" style="max-height: 240px">
 
 + Add extra HTML, JS or CSS code for each page or entire website:
 
@@ -61,10 +61,10 @@ of your Storefront deploy at `https://yourdomain.com/admin/`, after login you'll
   <div class="container">
     <div class="row">
       <div class="col">
-        <img src="/storefront/assets/img/doc_customization4.png" alt="CMS">
+        <img src="/storefront/assets/img/cms-html-section.png" alt="CMS custom HTML section">
       </div>
       <div class="col">
-        <img src="/storefront/assets/img/doc_customization5.png" alt="CMS">
+        <img src="/storefront/assets/img/cms-insert-code.png" alt="CMS insert code">
       </div>
     </div>
   </div>
@@ -109,7 +109,7 @@ always then possible to make your additional code easily customizable and extens
   background-color: var(--secondary);
 }
 ```
-<img src="/storefront/assets/img/doc_customization9.png" alt="CMS" style="max-height: 180px">
+<img src="/storefront/assets/img/css-vars.png" alt="CSS vars example" style="max-height: 180px">
 :::
 
 As example you can also check custom SCSS applied
@@ -126,16 +126,17 @@ but to edit default views you should edit
 + `/template/pages/@/meta.ejs` to customize meta tags
 (specially for SEO purposes):
 
-<img src="/storefront/assets/img/doc_customization8.png" alt="CMS" width="400">
+<img src="/storefront/assets/img/ejs-meta.png" alt="EJS meta tags" width="400">
 
 + `/template/pages/@/sections/` to get lot of reusable components :pushpin:,
 those ones renders the pages main content and are used on the CMS drag and drop tool:
 
-<img src="/storefront/assets/img/doc_customization7.png" alt="CMS" width="400">
+<img src="/storefront/assets/img/ejs-info-bar.png" alt="EJS info bar" width="400">
 
 + `/template/pages/@/layout/` to edit common layout organisms
 (footer, header, menu);
-+ `/template/pages/app/` to edit cart/checkout in a superficial way, just like insert banners, counters or a product carousel for example;
++ `/template/pages/app/` to edit cart/checkout in a superficial way,
+just like insert banners, counters or a product carousel for example;
 
 Before start editing HTML, it should be useful to check the
 [components](../@ecomplus/storefront-twbs/docs/01-components.md) and
