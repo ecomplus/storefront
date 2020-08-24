@@ -176,7 +176,7 @@ Nesses casos, é sugerido que utilize o atributo `data-slot` para preservar a su
 </div>
 ```
 
-O valor do atributo `data-slot` deve corresponder ao nome do [slot](https://vuejs.org/v2/guide/components-slots.html) correspondente ao componente do Vue, por favor
+O valor do atributo `data-slot` deve corresponder ao nome do [slot](https://vuejs.org/v2/guide/components-slots.html) respectivo no componente Vue, por favor
 cheque [`<ProductCard>` slots here](../@ecomplus/storefront-components/docs/ProductCard.md#slots).
 
 ::: tip Dica PRO
