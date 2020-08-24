@@ -225,7 +225,7 @@ Você deve começar buscando o arquivo original no
 [Repositório GitHub](https://github.com/ecomplus/storefront/tree/master/%40ecomplus/storefront-components/src/html),
 copiar o arquivo que deseja substituir e colar dentro de
 `/template/js/custom-js/`, edite o arquivo conforme desejar e crie um arquivo
-`storefront.webpack.js` no root do repositório, como por exemplo:
+`storefront.webpack.js` no root do seu repositório, como por exemplo:
 
 ```js
 // storefront.webpack.js
