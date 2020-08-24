@@ -49,7 +49,7 @@ do seu deploy do Storefront em `https://www.seudominio.com.br/admin/`, depois do
   </div>
 </div>
 
-+ Setar as cores da identidade da loja:
++ Inserir as cores da identidade da loja:
 
 <img src="/storefront/assets/img/doc_customization3.png" alt="CMS" style="max-height: 180px">
 
@@ -82,28 +82,27 @@ Estamos usando o `@ecomplus/storefront-twbs`
 para detalhes cheque a [referência da UI base](../@ecomplus/storefront-twbs/).
 Você também pode querer checar os
 [seletores de elementos](../@ecomplus/storefront-template/docs/01-elements.md)
-mais importantes to template.
+mais importantes do template.
 
 - Se você quer apenas adicionar poucos trechos de CSS,
 faça isto no CMS em _Layout > Inserir código > CSS customizado_;
 - Se você planeja fazer alterações maiores nós recomendamos
 editar os arquivos SCSS
-(você pode usar [Sass](https://sass-lang.com/) ou apenas CSS padrão)
-diretamente do GitHub ou usando seu editor de código preferido:
+(você pode utilizar o [Sass](https://sass-lang.com/) ou apenas CSS padrão)
+diretamente no GitHub ou usando seu editor de código preferido:
     1. Adicione ou sobrescreva estilos em
     `/template/scss/custom-css/_styles.scss`;
     2. Para substituir os estilos padrão do template você pode tentar usar
     [variáveis SCSS do Bootstrap](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss)
     em `/template/scss/_variables.scss`;
     3. Finalmente, você também pode editar _from scratch_ em
-    `/template/scss/_main.scss` se você não quiser importar todos os
+    `/template/scss/_main.scss` se não quiser importar todos os
     [estilos do Storefront Template](https://github.com/ecomplus/storefront/tree/master/%40ecomplus/storefront-template/template/scss),
-    por exemplo se quiser criar do zero os estilos do rodapé e
-    não quiser importar o padrão do template
+    e optar por criar do zero por exemplo os estilos do rodapé, também é possível. Inclusive indicamos isso para evitar duplicidade, caso saiba o que esteja fazendo.
     (perf optim :rocket:, não tão fácil quanto as opções anteriores);
 
 ::: tip
-Também encorajamos a utilização de
+Encorajamos a utilização de
 [CSS vars](../@ecomplus/storefront-twbs/docs/05-vars.md)
 sempre que possível, para tornar seu código adicional
 facilmente customizável e extensível.
@@ -126,7 +125,7 @@ e [Niche Baby](https://github.com/ecomplus/storefront/blob/master/%40ecomplus/st
 ## Editar views pré-renderizadas
 
 No CMS é possível incluir snippets HTML adicionais, mas para
-editr as views padrão você deve editar os arquivos
+editar as views padrão você deve editar os arquivos
 [EJS](https://ejs.co/) na pasta `/template/pages/`:
 
 + `/template/pages/@/meta.ejs` para customizar meta tags
@@ -141,9 +140,9 @@ configurados no arraste e solte do CMS:
 <img src="/storefront/assets/img/doc_customization7.png" alt="CMS" width="400">
 
 + `/template/pages/@/layout/` para editar organismos comuns do
-layout (rodapé, cabeçalho, menu);
-+ `/template/pages/@/app/` para customizar a view específica
-do carrinho e checkout;
+layout (rodapé, cabeçalho e menu);
++ `/template/pages/app/` para customizar carrinho e checkout,
+de forma superficial como contadores, banners e vitrines por exemplo;
 
 Antes de começar a editar HTML, deve ser útil checar os
 [componentes](../@ecomplus/storefront-twbs/docs/01-components.md) e
@@ -166,12 +165,9 @@ mas atualizando as partes não alteradas via Git diff :sunglasses:
 
 ### Nota para cards de produtos
 
-Some pre-rendered HTML elements are overwritten with JS on client by the
-respective Vue components, it happens specially with product cards pre-rendered by
-`/template/pages/@/sections/inc/product-item.ejs`.
+Alguns elementos HTML pré-renderizados são sobrescritos por JS no cliente pelos respectivos componentes Vue, isso acontece especialmente nos cards de produto pré-renderizados por `/template/pages/@/sections/inc/product-item.ejs`.
 
-In those cases you should use `data-slot` attribute to preserve your custom code
-after hydration, for example:
+Nesses casos, é sugerido que utilize o atributo `data-slot` para preservar a sua customização após a hidratação realizada pelo Storefront, veja um exemplo a seguir:
 
 ```html
 <div data-slot="buy-button-content">
@@ -180,58 +176,55 @@ after hydration, for example:
 </div>
 ```
 
-The `data-slot` value must correspond to a
-[slot](https://vuejs.org/v2/guide/components-slots.html) name
-of the Vue component, check
-[`<ProductCard>` slots here](../@ecomplus/storefront-components/docs/ProductCard.md#slots).
+O valor do atributo `data-slot` deve corresponder ao nome do [slot](https://vuejs.org/v2/guide/components-slots.html) respectivo no componente Vue, por favor
+cheque os [slots do `<ProductCard>` aqui](../@ecomplus/storefront-components/docs/ProductCard.md#slots).
 
-::: tip PRO TIP
-If you need deeper customization, consider creating an Webpack alias to
-`./html/ProductCard.html` (check [replacing Vue components](#replace-vue-components)).
+::: tip Dica PRO
+Se você necessita de uma customização mais profunda no componente, considere criar Webpack alias para 
+`./html/ProductCard.html` (veja [substituindo componente Vue](#replace-vue-components)).
 :::
 
-> **You don't need to know Vue.js to customize Storefront**,
-Vue is awesome and really easy to learn, for advanced customization it'll give you
-lot of productivity, but it's not required at all :v:
+> **Você não precisa saber Vue.js para customizar o Storefront**,
+Vue incrível e bem simples de aprender, para customizações avançadas te entregaria muita produtividade,
+mas não é um requisito :v:
 
 ## Scripts adicionais
 
-By default you can use jQuery 3 (slim), Vue.js 2 and some other
-small libraries globally available, for details check
-[base UI included JS](../@ecomplus/storefront-twbs/docs/06-javascript.md) and
-[template JS globals](../@ecomplus/storefront-template/docs/05-javascript.md).
+Por padrão, você pode utilizar jQuery 3 (slim), Vue.js 2 e algumas pequenas bibliotecas que estão disponíveis globalmente.
+Para mais detalhes, por favor verifique a
+[UI base](../@ecomplus/storefront-twbs/docs/06-javascript.md) e
+[globais do JS](../@ecomplus/storefront-template/docs/05-javascript.md).
 
-- If you just want to add few JS, do it in the CMS at _Layout > Insert code_
-adding `<script>` tags before `/body` or (when really needed) `/head`,
-you can also add scripts to specific pages using _HTML code_ section;
-- If you're planning to add lot of JS (or ES) code, it's strongly recommended to
-edit JS files at `/template/js/custom-js/` folder directly from GitHub or locally using your preferred code editor. You can also create new files and
-[import](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/import) properly;
+- Se você precisa adicionar apenas scripts pequenos, faça diretamente no CMS em _Layout > Inserir Código_
+adicionando as tags `<script>` antes de `/body` ou `/head` (se necessário). Além disso,
+você consegue adicionar scripts em páginas específicas utilizando blocos de _Código HTML_;
+
+- Se está planejando inserir bastante JS (ou ES), sugerimos fortemente que insira diretamente na pasta `/template/js/custom-js/` no Github ou em seu editor de código preferido. Você também pode criar um novo arquivo e
+[importar](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/import) devidamente.
 
 ::: tip
-When editing `/template/js/` files you can use ES6 features without worrying about
-browser support, code there will be parsed and minified.
+Quando editar arquivos em `/template/js/`, você pode utilizar ES6 sem se preocupar com suporte do navegador,
+os códigos inseridos serão parseados e minificados.
 :::
 
 ## Substituir componentes Vue
 
 ::: warning
-Use it with moderation and only when really needed, skip using for things other
-then explained below, specially if you don't know Webpack very well.
+Use-o com moderação e apenas quando realmente necessário,
+evite utilizar para implementações diferentes das citados abaixo, especialmente se não conhecer muito bem Webpack.
 :::
 
-When easier ways aren't sufficient to make your wanted customization,
-you can give a try with
-[Webpack 4 aliases](https://webpack.js.org/configuration/resolve/#resolvealias).
+Quando métodos mais fáceis não são suficientes para o nível de personalização desejável,
+tente usar [Webpack 4 aliases](https://webpack.js.org/configuration/resolve/#resolvealias).
 
-Generally we recommend to use it only for replacing Vue components
-HTML template :triangular_ruler:, although it would work also for scripts and styles.
+Geralmente, recomendamos que seja utilizado apenas para substituir HTML de componentes Vue :triangular_ruler:,
+apesar de também funcionar para scripts e estilos.
 
-You should start getting the original source from
-[GitHub repo](https://github.com/ecomplus/storefront/tree/master/%40ecomplus/storefront-components/src/html),
-copy the file you want to replace and paste it inside
-`/template/js/custom-js/` folder, edit the new file as needed and then create
-a `storefront.webpack.js` file at the root of your repository, as example:
+Você deve começar buscando o arquivo original no
+[repositório do GitHub](https://github.com/ecomplus/storefront/tree/master/%40ecomplus/storefront-components/src/html),
+copiar o arquivo que deseja substituir e colar dentro de
+`/template/js/custom-js/`, edite o arquivo conforme desejar e crie um arquivo
+`storefront.webpack.js` no root do seu repositório, como por exemplo:
 
 ```js
 // storefront.webpack.js
@@ -247,6 +240,6 @@ module.exports = () => ({
 })
 ```
 
-> Note that all [Storefront components](../@ecomplus/storefront-components/) are
-composed by 4 files (Vue/HTML/JS/SCSS), the Vue file always imports the
-HTML one with `./html/{ComponentName}.html`.
+> Note que todos componentes do [Storefront components](../@ecomplus/storefront-components/) são
+compostos por 4 arquivos (Vue/HTML/JS/SCSS), o arquivo Vue sempre importa HTML correspondente
+com `./html/{ComponentName}.html`.

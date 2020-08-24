@@ -55,7 +55,7 @@ of your Storefront deploy at `https://yourdomain.com/admin/`, after login you'll
 
 <img src="/storefront/assets/img/doc_customization.gif" alt="CMS" style="max-height: 240px">
 
-+ Add extra HTML, JS or CSS code for each page or entire site:
++ Add extra HTML, JS or CSS code for each page or entire website:
 
 <div class="demo">
   <div class="container">
@@ -135,7 +135,7 @@ those ones renders the pages main content and are used on the CMS drag and drop 
 
 + `/template/pages/@/layout/` to edit common layout organisms
 (footer, header, menu);
-+ `/template/pages/@/app/` to edit cart/checkout specific view;
++ `/template/pages/app/` to edit cart/checkout in a superficial way, just like insert banners, counters or a product carousel for example;
 
 Before start editing HTML, it should be useful to check the
 [components](../@ecomplus/storefront-twbs/docs/01-components.md) and
