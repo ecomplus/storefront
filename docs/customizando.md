@@ -78,7 +78,7 @@ do seu deploy do Storefront em `https://www.seudominio.com.br/admin/`, depois do
 ## Criar/sobrescrever tema
 
 Estamos usando o `@ecomplus/storefront-twbs`
-(baseado em [Bootstrap 4](https://getbootstrap.com/docs/4.5/)) como base CSS/JS,
+(baseado em [Bootstrap 4](https://getbootstrap.com/docs/4.5/components/)) como base CSS/JS,
 para detalhes cheque a [referência da UI base](../@ecomplus/storefront-twbs/).
 Você também pode querer checar os
 [seletores de elementos](../@ecomplus/storefront-template/docs/01-elements.md)

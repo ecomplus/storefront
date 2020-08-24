@@ -76,7 +76,7 @@ of your Storefront deploy at `https://yourdomain.com/admin/`, after login you'll
 ## Theme/overwrite styles
 
 We're using `@ecomplus/storefront-twbs`
-(based on [Bootstrap 4](https://getbootstrap.com/docs/4.5/)) as CSS/JS foundation,
+(based on [Bootstrap 4](https://getbootstrap.com/docs/4.5/components/)) as CSS/JS foundation,
 for details check the [base UI reference here](../@ecomplus/storefront-twbs/).
 You may also check most important and maintained template
 [elements selectors](../@ecomplus/storefront-template/docs/01-elements.md).
