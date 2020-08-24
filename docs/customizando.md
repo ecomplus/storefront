@@ -82,7 +82,7 @@ Estamos usando o `@ecomplus/storefront-twbs`
 para detalhes cheque a [referência da UI base](../@ecomplus/storefront-twbs/).
 Você também pode querer checar os
 [seletores de elementos](../@ecomplus/storefront-template/docs/01-elements.md)
-mais importantes to template.
+mais importantes do template.
 
 - Se você quer apenas adicionar poucos trechos de CSS,
 faça isto no CMS em _Layout > Inserir código > CSS customizado_;
@@ -126,7 +126,7 @@ e [Niche Baby](https://github.com/ecomplus/storefront/blob/master/%40ecomplus/st
 ## Editar views pré-renderizadas
 
 No CMS é possível incluir snippets HTML adicionais, mas para
-editr as views padrão você deve editar os arquivos
+editar as views padrão você deve editar os arquivos
 [EJS](https://ejs.co/) na pasta `/template/pages/`:
 
 + `/template/pages/@/meta.ejs` para customizar meta tags
@@ -142,7 +142,7 @@ configurados no arraste e solte do CMS:
 
 + `/template/pages/@/layout/` para editar organismos comuns do
 layout (rodapé, cabeçalho, menu);
-+ `/template/pages/@/app/` para customizar a view específica
++ `/template/pages/app/` para customizar a view específica
 do carrinho e checkout;
 
 Antes de começar a editar HTML, deve ser útil checar os
