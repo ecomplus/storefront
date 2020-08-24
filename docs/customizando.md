@@ -185,8 +185,8 @@ Se você necessita de uma customização mais profunda no componente, considere 
 :::
 
 > **Você não precisa saber Vue.js para customizar o Storefront**,
-Vue é bem simples de aprender e incrível pelo ganho de produtividade em customizações mais avançadas.
-Mas você não precisa dele, conforme já falamos :v:
+Vue incrível e bem simples de aprender, para customizações avançadas te entregaria muita produtividade,
+mas não é um requisito :v:
 
 ## Scripts adicionais
 
