@@ -44,7 +44,11 @@ export default {
     },
     isLoaded: Boolean,
     installmentsOption: Object,
-    discountOption: Object
+    discountOption: Object,
+    transitionClass: {
+      type: String,
+      default: 'animated fadeIn'
+    }
   },
 
   data () {
