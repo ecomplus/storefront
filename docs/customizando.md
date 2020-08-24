@@ -167,7 +167,7 @@ mas atualizando as partes não alteradas via Git diff :sunglasses:
 
 Alguns elementos HTML pré-renderizados são sobrescritos por JS no cliente pelos respectivos componentes Vue, isso acontece especialmente nos cards de produto pré-renderizados por `/template/pages/@/sections/inc/product-item.ejs`.
 
-Nesses casos, é sugerido que utilize o atributo `data-slot` para preservar a sua customização após a hidratação realizada pelo storefront, veja um exemplo a seguir:
+Nesses casos, é sugerido que utilize o atributo `data-slot` para preservar a sua customização após a hidratação realizada pelo Storefront, veja um exemplo a seguir:
 
 ```html
 <div data-slot="buy-button-content">
