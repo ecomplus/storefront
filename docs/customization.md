@@ -1,6 +1,6 @@
 # Customization :pencil:
 
-[:brazil: Tradução em português](./customization@pt.md)
+[:brazil: Tradução em português](./customizando.md)
 
 > Here we're considering you already heave a deploy created from
 [Storefront Starter](https://github.com/ecomplus/storefront-starter) and using our default
