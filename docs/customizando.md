@@ -199,8 +199,7 @@ Para mais detalhes, por favor verifique a
 adicionando as tags `<script>` antes de `/body` ou `/head` (se necessário). Além disso,
 você consegue adicionar scripts em páginas específicas utilizando blocos de _Código HTML_;
 
-- Se está planejando inserir bastante JS (ou ES), sugiro fortemente que insira diretamente na pasta no Github em
-`/template/js/custom-js/` ou em seu editor de código no seu localhost. Inclusive, você pode criar um novo arquivo e
+- Se está planejando inserir bastante JS (ou ES), sugerimos fortemente que insira diretamente na pasta `/template/js/custom-js/` no Github ou em seu editor de código preferido. Você também pode criar um novo arquivo e
 [importar](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/import) devidamente.
 
 ::: tip
