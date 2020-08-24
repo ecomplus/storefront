@@ -228,7 +228,7 @@
               </strong>
             </p>
 
-            <slot name="shipping" v-if="!isQuickview">
+            <slot name="shipping">
               <shipping-calculator
                 :shippedItems="[{
                   ...body,
