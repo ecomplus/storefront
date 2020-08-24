@@ -211,7 +211,7 @@ os códigos inseridos serão parseados e minificados.
 
 ::: warning
 Use-o com moderação e apenas quando realmente necessário,
-evite utilizar para demais itens diferentes dos citados abaixo, especialmente se não conhecer muito bem Webpack.
+evite utilizar para implementações diferentes das citados abaixo, especialmente se não conhecer muito bem Webpack.
 :::
 
 Quando métodos mais fáceis não são suficientes para o nível de personalização desejável,
