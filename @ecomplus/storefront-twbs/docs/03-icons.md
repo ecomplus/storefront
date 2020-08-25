@@ -11,7 +11,7 @@ You can use FA icons by just adding respective CSS classes, eg.:
 ## Icons list
 
 <div class="demo">
-  <div class="wrapper mt-4">
+  <div class="wrapper">
     <div class="wrapper-icon">
       <i class="fab fa-facebook"></i>
       <code>fab fa-facebook</code>
