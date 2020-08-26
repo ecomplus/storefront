@@ -77,7 +77,7 @@ of your Storefront deploy at `https://yourdomain.com/admin/`, after login you'll
 
 We're using `@ecomplus/storefront-twbs`
 (based on [Bootstrap 4](https://getbootstrap.com/docs/4.5/components/)) as CSS/JS foundation,
-for details check the [base UI reference here](../@ecomplus/storefront-twbs/).
+for details check the [base UI usage reference here](../@ecomplus/storefront-twbs/#usage).
 You may also check most important and maintained template
 [elements selectors](../@ecomplus/storefront-template/docs/01-elements.md).
 
