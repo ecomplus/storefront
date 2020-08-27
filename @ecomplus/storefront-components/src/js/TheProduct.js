@@ -42,10 +42,8 @@ import ProductGallery from '../ProductGallery.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
 
-const storefront = typeof window === 'object' && window.storefront
-const getContextBody = () => storefront
-  ? storefront.context && storefront.context.body
-  : {}
+const storefront = (typeof window === 'object' && window.storefront) || {}
+const getContextBody = () => (storefront.context && storefront.context.body) || {}
 const getContextId = () => getContextBody()._id
 
 const sanitizeProductBody = body => {
@@ -201,8 +199,7 @@ export default {
       })
         .then(({ data }) => {
           this.setBody(data)
-          const contextBody = getContextBody()
-          if (contextBody && contextBody._id === productId) {
+          if (getContextId() === productId) {
             storefront.context.body = data
           }
           this.hasLoadError = false
