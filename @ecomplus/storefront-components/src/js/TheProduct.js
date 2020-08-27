@@ -92,10 +92,7 @@ export default {
       type: Number,
       default: 12
     },
-    cartUrl: {
-      type: String,
-      default: '/app/#/cart'
-    },
+    isQuickview: Boolean,
     paymentAppsSort: {
       type: Array,
       default () {
@@ -255,7 +252,7 @@ export default {
     },
 
     fixedPrice (price) {
-      if (price > 0) {
+      if (price > 0 && !this.isQuickview) {
         addIdleCallback(() => {
           modules({
             url: '/list_payments.json',
