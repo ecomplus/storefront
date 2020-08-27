@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.54](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.53...@ecomplus/storefront-app@2.0.0-beta.54) (2020-08-27)
+
+
+### Features
+
+* **sync-cart:** once cart created, delay and save permalink ([e9b953c](https://github.com/ecomplus/storefront/commit/e9b953cfc5e63d6b0256a1d8ea8c61040d28f702))
+
+
+
+
+
 # [2.0.0-beta.53](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.52...@ecomplus/storefront-app@2.0.0-beta.53) (2020-08-20)
 
 

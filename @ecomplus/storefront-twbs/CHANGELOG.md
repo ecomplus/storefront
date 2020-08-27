@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.9.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.9.2...@ecomplus/storefront-twbs@5.9.3) (2020-08-27)
+
+
+### Bug Fixes
+
+* **env:** use screen width as fallback to body offset width ([5887c23](https://github.com/ecomplus/storefront/commit/5887c23e154d63dfdd43c717c9bc3e478c34b299))
+* **scss:** remove deprecated and not used .text-hide class ([e2c6f7d](https://github.com/ecomplus/storefront/commit/e2c6f7d0c4a18c200c860d20c5ecd7d2e2a66e76))
+
+
+
+
+
 ## [5.9.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.9.1...@ecomplus/storefront-twbs@5.9.2) (2020-08-12)
 
 

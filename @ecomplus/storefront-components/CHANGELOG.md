@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.50](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.49...@ecomplus/storefront-components@1.0.0-beta.50) (2020-08-27)
+
+
+### Bug Fixes
+
+* **address-form:** fix province code input pattern (uppercase) ([a1f1f29](https://github.com/ecomplus/storefront/commit/a1f1f292ec0546916ff65946139348afc41c6437))
+
+
+### Features
+
+* **search-engine:** add `news` sort option ([ebb8a62](https://github.com/ecomplus/storefront/commit/ebb8a627090ed63181abb29f60e9339b5256b71a))
+
+
+
+
+
 # [1.0.0-beta.49](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.48...@ecomplus/storefront-components@1.0.0-beta.49) (2020-08-20)
 
 
