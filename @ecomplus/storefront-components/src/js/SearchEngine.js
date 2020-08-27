@@ -12,7 +12,7 @@ import {
   i19noResultsFor,
   i19popularProducts,
   i19refineSearch,
-  // i19releases,
+  i19releases,
   i19relevance,
   i19results,
   i19sales,
@@ -168,7 +168,7 @@ export default {
         label: i18n(i19highestPrice)
       }, {
         value: 'news',
-        label: 'Lançamentos' // i19releases
+        label: i18n(i19releases)
       }
     ],
 

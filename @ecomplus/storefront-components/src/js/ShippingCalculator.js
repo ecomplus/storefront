@@ -1,5 +1,5 @@
 import {
-  // i19add$1ToEarn,
+  i19add$1ToEarn,
   i19calculateShipping,
   i19freeShipping,
   i19zipCode
@@ -103,7 +103,7 @@ export default {
   },
 
   computed: {
-    i19add$1ToEarn: () => 'Adicione $1 para ganhar',
+    i19add$1ToEarn: () => i18n(i19add$1ToEarn),
     i19calculateShipping: () => i18n(i19calculateShipping),
     i19zipCode: () => i18n(i19zipCode),
     i19freeShipping: () => i18n(i19freeShipping).toLowerCase(),
