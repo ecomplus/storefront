@@ -131,7 +131,7 @@ export default {
         const { variations, slug } = product
         if (variations && variations.length) {
           this.isWaitingBuy = true
-          import('../ProductQuickView.vue')
+          import('../ProductQuickview.vue')
             .then(quickview => {
               new Vue({
                 render: h => h(quickview.default, {
