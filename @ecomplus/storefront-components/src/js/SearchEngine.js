@@ -12,6 +12,7 @@ import {
   i19noResultsFor,
   i19popularProducts,
   i19refineSearch,
+  i19releases,
   i19relevance,
   i19results,
   i19sales,
@@ -134,8 +135,8 @@ export default {
     i19itemsFound: () => i18n(i19itemsFound),
     i19noResultsFor: () => i18n(i19noResultsFor),
     i19popularProducts: () => i18n(i19popularProducts),
-    i19relevance: () => i18n(i19relevance),
     i19refineSearch: () => i18n(i19refineSearch),
+    i19relevance: () => i18n(i19relevance),
     i19results: () => i18n(i19results),
     i19searchAgain: () => i18n(i19searchAgain),
     i19searchingFor: () => i18n(i19searchingFor),
@@ -165,6 +166,9 @@ export default {
       }, {
         value: 'highest_price',
         label: i18n(i19highestPrice)
+      }, {
+        value: 'news',
+        label: i18n(i19releases)
       }
     ],
 

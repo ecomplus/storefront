@@ -113,7 +113,15 @@ const upsertCart = () => {
         .catch(console.error)
     }
     return method === 'POST'
-      ? tryRequestApi().then(({ data }) => fetchCart(data._id))
+      ? tryRequestApi()
+        .then(({ data }) => {
+          fetchCart(data._id)
+          setTimeout(() => {
+            ecomPassport.requestApi(`/carts/${data._id}.json`, 'PATCH', {
+              permalink: `https://${window.location.host}${window.location.pathname}#/cart/${data._id}`
+            }).catch(console.error)
+          }, 300)
+        })
       : queueUpdateCart(tryRequestApi)
   } else {
     return Promise.resolve()

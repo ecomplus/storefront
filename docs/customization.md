@@ -1,141 +1,242 @@
 # Customization :pencil:
 
-It is faster to make changes and customizations. Through a configuration page it is possible to define:
+[:brazil: Tradução em português](./customizando.md)
 
-+ General settings such as: Contact, address, logo;
-+ Choose Colors with your store's identity;
-+ Organize your page: choosing how the layout and organization of your screen will be;
-+ Configure the extra pages: delivery conditions, payment methods, exchanges and returns;
-+ An instructive and simple tool that makes it possible to define the header, side menu, footer, among others;
-+ Possibility to include settings directly with `HTML`,` JS` and `CSS` code;
+> Here we're considering you already heave a deploy created from
+[Storefront Starter](https://github.com/ecomplus/storefront-starter) and using our default
+`@ecomplus/storefront-template`. If you're an E-Com Plus merchant, we did it for you :wink:
+
+There are several ways to customize Storefront:
+
+- [Compose pages through CMS](#build-pages-within-cms) (the easier way);
+- [Theme/overwrite styles](#theme-overwrite-styles);
+- [Editing some EJS (HTML) code from default template](#edit-pre-rendered-views);
+- [Add/import custom JavaScript](#additional-scripts);
+- [Replacing default scripts and Vue components with Webpack aliases](#replace-vue-components) (PRO :metal:);
+
+Before starting, it might be useful to run your Storefront deploy on _localhost_:
+  1. Make sure [Node.js](https://nodejs.org/en/) is installed;
+  2. Clone your GitHub repo;
+  3. Install npm dependencies;
+  4. Run serve script;
+
+```bash
+git clone https://github.com/ecomplus-stores/my-store
+cd my-store
+npm i
+npm run serve
+```
 
 ## Build pages within CMS
 
-Access the administrative part of your website at `https://yourdomain.com/admin/`.
-The options to be modified are at your fingertips on the left side of the screen.
-See below:
+Access the administrative part (powered by [Netlify CMS](https://www.netlifycms.org/) :heart:)
+of your Storefront deploy at `https://yourdomain.com/admin/`, after login you'll be able to:
 
-<img src="/storefront/assets/img/doc_customization1.png" alt="CMS">
++ Edit general info and settings such as contact, address and logo:
 
-#### Configuration :wrench:
+<div class="demo">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <img src="/storefront/assets/img/cms-config.png" alt="CMS config">
+      </div>
+      <div class="col">
+        <img src="/storefront/assets/img/cms-info.png" alt="CMS info">
+      </div>
+    </div>
+  </div>
+</div>
 
-Here's how to set up and where changes will be affected on your website:
++ Set your store's identity colors:
 
-**Change colors, themes in a simple way and keep your store's identity:**
+<img src="/storefront/assets/img/cms-colors.png" alt="CMS colors" style="max-height: 180px">
 
-<img src="/assets/img/doc_customization2.png" alt="CMS">
++ Organize all pages adding, moving or removing sections (drag and drop):
 
-**Define colors:**
+<img src="/storefront/assets/img/cms-dd.gif" alt="CMS drag'n drop" style="max-height: 240px">
 
-<img src="/storefront/assets/img/doc_customization3.png" alt="CMS">
++ Add extra HTML, JS or CSS code for each page or entire website:
 
-Build the `header`,` footer` maintaining the identity of your store.
+<div class="demo">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <img src="/storefront/assets/img/cms-html-section.png" alt="CMS custom HTML section">
+      </div>
+      <div class="col">
+        <img src="/storefront/assets/img/cms-insert-code.png" alt="CMS insert code">
+      </div>
+    </div>
+  </div>
+</div>
 
-Configure for example:
-+ Header;
-+ Sidebar;
-+ Footer;
-+ Session with customized `html` code;
-+ Extra pages;
-
-_____
-Page Builder: Remove block from the page, add code and organize the page as you prefer.
-_____
-
-#### See below how to organize the session:
-
-Easily organize the layout of the sessions by dragging with the mouse according to the order you want to display on the screen.
-
-<img src="/storefront/assets/img/doc_customization.gif" alt="...">
-
-#### Personalize by entering html codes.
-
-Enter html codes using CMS. Easily creating an identity for your store.
-
-+ You can insert `html` code in any section and organize the position where it will be on the screen:
-
-<img src="/storefront/assets/img/doc_customization4.png" alt="...">
-
-+ Add `HTML` code that can be used to link external` CSS` or create `meta tags` and also to import external` JS` or insert `HTML` after footers and credits:
-
-<img src="/storefront/assets/img/doc_customization5.png" alt="CMS">
++ Create or edit extra pages and blog posts;
++ Plug and customize additional widgets;
 
 ## Theme/overwrite styles
 
-Include css code to customize your site.
+We're using `@ecomplus/storefront-twbs`
+(based on [Bootstrap 4](https://getbootstrap.com/docs/4.5/components/)) as CSS/JS foundation,
+for details check the [base UI usage reference here](../@ecomplus/storefront-twbs/#usage).
+You may also check most important and maintained template
+[elements selectors](../@ecomplus/storefront-template/docs/01-elements.md).
 
-+ If you want to add a few style sheets, change in the CMS at:
+- If you just want to add few CSS, do it in the CMS at _Layout > Insert code > Custom CSS_;
+- If you're planning to make deeper changes, we recommend to edit SCSS files
+(you can use [Sass](https://sass-lang.com/) or just plain CSS) directly from GitHub
+or locally using your preferred code editor:
+    1. Add new or overwrite styles at
+    `/template/scss/custom-css/_styles.scss`;
+    2. To replace default template styles you can try setting
+    [Bootstrap SCSS variables](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss)
+    at `/template/scss/_variables.scss`;
+    3. Finally, you can also start from scratch editing
+    `/template/scss/_main.scss` if you don't want to import entire
+    [Storefront Template styles](https://github.com/ecomplus/storefront/tree/master/%40ecomplus/storefront-template/template/scss),
+    for example to make your own footer styles and prevent
+    importing those ones from our default template
+    (perf optim :rocket:, not so easy as the previous options);
 
-`Layout> Insert code` (as example):
+::: tip
+We also encourage to use
+[CSS vars](../@ecomplus/storefront-twbs/docs/05-vars.md)
+always then possible to make your additional code easily customizable and extensible.
+:::
 
-<img src="/storefront/assets/img/doc_customization6.png" alt="CMS">
-
-+ Considering your deploy was generated from [Storefront Starter](https://github.com/ecomplus/storefront-starter), we recommend one of the following ways to edit lot of CSS code (SCSS) directly from GitHub or locally on your preferred code editor:
-
-1. Change directly in the code at:
-`/ template / scss / custom-css / _styles.scss`
-
-See exemple:
-
-```scss
+::: details Example using CSS vars
+```css
 .top-bar {
   background-color: var(--secondary);
 }
 ```
-<img src="/storefront/assets/img/doc_customization9.png" alt="CMS">
+<img src="/storefront/assets/img/css-vars.png" alt="CSS vars example" style="max-height: 180px">
+:::
 
-Using `variables`, you optimize time, maintaining the store's identity in case you need to change any color for example!
-
-2. To override some variables, you can also access `/ template / scss / _variables.scss` and change the variables directly. For example, change the button as shown below:
-put button
-
-3. You can edit `main.scss` if you don't want to import entire [Storefront Template styles](https://github.com/ecomplus/storefront/tree/master/%40ecomplus/storefront-template/template/scss), for example to make your own footer styles and prevent importing those ones from our default template.
-
-This way, you are reducing useless css codes.
+As example you can also check custom SCSS applied
+by some of our additional themes, such as
+[Clean Gray](https://github.com/ecomplus/storefront/tree/master/%40ecomplus/storefront-template/template/scss/themes/clean-gray)
+and [Niche Baby](https://github.com/ecomplus/storefront/blob/master/%40ecomplus/storefront-template/template/scss/themes/niche-baby/_variables.scss).
 
 ## Edit pre-rendered views
 
-In `CMS` it is possible to include `HTML` codes, but to edit the standard views it is necessary to edit the sections that are in the `EJS` language.
+In the CMS it's possible to include additional HTML snippets,
+but to edit default views you should edit
+[EJS](https://ejs.co/) files at `/template/pages/` folder:
 
-For example, if you want to edit the product block or source code of any section, you must change the `EJS`.
++ `/template/pages/@/meta.ejs` to customize meta tags
+(specially for SEO purposes):
 
-See for example:
+<img src="/storefront/assets/img/ejs-meta.png" alt="EJS meta tags" width="400">
 
-`/template/pages/@/sections/info-bar.ejs`
++ `/template/pages/@/sections/` to get lot of reusable components :pushpin:,
+those ones renders the pages main content and are used on the CMS drag and drop tool:
 
-<img src="/storefront/assets/img/doc_customization7.png" alt="...">
+<img src="/storefront/assets/img/ejs-info-bar.png" alt="EJS info bar" width="400">
 
-Add conditions, looping, change colors, change the default meta tags:
++ `/template/pages/@/layout/` to edit common layout organisms
+(footer, header, menu);
++ `/template/pages/app/` to edit cart/checkout in a superficial way,
+just like insert banners, counters or a product carousel for example;
 
-<img src="/storefront/assets/img/doc_customization8.png" alt="...">
+Before start editing HTML, it should be useful to check the
+[components](../@ecomplus/storefront-twbs/docs/01-components.md) and
+CSS utility classes available by default.
 
-In the `product-item.ejs` files `product-block.ejs`, for example to make changes, it is necessary to use **slot**.
+::: tip
+EJS is a simple JS based template language to generate HTML markup,
+of course you can just write plain HTML, but for advanced customization
+we recommend to check how Storefront
+[renderization](../@ecomplus/storefront-framework/docs/01-renderization.md)
+works with EJS.
+:::
 
-If only normal html is inserted, without using the slot:
+> To keep customized stores up to date we still trying to update
+edited EJS files on new Storefront releases, preserving the edited snippets
+but updating the non-changed parts by checking Git diff :sunglasses:
 
-+ In pre-rendering, it uses the html that was inserted, but at runtime when rendering the `vue` component, the change will be replaced.
+### Note for product cards
 
-+ It is important to use `slots` so that when rendering the code, your change is not overwritten.
+Some pre-rendered HTML elements are overwritten with JS on client by the
+respective Vue components, it happens specially with product cards pre-rendered by
+`/template/pages/@/sections/inc/product-item.ejs`.
 
-See the example:
-
-**Customize add to cart button content:**
+In those cases you should use `data-slot` attribute to preserve your custom code
+after hydration, for example:
 
 ```html
-    <div data-slot="buy-button-content">
-      <i class="fas fa-shopping-bag mr-1"></i>
-      {{ _.dictionary('buy') }}
-    </div>
+<div data-slot="buy-button-content">
+  <i class="fas fa-shopping-bag mr-1"></i>
+  Buy now
+</div>
 ```
 
-### Note for product page and cards
+The `data-slot` value must correspond to a
+[slot](https://vuejs.org/v2/guide/components-slots.html) name
+of the Vue component, check
+[`<ProductCard>` slots here](../@ecomplus/storefront-components/docs/ProductCard.md#slots).
 
-> About slots
+::: tip PRO TIP
+If you need deeper customization, consider creating an Webpack alias to
+`./html/ProductCard.html` (check [replacing Vue components](#replace-vue-components)).
+:::
+
+> **You don't need to know Vue.js to customize Storefront**,
+Vue is awesome and really easy to learn, for advanced customization it'll give you
+lot of productivity, but it's not required at all :v:
 
 ## Additional scripts
 
-> TODO
+By default you can use jQuery 3 (slim), Vue.js 2 and some other
+small libraries globally available, for details check
+[base UI included JS](../@ecomplus/storefront-twbs/docs/06-javascript.md) and
+[template JS globals](../@ecomplus/storefront-template/docs/05-javascript.md).
+
+- If you just want to add few JS, do it in the CMS at _Layout > Insert code_
+adding `<script>` tags before `/body` or (when really needed) `/head`,
+you can also add scripts to specific pages using _HTML code_ section;
+- If you're planning to add lot of JS (or ES) code, it's strongly recommended to
+edit JS files at `/template/js/custom-js/` folder directly from GitHub or locally using your preferred code editor. You can also create new files and
+[import](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/import) properly;
+
+::: tip
+When editing `/template/js/` files you can use ES6 features without worrying about
+browser support, code there will be parsed and minified.
+:::
 
 ## Replace Vue components
 
-> TODO
+::: warning
+Use it with moderation and only when really needed, skip using for things other
+then explained below, specially if you don't know Webpack very well.
+:::
+
+When easier ways aren't sufficient to make your wanted customization,
+you can give a try with
+[Webpack 4 aliases](https://webpack.js.org/configuration/resolve/#resolvealias).
+
+Generally we recommend to use it only for replacing Vue components
+HTML template :triangular_ruler:, although it would work also for scripts and styles.
+
+You should start getting the original source from
+[GitHub repo](https://github.com/ecomplus/storefront/tree/master/%40ecomplus/storefront-components/src/html),
+copy the file you want to replace and paste it inside
+`/template/js/custom-js/` folder, edit the new file as needed and then create
+a `storefront.webpack.js` file at the root of your repository, as example:
+
+```js
+// storefront.webpack.js
+
+const path = require('path')
+
+module.exports = () => ({
+  resolve: {
+    alias: {
+      './html/ProductCard.html': path.resolve(__dirname, '/template/js/custom-js/html/ProductCard.html')
+    }
+  }
+})
+```
+
+> Note that all [Storefront Components](../@ecomplus/storefront-components/) are
+composed by 4 files (Vue/HTML/JS/SCSS), the Vue file always imports the
+HTML one with `./html/{ComponentName}.html`.

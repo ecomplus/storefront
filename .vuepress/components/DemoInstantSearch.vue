@@ -25,6 +25,6 @@
       return {
         isVisible: false
       }
-    },
+    }
   }
 </script>

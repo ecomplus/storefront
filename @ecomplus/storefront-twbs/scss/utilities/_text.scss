@@ -14,9 +14,3 @@
 .text-muted {
   color: $text-muted !important;
 }
-
-// Misc
-
-.text-hide {
-  @include text-hide($ignore-warning: true);
-}

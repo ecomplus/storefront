@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.66](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.65...@ecomplus/storefront-template@2.0.0-beta.66) (2020-08-27)
+
+
+### Bug Fixes
+
+* **deps:** fix vue to v2.6.12 ([0ab8ac5](https://github.com/ecomplus/storefront/commit/0ab8ac597c80643d0232c3808c9bfaffb7ad92e0))
+
+
+
+
+
+# [2.0.0-beta.65](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.64...@ecomplus/storefront-template@2.0.0-beta.65) (2020-08-27)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
 # [2.0.0-beta.64](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.63...@ecomplus/storefront-template@2.0.0-beta.64) (2020-08-20)
 
 

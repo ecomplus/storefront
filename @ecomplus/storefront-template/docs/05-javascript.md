@@ -1,1 +1,3 @@
 # JavaScript globals
+
+> WIP
