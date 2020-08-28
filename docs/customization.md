@@ -160,8 +160,8 @@ Some pre-rendered HTML elements are overwritten with JS on client by the
 respective Vue components, it happens specially with product cards pre-rendered by
 `/template/pages/@/sections/inc/product-item.ejs`.
 
-In those cases you should use `data-slot` attribute to preserve your custom code
-after hydration, for example:
+In such cases, you should try to customize with CSS only or use `data-slot` attribute to edit
+HTML preserving your custom code after hydration, for example:
 
 ```html
 <div data-slot="buy-button-content">
@@ -174,6 +174,9 @@ The `data-slot` value must correspond to a
 [slot](https://vuejs.org/v2/guide/components-slots.html) name
 of the Vue component, check
 [`<ProductCard>` slots here](../@ecomplus/storefront-components/docs/ProductCard.md#slots).
+
+As another option, you can also preset JavaScript globals
+`window.productCardBuyHtml` and `window.productCardFooterHtml` to append HTML to all cards.
 
 ::: tip PRO TIP
 If you need deeper customization, consider creating an Webpack alias to

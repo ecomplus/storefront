@@ -167,7 +167,8 @@ mas atualizando as partes não alteradas via Git diff :sunglasses:
 
 Alguns elementos HTML pré-renderizados são sobrescritos por JS no cliente pelos respectivos componentes Vue, isso acontece especialmente nos cards de produto pré-renderizados por `/template/pages/@/sections/inc/product-item.ejs`.
 
-Nesses casos, é sugerido que utilize o atributo `data-slot` para preservar a sua customização após a hidratação realizada pelo Storefront, veja um exemplo a seguir:
+Nesses casos, você deve tentar customizar com CSS apenas ou usar o atributo `data-slot`
+para editar HTML preservando sua customização após a hidratação realizada pelo Storefront, veja um exemplo a seguir:
 
 ```html
 <div data-slot="buy-button-content">
@@ -178,6 +179,9 @@ Nesses casos, é sugerido que utilize o atributo `data-slot` para preservar a su
 
 O valor do atributo `data-slot` deve corresponder ao nome do [slot](https://vuejs.org/v2/guide/components-slots.html) respectivo no componente Vue,
 cheque os [slots do `<ProductCard>` aqui](../@ecomplus/storefront-components/docs/ProductCard.md#slots).
+
+Como segunda opção, você também pode presetar as variáveis JavaScript globais
+`window.productCardBuyHtml` e `window.productCardFooterHtml` para apendar HTML aos cards.
 
 ::: tip DICA PRO
 Se você necessita de uma customização mais profunda no componente, considere criar Webpack alias para
