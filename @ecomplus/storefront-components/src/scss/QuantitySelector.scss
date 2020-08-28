@@ -1,0 +1,12 @@
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  margin-bottom: .5rem;
+  span {
+    padding: 0 1rem;
+  }
+  
+  input {
+    width: 15%;
+  }
+}

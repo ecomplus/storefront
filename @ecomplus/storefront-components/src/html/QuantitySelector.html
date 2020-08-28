@@ -1,0 +1,34 @@
+<div>
+  <div 
+    class="py-2" 
+    v-if="title"
+  >
+    <span>
+      {{title}}
+    </span>
+  </div>
+
+  <div 
+    class="quantity-selector" 
+    v-for="item in itemsSelected"
+  >
+    <input
+      type="number"
+      :min="min"
+      :max="item.quantity + quantityRemaining"
+      class="form-control"
+      :placeholder="min"
+      v-model.number="item.quantity"
+      id="item.productId"
+      v-on:click="click"
+    >
+
+    <span>
+      {{item.name}}
+    </span>
+  </div>
+
+  <a-alert :can-show="isMax">
+    {{i19MaximumQuantity}}
+  </a-alert>
+</div>
