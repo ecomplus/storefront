@@ -42,10 +42,8 @@ import ProductGallery from '../ProductGallery.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
 
-const storefront = typeof window === 'object' && window.storefront
-const getContextBody = () => storefront
-  ? storefront.context && storefront.context.body
-  : {}
+const storefront = (typeof window === 'object' && window.storefront) || {}
+const getContextBody = () => (storefront.context && storefront.context.body) || {}
 const getContextId = () => getContextBody()._id
 
 const sanitizeProductBody = body => {
@@ -94,10 +92,7 @@ export default {
       type: Number,
       default: 12
     },
-    cartUrl: {
-      type: String,
-      default: '/app/#/cart'
-    },
+    isQuickview: Boolean,
     paymentAppsSort: {
       type: Array,
       default () {
@@ -257,7 +252,7 @@ export default {
     },
 
     fixedPrice (price) {
-      if (price > 0) {
+      if (price > 0 && !this.isQuickview) {
         addIdleCallback(() => {
           modules({
             url: '/list_payments.json',

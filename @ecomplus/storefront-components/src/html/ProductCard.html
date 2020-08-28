@@ -97,11 +97,16 @@
           class="product-card__buy fade"
         >
           <slot name="buy">
-            <div v-if="buyHtml" v-html="buyHtml"></div>
+            <div
+              v-if="buyHtml"
+              v-html="buyHtml"
+            ></div>
+
             <button
               type="button"
               class="btn btn-primary"
               :class="isSmall ? 'btn-sm': 'btn-block'"
+              :disabled="isWaitingBuy"
             >
               <slot name="buy-button-content">
                 <i class="fas fa-shopping-bag mr-1"></i>
@@ -110,10 +115,21 @@
             </button>
           </slot>
         </div>
+
+        <div
+          v-if="isWaitingBuy"
+          class="spinner-grow spinner-grow-sm"
+          role="status"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
       </template>
 
       <slot name="footer">
-        <div v-if="footerHtml" v-html="footerHtml"></div>
+        <div
+          v-if="footerHtml"
+          v-html="footerHtml"
+        ></div>
       </slot>
     </section>
   </transition>
@@ -128,4 +144,6 @@
       {{ error }}
     </div>
   </template>
+
+  <div ref="quickview"></div>
 </div>

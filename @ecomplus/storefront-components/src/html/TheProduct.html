@@ -166,7 +166,7 @@
               <slot
                 name="payment-gateways"
                 v-bind="{ paymentOptions }"
-                v-if="paymentOptions.length"
+                v-if="!isQuickview && paymentOptions.length"
               >
                 <article :key="`payment-${fixedPrice}`">
                   <div
@@ -228,7 +228,10 @@
               </strong>
             </p>
 
-            <slot name="shipping">
+            <slot
+              v-if="!isQuickview"
+              name="shipping"
+            >
               <shipping-calculator
                 :shippedItems="[{
                   ...body,
