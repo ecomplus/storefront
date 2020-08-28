@@ -13,4 +13,19 @@
   @import "../../@ecomplus/storefront-twbs/scss/vars/text";
 
   @import "../../@ecomplus/storefront-twbs/scss/styles";
+
+  border-top: 1px dashed #ccc;
+  border-bottom: 1px dashed #ccc;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+
+  &::before {
+    content: "DEMO";
+    display: block;
+    font-size: .7rem;
+    color: #999;
+    font-weight: 700;
+    margin: 0 .5rem .5rem;
+  }
 }

@@ -1,0 +1,36 @@
+.product-quickview {
+  &__box {
+    z-index: 1090;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+    overflow-y: auto;
+
+    @media (min-width: 576px) {
+      width: 90vw;
+      margin-left: 5vw;
+      max-height: 90vh;
+      margin-top: 5vh;
+      border-radius: var(--border-radius);
+    }
+  }
+
+  &__loading {
+    padding: var(--spacer-5);
+    text-align: center;
+
+    .spinner-border {
+      height: 5rem;
+      width: 5rem;
+    }
+  }
+
+  &__btn-redirect {
+    display: block;
+    max-width: 400px;
+    margin: var(--spacer-4) auto var(--spacer-5);
+  }
+}

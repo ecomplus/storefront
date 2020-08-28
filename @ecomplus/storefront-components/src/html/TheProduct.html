@@ -166,7 +166,7 @@
               <slot
                 name="payment-gateways"
                 v-bind="{ paymentOptions }"
-                v-if="paymentOptions.length"
+                v-if="!isQuickview && paymentOptions.length"
               >
                 <article :key="`payment-${fixedPrice}`">
                   <div
@@ -218,7 +218,7 @@
               class="product__production"
             >
               <i class="fas fa-info-circle mr-1"></i>
-              {{ i19productioDeadline }}:
+              {{ i19productionDeadline }}:
               <strong>
                 {{ body.production_time.days }}
                 {{ body.production_time.working_days ? i19workingDays : i19days }}
@@ -228,7 +228,10 @@
               </strong>
             </p>
 
-            <slot name="shipping">
+            <slot
+              v-if="!isQuickview"
+              name="shipping"
+            >
               <shipping-calculator
                 :shippedItems="[{
                   ...body,

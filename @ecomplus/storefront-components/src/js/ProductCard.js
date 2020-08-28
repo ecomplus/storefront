@@ -13,6 +13,7 @@ import {
   price as getPrice
 } from '@ecomplus/utils'
 
+import Vue from 'vue'
 import { store } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import ALink from '../ALink.vue'
@@ -54,6 +55,7 @@ export default {
     return {
       body: {},
       isLoading: false,
+      isWaitingBuy: false,
       isHovered: false,
       error: ''
     }
@@ -128,7 +130,24 @@ export default {
       if (this.canAddToCart) {
         const { variations, slug } = product
         if (variations && variations.length) {
-          window.location = `/${slug}`
+          this.isWaitingBuy = true
+          import('../ProductQuickview.vue')
+            .then(quickview => {
+              new Vue({
+                render: h => h(quickview.default, {
+                  props: {
+                    productId: this.body._id
+                  }
+                })
+              }).$mount(this.$refs.quickview)
+            })
+            .catch(err => {
+              console.error(err)
+              window.location = `/${slug}`
+            })
+            .finally(() => {
+              this.isWaitingBuy = false
+            })
         } else {
           ecomCart.addProduct(product)
         }

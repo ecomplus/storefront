@@ -1,32 +1,6 @@
 # CSS vars
 
-Try to use it whenever possible, to maintain and consist of the store's identity. Define the theme, colors, fonts to be consistent with the identity that the shopkeeper is creating.
-
-## Usage example
-
-<div class="demo">
-  <button class="btn btn-orange">teste</button>
-</div>
-
-<style>
-  .demo .btn.btn-orange {
-    background-color: var(--green);
-    color: var(--white);
-  }
-</style>
-
-```html
-<div class="demo">
-  <button class="btn btn-orange">teste</button>
-</div>
-
-<style>
-  .demo .btn.btn-orange {
-    background-color: var(--green);
-    color: var(--white);
-  }
-</style>
-```
+We're replacing default Bootstrap CSS utilities approach with [CSS vars](https://developer.mozilla.org/docs/Web/CSS/var) approach, it provides a lighter and more flexible theme.
 
 Beyond the default ones, more CSS vars are set on `:root` (brands colors, borders, text, spacing...) to be used by Storefront components and widgets, as example:
 
@@ -126,4 +100,35 @@ Beyond the default ones, more CSS vars are set on `:root` (brands colors, border
   --h6: 1rem;
   --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-  ```
+}
+```
+
+Try to use it whenever possible (specially for colors) to respect the store's identity and make your styles easily customizable and extensible.
+
+## Usage example
+
+```css
+.btn-orange {
+  background-color: var(--orange);
+  color: var(--white);
+}
+```
+
+```html
+<button class="btn btn-orange">
+  Orange button
+</button>
+```
+
+<div class="demo">
+  <button class="btn btn-orange">
+    Orange button
+  </button>
+</div>
+
+<style>
+  .demo .btn-orange {
+    background-color: var(--orange);
+    color: var(--white);
+  }
+</style>

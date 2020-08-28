@@ -1,4 +1,5 @@
 const { userAgent } = navigator
+const screenWidth = document.body ? document.body.offsetWidth : window.screen.width
 
 export const isSafari = userAgent.includes('Safari') && !userAgent.includes('Chrome')
 
@@ -8,6 +9,6 @@ export const isIE = !!document.documentMode
 
 export const isMobile = isIOS || /Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(userAgent)
 
-export const isScreenXs = document.body.offsetWidth <= 575.98
+export const isScreenXs = screenWidth <= 575.98
 
-export const isScreenLg = document.body.offsetWidth >= 992
+export const isScreenLg = screenWidth >= 992

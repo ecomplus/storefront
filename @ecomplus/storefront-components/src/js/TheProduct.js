@@ -8,8 +8,8 @@ import {
   i19only,
   i19outOfStock,
   i19paymentOptions,
-  // i19perUnit,
-  // i19productioDeadline,
+  i19perUnit,
+  i19productionDeadline,
   i19retry,
   i19selectVariationMsg,
   i19unavailable,
@@ -42,10 +42,8 @@ import ProductGallery from '../ProductGallery.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
 
-const storefront = typeof window === 'object' && window.storefront
-const getContextBody = () => storefront
-  ? storefront.context && storefront.context.body
-  : {}
+const storefront = (typeof window === 'object' && window.storefront) || {}
+const getContextBody = () => (storefront.context && storefront.context.body) || {}
 const getContextId = () => getContextBody()._id
 
 const sanitizeProductBody = body => {
@@ -94,10 +92,7 @@ export default {
       type: Number,
       default: 12
     },
-    cartUrl: {
-      type: String,
-      default: '/app/#/cart'
-    },
+    isQuickview: Boolean,
     paymentAppsSort: {
       type: Array,
       default () {
@@ -129,8 +124,8 @@ export default {
     i19only: () => i18n(i19only),
     i19outOfStock: () => i18n(i19outOfStock),
     i19paymentOptions: () => i18n(i19paymentOptions),
-    i19perUnit: () => 'Por unidade',
-    i19productioDeadline: () => 'Prazo de produção',
+    i19perUnit: () => i18n(i19perUnit),
+    i19productionDeadline: () => i18n(i19productionDeadline),
     i19retry: () => i18n(i19retry),
     i19selectVariationMsg: () => i18n(i19selectVariationMsg),
     i19unavailable: () => i18n(i19unavailable),
@@ -257,7 +252,7 @@ export default {
     },
 
     fixedPrice (price) {
-      if (price > 0) {
+      if (price > 0 && !this.isQuickview) {
         addIdleCallback(() => {
           modules({
             url: '/list_payments.json',

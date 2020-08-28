@@ -1,142 +1,43 @@
 # CSS animations
 
-[Animate.css](https://daneden.github.io/animate.css/) is a bunch of cool, fun, and cross-browser animations for you to use in your projects. Great for emphasis, home pages, sliders, and general just-add-water-awesomeness.
-
-**See the types of animations used:**
-
-<DemoAnimateCss />
-
-
-See an application made here in the component [InstantSearch](https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/InstantSearch.html):
-
+Some animations from [Animate.css 3](https://daneden.github.io/animate.css/) are included to to the bundle, you can use it adding respective CSS classes, eg.:
 
 ```html
-<div class="search">
-  <a-backdrop
-    :is-visible="isVisible"
-    @hide="hide"
-  />
+<p class="animated fadeIn">
+  Animated!
+</p>
+<p class="animated slow fadeInDown">
+  Slowly animated!
+</p>
+```
 
-  <transition
-    enter-active-class="animated zoomIn"
-    leave-active-class="animated fadeOutUp slow"
-  >
-    <div
-      class="search__box card"
-      v-if="isVisible || hasSearched"
-      v-show="isVisible"
-    >
-      <slot
-        name="header"
-        v-bind="{ isSearching }"
-      >
-        <header class="search__header card-header">
-          <div class="search__input-group">
-            <input
-              type="search"
-              autocomplete="off"
-              class="search__input form-control form-control-lg"
-              :placeholder="i19searchProducts"
-              ref="input"
-              v-model="localTerm"
-            >
-            <button
-              type="submit"
-              class="search__submit"
-              :aria-label="i19search"
-            >
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
+Base class name is `.animated`, you can also use modifiers `.faster`, `.fast`, `.slow` and `.slower`, and finally the respective animation class name.
 
-          <div class="search__status">
-            <div
-              v-if="isSearching"
-              class="search__spinner spinner-grow"
-              role="status"
-            >
-              <span class="sr-only">Loading...</span>
-            </div>
-            <button
-              type="button"
-              class="close"
-              :aria-label="i19close"
-              @click="hide"
-            >
-              <i class="fas fa-times-circle"></i>
-            </button>
-          </div>
-        </header>
-      </slot>
+Check provided [`animateCss` util](./06-javascript.md#animate-css-util) to programatically use animations with JS.
 
-      <article class="search__body card-body">
-        <slot
-          name="search-engine"
-          v-bind="{ term: searchTerm }"
-        >
-          <SearchEngine
-            v-bind="{ ...searchEngineProps, pageSize, autoFixScore }"
-            :term.sync="searchTerm"
-            :is-filterable="false"
-            :product-card-props="productCardProps"
-            @fetch="handleFetching"
-            @search="handleSearch"
-          >
-            <div
-              class="search__loading spinner-border"
-              role="status"
-            >
-              <span class="sr-only">Loading...</span>
-            </div>
-          </SearchEngine>
-        </slot>
-      </article>
+## Animations demo
 
-      <footer class="search__footer card-footer">
-        <slot
-          name="count-results"
-          v-bind="{ hasSearched, totalSearchResults }"
-        >
-          <transition enter-active-class="animated fadeInDown">
-            <div
-              v-if="hasSearched"
-              class="search__count"
-            >
-              <strong>{{ totalSearchResults }}</strong>
-              {{ i19items.toLowerCase() }}
-              <button
-                type="submit"
-                v-if="totalSearchResults > pageSize"
-                class="ml-2 btn btn-primary"
-              >
-                {{ i19seeAll }}
-              </button>
-            </div>
-          </transition>
-        </slot>
+Check default available animations classes and demo below:
 
-        <slot
-          name="history"
-          v-bind="{ history }"
-        >
-          <transition enter-active-class="animated fadeInDown">
-            <div
-              v-if="history.length"
-              class="search__history d-none d-lg-block"
-            >
-              <i class="fas fa-history"></i>
-              <a
-                class="search__history-link"
-                v-for="term in history"
-                href="#"
-                @click.prevent="setSearchTerm(term)"
-                v-text="term"
-              ></a>
-            </div>
-          </transition>
-        </slot>
-      </footer>
-    </div>
-  </transition>
-</div>
+<DemoAnimateCss/>
+
+## Vue transition example
+
+```vue
+<transition
+  enter-active-class="animated fadeIn"
+  leave-active-class="animated fadeOut fast"
+>
+  <p v-if="isVisible">
+    Animate.css works like a charm with Vue.js
+  </p>
+</transition>
+```
+
+## Edit duration
+
+You can change base duration for all animations by setting `$animate-duration` SCSS variable:
+
+```scss
+$animate-duration: .5s;
 ```
