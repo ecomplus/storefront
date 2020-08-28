@@ -38,23 +38,24 @@ export default {
       default: 'h3'
     },
     buyText: String,
+    transitionClass: {
+      type: String,
+      default: 'animated fadeIn'
+    },
     canAddToCart: {
       type: Boolean,
       default: true
     },
     isLoaded: Boolean,
     installmentsOption: Object,
-    discountOption: Object,
-    transitionClass: {
-      type: String,
-      default: 'animated fadeIn'
-    }
+    discountOption: Object
   },
 
   data () {
     return {
       body: {},
       isLoading: false,
+      isWaitingBuy: false,
       isHovered: false,
       error: ''
     }
@@ -89,10 +90,6 @@ export default {
       return checkOnPromotion(body)
         ? Math.round(((body.base_price - getPrice(body)) * 100) / body.base_price)
         : 0
-    },
-
-    loadQuickview () {
-      return () => import('../ProductQuickView.vue')
     }
   },
 
@@ -133,24 +130,28 @@ export default {
       if (this.canAddToCart) {
         const { variations, slug } = product
         if (variations && variations.length) {
-          this.openQuickview(product)
+          this.isWaitingBuy = true
+          import('../ProductQuickView.vue')
+            .then(quickview => {
+              new Vue({
+                render: h => h(quickview.default, {
+                  props: {
+                    productId: this.body._id
+                  }
+                })
+              }).$mount(this.$refs.quickview)
+            })
+            .catch(err => {
+              console.error(err)
+              window.location = `/${slug}`
+            })
+            .finally(() => {
+              this.isWaitingBuy = false
+            })
         } else {
           ecomCart.addProduct(product)
         }
       }
-    },
-
-    openQuickview (productBody) {
-      this.loadQuickview().then(quickview => {
-        const ProductQuickview = quickview.default
-        new Vue({
-          render: h => h(ProductQuickview, {
-            props: {
-              product: productBody
-            }
-          })
-        }).$mount(this.$refs.quickview)
-      })
     }
   },
 
