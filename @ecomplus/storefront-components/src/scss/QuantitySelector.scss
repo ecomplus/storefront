@@ -2,8 +2,9 @@
   display: flex;
   align-items: center;
   margin-bottom: var(--spacer-2);
+
   span {
-    padding: 0 1rem;
+    padding: 0 var(--spacer-3);
   }
   
   input {
