@@ -14,7 +14,7 @@
   >
     <input
       type="number"
-      :min="min"
+      :min="item.min_quantity || 1"
       :max="item.quantity + quantityRemaining"
       class="form-control"
       :placeholder="min"
