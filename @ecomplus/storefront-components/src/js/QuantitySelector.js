@@ -16,7 +16,10 @@ export default {
   },
 
   props: {
-    items: Array,
+    items: {
+      type: Array,
+      required: true
+    },
     min: {
       type: Number,
       default: 1
