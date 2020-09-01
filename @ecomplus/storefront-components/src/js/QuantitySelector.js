@@ -33,8 +33,9 @@ export default {
       return this.itemsSelected.map(item => parseInt(item.quantity, 10))
     },
     quantityRemaining () {
-      const total = this.selectedQuantity.reduce((a, b) => a + b, 0)
-      return this.max - total
+      return this.max
+        ? this.max - this.selectedQuantity.reduce((a, b) => a + b, 0)
+        : 9999999
     },
     i19MaximumQuantity () {
       return i18n({
