@@ -21,10 +21,7 @@ export default {
       type: Number,
       default: 1
     },
-    max: {
-      type: Number,
-      default: 10
-    },
+    max: Number,
     title: String
   },
 
