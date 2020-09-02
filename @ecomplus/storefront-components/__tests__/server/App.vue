@@ -11,7 +11,8 @@
     <!-- <TsCartQuickview/> -->
     <!-- <TsProductGallery/> -->
     <!-- <TsTheProduct/> -->
-    <TsLoginModal/>
+    <!-- <TsLoginModal/> -->
+    <TsQuantitySelector />
   </div>
 </template>
 
@@ -29,6 +30,7 @@
   import TsProductGallery from '__/components/TsProductGallery.vue'
   import TsTheProduct from '__/components/TsTheProduct.vue'
   import TsLoginModal from '__/components/TsLoginModal.vue'
+  import TsQuantitySelector from '__/components/TsQuantitySelector.vue'
 
   export default {
     name: 'Playground',
@@ -44,7 +46,8 @@
       TsCartQuickview,
       TsProductGallery,
       TsTheProduct,
-      TsLoginModal
+      TsLoginModal,
+      TsQuantitySelector
     }
   }
 </script>

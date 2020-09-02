@@ -80,6 +80,30 @@ const webpackConfig = {
             }
           }
         ]
+      },
+
+      {
+        test: /\.woff2$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 16384
+            }
+          }
+        ]
+      },
+
+      {
+        test: /\.(woff|svg|eot|ttf|png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
       }
     ]
   },
