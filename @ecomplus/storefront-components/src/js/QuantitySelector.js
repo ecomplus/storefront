@@ -11,7 +11,8 @@ export default {
   data () {
     return {
       itemsSelected: [],
-      isMax: false
+      isMax: false,
+      isMin: false
     }
   },
 
@@ -30,7 +31,7 @@ export default {
 
   computed: {
     selectedQuantity () {
-      return this.itemsSelected.map(item => parseInt(item.quantity, 10))
+      return this.itemsSelected.map(item => parseInt(item.quantity_selected, 10))
     },
     quantityRemaining () {
       return this.max
@@ -47,17 +48,24 @@ export default {
 
   methods: {
     loadItems () {
-      this.itemsSelected = this.items.map(item => ({ productId: item._id, quantity: (this.min || 0), name: item.name }))
+      this.items.forEach(item => {
+        this.itemsSelected.push({
+          productId: item._id,
+          quantity: item.quantity,
+          min_quantity: item.min_quantity,
+          quantity_selected: 0,
+          name: item.name
+        })
+      })
     },
 
-    click () {
+    change () {
       if (this.quantityRemaining <= 0) {
         this.isMax = true
+        setTimeout(() => {
+          this.isMax = false
+        }, 6000)
       }
-
-      setTimeout(() => {
-        this.isMax = false
-      }, 6000)
     }
   },
 

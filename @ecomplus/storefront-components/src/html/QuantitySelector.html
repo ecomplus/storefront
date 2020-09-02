@@ -1,10 +1,10 @@
-<div>
+<div class="col col-md-4">
   <div 
     class="py-2" 
     v-if="title"
   >
     <span>
-      {{title}}
+      {{ title }}
     </span>
   </div>
 
@@ -14,21 +14,22 @@
   >
     <input
       type="number"
-      :min="item.min_quantity || 1"
-      :max="item.quantity + quantityRemaining"
       class="form-control"
-      :placeholder="min"
-      v-model.number="item.quantity"
-      id="item.productId"
-      v-on:click="click"
+      v-on:change="change"
+      v-model.number="item.quantity_selected"
+      :min="item.min_quantity"
+      :max="item.quantity_selected + quantityRemaining"
+      :id="item.productId"
+      :disabled="item.quantity <= 0"
+      :placeholder="item.min_quantity"
     >
 
     <span>
-      {{item.name}}
+      {{ item.name }}
     </span>
   </div>
 
   <a-alert :can-show="isMax">
-    {{i19MaximumQuantity}}
+    {{ i19MaximumQuantity }}
   </a-alert>
 </div>
