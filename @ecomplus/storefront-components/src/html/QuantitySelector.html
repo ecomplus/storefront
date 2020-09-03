@@ -19,7 +19,6 @@
       v-model.number="item.quantity_selected"
       :min="item.min_quantity"
       :max="item.quantity_selected + quantityRemaining"
-      :id="item.productId"
       :disabled="item.quantity <= 0"
       :placeholder="item.min_quantity"
     >
