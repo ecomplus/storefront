@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <QuantitySelector :items="product.variations" max="40"/>
+    <QuantitySelector :items="product.variations" max="40" min="10" @buyKit="buy" @addToKit="kit"/>
   </div>
 </template>
 
@@ -18,6 +18,15 @@
     data () {
       return {
         product
+      }
+    },
+
+    methods: {
+      buy (i) {
+        console.log(i)
+      },
+      kit (i) {
+        console.log(i)
       }
     }
   }
