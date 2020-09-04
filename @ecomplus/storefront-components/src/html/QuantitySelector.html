@@ -19,7 +19,6 @@
       v-model.number="selectedQuantities[item._id]"
       :min="item.min_quantity"
       :max="selectedQuantities[item._id] >= item.quantity ? 0 : selectedQuantities[item._id] + quantityRemaining"
-      :id="item.productId"
       :disabled="!isInStock(item)"
     >
     <span>

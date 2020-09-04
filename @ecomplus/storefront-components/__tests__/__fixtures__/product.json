@@ -2,22 +2,85 @@
   "visible": true,
   "available": true,
   "manage_stock": true,
+  "videos": [
+        {
+            "url": "https://www.youtube.com/watch?v=V7XQvAde51w",
+            "title": "esse MACBOOK vai me impressionar?! | Macbook Pro 13 Touchbar - Unboxing"
+        }
+  ],
   "pictures": [
-    {
-      "zoom": {
-        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1551275607131-smartphone-alcatel-pixi-4-dual-chip-4-4034e-preto-pricipal.jpg"
-      },
-      "small": {
-        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1551275607131-smartphone-alcatel-pixi-4-dual-chip-4-4034e-preto-pricipal.jpg"
-      },
-      "normal": {
-        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1551275607131-smartphone-alcatel-pixi-4-dual-chip-4-4034e-preto-pricipal.jpg"
-      },
-      "big": {
-        "url": "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1551275607131-smartphone-alcatel-pixi-4-dual-chip-4-4034e-preto-pricipal.jpg"
-      },
-      "_id": "580600155127562889200001"
-    }
+        {
+            "zoom": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/@v2-1581704558843-display_hero_hw__d73ne9vbdmgm_large.jpg",
+                "size": "1136x667",
+                "alt": "display_hero_hw__d73ne9vbdmgm_large"
+            },
+            "big": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/big/@v2-1581704558843-display_hero_hw__d73ne9vbdmgm_large.jpg.webp",
+                "size": "700x411",
+                "alt": "display_hero_hw__d73ne9vbdmgm_large"
+            },
+            "normal": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/normal/@v2-1581704558843-display_hero_hw__d73ne9vbdmgm_large.jpg.webp",
+                "size": "350x206",
+                "alt": "display_hero_hw__d73ne9vbdmgm_large"
+            },
+            "_id": "245930158170460930200000"
+        },
+        {
+            "zoom": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/@v2-1581704579863-chip_static__lj1912v5qhme_large.jpg",
+                "size": "980x684",
+                "alt": "chip_static__lj1912v5qhme_large"
+            },
+            "big": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/big/@v2-1581704579863-chip_static__lj1912v5qhme_large.jpg.webp",
+                "size": "700x489",
+                "alt": "chip_static__lj1912v5qhme_large"
+            },
+            "normal": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/normal/@v2-1581704579863-chip_static__lj1912v5qhme_large.jpg.webp",
+                "size": "350x244",
+                "alt": "chip_static__lj1912v5qhme_large"
+            },
+            "_id": "245930158170460930200001"
+        },
+        {
+            "zoom": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/@v2-1581704580369-memory_static__c5fogcn85byq_large.jpg",
+                "size": "980x684",
+                "alt": "memory_static__c5fogcn85byq_large"
+            },
+            "big": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/big/@v2-1581704580369-memory_static__c5fogcn85byq_large.jpg.webp",
+                "size": "700x489",
+                "alt": "memory_static__c5fogcn85byq_large"
+            },
+            "normal": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/normal/@v2-1581704580369-memory_static__c5fogcn85byq_large.jpg.webp",
+                "size": "350x244",
+                "alt": "memory_static__c5fogcn85byq_large"
+            },
+            "_id": "245930158170460930200002"
+        },
+        {
+            "zoom": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/@v2-1581704588875-ac_video_poster_960x540.jpg",
+                "size": "960x540",
+                "alt": "ac_video_poster_960x540"
+            },
+            "big": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/big/@v2-1581704588875-ac_video_poster_960x540.jpg.webp",
+                "size": "700x394",
+                "alt": "ac_video_poster_960x540"
+            },
+            "normal": {
+                "url": "https://ecom-jvxboxzk.sfo2.digitaloceanspaces.com/imgs/normal/@v2-1581704588875-ac_video_poster_960x540.jpg.webp",
+                "size": "350x197",
+                "alt": "ac_video_poster_960x540"
+            },
+            "_id": "245930158170460930200003"
+        }
   ],
   "name": "Smartphone Alcatel Pixi 4 4034E Lite 4\" Desbloqueado Preto",
   "sku": "SJO5315",
