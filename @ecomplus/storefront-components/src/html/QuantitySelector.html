@@ -18,7 +18,7 @@
       v-on:change="change"
       v-model.number="selectedQuantities[item._id]"
       :min="item.min_quantity"
-      :max="selectedQuantities[item._id] >= item.quantity ? 0 : selectedQuantities[item._id] + quantityRemaining"
+      :max="Math.min(item.quantity, selectedQuantities[item._id] + quantityRemaining)"
       :disabled="!isInStock(item)"
     >
     <span>
