@@ -49,6 +49,11 @@ export default {
 
     hide () {
       this.isVisible = false
+      setTimeout(() => {
+        if (!this.isVisible) {
+          this.$destroy()
+        }
+      }, 450)
     }
   },
 
