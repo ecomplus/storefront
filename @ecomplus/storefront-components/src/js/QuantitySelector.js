@@ -1,3 +1,5 @@
+import ecomCart from '@ecomplus/shopping-cart'
+import { i19minQuantity } from '@ecomplus/i18n'
 import { i18n, inStock } from '@ecomplus/utils'
 import AAlert from '../AAlert.vue'
 
@@ -27,7 +29,7 @@ export default {
     },
     max: Number,
     title: String,
-    buyButton: {
+    canAddKitToCart: {
       type: Boolean,
       default: true
     }
@@ -51,18 +53,15 @@ export default {
         : 9999999
     },
 
-    i19MaximumQuantity () {
+    i19maximumQuantity () {
       return i18n({
         pt_br: 'Quantidade Máxima',
         en_eu: 'Maximum Quantity'
       })
     },
 
-    i19MinimumQuantity () {
-      return i18n({
-        pt_br: 'Quantidade mínima',
-        en_eu: 'Minimum Quantity'
-      })
+    i19minimumQuantity () {
+      return i18n(i19minQuantity)
     },
 
     i19BuyKit () {
@@ -97,6 +96,17 @@ export default {
           this.isMin = false
         }, 6000)
         return
+      }
+
+      if (this.canAddKitToCart) {
+        const products = []
+        Object.keys(this.selectedQuantities).forEach(key => {
+          products.push({
+            _id: key,
+            quantity: this.selectedQuantities[key]
+          })
+        })
+        ecomCart.addProduct(products)
       }
 
       this.$emit('buyKit', this.selectedQuantities)

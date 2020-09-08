@@ -27,14 +27,14 @@
   </div>
 
   <a-alert :can-show="isMax">
-    {{ i19MaximumQuantity }}
+    {{ i19maximumQuantity }}
   </a-alert>
 
   <a-alert :can-show="isMin">
-    {{ i19MinimumQuantity }}
+    {{ i19minimumQuantity }}
   </a-alert>
 
-  <slot v-if="buyButton">
+  <slot>
     <button
       type="button"
       class="btn btn-lg btn-primary"
