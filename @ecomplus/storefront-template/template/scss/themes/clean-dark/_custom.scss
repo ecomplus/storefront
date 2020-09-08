@@ -43,14 +43,16 @@ main {
       background-repeat: no-repeat;
       width: 36px;
       height: 36px;
-      -webkit-mask: url("/img/uploads/shopping_cart.svg") no-repeat 50% 50%;
-      mask: url("/img/uploads/shopping_cart.svg") no-repeat 50% 50%;
+      -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+      mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
       -webkit-mask-size: cover;
       mask-size: cover;
     }
+
     .fa-shopping-bag:before {
       background-color: $secondary;
     }
+
     .fa-shopping-bag:hover:before {
       background-color: $primary;
     }
@@ -63,14 +65,16 @@ main {
       background-repeat: no-repeat;
       width: 36px;
       height: 36px;
-      -webkit-mask: url("/img/uploads/person.svg") no-repeat 50% 50%;
-      mask: url("/img/uploads/person.svg") no-repeat 50% 50%;
+      -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+      mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
       -webkit-mask-size: cover;
       mask-size: cover;
     }
+
     .fa-user:before {
       background-color: $secondary;
     }
+
     .fa-user:hover:before {
       background-color: $primary;
     }
@@ -81,20 +85,19 @@ main {
     color: $gray-200;
   }
 
-  .account-addresses {
-    &__card {
-      background-color: $gray-900;
-    }
+  .account-addresses__card {
+    background-color: $gray-900;
   }
+
   .footer {
     background-color: $black;
+
     &__title {
       color: $gray-200;
     }
-    &__payment-methods {
-      i {
-        filter: contrast(60%) !important;
-      }
+
+    &__payment-methods i {
+      filter: contrast(60%);
     }
   }
 
@@ -102,39 +105,29 @@ main {
     color: $secondary;
   }
 
-  .search {
-    &__box {
-      background-color: $gray-800;
-    }
+  .search__box {
+    background-color: $gray-800;
   }
 
-  .search-engine {
-    &__nav {
-      background-color: $gray-800;
-    }
+  .search-engine__nav {
+    background-color: $gray-800;
   }
 
   .checkout__info {
     background-color: $gray-900;
   }
 
-  .minicart {
-    &__aside {
-      background-color: $black;
-    }
+  .minicart__aside {
+    background-color: $black;
   }
 
-  .cart {
-    &__info {
-      background-color: $black;
-      border: solid 1px $gray-600;
-    }
+  .cart__info {
+    background-color: $black;
+    border: solid 1px $gray-600;
   }
 
-  .login {
-    &__info {
-      background-color: $gray-900;
-    }
+  .login__info {
+    background-color: $gray-900;
   }
 
   .card-body {
@@ -145,20 +138,21 @@ main {
     background-color: $gray-800;
   }
 }
-body {
-  .app {
-    &__header {
-      background-color: $black;
-    }
-    &__footer {
-      border-top: var(--spacer-1) solid $secondary;
-      background: $secondary;
-    }
-    &__credits.container {
-      background-color: $white;
-      display: flex;
-      justify-content: center;
-      max-width: 100vw;
-    }
+
+.app .app {
+  &__header {
+    background-color: $black;
+  }
+
+  &__footer {
+    border-top: var(--spacer-1) solid $secondary;
+    background: $secondary;
+  }
+
+  &__credits.container {
+    background-color: $white;
+    display: flex;
+    justify-content: center;
+    max-width: 100vw;
   }
 }

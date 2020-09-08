@@ -3,6 +3,7 @@ main {
     background-color: $white;
     display: flex;
     flex-direction: column-reverse;
+
     &__nav {
       font-size: 75%;
     }
@@ -20,6 +21,7 @@ main {
 
     &__nav a {
       color: $secondary;
+
       &:hover {
         border-bottom-color: $gray-600;
         color: $gray-500;
@@ -39,14 +41,16 @@ main {
       background-repeat: no-repeat;
       width: 36px;
       height: 36px;
-      -webkit-mask: url("/img/uploads/shopping_cart.svg") no-repeat 50% 50%;
-      mask: url("/img/uploads/shopping_cart.svg") no-repeat 50% 50%;
+      -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+      mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
       -webkit-mask-size: cover;
       mask-size: cover;
     }
+
     .fa-shopping-bag:before {
       background-color: $secondary;
     }
+
     .fa-shopping-bag:hover:before {
       background-color: $primary;
     }
@@ -59,14 +63,16 @@ main {
       background-repeat: no-repeat;
       width: 36px;
       height: 36px;
-      -webkit-mask: url("/img/uploads/person.svg") no-repeat 50% 50%;
-      mask: url("/img/uploads/person.svg") no-repeat 50% 50%;
+      -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+      mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
       -webkit-mask-size: cover;
       mask-size: cover;
     }
+
     .fa-user:before {
       background-color: $secondary;
     }
+
     .fa-user:hover:before {
       background-color: $primary;
     }
