@@ -87,7 +87,7 @@ export default {
         return
       }
 
-      this.$emit('addToKit', this.selectedQuantities)
+      this.$emit('add-to-kit', this.selectedQuantities)
     },
 
     buyKit () {
