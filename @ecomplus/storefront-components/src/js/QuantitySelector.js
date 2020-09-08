@@ -86,7 +86,7 @@ export default {
         return
       }
 
-      this.$emit('addToKit', this.selectedQuantities)
+      this.$emit('add-to-kit', this.selectedQuantities)
     },
 
     buyKit () {
@@ -109,7 +109,7 @@ export default {
         ecomCart.addProduct(products)
       }
 
-      this.$emit('buyKit', this.selectedQuantities)
+      this.$emit('buy', this.selectedQuantities)
     }
   }
 }

@@ -18,7 +18,7 @@
       v-on:change="change"
       v-model.number="selectedQuantities[item._id]"
       :min="item.min_quantity"
-      :max="selectedQuantities[item._id] >= item.quantity ? 0 : selectedQuantities[item._id] + quantityRemaining"
+      :max="Math.min(item.quantity, selectedQuantities[item._id] + quantityRemaining)"
       :disabled="!isInStock(item)"
     >
     <span>
@@ -40,10 +40,8 @@
       class="btn btn-lg btn-primary"
       @click="buyKit"
     >
-      <slot name="button-buy-kit">
-        <i class="fas fa-shopping-bag mr-1"></i>
-        {{ i19BuyKit }}
-      </slot>
+      <i class="fas fa-shopping-bag mr-1"></i>
+      {{ i19BuyKit }}
     </button>
   </slot>
 </div>
