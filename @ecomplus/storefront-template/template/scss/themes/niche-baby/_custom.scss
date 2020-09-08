@@ -5,7 +5,7 @@ main {
     }
 
     a.top-bar__countdown {
-      background-image: linear-gradient(rgba($primary, 0.5), rgba($primary, 0.7)), url("https://res.cloudinary.com/ecomplus/image/upload/v1593054601/theme-baby-bg_hfgquo.webp");
+      background-image: linear-gradient(rgba($primary, 0.5), rgba($primary, 0.7)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
       font-weight: var(--font-bold);
       height: 60px;
       display: flex;
@@ -21,6 +21,7 @@ main {
 
   .header {
     border-bottom: none;
+
     &__nav {
       color: $secondary;
 
@@ -57,8 +58,8 @@ main {
       background-repeat: no-repeat;
       width: 36px;
       height: 36px;
-      -webkit-mask: url("https://res.cloudinary.com/ecomplus/image/upload/v1593054601/baby-cart_zvdtgo.svg") no-repeat 50% 50%;
-      mask: url("https://res.cloudinary.com/ecomplus/image/upload/v1593054601/baby-cart_zvdtgo.svg") no-repeat 50% 50%;
+      -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/cart.svg") no-repeat 50% 50%;
+      mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/cart.svg") no-repeat 50% 50%;
       -webkit-mask-size: cover;
       mask-size: cover;
     }
@@ -77,8 +78,8 @@ main {
       background-repeat: no-repeat;
       width: 36px;
       height: 36px;
-      -webkit-mask: url("https://res.cloudinary.com/ecomplus/image/upload/v1593054349/login-baby_pc1w0t.svg") no-repeat 50% 50%;
-      mask: url("https://res.cloudinary.com/ecomplus/image/upload/v1593054349/login-baby_pc1w0t.svg") no-repeat 50% 50%;
+      -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/login.svg") no-repeat 50% 50%;
+      mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/login.svg") no-repeat 50% 50%;
       -webkit-mask-size: cover;
       mask-size: cover;
     }
@@ -91,12 +92,12 @@ main {
   }
 
   .footer {
-    background: linear-gradient(rgba($gray-100, 1), rgba($white, 0.8)), url("https://res.cloudinary.com/ecomplus/image/upload/v1593054601/theme-baby-bg_hfgquo.webp");
+    background: linear-gradient(rgba($gray-100, 1), rgba($white, 0.8)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
   }
 }
 
 .menu__social {
-  background-image: linear-gradient(rgba($gray-100, 1), rgba($white, 0.4)), url("https://res.cloudinary.com/ecomplus/image/upload/v1593054601/theme-baby-bg_hfgquo.webp");
+  background-image: linear-gradient(rgba($gray-100, 1), rgba($white, 0.4)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
 }
 
 .card-header {
