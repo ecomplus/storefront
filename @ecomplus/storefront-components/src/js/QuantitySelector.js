@@ -99,7 +99,7 @@ export default {
         return
       }
 
-      this.$emit('buyKit', this.selectedQuantities)
+      this.$emit('buy', this.selectedQuantities)
     }
   }
 }
