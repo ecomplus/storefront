@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.56](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.55...@ecomplus/storefront-app@2.0.0-beta.56) (2020-09-10)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.15.0 ([47dec6e](https://github.com/ecomplus/storefront/commit/47dec6eeda2c8078a06f35cb726c49837315a28a))
+* **i18n:** importing new releases words from @ecomplus/i18n ([343fe92](https://github.com/ecomplus/storefront/commit/343fe927069e1ba4f45ef60f3bdceb42f6f18e32))
+
+
+
+
+
 # [2.0.0-beta.55](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.54...@ecomplus/storefront-app@2.0.0-beta.55) (2020-08-27)
 
 

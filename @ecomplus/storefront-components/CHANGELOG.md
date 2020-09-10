@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.52](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.51...@ecomplus/storefront-components@1.0.0-beta.52) (2020-09-10)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.15.0 ([47dec6e](https://github.com/ecomplus/storefront/commit/47dec6eeda2c8078a06f35cb726c49837315a28a))
+* **i18n:** importing new releases words from @ecomplus/i18n ([343fe92](https://github.com/ecomplus/storefront/commit/343fe927069e1ba4f45ef60f3bdceb42f6f18e32))
+* **product-quickview:** destroy component after hidden ([8546a76](https://github.com/ecomplus/storefront/commit/8546a7633db92c9d4801473ba6acbda5384683ed))
+
+
+### Features
+
+* **product-quickview:** new ProductQuickview componente :tada: ([#291](https://github.com/ecomplus/storefront/issues/291)) ([ab554bd](https://github.com/ecomplus/storefront/commit/ab554bd588a39dff215c5593b85dac8476f7451b))
+
+
+
+
+
 # [1.0.0-beta.51](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.50...@ecomplus/storefront-components@1.0.0-beta.51) (2020-08-27)
 
 
