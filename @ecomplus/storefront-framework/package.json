@@ -39,7 +39,7 @@
     "@babel/preset-env": "^7.11.5",
     "@ecomplus/client": "^2.1.1",
     "@ecomplus/i18n": "^1.15.0",
-    "@ecomplus/search-engine": "^2.3.2",
+    "@ecomplus/search-engine": "^2.4.0",
     "@ecomplus/storefront-router": "^2.2.0",
     "@ecomplus/utils": "^1.4.1",
     "autoprefixer": "^9.8.6",
