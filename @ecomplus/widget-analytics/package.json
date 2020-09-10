@@ -1,0 +1,44 @@
+{
+  "name": "@ecomplus/widget-analytics",
+  "version": "1.0.0",
+  "description": "Storefront plugin to handle GA Universal Analytics",
+  "main": "dist/widget-analytics.min.js",
+  "module": "src/index.js",
+  "browser": "dist/widget-analytics.min.js",
+  "jsdelivr": "dist/public/widget-analytics.var.min.js",
+  "unpkg": "dist/public/widget-analytics.var.min.js",
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "serve": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomplus/storefront.git",
+    "directory": "@ecomplus/widget-analytics"
+  },
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "ga",
+    "gtag",
+    "google-analytics",
+    "universal-analytics",
+    "ga-enhanced-ecommerce"
+  ],
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomplus/storefront/issues"
+  },
+  "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-analytics#readme",
+  "peerDependencies": {
+    "core-js": "3.x"
+  },
+  "dependencies": {
+    "@ecomplus/widget-tag-manager": "^1.2.3"
+  },
+  "webpackOutput": {
+    "library": "widgetAnalytics",
+    "filename": "widget-analytics.min.js"
+  }
+}
