@@ -46,21 +46,29 @@ export default dataLayer => {
     const emitPurchase = orderId => {
       if (!isPurchaseSent) {
         const { amount } = window.storefrontApp
-        const revenue = (
-          (amount && amount.total) ||
-          (ecomCart.data && ecomCart.data.subtotal) ||
-          0
-        ).toFixed(2)
+        const actionField = {
+          id: orderId,
+          revenue: (
+            (amount && amount.total) ||
+            (ecomCart.data && ecomCart.data.subtotal) ||
+            0
+          ).toFixed(2)
+        }
+        if (amount) {
+          if (amount.freight !== undefined) {
+            actionField.shipping = amount.freight.toFixed(2)
+          }
+          if (amount.tax !== undefined) {
+            actionField.tax = amount.tax.toFixed(2)
+          }
+        }
 
         dataLayer.push({
           event: 'eec.purchase',
           ecommerce: {
             currencyCode,
             purchase: {
-              actionField: {
-                id: orderId,
-                revenue
-              },
+              actionField,
               products: getCartProductsList()
             }
           }
