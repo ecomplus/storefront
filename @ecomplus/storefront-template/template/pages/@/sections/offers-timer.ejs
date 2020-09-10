@@ -1,7 +1,7 @@
 <%
 if (Array.isArray(opt.offers) && opt.offers.length) {
   const search = new _.EcomSearch()
-  await search.setProductIds(opt.offers).fetch()
+  await search.setProductIds(opt.offers).fetch(true)
   const items = search.getItems().filter(item => _.ecomUtils.inStock(item))
   %>
 
