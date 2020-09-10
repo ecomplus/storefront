@@ -53,6 +53,7 @@
     "@ecomplus/storefront-router": "^2.2.0",
     "@ecomplus/storefront-twbs": "^5.9.3",
     "@ecomplus/utils": "^1.4.1",
+    "@ecomplus/widget-analytics": "^1.0.0",
     "@ecomplus/widget-compre-confie": "^1.1.1",
     "@ecomplus/widget-ebit": "^1.1.7",
     "@ecomplus/widget-fb-pixel": "^1.2.0",
