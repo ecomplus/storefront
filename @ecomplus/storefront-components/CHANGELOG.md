@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.53](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.52...@ecomplus/storefront-components@1.0.0-beta.53) (2020-09-10)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.4.0 ([353fe7b](https://github.com/ecomplus/storefront/commit/353fe7b700af38fdbc1fba8a9e8a533e772a6ba2))
+
+
+
+
+
 # [1.0.0-beta.52](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.51...@ecomplus/storefront-components@1.0.0-beta.52) (2020-09-10)
 
 
