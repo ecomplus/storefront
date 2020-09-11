@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.55](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.54...@ecomplus/storefront-components@1.0.0-beta.55) (2020-09-11)
+
+
+### Bug Fixes
+
+* **account-form:** prevent customer typos with trim ([3d52223](https://github.com/ecomplus/storefront/commit/3d5222388f86684e08f2db76f1612d7d7158037f))
+* **deps:** update @ecomplus/i18n to v1.16.0 ([89b42f2](https://github.com/ecomplus/storefront/commit/89b42f26b8cda4ab40bbd2762d5329f95deb970d))
+
+
+
+
+
 # [1.0.0-beta.54](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.53...@ecomplus/storefront-components@1.0.0-beta.54) (2020-09-11)
 
 
