@@ -1,5 +1,5 @@
 import {
-  // i19anyPaymentMethodMsg,
+  i19anyPaymentMethodMsg,
   i19changePaymentMethod,
   i19checkout,
   i19generateBillet,
@@ -66,7 +66,7 @@ export default {
   },
 
   computed: {
-    i19anyPaymentMethodMsg: () => 'Nenhuma forma de pagamento disponível.',
+    i19anyPaymentMethodMsg: () => i18n(i19anyPaymentMethodMsg),
     i19changePaymentMethod: () => i18n(i19changePaymentMethod),
     i19checkout: () => i18n(i19checkout),
     i19generateBillet: () => i18n(i19generateBillet),
