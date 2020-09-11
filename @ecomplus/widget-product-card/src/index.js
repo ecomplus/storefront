@@ -57,15 +57,10 @@ export default (options = {}, elClass = 'product-card') => {
   let preFetchPromise
   if (productIds.length >= 6 && productIds.length <= 70 && !options.skipSearchApi) {
     const search = new EcomSearch()
-    const isSimpleSearch = productIds.length <= 63
-    if (!isSimpleSearch) {
-      delete search.dsl.aggs
-      delete search.dsl.sort
-      search.setPageSize(productIds.length)
-    }
-
-    preFetchPromise = search.setProductIds(productIds)
-      .fetch(isSimpleSearch, { timeout: 5000 })
+    preFetchPromise = search
+      .setPageSize(productIds.length)
+      .setProductIds(productIds)
+      .fetch(true, { timeout: 5000 })
       .then(() => {
         const items = search.getItems()
         for (let i = 0; i < 2; i++) {
