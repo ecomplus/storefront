@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.51](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.50...@ecomplus/widget-product-card@1.0.0-beta.51) (2020-09-11)
+
+
+### Bug Fixes
+
+* **fecth-items:** ensure page size is set on search request ([b22baed](https://github.com/ecomplus/storefront/commit/b22baed23c8b24f4ef04756ac01407007e549bcb))
+
+
+
+
+
 # [1.0.0-beta.50](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.49...@ecomplus/widget-product-card@1.0.0-beta.50) (2020-09-10)
 
 
