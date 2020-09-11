@@ -12,7 +12,7 @@
       pattern="\S+@\S+\.\S{2,}"
       class="form-control"
       id="account-form-email"
-      v-model="localCustomer.main_email"
+      v-model.trim="localCustomer.main_email"
       placeholder="email@mail.com"
       required
     >
@@ -28,7 +28,7 @@
         pattern="[^\d\s]{2,}[\s][^\d\s]{2,}.*"
         class="form-control"
         id="account-form-name"
-        v-model="fullName"
+        v-model.trim="fullName"
         required
       >
     </div>
@@ -45,7 +45,7 @@
         pattern="[^\d\s]{2,}.*"
         class="form-control"
         id="account-form-nickname"
-        v-model="localCustomer.display_name"
+        v-model.trim="localCustomer.display_name"
       >
     </div>
   </div>
@@ -161,10 +161,11 @@
       </label>
       <input
         type="text"
-        pattern="[^\d\s]{2,}[\s][^\d\s]{2,}.*"
+        pattern="[\w-]{1,}[\s][\w-]{1,}.*"
+        minlength="4"
         class="form-control"
         id="account-form-name"
-        v-model="localCustomer.corporate_name"
+        v-model.trim="localCustomer.corporate_name"
         required
       >
     </div>

@@ -169,22 +169,24 @@ export default {
       sessionStorage.setItem(storageKey, JSON.stringify(this.localCustomer))
     },
 
-    submit (ev) {
-      const $form = this.$el
-      if (!countInvalidInputs('.is-invalid')) {
-        if (!this.localCustomer.display_name) {
-          this.localCustomer.display_name = this.localCustomer.name.given_name
+    submit () {
+      this.$nextTick(() => {
+        const $form = this.$el
+        if (!countInvalidInputs('.is-invalid')) {
+          if (!this.localCustomer.display_name) {
+            this.localCustomer.display_name = this.localCustomer.name.given_name
+          }
+          if (checkFormValidity($form)) {
+            this.saveToStorage()
+            this.save()
+          } else if ($form.classList.contains(formValidateClass) && !countInvalidInputs()) {
+            this.save()
+          }
+          $form.classList.add(formValidateClass)
+        } else {
+          $form.classList.remove(formValidateClass)
         }
-        if (checkFormValidity($form)) {
-          this.saveToStorage()
-          this.save()
-        } else if ($form.classList.contains(formValidateClass) && !countInvalidInputs()) {
-          this.save()
-        }
-        $form.classList.add(formValidateClass)
-      } else {
-        $form.classList.remove(formValidateClass)
-      }
+      })
     },
 
     save () {
