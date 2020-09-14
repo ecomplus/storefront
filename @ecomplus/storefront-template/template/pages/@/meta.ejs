@@ -36,7 +36,8 @@ if (Array.isArray(widgets)) {
 // page title and description
 const title = _.state.meta_title || _.state.name || _.state.title || _.settings.name
 const description = _.state.meta_description || _.state.short_description || _.settings.description
-let url
+
+let url, domain, social, ogLocale, ogImage
 if (pathname) {
   if (!_.settings.domain && _.store.domain) {
     _.settings.domain = _.store.domain
@@ -45,18 +46,17 @@ if (pathname) {
   if (domain) {
     // canonical url
     url = `https://${domain}${pathname}`
+    // content for og metatags
+    social = _.cms('social')
+    ogLocale = _.lang.length === 2 ? _.lang : _.lang.substr(0, 3) + _.lang.slice(3).toUpperCase()
+    if (resource) {
+      const picture = _.ecomUtils.img(_.state, null, 'zoom')
+      ogImage = picture && picture.url
+    }
+    if (!ogImage && social.og_image) {
+      ogImage = social.og_image.charAt(0) === '/' ? `https://${domain}${social.og_image}` : social.og_image
+    }
   }
-}
-
-let social, ogLocale, ogImage
-if (url) {
-  // content for og metatags
-  social = _.cms('social')
-  ogLocale = _.lang.length === 2 ? _.lang : _.lang.substr(0, 3) + _.lang.slice(3).toUpperCase()
-}
-if (resource) {
-  const picture = _.ecomUtils.img(_.state, null, 'zoom')
-  ogImage = picture && picture.url
 }
 %>
 
@@ -103,8 +103,6 @@ if (resource) {
   <meta property="og:locale" content="<%= ogLocale %>">
   <% if (ogImage) { %>
     <meta property="og:image" content="<%= ogImage %>">
-  <% } else if (social.og_image) { %>
-    <meta property="og:image" content="<%= social.og_image %>">
   <% } %>
   <% if (social.fb_app_id) { %>
     <meta property="og:app_id" content="<%= social.fb_app_id %>">
