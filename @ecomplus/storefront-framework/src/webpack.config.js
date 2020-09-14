@@ -40,18 +40,14 @@ const filenameSchema = process.env.WEBPACK_OUTPUT_FILENAME || '[name].[contentha
 
 // setup base loaders for styles module
 // parse SCSS and fix compiled CSS with Postcss
-const baseScssModule = [
+const getBaseScssModule = (sourceMap = devMode) => ([
   {
     loader: 'css-loader',
-    options: {
-      sourceMap: true
-    }
+    options: { sourceMap }
   },
   {
     loader: 'resolve-url-loader',
-    options: {
-      sourceMap: true
-    }
+    options: { sourceMap }
   },
 
   {
@@ -65,7 +61,7 @@ const baseScssModule = [
           require('cssnano')({ preset: 'default' })
         ]
       },
-      sourceMap: true
+      sourceMap
     }
   },
 
@@ -93,10 +89,10 @@ const baseScssModule = [
           done({ file })
         }
       },
-      sourceMap: true
+      sourceMap
     }
   }
-]
+])
 
 // starter Webpack config object
 let config = {
@@ -152,9 +148,9 @@ let config = {
         test: /\.s?css$/,
         oneOf: [{
           resourceQuery: /^\?vue/,
-          use: ['vue-style-loader'].concat(baseScssModule)
+          use: ['vue-style-loader'].concat(getBaseScssModule())
         }, {
-          use: [MiniCssExtractPlugin.loader].concat(baseScssModule)
+          use: [MiniCssExtractPlugin.loader].concat(getBaseScssModule(true))
         }]
       },
 
