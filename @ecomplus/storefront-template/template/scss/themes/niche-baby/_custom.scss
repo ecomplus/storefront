@@ -30,12 +30,10 @@ main {
       align-items: center;
     }
 
-    &__nav a {
-      &:hover {
-        border-radius: unset;
-        background-color: transparent;
-        border-bottom: solid 2px;
-      }
+    &__nav a:hover {
+      border-radius: unset;
+      background-color: transparent;
+      border-bottom: solid 2px;
     }
   }
 
@@ -63,11 +61,15 @@ main {
       -webkit-mask-size: cover;
       mask-size: cover;
     }
+
     .fa-shopping-bag:before {
       background-color: $secondary;
     }
-    .fa-shopping-bag:hover:before {
-      background-color: $primary;
+
+    @media (hover: hover) {
+      .fa-shopping-bag:hover:before {
+        background-color: $primary;
+      }
     }
   }
 
@@ -83,11 +85,15 @@ main {
       -webkit-mask-size: cover;
       mask-size: cover;
     }
+
     .fa-user:before {
       background-color: $secondary;
     }
-    .fa-user:hover:before {
-      background-color: $primary;
+
+    @media (hover: hover) {
+      .fa-user:hover:before {
+        background-color: $primary;
+      }
     }
   }
 

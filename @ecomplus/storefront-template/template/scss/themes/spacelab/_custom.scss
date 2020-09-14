@@ -1,12 +1,17 @@
 #ec-user-popover {
   margin-right: 0.2rem;
 }
+
 a {
   color: var(--primary);
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--primary-lightest);
+    }
+  }
 }
-a:hover {
-  color: var(--primary-lightest);
-}
-.menu__btn--close{
+
+.menu__btn--close {
   color: var(--primary);
 }

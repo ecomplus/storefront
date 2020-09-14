@@ -53,8 +53,10 @@ main {
       background-color: $secondary;
     }
 
-    .fa-shopping-bag:hover:before {
-      background-color: $primary;
+    @media (hover: hover) {
+      .fa-shopping-bag:hover:before {
+        background-color: $primary;
+      }
     }
   }
 
@@ -75,8 +77,10 @@ main {
       background-color: $secondary;
     }
 
-    .fa-user:hover:before {
-      background-color: $primary;
+    @media (hover: hover) {
+      .fa-user:hover:before {
+        background-color: $primary;
+      }
     }
   }
 
