@@ -57,12 +57,14 @@ const baseScssModule = [
   {
     loader: 'postcss-loader',
     options: {
-      ident: 'postcss',
-      minimize: !devMode,
-      plugins: [
-        require('autoprefixer')(),
-        require('cssnano')({ preset: 'default' })
-      ],
+      postcssOptions: {
+        ident: 'postcss',
+        minimize: !devMode,
+        plugins: [
+          require('autoprefixer')(),
+          require('cssnano')({ preset: 'default' })
+        ]
+      },
       sourceMap: true
     }
   },

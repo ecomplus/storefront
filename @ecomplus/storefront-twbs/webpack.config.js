@@ -52,12 +52,16 @@ const webpackConfig = {
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              minimize: !devMode,
-              plugins: [
-                require('autoprefixer')(),
-                require('cssnano')({ preset: 'default' })
-              ]
+              postcssOptions: {
+                postcssOptions: {
+                  ident: 'postcss',
+                  minimize: !devMode,
+                  plugins: [
+                    require('autoprefixer')(),
+                    require('cssnano')({ preset: 'default' })
+                  ]
+                }
+              }
             }
           },
           'sass-loader'
