@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.71](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.70...@ecomplus/storefront-template@2.0.0-beta.71) (2020-09-14)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.16.1 ([71b8a37](https://github.com/ecomplus/storefront/commit/71b8a37d146b17dce9a8337ac376cb08a73c4bac))
+* **metatags:** og:image with absolute img url ([e235a89](https://github.com/ecomplus/storefront/commit/e235a89a7bdfcd3013e8ba45281f9bcb87813c36))
+* **scss:** preventing Safari double-tap link issue ([20b1de8](https://github.com/ecomplus/storefront/commit/20b1de84d6bbbdc0a90e048a8097b7801dc0c040))
+
+
+
+
+
 # [2.0.0-beta.70](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.69...@ecomplus/storefront-template@2.0.0-beta.70) (2020-09-11)
 
 

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.13.18](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.17...@ecomplus/storefront-framework@5.13.18) (2020-09-14)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.16.1 ([71b8a37](https://github.com/ecomplus/storefront/commit/71b8a37d146b17dce9a8337ac376cb08a73c4bac))
+
+
+### Performance Improvements
+
+* **webpack:** skip sourcemaps for inline css on production ([da77538](https://github.com/ecomplus/storefront/commit/da77538c2c75c76172ea5b5844da3c5c80778260))
+
+
+
+
+
 ## [5.13.17](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.16...@ecomplus/storefront-framework@5.13.17) (2020-09-11)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.56](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.55...@ecomplus/storefront-components@1.0.0-beta.56) (2020-09-14)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.16.1 ([71b8a37](https://github.com/ecomplus/storefront/commit/71b8a37d146b17dce9a8337ac376cb08a73c4bac))
+* **scss:** preventing Safari double-tap link issue ([20b1de8](https://github.com/ecomplus/storefront/commit/20b1de84d6bbbdc0a90e048a8097b7801dc0c040))
+
+
+### Features
+
+* **account-form:** add optional inscription number/type inputs ([7c64d10](https://github.com/ecomplus/storefront/commit/7c64d1030b1889062c8356a39029e19995b72dfa))
+
+
+
+
+
 # [1.0.0-beta.55](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.54...@ecomplus/storefront-components@1.0.0-beta.55) (2020-09-11)
 
 
