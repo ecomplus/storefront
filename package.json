@@ -38,7 +38,7 @@
     "@vue/cli-service": "^4.5.6",
     "@vue/eslint-config-standard": "^5.1.2",
     "animate.css": "^3.7.2",
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^10.0.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "bootstrap": "^4.5.2",
