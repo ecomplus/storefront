@@ -7,5 +7,6 @@
   "rangeStrategy": "bump",
   "labels": [
     "dependencies"
-  ]
+  ],
+  "dependencyDashboard": true
 }

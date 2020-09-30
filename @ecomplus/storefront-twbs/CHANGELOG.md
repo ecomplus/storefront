@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.9.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.9.3...@ecomplus/storefront-twbs@5.9.4) (2020-09-14)
+
+
+### Bug Fixes
+
+* **scss:** preventing Safari double-tap link issue ([20b1de8](https://github.com/ecomplus/storefront/commit/20b1de84d6bbbdc0a90e048a8097b7801dc0c040))
+
+
+
+
+
 ## [5.9.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.9.2...@ecomplus/storefront-twbs@5.9.3) (2020-08-27)
 
 

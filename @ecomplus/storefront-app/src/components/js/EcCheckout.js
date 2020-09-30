@@ -1,9 +1,9 @@
 import {
   i19addToCart,
-  // i19additionalComments,
+  i19additionalComments,
   i19buyAlsoMsg,
   i19checkout,
-  // i19orderNotesInputMsg,
+  i19orderNotesInputMsg,
   i19selectedOffers
 } from '@ecomplus/i18n'
 
@@ -121,10 +121,10 @@ export default {
 
   computed: {
     i19addToCart: () => i18n(i19addToCart),
-    i19additionalComments: () => 'Comentários adicionais',
+    i19additionalComments: () => i18n(i19additionalComments),
     i19buyAlsoMsg: () => i18n(i19buyAlsoMsg),
     i19checkout: () => i18n(i19checkout),
-    i19orderNotesInputMsg: () => 'Campo opcional para informações customizadas ou anotações do pedido.',
+    i19orderNotesInputMsg: () => i18n(i19orderNotesInputMsg),
     i19selectedOffers: () => i18n(i19selectedOffers),
     modulesPayload: () => baseModulesRequestData,
 

@@ -14,7 +14,7 @@
         class="form-control"
         id="login-email"
         placeholder="email@mail.com"
-        v-model="email"
+        v-model.trim="email"
         :readonly="isWaitingLogin"
         required
       >

@@ -26,8 +26,10 @@
     margin-bottom: var(--spacer-2);
     border: var(--border-width) solid var(--border-color);
 
-    &:hover {
-      border-color: var(--secondary-light);
+    @media (hover: hover) {
+      &:hover {
+        border-color: var(--secondary-light);
+      }
     }
 
     &:not(:last-of-type) {

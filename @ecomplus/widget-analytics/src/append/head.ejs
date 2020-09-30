@@ -1,0 +1,17 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=<%- options.gaTrackingId %>"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag () {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  if (location.pathname === '/app/') {
+    gtag('config', '<%- options.gaTrackingId %>', {
+      send_page_view: location.hash.substr(1, 8) === '/account',
+      page_path: location.hash.substr(1)
+    });
+  } else {
+    gtag('config', '<%- options.gaTrackingId %>');
+  }
+</script>

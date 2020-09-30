@@ -12,7 +12,7 @@
       pattern="\S+@\S+\.\S{2,}"
       class="form-control"
       id="account-form-email"
-      v-model="localCustomer.main_email"
+      v-model.trim="localCustomer.main_email"
       placeholder="email@mail.com"
       required
     >
@@ -28,7 +28,7 @@
         pattern="[^\d\s]{2,}[\s][^\d\s]{2,}.*"
         class="form-control"
         id="account-form-name"
-        v-model="fullName"
+        v-model.trim="fullName"
         required
       >
     </div>
@@ -45,7 +45,7 @@
         pattern="[^\d\s]{2,}.*"
         class="form-control"
         id="account-form-nickname"
-        v-model="localCustomer.display_name"
+        v-model.trim="localCustomer.display_name"
       >
     </div>
   </div>
@@ -151,22 +151,62 @@
       />
     </div>
   </div>
+
   <div
-    class="form-row"
     v-if="localCustomer.registry_type !== 'p'"
+    class="account-form__legal-person"
   >
-    <div class="form-group col-lg-8">
-      <label for="account-form-name">
-        {{ i19corporateName }}
-      </label>
-      <input
-        type="text"
-        pattern="[^\d\s]{2,}[\s][^\d\s]{2,}.*"
-        class="form-control"
-        id="account-form-name"
-        v-model="localCustomer.corporate_name"
-        required
-      >
+    <div class="form-row">
+      <div class="form-group col-lg-8">
+        <label for="account-form-name">
+          {{ i19corporateName }}
+        </label>
+        <input
+          type="text"
+          pattern="[\w-]{1,}[\s][\w-]{1,}.*"
+          minlength="4"
+          class="form-control"
+          id="account-form-name"
+          v-model.trim="localCustomer.corporate_name"
+          required
+        >
+      </div>
+    </div>
+
+    <div class="form-row account-form__inscription">
+      <div class="form-group col-lg-6">
+        <label for="account-form-inscription">
+          {{ i19inscriptionNumber }}
+        </label>
+        <input
+          type="text"
+          maxlength="50"
+          class="form-control"
+          id="account-form-inscription"
+          v-model.trim="localCustomer.inscription_number"
+        >
+      </div>
+      <div class="form-group col-lg-5 pb-lg-2 ml-lg-2">
+        <div
+          class="custom-control custom-radio custom-control-inline"
+          v-for="(label, value) in i19InscriptionType"
+        >
+          <input
+            type="radio"
+            name="account-form-gender"
+            class="custom-control-input"
+            :id="`account-form-gender-${value}`"
+            :value="value"
+            v-model="localCustomer.inscription_type"
+          >
+          <label
+            class="custom-control-label"
+            :for="`account-form-gender-${value}`"
+          >
+            {{ label }}
+          </label>
+        </div>
+      </div>
     </div>
   </div>
 
