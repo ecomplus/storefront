@@ -11,6 +11,7 @@ import SearchEngine from './src/SearchEngine.vue'
 import ShippingCalculator from './src/ShippingCalculator.vue'
 import ShippingLine from './src/ShippingLine.vue'
 import TheProduct from './src/TheProduct.vue'
+import QuantitySelector from './src/QuantitySelector.vue'
 
 export {
   ABackdrop,
@@ -25,5 +26,6 @@ export {
   SearchEngine,
   ShippingCalculator,
   ShippingLine,
-  TheProduct
+  TheProduct,
+  QuantitySelector
 }
