@@ -1,4 +1,15 @@
-import { i18n, inStock } from '@ecomplus/utils'
+import {
+  // i19buyKit,
+  i19maxQuantity,
+  i19minQuantity
+} from '@ecomplus/i18n'
+
+import {
+  i18n,
+  inStock as checkInStock
+} from '@ecomplus/utils'
+
+import ecomCart from '@ecomplus/shopping-cart'
 import AAlert from '../AAlert.vue'
 
 export default {
@@ -6,14 +17,6 @@ export default {
 
   components: {
     AAlert
-  },
-
-  data () {
-    return {
-      selectedQuantities: {},
-      isMax: false,
-      isMin: false
-    }
   },
 
   props: {
@@ -26,80 +29,107 @@ export default {
       default: 1
     },
     max: Number,
-    title: String,
-    buyButton: {
+    buyText: String,
+    canAddToCart: {
       type: Boolean,
       default: true
     }
   },
 
+  data () {
+    return {
+      selectedQnts: this.items.reduce((selectedQnts, item) => {
+        selectedQnts[item._id] = item.quantity || 0
+        return selectedQnts
+      }, {}),
+      hasMinAlert: false,
+      hasMaxAlert: false
+    }
+  },
+
   computed: {
-    selectedQuantity () {
+    i19maxQuantity: () => i18n(i19maxQuantity),
+    i19minQuantity: () => i18n(i19minQuantity),
+
+    totalQuantity () {
       let total = 0
-      const { selectedQuantities } = this
-      Object.keys(selectedQuantities).forEach(key => {
-        if (selectedQuantities[key]) {
-          total += selectedQuantities[key]
+      const { selectedQnts } = this
+      Object.keys(selectedQnts).forEach(key => {
+        if (selectedQnts[key]) {
+          total += selectedQnts[key]
         }
       })
+      if (total >= this.min && this.hasMinAlert) {
+        this.hasMinAlert = false
+      } else if (total <= this.max && this.hasMaxAlert) {
+        this.hasMaxAlert = false
+      }
       return total
     },
 
-    quantityRemaining () {
+    remainingQuantity () {
       return this.max
-        ? this.max - this.selectedQuantity
+        ? this.max - this.totalQuantity
         : 9999999
     },
 
-    i19MaximumQuantity () {
-      return i18n({
-        pt_br: 'Quantidade Máxima',
-        en_eu: 'Maximum Quantity'
-      })
-    },
-
-    i19MinimumQuantity () {
-      return i18n({
-        pt_br: 'Quantidade mínima',
-        en_eu: 'Minimum Quantity'
-      })
-    },
-
-    i19BuyKit () {
-      return i18n({
-        pt_br: 'Comprar Kit',
-        en_eu: 'Buy Kit'
-      })
+    strBuy () {
+      return this.buyText || /* i19buyKit */ 'Comprar kit'
     }
   },
 
   methods: {
-    isInStock (item) {
-      return inStock(item)
+    checkInStock,
+
+    changeQnt (item, qntDiff, ev) {
+      const { selectedQnts, remainingQuantity } = this
+      let newQnt
+      if (qntDiff) {
+        newQnt = selectedQnts[item._id] + qntDiff
+      } else if (ev) {
+        selectedQnts[item._id] = ev.target.value.replace(/\D/g, '')
+        newQnt = parseInt(selectedQnts[item._id], 10)
+      }
+      if (newQnt > 0) {
+        if (item.min_quantity > newQnt) {
+          newQnt = item.min_quantity
+        } else {
+          const maxQnt = Math.min(item.max_quantity, selectedQnts[item._id] + remainingQuantity)
+          if (maxQnt < newQnt) {
+            newQnt = maxQnt
+          }
+        }
+        selectedQnts[item._id] = newQnt
+      } else {
+        selectedQnts[item._id] = 0
+      }
+      this.$emit('set-quantity', {
+        item,
+        quantity: selectedQnts[item._id]
+      })
     },
 
-    change () {
-      if (this.quantityRemaining <= 0) {
-        this.isMax = true
-        setTimeout(() => {
-          this.isMax = false
-        }, 6000)
-        return
+    buy () {
+      if (this.totalQuantity >= this.min) {
+        if (this.max === undefined || this.totalQuantity <= this.max) {
+          const items = []
+          this.items.forEach(item => {
+            const quantity = this.selectedQnts[item._id]
+            if (quantity > 0) {
+              const newItem = { ...item, quantity }
+              items.push(newItem)
+              if (this.canAddToCart) {
+                ecomCart.addItem(newItem)
+              }
+            }
+          })
+          this.$emit('buy', { items })
+        } else {
+          this.hasMaxAlert = true
+        }
+      } else {
+        this.hasMinAlert = true
       }
-
-      this.$emit('add-to-kit', this.selectedQuantities)
-    },
-
-    buyKit () {
-      if (this.selectedQuantity <= this.min) {
-        this.isMin = true
-        setTimeout(() => {
-          this.isMin = false
-        }, 6000)
-        return
-      }
-
-      this.$emit('buy', this.selectedQuantities)
     }
   }
 }

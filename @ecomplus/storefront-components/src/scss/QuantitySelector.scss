@@ -1,13 +1,25 @@
 .quantity-selector {
-  display: flex;
-  align-items: center;
-  margin-bottom: var(--spacer-2);
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacer-2);
 
-  span {
-    padding: 0 var(--spacer-3);
+    .btn {
+      box-shadow: none;
+      text-decoration: none;
+    }
   }
 
-  input {
-    max-width: 50%;
+  &__input {
+    max-width: 2.5rem;
+    padding-left: var(--spacer-1);
+    padding-right: var(--spacer-1);
+    text-align: center;
+  }
+
+  &__label {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-sm);
+    margin-left: var(--spacer-1);
   }
 }

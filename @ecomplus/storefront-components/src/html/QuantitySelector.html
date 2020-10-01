@@ -1,47 +1,60 @@
-<div class="col col-md-4">
-  <div 
-    class="py-2" 
-    v-if="title"
-  >
-    <span>
-      {{ title }}
-    </span>
-  </div>
-
-  <div 
-    class="quantity-selector" 
+<div class="quantity-selector">
+  <div
+    class="quantity-selector__item"
     v-for="item in items"
   >
-    <input
-      type="number"
-      class="form-control"
-      v-on:change="change"
-      v-model.number="selectedQuantities[item._id]"
-      :min="item.min_quantity"
-      :max="Math.min(item.quantity, selectedQuantities[item._id] + quantityRemaining)"
-      :disabled="!isInStock(item)"
+    <button
+      class="btn btn-sm btn-link"
+      type="button"
+      @click="changeQnt(item, -1)"
     >
-    <span>
+      <i class="fas fa-chevron-down"></i>
+    </button>
+    <input
+      type="tel"
+      class="form-control quantity-selector__input"
+      @change="ev => changeQnt(item, null, ev)"
+      @keyup.up="changeQnt(item, 1)"
+      @keyup.down="changeQnt(item, -1)"
+      :value="selectedQnts[item._id]"
+      :disabled="!checkInStock(item)"
+    >
+    <button
+      class="btn btn-sm btn-link"
+      type="button"
+      @click="changeQnt(item, 1)"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <span class="quantity-selector__label">
       {{ item.name }}
     </span>
   </div>
 
-  <a-alert :can-show="isMax">
-    {{ i19MaximumQuantity }}
+  <a-alert :can-show="hasMinAlert">
+    {{ i19minQuantity }}:
+    <strong>{{ min }}</strong>
   </a-alert>
 
-  <a-alert :can-show="isMin">
-    {{ i19MinimumQuantity }}
+  <a-alert :can-show="hasMaxAlert">
+    {{ i19maxQuantity }}:
+    <strong>{{ max }}</strong>
   </a-alert>
 
-  <slot name="buy">
-    <button
-      type="button"
-      class="btn btn-lg btn-primary"
-      @click="buyKit"
+  <div class="quantity-selector__buy">
+    <slot
+      name="buy"
+      v-bind="{ selectedQnts, buy }"
     >
-      <i class="fas fa-shopping-bag mr-1"></i>
-      {{ i19BuyKit }}
-    </button>
-  </slot>
+      <button
+        type="button"
+        class="btn btn-lg btn-primary my-3"
+        @click="buy"
+      >
+        <i class="fas fa-shopping-bag mr-1"></i>
+        {{ strBuy }}
+      </button>
+    </slot>
+  </div>
 </div>

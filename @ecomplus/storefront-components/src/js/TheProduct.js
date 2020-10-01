@@ -41,6 +41,7 @@ import ProductVariations from '../ProductVariations.vue'
 import ProductGallery from '../ProductGallery.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
+import QuantitySelector from '../QuantitySelector.vue'
 
 const storefront = (typeof window === 'object' && window.storefront) || {}
 const getContextBody = () => (storefront.context && storefront.context.body) || {}
@@ -68,7 +69,8 @@ export default {
     ProductVariations,
     ProductGallery,
     ShippingCalculator,
-    PaymentOption
+    PaymentOption,
+    QuantitySelector
   },
 
   props: {
