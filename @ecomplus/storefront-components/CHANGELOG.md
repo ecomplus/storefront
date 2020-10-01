@@ -3,6 +3,75 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.56](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.55...@ecomplus/storefront-components@1.0.0-beta.56) (2020-09-14)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.16.1 ([71b8a37](https://github.com/ecomplus/storefront/commit/71b8a37d146b17dce9a8337ac376cb08a73c4bac))
+* **scss:** preventing Safari double-tap link issue ([20b1de8](https://github.com/ecomplus/storefront/commit/20b1de84d6bbbdc0a90e048a8097b7801dc0c040))
+
+
+### Features
+
+* **account-form:** add optional inscription number/type inputs ([7c64d10](https://github.com/ecomplus/storefront/commit/7c64d1030b1889062c8356a39029e19995b72dfa))
+
+
+
+
+
+# [1.0.0-beta.55](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.54...@ecomplus/storefront-components@1.0.0-beta.55) (2020-09-11)
+
+
+### Bug Fixes
+
+* **account-form:** prevent customer typos with trim ([3d52223](https://github.com/ecomplus/storefront/commit/3d5222388f86684e08f2db76f1612d7d7158037f))
+* **deps:** update @ecomplus/i18n to v1.16.0 ([89b42f2](https://github.com/ecomplus/storefront/commit/89b42f26b8cda4ab40bbd2762d5329f95deb970d))
+
+
+
+
+
+# [1.0.0-beta.54](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.53...@ecomplus/storefront-components@1.0.0-beta.54) (2020-09-11)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.4.1 ([c51be6e](https://github.com/ecomplus/storefront/commit/c51be6e5843cf0c1824eb883401e0134bd7837fd))
+
+
+
+
+
+# [1.0.0-beta.53](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.52...@ecomplus/storefront-components@1.0.0-beta.53) (2020-09-10)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.4.0 ([353fe7b](https://github.com/ecomplus/storefront/commit/353fe7b700af38fdbc1fba8a9e8a533e772a6ba2))
+
+
+
+
+
+# [1.0.0-beta.52](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.51...@ecomplus/storefront-components@1.0.0-beta.52) (2020-09-10)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.15.0 ([47dec6e](https://github.com/ecomplus/storefront/commit/47dec6eeda2c8078a06f35cb726c49837315a28a))
+* **i18n:** importing new releases words from @ecomplus/i18n ([343fe92](https://github.com/ecomplus/storefront/commit/343fe927069e1ba4f45ef60f3bdceb42f6f18e32))
+* **product-quickview:** destroy component after hidden ([8546a76](https://github.com/ecomplus/storefront/commit/8546a7633db92c9d4801473ba6acbda5384683ed))
+
+
+### Features
+
+* **product-quickview:** new ProductQuickview componente :tada: ([#291](https://github.com/ecomplus/storefront/issues/291)) ([ab554bd](https://github.com/ecomplus/storefront/commit/ab554bd588a39dff215c5593b85dac8476f7451b))
+
+
+
+
+
 # [1.0.0-beta.51](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.50...@ecomplus/storefront-components@1.0.0-beta.51) (2020-08-27)
 
 

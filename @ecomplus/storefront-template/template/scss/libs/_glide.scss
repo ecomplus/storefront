@@ -16,6 +16,12 @@
     color: var(--secondary);
     border: none;
 
+    @media (hover: hover) {
+      &:hover {
+        opacity: .9;
+      }
+    }
+
     @media (max-width: 767.98px) {
       font-size: 1.75rem;
     }
@@ -24,10 +30,6 @@
     }
     @media (min-width: 992px) {
       font-size: 3rem;
-    }
-
-    &:hover {
-      opacity: .9;
     }
 
     &:focus {
@@ -131,18 +133,19 @@
     @media (min-width: 768px) {
       width: 1.6rem;
       margin-left: .3rem;
+
+      &:hover {
+        border-color: var(--secondary);
+        background-color: var(--secondary);
+        opacity: .9;
+      }
     }
+
     @media (min-width: 992px) {
       width: 2rem;
       height: .8rem;
       border-radius: .4rem;
       margin-left: .4rem;
-    }
-
-    &:hover {
-      border-color: var(--secondary);
-      background-color: var(--secondary);
-      opacity: .9;
     }
 
     &:focus {

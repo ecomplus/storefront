@@ -42,25 +42,25 @@
     @media (min-width: 576px) {
       text-transform: uppercase;
       font-weight: var(--font-light);
-    }
-
-    &::after {
-      content: " ";
-      background: var(--light);
-      position: absolute;
-      left: 20%;
-      bottom: -3px;
-      height: .1rem;
-      width: 0;
-      transition: width .5s;
-    }
-
-    &:hover {
-      text-decoration: none;
-      color: inherit;
 
       &::after {
-        width: 70%;
+        content: " ";
+        background: var(--light);
+        position: absolute;
+        left: 20%;
+        bottom: -3px;
+        height: .1rem;
+        width: 0;
+        transition: width .5s;
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: inherit;
+
+        &::after {
+          width: 70%;
+        }
       }
     }
   }

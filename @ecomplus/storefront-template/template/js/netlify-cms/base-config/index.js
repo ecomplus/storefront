@@ -22,7 +22,7 @@ export default options => {
         openAuthoring: '{{message}}'
       }
     },
-    logo_url: 'https://res.cloudinary.com/ecomplus/image/upload/v1591732445/storefront-cms_1_bplh7x.png',
+    logo_url: 'https://ecom.nyc3.digitaloceanspaces.com/storefront/cms.png',
     locale: 'pt',
     load_config_file: Boolean(window.CMS_LOAD_CONFIG_FILE),
     media_folder: `${options.baseDir}template/public/img/uploads`,

@@ -47,12 +47,14 @@ const baseModuleRules = [
       {
         loader: 'postcss-loader',
         options: {
-          ident: 'postcss',
-          minimize: !devMode,
-          plugins: [
-            autoprefixer(),
-            cssnano({ preset: 'default' })
-          ]
+          postcssOptions: {
+            ident: 'postcss',
+            minimize: !devMode,
+            plugins: [
+              autoprefixer(),
+              cssnano({ preset: 'default' })
+            ]
+          }
         }
       },
       'sass-loader'

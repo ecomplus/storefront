@@ -6,18 +6,20 @@
   padding-left: 1rem;
 }
 
-.header__toggler{
+.header__toggler {
   margin: 1.5rem;
 }
 
-.ec-minicart__sidebar{
+.ec-minicart__sidebar {
   background-color: var(--light);
 }
 
 a {
   color:  var(--primary);
-}
 
-a:hover {
-  color: var(--primary-lightest);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--primary-lightest);
+    }
+  }
 }

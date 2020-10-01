@@ -8,6 +8,8 @@ import {
   i19female,
   i19fullName,
   i19Gender,
+  i19inscriptionNumber,
+  i19InscriptionType,
   i19male,
   i19nickname,
   i19personalRegistration,
@@ -78,6 +80,8 @@ export default {
     i19female: () => i18n(i19female),
     i19fullName: () => i18n(i19fullName),
     i19Gender: () => i18n(i19Gender),
+    i19inscriptionNumber: () => i18n(i19inscriptionNumber),
+    i19InscriptionType: () => i18n(i19InscriptionType),
     i19male: () => i18n(i19male),
     i19nickname: () => i18n(i19nickname),
     i19companyRegistration: () => i18n(i19companyRegistration),
@@ -169,22 +173,24 @@ export default {
       sessionStorage.setItem(storageKey, JSON.stringify(this.localCustomer))
     },
 
-    submit (ev) {
-      const $form = this.$el
-      if (!countInvalidInputs('.is-invalid')) {
-        if (!this.localCustomer.display_name) {
-          this.localCustomer.display_name = this.localCustomer.name.given_name
+    submit () {
+      this.$nextTick(() => {
+        const $form = this.$el
+        if (!countInvalidInputs('.is-invalid')) {
+          if (!this.localCustomer.display_name) {
+            this.localCustomer.display_name = this.localCustomer.name.given_name
+          }
+          if (checkFormValidity($form)) {
+            this.saveToStorage()
+            this.save()
+          } else if ($form.classList.contains(formValidateClass) && !countInvalidInputs()) {
+            this.save()
+          }
+          $form.classList.add(formValidateClass)
+        } else {
+          $form.classList.remove(formValidateClass)
         }
-        if (checkFormValidity($form)) {
-          this.saveToStorage()
-          this.save()
-        } else if ($form.classList.contains(formValidateClass) && !countInvalidInputs()) {
-          this.save()
-        }
-        $form.classList.add(formValidateClass)
-      } else {
-        $form.classList.remove(formValidateClass)
-      }
+      })
     },
 
     save () {

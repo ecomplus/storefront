@@ -7,8 +7,10 @@
       height: auto;
     }
 
-    &:hover {
-      box-shadow: none;
+    @media (hover: hover) {
+      &:hover {
+        box-shadow: none;
+      }
     }
   }
 }

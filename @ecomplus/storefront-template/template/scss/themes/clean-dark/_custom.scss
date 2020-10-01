@@ -1,0 +1,162 @@
+main {
+  .top-bar {
+    background-color: $black;
+
+    a {
+      color: $gray-200;
+    }
+
+    &__nav {
+      font-size: 75%;
+    }
+
+    a.top-bar__countdown {
+      background-color: $black;
+      color: $secondary;
+      filter: drop-shadow(1px 1px 2px $gray-500);
+    }
+  }
+
+  .header {
+    border-bottom: none;
+    background-color: $black;
+
+    &__nav a {
+      color: $secondary;
+
+      &:hover {
+        border-bottom-color: $gray-100;
+        color: $primary;
+        background-color: transparent;
+      }
+    }
+  }
+
+  #search-input {
+    border: solid 1px $gray-600;
+  }
+
+  #cart-button {
+    i:before {
+      content: "";
+      display: inline-block;
+      background-repeat: no-repeat;
+      width: 36px;
+      height: 36px;
+      -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+      mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+    }
+
+    .fa-shopping-bag:before {
+      background-color: $secondary;
+    }
+
+    @media (hover: hover) {
+      .fa-shopping-bag:hover:before {
+        background-color: $primary;
+      }
+    }
+  }
+
+  #user-button {
+    i:before {
+      content: "";
+      display: inline-block;
+      background-repeat: no-repeat;
+      width: 36px;
+      height: 36px;
+      -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+      mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+    }
+
+    .fa-user:before {
+      background-color: $secondary;
+    }
+
+    @media (hover: hover) {
+      .fa-user:hover:before {
+        background-color: $primary;
+      }
+    }
+  }
+
+  .info-bar {
+    background-color: $black;
+    color: $gray-200;
+  }
+
+  .account-addresses__card {
+    background-color: $gray-900;
+  }
+
+  .footer {
+    background-color: $black;
+
+    &__title {
+      color: $gray-200;
+    }
+
+    &__payment-methods i {
+      filter: contrast(60%);
+    }
+  }
+
+  .close {
+    color: $secondary;
+  }
+
+  .search__box {
+    background-color: $gray-800;
+  }
+
+  .search-engine__nav {
+    background-color: $gray-800;
+  }
+
+  .checkout__info {
+    background-color: $gray-900;
+  }
+
+  .minicart__aside {
+    background-color: $black;
+  }
+
+  .cart__info {
+    background-color: $black;
+    border: solid 1px $gray-600;
+  }
+
+  .login__info {
+    background-color: $gray-900;
+  }
+
+  .card-body {
+    background-color: $gray-900;
+  }
+
+  .html-clearfix {
+    background-color: $gray-800;
+  }
+}
+
+.app .app {
+  &__header {
+    background-color: $black;
+  }
+
+  &__footer {
+    border-top: var(--spacer-1) solid $secondary;
+    background: $secondary;
+  }
+
+  &__credits.container {
+    background-color: $white;
+    display: flex;
+    justify-content: center;
+    max-width: 100vw;
+  }
+}

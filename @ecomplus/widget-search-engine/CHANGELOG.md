@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.55](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.54...@ecomplus/widget-search-engine@1.0.0-beta.55) (2020-09-14)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.54](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.53...@ecomplus/widget-search-engine@1.0.0-beta.54) (2020-09-11)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.53](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.52...@ecomplus/widget-search-engine@1.0.0-beta.53) (2020-09-11)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.52](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.51...@ecomplus/widget-search-engine@1.0.0-beta.52) (2020-09-10)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.51](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.50...@ecomplus/widget-search-engine@1.0.0-beta.51) (2020-09-10)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
 # [1.0.0-beta.50](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.49...@ecomplus/widget-search-engine@1.0.0-beta.50) (2020-08-27)
 
 **Note:** Version bump only for package @ecomplus/widget-search-engine

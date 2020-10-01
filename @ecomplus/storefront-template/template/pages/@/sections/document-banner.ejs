@@ -4,10 +4,18 @@ if (Array.isArray(_.state.pictures) && _.state.pictures.length) {
     : _.route.resource.slice(0, -1)
   %>
   <div class="hero-banner <%= className %>-banner">
-    <img
-      class="img-fluid lozad fade"
-      data-src="<%= _.state.pictures[0].url %>"
-      alt="<%= _.state.pictures[0].alt %>"
-    >
+    <% if (_.state.pictures.length === 1) { %>
+      <img
+        class="img-fluid lozad fade"
+        data-src="<%= _.state.pictures[0].url %>"
+        alt="<%= _.state.pictures[0].alt %>"
+      >
+    <% } else { %>
+      <%- await include('/@/sections/banner-slider', {
+        _, opt: {
+          slides: _.state.pictures.map(({ url, alt }) => ({ img: url, alt }))
+        }
+      }) %>
+    <% } %>
   </div>
 <% } %>

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.2.3...@ecomplus/widget-tag-manager@1.3.0) (2020-09-10)
+
+
+### Features
+
+* **eec-purchase:** add tax and shipping values to event data ([811129f](https://github.com/ecomplus/storefront/commit/811129f51ff5d3458d9bccf058fe3b88e654bab2))
+
+
+
+
+
 ## [1.2.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.2.2...@ecomplus/widget-tag-manager@1.2.3) (2020-06-30)
 
 

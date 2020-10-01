@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.71](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.70...@ecomplus/storefront-template@2.0.0-beta.71) (2020-09-14)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.16.1 ([71b8a37](https://github.com/ecomplus/storefront/commit/71b8a37d146b17dce9a8337ac376cb08a73c4bac))
+* **metatags:** og:image with absolute img url ([e235a89](https://github.com/ecomplus/storefront/commit/e235a89a7bdfcd3013e8ba45281f9bcb87813c36))
+* **scss:** preventing Safari double-tap link issue ([20b1de8](https://github.com/ecomplus/storefront/commit/20b1de84d6bbbdc0a90e048a8097b7801dc0c040))
+
+
+
+
+
+# [2.0.0-beta.70](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.69...@ecomplus/storefront-template@2.0.0-beta.70) (2020-09-11)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.16.0 ([89b42f2](https://github.com/ecomplus/storefront/commit/89b42f26b8cda4ab40bbd2762d5329f95deb970d))
+
+
+
+
+
+# [2.0.0-beta.69](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.68...@ecomplus/storefront-template@2.0.0-beta.69) (2020-09-11)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.4.1 ([c51be6e](https://github.com/ecomplus/storefront/commit/c51be6e5843cf0c1824eb883401e0134bd7837fd))
+
+
+
+
+
+# [2.0.0-beta.68](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.67...@ecomplus/storefront-template@2.0.0-beta.68) (2020-09-10)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.4.0 ([353fe7b](https://github.com/ecomplus/storefront/commit/353fe7b700af38fdbc1fba8a9e8a533e772a6ba2))
+
+
+### Performance Improvements
+
+* **products-search:** using simple search when possible ([5c60522](https://github.com/ecomplus/storefront/commit/5c6052243146eb054f7e5ffa0378a5ecfb9453ab))
+
+
+
+
+
+# [2.0.0-beta.67](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.66...@ecomplus/storefront-template@2.0.0-beta.67) (2020-09-10)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.15.0 ([47dec6e](https://github.com/ecomplus/storefront/commit/47dec6eeda2c8078a06f35cb726c49837315a28a))
+
+
+### Features
+
+* **document-banner:** using banner slider for multiple pictures ([#298](https://github.com/ecomplus/storefront/issues/298)) ([a511cf0](https://github.com/ecomplus/storefront/commit/a511cf0f35ae36f2e45262962eb357c2913e1380))
+* **product-quickview:** new ProductQuickview componente :tada: ([#291](https://github.com/ecomplus/storefront/issues/291)) ([ab554bd](https://github.com/ecomplus/storefront/commit/ab554bd588a39dff215c5593b85dac8476f7451b))
+* **themes:** adding new clean white and dark themes ([#297](https://github.com/ecomplus/storefront/issues/297)) ([c4aadcc](https://github.com/ecomplus/storefront/commit/c4aadccec97602fe46f2800cbe7ff6a62f9f6199))
+* **widget-analytics:** handle new ga widget, add cms entry and default content ([a8b82db](https://github.com/ecomplus/storefront/commit/a8b82dbd2707765724af6ad83ac8a5ec615d48e8))
+
+
+
+
+
 # [2.0.0-beta.66](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.65...@ecomplus/storefront-template@2.0.0-beta.66) (2020-08-27)
 
 

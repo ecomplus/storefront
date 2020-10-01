@@ -11,9 +11,11 @@
     color: var(--gray);
   }
 
-  &:hover {
-    .spinner-border {
-      opacity: .85;
+  @media (hover: hover) {
+    &:hover {
+      .spinner-border {
+        opacity: .85;
+      }
     }
   }
 }

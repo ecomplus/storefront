@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.13.18](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.17...@ecomplus/storefront-framework@5.13.18) (2020-09-14)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.16.1 ([71b8a37](https://github.com/ecomplus/storefront/commit/71b8a37d146b17dce9a8337ac376cb08a73c4bac))
+
+
+### Performance Improvements
+
+* **webpack:** skip sourcemaps for inline css on production ([da77538](https://github.com/ecomplus/storefront/commit/da77538c2c75c76172ea5b5844da3c5c80778260))
+
+
+
+
+
+## [5.13.17](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.16...@ecomplus/storefront-framework@5.13.17) (2020-09-11)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.16.0 ([89b42f2](https://github.com/ecomplus/storefront/commit/89b42f26b8cda4ab40bbd2762d5329f95deb970d))
+
+
+
+
+
+## [5.13.16](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.15...@ecomplus/storefront-framework@5.13.16) (2020-09-11)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.4.1 ([c51be6e](https://github.com/ecomplus/storefront/commit/c51be6e5843cf0c1824eb883401e0134bd7837fd))
+
+
+
+
+
+## [5.13.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.14...@ecomplus/storefront-framework@5.13.15) (2020-09-10)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.4.0 ([353fe7b](https://github.com/ecomplus/storefront/commit/353fe7b700af38fdbc1fba8a9e8a533e772a6ba2))
+
+
+
+
+
+## [5.13.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.13...@ecomplus/storefront-framework@5.13.14) (2020-09-10)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.15.0 ([47dec6e](https://github.com/ecomplus/storefront/commit/47dec6eeda2c8078a06f35cb726c49837315a28a))
+
+
+
+
+
 ## [5.13.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.12...@ecomplus/storefront-framework@5.13.13) (2020-08-27)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

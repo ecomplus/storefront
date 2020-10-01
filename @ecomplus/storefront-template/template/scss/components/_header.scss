@@ -42,8 +42,10 @@
     transition: opacity .15s;
     margin-top: -.15rem;
 
-    &:hover {
-      opacity: 1;
+    @media (hover: hover) {
+      &:hover {
+        opacity: 1;
+      }
     }
 
     &:focus {
@@ -103,8 +105,10 @@
     box-shadow: none;
     position: relative;
 
-    &:hover {
-      color: var(--primary);
+    @media (hover: hover) {
+      &:hover {
+        color: var(--primary);
+      }
     }
 
     @media (min-width: 1200px) {
@@ -145,8 +149,10 @@
       color: var(--secondary-lighter);
       transition: color .125s;
 
-      &:hover {
-        color: var(--secondary-light);
+      @media (hover: hover) {
+        &:hover {
+          color: var(--secondary-light);
+        }
       }
 
       &:focus {
