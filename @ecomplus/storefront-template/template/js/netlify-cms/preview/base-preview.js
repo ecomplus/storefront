@@ -114,6 +114,8 @@ export default class BasePreview extends React.Component {
       parseHtml: '',
       cmsEntrys: []
     }
+
+    this.loading = true
   }
 
   componentDidMount () {
@@ -123,32 +125,66 @@ export default class BasePreview extends React.Component {
   componentDidUpdate (prevProps, prevState) {
     setTimeout(() => {
       const entries = this.getEntrys(this.props)
-      if (entries.length !== this.state.cmsEntrys.length && !isArrayEqual(entries, prevState.cmsEntrys)) {
-        this.setState({ cmsEntrys: entries })
-        setTimeout(() => {
-          this.parseEjs()
-        }, 1200)
-      } else {
-        setTimeout(() => {
-          let change = false
-          for (let i = 0; i < entries.length; i++) {
-            const entry = entries[i]
-            if (prevState.cmsEntrys[i] && prevState.cmsEntrys[i].type !== entry.type && !change) {
-              change = true
-              this.setState({ cmsEntrys: entries })
-              setTimeout(() => {
-                this.parseEjs()
-              }, 600)
-              return
+      const oldEntrys = this.getEntrys(prevProps)
+      let change = false
+      if (!isArrayEqual(Object.keys(entries), Object.keys(oldEntrys))) {
+        change = true
+      }
+
+      if (!isArrayEqual(Object.values(entries), Object.values(oldEntrys))) {
+        change = true
+      }
+
+      for (let i = 0; i < entries.length; i++) {
+        const entry = entries[i]
+        const oldEntry = oldEntrys.find(old => old.type === entry.type)
+        if (oldEntry) {
+          for (const key in oldEntry) {
+            if (oldEntry[key]) {
+              switch (typeof oldEntry[key]) {
+                case 'string':
+                case 'number':
+                  if (oldEntry[key] !== entry[key]) {
+                    change = true
+                  }
+                  break
+                default:
+                  if (Array.isArray(oldEntry[key])) {
+                    if (!isArrayEqual(oldEntry[key], entry[key])) {
+                      change = true
+                    }
+                  } else if (typeof oldEntry[key] === 'object') {
+                    return
+                    // todo
+                  }
+                  break
+              }
             }
           }
-        }, 600)
+        } else {
+          change = true
+        }
       }
-    }, 600)
-  }
 
-  async fetchPage () {
-    // override
+      if (!change) {
+        for (let i = 0; i < entries.length; i++) {
+          if (oldEntrys[i].type !== entries[i].type) {
+            change = true
+          }
+        }
+      }
+
+      if (!change && !this.loading) {
+        return
+      }
+
+      this.setState({ cmsEntrys: entries })
+      setTimeout(() => {
+        this.parseEjs()
+      }, 500)
+
+      this.loading = false
+    }, 250)
   }
 
   getEntrys (props) {
@@ -223,8 +259,9 @@ export default class BasePreview extends React.Component {
     }
   }
 
-  async parseEjs () {
-    const { vDoc } = this.state
+  async parseEjs (customCmsEntrys = []) {
+    const { state } = this
+    const { vDoc } = state
     let parseHtml = ''
 
     if (!vDoc) {
@@ -232,7 +269,7 @@ export default class BasePreview extends React.Component {
     }
 
     let parse = ''
-    const { cmsEntrys } = this.state
+    const cmsEntrys = [...state.cmsEntrys, ...customCmsEntrys]
     for (let j = 0; j < cmsEntrys.length; j++) {
       const opt = cmsEntrys[j]
       opt.items = this._.items
@@ -268,7 +305,10 @@ export default class BasePreview extends React.Component {
       $picture.classList.add(...['lozad', 'fade', 'img-fluid', 'show'])
       $picture.setAttribute('src', $picture.dataset.iesrc)
       $picture.setAttribute('data-loaded', true)
-      $picture.appendChild(document.createElement('img', { alt: $picture.dataset.alt }))
+      const hasTagImg = Object.values($picture.children).find(children => children.tagName === 'IMG')
+      if (!hasTagImg) {
+        $picture.appendChild(document.createElement('img', { alt: $picture.dataset.alt, src: $picture.dataset.iesrc }))
+      }
     }
 
     // insert tag img inside <picture/> tags
