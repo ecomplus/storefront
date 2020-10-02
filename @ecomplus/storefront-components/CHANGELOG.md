@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.57](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.56...@ecomplus/storefront-components@1.0.0-beta.57) (2020-10-02)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.2.0 ([920c4b6](https://github.com/ecomplus/storefront/commit/920c4b6664b53036af34337a103be2e10c7909ff))
+* **quantity-selector:** fix handling max quantity and alerts ([80b34e6](https://github.com/ecomplus/storefront/commit/80b34e62c4f5f995467fc7a3cec6d0ef718ecc16))
+
+
+### Features
+
+* **quantity-selector:** add new component QuantitySelector :tada: [#287](https://github.com/ecomplus/storefront/issues/287) ([#302](https://github.com/ecomplus/storefront/issues/302)) ([92797b3](https://github.com/ecomplus/storefront/commit/92797b3fe86532b2146557ed239b6ddc8ce3a0d0))
+
+
+
+
+
 # [1.0.0-beta.56](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.55...@ecomplus/storefront-components@1.0.0-beta.56) (2020-09-14)
 
 
