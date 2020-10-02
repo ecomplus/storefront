@@ -37,7 +37,10 @@
     <strong>{{ min }}</strong>
   </a-alert>
 
-  <a-alert :can-show="hasMaxAlert">
+  <a-alert
+    :can-show="hasMaxAlert"
+    :variant="alertVariant"
+  >
     {{ i19maxQuantity }}:
     <strong>{{ max }}</strong>
   </a-alert>

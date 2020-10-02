@@ -43,7 +43,8 @@ export default {
         return selectedQnts
       }, {}),
       hasMinAlert: false,
-      hasMaxAlert: false
+      hasMaxAlert: false,
+      alertVariant: 'warning'
     }
   },
 
@@ -83,6 +84,7 @@ export default {
 
     changeQnt (item, qntDiff, ev) {
       const { selectedQnts, remainingQuantity } = this
+      const lastQnt = selectedQnts[item._id]
       let newQnt
       if (qntDiff) {
         newQnt = selectedQnts[item._id] + qntDiff
@@ -94,8 +96,11 @@ export default {
         if (item.min_quantity > newQnt) {
           newQnt = item.min_quantity
         } else {
-          const maxQnt = Math.min(item.max_quantity, selectedQnts[item._id] + remainingQuantity)
+          const itemMaxQnt = item.max_quantity !== undefined ? item.max_quantity : 9999999
+          const maxQnt = Math.min(itemMaxQnt, lastQnt + remainingQuantity)
           if (maxQnt < newQnt) {
+            this.alertVariant = 'info'
+            this.hasMaxAlert = true
             newQnt = maxQnt
           }
         }
@@ -110,6 +115,7 @@ export default {
     },
 
     buy () {
+      this.alertVariant = 'warning'
       if (this.totalQuantity >= this.min) {
         if (this.max === undefined || this.totalQuantity <= this.max) {
           const items = []
