@@ -54,6 +54,12 @@ Change the dev server port number, you may replace _8080_ by what you want;
 Detailed output of Webpack compilation process;
 - `--analyze`:
 Open [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) with dev server;
+- `--prerender=index,app/index`:
+List URLs to be prerendered (defaults to all);
+- `--prerender-limit=50`:
+Limit number of random URLs to be prerendered;
+- `--no-bundler`:
+Disable Webback compilation to run views renderization only;
 
 ### NPM scripts
 
