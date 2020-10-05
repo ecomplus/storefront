@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.14.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.19...@ecomplus/storefront-framework@5.14.0) (2020-10-05)
+
+
+### Features
+
+* **firebase:** supporting firebase hosting and function for ssr ([#172](https://github.com/ecomplus/storefront/issues/172)) ([c55d69c](https://github.com/ecomplus/storefront/commit/c55d69c0a22e7e82fac10c37e153e9e68828c24a))
+* **limit-prerendered-views:** add build command options to limit/control renderization ([#172](https://github.com/ecomplus/storefront/issues/172)) ([05bc443](https://github.com/ecomplus/storefront/commit/05bc443e86b30cf602e664cdc84c8b5e5447eef1))
+
+
+
+
+
 ## [5.13.19](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.13.18...@ecomplus/storefront-framework@5.13.19) (2020-10-02)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework
