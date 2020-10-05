@@ -8,38 +8,91 @@ const fs = require('fs')
 const path = require('path')
 const ejs = require('ejs')
 const paths = require('./../../lib/paths')
-const entry = require('./../../lib/entry')
 const recursiveReaddir = require('recursive-readdir')
 const mkdirp = require('mkdirp')
-const htmlMinifier = require('html-minifier')
 const StorefrontRouter = require('@ecomplus/storefront-router')
+const getAssetsReferences = require('./../../lib/get-assets-references')
+const minifyHtml = require('./../../lib/minify-html')
 const cmsCollections = require('./../../lib/cms-collections')
-const bundler = require('./../bundler')
 const renderer = require('./../../renderer')
 const { storeId, settings } = require('./../../lib/config')
 
-bundler.then(async ({ assetsByChunkName }) => {
-  // map assets to replace from absolute filename to output chunk with hash
-  const entryAssetsReference = {}
-  for (const entryName in entry) {
-    if (entry[entryName] && Array.isArray(assetsByChunkName[entryName])) {
-      assetsByChunkName[entryName].forEach(outputFilename => {
-        const ext = outputFilename.split('.').pop()
-        if (ext !== 'map') {
-          // eg.: storefront.js => storefront.{hash}.js
-          const refFilename = `${entryName}.${ext}`
-          entryAssetsReference[refFilename] = outputFilename
-          // copy file as fallback
-          fs.copyFileSync(
-            path.join(paths.output, outputFilename),
-            path.join(paths.output, refFilename)
-          )
-        }
-      })
-    }
+// optionally limit prerendered routes
+let prerenderUrls, prerenderLimit
+let canBundle = true
+for (let i = 0; i < process.argv.length; i++) {
+  const arg = process.argv[i]
+  if (arg === '--no-bundler') {
+    canBundle = false
+  } else if (arg.startsWith('--prerender=')) {
+    prerenderUrls = arg.replace('--prerender=', '').split(',')
+  } else if (arg.startsWith('--prerender-limit=')) {
+    prerenderLimit = parseInt(arg.replace('--prerender-limit=', ''), 10)
   }
+}
+
+// set default limits
+if (prerenderUrls) {
+  if (!prerenderLimit) {
+    prerenderLimit = 0
+  }
+  prerenderLimit -= prerenderUrls.length
+} else if (!prerenderLimit) {
+  prerenderLimit = 1000
+}
+
+const bundler = new Promise(resolve => {
+  if (canBundle) {
+    require('./../bundler').then(resolve)
+  } else {
+    // try to read cached bundler result
+    let cache
+    try {
+      cache = require(path.join(process.cwd(), '.bundles.json'))
+    } catch (e) {
+    }
+    resolve({
+      assetsByChunkName: {},
+      ...cache
+    })
+  }
+})
+
+bundler.then(async ({ assetsByChunkName }) => {
+  // map entry assets to replace
+  const entryAssetsReference = getAssetsReferences(
+    assetsByChunkName,
+    (err, { outputFilename, refFilename }) => {
+      if (!err) {
+        // copy file as fallback
+        fs.copyFileSync(
+          path.join(paths.output, outputFilename),
+          path.join(paths.output, refFilename)
+        )
+      }
+    }
+  )
 
   const prerender = (url, route) => new Promise(resolve => {
+    if (prerenderUrls) {
+      if (
+        !prerenderUrls.includes(url) &&
+        !prerenderUrls.includes(url.replace(/^\//, ''))
+      ) {
+        if (prerenderLimit <= 0) {
+          // skip prerendering current route
+          return resolve()
+        } else {
+          prerenderLimit--
+        }
+      }
+    } else if (prerenderLimit <= 0) {
+      // rated views limit
+      return resolve()
+    } else {
+      prerenderLimit--
+    }
+
     // debug
     const done = () => {
       console.log(url)
@@ -58,28 +111,7 @@ bundler.then(async ({ assetsByChunkName }) => {
     renderer(url, route)
       .then(html => {
         if (html) {
-          // try to minify HTML output
-          try {
-            const htmlMin = htmlMinifier.minify(html, {
-              collapseWhitespace: true,
-              removeComments: true,
-              removeAttributeQuotes: true
-            })
-            if (htmlMin) {
-              html = htmlMin
-              // start replacing entry files references with respective outputs
-              for (const referenceFilename in entryAssetsReference) {
-                const outputFilename = entryAssetsReference[referenceFilename]
-                if (outputFilename) {
-                  const filenameRegex = new RegExp(`(=/)?${referenceFilename}(\\s)?`, 'g')
-                  html = html.replace(filenameRegex, `$1${outputFilename}$2`)
-                }
-              }
-            }
-          } catch (e) {
-            // skip minification
-          }
-
+          html = minifyHtml(html, entryAssetsReference)
           // save HTML file on output folder
           const filename = /\.x?(ht)?ml$/.test(paths.output) ? url
             : url.endsWith('/') ? `${url}index.html` : `${url}.html`
@@ -171,4 +203,10 @@ bundler.then(async ({ assetsByChunkName }) => {
       }
     })
   }
+
+  // cache bundler result
+  fs.writeFileSync(
+    path.join(process.cwd(), '.bundles.json'),
+    JSON.stringify({ assetsByChunkName }, null, 2)
+  )
 })
