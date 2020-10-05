@@ -8,7 +8,9 @@
   },
   "scripts": {
     "build": "node ./bin.js build",
-    "serve": "node ./bin.js serve"
+    "serve": "node ./bin.js serve",
+    "build:home": "npm run build -- --prerender=index,app/index --prerender-limit=50",
+    "build:product": "npm run build -- --prerender=slug --no-bundler"
   },
   "repository": {
     "type": "git",
