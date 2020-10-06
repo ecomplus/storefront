@@ -38,7 +38,7 @@ if (prerenderUrls) {
   }
   prerenderLimit -= prerenderUrls.length
 } else if (!prerenderLimit) {
-  prerenderLimit = 1000
+  prerenderLimit = 5000
 }
 
 const bundler = new Promise(resolve => {
@@ -86,7 +86,7 @@ bundler.then(async ({ assetsByChunkName }) => {
           prerenderLimit--
         }
       }
-    } else if (prerenderLimit <= 0) {
+    } else if (prerenderLimit <= 0 && url !== '/index') {
       // rated views limit
       return resolve()
     } else {
