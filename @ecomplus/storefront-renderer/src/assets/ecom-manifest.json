@@ -1,0 +1,27 @@
+{
+  "data": {
+    "store": {
+      "client": {
+        "api": "store",
+        "endpoint": "/stores/:store_id.json"
+      }
+    },
+    "categories": {
+      "client": {
+        "api": "store",
+        "endpoint": "/categories.json"
+      }
+    },
+    "grids": {
+      "client": {
+        "api": "store",
+        "endpoint": "/grids.json"
+      }
+    },
+    "items": {
+      "search": {
+        "default": true
+      }
+    }
+  }
+}

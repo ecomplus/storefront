@@ -1,0 +1,36 @@
+{
+  "name": "@ecomplus/storefront-renderer",
+  "version": "2.0.0",
+  "description": "SSR for Storefront EJS views with E-Com Plus APIs",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomplus/storefront.git",
+    "directory": "@ecomplus/storefront-renderer"
+  },
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "ecommerce-renderer",
+    "isg",
+    "pwa-ecommerce",
+    "jamstack-ecommerce"
+  ],
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomplus/storefront/issues"
+  },
+  "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-renderer#readme",
+  "dependencies": {
+    "@ecomplus/client": "^2.1.1",
+    "@ecomplus/i18n": "^1.16.1",
+    "@ecomplus/search-engine": "^2.4.1",
+    "@ecomplus/storefront-router": "^2.2.0",
+    "@ecomplus/utils": "^1.4.1",
+    "ejs": "^3.1.5",
+    "html-minifier": "^4.0.0",
+    "lodash": "^4.17.20",
+    "markdown-it": "^11.0.1"
+  }
+}
