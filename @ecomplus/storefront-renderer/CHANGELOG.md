@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.1.1...@ecomplus/storefront-renderer@2.2.0) (2020-10-07)
+
+
+### Features
+
+* **functions:** serverless function for ssr ([63fdb56](https://github.com/ecomplus/storefront/commit/63fdb566153d73d4b097949f12499e560cba812e))
+
+
+
+
+
 ## [2.1.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.1.0...@ecomplus/storefront-renderer@2.1.1) (2020-10-06)
 
 
