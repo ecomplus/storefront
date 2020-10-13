@@ -26,7 +26,7 @@
     "@ecomplus/client": "^2.1.1",
     "@ecomplus/i18n": "^1.16.1",
     "@ecomplus/search-engine": "^2.4.1",
-    "@ecomplus/storefront-router": "^2.2.0",
+    "@ecomplus/storefront-router": "^2.2.1",
     "@ecomplus/utils": "^1.4.1",
     "ejs": "^3.1.5",
     "html-minifier": "^4.0.0",

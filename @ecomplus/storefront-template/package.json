@@ -51,7 +51,7 @@
     "@ecomplus/storefront-app": "^2.0.0-beta.62",
     "@ecomplus/storefront-components": "^1.0.0-beta.58",
     "@ecomplus/storefront-framework": "^5.14.3",
-    "@ecomplus/storefront-router": "^2.2.0",
+    "@ecomplus/storefront-router": "^2.2.1",
     "@ecomplus/storefront-twbs": "^5.9.4",
     "@ecomplus/utils": "^1.4.1",
     "@ecomplus/widget-analytics": "^1.1.0",
