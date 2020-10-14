@@ -10,14 +10,46 @@
       </div>
     </div>
 
+
     <div key="loaded" v-else>
       <div class="row">
+        <div class="col-12 mb-3">
+          <div class="order-info__customer">
+            {{ i19hello }}
+            <strong> {{ fullName }}! </strong>
+            {{ i19trackYourOrderHere }} : <strong> {{ localOrder.number }} </strong>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="order-info__order-details">
+            <div class="order-info__order-details-status">
+              <strong>
+                {{ i19orderStatus }}
+              </strong>
+            </div>
+              <ul class="timeline">
+                <li v-for="item in timelineStatus">
+                  <div class="timestamp">
+                    <strong>
+                      {{ formatDate(item.datetime) }}
+                    </strong> <br>
+                    <strong>
+                      {{ formatTime(item.datetime) }}
+                    </strong>
+                  </div>
+                  <div
+                    class="timeline__status status"
+                    :class="`timeline__status--${item.status}`"
+                  >
+                  <span>
+                    {{ i19FinancialStatus(item.status) || i19FulfillmentStatus(item.status) }}
+                  </span>
+                  </div>
+                </li>
+              </ul>
+          </div>
+        </div>
         <div class="col-12 col-lg-7">
-          <p class="order-info__number">
-            {{ i19orderNumber }}:
-            <span class="h4">{{ localOrder.number }}</span>
-          </p>
-
           <transition-group enter-active-class="animated fadeIn">
             <div key="updating" v-if="isUpdating">
               <div class="spinner-grow" role="status">
@@ -26,13 +58,6 @@
             </div>
 
             <article v-else key="uptodate">
-              <div
-                class="order-info__status"
-                :class="`order-info__status--${status}`"
-                v-if="status"
-              >
-                {{ i19OrderStatus(status) }}
-              </div>
 
               <template v-if="transaction.status && transaction.status.current === 'pending'">
                 <div class="order-info__billet" v-if="transaction.banking_billet">
@@ -82,14 +107,11 @@
                 <div class="col-12 col-md-6">
                   <slot name="payment" v-bind="{ order: localOrder, transaction }">
                     <div class="order-info__payment">
-                      <div
-                        class="order-info__financial-status"
-                        :class="`order-info__financial-status--${financialStatus}`"
-                      >
-                        {{ i19FinancialStatus(financialStatus) }}
-                      </div>
-
                       <div v-for="transaction in localOrder.transactions">
+                        <div class="text-muted">
+                          <i class="fas fa-money-check mr-1"></i>
+                          {{ i19payment }}
+                        </div>
                         <p class="order-info__payment-value">
                           {{ transaction.payment_method.name || localOrder.payment_method_label }}:
                           <strong v-if="transaction.installments && transaction.installments.value">
@@ -145,20 +167,12 @@
                   >
                     <div class="order-info__shipping">
                       <div
-                        v-if="fulfillmentStatus"
-                        class="order-info__fulfillment-status"
-                        :class="`order-info__fulfillment-status--${fulfillmentStatus}`"
-                      >
-                        {{ i19FulfillmentStatus(fulfillmentStatus) }}
-                      </div>
-
-                      <div
                         v-if="shippingAddress && shippingAddress.street"
                         class="order-info__shipping-address"
                       >
                         <div class="text-muted">
                           <i class="fas fa-map-marked-alt mr-1"></i>
-                          {{ i19shippingAddress }}
+                          {{ i19address }}
                         </div>
 
                         <address>
@@ -176,7 +190,7 @@
                           </span>
                           <br>
                           <mark class="small">
-                            {{ shippingAddress.zip }}
+                            {{ i19zipCode }} {{ shippingAddress.zip }}
                           </mark>
                         </address>
                       </div>
@@ -185,14 +199,46 @@
                         <div
                           v-for="shippingLine in localOrder.shipping_lines"
                           :key="shippingLine._id"
+                          class="order-info__shipping-freight"
                         >
                           <div class="text-muted">
                             <i class="fas fa-truck mr-1"></i>
                             {{ i19freight }}
                           </div>
+                          <span v-if="shippingLine.app">
+                            {{ shippingLine.app.label }}
+                          </span>
                           <shipping-line :shipping-line="shippingLine"/>
+
+                          <div
+                            v-if="shippingLine.tracking_codes"
+                            class="order-info__shipping-tracking"
+                          >
+                            <div class="text-muted">
+                              <i class="fas fa-search mr-1"></i>
+                                {{ i19deliveryTrack }}
+                            </div>
+                            <div
+                              v-for="tracking in shippingLine.tracking_codes"
+                            >
+                              <strong>
+                                <a
+                                  v-if="tracking.link"
+                                  href="`${tracking.link}`"
+                                  target="_blank"
+                                >
+                                  {{ tracking.code }}
+                                </a>
+                                <span v-else>
+                                  {{ tracking.code }}
+                                </span>
+                              </strong>
+                            </div>
+                          </div>
                         </div>
+
                       </template>
+
                     </div>
                   </slot>
                 </div>

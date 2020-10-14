@@ -1,9 +1,66 @@
 .order-info {
+  &__shipping, &__payment {
+    &-address, &-freight {
+      & .text-muted {
+        margin-bottom: .5rem;
+      }
+    }
+
+    &-freight, &-tracking {
+      margin-top: .5rem;
+      border-top: 1px dotted var(--gray);
+      padding-top: .75rem;
+    }
+    padding: 1.25rem;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    background: var(--light);
+  }
+
   &__new {
     text-align: center;
     color: var(--success);
     font-size: 1.4rem;
     margin-bottom: 2rem;
+  }
+
+  & .status {
+    & span {
+      &:before {
+        content: '';
+        width: 25px;
+        height: 25px;
+        background-color: var(--light);
+        border-radius: 25px;
+        border: 4px solid rgba(0,0,0,.125);
+        position: absolute;
+        top: -15px;
+        left: 42%;
+        transition: all 200ms ease-in;
+      }
+      font-weight: 600;
+      padding-top: 20px;
+    }
+    padding: 0px 40px;
+    display: flex;
+    justify-content: center;
+    border-top: 4px solid rgba(0,0,0,.125);
+    position: relative;
+    transition: all 200ms ease-in ;
+  }
+
+  &__order-details {
+    &-status {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--spacer-2);
+      background: var(--light);
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(0,0,0,.125);
+    }
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin-bottom: 1.8rem;
   }
 
   &__orders-link {
@@ -20,49 +77,52 @@
   }
 
   &__details {
-    margin-top: .75rem;
     margin-bottom: 1.5rem;
   }
+  & .timeline {
+    &__status {
+      &--pending {
+        color: var(--warning);
+      }
 
-  &__status,
-  &__financial-status {
-    font-weight: bold;
-    font-size: 1.15rem;
-    margin: 1rem 0;
-  }
+      &--under_analysis {
+        color: var(--orange);
+      }
 
-  &__status {
-    &--open {
-      color: var(--info);
+      &--shipped {
+        color: var(--info);
+      }
+
+      &--unauthorized,
+      &--in_dispute,
+      &--voided {
+        color: var(--danger);
+      }
+
+      &--paid, &--delivered  {
+        color: var(--success);
+      }
+      @media(max-width: 480px) {
+        & span {
+          height: 79.2px
+
+        }
+      }
+      font-weight: bold;
+      font-size: 1.15rem;
+      margin: 1rem 0;
     }
-
-    &--cancelled {
-      color: var(--danger);
+    & .timestamp {
+      text-align: center;
     }
-
-    &--closed {
-      color: var(--success);
-    }
-  }
-
-  &__financial-status {
-    &--pending {
-      color: var(--warning);
-    }
-
-    &--under_analysis {
-      color: var(--info);
-    }
-
-    &--unauthorized,
-    &--in_dispute,
-    &--voided {
-      color: var(--danger);
-    }
-
-    &--paid {
-      color: var(--success);
-    }
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
   }
 
   &__summary {

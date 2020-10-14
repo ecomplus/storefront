@@ -1,4 +1,4 @@
-import { i18n, formatMoney } from '@ecomplus/utils'
+import { i18n, formatMoney, formatDate, fullName } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
 import ecomPassport from '@ecomplus/passport-client'
 import ShippingLine from '#components/ShippingLine.vue'
@@ -11,22 +11,27 @@ import {
   i19codeCopied,
   i19copyCode,
   i19copyErrorMsg,
+  i19deliveryTrack,
   i19doPaymentMsg,
   i19freight,
+  i19hello,
   i19myOrders,
+  i19payment,
   i19of,
   i19orderConfirmationMsg,
   i19orderNumber,
+  i19orderStatus,
   i19printBillet,
   i19redirectToPayment,
   i19referenceCode,
   i19reopenOrder,
-  i19shippingAddress,
+  i19address,
   i19transactionCode,
   i19ticketCode,
   i19FinancialStatus,
   i19FulfillmentStatus,
-  i19OrderStatus
+  i19OrderStatus,
+  i19zipCode
 } from '@ecomplus/i18n'
 
 export default {
@@ -83,19 +88,25 @@ export default {
     i19codeCopied: () => i18n(i19codeCopied),
     i19copyCode: () => i18n(i19copyCode),
     i19copyErrorMsg: () => i18n(i19copyErrorMsg),
+    i19deliveryTrack: () => i18n(i19deliveryTrack),
     i19doPaymentMsg: () => i18n(i19doPaymentMsg),
     i19freight: () => i18n(i19freight),
     i19myOrders: () => i18n(i19myOrders),
+    i19payment: () => i18n(i19payment),
     i19of: () => i18n(i19of),
     i19orderConfirmationMsg: () => i18n(i19orderConfirmationMsg),
     i19orderNumber: () => i18n(i19orderNumber),
+    i19orderStatus: () => i18n(i19orderStatus),
     i19printBillet: () => i18n(i19printBillet),
     i19redirectToPayment: () => i18n(i19redirectToPayment),
     i19referenceCode: () => i18n(i19referenceCode),
     i19reopenOrder: () => i18n(i19reopenOrder),
-    i19shippingAddress: () => i18n(i19shippingAddress),
+    i19address: () => i18n(i19address),
     i19transactionCode: () => i18n(i19transactionCode),
     i19ticketCode: () => i18n(i19ticketCode),
+    i19hello: () => i18n(i19hello),
+    i19zipCode: () => i18n(i19zipCode),
+    i19trackYourOrderHere: () => 'Acompanhe aqui o pedido',
 
     localOrder: {
       get () {
@@ -125,6 +136,10 @@ export default {
 
     status () {
       return this.localOrder.status
+    },
+
+    fullName () {
+      return fullName(this.orderBody.buyers[0])
     },
 
     financialStatus () {
@@ -163,11 +178,43 @@ export default {
         }
       }
       return null
+    },
+
+    timelineStatus () {
+      const { localOrder } = this
+      let c = []
+      if (localOrder.fulfillments) {
+        c = localOrder.payments_history.concat(localOrder.fulfillments, localOrder.financial_status)
+      } else {
+        c = localOrder.payments_history
+      }
+      var events = []
+      if (events) {
+        c.forEach((item, i) => {
+          events.push(
+            {
+              datetime: item.date_time,
+              status: item.status || item.current
+            }
+          )
+        })
+      }
+      const sortedEntries = events.sort((a, b) => {
+        if (a.datetime && b.datetime) {
+          return a.datetime > b.datetime
+            ? 1 : -1
+        }
+        return 0
+      })
+      var d = sortedEntries.filter((v, i, a) => a.findIndex(t => (t.status === v.status)) === i)
+
+      return d
     }
   },
 
   methods: {
     formatMoney,
+    formatDate,
     i19FinancialStatus: prop => i18n(i19FinancialStatus)[prop],
     i19FulfillmentStatus: prop => i18n(i19FulfillmentStatus)[prop],
     i19OrderStatus: prop => i18n(i19OrderStatus)[prop],
@@ -189,6 +236,12 @@ export default {
           delay: 3000
         })
       })
+    },
+
+    formatTime (time) {
+      const miliseconds = Date.parse(time)
+      const date = new Date(miliseconds)
+      return date.toLocaleTimeString()
     },
 
     saveCustomerOrder () {
