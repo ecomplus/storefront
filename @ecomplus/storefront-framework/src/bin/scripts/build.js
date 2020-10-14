@@ -65,10 +65,16 @@ bundler.then(async ({ assetsByChunkName }) => {
     (err, { outputFilename, refFilename }) => {
       if (!err) {
         // copy file as fallback
-        fs.copyFileSync(
-          path.join(paths.output, outputFilename),
-          path.join(paths.output, refFilename)
-        )
+        try {
+          fs.copyFileSync(
+            path.join(paths.output, outputFilename),
+            path.join(paths.output, refFilename)
+          )
+        } catch (err) {
+          if (canBundle) {
+            throw err
+          }
+        }
       }
     }
   )
