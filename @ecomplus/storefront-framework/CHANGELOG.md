@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.15.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.14.4...@ecomplus/storefront-framework@5.15.0) (2020-10-14)
+
+
+### Features
+
+* **partial-build:** try env STOREFRONT_BUNDLES_PATH to get past bundles data ([2dd7282](https://github.com/ecomplus/storefront/commit/2dd7282fc3c61dc9b0d539ffd1d23f7bb7130f03))
+
+
+
+
+
 ## [5.14.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.14.3...@ecomplus/storefront-framework@5.14.4) (2020-10-14)
 
 
