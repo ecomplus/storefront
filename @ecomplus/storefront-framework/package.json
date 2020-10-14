@@ -65,7 +65,6 @@
     "vue-loader": "^15.9.3",
     "vue-template-compiler": "^2.6.12",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-merge": "^4.2.2",
     "webpack-pwa-manifest": "^4.2.0",
