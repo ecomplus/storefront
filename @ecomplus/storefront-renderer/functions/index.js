@@ -16,10 +16,13 @@ exports.ssr = (req, res) => {
     console.error(err)
   }
 
-  const fallback = () => res
-    .set('Cache-Control', 'max-age=10')
-    .set('Location', '/404')
-    .status(302).end()
+  const fallback = () => {
+    res.set('Cache-Control', 'public, max-age=60, s-maxage=120')
+    if (/\/[^/.]+$/.test(req.url) || /\.x?html$/.test(req.url)) {
+      return res.set('Location', '/404').status(302).end()
+    }
+    res.status(404).end()
+  }
 
   return renderer(url)
 
