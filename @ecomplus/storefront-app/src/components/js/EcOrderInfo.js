@@ -139,7 +139,11 @@ export default {
     },
 
     fullName () {
-      return fullName(this.orderBody.buyers[0])
+      if (this.orderBody.buyers[0]) {
+        return fullName(this.orderBody.buyers[0])
+      } else {
+        return ''
+      }
     },
 
     financialStatus () {
@@ -183,12 +187,19 @@ export default {
     timelineStatus () {
       const { localOrder } = this
       let c = []
-      if (localOrder.fulfillments) {
+      if (localOrder.payments_history && localOrder.fulfillments && localOrder.financial_status) {
         c = localOrder.payments_history.concat(localOrder.fulfillments, localOrder.financial_status)
-      } else {
+      } else if (localOrder.payments_history && localOrder.fulfillments) {
+        c = localOrder.payments_history.concat(localOrder.fulfillments)
+      } else if (localOrder.payments_history) {
         c = localOrder.payments_history
+      } else {
+        c = [{
+          status: this.financialStatus,
+          datetime: localOrder.created_at
+        }]
       }
-      var events = []
+      const events = []
       if (events) {
         c.forEach((item, i) => {
           events.push(

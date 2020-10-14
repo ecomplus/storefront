@@ -16,7 +16,7 @@
         <div class="col-12 mb-3">
           <div class="order-info__customer">
             {{ i19hello }}
-            <strong> {{ fullName }}! </strong>
+            <strong> {{ fullName }} </strong>!
             {{ i19trackYourOrderHere }} : <strong> {{ localOrder.number }} </strong>
           </div>
         </div>
@@ -106,7 +106,10 @@
               <div class="row order-info__details">
                 <div class="col-12 col-md-6">
                   <slot name="payment" v-bind="{ order: localOrder, transaction }">
-                    <div class="order-info__payment">
+                    <div
+                      v-if="localOrder.transactions"
+                      class="order-info__payment"
+                    >
                       <div v-for="transaction in localOrder.transactions">
                         <div class="text-muted">
                           <i class="fas fa-money-check mr-1"></i>
