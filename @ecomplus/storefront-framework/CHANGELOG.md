@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.14.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.14.3...@ecomplus/storefront-framework@5.14.4) (2020-10-14)
+
+
+### Bug Fixes
+
+* **build:** ignore bundles copy error when not running webpack (partial build) ([354e605](https://github.com/ecomplus/storefront/commit/354e605026b2a7c3e8881946544613d5301bbe01))
+* **deps:** remove not used webpack-cli ([75ecca7](https://github.com/ecomplus/storefront/commit/75ecca75b7819d7eac6fadfe2b38040cd6dfe895))
+* **deps:** update all non-major dependencies ([#332](https://github.com/ecomplus/storefront/issues/332)) ([b8c0abc](https://github.com/ecomplus/storefront/commit/b8c0abc6937636157df27287ea2478374fa842ad))
+
+
+
+
+
 ## [5.14.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.14.2...@ecomplus/storefront-framework@5.14.3) (2020-10-07)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

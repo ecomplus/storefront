@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.63](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.62...@ecomplus/storefront-app@2.0.0-beta.63) (2020-10-14)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#332](https://github.com/ecomplus/storefront/issues/332)) ([b8c0abc](https://github.com/ecomplus/storefront/commit/b8c0abc6937636157df27287ea2478374fa842ad))
+
+
+
+
+
 # [2.0.0-beta.62](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.61...@ecomplus/storefront-app@2.0.0-beta.62) (2020-10-06)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

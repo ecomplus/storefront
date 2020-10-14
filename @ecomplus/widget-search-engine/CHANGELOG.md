@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.58](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.57...@ecomplus/widget-search-engine@1.0.0-beta.58) (2020-10-14)
+
+
+### Bug Fixes
+
+* **search-engine-hydrate:** render new items if prerendered has diferent ids ([6135803](https://github.com/ecomplus/storefront/commit/613580322eb2d25673a96305ecade2814d1fb681))
+
+
+
+
+
 # [1.0.0-beta.57](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.56...@ecomplus/widget-search-engine@1.0.0-beta.57) (2020-10-06)
 
 **Note:** Version bump only for package @ecomplus/widget-search-engine

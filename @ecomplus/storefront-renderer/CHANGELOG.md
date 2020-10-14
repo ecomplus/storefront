@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.2.0...@ecomplus/storefront-renderer@2.2.1) (2020-10-14)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#332](https://github.com/ecomplus/storefront/issues/332)) ([b8c0abc](https://github.com/ecomplus/storefront/commit/b8c0abc6937636157df27287ea2478374fa842ad))
+* **ssr-function:** fix not found cache headers ([38d4f33](https://github.com/ecomplus/storefront/commit/38d4f331824f38e836916852606f506558dfd982))
+
+
+
+
+
 # [2.2.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.1.1...@ecomplus/storefront-renderer@2.2.0) (2020-10-07)
 
 
