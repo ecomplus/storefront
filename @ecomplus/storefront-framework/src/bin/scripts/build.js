@@ -48,7 +48,7 @@ const bundler = new Promise(resolve => {
     // try to read cached bundler result
     let cache
     try {
-      cache = require(path.join(process.cwd(), '.bundles.json'))
+      cache = require(process.env.STOREFRONT_BUNDLES_PATH || path.join(process.cwd(), '.bundles.json'))
     } catch (e) {
     }
     resolve({

@@ -11,7 +11,7 @@ exports.ssr = (req, res) => {
 
   let cache
   try {
-    cache = require(path.join(process.cwd(), '.bundles.json'))
+    cache = require(process.env.STOREFRONT_BUNDLES_PATH || path.join(process.cwd(), '.bundles.json'))
   } catch (err) {
     console.error(err)
   }

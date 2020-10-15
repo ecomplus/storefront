@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.2.1...@ecomplus/storefront-renderer@2.3.0) (2020-10-14)
+
+
+### Features
+
+* **partial-build:** try env STOREFRONT_BUNDLES_PATH to get past bundles data ([2dd7282](https://github.com/ecomplus/storefront/commit/2dd7282fc3c61dc9b0d539ffd1d23f7bb7130f03))
+
+
+
+
+
 ## [2.2.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.2.0...@ecomplus/storefront-renderer@2.2.1) (2020-10-14)
 
 
