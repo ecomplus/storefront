@@ -123,7 +123,7 @@ let config = {
     path: paths.output,
     publicPath: '/',
     filename: devMode ? '[name].js' : `${filenameSchema}.js`,
-    chunkFilename: '[contenthash].js'
+    chunkFilename: 'chunk.[contenthash].js'
   },
 
   optimization: {
@@ -133,7 +133,7 @@ let config = {
     // extract CSS to file
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : `${filenameSchema}.css`,
-      chunkFilename: '[contenthash].css',
+      chunkFilename: 'chunk.[contenthash].css',
       ignoreOrder: true
     }),
     // handle Vue SFC
