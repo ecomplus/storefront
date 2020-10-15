@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.15.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.1...@ecomplus/storefront-framework@5.15.2) (2020-10-15)
+
+
+### Bug Fixes
+
+* **chunk-filenames:** add 'chunk.' for easier cache handling ([0e638c6](https://github.com/ecomplus/storefront/commit/0e638c6feea5bf11996024689377188a941fe3ff))
+
+
+
+
+
 ## [5.15.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.0...@ecomplus/storefront-framework@5.15.1) (2020-10-15)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework
