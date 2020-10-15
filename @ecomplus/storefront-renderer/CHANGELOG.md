@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.3.0...@ecomplus/storefront-renderer@2.3.1) (2020-10-15)
+
+
+### Bug Fixes
+
+* **ssr-cache:** set server max age to 10m ([d612fe0](https://github.com/ecomplus/storefront/commit/d612fe0d1a4f6f482135a3e3d764d5bd53c86b57))
+
+
+
+
+
 # [2.3.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.2.1...@ecomplus/storefront-renderer@2.3.0) (2020-10-14)
 
 
