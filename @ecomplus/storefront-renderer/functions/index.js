@@ -31,7 +31,7 @@ exports.ssr = (req, res) => {
         if (cache) {
           html = minifyHtml(html, getAssetsReferences(cache.assetsByChunkName))
         }
-        res.set('Cache-Control', 'public, max-age=60, s-maxage=604800, stale-while-revalidate=2592000')
+        res.set('Cache-Control', 'public, max-age=60, s-maxage=600, stale-while-revalidate=2592000')
           .status(200).send(html)
       } else {
         fallback()
