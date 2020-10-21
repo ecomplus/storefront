@@ -30,7 +30,7 @@
     "@ecomplus/utils": "^1.4.1",
     "ejs": "^3.1.5",
     "html-minifier": "^4.0.0",
-    "image-size": "^0.9.1",
+    "image-size": "^0.9.2",
     "lodash": "^4.17.20",
     "markdown-it": "^11.0.1"
   }
