@@ -1,7 +1,7 @@
 <%
 const search = new _.EcomSearch()
 search
-  .setCategoryIds([_.state._id])
+  .setCategoryNames([_.state.name])
   .setSortOrder('sales')
 await search.fetch()
 let items = await search.getItems()
@@ -12,13 +12,11 @@ if (!items.length) {
     return parent && parent._id === _.state._id
   })
   if (childCategories.length) {
-    let categoryIds = []
-    childCategories.forEach(({ _id, name }) => {
-      categoryIds.push(_id)
+    childCategories.forEach(({ name }) => {
       categoryNames.push(name)
     })
     search
-      .setCategoryIds(categoryIds)
+      .setCategoryNames(categoryNames)
       .setSortOrder('sales')
     await search.fetch()
     items = await search.getItems()
