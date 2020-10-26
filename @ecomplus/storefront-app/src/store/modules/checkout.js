@@ -174,24 +174,22 @@ const actions = {
                 }
               }
               const price = getPrice(data)
+              delete data.customizations
+              delete data.variations
+              delete data.body_html
+              delete data.body_text
+              delete data.inventory_records
+              delete data.price_change_records
               Object.assign(item, data, {
                 _id,
-                variations: [],
                 price,
-                final_price: price,
-                quantity: 0,
                 min_quantity: typeof data.min_quantity === 'number' ? data.min_quantity : 1,
-                max_quantity: data.quantity,
-                body_html: '',
-                body_text: '',
-                inventory_records: [],
-                price_change_records: []
+                max_quantity: data.quantity
               })
-              const newQnt = data.quantity >= item.min_quantity
-                ? Math.min(data.quantity, quantity)
-                : 0
-              if (newQnt > 0) {
-                ecomCart.increaseItemQnt(_id, newQnt, false)
+              item.quantity = data.quantity >= item.min_quantity
+                ? Math.min(data.quantity, quantity) : 0
+              if (item.quantity > 0) {
+                ecomCart.fixItem(item, false)
               } else if (removeOnError) {
                 ecomCart.removeItem(_id, false)
               } else {
