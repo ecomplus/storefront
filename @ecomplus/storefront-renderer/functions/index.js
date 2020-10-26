@@ -17,11 +17,19 @@ exports.ssr = (req, res) => {
   }
 
   const fallback = () => {
-    res.set('Cache-Control', 'public, max-age=60, s-maxage=120')
-    if (/\/[^/.]+$/.test(req.url) || /\.x?html$/.test(req.url)) {
-      return res.set('Location', '/404').status(302).end()
+    const redirect = url => {
+      res.set('Cache-Control', 'public, max-age=30')
+        .set('Location', url)
+        .status(302).end()
     }
-    res.status(404).end()
+    if (req.url.slice(-1) === '/') {
+      redirect(req.url.slice(0, -1))
+    } else if (/\/[^/.]+$/.test(req.url) || /\.x?html$/.test(req.url)) {
+      redirect('/404')
+    } else {
+      res.set('Cache-Control', 'public, max-age=60, s-maxage=120')
+        .status(404).end()
+    }
   }
 
   return renderer(url)
