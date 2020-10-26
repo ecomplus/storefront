@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.60](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.59...@ecomplus/storefront-components@1.0.0-beta.60) (2020-10-26)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.3.0 ([a4e3066](https://github.com/ecomplus/storefront/commit/a4e3066a5d89869a1632b6e564eaef4a9198915f))
+* **deps:** update @ecomplus/shopping-cart to v2.3.1 ([c13312d](https://github.com/ecomplus/storefront/commit/c13312da1e7d675e3ad3b79dd4c5f38c899373ba))
+* **product-card:** do not add directly to cart when has customization fields ([1d87cb8](https://github.com/ecomplus/storefront/commit/1d87cb83f45e4c9b9a8d58ac19adff923abd66b2))
+
+
+### Features
+
+* **cart-item:** show item customizations when exists ([bbdd195](https://github.com/ecomplus/storefront/commit/bbdd19588ca3efcf8ed0bce29f9d0c2c102b4fb5))
+* **product:** handling product customization fields ([90ea59f](https://github.com/ecomplus/storefront/commit/90ea59f069578abaa341d31e7e7af9f283d0b358))
+
+
+
+
+
 # [1.0.0-beta.59](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.58...@ecomplus/storefront-components@1.0.0-beta.59) (2020-10-14)
 
 

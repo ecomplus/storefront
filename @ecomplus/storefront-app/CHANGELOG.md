@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.64](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.63...@ecomplus/storefront-app@2.0.0-beta.64) (2020-10-26)
+
+
+### Bug Fixes
+
+* **checkout:** fix items final price after fetch ([bea5305](https://github.com/ecomplus/storefront/commit/bea53053dce5b537ef19b0e9d5d5aac9124c3ad2))
+* **deps:** update @ecomplus/shopping-cart to v2.3.0 ([a4e3066](https://github.com/ecomplus/storefront/commit/a4e3066a5d89869a1632b6e564eaef4a9198915f))
+* **deps:** update @ecomplus/shopping-cart to v2.3.1 ([c13312d](https://github.com/ecomplus/storefront/commit/c13312da1e7d675e3ad3b79dd4c5f38c899373ba))
+
+
+
+
+
 # [2.0.0-beta.63](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.62...@ecomplus/storefront-app@2.0.0-beta.63) (2020-10-14)
 
 
