@@ -25,7 +25,7 @@ exports.ssr = (req, res) => {
     if (req.url.slice(-1) === '/') {
       redirect(req.url.slice(0, -1))
     } else if (/\/[^/.]+$/.test(req.url) || /\.x?html$/.test(req.url)) {
-      redirect('/404')
+      redirect(`/404?url=${req.url}`)
     } else {
       res.set('Cache-Control', 'public, max-age=60, s-maxage=120')
         .status(404).end()
