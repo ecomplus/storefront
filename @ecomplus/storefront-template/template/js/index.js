@@ -32,8 +32,10 @@ if (typeof window.requestIdleCallback === 'function') {
   setTimeout(fetchInfo, 300)
 }
 
-const { hash } = window.location
-if (hash.indexOf('_token=') !== -1 || hash.indexOf('error=access_denied') !== -1) {
+const { pathname, hash } = window.location
+if (pathname === '/404') {
+  import('./lib/fallback-404').catch(console.error)
+} else if (hash.indexOf('_token=') !== -1 || hash.indexOf('error=access_denied') !== -1) {
   const $netlifyIdentityScript = document.createElement('script')
   $netlifyIdentityScript.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js'
   document.body.appendChild($netlifyIdentityScript)
