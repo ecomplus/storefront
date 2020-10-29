@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-gmc-ratings#readme",
   "peerDependencies": {
-    "@ecomplus/client": "^2.1.1",
+    "@ecomplus/client": "^2.1.3",
     "@ecomplus/passport-client": "^1.0.10",
     "@ecomplus/utils": "^1.4.1",
     "core-js": "3.x"
