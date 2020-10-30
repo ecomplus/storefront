@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.15.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.2...@ecomplus/storefront-framework@5.15.3) (2020-10-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency firebase-admin to v9 ([#339](https://github.com/ecomplus/storefront/issues/339)) ([ba0e82b](https://github.com/ecomplus/storefront/commit/ba0e82bdf6a5ae0ea18dbcd09f12b94dd12a2c20))
+
+
+
+
+
+## [5.15.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.1...@ecomplus/storefront-framework@5.15.2) (2020-10-15)
+
+
+### Bug Fixes
+
+* **chunk-filenames:** add 'chunk.' for easier cache handling ([0e638c6](https://github.com/ecomplus/storefront/commit/0e638c6feea5bf11996024689377188a941fe3ff))
+
+
+
+
+
+## [5.15.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.0...@ecomplus/storefront-framework@5.15.1) (2020-10-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
 # [5.15.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.14.4...@ecomplus/storefront-framework@5.15.0) (2020-10-14)
 
 

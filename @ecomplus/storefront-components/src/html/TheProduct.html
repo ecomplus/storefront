@@ -122,6 +122,36 @@
               <slot name="variations-info"/>
             </slot>
 
+            <slot
+              name="customizations"
+              v-if="body.customizations"
+            >
+              <div
+                v-for="custom in body.customizations"
+                v-if="custom.custom_value"
+                :key="custom._id"
+                class="product__customization form-group"
+                :class="custom.grid_id ? `product__customization--${custom.grid_id}` : null"
+              >
+                <label :for="`c-${custom._id}`">
+                  {{ custom.label }}
+                  <span
+                    v-if="custom.add_to_price"
+                    class="badge badge-secondary"
+                  >
+                    {{ formatAdditionalPrice(custom.add_to_price) }}
+                  </span>
+                </label>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  :id="`c-${custom._id}`"
+                  @change="ev => setCustomizationOption(custom, ev.target.value)"
+                >
+              </div>
+            </slot>
+
             <div class="product__buy">
               <span @click="buy">
                 <slot

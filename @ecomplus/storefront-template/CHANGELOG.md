@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.81](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.80...@ecomplus/storefront-template@2.0.0-beta.81) (2020-10-26)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.3.0 ([a4e3066](https://github.com/ecomplus/storefront/commit/a4e3066a5d89869a1632b6e564eaef4a9198915f))
+* **deps:** update @ecomplus/shopping-cart to v2.3.1 ([c13312d](https://github.com/ecomplus/storefront/commit/c13312da1e7d675e3ad3b79dd4c5f38c899373ba))
+* **prerender-retails:** search products by brand/category name ([212212e](https://github.com/ecomplus/storefront/commit/212212e6835f821bcff4d00f688212110060032d))
+
+
+### Features
+
+* **404-fallback:** try client side route and content render on 404 page ([c35fa40](https://github.com/ecomplus/storefront/commit/c35fa4018ab4da7a929f818031a4ceb41c32158c))
+
+
+
+
+
+# [2.0.0-beta.80](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.79...@ecomplus/storefront-template@2.0.0-beta.80) (2020-10-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.79](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.78...@ecomplus/storefront-template@2.0.0-beta.79) (2020-10-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
 # [2.0.0-beta.78](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.77...@ecomplus/storefront-template@2.0.0-beta.78) (2020-10-14)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

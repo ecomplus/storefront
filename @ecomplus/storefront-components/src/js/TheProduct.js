@@ -25,7 +25,8 @@ import {
   onPromotion as checkOnPromotion,
   price as getPrice,
   variationsGrids as getVariationsGrids,
-  specValueByText as getSpecValueByText
+  specValueByText as getSpecValueByText,
+  formatMoney
 } from '@ecomplus/utils'
 
 import { store, modules } from '@ecomplus/client'
@@ -111,7 +112,8 @@ export default {
       isOnCart: false,
       hasClickedBuy: false,
       hasLoadError: false,
-      paymentOptions: []
+      paymentOptions: [],
+      customizations: []
     }
   },
 
@@ -217,6 +219,35 @@ export default {
         })
     },
 
+    formatAdditionalPrice (addToPrice) {
+      if (addToPrice) {
+        const { type, addition } = addToPrice
+        if (addition) {
+          return formatMoney(type === 'fixed'
+            ? addition : getPrice(this.body) * addition / 100)
+        }
+      }
+      return ''
+    },
+
+    setCustomizationOption (customization, text) {
+      const index = this.customizations.findIndex(({ _id }) => _id === customization._id)
+      if (text) {
+        if (index > -1) {
+          this.customizations[index].option = { text }
+        } else {
+          this.customizations.push({
+            _id: customization._id,
+            label: customization.label,
+            add_to_price: customization.add_to_price,
+            option: { text }
+          })
+        }
+      } else if (index > -1) {
+        this.customizations.splice(index, 1)
+      }
+    },
+
     buy () {
       this.hasClickedBuy = true
       const product = sanitizeProductBody(this.body)
@@ -228,9 +259,10 @@ export default {
           return
         }
       }
-      this.$emit('buy', { product, variationId })
+      const { customizations } = this
+      this.$emit('buy', { product, variationId, customizations })
       if (this.canAddToCart) {
-        ecomCart.addProduct(product, variationId)
+        ecomCart.addProduct({ ...product, customizations }, variationId)
       }
       this.isOnCart = true
     }

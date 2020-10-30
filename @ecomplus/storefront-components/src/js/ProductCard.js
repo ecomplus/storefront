@@ -128,8 +128,11 @@ export default {
       const product = this.body
       this.$emit('buy', { product })
       if (this.canAddToCart) {
-        const { variations, slug } = product
-        if (variations && variations.length) {
+        const { slug, variations, customizations } = product
+        if (
+          (variations && variations.length) ||
+          (customizations && customizations.length)
+        ) {
           this.isWaitingBuy = true
           import('../ProductQuickview.vue')
             .then(quickview => {
