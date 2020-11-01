@@ -1,48 +1,97 @@
 .order-info {
-  &__new {
-    text-align: center;
-    color: var(--success);
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-  }
-
-  &__orders-link {
-    margin-top: 1.5rem;
-  }
-
   &__number {
-    color: var(--gray);
+    color: var(--secondary);
+    margin-top: var(--spacer-2);
+    font-weight: var(--font-light);
 
     span {
+      font-weight: var(--font-bold);
+    }
+
+    small {
+      color: var(--gray);
+      font-size: var(--font-size-sm);
       display: block;
-      color: var(--secondary);
     }
   }
 
-  &__details {
-    margin-top: .75rem;
-    margin-bottom: 1.5rem;
+  &__timeline {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0;
+    margin: var(--spacer-4) 0;
+    font-size: var(--font-size-sm);
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+
+    &-status {
+      padding: var(--spacer-2);
+      margin-right: var(--spacer-1);
+      min-width: 165px;
+      border-width: 0;
+      border-bottom-width: 5px;
+      border-style: solid;
+      border-color: var(--border-color);
+
+      @media (min-width: 768px) {
+        padding-left: var(--spacer-3);
+        margin-right: 0;
+        margin-bottom: var(--spacer-1);
+        min-width: 0;
+        border-bottom-width: 0;
+        border-left-width: 5px;
+      }
+
+      &--pending,
+      &--under_analysis {
+        border-color: var(--warning);
+      }
+
+      &--shipped {
+        border-color: var(--info);
+      }
+
+      &--unauthorized,
+      &--in_dispute,
+      &--voided {
+        border-color: var(--danger);
+      }
+
+      &--paid,
+      &--delivered  {
+        border-color: var(--success);
+      }
+    }
+
+    &-date {
+      font-size: 85%;
+      color: var(--text-muted);
+    }
   }
 
-  &__status,
-  &__financial-status {
-    font-weight: bold;
-    font-size: 1.15rem;
-    margin: 1rem 0;
+  &__details:not(:first-child) {
+    margin-top: var(--spacer-4);
   }
 
-  &__status {
-    &--open {
-      color: var(--info);
-    }
+  &__payment,
+  &__shipping-address,
+  &__shipping-freight {
+    margin-bottom: var(--spacer-3);
+    background: var(--light);
 
-    &--cancelled {
-      color: var(--danger);
+    .card-header {
+      color: var(--text-muted);
     }
+  }
 
-    &--closed {
-      color: var(--success);
-    }
+  &__financial-status,
+  &__fulfillment-status {
+    font-weight: var(--font-bold);
+    color: var(--info);
   }
 
   &__financial-status {
@@ -65,14 +114,36 @@
     }
   }
 
+  &__fulfillment-status {
+    &--delivered {
+      color: var(--success);
+    }
+  }
+
+  &__new {
+    text-align: center;
+    color: var(--success);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacer-5);
+  }
+
+  &__orders-link {
+    margin-left: auto;
+    margin-top: var(--spacer-4);
+  }
+
   &__summary {
     background: var(--light);
+    margin-bottom: var(--spacer-3);
   }
 
   &__toggle,
   &__buy-again {
-    display: block;
-    margin-left: auto;
-    margin-top: var(--spacer-4);
+    margin-top: var(--spacer-3);
+    margin-right: var(--spacer-3);
+  }
+
+  &__cancelled {
+    color: var(--danger);
   }
 }

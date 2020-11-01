@@ -1,11 +1,12 @@
+import {
+  i19FinancialStatus,
+  i19FulfillmentStatus,
+  i19OrderStatus
+} from '@ecomplus/i18n'
+
 import { i18n, formatDate, formatMoney } from '@ecomplus/utils'
 import ecomPassport from '@ecomplus/passport-client'
 import EcOrderInfo from './../EcOrderInfo.vue'
-
-import {
-  i19FinancialStatus,
-  i19OrderStatus
-} from '@ecomplus/i18n'
 
 export default {
   name: 'EcOrdersList',
@@ -36,6 +37,7 @@ export default {
     formatDate,
     formatMoney,
     i19FinancialStatus: prop => i18n(i19FinancialStatus)[prop],
+    i19FulfillmentStatus: prop => i18n(i19FulfillmentStatus)[prop],
     i19OrderStatus: prop => i18n(i19OrderStatus)[prop]
   },
 

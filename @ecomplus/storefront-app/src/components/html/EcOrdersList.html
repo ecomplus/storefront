@@ -33,6 +33,14 @@
       </span>
 
       <span
+        v-else-if="order.financial_status.current === 'paid' && order.fulfillment_status"
+        class="orders-list__fulfillment-status"
+        :class="`orders-list__fulfillment-status--${order.fulfillment_status.current}`"
+      >
+        {{ i19FulfillmentStatus(order.fulfillment_status.current) }}
+      </span>
+
+      <span
         v-else
         class="orders-list__financial-status"
         :class="`orders-list__financial-status--${order.financial_status.current}`"
