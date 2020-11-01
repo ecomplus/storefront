@@ -1,122 +1,174 @@
 <div class="order-info py-4">
-  <div v-if="isNew" class="order-info__new">
+  <div
+    v-if="isNew"
+    class="order-info__new"
+  >
     {{ i19orderConfirmationMsg }}!
   </div>
 
   <transition-group enter-active-class="animated fadeInDown slower">
-    <div key="loading" v-if="!loaded">
-      <div class="spinner-border" role="status">
+    <div
+      v-if="!loaded"
+      key="loading"
+    >
+      <div
+        class="spinner-border"
+        role="status"
+      >
         <span class="sr-only">Loading...</span>
       </div>
     </div>
 
-
-    <div key="loaded" v-else>
+    <div
+      v-else
+      key="loaded"
+    >
       <div class="row">
-        <div class="col-12 mb-3">
-          <div class="order-info__customer">
-            {{ i19hello }}
-            <strong> {{ fullName }} </strong>!
-            {{ i19trackYourOrderHere }} : <strong> {{ localOrder.number }} </strong>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="order-info__order-details">
-            <div class="order-info__order-details-status">
-              <strong>
-                {{ i19orderStatus }}
-              </strong>
-            </div>
-              <ul class="timeline">
-                <li v-for="item in timelineStatus">
-                  <div class="timestamp">
-                    <strong>
-                      {{ formatDate(item.datetime) }}
-                    </strong> <br>
-                    <strong>
-                      {{ formatTime(item.datetime) }}
-                    </strong>
-                  </div>
-                  <div
-                    class="timeline__status status"
-                    :class="`timeline__status--${item.status}`"
-                  >
-                  <span>
-                    {{ i19FinancialStatus(item.status) || i19FulfillmentStatus(item.status) }}
-                  </span>
-                  </div>
-                </li>
-              </ul>
-          </div>
-        </div>
-        <div class="col-12 col-lg-7">
-          <transition-group enter-active-class="animated fadeIn">
-            <div key="updating" v-if="isUpdating">
-              <div class="spinner-grow" role="status">
-                <span class="sr-only">Loading...</span>
+        <div class="col-md-5 col-lg-3">
+          <h2 class="order-info__number">
+            <small>{{ i19orderNumber }}:</small>
+            #<span>{{ localOrder.number }}</span>
+          </h2>
+
+          <transition
+            enter-active-class="animated fadeInDown"
+            leave-active-class="animated fadeOutUp fast"
+          >
+            <p
+              v-if="!isUpdating && status === 'cancelled'"
+              class="order-info__cancelled h3"
+            >
+              {{ i19OrderStatus(status) }}
+              <button
+                class="order-info__toggle btn"
+                :class="status === 'cancelled' ? 'btn-success' : 'btn-info'"
+                @click="toggle"
+              >
+                <i class="fas fa-check-circle mr-1"></i>
+                {{ i19reopenOrder }}
+              </button>
+            </p>
+          </transition>
+
+          <ul
+            v-if="statusEntries.length"
+            class="order-info__timeline"
+          >
+            <li
+              v-for="(entry, i) in statusEntries"
+              :key="`status-${i}`"
+              class="order-info__timeline-status"
+              :class="`order-info__timeline-status--${entry.status}`"
+            >
+              <div
+                v-if="entry.date_time"
+                class="order-info__timeline-date"
+              >
+                {{ formatDate(entry.date_time) }}
+                {{ formatTime(entry.date_time) }}
               </div>
-            </div>
+              {{ i19FinancialStatus(entry.status) || i19FulfillmentStatus(entry.status) }}
+            </li>
+          </ul>
 
-            <article v-else key="uptodate">
+          <a
+            v-if="accountOrdersUrl"
+            :href="accountOrdersUrl"
+            class="order-info__orders-link d-none d-md-block btn btn-light"
+          >
+            <i class="fas fa-chevron-left mr-1"></i>
+            {{ i19myOrders }}
+          </a>
+        </div>
 
-              <template v-if="transaction.status && transaction.status.current === 'pending'">
-                <div class="order-info__billet" v-if="transaction.banking_billet">
-                  <p class="lead">{{ i19doPaymentMsg }}</p>
-
-                  <template v-if="transaction.banking_billet.code">
-                    <p>
-                      {{ i19ticketCode }}:
-                      <br><samp>{{ transaction.banking_billet.code }}</samp>
+        <div class="col-md-7 col-lg-9 mt-">
+          <div class="row">
+            <div class="col-lg-6">
+              <article>
+                <template v-if="transaction.status && transaction.status.current === 'pending'">
+                  <div
+                    v-if="transaction.banking_billet"
+                    class="order-info__billet"
+                  >
+                    <p class="lead">
+                      {{ i19doPaymentMsg }}
                     </p>
 
-                    <button
-                      class="btn btn-outline-primary mr-3"
-                      @click="() => toClipboard(transaction.banking_billet.code)"
+                    <template v-if="transaction.banking_billet.code">
+                      <p>
+                        {{ i19ticketCode }}:
+                        <br><samp>{{ transaction.banking_billet.code }}</samp>
+                      </p>
+
+                      <button
+                        class="btn btn-outline-primary mr-3"
+                        @click="() => toClipboard(transaction.banking_billet.code)"
+                      >
+                        <i class="fas fa-copy mr-1"></i>
+                        {{ i19copyCode }}
+                      </button>
+                    </template>
+
+                    <a
+                      target="_blank"
+                      class="btn btn-primary"
+                      v-if="transaction.banking_billet.link"
+                      :href="transaction.banking_billet.link"
                     >
-                      <i class="fas fa-copy mr-1"></i>
-                      {{ i19copyCode }}
-                    </button>
-                  </template>
+                      <i class="fas fa-print mr-1"></i>
+                      {{ i19printBillet }}
+                    </a>
+                  </div>
 
-                  <a
-                    target="_blank"
-                    class="btn btn-primary"
-                    v-if="transaction.banking_billet.link"
-                    :href="transaction.banking_billet.link"
+                  <div
+                    v-else-if="transaction.payment_link"
+                    class="order-info__redirect"
                   >
-                    <i class="fas fa-print mr-1"></i>
-                    {{ i19printBillet }}
-                  </a>
-                </div>
+                    <p class="lead">
+                      {{ i19doPaymentMsg }}
+                    </p>
 
-                <div class="order-info__redirect" v-else-if="transaction.payment_link">
-                  <p class="lead">{{ i19doPaymentMsg }}</p>
-
-                  <a
-                    target="_blank"
-                    class="btn btn-lg btn-success"
-                    :href="transaction.payment_link"
-                  >
-                    <i class="fas fa-arrow-right mr-1"></i>
-                    {{ i19redirectToPayment }}
-                  </a>
-                </div>
-              </template>
-
-              <div class="row order-info__details">
-                <div class="col-12 col-md-6">
-                  <slot name="payment" v-bind="{ order: localOrder, transaction }">
-                    <div
-                      v-if="localOrder.transactions"
-                      class="order-info__payment"
+                    <a
+                      target="_blank"
+                      class="btn btn-lg btn-success"
+                      :href="transaction.payment_link"
                     >
-                      <div v-for="transaction in localOrder.transactions">
-                        <div class="text-muted">
+                      <i class="fas fa-arrow-right mr-1"></i>
+                      {{ i19redirectToPayment }}
+                    </a>
+                  </div>
+                </template>
+
+                <div class="order-info__details">
+                  <slot name="payment" v-bind="{
+                    order: localOrder,
+                    transaction,
+                    financialStatus
+                  }">
+                    <div class="order-info__payment card">
+                      <div class="card-header">
+                        <span
+                          class="order-info__financial-status"
+                          :class="`order-info__financial-status--${financialStatus}`"
+                        >
                           <i class="fas fa-money-check mr-1"></i>
-                          {{ i19payment }}
-                        </div>
+                          {{ i19FinancialStatus(financialStatus) }}
+                        </span>
+                      </div>
+
+                      <div
+                        v-for="transaction in localOrder.transactions"
+                        :key="`t-${transaction._id}`"
+                        class="card-body"
+                      >
                         <p class="order-info__payment-value">
-                          {{ transaction.payment_method.name || localOrder.payment_method_label }}:
+                          <template v-if="hasManyTransactions && transaction.payment_method.name">
+                            {{ transaction.payment_method.name }}:
+                          </template>
+                          <template v-else-if="localOrder.payment_method_label">
+                            {{ localOrder.payment_method_label }}:
+                          </template>
+
                           <strong v-if="transaction.installments && transaction.installments.value">
                             {{ transaction.installments.number }}x
                             {{ i19of.toLowerCase() }}
@@ -125,6 +177,13 @@
                           <strong v-else>
                             {{ formatMoney(transaction.amount || localOrder.amount.total) }}
                           </strong>
+
+                          <template v-if="hasManyTransactions && transaction.status">
+                            <br>
+                            <span class="text-muted">
+                              {{ i19FinancialStatus(transaction.status.current) }}
+                            </span>
+                          </template>
                         </p>
 
                         <p
@@ -142,16 +201,16 @@
 
                         <template v-if="transaction.intermediator">
                           <div
-                            class="order-info__transaction-code"
                             v-if="transaction.intermediator.transaction_code"
+                            class="order-info__transaction-code"
                           >
                             <small>{{ i19transactionCode }}</small>
                             <br>
                             {{ transaction.intermediator.transaction_code }}
                           </div>
                           <div
-                            class="order-info__transaction-reference"
                             v-if="transaction.intermediator.transaction_reference"
+                            class="order-info__transaction-reference"
                           >
                             <small>{{ i19referenceCode }}</small>
                             <br>
@@ -161,24 +220,80 @@
                       </div>
                     </div>
                   </slot>
-                </div>
 
-                <div class="col-12 col-md-6">
                   <slot
                     name="shipping"
-                    v-bind="{ order: localOrder, shippingAddress }"
+                    v-bind="{
+                      order: localOrder,
+                      shippingAddress,
+                      fulfillmentStatus
+                    }"
                   >
                     <div class="order-info__shipping">
                       <div
-                        v-if="shippingAddress && shippingAddress.street"
-                        class="order-info__shipping-address"
+                        v-for="shippingLine in localOrder.shipping_lines"
+                        :key="`s-${shippingLine._id}`"
+                        class="order-info__shipping-freight card"
                       >
-                        <div class="text-muted">
-                          <i class="fas fa-map-marked-alt mr-1"></i>
-                          {{ i19address }}
+                        <div class="card-header">
+                          <span
+                            v-if="fulfillmentStatus"
+                            class="order-info__fulfillment-status"
+                            :class="`order-info__fulfillment-status--${fulfillmentStatus}`"
+                          >
+                            <i class="fas fa-truck mr-1"></i>
+                            {{ i19FulfillmentStatus(fulfillmentStatus) }}
+                          </span>
+                          <template v-else>
+                            <i class="fas fa-truck mr-1"></i>
+                            {{ i19freight }}
+                          </template>
                         </div>
 
-                        <address>
+                        <div class="card-body">
+                          <span v-if="shippingLine.app">
+                            {{ shippingLine.app.label }}
+                          </span>
+                          <shipping-line :shipping-line="shippingLine"/>
+
+                          <div
+                            v-if="shippingLine.tracking_codes"
+                            class="order-info__shipping-tracking"
+                          >
+                            <hr>
+                            <div class="text-muted">
+                              {{ i19trackDelivery }}:
+                            </div>
+
+                            <samp
+                              v-for="(tracking, i) in shippingLine.tracking_codes"
+                              :key="`track-${i}`"
+                            >
+                              <a
+                                v-if="tracking.link"
+                                :href="`${tracking.link}`"
+                                target="_blank"
+                              >
+                                {{ tracking.code }}
+                              </a>
+                              <span v-else>
+                                {{ tracking.code }}
+                              </span>
+                            </samp>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        v-if="shippingAddress && shippingAddress.street"
+                        class="order-info__shipping-address card"
+                      >
+                        <div class="card-header">
+                          <i class="fas fa-map-marked-alt mr-1"></i>
+                          {{ i19shippingAddress }}
+                        </div>
+
+                        <address class="card-body mb-0">
                           {{ shippingAddress.street }}
                           <template v-if="shippingAddress.number">
                             {{ shippingAddress.number }}
@@ -192,109 +307,70 @@
                             {{ shippingAddress[field] + (i === 2 ? '.' : ',') }}
                           </span>
                           <br>
-                          <mark class="small">
-                            {{ i19zipCode }} {{ shippingAddress.zip }}
-                          </mark>
+                          <span>
+                            {{ i19zipCode }}:
+                            <samp>{{ shippingAddress.zip }}</samp>
+                          </span>
                         </address>
                       </div>
-
-                      <template v-if="localOrder.shipping_lines">
-                        <div
-                          v-for="shippingLine in localOrder.shipping_lines"
-                          :key="shippingLine._id"
-                          class="order-info__shipping-freight"
-                        >
-                          <div class="text-muted">
-                            <i class="fas fa-truck mr-1"></i>
-                            {{ i19freight }}
-                          </div>
-                          <span v-if="shippingLine.app">
-                            {{ shippingLine.app.label }}
-                          </span>
-                          <shipping-line :shipping-line="shippingLine"/>
-
-                          <div
-                            v-if="shippingLine.tracking_codes"
-                            class="order-info__shipping-tracking"
-                          >
-                            <div class="text-muted">
-                              <i class="fas fa-search mr-1"></i>
-                                {{ i19deliveryTrack }}
-                            </div>
-                            <div
-                              v-for="tracking in shippingLine.tracking_codes"
-                            >
-                              <strong>
-                                <a
-                                  v-if="tracking.link"
-                                  href="`${tracking.link}`"
-                                  target="_blank"
-                                >
-                                  {{ tracking.code }}
-                                </a>
-                                <span v-else>
-                                  {{ tracking.code }}
-                                </span>
-                              </strong>
-                            </div>
-                          </div>
-                        </div>
-
-                      </template>
-
                     </div>
                   </slot>
                 </div>
-              </div>
-            </article>
-          </transition-group>
-        </div>
 
-        <div class="col-12 col-lg-5" v-if="localOrder.amount">
-          <div class="order-info__summary card">
-            <div class="card-body">
-              <ec-summary
-                :amount="localOrder.amount"
-                :items="localOrder.items"
-                :buyer="localOrder.buyer && localOrder.buyer[0]"
-                :shippingAddress="shippingAddress"
-              />
+                <p
+                  v-if="!isAuthenticated"
+                  class="lead"
+                >
+                  {{ i19loginForOrderDetailsMsg }}
+                  <br>
+                  <a
+                    class="btn btn-primary mt-2"
+                    :href="accountOrdersUrl"
+                  >
+                    <i class="fas fa-user mr-1"></i>
+                    {{ i19login }}
+                  </a>
+                </p>
+              </article>
             </div>
-          </div>
 
-          <template v-if="!isUpdating">
-            <template v-if="status === 'open'">
+            <div
+              v-if="localOrder.amount"
+              class="col-lg-6"
+            >
+              <div class="order-info__summary card">
+                <div class="card-body">
+                  <ec-summary
+                    :amount="localOrder.amount"
+                    :items="localOrder.items"
+                    :buyer="localOrder.buyer && localOrder.buyer[0]"
+                    :shippingAddress="shippingAddress"
+                  />
+                </div>
+              </div>
+
               <button
-                v-if="!fulfillmentStatus"
-                class="order-info__toggle btn btn-danger btn-sm"
+                v-if="!isUpdating && status === 'open' && !fulfillmentStatus"
+                class="order-info__toggle btn btn-danger"
                 @click="toggle"
               >
                 <i class="fas fa-exclamation-triangle mr-1"></i>
                 {{ i19cancelOrder }}
               </button>
-            </template>
-            <button
-              v-else-if="status !== 'closed' || fulfillmentStatus !== 'delivered'"
-              class="order-info__toggle btn btn-sm"
-              :class="status === 'cancelled' ? 'btn-success' : 'btn-info'"
-              @click="toggle"
-            >
-              <i class="fas fa-check-circle mr-1"></i>
-              {{ i19reopenOrder }}
-            </button>
-          </template>
 
-          <slot name="buy">
-            <button
-              type="button"
-              class="order-info__buy-again btn"
-              :class="isNew ? 'btn-outline-secondary btn-sm' : 'btn-primary'"
-              @click="buyAgain"
-            >
-              <i class="fas fa-shopping-bag mr-1"></i>
-              {{ i19buyAgain }}
-            </button>
-          </slot>
+              <slot name="buy">
+                <button
+                  type="button"
+                  class="order-info__buy-again btn"
+                  :class="isNew ? 'btn-outline-secondary' : 'btn-primary'"
+                  @click="buyAgain"
+                >
+                  <i class="fas fa-shopping-bag mr-1"></i>
+                  {{ i19buyAgain }}
+                </button>
+              </slot>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -303,8 +379,9 @@
   <a
     v-if="accountOrdersUrl"
     :href="accountOrdersUrl"
-    class="order-info__orders-link btn btn-sm btn-light"
+    class="order-info__orders-link d-md-none btn btn-light"
   >
+    <i class="fas fa-chevron-left mr-1"></i>
     {{ i19myOrders }}
   </a>
 </div>

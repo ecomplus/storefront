@@ -1,38 +1,42 @@
-import { i18n, formatMoney, formatDate, fullName } from '@ecomplus/utils'
-import { store } from '@ecomplus/client'
-import ecomPassport from '@ecomplus/passport-client'
-import ShippingLine from '#components/ShippingLine.vue'
-import EcSummary from './../EcSummary.vue'
-import ecomCart from '@ecomplus/shopping-cart'
-
 import {
   i19buyAgain,
   i19cancelOrder,
   i19codeCopied,
   i19copyCode,
   i19copyErrorMsg,
-  i19deliveryTrack,
   i19doPaymentMsg,
   i19freight,
-  i19hello,
+  i19login,
+  // i19loginForOrderDetailsMsg,
   i19myOrders,
-  i19payment,
   i19of,
   i19orderConfirmationMsg,
   i19orderNumber,
-  i19orderStatus,
   i19printBillet,
   i19redirectToPayment,
   i19referenceCode,
   i19reopenOrder,
-  i19address,
+  i19shippingAddress,
   i19transactionCode,
   i19ticketCode,
+  // i19trackDelivery,
+  i19zipCode,
   i19FinancialStatus,
   i19FulfillmentStatus,
-  i19OrderStatus,
-  i19zipCode
+  i19OrderStatus
 } from '@ecomplus/i18n'
+
+import {
+  i18n,
+  formatMoney,
+  formatDate
+} from '@ecomplus/utils'
+
+import { store } from '@ecomplus/client'
+import ecomPassport from '@ecomplus/passport-client'
+import ecomCart from '@ecomplus/shopping-cart'
+import ShippingLine from '#components/ShippingLine.vue'
+import EcSummary from './../EcSummary.vue'
 
 export default {
   name: 'EcOrderInfo',
@@ -43,26 +47,14 @@ export default {
   },
 
   props: {
-    ecomPassport: {
-      type: Object,
-      default: () => ecomPassport
-    },
     order: {
       type: Object,
       required: true
     },
-    isNew: {
-      type: Boolean
-    },
-    skipDataLoad: {
-      type: Boolean
-    },
-    skipFirstDataLoad: {
-      type: Boolean
-    },
-    skipCustomerUpdate: {
-      type: Boolean
-    },
+    isNew: Boolean,
+    skipDataLoad: Boolean,
+    skipFirstDataLoad: Boolean,
+    skipCustomerUpdate: Boolean,
     accountOrdersUrl: {
       type: String,
       default: '/app/#/account/orders'
@@ -70,6 +62,18 @@ export default {
     cartUrl: {
       type: String,
       default: '/app/#/cart'
+    },
+    ecomCart: {
+      type: Object,
+      default () {
+        return ecomCart
+      }
+    },
+    ecomPassport: {
+      type: Object,
+      default () {
+        return ecomPassport
+      }
     }
   },
 
@@ -88,25 +92,23 @@ export default {
     i19codeCopied: () => i18n(i19codeCopied),
     i19copyCode: () => i18n(i19copyCode),
     i19copyErrorMsg: () => i18n(i19copyErrorMsg),
-    i19deliveryTrack: () => i18n(i19deliveryTrack),
     i19doPaymentMsg: () => i18n(i19doPaymentMsg),
     i19freight: () => i18n(i19freight),
+    i19login: () => i18n(i19login),
+    i19loginForOrderDetailsMsg: () => 'Entre com a conta do comprador para acessar mais detalhes do pedido.',
     i19myOrders: () => i18n(i19myOrders),
-    i19payment: () => i18n(i19payment),
     i19of: () => i18n(i19of),
     i19orderConfirmationMsg: () => i18n(i19orderConfirmationMsg),
     i19orderNumber: () => i18n(i19orderNumber),
-    i19orderStatus: () => i18n(i19orderStatus),
     i19printBillet: () => i18n(i19printBillet),
     i19redirectToPayment: () => i18n(i19redirectToPayment),
     i19referenceCode: () => i18n(i19referenceCode),
     i19reopenOrder: () => i18n(i19reopenOrder),
-    i19address: () => i18n(i19address),
+    i19shippingAddress: () => i18n(i19shippingAddress),
     i19transactionCode: () => i18n(i19transactionCode),
     i19ticketCode: () => i18n(i19ticketCode),
-    i19hello: () => i18n(i19hello),
+    i19trackDelivery: () => 'Rastrear entrega',
     i19zipCode: () => i18n(i19zipCode),
-    i19trackYourOrderHere: () => 'Acompanhe aqui o pedido',
 
     localOrder: {
       get () {
@@ -117,6 +119,11 @@ export default {
         this.$emit('update:order', body)
         this.saveCustomerOrder()
       }
+    },
+
+    hasManyTransactions () {
+      const { transactions } = this.localOrder
+      return transactions && transactions.length > 1
     },
 
     transaction () {
@@ -136,14 +143,6 @@ export default {
 
     status () {
       return this.localOrder.status
-    },
-
-    fullName () {
-      if (this.orderBody.buyers[0]) {
-        return fullName(this.orderBody.buyers[0])
-      } else {
-        return ''
-      }
     },
 
     financialStatus () {
@@ -184,51 +183,49 @@ export default {
       return null
     },
 
-    timelineStatus () {
-      const { localOrder } = this
-      let c = []
-      if (localOrder.payments_history && localOrder.fulfillments && localOrder.financial_status) {
-        c = localOrder.payments_history.concat(localOrder.fulfillments, localOrder.financial_status)
-      } else if (localOrder.payments_history && localOrder.fulfillments) {
-        c = localOrder.payments_history.concat(localOrder.fulfillments)
-      } else if (localOrder.payments_history) {
-        c = localOrder.payments_history
-      } else {
-        c = [{
-          status: this.financialStatus,
-          datetime: localOrder.created_at
-        }]
-      }
-      const events = []
-      if (events) {
-        c.forEach((item, i) => {
-          events.push(
-            {
-              datetime: item.date_time,
-              status: item.status || item.current
-            }
-          )
+    statusEntries () {
+      const statusEntries = []
+      let statusRecords = []
+      ;['payments_history', 'fulfillments'].forEach(recordsField => {
+        if (Array.isArray(this.localOrder[recordsField])) {
+          statusRecords = statusRecords.concat(this.localOrder[recordsField])
+        }
+      })
+      if (statusRecords.length) {
+        statusRecords = statusRecords = statusRecords.sort((a, b) => {
+          if (a.date_time && b.date_time) {
+            return a.date_time > b.date_time
+              ? -1 : 1
+          }
+          return 0
+        })
+        statusRecords.forEach((statusRecord, i) => {
+          if (i > 0 && statusRecord.status === statusRecords[i - 1].status) {
+            return
+          }
+          statusEntries.push(statusRecord)
         })
       }
-      const sortedEntries = events.sort((a, b) => {
-        if (a.datetime && b.datetime) {
-          return a.datetime > b.datetime
-            ? 1 : -1
-        }
-        return 0
-      })
-      var d = sortedEntries.filter((v, i, a) => a.findIndex(t => (t.status === v.status)) === i)
+      return statusEntries
+    },
 
-      return d
+    isAuthenticated () {
+      return this.ecomPassport.checkAuthorization()
     }
   },
 
   methods: {
-    formatMoney,
-    formatDate,
     i19FinancialStatus: prop => i18n(i19FinancialStatus)[prop],
     i19FulfillmentStatus: prop => i18n(i19FulfillmentStatus)[prop],
     i19OrderStatus: prop => i18n(i19OrderStatus)[prop],
+    formatMoney,
+    formatDate,
+
+    formatTime (time) {
+      const miliseconds = Date.parse(time)
+      const date = new Date(miliseconds)
+      return date.toLocaleTimeString()
+    },
 
     toClipboard (text) {
       this.$copyText(text).then(() => {
@@ -247,12 +244,6 @@ export default {
           delay: 3000
         })
       })
-    },
-
-    formatTime (time) {
-      const miliseconds = Date.parse(time)
-      const date = new Date(miliseconds)
-      return date.toLocaleTimeString()
     },
 
     saveCustomerOrder () {
@@ -293,6 +284,7 @@ export default {
       const { localOrder } = this
       if (localOrder.items) {
         const { items } = localOrder
+        ecomCart.clear()
         items.forEach((item, i) => {
           ecomCart.addItem(item)
           if (i + 1 === items.length) {
