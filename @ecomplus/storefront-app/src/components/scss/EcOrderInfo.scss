@@ -81,11 +81,6 @@
   &__shipping-address,
   &__shipping-freight {
     margin-bottom: var(--spacer-3);
-    background: var(--light);
-
-    .card-header {
-      color: var(--text-muted);
-    }
   }
 
   &__financial-status,
