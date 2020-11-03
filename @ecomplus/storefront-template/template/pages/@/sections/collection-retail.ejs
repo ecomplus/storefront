@@ -4,7 +4,9 @@ if (_.state.products && _.state.products.length) {
   search.setProductIds(_.state.products)
   %>
   <div class="collection-retail">
-    <%- await include('/@/sections/inc/retail-grid', { _, opt: { search } }) %>
+    <%- await include('/@/sections/inc/retail-grid', {
+      _, opt: { search, sort: opt.sort }
+    }) %>
   </div>
   <%
 }

@@ -1,3 +1,5 @@
+import getRetail from './types/retail'
+
 export default ({ baseDir, sections }) => ({
   name: 'categories',
   label: 'Categorias',
@@ -9,19 +11,7 @@ export default ({ baseDir, sections }) => ({
       name: 'sections',
       widget: 'list',
       types: [
-        {
-          label: 'Produtos da categoria',
-          name: 'category-retail',
-          widget: 'object',
-          fields: [
-            {
-              label: 'Listar produtos da categoria',
-              name: 'enabled',
-              widget: 'boolean',
-              default: true
-            }
-          ]
-        },
+        getRetail('category', 'categoria'),
         {
           label: 'Banner da categoria',
           name: 'document-banner',
