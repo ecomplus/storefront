@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.82](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.81...@ecomplus/storefront-template@2.0.0-beta.82) (2020-11-03)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#344](https://github.com/ecomplus/storefront/issues/344)) ([ae49403](https://github.com/ecomplus/storefront/commit/ae4940343a6c656efef8f7536e16b5f88e3f48dd))
+
+
+### Features
+
+* **cms:** add 'description' field to page title section and update hints ([ae09edd](https://github.com/ecomplus/storefront/commit/ae09edd95adaeef488328c9f05dda9342245caa5))
+* **cms:** add pagination options for collection shelf section ([ba55ff4](https://github.com/ecomplus/storefront/commit/ba55ff42bf2c6b68120801aeb448da42755e611f))
+* **cms:** handling optional default sort for categories, brands and collections ([9f280af](https://github.com/ecomplus/storefront/commit/9f280afe56064ce1a608653994e07b68e5e76bed))
+
+
+
+
+
 # [2.0.0-beta.81](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.80...@ecomplus/storefront-template@2.0.0-beta.81) (2020-10-26)
 
 

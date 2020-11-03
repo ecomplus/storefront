@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.60](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.59...@ecomplus/widget-search-engine@1.0.0-beta.60) (2020-11-03)
+
+
+### Features
+
+* **widget-search-engine:** handling default sort option from el dataset ([4d00fc1](https://github.com/ecomplus/storefront/commit/4d00fc1d75083af8047e4a9ac6fee3c536b9334f))
+
+
+
+
+
 # [1.0.0-beta.59](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.58...@ecomplus/widget-search-engine@1.0.0-beta.59) (2020-10-26)
 
 **Note:** Version bump only for package @ecomplus/widget-search-engine
