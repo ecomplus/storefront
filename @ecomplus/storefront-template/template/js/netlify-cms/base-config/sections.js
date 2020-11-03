@@ -250,15 +250,22 @@ export default ({ state }) => [
     ]
   },
   {
-    label: 'Título da página',
+    label: 'Título da página (SEO)',
     name: 'page-title',
     widget: 'object',
     fields: [
       {
-        label: 'Título',
+        label: 'Título (H1)',
         required: false,
         name: 'title',
-        hint: 'Por padrão será usado o título salvo no conteúdo ou nome do documento e descrição curta',
+        hint: 'Por padrão será usado o título salvo no conteúdo ou nome do documento se houver',
+        widget: 'string'
+      },
+      {
+        label: 'Descrição curta',
+        required: false,
+        name: 'description',
+        hint: 'Será usada a descrição curta da marca ou categoria nas respectivas páginas',
         widget: 'string'
       }
     ]
