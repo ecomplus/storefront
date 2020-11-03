@@ -233,6 +233,22 @@ export default ({ state }) => [
         name: 'headless',
         widget: 'boolean',
         hint: 'Mostrar apenas a lista de produtos, sem título ou link'
+      },
+      {
+        label: 'Limite de itens',
+        name: 'limit',
+        widget: 'number',
+        min: 1,
+        max: 24,
+        default: 12
+      },
+      {
+        label: 'Paginação',
+        name: 'page',
+        hint: 'Aumente o número da página para pular os itens iniciais e repetir estantes com a mesma coleção',
+        widget: 'number',
+        min: 1,
+        default: 1
       }
     ]
   },

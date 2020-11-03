@@ -28,11 +28,19 @@ if (opt.sort || opt.collection_id) {
     if (opt.sort) {
       search.setSortOrder(opt.sort)
     }
+    if (opt.limit > 0) {
+      search.setPageSize(opt.limit)
+    }
+    if (opt.page >= 2) {
+      search.setPageNumber(opt.page)
+    }
     await search.fetch()
     items = search.getItems()
   }
 } else {
-  items = _.items
+  const size = opt.limit || 24
+  const offset = opt.page >= 2 ? (opt.page - 1) * size : 0
+  items = _.items.slice(offset, offset + size)
 }
 %>
 
