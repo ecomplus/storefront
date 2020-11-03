@@ -23,6 +23,10 @@ export default (options = {}, elId = 'search-engine') => {
       brands: urlParams.getAll('brands[]'),
       categories: urlParams.getAll('categories[]')
     }
+    const { sort } = $searchEngine.dataset
+    if (sort) {
+      props.defaultSort = sort
+    }
 
     ;['brands', 'categories'].forEach(resource => {
       if ($searchEngine.dataset[resource]) {
@@ -35,7 +39,6 @@ export default (options = {}, elId = 'search-engine') => {
         if (props[resource] && props[resource].length < 2) {
           props[`isFixed${resource.charAt(0).toUpperCase()}${resource.slice(1)}`] = true
         }
-        props.defaultSort = 'sales'
         props.hasPopularItems = false
       }
     })
