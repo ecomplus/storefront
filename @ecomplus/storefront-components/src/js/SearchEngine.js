@@ -219,7 +219,7 @@ export default {
         ecomSearch.setPageNumber(this.page + Math.ceil(this.resultItems.length / this.pageSize))
       }
       const fetching = ecomSearch.setPageSize(this.pageSize).fetch()
-        .then(() => {
+        .then(result => {
           if (this.lastRequestId === requestId) {
             this.hasNetworkError = false
             if (!isPopularItems) {
@@ -230,6 +230,7 @@ export default {
             this.hasSetPopularItems = true
             this.popularItems = ecomSearch.getItems()
           }
+          return result
         })
         .catch(err => {
           console.error(err)
@@ -267,7 +268,8 @@ export default {
             options,
             isSpec
           }
-          const optionsList = !this.selectedOptions[filter] ? []
+          const optionsList = !this.selectedOptions[filter]
+            ? []
             : this.selectedOptions[filter]
               .filter(option => options.find(({ key }) => key === option))
           this.$set(this.selectedOptions, filter, optionsList)
@@ -364,7 +366,8 @@ export default {
 
     toggleFilters (isVisible) {
       this.isAsideVisible = typeof isVisible === 'boolean'
-        ? isVisible : !this.isAsideVisible
+        ? isVisible
+        : !this.isAsideVisible
     },
 
     getFilterLabel (filter) {
@@ -457,7 +460,11 @@ export default {
     setSortOrder (sort) {
       this.selectedSortOption = sort
       this.ecomSearch.setSortOrder(sort)
-      this.scheduleFetch()
+      if (this.page > 1) {
+        this.page = 1
+      } else {
+        this.scheduleFetch()
+      }
     }
   },
 
