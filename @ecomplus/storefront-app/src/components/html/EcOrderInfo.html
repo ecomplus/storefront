@@ -81,7 +81,7 @@
           </a>
         </div>
 
-        <div class="col-md-7 col-lg-9 mt-">
+        <div class="col-md-7 col-lg-9">
           <div class="row">
             <div class="col-lg-6">
               <article>
@@ -184,6 +184,14 @@
                               {{ i19FinancialStatus(transaction.status.current) }}
                             </span>
                           </template>
+                        </p>
+
+                        <p
+                          v-if="transition.notes"
+                          class="order-info__payment-notes alert alert-warning"
+                          role="alert"
+                        >
+                          {{ transition.notes }}
                         </p>
 
                         <p
