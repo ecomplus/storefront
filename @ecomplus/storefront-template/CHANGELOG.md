@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.83](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.82...@ecomplus/storefront-template@2.0.0-beta.83) (2020-11-05)
+
+
+### Bug Fixes
+
+* **cms:** make pagination and limit fields optional on shelf section ([408213b](https://github.com/ecomplus/storefront/commit/408213b23d5e2ae21e46434b167e95eb27eabc28))
+* **product-description:** fix parsing description images to lazy load (keep attrs) ([a49a99a](https://github.com/ecomplus/storefront/commit/a49a99a6127b0b9799d2482ce4e0e2ffe3efe6e2))
+
+
+
+
+
 # [2.0.0-beta.82](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.81...@ecomplus/storefront-template@2.0.0-beta.82) (2020-11-03)
 
 

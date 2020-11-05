@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.66](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.65...@ecomplus/storefront-app@2.0.0-beta.66) (2020-11-05)
+
+
+### Bug Fixes
+
+* **order-info:** show transaction notes on warning alert ([1e21c89](https://github.com/ecomplus/storefront/commit/1e21c89d08ed444612ea8ccf8ee34884086e3f7e))
+* **order-info:** show transaction notes on warning alert (typo) ([bb114b4](https://github.com/ecomplus/storefront/commit/bb114b4012fd37f100a59c2ab18e69ed5ff6c580))
+
+
+
+
+
 # [2.0.0-beta.65](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.64...@ecomplus/storefront-app@2.0.0-beta.65) (2020-11-03)
 
 

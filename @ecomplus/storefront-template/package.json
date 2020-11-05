@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-template",
-  "version": "2.0.0-beta.82",
+  "version": "2.0.0-beta.83",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "template/js/index.js",
   "bin": {
@@ -48,7 +48,7 @@
     "@ecomplus/passport-client": "^1.0.10",
     "@ecomplus/search-engine": "^2.4.1",
     "@ecomplus/shopping-cart": "^2.3.1",
-    "@ecomplus/storefront-app": "^2.0.0-beta.65",
+    "@ecomplus/storefront-app": "^2.0.0-beta.66",
     "@ecomplus/storefront-components": "^1.0.0-beta.61",
     "@ecomplus/storefront-framework": "^5.15.4",
     "@ecomplus/storefront-router": "^2.2.1",
