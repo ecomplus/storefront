@@ -236,6 +236,7 @@ export default ({ state }) => [
       },
       {
         label: 'Limite de itens',
+        required: false,
         name: 'limit',
         widget: 'number',
         min: 1,
@@ -244,6 +245,7 @@ export default ({ state }) => [
       },
       {
         label: 'Paginação',
+        required: false,
         name: 'page',
         hint: 'Aumente o número da página para pular os itens iniciais e repetir estantes com a mesma coleção',
         widget: 'number',
