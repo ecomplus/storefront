@@ -9,7 +9,7 @@ export default options => ({
   description: 'Layout base para todas as páginas',
   delete: false,
   editor: {
-    preview: true
+    preview: false
   },
   files: [
     getHeader(options),
