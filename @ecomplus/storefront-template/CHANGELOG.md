@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.84](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.83...@ecomplus/storefront-template@2.0.0-beta.84) (2020-11-09)
+
+
+### Bug Fixes
+
+* **cms:** disable preview for footer/header/menu (not implemented yet) ([8aa37ee](https://github.com/ecomplus/storefront/commit/8aa37ee86a3e24ce1128a0fa469158b1db8de1fd))
+* **cms:** fix merging array of nested object from custom config file ([539907e](https://github.com/ecomplus/storefront/commit/539907e3e63c61c6e6010df24d25b95056874516))
+* **deps:** update all non-major dependencies ([#357](https://github.com/ecomplus/storefront/issues/357)) ([63ed559](https://github.com/ecomplus/storefront/commit/63ed559c2d93c1aa133a786bb67bbc46358afd7c))
+
+
+
+
+
 # [2.0.0-beta.83](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.82...@ecomplus/storefront-template@2.0.0-beta.83) (2020-11-05)
 
 
