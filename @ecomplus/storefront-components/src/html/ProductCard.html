@@ -108,20 +108,20 @@
               :class="isSmall ? 'btn-sm': 'btn-block'"
               :disabled="isWaitingBuy"
             >
+              <span
+                v-if="isWaitingBuy"
+                class="product-card__buy-loading spinner-grow spinner-grow-sm"
+                role="status"
+              >
+                <span class="sr-only">Loading...</span>
+              </span>
+
               <slot name="buy-button-content">
                 <i class="fas fa-shopping-bag mr-1"></i>
                 {{ strBuy }}
               </slot>
             </button>
           </slot>
-        </div>
-
-        <div
-          v-if="isWaitingBuy"
-          class="spinner-grow spinner-grow-sm"
-          role="status"
-        >
-          <span class="sr-only">Loading...</span>
         </div>
       </template>
 
