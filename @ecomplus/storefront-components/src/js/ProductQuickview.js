@@ -18,10 +18,8 @@ export default {
   },
 
   props: {
-    productId: {
-      type: String,
-      required: true
-    },
+    productId: String,
+    product: Object,
     portalId: {
       type: String,
       default: 'quickview'
@@ -65,6 +63,9 @@ export default {
       document.body.appendChild(portal)
     } else {
       portal.innerHTML = ''
+    }
+    if (this.product) {
+      this.setProduct(this.product)
     }
     this.isVisible = true
   }
