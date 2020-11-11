@@ -76,7 +76,11 @@
                 >
                   <div data-slot="buy-button-content">
                     <i class="fas fa-shopping-bag mr-1"></i>
-                    <%= _.dictionary('buy') %>
+                    <% if (_.state.kit_composition && _.state.kit_composition.length) { %>
+                      <%= _.dictionary('buyKit') %>
+                    <% } else { %>
+                      <%= _.dictionary('buy') %>
+                    <% } %>
                   </div>
                 </button>
               </div>
