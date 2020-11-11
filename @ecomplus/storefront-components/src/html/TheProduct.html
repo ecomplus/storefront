@@ -152,35 +152,71 @@
               </div>
             </slot>
 
-            <div class="product__buy">
-              <span @click="buy">
-                <slot
-                  name="buy"
-                  v-bind="{ hasClickedBuy, isOnCart }"
-                >
-                  <button
-                    type="button"
-                    class="btn btn-lg btn-primary"
-                    :disabled="hasClickedBuy && !isOnCart"
+            <div
+              v-if="isKit"
+              class="product__kit"
+            >
+              <slot
+                name="kit"
+                v-bind="{ kitItems }"
+              >
+                <transition enter-active-class="animated fadeInUp">
+                  <quantity-selector
+                    v-if="kitItems.length"
+                    :items="kitItems"
+                    :min="body.min_quantity"
+                    :max="body.quantity"
+                    :kit-product-id="body._id"
+                    :kit-name="name"
+                    :kit-price="fixedPrice"
                   >
-                    <slot name="buy-button-content">
-                      <i class="fas fa-shopping-bag mr-1"></i>
-                      {{ strBuy }}
-                    </slot>
-                  </button>
-                </slot>
-              </span>
+                    <template #buy-button-content>
+                      <slot name="buy-button-content"/>
+                    </template>
+                  </quantity-selector>
+                </transition>
+
+                <span
+                  v-if="!kitItems.length"
+                  class="product__kit-loading spinner-border"
+                  role="status"
+                >
+                  <span class="sr-only">Loading...</span>
+                </span>
+              </slot>
             </div>
 
-            <p
-              class="product__short-stock"
-              v-if="isLowQuantity"
-            >
-              <i class="fas fa-forward mr-1"></i>
-              {{ i19only }}
-              <strong>{{ productQuantity }}</strong>
-              {{ i19unitsInStock }}
-            </p>
+            <template v-else>
+              <div class="product__buy">
+                <span @click="buy">
+                  <slot
+                    name="buy"
+                    v-bind="{ hasClickedBuy, isOnCart }"
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-lg btn-primary"
+                      :disabled="hasClickedBuy && !isOnCart"
+                    >
+                      <slot name="buy-button-content">
+                        <i class="fas fa-shopping-bag mr-1"></i>
+                        {{ strBuy }}
+                      </slot>
+                    </button>
+                  </slot>
+                </span>
+              </div>
+
+              <p
+                class="product__short-stock"
+                v-if="isLowQuantity"
+              >
+                <i class="fas fa-forward mr-1"></i>
+                {{ i19only }}
+                <strong>{{ productQuantity }}</strong>
+                {{ i19unitsInStock }}
+              </p>
+            </template>
 
             <slot name="share">
               <a-share

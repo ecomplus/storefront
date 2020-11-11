@@ -31,6 +31,7 @@ import {
 
 import { store, modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
+import EcomSearch from '@ecomplus/search-engine'
 import sortApps from './helpers/sort-apps'
 import addIdleCallback from './helpers/add-idle-callback'
 import { Portal } from '@linusborg/vue-simple-portal'
@@ -40,6 +41,7 @@ import APrices from '../APrices.vue'
 import AShare from '../AShare.vue'
 import ProductVariations from '../ProductVariations.vue'
 import ProductGallery from '../ProductGallery.vue'
+import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
 
@@ -68,6 +70,7 @@ export default {
     AShare,
     ProductVariations,
     ProductGallery,
+    QuantitySelector,
     ShippingCalculator,
     PaymentOption
   },
@@ -113,7 +116,8 @@ export default {
       hasClickedBuy: false,
       hasLoadError: false,
       paymentOptions: [],
-      customizations: []
+      customizations: [],
+      kitItems: []
     }
   },
 
@@ -175,6 +179,10 @@ export default {
 
     hasVariations () {
       return this.body.variations && this.body.variations.length
+    },
+
+    isKit () {
+      return this.body.kit_composition && this.body.kit_composition.length
     }
   },
 
@@ -188,10 +196,9 @@ export default {
     },
 
     fetchProduct (isRetry = false) {
-      const { storeId, productId } = this
+      const { productId } = this
       store({
         url: `/products/${productId}.json`,
-        storeId,
         axiosConfig: {
           timeout: isRetry ? 2500 : 6000
         }
@@ -224,7 +231,8 @@ export default {
         const { type, addition } = addToPrice
         if (addition) {
           return formatMoney(type === 'fixed'
-            ? addition : getPrice(this.body) * addition / 100)
+            ? addition
+            : getPrice(this.body) * addition / 100)
         }
       }
       return ''
@@ -316,12 +324,44 @@ export default {
                 .sort((a, b) => {
                   return a.discount_option && a.discount_option.value &&
                     !(b.discount_option && b.discount_option.value)
-                    ? -1 : 1
+                    ? -1
+                    : 1
                 })
             })
             .catch(console.error)
         })
       }
+    },
+
+    isKit: {
+      handler (isKit) {
+        if (isKit && !this.kitItems.length) {
+          const kitComposition = this.body.kit_composition
+          const ecomSearch = new EcomSearch()
+          ecomSearch
+            .setPageSize(kitComposition.length)
+            .setProductIds(kitComposition.map(({ _id }) => _id))
+            .fetch(true)
+            .then(() => {
+              ecomSearch.getItems().forEach(product => {
+                const { quantity } = kitComposition.find(({ _id }) => _id === product._id)
+                const addKitItem = variationId => {
+                  const item = ecomCart.parseProduct(product, variationId)
+                  if (quantity) {
+                    item.min_quantity = item.max_quantity = quantity
+                  }
+                  this.kitItems.push(item)
+                }
+                addKitItem()
+                if (product.variations) {
+                  product.variations.forEach(({ _id }) => addKitItem(_id))
+                }
+              })
+            })
+            .catch(console.error)
+        }
+      },
+      immediate: true
     }
   },
 
