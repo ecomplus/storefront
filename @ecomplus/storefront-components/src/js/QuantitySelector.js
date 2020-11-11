@@ -1,5 +1,5 @@
 import {
-  // i19buyKit,
+  i19buyKit,
   i19maxQuantity,
   i19minQuantity
 } from '@ecomplus/i18n'
@@ -30,6 +30,9 @@ export default {
     },
     max: Number,
     buyText: String,
+    kitProductId: String,
+    kitName: Number,
+    kitPrice: Number,
     canAddToCart: {
       type: Boolean,
       default: true
@@ -75,7 +78,7 @@ export default {
     },
 
     strBuy () {
-      return this.buyText || /* i19buyKit */ 'Comprar kit'
+      return this.buyText || i18n(i19buyKit)
     }
   },
 
@@ -123,6 +126,17 @@ export default {
             const quantity = this.selectedQnts[item._id]
             if (quantity > 0) {
               const newItem = { ...item, quantity }
+              if (this.kitProductId) {
+                newItem.kit_product = {
+                  _id: this.kitProductId,
+                  name: this.kitName,
+                  pack_quantity: this.totalQuantity
+                }
+                if (this.kitPrice) {
+                  newItem.min_quantity = newItem.max_quantity = quantity
+                  newItem.kit_product.price = this.kitPrice
+                }
+              }
               items.push(newItem)
               if (this.canAddToCart) {
                 ecomCart.addItem(newItem)
