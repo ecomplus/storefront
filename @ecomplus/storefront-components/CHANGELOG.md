@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.63](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.62...@ecomplus/storefront-components@1.0.0-beta.63) (2020-11-12)
+
+
+### Bug Fixes
+
+* **cart-item:** prevent edit qnt on items from kit ([a2906f7](https://github.com/ecomplus/storefront/commit/a2906f7a4bede32942b261dc7368a58bacd50336))
+* **deps:** update @ecomplus/shopping-cart to v2.4.0 ([1d1585f](https://github.com/ecomplus/storefront/commit/1d1585f1c0af11f9f06c72697bd8ed68e3449beb))
+* **deps:** update @ecomplus/shopping-cart to v2.4.1 ([1ecbec0](https://github.com/ecomplus/storefront/commit/1ecbec0160acb81882e2ce96c06245c9601f7f58))
+* **deps:** update @ecomplus/shopping-cart to v2.5.0 ([c851a30](https://github.com/ecomplus/storefront/commit/c851a306aaf54ec60a66453f11576ce70ee17b9c))
+* **product:** fix preseting kit items and quantity selector props ([d5bbd6f](https://github.com/ecomplus/storefront/commit/d5bbd6fb156479375249b00af5a7fb338c19ddb7))
+* **product-card:** fix checking if product if able to quick buy ([5830d83](https://github.com/ecomplus/storefront/commit/5830d83bd2a5d5e692e22a9d63360866a3bf2f3a))
+
+
+### Features
+
+* **product:** handle kit composition and render quantity selector ([8095fc9](https://github.com/ecomplus/storefront/commit/8095fc9c39a98a00514999bc7c703376b78817f4))
+* **proquet-quickview:** optionally accepting product object prop ([1e97cc4](https://github.com/ecomplus/storefront/commit/1e97cc48189115bb49a65f2ecd8f721d5da31c61))
+* **quantity-selector:** add 'kitProductId', 'kitName' and 'kitPrice' props ([221d835](https://github.com/ecomplus/storefront/commit/221d835c3a1a51e024c201b642e0b7f358a2ae6b))
+* **quantity-selector:** add 'slug' prop and set on final cart item ([d9f4d77](https://github.com/ecomplus/storefront/commit/d9f4d776d6ff534aec66e141438380266358bd68))
+
+
+
+
+
 # [1.0.0-beta.62](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.61...@ecomplus/storefront-components@1.0.0-beta.62) (2020-11-09)
 
 

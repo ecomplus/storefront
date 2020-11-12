@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.85](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.84...@ecomplus/storefront-template@2.0.0-beta.85) (2020-11-12)
+
+
+### Bug Fixes
+
+* **cdn-scripts:** fallback to unpkng cdn when first option is down ([6949cf6](https://github.com/ecomplus/storefront/commit/6949cf6082964b9b8bb20385aac5d19020eec0cd))
+* **deps:** update @ecomplus/shopping-cart to v2.4.0 ([1d1585f](https://github.com/ecomplus/storefront/commit/1d1585f1c0af11f9f06c72697bd8ed68e3449beb))
+* **deps:** update @ecomplus/shopping-cart to v2.4.1 ([1ecbec0](https://github.com/ecomplus/storefront/commit/1ecbec0160acb81882e2ce96c06245c9601f7f58))
+* **deps:** update @ecomplus/shopping-cart to v2.5.0 ([c851a30](https://github.com/ecomplus/storefront/commit/c851a306aaf54ec60a66453f11576ce70ee17b9c))
+
+
+
+
+
 # [2.0.0-beta.84](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.83...@ecomplus/storefront-template@2.0.0-beta.84) (2020-11-09)
 
 

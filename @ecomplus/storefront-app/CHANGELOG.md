@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.68](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.67...@ecomplus/storefront-app@2.0.0-beta.68) (2020-11-12)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.4.0 ([1d1585f](https://github.com/ecomplus/storefront/commit/1d1585f1c0af11f9f06c72697bd8ed68e3449beb))
+* **deps:** update @ecomplus/shopping-cart to v2.4.1 ([1ecbec0](https://github.com/ecomplus/storefront/commit/1ecbec0160acb81882e2ce96c06245c9601f7f58))
+* **deps:** update @ecomplus/shopping-cart to v2.5.0 ([c851a30](https://github.com/ecomplus/storefront/commit/c851a306aaf54ec60a66453f11576ce70ee17b9c))
+* **order-info:** explicitly set 'canSave' false on buy again add items ([2bc7ae8](https://github.com/ecomplus/storefront/commit/2bc7ae8e0b6e8e951c467cbfa5b76ce42304f181))
+* **sync-cart-to-api:** preserve 'kit_product' item field ([a50f5c7](https://github.com/ecomplus/storefront/commit/a50f5c78282f706eaa63bcb8b9af25ac18312600))
+
+
+### Features
+
+* **checkout:** validate cart items with kit products ([fa3148e](https://github.com/ecomplus/storefront/commit/fa3148ed4fbc367b2e8d160d5f4049d679fe8f94))
+
+
+
+
+
 # [2.0.0-beta.67](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.66...@ecomplus/storefront-app@2.0.0-beta.67) (2020-11-09)
 
 
