@@ -195,7 +195,8 @@ export default {
         statusRecords = statusRecords = statusRecords.sort((a, b) => {
           if (a.date_time && b.date_time) {
             return a.date_time > b.date_time
-              ? -1 : 1
+              ? -1
+              : 1
           }
           return 0
         })
@@ -286,7 +287,7 @@ export default {
         const { items } = localOrder
         ecomCart.clear()
         items.forEach((item, i) => {
-          ecomCart.addItem(item)
+          ecomCart.addItem(item, false)
           if (i + 1 === items.length) {
             ecomCart.save()
             window.location = this.cartUrl
@@ -299,12 +300,12 @@ export default {
       this.isUpdating = true
       const data = this.localOrder.status === 'open'
         ? {
-          status: 'cancelled',
-          cancel_reason: 'customer'
-        }
+            status: 'cancelled',
+            cancel_reason: 'customer'
+          }
         : {
-          status: 'open'
-        }
+            status: 'open'
+          }
       ecomPassport.requestApi(`/orders/${this.order._id}.json`, 'patch', data)
         .then(() => {
           this.localOrder = {
