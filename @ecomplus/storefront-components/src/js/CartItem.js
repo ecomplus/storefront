@@ -69,14 +69,7 @@ export default {
     },
 
     name () {
-      const { name } = this.item
-      if (name) {
-        if (name.length <= this.nameMaxLength) {
-          return name
-        } else {
-          return `${name.substr(0, this.nameMaxLength)}...`
-        }
-      }
+      return this.formatName(this.item.name)
     },
 
     isFreebie () {
@@ -88,18 +81,30 @@ export default {
     minQuantity () {
       const minQuantity = this.item.min_quantity
       return typeof minQuantity === 'number' && minQuantity >= 0
-        ? minQuantity : 1
+        ? minQuantity
+        : 1
     },
 
     maxQuantity () {
       const maxQuantity = this.item.max_quantity
       return typeof maxQuantity === 'number' && maxQuantity >= 0
-        ? maxQuantity : 9999999
+        ? maxQuantity
+        : 9999999
     }
   },
 
   methods: {
     formatMoney,
+
+    formatName (name) {
+      if (name) {
+        if (name.length <= this.nameMaxLength) {
+          return name
+        } else {
+          return `${name.substr(0, this.nameMaxLength)}...`
+        }
+      }
+    },
 
     updateInputType () {
       this.canInputSelect = Number.isInteger(this.quantity) &&

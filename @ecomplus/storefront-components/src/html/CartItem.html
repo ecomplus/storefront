@@ -47,6 +47,13 @@
         <template v-else>
           {{ name }}
         </template>
+
+        <small
+          class="cart-item__name-subtitle"
+          v-if="item.kit_product"
+        >
+          {{ formatName(item.kit_product.name) }}
+        </small>
       </div>
 
       <small
@@ -61,8 +68,12 @@
           :title="i19quantity"
           class="cart-item__quantity"
         >
+          <strong v-if="item.kit_product">
+            {{ quantity }}x
+          </strong>
+
           <select
-            v-if="canInputSelect && inputType === 'select'"
+            v-else-if="canInputSelect && inputType === 'select'"
             class="custom-select"
             v-model.number="quantity"
             :disabled="!price"
