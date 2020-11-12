@@ -1,6 +1,10 @@
+import {
+  name as getName,
+  price as getPrice
+} from '@ecomplus/utils'
+
 import ecomCart from '@ecomplus/shopping-cart'
 import ecomClient from '@ecomplus/client'
-import { price as getPrice } from '@ecomplus/utils'
 import baseModulesRequestData from './../../lib/base-modules-request-data'
 
 const fixMoneyValue = num => Math.round(num * 100) / 100
@@ -11,6 +15,89 @@ const fetchProduct = _id => {
     axiosConfig: {
       timeout: 30000
     }
+  })
+}
+
+const validateCartItem = (item, data) => new Promise((resolve, reject) => {
+  const { _id, quantity } = item
+  if (item.variation_id) {
+    const variation = data.variations &&
+      data.variations.find(({ _id }) => _id === item.variation_id)
+    if (!variation) {
+      ecomCart.removeItem(_id)
+    } else {
+      Object.assign(data, variation)
+    }
+  }
+  const price = getPrice(data)
+  delete data.customizations
+  delete data.variations
+  delete data.body_html
+  delete data.body_text
+  delete data.inventory_records
+  delete data.price_change_records
+  Object.assign(item, data, {
+    _id,
+    price,
+    min_quantity: typeof data.min_quantity === 'number' ? data.min_quantity : 1,
+    max_quantity: data.quantity
+  })
+  item.quantity = data.quantity >= item.min_quantity
+    ? Math.min(data.quantity, quantity)
+    : 0
+  if (item.quantity > 0 && item.kit_product) {
+    return validateCartItemKit(item).then(resolve).catch(reject)
+  }
+  resolve(item)
+})
+
+const validateCartItemKit = item => {
+  const kitProductId = item.kit_product._id
+  delete item.kit_product.price
+  return fetchProduct(kitProductId).then(({ data }) => {
+    if (data.available && data.kit_composition) {
+      let packQuantity = 0
+      let isFixedQuantity = true
+      let kitItem
+      data.kit_composition.forEach(currentKitItem => {
+        if (currentKitItem.quantity) {
+          packQuantity += currentKitItem.quantity
+        } else if (isFixedQuantity) {
+          isFixedQuantity = false
+        }
+        if (currentKitItem._id === item.product_id) {
+          kitItem = currentKitItem
+        }
+      })
+      if (!isFixedQuantity) {
+        packQuantity = data.min_quantity
+      }
+      if (kitItem && (kitItem.quantity === undefined || item.quantity % kitItem.quantity === 0)) {
+        let kitTotalQuantity = 0
+        ecomCart.data.items.forEach(item => {
+          if (item.kit_product && item.kit_product._id === kitProductId) {
+            kitTotalQuantity += item.quantity
+          }
+        })
+        const minPacks = kitItem.quantity
+          ? item.quantity / kitItem.quantity
+          : 1
+        if (kitTotalQuantity && kitTotalQuantity % (minPacks * packQuantity) === 0) {
+          item.kit_product = {
+            _id: data._id,
+            name: getName(data),
+            price: getPrice(data),
+            pack_quantity: packQuantity
+          }
+          if (data.slug) {
+            item.slug = data.slug
+          }
+        } else {
+          delete item.kit_product
+        }
+      }
+    }
+    return item
   })
 }
 
@@ -71,7 +158,8 @@ const getters = {
     const amount = {
       subtotal: fixMoneyValue(cart.subtotal),
       freight: shippingService.shipping_line
-        ? fixMoneyValue(shippingService.shipping_line.total_price) : 0,
+        ? fixMoneyValue(shippingService.shipping_line.total_price)
+        : 0,
       discount: 0
     }
     amount.total = amount.subtotal + amount.freight
@@ -160,38 +248,14 @@ const actions = {
     const promises = []
     ;(Array.isArray(items) && items.length ? items : ecomCart.data.items)
       .forEach(item => {
-        const { _id, quantity } = item
         const promise = new Promise(resolve => {
           fetchProduct(item.product_id)
-            .then(({ data }) => {
-              if (item.variation_id) {
-                const variation = data.variations &&
-                  data.variations.find(({ _id }) => _id === item.variation_id)
-                if (!variation) {
-                  ecomCart.removeItem(_id)
-                } else {
-                  Object.assign(data, variation)
-                }
-              }
-              const price = getPrice(data)
-              delete data.customizations
-              delete data.variations
-              delete data.body_html
-              delete data.body_text
-              delete data.inventory_records
-              delete data.price_change_records
-              Object.assign(item, data, {
-                _id,
-                price,
-                min_quantity: typeof data.min_quantity === 'number' ? data.min_quantity : 1,
-                max_quantity: data.quantity
-              })
-              item.quantity = data.quantity >= item.min_quantity
-                ? Math.min(data.quantity, quantity) : 0
+            .then(({ data }) => validateCartItem(item, data))
+            .then(item => {
               if (item.quantity > 0) {
                 ecomCart.fixItem(item, false)
               } else if (removeOnError) {
-                ecomCart.removeItem(_id, false)
+                ecomCart.removeItem(item._id, false)
               } else {
                 ecomCart.save()
               }
@@ -200,7 +264,7 @@ const actions = {
               console.error(err)
               const status = err.response && err.response.status
               if (removeOnError || (status >= 400 && status < 500)) {
-                ecomCart.removeItem(_id, false)
+                ecomCart.removeItem(item._id, false)
               }
             })
             .finally(resolve)
