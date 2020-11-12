@@ -3,6 +3,7 @@ import {
   mapMutations,
   mapActions
 } from 'vuex'
+
 import ecomCart from '@ecomplus/shopping-cart'
 import baseModulesRequestData from './../../lib/base-modules-request-data'
 import { upsertCart } from './../../lib/sync-cart-to-api'
