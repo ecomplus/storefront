@@ -31,7 +31,17 @@
     </button>
 
     <span class="quantity-selector__label">
-      {{ item.name }}
+      <a-link
+        v-if="item.slug"
+        target="_blank"
+        :href="`/${item.slug}`"
+        :title="item.name"
+      >
+        {{ item.name }}
+      </a-link>
+      <template v-else>
+        {{ item.name }}
+      </template>
     </span>
   </div>
 

@@ -10,12 +10,14 @@ import {
 } from '@ecomplus/utils'
 
 import ecomCart from '@ecomplus/shopping-cart'
+import ALink from '../ALink.vue'
 import AAlert from '../AAlert.vue'
 
 export default {
   name: 'QuantitySelector',
 
   components: {
+    ALink,
     AAlert
   },
 
@@ -29,9 +31,10 @@ export default {
       default: 1
     },
     max: Number,
+    slug: String,
     buyText: String,
     kitProductId: String,
-    kitName: Number,
+    kitName: String,
     kitPrice: Number,
     canAddToCart: {
       type: Boolean,
@@ -130,12 +133,12 @@ export default {
                 newItem.kit_product = {
                   _id: this.kitProductId,
                   name: this.kitName,
-                  pack_quantity: this.totalQuantity
+                  pack_quantity: this.totalQuantity,
+                  price: this.kitPrice
                 }
-                if (this.kitPrice) {
-                  newItem.min_quantity = newItem.max_quantity = quantity
-                  newItem.kit_product.price = this.kitPrice
-                }
+              }
+              if (this.slug) {
+                newItem.slug = this.slug
               }
               items.push(newItem)
               if (this.canAddToCart) {
