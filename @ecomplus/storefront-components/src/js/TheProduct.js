@@ -20,6 +20,7 @@ import {
 
 import {
   i18n,
+  randomObjectId as genRandomObjectId,
   name as getName,
   inStock as checkInStock,
   onPromotion as checkOnPromotion,
@@ -341,7 +342,7 @@ export default {
           ecomSearch
             .setPageSize(kitComposition.length)
             .setProductIds(kitComposition.map(({ _id }) => _id))
-            .fetch(true)
+            .fetch(true, { timeout: 5000 })
             .then(() => {
               ecomSearch.getItems().forEach(product => {
                 const { quantity } = kitComposition.find(({ _id }) => _id === product._id)
@@ -350,7 +351,10 @@ export default {
                   if (quantity) {
                     item.min_quantity = item.max_quantity = quantity
                   }
-                  this.kitItems.push(item)
+                  this.kitItems.push({
+                    ...item,
+                    _id: genRandomObjectId()
+                  })
                 }
                 addKitItem()
                 if (product.variations) {
