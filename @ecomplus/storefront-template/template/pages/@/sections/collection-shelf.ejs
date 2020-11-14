@@ -17,10 +17,11 @@ if (opt.sort || opt.collection_id) {
       items = []
       if (Array.isArray(collection.products) && collection.products.length) {
         search = new _.EcomSearch()
-        search.setProductIds(collection.products)
+        search.setProductIds(collection.products.slice(0, 70))
       }
     }
-  } else {
+  }
+  if (!search) {
     search = new _.EcomSearch()
   }
 
@@ -34,8 +35,12 @@ if (opt.sort || opt.collection_id) {
     if (opt.page >= 2) {
       search.setPageNumber(opt.page)
     }
-    await search.fetch()
-    items = search.getItems()
+    try {
+      await search.fetch()
+      items = search.getItems()
+    } catch (err) {
+      console.error(err)
+    }
   }
 } else {
   const size = opt.limit || 24
