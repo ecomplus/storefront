@@ -125,6 +125,11 @@ export default {
       if (this.totalQuantity >= this.min) {
         if (this.max === undefined || this.totalQuantity <= this.max) {
           const items = []
+          const composition = this.items.map(item => ({
+            _id: item.product_id,
+            variation_id: item.variation_id,
+            quantity: this.selectedQnts[item._id]
+          }))
           this.items.forEach(item => {
             const quantity = this.selectedQnts[item._id]
             if (quantity > 0) {
@@ -134,7 +139,8 @@ export default {
                   _id: this.kitProductId,
                   name: this.kitName,
                   pack_quantity: this.totalQuantity,
-                  price: this.kitPrice
+                  price: this.kitPrice,
+                  composition
                 }
               }
               if (this.slug) {
