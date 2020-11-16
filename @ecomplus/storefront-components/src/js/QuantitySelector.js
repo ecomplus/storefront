@@ -134,6 +134,7 @@ export default {
             const quantity = this.selectedQnts[item._id]
             if (quantity > 0) {
               const newItem = { ...item, quantity }
+              delete newItem.customizations
               if (this.kitProductId) {
                 newItem.kit_product = {
                   _id: this.kitProductId,
@@ -159,6 +160,12 @@ export default {
       } else {
         this.hasMinAlert = true
       }
+    }
+  },
+
+  created () {
+    if (this.max < this.items.length) {
+      this.items.forEach(item => this.changeQnt(item))
     }
   }
 }
