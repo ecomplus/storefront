@@ -32,7 +32,6 @@ import {
 
 import { store, modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
-import EcomSearch from '@ecomplus/search-engine'
 import sortApps from './helpers/sort-apps'
 import addIdleCallback from './helpers/add-idle-callback'
 import { Portal } from '@linusborg/vue-simple-portal'
@@ -337,32 +336,29 @@ export default {
     isKit: {
       handler (isKit) {
         if (isKit && !this.kitItems.length) {
-          const kitComposition = this.body.kit_composition
-          const ecomSearch = new EcomSearch()
-          ecomSearch
-            .setPageSize(kitComposition.length)
-            .setProductIds(kitComposition.map(({ _id }) => _id))
-            .fetch(true, { timeout: 5000 })
-            .then(() => {
-              ecomSearch.getItems().forEach(product => {
-                const { quantity } = kitComposition.find(({ _id }) => _id === product._id)
+          const kitItems = []
+          Promise.all(this.body.kit_composition
+            .map(({ _id, quantity }) => {
+              return store({ url: `/products/${_id}.json` }).then(({ data }) => {
                 const addKitItem = variationId => {
-                  const item = ecomCart.parseProduct(product, variationId)
+                  const item = ecomCart.parseProduct(data, variationId)
                   if (quantity) {
                     item.min_quantity = item.max_quantity = quantity
                   }
-                  this.kitItems.push({
+                  kitItems.push({
                     ...item,
                     _id: genRandomObjectId()
                   })
                 }
                 addKitItem()
-                if (product.variations) {
-                  product.variations.forEach(({ _id }) => addKitItem(_id))
+                if (data.variations) {
+                  data.variations.forEach(({ _id }) => addKitItem(_id))
                 }
               })
             })
-            .catch(console.error)
+          ).then(() => {
+            this.kitItems = kitItems
+          }).catch(console.error)
         }
       },
       immediate: true
