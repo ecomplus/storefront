@@ -84,6 +84,7 @@ const validateCartItemKit = item => {
           : 1
         if (kitTotalQuantity && kitTotalQuantity % (minPacks * packQuantity) === 0) {
           item.kit_product = {
+            ...item.kit_product,
             _id: data._id,
             name: getName(data),
             price: getPrice(data),
