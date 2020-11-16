@@ -26,20 +26,30 @@ export default (customConfig, options) => new Promise(resolve => {
     .then(({ data }) => {
       if (typeof data === 'object' && data) {
         if (Array.isArray(data.collections)) {
+          const mergeNestedObj = (originalObj, obj) => {
+            if (Array.isArray(originalObj.files)) {
+              if (Array.isArray(obj.files)) {
+                upsertFields(originalObj, obj, 'files')
+              }
+            } else if (Array.isArray(obj.fields)) {
+              upsertFields(originalObj, obj, 'fields')
+            } else if (Array.isArray(obj.types)) {
+              upsertFields(originalObj, obj, 'types')
+            }
+            Object.assign(originalObj, obj)
+          }
+
           const upsertFields = (config, data, prop) => {
             data[prop].forEach(obj => {
-              const originalObj = config[prop].find(({ name }) => name === obj.name)
-              if (originalObj) {
-                if (Array.isArray(originalObj.files)) {
-                  if (Array.isArray(obj.files)) {
-                    upsertFields(originalObj, obj, 'files')
-                  }
-                } else if (Array.isArray(obj.fields)) {
-                  upsertFields(originalObj, obj, 'fields')
+              if (obj.name) {
+                const originalObj = config[prop].find(({ name }) => name === obj.name)
+                if (originalObj) {
+                  mergeNestedObj(originalObj, obj)
+                } else {
+                  config[prop].push(obj)
                 }
-                Object.assign(originalObj, obj)
               } else {
-                config[prop].push(obj)
+                config[prop].forEach(originalObj => mergeNestedObj(originalObj, obj))
               }
             })
             delete data[prop]
