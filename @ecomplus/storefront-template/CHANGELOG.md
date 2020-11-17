@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.86](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.85...@ecomplus/storefront-template@2.0.0-beta.86) (2020-11-17)
+
+
+### Bug Fixes
+
+* **collections-views:** prevents big collections breaking search api limits ([8013a20](https://github.com/ecomplus/storefront/commit/8013a209e5734e2c9e3ae597c0035c21d2433cbb))
+* **deps:** update @ecomplus/shopping-cart to v2.5.1 ([85259ac](https://github.com/ecomplus/storefront/commit/85259ac0e3e2d379b8dc5ab3c9ba712ba262d9ff))
+* **deps:** update @ecomplus/shopping-cart to v2.5.4 ([36a58b1](https://github.com/ecomplus/storefront/commit/36a58b1d83f99f2367904b9101d3404f36e28203))
+* **header:** prevent duplicated categories when preset and random ([2f2b706](https://github.com/ecomplus/storefront/commit/2f2b706e9af04f9294e4c9c2461c906f3106df16))
+
+
+### Features
+
+* **cms:** nested merge by type for list widgets ([1e3ecca](https://github.com/ecomplus/storefront/commit/1e3eccacf35a16ff5f03a41704550ed488f5ddc0))
+
+
+
+
+
 # [2.0.0-beta.85](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.84...@ecomplus/storefront-template@2.0.0-beta.85) (2020-11-12)
 
 

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.69](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.68...@ecomplus/storefront-app@2.0.0-beta.69) (2020-11-17)
+
+
+### Bug Fixes
+
+* **checkout:** prevent crealing kit composition arrays ([9e042ca](https://github.com/ecomplus/storefront/commit/9e042ca03ee25611703457f3685285f790bc5096))
+* **deps:** update @ecomplus/shopping-cart to v2.5.1 ([85259ac](https://github.com/ecomplus/storefront/commit/85259ac0e3e2d379b8dc5ab3c9ba712ba262d9ff))
+* **deps:** update @ecomplus/shopping-cart to v2.5.4 ([36a58b1](https://github.com/ecomplus/storefront/commit/36a58b1d83f99f2367904b9101d3404f36e28203))
+
+
+
+
+
 # [2.0.0-beta.68](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.67...@ecomplus/storefront-app@2.0.0-beta.68) (2020-11-12)
 
 

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.64](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.63...@ecomplus/storefront-components@1.0.0-beta.64) (2020-11-17)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.5.1 ([85259ac](https://github.com/ecomplus/storefront/commit/85259ac0e3e2d379b8dc5ab3c9ba712ba262d9ff))
+* **deps:** update @ecomplus/shopping-cart to v2.5.4 ([36a58b1](https://github.com/ecomplus/storefront/commit/36a58b1d83f99f2367904b9101d3404f36e28203))
+* **product:** fetch each kit product to get variations properly ([611ecbb](https://github.com/ecomplus/storefront/commit/611ecbb56442471473e48164bd77829a3e16edcf))
+* **product:** show variation picture on first grid option set ([192382c](https://github.com/ecomplus/storefront/commit/192382c6f14241298e2afaa721148e37e8246dde))
+* **quantity-selector:** delete item customizations (not supperted) ([ed786b9](https://github.com/ecomplus/storefront/commit/ed786b9bb145a8fd98cc72bc86deb60d1d93aa31))
+* **quantity-selector:** setting kit composition when adding to cart ([d9dc8d8](https://github.com/ecomplus/storefront/commit/d9dc8d85aa41d1a6f8ffc84f01578ae540ce33f6))
+
+
+### Features
+
+* **product-variations:** emit 'select-option' event before updating variation id ([66fa54c](https://github.com/ecomplus/storefront/commit/66fa54c912012ea6cf25893dff8b003d70451d8e))
+
+
+
+
+
 # [1.0.0-beta.63](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.62...@ecomplus/storefront-components@1.0.0-beta.63) (2020-11-12)
 
 
