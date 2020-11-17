@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.87](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.86...@ecomplus/storefront-template@2.0.0-beta.87) (2020-11-17)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.5.5 ([b2cf490](https://github.com/ecomplus/storefront/commit/b2cf490ee6fed76aa50a03a58680fa2ba6f912b0))
+* **product-block:** add data product id and sku to element data ([de99690](https://github.com/ecomplus/storefront/commit/de99690094d23be77f99d1f2839502aa484b1683))
+
+
+
+
+
 # [2.0.0-beta.86](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.85...@ecomplus/storefront-template@2.0.0-beta.86) (2020-11-17)
 
 
