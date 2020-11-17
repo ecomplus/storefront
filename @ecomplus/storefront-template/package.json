@@ -47,7 +47,7 @@
     "@ecomplus/i18n": "^1.17.0",
     "@ecomplus/passport-client": "^1.0.10",
     "@ecomplus/search-engine": "^2.4.1",
-    "@ecomplus/shopping-cart": "^2.5.4",
+    "@ecomplus/shopping-cart": "^2.5.5",
     "@ecomplus/storefront-app": "^2.0.0-beta.69",
     "@ecomplus/storefront-components": "^1.0.0-beta.64",
     "@ecomplus/storefront-framework": "^5.15.6",
