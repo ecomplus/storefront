@@ -26,6 +26,7 @@ import {
   onPromotion as checkOnPromotion,
   price as getPrice,
   variationsGrids as getVariationsGrids,
+  specTextValue as getSpecTextValue,
   specValueByText as getSpecValueByText,
   formatMoney
 } from '@ecomplus/utils'
@@ -256,6 +257,26 @@ export default {
       }
     },
 
+    showVariationPicture (variation) {
+      if (variation.picture_id) {
+        const pictureIndex = this.body.pictures.findIndex(({ _id }) => {
+          return _id === variation.picture_id
+        })
+        this.currentGalleyImg = pictureIndex + 1
+      }
+    },
+
+    handleGridOption ({ gridId, gridIndex, optionText }) {
+      if (gridIndex === 0) {
+        const variation = this.body.variations.find(variation => {
+          return getSpecTextValue(variation, gridId) === optionText
+        })
+        if (variation) {
+          this.showVariationPicture(variation)
+        }
+      }
+    },
+
     buy () {
       this.hasClickedBuy = true
       const product = sanitizeProductBody(this.body)
@@ -282,12 +303,7 @@ export default {
         if (this.hasClickedBuy) {
           this.hasClickedBuy = false
         }
-        if (this.selectedVariation.picture_id) {
-          const pictureIndex = this.body.pictures.findIndex(({ _id }) => {
-            return _id === this.selectedVariation.picture_id
-          })
-          this.currentGalleyImg = pictureIndex + 1
-        }
+        this.showVariationPicture(this.selectedVariation)
       }
     },
 

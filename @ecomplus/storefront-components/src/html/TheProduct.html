@@ -113,7 +113,8 @@
             >
               <product-variations
                 :product="body"
-                :selectedId.sync="selectedVariationId"
+                :selected-id.sync="selectedVariationId"
+                @select-option="handleGridOption"
               />
               <a-alert :can-show="hasClickedBuy && !selectedVariationId">
                 {{ i19selectVariationMsg }}
