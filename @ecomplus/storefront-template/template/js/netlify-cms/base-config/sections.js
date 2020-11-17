@@ -172,12 +172,26 @@ export default ({ state }) => [
         name: 'collection_id',
         hint: 'Se este campo não for preenchido, serão listados os produtos mais populares da loja',
         widget: 'select',
-        options: state.routes
-          .filter(({ resource }) => resource === 'collections')
-          .map(({ name, _id }) => ({
-            label: name,
-            value: _id
-          }))
+        options: [{
+          resource: 'collections',
+          label: ''
+        }, {
+          resource: 'categories',
+          label: 'Categoria: '
+        }, {
+          resource: 'brands',
+          label: 'Marca: '
+        }].reduce((options, shelf) => {
+          state.routes.forEach(({ _id, resource, name, path }) => {
+            if (resource === shelf.resource) {
+              options.push({
+                label: shelf.label + name,
+                value: `${_id}:${resource}:${name}:${path}`
+              })
+            }
+          })
+          return options
+        }, [])
       },
       {
         label: 'Ordenação',
@@ -211,7 +225,7 @@ export default ({ state }) => [
         label: 'Embaralhar produtos',
         name: 'shuffle',
         widget: 'boolean',
-        default: true
+        default: false
       },
       {
         label: 'Título da estante',
