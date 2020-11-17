@@ -87,6 +87,11 @@ export default {
     selectOption (optionText, grid, gridIndex) {
       const { product, selectedOptions, orderedGrids } = this
       this.$set(selectedOptions, grid, optionText)
+      this.$emit('select-option', {
+        gridId: grid,
+        gridIndex,
+        optionText
+      })
       const filterGrids = {}
       for (let i = 0; i <= gridIndex; i++) {
         const grid = orderedGrids[i]
