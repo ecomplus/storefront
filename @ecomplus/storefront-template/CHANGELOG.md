@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.90](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.89...@ecomplus/storefront-template@2.0.0-beta.90) (2020-11-18)
+
+
+### Bug Fixes
+
+* **metatads:** add 'og:site_name' and fix 'fb:app_id' ([73bb663](https://github.com/ecomplus/storefront/commit/73bb663e561b22b9029574b547aa82659d2a809d))
+
+
+
+
+
 # [2.0.0-beta.89](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.88...@ecomplus/storefront-template@2.0.0-beta.89) (2020-11-18)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

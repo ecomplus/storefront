@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.2...@ecomplus/storefront-renderer@2.4.3) (2020-11-18)
+
+
+### Bug Fixes
+
+* **html-minifier:** set 'removeAttributeQuotes' false (keep attr quotes) ([1344f1a](https://github.com/ecomplus/storefront/commit/1344f1a169869a1c7125c62624ed287a135477dc))
+
+
+
+
+
 ## [2.4.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.1...@ecomplus/storefront-renderer@2.4.2) (2020-11-09)
 
 
