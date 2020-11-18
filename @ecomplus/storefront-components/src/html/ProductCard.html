@@ -5,6 +5,8 @@
     'product-card--small': isSmall
   }"
   @mouseover="isHovered = true"
+  :data-product-id="body._id"
+  :data-sku="body.sku"
 >
   <transition :enter-active-class="transitionClass">
     <section v-if="!isLoading">
