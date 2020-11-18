@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.67](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.66...@ecomplus/storefront-components@1.0.0-beta.67) (2020-11-18)
+
+
+### Features
+
+* **product:** set product id and sku on root el data ([f1e2f24](https://github.com/ecomplus/storefront/commit/f1e2f2487e542566890b57f7e3af3804d9fbdbde))
+* **product-card:** set product id and sku on root el data ([54b87b4](https://github.com/ecomplus/storefront/commit/54b87b4f45d48ba67957ffe4c7ddecce80660453))
+
+
+
+
+
 # [1.0.0-beta.66](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.65...@ecomplus/storefront-components@1.0.0-beta.66) (2020-11-18)
 
 
