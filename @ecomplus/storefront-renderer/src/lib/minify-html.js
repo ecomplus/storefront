@@ -8,7 +8,7 @@ module.exports = (html, entryAssetsReference = {}) => {
     const htmlMin = htmlMinifier.minify(html, {
       collapseWhitespace: true,
       removeComments: true,
-      removeAttributeQuotes: true
+      removeAttributeQuotes: false
     })
 
     if (htmlMin) {
