@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.66](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.65...@ecomplus/storefront-components@1.0.0-beta.66) (2020-11-18)
+
+
+### Bug Fixes
+
+* **account-form:** check year range for birth date ([#350](https://github.com/ecomplus/storefront/issues/350)) ([5d1c8af](https://github.com/ecomplus/storefront/commit/5d1c8af8c16b77fbbf91b688f4c98211eb5ca606))
+
+
+### Features
+
+* **product:** update prices when customizations set with additional price ([#351](https://github.com/ecomplus/storefront/issues/351)) ([7cfd302](https://github.com/ecomplus/storefront/commit/7cfd30254aaaaf7af1113a44f5e9f6e1cdea2ab9))
+
+
+
+
+
 # [1.0.0-beta.65](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.64...@ecomplus/storefront-components@1.0.0-beta.65) (2020-11-17)
 
 

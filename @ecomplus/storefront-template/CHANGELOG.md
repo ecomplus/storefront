@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.88](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.87...@ecomplus/storefront-template@2.0.0-beta.88) (2020-11-18)
+
+
+### Features
+
+* **cms:** collection shelf section config accepting brands and categories ([#360](https://github.com/ecomplus/storefront/issues/360)) ([1539afe](https://github.com/ecomplus/storefront/commit/1539afe52fc24c9056ce64ebdc562c4a21f11482))
+* **collection-shelf:** supporting brands and categories shelfs ([#360](https://github.com/ecomplus/storefront/issues/360)) ([e598f00](https://github.com/ecomplus/storefront/commit/e598f00a7f01f758f3e6c07fb52b0a527f12f177))
+
+
+
+
+
 # [2.0.0-beta.87](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.86...@ecomplus/storefront-template@2.0.0-beta.87) (2020-11-17)
 
 
