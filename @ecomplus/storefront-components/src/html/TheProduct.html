@@ -1,4 +1,8 @@
-<section class="product">
+<section
+  class="product"
+  :data-product-id="body._id"
+  :data-sku="body.sku"
+>
   <a-alert
     :can-show="hasLoadError"
     variant="danger"
