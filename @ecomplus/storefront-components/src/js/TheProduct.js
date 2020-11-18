@@ -178,6 +178,22 @@ export default {
         : 0
     },
 
+    finalPrices () {
+      const prices = {}
+      ;['price', 'base_price'].forEach(field => {
+        let price = this.selectedVariation[field] || this.body[field]
+        if (price !== undefined) {
+          this.customizations.forEach(customization => {
+            if (customization.add_to_price) {
+              price += this.getAdditionalPrice(customization.add_to_price)
+            }
+          })
+        }
+        prices[field] = price
+      })
+      return prices
+    },
+
     hasVariations () {
       return this.body.variations && this.body.variations.length
     },
@@ -227,14 +243,15 @@ export default {
         })
     },
 
+    getAdditionalPrice ({ type, addition }) {
+      return type === 'fixed'
+        ? addition
+        : getPrice(this.body) * addition / 100
+    },
+
     formatAdditionalPrice (addToPrice) {
-      if (addToPrice) {
-        const { type, addition } = addToPrice
-        if (addition) {
-          return formatMoney(type === 'fixed'
-            ? addition
-            : getPrice(this.body) * addition / 100)
-        }
+      if (addToPrice && addToPrice.addition) {
+        return formatMoney(this.getAdditionalPrice(addToPrice))
       }
       return ''
     },

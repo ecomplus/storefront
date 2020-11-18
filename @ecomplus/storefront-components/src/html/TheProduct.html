@@ -86,7 +86,7 @@
             <slot name="prices">
               <p class="product__prices">
                 <a-prices
-                  :product="{ ...body, ...selectedVariation }"
+                  :product="{ ...body, ...selectedVariation, ...finalPrices }"
                   :is-literal="true"
                   :is-big="true"
                   @fix-price="price => fixedPrice = price"
@@ -148,7 +148,7 @@
                   type="text"
                   class="form-control"
                   :id="`c-${custom._id}`"
-                  @change="ev => setCustomizationOption(custom, ev.target.value)"
+                  @keyup="ev => setCustomizationOption(custom, ev.target.value)"
                 >
               </div>
             </slot>
