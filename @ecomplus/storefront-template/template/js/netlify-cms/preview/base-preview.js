@@ -114,7 +114,7 @@ export default class BasePreview extends React.Component {
       parseHtml: '',
       cmsEntrys: []
     }
-
+    this.ejs = ejs
     this.loading = true
   }
 
