@@ -154,12 +154,7 @@ export default {
           if (!isRetry) {
             this.fetchShippingServices(true)
           } else {
-            clearTimeout(this.retryTimer)
-            this.retryTimer = setTimeout(() => {
-              if (this.localZipCode && !this.shippingServices.length) {
-                this.fetchShippingServices(true)
-              }
-            }, 10000)
+            this.scheduleRetry()
           }
         } else {
           this.shippingServices = this.shippingServices.sort((a, b) => {
@@ -184,6 +179,15 @@ export default {
       }
     },
 
+    scheduleRetry (timeout = 10000) {
+      clearTimeout(this.retryTimer)
+      this.retryTimer = setTimeout(() => {
+        if (this.localZipCode && !this.shippingServices.length) {
+          this.fetchShippingServices(true)
+        }
+      }, timeout)
+    },
+
     fetchShippingServices (isRetry) {
       if (!this.isScheduled) {
         this.isScheduled = true
@@ -206,7 +210,12 @@ export default {
           this.isWaiting = true
           modules({ url, method, storeId, data })
             .then(({ data }) => this.parseShippingOptions(data.result, isRetry))
-            .catch(console.error)
+            .catch(err => {
+              if (!isRetry) {
+                this.scheduleRetry(4000)
+              }
+              console.error(err)
+            })
             .finally(() => {
               this.hasCalculated = true
               this.isWaiting = false
