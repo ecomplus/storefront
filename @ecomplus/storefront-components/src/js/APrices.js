@@ -35,6 +35,7 @@ export default {
     },
     isLiteral: Boolean,
     isBig: Boolean,
+    isAmountTotal: Boolean,
     installmentsOption: Object,
     discountOption: Object,
     discountText: {
@@ -114,7 +115,11 @@ export default {
     },
 
     updateDiscount (discount) {
-      if (discount && (!discount.min_amount || discount.min_amount <= this.price)) {
+      if (
+        discount &&
+        (!discount.min_amount || discount.min_amount <= this.price) &&
+        (!this.isAmountTotal || discount.apply_at === 'total')
+      ) {
         this.discount = discount
         if (!this.discountText && this.discountText !== false && discount.label) {
           this.discountLabel = `via ${discount.label}`
