@@ -90,6 +90,7 @@
           :product="{ price: amount.total }"
           :discount-option="{ value: amount.discount }"
           :is-literal="true"
+          :is-amount-total="true"
         />
         <div v-else>
           {{ formatMoney(amount.total) }}
