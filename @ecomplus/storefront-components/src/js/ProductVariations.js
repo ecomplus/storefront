@@ -38,7 +38,7 @@ export default {
   data () {
     return {
       selectedOptions: {},
-      filteredGrids: getVariationsGrids(this.product, null, true)
+      filteredGrids: {}
     }
   },
 
@@ -122,6 +122,16 @@ export default {
         }
       }
       this.$emit('update:selected-id', variations.length ? variations[0]._id : null)
+    }
+  },
+
+  watch: {
+    'product.variations': {
+      handler () {
+        this.filteredGrids = getVariationsGrids(this.product, null, true)
+      },
+      deep: true,
+      immediate: true
     }
   }
 }
