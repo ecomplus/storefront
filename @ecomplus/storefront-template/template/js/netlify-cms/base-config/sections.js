@@ -200,6 +200,10 @@ export default ({ state }) => [
         widget: 'select',
         options: [
           {
+            label: 'Relevância',
+            value: 'views'
+          },
+          {
             label: 'Mais vendidos',
             value: 'sales'
           },
@@ -218,6 +222,10 @@ export default ({ state }) => [
           {
             label: 'Maior preço',
             value: 'highest_price'
+          },
+          {
+            label: 'Nome',
+            value: 'name'
           }
         ]
       },

@@ -16,6 +16,10 @@ export default (docName, docTitle) => ({
       widget: 'select',
       options: [
         {
+          label: 'Relevância',
+          value: 'views'
+        },
+        {
           label: 'Mais vendidos',
           value: 'sales'
         },
@@ -30,6 +34,10 @@ export default (docName, docTitle) => ({
         {
           label: 'Maior preço',
           value: 'highest_price'
+        },
+        {
+          label: 'Nome',
+          value: 'name'
         }
       ],
       default: 'sales'
