@@ -224,8 +224,8 @@ export default ({ state }) => [
             value: 'highest_price'
           },
           {
-            label: 'Nome',
-            value: 'name'
+            label: 'Alfabética (slug)',
+            value: 'slug'
           }
         ]
       },
