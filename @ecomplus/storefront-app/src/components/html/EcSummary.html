@@ -11,6 +11,7 @@
       <div
         class="summary__item"
         v-for="item in items"
+        v-if="item.quantity > 0"
         :key="item._id"
       >
         <a-picture
