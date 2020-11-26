@@ -4,6 +4,7 @@
 >
   <div
     v-for="(options, grid, index) in variationsGrids"
+    v-if="filteredGrids[grid]"
     :class="`variations__grid variations__grid--${grid}`"
   >
     <div class="mb-2">
