@@ -9,6 +9,7 @@ import {
   i19highestPrice,
   i19itemsFound,
   i19lowestPrice,
+  i19name,
   i19noResultsFor,
   i19popularProducts,
   i19refineSearch,
@@ -169,6 +170,9 @@ export default {
       }, {
         value: 'news',
         label: i18n(i19releases)
+      }, {
+        value: 'slug',
+        label: i18n(i19name)
       }
     ],
 
