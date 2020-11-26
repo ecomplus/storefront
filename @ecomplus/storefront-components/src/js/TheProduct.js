@@ -208,7 +208,12 @@ export default {
     getSpecValueByText,
 
     setBody (data) {
-      this.body = data
+      this.body = {
+        ...data,
+        body_html: '',
+        body_text: '',
+        inventory_records: []
+      }
       this.$emit('update:product', data)
     },
 
@@ -223,7 +228,7 @@ export default {
         .then(({ data }) => {
           this.setBody(data)
           if (getContextId() === productId) {
-            storefront.context.body = data
+            storefront.context.body = this.body
           }
           this.hasLoadError = false
         })
@@ -401,6 +406,9 @@ export default {
   created () {
     if (this.product) {
       this.body = this.product
+      if (this.isSSR) {
+        this.fetchProduct()
+      }
     } else {
       this.fetchProduct()
     }
