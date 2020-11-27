@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.65](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.64...@ecomplus/widget-product-card@1.0.0-beta.65) (2020-11-27)
+
+
+### Features
+
+* **widget-product-card:** detect carousel and move out of stock items to end ([c874719](https://github.com/ecomplus/storefront/commit/c874719d50eaa09eb524f76a5bbac761a27bc7e1))
+
+
+
+
+
 # [1.0.0-beta.64](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.63...@ecomplus/widget-product-card@1.0.0-beta.64) (2020-11-18)
 
 **Note:** Version bump only for package @ecomplus/widget-product-card

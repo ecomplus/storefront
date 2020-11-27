@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.92](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.91...@ecomplus/storefront-template@2.0.0-beta.92) (2020-11-27)
+
+
+### Bug Fixes
+
+* **cms:** edit sort option from 'name' to 'slug' ([#330](https://github.com/ecomplus/storefront/issues/330)) ([2d86a71](https://github.com/ecomplus/storefront/commit/2d86a71683d94d03620b1dadae63c4f902b75792))
+* **collection-shelf:** respect collections products order if sort unset ([74d968b](https://github.com/ecomplus/storefront/commit/74d968be0b0c06badf26450d3a5d83d1cd88ac1f))
+* **deps:** update @ecomplus/search-engine to v2.5.0 ([012ae01](https://github.com/ecomplus/storefront/commit/012ae01702f4d3077ed11bc7f8993bdc66c032d5))
+* **fetch-info:** validate discount option with payment gateway discounts ([#366](https://github.com/ecomplus/storefront/issues/366)) ([5c20a5d](https://github.com/ecomplus/storefront/commit/5c20a5df9bcc61e3beddbb38234a8be4baf0a74d))
+* **products-carousel:** wait mutation (hydration) to setup glide ([64804b9](https://github.com/ecomplus/storefront/commit/64804b9f6593205325a97cb324421853d1ac64c8))
+
+
+### Features
+
+* **cms:** optionally sort shelf/retail by name ([#330](https://github.com/ecomplus/storefront/issues/330)) ([749816d](https://github.com/ecomplus/storefront/commit/749816da739ebeca7d71f58a2ad3201f1ead6def))
+
+
+
+
+
 # [2.0.0-beta.91](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.90...@ecomplus/storefront-template@2.0.0-beta.91) (2020-11-19)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

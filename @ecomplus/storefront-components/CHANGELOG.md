@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.68](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.67...@ecomplus/storefront-components@1.0.0-beta.68) (2020-11-27)
+
+
+### Bug Fixes
+
+* **cart:** set 'isAmountTotal' on prices ([bb2522a](https://github.com/ecomplus/storefront/commit/bb2522a627307e57ab7fbca6e167c253b245ad93))
+* **deps:** update @ecomplus/search-engine to v2.5.0 ([012ae01](https://github.com/ecomplus/storefront/commit/012ae01702f4d3077ed11bc7f8993bdc66c032d5))
+* **product-variations:** must watch prop product.variations to update grids ([61258a3](https://github.com/ecomplus/storefront/commit/61258a34a638f7f4ff9759509e56fce3ad9b12b2))
+* **product-variations:** prevent error with no variations with stock ([d0b3573](https://github.com/ecomplus/storefront/commit/d0b3573ea689388600f0df857fa61771d7e2f2d3))
+* **shipping-calculator:** schedule retry on calculation general fail ([a4bbad0](https://github.com/ecomplus/storefront/commit/a4bbad02b184ced715c587f15103b82bfad9aec7))
+
+
+### Features
+
+* **prices:** add 'isAmountTotal' prop to check discount apply at ([#366](https://github.com/ecomplus/storefront/issues/366)) ([d873630](https://github.com/ecomplus/storefront/commit/d873630f6ca313fe4646dfa9bd59ecf6f19a22a2))
+* **search-engine:** add 'defaultFilters' object prop ([#362](https://github.com/ecomplus/storefront/issues/362)) ([8dce394](https://github.com/ecomplus/storefront/commit/8dce394b6cf328df408dff2db94975e417c69ddb))
+* **search-engine:** sort option by slug (alphabetical) ([e7ac1db](https://github.com/ecomplus/storefront/commit/e7ac1dbb1afe88fe528c84cf395d1248b441f015))
+
+
+### Performance Improvements
+
+* **product:** accepting product preset with ssr (and update) ([f8ae21b](https://github.com/ecomplus/storefront/commit/f8ae21b259937774d7f4ddf680dac4b50e2b4fee))
+
+
+
+
+
 # [1.0.0-beta.67](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.66...@ecomplus/storefront-components@1.0.0-beta.67) (2020-11-18)
 
 

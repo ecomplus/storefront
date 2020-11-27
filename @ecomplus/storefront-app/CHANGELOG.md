@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.73](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.72...@ecomplus/storefront-app@2.0.0-beta.73) (2020-11-27)
+
+
+### Bug Fixes
+
+* **summary:** don't show items with 0 quantity ([d650524](https://github.com/ecomplus/storefront/commit/d6505240bc3a87fd4c4cc352da093220524d66c5))
+* **summary:** set 'isAmountTotal' on prices (total) ([f21e591](https://github.com/ecomplus/storefront/commit/f21e591bf69b6198648b3afff9d7446f23b585d1))
+
+
+
+
+
 # [2.0.0-beta.72](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.71...@ecomplus/storefront-app@2.0.0-beta.72) (2020-11-18)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.3...@ecomplus/storefront-renderer@2.4.4) (2020-11-27)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.5.0 ([012ae01](https://github.com/ecomplus/storefront/commit/012ae01702f4d3077ed11bc7f8993bdc66c032d5))
+
+
+
+
+
 ## [2.4.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.2...@ecomplus/storefront-renderer@2.4.3) (2020-11-18)
 
 

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.65](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@1.0.0-beta.64...@ecomplus/widget-product@1.0.0-beta.65) (2020-11-27)
+
+
+### Bug Fixes
+
+* **widget-product:** skip preseting product prop when out of stock ([c717541](https://github.com/ecomplus/storefront/commit/c7175415e8591816593238aa1da19f66e163381b))
+
+
+### Performance Improvements
+
+* **widget-product:** preset product data with context body (prerendered json) ([4c828b6](https://github.com/ecomplus/storefront/commit/4c828b6fdbf6ecb87ac14fefeedd350120ce897c))
+
+
+
+
+
 # [1.0.0-beta.64](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@1.0.0-beta.63...@ecomplus/widget-product@1.0.0-beta.64) (2020-11-18)
 
 **Note:** Version bump only for package @ecomplus/widget-product
