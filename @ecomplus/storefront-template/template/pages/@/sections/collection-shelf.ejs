@@ -2,7 +2,7 @@
 let { title, link, shuffle, headless } = opt
 let items, collection
 if (opt.sort || opt.collection_id) {
-  let search
+  let search, productIds
   if (opt.collection_id) {
     const [_id, resource, name, path] = opt.collection_id.split(':')
     if (!title) {
@@ -27,9 +27,9 @@ if (opt.sort || opt.collection_id) {
       }
       if (res) {
         collection = res.data
-        items = []
-        if (Array.isArray(collection.products) && collection.products.length) {
-          search = new _.EcomSearch().setProductIds(collection.products.slice(0, 70))
+        productIds = collection.products
+        if (Array.isArray(productIds) && productIds.length) {
+          search = new _.EcomSearch().setProductIds(productIds.slice(0, 70))
         }
       }
     }
@@ -52,6 +52,11 @@ if (opt.sort || opt.collection_id) {
       items = search.getItems()
     } catch (err) {
       console.error(err)
+    }
+    if (items && productIds && !opt.sort && !shuffle) {
+      items.sort((a, b) => {
+        return productIds.indexOf(a._id) < productIds.indexOf(b._id) ? -1 : 1
+      })
     }
   }
 } else {
