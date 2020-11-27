@@ -5,6 +5,7 @@
  */
 
 import Vue from 'vue'
+import { inStock as checkInStock } from '@ecomplus/utils'
 import TheProduct from '#components/TheProduct.vue'
 
 export default (options = {}, elId = 'product') => {
@@ -13,7 +14,11 @@ export default (options = {}, elId = 'product') => {
     const $dock = document.getElementById(`${elId}-dock`)
     const isSSR = Boolean($dock)
     const { storefront } = window
-    const getScopedSlots = storefront && storefront.getScopedSlots
+    let getScopedSlots, body
+    if (storefront) {
+      getScopedSlots = storefront.getScopedSlots
+      body = storefront.context && storefront.context.body
+    }
 
     const vueOptions = {
       render: h => h(TheProduct, {
@@ -22,9 +27,7 @@ export default (options = {}, elId = 'product') => {
         },
         props: {
           ...options.props,
-          product: isSSR && storefront && storefront.context
-            ? storefront.context.body
-            : null,
+          product: isSSR && body && body.available && checkInStock(body) ? body : null,
           buyText: options.buyText,
           isSSR
         },
