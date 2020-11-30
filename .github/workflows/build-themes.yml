@@ -1,0 +1,38 @@
+name: Build themes
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-themes:
+    name: Build Storefront Themes
+    runs-on: ubuntu-latest
+    if: |
+      github.event.head_commit.message != 'Initial commit' &&
+      !contains(github.event.head_commit.message, '[skip ci]')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Install dependencies
+        run: npm ci --only=production
+
+      - name: Run build
+        run: npm run build:themes
+        
+      - name: Push to branch theme-dist to trigger deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: theme-dist
+          FOLDER: .deploy
+          CLEAN: true
