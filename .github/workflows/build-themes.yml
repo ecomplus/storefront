@@ -36,6 +36,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: theme-dist
+          BRANCH: themes-dist
           FOLDER: .deploy
           CLEAN: true
