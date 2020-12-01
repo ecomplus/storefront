@@ -18,7 +18,7 @@ exports.ssr = (req, res) => {
 
   const fallback = () => {
     const redirect = url => {
-      res.set('Cache-Control', 'public, max-age=30')
+      res.set('Cache-Control', 'public, max-age=30, s-maxage=300')
         .set('Location', url)
         .status(302).end()
     }
@@ -27,7 +27,7 @@ exports.ssr = (req, res) => {
     } else if (/\/[^/.]+$/.test(req.url) || /\.x?html$/.test(req.url)) {
       redirect(`/404?url=${encodeURIComponent(req.url)}`)
     } else {
-      res.set('Cache-Control', 'public, max-age=60, s-maxage=120')
+      res.set('Cache-Control', 'public, max-age=60, s-maxage=600')
         .status(404).end()
     }
   }
