@@ -1,16 +1,19 @@
 name: Build themes
 
 on:
+  registry_package:
+    action:
+      - updated
   push:
     branches:
       - master
+    paths:
+      - '.github/workflows/build-themes.yml'
+
 jobs:
   build-themes:
-    name: Build Storefront Themes
+    name: Build Storefront themes
     runs-on: ubuntu-latest
-    if: |
-      github.event.head_commit.message != 'Initial commit' &&
-      !contains(github.event.head_commit.message, '[skip ci]')
 
     steps:
       - name: Checkout
