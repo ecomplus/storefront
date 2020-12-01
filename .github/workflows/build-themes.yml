@@ -37,5 +37,5 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: themes-dist
-          FOLDER: .deploy
+          FOLDER: .deploy/themes
           CLEAN: true
