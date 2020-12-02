@@ -1,0 +1,8 @@
+#ec-user-popover {
+  margin-right: 0.5rem; }
+
+a {
+  color: var(--primary); }
+  @media (hover: hover) {
+    a:hover {
+      color: var(--primary-lightest); } }
