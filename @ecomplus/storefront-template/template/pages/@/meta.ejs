@@ -96,6 +96,7 @@ if (pathname) {
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
 <% if (social) { %>
+  <meta property="og:site_name" content="<%= _.settings.name %>">
   <meta property="og:url" content="<%= url %>">
   <meta property="og:title" content="<%= title %>">
   <meta property="og:description" content="<%= description %>">
@@ -105,7 +106,7 @@ if (pathname) {
     <meta property="og:image" content="<%= ogImage %>">
   <% } %>
   <% if (social.fb_app_id) { %>
-    <meta property="og:app_id" content="<%= social.fb_app_id %>">
+    <meta property="fb:app_id" content="<%= social.fb_app_id %>">
   <% } %>
 
   <meta name="twitter:card" content="summary">

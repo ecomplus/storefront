@@ -102,6 +102,7 @@
             :type="inputType && inputType !== 'select' ? inputType : 'number'"
             :min="minQuantity"
             :max="maxQuantity"
+            :step="isIntegerQnt ? null : 0.001"
             class="form-control"
             placeholder="1"
             v-model.number="quantity"

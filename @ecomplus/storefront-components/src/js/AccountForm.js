@@ -104,6 +104,12 @@ export default {
             month = dateNumber(4, 2)
             year = dateNumber(0, 4)
           }
+          const currentYear = new Date().getFullYear()
+          if (year < currentYear - 125) {
+            year = currentYear - 125
+          } else if (year > currentYear) {
+            year = currentYear
+          }
           this.localCustomer.birth_date = { day, month, year }
         }
       }

@@ -1,6 +1,12 @@
 <div id="product-block" class="product-block my-4 mb-lg-5">
   <div class="container">
-    <section id="product" class="product" data-to-render="true">
+    <section
+      id="product"
+      class="product"
+      data-to-render="true"
+      data-product-id="<%= _.state._id %>"
+      data-sku="<%= _.state.sku %>"
+    >
       <div id="product-dock">
         <!--
           `TheProduct` should be rendered (hydrated) here:

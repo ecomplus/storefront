@@ -178,6 +178,22 @@ export default {
         : 0
     },
 
+    finalPrices () {
+      const prices = {}
+      ;['price', 'base_price'].forEach(field => {
+        let price = this.selectedVariation[field] || this.body[field]
+        if (price !== undefined) {
+          this.customizations.forEach(customization => {
+            if (customization.add_to_price) {
+              price += this.getAdditionalPrice(customization.add_to_price)
+            }
+          })
+        }
+        prices[field] = price
+      })
+      return prices
+    },
+
     hasVariations () {
       return this.body.variations && this.body.variations.length
     },
@@ -192,7 +208,12 @@ export default {
     getSpecValueByText,
 
     setBody (data) {
-      this.body = data
+      this.body = {
+        ...data,
+        body_html: '',
+        body_text: '',
+        inventory_records: []
+      }
       this.$emit('update:product', data)
     },
 
@@ -207,7 +228,7 @@ export default {
         .then(({ data }) => {
           this.setBody(data)
           if (getContextId() === productId) {
-            storefront.context.body = data
+            storefront.context.body = this.body
           }
           this.hasLoadError = false
         })
@@ -227,14 +248,15 @@ export default {
         })
     },
 
+    getAdditionalPrice ({ type, addition }) {
+      return type === 'fixed'
+        ? addition
+        : getPrice(this.body) * addition / 100
+    },
+
     formatAdditionalPrice (addToPrice) {
-      if (addToPrice) {
-        const { type, addition } = addToPrice
-        if (addition) {
-          return formatMoney(type === 'fixed'
-            ? addition
-            : getPrice(this.body) * addition / 100)
-        }
+      if (addToPrice && addToPrice.addition) {
+        return formatMoney(this.getAdditionalPrice(addToPrice))
       }
       return ''
     },
@@ -384,6 +406,9 @@ export default {
   created () {
     if (this.product) {
       this.body = this.product
+      if (this.isSSR) {
+        this.fetchProduct()
+      }
     } else {
       this.fetchProduct()
     }

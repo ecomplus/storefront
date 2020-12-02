@@ -10,19 +10,14 @@ clientsClaim()
 
 /* global self */
 
-if (Array.isArray(self.__WB_MANIFEST)) {
-  precacheAndRoute(self.__WB_MANIFEST.filter(entry => {
-    if (entry) {
-      const url = typeof entry === 'string' ? entry : entry.url
-      if (typeof url === 'string' && (/\.(txt|xml|toml)$/.test(url) || url.startsWith('/admin/'))) {
-        return false
-      }
-    }
-    return true
-  }))
-} else {
-  precacheAndRoute(self.__WB_MANIFEST)
-}
+const precacheFileList = Array.isArray(self.__WB_MANIFEST) ? self.__WB_MANIFEST : []
+;['index', '404', 'app/index'].forEach(precacheRoute => {
+  const file = `/${precacheRoute}.html`
+  if (precacheFileList.indexOf(file) === -1) {
+    precacheFileList.push(file)
+  }
+})
+precacheAndRoute(precacheFileList)
 
 /**
  * Runtime caching

@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.4...@ecomplus/storefront-renderer@2.4.5) (2020-12-01)
+
+
+### Performance Improvements
+
+* **ssr-cache:** increase fallback cache headers ([78610e0](https://github.com/ecomplus/storefront/commit/78610e026ec4be3ec016879fa8d2e1ba6cb1f7ed))
+
+
+
+
+
+## [2.4.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.3...@ecomplus/storefront-renderer@2.4.4) (2020-11-27)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.5.0 ([012ae01](https://github.com/ecomplus/storefront/commit/012ae01702f4d3077ed11bc7f8993bdc66c032d5))
+
+
+
+
+
+## [2.4.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.2...@ecomplus/storefront-renderer@2.4.3) (2020-11-18)
+
+
+### Bug Fixes
+
+* **html-minifier:** set 'removeAttributeQuotes' false (keep attr quotes) ([1344f1a](https://github.com/ecomplus/storefront/commit/1344f1a169869a1c7125c62624ed287a135477dc))
+
+
+
+
+
 ## [2.4.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.1...@ecomplus/storefront-renderer@2.4.2) (2020-11-09)
 
 

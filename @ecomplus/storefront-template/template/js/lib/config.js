@@ -21,6 +21,8 @@ if (ECOM_CONFIG) {
   }
 }
 
+console.log(`Store ID: #${$ecomConfig.get('store_id')}`)
+
 window.ecomUtils = ecomUtils
 
 window.storefront = {

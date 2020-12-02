@@ -21,7 +21,15 @@ export default (options = {}, elId = 'search-engine') => {
       term: urlParams.get('term'),
       page: parseInt(urlParams.get('page'), 10) || 1,
       brands: urlParams.getAll('brands[]'),
-      categories: urlParams.getAll('categories[]')
+      categories: urlParams.getAll('categories[]'),
+      defaultFilters: urlParams.getAll('filters[]').reduce((filters, gridAndOption) => {
+        const [gridId, option] = gridAndOption.split(':')
+        if (!filters[gridId]) {
+          filters[gridId] = []
+        }
+        filters[gridId].push(option)
+        return filters
+      }, {})
     }
     const { sort } = $searchEngine.dataset
     if (sort) {

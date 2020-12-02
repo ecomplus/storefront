@@ -78,6 +78,10 @@ export default {
         : false
     },
 
+    isIntegerQnt () {
+      return Number.isInteger(this.maxQuantity) && Number.isInteger(this.quantity)
+    },
+
     minQuantity () {
       const minQuantity = this.item.min_quantity
       return typeof minQuantity === 'number' && minQuantity >= 0
@@ -107,8 +111,7 @@ export default {
     },
 
     updateInputType () {
-      this.canInputSelect = Number.isInteger(this.quantity) &&
-        this.quantity > 0 && this.quantity <= 10
+      this.canInputSelect = this.isIntegerQnt && this.quantity > 0 && this.quantity <= 10
     },
 
     remove () {

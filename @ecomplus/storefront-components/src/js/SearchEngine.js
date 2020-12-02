@@ -9,6 +9,7 @@ import {
   i19highestPrice,
   i19itemsFound,
   i19lowestPrice,
+  i19name,
   i19noResultsFor,
   i19popularProducts,
   i19refineSearch,
@@ -66,6 +67,7 @@ export default {
     isFixedBrands: Boolean,
     isFixedCategories: Boolean,
     defaultSort: String,
+    defaultFilters: Object,
     autoFixScore: {
       type: Number,
       default: 0.6
@@ -169,6 +171,9 @@ export default {
       }, {
         value: 'news',
         label: i18n(i19releases)
+      }, {
+        value: 'slug',
+        label: i18n(i19name)
       }
     ],
 
@@ -332,6 +337,16 @@ export default {
         ? this.resultItems.concat(ecomSearch.getItems())
         : ecomSearch.getItems()
       this.updateFilters()
+      if (!this.hasSearched && this.defaultFilters) {
+        for (const filter in this.defaultFilters) {
+          const options = this.defaultFilters[filter]
+          if (Array.isArray(options)) {
+            options.forEach(option => this.setFilterOption(filter, option, true))
+          } else if (typeof options === 'string') {
+            this.setFilterOption(filter, options, true)
+          }
+        }
+      }
       this.handleSuggestions()
       if (!this.totalSearchResults && this.hasPopularItems && !this.hasSetPopularItems) {
         this.fetchItems(false, true)
@@ -430,20 +445,24 @@ export default {
     setFilterOption (filter, option, isSet) {
       const { selectedOptions } = this
       const optionsList = selectedOptions[filter]
-      if (isSet) {
-        this.lastSelectedFilter = filter
-        optionsList.push(option)
-      } else {
+      if (optionsList) {
         const optionIndex = optionsList.indexOf(option)
-        if (optionIndex > -1) {
-          optionsList.splice(optionIndex, 1)
+        if (isSet) {
+          if (optionIndex === -1) {
+            this.lastSelectedFilter = filter
+            optionsList.push(option)
+          }
+        } else {
+          if (optionIndex > -1) {
+            optionsList.splice(optionIndex, 1)
+          }
+          if (!optionsList.length && this.lastSelectedFilter === filter) {
+            this.lastSelectedFilter = null
+          }
         }
-        if (!optionsList.length && this.lastSelectedFilter === filter) {
-          this.lastSelectedFilter = null
-        }
+        this.updateSearchFilter(filter)
+        this.scheduleFetch()
       }
-      this.updateSearchFilter(filter)
-      this.scheduleFetch()
     },
 
     clearFilters () {

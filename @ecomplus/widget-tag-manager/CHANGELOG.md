@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.3.1...@ecomplus/widget-tag-manager@1.4.0) (2020-11-19)
+
+
+### Features
+
+* **gtm-ecc:** inform counpon if available ([6b20cde](https://github.com/ecomplus/storefront/commit/6b20cdec058896de80949d3a2e1b9994ae1f3079))
+
+
+
+
+
 ## [1.3.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.3.0...@ecomplus/widget-tag-manager@1.3.1) (2020-10-26)
 
 **Note:** Version bump only for package @ecomplus/widget-tag-manager
