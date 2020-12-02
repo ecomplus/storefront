@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.4...@ecomplus/storefront-renderer@2.4.5) (2020-12-01)
+
+
+### Performance Improvements
+
+* **ssr-cache:** increase fallback cache headers ([78610e0](https://github.com/ecomplus/storefront/commit/78610e026ec4be3ec016879fa8d2e1ba6cb1f7ed))
+
+
+
+
+
 ## [2.4.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.3...@ecomplus/storefront-renderer@2.4.4) (2020-11-27)
 
 

@@ -261,7 +261,11 @@ if (!process.env.WEBPACK_BUILD_LIB) {
       }),
 
       // create service worker file
-      new WorkboxPlugin.InjectManifest({ swSrc, swDest: 'sw.js' })
+      new WorkboxPlugin.InjectManifest({
+        swSrc,
+        swDest: 'sw.js',
+        exclude: [/.*/]
+      })
     )
   } else if (process.argv.indexOf('--analyze') > -1) {
     // start JS bundle analyzer
@@ -286,7 +290,8 @@ const tryConfigMerge = moduleName => {
     config = webpackMerge(
       config,
       typeof customConfig === 'function'
-        ? customConfig({ devMode }) : customConfig
+        ? customConfig({ devMode })
+        : customConfig
     )
   } catch (e) {
     // ignore error

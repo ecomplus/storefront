@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.15.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.9...@ecomplus/storefront-framework@5.15.10) (2020-12-01)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.15.9](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.8...@ecomplus/storefront-framework@5.15.9) (2020-12-01)
+
+
+### Bug Fixes
+
+* **sw:** precache known important routes ([b503b8a](https://github.com/ecomplus/storefront/commit/b503b8a3c39dc477621743d04b7a85a6854c83c0))
+
+
+### Performance Improvements
+
+* **webpack:** exclude all chunks on injected manifest (prevent precache all) ([442544f](https://github.com/ecomplus/storefront/commit/442544ff3ddf212b301da6d525426a416088ab69))
+
+
+
+
+
 ## [5.15.8](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.7...@ecomplus/storefront-framework@5.15.8) (2020-11-27)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework
