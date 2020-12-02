@@ -9,6 +9,7 @@ on:
       - master
     paths:
       - '.github/workflows/build-themes.yml'
+      - 'scripts/build-themes.js'
 
 jobs:
   build-themes:
