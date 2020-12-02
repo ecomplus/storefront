@@ -30,12 +30,12 @@ jobs:
         run: npm ci
 
       - name: Run build
-        run: npm run build:themes
-        
-      - name: Push to branch theme-dist to trigger deploy
+        run: npm run themes:build
+
+      - name: Push output CSS to custom branch
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: themes-dist
-          FOLDER: .deploy/themes
+          FOLDER: dist/themes
           CLEAN: true

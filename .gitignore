@@ -1,6 +1,6 @@
+**/dist
+**/.serve
 */**/LICENSE
-*/**/dist
-*/**/.serve
 */**/.bundles.json
 */**/.firebaserc
 */**/commitlint.config.js
