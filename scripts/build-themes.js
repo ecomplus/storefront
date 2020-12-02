@@ -1,22 +1,23 @@
 const sass = require('node-sass')
 const path = require('path')
 const fs = require('fs')
+const ROOT_DIR = path.resolve(__dirname, '..')
 
 let scssVars = ''
 ;[
   '@ecomplus/storefront-template/template/scss/_variables.scss',
   '@ecomplus/storefront-twbs/scss/_variables.scss'
 ].forEach(filepath => {
-  scssVars += fs.readFileSync(path.resolve(__dirname, filepath)).toString('utf8')
+  scssVars += fs.readFileSync(path.resolve(ROOT_DIR, filepath)).toString('utf8')
 })
 
-const ouputCssPath = path.resolve(__dirname, 'dist/themes')
+const ouputCssPath = path.resolve(ROOT_DIR, 'dist/themes')
 if (!fs.existsSync(ouputCssPath)) {
   fs.mkdirSync(ouputCssPath, { recursive: true })
 }
 
-const themesPath = path.resolve(__dirname, '@ecomplus/storefront-template/template/scss/themes/')
-const themes = fs.readdirSync(__dirname)
+const themesPath = path.resolve(ROOT_DIR, '@ecomplus/storefront-template/template/scss/themes/')
+const themes = fs.readdirSync(themesPath)
 themes.forEach(theme => {
   let styleSheet = ''
   const themePath = path.resolve(themesPath, theme)
