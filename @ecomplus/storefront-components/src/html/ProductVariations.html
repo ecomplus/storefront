@@ -45,7 +45,6 @@
     <select
       v-else
       class="variations__select custom-select"
-      :class="`variations__select--${optionText}`"
       @change="$event => selectOption($event.target.value, grid, index)"
     >
       <option :selected="!selectedOptions[grid]">
@@ -54,6 +53,7 @@
       <option
         v-for="optionText in options"
         :value="optionText"
+        :class="`variations__select--${optionText}`"
         :selected="selectedOptions[grid] === optionText"
         :disabled="!filteredGrids[grid].includes(optionText)"
       >
