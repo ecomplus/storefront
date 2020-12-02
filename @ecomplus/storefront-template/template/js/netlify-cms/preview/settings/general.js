@@ -2,8 +2,13 @@ import BasePreview from '../base-preview'
 import virtualDoc from '../virtual-doc'
 import fetchPage from '../fetch-page'
 
-const fetchCssTheme = ({ custom, bootswatch }) => {
-  return window.fetch(`${window.PARSE_SASS_FUNCTION_URI}?custom=${custom}&bootswatch=${bootswatch}`)
+const themesUrl = 'https://cdn.jsdelivr.net/gh/ecomplus/storefront@themes-dist'
+
+const fetchCssTheme = (theme) => {
+  if (theme === '_') {
+    return Promise.resolve('')
+  }
+  return window.fetch(`${themesUrl}/${theme}.css`)
 }
 
 export default class CodePreview extends BasePreview {
@@ -46,8 +51,8 @@ export default class CodePreview extends BasePreview {
     this.primary_color = ''
     this.secondary_color = ''
     this.logo = ''
-    this.bootswatch = ''
-    this.custom = ''
+    this.bootswatch = '_'
+    this.custom = '_'
   }
 
   fetchPage() {
@@ -65,7 +70,6 @@ export default class CodePreview extends BasePreview {
       const { vDoc } = this.state
       const { entry } = this.props
       const entries = entry.getIn(['data']).toJSON()
-
       const propsArray = [
         'name',
         'bg_color',
@@ -99,24 +103,35 @@ export default class CodePreview extends BasePreview {
       </style>`
 
       const { theme } = entries
+
       if ((this.bootswatch !== theme.bootswatch) || (this.custom !== theme.custom)) {
-        if (window.PARSE_SASS_FUNCTION_URI) {
-          await fetchCssTheme(theme).then(async response => {
-            const css = await response.text()
-            let $themesTag = vDoc.getElementById('storefront-themes')
-            if (!$themesTag) {
-              $themesTag = document.createElement('div')
-              $themesTag.id = 'storefront-themes'
-              vDoc.body.appendChild($themesTag)
-            }
-  
-            $themesTag.innerHTML = `<style>${css}</style>`
-            this.bootswatch = theme.bootswatch
-            this.custom = theme.custom
-            change = true
-            return css
-            }).catch(e => console.error('Erro with request style', e))
+        const promises = []
+        let styles = ''
+        for (const name in theme) {
+          if (theme[name]) {
+            promises.push(fetchCssTheme(theme[name])
+              .then(async response => {
+                styles += await response.text()
+                styles += ' '
+              })
+              .catch(() => {
+                console.log('theme not found ignored')
+              }))
+          }
         }
+
+        await Promise.all(promises).then(() => {
+          let $themesTag = vDoc.getElementById('storefront-themes')
+          if (!$themesTag) {
+            $themesTag = document.createElement('div')
+            $themesTag.id = 'storefront-themes'
+            vDoc.body.appendChild($themesTag)
+          }
+          $themesTag.innerHTML = `<style>${styles}</style>`
+          this.bootswatch = theme.bootswatch
+          this.custom = theme.custom
+          change = true
+        })
       }
   
       if (change) {
