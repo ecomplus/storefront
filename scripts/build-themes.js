@@ -5,6 +5,7 @@ const ROOT_DIR = path.resolve(__dirname, '..')
 
 let scssVars = ''
 ;[
+  '@ecomplus/storefront-twbs/scss/bootstrap/scss/_mixins.scss',
   '@ecomplus/storefront-twbs/scss/bootstrap/scss/_functions.scss',
   '@ecomplus/storefront-twbs/scss/bootstrap/scss/_variables.scss',
   '@ecomplus/storefront-template/template/scss/_variables.scss',
@@ -23,8 +24,6 @@ const themes = fs.readdirSync(themesPath)
 themes.forEach(theme => {
   let styleSheet = ''
   try {
-    // fix mixins
-    styleSheet += fs.readFileSync(path.resolve(ROOT_DIR, '@ecomplus/storefront-twbs/scss/bootstrap/scss/_mixins.scss')).toString('utf8')
     const bootswatchThemePath = path.resolve(`${ROOT_DIR}/node_modules/bootswatch/dist`, theme)
     const boostwatchScssFiles = fs.readdirSync(bootswatchThemePath)
     ;['_variables.scss', '_bootswatch.scss'].forEach(scssFile => {

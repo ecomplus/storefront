@@ -9,7 +9,7 @@ export default options => ({
   description: 'Configurações gerais para identidade e metadados do site',
   delete: false,
   editor: {
-    preview: true
+    preview: false
   },
   files: [
     getGeneral(options),

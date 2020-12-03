@@ -2,6 +2,9 @@ export default ({ baseDir }) => ({
   name: 'general',
   label: 'Configurações gerais',
   file: `${baseDir}content/settings.json`,
+  editor: {
+    preview: true
+  },
   fields: [
     {
       label: 'Store ID',

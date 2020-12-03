@@ -59,7 +59,6 @@ export default class CodePreview extends BasePreview {
     return fetchPage('/index.html').then(html => {
       const vDoc = virtualDoc(html)
       this.setState({ html, vDoc })
-      return this.parseEjs(this.customEntrys)
     }).catch(err => {
       console.log('Failed to fetch page home', err)
     })
