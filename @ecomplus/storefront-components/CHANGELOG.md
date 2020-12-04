@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.70](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.69...@ecomplus/storefront-components@1.0.0-beta.70) (2020-12-04)
+
+
+### Features
+
+* **product-variations:** add class name for each option btn ([#373](https://github.com/ecomplus/storefront/issues/373)) ([2d2771f](https://github.com/ecomplus/storefront/commit/2d2771f011fec2e6696036505dd6deda753dc21f))
+
+
+
+
+
 # [1.0.0-beta.69](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.68...@ecomplus/storefront-components@1.0.0-beta.69) (2020-12-01)
 
 **Note:** Version bump only for package @ecomplus/storefront-components
