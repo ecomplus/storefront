@@ -40,6 +40,12 @@ export default {
     },
     cartItems: Array,
     customer: Object,
+    defaultAppId: {
+      type: Number,
+      default () {
+        return window.ecomDefaultPaymentApp
+      }
+    },
     appsSort: {
       type: Array,
       default () {
@@ -60,6 +66,7 @@ export default {
       fetching: null,
       processingAppId: undefined,
       paymentGateways: [],
+      hasLoaded: false,
       selectedGateway: -1,
       loadedClients: {}
     }
@@ -198,6 +205,14 @@ export default {
             })
           }
         })
+        if (!this.hasLoaded) {
+          this.hasLoaded = true
+          if (this.defaultAppId && this.selectedGateway === -1) {
+            this.selectedGateway = this.paymentGateways.findIndex(gateway => {
+              return gateway.app_id === this.defaultAppId
+            })
+          }
+        }
       }
     },
 
@@ -276,11 +291,18 @@ export default {
 
   watch: {
     selectedGateway: {
-      handler () {
-        const { paymentGateway } = this
-        this.$emit('select-gateway', paymentGateway)
-        if (paymentGateway.fetch_when_selected) {
-          this.fetchPaymentGateways(paymentGateway.app_id)
+      handler (gatewayIndex) {
+        const { paymentGateway, loadedClients } = this
+        const proceed = () => {
+          this.$emit('select-gateway', paymentGateway)
+          if (paymentGateway.fetch_when_selected) {
+            this.fetchPaymentGateways(paymentGateway.app_id)
+          }
+        }
+        if (loadedClients[gatewayIndex]) {
+          loadedClients[gatewayIndex].then(proceed)
+        } else {
+          proceed()
         }
       },
       immediate: true
