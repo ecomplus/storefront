@@ -12,7 +12,7 @@ clientsClaim()
 
 const precacheFileList = self.__WB_MANIFEST || []
 // add app main routes to precache
-const revision = (Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000).toString()
+const revision = (Math.floor(Math.random() * (9999999 - 1000 + 1)) + 1000).toString()
 ;['index', '404', 'app/index'].forEach(precacheRoute => {
   const url = `/${precacheRoute}.html`
   for (let i = 0; i < precacheFileList.length; i++) {
