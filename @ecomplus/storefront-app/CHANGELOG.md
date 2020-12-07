@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.76](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.75...@ecomplus/storefront-app@2.0.0-beta.76) (2020-12-07)
+
+
+### Bug Fixes
+
+* **order-info:** prefer showing payment method name than label ([3ba5177](https://github.com/ecomplus/storefront/commit/3ba51775b46d8972fcaeab31cf418b6c0652d3aa))
+
+
+### Features
+
+* **payment-methods:** add 'defaultAppId' prop ([c444979](https://github.com/ecomplus/storefront/commit/c44497987a8c19dc8870c2668acaa9ef1d02c835)), closes [#379](https://github.com/ecomplus/storefront/issues/379)
+
+
+
+
+
 # [2.0.0-beta.75](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.74...@ecomplus/storefront-app@2.0.0-beta.75) (2020-12-04)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

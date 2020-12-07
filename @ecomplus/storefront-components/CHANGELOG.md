@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.71](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.70...@ecomplus/storefront-components@1.0.0-beta.71) (2020-12-07)
+
+
+### Bug Fixes
+
+* **cart-item:** explicitly watch item 'final_price' ([0d2f009](https://github.com/ecomplus/storefront/commit/0d2f009022c175782a1a7853670212b78327e697))
+* **product:** ensure setting kit items quantities ([#369](https://github.com/ecomplus/storefront/issues/369)) ([f55780f](https://github.com/ecomplus/storefront/commit/f55780f2a813274172c22e25762d6b06d98b367c))
+
+
+
+
+
 # [1.0.0-beta.70](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.69...@ecomplus/storefront-components@1.0.0-beta.70) (2020-12-04)
 
 
