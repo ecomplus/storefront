@@ -24,29 +24,6 @@ export default class CodePreview extends BasePreview {
       }
     }
 
-    this.customEntrys = [
-      {
-        'type': 'banner-slider',
-        'autoplay': 9000,
-        'slides': [
-          {
-            'img': 'https://storefront-template.netlify.app/img/uploads/banner2.webp',
-            'link': '/headset',
-            'alt': 'Headset banner',
-            'mobile_img': 'https://storefront-template.netlify.app/img/uploads/banner2.webp'
-          }
-        ]
-      },
-      { 'type': 'info-bar', 'enabled': true },
-      {
-        'type': 'collection-shelf',
-        'shuffle': false,
-        'collection_id': null,
-        'sort': 'offers',
-        'headless': false
-      }
-    ]
-
     this.bg_color = ''
     this.primary_color = ''
     this.secondary_color = ''
@@ -135,10 +112,12 @@ export default class CodePreview extends BasePreview {
   
       if (change) {
         propsArray.forEach(prop => (this[prop] = entries[prop]))
-        this.setState({ vDoc })
-        setTimeout(() => {
-          this.parseEjs(this.customEntrys)
-        }, 100)
+        let parseHtml
+        if (vDoc.childNodes && vDoc.childNodes.length) {
+          parseHtml = vDoc.childNodes[1].innerHTML
+        }
+    
+        this.setState({ parseHtml, vDoc })
       }
     }, 500)
   }

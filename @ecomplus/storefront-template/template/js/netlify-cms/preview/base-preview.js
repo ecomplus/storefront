@@ -270,24 +270,26 @@ export default class BasePreview extends React.Component {
 
     let parse = ''
     const cmsEntrys = [...state.cmsEntrys, ...customCmsEntrys]
-    for (let j = 0; j < cmsEntrys.length; j++) {
-      const opt = cmsEntrys[j]
-      opt.items = this._.items
-      parse += await ejs.render(this.ejsSections()[opt.type], {
-        _: this._,
-        opt
-      }, {
-        async: true,
-        includer: originalPath => {
-          for (const sectionType in this.ejsSections()) {
-            if (originalPath.endsWith(`/${sectionType}`)) {
-              return { template: this.ejsSections()[sectionType] }
+    if (Array.isArray(cmsEntrys) && cmsEntrys.length) {
+      for (let j = 0; j < cmsEntrys.length; j++) {
+        const opt = cmsEntrys[j]
+        opt.items = this._.items
+        parse += await ejs.render(this.ejsSections()[opt.type], {
+          _: this._,
+          opt
+        }, {
+          async: true,
+          includer: originalPath => {
+            for (const sectionType in this.ejsSections()) {
+              if (originalPath.endsWith(`/${sectionType}`)) {
+                return { template: this.ejsSections()[sectionType] }
+              }
             }
           }
-        }
-      }).catch(e => console.error('Parse err', e))
+        }).catch(e => console.error('Parse err', e))
+      }  
     }
-
+    
     const $sections = vDoc.getElementsByClassName('sections')[0]
     $sections.innerHTML = ''
     $sections.innerHTML += parse
