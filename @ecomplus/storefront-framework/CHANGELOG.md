@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.15.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.12...@ecomplus/storefront-framework@5.15.13) (2020-12-10)
+
+
+### Performance Improvements
+
+* **build:** limit up to 20 simultaneos prerendering views ([731a4bf](https://github.com/ecomplus/storefront/commit/731a4bf0a69c59bf4f1780efdc92a5077e8e8045))
+
+
+
+
+
 ## [5.15.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.11...@ecomplus/storefront-framework@5.15.12) (2020-12-07)
 
 
