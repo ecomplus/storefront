@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.15.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.12...@ecomplus/storefront-framework@5.15.13) (2020-12-10)
+
+
+### Performance Improvements
+
+* **build:** limit up to 20 simultaneos prerendering views ([731a4bf](https://github.com/ecomplus/storefront/commit/731a4bf0a69c59bf4f1780efdc92a5077e8e8045))
+
+
+
+
+
+## [5.15.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.11...@ecomplus/storefront-framework@5.15.12) (2020-12-07)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#377](https://github.com/ecomplus/storefront/issues/377)) ([5cccc36](https://github.com/ecomplus/storefront/commit/5cccc36c8069eb2d89e31ee1e9cc0b4f39020634))
+
+
+
+
+
+## [5.15.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.10...@ecomplus/storefront-framework@5.15.11) (2020-12-04)
+
+
+### Bug Fixes
+
+* **sw:** must set revision rand for app precached routes ([96c1ffb](https://github.com/ecomplus/storefront/commit/96c1ffb68ce438b8c1d6e09017ec542d9961f4cd))
+* **webpack:** include storefront js/css entries to workbox precache manifes ([d1b1327](https://github.com/ecomplus/storefront/commit/d1b1327928c8ec3ad62d48f87820f414166dfc6b))
+
+
+
+
+
 ## [5.15.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.9...@ecomplus/storefront-framework@5.15.10) (2020-12-01)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

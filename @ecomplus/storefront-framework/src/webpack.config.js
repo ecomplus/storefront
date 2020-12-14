@@ -264,7 +264,7 @@ if (!process.env.WEBPACK_BUILD_LIB) {
       new WorkboxPlugin.InjectManifest({
         swSrc,
         swDest: 'sw.js',
-        exclude: [/.*/]
+        include: [/.*storefront\..*\.(css|js)$/]
       })
     )
   } else if (process.argv.indexOf('--analyze') > -1) {

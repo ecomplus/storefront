@@ -379,7 +379,7 @@ export default {
             .map(({ _id, quantity }) => {
               return store({ url: `/products/${_id}.json` }).then(({ data }) => {
                 const addKitItem = variationId => {
-                  const item = ecomCart.parseProduct(data, variationId)
+                  const item = ecomCart.parseProduct(data, variationId, quantity)
                   if (quantity) {
                     item.min_quantity = item.max_quantity = quantity
                   }
@@ -388,9 +388,10 @@ export default {
                     _id: genRandomObjectId()
                   })
                 }
-                addKitItem()
                 if (data.variations) {
                   data.variations.forEach(({ _id }) => addKitItem(_id))
+                } else {
+                  addKitItem()
                 }
               })
             })

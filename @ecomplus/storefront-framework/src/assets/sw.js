@@ -10,14 +10,22 @@ clientsClaim()
 
 /* global self */
 
-const precacheFileList = Array.isArray(self.__WB_MANIFEST) ? self.__WB_MANIFEST : []
+const precacheFileList = self.__WB_MANIFEST || []
+// add app main routes to precache
+const revision = (Math.floor(Math.random() * (9999999 - 1000 + 1)) + 1000).toString()
 ;['index', '404', 'app/index'].forEach(precacheRoute => {
-  const file = `/${precacheRoute}.html`
-  if (precacheFileList.indexOf(file) === -1) {
-    precacheFileList.push(file)
+  const url = `/${precacheRoute}.html`
+  for (let i = 0; i < precacheFileList.length; i++) {
+    if (precacheFileList[i] === url || precacheFileList[i].url === url) {
+      return
+    }
   }
+  precacheFileList.push({ url, revision })
 })
-precacheAndRoute(precacheFileList)
+precacheAndRoute(precacheFileList, {
+  // ignore all URL parameters
+  ignoreURLParametersMatching: [/.*/]
+})
 
 /**
  * Runtime caching
