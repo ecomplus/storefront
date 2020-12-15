@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.15.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.13...@ecomplus/storefront-framework@5.15.14) (2020-12-15)
+
+
+### Bug Fixes
+
+* **sw:** fix to handle storage api v3 ([753dd16](https://github.com/ecomplus/storefront/commit/753dd16a1c83155d1503fbbf9e7a2c6f0e264822))
+
+
+
+
+
 ## [5.15.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.12...@ecomplus/storefront-framework@5.15.13) (2020-12-10)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.10.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.9.4...@ecomplus/storefront-twbs@5.10.0) (2020-12-15)
+
+
+### Features
+
+* **env:** export new 'isSafariNew' const to identify safari 14 ([2a5a74b](https://github.com/ecomplus/storefront/commit/2a5a74b2d66aec5719bf73cfe8c809e66a018f42))
+
+
+
+
+
 ## [5.9.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.9.3...@ecomplus/storefront-twbs@5.9.4) (2020-09-14)
 
 

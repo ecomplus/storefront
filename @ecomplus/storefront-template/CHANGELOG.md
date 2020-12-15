@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.98](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.97...@ecomplus/storefront-template@2.0.0-beta.98) (2020-12-15)
+
+
+### Performance Improvements
+
+* **utils:** keep webp images on macos/ios with new safari versions (supported) ([9da21a3](https://github.com/ecomplus/storefront/commit/9da21a36851a3a378e7224c3ce2f3824a6c7e60f))
+
+
+
+
+
 # [2.0.0-beta.97](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.96...@ecomplus/storefront-template@2.0.0-beta.97) (2020-12-10)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

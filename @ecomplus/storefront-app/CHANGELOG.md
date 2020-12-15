@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.77](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.76...@ecomplus/storefront-app@2.0.0-beta.77) (2020-12-15)
+
+
+### Bug Fixes
+
+* **order-info:** parse transaction notes html (gateway text/description) ([d895f11](https://github.com/ecomplus/storefront/commit/d895f11d037f47849f4788a2c2fc74b2b196e571))
+
+
+
+
+
 # [2.0.0-beta.76](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.75...@ecomplus/storefront-app@2.0.0-beta.76) (2020-12-07)
 
 
