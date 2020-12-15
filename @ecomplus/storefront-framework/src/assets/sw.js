@@ -129,9 +129,30 @@ registerRoute(
  * Check sizes: https://github.com/ecomclub/storage-api/blob/master/bin/web.js#L282
  */
 
-// normal and thumbnail sizes
+// product images on multiple datacenters
+async function imageOriginsFallback ({ request, event, error, state }) {
+  const { url } = request
+  const datacenters = ['nyc3', 'fra1']
+  let fallbackUrl
+  for (let i = 0; i < datacenters.length; i++) {
+    const datacenter = datacenters[i]
+    if (url.indexOf('/imgs/') > -1 && url.indexOf(datacenter) > -1) {
+      const newDatacenter = datacenters[i + 1] || datacenters[i - 1]
+      fallbackUrl = url.replace(RegExp(datacenter, 'ig'), newDatacenter)
+      break
+    }
+  }
+  if (fallbackUrl) {
+    /* global fetch */
+    const response = await fetch(fallbackUrl)
+    return response.blob()
+  }
+  throw error
+}
+
+// thumbnail images
 registerRoute(
-  /^https:\/\/ecom-[\w]+\.[\w]+\.digitaloceanspaces\.com\/imgs\/([12345]?[0-9]{2}px|normal|small)\//,
+  /^https:\/\/ecom[\w-]+(\.\w+)*\.digitaloceanspaces\.com.*\/imgs\/normal\//,
   new CacheFirst({
     cacheName: 'pictures',
     plugins: [
@@ -147,7 +168,7 @@ registerRoute(
 
 // big images
 registerRoute(
-  /^https:\/\/ecom-[\w]+\.[\w]+\.digitaloceanspaces\.com\/imgs\/([678]?[0-9]{2}px|big)\//,
+  /^https:\/\/ecom[\w-]+(\.\w+)*\.digitaloceanspaces\.com.*\/imgs\/big\//,
   new CacheFirst({
     cacheName: 'pictures-big',
     plugins: [
@@ -156,7 +177,17 @@ registerRoute(
         // 2 days only max age
         maxAgeSeconds: 60 * 60 * 24 * 2,
         purgeOnQuotaError: true
-      })
+      }),
+      {
+        requestWillFetch: async ({ request, event, state }) => {
+          console.log(request.signal)
+          setTimeout(() => {
+            request.signal.dispatchEvent('abort')
+          }, 5000)
+          return request
+        },
+        handlerDidError: imageOriginsFallback
+      }
     ]
   })
 )
