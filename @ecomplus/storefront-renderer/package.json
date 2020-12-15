@@ -32,6 +32,6 @@
     "html-minifier": "^4.0.0",
     "image-size": "^0.9.3",
     "lodash": "^4.17.20",
-    "markdown-it": "^12.0.2"
+    "markdown-it": "^12.0.3"
   }
 }
