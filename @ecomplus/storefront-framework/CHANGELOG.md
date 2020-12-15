@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.15.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.14...@ecomplus/storefront-framework@5.15.15) (2020-12-15)
+
+
+### Bug Fixes
+
+* **sw:** custom plugin 'requestWillFetch' must return promise to response ([1621815](https://github.com/ecomplus/storefront/commit/1621815f1161770d432adb051b013ca88cfd68b6))
+
+
+
+
+
 ## [5.15.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.13...@ecomplus/storefront-framework@5.15.14) (2020-12-15)
 
 
