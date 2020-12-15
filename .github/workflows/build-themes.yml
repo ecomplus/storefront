@@ -15,7 +15,7 @@ jobs:
   build-themes:
     name: Build Storefront themes
     runs-on: ubuntu-latest
-    if: github.event.registry_package.name == 'storefront-template'
+    if: github.event_name == 'push' || github.event.registry_package.name == 'storefront-template'
 
     steps:
       - name: Checkout
