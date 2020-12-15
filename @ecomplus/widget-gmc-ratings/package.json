@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-gmc-ratings",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "Storefront plugin for GMC customer ratings",
   "main": "dist/widget-gmc-ratings.min.js",
   "module": "src/index.js",
