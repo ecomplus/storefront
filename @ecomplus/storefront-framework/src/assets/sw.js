@@ -144,8 +144,7 @@ async function imageOriginsFallback ({ request, event, error, state }) {
   }
   if (fallbackUrl) {
     /* global fetch */
-    const response = await fetch(fallbackUrl)
-    return response.blob()
+    return await fetch(fallbackUrl)
   }
   throw error
 }
