@@ -44,7 +44,7 @@
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^6.4.0",
+    "copy-webpack-plugin": "^7.0.0",
     "core-js": ">=3.6.4 <3.9",
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.10",
