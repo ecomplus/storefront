@@ -1,0 +1,116 @@
+main {
+  .top-bar {
+    display: flex;
+    flex-direction: column-reverse;
+
+    &__nav {
+      font-size: 85%;
+      width: 100%;
+    }
+
+    a.top-bar__countdown {
+      background-image: linear-gradient(rgba($white, 0.4), rgba($primary, 0.1)), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/bg.png");
+      font-weight: var(--font-bold);
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .header {
+    border-bottom: none;
+    &__nav a {
+      color: $secondary;
+
+      &:hover {
+        color: $primary;
+        background-color: transparent;
+      }
+    }
+    &__buttons .btn {
+      padding: 2px;
+    }
+  }
+
+  .header__row {
+    display: flex;
+    flex-direction: row;
+  }
+  .header__row .col-auto {
+    order: 1;
+  }
+  .header__row .col {
+    order: 2;
+  }
+  .header__row .d-none {
+    order: 3;
+  }
+  .header__row #search-bar {
+    order: 4;
+  }
+  .header__row .order-lg-last {
+    order: 5;
+  }
+
+  #search-input {
+    border: solid 1px $gray-200;
+  }
+
+  #cart-button {
+    i:before {
+      content: "";
+      display: inline-block;
+      background-repeat: no-repeat;
+      width: 32px;
+      height: 32px;
+      -webkit-mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/bag.svg") no-repeat 50% 50%;
+      mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/bag.svg") no-repeat 50% 50%;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+    }
+
+    .fa-shopping-bag:before {
+      background-color: $secondary;
+    }
+
+    @media (hover: hover) {
+      .fa-shopping-bag:hover:before {
+        background-color: $primary;
+      }
+    }
+  }
+
+  #user-button {
+    i:before {
+      content: "";
+      display: inline-block;
+      background-repeat: no-repeat;
+      width: 32px;
+      height: 32px;
+
+      -webkit-mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/assignment.svg") no-repeat 50% 50%;
+      mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/assignment.svg") no-repeat 50% 50%;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+    }
+
+    .fa-user:before {
+      background-color: $secondary;
+    }
+
+    @media (hover: hover) {
+      .fa-user:hover:before {
+        background-color: $primary;
+      }
+    }
+  }
+
+  .footer {
+    background-image: linear-gradient(rgba($white, 1), rgba($white, 0.6)), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/bg.png");
+  }
+
+  .go-to-top {
+    background-color: $secondary;
+  }
+}

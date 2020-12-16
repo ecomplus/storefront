@@ -1,0 +1,20 @@
+$success: #21ff00 !default;
+$warning: #f72a06 !default;
+$gray-500: #adb5bd !default;
+
+$border-radius: 0.8rem !default;
+$border-radius-sm: 0.8rem !default;
+$border-radius-lg: 0.8rem !default;
+
+
+$list-group-color: $primary;
+$list-group-bg: rgba($primary, 0.1);
+$list-group-border-color: $primary;
+
+$breadcrumb-divider-color: $gray-500;
+$breadcrumb-active-color: $primary;
+$breadcrumb-divider: quote("⇨");
+
+$input-btn-focus-color: rgba($primary, 0.5);
+
+$input-border-color: $primary;
