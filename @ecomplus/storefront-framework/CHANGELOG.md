@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.16.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.17...@ecomplus/storefront-framework@5.16.0) (2020-12-16)
+
+
+### Features
+
+* **sw:** add fallbacks to network errors ([e867eec](https://github.com/ecomplus/storefront/commit/e867eecd8ad85db35c5b8764c6570a78f27a6b0e))
+* **webpack:** option (arg) to force sw even on dev mode ([13a00c0](https://github.com/ecomplus/storefront/commit/13a00c0563afa869d52f95083cbe26d11b2a41e7))
+
+
+
+
+
 ## [5.15.17](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.16...@ecomplus/storefront-framework@5.15.17) (2020-12-15)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

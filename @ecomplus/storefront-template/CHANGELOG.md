@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.103](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.102...@ecomplus/storefront-template@2.0.0-beta.103) (2020-12-16)
+
+
+### Performance Improvements
+
+* **product-pictures:** use 'crossorigin=anonymous' with new cdn images ([a1fd64b](https://github.com/ecomplus/storefront/commit/a1fd64b46d04f680f2023a2acfd9eb1266f42bee))
+* **sw:** setup register sw before page load (/head) ([fda1682](https://github.com/ecomplus/storefront/commit/fda1682ea8714795e81e723c2cd897d2ebccc3cf))
+
+
+
+
+
 # [2.0.0-beta.102](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.101...@ecomplus/storefront-template@2.0.0-beta.102) (2020-12-15)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
