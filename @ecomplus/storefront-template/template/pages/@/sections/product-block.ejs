@@ -35,6 +35,9 @@
                   <img
                     src="<%= imgObj.url.replace(/\.webp$/, '') %>"
                     alt="<%= imgObj.alt %>"
+                    <% if (imgObj.url.startsWith('https://ecoms1')) { %>
+                      crossorigin="anonymous"
+                    <% } %>
                   >
                 </picture>
               </div>
