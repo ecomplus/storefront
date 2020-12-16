@@ -35,6 +35,10 @@
     font-size: var(--font-size-sm);
     line-height: var(--line-height-sm);
     margin-bottom: var(--spacer-2);
+
+    &-subtitle {
+      display: block;
+    }
   }
 
   &__quantity {

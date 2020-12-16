@@ -172,12 +172,26 @@ export default ({ state }) => [
         name: 'collection_id',
         hint: 'Se este campo não for preenchido, serão listados os produtos mais populares da loja',
         widget: 'select',
-        options: state.routes
-          .filter(({ resource }) => resource === 'collections')
-          .map(({ name, _id }) => ({
-            label: name,
-            value: _id
-          }))
+        options: [{
+          resource: 'collections',
+          label: ''
+        }, {
+          resource: 'categories',
+          label: 'Categoria: '
+        }, {
+          resource: 'brands',
+          label: 'Marca: '
+        }].reduce((options, shelf) => {
+          state.routes.forEach(({ _id, resource, name, path }) => {
+            if (resource === shelf.resource) {
+              options.push({
+                label: shelf.label + name,
+                value: `${_id}:${resource}:${name}:${path}`
+              })
+            }
+          })
+          return options
+        }, [])
       },
       {
         label: 'Ordenação',
@@ -185,6 +199,10 @@ export default ({ state }) => [
         name: 'sort',
         widget: 'select',
         options: [
+          {
+            label: 'Relevância',
+            value: 'views'
+          },
           {
             label: 'Mais vendidos',
             value: 'sales'
@@ -204,6 +222,10 @@ export default ({ state }) => [
           {
             label: 'Maior preço',
             value: 'highest_price'
+          },
+          {
+            label: 'Alfabética (slug)',
+            value: 'slug'
           }
         ]
       },
@@ -211,7 +233,7 @@ export default ({ state }) => [
         label: 'Embaralhar produtos',
         name: 'shuffle',
         widget: 'boolean',
-        default: true
+        default: false
       },
       {
         label: 'Título da estante',
@@ -233,6 +255,24 @@ export default ({ state }) => [
         name: 'headless',
         widget: 'boolean',
         hint: 'Mostrar apenas a lista de produtos, sem título ou link'
+      },
+      {
+        label: 'Limite de itens',
+        required: false,
+        name: 'limit',
+        widget: 'number',
+        min: 1,
+        max: 24,
+        default: 12
+      },
+      {
+        label: 'Paginação',
+        required: false,
+        name: 'page',
+        hint: 'Aumente o número da página para pular os itens iniciais e repetir estantes com a mesma coleção',
+        widget: 'number',
+        min: 1,
+        default: 1
       }
     ]
   },
@@ -250,15 +290,22 @@ export default ({ state }) => [
     ]
   },
   {
-    label: 'Título da página',
+    label: 'Título da página (SEO)',
     name: 'page-title',
     widget: 'object',
     fields: [
       {
-        label: 'Título',
+        label: 'Título (H1)',
         required: false,
         name: 'title',
-        hint: 'Por padrão será usado o título salvo no conteúdo ou nome do documento e descrição curta',
+        hint: 'Por padrão será usado o título salvo no conteúdo ou nome do documento se houver',
+        widget: 'string'
+      },
+      {
+        label: 'Descrição curta',
+        required: false,
+        name: 'description',
+        hint: 'Será usada a descrição curta da marca ou categoria nas respectivas páginas',
         widget: 'string'
       }
     ]

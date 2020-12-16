@@ -1,8 +1,6 @@
 # Storefront Framework
 
-[![CodeFactor](https://www.codefactor.io/repository/github/ecomclub/storefront-framework/badge)](https://www.codefactor.io/repository/github/ecomclub/storefront-framework)
-[![npm version](https://img.shields.io/npm/v/@ecomplus/storefront-framework.svg)](https://www.npmjs.org/@ecomplus/storefront-framework)
-[![license mit](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://img.shields.io/npm/v/@ecomplus/storefront-framework.svg)](https://www.npmjs.org/@ecomplus/storefront-framework) [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [Webpack](https://webpack.js.org/) based
 tool to develop and build
@@ -54,6 +52,14 @@ Change the dev server port number, you may replace _8080_ by what you want;
 Detailed output of Webpack compilation process;
 - `--analyze`:
 Open [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) with dev server;
+- `--sw`:
+Force setup manifest and Service Worker on dev server;
+- `--prerender=index,app/index`:
+List URLs to be prerendered (defaults to all);
+- `--prerender-limit=50`:
+Limit number of random URLs to be prerendered;
+- `--no-bundler`:
+Disable Webback compilation to run views renderization only;
 
 ### NPM scripts
 

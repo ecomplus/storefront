@@ -1,9 +1,10 @@
+<% const { body } = await _.resolveRoute() %>
 <!doctype html>
 <html>
 <head>
   <%- await include('@/head', { title: 'Products', _ }) %>
 </head>
 <body>
-  <h1>Product</h1>
+  <h1>Product: <%= body.name %></h1>
 </body>
 </html>

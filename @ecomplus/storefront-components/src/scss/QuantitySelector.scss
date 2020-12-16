@@ -1,0 +1,31 @@
+.quantity-selector {
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacer-2);
+
+    .btn {
+      box-shadow: none;
+      text-decoration: none;
+    }
+  }
+
+  &__input {
+    max-width: 2.5rem;
+    padding-left: var(--spacer-1);
+    padding-right: var(--spacer-1);
+    text-align: center;
+  }
+
+  &__label {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-sm);
+    margin-left: var(--spacer-1);
+  }
+
+  .alert {
+    max-width: 300px;
+    margin-bottom: 0;
+    margin-top: var(--spacer-3);
+  }
+}

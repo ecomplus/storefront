@@ -58,7 +58,14 @@ modulesToFetch.forEach(({ endpoint, reqOptions }) => {
                   field = 'discount_option'
                   val = response[field]
                   if (val && (!modInfo[field] || val.value > modInfo[field].value)) {
-                    modInfo[field] = val
+                    response.payment_gateways.forEach(({ discount }) => {
+                      if (discount && discount.apply_at !== 'freight' && discount.value === val.value) {
+                        modInfo[field] = {
+                          apply_at: discount.apply_at,
+                          ...val
+                        }
+                      }
+                    })
                   }
                   break
 

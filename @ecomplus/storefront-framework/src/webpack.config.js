@@ -123,7 +123,7 @@ let config = {
     path: paths.output,
     publicPath: '/',
     filename: devMode ? '[name].js' : `${filenameSchema}.js`,
-    chunkFilename: '[contenthash].js'
+    chunkFilename: 'chunk.[contenthash].js'
   },
 
   optimization: {
@@ -133,7 +133,7 @@ let config = {
     // extract CSS to file
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : `${filenameSchema}.css`,
-      chunkFilename: '[contenthash].css',
+      chunkFilename: 'chunk.[contenthash].css',
       ignoreOrder: true
     }),
     // handle Vue SFC
@@ -235,7 +235,7 @@ if (!process.env.WEBPACK_BUILD_LIB) {
     })
   )
 
-  if (!devMode) {
+  if (!devMode || process.argv.indexOf('--sw') > -1) {
     config.plugins.push(
       // create manifest.json file
       new WebpackPwaManifest({
@@ -261,15 +261,20 @@ if (!process.env.WEBPACK_BUILD_LIB) {
       }),
 
       // create service worker file
-      new WorkboxPlugin.InjectManifest({ swSrc, swDest: 'sw.js' })
+      new WorkboxPlugin.InjectManifest({
+        swSrc,
+        swDest: 'sw.js',
+        include: [/.*storefront\..*\.(css|js)$/]
+      })
     )
-  } else if (process.argv.indexOf('--analyze') > -1) {
+  }
+
+  if (devMode && process.argv.indexOf('--analyze') > -1) {
     // start JS bundle analyzer
     const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
     config.plugins.push(new BundleAnalyzerPlugin())
   }
 
-  // handle configurable options by CLI args
   if (process.argv.indexOf('--verbose') === -1) {
     // default Webpack output with less logs
     const { stats } = config
@@ -286,7 +291,8 @@ const tryConfigMerge = moduleName => {
     config = webpackMerge(
       config,
       typeof customConfig === 'function'
-        ? customConfig({ devMode }) : customConfig
+        ? customConfig({ devMode })
+        : customConfig
     )
   } catch (e) {
     // ignore error

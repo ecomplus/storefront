@@ -20,12 +20,15 @@ import {
 
 import {
   i18n,
+  randomObjectId as genRandomObjectId,
   name as getName,
   inStock as checkInStock,
   onPromotion as checkOnPromotion,
   price as getPrice,
   variationsGrids as getVariationsGrids,
-  specValueByText as getSpecValueByText
+  specTextValue as getSpecTextValue,
+  specValueByText as getSpecValueByText,
+  formatMoney
 } from '@ecomplus/utils'
 
 import { store, modules } from '@ecomplus/client'
@@ -39,6 +42,7 @@ import APrices from '../APrices.vue'
 import AShare from '../AShare.vue'
 import ProductVariations from '../ProductVariations.vue'
 import ProductGallery from '../ProductGallery.vue'
+import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
 
@@ -67,6 +71,7 @@ export default {
     AShare,
     ProductVariations,
     ProductGallery,
+    QuantitySelector,
     ShippingCalculator,
     PaymentOption
   },
@@ -111,7 +116,9 @@ export default {
       isOnCart: false,
       hasClickedBuy: false,
       hasLoadError: false,
-      paymentOptions: []
+      paymentOptions: [],
+      customizations: [],
+      kitItems: []
     }
   },
 
@@ -171,8 +178,28 @@ export default {
         : 0
     },
 
+    finalPrices () {
+      const prices = {}
+      ;['price', 'base_price'].forEach(field => {
+        let price = this.selectedVariation[field] || this.body[field]
+        if (price !== undefined) {
+          this.customizations.forEach(customization => {
+            if (customization.add_to_price) {
+              price += this.getAdditionalPrice(customization.add_to_price)
+            }
+          })
+        }
+        prices[field] = price
+      })
+      return prices
+    },
+
     hasVariations () {
       return this.body.variations && this.body.variations.length
+    },
+
+    isKit () {
+      return this.body.kit_composition && this.body.kit_composition.length
     }
   },
 
@@ -181,15 +208,19 @@ export default {
     getSpecValueByText,
 
     setBody (data) {
-      this.body = data
+      this.body = {
+        ...data,
+        body_html: '',
+        body_text: '',
+        inventory_records: []
+      }
       this.$emit('update:product', data)
     },
 
     fetchProduct (isRetry = false) {
-      const { storeId, productId } = this
+      const { productId } = this
       store({
         url: `/products/${productId}.json`,
-        storeId,
         axiosConfig: {
           timeout: isRetry ? 2500 : 6000
         }
@@ -197,7 +228,7 @@ export default {
         .then(({ data }) => {
           this.setBody(data)
           if (getContextId() === productId) {
-            storefront.context.body = data
+            storefront.context.body = this.body
           }
           this.hasLoadError = false
         })
@@ -217,6 +248,57 @@ export default {
         })
     },
 
+    getAdditionalPrice ({ type, addition }) {
+      return type === 'fixed'
+        ? addition
+        : getPrice(this.body) * addition / 100
+    },
+
+    formatAdditionalPrice (addToPrice) {
+      if (addToPrice && addToPrice.addition) {
+        return formatMoney(this.getAdditionalPrice(addToPrice))
+      }
+      return ''
+    },
+
+    setCustomizationOption (customization, text) {
+      const index = this.customizations.findIndex(({ _id }) => _id === customization._id)
+      if (text) {
+        if (index > -1) {
+          this.customizations[index].option = { text }
+        } else {
+          this.customizations.push({
+            _id: customization._id,
+            label: customization.label,
+            add_to_price: customization.add_to_price,
+            option: { text }
+          })
+        }
+      } else if (index > -1) {
+        this.customizations.splice(index, 1)
+      }
+    },
+
+    showVariationPicture (variation) {
+      if (variation.picture_id) {
+        const pictureIndex = this.body.pictures.findIndex(({ _id }) => {
+          return _id === variation.picture_id
+        })
+        this.currentGalleyImg = pictureIndex + 1
+      }
+    },
+
+    handleGridOption ({ gridId, gridIndex, optionText }) {
+      if (gridIndex === 0) {
+        const variation = this.body.variations.find(variation => {
+          return getSpecTextValue(variation, gridId) === optionText
+        })
+        if (variation) {
+          this.showVariationPicture(variation)
+        }
+      }
+    },
+
     buy () {
       this.hasClickedBuy = true
       const product = sanitizeProductBody(this.body)
@@ -228,9 +310,10 @@ export default {
           return
         }
       }
-      this.$emit('buy', { product, variationId })
+      const { customizations } = this
+      this.$emit('buy', { product, variationId, customizations })
       if (this.canAddToCart) {
-        ecomCart.addProduct(product, variationId)
+        ecomCart.addProduct({ ...product, customizations }, variationId)
       }
       this.isOnCart = true
     }
@@ -242,12 +325,7 @@ export default {
         if (this.hasClickedBuy) {
           this.hasClickedBuy = false
         }
-        if (this.selectedVariation.picture_id) {
-          const pictureIndex = this.body.pictures.findIndex(({ _id }) => {
-            return _id === this.selectedVariation.picture_id
-          })
-          this.currentGalleyImg = pictureIndex + 1
-        }
+        this.showVariationPicture(this.selectedVariation)
       }
     },
 
@@ -284,18 +362,54 @@ export default {
                 .sort((a, b) => {
                   return a.discount_option && a.discount_option.value &&
                     !(b.discount_option && b.discount_option.value)
-                    ? -1 : 1
+                    ? -1
+                    : 1
                 })
             })
             .catch(console.error)
         })
       }
+    },
+
+    isKit: {
+      handler (isKit) {
+        if (isKit && !this.kitItems.length) {
+          const kitItems = []
+          Promise.all(this.body.kit_composition
+            .map(({ _id, quantity }) => {
+              return store({ url: `/products/${_id}.json` }).then(({ data }) => {
+                const addKitItem = variationId => {
+                  const item = ecomCart.parseProduct(data, variationId, quantity)
+                  if (quantity) {
+                    item.min_quantity = item.max_quantity = quantity
+                  }
+                  kitItems.push({
+                    ...item,
+                    _id: genRandomObjectId()
+                  })
+                }
+                if (data.variations) {
+                  data.variations.forEach(({ _id }) => addKitItem(_id))
+                } else {
+                  addKitItem()
+                }
+              })
+            })
+          ).then(() => {
+            this.kitItems = kitItems
+          }).catch(console.error)
+        }
+      },
+      immediate: true
     }
   },
 
   created () {
     if (this.product) {
       this.body = this.product
+      if (this.isSSR) {
+        this.fetchProduct()
+      }
     } else {
       this.fetchProduct()
     }

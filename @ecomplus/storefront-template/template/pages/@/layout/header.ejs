@@ -41,7 +41,9 @@ if (header.categories_list) {
     // add up to `random` main categories
     const mainCategories = _.categories.filter(({ parent }) => !parent || !parent.slug)
     for (let i = 0; i < header.categories_list.random && i < mainCategories.length; i++) {
-      categories.push(mainCategories[i])
+      if (!categories.find(({ slug }) => mainCategories[i].slug === slug)) {
+        categories.push(mainCategories[i])
+      }
     }
   }
   isCategoriesNavFull = header.categories_list.full_width

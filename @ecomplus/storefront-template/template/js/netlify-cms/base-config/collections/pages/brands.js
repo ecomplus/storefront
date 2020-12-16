@@ -1,3 +1,5 @@
+import getRetail from './types/retail'
+
 export default ({ baseDir, sections }) => ({
   name: 'brands',
   label: 'Marcas',
@@ -9,19 +11,7 @@ export default ({ baseDir, sections }) => ({
       name: 'sections',
       widget: 'list',
       types: [
-        {
-          label: 'Produtos da marca',
-          name: 'brand-retail',
-          widget: 'object',
-          fields: [
-            {
-              label: 'Listar produtos da marca',
-              name: 'enabled',
-              widget: 'boolean',
-              default: true
-            }
-          ]
-        },
+        getRetail('brand', 'marca'),
         {
           label: 'Banner da marca',
           name: 'document-banner',

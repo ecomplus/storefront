@@ -1,0 +1,74 @@
+{
+  "functions": {
+    "predeploy": [
+      "cp -r template functions/; cp -r content functions/; cp .bundles.json functions/",
+      "mkdir -p functions/template/pages/@ecomplus",
+      "cp -r node_modules/@ecomplus/widget-* functions/template/pages/@ecomplus/ 2>/dev/null || :",
+      "rm -rf functions/template/pages/**/node_modules"
+    ],
+    "postdeploy": "rm -rf functions/template; rm -rf functions/content",
+    "source": "functions"
+  },
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**/!(*(*.)js|*(*.)css|*(*.)ico|*(*.)png)",
+        "function": "ssr"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=10, s-maxage=604800, stale-while-revalidate=2592000"
+          }
+        ]
+      },
+      {
+        "source": "@(app|admin)/**",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=300, stale-while-revalidate=31536000"
+          }
+        ]
+      },
+      {
+        "source": "img/**",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "max-age=3600, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "assets/**",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=604800"
+          }
+        ]
+      },
+      {
+        "source": "**/*.?????*.@(js|css|png|gif|jpg|jpeg|webp|svg|ico|woff|woff2|otf|ttf|eot)",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      }
+    ],
+    "cleanUrls": true
+  }
+}

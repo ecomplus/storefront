@@ -1,0 +1,78 @@
+<div class="quantity-selector">
+  <div
+    class="quantity-selector__item"
+    v-for="item in items"
+  >
+    <button
+      class="btn btn-sm btn-link"
+      type="button"
+      @click="changeQnt(item, -1)"
+      :disabled="item.min_quantity >= selectedQnts[item._id]"
+    >
+      <i class="fas fa-chevron-down"></i>
+    </button>
+    <input
+      type="tel"
+      class="form-control quantity-selector__input"
+      @change="ev => changeQnt(item, null, ev)"
+      @keyup.up="changeQnt(item, 1)"
+      @keyup.down="changeQnt(item, -1)"
+      :value="selectedQnts[item._id]"
+      :disabled="!checkInStock(item)"
+      :readonly="item.min_quantity === item.max_quantity"
+    >
+    <button
+      class="btn btn-sm btn-link"
+      type="button"
+      @click="changeQnt(item, 1)"
+      :disabled="item.max_quantity <= selectedQnts[item._id]"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <span class="quantity-selector__label">
+      <a-link
+        v-if="item.slug"
+        target="_blank"
+        :href="`/${item.slug}`"
+        :title="item.name"
+      >
+        {{ item.name }}
+      </a-link>
+      <template v-else>
+        {{ item.name }}
+      </template>
+    </span>
+  </div>
+
+  <a-alert :can-show="hasMinAlert">
+    {{ i19minQuantity }}:
+    <strong>{{ min }}</strong>
+  </a-alert>
+
+  <a-alert
+    :can-show="hasMaxAlert"
+    :variant="alertVariant"
+  >
+    {{ i19maxQuantity }}:
+    <strong>{{ max }}</strong>
+  </a-alert>
+
+  <div class="quantity-selector__buy">
+    <slot
+      name="buy"
+      v-bind="{ selectedQnts, buy }"
+    >
+      <button
+        type="button"
+        class="btn btn-lg btn-primary my-3"
+        @click="buy"
+      >
+        <slot name="buy-button-content">
+          <i class="fas fa-shopping-bag mr-1"></i>
+          {{ strBuy }}
+        </slot>
+      </button>
+    </slot>
+  </div>
+</div>

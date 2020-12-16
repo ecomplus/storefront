@@ -1,8 +1,8 @@
 <%
 const search = new _.EcomSearch()
 search
-  .setCategoryIds([_.state._id])
-  .setSortOrder('sales')
+  .setCategoryNames([_.state.name])
+  .setSortOrder(opt.sort)
 await search.fetch()
 let items = await search.getItems()
 const categoryNames = [_.state.name]
@@ -12,14 +12,12 @@ if (!items.length) {
     return parent && parent._id === _.state._id
   })
   if (childCategories.length) {
-    let categoryIds = []
-    childCategories.forEach(({ _id, name }) => {
-      categoryIds.push(_id)
+    childCategories.forEach(({ name }) => {
       categoryNames.push(name)
     })
     search
-      .setCategoryIds(categoryIds)
-      .setSortOrder('sales')
+      .setCategoryNames(categoryNames)
+      .setSortOrder(opt.sort)
     await search.fetch()
     items = await search.getItems()
   }
@@ -28,6 +26,11 @@ if (!items.length) {
 
 <div class="category-retail">
   <%- await include('/@/sections/inc/retail-grid', {
-    _, opt: { items, search, category_names: categoryNames }
+    _, opt: {
+      items,
+      search,
+      category_names: categoryNames,
+      sort: opt.sort
+    }
   }) %>
 </div>

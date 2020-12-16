@@ -4,8 +4,7 @@ import { observer } from './lazy-load'
 const glides = {}
 const $glides = document.getElementsByClassName('glide')
 
-for (let i = 0; i < $glides.length; i++) {
-  const $glide = $glides[i]
+const setupGlide = $glide => {
   const options = {}
   ;['autoplay', 'perView'].forEach(opt => {
     if ($glide.dataset[opt] !== undefined) {
@@ -72,6 +71,22 @@ for (let i = 0; i < $glides.length; i++) {
       }
     }
   })
+}
+
+for (let i = 0; i < $glides.length; i++) {
+  const $glide = $glides[i]
+  const { waitMutation } = $glide.dataset
+  if (waitMutation && waitMutation !== 'false') {
+    const observer = new window.MutationObserver(() => {
+      observer.disconnect()
+      setTimeout(() => setupGlide($glide), 300)
+    })
+    observer.observe($glide.getElementsByClassName('product-item')[0], {
+      childList: true
+    })
+  } else {
+    setupGlide($glide)
+  }
 }
 
 export { glides }

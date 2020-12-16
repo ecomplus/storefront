@@ -3,6 +3,264 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.75](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.74...@ecomplus/storefront-components@1.0.0-beta.75) (2020-12-16)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.74](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.73...@ecomplus/storefront-components@1.0.0-beta.74) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.73](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.72...@ecomplus/storefront-components@1.0.0-beta.73) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.72](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.71...@ecomplus/storefront-components@1.0.0-beta.72) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.71](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.70...@ecomplus/storefront-components@1.0.0-beta.71) (2020-12-07)
+
+
+### Bug Fixes
+
+* **cart-item:** explicitly watch item 'final_price' ([0d2f009](https://github.com/ecomplus/storefront/commit/0d2f009022c175782a1a7853670212b78327e697))
+* **product:** ensure setting kit items quantities ([#369](https://github.com/ecomplus/storefront/issues/369)) ([f55780f](https://github.com/ecomplus/storefront/commit/f55780f2a813274172c22e25762d6b06d98b367c))
+
+
+
+
+
+# [1.0.0-beta.70](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.69...@ecomplus/storefront-components@1.0.0-beta.70) (2020-12-04)
+
+
+### Features
+
+* **product-variations:** add class name for each option btn ([#373](https://github.com/ecomplus/storefront/issues/373)) ([2d2771f](https://github.com/ecomplus/storefront/commit/2d2771f011fec2e6696036505dd6deda753dc21f))
+
+
+
+
+
+# [1.0.0-beta.69](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.68...@ecomplus/storefront-components@1.0.0-beta.69) (2020-12-01)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.68](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.67...@ecomplus/storefront-components@1.0.0-beta.68) (2020-11-27)
+
+
+### Bug Fixes
+
+* **cart:** set 'isAmountTotal' on prices ([bb2522a](https://github.com/ecomplus/storefront/commit/bb2522a627307e57ab7fbca6e167c253b245ad93))
+* **deps:** update @ecomplus/search-engine to v2.5.0 ([012ae01](https://github.com/ecomplus/storefront/commit/012ae01702f4d3077ed11bc7f8993bdc66c032d5))
+* **product-variations:** must watch prop product.variations to update grids ([61258a3](https://github.com/ecomplus/storefront/commit/61258a34a638f7f4ff9759509e56fce3ad9b12b2))
+* **product-variations:** prevent error with no variations with stock ([d0b3573](https://github.com/ecomplus/storefront/commit/d0b3573ea689388600f0df857fa61771d7e2f2d3))
+* **shipping-calculator:** schedule retry on calculation general fail ([a4bbad0](https://github.com/ecomplus/storefront/commit/a4bbad02b184ced715c587f15103b82bfad9aec7))
+
+
+### Features
+
+* **prices:** add 'isAmountTotal' prop to check discount apply at ([#366](https://github.com/ecomplus/storefront/issues/366)) ([d873630](https://github.com/ecomplus/storefront/commit/d873630f6ca313fe4646dfa9bd59ecf6f19a22a2))
+* **search-engine:** add 'defaultFilters' object prop ([#362](https://github.com/ecomplus/storefront/issues/362)) ([8dce394](https://github.com/ecomplus/storefront/commit/8dce394b6cf328df408dff2db94975e417c69ddb))
+* **search-engine:** sort option by slug (alphabetical) ([e7ac1db](https://github.com/ecomplus/storefront/commit/e7ac1dbb1afe88fe528c84cf395d1248b441f015))
+
+
+### Performance Improvements
+
+* **product:** accepting product preset with ssr (and update) ([f8ae21b](https://github.com/ecomplus/storefront/commit/f8ae21b259937774d7f4ddf680dac4b50e2b4fee))
+
+
+
+
+
+# [1.0.0-beta.67](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.66...@ecomplus/storefront-components@1.0.0-beta.67) (2020-11-18)
+
+
+### Features
+
+* **product:** set product id and sku on root el data ([f1e2f24](https://github.com/ecomplus/storefront/commit/f1e2f2487e542566890b57f7e3af3804d9fbdbde))
+* **product-card:** set product id and sku on root el data ([54b87b4](https://github.com/ecomplus/storefront/commit/54b87b4f45d48ba67957ffe4c7ddecce80660453))
+
+
+
+
+
+# [1.0.0-beta.66](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.65...@ecomplus/storefront-components@1.0.0-beta.66) (2020-11-18)
+
+
+### Bug Fixes
+
+* **account-form:** check year range for birth date ([#350](https://github.com/ecomplus/storefront/issues/350)) ([5d1c8af](https://github.com/ecomplus/storefront/commit/5d1c8af8c16b77fbbf91b688f4c98211eb5ca606))
+
+
+### Features
+
+* **product:** update prices when customizations set with additional price ([#351](https://github.com/ecomplus/storefront/issues/351)) ([7cfd302](https://github.com/ecomplus/storefront/commit/7cfd30254aaaaf7af1113a44f5e9f6e1cdea2ab9))
+
+
+
+
+
+# [1.0.0-beta.65](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.64...@ecomplus/storefront-components@1.0.0-beta.65) (2020-11-17)
+
+
+### Bug Fixes
+
+* **cart-item:** fix handling float quantity ([3ffd1dc](https://github.com/ecomplus/storefront/commit/3ffd1dcdba816603cd2d431605b8bd9a8ee9f17d))
+* **deps:** update @ecomplus/shopping-cart to v2.5.5 ([b2cf490](https://github.com/ecomplus/storefront/commit/b2cf490ee6fed76aa50a03a58680fa2ba6f912b0))
+
+
+### Performance Improvements
+
+* **shipping-calculator:** prevent duplicating calculate retry timers ([3a4abab](https://github.com/ecomplus/storefront/commit/3a4ababb3bcd84aea84ab4587457789dce4a7952))
+
+
+
+
+
+# [1.0.0-beta.64](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.63...@ecomplus/storefront-components@1.0.0-beta.64) (2020-11-17)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.5.1 ([85259ac](https://github.com/ecomplus/storefront/commit/85259ac0e3e2d379b8dc5ab3c9ba712ba262d9ff))
+* **deps:** update @ecomplus/shopping-cart to v2.5.4 ([36a58b1](https://github.com/ecomplus/storefront/commit/36a58b1d83f99f2367904b9101d3404f36e28203))
+* **product:** fetch each kit product to get variations properly ([611ecbb](https://github.com/ecomplus/storefront/commit/611ecbb56442471473e48164bd77829a3e16edcf))
+* **product:** show variation picture on first grid option set ([192382c](https://github.com/ecomplus/storefront/commit/192382c6f14241298e2afaa721148e37e8246dde))
+* **quantity-selector:** delete item customizations (not supperted) ([ed786b9](https://github.com/ecomplus/storefront/commit/ed786b9bb145a8fd98cc72bc86deb60d1d93aa31))
+* **quantity-selector:** setting kit composition when adding to cart ([d9dc8d8](https://github.com/ecomplus/storefront/commit/d9dc8d85aa41d1a6f8ffc84f01578ae540ce33f6))
+
+
+### Features
+
+* **product-variations:** emit 'select-option' event before updating variation id ([66fa54c](https://github.com/ecomplus/storefront/commit/66fa54c912012ea6cf25893dff8b003d70451d8e))
+
+
+
+
+
+# [1.0.0-beta.63](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.62...@ecomplus/storefront-components@1.0.0-beta.63) (2020-11-12)
+
+
+### Bug Fixes
+
+* **cart-item:** prevent edit qnt on items from kit ([a2906f7](https://github.com/ecomplus/storefront/commit/a2906f7a4bede32942b261dc7368a58bacd50336))
+* **deps:** update @ecomplus/shopping-cart to v2.4.0 ([1d1585f](https://github.com/ecomplus/storefront/commit/1d1585f1c0af11f9f06c72697bd8ed68e3449beb))
+* **deps:** update @ecomplus/shopping-cart to v2.4.1 ([1ecbec0](https://github.com/ecomplus/storefront/commit/1ecbec0160acb81882e2ce96c06245c9601f7f58))
+* **deps:** update @ecomplus/shopping-cart to v2.5.0 ([c851a30](https://github.com/ecomplus/storefront/commit/c851a306aaf54ec60a66453f11576ce70ee17b9c))
+* **product:** fix preseting kit items and quantity selector props ([d5bbd6f](https://github.com/ecomplus/storefront/commit/d5bbd6fb156479375249b00af5a7fb338c19ddb7))
+* **product-card:** fix checking if product if able to quick buy ([5830d83](https://github.com/ecomplus/storefront/commit/5830d83bd2a5d5e692e22a9d63360866a3bf2f3a))
+
+
+### Features
+
+* **product:** handle kit composition and render quantity selector ([8095fc9](https://github.com/ecomplus/storefront/commit/8095fc9c39a98a00514999bc7c703376b78817f4))
+* **proquet-quickview:** optionally accepting product object prop ([1e97cc4](https://github.com/ecomplus/storefront/commit/1e97cc48189115bb49a65f2ecd8f721d5da31c61))
+* **quantity-selector:** add 'kitProductId', 'kitName' and 'kitPrice' props ([221d835](https://github.com/ecomplus/storefront/commit/221d835c3a1a51e024c201b642e0b7f358a2ae6b))
+* **quantity-selector:** add 'slug' prop and set on final cart item ([d9f4d77](https://github.com/ecomplus/storefront/commit/d9f4d776d6ff534aec66e141438380266358bd68))
+
+
+
+
+
+# [1.0.0-beta.62](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.61...@ecomplus/storefront-components@1.0.0-beta.62) (2020-11-09)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#357](https://github.com/ecomplus/storefront/issues/357)) ([63ed559](https://github.com/ecomplus/storefront/commit/63ed559c2d93c1aa133a786bb67bbc46358afd7c))
+
+
+
+
+
+# [1.0.0-beta.61](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.60...@ecomplus/storefront-components@1.0.0-beta.61) (2020-11-03)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#344](https://github.com/ecomplus/storefront/issues/344)) ([ae49403](https://github.com/ecomplus/storefront/commit/ae4940343a6c656efef8f7536e16b5f88e3f48dd))
+* **search-engine:** must reset page number (1) on sort change ([a448302](https://github.com/ecomplus/storefront/commit/a448302a300f7004f910e6124d05b1b62209cba2))
+
+
+
+
+
+# [1.0.0-beta.60](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.59...@ecomplus/storefront-components@1.0.0-beta.60) (2020-10-26)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.3.0 ([a4e3066](https://github.com/ecomplus/storefront/commit/a4e3066a5d89869a1632b6e564eaef4a9198915f))
+* **deps:** update @ecomplus/shopping-cart to v2.3.1 ([c13312d](https://github.com/ecomplus/storefront/commit/c13312da1e7d675e3ad3b79dd4c5f38c899373ba))
+* **product-card:** do not add directly to cart when has customization fields ([1d87cb8](https://github.com/ecomplus/storefront/commit/1d87cb83f45e4c9b9a8d58ac19adff923abd66b2))
+
+
+### Features
+
+* **cart-item:** show item customizations when exists ([bbdd195](https://github.com/ecomplus/storefront/commit/bbdd19588ca3efcf8ed0bce29f9d0c2c102b4fb5))
+* **product:** handling product customization fields ([90ea59f](https://github.com/ecomplus/storefront/commit/90ea59f069578abaa341d31e7e7af9f283d0b358))
+
+
+
+
+
+# [1.0.0-beta.59](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.58...@ecomplus/storefront-components@1.0.0-beta.59) (2020-10-14)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#332](https://github.com/ecomplus/storefront/issues/332)) ([b8c0abc](https://github.com/ecomplus/storefront/commit/b8c0abc6937636157df27287ea2478374fa842ad))
+
+
+
+
+
+# [1.0.0-beta.58](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.57...@ecomplus/storefront-components@1.0.0-beta.58) (2020-10-06)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.57](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.56...@ecomplus/storefront-components@1.0.0-beta.57) (2020-10-02)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.2.0 ([920c4b6](https://github.com/ecomplus/storefront/commit/920c4b6664b53036af34337a103be2e10c7909ff))
+* **quantity-selector:** fix handling max quantity and alerts ([80b34e6](https://github.com/ecomplus/storefront/commit/80b34e62c4f5f995467fc7a3cec6d0ef718ecc16))
+
+
+### Features
+
+* **quantity-selector:** add new component QuantitySelector :tada: [#287](https://github.com/ecomplus/storefront/issues/287) ([#302](https://github.com/ecomplus/storefront/issues/302)) ([92797b3](https://github.com/ecomplus/storefront/commit/92797b3fe86532b2146557ed239b6ddc8ce3a0d0))
+
+
+
+
+
 # [1.0.0-beta.56](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.55...@ecomplus/storefront-components@1.0.0-beta.56) (2020-09-14)
 
 

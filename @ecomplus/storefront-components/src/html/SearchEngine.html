@@ -188,6 +188,7 @@
                   v-for="({ value, label }, index) in sortOptions"
                   :key="`sort-${index}`"
                   class="dropdown-item"
+                  :class="`search-engine__sort--${value}`"
                   href="#"
                   @click.prevent="setSortOrder(value)"
                   :active="selectedSortOption === value"

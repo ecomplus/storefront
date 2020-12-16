@@ -1,12 +1,14 @@
 <%
 const search = new _.EcomSearch()
-search
-  .setBrandIds([_.state._id])
-  .setSortOrder('sales')
+search.setBrandNames([_.state.name])
 %>
 
 <div class="brand-retail">
   <%- await include('/@/sections/inc/retail-grid', {
-    _, opt: { search, brand_names: [_.state.name] }
+    _, opt: {
+      search,
+      brand_names: [_.state.name],
+      sort: opt.sort
+    }
   }) %>
 </div>

@@ -12,6 +12,7 @@ export default (options = {}, elId = 'search-engine') => {
   const $searchEngine = document.getElementById(elId)
   if ($searchEngine) {
     const $dock = document.getElementById(`${elId}-dock`)
+    let $productItems
     const getScopedSlots = window.storefront && window.storefront.getScopedSlots
 
     const urlParams = new URLSearchParams(window.location.search)
@@ -20,7 +21,19 @@ export default (options = {}, elId = 'search-engine') => {
       term: urlParams.get('term'),
       page: parseInt(urlParams.get('page'), 10) || 1,
       brands: urlParams.getAll('brands[]'),
-      categories: urlParams.getAll('categories[]')
+      categories: urlParams.getAll('categories[]'),
+      defaultFilters: urlParams.getAll('filters[]').reduce((filters, gridAndOption) => {
+        const [gridId, option] = gridAndOption.split(':')
+        if (!filters[gridId]) {
+          filters[gridId] = []
+        }
+        filters[gridId].push(option)
+        return filters
+      }, {})
+    }
+    const { sort } = $searchEngine.dataset
+    if (sort) {
+      props.defaultSort = sort
     }
 
     ;['brands', 'categories'].forEach(resource => {
@@ -34,7 +47,6 @@ export default (options = {}, elId = 'search-engine') => {
         if (props[resource] && props[resource].length < 2) {
           props[`isFixed${resource.charAt(0).toUpperCase()}${resource.slice(1)}`] = true
         }
-        props.defaultSort = 'sales'
         props.hasPopularItems = false
       }
     })
@@ -63,13 +75,35 @@ export default (options = {}, elId = 'search-engine') => {
             vm.term = term
           }
         }
+
         if ($dock) {
           on.fetch = function ({ fetching }) {
-            fetching.then(() => {
+            fetching.then(result => {
               vm.countRequests++
-              if (vm.countRequests > 1 && !vm.canShowItems) {
+              const renderNewItems = () => {
                 vm.canShowItems = true
                 $('#search-engine-snap').remove()
+              }
+              if (!vm.canShowItems) {
+                if (vm.countRequests > 1) {
+                  renderNewItems()
+                } else if (result && result.hits) {
+                  if (!$productItems || $productItems.length !== result.hits.hits.length) {
+                    renderNewItems()
+                  } else {
+                    let isSameItems = true
+                    const { hits } = result.hits
+                    for (let i = 0; i < hits.length; i++) {
+                      if (!$productItems.find(`[data-product-id="${hits[i]._id}"]`).length) {
+                        isSameItems = false
+                        break
+                      }
+                    }
+                    if (!isSameItems) {
+                      renderNewItems()
+                    }
+                  }
+                }
               }
             })
           }
@@ -99,7 +133,7 @@ export default (options = {}, elId = 'search-engine') => {
       }))
 
       const mount = () => vueApp.$mount($dock)
-      const $productItems = $('#search-engine-snap .product-item')
+      $productItems = $('#search-engine-snap .product-item')
       if ($productItems.length) {
         const observer = new window.MutationObserver(() => {
           clearTimeout(fallbackTimer)

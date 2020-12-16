@@ -12,6 +12,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Optimize with Calibre's image actions
-        uses: docker://calibreapp/github-image-actions@sha256:db1ef6fc6e16330deba681516d80feac03b2752b999713a71faa4d896d5477d1
+        uses: docker://calibreapp/github-image-actions@sha256:23bdfdb399f490dacc86c88cc79c391d76e7ffc1781db586cb28b36b7ca98fb7
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

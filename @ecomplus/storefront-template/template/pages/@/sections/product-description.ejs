@@ -8,7 +8,7 @@
       <div class="html-clearfix">
         <%- _.state.body_html.replace(
           /<img ([^/>]+)?src=['"]([^'"]+)['"]([^/>]+)?\/?>/g,
-          '<img class="lozad" data-src="$2" $1>'
+          '<img class="lozad" data-src="$2" $1 $3>'
         ).replace(
           /<img class="lozad" data-src="([^'"]+)"([^>]+)class=['"]([^'"]+)['"]([^/>]+)?>/g,
           '<img class="lozad $3" data-src="$1" $2 $4>'
