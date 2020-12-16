@@ -15,7 +15,7 @@
     "preversion": "lerna run build --since",
     "version": "GH_TOKEN=$(grep GH_TOKEN .env | cut -d '=' -f2) lerna version",
     "release": "lerna publish from-git",
-    "release:all": "npm run version -- --force-publish && npm run release",
+    "release:all": "npm run version -- --force-publish && lerna publish from-git",
     "docs:dev": "vuepress dev",
     "docs:build": "vuepress build",
     "themes:build": "node ./scripts/build-themes.js"
