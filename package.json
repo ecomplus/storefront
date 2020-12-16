@@ -39,7 +39,7 @@
     "@vue/cli-plugin-router": "^4.5.9",
     "@vue/cli-plugin-vuex": "^4.5.9",
     "@vue/cli-service": "^4.5.9",
-    "@vue/eslint-config-standard": "^5.1.2",
+    "@vue/eslint-config-standard": "^6.0.0",
     "animate.css": "^3.7.2",
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
