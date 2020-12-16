@@ -3,6 +3,301 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.103](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.102...@ecomplus/storefront-template@2.0.0-beta.103) (2020-12-16)
+
+
+### Performance Improvements
+
+* **product-pictures:** use 'crossorigin=anonymous' with new cdn images ([a1fd64b](https://github.com/ecomplus/storefront/commit/a1fd64b46d04f680f2023a2acfd9eb1266f42bee))
+* **sw:** setup register sw before page load (/head) ([fda1682](https://github.com/ecomplus/storefront/commit/fda1682ea8714795e81e723c2cd897d2ebccc3cf))
+
+
+
+
+
+# [2.0.0-beta.102](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.101...@ecomplus/storefront-template@2.0.0-beta.102) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.101](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.100...@ecomplus/storefront-template@2.0.0-beta.101) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.100](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.99...@ecomplus/storefront-template@2.0.0-beta.100) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.99](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.98...@ecomplus/storefront-template@2.0.0-beta.99) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.98](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.97...@ecomplus/storefront-template@2.0.0-beta.98) (2020-12-15)
+
+
+### Performance Improvements
+
+* **utils:** keep webp images on macos/ios with new safari versions (supported) ([9da21a3](https://github.com/ecomplus/storefront/commit/9da21a36851a3a378e7224c3ce2f3824a6c7e60f))
+
+
+
+
+
+# [2.0.0-beta.97](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.96...@ecomplus/storefront-template@2.0.0-beta.97) (2020-12-10)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.96](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.95...@ecomplus/storefront-template@2.0.0-beta.96) (2020-12-07)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.95](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.94...@ecomplus/storefront-template@2.0.0-beta.95) (2020-12-04)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.94](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.93...@ecomplus/storefront-template@2.0.0-beta.94) (2020-12-01)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.93](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.92...@ecomplus/storefront-template@2.0.0-beta.93) (2020-12-01)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.92](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.91...@ecomplus/storefront-template@2.0.0-beta.92) (2020-11-27)
+
+
+### Bug Fixes
+
+* **cms:** edit sort option from 'name' to 'slug' ([#330](https://github.com/ecomplus/storefront/issues/330)) ([2d86a71](https://github.com/ecomplus/storefront/commit/2d86a71683d94d03620b1dadae63c4f902b75792))
+* **collection-shelf:** respect collections products order if sort unset ([74d968b](https://github.com/ecomplus/storefront/commit/74d968be0b0c06badf26450d3a5d83d1cd88ac1f))
+* **deps:** update @ecomplus/search-engine to v2.5.0 ([012ae01](https://github.com/ecomplus/storefront/commit/012ae01702f4d3077ed11bc7f8993bdc66c032d5))
+* **fetch-info:** validate discount option with payment gateway discounts ([#366](https://github.com/ecomplus/storefront/issues/366)) ([5c20a5d](https://github.com/ecomplus/storefront/commit/5c20a5df9bcc61e3beddbb38234a8be4baf0a74d))
+* **products-carousel:** wait mutation (hydration) to setup glide ([64804b9](https://github.com/ecomplus/storefront/commit/64804b9f6593205325a97cb324421853d1ac64c8))
+
+
+### Features
+
+* **cms:** optionally sort shelf/retail by name ([#330](https://github.com/ecomplus/storefront/issues/330)) ([749816d](https://github.com/ecomplus/storefront/commit/749816da739ebeca7d71f58a2ad3201f1ead6def))
+
+
+
+
+
+# [2.0.0-beta.91](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.90...@ecomplus/storefront-template@2.0.0-beta.91) (2020-11-19)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.90](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.89...@ecomplus/storefront-template@2.0.0-beta.90) (2020-11-18)
+
+
+### Bug Fixes
+
+* **metatads:** add 'og:site_name' and fix 'fb:app_id' ([73bb663](https://github.com/ecomplus/storefront/commit/73bb663e561b22b9029574b547aa82659d2a809d))
+
+
+
+
+
+# [2.0.0-beta.89](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.88...@ecomplus/storefront-template@2.0.0-beta.89) (2020-11-18)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.88](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.87...@ecomplus/storefront-template@2.0.0-beta.88) (2020-11-18)
+
+
+### Features
+
+* **cms:** collection shelf section config accepting brands and categories ([#360](https://github.com/ecomplus/storefront/issues/360)) ([1539afe](https://github.com/ecomplus/storefront/commit/1539afe52fc24c9056ce64ebdc562c4a21f11482))
+* **collection-shelf:** supporting brands and categories shelfs ([#360](https://github.com/ecomplus/storefront/issues/360)) ([e598f00](https://github.com/ecomplus/storefront/commit/e598f00a7f01f758f3e6c07fb52b0a527f12f177))
+
+
+
+
+
+# [2.0.0-beta.87](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.86...@ecomplus/storefront-template@2.0.0-beta.87) (2020-11-17)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.5.5 ([b2cf490](https://github.com/ecomplus/storefront/commit/b2cf490ee6fed76aa50a03a58680fa2ba6f912b0))
+* **product-block:** add data product id and sku to element data ([de99690](https://github.com/ecomplus/storefront/commit/de99690094d23be77f99d1f2839502aa484b1683))
+
+
+
+
+
+# [2.0.0-beta.86](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.85...@ecomplus/storefront-template@2.0.0-beta.86) (2020-11-17)
+
+
+### Bug Fixes
+
+* **collections-views:** prevents big collections breaking search api limits ([8013a20](https://github.com/ecomplus/storefront/commit/8013a209e5734e2c9e3ae597c0035c21d2433cbb))
+* **deps:** update @ecomplus/shopping-cart to v2.5.1 ([85259ac](https://github.com/ecomplus/storefront/commit/85259ac0e3e2d379b8dc5ab3c9ba712ba262d9ff))
+* **deps:** update @ecomplus/shopping-cart to v2.5.4 ([36a58b1](https://github.com/ecomplus/storefront/commit/36a58b1d83f99f2367904b9101d3404f36e28203))
+* **header:** prevent duplicated categories when preset and random ([2f2b706](https://github.com/ecomplus/storefront/commit/2f2b706e9af04f9294e4c9c2461c906f3106df16))
+
+
+### Features
+
+* **cms:** nested merge by type for list widgets ([1e3ecca](https://github.com/ecomplus/storefront/commit/1e3eccacf35a16ff5f03a41704550ed488f5ddc0))
+
+
+
+
+
+# [2.0.0-beta.85](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.84...@ecomplus/storefront-template@2.0.0-beta.85) (2020-11-12)
+
+
+### Bug Fixes
+
+* **cdn-scripts:** fallback to unpkng cdn when first option is down ([6949cf6](https://github.com/ecomplus/storefront/commit/6949cf6082964b9b8bb20385aac5d19020eec0cd))
+* **deps:** update @ecomplus/shopping-cart to v2.4.0 ([1d1585f](https://github.com/ecomplus/storefront/commit/1d1585f1c0af11f9f06c72697bd8ed68e3449beb))
+* **deps:** update @ecomplus/shopping-cart to v2.4.1 ([1ecbec0](https://github.com/ecomplus/storefront/commit/1ecbec0160acb81882e2ce96c06245c9601f7f58))
+* **deps:** update @ecomplus/shopping-cart to v2.5.0 ([c851a30](https://github.com/ecomplus/storefront/commit/c851a306aaf54ec60a66453f11576ce70ee17b9c))
+
+
+
+
+
+# [2.0.0-beta.84](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.83...@ecomplus/storefront-template@2.0.0-beta.84) (2020-11-09)
+
+
+### Bug Fixes
+
+* **cms:** disable preview for footer/header/menu (not implemented yet) ([8aa37ee](https://github.com/ecomplus/storefront/commit/8aa37ee86a3e24ce1128a0fa469158b1db8de1fd))
+* **cms:** fix merging array of nested object from custom config file ([539907e](https://github.com/ecomplus/storefront/commit/539907e3e63c61c6e6010df24d25b95056874516))
+* **deps:** update all non-major dependencies ([#357](https://github.com/ecomplus/storefront/issues/357)) ([63ed559](https://github.com/ecomplus/storefront/commit/63ed559c2d93c1aa133a786bb67bbc46358afd7c))
+
+
+
+
+
+# [2.0.0-beta.83](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.82...@ecomplus/storefront-template@2.0.0-beta.83) (2020-11-05)
+
+
+### Bug Fixes
+
+* **cms:** make pagination and limit fields optional on shelf section ([408213b](https://github.com/ecomplus/storefront/commit/408213b23d5e2ae21e46434b167e95eb27eabc28))
+* **product-description:** fix parsing description images to lazy load (keep attrs) ([a49a99a](https://github.com/ecomplus/storefront/commit/a49a99a6127b0b9799d2482ce4e0e2ffe3efe6e2))
+
+
+
+
+
+# [2.0.0-beta.82](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.81...@ecomplus/storefront-template@2.0.0-beta.82) (2020-11-03)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#344](https://github.com/ecomplus/storefront/issues/344)) ([ae49403](https://github.com/ecomplus/storefront/commit/ae4940343a6c656efef8f7536e16b5f88e3f48dd))
+
+
+### Features
+
+* **cms:** add 'description' field to page title section and update hints ([ae09edd](https://github.com/ecomplus/storefront/commit/ae09edd95adaeef488328c9f05dda9342245caa5))
+* **cms:** add pagination options for collection shelf section ([ba55ff4](https://github.com/ecomplus/storefront/commit/ba55ff42bf2c6b68120801aeb448da42755e611f))
+* **cms:** handling optional default sort for categories, brands and collections ([9f280af](https://github.com/ecomplus/storefront/commit/9f280afe56064ce1a608653994e07b68e5e76bed))
+
+
+
+
+
+# [2.0.0-beta.81](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.80...@ecomplus/storefront-template@2.0.0-beta.81) (2020-10-26)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.3.0 ([a4e3066](https://github.com/ecomplus/storefront/commit/a4e3066a5d89869a1632b6e564eaef4a9198915f))
+* **deps:** update @ecomplus/shopping-cart to v2.3.1 ([c13312d](https://github.com/ecomplus/storefront/commit/c13312da1e7d675e3ad3b79dd4c5f38c899373ba))
+* **prerender-retails:** search products by brand/category name ([212212e](https://github.com/ecomplus/storefront/commit/212212e6835f821bcff4d00f688212110060032d))
+
+
+### Features
+
+* **404-fallback:** try client side route and content render on 404 page ([c35fa40](https://github.com/ecomplus/storefront/commit/c35fa4018ab4da7a929f818031a4ceb41c32158c))
+
+
+
+
+
+# [2.0.0-beta.80](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.79...@ecomplus/storefront-template@2.0.0-beta.80) (2020-10-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.79](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.78...@ecomplus/storefront-template@2.0.0-beta.79) (2020-10-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.78](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.77...@ecomplus/storefront-template@2.0.0-beta.78) (2020-10-14)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.77](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.76...@ecomplus/storefront-template@2.0.0-beta.77) (2020-10-14)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#332](https://github.com/ecomplus/storefront/issues/332)) ([b8c0abc](https://github.com/ecomplus/storefront/commit/b8c0abc6937636157df27287ea2478374fa842ad))
+
+
+
+
+
 # [2.0.0-beta.76](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.75...@ecomplus/storefront-template@2.0.0-beta.76) (2020-10-07)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

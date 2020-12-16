@@ -97,6 +97,7 @@ export default {
       hasFreeOption: false,
       freeFromValue: null,
       isScheduled: false,
+      retryTimer: null,
       isWaiting: false,
       hasCalculated: false
     }
@@ -128,7 +129,7 @@ export default {
       this.$emit('update:zip-code', this.localZipCode)
     },
 
-    parseShippingOptions (shippingResult = [], isRetry) {
+    parseShippingOptions (shippingResult = [], isRetry = false) {
       this.shippingServices = []
       if (shippingResult.length) {
         shippingResult.forEach(appResult => {
@@ -153,18 +154,19 @@ export default {
           if (!isRetry) {
             this.fetchShippingServices(true)
           } else {
-            setTimeout(() => {
-              if (this.localZipCode && !this.shippingServices.length) {
-                this.fetchShippingServices(true)
-              }
-            }, 7500)
+            this.scheduleRetry()
           }
         } else {
           this.shippingServices = this.shippingServices.sort((a, b) => {
             const priceDiff = a.shipping_line.total_price - b.shipping_line.total_price
-            return priceDiff < 0 ? -1 : priceDiff > 0 ? 1
-              : a.shipping_line.delivery_time && b.shipping_line.delivery_time &&
-                a.shipping_line.delivery_time.days < b.shipping_line.delivery_time.days ? -1 : 1
+            return priceDiff < 0
+              ? -1
+              : priceDiff > 0
+                ? 1
+                : a.shipping_line.delivery_time && b.shipping_line.delivery_time &&
+                  a.shipping_line.delivery_time.days < b.shipping_line.delivery_time.days
+                  ? -1
+                  : 1
           })
           this.setSelectedService(0)
           this.hasFreeOption = Boolean(this.shippingServices.find(service => {
@@ -175,6 +177,15 @@ export default {
           }
         }
       }
+    },
+
+    scheduleRetry (timeout = 10000) {
+      clearTimeout(this.retryTimer)
+      this.retryTimer = setTimeout(() => {
+        if (this.localZipCode && !this.shippingServices.length) {
+          this.fetchShippingServices(true)
+        }
+      }, timeout)
     },
 
     fetchShippingServices (isRetry) {
@@ -199,7 +210,12 @@ export default {
           this.isWaiting = true
           modules({ url, method, storeId, data })
             .then(({ data }) => this.parseShippingOptions(data.result, isRetry))
-            .catch(console.error)
+            .catch(err => {
+              if (!isRetry) {
+                this.scheduleRetry(4000)
+              }
+              console.error(err)
+            })
             .finally(() => {
               this.hasCalculated = true
               this.isWaiting = false

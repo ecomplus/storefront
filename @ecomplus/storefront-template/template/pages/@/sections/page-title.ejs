@@ -15,9 +15,12 @@ if (title) {
         <%= title %>
       </h1>
     </div>
-    <% if (_.state.short_description) { %>
+    <%
+    const description = opt.description || _.state.short_description
+    if (description) {
+      %>
       <div class="page-title__short-description lead">
-        <%= _.state.short_description %>
+        <%= description %>
       </div>
     <% } %>
   </div>

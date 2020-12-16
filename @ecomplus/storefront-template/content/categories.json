@@ -13,7 +13,8 @@
     },
     {
       "type": "category-retail",
-      "enabled": true
+      "enabled": true,
+      "sort": "sales"
     },
     {
       "type": "document-description",

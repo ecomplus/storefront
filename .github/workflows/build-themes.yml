@@ -1,0 +1,43 @@
+name: Build themes
+
+on:
+  registry_package:
+    action:
+      - updated
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/build-themes.yml'
+      - 'scripts/build-themes.js'
+
+jobs:
+  build-themes:
+    name: Build Storefront themes
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event.registry_package.name == 'storefront-template'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run build
+        run: npm run themes:build
+
+      - name: Push output CSS to custom branch
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: themes-dist
+          FOLDER: dist/themes
+          CLEAN: true

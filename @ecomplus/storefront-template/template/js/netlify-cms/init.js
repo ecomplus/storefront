@@ -25,9 +25,41 @@ export default (customConfig, options) => new Promise(resolve => {
   axios.get('/admin/config.json')
     .then(({ data }) => {
       if (typeof data === 'object' && data) {
+        if (Array.isArray(data.collections)) {
+          const mergeNestedObj = (originalObj, obj) => {
+            if (Array.isArray(originalObj.files)) {
+              if (Array.isArray(obj.files)) {
+                upsertFields(originalObj, obj, 'files')
+              }
+            } else if (Array.isArray(obj.fields)) {
+              upsertFields(originalObj, obj, 'fields')
+            } else if (Array.isArray(obj.types)) {
+              upsertFields(originalObj, obj, 'types')
+            }
+            Object.assign(originalObj, obj)
+          }
+
+          const upsertFields = (config, data, prop) => {
+            data[prop].forEach(obj => {
+              if (obj.name) {
+                const originalObj = config[prop].find(({ name }) => name === obj.name)
+                if (originalObj) {
+                  mergeNestedObj(originalObj, obj)
+                } else {
+                  config[prop].push(obj)
+                }
+              } else {
+                config[prop].forEach(originalObj => mergeNestedObj(originalObj, obj))
+              }
+            })
+            delete data[prop]
+          }
+          upsertFields(config, data, 'collections')
+        }
         config = merge(config, data)
       }
     })
+
     .catch(() => console.log('No custom config file at /admin/config.json'))
     .finally(() => {
       initCms(config)

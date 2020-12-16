@@ -52,6 +52,8 @@ Change the dev server port number, you may replace _8080_ by what you want;
 Detailed output of Webpack compilation process;
 - `--analyze`:
 Open [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) with dev server;
+- `--sw`:
+Force setup manifest and Service Worker on dev server;
 - `--prerender=index,app/index`:
 List URLs to be prerendered (defaults to all);
 - `--prerender-limit=50`:

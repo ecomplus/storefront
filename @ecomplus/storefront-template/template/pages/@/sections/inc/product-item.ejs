@@ -48,6 +48,9 @@ if (imgObj) {
               data-src="<%= imgObj.url %>"
               alt="<%= imgObj.alt %>"
               class="lozad-delay fade"
+              <% if (imgObj.url.startsWith('https://ecoms1')) { %>
+                crossorigin="anonymous"
+              <% } %>
             >
           </picture>
         <% } %>

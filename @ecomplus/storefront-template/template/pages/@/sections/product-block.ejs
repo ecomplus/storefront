@@ -1,6 +1,12 @@
 <div id="product-block" class="product-block my-4 mb-lg-5">
   <div class="container">
-    <section id="product" class="product" data-to-render="true">
+    <section
+      id="product"
+      class="product"
+      data-to-render="true"
+      data-product-id="<%= _.state._id %>"
+      data-sku="<%= _.state.sku %>"
+    >
       <div id="product-dock">
         <!--
           `TheProduct` should be rendered (hydrated) here:
@@ -29,6 +35,9 @@
                   <img
                     src="<%= imgObj.url.replace(/\.webp$/, '') %>"
                     alt="<%= imgObj.alt %>"
+                    <% if (imgObj.url.startsWith('https://ecoms1')) { %>
+                      crossorigin="anonymous"
+                    <% } %>
                   >
                 </picture>
               </div>
@@ -76,7 +85,11 @@
                 >
                   <div data-slot="buy-button-content">
                     <i class="fas fa-shopping-bag mr-1"></i>
-                    <%= _.dictionary('buy') %>
+                    <% if (_.state.kit_composition && _.state.kit_composition.length) { %>
+                      <%= _.dictionary('buyKit') %>
+                    <% } else { %>
+                      <%= _.dictionary('buy') %>
+                    <% } %>
                   </div>
                 </button>
               </div>

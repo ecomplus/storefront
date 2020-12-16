@@ -48,7 +48,7 @@ const bundler = new Promise(resolve => {
     // try to read cached bundler result
     let cache
     try {
-      cache = require(path.join(process.cwd(), '.bundles.json'))
+      cache = require(process.env.STOREFRONT_BUNDLES_PATH || path.join(process.cwd(), '.bundles.json'))
     } catch (e) {
     }
     resolve({
@@ -65,13 +65,29 @@ bundler.then(async ({ assetsByChunkName }) => {
     (err, { outputFilename, refFilename }) => {
       if (!err) {
         // copy file as fallback
-        fs.copyFileSync(
-          path.join(paths.output, outputFilename),
-          path.join(paths.output, refFilename)
-        )
+        try {
+          fs.copyFileSync(
+            path.join(paths.output, outputFilename),
+            path.join(paths.output, refFilename)
+          )
+        } catch (err) {
+          if (canBundle) {
+            throw err
+          }
+        }
       }
     }
   )
+
+  // debug prerender config
+  let maximumViews = prerenderLimit
+  if (prerenderUrls) {
+    console.log(`--> Prerender URLs "${prerenderUrls.join(', ')}"\n \n`)
+    maximumViews += prerenderUrls.length
+  }
+  if (maximumViews > 0) {
+    console.log(`--> Prerendering up to ${maximumViews} views\n \n`)
+  }
 
   const prerender = (url, route) => new Promise(resolve => {
     if (prerenderUrls) {
@@ -113,7 +129,8 @@ bundler.then(async ({ assetsByChunkName }) => {
         if (html) {
           html = minifyHtml(html, entryAssetsReference)
           // save HTML file on output folder
-          const filename = /\.x?(ht)?ml$/.test(paths.output) ? url
+          const filename = /\.x?(ht)?ml$/.test(paths.output)
+            ? url
             : url.endsWith('/') ? `${url}index.html` : `${url}.html`
           const filepath = path.join(paths.output, filename)
           // create directories for if needed
@@ -147,7 +164,12 @@ bundler.then(async ({ assetsByChunkName }) => {
   // list and prerender all storefront routes
   const router = new StorefrontRouter(storeId)
   const routes = await router.list()
-  await routes.forEach(route => prerender(route.path, route))
+  const simultaneous = 20
+  for (let i = 0; i < Math.ceil(routes.length / simultaneous); i++) {
+    const start = i * simultaneous
+    await Promise.all(routes.slice(start, start + simultaneous)
+      .map(route => prerender(route.path, route)))
+  }
 
   // build all CMS folder collection slugs
   for (let i = 0; i < cmsCollections.length; i++) {

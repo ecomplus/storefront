@@ -49,6 +49,7 @@ const prepareCartItem = item => {
     'name',
     'picture',
     'customizations',
+    'kit_product',
     'gift_wrap',
     'quantity',
     'min_quantity',
@@ -113,8 +114,7 @@ const upsertCart = () => {
         .catch(console.error)
     }
     return method === 'POST'
-      ? tryRequestApi()
-        .then(({ data }) => {
+      ? tryRequestApi().then(({ data }) => {
           fetchCart(data._id)
           setTimeout(() => {
             ecomPassport.requestApi(`/carts/${data._id}.json`, 'PATCH', {

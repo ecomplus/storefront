@@ -15,6 +15,16 @@ export default dataLayer => {
       return products
     }
 
+    const emitCheckoutOption = actionField => {
+      dataLayer.push({
+        event: 'eec.checkout_option',
+        ecommerce: {
+          currencyCode,
+          checkout_option: { actionField }
+        }
+      })
+    }
+
     const emitCheckout = (step, option) => {
       const actionField = { step, option }
       if (step <= 1 || !isCartSent) {
@@ -31,19 +41,13 @@ export default dataLayer => {
         dataLayer.push({ event: 'checkout' })
         isCartSent = true
       } else if (!isCheckoutSent) {
-        dataLayer.push({
-          event: 'eec.checkout_option',
-          ecommerce: {
-            currencyCode,
-            checkout_option: { actionField }
-          }
-        })
+        emitCheckoutOption(actionField)
         dataLayer.push({ event: 'checkoutOption' })
         isCheckoutSent = true
       }
     }
 
-    const emitPurchase = orderId => {
+    const emitPurchase = (orderId, orderJson) => {
       if (!isPurchaseSent) {
         const { amount } = window.storefrontApp
         const actionField = {
@@ -63,6 +67,27 @@ export default dataLayer => {
           }
         }
 
+        let order
+        if (orderJson) {
+          try {
+            order = JSON.parse(orderJson)
+          } catch (e) {
+          }
+        }
+        if (order) {
+          ;['payment_method_label', 'shipping_method_label'].forEach((field, i) => {
+            if (order[field]) {
+              emitCheckoutOption({
+                step: 3 + i,
+                option: order[field]
+              })
+            }
+          })
+          if (order.extra_discount && order.extra_discount.discount_coupon) {
+            actionField.coupon = order.extra_discount.discount_coupon
+          }
+        }
+
         dataLayer.push({
           event: 'eec.purchase',
           ecommerce: {
@@ -77,6 +102,7 @@ export default dataLayer => {
       }
     }
 
+    let emitPurchaseTimer
     const addRouteToData = ({ name, params }) => {
       switch (name) {
         case 'cart':
@@ -86,7 +112,14 @@ export default dataLayer => {
           emitCheckout(2, 'Confirm Purchase')
           break
         case 'confirmation':
-          emitPurchase(params.id)
+          clearTimeout(emitPurchaseTimer)
+          if (params.json) {
+            emitPurchase(params.id, decodeURIComponent(params.json))
+          } else {
+            emitPurchaseTimer = setTimeout(() => {
+              emitPurchase(params.id)
+            }, 1500)
+          }
           break
       }
     }

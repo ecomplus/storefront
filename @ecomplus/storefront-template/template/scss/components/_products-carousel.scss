@@ -46,11 +46,25 @@
     }
   }
 
-  &__item {
+  .products-carousel__item {
     padding: var(--spacer-1);
+    width: 50%;
+
+    @media (min-width: 768px) {
+      width: 33.333%;
+    }
+    @media (min-width: 992px) {
+      width: 25%;
+    }
   }
 
-  .glide__slides {
-    will-change: auto;
+  .glide {
+    &__slides {
+      will-change: auto;
+    }
+
+    &:not(.glide--slider) .glide__arrows {
+      display: none;
+    }
   }
 }

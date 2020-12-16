@@ -96,7 +96,15 @@ $product-card-picture-lg: 250px !default;
   }
 
   &__buy {
+    position: relative;
     margin-top: var(--spacer-1);
+
+    &-loading {
+      position: absolute;
+      left: var(--spacer-2);
+      top: 50%;
+      margin-top: -8px;
+    }
   }
 
   @media (hover: hover) {

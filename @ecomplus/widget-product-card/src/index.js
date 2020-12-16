@@ -6,6 +6,7 @@
 
 import Vue from 'vue'
 import lozad from 'lozad'
+import { inStock as checkInStock } from '@ecomplus/utils'
 import EcomSearch from '@ecomplus/search-engine'
 import ProductCard from '#components/ProductCard.vue'
 
@@ -55,7 +56,7 @@ export default (options = {}, elClass = 'product-card') => {
   }
 
   let preFetchPromise
-  if (productIds.length >= 6 && productIds.length <= 70 && !options.skipSearchApi) {
+  if (productIds.length >= 4 && productIds.length <= 70 && !options.skipSearchApi) {
     const search = new EcomSearch()
     preFetchPromise = search
       .setPageSize(productIds.length)
@@ -92,10 +93,16 @@ export default (options = {}, elClass = 'product-card') => {
             let isLoaded
             if (product) {
               isLoaded = true
+              if (!product.available || !product.visible || !checkInStock(product)) {
+                const $cardLi = $productCard.parentNode && $productCard.parentNode.parentNode
+                if ($cardLi && $cardLi.tagName === 'LI') {
+                  $cardLi.parentNode.appendChild($cardLi)
+                }
+              }
             } else {
-              const $parent = $productCard.parentNode
-              if ($parent) {
-                product = $parent.dataset.product
+              const $productItem = $productCard.parentNode
+              if ($productItem) {
+                product = $productItem.dataset.product
                 if (typeof product === 'string') {
                   try {
                     product = JSON.parse(product)

@@ -1,5 +1,5 @@
 import {
-  // i19buyKit,
+  i19buyKit,
   i19maxQuantity,
   i19minQuantity
 } from '@ecomplus/i18n'
@@ -10,12 +10,14 @@ import {
 } from '@ecomplus/utils'
 
 import ecomCart from '@ecomplus/shopping-cart'
+import ALink from '../ALink.vue'
 import AAlert from '../AAlert.vue'
 
 export default {
   name: 'QuantitySelector',
 
   components: {
+    ALink,
     AAlert
   },
 
@@ -29,7 +31,11 @@ export default {
       default: 1
     },
     max: Number,
+    slug: String,
     buyText: String,
+    kitProductId: String,
+    kitName: String,
+    kitPrice: Number,
     canAddToCart: {
       type: Boolean,
       default: true
@@ -75,7 +81,7 @@ export default {
     },
 
     strBuy () {
-      return this.buyText || /* i19buyKit */ 'Comprar kit'
+      return this.buyText || i18n(i19buyKit)
     }
   },
 
@@ -119,10 +125,28 @@ export default {
       if (this.totalQuantity >= this.min) {
         if (this.max === undefined || this.totalQuantity <= this.max) {
           const items = []
+          const composition = this.items.map(item => ({
+            _id: item.product_id,
+            variation_id: item.variation_id,
+            quantity: this.selectedQnts[item._id]
+          }))
           this.items.forEach(item => {
             const quantity = this.selectedQnts[item._id]
             if (quantity > 0) {
               const newItem = { ...item, quantity }
+              delete newItem.customizations
+              if (this.kitProductId) {
+                newItem.kit_product = {
+                  _id: this.kitProductId,
+                  name: this.kitName,
+                  pack_quantity: this.totalQuantity,
+                  price: this.kitPrice,
+                  composition
+                }
+              }
+              if (this.slug) {
+                newItem.slug = this.slug
+              }
               items.push(newItem)
               if (this.canAddToCart) {
                 ecomCart.addItem(newItem)
@@ -136,6 +160,12 @@ export default {
       } else {
         this.hasMinAlert = true
       }
+    }
+  },
+
+  created () {
+    if (this.max < this.items.length) {
+      this.items.forEach(item => this.changeQnt(item))
     }
   }
 }

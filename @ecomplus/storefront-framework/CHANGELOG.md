@@ -3,6 +3,217 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.16.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.17...@ecomplus/storefront-framework@5.16.0) (2020-12-16)
+
+
+### Features
+
+* **sw:** add fallbacks to network errors ([e867eec](https://github.com/ecomplus/storefront/commit/e867eecd8ad85db35c5b8764c6570a78f27a6b0e))
+* **webpack:** option (arg) to force sw even on dev mode ([13a00c0](https://github.com/ecomplus/storefront/commit/13a00c0563afa869d52f95083cbe26d11b2a41e7))
+
+
+
+
+
+## [5.15.17](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.16...@ecomplus/storefront-framework@5.15.17) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.15.16](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.15...@ecomplus/storefront-framework@5.15.16) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.15.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.14...@ecomplus/storefront-framework@5.15.15) (2020-12-15)
+
+
+### Bug Fixes
+
+* **sw:** custom plugin 'requestWillFetch' must return promise to response ([1621815](https://github.com/ecomplus/storefront/commit/1621815f1161770d432adb051b013ca88cfd68b6))
+
+
+
+
+
+## [5.15.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.13...@ecomplus/storefront-framework@5.15.14) (2020-12-15)
+
+
+### Bug Fixes
+
+* **sw:** fix to handle storage api v3 ([753dd16](https://github.com/ecomplus/storefront/commit/753dd16a1c83155d1503fbbf9e7a2c6f0e264822))
+
+
+
+
+
+## [5.15.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.12...@ecomplus/storefront-framework@5.15.13) (2020-12-10)
+
+
+### Performance Improvements
+
+* **build:** limit up to 20 simultaneos prerendering views ([731a4bf](https://github.com/ecomplus/storefront/commit/731a4bf0a69c59bf4f1780efdc92a5077e8e8045))
+
+
+
+
+
+## [5.15.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.11...@ecomplus/storefront-framework@5.15.12) (2020-12-07)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#377](https://github.com/ecomplus/storefront/issues/377)) ([5cccc36](https://github.com/ecomplus/storefront/commit/5cccc36c8069eb2d89e31ee1e9cc0b4f39020634))
+
+
+
+
+
+## [5.15.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.10...@ecomplus/storefront-framework@5.15.11) (2020-12-04)
+
+
+### Bug Fixes
+
+* **sw:** must set revision rand for app precached routes ([96c1ffb](https://github.com/ecomplus/storefront/commit/96c1ffb68ce438b8c1d6e09017ec542d9961f4cd))
+* **webpack:** include storefront js/css entries to workbox precache manifes ([d1b1327](https://github.com/ecomplus/storefront/commit/d1b1327928c8ec3ad62d48f87820f414166dfc6b))
+
+
+
+
+
+## [5.15.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.9...@ecomplus/storefront-framework@5.15.10) (2020-12-01)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.15.9](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.8...@ecomplus/storefront-framework@5.15.9) (2020-12-01)
+
+
+### Bug Fixes
+
+* **sw:** precache known important routes ([b503b8a](https://github.com/ecomplus/storefront/commit/b503b8a3c39dc477621743d04b7a85a6854c83c0))
+
+
+### Performance Improvements
+
+* **webpack:** exclude all chunks on injected manifest (prevent precache all) ([442544f](https://github.com/ecomplus/storefront/commit/442544ff3ddf212b301da6d525426a416088ab69))
+
+
+
+
+
+## [5.15.8](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.7...@ecomplus/storefront-framework@5.15.8) (2020-11-27)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.15.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.6...@ecomplus/storefront-framework@5.15.7) (2020-11-18)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.15.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.5...@ecomplus/storefront-framework@5.15.6) (2020-11-17)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#361](https://github.com/ecomplus/storefront/issues/361)) ([532ad5e](https://github.com/ecomplus/storefront/commit/532ad5e5c617c6849e98ebc52fa280daac83acfa))
+
+
+
+
+
+## [5.15.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.4...@ecomplus/storefront-framework@5.15.5) (2020-11-09)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#357](https://github.com/ecomplus/storefront/issues/357)) ([63ed559](https://github.com/ecomplus/storefront/commit/63ed559c2d93c1aa133a786bb67bbc46358afd7c))
+
+
+
+
+
+## [5.15.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.3...@ecomplus/storefront-framework@5.15.4) (2020-11-03)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#344](https://github.com/ecomplus/storefront/issues/344)) ([ae49403](https://github.com/ecomplus/storefront/commit/ae4940343a6c656efef8f7536e16b5f88e3f48dd))
+
+
+
+
+
+## [5.15.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.2...@ecomplus/storefront-framework@5.15.3) (2020-10-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency firebase-admin to v9 ([#339](https://github.com/ecomplus/storefront/issues/339)) ([ba0e82b](https://github.com/ecomplus/storefront/commit/ba0e82bdf6a5ae0ea18dbcd09f12b94dd12a2c20))
+
+
+
+
+
+## [5.15.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.1...@ecomplus/storefront-framework@5.15.2) (2020-10-15)
+
+
+### Bug Fixes
+
+* **chunk-filenames:** add 'chunk.' for easier cache handling ([0e638c6](https://github.com/ecomplus/storefront/commit/0e638c6feea5bf11996024689377188a941fe3ff))
+
+
+
+
+
+## [5.15.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.0...@ecomplus/storefront-framework@5.15.1) (2020-10-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+# [5.15.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.14.4...@ecomplus/storefront-framework@5.15.0) (2020-10-14)
+
+
+### Features
+
+* **partial-build:** try env STOREFRONT_BUNDLES_PATH to get past bundles data ([2dd7282](https://github.com/ecomplus/storefront/commit/2dd7282fc3c61dc9b0d539ffd1d23f7bb7130f03))
+
+
+
+
+
+## [5.14.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.14.3...@ecomplus/storefront-framework@5.14.4) (2020-10-14)
+
+
+### Bug Fixes
+
+* **build:** ignore bundles copy error when not running webpack (partial build) ([354e605](https://github.com/ecomplus/storefront/commit/354e605026b2a7c3e8881946544613d5301bbe01))
+* **deps:** remove not used webpack-cli ([75ecca7](https://github.com/ecomplus/storefront/commit/75ecca75b7819d7eac6fadfe2b38040cd6dfe895))
+* **deps:** update all non-major dependencies ([#332](https://github.com/ecomplus/storefront/issues/332)) ([b8c0abc](https://github.com/ecomplus/storefront/commit/b8c0abc6937636157df27287ea2478374fa842ad))
+
+
+
+
+
 ## [5.14.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.14.2...@ecomplus/storefront-framework@5.14.3) (2020-10-07)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

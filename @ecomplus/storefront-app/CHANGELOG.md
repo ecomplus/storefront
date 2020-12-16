@@ -3,6 +3,203 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.80](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.79...@ecomplus/storefront-app@2.0.0-beta.80) (2020-12-16)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.79](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.78...@ecomplus/storefront-app@2.0.0-beta.79) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.78](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.77...@ecomplus/storefront-app@2.0.0-beta.78) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.77](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.76...@ecomplus/storefront-app@2.0.0-beta.77) (2020-12-15)
+
+
+### Bug Fixes
+
+* **order-info:** parse transaction notes html (gateway text/description) ([d895f11](https://github.com/ecomplus/storefront/commit/d895f11d037f47849f4788a2c2fc74b2b196e571))
+
+
+
+
+
+# [2.0.0-beta.76](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.75...@ecomplus/storefront-app@2.0.0-beta.76) (2020-12-07)
+
+
+### Bug Fixes
+
+* **order-info:** prefer showing payment method name than label ([3ba5177](https://github.com/ecomplus/storefront/commit/3ba51775b46d8972fcaeab31cf418b6c0652d3aa))
+
+
+### Features
+
+* **payment-methods:** add 'defaultAppId' prop ([c444979](https://github.com/ecomplus/storefront/commit/c44497987a8c19dc8870c2668acaa9ef1d02c835)), closes [#379](https://github.com/ecomplus/storefront/issues/379)
+
+
+
+
+
+# [2.0.0-beta.75](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.74...@ecomplus/storefront-app@2.0.0-beta.75) (2020-12-04)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.74](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.73...@ecomplus/storefront-app@2.0.0-beta.74) (2020-12-01)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.73](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.72...@ecomplus/storefront-app@2.0.0-beta.73) (2020-11-27)
+
+
+### Bug Fixes
+
+* **summary:** don't show items with 0 quantity ([d650524](https://github.com/ecomplus/storefront/commit/d6505240bc3a87fd4c4cc352da093220524d66c5))
+* **summary:** set 'isAmountTotal' on prices (total) ([f21e591](https://github.com/ecomplus/storefront/commit/f21e591bf69b6198648b3afff9d7446f23b585d1))
+
+
+
+
+
+# [2.0.0-beta.72](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.71...@ecomplus/storefront-app@2.0.0-beta.72) (2020-11-18)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.71](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.70...@ecomplus/storefront-app@2.0.0-beta.71) (2020-11-18)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.70](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.69...@ecomplus/storefront-app@2.0.0-beta.70) (2020-11-17)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.5.5 ([b2cf490](https://github.com/ecomplus/storefront/commit/b2cf490ee6fed76aa50a03a58680fa2ba6f912b0))
+
+
+
+
+
+# [2.0.0-beta.69](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.68...@ecomplus/storefront-app@2.0.0-beta.69) (2020-11-17)
+
+
+### Bug Fixes
+
+* **checkout:** prevent crealing kit composition arrays ([9e042ca](https://github.com/ecomplus/storefront/commit/9e042ca03ee25611703457f3685285f790bc5096))
+* **deps:** update @ecomplus/shopping-cart to v2.5.1 ([85259ac](https://github.com/ecomplus/storefront/commit/85259ac0e3e2d379b8dc5ab3c9ba712ba262d9ff))
+* **deps:** update @ecomplus/shopping-cart to v2.5.4 ([36a58b1](https://github.com/ecomplus/storefront/commit/36a58b1d83f99f2367904b9101d3404f36e28203))
+
+
+
+
+
+# [2.0.0-beta.68](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.67...@ecomplus/storefront-app@2.0.0-beta.68) (2020-11-12)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.4.0 ([1d1585f](https://github.com/ecomplus/storefront/commit/1d1585f1c0af11f9f06c72697bd8ed68e3449beb))
+* **deps:** update @ecomplus/shopping-cart to v2.4.1 ([1ecbec0](https://github.com/ecomplus/storefront/commit/1ecbec0160acb81882e2ce96c06245c9601f7f58))
+* **deps:** update @ecomplus/shopping-cart to v2.5.0 ([c851a30](https://github.com/ecomplus/storefront/commit/c851a306aaf54ec60a66453f11576ce70ee17b9c))
+* **order-info:** explicitly set 'canSave' false on buy again add items ([2bc7ae8](https://github.com/ecomplus/storefront/commit/2bc7ae8e0b6e8e951c467cbfa5b76ce42304f181))
+* **sync-cart-to-api:** preserve 'kit_product' item field ([a50f5c7](https://github.com/ecomplus/storefront/commit/a50f5c78282f706eaa63bcb8b9af25ac18312600))
+
+
+### Features
+
+* **checkout:** validate cart items with kit products ([fa3148e](https://github.com/ecomplus/storefront/commit/fa3148ed4fbc367b2e8d160d5f4049d679fe8f94))
+
+
+
+
+
+# [2.0.0-beta.67](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.66...@ecomplus/storefront-app@2.0.0-beta.67) (2020-11-09)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#357](https://github.com/ecomplus/storefront/issues/357)) ([63ed559](https://github.com/ecomplus/storefront/commit/63ed559c2d93c1aa133a786bb67bbc46358afd7c))
+
+
+
+
+
+# [2.0.0-beta.66](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.65...@ecomplus/storefront-app@2.0.0-beta.66) (2020-11-05)
+
+
+### Bug Fixes
+
+* **order-info:** show transaction notes on warning alert ([1e21c89](https://github.com/ecomplus/storefront/commit/1e21c89d08ed444612ea8ccf8ee34884086e3f7e))
+* **order-info:** show transaction notes on warning alert (typo) ([bb114b4](https://github.com/ecomplus/storefront/commit/bb114b4012fd37f100a59c2ab18e69ed5ff6c580))
+
+
+
+
+
+# [2.0.0-beta.65](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.64...@ecomplus/storefront-app@2.0.0-beta.65) (2020-11-03)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#344](https://github.com/ecomplus/storefront/issues/344)) ([ae49403](https://github.com/ecomplus/storefront/commit/ae4940343a6c656efef8f7536e16b5f88e3f48dd))
+
+
+
+
+
+# [2.0.0-beta.64](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.63...@ecomplus/storefront-app@2.0.0-beta.64) (2020-10-26)
+
+
+### Bug Fixes
+
+* **checkout:** fix items final price after fetch ([bea5305](https://github.com/ecomplus/storefront/commit/bea53053dce5b537ef19b0e9d5d5aac9124c3ad2))
+* **deps:** update @ecomplus/shopping-cart to v2.3.0 ([a4e3066](https://github.com/ecomplus/storefront/commit/a4e3066a5d89869a1632b6e564eaef4a9198915f))
+* **deps:** update @ecomplus/shopping-cart to v2.3.1 ([c13312d](https://github.com/ecomplus/storefront/commit/c13312da1e7d675e3ad3b79dd4c5f38c899373ba))
+
+
+
+
+
+# [2.0.0-beta.63](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.62...@ecomplus/storefront-app@2.0.0-beta.63) (2020-10-14)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#332](https://github.com/ecomplus/storefront/issues/332)) ([b8c0abc](https://github.com/ecomplus/storefront/commit/b8c0abc6937636157df27287ea2478374fa842ad))
+
+
+
+
+
 # [2.0.0-beta.62](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.61...@ecomplus/storefront-app@2.0.0-beta.62) (2020-10-06)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

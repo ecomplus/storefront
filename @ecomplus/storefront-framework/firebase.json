@@ -1,6 +1,11 @@
 {
   "functions": {
-    "predeploy": "cp -r template functions/; cp -r content functions/; cp .bundles.json functions/",
+    "predeploy": [
+      "cp -r template functions/; cp -r content functions/; cp .bundles.json functions/",
+      "mkdir -p functions/template/pages/@ecomplus",
+      "cp -r node_modules/@ecomplus/widget-* functions/template/pages/@ecomplus/ 2>/dev/null || :",
+      "rm -rf functions/template/pages/**/node_modules"
+    ],
     "postdeploy": "rm -rf functions/template; rm -rf functions/content",
     "source": "functions"
   },
@@ -13,7 +18,7 @@
     ],
     "rewrites": [
       {
-        "source": "**/*",
+        "source": "**/!(*(*.)js|*(*.)css|*(*.)ico|*(*.)png)",
         "function": "ssr"
       }
     ],
@@ -55,7 +60,7 @@
         ]
       },
       {
-        "source": "**/*.?????*.@(js|css|png|gif|jpg|jpeg|webp|svg)",
+        "source": "**/*.?????*.@(js|css|png|gif|jpg|jpeg|webp|svg|ico|woff|woff2|otf|ttf|eot)",
         "headers": [
           {
             "key": "cache-control",

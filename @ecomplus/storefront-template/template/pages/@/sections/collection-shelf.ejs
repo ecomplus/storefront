@@ -1,23 +1,36 @@
 <%
-const { title, link, shuffle, headless } = opt
+let { title, link, shuffle, headless } = opt
 let items, collection
 if (opt.sort || opt.collection_id) {
-  let search
+  let search, productIds
   if (opt.collection_id) {
-    let res
-    try {
-      res = await _.ecomClient.store({
-        url: `/collections/${opt.collection_id}.json`
-      })
-    } catch (err) {
-      console.error(err)
+    const [_id, resource, name, path] = opt.collection_id.split(':')
+    if (!title) {
+      title = name
     }
-    if (res) {
-      collection = res.data
-      items = []
-      if (Array.isArray(collection.products) && collection.products.length) {
-        search = new _.EcomSearch()
-        search.setProductIds(collection.products)
+    if (!link) {
+      link = path
+    }
+
+    if (resource === 'categories') {
+      search = new _.EcomSearch().setCategoryIds([_id])
+    } else if (resource === 'brands') {
+      search = new _.EcomSearch().setBrandIds([_id])
+    } else {
+      let res
+      try {
+        res = await _.ecomClient.store({
+          url: `/collections/${_id}.json`
+        })
+      } catch (err) {
+        console.error(err)
+      }
+      if (res) {
+        collection = res.data
+        productIds = collection.products
+        if (Array.isArray(productIds) && productIds.length) {
+          search = new _.EcomSearch().setProductIds(productIds.slice(0, 70))
+        }
       }
     }
   } else {
@@ -28,11 +41,28 @@ if (opt.sort || opt.collection_id) {
     if (opt.sort) {
       search.setSortOrder(opt.sort)
     }
-    await search.fetch()
-    items = search.getItems()
+    if (opt.limit > 0) {
+      search.setPageSize(opt.limit)
+    }
+    if (opt.page >= 2) {
+      search.setPageNumber(opt.page)
+    }
+    try {
+      await search.fetch()
+      items = search.getItems()
+    } catch (err) {
+      console.error(err)
+    }
+    if (items && productIds && !opt.sort && !shuffle) {
+      items.sort((a, b) => {
+        return productIds.indexOf(a._id) < productIds.indexOf(b._id) ? -1 : 1
+      })
+    }
   }
 } else {
-  items = _.items
+  const size = opt.limit || 24
+  const offset = opt.page >= 2 ? (opt.page - 1) * size : 0
+  items = _.items.slice(offset, offset + size)
 }
 %>
 

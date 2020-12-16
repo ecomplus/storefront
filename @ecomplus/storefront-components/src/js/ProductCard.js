@@ -105,8 +105,7 @@ export default {
     fetchItem () {
       if (this.productId) {
         this.isLoading = true
-        const { storeId, productId } = this
-        store({ url: `/products/${productId}.json`, storeId })
+        store({ url: `/products/${this.productId}.json` })
           .then(({ data }) => {
             this.$emit('update:product', data)
             this.setBody(data)
@@ -128,29 +127,35 @@ export default {
       const product = this.body
       this.$emit('buy', { product })
       if (this.canAddToCart) {
-        const { variations, slug } = product
-        if (variations && variations.length) {
-          this.isWaitingBuy = true
-          import('../ProductQuickview.vue')
-            .then(quickview => {
-              new Vue({
-                render: h => h(quickview.default, {
-                  props: {
-                    productId: this.body._id
-                  }
-                })
-              }).$mount(this.$refs.quickview)
-            })
-            .catch(err => {
-              console.error(err)
-              window.location = `/${slug}`
-            })
-            .finally(() => {
-              this.isWaitingBuy = false
-            })
-        } else {
-          ecomCart.addProduct(product)
-        }
+        this.isWaitingBuy = true
+        store({ url: `/products/${product._id}.json` })
+          .then(({ data }) => {
+            const selectFields = ['variations', 'customizations', 'kit_composition']
+            for (let i = 0; i < selectFields.length; i++) {
+              const selectOptions = data[selectFields[i]]
+              if (selectOptions && selectOptions.length) {
+                return import('../ProductQuickview.vue')
+                  .then(quickview => {
+                    new Vue({
+                      render: h => h(quickview.default, {
+                        props: {
+                          product: data
+                        }
+                      })
+                    }).$mount(this.$refs.quickview)
+                  })
+              }
+            }
+            const { quantity, price } = data
+            ecomCart.addProduct({ ...product, quantity, price })
+          })
+          .catch(err => {
+            console.error(err)
+            window.location = `/${product.slug}`
+          })
+          .finally(() => {
+            this.isWaitingBuy = false
+          })
       }
     }
   },

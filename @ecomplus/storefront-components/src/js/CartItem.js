@@ -61,7 +61,7 @@ export default {
     },
 
     price () {
-      return getPrice(this.item)
+      return this.item.final_price || getPrice(this.item)
     },
 
     img () {
@@ -69,7 +69,38 @@ export default {
     },
 
     name () {
-      const { name } = this.item
+      return this.formatName(this.item.name)
+    },
+
+    isFreebie () {
+      return Array.isArray(this.item.flags)
+        ? this.item.flags.includes('freebie')
+        : false
+    },
+
+    isIntegerQnt () {
+      return Number.isInteger(this.maxQuantity) && Number.isInteger(this.quantity)
+    },
+
+    minQuantity () {
+      const minQuantity = this.item.min_quantity
+      return typeof minQuantity === 'number' && minQuantity >= 0
+        ? minQuantity
+        : 1
+    },
+
+    maxQuantity () {
+      const maxQuantity = this.item.max_quantity
+      return typeof maxQuantity === 'number' && maxQuantity >= 0
+        ? maxQuantity
+        : 9999999
+    }
+  },
+
+  methods: {
+    formatMoney,
+
+    formatName (name) {
       if (name) {
         if (name.length <= this.nameMaxLength) {
           return name
@@ -79,31 +110,8 @@ export default {
       }
     },
 
-    isFreebie () {
-      return Array.isArray(this.item.flags)
-        ? this.item.flags.includes('freebie')
-        : false
-    },
-
-    minQuantity () {
-      const minQuantity = this.item.min_quantity
-      return typeof minQuantity === 'number' && minQuantity >= 0
-        ? minQuantity : 1
-    },
-
-    maxQuantity () {
-      const maxQuantity = this.item.max_quantity
-      return typeof maxQuantity === 'number' && maxQuantity >= 0
-        ? maxQuantity : 9999999
-    }
-  },
-
-  methods: {
-    formatMoney,
-
     updateInputType () {
-      this.canInputSelect = Number.isInteger(this.quantity) &&
-        this.quantity > 0 && this.quantity <= 10
+      this.canInputSelect = this.isIntegerQnt && this.quantity > 0 && this.quantity <= 10
     },
 
     remove () {

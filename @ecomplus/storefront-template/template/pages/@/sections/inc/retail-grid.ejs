@@ -1,6 +1,9 @@
 <%
 let items
 if (!opt.items) {
+  if (opt.sort) {
+    opt.search.setSortOrder(opt.sort)
+  }
   await opt.search.fetch()
   items = await opt.search.getItems()
 } else {
@@ -17,6 +20,9 @@ if (!opt.items) {
       <% } %>
       <% if (opt.brand_names) { %>
         data-brands="<%= JSON.stringify(opt.brand_names) %>"
+      <% } %>
+      <% if (opt.sort) { %>
+        data-sort="<%= opt.sort %>"
       <% } %>
     >
       <% if (items.length) { %>

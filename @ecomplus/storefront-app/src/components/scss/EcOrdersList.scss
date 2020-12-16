@@ -41,8 +41,10 @@
   }
 
   &__status,
-  &__financial-status {
-    font-weight: bold;
+  &__financial-status,
+  &__fulfillment-status {
+    font-weight: var(--font-bold);
+    color: var(--info);
 
     @media (max-width: 767.98px) {
       float: right;
@@ -50,12 +52,10 @@
   }
 
   &__status {
-    &--open {
-      color: var(--info);
-    }
     &--closed {
       color: var(--success);
     }
+
     &--cancelled {
       color: var(--danger);
     }
@@ -66,10 +66,6 @@
       color: var(--warning);
     }
 
-    &--under_analysis {
-      color: var(--info);
-    }
-
     &--unauthorized,
     &--in_dispute,
     &--voided {
@@ -77,6 +73,12 @@
     }
 
     &--paid {
+      color: var(--success);
+    }
+  }
+
+  &__fulfillment-status {
+    &--delivered {
       color: var(--success);
     }
   }
