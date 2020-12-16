@@ -78,6 +78,10 @@ export default ({ baseDir }) => ({
             {
               label: 'Nicho: Flores',
               value: 'niche-flowers'
+            },
+            {
+              label: 'Nicho: Game',
+              value: 'niche-game'
             }
           ]
         },
