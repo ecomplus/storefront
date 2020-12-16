@@ -9,7 +9,7 @@ main {
     }
 
     a.top-bar__countdown {
-      background-image: linear-gradient(rgba($primary, 0.9), rgba($primary, 0.8)), url("./fundo3.png");
+      background-image: linear-gradient(rgba($primary, 0.9), rgba($primary, 0.8)), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bg.png");
       font-weight: var(--font-bold);
       height: 60px;
       display: flex;
@@ -55,8 +55,8 @@ main {
       background-repeat: no-repeat;
       width: 36px;
       height: 36px;
-      -webkit-mask: url("./5.png") no-repeat 50% 50%;
-      mask: url("./5.png") no-repeat 50% 50%;
+      -webkit-mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bag.png") no-repeat 50% 50%;
+      mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bag.png") no-repeat 50% 50%;
       -webkit-mask-size: cover;
       mask-size: cover;
     }
@@ -80,8 +80,8 @@ main {
       background-repeat: no-repeat;
       width: 36px;
       height: 36px;
-      -webkit-mask: url("./user.svg") no-repeat 50% 50%;
-      mask: url("./user.svg") no-repeat 50% 50%;
+      -webkit-mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/user.svg") no-repeat 50% 50%;
+      mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/user.svg") no-repeat 50% 50%;
       -webkit-mask-size: cover;
       mask-size: cover;
     }
@@ -106,10 +106,10 @@ main {
   }
 
   #content {
-    background-image: linear-gradient(rgba($white, 0.9), rgba($white, 1)), url("./fundo3.png");
+    background-image: linear-gradient(rgba($white, 0.9), rgba($white, 1)), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bg.png");
   }
 
   .footer {
-    background-image: linear-gradient(rgba($light, 0.8), rgba($white, 1)), url("./6.svg");
+    background-image: linear-gradient(rgba($light, 0.8), rgba($white, 1)), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bg-simple.svg");
   }
 }
