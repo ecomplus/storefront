@@ -1,14 +1,14 @@
-import { skipWaiting, clientsClaim } from 'workbox-core'
+import { clientsClaim } from 'workbox-core'
 import { precacheAndRoute } from 'workbox-precaching'
 import { registerRoute } from 'workbox-routing'
 import { StaleWhileRevalidate, CacheFirst, NetworkFirst } from 'workbox-strategies'
 import { CacheableResponsePlugin } from 'workbox-cacheable-response'
 import { ExpirationPlugin } from 'workbox-expiration'
 
-skipWaiting()
-clientsClaim()
-
 /* global self, fetch, Response */
+
+self.skipWaiting()
+clientsClaim()
 
 const precacheFileList = self.__WB_MANIFEST || []
 // add app main routes to precache
