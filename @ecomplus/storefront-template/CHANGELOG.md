@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.104](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.103...@ecomplus/storefront-template@2.0.0-beta.104) (2020-12-16)
+
+
+### Features
+
+* **themes:** adding new niche flowers theme ([#374](https://github.com/ecomplus/storefront/issues/374)) ([07bbf0b](https://github.com/ecomplus/storefront/commit/07bbf0be6d2427177567c6deb7fd57039ca82fde))
+* **themes:** adding new niche flowers theme ([#375](https://github.com/ecomplus/storefront/issues/375)) ([9b5cef2](https://github.com/ecomplus/storefront/commit/9b5cef22da52d24132036940eb8c408a0d568511))
+
+
+
+
+
 # [2.0.0-beta.103](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.102...@ecomplus/storefront-template@2.0.0-beta.103) (2020-12-16)
 
 
