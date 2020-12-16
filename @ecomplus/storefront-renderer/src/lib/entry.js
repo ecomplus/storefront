@@ -3,16 +3,11 @@
 const path = require('path')
 const paths = require('./paths')
 const fs = require('fs')
-const { devMode } = require('./config')
 
 // entry files
 const entry = {}
 // default module first
 entry.storefront = [path.resolve(paths.scss, 'styles.scss')]
-if (!devMode && !process.env.WEBPACK_BUILD_DEV) {
-  // start service worker on production only
-  entry.storefront.push(path.resolve(__dirname, '../assets/starter.js'))
-}
 // index.js must be the last to export lib correctly if any
 entry.storefront.push(path.resolve(paths.js, 'index.js'))
 
