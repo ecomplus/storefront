@@ -8,7 +8,7 @@ import { ExpirationPlugin } from 'workbox-expiration'
 skipWaiting()
 clientsClaim()
 
-/* global self */
+/* global self, fetch, Response */
 
 const precacheFileList = self.__WB_MANIFEST || []
 // add app main routes to precache
@@ -57,19 +57,44 @@ registerRoute(
   })
 )
 
+// libraries scripts from secondary CDN
+async function fallbackScripts ({ request, response }, fallbackUrl) {
+  if (response.status < 300) {
+    return response
+  }
+  if (!fallbackUrl) {
+    const baseUrl = 'https://cdn.jsdelivr.net/npm/'
+    if (request.url.startsWith(baseUrl)) {
+      fallbackUrl = request.url.replace(baseUrl, 'https://unpkg.com/')
+    }
+  }
+  if (fallbackUrl) {
+    return fetch(fallbackUrl)
+  }
+  return response
+}
+
 // jQuery library
 registerRoute(
   /^https:\/\/code\.jquery\.com/,
-  new StaleWhileRevalidate({
-    cacheName: 'cdn-jquery'
+  new NetworkFirst({
+    networkTimeoutSeconds: 5,
+    cacheName: 'cdn-jquery',
+    plugins: [{
+      fetchDidSucceed: async p => fallbackScripts(p, 'https://unpkg.com/jquery@3.5.1/dist/jquery.min.js')
+    }]
   })
 )
 
 // additional JS libraries from CDN
 registerRoute(
   /^https:\/\/cdn\.jsdelivr\.net/,
-  new StaleWhileRevalidate({
-    cacheName: 'cdn-jsdelivr'
+  new NetworkFirst({
+    networkTimeoutSeconds: 4,
+    cacheName: 'cdn-jsdelivr',
+    plugins: [{
+      fetchDidSucceed: async p => fallbackScripts(p)
+    }]
   })
 )
 
@@ -130,28 +155,29 @@ registerRoute(
  */
 
 // product images on multiple datacenters
-async function imageOriginsFallback ({ request, event, error, state }) {
+async function fallbackStorages ({ request, response }) {
   const { url } = request
-  const datacenters = ['nyc3', 'fra1']
   let fallbackUrl
-  for (let i = 0; i < datacenters.length; i++) {
-    const datacenter = datacenters[i]
-    if (url.indexOf('/imgs/') > -1 && url.indexOf(datacenter) > -1) {
-      const newDatacenter = datacenters[i + 1] || datacenters[i - 1]
-      fallbackUrl = url.replace(RegExp(datacenter, 'ig'), newDatacenter)
-      break
+  if (response.status > 399) {
+    const regex = /(\w+\.)?(ecoms\d)\.com/i
+    if (regex.test(url)) {
+      fallbackUrl = url.replace(regex, '$2-nyc3.nyc3.digitaloceanspaces.com')
+    } else {
+      const regex = /(ecoms\d)-\w+\.nyc3\.(cdn\.)?/i
+      if (regex.test(url)) {
+        fallbackUrl = url.replace(regex, '$1-fra1.fra1.')
+      }
     }
   }
   if (fallbackUrl) {
-    /* global fetch */
-    return await fetch(fallbackUrl)
+    return fetch(fallbackUrl)
   }
-  throw error
+  return response
 }
 
 // thumbnail images
 registerRoute(
-  /^https:\/\/ecom[\w-]+(\.\w+)*\.digitaloceanspaces\.com.*\/imgs\/normal\//,
+  /^https:\/\/(((\w+\.)?ecoms\d)|(ecom[\w-]+(\.\w+)*\.digitaloceanspaces))\.com.*\/imgs\/normal\//,
   new CacheFirst({
     cacheName: 'pictures',
     plugins: [
@@ -160,14 +186,17 @@ registerRoute(
         // 30 days max age
         maxAgeSeconds: 60 * 60 * 24 * 30,
         purgeOnQuotaError: true
-      })
+      }),
+      {
+        fetchDidSucceed: fallbackStorages
+      }
     ]
   })
 )
 
 // big images
 registerRoute(
-  /^https:\/\/ecom[\w-]+(\.\w+)*\.digitaloceanspaces\.com.*\/imgs\/big\//,
+  /^https:\/\/(((\w+\.)?ecoms\d)|(ecom[\w-]+(\.\w+)*\.digitaloceanspaces))\.com.*\/imgs\/big\//,
   new CacheFirst({
     cacheName: 'pictures-big',
     plugins: [
@@ -178,14 +207,7 @@ registerRoute(
         purgeOnQuotaError: true
       }),
       {
-        requestWillFetch: async ({ request, event, state }) => {
-          console.log(request.signal)
-          setTimeout(() => {
-            request.signal.dispatchEvent('abort')
-          }, 5000)
-          return request
-        },
-        handlerDidError: imageOriginsFallback
+        fetchDidSucceed: fallbackStorages
       }
     ]
   })
@@ -236,6 +258,23 @@ registerRoute(
 // homepage
 registerRoute('/', new NetworkFirst())
 
+// SSR fallback to static 404 page
+async function redirect404 ({ request, response }) {
+  if (response.status >= 404) {
+    const { url } = request
+    if ((/\/[^/.]+$/.test(url) || /\.x?html$/.test(url)) && !/^\/404\??/.test(url)) {
+      return new Response(null, {
+        status: 302,
+        statusText: 'Redirect',
+        headers: {
+          Location: `/404?url=${encodeURIComponent(url)}`
+        }
+      })
+    }
+  }
+  return response
+}
+
 // any page URL slug
 registerRoute(
   /\/((?!(?:admin|assets|img)(\/|$))[^.]+)(\.(?!js|css|xml|txt|png|gif|jpg|jpeg|webp|svg)[^.]+)*$/,
@@ -246,7 +285,10 @@ registerRoute(
         maxEntries: 50,
         // purge HTML files to release quota
         purgeOnQuotaError: true
-      })
+      }),
+      {
+        fetchDidSucceed: redirect404
+      }
     ]
   })
 )
