@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.80](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.79...@ecomplus/storefront-app@2.0.0-beta.80) (2020-12-16)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.79](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.78...@ecomplus/storefront-app@2.0.0-beta.79) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.78](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.77...@ecomplus/storefront-app@2.0.0-beta.78) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.77](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.76...@ecomplus/storefront-app@2.0.0-beta.77) (2020-12-15)
+
+
+### Bug Fixes
+
+* **order-info:** parse transaction notes html (gateway text/description) ([d895f11](https://github.com/ecomplus/storefront/commit/d895f11d037f47849f4788a2c2fc74b2b196e571))
+
+
+
+
+
+# [2.0.0-beta.76](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.75...@ecomplus/storefront-app@2.0.0-beta.76) (2020-12-07)
+
+
+### Bug Fixes
+
+* **order-info:** prefer showing payment method name than label ([3ba5177](https://github.com/ecomplus/storefront/commit/3ba51775b46d8972fcaeab31cf418b6c0652d3aa))
+
+
+### Features
+
+* **payment-methods:** add 'defaultAppId' prop ([c444979](https://github.com/ecomplus/storefront/commit/c44497987a8c19dc8870c2668acaa9ef1d02c835)), closes [#379](https://github.com/ecomplus/storefront/issues/379)
+
+
+
+
+
+# [2.0.0-beta.75](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.74...@ecomplus/storefront-app@2.0.0-beta.75) (2020-12-04)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
 # [2.0.0-beta.74](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.73...@ecomplus/storefront-app@2.0.0-beta.74) (2020-12-01)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

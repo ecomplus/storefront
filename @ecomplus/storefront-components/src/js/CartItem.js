@@ -61,7 +61,7 @@ export default {
     },
 
     price () {
-      return getPrice(this.item)
+      return this.item.final_price || getPrice(this.item)
     },
 
     img () {

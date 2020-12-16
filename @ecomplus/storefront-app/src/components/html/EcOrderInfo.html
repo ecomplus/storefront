@@ -162,7 +162,7 @@
                         class="card-body"
                       >
                         <p class="order-info__payment-value">
-                          <template v-if="hasManyTransactions && transaction.payment_method.name">
+                          <template v-if="transaction.payment_method.name">
                             {{ transaction.payment_method.name }}:
                           </template>
                           <template v-else-if="localOrder.payment_method_label">
@@ -190,9 +190,8 @@
                           v-if="transaction.notes"
                           class="order-info__payment-notes alert alert-warning"
                           role="alert"
-                        >
-                          {{ transaction.notes }}
-                        </p>
+                          v-html="transaction.notes"
+                        ></p>
 
                         <p
                           v-if="transaction.credit_card"

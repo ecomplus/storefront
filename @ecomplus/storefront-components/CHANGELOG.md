@@ -3,6 +3,61 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.75](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.74...@ecomplus/storefront-components@1.0.0-beta.75) (2020-12-16)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.74](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.73...@ecomplus/storefront-components@1.0.0-beta.74) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.73](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.72...@ecomplus/storefront-components@1.0.0-beta.73) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.72](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.71...@ecomplus/storefront-components@1.0.0-beta.72) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.71](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.70...@ecomplus/storefront-components@1.0.0-beta.71) (2020-12-07)
+
+
+### Bug Fixes
+
+* **cart-item:** explicitly watch item 'final_price' ([0d2f009](https://github.com/ecomplus/storefront/commit/0d2f009022c175782a1a7853670212b78327e697))
+* **product:** ensure setting kit items quantities ([#369](https://github.com/ecomplus/storefront/issues/369)) ([f55780f](https://github.com/ecomplus/storefront/commit/f55780f2a813274172c22e25762d6b06d98b367c))
+
+
+
+
+
+# [1.0.0-beta.70](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.69...@ecomplus/storefront-components@1.0.0-beta.70) (2020-12-04)
+
+
+### Features
+
+* **product-variations:** add class name for each option btn ([#373](https://github.com/ecomplus/storefront/issues/373)) ([2d2771f](https://github.com/ecomplus/storefront/commit/2d2771f011fec2e6696036505dd6deda753dc21f))
+
+
+
+
+
 # [1.0.0-beta.69](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.68...@ecomplus/storefront-components@1.0.0-beta.69) (2020-12-01)
 
 **Note:** Version bump only for package @ecomplus/storefront-components

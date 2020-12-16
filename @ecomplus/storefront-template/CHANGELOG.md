@@ -3,6 +3,85 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.103](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.102...@ecomplus/storefront-template@2.0.0-beta.103) (2020-12-16)
+
+
+### Performance Improvements
+
+* **product-pictures:** use 'crossorigin=anonymous' with new cdn images ([a1fd64b](https://github.com/ecomplus/storefront/commit/a1fd64b46d04f680f2023a2acfd9eb1266f42bee))
+* **sw:** setup register sw before page load (/head) ([fda1682](https://github.com/ecomplus/storefront/commit/fda1682ea8714795e81e723c2cd897d2ebccc3cf))
+
+
+
+
+
+# [2.0.0-beta.102](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.101...@ecomplus/storefront-template@2.0.0-beta.102) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.101](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.100...@ecomplus/storefront-template@2.0.0-beta.101) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.100](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.99...@ecomplus/storefront-template@2.0.0-beta.100) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.99](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.98...@ecomplus/storefront-template@2.0.0-beta.99) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.98](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.97...@ecomplus/storefront-template@2.0.0-beta.98) (2020-12-15)
+
+
+### Performance Improvements
+
+* **utils:** keep webp images on macos/ios with new safari versions (supported) ([9da21a3](https://github.com/ecomplus/storefront/commit/9da21a36851a3a378e7224c3ce2f3824a6c7e60f))
+
+
+
+
+
+# [2.0.0-beta.97](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.96...@ecomplus/storefront-template@2.0.0-beta.97) (2020-12-10)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.96](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.95...@ecomplus/storefront-template@2.0.0-beta.96) (2020-12-07)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.95](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.94...@ecomplus/storefront-template@2.0.0-beta.95) (2020-12-04)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
 # [2.0.0-beta.94](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.93...@ecomplus/storefront-template@2.0.0-beta.94) (2020-12-01)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

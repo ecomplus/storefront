@@ -235,7 +235,7 @@ if (!process.env.WEBPACK_BUILD_LIB) {
     })
   )
 
-  if (!devMode) {
+  if (!devMode || process.argv.indexOf('--sw') > -1) {
     config.plugins.push(
       // create manifest.json file
       new WebpackPwaManifest({
@@ -264,16 +264,17 @@ if (!process.env.WEBPACK_BUILD_LIB) {
       new WorkboxPlugin.InjectManifest({
         swSrc,
         swDest: 'sw.js',
-        exclude: [/.*/]
+        include: [/.*storefront\..*\.(css|js)$/]
       })
     )
-  } else if (process.argv.indexOf('--analyze') > -1) {
+  }
+
+  if (devMode && process.argv.indexOf('--analyze') > -1) {
     // start JS bundle analyzer
     const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
     config.plugins.push(new BundleAnalyzerPlugin())
   }
 
-  // handle configurable options by CLI args
   if (process.argv.indexOf('--verbose') === -1) {
     // default Webpack output with less logs
     const { stats } = config
