@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.105](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.104...@ecomplus/storefront-template@2.0.0-beta.105) (2020-12-17)
+
+
+### Performance Improvements
+
+* **scripts:** use jsdelivr cdn for jquery also ([11920dc](https://github.com/ecomplus/storefront/commit/11920dcc5542e705c88bee91b285e30562d20678))
+
+
+
+
+
 # [2.0.0-beta.104](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.103...@ecomplus/storefront-template@2.0.0-beta.104) (2020-12-16)
 
 
