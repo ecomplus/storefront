@@ -102,7 +102,11 @@ export default {
       const nextFilteredGrids = getVariationsGrids(product, filterGrids, true)
       for (let i = gridIndex + 1; i < orderedGrids.length; i++) {
         const grid = orderedGrids[i]
-        this.filteredGrids[grid] = nextFilteredGrids[grid]
+        const options = nextFilteredGrids[grid]
+        this.filteredGrids[grid] = options
+        if (selectedOptions[grid] && !options.includes(selectedOptions[grid])) {
+          this.$set(selectedOptions, grid, undefined)
+        }
       }
       const variations = product.variations.slice(0)
       for (let i = 0; i < variations.length; i++) {
