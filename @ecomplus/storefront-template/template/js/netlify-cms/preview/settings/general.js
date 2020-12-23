@@ -76,6 +76,10 @@ export default class CodePreview extends BasePreview {
           --primary: ${entries.primary_color};
           --secondary: ${entries.secondary_color};
         }
+
+        .btn-primary, .alert-primary, .text-primary, .bg-primary, .btn-outline-primary, .badge-primary {
+          background: ${entries.primary_color} !important;
+        }
       </style>`
 
       const { theme } = entries
