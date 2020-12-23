@@ -1,5 +1,6 @@
 import {
   isSafari,
+  isSafariNew,
   isIOS,
   isIE,
   isMobile,
@@ -7,7 +8,7 @@ import {
   $
 } from '@ecomplus/storefront-twbs'
 
-if (isSafari || isIOS || isIE) {
+if ((isSafari || isIOS || isIE) && !isSafariNew) {
   $('img').each(function () {
     const src = $(this).attr('src')
     if (src && src.endsWith('.webp')) {

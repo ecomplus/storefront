@@ -8,7 +8,7 @@ import { ExpirationPlugin } from 'workbox-expiration'
 skipWaiting()
 clientsClaim()
 
-/* global self */
+/* global self, fetch, Response */
 
 const precacheFileList = self.__WB_MANIFEST || []
 // add app main routes to precache
@@ -57,19 +57,44 @@ registerRoute(
   })
 )
 
+// libraries scripts from secondary CDN
+async function fallbackScripts ({ request, response }, fallbackUrl) {
+  if (response.status < 300) {
+    return response
+  }
+  if (!fallbackUrl) {
+    const baseUrl = 'https://cdn.jsdelivr.net/npm/'
+    if (request.url.startsWith(baseUrl)) {
+      fallbackUrl = request.url.replace(baseUrl, 'https://unpkg.com/')
+    }
+  }
+  if (fallbackUrl) {
+    return fetch(fallbackUrl)
+  }
+  return response
+}
+
 // jQuery library
 registerRoute(
   /^https:\/\/code\.jquery\.com/,
-  new StaleWhileRevalidate({
-    cacheName: 'cdn-jquery'
+  new NetworkFirst({
+    networkTimeoutSeconds: 5,
+    cacheName: 'cdn-jquery',
+    plugins: [{
+      fetchDidSucceed: async p => fallbackScripts(p, 'https://unpkg.com/jquery@3.5.1/dist/jquery.min.js')
+    }]
   })
 )
 
 // additional JS libraries from CDN
 registerRoute(
   /^https:\/\/cdn\.jsdelivr\.net/,
-  new StaleWhileRevalidate({
-    cacheName: 'cdn-jsdelivr'
+  new NetworkFirst({
+    networkTimeoutSeconds: 4,
+    cacheName: 'cdn-jsdelivr',
+    plugins: [{
+      fetchDidSucceed: async p => fallbackScripts(p)
+    }]
   })
 )
 
@@ -129,9 +154,30 @@ registerRoute(
  * Check sizes: https://github.com/ecomclub/storage-api/blob/master/bin/web.js#L282
  */
 
-// normal and thumbnail sizes
+// product images on multiple datacenters
+async function fallbackStorages ({ request, response }) {
+  const { url } = request
+  let fallbackUrl
+  if (response.status > 399) {
+    const regex = /(\w+\.)?(ecoms\d)\.com/i
+    if (regex.test(url)) {
+      fallbackUrl = url.replace(regex, '$2-nyc3.nyc3.digitaloceanspaces.com')
+    } else {
+      const regex = /(ecoms\d)-\w+\.nyc3\.(cdn\.)?/i
+      if (regex.test(url)) {
+        fallbackUrl = url.replace(regex, '$1-fra1.fra1.')
+      }
+    }
+  }
+  if (fallbackUrl) {
+    return fetch(fallbackUrl)
+  }
+  return response
+}
+
+// thumbnail images
 registerRoute(
-  /^https:\/\/ecom-[\w]+\.[\w]+\.digitaloceanspaces\.com\/imgs\/([12345]?[0-9]{2}px|normal|small)\//,
+  /^https:\/\/(((\w+\.)?ecoms\d)|(ecom[\w-]+(\.\w+)*\.digitaloceanspaces))\.com.*\/imgs\/normal\//,
   new CacheFirst({
     cacheName: 'pictures',
     plugins: [
@@ -140,14 +186,17 @@ registerRoute(
         // 30 days max age
         maxAgeSeconds: 60 * 60 * 24 * 30,
         purgeOnQuotaError: true
-      })
+      }),
+      {
+        fetchDidSucceed: fallbackStorages
+      }
     ]
   })
 )
 
 // big images
 registerRoute(
-  /^https:\/\/ecom-[\w]+\.[\w]+\.digitaloceanspaces\.com\/imgs\/([678]?[0-9]{2}px|big)\//,
+  /^https:\/\/(((\w+\.)?ecoms\d)|(ecom[\w-]+(\.\w+)*\.digitaloceanspaces))\.com.*\/imgs\/big\//,
   new CacheFirst({
     cacheName: 'pictures-big',
     plugins: [
@@ -156,7 +205,10 @@ registerRoute(
         // 2 days only max age
         maxAgeSeconds: 60 * 60 * 24 * 2,
         purgeOnQuotaError: true
-      })
+      }),
+      {
+        fetchDidSucceed: fallbackStorages
+      }
     ]
   })
 )
@@ -206,6 +258,23 @@ registerRoute(
 // homepage
 registerRoute('/', new NetworkFirst())
 
+// SSR fallback to static 404 page
+async function redirect404 ({ request, response }) {
+  if (response.status >= 404) {
+    const { url } = request
+    if ((/\/[^/.]+$/.test(url) || /\.x?html$/.test(url)) && !/^\/404\??/.test(url)) {
+      return new Response(null, {
+        status: 302,
+        statusText: 'Redirect',
+        headers: {
+          Location: `/404?url=${encodeURIComponent(url)}`
+        }
+      })
+    }
+  }
+  return response
+}
+
 // any page URL slug
 registerRoute(
   /\/((?!(?:admin|assets|img)(\/|$))[^.]+)(\.(?!js|css|xml|txt|png|gif|jpg|jpeg|webp|svg)[^.]+)*$/,
@@ -216,7 +285,10 @@ registerRoute(
         maxEntries: 50,
         // purge HTML files to release quota
         purgeOnQuotaError: true
-      })
+      }),
+      {
+        fetchDidSucceed: redirect404
+      }
     ]
   })
 )

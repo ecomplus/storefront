@@ -72,7 +72,6 @@ export default class CodePreview extends BasePreview {
 
       $styleTag.innerHTML = `<style>
         :root {
-          --body-bg: ${entries.bg_color};
           --primary: ${entries.primary_color};
           --secondary: ${entries.secondary_color};
         }

@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.9](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.8...@ecomplus/storefront-renderer@2.4.9) (2020-12-16)
+
+
+### Performance Improvements
+
+* **entry:** remove starter from webpack entry ([d54f939](https://github.com/ecomplus/storefront/commit/d54f93988897a5417ae880ca6071a8988c9d6212))
+
+
+
+
+
+## [2.4.8](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.7...@ecomplus/storefront-renderer@2.4.8) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-renderer
+
+
+
+
+
+## [2.4.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.6...@ecomplus/storefront-renderer@2.4.7) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-renderer
+
+
+
+
+
+## [2.4.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.5...@ecomplus/storefront-renderer@2.4.6) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-renderer
+
+
+
+
+
 ## [2.4.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.4...@ecomplus/storefront-renderer@2.4.5) (2020-12-01)
 
 

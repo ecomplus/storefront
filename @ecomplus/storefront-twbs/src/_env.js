@@ -3,6 +3,8 @@ const screenWidth = document.body ? document.body.offsetWidth : window.screen.wi
 
 export const isSafari = userAgent.includes('Safari') && !userAgent.includes('Chrome')
 
+export const isSafariNew = isSafari && /Version\/1[4-9]/i.test(userAgent)
+
 export const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream
 
 export const isIE = !!document.documentMode

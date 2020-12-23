@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-renderer",
-  "version": "2.4.5",
+  "version": "2.4.9",
   "description": "SSR for Storefront EJS views with E-Com Plus APIs",
   "main": "src/index.js",
   "repository": {
@@ -32,6 +32,6 @@
     "html-minifier": "^4.0.0",
     "image-size": "^0.9.3",
     "lodash": "^4.17.20",
-    "markdown-it": "^12.0.2"
+    "markdown-it": "^12.0.3"
   }
 }

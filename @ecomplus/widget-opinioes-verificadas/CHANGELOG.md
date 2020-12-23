@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-opinioes-verificadas@1.1.5...@ecomplus/widget-opinioes-verificadas@1.1.6) (2020-12-16)
+
+**Note:** Version bump only for package @ecomplus/widget-opinioes-verificadas
+
+
+
+
+
+## [1.1.5](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-opinioes-verificadas@1.1.4...@ecomplus/widget-opinioes-verificadas@1.1.5) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/widget-opinioes-verificadas
+
+
+
+
+
+## [1.1.4](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-opinioes-verificadas@1.1.3...@ecomplus/widget-opinioes-verificadas@1.1.4) (2020-12-15)
+
+**Note:** Version bump only for package @ecomplus/widget-opinioes-verificadas
+
+
+
+
+
+## [1.1.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-opinioes-verificadas@1.1.2...@ecomplus/widget-opinioes-verificadas@1.1.3) (2020-12-15)
+
+
+### Bug Fixes
+
+* **ov-product-reviews:** fix setting product image on el dataset ([#384](https://github.com/ecomplus/storefront/issues/384)) ([dbb61e4](https://github.com/ecomplus/storefront/commit/dbb61e43009a70325584d19853515d5b87f68af3))
+
+
+
+
+
 ## [1.1.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-opinioes-verificadas@1.1.1...@ecomplus/widget-opinioes-verificadas@1.1.2) (2020-10-26)
 
 **Note:** Version bump only for package @ecomplus/widget-opinioes-verificadas
