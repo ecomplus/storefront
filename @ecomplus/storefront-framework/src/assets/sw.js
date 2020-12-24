@@ -1,14 +1,14 @@
-import { skipWaiting, clientsClaim } from 'workbox-core'
+import { clientsClaim } from 'workbox-core'
 import { precacheAndRoute } from 'workbox-precaching'
 import { registerRoute } from 'workbox-routing'
 import { StaleWhileRevalidate, CacheFirst, NetworkFirst } from 'workbox-strategies'
 import { CacheableResponsePlugin } from 'workbox-cacheable-response'
 import { ExpirationPlugin } from 'workbox-expiration'
 
-skipWaiting()
-clientsClaim()
-
 /* global self, fetch, Response */
+
+self.skipWaiting()
+clientsClaim()
 
 const precacheFileList = self.__WB_MANIFEST || []
 // add app main routes to precache
@@ -58,33 +58,16 @@ registerRoute(
 )
 
 // libraries scripts from secondary CDN
-async function fallbackScripts ({ request, response }, fallbackUrl) {
+async function fallbackScripts ({ request, response }) {
   if (response.status < 300) {
     return response
   }
-  if (!fallbackUrl) {
-    const baseUrl = 'https://cdn.jsdelivr.net/npm/'
-    if (request.url.startsWith(baseUrl)) {
-      fallbackUrl = request.url.replace(baseUrl, 'https://unpkg.com/')
-    }
-  }
-  if (fallbackUrl) {
-    return fetch(fallbackUrl)
+  const baseUrl = 'https://cdn.jsdelivr.net/npm/'
+  if (request.url.startsWith(baseUrl)) {
+    return fetch(request.url.replace(baseUrl, 'https://unpkg.com/'))
   }
   return response
 }
-
-// jQuery library
-registerRoute(
-  /^https:\/\/code\.jquery\.com/,
-  new NetworkFirst({
-    networkTimeoutSeconds: 5,
-    cacheName: 'cdn-jquery',
-    plugins: [{
-      fetchDidSucceed: async p => fallbackScripts(p, 'https://unpkg.com/jquery@3.5.1/dist/jquery.min.js')
-    }]
-  })
-)
 
 // additional JS libraries from CDN
 registerRoute(
@@ -93,7 +76,7 @@ registerRoute(
     networkTimeoutSeconds: 4,
     cacheName: 'cdn-jsdelivr',
     plugins: [{
-      fetchDidSucceed: async p => fallbackScripts(p)
+      fetchDidSucceed: fallbackScripts
     }]
   })
 )

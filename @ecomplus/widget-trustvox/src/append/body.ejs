@@ -2,6 +2,9 @@
   window._trustvox_shelf_rate = window._trustvox_shelf_rate || [];
   _trustvox_shelf_rate.push(['_storeId', '<%- options.trustvoxStoreId %>']);
   _trustvox_shelf_rate.push(['_productContainer', '.products-carousel, .retail-grid']);
+  window.productCardRatingHtml = function (product) {
+    return '<div data-trustvox-product-code="' + product.sku + '"></div>';
+  };
 </script>
 
 <% if (_.route.resource === 'products') { %>

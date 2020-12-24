@@ -213,8 +213,17 @@
                           >
                             <small>{{ i19transactionCode }}</small>
                             <br>
-                            {{ transaction.intermediator.transaction_code }}
+                            <code>{{ transaction.intermediator.transaction_code }}</code>
+                            <br>
+                            <button
+                              class="btn btn-sm btn-light"
+                              @click="() => toClipboard(transaction.intermediator.transaction_code)"
+                            >
+                              <i class="fas fa-copy mr-1"></i>
+                              {{ i19copyCode }}
+                            </button>
                           </div>
+
                           <div
                             v-if="transaction.intermediator.transaction_reference"
                             class="order-info__transaction-reference"

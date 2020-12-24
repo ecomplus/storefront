@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.1...@ecomplus/storefront-framework@5.16.2) (2020-12-17)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.16.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.0...@ecomplus/storefront-framework@5.16.1) (2020-12-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency workbox-webpack-plugin to v6 ([#378](https://github.com/ecomplus/storefront/issues/378)) ([c8b4c0f](https://github.com/ecomplus/storefront/commit/c8b4c0f54222508cea3722bcb6f78ffe501c115a))
+* **sw:** call `self.skipWaiting()` directly (workbox v6) ([#378](https://github.com/ecomplus/storefront/issues/378)) ([2862053](https://github.com/ecomplus/storefront/commit/2862053522e60cd95f1e983b29458ac97a9f20c2))
+
+
+
+
+
 # [5.16.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.15.17...@ecomplus/storefront-framework@5.16.0) (2020-12-16)
 
 
