@@ -1,17 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
+.btn-primary {
+  background: #007bff linear-gradient(180deg, #268fff, #007bff) repeat-x;
+}
+
+.btn-secondary {
+  background: #6c757d linear-gradient(180deg, #828a91, #6c757d) repeat-x;
+}
+
+.btn-success {
+  background: #28a745 linear-gradient(180deg, #48b461, #28a745) repeat-x;
+}
+
+.btn-info {
+  background: #17a2b8 linear-gradient(180deg, #3ab0c3, #17a2b8) repeat-x;
+}
+
+.btn-warning {
+  background: #ffc107 linear-gradient(180deg, #ffca2c, #ffc107) repeat-x;
+}
+
+.btn-danger {
+  background: #dc3545 linear-gradient(180deg, #e15361, #dc3545) repeat-x;
+}
+
+.btn-light {
+  background: #f8f9fa linear-gradient(180deg, #f9fafb, #f8f9fa) repeat-x;
+}
+
+.btn-dark {
+  background: #343a40 linear-gradient(180deg, #52585d, #343a40) repeat-x;
+}
+
+.table-primary, .table-secondary, .table-dark, .table-success, .table-info, .table-warning, .table-danger {
+  color: #fff;
+}
+
+.table-primary,
+.table-primary > th,
+.table-primary > td {
+  background-color: #007bff;
+}
+
+.table-secondary,
+.table-secondary > th,
+.table-secondary > td {
+  background-color: #6c757d;
+}
+
+.table-light,
+.table-light > th,
+.table-light > td {
+  background-color: #f8f9fa;
+}
+
+.table-dark,
+.table-dark > th,
+.table-dark > td {
+  background-color: #343a40;
+}
+
+.table-success,
+.table-success > th,
+.table-success > td {
+  background-color: #28a745;
+}
+
+.table-info,
+.table-info > th,
+.table-info > td {
+  background-color: #17a2b8;
+}
+
+.table-danger,
+.table-danger > th,
+.table-danger > td {
+  background-color: #dc3545;
+}
+
+.table-warning,
+.table-warning > th,
+.table-warning > td {
+  background-color: #ffc107;
+}
+
+.table-active,
+.table-active > th,
+.table-active > td {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-hover .table-primary:hover,
+.table-hover .table-primary:hover > th,
+.table-hover .table-primary:hover > td {
+  background-color: #006fe6;
+}
+
+.table-hover .table-secondary:hover,
+.table-hover .table-secondary:hover > th,
+.table-hover .table-secondary:hover > td {
+  background-color: #60686f;
+}
+
+.table-hover .table-light:hover,
+.table-hover .table-light:hover > th,
+.table-hover .table-light:hover > td {
+  background-color: #e9ecef;
+}
+
+.table-hover .table-dark:hover,
+.table-hover .table-dark:hover > th,
+.table-hover .table-dark:hover > td {
+  background-color: #292d32;
+}
+
+.table-hover .table-success:hover,
+.table-hover .table-success:hover > th,
+.table-hover .table-success:hover > td {
+  background-color: #23923d;
+}
+
+.table-hover .table-info:hover,
+.table-hover .table-info:hover > th,
+.table-hover .table-info:hover > td {
+  background-color: #148ea1;
+}
+
+.table-hover .table-danger:hover,
+.table-hover .table-danger:hover > th,
+.table-hover .table-danger:hover > td {
+  background-color: #d32535;
+}
+
+.table-hover .table-warning:hover,
+.table-hover .table-warning:hover > th,
+.table-hover .table-warning:hover > td {
+  background-color: #edb100;
+}
+
+.table-hover .table-active:hover,
+.table-hover .table-active:hover > th,
+.table-hover .table-active:hover > td {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #007bff;
+  background-image: none;
+}
+
+.custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+  border-color: #007bff;
+}
+
+.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+  background-color: #007bff;
+  background-image: none;
+  border-color: #007bff;
+}
+
+.custom-switch .custom-control-label::after {
+  background-color: white;
+}
+
+.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.alert {
+  border: none;
+  color: #fff;
+}
+
+.alert a,
+.alert .alert-link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.alert-primary {
+  background: #007bff linear-gradient(180deg, #268fff, #007bff) repeat-x;
+}
+
+.alert-secondary {
+  background: #6c757d linear-gradient(180deg, #828a91, #6c757d) repeat-x;
+}
+
+.alert-success {
+  background: #28a745 linear-gradient(180deg, #48b461, #28a745) repeat-x;
+}
+
+.alert-info {
+  background: #17a2b8 linear-gradient(180deg, #3ab0c3, #17a2b8) repeat-x;
+}
+
+.alert-warning {
+  background: #ffc107 linear-gradient(180deg, #ffca2c, #ffc107) repeat-x;
+}
+
+.alert-danger {
+  background: #dc3545 linear-gradient(180deg, #e15361, #dc3545) repeat-x;
+}
+
+.alert-light {
+  background: #f8f9fa linear-gradient(180deg, #f9fafb, #f8f9fa) repeat-x;
+}
+
+.alert-dark {
+  background: #343a40 linear-gradient(180deg, #52585d, #343a40) repeat-x;
+}
+
+.alert-light,
+.alert-light a:not(.btn),
+.alert-light .alert-link {
+  color: #fff;
+}
+
 #ec-user-popover {
-  margin-right: 0.5rem; }
+  margin-right: 0.5rem;
+}
 
 .breadcrumb {
-  padding-left: 1rem; }
+  padding-left: 1rem;
+}
 
 .header__toggler {
-  margin: 1.5rem; }
+  margin: 1.5rem;
+}
 
 .ec-minicart__sidebar {
-  background-color: var(--light); }
+  background-color: var(--light);
+}
 
 a {
-  color: var(--primary); }
-  @media (hover: hover) {
-    a:hover {
-      color: var(--primary-lightest); } }
+  color: var(--primary);
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: var(--primary-lightest);
+  }
+}

@@ -1,11 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap");
+.bg-primary .navbar-nav .active > .nav-link {
+  color: #28a745 !important;
+}
+
+.bg-dark.navbar-dark .navbar-nav .nav-link:focus,
+.bg-dark.navbar-dark .navbar-nav .nav-link:hover,
+.bg-dark.navbar-dark .navbar-nav .active > .nav-link {
+  color: #007bff !important;
+}
+
+.btn-secondary, .btn-secondary:hover, .btn-warning, .btn-warning:hover {
+  color: #fff;
+}
+
+.table-primary, .table-secondary, .table-success, .table-info, .table-warning, .table-danger {
+  color: #fff;
+}
+
+.table-primary,
+.table-primary > th,
+.table-primary > td {
+  background-color: #007bff;
+}
+
+.table-secondary,
+.table-secondary > th,
+.table-secondary > td {
+  background-color: #6c757d;
+}
+
+.table-light,
+.table-light > th,
+.table-light > td {
+  background-color: #f8f9fa;
+}
+
+.table-dark,
+.table-dark > th,
+.table-dark > td {
+  background-color: #343a40;
+}
+
+.table-success,
+.table-success > th,
+.table-success > td {
+  background-color: #28a745;
+}
+
+.table-info,
+.table-info > th,
+.table-info > td {
+  background-color: #17a2b8;
+}
+
+.table-danger,
+.table-danger > th,
+.table-danger > td {
+  background-color: #dc3545;
+}
+
+.table-warning,
+.table-warning > th,
+.table-warning > td {
+  background-color: #ffc107;
+}
+
+.table-active,
+.table-active > th,
+.table-active > td {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-hover .table-primary:hover,
+.table-hover .table-primary:hover > th,
+.table-hover .table-primary:hover > td {
+  background-color: #006fe6;
+}
+
+.table-hover .table-secondary:hover,
+.table-hover .table-secondary:hover > th,
+.table-hover .table-secondary:hover > td {
+  background-color: #60686f;
+}
+
+.table-hover .table-light:hover,
+.table-hover .table-light:hover > th,
+.table-hover .table-light:hover > td {
+  background-color: #e9ecef;
+}
+
+.table-hover .table-dark:hover,
+.table-hover .table-dark:hover > th,
+.table-hover .table-dark:hover > td {
+  background-color: #292d32;
+}
+
+.table-hover .table-success:hover,
+.table-hover .table-success:hover > th,
+.table-hover .table-success:hover > td {
+  background-color: #23923d;
+}
+
+.table-hover .table-info:hover,
+.table-hover .table-info:hover > th,
+.table-hover .table-info:hover > td {
+  background-color: #148ea1;
+}
+
+.table-hover .table-danger:hover,
+.table-hover .table-danger:hover > th,
+.table-hover .table-danger:hover > td {
+  background-color: #d32535;
+}
+
+.table-hover .table-warning:hover,
+.table-hover .table-warning:hover > th,
+.table-hover .table-warning:hover > td {
+  background-color: #edb100;
+}
+
+.table-hover .table-active:hover,
+.table-hover .table-active:hover > th,
+.table-hover .table-active:hover > td {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link.active:focus,
+.nav-tabs .nav-link.active:hover,
+.nav-tabs .nav-item.open .nav-link,
+.nav-tabs .nav-item.open .nav-link:focus,
+.nav-tabs .nav-item.open .nav-link:hover {
+  color: #007bff;
+}
+
+.pagination a:hover {
+  text-decoration: none;
+}
+
+.close {
+  text-decoration: none;
+  opacity: .4;
+}
+
+.close:hover, .close:focus {
+  opacity: 1;
+}
+
+.badge-secondary, .badge-warning {
+  color: #fff;
+}
+
+.alert {
+  border: none;
+  color: #fff;
+}
+
+.alert a,
+.alert .alert-link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.alert-primary {
+  background-color: #007bff;
+}
+
+.alert-secondary {
+  background-color: #6c757d;
+}
+
+.alert-success {
+  background-color: #28a745;
+}
+
+.alert-info {
+  background-color: #17a2b8;
+}
+
+.alert-warning {
+  background-color: #ffc107;
+}
+
+.alert-danger {
+  background-color: #dc3545;
+}
+
+.alert-light {
+  background-color: #f8f9fa;
+}
+
+.alert-dark {
+  background-color: #343a40;
+}
+
+.alert-light,
+.alert-light a,
+.alert-light .alert-link {
+  color: #212529;
+}
+
+.modal .close,
+.toast .close {
+  color: #000;
+}
+
+.modal .close:not(:disabled):not(.disabled):hover, .modal .close:not(:disabled):not(.disabled):focus,
+.toast .close:not(:disabled):not(.disabled):hover,
+.toast .close:not(:disabled):not(.disabled):focus {
+  color: #000;
+}
+
 a {
-  color: var(--primary); }
-  @media (hover: hover) {
-    a:hover {
-      color: var(--primary-lightest); } }
+  color: var(--primary);
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: var(--primary-lightest);
+  }
+}
 
 #ec-user-popover {
-  margin-right: 0.5rem; }
+  margin-right: 0.5rem;
+}
 
 .menu__btn--close {
-  color: var(--primary); }
+  color: var(--primary);
+}

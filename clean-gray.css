@@ -1,18 +1,29 @@
 main .top-bar {
   display: flex;
-  flex-direction: column-reverse; }
-  main .top-bar__nav {
-    font-size: 85%; }
-  main .top-bar a.top-bar__countdown {
-    background-color: #343a40; }
+  flex-direction: column-reverse;
+}
+
+main .top-bar__nav {
+  font-size: 85%;
+}
+
+main .top-bar a.top-bar__countdown {
+  background-color: #343a40;
+}
 
 main .header {
-  border-bottom: none; }
-  main .header__nav a {
-    color: #343a40;
-    border-bottom: solid 2px transparent; }
-    main .header__nav a:hover {
-      border-bottom-color: #6c757d; }
+  border-bottom: none;
+}
+
+main .header__nav a {
+  color: #343a40;
+  border-bottom: solid 2px transparent;
+}
+
+main .header__nav a:hover {
+  border-bottom-color: #6c757d;
+}
 
 main #search-input {
-  border: solid 1px #6c757d; }
+  border: solid 1px #6c757d;
+}

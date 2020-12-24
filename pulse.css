@@ -1,2 +1,118 @@
+.btn:focus, .btn:active, .btn:active:focus, .btn.active:focus {
+  outline: none;
+}
+
+.btn-secondary {
+  background-color: #fff;
+  border-color: #ccc;
+  color: #212529;
+}
+
+.btn-secondary:hover {
+  background-color: #dee2e6;
+  border-color: #adb5bd;
+  color: #212529;
+}
+
+.btn-secondary.disabled {
+  background-color: #fff;
+  border-color: #d9d9d9;
+  color: #2c3237;
+}
+
+.btn-warning {
+  color: #fff;
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 5px #3395ff;
+}
+
+.btn-secondary:focus {
+  box-shadow: 0 0 5px #ced4da;
+}
+
+.btn-success:focus {
+  box-shadow: 0 0 5px #34ce57;
+}
+
+.btn-info:focus {
+  box-shadow: 0 0 5px #1fc8e3;
+}
+
+.btn-warning:focus {
+  box-shadow: 0 0 5px #ffce3a;
+}
+
+.btn-danger:focus {
+  box-shadow: 0 0 5px #e4606d;
+}
+
+.btn.disabled:focus {
+  box-shadow: none;
+}
+
+.table .thead-dark th {
+  background-color: #6c757d;
+  border-color: #dee2e6;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 5px rgba(100, 65, 164, 0.4);
+}
+
+.nav-tabs .nav-link,
+.nav-tabs .nav-link.active {
+  border-width: 0 0 1px;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link.active:hover,
+.nav-tabs .nav-link.active:focus {
+  border-bottom: 1px solid #007bff;
+}
+
+.nav-tabs .nav-item + .nav-item {
+  margin-left: 0;
+}
+
+.breadcrumb-item.active {
+  color: #495057;
+}
+
+.badge {
+  padding-bottom: .4em;
+}
+
+.badge-secondary, .badge-warning {
+  color: #fff;
+}
+
+.progress {
+  height: 8px;
+}
+
+.list-group-item {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.list-group-item.active, .list-group-item:hover, .list-group-item:focus {
+  color: #fff;
+}
+
+.list-group-item.active {
+  font-weight: 700;
+}
+
+.list-group-item.active:hover {
+  background-color: #f8f9fa;
+}
+
+.list-group-item.disabled:hover {
+  color: #6c757d;
+}
+
 #ec-user-popover {
-  margin-right: 0.5rem; }
+  margin-right: 0.5rem;
+}

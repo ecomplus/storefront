@@ -1,14 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap");
+.bg-dark {
+  background-color: #000 !important;
+}
+
+.bg-light {
+  background-color: #fff !important;
+  color: #000;
+  border: 1px solid #e9ecef;
+}
+
+.bg-light.navbar-fixed-top {
+  border-width: 0 0 1px;
+}
+
+.bg-light.navbar-fixed-bottom {
+  border-width: 1px 0 0;
+}
+
+.navbar {
+  font-size: 18px;
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-weight: 500;
+}
+
+.navbar-brand {
+  padding-top: .5rem;
+  font-size: inherit;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.btn {
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-weight: 500;
+}
+
+.btn-secondary, .btn-warning {
+  color: #fff;
+}
+
+.pagination a:hover {
+  text-decoration: none;
+}
+
 .pitbar {
   background: var(--light);
-  color: var(--primary); }
-  .pitbar__item:after {
-    background: var(--primary); }
+  color: var(--primary);
+}
+
+.pitbar__item:after {
+  background: var(--primary);
+}
 
 a {
-  color: var(--primary); }
-  @media (hover: hover) {
-    a:hover {
-      color: var(--primary-lightest); } }
+  color: var(--primary);
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: var(--primary-lightest);
+  }
+}
 
 #ec-user-popover {
-  margin-right: 0.5rem; }
+  margin-right: 0.5rem;
+}

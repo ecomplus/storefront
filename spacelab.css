@@ -1,11 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+.navbar .nav-link,
+.navbar .navbar-brand {
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.1);
+  transition: color ease-in-out .2s;
+}
+
+.navbar.bg-primary {
+  background-image: linear-gradient(#4da3ff, #007bff 50%, #0071eb);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #0062cc;
+}
+
+.navbar.bg-dark {
+  background-image: linear-gradient(#939ba2, #6c757d 50%, #636b72);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #545b62;
+}
+
+.navbar.bg-light {
+  background-image: linear-gradient(white, #f8f9fa 50%, #eceff2);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #dae0e5;
+}
+
+.navbar.bg-light .nav-link,
+.navbar.bg-light .navbar-brand {
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.navbar.bg-light .navbar-brand {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar.bg-light .navbar-brand:hover {
+  color: #17a2b8;
+}
+
+.btn {
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn-link {
+  text-shadow: none;
+}
+
+.btn-primary {
+  background-image: linear-gradient(#4da3ff, #007bff 50%, #0071eb);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #0062cc;
+}
+
+.btn-primary:not(.disabled):hover {
+  background-image: linear-gradient(#3898ff, #0071eb 50%, #0067d6);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #0059b8;
+}
+
+.btn-secondary {
+  background-image: linear-gradient(#939ba2, #6c757d 50%, #636b72);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #545b62;
+}
+
+.btn-secondary:not(.disabled):hover {
+  background-image: linear-gradient(#889199, #636b72 50%, #596167);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #4b5157;
+}
+
+.btn-success {
+  background-image: linear-gradient(#48d368, #28a745 50%, #24973e);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #1e7e34;
+}
+
+.btn-success:not(.disabled):hover {
+  background-image: linear-gradient(#38cf5a, #24973e 50%, #208637);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #1a6d2d;
+}
+
+.btn-info {
+  background-image: linear-gradient(#36cee6, #17a2b8 50%, #1592a6);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #117a8b;
+}
+
+.btn-info:not(.disabled):hover {
+  background-image: linear-gradient(#24c9e4, #1592a6 50%, #128294);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #0f6a79;
+}
+
+.btn-warning {
+  background-image: linear-gradient(#ffd454, #ffc107 50%, #f2b500);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #d39e00;
+}
+
+.btn-warning:not(.disabled):hover {
+  background-image: linear-gradient(#ffcf3f, #f2b500 50%, #dda600);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #bf8f00;
+}
+
+.btn-danger {
+  background-image: linear-gradient(#e77681, #dc3545 50%, #d72536);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #bd2130;
+}
+
+.btn-danger:not(.disabled):hover {
+  background-image: linear-gradient(#e46571, #d72536 50%, #c62232);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #ac1e2b;
+}
+
+.btn-light {
+  background-image: linear-gradient(white, #f8f9fa 50%, #eceff2);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #dae0e5;
+}
+
+.btn-light:not(.disabled):hover {
+  background-image: linear-gradient(white, #eceff2 50%, #e0e5e9);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #ced5dc;
+}
+
+.btn-dark {
+  background-image: linear-gradient(#56606a, #343a40 50%, #2b3035);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #1d2124;
+}
+
+.btn-dark:not(.disabled):hover {
+  background-image: linear-gradient(#4d565f, #2b3035 50%, #222629);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #141619;
+}
+
+[class*="btn-outline-"] {
+  text-shadow: none;
+}
+
+.badge-secondary {
+  color: #fff;
+}
+
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6,
+.list-group-item h1,
+.list-group-item h2,
+.list-group-item h3,
+.list-group-item h4,
+.list-group-item h5,
+.list-group-item h6 {
+  color: inherit;
+}
+
 #ec-user-popover {
-  margin-right: 0.2rem; }
+  margin-right: 0.2rem;
+}
 
 a {
-  color: var(--primary); }
-  @media (hover: hover) {
-    a:hover {
-      color: var(--primary-lightest); } }
+  color: var(--primary);
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: var(--primary-lightest);
+  }
+}
 
 .menu__btn--close {
-  color: var(--primary); }
+  color: var(--primary);
+}
