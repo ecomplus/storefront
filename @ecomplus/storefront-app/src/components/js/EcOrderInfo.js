@@ -141,6 +141,14 @@ export default {
       return undefined
     },
 
+    canShowShippingAddress () {
+      const { localOrder, shippingAddress } = this
+      if (shippingAddress && shippingAddress.street) {
+        return !/(retira|pick\s?up|e-?mail)/i.test(localOrder.shipping_method_label)
+      }
+      return false
+    },
+
     status () {
       return this.localOrder.status
     },
