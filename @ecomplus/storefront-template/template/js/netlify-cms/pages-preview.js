@@ -6,6 +6,7 @@ import CategoriesPreview from './preview/categories-preview'
 import CollectionsPreview from './preview/collections-preview'
 import BlogPreview from './preview/blog-preview'
 import CodePreview from './preview/code-preview'
+import GeneralSettings from './preview/settings/general'
 
 window.CMS.registerPreviewStyle('https://use.fontawesome.com/releases/v5.12.0/css/all.css')
 window.CMS.registerPreviewStyle('/storefront.css')
@@ -18,3 +19,4 @@ window.CMS.registerPreviewTemplate('categories', CategoriesPreview)
 window.CMS.registerPreviewTemplate('collections', CollectionsPreview)
 window.CMS.registerPreviewTemplate('blog', BlogPreview)
 window.CMS.registerPreviewTemplate('code', CodePreview)
+window.CMS.registerPreviewTemplate('general', GeneralSettings)
