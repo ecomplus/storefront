@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.82](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.81...@ecomplus/storefront-app@2.0.0-beta.82) (2020-12-24)
+
+
+### Bug Fixes
+
+* **order-info:** check for 'pick up' to prevent showing shipping address ([#322](https://github.com/ecomplus/storefront/issues/322)) ([9a80e63](https://github.com/ecomplus/storefront/commit/9a80e634a3aa67d6317389b06bf6ffa008446b6e))
+* **order-info:** properly handling banking billet or transaction code copy to clipboard ([fe9da46](https://github.com/ecomplus/storefront/commit/fe9da46203b722c644f0097ed73db6061ec0b6dc))
+
+
+
+
+
 # [2.0.0-beta.81](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.80...@ecomplus/storefront-app@2.0.0-beta.81) (2020-12-17)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

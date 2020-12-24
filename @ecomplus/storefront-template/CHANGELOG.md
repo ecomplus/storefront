@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.106](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.105...@ecomplus/storefront-template@2.0.0-beta.106) (2020-12-24)
+
+
+### Features
+
+* **cms:** preview for general settings page ([#367](https://github.com/ecomplus/storefront/issues/367)) ([d16409f](https://github.com/ecomplus/storefront/commit/d16409f4f7fea3cd5d300ca9804ac9e1931193f9))
+
+
+
+
+
 # [2.0.0-beta.105](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.104...@ecomplus/storefront-template@2.0.0-beta.105) (2020-12-17)
 
 

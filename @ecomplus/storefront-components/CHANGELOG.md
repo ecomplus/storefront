@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.77](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.76...@ecomplus/storefront-components@1.0.0-beta.77) (2020-12-24)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
 # [1.0.0-beta.76](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.75...@ecomplus/storefront-components@1.0.0-beta.76) (2020-12-17)
 
 
