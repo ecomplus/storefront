@@ -3,13 +3,19 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
   `?store_id=${_.state.store_id}&productId=${_.state._id}`
 %>
 
+<script>
+  function hideSpinner () {
+    setTimeout(() => (document.getElementById('loading-widget').style.display = 'none'), 2000)
+  }
+ </script>
 <div class="d-none">
   <div data-slot="out-of-stock">
     <% if (options.enableOutOfStock) { %>
       <button
         type="button"
         class="btn btn-lg btn-primary mt-3 offers-notification"
-        onclick="window.open('<%- url %>&criterias=out_of_stock', '_blank', '<%- options.popupOptions %>')"
+        data-toggle="collapse" 
+        href="#iframe-collapse" 
       >
         <i class="fas fa-bell mr-1"></i>
         <%= _.ecomUtils.i18n({
@@ -17,6 +23,22 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
           pt_br: 'Avise-me quando chegar'
         }) %>
       </button>
+
+      <div class="collapse mt-4" id="iframe-collapse">
+        <div class="card card-body">
+          <div class="spinner-border spinner-border-sm" role="status" id="loading-widget">
+            <span class="sr-only">Carregando...</span>
+          </div>
+
+          <iframe 
+            id="offers_inframe" 
+            name="offers_inframe" 
+            src="<%- url %>&criterias=out_of_stock"
+            onload="hideSpinner();" 
+          >
+          </iframe>
+        </div>
+      </div>
     <% } %>
   </div>
 </div>
@@ -27,7 +49,8 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
       <button
         type="button"
         class="btn btn-sm btn-light mt-3 offers-notification"
-        onclick="window.open('<%- url %>&criterias=price_change', '_blank', '<%- options.popupOptions %>')"
+        data-toggle="collapse" 
+        href="#iframe-collapse" 
       >
         <i class="fas fa-bell mr-1"></i>
         <%= _.ecomUtils.i18n({
@@ -35,6 +58,34 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
           pt_br: 'Avise-me se o preço baixar'
         }) %>
       </button>
+
+      <div class="collapse mt-4" id="iframe-collapse">
+        <div class="card card-body">
+          <div class="spinner-border spinner-border-sm" role="status" id="loading-widget">
+            <span class="sr-only">Carregando...</span>
+          </div>
+  
+          <iframe 
+            id="offers_inframe" 
+            name="offers_inframe" 
+            src="<%- url %>&criterias=price_change"
+            onload="hideSpinner();"
+          >
+          </iframe>
+        </div>
+      </div>
     <% } %>
   </div>
 </div>
+
+<style>
+  #offers_inframe {
+    width: 100%;
+    border: none;
+    min-height: 165px
+  }
+
+  #loading-widget {
+    position: absolute;
+  }
+</style>
