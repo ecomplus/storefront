@@ -7,6 +7,26 @@ export default dataLayer => {
     const listNameBySku = {}
     const isSearchPage = window.location.pathname === '/search'
 
+    let defaultList
+    if (isSearchPage) {
+      defaultList = 'Search results'
+    } else {
+      const context = window.storefront && window.storefront.context
+      if (context && context.body) {
+        const { name } = context.body
+        switch (context.resource) {
+          case 'categories':
+            defaultList = `Category: ${name}`
+            break
+          case 'brands':
+            defaultList = `Brand: ${name}`
+            break
+          case 'collections':
+            defaultList = `Collection: ${name}`
+        }
+      }
+    }
+
     for (let i = 0; i < $products.length; i++) {
       const $product = $products[i]
       const { sku } = $product.dataset
@@ -27,7 +47,7 @@ export default dataLayer => {
       ecommerce: {
         currencyCode,
         impressions: skus.map(sku => {
-          const listName = isSearchPage ? 'Search results' : listNameBySku[sku]
+          const listName = listNameBySku[sku] || defaultList
           const item = { id: sku }
           if (listName) {
             item.list = listName

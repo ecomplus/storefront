@@ -20,6 +20,19 @@ import ALink from '../ALink.vue'
 import APicture from '../APicture.vue'
 import APrices from '../APrices.vue'
 
+const getExternalHtml = (varName, product) => {
+  if (typeof window === 'object') {
+    varName = `productCard${varName}Html`
+    const html = typeof window[varName] === 'function'
+      ? window[varName](product)
+      : window[varName]
+    if (typeof html === 'string') {
+      return html
+    }
+  }
+  return undefined
+}
+
 export default {
   name: 'ProductCard',
 
@@ -64,8 +77,18 @@ export default {
   computed: {
     i19outOfStock: () => i18n(i19outOfStock),
     i19unavailable: () => i18n(i19unavailable),
-    buyHtml: () => typeof window === 'object' && window.productCardBuyHtml,
-    footerHtml: () => typeof window === 'object' && window.productCardFooterHtml,
+
+    ratingHtml () {
+      return getExternalHtml('Rating', this.body)
+    },
+
+    buyHtml () {
+      return getExternalHtml('Buy', this.body)
+    },
+
+    footerHtml () {
+      return getExternalHtml('Footer', this.body)
+    },
 
     name () {
       return getName(this.body)

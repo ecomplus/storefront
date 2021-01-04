@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.5](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-trustvox@2.2.4...@ecomplus/widget-trustvox@2.2.5) (2020-12-17)
+
+
+### Bug Fixes
+
+* **product-card-rating:** set 'productCardRatingHtml' for dynamically rendered cards ([#392](https://github.com/ecomplus/storefront/issues/392)) ([7654947](https://github.com/ecomplus/storefront/commit/7654947231a254ac67ac0f5190ce1698af4f59bb))
+
+
+
+
+
 ## [2.2.4](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-trustvox@2.2.3...@ecomplus/widget-trustvox@2.2.4) (2020-12-16)
 
 **Note:** Version bump only for package @ecomplus/widget-trustvox

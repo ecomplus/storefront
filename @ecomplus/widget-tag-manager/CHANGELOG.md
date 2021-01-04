@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.4.3...@ecomplus/widget-tag-manager@1.5.0) (2020-12-24)
+
+
+### Features
+
+* **ecc-impressions:** set default list name for categoires, brands and collections ([ef6d909](https://github.com/ecomplus/storefront/commit/ef6d909959ccf4781f6cf0b5455e7b738a9a2a14))
+
+
+
+
+
 ## [1.4.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.4.2...@ecomplus/widget-tag-manager@1.4.3) (2020-12-16)
 
 **Note:** Version bump only for package @ecomplus/widget-tag-manager

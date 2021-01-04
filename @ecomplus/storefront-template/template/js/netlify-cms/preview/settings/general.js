@@ -12,12 +12,12 @@ const fetchCssTheme = (theme) => {
 }
 
 export default class CodePreview extends BasePreview {
-  constructor() {
+  constructor () {
     super()
     this._ = {
       ...this._,
       state: {
-        title: 'Geral',
+        title: 'Geral'
       },
       route: {
         path: '/'
@@ -32,7 +32,7 @@ export default class CodePreview extends BasePreview {
     this.custom = '_'
   }
 
-  fetchPage() {
+  fetchPage () {
     return fetchPage('/index.html').then(html => {
       const vDoc = virtualDoc(html)
       this.setState({ html, vDoc })
@@ -41,7 +41,7 @@ export default class CodePreview extends BasePreview {
     })
   }
 
-  componentDidUpdate(_, prevState) {
+  componentDidUpdate (_, prevState) {
     setTimeout(async () => {
       const { vDoc } = this.state
       const { entry } = this.props
@@ -57,7 +57,7 @@ export default class CodePreview extends BasePreview {
 
       if (this.logo !== entries.logo) {
         this.logo = entries.logo
-        let $logo = vDoc.getElementById('logo')
+        const $logo = vDoc.getElementById('logo')
         $logo.src = this.logo
         $logo.alt = entries.name
         change = true
@@ -73,11 +73,37 @@ export default class CodePreview extends BasePreview {
       $styleTag.innerHTML = `<style>
         :root {
           --primary: ${entries.primary_color};
+          --primary-light: ${entries.primary_color};
+          --primary-lighter: ${entries.primary_color};
           --secondary: ${entries.secondary_color};
+          --secondary-light: ${entries.secondary_color};
+          --secondary-lighter: ${entries.secondary_color};
         }
-
-        .btn-primary, .alert-primary, .text-primary, .bg-primary, .btn-outline-primary, .badge-primary {
-          background: ${entries.primary_color} !important;
+        body .btn-primary,
+        body .alert-primary,
+        body .badge-primary {
+          background-color: ${entries.primary_color};
+          border-color: ${entries.primary_color};
+        }
+        body .btn-outline-primary {
+          border-color: ${entries.primary_color};
+        }
+        body .btn-secondary,
+        body .alert-secondary,
+        body .badge-secondary {
+          background-color: ${entries.secondary_color};
+          border-color: ${entries.secondary_color};
+        }
+        body .btn-outline-secondary {
+          border-color: ${entries.secondary_color};
+        }
+        body .text-primary,
+        body a,
+        body a:hover {
+          color: ${entries.primary_color};
+        }
+        .lozad-delay.fade {
+          opacity: 1;
         }
       </style>`
 
@@ -112,14 +138,13 @@ export default class CodePreview extends BasePreview {
           change = true
         })
       }
-  
+
       if (change) {
         propsArray.forEach(prop => (this[prop] = entries[prop]))
         let parseHtml
         if (vDoc.childNodes && vDoc.childNodes.length) {
-          parseHtml = vDoc.childNodes[1].innerHTML
+          parseHtml = vDoc.childNodes[1].innerHTML.replace(/data-src=/ig, 'src=')
         }
-    
         this.setState({ parseHtml, vDoc })
       }
     }, 500)

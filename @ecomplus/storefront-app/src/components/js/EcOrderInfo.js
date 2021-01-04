@@ -141,6 +141,14 @@ export default {
       return undefined
     },
 
+    canShowShippingAddress () {
+      const { localOrder, shippingAddress } = this
+      if (shippingAddress && shippingAddress.street) {
+        return !/(retira|pick\s?up|e-?mail)/i.test(localOrder.shipping_method_label)
+      }
+      return false
+    },
+
     status () {
       return this.localOrder.status
     },
@@ -231,7 +239,7 @@ export default {
     toClipboard (text) {
       this.$copyText(text).then(() => {
         this.$toast({
-          title: this.i18n('CodeCopied'),
+          title: this.i19codeCopied,
           body: text,
           variant: 'success',
           delay: 2000
@@ -240,7 +248,7 @@ export default {
         console.error(err)
         this.$toast({
           title: 'Oops',
-          body: `${this.i18n('copyErrorMsg')}: <i>${text}</i>`,
+          body: `${this.i19copyErrorMsg}: <i>${text}</i>`,
           variant: 'warning',
           delay: 3000
         })

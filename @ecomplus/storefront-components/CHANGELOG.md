@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.77](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.76...@ecomplus/storefront-components@1.0.0-beta.77) (2020-12-24)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.76](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.75...@ecomplus/storefront-components@1.0.0-beta.76) (2020-12-17)
+
+
+### Bug Fixes
+
+* **product-variations:** unset selected options if no more available on each filter grids ([#390](https://github.com/ecomplus/storefront/issues/390)) ([6aaf56b](https://github.com/ecomplus/storefront/commit/6aaf56b9d5e27b942fe5bb39081be335ab477bdc))
+
+
+### Features
+
+* **product-card:** support window scope functions for html append ([ca60125](https://github.com/ecomplus/storefront/commit/ca60125c3dcdde4e4caa429d8ef306443dc7ebe8))
+
+
+
+
+
 # [1.0.0-beta.75](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.74...@ecomplus/storefront-components@1.0.0-beta.75) (2020-12-16)
 
 **Note:** Version bump only for package @ecomplus/storefront-components
