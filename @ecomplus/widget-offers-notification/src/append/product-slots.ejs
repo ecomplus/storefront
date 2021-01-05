@@ -5,7 +5,7 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
 
 <script>
   function hideSpinner () {
-    setTimeout(() => (document.getElementById('loading-widget').style.display = 'none'), 2000)
+    setTimeout(() => (document.getElementById('loading_offers_inframe').style.display = 'none'), 2000)
   }
  </script>
 <div class="d-none">
@@ -26,12 +26,14 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
 
       <div class="collapse mt-4" id="iframe-collapse">
         <div class="card card-body">
-          <div class="spinner-border spinner-border-sm" role="status" id="loading-widget">
+          <div class="spinner-border spinner-border-sm position-absolute" role="status" id="loading_offers_inframe">
             <span class="sr-only">Carregando...</span>
           </div>
 
           <iframe 
+            style="min-height: 165px;border:none;width: 100%;"
             id="offers_inframe" 
+            class="border-0"
             name="offers_inframe" 
             src="<%- url %>&criterias=out_of_stock"
             onload="hideSpinner();" 
@@ -61,12 +63,14 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
 
       <div class="collapse mt-4" id="iframe-collapse">
         <div class="card card-body">
-          <div class="spinner-border spinner-border-sm" role="status" id="loading-widget">
+          <div class="spinner-border spinner-border-sm position-absolute" role="status" id="loading_offers_inframe">
             <span class="sr-only">Carregando...</span>
           </div>
   
           <iframe 
+            style="min-height: 165px;border:none;width: 100%;"
             id="offers_inframe" 
+            class="border-0"
             name="offers_inframe" 
             src="<%- url %>&criterias=price_change"
             onload="hideSpinner();"
@@ -77,15 +81,3 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
     <% } %>
   </div>
 </div>
-
-<style>
-  #offers_inframe {
-    width: 100%;
-    border: none;
-    min-height: 165px
-  }
-
-  #loading-widget {
-    position: absolute;
-  }
-</style>
