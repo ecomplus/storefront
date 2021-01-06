@@ -5,7 +5,10 @@
   const link = opt.link || (opt.collection && `/${opt.collection.slug}`)
 
   if (opt.shuffle) {
-    let m = opt.items.length, t, i
+    let m = opt.items.filter(item => {
+      return item.available && _.ecomUtils.inStock(item)
+    }).length
+    let t, i
     while (m) {
       i = Math.floor(Math.random() * m--)
       t = opt.items[m]
