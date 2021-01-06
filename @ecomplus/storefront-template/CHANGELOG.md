@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.107](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.106...@ecomplus/storefront-template@2.0.0-beta.107) (2021-01-06)
+
+
+### Bug Fixes
+
+* **product-images:** properlly checking cors available cdn ([6bdbce7](https://github.com/ecomplus/storefront/commit/6bdbce72716f3b8bc8cec6b845eb142db969cf30))
+* **products-carousel:** prevent unavailable products ordered first on shuffle ([d70c4f0](https://github.com/ecomplus/storefront/commit/d70c4f0014e9591b0797f84ebc9ab8f40236a497))
+
+
+
+
+
 # [2.0.0-beta.106](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.105...@ecomplus/storefront-template@2.0.0-beta.106) (2020-12-24)
 
 
