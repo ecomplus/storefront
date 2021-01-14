@@ -26,6 +26,7 @@ const validateCartItem = (item, data) => new Promise((resolve, reject) => {
       variation = data.variations.find(({ _id }) => _id === item.variation_id)
       if (!variation) {
         variation = data.variations.find(({ sku }) => sku === item.sku)
+        item.variation_id = variation._id
       }
     }
     if (!variation) {
