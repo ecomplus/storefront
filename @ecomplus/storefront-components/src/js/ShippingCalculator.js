@@ -94,7 +94,7 @@ export default {
       amountSubtotal: null,
       shippingServices: [],
       selectedService: null,
-      hasFreeOption: false,
+      hasPaidOption: false,
       freeFromValue: null,
       isScheduled: false,
       retryTimer: null,
@@ -116,7 +116,7 @@ export default {
     },
 
     freeFromPercentage () {
-      return !this.hasFreeOption && this.amountSubtotal < this.freeFromValue
+      return this.hasPaidOption && this.amountSubtotal < this.freeFromValue
         ? Math.round(this.amountSubtotal * 100 / this.freeFromValue)
         : null
     }
@@ -169,8 +169,8 @@ export default {
                   : 1
           })
           this.setSelectedService(0)
-          this.hasFreeOption = Boolean(this.shippingServices.find(service => {
-            return !service.shipping_line.total_price && !service.shipping_line.price
+          this.hasPaidOption = Boolean(this.shippingServices.find(service => {
+            return service.shipping_line.total_price || service.shipping_line.price
           }))
           if (Array.isArray(this.shippingAppsSort) && this.shippingAppsSort.length) {
             this.shippingServices = sortApps(this.shippingServices, this.shippingAppsSort)
