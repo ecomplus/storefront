@@ -4,10 +4,7 @@ import {
   i19minQuantity
 } from '@ecomplus/i18n'
 
-import {
-  i18n,
-  inStock as checkInStock
-} from '@ecomplus/utils'
+import { i18n } from '@ecomplus/utils'
 
 import ecomCart from '@ecomplus/shopping-cart'
 import ALink from '../ALink.vue'
@@ -86,7 +83,12 @@ export default {
   },
 
   methods: {
-    checkInStock,
+    checkInStock (item) {
+      const maxQuantity = item.max_quantity
+      return typeof maxQuantity === 'number' && maxQuantity >= 0
+        ? maxQuantity
+        : 9999999
+    },
 
     changeQnt (item, qntDiff, ev) {
       const { selectedQnts, remainingQuantity } = this
