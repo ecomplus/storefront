@@ -21,8 +21,13 @@ const fetchProduct = _id => {
 const validateCartItem = (item, data) => new Promise((resolve, reject) => {
   const { _id, quantity } = item
   if (item.variation_id) {
-    const variation = data.variations &&
-      data.variations.find(({ _id }) => _id === item.variation_id)
+    let variation
+    if (data.variations) {
+      variation = data.variations.find(({ _id }) => _id === item.variation_id)
+      if (!variation) {
+        variation = data.variations.find(({ sku }) => sku === item.sku)
+      }
+    }
     if (!variation) {
       ecomCart.removeItem(_id)
     } else {
