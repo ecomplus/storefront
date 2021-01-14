@@ -382,6 +382,8 @@ export default {
                   const item = ecomCart.parseProduct(data, variationId, quantity)
                   if (quantity) {
                     item.min_quantity = item.max_quantity = quantity
+                  } else {
+                    item.quantity = 0
                   }
                   kitItems.push({
                     ...item,
