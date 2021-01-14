@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.83](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.82...@ecomplus/storefront-app@2.0.0-beta.83) (2021-01-14)
+
+
+### Bug Fixes
+
+* **validate-cart-item:** fallback try to find variation by sku ([67a1814](https://github.com/ecomplus/storefront/commit/67a1814c57df9229a0a99c22eba3bef9aacdce53))
+* **validate-cart-item:** fallback try to find variation by sku (and fix item variation id) ([572429d](https://github.com/ecomplus/storefront/commit/572429d0820c77dcaa728ac08148f2e1bdaac2e9))
+
+
+
+
+
 # [2.0.0-beta.82](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.81...@ecomplus/storefront-app@2.0.0-beta.82) (2020-12-24)
 
 

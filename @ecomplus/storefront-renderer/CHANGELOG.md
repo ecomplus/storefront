@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.10...@ecomplus/storefront-renderer@2.4.11) (2021-01-14)
+
+**Note:** Version bump only for package @ecomplus/storefront-renderer
+
+
+
+
+
 ## [2.4.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.9...@ecomplus/storefront-renderer@2.4.10) (2020-12-24)
 
 **Note:** Version bump only for package @ecomplus/storefront-renderer

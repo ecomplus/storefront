@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.78](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.77...@ecomplus/storefront-components@1.0.0-beta.78) (2021-01-14)
+
+
+### Bug Fixes
+
+* **product:** start kit composition with 0 selected qnts by default ([67c580a](https://github.com/ecomplus/storefront/commit/67c580aad64272d21bf1ad8b1b910d5f0fbd0462))
+* **quantity-selector:** properly checking cart item (not product) stock ([dbc7d57](https://github.com/ecomplus/storefront/commit/dbc7d57fd8aafedfcc4ee9b1052ab8d6a74d5cc3))
+* **shipping-calculator:** also show free shipping progress when free option available ([#401](https://github.com/ecomplus/storefront/issues/401)) ([0b0952e](https://github.com/ecomplus/storefront/commit/0b0952e14e949863678954b38f585921b6bd77bf))
+
+
+### Performance Improvements
+
+* **product:** fetch search api (one request only) to hydrate kit composition ([ce60918](https://github.com/ecomplus/storefront/commit/ce60918a08fb4838dc6a7acd6c377251bdd1f925))
+
+
+
+
+
 # [1.0.0-beta.77](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.76...@ecomplus/storefront-components@1.0.0-beta.77) (2020-12-24)
 
 **Note:** Version bump only for package @ecomplus/storefront-components
