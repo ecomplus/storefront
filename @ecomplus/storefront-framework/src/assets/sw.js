@@ -5,7 +5,7 @@ import { StaleWhileRevalidate, CacheFirst, NetworkFirst } from 'workbox-strategi
 import { CacheableResponsePlugin } from 'workbox-cacheable-response'
 import { ExpirationPlugin } from 'workbox-expiration'
 
-/* global self, fetch, Response */
+/* global self, fetch */
 
 self.skipWaiting()
 clientsClaim()
@@ -241,23 +241,6 @@ registerRoute(
 // homepage
 registerRoute('/', new NetworkFirst())
 
-// SSR fallback to static 404 page
-async function redirect404 ({ request, response }) {
-  if (response.status >= 404) {
-    const { url } = request
-    if ((/\/[^/.]+$/.test(url) || /\.x?html$/.test(url)) && !/^\/404\??/.test(url)) {
-      return new Response(null, {
-        status: 302,
-        statusText: 'Redirect',
-        headers: {
-          Location: `/404?url=${encodeURIComponent(url)}`
-        }
-      })
-    }
-  }
-  return response
-}
-
 // any page URL slug
 registerRoute(
   /\/((?!(?:admin|assets|img)(\/|$))[^.]+)(\.(?!js|css|xml|txt|png|gif|jpg|jpeg|webp|svg)[^.]+)*$/,
@@ -268,10 +251,7 @@ registerRoute(
         maxEntries: 50,
         // purge HTML files to release quota
         purgeOnQuotaError: true
-      }),
-      {
-        fetchDidSucceed: redirect404
-      }
+      })
     ]
   })
 )
