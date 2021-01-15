@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.5...@ecomplus/storefront-framework@5.16.6) (2021-01-15)
+
+
+### Bug Fixes
+
+* **sw:** remove handler for ssr fallback to 404 (not working) ([60ab953](https://github.com/ecomplus/storefront/commit/60ab95367a6a599f9362cd348fbef9962b2ce484))
+
+
+
+
+
 ## [5.16.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.4...@ecomplus/storefront-framework@5.16.5) (2021-01-14)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

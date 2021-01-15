@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.79](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.78...@ecomplus/storefront-components@1.0.0-beta.79) (2021-01-15)
+
+
+### Bug Fixes
+
+* **product-card:** minor style fixes for product name on card ([ac5f5a5](https://github.com/ecomplus/storefront/commit/ac5f5a5c7d7934b9e1134f953e814bedd6509b26))
+
+
+
+
+
 # [1.0.0-beta.78](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.77...@ecomplus/storefront-components@1.0.0-beta.78) (2021-01-14)
 
 
