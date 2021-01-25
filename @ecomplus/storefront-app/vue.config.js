@@ -1,8 +1,6 @@
 const path = require('path')
 const recursiveCopy = require('./../storefront-template/scripts/lib/recursive-copy')
 const templatePath = path.join(__dirname, '../../node_modules/@ecomplus/storefront-snapshot')
-const { dependencies, peerDependencies } = require('./package.json')
-const externals = require('./../storefront-template/webpack.externals')
 const publicPath = require('./webpack.public-path')
 
 const devMode = process.env.NODE_ENV !== 'production'
@@ -49,13 +47,7 @@ module.exports = {
   chainWebpack: config => {
     if (libMode) {
       // exclude all imported deps on lib mode by default
-      config.externals([
-        externals,
-        new RegExp('^(' +
-          Object.entries({ ...dependencies, ...peerDependencies })
-            .map(([pkg]) => pkg).filter(pkg => !externals[pkg]).join('|') +
-          ')$', 'i')
-      ])
+      config.externals(['@ecomplus/utils'])
     }
 
     // HTML file from template to load global vars and styles
