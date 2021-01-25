@@ -16,15 +16,26 @@ Vue 2 SPA with cart, checkout and account pages for [E-Com Plus Storefront](http
 
 You can install the package and import raw source when using bundlers such as Webpack and Browserify, or load compiled from CNDs like jsDelivr or UNPKG.
 
-### With bundlers
+It requires and doesn't include [`@ecomplus/utils`](https://developers.e-com.plus/utils/) (peer dependency), it should be used to declare store settings before starting the checkout SPA, check the following examples and edit `$ecomConfig.set` with your store values.
 
-It requires and doesn't include [`@ecomplus/utils`](https://developers.e-com.plus/utils/) (peer dependency).
+### With bundlers
 
 ```bash
 npm i --save @ecomplus/utils @ecomplus/storefront-app
 ```
 
 ```js
+// config.js
+import { $ecomConfig } from '@ecomplus/utils'
+$ecomConfig.set('store_id', 1011)
+$ecomConfig.set('lang', 'pt_br')
+$ecomConfig.set('currency', 'BRL')
+$ecomConfig.set('country_code', 'BR')
+```
+
+```js
+// checkout.js
+import './config.js'
 import '@ecomplus/storefront-app/src/main'
 ```
 
@@ -34,6 +45,12 @@ Add the scripts below right before `</body>` on your cart/checkout page:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@ecomplus/utils@1/dist/ecom-utils.polyfill.min.js"></script>
+<script>
+  $ecomConfig.set('store_id', 1011);
+  $ecomConfig.set('lang', 'pt_br');
+  $ecomConfig.set('currency', 'BRL');
+  $ecomConfig.set('country_code', 'BR');
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/dist/lib/js/app.js"></script>
 ```
 
