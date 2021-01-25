@@ -2,20 +2,30 @@ const path = require('path')
 const fs = require('fs')
 
 const pkgsPath = path.join(__dirname, '../@ecomplus')
-const sidebarPkgs = []
+
+const widgetPkgs = []
 for (const pkg of fs.readdirSync(pkgsPath)) {
-  sidebarPkgs.push([`/@ecomplus/${pkg}/`, pkg])
+  if (pkg.startsWith('widget')) {
+    widgetPkgs.push([`/@ecomplus/${pkg}/`, pkg.replace('widget-', '')])
+  }
 }
 
 const getSidebarItems = pkg => {
+  const link = `/@ecomplus/${pkg}/`
   const children = [
-    [`/@ecomplus/${pkg}/`, 'Introduction']
+    [link, 'Introduction']
   ]
   const componentsPath = path.join(pkgsPath, pkg, 'docs')
-  for (const file of fs.readdirSync(componentsPath)) {
-    children.push(`/@ecomplus/${pkg}/docs/${file}`)
+  try {
+    const files = fs.readdirSync(componentsPath)
+    for (const file of files) {
+      children.push(`/@ecomplus/${pkg}/docs/${file}`)
+    }
+  } catch (e) {
   }
-  return children
+  return children.length > 1
+    ? { children }
+    : { path: link }
 }
 
 const alias = {
@@ -72,25 +82,29 @@ module.exports = {
       {
         title: 'Template',
         collapsable: false,
-        children: getSidebarItems('storefront-template')
+        ...getSidebarItems('storefront-template')
       },
       {
         title: 'Base UI',
         collapsable: false,
-        children: getSidebarItems('storefront-twbs')
+        ...getSidebarItems('storefront-twbs')
       },
       {
         title: 'Vue components',
-        children: getSidebarItems('storefront-components')
+        ...getSidebarItems('storefront-components')
+      },
+      {
+        title: 'Checkout SPA',
+        ...getSidebarItems('storefront-app')
       },
       {
         title: 'Compiler',
-        children: getSidebarItems('storefront-framework')
+        ...getSidebarItems('storefront-framework')
       },
       {
-        title: 'All packages',
+        title: 'Widgets',
         sidebarDepth: 0,
-        children: sidebarPkgs
+        children: widgetPkgs
       }
     ]
   },
