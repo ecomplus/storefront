@@ -47,7 +47,13 @@ module.exports = {
   chainWebpack: config => {
     if (libMode) {
       // exclude all imported deps on lib mode by default
-      config.externals(['@ecomplus/utils'])
+      config.externals([{
+        '@ecomplus/utils': {
+          commonjs: '@ecomplus/utils',
+          commonjs2: '@ecomplus/utils',
+          root: 'ecomUtils'
+        }
+      }])
     }
 
     // HTML file from template to load global vars and styles
