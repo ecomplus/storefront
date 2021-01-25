@@ -18,6 +18,8 @@ You can install the package and import raw source when using bundlers such as We
 
 It requires and doesn't include [`@ecomplus/utils`](https://developers.e-com.plus/utils/) (peer dependency), it should be used to declare store settings before starting the checkout SPA, check the following examples and edit `$ecomConfig.set` with your store values.
 
+Component styles will be loaded on demand, but [_Storefront Twbs_](https://developers.e-com.plus/storefront/@ecomplus/storefront-twbs/) styles should be previously imported for base UI.
+
 ### With bundlers
 
 ```bash
@@ -39,6 +41,10 @@ import './config.js'
 import '@ecomplus/storefront-app/src/main'
 ```
 
+```scss
+@import "node_modules/@ecomplus/storefront-twbs/scss/styles";
+```
+
 ### CDN
 
 Add the scripts below right before `</body>` on your cart/checkout page:
@@ -51,7 +57,13 @@ Add the scripts below right before `</body>` on your cart/checkout page:
   $ecomConfig.set('currency', 'BRL');
   $ecomConfig.set('country_code', 'BR');
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app/dist/lib/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-app@latest/dist/lib/js/app.js"></script>
+```
+
+And base UI styles before `</head>`:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-twbs@5/dist/storefront-twbs.min.css">
 ```
 
 ## Usage
