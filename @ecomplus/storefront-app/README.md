@@ -79,6 +79,8 @@ You just need to have a `#storefront-app` element on your HTML:
 </body>
 ```
 
+[Sample JSFiddle](https://jsfiddle.net/gtjeb7Lr/)
+
 We recommend running the SPA at the `/app/` route (eg.: `/app/index.html`).
 
 ### Manipulating cart items
