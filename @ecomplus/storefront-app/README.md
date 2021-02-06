@@ -85,9 +85,7 @@ We recommend running the SPA at the `/app/` route (eg.: `/app/index.html`).
 
 ### Manipulating cart items
 
-Please refer to [`EcomCart`](https://developers.e-com.plus/shopping-cart/EcomCart.html) docs.
-
-Note that you can import `@ecomplus/shopping-cart` on other ecommerce pages to add items before redirecting user to cart:
+You can import `@ecomplus/shopping-cart` on other ecommerce pages to add items before redirecting user to cart:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@ecomplus/shopping-cart@2/dist/ecom-cart.bundle.min.js"></script>
@@ -95,19 +93,27 @@ Note that you can import `@ecomplus/shopping-cart` on other ecommerce pages to a
 $('#buy-button').click(function () {
   // add item to cart
   ecomCart.addItem({
-    _id: '12300000000000000000000f',
     product_id: '123a5432109876543210cdef',
     sku: 's-MP_2B4',
     name: 'Mens Pique Polo Shirt',
     quantity: 4,
     price: 42.9,
-    keep_item_price: false
+    picture: {
+      normal: {
+        url: 'https://samplecdn.x/mens-polo-350x350.webp'
+      },
+      zoom: {
+        url: 'https://samplecdn.x/mens-polo.webp'
+      }
+    }
   });
   // redirect to checkout
-  window.location.href = '/app/';
+  window.location.href = '/app/#/checkout';
 })
 </script>
 ```
+
+For more details and examples, refer to [`EcomCart`](https://developers.e-com.plus/shopping-cart/EcomCart.html) docs.
 
 ### Manipulating customer account
 
