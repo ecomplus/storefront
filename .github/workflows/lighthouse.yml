@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Test Netlify deploy preview
-        uses: treosh/lighthouse-ci-action@v3
+        uses: treosh/lighthouse-ci-action@v7
         env:
           HOST_BASE: storefront-template.netlify.com
           HOST_PREVIEW: deploy-preview-${{ github.event.pull_request.number }}--storefront-template.netlify.com
