@@ -40,4 +40,6 @@ jobs:
         if: github.event.registry_package.name == 'storefront-template'
         env:
           NETLIFY_HOOK_ENDPOINT: ${{ secrets.NETLIFY_HOOK_ENDPOINT }}
-        run: curl -X POST -d {} $NETLIFY_HOOK_ENDPOINT
+        run: |
+          sleep 30
+          curl -X POST -d {} $NETLIFY_HOOK_ENDPOINT
