@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.81](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.80...@ecomplus/storefront-components@1.0.0-beta.81) (2021-02-15)
+
+
+### Features
+
+* **account-form:** add email marketing and privacy policy opt ins ([#402](https://github.com/ecomplus/storefront/issues/402)) ([b7a7eb8](https://github.com/ecomplus/storefront/commit/b7a7eb872e3b67e9535bcb6e748c0ee62d43661f))
+* **prices:** check variations prices to render "as of" message ([#419](https://github.com/ecomplus/storefront/issues/419)) ([c7f649b](https://github.com/ecomplus/storefront/commit/c7f649b1877dee2cec66346ddb2af54b6f63975f))
+
+
+
+
+
 # [1.0.0-beta.80](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.79...@ecomplus/storefront-components@1.0.0-beta.80) (2021-01-25)
 
 **Note:** Version bump only for package @ecomplus/storefront-components

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.87](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.86...@ecomplus/storefront-app@2.0.0-beta.87) (2021-02-15)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#410](https://github.com/ecomplus/storefront/issues/410)) ([4f67629](https://github.com/ecomplus/storefront/commit/4f67629dbf9ee4aeb0e55cf5fd28adef0e166c92))
+* **order-info:** check items stock to show reopen order option ([#326](https://github.com/ecomplus/storefront/issues/326)) ([640593e](https://github.com/ecomplus/storefront/commit/640593e80beb7fffc02eb4919b06cfb154759838))
+
+
+
+
+
 # [2.0.0-beta.86](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.85...@ecomplus/storefront-app@2.0.0-beta.86) (2021-01-25)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
