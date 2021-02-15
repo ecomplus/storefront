@@ -210,6 +210,50 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <div class="custom-control custom-checkbox">
+      <input
+        type="checkbox"
+        class="custom-control-input"
+        id="account-form-marketing"
+        v-model="localCustomer.accepts_marketing"
+      >
+      <label
+        class="custom-control-label"
+        for="account-form-marketing"
+      >
+        {{ i19emailMarketingOptInMsg }}
+      </label>
+    </div>
+  </div>
+
+  <div
+    v-if="privacyPolicyUrl"
+    class="form-group"
+  >
+    <div class="custom-control custom-checkbox">
+      <input
+        type="checkbox"
+        class="custom-control-input"
+        id="account-form-privacy-policy"
+        v-model="isPrivacyOptIn"
+        required
+      >
+      <label
+        class="custom-control-label"
+        for="account-form-privacy-policy"
+      >
+        {{ i19iReadAndAccept }}
+        {{ i19a }}
+        <a
+          :href="privacyPolicyUrl"
+          target="_blank"
+          v-text="i19privacyPolicy"
+        ></a>.
+      </label>
+    </div>
+  </div>
+
   <button
     class="btn btn-lg btn-primary"
     type="submit"

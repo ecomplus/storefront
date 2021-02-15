@@ -1,8 +1,10 @@
 import {
+  // i19a,
   i19birthdate,
   i19cellphone,
-  i19corporateName,
+  i19companyRegistration,
   i19contactPhone,
+  i19corporateName,
   i19docNumber,
   i19emailAddress,
   i19female,
@@ -10,10 +12,12 @@ import {
   i19Gender,
   i19inscriptionNumber,
   i19InscriptionType,
+  // i19iReadAndAccept,
   i19male,
   i19nickname,
+  // i19emailMarketingOptInMsg,
   i19personalRegistration,
-  i19companyRegistration,
+  i19privacyPolicy,
   i19save,
   i19saved
 } from '@ecomplus/i18n'
@@ -58,6 +62,10 @@ export default {
       default () {
         return {}
       }
+    },
+    privacyPolicyUrl: {
+      type: String,
+      default: typeof window === 'object' ? window.privacyPolicyUrl : null
     }
   },
 
@@ -66,15 +74,18 @@ export default {
       localCustomer: cloneDeep(this.customer),
       fullName: getFullName(this.customer),
       storageInterval: null,
-      btnLabel: i18n(i19save)
+      btnLabel: i18n(i19save),
+      isPrivacyOptIn: Boolean(this.customer._id)
     }
   },
 
   computed: {
+    i19a: () => 'a',
     i19birthdate: () => i18n(i19birthdate),
     i19cellphone: () => i18n(i19cellphone),
-    i19corporateName: () => i18n(i19corporateName),
+    i19companyRegistration: () => i18n(i19companyRegistration),
     i19contactPhone: () => i18n(i19contactPhone),
+    i19corporateName: () => i18n(i19corporateName),
     i19docNumber: () => i18n(i19docNumber),
     i19emailAddress: () => i18n(i19emailAddress),
     i19female: () => i18n(i19female),
@@ -82,10 +93,12 @@ export default {
     i19Gender: () => i18n(i19Gender),
     i19inscriptionNumber: () => i18n(i19inscriptionNumber),
     i19InscriptionType: () => i18n(i19InscriptionType),
+    i19iReadAndAccept: () => 'Li e aceito',
     i19male: () => i18n(i19male),
     i19nickname: () => i18n(i19nickname),
-    i19companyRegistration: () => i18n(i19companyRegistration),
+    i19emailMarketingOptInMsg: () => 'Quero receber ofertas e conteúdos da loja por e-mail.',
     i19personalRegistration: () => i18n(i19personalRegistration),
+    i19privacyPolicy: () => i18n(i19privacyPolicy),
 
     birthdate: {
       get () {
@@ -247,6 +260,9 @@ export default {
         this.saveToStorage()
       }
     }, 7000)
+    if (!this.localCustomer._id) {
+      this.localCustomer.accepts_marketing = true
+    }
   },
 
   mounted () {
