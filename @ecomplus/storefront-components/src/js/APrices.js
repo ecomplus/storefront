@@ -84,6 +84,23 @@ export default {
       }
     },
 
+    hasVariedPrices () {
+      const { variations } = this.product
+      if (variations) {
+        const productPrice = getPrice(this.product)
+        for (let i = 0; i < variations.length; i++) {
+          const price = getPrice({
+            ...this.product,
+            ...variations[i]
+          })
+          if (price > productPrice) {
+            return true
+          }
+        }
+      }
+      return false
+    },
+
     priceWithDiscount () {
       return getPriceWithDiscount(this.price, this.discount)
     },

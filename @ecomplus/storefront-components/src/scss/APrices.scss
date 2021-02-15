@@ -1,6 +1,10 @@
 .prices {
   line-height: var(--line-height-sm);
 
+  small:not(.prices__discount-label) {
+    text-transform: lowercase;
+  }
+
   &:not(.prices--big) {
     font-size: var(--font-size-sm);
 
@@ -12,6 +16,10 @@
   &__value {
     display: block;
     font-size: var(--font-size-lg);
+
+    small {
+      font-size: var(--font-size-sm);
+    }
   }
 
   &--big {
@@ -33,7 +41,6 @@
 
     small {
       font-size: 100%;
-      text-transform: lowercase;
     }
   }
 

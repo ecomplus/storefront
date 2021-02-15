@@ -15,6 +15,9 @@
   </span>
 
   <strong class="prices__value">
+    <small v-if="hasVariedPrices">
+      {{ i19asOf }}
+    </small>
     {{ formatMoney(price) }}
   </strong>
 
@@ -48,7 +51,7 @@
         <span>
           {{ formatMoney(priceWithDiscount) }}
         </span>
-        <small>
+        <small class="prices__discount-label">
           {{ discountLabel }}
         </small>
       </template>
