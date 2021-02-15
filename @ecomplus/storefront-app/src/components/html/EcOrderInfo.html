@@ -8,7 +8,7 @@
 
   <transition-group enter-active-class="animated fadeInDown slower">
     <div
-      v-if="!loaded"
+      v-if="!isLoaded"
       key="loading"
     >
       <div
@@ -39,14 +39,17 @@
               class="order-info__cancelled h3"
             >
               {{ i19OrderStatus(status) }}
-              <button
-                class="order-info__toggle btn"
-                :class="status === 'cancelled' ? 'btn-success' : 'btn-info'"
-                @click="toggle"
-              >
-                <i class="fas fa-check-circle mr-1"></i>
-                {{ i19reopenOrder }}
-              </button>
+              <transition enter-active-class="animated fadeInDown">
+                <button
+                  v-if="canReopenOrder"
+                  class="order-info__toggle btn"
+                  :class="status === 'cancelled' ? 'btn-success' : 'btn-info'"
+                  @click="toggle"
+                >
+                  <i class="fas fa-check-circle mr-1"></i>
+                  {{ i19reopenOrder }}
+                </button>
+              </transition>
             </p>
           </transition>
 

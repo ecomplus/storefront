@@ -7,7 +7,7 @@ import {
   i19doPaymentMsg,
   i19freight,
   i19login,
-  // i19loginForOrderDetailsMsg,
+  i19loginForOrderDetailsMsg,
   i19myOrders,
   i19of,
   i19orderConfirmationMsg,
@@ -19,7 +19,7 @@ import {
   i19shippingAddress,
   i19transactionCode,
   i19ticketCode,
-  // i19trackDelivery,
+  i19trackDelivery,
   i19zipCode,
   i19FinancialStatus,
   i19FulfillmentStatus,
@@ -35,6 +35,7 @@ import {
 import { store } from '@ecomplus/client'
 import ecomPassport from '@ecomplus/passport-client'
 import ecomCart from '@ecomplus/shopping-cart'
+import EcomSearch from '@ecomplus/search-engine'
 import ShippingLine from '#components/ShippingLine.vue'
 import EcSummary from './../EcSummary.vue'
 
@@ -79,10 +80,11 @@ export default {
 
   data () {
     return {
-      loaded: this.skipDataLoad || this.skipFirstDataLoad,
+      isLoaded: this.skipDataLoad || this.skipFirstDataLoad,
       isUpdating: false,
       reloadInterval: null,
-      orderBody: this.order
+      orderBody: this.order,
+      canReopenOrder: false
     }
   },
 
@@ -95,7 +97,7 @@ export default {
     i19doPaymentMsg: () => i18n(i19doPaymentMsg),
     i19freight: () => i18n(i19freight),
     i19login: () => i18n(i19login),
-    i19loginForOrderDetailsMsg: () => 'Entre com a conta do comprador para acessar mais detalhes do pedido.',
+    i19loginForOrderDetailsMsg: () => i18n(i19loginForOrderDetailsMsg),
     i19myOrders: () => i18n(i19myOrders),
     i19of: () => i18n(i19of),
     i19orderConfirmationMsg: () => i18n(i19orderConfirmationMsg),
@@ -107,7 +109,7 @@ export default {
     i19shippingAddress: () => i18n(i19shippingAddress),
     i19transactionCode: () => i18n(i19transactionCode),
     i19ticketCode: () => i18n(i19ticketCode),
-    i19trackDelivery: () => 'Rastrear entrega',
+    i19trackDelivery: () => i18n(i19trackDelivery),
     i19zipCode: () => i18n(i19zipCode),
 
     localOrder: {
@@ -327,6 +329,47 @@ export default {
     }
   },
 
+  watch: {
+    isLoaded: {
+      handler (isLoaded) {
+        if (isLoaded && this.isAuthenticated && this.status === 'cancelled') {
+          const { items } = this.localOrder
+          if (items && items.length) {
+            const productIds = items.map(item => item.product_id)
+            const search = new EcomSearch()
+            search.setPageSize(productIds.length)
+              .setProductIds(productIds)
+              .fetch(true)
+              .then(() => {
+                for (let i = 0; i < items.length; i++) {
+                  const orderItem = items[i]
+                  const product = search.getItems().find(({ _id }) => _id === orderItem.product_id)
+                  if (product) {
+                    if (orderItem.variation_id) {
+                      if (product.variations) {
+                        const variation = product.variations.find(({ sku }) => sku === orderItem.sku)
+                        if (variation && variation.quantity >= orderItem.quantity) {
+                          continue
+                        }
+                      }
+                    }
+                    if (product.quantity >= orderItem.quantity) {
+                      continue
+                    }
+                  }
+                  this.canReopenOrder = false
+                  return
+                }
+                this.canReopenOrder = true
+              })
+              .catch(console.error)
+          }
+        }
+      },
+      immediate: true
+    }
+  },
+
   created () {
     if (this.order._id) {
       if (this.isNew) {
@@ -353,7 +396,7 @@ export default {
         if (!this.skipFirstDataLoad) {
           setTimeout(() => {
             update().finally(() => {
-              this.loaded = true
+              this.isLoaded = true
             })
           }, this.isNew ? 1000 : 3000)
         }
