@@ -33,3 +33,5 @@ window.storefront = {
   data: window._data,
   ...events
 }
+
+window.privacyPolicyUrl = '/pages/privacidade'
