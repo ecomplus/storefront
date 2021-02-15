@@ -89,6 +89,15 @@ if (pathname) {
     <%
   }
   %>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net/" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net/">
+  <% if (resource) { %>
+    <link rel="preconnect" href="https://ioapi.ecvol.com/" crossorigin>
+    <link rel="dns-prefetch" href="https://ioapi.ecvol.com/">
+  <% } %>
+  <link rel="preconnect" href="https://apx-search.e-com.plus/" crossorigin>
+  <link rel="dns-prefetch" href="https://apx-search.e-com.plus/">
 <% } %>
 
 <link rel="apple-touch-icon" href="<%= _.settings.icon %>">
