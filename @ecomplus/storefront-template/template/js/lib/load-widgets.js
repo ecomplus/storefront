@@ -52,7 +52,8 @@ Promise.all(widgetsLoadPromises).then(() => {
   if (
     window.location.pathname === '/search' ||
     resource === 'categories' ||
-    resource === 'brands'
+    resource === 'brands' ||
+    (!resource && document.getElementById('search-engine'))
   ) {
     loadWidget(
       '@ecomplus/widget-search-engine',
