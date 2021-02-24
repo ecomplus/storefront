@@ -17,7 +17,7 @@ const networksWithColors = [
 <footer class="footer py-3 py-lg-4 py-xl-5">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-lg-auto order-lg-last">
+      <div class="col-12 col-lg-auto order-lg-last pl-xl-4">
         <div class="footer__contacts">
           <% if (footer.contacts.title) { %>
             <div class="footer__title">
@@ -94,86 +94,90 @@ const networksWithColors = [
         </div>
       </div>
 
-      <div class="col-12 col-sm-6 col-lg">
-        <a
-          class="footer__title"
-          data-toggle="collapse"
-          href="#footer-pages"
-          role="button"
-          aria-expanded="false"
-          aria-controls="footer-pages"
-        >
-          <%= footer.links_1.title || _.dictionary('pages') %>
-        </a>
-        <div class="collapse" id="footer-pages">
-          <% if (footer.links_1.list_pages) { %>
-            <ul class="footer__links">
-              <% (_.cms('pages') || []).forEach(slug => { %>
-                <% const { title } = _.cms(`pages/${slug}`) %>
-                <li>
-                  <i class="fas fa-angle-right"></i>
-                  <a href="/pages/<%= slug %>">
-                    <%= title %>
-                  </a>
-                </li>
-              <% }) %>
-            </ul>
-          <% } else { %>
-            <ul class="footer__links">
-              <% footer.links_1.list.forEach(({ url, text }) => { %>
-                <li>
-                  <i class="fas fa-angle-right"></i>
-                  <a href="<%= url %>">
-                    <%= text %>
-                  </a>
-                </li>
-              <% }) %>
-            </ul>
-          <% } %>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-6 col-lg">
-        <a
-          class="footer__title"
-          data-toggle="collapse"
-          href="#footer-categories"
-          role="button"
-          aria-expanded="false"
-          aria-controls="footer-categories"
-        >
-          <%= footer.links_2.title || _.dictionary('categories') %>
-        </a>
-        <div class="collapse" id="footer-categories">
-          <% if (footer.links_2.list_categories) { %>
-            <ul class="footer__links">
-              <% _.categories.forEach(({ name, slug, parent }) => { %>
-                <% if (!parent) { %>
+      <% if (footer.links_1.list_pages || footer.links_1.list.length) { %>
+        <div class="col-12 col-sm-6 col-lg col-xl-auto px-xl-4">
+          <a
+            class="footer__title"
+            data-toggle="collapse"
+            href="#footer-pages"
+            role="button"
+            aria-expanded="false"
+            aria-controls="footer-pages"
+          >
+            <%= footer.links_1.title || _.dictionary('pages') %>
+          </a>
+          <div class="collapse" id="footer-pages">
+            <% if (footer.links_1.list_pages) { %>
+              <ul class="footer__links">
+                <% (_.cms('pages') || []).forEach(slug => { %>
+                  <% const { title } = _.cms(`pages/${slug}`) %>
                   <li>
                     <i class="fas fa-angle-right"></i>
-                    <a href="/<%= slug %>">
-                      <%= name %>
+                    <a href="/pages/<%= slug %>">
+                      <%= title %>
                     </a>
                   </li>
-                <% } %>
-              <% }) %>
-            </ul>
-          <% } else { %>
-            <ul class="footer__links">
-              <% footer.links_2.list.forEach(({ url, text }) => { %>
-                <li>
-                  <i class="fas fa-angle-right"></i>
-                  <a href="<%= url %>">
-                    <%= text %>
-                  </a>
-                </li>
-              <% }) %>
-            </ul>
-          <% } %>
+                <% }) %>
+              </ul>
+            <% } else { %>
+              <ul class="footer__links">
+                <% footer.links_1.list.forEach(({ url, text }) => { %>
+                  <li>
+                    <i class="fas fa-angle-right"></i>
+                    <a href="<%= url %>">
+                      <%= text %>
+                    </a>
+                  </li>
+                <% }) %>
+              </ul>
+            <% } %>
+          </div>
         </div>
-      </div>
+      <% } %>
 
-      <div class="col-12 col-xl-5 order-lg-first">
+      <% if (footer.links_2.list_categories || footer.links_2.list.length) { %>
+        <div class="col-12 col-sm-6 col-lg col-xl-auto px-xl-4">
+          <a
+            class="footer__title"
+            data-toggle="collapse"
+            href="#footer-categories"
+            role="button"
+            aria-expanded="false"
+            aria-controls="footer-categories"
+          >
+            <%= footer.links_2.title || _.dictionary('categories') %>
+          </a>
+          <div class="collapse" id="footer-categories">
+            <% if (footer.links_2.list_categories) { %>
+              <ul class="footer__links">
+                <% _.categories.forEach(({ name, slug, parent }) => { %>
+                  <% if (!parent) { %>
+                    <li>
+                      <i class="fas fa-angle-right"></i>
+                      <a href="/<%= slug %>">
+                        <%= name %>
+                      </a>
+                    </li>
+                  <% } %>
+                <% }) %>
+              </ul>
+            <% } else { %>
+              <ul class="footer__links">
+                <% footer.links_2.list.forEach(({ url, text }) => { %>
+                  <li>
+                    <i class="fas fa-angle-right"></i>
+                    <a href="<%= url %>">
+                      <%= text %>
+                    </a>
+                  </li>
+                <% }) %>
+              </ul>
+            <% } %>
+          </div>
+        </div>
+      <% } %>
+
+      <div class="col-12 col-xl order-lg-first">
         <h2 class="footer__title footer__store">
           <%= footer.description.title || _.settings.name %>
         </h2>
