@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.82](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.81...@ecomplus/storefront-components@1.0.0-beta.82) (2021-02-24)
+
+
+### Bug Fixes
+
+* **prices:** ensure spaces on compared price strings ([5c96f3a](https://github.com/ecomplus/storefront/commit/5c96f3a082f5273257344d83ad87a1eea66ce9ac))
+
+
+
+
+
 # [1.0.0-beta.81](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.80...@ecomplus/storefront-components@1.0.0-beta.81) (2021-02-15)
 
 

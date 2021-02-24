@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.113](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.112...@ecomplus/storefront-template@2.0.0-beta.113) (2021-02-24)
+
+
+### Bug Fixes
+
+* **brands-carousel:** fix rendering brand logo images ([4c4ce3a](https://github.com/ecomplus/storefront/commit/4c4ce3a3c1db72d0a49eb6ac829ac8ddf8cd6984))
+* **footer:** fix handling disabled (empty) footer columns ([5fa6ca6](https://github.com/ecomplus/storefront/commit/5fa6ca645da9f7474d3474c0d298015d37936db5))
+* **load-widgets:** test #search-engine el id to setup searh engine on custom pages ([2acee18](https://github.com/ecomplus/storefront/commit/2acee18206a410640d7b4eac40146b1af1b3af6f))
+
+
+### Features
+
+* **brands-carousel:** add new brands carousel section ([#422](https://github.com/ecomplus/storefront/issues/422)) ([aa77643](https://github.com/ecomplus/storefront/commit/aa776434e78739a4eb2fa7bd37d3ff5a6271bc33))
+* **cms:** new brands carousel d&d section ([#422](https://github.com/ecomplus/storefront/issues/422)) ([c4b7f7e](https://github.com/ecomplus/storefront/commit/c4b7f7eb25e421ba4c655c778e673bad493e1ca9))
+
+
+
+
+
 # [2.0.0-beta.112](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.111...@ecomplus/storefront-template@2.0.0-beta.112) (2021-02-15)
 
 
