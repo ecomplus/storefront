@@ -1,0 +1,13 @@
+.brands-carousel {
+  &__list {
+    align-items: center;
+  }
+
+  &__item {
+    text-align: center;
+  }
+
+  .glide__arrow {
+    font-size: var(--font-size-lg);
+  }
+}
