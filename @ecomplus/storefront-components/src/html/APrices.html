@@ -7,9 +7,13 @@
     class="prices__compare"
   >
     <template v-if="isLiteral">
-      <small>{{ i19from }}</small>
+      <small>
+        {{ i19from }}
+      </small>
       <s>{{ formatMoney(comparePrice) }}</s>
-      <small>{{ i19to }}</small>
+      <small>
+        {{ i19to }}
+      </small>
     </template>
     <s v-else>{{ formatMoney(comparePrice) }}</s>
   </span>
