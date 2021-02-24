@@ -277,6 +277,52 @@ export default ({ state }) => [
     ]
   },
   {
+    label: 'Carrossel de marcas',
+    name: 'brands-carousel',
+    widget: 'object',
+    fields: [
+      {
+        label: 'Ordenação',
+        required: false,
+        name: 'sort',
+        widget: 'select',
+        options: [
+          {
+            label: 'Padrão',
+            value: ''
+          },
+          {
+            label: 'Alfabética',
+            value: 'name'
+          }
+        ]
+      },
+      {
+        label: 'Limite de marcas',
+        name: 'limit',
+        widget: 'number',
+        min: 1,
+        max: 48,
+        default: 24
+      },
+      {
+        label: 'Offset de marcas',
+        name: 'offset',
+        widget: 'hidden',
+        default: 0
+      },
+      {
+        label: 'Carousel autoplay',
+        required: false,
+        name: 'autoplay',
+        hint: 'Exibição de cada página em milisegundos, 0 desativa o autoplay',
+        min: 0,
+        step: 1000,
+        widget: 'number'
+      }
+    ]
+  },
+  {
     label: 'Breadcrumbs',
     name: 'breadcrumbs',
     widget: 'object',
