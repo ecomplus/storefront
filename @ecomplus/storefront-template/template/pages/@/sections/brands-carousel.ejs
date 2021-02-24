@@ -46,7 +46,7 @@ if (brands && brands.length) {
             <li class="glide__slide brands-carousel__item">
               <a href="<%= slug ? `/${slug}` : '#' %>">
                 <% if (logo) { %>
-                  <img src="logo.url" alt="<%= name %>">
+                  <img src="<%= logo.url %>" alt="<%= name %>" class="img-fluid">
                 <% } else { %>
                   <h4><%= name %></h4>
                 <% } %>
