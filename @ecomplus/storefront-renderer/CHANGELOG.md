@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.13...@ecomplus/storefront-renderer@2.4.14) (2021-02-27)
+
+
+### Bug Fixes
+
+* **get-assets-reference:** should not require './entry.js' ([289e0c5](https://github.com/ecomplus/storefront/commit/289e0c558138f9961445c01281aaebb213e39f05))
+
+
+
+
+
 ## [2.4.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.12...@ecomplus/storefront-renderer@2.4.13) (2021-02-15)
 
 **Note:** Version bump only for package @ecomplus/storefront-renderer
