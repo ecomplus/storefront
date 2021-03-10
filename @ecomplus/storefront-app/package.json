@@ -32,7 +32,7 @@
     "@ecomplus/utils": "^1.4.1"
   },
   "dependencies": {
-    "@ecomplus/client": "^2.2.0",
+    "@ecomplus/client": "^2.2.1",
     "@ecomplus/i18n": "^1.20.0",
     "@ecomplus/passport-client": "^1.0.10",
     "@ecomplus/shopping-cart": "^2.5.5",
