@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.89](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.88...@ecomplus/storefront-app@2.0.0-beta.89) (2021-03-12)
+
+
+### Bug Fixes
+
+* **checkout:** group items by product to perf and properlly check quantities ([#427](https://github.com/ecomplus/storefront/issues/427)) ([f8c6581](https://github.com/ecomplus/storefront/commit/f8c6581f28142c791feb9850d78794be5d8b7071))
+* **deps:** update @ecomplus/client to v2.2.1 ([574f93f](https://github.com/ecomplus/storefront/commit/574f93fd027220bb64cad19443e38ce559c69e62))
+
+
+
+
+
 # [2.0.0-beta.88](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.87...@ecomplus/storefront-app@2.0.0-beta.88) (2021-02-24)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

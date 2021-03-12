@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.9...@ecomplus/storefront-framework@5.16.10) (2021-03-12)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
 ## [5.16.9](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.8...@ecomplus/storefront-framework@5.16.9) (2021-02-27)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

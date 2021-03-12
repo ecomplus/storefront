@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.14...@ecomplus/storefront-renderer@2.4.15) (2021-03-12)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/client to v2.2.1 ([574f93f](https://github.com/ecomplus/storefront/commit/574f93fd027220bb64cad19443e38ce559c69e62))
+
+
+
+
+
 ## [2.4.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.13...@ecomplus/storefront-renderer@2.4.14) (2021-02-27)
 
 

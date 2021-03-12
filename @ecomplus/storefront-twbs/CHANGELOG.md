@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.10.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.10.3...@ecomplus/storefront-twbs@5.10.4) (2021-03-12)
+
+**Note:** Version bump only for package @ecomplus/storefront-twbs
+
+
+
+
+
 ## [5.10.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.10.2...@ecomplus/storefront-twbs@5.10.3) (2020-12-16)
 
 **Note:** Version bump only for package @ecomplus/storefront-twbs

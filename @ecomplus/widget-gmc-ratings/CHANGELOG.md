@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.13](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.2.12...@ecomplus/widget-gmc-ratings@1.2.13) (2021-03-12)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/client to v2.2.1 ([574f93f](https://github.com/ecomplus/storefront/commit/574f93fd027220bb64cad19443e38ce559c69e62))
+
+
+
+
+
 ## [1.2.12](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.2.11...@ecomplus/widget-gmc-ratings@1.2.12) (2021-01-25)
 
 **Note:** Version bump only for package @ecomplus/widget-gmc-ratings
