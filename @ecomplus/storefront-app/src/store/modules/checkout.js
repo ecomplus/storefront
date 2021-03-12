@@ -32,7 +32,13 @@ const validateCartItem = (item, data) => new Promise((resolve, reject) => {
     if (!variation) {
       ecomCart.removeItem(_id)
     } else {
-      Object.assign(data, variation)
+      const product = data
+      data = variation
+      for (const field in product) {
+        if (product[field] && !variation[field]) {
+          variation[field] = product[field]
+        }
+      }
     }
   }
   const price = getPrice(data)
@@ -52,8 +58,14 @@ const validateCartItem = (item, data) => new Promise((resolve, reject) => {
     ? Math.min(data.quantity, quantity)
     : 0
   if (item.quantity > 0 && item.kit_product) {
-    return validateCartItemKit(item).then(resolve).catch(reject)
+    return validateCartItemKit(item)
+      .then(payload => {
+        data.quantity -= item.quantity
+        resolve(payload)
+      })
+      .catch(reject)
   }
+  data.quantity -= item.quantity
   resolve(item)
 })
 
@@ -253,31 +265,47 @@ const mutations = {
 const actions = {
   fetchCartItems ({ commit }, { removeOnError, items }) {
     const promises = []
-    ;(Array.isArray(items) && items.length ? items : ecomCart.data.items)
-      .forEach(item => {
-        const promise = new Promise(resolve => {
-          fetchProduct(item.product_id)
-            .then(({ data }) => validateCartItem(item, data))
-            .then(item => {
-              if (item.quantity > 0) {
-                ecomCart.fixItem(item, false)
-              } else if (removeOnError) {
-                ecomCart.removeItem(item._id, false)
-              } else {
-                ecomCart.save()
-              }
+    const itemsByProduct = (Array.isArray(items) && items.length ? items : ecomCart.data.items)
+      .reduce((itemsByProduct, item) => {
+        const group = itemsByProduct.find(({ _id }) => _id === item.product_id)
+        if (group) {
+          group.items.push(item)
+        } else {
+          itemsByProduct.push({
+            _id: item.product_id,
+            items: [item]
+          })
+        }
+        return itemsByProduct
+      }, [])
+    itemsByProduct.forEach(({ _id, items }) => {
+      const promise = new Promise(resolve => {
+        fetchProduct(_id)
+          .then(({ data }) => Promise.all(
+            items.map(item => {
+              return validateCartItem(item, data)
+                .then(item => {
+                  if (item.quantity > 0) {
+                    ecomCart.fixItem(item, false)
+                  } else if (removeOnError) {
+                    ecomCart.removeItem(item._id, false)
+                  } else {
+                    ecomCart.save()
+                  }
+                })
+                .catch(err => {
+                  console.error(err)
+                  const status = err.response && err.response.status
+                  if (removeOnError || (status >= 400 && status < 500)) {
+                    ecomCart.removeItem(item._id, false)
+                  }
+                })
             })
-            .catch(err => {
-              console.error(err)
-              const status = err.response && err.response.status
-              if (removeOnError || (status >= 400 && status < 500)) {
-                ecomCart.removeItem(item._id, false)
-              }
-            })
-            .finally(resolve)
-        })
-        promises.push(promise)
+          ))
+          .finally(resolve)
       })
+      promises.push(promise)
+    })
     return Promise.all(promises).then(() => {
       ecomCart.save()
     })
