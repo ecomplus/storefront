@@ -4,6 +4,7 @@ import * as EventEmitter from 'eventemitter3'
 export default (baseURL = 'https://admin.e-com.plus/session/gotrue/v1', canAutoInit = true) => {
   const emitter = new EventEmitter()
 
+  let accessToken
   const store = {
     user: null,
     modal: {
@@ -12,18 +13,31 @@ export default (baseURL = 'https://admin.e-com.plus/session/gotrue/v1', canAutoI
     saving: false
   }
 
+  const logout = () => {
+    store.user = null
+    emitter.emit('logout')
+  }
+
   const init = () => {
     axios.get(`${baseURL}/token`)
-      .then(({ data }) => axios.get(`${baseURL}/token`, {
-        headers: {
-          Authorization: `Bearer ${data.access_token}`
-        }
-      }))
+      .then(({ data }) => {
+        accessToken = data.access_token
+        return axios.get(`${baseURL}/token`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`
+          }
+        })
+      })
+
       .then(({ data }) => {
         store.user = data
+        store.user.jwt = function () {
+          return accessToken
+        }
         emitter.emit('login', data)
       })
-      .catch(function (error) {
+
+      .catch(error => {
         if (error.response && error.response.status === 302) {
           const { headers } = error.response
           if (headers.Location) {
@@ -34,7 +48,9 @@ export default (baseURL = 'https://admin.e-com.plus/session/gotrue/v1', canAutoI
         console.error(error)
         emitter.emit('error', error)
       })
+
     emitter.emit('init')
+    setTimeout(logout, 1000 * 60 * 60 * 4)
   }
 
   if (canAutoInit) {
@@ -45,7 +61,7 @@ export default (baseURL = 'https://admin.e-com.plus/session/gotrue/v1', canAutoI
     open: init,
     close: () => {},
     currentUser: () => store.user,
-    logout: () => (store.user = null),
+    logout,
     store,
     on: emitter.on
   }
