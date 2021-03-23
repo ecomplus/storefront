@@ -25,7 +25,7 @@
   "dependencies": {
     "@ecomplus/client": "^2.2.1",
     "@ecomplus/i18n": "^1.20.0",
-    "@ecomplus/search-engine": "^2.5.0",
+    "@ecomplus/search-engine": "^2.5.1",
     "@ecomplus/storefront-router": "^2.2.1",
     "@ecomplus/utils": "^1.4.1",
     "ejs": "^3.1.6",
