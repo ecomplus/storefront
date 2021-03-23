@@ -5,7 +5,7 @@ export default ({ baseDir, sections }) => ({
   folder: `${baseDir}content/posts`,
   extension: 'json',
   create: true,
-  slug: '{{slug}}-{{year}}-{{month}}-{{day}}',
+  slug: '{{slug}}',
   fields: [
     {
       label: 'Título',
