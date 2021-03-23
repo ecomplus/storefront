@@ -25,7 +25,9 @@
     window.CMS_LOAD_CONFIG_FILE = false;
     window.CMS_CUSTOM_CONFIG = {};
   </script>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <% if (!_.settings.repository || !_.settings.repository.startsWith('ecomplus-stores/')) { %>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <% } %>
   <script src="https://unpkg.com/netlify-cms@2/dist/netlify-cms.js"></script>
 
   <script src="https://unpkg.com/netlify-cms-widget-native-color@3/dist/umd/native-color.min.js"></script>

@@ -7,10 +7,14 @@ export default ({ baseDir }) => ({
   },
   fields: [
     {
-      label: 'Store ID',
+      label: 'E-Com Plus Store ID',
       name: 'store_id',
-      hint: 'Id da loja, pode ser encontrado na página de configurações do painel',
-      widget: 'number'
+      widget: 'hidden'
+    },
+    {
+      label: 'Repositório',
+      name: 'repository',
+      widget: 'hidden'
     },
     {
       label: 'Domínio',

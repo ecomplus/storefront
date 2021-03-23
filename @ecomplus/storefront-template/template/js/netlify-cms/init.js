@@ -1,20 +1,29 @@
 import * as merge from 'lodash.merge'
 import axios from 'axios'
+import { $ecomConfig } from '@ecomplus/utils'
+import initEcomplusIdentity from './ecomplus-identity'
 import getBaseConfig from './base-config/'
 import './pages-preview'
 
 const initCms = config => {
-  const identityUrl = config.backend.identity_url
-  if (identityUrl && window.netlifyIdentity) {
-    const fixGotrueApi = () => {
-      const { api } = window.netlifyIdentity.gotrue
-      api.apiURL = identityUrl
-      api._sameOrigin = identityUrl.includes(window.location.host)
+  if (window.netlifyIdentity) {
+    const identityUrl = config.backend.identity_url
+    if (identityUrl) {
+      const fixGotrueApi = () => {
+        const { api } = window.netlifyIdentity.gotrue
+        api.apiURL = identityUrl
+        api._sameOrigin = identityUrl.includes(window.location.host)
+      }
+      if (document.readyState !== 'loading') {
+        fixGotrueApi()
+      }
+      document.addEventListener('DOMContentLoaded', fixGotrueApi)
     }
-    if (document.readyState !== 'loading') {
-      fixGotrueApi()
+  } else {
+    window.netlifyIdentity = initEcomplusIdentity()
+    if (!config.backend.gateway_url) {
+      config.backend.gateway_url = `https://gitgateway.ecomplus.biz/${$ecomConfig.get('store_id')}`
     }
-    document.addEventListener('DOMContentLoaded', fixGotrueApi)
   }
   window.CMS.init({ config })
 }
