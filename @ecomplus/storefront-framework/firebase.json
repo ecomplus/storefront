@@ -20,8 +20,24 @@
     ],
     "rewrites": [
       {
-        "source": "**/!(*(*.)ico|*(*.)png|*(*.)gif|*(*.)jpg|*(*.)jpeg|*(*.)webp|*(*.)svg|*(*.)woff|*(*.)woff2|*(*.)otf|*(*.)ttf|*(*.)eot)",
+        "source": "**/!(*(*.)js|*(*.)css|*(*.)ico|*(*.)png|*(*.)gif|*(*.)jpg|*(*.)jpeg|*(*.)webp|*(*.)svg|*(*.)woff|*(*.)woff2|*(*.)otf|*(*.)ttf|*(*.)eot)",
         "function": "ssr"
+      },
+      {
+        "source": "/storefront.?*.js",
+        "destination": "/storefront.js"
+      },
+      {
+        "source": "/storefront.?*.css",
+        "destination": "/storefront.css"
+      },
+      {
+        "source": "/checkout.?*.js",
+        "destination": "/checkout.js"
+      },
+      {
+        "source": "/checkout.?*.css",
+        "destination": "/checkout.css"
       }
     ],
     "headers": [
@@ -84,7 +100,7 @@
         "headers": [
           {
             "key": "cache-control",
-            "value": "public, max-age=31536000, immutable"
+            "value": "public, max-age=86400"
           }
         ]
       }
