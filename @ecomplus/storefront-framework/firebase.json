@@ -1,12 +1,14 @@
 {
   "functions": {
     "predeploy": [
-      "cp -r template functions/; cp -r content functions/; cp .bundles.json functions/",
-      "mkdir -p functions/template/pages/@ecomplus",
+      "cp -r template functions/; rm -rf functions/template/public; rm -rf functions/template/scss",
+      "cp -r content functions/; cp .bundles.json functions/",
+      "mkdir -p functions/template/pages/@ecomplus/storefront-template/template",
       "cp -r node_modules/@ecomplus/widget-* functions/template/pages/@ecomplus/ 2>/dev/null || :",
+      "cp -r node_modules/@ecomplus/storefront-template/template/pages functions/template/pages/@ecomplus/storefront-template/template/ || :",
       "rm -rf functions/template/pages/**/node_modules"
     ],
-    "postdeploy": "rm -rf functions/template; rm -rf functions/content",
+    "postdeploy": "rm -rf functions/template; rm -rf functions/content; rm -rf functions/.bundles.json",
     "source": "functions"
   },
   "hosting": {
@@ -18,7 +20,7 @@
     ],
     "rewrites": [
       {
-        "source": "**/!(*(*.)js|*(*.)css|*(*.)ico|*(*.)png)",
+        "source": "**/!(*(*.)ico|*(*.)png|*(*.)gif|*(*.)jpg|*(*.)jpeg|*(*.)webp|*(*.)svg|*(*.)woff|*(*.)woff2|*(*.)otf|*(*.)ttf|*(*.)eot)",
         "function": "ssr"
       }
     ],
@@ -28,30 +30,30 @@
         "headers": [
           {
             "key": "cache-control",
-            "value": "public, max-age=10, s-maxage=604800, stale-while-revalidate=2592000"
+            "value": "public, max-age=10, s-maxage=86400"
           }
         ]
       },
       {
-        "source": "@(app|admin)/**",
+        "source": "/img/**",
         "headers": [
           {
             "key": "cache-control",
-            "value": "public, max-age=300, stale-while-revalidate=31536000"
+            "value": "public, max-age=300, s-maxage=3600, must-revalidate"
           }
         ]
       },
       {
-        "source": "img/**",
+        "source": "/assets/**",
         "headers": [
           {
             "key": "cache-control",
-            "value": "max-age=3600, must-revalidate"
+            "value": "public, max-age=86400"
           }
         ]
       },
       {
-        "source": "assets/**",
+        "source": "/chunk.?*.*",
         "headers": [
           {
             "key": "cache-control",
@@ -60,7 +62,25 @@
         ]
       },
       {
-        "source": "**/*.?????*.@(js|css|png|gif|jpg|jpeg|webp|svg|ico|woff|woff2|otf|ttf|eot)",
+        "source": "/app/**",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=300, stale-while-revalidate=900"
+          }
+        ]
+      },
+      {
+        "source": "/@(storefront|checkout).@(js|css)",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=0, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "**/*.?????*.@(js|css)",
         "headers": [
           {
             "key": "cache-control",
