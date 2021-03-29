@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.116](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.115...@ecomplus/storefront-template@2.0.0-beta.116) (2021-03-29)
+
+
+### Bug Fixes
+
+* **ecomplus-identity:** general fixes to handle ecomplus sso and token from url param ([17bd631](https://github.com/ecomplus/storefront/commit/17bd631320d31b4a34ecde6a6309644a8bb08954))
+* **ecomplus-identity:** must set `user.jwt` function (as gotrue client) ([fc3cff6](https://github.com/ecomplus/storefront/commit/fc3cff62700e12e8b888fb4c3203a99071a4ded1))
+
+
+### Features
+
+* **netlify-cms:** handle ecomplus admin session auth on ecomplus-stores repos ([c93033d](https://github.com/ecomplus/storefront/commit/c93033de4d272988e1f9c56a204c109c16653c47))
+
+
+
+
+
 # [2.0.0-beta.115](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.114...@ecomplus/storefront-template@2.0.0-beta.115) (2021-03-12)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.15...@ecomplus/storefront-renderer@2.5.0) (2021-03-29)
+
+
+### Features
+
+* **ssr:** support new `getCacheControl` callback arg ([6c8bd34](https://github.com/ecomplus/storefront/commit/6c8bd340a7ed94104d6766f5a7eda5b942643107))
+
+
+
+
+
 ## [2.4.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.14...@ecomplus/storefront-renderer@2.4.15) (2021-03-12)
 
 

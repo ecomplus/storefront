@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.10...@ecomplus/storefront-framework@5.16.11) (2021-03-29)
+
+
+### Bug Fixes
+
+* **ssr:** setting custom cache control for firebase by status code ([90819d1](https://github.com/ecomplus/storefront/commit/90819d1b631617dd6d90c42fe0d52138f8d5087c))
+
+
+
+
+
 ## [5.16.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.9...@ecomplus/storefront-framework@5.16.10) (2021-03-12)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework
