@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.5.0...@ecomplus/storefront-renderer@2.6.0) (2021-03-29)
+
+
+### Features
+
+* **ssr:** handling `STOREFRONT_LONG_CACHE` optional env ([2533f3b](https://github.com/ecomplus/storefront/commit/2533f3b75134a30fccafa1fa398d3eb67a50972c))
+
+
+
+
+
 # [2.5.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.4.15...@ecomplus/storefront-renderer@2.5.0) (2021-03-29)
 
 
