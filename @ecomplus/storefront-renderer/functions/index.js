@@ -7,6 +7,12 @@ const {
 } = require('@ecomplus/storefront-renderer')
 
 exports.ssr = (req, res, getCacheControl) => {
+  const {
+    STOREFRONT_BUNDLES_PATH,
+    STOREFRONT_LONG_CACHE
+  } = process.env
+
+  const isLongCache = String(STOREFRONT_LONG_CACHE).toLowerCase() === 'true'
   const url = req.url.replace(/\?.*$/, '').replace(/\.html$/, '')
 
   const setStatusAndCache = (status, defaultCache) => {
@@ -17,13 +23,15 @@ exports.ssr = (req, res, getCacheControl) => {
   }
 
   const redirect = (url, status = 302) => {
-    setStatusAndCache(status, 'public, max-age=30, s-maxage=300')
-      .set('Location', url).end()
+    setStatusAndCache(status, isLongCache
+      ? 'public, max-age=30, s-maxage=3600'
+      : 'public, max-age=30, s-maxage=300'
+    ).set('Location', url).end()
   }
 
   let cache
   try {
-    cache = require(process.env.STOREFRONT_BUNDLES_PATH || path.join(process.cwd(), '.bundles.json'))
+    cache = require(STOREFRONT_BUNDLES_PATH || path.join(process.cwd(), '.bundles.json'))
   } catch (err) {
     console.error(err)
   }
@@ -34,7 +42,10 @@ exports.ssr = (req, res, getCacheControl) => {
     } else if (url !== '/404' && (/\/[^/.]+$/.test(url) || /\.x?html$/.test(url))) {
       redirect(`/404?url=${encodeURIComponent(req.url)}`)
     } else {
-      setStatusAndCache(404, 'public, max-age=60, s-maxage=600').end()
+      setStatusAndCache(404, isLongCache
+        ? 'public, max-age=60, s-maxage=86400'
+        : 'public, max-age=60, s-maxage=600'
+      ).end()
     }
   }
 
@@ -45,8 +56,10 @@ exports.ssr = (req, res, getCacheControl) => {
         if (cache) {
           html = minifyHtml(html, getAssetsReferences(cache.assetsByChunkName))
         }
-        setStatusAndCache(200, 'public, max-age=60, s-maxage=600, stale-while-revalidate=2592000')
-          .send(html)
+        setStatusAndCache(200, isLongCache
+          ? 'public, max-age=60, s-maxage=604800'
+          : 'public, max-age=60, s-maxage=600, stale-while-revalidate=2592000'
+        ).send(html)
       } else {
         fallback()
       }
