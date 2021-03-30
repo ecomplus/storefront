@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.6.0...@ecomplus/storefront-renderer@2.6.1) (2021-03-30)
+
+
+### Bug Fixes
+
+* **ssr:** edit default cache control when no long cache set (lower) ([7f87f3e](https://github.com/ecomplus/storefront/commit/7f87f3ed444b96ded1eb453f1d999d617a38c899))
+
+
+
+
+
 # [2.6.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.5.0...@ecomplus/storefront-renderer@2.6.0) (2021-03-29)
 
 

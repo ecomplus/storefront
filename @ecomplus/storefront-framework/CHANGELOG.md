@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.12...@ecomplus/storefront-framework@5.16.13) (2021-03-30)
+
+
+### Bug Fixes
+
+* **ssr:** edit default server cache control headers ([70de8a9](https://github.com/ecomplus/storefront/commit/70de8a9b863a173dab43ceb761403e50c06af796))
+
+
+
+
+
 ## [5.16.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.11...@ecomplus/storefront-framework@5.16.12) (2021-03-29)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework
