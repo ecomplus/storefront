@@ -44,7 +44,7 @@ exports.ssr = (req, res, getCacheControl) => {
     } else {
       setStatusAndCache(404, isLongCache
         ? 'public, max-age=60, s-maxage=86400'
-        : 'public, max-age=60, s-maxage=600'
+        : 'public, max-age=60, s-maxage=300'
       ).end()
     }
   }
@@ -58,7 +58,7 @@ exports.ssr = (req, res, getCacheControl) => {
         }
         setStatusAndCache(200, isLongCache
           ? 'public, max-age=60, s-maxage=604800'
-          : 'public, max-age=60, s-maxage=600, stale-while-revalidate=2592000'
+          : 'public, max-age=60, s-maxage=300, stale-while-revalidate=2592000'
         ).send(html)
       } else {
         fallback()
