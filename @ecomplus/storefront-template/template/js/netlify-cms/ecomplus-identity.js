@@ -1,5 +1,6 @@
 import axios from 'axios'
 import * as EventEmitter from 'eventemitter3'
+import { $ecomConfig } from '@ecomplus/utils'
 
 const { location, localStorage } = window
 const storageKey = 'admin:token'
@@ -25,7 +26,7 @@ export default (baseURL = 'https://admin.e-com.plus/session/gotrue/v1', canAutoI
     const urlParams = new URLSearchParams(location.search)
     const accessToken = urlParams.get('token') || localStorage.getItem(storageKey)
     if (!accessToken) {
-      location.href = `${baseURL}/`
+      location.href = `${baseURL}/?store_id=${$ecomConfig.get('store_id')}`
       return
     }
 
