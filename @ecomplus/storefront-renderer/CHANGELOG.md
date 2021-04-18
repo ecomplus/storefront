@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.6.1...@ecomplus/storefront-renderer@2.6.2) (2021-04-18)
+
+
+### Bug Fixes
+
+* **renderer/ssr:** fix cache headers with lower max age for redirect responses ([bb3788e](https://github.com/ecomplus/storefront/commit/bb3788e22c1f28a403d49d717f7ad0b7d55a001e))
+
+
+
+
+
 ## [2.6.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.6.0...@ecomplus/storefront-renderer@2.6.1) (2021-03-30)
 
 

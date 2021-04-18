@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.119](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.118...@ecomplus/storefront-template@2.0.0-beta.119) (2021-04-18)
+
+
+### Bug Fixes
+
+* **template/cms:** set pkg base dir empty by default ([e10ccc6](https://github.com/ecomplus/storefront/commit/e10ccc6a882db83c2c99b5ec220370c5cd497588))
+* **template/ecomplus-identity:** redirect to sso with specified store id ([932e137](https://github.com/ecomplus/storefront/commit/932e1371715e24e9806e813ea52d7adbf038fd0b))
+
+
+
+
+
 # [2.0.0-beta.118](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.117...@ecomplus/storefront-template@2.0.0-beta.118) (2021-03-30)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
