@@ -1,4 +1,3 @@
-import { name } from '../../package.json'
 import './lib/config'
 import EcomRouter from '@ecomplus/storefront-router'
 import initNetlifyCms from './netlify-cms/init'
@@ -18,9 +17,7 @@ new EcomRouter().list()
 
   .finally(() => {
     if (window.PKG_BASE_DIR === undefined) {
-      window.PKG_BASE_DIR = name === '@ecomplus/storefront-template'
-        ? '@ecomplus/storefront-template/'
-        : ''
+      window.PKG_BASE_DIR = ''
     }
     initNetlifyCms(window.CMS_CUSTOM_CONFIG, {
       baseDir: window.PKG_BASE_DIR,
