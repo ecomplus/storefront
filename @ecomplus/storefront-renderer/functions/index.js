@@ -23,10 +23,12 @@ exports.ssr = (req, res, getCacheControl) => {
   }
 
   const redirect = (url, status = 302) => {
-    setStatusAndCache(status, isLongCache
-      ? 'public, max-age=30, s-maxage=3600'
-      : 'public, max-age=30, s-maxage=300'
-    ).set('Location', url).end()
+    let sMaxAge = status === 301 ? 360 : 60
+    if (isLongCache) {
+      sMaxAge *= 10
+    }
+    setStatusAndCache(status, `public, max-age=30, s-maxage=${sMaxAge}`)
+      .set('Location', url).end()
   }
 
   let cache
