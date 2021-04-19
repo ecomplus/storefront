@@ -2,6 +2,7 @@
 **/.serve
 */**/LICENSE
 */**/.bundles.json
+*/**/.ecom.json
 */**/.firebaserc
 */**/commitlint.config.js
 
