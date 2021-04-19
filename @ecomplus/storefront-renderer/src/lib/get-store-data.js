@@ -7,15 +7,15 @@ const EcomSearch = require('@ecomplus/search-engine')
 const paths = require('./paths')
 const config = require('./config')
 
-const {
-  STORE_DATA_NO_CACHE,
-  STORE_DATA_FROM_CACHE,
-  STORE_DATA_CACHE_PATH
-} = process.env
-
-const cacheFilepath = STORE_DATA_CACHE_PATH || path.join(process.cwd(), '.ecom.json')
-
 module.exports = (storeId = config.storeId, pubSrc = paths.pub, ecomManifest) => {
+  const {
+    STORE_DATA_NO_CACHE,
+    STORE_DATA_FROM_CACHE,
+    STORE_DATA_CACHE_PATH
+  } = process.env
+
+  const cacheFilepath = STORE_DATA_CACHE_PATH || path.join(process.cwd(), '.ecom.json')
+
   return new Promise((resolve, reject) => {
     if (STORE_DATA_FROM_CACHE) {
       // try to load store data from cache JSON
