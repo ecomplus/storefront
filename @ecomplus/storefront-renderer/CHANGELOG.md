@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.6.2...@ecomplus/storefront-renderer@2.7.0) (2021-04-19)
+
+
+### Features
+
+* **renderer/get-store-data:** handle store data cache with optional env vars ([e85d3f9](https://github.com/ecomplus/storefront/commit/e85d3f96c5dd89eaee864800574a2bfe2424ea25))
+
+
+### Performance Improvements
+
+* **renderer/ssr:** enable store data from cache with env var ([d674ecb](https://github.com/ecomplus/storefront/commit/d674ecbdede790541bcc35cff6cf32d7bc09c316))
+
+
+
+
+
 ## [2.6.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.6.1...@ecomplus/storefront-renderer@2.6.2) (2021-04-18)
 
 
