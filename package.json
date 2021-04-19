@@ -46,7 +46,7 @@
     "babel-loader": "^8.2.2",
     "bootstrap": "^4.6.0",
     "browser-sync": "^2.26.14",
-    "caniuse-lite": "^1.0.30001208",
+    "caniuse-lite": "^1.0.30001211",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.11",
@@ -73,7 +73,7 @@
     "vue-template-compiler": "^2.6.12",
     "vuepress": "^1.8.2",
     "webpack": "^4.46.0",
-    "webpack-bundle-analyzer": "^4.4.0",
+    "webpack-bundle-analyzer": "^4.4.1",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
   },
