@@ -1,4 +1,5 @@
 content
 template
 .bundles.json
+.ecom.json
 node_modules/
