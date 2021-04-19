@@ -2,13 +2,13 @@
   "functions": {
     "predeploy": [
       "cp -r template functions/; rm -rf functions/template/public; rm -rf functions/template/scss",
-      "cp -r content functions/; cp .bundles.json functions/",
+      "cp -r content functions/; cp .*.json functions/",
       "mkdir -p functions/template/pages/@ecomplus/storefront-template/template",
       "cp -r node_modules/@ecomplus/widget-* functions/template/pages/@ecomplus/ 2>/dev/null || :",
       "cp -r node_modules/@ecomplus/storefront-template/template/pages functions/template/pages/@ecomplus/storefront-template/template/ || :",
       "rm -rf functions/template/pages/**/node_modules"
     ],
-    "postdeploy": "rm -rf functions/template; rm -rf functions/content; rm -rf functions/.bundles.json",
+    "postdeploy": "rm -rf functions/template; rm -rf functions/content; rm -rf functions/.*.json",
     "source": "functions"
   },
   "hosting": {
