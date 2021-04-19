@@ -12,6 +12,8 @@ exports.ssr = (req, res, getCacheControl) => {
     STOREFRONT_LONG_CACHE
   } = process.env
 
+  process.env.STORE_DATA_FROM_CACHE = 'true'
+
   const isLongCache = String(STOREFRONT_LONG_CACHE).toLowerCase() === 'true'
   const url = req.url.replace(/\?.*$/, '').replace(/\.html$/, '')
 
