@@ -175,6 +175,7 @@
                     :kit-product-id="body._id"
                     :kit-name="name"
                     :kit-price="fixedPrice"
+                    @buy="d => $emit('buy', d)"
                   >
                     <template #buy-button-content>
                       <slot name="buy-button-content"/>
