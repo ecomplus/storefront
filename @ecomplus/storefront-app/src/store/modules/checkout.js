@@ -48,6 +48,9 @@ const validateCartItem = (item, data) => new Promise((resolve, reject) => {
   delete data.body_text
   delete data.inventory_records
   delete data.price_change_records
+  if (item.picture && Object.keys(item.picture).length) {
+    delete data.pictures
+  }
   Object.assign(item, data, {
     _id,
     price,
