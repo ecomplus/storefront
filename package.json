@@ -49,7 +49,7 @@
     "caniuse-lite": "^1.0.30001218",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.6.0",
-    "cssnano": "^4.1.11",
+    "cssnano": "^5.0.2",
     "eslint": "^7.25.0",
     "eslint-plugin-vue": "^7.9.0",
     "file-loader": "^6.2.0",
