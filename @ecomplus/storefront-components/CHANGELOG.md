@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.85](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.84...@ecomplus/storefront-components@1.0.0-beta.85) (2021-04-28)
+
+
+### Bug Fixes
+
+* **components/product:** bypass (emit) quantity selector buy event ([#437](https://github.com/ecomplus/storefront/issues/437)) ([9fe42d6](https://github.com/ecomplus/storefront/commit/9fe42d6bb90f3ddc7c38632d462e844904e075f5))
+
+
+
+
+
 # [1.0.0-beta.84](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.83...@ecomplus/storefront-components@1.0.0-beta.84) (2021-03-29)
 
 **Note:** Version bump only for package @ecomplus/storefront-components

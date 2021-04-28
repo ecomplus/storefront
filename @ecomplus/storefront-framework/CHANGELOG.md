@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.16](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.15...@ecomplus/storefront-framework@5.16.16) (2021-04-28)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#445](https://github.com/ecomplus/storefront/issues/445)) ([c11ae63](https://github.com/ecomplus/storefront/commit/c11ae631df2d2cd8fc9b8869d3ef66023f1679d4))
+* **framework/webpack:** bump corejs to v3.11 ([a2ef52d](https://github.com/ecomplus/storefront/commit/a2ef52dcea65381343a29cdc417da11be6a5bea2))
+
+
+
+
+
 ## [5.16.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.14...@ecomplus/storefront-framework@5.16.15) (2021-04-19)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.7.0...@ecomplus/storefront-renderer@2.7.1) (2021-04-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency image-size to v1 ([#446](https://github.com/ecomplus/storefront/issues/446)) ([3e3cb08](https://github.com/ecomplus/storefront/commit/3e3cb08e6769e30f9102aaa8116cb59caaf105a2))
+
+
+
+
+
 # [2.7.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.6.2...@ecomplus/storefront-renderer@2.7.0) (2021-04-19)
 
 

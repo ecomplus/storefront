@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.91](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.90...@ecomplus/storefront-app@2.0.0-beta.91) (2021-04-28)
+
+
+### Bug Fixes
+
+* **app/validate-cart-items:** prevent overwriting ([9b1fb13](https://github.com/ecomplus/storefront/commit/9b1fb132ed6d44aed521ecc8f188b2cbb0365b0d))
+
+
+### Features
+
+* **app/credit-card-form:** try to support credit card number input autocomplete ([#411](https://github.com/ecomplus/storefront/issues/411)) ([4e54c94](https://github.com/ecomplus/storefront/commit/4e54c9473dc065e463403aedc45ff85720480adb))
+
+
+
+
+
 # [2.0.0-beta.90](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.89...@ecomplus/storefront-app@2.0.0-beta.90) (2021-03-29)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
