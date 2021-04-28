@@ -17,6 +17,7 @@
         :raw="false"
         @blur="alert.bin = card.bin && !isNumberPotentiallyValid"
         :options="{ creditCard: true }"
+        x-autocompletetype="cc-number"
         required
       />
 
