@@ -69,7 +69,7 @@ const getBaseScssModule = (sourceMap = devMode) => ([
     loader: 'sass-loader',
     options: {
       // inject brand colors
-      prependData: `$primary: ${primaryColor}; ` +
+      additionalData: `$primary: ${primaryColor}; ` +
         `$secondary: ${secondaryColor}; ` +
         `$settings-theme: ${jsonSassVars.convertJs(settings.theme || {})}; `,
       sassOptions: {
