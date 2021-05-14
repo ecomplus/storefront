@@ -126,24 +126,25 @@
           >
           </div>
 
-          <credit-card-form
-            v-else-if="paymentGateway.payment_method.code === 'credit_card'"
-            :amount="amount"
-            :check-holder="customerName"
-            :is-company="isCompany"
-            :installment-options="paymentGateway.installment_options"
-            :js-client="jsClient"
-            :js-client-load="jsClientLoad"
-            @checkout="checkout"
-          />
-
-          <div v-else>
+          <template v-else>
             <p class="payment__total">
               {{ i19total }}:
               <strong>{{ formatMoney(amount.total) }}</strong>
             </p>
 
+            <credit-card-form
+              v-if="shouldUseCardForm"
+              :amount="amount"
+              :check-holder="customerName"
+              :is-company="isCompany"
+              :installment-options="paymentGateway.installment_options"
+              :js-client="jsClient"
+              :js-client-load="jsClientLoad"
+              @checkout="checkout"
+            />
+
             <button
+              v-else
               class="btn btn-success btn-lg btn-block payment__pay"
               @click="handleCheckout"
             >
@@ -151,7 +152,7 @@
               {{ paymentGateway.payment_method.code === 'banking_billet'
                   ? i19generateBillet : i19checkout }}
             </button>
-          </div>
+          </template>
 
           <hr>
           <button

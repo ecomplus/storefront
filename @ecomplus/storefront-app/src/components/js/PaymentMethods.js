@@ -138,6 +138,17 @@ export default {
       return this.selectedGateway === -1 || !this.jsClient || !this.jsClient.container_html
     },
 
+    shouldUseCardForm () {
+      switch (this.paymentGateway.payment_method.code) {
+        case 'credit_card':
+          return true
+        case 'debit_card':
+        case 'balance_on_intermediary':
+          return Boolean(this.jsClient)
+      }
+      return false
+    },
+
     isCompany () {
       return this.customer && this.customer.registry_type !== 'p'
     },
