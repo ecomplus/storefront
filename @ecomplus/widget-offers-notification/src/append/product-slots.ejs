@@ -1,6 +1,7 @@
 <%
 const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app/offers/notification' +
-  `?store_id=${_.state.store_id}&productId=${_.state._id}`
+  `?storeId=${_.state.store_id}&productId=${_.state._id}` +
+  `&stylesheet=${encodeURIComponent(`https://${_.settings.domain}/storefront.css`)}`
 %>
 
 <script>
