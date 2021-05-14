@@ -120,10 +120,11 @@
                 >
                   <payment-methods
                     :key="paymentsListKey"
-                    :amount="amount"
+                    :amount="paymentAmount"
                     :customer="localCustomer"
+                    :payment-gateways.sync="paymentGateways"
                     @select-gateway="selectPaymentGateway"
-                    @checkout="transaction => $emit('checkout', transaction)"
+                    @checkout="checkout"
                   />
 
                   <div
@@ -161,15 +162,23 @@
                 </transition>
               </template>
 
-              <discount-applier
-                v-if="enabledCheckoutStep > 1"
-                class="checkout__discount"
-                :amount="amount"
-                :coupon-code.sync="localDiscountCoupon"
-                @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
-                :modules-payload="modulesPayload"
-                is-attention-wanted
-              />
+              <template v-if="enabledCheckoutStep > 1">
+                <points-applier
+                  class="checkout__loyalty-points"
+                  :amount="amount"
+                  :points-applied.sync="loyaltyPointsApplied"
+                  :points-amount.sync="loyaltyPointsAmount"
+                />
+
+                <discount-applier
+                  class="checkout__discount"
+                  :amount="amount"
+                  :coupon-code.sync="localDiscountCoupon"
+                  @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
+                  :modules-payload="modulesPayload"
+                  is-attention-wanted
+                />
+              </template>
             </ec-summary>
 
             <div class="checkout__notes mt-4 mb-auto">

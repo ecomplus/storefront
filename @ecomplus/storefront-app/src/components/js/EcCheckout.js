@@ -18,6 +18,7 @@ import {
 import ecomCart from '@ecomplus/shopping-cart'
 import baseModulesRequestData from '../../lib/base-modules-request-data'
 import DiscountApplier from '#components/DiscountApplier.vue'
+import PointsApplier from '#components/PointsApplier.vue'
 import LoginBlock from '#components/LoginBlock.vue'
 import ShippingCalculator from '#components/ShippingCalculator.vue'
 import ShippingLine from '#components/ShippingLine.vue'
@@ -50,6 +51,7 @@ export default {
 
   components: {
     DiscountApplier,
+    PointsApplier,
     LoginBlock,
     ShippingLine,
     ShippingCalculator,
@@ -115,6 +117,9 @@ export default {
       editAccount: false,
       editShippingService: !this.shippingService,
       localZipCode: this.shippingZipCode,
+      paymentGateways: [],
+      loyaltyPointsApplied: {},
+      loyaltyPointsAmount: 0,
       hasMoreOffers: false
     }
   },
@@ -183,6 +188,13 @@ export default {
       }
     },
 
+    paymentAmount () {
+      return {
+        ...this.amount,
+        total: this.amount.total - this.loyaltyPointsAmount
+      }
+    },
+
     localNotes: {
       get () {
         return this.notes
@@ -208,7 +220,8 @@ export default {
     },
 
     enabledCheckoutStep () {
-      return !this.hasBuyerInfo ? 0
+      return !this.hasBuyerInfo
+        ? 0
         : this.shippingAddress && this.shippingService ? 2 : 1
     },
 
@@ -291,6 +304,25 @@ export default {
       if (this.checkoutStep === 2) {
         this.goToTop()
       }
+    },
+
+    checkout (transaction) {
+      if (this.loyaltyPointsAmount) {
+        for (let i = 0; i < this.paymentGateways.length; i++) {
+          if (this.paymentGateways[i].payment_method.code === 'loyalty_points') {
+            const pointsAmountPart = this.loyaltyPointsAmount / this.amount.total
+            return this.$emit('checkout', [{
+              ...transaction,
+              amount_part: 1 - pointsAmountPart
+            }, {
+              ...this.paymentGateways[i],
+              loyalty_points_applied: this.loyaltyPointsApplied,
+              amount_part: pointsAmountPart
+            }])
+          }
+        }
+      }
+      this.$emit('checkout', transaction)
     }
   },
 

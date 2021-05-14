@@ -24,6 +24,7 @@
         href="#"
         class="payment__gateway list-group-item list-group-item-action"
         v-for="(gateway, i) in paymentGateways"
+        v-if="gateway.payment_method.code !== 'loyalty_points'"
         v-show="selectedGateway === -1 || selectedGateway === i"
         :key="gateway.app_id + gateway.payment_method.code + i"
         @click.prevent="selectedGateway = selectedGateway === i ? -1 : i"

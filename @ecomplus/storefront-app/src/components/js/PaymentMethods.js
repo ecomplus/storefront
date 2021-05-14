@@ -40,6 +40,12 @@ export default {
     },
     cartItems: Array,
     customer: Object,
+    paymentGateways: {
+      type: Array,
+      default () {
+        return window.ecomPaymentApps || []
+      }
+    },
     defaultAppId: {
       type: Number,
       default () {
@@ -65,7 +71,6 @@ export default {
       isWaiting: false,
       fetching: null,
       processingAppId: undefined,
-      paymentGateways: [],
       hasLoaded: false,
       selectedGateway: -1,
       loadedClients: {}
@@ -172,8 +177,9 @@ export default {
     },
 
     parsePaymentOptions (listResult = [], isUpdatingSelected) {
+      let { paymentGateways } = this
       if (!isUpdatingSelected) {
-        this.paymentGateways = []
+        paymentGateways = []
         this.loadedClients = {}
       }
       if (listResult.length) {
@@ -193,13 +199,13 @@ export default {
               if (jsClient) {
                 const gatewayIndex = isUpdatingSelected
                   ? this.selectedGateway
-                  : this.paymentGateways.length
+                  : paymentGateways.length
                 this.loadedClients[gatewayIndex] = loadPaymentClient(jsClient, true)
               }
               if (!isUpdatingSelected) {
-                this.paymentGateways.push(paymentGateway)
+                paymentGateways.push(paymentGateway)
               } else {
-                this.paymentGateways[this.selectedGateway] = paymentGateway
+                paymentGateways[this.selectedGateway] = paymentGateway
                 isUpdatingSelected = false
               }
             })
@@ -208,12 +214,13 @@ export default {
         if (!this.hasLoaded) {
           this.hasLoaded = true
           if (this.defaultAppId && this.selectedGateway === -1) {
-            this.selectedGateway = this.paymentGateways.findIndex(gateway => {
+            this.selectedGateway = paymentGateways.findIndex(gateway => {
               return gateway.app_id === this.defaultAppId
             })
           }
         }
       }
+      this.$emit('update:payment-gateways', paymentGateways)
     },
 
     fetchPaymentGateways (appId = null, isRetry = false) {
@@ -323,6 +330,8 @@ export default {
   },
 
   created () {
-    this.fetchPaymentGateways()
+    if (!this.paymentGateways.length) {
+      this.fetchPaymentGateways()
+    }
   }
 }

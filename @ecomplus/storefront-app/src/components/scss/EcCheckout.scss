@@ -156,8 +156,9 @@
     height: 100%;
   }
 
-  &__discount {
-    margin-bottom: 1.5rem;
+  &__discount,
+  &__loyalty-points {
+    margin-bottom: var(--spacer-4);
   }
 
   &__user {

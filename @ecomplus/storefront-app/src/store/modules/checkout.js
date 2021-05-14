@@ -127,31 +127,38 @@ const prepareTransaction = ({ customer, transaction }) => {
   const { name } = customer
   const fullname = `${name.given_name} ` +
     (name.middle_name ? `${name.middle_name} ${name.family_name}` : name.family_name)
-  Object.assign(transaction, {
-    buyer: {
-      email: customer.main_email,
-      fullname
+  const fillTransaction = transaction => {
+    Object.assign(transaction, {
+      buyer: {
+        email: customer.main_email,
+        fullname
+      }
+    })
+    ;[
+      'inscription_number',
+      'inscription_type',
+      'doc_number',
+      'doc_country',
+      'registry_type',
+      'birth_date',
+      'gender'
+    ].forEach(prop => {
+      const value = customer[prop]
+      if (value) {
+        transaction.buyer[prop] = value
+      }
+    })
+    if (customer.phones.length) {
+      transaction.buyer.phone = customer.phones[0]
     }
-  })
-  ;[
-    'inscription_number',
-    'inscription_type',
-    'doc_number',
-    'doc_country',
-    'registry_type',
-    'birth_date',
-    'gender'
-  ].forEach(prop => {
-    const value = customer[prop]
-    if (value) {
-      transaction.buyer[prop] = value
+    if (!transaction.billing_address) {
+      transaction.billing_address = customer.addresses.find(addr => addr.default)
     }
-  })
-  if (customer.phones.length) {
-    transaction.buyer.phone = customer.phones[0]
   }
-  if (!transaction.billing_address) {
-    transaction.billing_address = customer.addresses.find(addr => addr.default)
+  if (Array.isArray(transaction)) {
+    transaction.forEach(fillTransaction)
+  } else {
+    fillTransaction(transaction)
   }
   return transaction
 }
