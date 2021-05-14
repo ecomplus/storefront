@@ -162,7 +162,6 @@ export default {
       const { customer } = this
       return this.customerEmail &&
         customer.name && customer.name.given_name &&
-        customer.birth_date && customer.birth_date.day &&
         customer.registry_type && customer.doc_number &&
         customer.phones && customer.phones.length
     },
