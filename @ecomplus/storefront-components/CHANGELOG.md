@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.86](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.85...@ecomplus/storefront-components@1.0.0-beta.86) (2021-05-14)
+
+
+### Bug Fixes
+
+* **components/account-form:** birth date field cannot be required anymore according to google ([#463](https://github.com/ecomplus/storefront/issues/463)) ([aa53af0](https://github.com/ecomplus/storefront/commit/aa53af0d003540169ebe51bad4b490ba68aeefcd))
+
+
+### Features
+
+* **components/points-applier:** new PointsApplier component to enable loyalty points usage :tada: ([558d0b7](https://github.com/ecomplus/storefront/commit/558d0b79e32a03a379bc7dbdc7f7ed6609e501b4))
+
+
+
+
+
 # [1.0.0-beta.85](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.84...@ecomplus/storefront-components@1.0.0-beta.85) (2021-04-28)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.92](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.91...@ecomplus/storefront-app@2.0.0-beta.92) (2021-05-14)
+
+
+### Bug Fixes
+
+* **app/checkout:** make birth date optional to checkout ([#463](https://github.com/ecomplus/storefront/issues/463)) ([9244d8e](https://github.com/ecomplus/storefront/commit/9244d8e7f147eb702da6eac85ebad4104a025b8d))
+* **app/payment-methods:** also use credit card form for some other payment methods with js client ([b1b33ea](https://github.com/ecomplus/storefront/commit/b1b33ea18e7cd9592a883f96c5f16461f0a139bd))
+
+
+### Features
+
+* **app/checkout:** handling loyalty points usage and multiple transactions ([7029131](https://github.com/ecomplus/storefront/commit/70291311af295adaa07cc085b922c6b832f4ad61))
+
+
+
+
+
 # [2.0.0-beta.91](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.90...@ecomplus/storefront-app@2.0.0-beta.91) (2021-04-28)
 
 

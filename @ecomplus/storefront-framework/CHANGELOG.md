@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.17](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.16...@ecomplus/storefront-framework@5.16.17) (2021-05-14)
+
+
+### Bug Fixes
+
+* **deps:** update to node-sass v5 and sass-loader v11 ([6937e19](https://github.com/ecomplus/storefront/commit/6937e19e24c7ecac91dc5588ff14b5379abffce7))
+
+
+
+
+
 ## [5.16.16](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.15...@ecomplus/storefront-framework@5.16.16) (2021-04-28)
 
 

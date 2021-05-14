@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.122](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.121...@ecomplus/storefront-template@2.0.0-beta.122) (2021-05-14)
+
+
+### Features
+
+* **template/fetch-info:** also save `loyalty_points_programs` from list payments request ([284dd3a](https://github.com/ecomplus/storefront/commit/284dd3a485a9a3e5f16291cd5cd9ffa6157c9598))
+
+
+
+
+
 # [2.0.0-beta.121](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.120...@ecomplus/storefront-template@2.0.0-beta.121) (2021-04-28)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
