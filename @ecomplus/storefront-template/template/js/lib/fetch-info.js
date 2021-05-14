@@ -67,6 +67,11 @@ modulesToFetch.forEach(({ endpoint, reqOptions }) => {
                       }
                     })
                   }
+                  field = 'loyalty_points_programs'
+                  val = response[field]
+                  if (val) {
+                    modInfo[field] = { ...modInfo[field], ...val }
+                  }
                   break
 
                 default:
