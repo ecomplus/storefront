@@ -1,6 +1,12 @@
-// import { i19use$1LoyaltyPoints } from '@ecomplus/i18n'
-import { formatMoney } from '@ecomplus/utils'
+import { i19use$1LoyaltyPoints } from '@ecomplus/i18n'
+
+import {
+  i18n,
+  formatMoney
+} from '@ecomplus/utils'
+
 import ecomPassport from '@ecomplus/passport-client'
+import waitStorefrontInfo from './helpers/wait-storefront-info'
 
 export default {
   name: 'PointsApplier',
@@ -12,6 +18,7 @@ export default {
       required: true
     },
     pointsAmount: Number,
+    maxPointsAmount: Number,
     ecomPassport: {
       type: Object,
       default () {
@@ -22,13 +29,13 @@ export default {
 
   data () {
     return {
-      localPointsPrograms: this.pointsPrograms,
+      localPointsPrograms: this.pointsPrograms || {},
       availablePoints: {}
     }
   },
 
   computed: {
-    i19use$1LoyaltyPoints: () => 'Usar $1 pontos de fidelidade'
+    i19use$1LoyaltyPoints: () => i18n(i19use$1LoyaltyPoints)
   },
 
   methods: {
@@ -50,13 +57,19 @@ export default {
             if (!validThru || new Date(validThru).getTime() >= Date.now()) {
               const programId = pointsEntry.program_id
               const points = pointsEntry.active_points
-              if (availablePoints[programId]) {
-                availablePoints[programId] += points
-              } else {
-                availablePoints[programId] = points
-              }
-              if (availablePoints[programId] > pointsEntry.max_points) {
-                availablePoints[programId] = pointsEntry.max_points
+              if (this.localPointsPrograms[programId]) {
+                if (availablePoints[programId]) {
+                  availablePoints[programId] += points
+                } else {
+                  availablePoints[programId] = points
+                }
+                if (availablePoints[programId] > pointsEntry.max_points) {
+                  availablePoints[programId] = pointsEntry.max_points
+                }
+                const { ratio } = this.localPointsPrograms[programId]
+                if (availablePoints[programId] * ratio > this.maxPointsAmount) {
+                  availablePoints[programId] = this.maxPointsAmount / ratio
+                }
               }
             }
             return availablePoints
@@ -84,20 +97,8 @@ export default {
 
   created () {
     if (!this.pointsPrograms || !Object.keys(this.pointsPrograms).length) {
-      const storefront = typeof window === 'object' && window.storefront
-      if (storefront) {
-        const getPointsPrograms = () => {
-          const paymentInfo = storefront.info && storefront.info.list_payments
-          if (paymentInfo) {
-            this.updatePrograms(paymentInfo.loyalty_points_programs)
-            return Object.keys(paymentInfo).length > 0
-          }
-          return false
-        }
-        if (!getPointsPrograms()) {
-          storefront.on('info:list_payments', getPointsPrograms)
-        }
-      }
+      waitStorefrontInfo('list_payments', 'loyalty_points_programs')
+        .then(this.updatePrograms)
     } else {
       this.fixAvailablePoints()
     }
