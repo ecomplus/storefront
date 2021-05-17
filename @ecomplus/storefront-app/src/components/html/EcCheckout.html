@@ -165,9 +165,9 @@
               <template v-if="enabledCheckoutStep > 1">
                 <points-applier
                   class="checkout__loyalty-points"
-                  :amount="amount"
                   :points-applied.sync="loyaltyPointsApplied"
                   :points-amount.sync="loyaltyPointsAmount"
+                  :max-points-amount="amount.subtotal - 5"
                 />
 
                 <discount-applier
