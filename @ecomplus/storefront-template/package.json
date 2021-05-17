@@ -44,7 +44,7 @@
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-template#readme",
   "dependencies": {
     "@ecomplus/client": "^2.2.1",
-    "@ecomplus/i18n": "^1.20.0",
+    "@ecomplus/i18n": "^1.21.0",
     "@ecomplus/passport-client": "^1.0.10",
     "@ecomplus/search-engine": "^2.5.1",
     "@ecomplus/shopping-cart": "^2.5.5",
