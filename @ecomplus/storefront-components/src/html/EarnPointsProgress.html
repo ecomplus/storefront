@@ -1,0 +1,28 @@
+<div
+  class="earn-points-progress"
+  v-if="minSubtotalToEarn > cartSubtotal"
+>
+  <span>
+    {{ i19add$1ToEarn.replace('$1', formatMoney(minSubtotalToEarn - cartSubtotal)) }}
+    <strong>{{ i19loyaltyPoints.toLowerCase() }}</strong>
+  </span>
+
+  <div
+    v-if="earnFromPercentage >= 33"
+    class="progress"
+  >
+    <div
+      class="progress-bar progress-bar-striped"
+      role="progressbar"
+      :style="`width: ${earnFromPercentage}%`"
+      :aria-valuenow="earnFromPercentage"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      <span>
+        {{ programName }}
+        <strong>{{ earnFromPercentage }}%</strong>
+      </span>
+    </div>
+  </div>
+</div>
