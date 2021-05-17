@@ -67,14 +67,11 @@ export default {
 
   created () {
     if (!this.pointsPrograms || !Object.keys(this.pointsPrograms).length) {
-      const storefront = typeof window === 'object' && window.storefront
-      if (storefront) {
-        waitStorefrontInfo('list_payments', 'loyalty_points_programs')
-          .then(pointsPrograms => {
-            this.localPointsPrograms = pointsPrograms
-            this.$emit('update:points-programs', pointsPrograms)
-          })
-      }
+      waitStorefrontInfo('list_payments', 'loyalty_points_programs')
+        .then(pointsPrograms => {
+          this.localPointsPrograms = pointsPrograms
+          this.$emit('update:points-programs', pointsPrograms)
+        })
     }
   }
 }
