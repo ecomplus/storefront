@@ -1,5 +1,5 @@
 import {
-  // i19a,
+  i19a,
   i19birthdate,
   i19cellphone,
   i19companyRegistration,
@@ -12,10 +12,10 @@ import {
   i19Gender,
   i19inscriptionNumber,
   i19InscriptionType,
-  // i19iReadAndAccept,
+  i19iReadAndAccept,
   i19male,
   i19nickname,
-  // i19emailMarketingOptInMsg,
+  i19emailMarketingOptInMsg,
   i19personalRegistration,
   i19privacyPolicy,
   i19save,
@@ -80,7 +80,7 @@ export default {
   },
 
   computed: {
-    i19a: () => 'a',
+    i19a: () => i18n(i19a),
     i19birthdate: () => i18n(i19birthdate),
     i19cellphone: () => i18n(i19cellphone),
     i19companyRegistration: () => i18n(i19companyRegistration),
@@ -93,10 +93,10 @@ export default {
     i19Gender: () => i18n(i19Gender),
     i19inscriptionNumber: () => i18n(i19inscriptionNumber),
     i19InscriptionType: () => i18n(i19InscriptionType),
-    i19iReadAndAccept: () => 'Li e aceito',
+    i19iReadAndAccept: () => i18n(i19iReadAndAccept),
     i19male: () => i18n(i19male),
     i19nickname: () => i18n(i19nickname),
-    i19emailMarketingOptInMsg: () => 'Quero receber ofertas e conteúdos da loja por e-mail.',
+    i19emailMarketingOptInMsg: () => i18n(i19emailMarketingOptInMsg),
     i19personalRegistration: () => i18n(i19personalRegistration),
     i19privacyPolicy: () => i18n(i19privacyPolicy),
 
