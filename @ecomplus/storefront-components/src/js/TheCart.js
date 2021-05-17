@@ -15,6 +15,7 @@ import APrices from './../APrices.vue'
 import CartItem from './../CartItem.vue'
 import DiscountApplier from './../DiscountApplier.vue'
 import ShippingCalculator from './../ShippingCalculator.vue'
+import EarnPointsProgress from './../EarnPointsProgress.vue'
 import RecommendedItems from './../RecommendedItems.vue'
 
 export default {
@@ -25,6 +26,7 @@ export default {
     CartItem,
     DiscountApplier,
     ShippingCalculator,
+    EarnPointsProgress,
     RecommendedItems
   },
 
