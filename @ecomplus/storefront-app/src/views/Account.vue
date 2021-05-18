@@ -13,6 +13,9 @@
       <template #account-addresses>
         <account-addresses :customer.sync="customer"/>
       </template>
+      <template #account-points>
+        <account-points :customer.sync="customer"/>
+      </template>
       <template #orders-list>
         <ec-orders-list
           :ecom-passport="ecomPassport"
