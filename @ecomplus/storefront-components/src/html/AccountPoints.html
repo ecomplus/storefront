@@ -1,0 +1,32 @@
+<div
+  v-if="validPointsEntries.length"
+  class="account-points"
+>
+  <h4>{{ i19loyaltyPoints }}</h4>
+
+  <ul class="list-group">
+    <li
+      v-for="pointsEntry in validPointsEntries"
+      class="list-group-item account-points__entry"
+    >
+      <div class="account-points__entry-title">
+        <h5 class="mb-1">
+          {{ pointsEntry.name }}
+        </h5>
+        <small v-if="pointsEntry.valid_thru">
+          {{ i19upTo }}
+          {{ formatDate(pointsEntry.valid_thru) }}
+        </small>
+      </div>
+
+      {{ i19available }}:
+      <b>{{ pointsEntry.active_points }}</b>
+      <small
+        v-if="pointsEntry.earned_points"
+        class="text-muted"
+      >
+        / {{ `${pointsEntry.earned_points} ${i19pointsEarned}` }}
+      </small>
+    </li>
+  </ul>
+</div>

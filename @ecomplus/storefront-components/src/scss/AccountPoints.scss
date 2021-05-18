@@ -1,0 +1,11 @@
+.account-points {
+  &__entry small {
+    text-transform: lowercase;
+  }
+
+  &__entry-title {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
