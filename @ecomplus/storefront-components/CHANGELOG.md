@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.87](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.86...@ecomplus/storefront-components@1.0.0-beta.87) (2021-05-18)
+
+
+### Bug Fixes
+
+* **components/account-form:** properly import new i18n words ([8c0ab53](https://github.com/ecomplus/storefront/commit/8c0ab53b9c1e379ed8058251b24bf333447a0f34))
+* **deps:** update @ecomplus/i18n to v1.21.0 ([a235058](https://github.com/ecomplus/storefront/commit/a2350580c50480e9caf74ac64dde14e4b618a057))
+
+
+### Features
+
+* **components/account:** new slot `account-points` for active loyalty points ([28aea7c](https://github.com/ecomplus/storefront/commit/28aea7cd339bb6304d2322848eafdff47b1d222b))
+* **components/account-points:** new AccountPoints component :tada: ([a5d186a](https://github.com/ecomplus/storefront/commit/a5d186a98f9b9d89e52a99161d68c6294f601dd2))
+* **components/cart:** add loyalty points earn progress bar on shopping cart ([306d2e6](https://github.com/ecomplus/storefront/commit/306d2e64a15a02b9a6ade3009f0f7a0144483803))
+* **components/earn-points-progress:** add new EarnPointsProgress component :tada: ([7e50cf7](https://github.com/ecomplus/storefront/commit/7e50cf7dd80afb84297ef4aa44d5df4a85a61463))
+* **components/points-applier:** handle new `maxPointsAmount` prop ([1478fcc](https://github.com/ecomplus/storefront/commit/1478fcc2b4c229766f98c250fae97b72c218a103))
+
+
+
+
+
 # [1.0.0-beta.86](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.85...@ecomplus/storefront-components@1.0.0-beta.86) (2021-05-14)
 
 

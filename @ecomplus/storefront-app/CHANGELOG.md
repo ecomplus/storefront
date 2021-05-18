@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.93](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.92...@ecomplus/storefront-app@2.0.0-beta.93) (2021-05-18)
+
+
+### Bug Fixes
+
+* **app/checkout:** set max points amount to subtotal - 5 ([d6d9817](https://github.com/ecomplus/storefront/commit/d6d9817be06ef39c38a65b1e6e2cbca1d156a095))
+* **deps:** update @ecomplus/i18n to v1.21.0 ([a235058](https://github.com/ecomplus/storefront/commit/a2350580c50480e9caf74ac64dde14e4b618a057))
+
+
+### Features
+
+* **app/account:** showing customer active loyalty points ([7226598](https://github.com/ecomplus/storefront/commit/72265983e03a91a837aa4f409cccac5a6f68a87e))
+
+
+
+
+
 # [2.0.0-beta.92](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.91...@ecomplus/storefront-app@2.0.0-beta.92) (2021-05-14)
 
 
