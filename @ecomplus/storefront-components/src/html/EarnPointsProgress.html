@@ -1,6 +1,6 @@
 <div
-  class="earn-points-progress"
   v-if="minSubtotalToEarn > cartSubtotal"
+  class="earn-points-progress"
 >
   <span>
     {{ i19add$1ToEarn.replace('$1', formatMoney(minSubtotalToEarn - cartSubtotal)) }}
