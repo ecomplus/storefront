@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/ecomplus/storefront#readme",
   "devDependencies": {
-    "@babel/core": "^7.14.2",
+    "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.2",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
@@ -48,7 +48,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.11",
-    "eslint": "^7.26.0",
+    "eslint": "^7.27.0",
     "eslint-import-resolver-node": "^0.3.4",
     "file-loader": "^6.2.0",
     "fs-extra": "^9.1.0",
