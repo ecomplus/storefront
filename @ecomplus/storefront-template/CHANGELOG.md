@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.124](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.123...@ecomplus/storefront-template@2.0.0-beta.124) (2021-05-24)
+
+
+### Bug Fixes
+
+* **cms:** rollback to netlify cms v2.10.117 ([2a231a1](https://github.com/ecomplus/storefront/commit/2a231a11a8708ce213d6c33a4e8049258d901cd7))
+* **template/product-block:** fix spacing for short description paragraph ([df4e096](https://github.com/ecomplus/storefront/commit/df4e096c5a512bcdbe2ec810e75e8035200571f8))
+
+
+
+
+
 # [2.0.0-beta.123](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.122...@ecomplus/storefront-template@2.0.0-beta.123) (2021-05-18)
 
 
