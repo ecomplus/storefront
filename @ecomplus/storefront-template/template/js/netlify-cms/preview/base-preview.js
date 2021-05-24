@@ -287,9 +287,9 @@ export default class BasePreview extends React.Component {
             }
           }
         }).catch(e => console.error('Parse err', e))
-      }  
+      }
     }
-    
+
     const $sections = vDoc.getElementsByClassName('sections')[0]
     $sections.innerHTML = ''
     $sections.innerHTML += parse
