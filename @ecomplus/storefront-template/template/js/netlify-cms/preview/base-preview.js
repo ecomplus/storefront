@@ -137,8 +137,8 @@ export default class BasePreview extends React.Component {
 
       for (let i = 0; i < entries.length; i++) {
         const entry = entries[i]
-        const oldEntry = oldEntrys.find(old => old.type === entry.type)
-        if (oldEntry) {
+        const oldEntry = oldEntrys[i]
+        if (oldEntry && oldEntry.type === entry.type) {
           for (const key in oldEntry) {
             if (oldEntry[key]) {
               switch (typeof oldEntry[key]) {
