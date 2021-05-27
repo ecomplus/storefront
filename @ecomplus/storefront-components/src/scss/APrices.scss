@@ -44,6 +44,11 @@
     }
   }
 
+  &__points {
+    margin-bottom: var(--spacer-2);
+    color: var(--secondary);
+  }
+
   &:not(.prices--literal) {
     .prices__compare {
       color: var(--gray);

@@ -27,6 +27,19 @@
 
   <transition-group enter-active-class="animated slideInDown">
     <div
+      key="points"
+      v-if="earnPointsFactor > 0 && pointsMinPrice <= price"
+      class="prices__points"
+    >
+      <i class="fas fa-check-circle"></i>
+      {{ i19youEarn }}
+      <span>
+        +{{ (earnPointsFactor * price).toFixed(1) }}
+      </span>
+      <em>{{ pointsProgramName }}</em>
+    </div>
+
+    <div
       key="installments"
       v-if="installmentsNumber > 1"
       class="prices__installments"

@@ -5,6 +5,7 @@ import {
   i19of,
   i19to,
   i19upTo
+  // i19youEarn
 } from '@ecomplus/i18n'
 
 import {
@@ -13,6 +14,8 @@ import {
   onPromotion as checkOnPromotion,
   formatMoney
 } from '@ecomplus/utils'
+
+import waitStorefrontInfo from './helpers/wait-storefront-info'
 
 const getPriceWithDiscount = (price, discount) => {
   const { type, value } = discount
@@ -56,7 +59,10 @@ export default {
         type: null,
         value: 0
       },
-      discountLabel: this.discountText
+      discountLabel: this.discountText,
+      pointsProgramName: null,
+      pointsMinPrice: 0,
+      earnPointsFactor: 0
     }
   },
 
@@ -67,6 +73,7 @@ export default {
     i19of: () => i18n(i19of),
     i19to: () => i18n(i19to),
     i19upTo: () => i18n(i19upTo),
+    i19youEarn: () => 'Você ganha',
 
     price () {
       const price = getPrice(this.product)
@@ -155,40 +162,38 @@ export default {
   },
 
   created () {
-    const storefront = typeof window === 'object' && window.storefront
     if (this.discountOption) {
       this.updateDiscount(this.discountOption)
-    } else if (storefront) {
-      const getExtraDiscount = () => {
-        const discountCampaign = storefront.info && storefront.info.apply_discount
-        if (discountCampaign) {
-          const discount = discountCampaign.available_extra_discount
-          if (discount) {
-            this.extraDiscount = discount
+    } else {
+      waitStorefrontInfo('apply_discount')
+        .then(discountCampaign => {
+          if (discountCampaign.available_extra_discount) {
+            this.extraDiscount = discountCampaign.available_extra_discount
           }
-          return Object.keys(discountCampaign).length > 0
-        }
-        return false
-      }
-      if (!getExtraDiscount()) {
-        storefront.on('info:apply_discount', getExtraDiscount)
-      }
+        })
     }
     if (this.installmentsOption) {
       this.updateInstallments(this.installmentsOption)
-    } else if (storefront) {
-      const getPaymentInfo = () => {
-        const paymentInfo = storefront.info && storefront.info.list_payments
-        if (paymentInfo) {
+    } else {
+      waitStorefrontInfo('list_payments')
+        .then(paymentInfo => {
           this.updateInstallments(paymentInfo.installments_option)
           this.updateDiscount(paymentInfo.discount_option)
-          return Object.keys(paymentInfo).length > 0
-        }
-        return false
-      }
-      if (!getPaymentInfo()) {
-        storefront.on('info:list_payments', getPaymentInfo)
-      }
+          const pointsPrograms = paymentInfo.loyalty_points_programs
+          if (this.isLiteral && pointsPrograms) {
+            this.$nextTick(() => {
+              for (const programId in pointsPrograms) {
+                const pointsProgram = pointsPrograms[programId]
+                if (pointsProgram && pointsProgram.earn_percentage > 0) {
+                  this.pointsMinPrice = pointsProgram.min_subtotal_to_earn
+                  this.pointsProgramName = pointsProgram.name
+                  this.earnPointsFactor = pointsProgram.earn_percentage / 100
+                  break
+                }
+              }
+            })
+          }
+        })
     }
   }
 }
