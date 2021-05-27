@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.88](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.87...@ecomplus/storefront-components@1.0.0-beta.88) (2021-05-27)
+
+
+### Bug Fixes
+
+* **cart-quickview:** minicart subtotal el should not be <strong> (contains APrice) ([9e04410](https://github.com/ecomplus/storefront/commit/9e04410b5444a9840d24c82fb2475731adcd4c94))
+
+
+### Features
+
+* **prices:** handle loyalty poiints programs (if any) when showing literal price ([fda4d51](https://github.com/ecomplus/storefront/commit/fda4d5172d98b6c0436e98620b8bcd1ad43f70c7))
+
+
+
+
+
 # [1.0.0-beta.87](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.86...@ecomplus/storefront-components@1.0.0-beta.87) (2021-05-18)
 
 
