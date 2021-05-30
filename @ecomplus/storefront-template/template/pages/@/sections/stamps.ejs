@@ -4,12 +4,12 @@
       <% if (link) { %>
         <li>
           <a href="<%= link %>" target="_blank" rel="noopener">
-            <img src="<%= src %>" alt="<%= alt %>">
+            <img data-src="<%= src %>" alt="<%= alt %>" class="lozad fade" data-preload>
           </a>
         </li>
       <% } else { %>
         <li>
-          <img src="<%= src %>" alt="<%= alt %>">
+          <img data-src="<%= src %>" alt="<%= alt %>" class="lozad fade" data-preload>
         </li>
       <% } %>
     <% }) %>
