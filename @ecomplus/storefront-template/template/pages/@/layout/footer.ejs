@@ -94,7 +94,7 @@ const networksWithColors = [
         </div>
       </div>
 
-      <% if (footer.links_1.list_pages || footer.links_1.list.length) { %>
+      <% if (footer.links_1.list_pages || footer.links_1.list.find(({ url }) => url)) { %>
         <div class="col-12 col-sm-6 col-lg col-xl-auto px-xl-4">
           <a
             class="footer__title"
@@ -135,7 +135,7 @@ const networksWithColors = [
         </div>
       <% } %>
 
-      <% if (footer.links_2.list_categories || footer.links_2.list.length) { %>
+      <% if (footer.links_2.list_categories || footer.links_2.list.find(({ url }) => url)) { %>
         <div class="col-12 col-sm-6 col-lg col-xl-auto px-xl-4">
           <a
             class="footer__title"
