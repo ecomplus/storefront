@@ -85,7 +85,7 @@ if (mainCategories) {
           <% } %>
 
           <div class="menu__list">
-            <% categoryParents[slug].forEach(subcategory => { %>
+            <% categoryParents[slug].forEach((subcategory, index) => { %>
               <% const hasSubmenu = Array.isArray(categoryParents[subcategory.slug]) %>
               <a
                 <% if (hasSubmenu) {
@@ -105,8 +105,10 @@ if (mainCategories) {
                 <% if (subcategory.icon) { %>
                   <span class="menu__item-icon">
                     <img
-                      src="<%= subcategory.icon.url %>"
+                      data-src="<%= subcategory.icon.url %>"
                       alt="<%= subcategory.icon.alt || subcategory.name %>"
+                      class="lozad"
+                      data-preload="<%= (index * 200) %>"
                     >
                   </span>
                 <% } %>
