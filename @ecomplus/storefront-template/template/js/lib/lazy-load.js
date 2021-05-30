@@ -16,5 +16,10 @@ export { observer, lazyLoad }
 window.addEventListener('load', () => {
   setTimeout(() => {
     lazyLoad('lozad-delay')
+    const $preloadEls = document.querySelectorAll('.lozad[data-preload]')
+    for (let i = 0; i < $preloadEls.length; i++) {
+      const $el = $preloadEls[i]
+      setTimeout(() => observer.triggerLoad($el), Number($el.dataset.preload) || i)
+    }
   }, 2000)
 })
