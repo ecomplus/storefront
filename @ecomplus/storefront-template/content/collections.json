@@ -19,6 +19,10 @@
     {
       "type": "document-description",
       "enabled": true
+    },
+    {
+      "type": "custom-html",
+      "html": "<p></p>"
     }
   ]
 }
