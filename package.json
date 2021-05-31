@@ -30,7 +30,7 @@
   "homepage": "https://github.com/ecomplus/storefront#readme",
   "devDependencies": {
     "@babel/core": "^7.14.3",
-    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-env": "^7.14.4",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@ecomplus/storefront-snapshot": "^1.2.0",
@@ -44,7 +44,7 @@
     "babel-loader": "^8.2.2",
     "bootstrap": "^4.6.0",
     "browser-sync": "^2.26.14",
-    "caniuse-lite": "^1.0.30001228",
+    "caniuse-lite": "^1.0.30001231",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.11",
