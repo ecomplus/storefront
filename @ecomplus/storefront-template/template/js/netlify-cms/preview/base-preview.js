@@ -274,19 +274,22 @@ export default class BasePreview extends React.Component {
       for (let j = 0; j < cmsEntrys.length; j++) {
         const opt = cmsEntrys[j]
         opt.items = this._.items
-        parse += await ejs.render(this.ejsSections()[opt.type], {
-          _: this._,
-          opt
-        }, {
-          async: true,
-          includer: originalPath => {
-            for (const sectionType in this.ejsSections()) {
-              if (originalPath.endsWith(`/${sectionType}`)) {
-                return { template: this.ejsSections()[sectionType] }
+        const template = this.ejsSections()[opt.type]
+        if (template) {
+          parse += await ejs.render(template, {
+            _: this._,
+            opt
+          }, {
+            async: true,
+            includer: originalPath => {
+              for (const sectionType in this.ejsSections()) {
+                if (originalPath.endsWith(`/${sectionType}`)) {
+                  return { template: this.ejsSections()[sectionType] }
+                }
               }
             }
-          }
-        }).catch(e => console.error('Parse err', e))
+          }).catch(e => console.error('Parse err', e))
+        }
       }
     }
 
