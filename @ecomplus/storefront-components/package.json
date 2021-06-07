@@ -34,9 +34,9 @@
   "dependencies": {
     "@brazilian-utils/brazilian-utils": "^1.0.0-rc.12",
     "@ecomplus/client": "^2.2.1",
-    "@ecomplus/i18n": "^1.21.0",
+    "@ecomplus/i18n": "^1.22.0",
     "@ecomplus/passport-client": "^1.0.10",
-    "@ecomplus/search-engine": "^2.5.1",
+    "@ecomplus/search-engine": "^2.6.0",
     "@ecomplus/shopping-cart": "^2.5.5",
     "@ecomplus/storefront-twbs": "^5.10.4",
     "@glidejs/glide": "^3.4.1",
@@ -45,7 +45,7 @@
     "lodash.clonedeep": "^4.5.0",
     "lozad": "^1.16.0",
     "photoswipe": "^4.1.3",
-    "vue": "^2.6.12",
+    "vue": "^2.6.14",
     "vue-cleave-component": "^2.1.3",
     "vue-social-sharing": "^3.0.7"
   }
