@@ -28,7 +28,7 @@
   <transition-group enter-active-class="animated slideInDown">
     <div
       key="points"
-      v-if="earnPointsFactor > 0 && pointsMinPrice <= price"
+      v-if="earnPointsFactor > 0 && !(pointsMinPrice > price)"
       class="prices__points"
     >
       <i class="fas fa-check-circle"></i>
