@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.95](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.94...@ecomplus/storefront-app@2.0.0-beta.95) (2021-06-11)
+
+
+### Bug Fixes
+
+* **app/payment-methods:** must handle js clients again when payment gateways already loaded (prop) ([8b64228](https://github.com/ecomplus/storefront/commit/8b642284020be01d8bdfa903a66faaceffedd2f5))
+* **deps:** update all non-major dependencies ([#478](https://github.com/ecomplus/storefront/issues/478)) ([f3b5f96](https://github.com/ecomplus/storefront/commit/f3b5f96c6d863d446d806668c4fbab92e785cce2))
+
+
+### Features
+
+* **app/order-info:** show shipping address complement and near to if any ([2093645](https://github.com/ecomplus/storefront/commit/20936454430b29d04a1d233d9a5d057c4bbd186c))
+
+
+
+
+
 # [2.0.0-beta.94](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.93...@ecomplus/storefront-app@2.0.0-beta.94) (2021-05-27)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

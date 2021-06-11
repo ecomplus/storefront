@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.89](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.88...@ecomplus/storefront-components@1.0.0-beta.89) (2021-06-11)
+
+
+### Bug Fixes
+
+* **components/points-applier:** check min available points to show and format number ([2842bfb](https://github.com/ecomplus/storefront/commit/2842bfbd7ed03ef549ab8d9a4b25abe03911e474))
+* **components/prices:** show points to earn when no min price ([f03cdf6](https://github.com/ecomplus/storefront/commit/f03cdf6b6655e23ebd6afbee85173f247e2af0b8))
+* **deps:** update all non-major dependencies ([#478](https://github.com/ecomplus/storefront/issues/478)) ([f3b5f96](https://github.com/ecomplus/storefront/commit/f3b5f96c6d863d446d806668c4fbab92e785cce2))
+
+
+
+
+
 # [1.0.0-beta.88](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.87...@ecomplus/storefront-components@1.0.0-beta.88) (2021-05-27)
 
 

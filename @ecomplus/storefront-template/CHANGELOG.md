@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.127](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.126...@ecomplus/storefront-template@2.0.0-beta.127) (2021-06-11)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#478](https://github.com/ecomplus/storefront/issues/478)) ([f3b5f96](https://github.com/ecomplus/storefront/commit/f3b5f96c6d863d446d806668c4fbab92e785cce2))
+* **template/cms-preview:** check if valid ejs template before calling renderization ([40a57c3](https://github.com/ecomplus/storefront/commit/40a57c3db83cc271fb92104c85bae6ac0dbf703a))
+* **template/footer:** check any valid link (url prop) to render column ([661ab29](https://github.com/ecomplus/storefront/commit/661ab29bb34e8de15a2af8dd9144ed1f0b073ccd))
+
+
+### Features
+
+* **template/lazy-load:** force load defered els `data-preload` before intersection ([494ec66](https://github.com/ecomplus/storefront/commit/494ec66cd88624b8c498c8ae72d4f6d83c14afaf))
+
+
+### Performance Improvements
+
+* **template/footer:** hardset E-Com Plus logo image size ([530c076](https://github.com/ecomplus/storefront/commit/530c0766f597002926e89b5262742ce68e25563e))
+* **template/menu:** defer category icons images load ([1e703ea](https://github.com/ecomplus/storefront/commit/1e703ea532c472b9aa0cf98715137240d6240e19))
+* **template/spa:** hardset E-Com Plus logo image size ([87c2c77](https://github.com/ecomplus/storefront/commit/87c2c7703fc6097dfcac7692544e672df90c6cc8))
+* **template/stamps:** defer stamps images load ([8929334](https://github.com/ecomplus/storefront/commit/892933409f981fb4c7e24b5c1157594e858da271))
+* **template/stamps:** skip preloading non-action (image only) stamps ([7e54c67](https://github.com/ecomplus/storefront/commit/7e54c67d4a7d8b4feef9feea4c8f64d1c6b6b651))
+
+
+### Reverts
+
+* **template/stamps:** preloading all stamps images [skip ci] ([682e394](https://github.com/ecomplus/storefront/commit/682e39473ea1589e2b5db6df473a8e3a8f10ca14))
+
+
+
+
+
 # [2.0.0-beta.126](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.125...@ecomplus/storefront-template@2.0.0-beta.126) (2021-05-27)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
