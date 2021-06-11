@@ -1,7 +1,7 @@
 <div class="points-applier">
   <div
     v-for="({ name }, programId) in localPointsPrograms"
-    v-if="availablePoints[programId]"
+    v-if="availablePoints[programId] >= 0.1"
     class="custom-control custom-switch"
   >
     <input
@@ -19,7 +19,7 @@
       <span class="badge badge-info">
         -{{ formatMoney(getPointsAmount(programId)) }}
       </span>
-      {{ i19use$1LoyaltyPoints.replace('$1', availablePoints[programId]) }}
+      {{ i19use$1LoyaltyPoints.replace('$1', availablePoints[programId].toFixed(1)) }}
       <em>{{ name }}</em>
     </label>
   </div>
