@@ -317,6 +317,12 @@
                           <template v-if="shippingAddress.number">
                             {{ shippingAddress.number }}
                           </template>
+                          <template v-if="shippingAddress.complement">
+                            , {{ shippingAddress.complement }}
+                          </template>
+                          <template v-if="shippingAddress.near_to">
+                            <br>{{ shippingAddress.near_to }}
+                          </template>
                           <br>
                           <span
                             v-for="(field, i) in ['borough', 'city', 'province_code']"
