@@ -187,6 +187,25 @@ export default {
       return bestOption
     },
 
+    setupGatewayClient (paymentGateway, gatewayIndex) {
+      const jsClient = paymentGateway.js_client
+      if (jsClient) {
+        this.loadedClients[gatewayIndex] = loadPaymentClient(jsClient, true)
+      }
+    },
+
+    postHandleGateways () {
+      this.paymentGateways.forEach(this.setupGatewayClient)
+      if (!this.hasLoaded && this.paymentGateways.length) {
+        this.hasLoaded = true
+        if (this.defaultAppId && this.selectedGateway === -1) {
+          this.selectedGateway = this.paymentGateways.findIndex(gateway => {
+            return gateway.app_id === this.defaultAppId
+          })
+        }
+      }
+    },
+
     parsePaymentOptions (listResult = [], isUpdatingSelected) {
       let { paymentGateways } = this
       if (!isUpdatingSelected) {
@@ -206,30 +225,16 @@ export default {
                 installment_option: this.installmentOption(gateway),
                 ...gateway
               }
-              const jsClient = paymentGateway.js_client
-              if (jsClient) {
-                const gatewayIndex = isUpdatingSelected
-                  ? this.selectedGateway
-                  : paymentGateways.length
-                this.loadedClients[gatewayIndex] = loadPaymentClient(jsClient, true)
-              }
               if (!isUpdatingSelected) {
                 paymentGateways.push(paymentGateway)
               } else {
+                this.setupGatewayClient(paymentGateway, this.selectedGateway)
                 paymentGateways[this.selectedGateway] = paymentGateway
                 isUpdatingSelected = false
               }
             })
           }
         })
-        if (!this.hasLoaded) {
-          this.hasLoaded = true
-          if (this.defaultAppId && this.selectedGateway === -1) {
-            this.selectedGateway = paymentGateways.findIndex(gateway => {
-              return gateway.app_id === this.defaultAppId
-            })
-          }
-        }
       }
       this.$emit('update:payment-gateways', paymentGateways)
     },
@@ -321,6 +326,15 @@ export default {
           loadedClients[gatewayIndex].then(proceed)
         } else {
           proceed()
+        }
+      },
+      immediate: true
+    },
+
+    paymentGateways: {
+      handler (paymentGateways) {
+        if (paymentGateways.length) {
+          this.postHandleGateways()
         }
       },
       immediate: true
