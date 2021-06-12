@@ -28,17 +28,6 @@
       document.write('<script src="https://unpkg.com/popper.js@1.16.1/dist/umd/popper.min.js"><\/script>')
     }
   </script>
-
-  <script
-    src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.runtime.min.js"
-    integrity="sha384-59FcjosXsEK2o4EGLAsZw7dn38GCkyIKdzwkUzs5DRpmotMBxuasJBs0E7dVsv34"
-    crossorigin="anonymous"
-  ></script>
-  <script>
-    if (!window.Vue) {
-      document.write('<script src="https://unpkg.com/vue@2.6.14/dist/vue.runtime.min.js"><\/script>')
-    }
-  </script>
 <% } %>
 
 <script src="/<%= _.route.path.startsWith('/app/') ? 'checkout' : 'storefront' %>.js"></script>
