@@ -55,7 +55,7 @@
     "mkdirp": "^1.0.4",
     "node-sass": "^6.0.0",
     "postcss": "^7.0.36",
-    "postcss-loader": "^4.3.0",
+    "postcss-loader": "^6.1.0",
     "raw-loader": "^4.0.2",
     "recursive-readdir": "^2.2.2",
     "resolve-url-loader": "^4.0.0",
