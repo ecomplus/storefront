@@ -4,7 +4,7 @@
   }
 
   &__services {
-    max-width: 350px;
+    max-width: 370px;
     font-size: var(--font-size-sm);
 
     .active {
@@ -16,6 +16,22 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+
+    > small {
+      min-width: 70px;
+      text-align: right;
+    }
+
+    @media (min-width: 1200px) {
+      display: block;
+      position: relative;
+
+      > small {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+      }
+    }
   }
 
   &__free-from-value {
