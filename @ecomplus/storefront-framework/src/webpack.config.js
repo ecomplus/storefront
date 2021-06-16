@@ -104,7 +104,7 @@ let config = {
   stats: {
     colors: true
   },
-  devtool: 'source-map',
+  devtool: devMode ? 'source-map' : 'cheap-source-map',
   performance: {
     hints: devMode ? false : 'warning',
     maxEntrypointSize: 1000000,
