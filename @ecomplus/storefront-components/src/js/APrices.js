@@ -4,8 +4,8 @@ import {
   i19interestFree,
   i19of,
   i19to,
-  i19upTo
-  // i19youEarn
+  i19upTo,
+  i19youEarn
 } from '@ecomplus/i18n'
 
 import {
@@ -73,7 +73,7 @@ export default {
     i19of: () => i18n(i19of),
     i19to: () => i18n(i19to),
     i19upTo: () => i18n(i19upTo),
-    i19youEarn: () => 'Você ganha',
+    i19youEarn: () => i18n(i19youEarn),
 
     price () {
       const price = getPrice(this.product)
