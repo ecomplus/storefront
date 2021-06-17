@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.129](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.128...@ecomplus/storefront-template@2.0.0-beta.129) (2021-06-17)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.6.1 ([20214c5](https://github.com/ecomplus/storefront/commit/20214c5cc27c75a2ba597da9557b6352b84a92a8))
+* **template/checkout:** must handle (import) default lazy load on checkout ([0dfa014](https://github.com/ecomplus/storefront/commit/0dfa01466dcf0d87c68be71d824e408fb7984695))
+* **template/scss:** set default `-bg: transparent` to prevent errors with scss color mixins ([b28c6bd](https://github.com/ecomplus/storefront/commit/b28c6bd381492357f7e774cc32c740119ce2d094))
+
+
+
+
+
 # [2.0.0-beta.128](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.127...@ecomplus/storefront-template@2.0.0-beta.128) (2021-06-12)
 
 

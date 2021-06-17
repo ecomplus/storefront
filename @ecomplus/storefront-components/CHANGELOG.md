@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.90](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.89...@ecomplus/storefront-components@1.0.0-beta.90) (2021-06-17)
+
+
+### Bug Fixes
+
+* **components/prices:** import `i19youEarn` from i18n ([049b04a](https://github.com/ecomplus/storefront/commit/049b04abecba4fbb19a99861f31dce18c97e6fb5))
+* **deps:** update @ecomplus/search-engine to v2.6.1 ([20214c5](https://github.com/ecomplus/storefront/commit/20214c5cc27c75a2ba597da9557b6352b84a92a8))
+
+
+### Features
+
+* **components/item-customizations:** new `ItemCustomizations` component :tada: ([6ab2fd9](https://github.com/ecomplus/storefront/commit/6ab2fd9d7906ae94b63e0321f7c4c72e8ce4ff85))
+* **components/shipping-line:** better notes for same and next day delivery ([#474](https://github.com/ecomplus/storefront/issues/474)) ([b9bd5fd](https://github.com/ecomplus/storefront/commit/b9bd5fd7129dc40d18326b3de92ca00e55831a12))
+
+
+
+
+
 # [1.0.0-beta.89](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.88...@ecomplus/storefront-components@1.0.0-beta.89) (2021-06-11)
 
 

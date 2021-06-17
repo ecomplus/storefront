@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.21](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.20...@ecomplus/storefront-framework@5.16.21) (2021-06-17)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/search-engine to v2.6.1 ([20214c5](https://github.com/ecomplus/storefront/commit/20214c5cc27c75a2ba597da9557b6352b84a92a8))
+* **framework/framework:** source-maps required for loaders preceding `resolve-url-loader` ([62f6f4b](https://github.com/ecomplus/storefront/commit/62f6f4bfa01f8ba986138eb9ddc2fd30cf1918aa))
+
+
+### Performance Improvements
+
+* **framework/webpack:** production build with 'cheap-source-map' ([ecfa3a1](https://github.com/ecomplus/storefront/commit/ecfa3a19926aaa60623ee7a0ff2e983701007e0d))
+
+
+
+
+
 ## [5.16.20](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.19...@ecomplus/storefront-framework@5.16.20) (2021-06-11)
 
 

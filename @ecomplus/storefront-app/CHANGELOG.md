@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.96](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.95...@ecomplus/storefront-app@2.0.0-beta.96) (2021-06-17)
+
+
+### Features
+
+* **app/summary:** show items customizations on checkout and order info ([#473](https://github.com/ecomplus/storefront/issues/473)) ([071bded](https://github.com/ecomplus/storefront/commit/071bded487dbf1e350b9710c45b166fc9035f193))
+
+
+
+
+
 # [2.0.0-beta.95](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.94...@ecomplus/storefront-app@2.0.0-beta.95) (2021-06-11)
 
 
