@@ -15,13 +15,15 @@ import {
 import ecomCart from '@ecomplus/shopping-cart'
 import ALink from '../ALink.vue'
 import APicture from '../APicture.vue'
+import ItemCustomizations from '../ItemCustomizations.vue'
 
 export default {
   name: 'CartItem',
 
   components: {
     ALink,
-    APicture
+    APicture,
+    ItemCustomizations
   },
 
   props: {

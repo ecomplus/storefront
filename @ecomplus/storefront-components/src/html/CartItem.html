@@ -126,20 +126,10 @@
         </div>
       </template>
 
-      <div
-        v-if="item.customizations && item.customizations.length"
-        class="cart-item__customizations small"
-      >
-        <div
-          v-for="({ _id, label, option }) in item.customizations"
-          :key="`cs-${_id}`"
-        >
-          <span class="text-muted">
-            {{ label }}:
-          </span>
-          {{ option.text }}
-        </div>
-      </div>
+      <item-customizations
+        :item="item"
+        class="cart-item__customizations"
+      />
     </div>
   </div>
 </section>
