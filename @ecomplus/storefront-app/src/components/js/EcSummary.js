@@ -23,6 +23,7 @@ import {
 import ALink from '#components/ALink.vue'
 import APicture from '#components/APicture.vue'
 import APrices from '#components/APrices.vue'
+import ItemCustomizations from '#components/ItemCustomizations.vue'
 
 export default {
   name: 'EcSummary',
@@ -30,7 +31,8 @@ export default {
   components: {
     ALink,
     APicture,
-    APrices
+    APrices,
+    ItemCustomizations
   },
 
   props: {
