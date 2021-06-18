@@ -20,7 +20,19 @@ export default (options = {}, elId = 'product') => {
       body = storefront.context && storefront.context.body
     }
 
-    const vueOptions = {
+    let mounted
+    const removeSpinner = () => {
+      const $loading = document.getElementById('product-loading')
+      if ($loading) {
+        $loading.remove()
+      }
+      delete $productBlock.dataset.toRender
+    }
+    if (isSSR) {
+      mounted = removeSpinner
+    }
+
+    new Vue({
       render: h => h(TheProduct, {
         attrs: {
           id: $dock ? null : elId
@@ -30,6 +42,16 @@ export default (options = {}, elId = 'product') => {
           product: isSSR && body && body.available && checkInStock(body) ? body : null,
           buyText: options.buyText,
           isSSR
+        },
+        on: {
+          'update:product' (product) {
+            if (!isSSR) {
+              removeSpinner()
+            }
+            if (options.$emit) {
+              options.$emit('update:product', product)
+            }
+          }
         },
 
         scopedSlots: Object.assign(
@@ -48,24 +70,8 @@ export default (options = {}, elId = 'product') => {
             ? getScopedSlots($productBlock, h, !$dock)
             : {}
         )
-      })
-    }
-
-    const removeSpinner = () => {
-      const $loading = document.getElementById('product-loading')
-      if ($loading) {
-        $loading.remove()
-      }
-      delete $productBlock.dataset.toRender
-    }
-    if (isSSR) {
-      vueOptions.mounted = removeSpinner
-    } else {
-      vueOptions.render.on = {
-        'update:product': removeSpinner
-      }
-    }
-
-    new Vue(vueOptions).$mount($dock || $productBlock)
+      }),
+      mounted
+    }).$mount($dock || $productBlock)
   }
 }
