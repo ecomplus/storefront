@@ -5,11 +5,15 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
 %>
 
 <script>
-  window._offersNtHideSpinner = function () {
-    setTimeout(function () {
-      document.getElementById('_offers-nt__spinner').style.display = 'none';
-    }, 500);
-  }
+  window._offersNtShow = function (type) {
+    var $iframe = document.getElementById('_offers-nt__iframe-' + type);
+    if (!$iframe.hasAttribute('src')) {
+      $iframe.setAttribute('src', $iframe.dataset.src);
+      $iframe.onload = setTimeout(function () {
+        document.getElementById('_offers-nt__spinner-' + type).style.display = 'none';
+      }, 500);
+    }
+  };
 </script>
 
 <div class="d-none">
@@ -19,7 +23,8 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
         type="button"
         class="btn btn-lg btn-primary mt-3 offers-notification"
         data-toggle="collapse"
-        href="#_offers-nt__collapse"
+        href="#_offers-nt__collapse-stock"
+        onclick="_offersNtShow('stock')"
       >
         <i class="fas fa-bell mr-1"></i>
         <%= _.ecomUtils.i18n({
@@ -28,18 +33,21 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
         }) %>
       </button>
 
-      <div class="collapse mt-4" id="_offers-nt__collapse">
+      <div class="collapse mt-4" id="_offers-nt__collapse-stock">
         <div class="card card-body">
-          <div class="spinner-border spinner-border-sm position-absolute" role="status" id="_offers-nt__spinner">
+          <div
+            class="spinner-border spinner-border-sm position-absolute"
+            role="status"
+            id="_offers-nt__spinner-stock"
+          >
             <span class="sr-only">Loading...</span>
           </div>
 
           <iframe
             style="min-height: 165px; border:none; width: 100%;"
-            id="_offers-nt__iframe"
+            id="_offers-nt__iframe-stock"
             name="_offers-nt__iframe"
-            src="<%- url %>&criterias=out_of_stock"
-            onload="_offersNtHideSpinner();"
+            data-src="<%- url %>&criterias=out_of_stock"
           >
           </iframe>
         </div>
@@ -55,7 +63,8 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
         type="button"
         class="btn btn-sm btn-light mt-3 offers-notification"
         data-toggle="collapse"
-        href="#_offers-nt__collapse"
+        href="#_offers-nt__collapse-price"
+        onclick="_offersNtShow('price')"
       >
         <i class="fas fa-bell mr-1"></i>
         <%= _.ecomUtils.i18n({
@@ -64,18 +73,21 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
         }) %>
       </button>
 
-      <div class="collapse mt-4" id="_offers-nt__collapse">
+      <div class="collapse mt-4" id="_offers-nt__collapse-price">
         <div class="card card-body">
-          <div class="spinner-border spinner-border-sm position-absolute" role="status" id="_offers-nt__spinner">
+          <div
+            class="spinner-border spinner-border-sm position-absolute"
+            role="status"
+            id="_offers-nt__spinner-price"
+          >
             <span class="sr-only">Loading...</span>
           </div>
 
           <iframe
             style="min-height: 165px; border:none; width: 100%;"
-            id="_offers-nt__iframe"
+            id="_offers-nt__iframe-price"
             name="_offers-nt__iframe"
-            src="<%- url %>&criterias=price_change"
-            onload="_offersNtHideSpinner();"
+            data-src="<%- url %>&criterias=price_change"
           >
           </iframe>
         </div>
