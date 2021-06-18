@@ -147,6 +147,7 @@
               :buyer="customer"
               :shippingAddress="shippingAddress"
               :can-show-price-options="!(paymentGateway && paymentGateway.app_id)"
+              :paid-in-advance="loyaltyPointsAmount"
               @click:account="editAccount = true"
             >
               <template #more-offers>
@@ -162,14 +163,17 @@
                 </transition>
               </template>
 
-              <template v-if="enabledCheckoutStep > 1">
+              <template #amount-custom>
                 <points-applier
+                  v-if="enabledCheckoutStep > 1"
                   class="checkout__loyalty-points"
                   :points-applied.sync="loyaltyPointsApplied"
                   :points-amount.sync="loyaltyPointsAmount"
                   :max-points-amount="amount.subtotal - 5"
                 />
+              </template>
 
+              <template v-if="enabledCheckoutStep > 1">
                 <discount-applier
                   class="checkout__discount"
                   :amount="amount"

@@ -156,8 +156,12 @@
     height: 100%;
   }
 
-  &__discount,
   &__loyalty-points {
+    margin-top: var(--spacer-2);
+    margin-bottom: var(--spacer-3);
+  }
+
+  &__discount {
     margin-bottom: var(--spacer-4);
   }
 
