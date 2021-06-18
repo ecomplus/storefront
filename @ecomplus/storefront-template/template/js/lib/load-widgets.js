@@ -19,7 +19,12 @@ const loadWidget = (pkg, runImport) => {
         return runImport()
           .then(exp => {
             if (typeof exp.default === 'function') {
-              exp.default(widget.options)
+              exp.default({
+                ...widget.options,
+                $emit (ev, payload) {
+                  emitter.emit(ev, payload)
+                }
+              })
             }
             emitter.emit(`widget:${pkg}`)
             console.log(`Widget loaded: ${pkg}`)
