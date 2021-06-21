@@ -18,8 +18,6 @@ import {
 
 import ecomCart from '@ecomplus/shopping-cart'
 import Glide from '@glidejs/glide'
-import * as PhotoSwipe from 'photoswipe'
-import * as psUi from 'photoswipe/dist/photoswipe-ui-default'
 import APicture from '../APicture.vue'
 
 export default {
@@ -72,7 +70,8 @@ export default {
       pswp: null,
       activeIndex: null,
       isSliderMoved: false,
-      elFirstPicture: null
+      elFirstPicture: null,
+      zoomLinkStyle: null
     }
   },
 
@@ -88,7 +87,8 @@ export default {
 
     localPictures () {
       return this.pictures && this.pictures.length
-        ? this.pictures : (this.product.pictures || [])
+        ? this.pictures
+        : (this.product.pictures || [])
     },
 
     videoSrc () {
@@ -164,13 +164,23 @@ export default {
     },
 
     openZoom (index) {
-      if (!this.pswd) {
-        this.pswp = new PhotoSwipe(this.$refs.pswp, psUi, this.pswpItems, {
-          ...this.pswpOptions,
-          index
+      this.zoomLinkStyle = 'cursor: wait'
+      return import(/* webpackPrefetch: true */ 'photoswipe')
+        .then(pack => {
+          const PhotoSwipe = pack.default
+          return import(/* webpackPrefetch: true */ 'photoswipe/dist/photoswipe-ui-default').then(pack => {
+            const psUi = pack.default
+            this.pswp = new PhotoSwipe(this.$refs.pswp, psUi, this.pswpItems, {
+              ...this.pswpOptions,
+              index
+            })
+            this.pswp.init()
+          })
         })
-      }
-      this.pswp.init()
+        .catch(console.error)
+        .finally(() => {
+          this.zoomLinkStyle = null
+        })
     },
 
     buy () {

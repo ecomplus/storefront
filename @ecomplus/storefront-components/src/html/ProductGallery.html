@@ -28,6 +28,7 @@
       v-if="localPictures.length > 4"
       type="button"
       class="gallery__open btn btn-dark"
+      :style="zoomLinkStyle"
       :title="i19openGallery"
       @click.prevent="openZoom(4)"
     >
@@ -55,12 +56,14 @@
                 <a-picture
                   v-if="!elFirstPicture"
                   class="gallery__big-image"
+                  :style="zoomLinkStyle"
                   :src="getImg(picture, null, 'big')"
                 />
                 <div
                   v-else
                   ref="firstPicture"
                   class="gallery__big-image"
+                  :style="zoomLinkStyle"
                 ></div>
               </slot>
 
