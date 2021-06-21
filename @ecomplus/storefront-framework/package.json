@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-framework",
-  "version": "5.16.21",
+  "version": "5.16.22",
   "description": "Framework for PWA and JAMstack e-commerce templates with E-Com Plus APIs",
   "main": "src/index.js",
   "bin": {

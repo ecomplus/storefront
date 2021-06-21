@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-offers-notification@1.1.1...@ecomplus/widget-offers-notification@1.1.2) (2021-06-21)
+
+
+### Performance Improvements
+
+* **widget-offers-notification/iframe:** load iframe src on demand only (onclick) ([7a7cfca](https://github.com/ecomplus/storefront/commit/7a7cfca4ef2fe59dae3cc827717a9de86b71177e))
+
+
+
+
+
 ## [1.1.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-offers-notification@1.1.0...@ecomplus/widget-offers-notification@1.1.1) (2021-05-14)
 
 

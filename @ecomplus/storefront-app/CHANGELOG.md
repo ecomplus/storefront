@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.97](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.96...@ecomplus/storefront-app@2.0.0-beta.97) (2021-06-21)
+
+
+### Bug Fixes
+
+* **app/order-summary:** always use `APrices` for amount total ([75c8898](https://github.com/ecomplus/storefront/commit/75c8898b1ff5a3ac7eca678bc0aa479b0fd3d467))
+
+
+### Features
+
+* **app/payment-methods:** get default mocked payment gateways from `window.ecomPaymentGateways` ([f08d907](https://github.com/ecomplus/storefront/commit/f08d90760e21d842c75868fd175f021feba0e68b))
+* **app/summary:** handle new `amountToPay` prop and `amount-custom` slot ([#476](https://github.com/ecomplus/storefront/issues/476)) ([404e5bd](https://github.com/ecomplus/storefront/commit/404e5bd26a351e0ae1f8b70cf3c81a892b3f3916))
+
+
+
+
+
 # [2.0.0-beta.96](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.95...@ecomplus/storefront-app@2.0.0-beta.96) (2021-06-17)
 
 

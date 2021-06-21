@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.88](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@1.0.0-beta.87...@ecomplus/widget-product@1.0.0-beta.88) (2021-06-21)
+
+
+### Features
+
+* **widget-product/cms:** handle more `TheProduct` props from cms config ([#315](https://github.com/ecomplus/storefront/issues/315)) ([c667ae7](https://github.com/ecomplus/storefront/commit/c667ae7ba2f2a57d86830848836e90d3db3e468f))
+* **widget-product/events:** emit `update:product` event globally ([224cbaa](https://github.com/ecomplus/storefront/commit/224cbaac79479d7ca9787d3f788bd55718436440))
+
+
+
+
+
 # [1.0.0-beta.87](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@1.0.0-beta.86...@ecomplus/widget-product@1.0.0-beta.87) (2021-06-17)
 
 **Note:** Version bump only for package @ecomplus/widget-product

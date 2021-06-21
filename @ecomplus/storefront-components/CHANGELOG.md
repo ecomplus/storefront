@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.91](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.90...@ecomplus/storefront-components@1.0.0-beta.91) (2021-06-21)
+
+
+### Bug Fixes
+
+* **components/product:** disable add to cart on gallery when product not available ([d4b948f](https://github.com/ecomplus/storefront/commit/d4b948ff151edd15b94a450b09fe16a3eba14540))
+
+
+### Features
+
+* **components/price:** add new `canShowPriceOptions` boolean prop ([162ec4a](https://github.com/ecomplus/storefront/commit/162ec4adbf1e0ef0622e50771dc218e177b99f22))
+* **components/product:** new `maxVariationOptionsBtns` prop ([e6b1ca5](https://github.com/ecomplus/storefront/commit/e6b1ca5f470661bd02573b9e97a448013044473f))
+
+
+### Performance Improvements
+
+* **components/product-gallery:** delay (dynamic) importing photoswipe on zoom click only ([0260440](https://github.com/ecomplus/storefront/commit/0260440aa4a89e630b281a75b79bc8ea152e71f2))
+
+
+
+
+
 # [1.0.0-beta.90](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.89...@ecomplus/storefront-components@1.0.0-beta.90) (2021-06-17)
 
 

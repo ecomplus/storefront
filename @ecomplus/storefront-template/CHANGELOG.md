@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.130](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.129...@ecomplus/storefront-template@2.0.0-beta.130) (2021-06-21)
+
+
+### Features
+
+* **template/load-widgets:** permit widgets to emit events through `$emit` function ([bd80e35](https://github.com/ecomplus/storefront/commit/bd80e355bae89e5164cc4be0071849d2fa758140))
+
+
+
+
+
 # [2.0.0-beta.129](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.128...@ecomplus/storefront-template@2.0.0-beta.129) (2021-06-17)
 
 
