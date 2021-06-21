@@ -44,6 +44,10 @@ export default {
     discountText: {
       type: [String, Boolean],
       default: ''
+    },
+    canShowPriceOptions: {
+      type: Boolean,
+      default: true
     }
   },
 
@@ -109,11 +113,11 @@ export default {
     },
 
     priceWithDiscount () {
-      return getPriceWithDiscount(this.price, this.discount)
+      return this.canShowPriceOptions && getPriceWithDiscount(this.price, this.discount)
     },
 
     installmentValue () {
-      if (this.installmentsNumber >= 2) {
+      if (this.canShowPriceOptions && this.installmentsNumber >= 2) {
         if (!this.monthlyInterest) {
           return this.price / this.installmentsNumber
         } else {
@@ -162,38 +166,40 @@ export default {
   },
 
   created () {
-    if (this.discountOption) {
-      this.updateDiscount(this.discountOption)
-    } else {
-      waitStorefrontInfo('apply_discount')
-        .then(discountCampaign => {
-          if (discountCampaign.available_extra_discount) {
-            this.extraDiscount = discountCampaign.available_extra_discount
-          }
-        })
-    }
-    if (this.installmentsOption) {
-      this.updateInstallments(this.installmentsOption)
-    } else {
-      waitStorefrontInfo('list_payments')
-        .then(paymentInfo => {
-          this.updateInstallments(paymentInfo.installments_option)
-          this.updateDiscount(paymentInfo.discount_option)
-          const pointsPrograms = paymentInfo.loyalty_points_programs
-          if (this.isLiteral && pointsPrograms) {
-            this.$nextTick(() => {
-              for (const programId in pointsPrograms) {
-                const pointsProgram = pointsPrograms[programId]
-                if (pointsProgram && pointsProgram.earn_percentage > 0) {
-                  this.pointsMinPrice = pointsProgram.min_subtotal_to_earn
-                  this.pointsProgramName = pointsProgram.name
-                  this.earnPointsFactor = pointsProgram.earn_percentage / 100
-                  break
+    if (this.canShowPriceOptions) {
+      if (this.discountOption) {
+        this.updateDiscount(this.discountOption)
+      } else {
+        waitStorefrontInfo('apply_discount')
+          .then(discountCampaign => {
+            if (discountCampaign.available_extra_discount) {
+              this.extraDiscount = discountCampaign.available_extra_discount
+            }
+          })
+      }
+      if (this.installmentsOption) {
+        this.updateInstallments(this.installmentsOption)
+      } else {
+        waitStorefrontInfo('list_payments')
+          .then(paymentInfo => {
+            this.updateInstallments(paymentInfo.installments_option)
+            this.updateDiscount(paymentInfo.discount_option)
+            const pointsPrograms = paymentInfo.loyalty_points_programs
+            if (this.isLiteral && pointsPrograms) {
+              this.$nextTick(() => {
+                for (const programId in pointsPrograms) {
+                  const pointsProgram = pointsPrograms[programId]
+                  if (pointsProgram && pointsProgram.earn_percentage > 0) {
+                    this.pointsMinPrice = pointsProgram.min_subtotal_to_earn
+                    this.pointsProgramName = pointsProgram.name
+                    this.earnPointsFactor = pointsProgram.earn_percentage / 100
+                    break
+                  }
                 }
-              }
-            })
-          }
-        })
+              })
+            }
+          })
+      }
     }
   }
 }

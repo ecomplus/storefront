@@ -41,7 +41,7 @@
 
     <div
       key="installments"
-      v-if="installmentsNumber > 1"
+      v-if="installmentsNumber > 1 && installmentValue"
       class="prices__installments"
     >
       <small v-if="isLiteral">
