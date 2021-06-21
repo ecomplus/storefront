@@ -41,6 +41,25 @@ export default () => ({
           hint: 'Pode ser usado para substituir o botão "comprar" padrão',
           default_language: 'html',
           output_code_only: true
+        },
+        {
+          label: 'Alerta de quantidade',
+          name: 'lowQuantityToWarn',
+          widget: 'number',
+          min: 0,
+          max: 999999,
+          default: 12,
+          hint: 'Quantidade máxima disponível para informar estoque baixo (gatilho da escassez)'
+        },
+        {
+          label: 'Máximo de botões por variação',
+          name: 'maxVariationOptionsBtns',
+          widget: 'number',
+          min: 0,
+          max: 50,
+          default: 6,
+          hint: 'Máximo de opções por grade (tamanho, cor...) que poderão ser listadas com botões, ' +
+            'acima do máximo as opções serão listadas em um seletor'
         }
       ]
     }

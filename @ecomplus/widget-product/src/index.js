@@ -32,6 +32,12 @@ export default (options = {}, elId = 'product') => {
       mounted = removeSpinner
     }
 
+    const {
+      buyText,
+      lowQuantityToWarn,
+      maxVariationOptionsBtns
+    } = options
+
     new Vue({
       render: h => h(TheProduct, {
         attrs: {
@@ -40,7 +46,9 @@ export default (options = {}, elId = 'product') => {
         props: {
           ...options.props,
           product: isSSR && body && body.available && checkInStock(body) ? body : null,
-          buyText: options.buyText,
+          buyText,
+          lowQuantityToWarn,
+          maxVariationOptionsBtns,
           isSSR
         },
         on: {
