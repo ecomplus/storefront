@@ -4,6 +4,8 @@
   "desktopOnly": false,
   "options": {
     "buyText": "",
-    "buy": ""
+    "buy": "",
+    "lowQuantityToWarn": 12,
+    "maxVariationOptionsBtns": 6
   }
 }
