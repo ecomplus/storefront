@@ -97,15 +97,12 @@
       <div class="summary__amount__row summary__amount__row--total">
         <span>{{ paidInAdvance ? i19toPay : i19total }}</span>
         <a-prices
-          v-if="canShowPriceOptions"
           :product="{ price: amountToPay }"
           :discount-option="{ value: amount.discount }"
           :is-literal="true"
           :is-amount-total="true"
+          :can-show-price-options="canShowPriceOptions"
         />
-        <div v-else>
-          {{ formatMoney(amountToPay) }}
-        </div>
       </div>
     </div>
   </slot>
