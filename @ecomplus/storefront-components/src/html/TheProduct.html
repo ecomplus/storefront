@@ -30,6 +30,7 @@
           >
             <product-gallery
               :product="body"
+              :can-add-to-cart="canAddToCart && body.available && isInStock"
               :current-slide.sync="currentGalleyImg"
               :is-s-s-r="isSSR"
             >
