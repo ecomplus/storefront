@@ -91,7 +91,7 @@
             <slot name="prices">
               <p class="product__prices">
                 <a-prices
-                  :product="{ ...body, ...selectedVariation, ...finalPrices }"
+                  :product="ghostProductForPrices"
                   :is-literal="true"
                   :is-big="true"
                   @fix-price="price => fixedPrice = price"

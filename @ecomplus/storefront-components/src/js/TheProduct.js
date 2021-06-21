@@ -180,7 +180,7 @@ export default {
         : 0
     },
 
-    finalPrices () {
+    ghostProductForPrices () {
       const prices = {}
       ;['price', 'base_price'].forEach(field => {
         let price = this.selectedVariation[field] || this.body[field]
@@ -193,7 +193,15 @@ export default {
         }
         prices[field] = price
       })
-      return prices
+      const ghostProduct = { ...this.body }
+      if (this.selectedVariationId) {
+        Object.assign(ghostProduct, this.selectedVariation)
+        delete ghostProduct.variations
+      }
+      return {
+        ...ghostProduct,
+        ...prices
+      }
     },
 
     hasVariations () {
