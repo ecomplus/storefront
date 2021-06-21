@@ -43,7 +43,7 @@ export default {
     paymentGateways: {
       type: Array,
       default () {
-        return window.ecomPaymentApps || []
+        return window.ecomPaymentGateways || []
       }
     },
     defaultAppId: {
@@ -57,6 +57,10 @@ export default {
       default () {
         return window.ecomPaymentApps || []
       }
+    },
+    canUpdateGateways: {
+      type: Boolean,
+      default: !(window.ecomPaymentGateways && window.ecomPaymentGateways.length)
     },
     ecomCart: {
       type: Object,
@@ -343,7 +347,8 @@ export default {
     'amount.total' (total, oldTotal) {
       if (
         ((total && !oldTotal) || Math.abs(total - oldTotal) > 0.1) &&
-        this.selectedGateway === -1
+        this.selectedGateway === -1 &&
+        this.canUpdateGateways
       ) {
         if (!this.isWaiting) {
           this.fetchPaymentGateways()

@@ -117,7 +117,7 @@ export default {
       editAccount: false,
       editShippingService: !this.shippingService,
       localZipCode: this.shippingZipCode,
-      paymentGateways: [],
+      paymentGateways: window.ecomPaymentGateways || [],
       loyaltyPointsApplied: {},
       loyaltyPointsAmount: 0,
       hasMoreOffers: false
