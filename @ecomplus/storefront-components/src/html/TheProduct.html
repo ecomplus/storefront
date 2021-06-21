@@ -243,11 +243,8 @@
                 v-bind="{ paymentOptions }"
                 v-if="!isQuickview && paymentOptions.length"
               >
-                <article :key="`payment-${fixedPrice}`">
-                  <div
-                    v-once
-                    class="product__payment card mb-3"
-                  >
+                <article>
+                  <div class="product__payment card mb-3">
                     <a
                       id="product-payment-header"
                       class="card-header"
