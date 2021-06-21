@@ -118,6 +118,7 @@
               <product-variations
                 :product="body"
                 :selected-id.sync="selectedVariationId"
+                :max-options-btns="maxVariationOptionsBtns"
                 @select-option="handleGridOption"
               />
               <a-alert :can-show="hasClickedBuy && !selectedVariationId">

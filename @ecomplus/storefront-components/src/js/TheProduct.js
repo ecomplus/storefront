@@ -98,6 +98,7 @@ export default {
       type: Number,
       default: 12
     },
+    maxVariationOptionsBtns: Number,
     isQuickview: Boolean,
     paymentAppsSort: {
       type: Array,
