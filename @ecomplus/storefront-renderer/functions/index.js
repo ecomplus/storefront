@@ -18,18 +18,24 @@ exports.ssr = (req, res, getCacheControl) => {
   const url = req.url.replace(/\?.*$/, '').replace(/\.html$/, '')
 
   const setStatusAndCache = (status, defaultCache) => {
-    return res.status(status).set(
-      'Cache-Control',
-      (typeof getCacheControl === 'function' && getCacheControl(status)) || defaultCache
-    )
+    return res.status(status)
+      .set('X-SSR-ID', `v2/${Math.random()}`)
+      .set(
+        'Cache-Control',
+        (typeof getCacheControl === 'function' && getCacheControl(status)) || defaultCache
+      )
   }
 
   const redirect = (url, status = 302) => {
-    let sMaxAge = status === 301 ? 360 : 60
+    let sMaxAge = status === 301 ? 360 : 12
     if (isLongCache) {
       sMaxAge *= 10
     }
-    setStatusAndCache(status, `public, max-age=30, s-maxage=${sMaxAge}`)
+    let cacheControl = `public, max-age=30, s-maxage=${sMaxAge}`
+    if (status === 302) {
+      cacheControl += ', proxy-revalidate'
+    }
+    setStatusAndCache(status, cacheControl)
       .set('Location', url).end()
   }
 
