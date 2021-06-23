@@ -22,13 +22,15 @@
     >
       <a
         href="#"
-        class="payment__gateway list-group-item list-group-item-action"
         v-for="(gateway, i) in paymentGateways"
         v-if="gateway.payment_method.code !== 'loyalty_points'"
         v-show="selectedGateway === -1 || selectedGateway === i"
         :key="gateway.app_id + gateway.payment_method.code + i"
+        class="payment__gateway list-group-item list-group-item-action"
+        :class="`payment__gateway--${gateway.app_id}`"
         @click.prevent="selectedGateway = selectedGateway === i ? -1 : i"
         :data-intermediator="gateway.intermediator && gateway.intermediator.code"
+        :data-label="gateway.label"
       >
         <span class="payment__head">
           <span class="payment__title">
