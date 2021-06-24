@@ -3,6 +3,7 @@
 'use strict'
 
 process.env.NODE_ENV = 'production'
+process.env.STOREFRONT_FRAMEWORK = 'build'
 
 const fs = require('fs')
 const path = require('path')
