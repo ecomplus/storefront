@@ -85,7 +85,7 @@ copyFolder({
 })
 
 copyFolder({
-  dirTemplate: path.join(process.cwd(), 'node_modules/node_modules/@ampproject/worker-dom'),
+  dirTemplate: path.join(process.cwd(), 'node_modules/@ampproject/worker-dom'),
   pathFrom: 'dist/worker',
   pathDest: 'template',
   pathsTo: ['public', 'assets', 'vendor', 'worker-dom']
