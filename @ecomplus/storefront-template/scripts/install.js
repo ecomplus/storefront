@@ -84,6 +84,13 @@ copyFolder({
   pathsTo: ['public', 'assets']
 })
 
+copyFolder({
+  dirTemplate: path.join(process.cwd(), 'node_modules/node_modules/@ampproject/worker-dom'),
+  pathFrom: 'dist/worker',
+  pathDest: 'template',
+  pathsTo: ['public', 'assets', 'vendor', 'worker-dom']
+})
+
 const placeholderPath = path.join(__dirname, '../__fixtures__/placeholder.json')
 Object.keys(pkg.dependencies).forEach(pkgName => {
   const parts = pkgName.match(/^(@ecomplus\/|storefront-)widget-(.*)/i)

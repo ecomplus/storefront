@@ -1,6 +1,7 @@
 import { name, version } from '../../package.json'
 import './lib/ecom'
 import '@ecomplus/storefront-twbs'
+import { upgradeElement } from '@ampproject/worker-dom/dist/main.mjs'
 
 import './lib/utils'
 import './lib/lazy-load'
@@ -17,6 +18,8 @@ import Glide from '@glidejs/glide'
 import getScopedSlots from './lib/get-scoped-slots'
 
 import './lib/load-widgets'
+
+upgradeElement(document.getElementsByTagName('main')[0], './assets/vendor/worker-dom/worker.mjs')
 
 window._ = { cloneDeep, merge }
 window.lozad = lozad
