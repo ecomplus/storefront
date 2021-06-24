@@ -43,6 +43,7 @@
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-template#readme",
   "dependencies": {
+    "@ampproject/worker-dom": "^0.29.3",
     "@ecomplus/client": "^2.2.1",
     "@ecomplus/i18n": "^1.22.0",
     "@ecomplus/passport-client": "^1.0.10",
