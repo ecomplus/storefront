@@ -61,6 +61,10 @@ You can use FA icons by just adding respective CSS classes, eg.:
       <code>fab fa-facebook-messenger</code>
     </div>
     <div class="wrapper-icon">
+      <i class="fab fa-tiktok"></i>
+      <code>fab fa-tiktok</code>
+    </div>
+    <div class="wrapper-icon">
       <i class="fas fa-tag"></i>
       <code>fas fa-tag</code>
     </div>
@@ -79,6 +83,10 @@ You can use FA icons by just adding respective CSS classes, eg.:
     <div class="wrapper-icon">
       <i class="fas fa-cart-arrow-down"></i>
       <code>fas fa-cart-arrow-down</code>
+    </div>
+    <div class="wrapper-icon">
+      <i class="fas fa-shopping-basket"></i>
+      <code>fas fa-shopping-basket</code>
     </div>
     <div class="wrapper-icon">
       <i class="fas fa-user"></i>
