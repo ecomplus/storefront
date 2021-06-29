@@ -342,7 +342,10 @@
                   </slot>
 
                   <slot name="notes" v-bind="{ order: localOrder }">
-                    <div v-if="localOrder.notes" class="order-info__notes card">
+                    <div
+                      v-if="localOrder.notes"
+                      class="order-info__notes card"
+                    >
                       <div class="card-header">
                         <span>
                           {{ i19notes }}
