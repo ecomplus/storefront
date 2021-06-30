@@ -7,6 +7,20 @@ $product-card-picture-lg: 250px !default;
   padding: var(--spacer-2);
   font-size: var(--font-size);
   border-radius: var(--border-radius);
+  height: 100%;
+
+  > section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__prices {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
 
   &__offer-stamp {
     background-color: var(--success);
@@ -84,8 +98,6 @@ $product-card-picture-lg: 250px !default;
     padding-top: var(--spacer-1);
     font-size: var(--font-size-sm);
     line-height: var(--line-height-sm);
-    height: calc(var(--line-height-sm) * var(--font-size-sm) * var(--max-lines));
-    box-sizing: content-box !important;
     overflow: hidden;
     font-weight: var(--font-normal);
     z-index: 1;
@@ -157,9 +169,8 @@ $product-card-picture-lg: 250px !default;
 
     .product-card__name {
       padding-top: var(--spacer-2);
-      height: auto;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+      margin-bottom: 0;
+      --max-lines: 2;
     }
 
     .product-card__buy {
