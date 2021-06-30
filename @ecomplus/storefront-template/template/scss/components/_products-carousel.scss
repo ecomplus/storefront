@@ -56,11 +56,21 @@
     @media (min-width: 992px) {
       width: 25%;
     }
+
+    > :only-child {
+      height: 100%;
+    }
   }
 
   .glide {
+    &__track {
+      display: flex;
+      align-items: stretch;
+    }
+
     &__slides {
       will-change: auto;
+      overflow: visible;
     }
 
     &:not(.glide--slider) .glide__arrows {
