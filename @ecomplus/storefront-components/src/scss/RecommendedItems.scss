@@ -15,6 +15,10 @@
   .product-card {
     margin-bottom: var(--spacer-2);
 
+    &__prices {
+      justify-content: center;
+    }
+
     &__buy {
       opacity: 1;
       position: static;
