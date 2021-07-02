@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.11.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.10.4...@ecomplus/storefront-twbs@5.11.0) (2021-07-02)
+
+
+### Features
+
+* **twbs/icons:** add new tiktok and shopping-backet icons ([5dc6b48](https://github.com/ecomplus/storefront/commit/5dc6b480230871a96fde16b0353403a61b77a36a))
+
+
+
+
+
 ## [5.10.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.10.3...@ecomplus/storefront-twbs@5.10.4) (2021-03-12)
 
 **Note:** Version bump only for package @ecomplus/storefront-twbs

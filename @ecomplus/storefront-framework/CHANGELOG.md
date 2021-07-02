@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.23](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.22...@ecomplus/storefront-framework@5.16.23) (2021-07-02)
+
+
+### Bug Fixes
+
+* **framework/build:** ensure node process exits ([4f3d788](https://github.com/ecomplus/storefront/commit/4f3d78899d76894d8d69f99c9f302ed1d69aefbd))
+
+
+
+
+
 ## [5.16.22](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.21...@ecomplus/storefront-framework@5.16.22) (2021-06-21)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.7.4...@ecomplus/storefront-renderer@2.7.5) (2021-07-02)
+
+
+### Bug Fixes
+
+* **renderer/ejs:** prevent including from template pkg when not running with framework by default ([4f30f38](https://github.com/ecomplus/storefront/commit/4f30f384d89d6af14233ddd8843ce9a7ad5af8a0))
+* **renderer/redirects:** add `proxy-revalidate` to cache control for 302 redirects ([bfa14bb](https://github.com/ecomplus/storefront/commit/bfa14bb9f20b4cbe9aa2eca954a99bc727fe29c7))
+
+
+
+
+
 ## [2.7.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.7.3...@ecomplus/storefront-renderer@2.7.4) (2021-06-17)
 
 

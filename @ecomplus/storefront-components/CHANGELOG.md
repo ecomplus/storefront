@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.92](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.91...@ecomplus/storefront-components@1.0.0-beta.92) (2021-07-02)
+
+
+### Bug Fixes
+
+* **components/product:** fix rendering product prices when variation selected ([fe230a7](https://github.com/ecomplus/storefront/commit/fe230a7d235c722952cfe882c5efd39fa6c30567))
+* **components/product:** remove `v-once` to make payment options properly reactive with price ([49af585](https://github.com/ecomplus/storefront/commit/49af58521909297401951bd53b6a65339091efcf))
+* **components/product-card:** fix card items vertical alignment (same height) in row ([e657d22](https://github.com/ecomplus/storefront/commit/e657d22cf57002e71d147490f6a5fdc0258c3e3e))
+
+
+### Features
+
+* **components/pagination:** new `APagination` component :tada: ([d7c94d4](https://github.com/ecomplus/storefront/commit/d7c94d42834547940be5e836c3bd064a64e2b35a))
+* **components/search-engine:** emit fetch event with `isPopularItems` on payload ([f4221d6](https://github.com/ecomplus/storefront/commit/f4221d6763586a31fa7867800dfccf2115b9f69c))
+
+
+
+
+
 # [1.0.0-beta.91](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.90...@ecomplus/storefront-components@1.0.0-beta.91) (2021-06-21)
 
 

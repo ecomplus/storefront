@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.131](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.130...@ecomplus/storefront-template@2.0.0-beta.131) (2021-07-02)
+
+
+### Bug Fixes
+
+* **template/products-carousel:** update styles for new product card vertical alignment and stretch ([27c219f](https://github.com/ecomplus/storefront/commit/27c219f05f9210a118d23e2faa7b415ac8df0e4b))
+
+
+### Features
+
+* **template/contacts:** add tiktok to cms contacts and shown footer icons ([ed27ce6](https://github.com/ecomplus/storefront/commit/ed27ce603cf3cc377d69c07a283ae2f10d0a576c))
+* **template/search-engine:** add #search-pagination element for pagination when enabled ([17a4ab8](https://github.com/ecomplus/storefront/commit/17a4ab8b28d92d4543e701e30f3d39a5cd3f74d7))
+
+
+### Performance Improvements
+
+* **template/dom:** giving a try with worker dom ([82038d2](https://github.com/ecomplus/storefront/commit/82038d27ab7ed46c7764171095e1b0a45ba6f199))
+
+
+### Reverts
+
+* **template/worker-dom:** not using unstable \@ampproject/worker-dom for now ([0e27df3](https://github.com/ecomplus/storefront/commit/0e27df33c7cb9b6fc4f5477be407d6e8c3ea4907))
+
+
+
+
+
 # [2.0.0-beta.130](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.129...@ecomplus/storefront-template@2.0.0-beta.130) (2021-06-21)
 
 

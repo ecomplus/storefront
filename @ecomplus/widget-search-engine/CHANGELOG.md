@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.91](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.90...@ecomplus/widget-search-engine@1.0.0-beta.91) (2021-07-02)
+
+
+### Features
+
+* **widget-search-engine/cms:** add pagination to config options [[#451](https://github.com/ecomplus/storefront/issues/451)] ([6c97eff](https://github.com/ecomplus/storefront/commit/6c97eff38fd921831d0e5d33e092932523934772))
+* **widget-search-engine/pagination:** handle pagination option with `APagination` component [[#451](https://github.com/ecomplus/storefront/issues/451)] ([662cec7](https://github.com/ecomplus/storefront/commit/662cec7ba744bd746c8551a183a54350cf350eab))
+
+
+
+
+
 # [1.0.0-beta.90](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.89...@ecomplus/widget-search-engine@1.0.0-beta.90) (2021-06-21)
 
 **Note:** Version bump only for package @ecomplus/widget-search-engine

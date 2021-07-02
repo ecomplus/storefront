@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.98](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.97...@ecomplus/storefront-app@2.0.0-beta.98) (2021-07-02)
+
+
+### Features
+
+* **app/order-info:** new card for order notes ([#487](https://github.com/ecomplus/storefront/issues/487)) ([77b791e](https://github.com/ecomplus/storefront/commit/77b791e59f2be092c83aecddcfa76fc7e74b6dd7))
+* **app/payment-methods:** custom class name and data-layer for each gateway element ([ceeccbe](https://github.com/ecomplus/storefront/commit/ceeccbe474f4206388a17093b44cb5a9c16a142a))
+
+
+
+
+
 # [2.0.0-beta.97](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.96...@ecomplus/storefront-app@2.0.0-beta.97) (2021-06-21)
 
 
