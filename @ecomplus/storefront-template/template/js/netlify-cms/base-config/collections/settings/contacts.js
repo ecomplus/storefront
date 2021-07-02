@@ -59,6 +59,12 @@ export default ({ baseDir }) => ({
       required: false
     },
     {
+      label: 'TikTok',
+      name: 'tiktok',
+      widget: 'string',
+      required: false
+    },
+    {
       label: 'Pinterest',
       name: 'pinterest',
       widget: 'string',
