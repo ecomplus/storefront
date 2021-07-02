@@ -251,7 +251,7 @@ export default {
           this.countOpenRequests--
           this.isLoadingMore = false
         })
-      this.$emit('fetch', { ecomSearch, fetching })
+      this.$emit('fetch', { ecomSearch, fetching, isPopularItems })
     },
 
     updateFilters () {
