@@ -1,0 +1,90 @@
+<nav class="d-flex">
+  <ul class="pagination mr-2">
+    <li
+      class="page-item"
+      :class="page <= 1 ? 'disabled' : null"
+    >
+      <a
+        href="#"
+        class="page-link"
+        :aria-disabled="page <= 1 ? true : null"
+        @click.prevent="go(page - 1)"
+      >
+        &laquo; {{ i19previous }}
+      </a>
+    </li>
+
+    <li
+      class="page-item"
+      :class="page >= totalPages ? 'disabled' : null"
+    >
+      <a
+        href="#"
+        class="page-link"
+        :aria-disabled="page >= totalPages ? true : null"
+        @click.prevent="go(page + 1)"
+      >
+        {{ i19next }} &raquo;
+      </a>
+    </li>
+  </ul>
+
+  <ul class="pagination d-none d-lg-flex">
+    <template v-if="pageNums[0] > 1">
+      <li class="page-item">
+        <a
+          class="page-link"
+          href="#"
+          @click.prevent="go(1)"
+        >
+          1
+        </a>
+      </li>
+      <li class="page-item disabled">
+        <span class="page-link">
+          ...
+        </span>
+      </li>
+    </template>
+
+    <li
+      v-for="n in pageNums"
+      :key="`p${n}`"
+      class="page-item"
+      :class="page === n ? 'active' : null"
+    >
+      <a
+        v-if="page !== n"
+        class="page-link"
+        href="#"
+        @click.prevent="go(n)"
+      >
+        {{ n }}
+      </a>
+      <span
+        v-else
+        class="page-link"
+        aria-current="page"
+      >
+        {{ n }}
+      </span>
+    </li>
+
+    <template v-if="lastPageNum < totalPages">
+      <li class="page-item disabled">
+        <span class="page-link">
+          ...
+        </span>
+      </li>
+      <li class="page-item">
+        <a
+          class="page-link"
+          href="#"
+          @click.prevent="go(totalPages)"
+        >
+          {{ totalPages }}
+        </a>
+      </li>
+    </template>
+  </ul>
+</nav>
