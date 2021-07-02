@@ -19,6 +19,21 @@ export default () => ({
       name: 'desktopOnly',
       hint: 'Desativa o widget em dispositivos móveis',
       widget: 'boolean'
+    },
+    {
+      label: 'Opções',
+      name: 'options',
+      widget: 'object',
+      hint: 'Personalizações do widget',
+      fields: [
+        {
+          label: 'Paginação',
+          name: 'pagination',
+          required: false,
+          widget: 'boolean',
+          hint: 'Ativar paginação manual em vez do carregamento automático por scroll'
+        }
+      ]
     }
   ]
 })
