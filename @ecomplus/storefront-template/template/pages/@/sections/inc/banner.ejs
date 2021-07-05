@@ -1,10 +1,12 @@
 <%
 if (opt.img) {
   let dimensions
-  try {
-    dimensions = _.imageSize(`template/public${opt.img}`)
-  } catch (e) {
-    dimensions = null
+  if (opt.img.startsWith('/')) {
+    try {
+      dimensions = _.imageSize(`template/public${opt.img}`)
+    } catch (e) {
+      dimensions = null
+    }
   }
 
   const sources = [{ src: opt.img }]
@@ -40,7 +42,7 @@ if (opt.img) {
           data-iesrc="<%= opt.img.replace('.webp', '.png') %>"
           data-alt="<%= opt.alt %>"
         <% } %>
-        <% if (!opt.height_auto && opt.img.startsWith('/') && dimensions) { %>
+        <% if (!opt.height_auto && dimensions) { %>
           data-width="<%= dimensions.width %>"
           data-height="<%= dimensions.height %>"
         <% } %>
