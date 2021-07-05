@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.24](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.23...@ecomplus/storefront-framework@5.16.24) (2021-07-05)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#489](https://github.com/ecomplus/storefront/issues/489)) ([7a29e5f](https://github.com/ecomplus/storefront/commit/7a29e5f08703d2d6b78a39f4490387b4fa45afa8))
+
+
+### Reverts
+
+* **framework/build:** remove forced process.exit ([2519042](https://github.com/ecomplus/storefront/commit/25190420f0ff105e95814b817c37de05ec438e49))
+
+
+
+
+
 ## [5.16.23](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.22...@ecomplus/storefront-framework@5.16.23) (2021-07-02)
 
 
