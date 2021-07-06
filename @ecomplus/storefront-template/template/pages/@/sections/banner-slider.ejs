@@ -17,18 +17,14 @@ if (slides && slides.length) {
   let style = ''
   for (let i = 0; i < 2; i++) {
     const img = slides[0][i ? 'mobile_img' : 'img']
-    if (img && img.startsWith('/')) {
-      let dimensions
-      try {
-        dimensions = _.imageSize(`template/public${img}`)
-      } catch (e) {
-      }
-      if (dimensions && dimensions.width) {
+    if (img) {
+      const { width, height } = _.tryImageSize(img)
+      if (width) {
         style += '--banner-aspect-ratio'
         if (i > 0) {
           style += '-mobile'
         }
-        style += `:${Math.ceil(dimensions.height / dimensions.width * 1000) / 1000};`
+        style += `:${Math.ceil(height / width * 1000) / 1000};`
       }
     }
   }

@@ -1,14 +1,6 @@
 <%
 if (opt.img) {
-  let dimensions
-  if (opt.img.startsWith('/')) {
-    try {
-      dimensions = _.imageSize(`template/public${opt.img}`)
-    } catch (e) {
-      dimensions = null
-    }
-  }
-
+  const { width, height } = _.tryImageSize(opt.img)
   const sources = [{ src: opt.img }]
   if (opt.mobile_img) {
     sources[0].media = '(min-width: 576px)'
@@ -42,9 +34,9 @@ if (opt.img) {
           data-iesrc="<%= opt.img.replace('.webp', '.png') %>"
           data-alt="<%= opt.alt %>"
         <% } %>
-        <% if (!opt.height_auto && dimensions) { %>
-          data-width="<%= dimensions.width %>"
-          data-height="<%= dimensions.height %>"
+        <% if (!opt.height_auto && width) { %>
+          data-width="<%= width %>"
+          data-height="<%= height %>"
         <% } %>
       >
         <% sources.forEach(({ src, media, type }) => { %>
@@ -60,9 +52,9 @@ if (opt.img) {
           <img
             src="<%= opt.img.replace('.webp', '.png') %>"
             alt="<%= opt.alt %>"
-            <% if (dimensions) { %>
-              width="<%= dimensions.width %>"
-              height="<%= dimensions.height %>"
+            <% if (width) { %>
+              width="<%= width %>"
+              height="<%= height %>"
             <% } %>
           >
         <% } %>
