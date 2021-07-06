@@ -143,7 +143,11 @@ data = {
     ecomClient,
     // Search engine constructor
     // https://developers.e-com.plus/search-engine/
-    EcomSearch
+    EcomSearch,
+    // Detect local images dimensions
+    // https://github.com/image-size/image-size
+    tryImageSize,
+    imageSize
   }
 }
 ```
