@@ -20,12 +20,12 @@
       </div>
 
       {{ i19available }}:
-      <b>{{ pointsEntry.active_points }}</b>
+      <b>{{ pointsEntry.active_points.toFixed(1) }}</b>
       <small
         v-if="pointsEntry.earned_points"
         class="text-muted"
       >
-        / {{ `${pointsEntry.earned_points} ${i19pointsEarned}` }}
+        / {{ `${pointsEntry.earned_points.toFixed(1)} ${i19pointsEarned}` }}
       </small>
     </li>
   </ul>
