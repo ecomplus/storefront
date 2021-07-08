@@ -61,7 +61,6 @@ export default () => ({
             }
           ]
         },
-
         {
           label: 'Posição do modal de solicitação',
           name: 'dialogPosition',
