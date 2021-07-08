@@ -66,6 +66,7 @@ export default {
         installment: this.installmentOptions ? 1 : 0
       },
       isLoadingInstallments: false,
+      hasLoadedInstallments: false,
       installmentList: [],
       alert: {
         bin: false,
@@ -153,7 +154,7 @@ export default {
 
     updateInstallmentList () {
       const cardInstallments = this.jsClient.cc_installments
-      if (cardInstallments && cardInstallments.function) {
+      if (cardInstallments && cardInstallments.function && this.card.bin.length >= 6) {
         const installmentList = window[cardInstallments.function]({
           number: this.card.bin,
           amount: this.amount.total
@@ -166,7 +167,10 @@ export default {
               if (installmentList.length) {
                 this.card.installment = 1
               }
-            }).finally(() => {
+              this.hasLoadedInstallments = true
+            })
+            .catch(console.error)
+            .finally(() => {
               this.isLoadingInstallments = false
             })
         } else {
@@ -290,9 +294,10 @@ export default {
         if (this.activeBrand !== numberCheck.card.type) {
           this.activeBrand = numberCheck.card.type
           if (this.activeBrand) {
+            this.hasLoadedInstallments = false
             this.updateInstallmentList()
           }
-        } else if (!this.installmentList.length && this.card.bin.length >= 6) {
+        } else if (!this.hasLoadedInstallments && !this.isLoadingInstallments) {
           this.updateInstallmentList()
         }
         if (numberCheck.isValid) {
