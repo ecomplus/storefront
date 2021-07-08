@@ -37,6 +37,13 @@ export default () => ({
           widget: 'string'
         },
         {
+          label: 'Desabilitar evento de compra',
+          name: 'disablePurchase',
+          required: false,
+          widget: 'boolean',
+          hint: 'Contar as conversões somente via Facebook Conversions API'
+        },
+        {
           name: 'debug',
           widget: 'hidden',
           default: false

@@ -1,7 +1,7 @@
 import ecomCart from '@ecomplus/shopping-cart'
 import { currency } from './common'
 
-export default fbq => {
+export default (fbq, options) => {
   const router = window.storefrontApp && window.storefrontApp.router
   if (router) {
     let isCartSent, isCheckoutSent, isPurchaseSent
@@ -44,7 +44,7 @@ export default fbq => {
     }
 
     const emitPurchase = orderId => {
-      if (!isPurchaseSent) {
+      if (!isPurchaseSent && options.disablePurchase !== true) {
         fbq('Purchase', {
           ...getPurchaseData(),
           order_id: orderId

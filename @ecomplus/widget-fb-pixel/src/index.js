@@ -12,7 +12,7 @@ export default (options = {}) => {
     }
 
     parseContext(track)
-    watchAppRoutes(track)
+    watchAppRoutes(track, options)
     watchShoppingCart(track)
   }
 }
