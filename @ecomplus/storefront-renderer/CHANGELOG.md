@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.7.6...@ecomplus/storefront-renderer@2.8.0) (2021-07-08)
+
+
+### Features
+
+* **renderer/ejs-data:** abstracting comming image size handler for local images with `tryImageSize` ([0b3cc31](https://github.com/ecomplus/storefront/commit/0b3cc31e5da798c78485b193dae2bbfdc5d318ec))
+
+
+
+
+
 ## [2.7.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.7.5...@ecomplus/storefront-renderer@2.7.6) (2021-07-05)
 
 

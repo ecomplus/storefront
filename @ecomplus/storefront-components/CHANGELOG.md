@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.93](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.92...@ecomplus/storefront-components@1.0.0-beta.93) (2021-07-08)
+
+
+### Bug Fixes
+
+* **components/account-points:** format points number shown ([c1ecd6c](https://github.com/ecomplus/storefront/commit/c1ecd6cad1ef16c39b2849f7e38e43e2a22e2a29))
+
+
+
+
+
 # [1.0.0-beta.92](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.91...@ecomplus/storefront-components@1.0.0-beta.92) (2021-07-02)
 
 

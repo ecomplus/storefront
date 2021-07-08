@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.133](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.132...@ecomplus/storefront-template@2.0.0-beta.133) (2021-07-08)
+
+
+### Bug Fixes
+
+* **template/banner:** must check if local image to handle image size ([777e16d](https://github.com/ecomplus/storefront/commit/777e16db1a898b32e48a2a1d0118d2195a741bbe))
+
+
+### Performance Improvements
+
+* **template/banner:** explicitly ser firt loaded image tag widht/height ([b3c00c5](https://github.com/ecomplus/storefront/commit/b3c00c557d77f4a110d116af6e79be9a61f1d1dd))
+* **template/images:** always `tryImageSize` and set sizes on <img> tags with local images ([a1061a6](https://github.com/ecomplus/storefront/commit/a1061a6eff7811344ae0074316ef72056e003c2f))
+
+
+
+
+
 # [2.0.0-beta.132](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.131...@ecomplus/storefront-template@2.0.0-beta.132) (2021-07-05)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

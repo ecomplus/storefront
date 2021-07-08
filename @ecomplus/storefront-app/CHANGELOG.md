@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.99](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.98...@ecomplus/storefront-app@2.0.0-beta.99) (2021-07-08)
+
+
+### Bug Fixes
+
+* **app/credit-card-form:** prevent errors with installments function and incomplete bin ([e054f2b](https://github.com/ecomplus/storefront/commit/e054f2b1764bd57ee2c422363abb890bda7ac657))
+
+
+
+
+
 # [2.0.0-beta.98](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.97...@ecomplus/storefront-app@2.0.0-beta.98) (2021-07-02)
 
 

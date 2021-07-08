@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.2.4...@ecomplus/widget-fb-pixel@1.3.0) (2021-07-08)
+
+
+### Features
+
+* **widget-fb-pixel/cms:** handle new `disablePurchase` config option (for Conversions API) [[#495](https://github.com/ecomplus/storefront/issues/495)] ([0d484e7](https://github.com/ecomplus/storefront/commit/0d484e7f214261b1eeff830542fea744ee229fdf))
+
+
+
+
+
 ## [1.2.4](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.2.3...@ecomplus/widget-fb-pixel@1.2.4) (2020-12-16)
 
 **Note:** Version bump only for package @ecomplus/widget-fb-pixel
