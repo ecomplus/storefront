@@ -80,6 +80,9 @@
     "lozad": "^1.16.0",
     "vue": "^2.6.14"
   },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  },
   "browserslist": [
     "> 0.5%",
     "not dead",
