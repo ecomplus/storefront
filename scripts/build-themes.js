@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const sass = require('node-sass')
 const path = require('path')
 const fs = require('fs')
@@ -46,7 +48,7 @@ themes.forEach(theme => {
   const outputCss = sass.renderSync({
     data: `${scssVars} ${styleSheet}`,
     includePaths: [
-      '@ecomplus/storefront-twbs/scss/bootstrap/scss/',
+      '@ecomplus/storefront-twbs/scss/bootstrap/scss/'
     ],
     outputStyle: 'expanded'
   }).css.toString()
