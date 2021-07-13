@@ -1,0 +1,7 @@
+{
+  "include": [
+    "./@ecomplus/*/src/**/*",
+    "./@ecomplus/storefront-template/template/js/**/*",
+    "./@ecomplus/storefront-template/scripts/**/*"
+  ]
+}
