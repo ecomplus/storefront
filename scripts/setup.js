@@ -35,15 +35,15 @@ const deleteFiles = (dir, regex) => {
 }
 
 const prepareStorefrontTwbs = () => {
-  const scssDir = path.join(__dirname, '@ecomplus/storefront-twbs/scss')
+  const scssDir = path.join(__dirname, '..', '@ecomplus/storefront-twbs/scss')
 
   recursiveCopy(
-    path.join(__dirname, 'node_modules/bootstrap/scss'),
+    path.join(__dirname, '..', 'node_modules/bootstrap/scss'),
     path.join(scssDir, 'bootstrap/scss')
   )
 
   recursiveCopy(
-    path.join(__dirname, 'node_modules/animate.css/source'),
+    path.join(__dirname, '..', 'node_modules/animate.css/source'),
     path.join(scssDir, 'animate.css/source')
   )
 
