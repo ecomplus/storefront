@@ -71,7 +71,7 @@
         name="unavailable"
         v-if="!body.available || !body.visible"
       >
-        <p class="badge badge-warning my-2">
+        <p class="badge badge-warning mt-auto">
           {{ i19unavailable }}
         </p>
       </slot>
@@ -80,7 +80,7 @@
         name="out-of-stock"
         v-else-if="!isInStock"
       >
-        <p class="badge badge-dark my-2">
+        <p class="badge badge-dark mt-auto">
           {{ i19outOfStock }}
         </p>
       </slot>
