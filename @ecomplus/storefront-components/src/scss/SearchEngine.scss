@@ -133,7 +133,6 @@
 
   &__selected {
     margin-left: var(--spacer-2);
-    margin-bottom: var(--spacer-2);
 
     > small {
       color: var(--gray);
@@ -146,6 +145,10 @@
 
   &__info {
     padding-bottom: var(--spacer-3);
+
+    button {
+      margin-bottom: var(--spacer-2);
+    }
   }
 
   &__terms > span {
