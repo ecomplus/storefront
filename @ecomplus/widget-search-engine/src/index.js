@@ -74,7 +74,7 @@ export default (options = {}, elId = 'search-engine', paginationElId = 'search-p
         window.history.pushState({
           pathname,
           query
-        }, title, `${pathname}?${urlParams.toString()}`)
+        }, title, pathname + (query ? `?${query}` : ''))
       }
       document.title = title
     }
