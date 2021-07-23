@@ -1,10 +1,10 @@
 import {
   i19aboutCvvMsg,
   i19atSight,
+  // i19bearersDocument,
   i19birthdate,
   i19cardNumber,
   i19confirmPurchase,
-  i19docNumber,
   i19holderName,
   i19interestFree,
   i19invalidCard,
@@ -93,10 +93,10 @@ export default {
   computed: {
     i19aboutCvvMsg: () => i18n(i19aboutCvvMsg),
     i19atSight: () => i18n(i19atSight).toLowerCase(),
+    i19bearersDocument: () => 'Documento do portador',
     i19birthdate: () => i18n(i19birthdate),
     i19cardNumber: () => i18n(i19cardNumber),
     i19confirmPurchase: () => i18n(i19confirmPurchase),
-    i19docNumber: () => i18n(i19docNumber),
     i19holderName: () => i18n(i19holderName),
     i19interestFree: () => i18n(i19interestFree).toLowerCase(),
     i19nameOnCard: () => i18n(i19nameOnCard),
