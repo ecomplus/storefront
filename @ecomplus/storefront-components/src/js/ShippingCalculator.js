@@ -28,6 +28,7 @@ const reduceItemBody = itemOrProduct => {
     'sku',
     'name',
     'quantity',
+    'inventory',
     'currency_id',
     'currency_symbol',
     'price',
@@ -182,7 +183,7 @@ export default {
     scheduleRetry (timeout = 10000) {
       clearTimeout(this.retryTimer)
       this.retryTimer = setTimeout(() => {
-        if (this.localZipCode && !this.shippingServices.length) {
+        if (this.localZipCode && !this.shippingServices.length && this.shippedItems.length) {
           this.fetchShippingServices(true)
         }
       }, timeout)
