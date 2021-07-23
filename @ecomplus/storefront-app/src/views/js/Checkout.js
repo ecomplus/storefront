@@ -1,7 +1,9 @@
 import { i19paymentError, i19paymentErrorMsg } from '@ecomplus/i18n'
 import { i18n } from '@ecomplus/utils'
+import { store } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import ecomPassport from '@ecomplus/passport-client'
+import Vue from 'vue'
 import { mapGetters, mapMutations, mapActions } from 'vuex'
 import { upsertCart } from './../../lib/sync-cart-to-api'
 import EcCheckout from './../../components/EcCheckout.vue'
@@ -28,6 +30,19 @@ export default {
       'shippingZipCode',
       'selectedAddress'
     ]),
+
+    checkoutMode () {
+      const { mode } = this.$route.params
+      return mode ? mode.toLowerCase() : null
+    },
+
+    isLpCheckout () {
+      return this.checkoutMode === 'lp'
+    },
+
+    isGuestCheckout () {
+      return this.isLpCheckout || this.checkoutMode === 'guest'
+    },
 
     customer: {
       get () {
@@ -143,46 +158,103 @@ export default {
   },
 
   created () {
-    const update = items => this.fetchCartItems({ removeOnError: true, items })
-    const fetchAddedItem = ({ item }) => {
-      update([item])
-    }
-    ecomCart.on('addItem', fetchAddedItem)
-    const checkCart = ({ data }) => {
-      if (!data.items.length) {
-        this.$router.push({
-          name: 'cart'
+    if (!this.isLpCheckout) {
+      const update = items => this.fetchCartItems({ removeOnError: true, items })
+      const fetchAddedItem = ({ item }) => {
+        update([item])
+      }
+      ecomCart.on('addItem', fetchAddedItem)
+      const checkCart = ({ data }) => {
+        if (!data.items.length) {
+          this.$router.push({
+            name: 'cart'
+          })
+        }
+      }
+      this.updateInterval = setInterval(update, 600000)
+      this.triggerLoading(true)
+      update()
+        .then(() => {
+          if (!ecomCart.data.flags) {
+            ecomCart.data.flags = []
+          }
+          if (ecomCart.data.flags.indexOf('open-checkout') === -1) {
+            ecomCart.data.flags.push('open-checkout')
+          }
+          const tryUpsertCart = () => {
+            if (ecomPassport.checkAuthorization()) {
+              upsertCart()
+            } else {
+              ecomPassport.once('login', tryUpsertCart)
+            }
+          }
+          setTimeout(tryUpsertCart, 300)
         })
+        .finally(() => {
+          this.triggerLoading(false)
+          checkCart(ecomCart)
+          ecomCart.on('change', checkCart)
+        })
+      this.$once('hook:beforeDestroy', () => {
+        ecomCart.off('addItem', fetchAddedItem)
+        ecomCart.off('change', checkCart)
+      })
+    }
+  },
+
+  mounted () {
+    if (this.isLpCheckout) {
+      const productId = this.$route.params.product
+      if (productId) {
+        this.triggerLoading(true)
+        const fetchProduct = (isRetry = false) => {
+          store({
+            url: `/products/${productId}.json`,
+            axiosConfig: {
+              timeout: 6000
+            }
+          })
+            .then(({ data }) => {
+              ecomCart.clear()
+              let canAddToCart = false
+              const selectFields = ['variations', 'customizations', 'kit_composition']
+              for (let i = 0; i < selectFields.length; i++) {
+                const selectOptions = data[selectFields[i]]
+                if (selectOptions && selectOptions.length) {
+                  canAddToCart = true
+                  break
+                }
+              }
+              if (!canAddToCart) {
+                ecomCart.addProduct(data)
+              }
+              return import('#components/TheProduct.vue').then(productView => {
+                this.setFluidPage(true)
+                new Vue({
+                  render: h => h(productView.default, {
+                    props: {
+                      product: data,
+                      headingTag: 'h3',
+                      galleryColClassName: 'col-12 order-last mt-3',
+                      canAddToCart,
+                      hasBuyButton: canAddToCart,
+                      isQuickview: true
+                    }
+                  })
+                }).$mount(this.$refs.product)
+              })
+            })
+            .catch(err => {
+              console.error(err)
+              if (!isRetry) {
+                setTimeout(() => fetchProduct(true), 800)
+              }
+            })
+            .finally(() => this.triggerLoading(false))
+        }
+        fetchProduct()
       }
     }
-    this.updateInterval = setInterval(update, 600000)
-    this.triggerLoading(true)
-    update()
-      .then(() => {
-        if (!ecomCart.data.flags) {
-          ecomCart.data.flags = []
-        }
-        if (ecomCart.data.flags.indexOf('open-checkout') === -1) {
-          ecomCart.data.flags.push('open-checkout')
-        }
-        const tryUpsertCart = () => {
-          if (ecomPassport.checkAuthorization()) {
-            upsertCart()
-          } else {
-            ecomPassport.once('login', tryUpsertCart)
-          }
-        }
-        setTimeout(tryUpsertCart, 300)
-      })
-      .finally(() => {
-        this.triggerLoading(false)
-        checkCart(ecomCart)
-        ecomCart.on('change', checkCart)
-      })
-    this.$once('hook:beforeDestroy', () => {
-      ecomCart.off('addItem', fetchAddedItem)
-      ecomCart.off('change', checkCart)
-    })
   },
 
   destroyed () {
