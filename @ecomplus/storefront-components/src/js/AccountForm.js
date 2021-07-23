@@ -57,6 +57,7 @@ export default {
 
   props: {
     isShort: Boolean,
+    isGuestAccess: Boolean,
     customer: {
       type: Object,
       default () {
@@ -171,6 +172,12 @@ export default {
       return phoneObj
     },
 
+    update () {
+      if (this.$el.checkValidity()) {
+        this.$emit('update:customer', this.localCustomer)
+      }
+    },
+
     mergeLocalCustomer (newCustomer) {
       for (const field in newCustomer) {
         if (newCustomer[field]) {
@@ -213,7 +220,7 @@ export default {
     },
 
     save () {
-      this.$emit('update:customer', this.localCustomer)
+      this.update()
       this.$emit('submit', this.localCustomer)
       this.btnLabel = i18n(i19saved) + '...'
       setTimeout(() => {
@@ -245,6 +252,15 @@ export default {
     customer: {
       handler () {
         this.mergeLocalCustomer(this.customer)
+      },
+      deep: true
+    },
+
+    localCustomer: {
+      handler () {
+        if (this.isGuestAccess) {
+          this.$nextTick(this.update)
+        }
       },
       deep: true
     }

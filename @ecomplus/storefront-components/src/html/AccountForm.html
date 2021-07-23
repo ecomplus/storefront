@@ -100,7 +100,10 @@
       />
     </div>
 
-    <div class="form-group col-lg-4">
+    <div
+      v-show="!isGuestAccess"
+      class="form-group col-lg-4"
+    >
       <label for="account-form-birth">
         {{ i19birthdate }}
       </label>
@@ -226,38 +229,40 @@
     </div>
   </div>
 
-  <div
-    v-if="privacyPolicyUrl"
-    class="form-group"
-  >
-    <div class="custom-control custom-checkbox">
-      <input
-        type="checkbox"
-        class="custom-control-input"
-        id="account-form-privacy-policy"
-        v-model="isPrivacyOptIn"
-        required
-      >
-      <label
-        class="custom-control-label"
-        for="account-form-privacy-policy"
-      >
-        {{ i19iReadAndAccept }}
-        {{ i19a }}
-        <a
-          :href="privacyPolicyUrl"
-          target="_blank"
-          v-text="i19privacyPolicy"
-        ></a>.
-      </label>
+  <template v-if="!isGuestAccess">
+    <div
+      v-if="privacyPolicyUrl"
+      class="form-group"
+    >
+      <div class="custom-control custom-checkbox">
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          id="account-form-privacy-policy"
+          v-model="isPrivacyOptIn"
+          required
+        >
+        <label
+          class="custom-control-label"
+          for="account-form-privacy-policy"
+        >
+          {{ i19iReadAndAccept }}
+          {{ i19a }}
+          <a
+            :href="privacyPolicyUrl"
+            target="_blank"
+            v-text="i19privacyPolicy"
+          ></a>.
+        </label>
+      </div>
     </div>
-  </div>
 
-  <button
-    class="btn btn-lg btn-primary"
-    type="submit"
-  >
-    <i class="fas fa-check mr-1"></i>
-    {{ btnLabel }}
-  </button>
+    <button
+      class="btn btn-lg btn-primary"
+      type="submit"
+    >
+      <i class="fas fa-check mr-1"></i>
+      {{ btnLabel }}
+    </button>
+  </template>
 </form>
