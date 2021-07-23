@@ -9,7 +9,7 @@
       class="checkout__app"
     >
       <div class="row">
-        <div class="col-lg-8">
+        <div :class="canHideSummary ? 'col' : 'col-lg-8'">
           <nav class="checkout__steps">
             <a
               :href="cartUrl"
@@ -44,6 +44,19 @@
               :class="enabledCheckoutStep === 1 ? 'offset-lg-3' : null"
             >
               <div :class="shownCheckoutStep !== 1 ? 'd-none d-md-block' : null">
+                <div class="mb-3">
+                  <div
+                    v-if="isGuestCheckout"
+                    class="checkout__account"
+                  >
+                    <account-form
+                      :customer.sync="localCustomer"
+                      :is-short="true"
+                      :is-guest-access="true"
+                    />
+                  </div>
+                </div>
+
                 <div
                   v-if="shippingAddress"
                   class="checkout__shipping"
@@ -69,18 +82,19 @@
                     </div>
 
                     <shipping-calculator
-                      v-else
+                      v-else-if="cart.items.length"
                       :key="`shipTo${localZipCode}`"
                       :can-select-services="true"
                       :shipped-items="cart.items"
                       :zip-code="localZipCode"
                       :can-input-zip="false"
-                      @select-service="service => $emit('update:shippingService', service)"
+                      @select-service="service => $emit('update:shipping-service', service)"
                     />
                   </transition-group>
                 </div>
 
                 <account-addresses
+                  v-if="hasBuyerInfo"
                   :customer.sync="localCustomer"
                   :zipCode="shippingZipCode"
                   @select-address="selectAddress"
@@ -139,7 +153,10 @@
           </div>
         </div>
 
-        <div class="col-lg-4 checkout__info">
+        <div
+          v-if="!canHideSummary"
+          class="col-lg-4 checkout__info"
+        >
           <div class="checkout__summary">
             <ec-summary
               :amount="amount"
@@ -178,7 +195,7 @@
                   class="checkout__discount"
                   :amount="amount"
                   :coupon-code.sync="localDiscountCoupon"
-                  @set-discount-rule="discountRule => $emit('setDiscountRule', discountRule)"
+                  @set-discount-rule="discountRule => $emit('set-discount-rule', discountRule)"
                   :modules-payload="modulesPayload"
                   is-attention-wanted
                 />
@@ -209,35 +226,40 @@
         </div>
       </div>
 
-      <recommended-items
-        ref="offers"
-        class="mt-5 pt-lg-3 mx-xl-3"
-        sort-order="offers"
-        :can-load-more="false"
-        row-class-name="row mt-4"
-        :product-card-props="{ buyText: i19addToCart }"
-        @recommend-items="hasMoreOffers = true"
-      >
-        <template #title>
-          <h3>
-            {{ i19buyAlsoMsg }}
-            <small class="d-block text-muted">
-              {{ i19selectedOffers }}
-            </small>
-          </h3>
-        </template>
-      </recommended-items>
+      <template v-if="canRecommendItems">
+        <recommended-items
+          ref="offers"
+          class="mt-5 pt-lg-3 mx-xl-3"
+          sort-order="offers"
+          :can-load-more="false"
+          row-class-name="row mt-4"
+          :product-card-props="{ buyText: i19addToCart }"
+          @recommend-items="hasMoreOffers = true"
+        >
+          <template #title>
+            <h3>
+              {{ i19buyAlsoMsg }}
+              <small class="d-block text-muted">
+                {{ i19selectedOffers }}
+              </small>
+            </h3>
+          </template>
+        </recommended-items>
 
-      <button
-        class="checkout__btn-top btn btn-link"
-        @click="goToTop"
-      >
-        <i class="fas fa-chevron-up mr-1"></i>
-        {{ i19checkout }}
-      </button>
+        <button
+          class="checkout__btn-top btn btn-link"
+          @click="goToTop"
+        >
+          <i class="fas fa-chevron-up mr-1"></i>
+          {{ i19checkout }}
+        </button>
+      </template>
     </div>
 
-    <div key="login" v-else-if="!isUserIdentified">
+    <div
+      v-else-if="!isUserIdentified"
+      key="login"
+    >
       <slot name="login">
         <login-block
           @login="login"
@@ -247,7 +269,11 @@
       </slot>
     </div>
 
-    <div key="account" class="checkout__account" v-else>
+    <div
+      v-else
+      key="account"
+      class="checkout__account"
+    >
       <slot name="account">
         <p class="lead">
           {{ i18n('RegisterToBuy') }}:

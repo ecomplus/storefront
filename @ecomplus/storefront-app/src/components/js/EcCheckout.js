@@ -85,27 +85,32 @@ export default {
         return {}
       }
     },
-    shippingZipCode: {
-      type: String
-    },
     checkoutStep: {
       type: Number,
       default: 1
     },
-    shippingService: {
-      type: Object
+    isGuestCheckout: {
+      type: Boolean,
+      default () {
+        return window.ecomGuestCheckout === true
+      }
     },
-    paymentGateway: {
-      type: Object
+    canRecommendItems: {
+      type: Boolean,
+      default: true
     },
+    canHideSummary: Boolean,
+    shippingZipCode: String,
+    shippingService: Object,
+    paymentGateway: Object,
+    discountCoupon: String,
+    notes: String,
     ecomCart: {
       type: Object,
       default () {
         return ecomCart
       }
-    },
-    discountCoupon: String,
-    notes: String
+    }
   },
 
   data () {
@@ -183,7 +188,7 @@ export default {
         return this.discountCoupon
       },
       set (couponCode) {
-        this.$emit('update:discountCoupon', couponCode)
+        this.$emit('update:discount-coupon', couponCode)
       }
     },
 
@@ -205,7 +210,7 @@ export default {
 
     shownCheckoutStep () {
       if (!this.hasBuyerInfo || this.editAccount) {
-        return 0
+        return this.isGuestCheckout ? 1 : 0
       } else {
         return Math.min(this.enabledCheckoutStep, this.toCheckoutStep)
       }
@@ -220,7 +225,7 @@ export default {
 
     enabledCheckoutStep () {
       return !this.hasBuyerInfo
-        ? 0
+        ? this.isGuestCheckout ? 1 : 0
         : this.shippingAddress && this.shippingService ? 2 : 1
     },
 
@@ -278,7 +283,7 @@ export default {
     },
 
     selectAddress (addressId) {
-      this.$emit('addressSelected', addressId)
+      this.$emit('address-selected', addressId)
       this.updateZipCode()
     },
 
@@ -299,7 +304,7 @@ export default {
     },
 
     selectPaymentGateway (gateway) {
-      this.$emit('update:paymentGateway', gateway)
+      this.$emit('update:payment-gateway', gateway)
       if (this.checkoutStep === 2) {
         this.goToTop()
       }
@@ -349,7 +354,7 @@ export default {
     },
 
     toCheckoutStep (stepNumber) {
-      this.$emit('update:checkoutStep', stepNumber)
+      this.$emit('update:checkout-step', stepNumber)
       this.goToTop()
     },
 
