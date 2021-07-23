@@ -114,7 +114,7 @@ export default {
   watch: {
     addresses (newList, oldList) {
       if (!oldList.length) {
-        if (this.isNewAddress) {
+        if (newList.length && this.isNewAddress) {
           this.canShowForm = this.isNewAddress = false
         }
       } else if (!newList.length) {
