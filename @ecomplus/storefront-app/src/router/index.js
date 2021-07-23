@@ -15,7 +15,7 @@ const routes = [
     )
   },
   {
-    path: '/checkout/:id?',
+    path: '/:mode?/:product?/checkout/:id?',
     name: 'checkout',
     component: () => import(
       /* webpackChunkName: "app-checkout" */
@@ -55,6 +55,16 @@ const routes = [
     ]
   },
   {
+    path: '/lp/:product/:id?',
+    redirect: ({ params }) => ({
+      name: 'checkout',
+      params: {
+        ...params,
+        mode: 'lp'
+      }
+    })
+  },
+  {
     path: '/:id?',
     redirect: {
       name: 'cart'
@@ -74,7 +84,10 @@ router.afterEach(() => {
     }
     fetchingCartId.then(id => {
       if (params.id !== id && router.currentRoute.name === name) {
-        router.push({ name, params: { id } })
+        router.push({
+          name,
+          params: { ...params, id }
+        })
         const { hostname, href } = window.location
         if (/\.[a-z]+$/.test(hostname)) {
           ecomCart.data.permalink = href
