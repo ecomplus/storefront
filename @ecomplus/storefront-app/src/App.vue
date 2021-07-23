@@ -57,9 +57,11 @@ export default {
 
 <style lang="scss">
   #storefront-app {
+    max-width: 100rem;
+    margin: 0 auto;
     padding: 2rem 0 3rem;
 
-    h1 {
+    > div > h1 {
       text-align: center;
       margin-bottom: 1.5rem;
       color: var(--secondary);
