@@ -90,7 +90,15 @@ export default {
       default: 'h1'
     },
     buyText: String,
+    galleryColClassName: {
+      type: String,
+      default: 'col-12 col-md-6'
+    },
     canAddToCart: {
+      type: Boolean,
+      default: true
+    },
+    hasBuyButton: {
       type: Boolean,
       default: true
     },

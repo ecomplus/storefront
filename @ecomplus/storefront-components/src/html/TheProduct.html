@@ -23,7 +23,7 @@
       class="row"
     >
       <slot name="gallery-col">
-        <div class="col-12 col-md-6">
+        <div :class="galleryColClassName">
           <component
             :is="isSSR ? 'portal' : 'div'"
             selector="#product-gallery"
@@ -196,7 +196,10 @@
             </div>
 
             <template v-else>
-              <div class="product__buy">
+              <div
+                v-if="hasBuyButton"
+                class="product__buy"
+              >
                 <span @click="buy">
                   <slot
                     name="buy"
