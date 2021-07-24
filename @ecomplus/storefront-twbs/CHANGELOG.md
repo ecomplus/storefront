@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.11.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.11.0...@ecomplus/storefront-twbs@5.11.1) (2021-07-24)
+
+
+### Bug Fixes
+
+* **pkg:** use `cross-env` for win compatibility with npm scripts ([0f87141](https://github.com/ecomplus/storefront/commit/0f8714116ceb336231d5b297b116c098eeb967ba))
+
+
+
+
+
+
 # [5.11.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.10.4...@ecomplus/storefront-twbs@5.11.0) (2021-07-02)
 
 

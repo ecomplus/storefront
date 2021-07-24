@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.3.0...@ecomplus/widget-fb-pixel@1.3.1) (2021-07-24)
+
+**Note:** Version bump only for package @ecomplus/widget-fb-pixel
+
+
+
+
+
+
 # [1.3.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.2.4...@ecomplus/widget-fb-pixel@1.3.0) (2021-07-08)
 
 

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.134](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.133...@ecomplus/storefront-template@2.0.0-beta.134) (2021-07-24)
+
+
+### Bug Fixes
+
+* **pkg:** use `cross-env` for win compatibility with npm scripts ([0f87141](https://github.com/ecomplus/storefront/commit/0f8714116ceb336231d5b297b116c098eeb967ba))
+* **template/product-block:** prevent renderization error on products with no pictures ([547087e](https://github.com/ecomplus/storefront/commit/547087e28bed894f4fd2117055d783888e76196e))
+
+
+### Features
+
+* **template/product-block:** set product picture aspect ractio (when size available) ([b2ef475](https://github.com/ecomplus/storefront/commit/b2ef475f71ea079b90218e0f3f8e8b7c8ca6bbbc)), closes [#499](https://github.com/ecomplus/storefront/issues/499)
+
+
+
+
+
+
 # [2.0.0-beta.133](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.132...@ecomplus/storefront-template@2.0.0-beta.133) (2021-07-08)
 
 

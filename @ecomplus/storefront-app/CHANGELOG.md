@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.100](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.99...@ecomplus/storefront-app@2.0.0-beta.100) (2021-07-24)
+
+
+### Bug Fixes
+
+* **app/credit-card-form:** minor fix credit card doc number label ([c400bb7](https://github.com/ecomplus/storefront/commit/c400bb73209935b894cef9615c5646b7d0e6939f))
+
+
+### Features
+
+* **app/checkout:** handle guest and lp checkout ([1055234](https://github.com/ecomplus/storefront/commit/1055234a758c6e32938b19810669d591b33fed85))
+* **app/checkout-view:** handle checkout mode from router params and setup lp checkout ([dc1353c](https://github.com/ecomplus/storefront/commit/dc1353c985ec63af94edd05e7ffe5b2e9edf843a))
+* **app/router:** update chackout path and handle redirects for lp checkouts ([b41c44a](https://github.com/ecomplus/storefront/commit/b41c44a43f6abe5ac644c4c1b14cb325113afacb))
+
+
+
+
+
+
 # [2.0.0-beta.99](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.98...@ecomplus/storefront-app@2.0.0-beta.99) (2021-07-08)
 
 

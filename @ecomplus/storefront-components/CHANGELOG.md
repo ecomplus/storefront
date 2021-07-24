@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.94](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.93...@ecomplus/storefront-components@1.0.0-beta.94) (2021-07-24)
+
+
+### Bug Fixes
+
+* **components/account-addresses:** prevent unseting form when address list has no length ([c2b2326](https://github.com/ecomplus/storefront/commit/c2b23264b815af94efe0d89582ef26367721c677))
+* **components/discount-applier:** simple checking freebie items before adding to cart ([1de8b07](https://github.com/ecomplus/storefront/commit/1de8b07b757315bcb56d594b1293232062a28c08))
+* **components/login-block:** minor style fix for email input group ([b4b732a](https://github.com/ecomplus/storefront/commit/b4b732a6b1b674b2852eba31e4a00a3ef617e7c7))
+* **components/search-engine:** filter buttons minor style fix (alignment) ([8e2b226](https://github.com/ecomplus/storefront/commit/8e2b226a4d8b718226929db56fff44ca56966815))
+
+
+### Features
+
+* **components/account-form:** handle guest checkout with new \`isGuestAccess\` prop ([3cceed2](https://github.com/ecomplus/storefront/commit/3cceed235831889b18d827e5261ce7012e275f79))
+* **components/product:** add new \`galleryColClassName\` and \`hasBuyButton\` props ([acb8d6c](https://github.com/ecomplus/storefront/commit/acb8d6cbace752ed8149c7a736e83cd2f44ccb9f))
+* **components/shipping-calculator:** handle items inventory for multi cd ([fd4c9f8](https://github.com/ecomplus/storefront/commit/fd4c9f8ce0891b260bfc4bcded5caf3497609741))
+
+
+
+
+
+
 # [1.0.0-beta.93](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.92...@ecomplus/storefront-components@1.0.0-beta.93) (2021-07-08)
 
 

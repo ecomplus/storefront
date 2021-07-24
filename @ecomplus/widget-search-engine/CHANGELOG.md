@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.93](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.92...@ecomplus/widget-search-engine@1.0.0-beta.93) (2021-07-24)
+
+
+### Bug Fixes
+
+* **widget-search-engine/url:** prevent pushing to navigator history when no query to set ([d56c8f0](https://github.com/ecomplus/storefront/commit/d56c8f0cc94409d06596dfd66178cad613c4a158))
+
+
+
+
+
+
 # [1.0.0-beta.92](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.91...@ecomplus/widget-search-engine@1.0.0-beta.92) (2021-07-08)
 
 **Note:** Version bump only for package @ecomplus/widget-search-engine
