@@ -13,7 +13,7 @@
     "pack": "cross-env STOREFRONT_TEMPLATE=$INIT_CWD node ./scripts/pack.js",
     "serve": "npm run pack serve",
     "dev": "npm run pack serve -- --analyze",
-    "build": "ECOMCLIENT_NOTIMEOUT=true WEBPACK_BUILD_DEV=true npm run pack build",
+    "build": "cross-env ECOMCLIENT_NOTIMEOUT=true WEBPACK_BUILD_DEV=true npm run pack build",
     "build:site": "ECOMCLIENT_NOTIMEOUT=true npm run pack build",
     "build:home": "ECOMCLIENT_NOTIMEOUT=true WEBPACK_BUILD_DEV=true npm run pack build -- --prerender=index",
     "release": "npm ddp && npm run build && standard-version && npm run snapshot",
