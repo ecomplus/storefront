@@ -13,7 +13,7 @@
     "build": "npm run run:main -- build",
     "build:demo": "npm run run:main -- build:site",
     "preversion": "lerna run build --since",
-    "version": "GH_TOKEN=$(grep GH_TOKEN .env | cut -d '=' -f2) lerna version",
+    "version": "lerna version",
     "release": "npm run version && lerna publish from-git",
     "release:all": "npm run version -- --force-publish && lerna publish from-git",
     "docs:dev": "vuepress dev",
