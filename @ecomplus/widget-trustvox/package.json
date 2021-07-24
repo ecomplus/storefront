@@ -8,7 +8,7 @@
   "jsdelivr": "dist/public/widget-trustvox.var.min.js",
   "unpkg": "dist/public/widget-trustvox.var.min.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack",
+    "build": "cross-env NODE_ENV=production webpack",
     "serve": "webpack-dev-server"
   },
   "repository": {
