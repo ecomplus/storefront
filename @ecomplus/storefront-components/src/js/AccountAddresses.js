@@ -29,7 +29,8 @@ export default {
         return {}
       }
     },
-    zipCode: String
+    zipCode: String,
+    formBtnText: String
   },
 
   data () {
