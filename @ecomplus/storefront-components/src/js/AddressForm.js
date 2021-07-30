@@ -39,7 +39,13 @@ export default {
         return {}
       }
     },
-    zipCode: String
+    zipCode: String,
+    btnText: {
+      type: String,
+      default () {
+        return i18n(i19save)
+      }
+    }
   },
 
   data () {
@@ -67,7 +73,6 @@ export default {
     i19provinceCode: () => i18n(i19provinceCode),
     i19recipient: () => i18n(i19recipient),
     i19reference: () => i18n(i19reference),
-    i19save: () => i18n(i19save),
     i19street: () => i18n(i19street),
     i19zipCode: () => i18n(i19zipCode),
 
