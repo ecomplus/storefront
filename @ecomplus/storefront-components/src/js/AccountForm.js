@@ -67,6 +67,16 @@ export default {
     privacyPolicyUrl: {
       type: String,
       default: typeof window === 'object' ? window.privacyPolicyUrl : null
+    },
+    hasSubmitBtn: {
+      type: Boolean,
+      default: true
+    },
+    btnText: {
+      type: String,
+      default () {
+        return i18n(i19save)
+      }
     }
   },
 
@@ -75,7 +85,7 @@ export default {
       localCustomer: cloneDeep(this.customer),
       fullName: getFullName(this.customer),
       storageInterval: null,
-      btnLabel: i18n(i19save),
+      btnLabel: this.btnText,
       isPrivacyOptIn: Boolean(this.customer._id)
     }
   },
@@ -224,7 +234,7 @@ export default {
       this.$emit('submit', this.localCustomer)
       this.btnLabel = i18n(i19saved) + '...'
       setTimeout(() => {
-        this.btnLabel = i18n(i19save)
+        this.btnLabel = this.btnText
       }, 3000)
     }
   },
