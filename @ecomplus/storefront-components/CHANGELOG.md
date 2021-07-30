@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.95](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.94...@ecomplus/storefront-components@1.0.0-beta.95) (2021-07-30)
+
+
+### Features
+
+* **components/account-addresses:** new `formBtnText` prop passed to nested `AddressForm` component ([c46abfb](https://github.com/ecomplus/storefront/commit/c46abfba5f069a0c888639ba4ed0fc48086fae03))
+* **components/account-form:** handle new `hasSubmitBtn` and `btnText` props ([96d00bb](https://github.com/ecomplus/storefront/commit/96d00bbddc55ed15960cc6a09811851aeb383aa9))
+* **components/address-form:** handle new `btnText` prop ([9295907](https://github.com/ecomplus/storefront/commit/929590788b065d98b2243445b1dcbe4c1be5d9c3))
+
+
+
+
+
 # [1.0.0-beta.94](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.93...@ecomplus/storefront-components@1.0.0-beta.94) (2021-07-24)
 
 

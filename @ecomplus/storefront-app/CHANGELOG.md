@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.101](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.100...@ecomplus/storefront-app@2.0.0-beta.101) (2021-07-30)
+
+
+### Bug Fixes
+
+* **app/checkout:** checkout form should be first at mobile view ([53ef127](https://github.com/ecomplus/storefront/commit/53ef127bea0aaee612553b553ee376fb3c4d1d68))
+* **app/checkout:** fix (and show even on guest) account/address forms submit buttons ([8d58834](https://github.com/ecomplus/storefront/commit/8d58834029eaaada4ff765dbc38778690737f732))
+
+
+
+
+
 # [2.0.0-beta.100](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.99...@ecomplus/storefront-app@2.0.0-beta.100) (2021-07-24)
 
 
