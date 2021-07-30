@@ -53,6 +53,8 @@
                       :customer.sync="localCustomer"
                       :is-short="true"
                       :is-guest-access="true"
+                      :has-submit-btn="!hasBuyerInfo"
+                      :btn-text="i19proceed"
                     />
                   </div>
                 </div>
@@ -96,7 +98,8 @@
                 <account-addresses
                   v-if="hasBuyerInfo"
                   :customer.sync="localCustomer"
-                  :zipCode="shippingZipCode"
+                  :zip-code="shippingZipCode"
+                  :form-btn-text="i19proceed"
                   @select-address="selectAddress"
                 />
 
