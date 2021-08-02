@@ -31,7 +31,7 @@
                   <picture
                     <% if (width && height) { %>
                       class="picture"
-                      style="padding-top: <%= Math.round(height * 100 * 10000 / width) / 10000 %>%"
+                      style="--aspect-ratio-pc: <%= Math.round(height * 100 * 10000 / width) / 10000 %>%"
                     <% } %>
                   >
                     <source
