@@ -7,8 +7,8 @@ export default (results, order) => {
     const indexB = order.indexOf(b.app_id)
     return indexA > -1
       ? indexB > -1
-        ? indexA < indexB ? -1 : 1
-        : indexA > -1 ? -1 : 1
+          ? indexA < indexB ? -1 : 1
+          : indexA > -1 ? -1 : 1
       : indexB > -1 ? 1 : 0
   })
 }
