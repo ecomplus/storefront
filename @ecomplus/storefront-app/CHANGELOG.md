@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.102](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.101...@ecomplus/storefront-app@2.0.0-beta.102) (2021-08-02)
+
+
+### Bug Fixes
+
+* **app/checkout:** show product first on lp checkout ([83b726f](https://github.com/ecomplus/storefront/commit/83b726f9cc9e84b570640d8b022405d5be0754e2))
+
+
+
+
+
 # [2.0.0-beta.101](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.100...@ecomplus/storefront-app@2.0.0-beta.101) (2021-07-30)
 
 
