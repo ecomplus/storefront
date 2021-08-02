@@ -1,7 +1,13 @@
 <template>
   <div id="checkout">
     <div class="row">
-      <div class="col order-lg-last">
+      <div
+        v-if="isLpCheckout"
+        class="col-lg-4"
+      >
+        <div ref="product"></div>
+      </div>
+      <div class="col">
         <ec-checkout
           :is-guest-checkout="isGuestCheckout"
           :can-recommend-items="!isLpCheckout"
@@ -19,12 +25,6 @@
           @set-discount-rule="setDiscountRule"
           @checkout="checkout"
         />
-      </div>
-      <div
-        v-if="isLpCheckout"
-        class="col-lg-4"
-      >
-        <div ref="product"></div>
       </div>
     </div>
     <div v-if="isLpCheckout">

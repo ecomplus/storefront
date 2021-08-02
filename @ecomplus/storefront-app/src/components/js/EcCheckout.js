@@ -17,6 +17,7 @@ import {
 } from '@ecomplus/utils'
 
 import ecomCart from '@ecomplus/shopping-cart'
+import scrollToElement from '#components/js/helpers/scroll-to-element'
 import baseModulesRequestData from '../../lib/base-modules-request-data'
 import DiscountApplier from '#components/DiscountApplier.vue'
 import PointsApplier from '#components/PointsApplier.vue'
@@ -291,18 +292,12 @@ export default {
 
     goToTop () {
       this.$nextTick(() => {
-        window.scroll({
-          top: this.$el.offsetTop - 15,
-          behavior: 'smooth'
-        })
+        scrollToElement(this.$el, -15)
       })
     },
 
     goToOffers () {
-      window.scroll({
-        top: this.$refs.offers.$el.offsetTop - 15,
-        behavior: 'smooth'
-      })
+      scrollToElement(this.$refs.offers.$el)
     },
 
     selectPaymentGateway (gateway) {
@@ -371,7 +366,10 @@ export default {
     this.ecomCart.on('addItem', () => {
       this.checkoutAppId++
       this.$nextTick(() => {
-        this.goToTop()
+        window.scroll({
+          top: this.$el.offsetTop - 15,
+          behavior: 'smooth'
+        })
       })
     })
   }
