@@ -124,7 +124,7 @@ export default {
       editAccount: false,
       editShippingService: !this.shippingService,
       localZipCode: this.shippingZipCode,
-      paymentGateways: window.ecomPaymentGateways || [],
+      paymentGateways: [],
       loyaltyPointsApplied: {},
       loyaltyPointsAmount: 0,
       hasMoreOffers: false
@@ -357,6 +357,13 @@ export default {
 
     enabledCheckoutStep () {
       this.autoMoveStep()
+    },
+
+    paymentsListKey: {
+      handler () {
+        this.paymentGateways = window.ecomPaymentGateways || []
+      },
+      immediate: true
     }
   },
 
