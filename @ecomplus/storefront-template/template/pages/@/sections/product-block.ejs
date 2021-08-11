@@ -146,7 +146,9 @@ const productJsonLd = {
     priceCurrency: _.settings.currency,
     price: _.ecomUtils.price(_.state),
     itemCondition: `http://schema.org/${(_.state.condition === 'new' ? 'New' : 'Used')}Condition`,
-    priceValidUntil: _.ecomUtils.onPromotion(_.state) && _.state.price_effective_date.end ? _.ecomUtils.formatDate(_.state.price_effective_date.end).replace(/(\d{2})\/(\d{2})\/(\d{4})/, '$3-$2-$1') : undefined ,
+    priceValidUntil: _.ecomUtils.onPromotion(_.state) && _.state.price_effective_date.end
+      ? _.ecomUtils.formatDate(_.state.price_effective_date.end).replace(/(\d{2})\/(\d{2})\/(\d{4})/, '$3-$2-$1')
+      : undefined,
     seller: {
       '@type': 'Organization',
       name: _.settings.name || _.store.name
