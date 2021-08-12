@@ -146,6 +146,9 @@ const productJsonLd = {
     priceCurrency: _.settings.currency,
     price: _.ecomUtils.price(_.state),
     itemCondition: `http://schema.org/${(_.state.condition === 'new' ? 'New' : 'Used')}Condition`,
+    priceValidUntil: _.ecomUtils.onPromotion(_.state) && _.state.price_effective_date && _.state.price_effective_date.end
+      ? _.state.price_effective_date.end.slice(0, 10)
+      : undefined,
     seller: {
       '@type': 'Organization',
       name: _.settings.name || _.store.name
@@ -163,6 +166,9 @@ if (_.state.pictures && _.state.pictures.length) {
 }
 if (_.state.mpn && _.state.mpn[0]) {
   productJsonLd.mpn = _.state.mpn[0]
+}
+if (_.state.gtin && _.state.gtin[0]) {
+  productJsonLd.gtin = _.state.gtin[0]
 }
 %>
 <script type="application/ld+json"><%-
