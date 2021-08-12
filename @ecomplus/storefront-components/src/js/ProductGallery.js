@@ -41,7 +41,7 @@ export default {
     video: Object,
     videoAspectRatio: {
       type: String,
-      default: '4by3'
+      default: '16by9'
     },
     canAddToCart: {
       type: Boolean,
