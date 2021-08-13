@@ -22,4 +22,17 @@ if (customCode.css) {
   <%
 }
 %>
+<%
+// redirect to maintanance page
+const maintanance = _.cms('maintanance') || {}
+if (maintanance.activate) { 
+  %>
+    <script>
+        if (location.pathname !== '/maintanance' && (location.hash !== '#sb' && location.pathname !== '/admin/')) {
+          location.href = '/maintanance';
+        } else if (location.pathname !== '/maintanance' && (location.hash == '#sb' || location.pathname == '/admin/')) {
+            //do nothing
+        }
+    </script>
+<% } %>
 <%- customCode.html_head %>

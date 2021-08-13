@@ -1,0 +1,152 @@
+<% // load contacts from content 
+const contacts = _.cms('contacts') || {}
+const maintanance = _.cms('maintanance') || {} 
+// social networks handled by contacts 
+const networksWithColors = [
+  ['facebook', '#3b5998'],
+  ['youtube', '#ff0000'],
+  ['instagram', '#e1306c'],
+  ['twitter', '#1da1f2'],
+  ['tiktok', '#000000'],
+  ['pinterest', '#bd081c'],
+  ['linkedin', '#0073b1']
+]
+
+// store logo object
+const logo = _.settings.logo
+  ? { url: _.settings.logo, alt: _.settings.name }
+  : _.store.logo
+%>
+
+<!DOCTYPE html>
+<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+  <head>
+    <%- await include('/@/head') %>
+    <style>
+      .maintanance .container {
+        flex-direction: column; 
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      .maintanance__contacts li {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body id="maintanance-page" class="maintanance">
+    <main role="main" id="main">
+      <div class="container py-5">
+        <section class="maintanance__logo">
+          <a href="javascript:;">
+            <% if (logo && logo.url) {
+              const { width, height } = _.tryImageSize(logo.url)
+              %>
+              <img
+                id="logo"
+                class="header__logo"
+                src="<%= logo.url %>"
+                alt="<%= logo.alt %>"
+                <% if (width) { %>
+                  width="<%= width %>"
+                  height="<%= height %>"
+                <% } %>
+              >
+            <% } else { %>
+              <%= _.settings.name || _.store.name %>
+            <% } %>
+          </a>
+        </section>
+        <section id="maintanance__title">
+          <% if (maintanance && maintanance.title) { %>
+            <h1>
+              <%= maintanance.title %>
+            </h1>
+          <% } %>
+        </section>
+        <section class="maintanance__body">
+          <div class="html-clearfix">
+            <%if (maintanance && maintanance.body) { %>
+              <%- _.md.render(maintanance.body) %>
+            <% } %>
+          </div>
+        </section>
+        <section class="maintanance__contacts">
+          <ul class="list-unstyled">
+            <% if (contacts && contacts.whatsapp) { %>
+              <li>
+                <span class="footer__list-icon">
+                  <i class="fab fa-whatsapp"></i>
+                </span>
+                <a
+                  href="javascript:;"
+                  target="_blank"
+                  rel="noopener"
+                  class="whatsapp-link"
+                  data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>"
+                >
+                  <%= contacts.whatsapp %>
+                </a>
+              </li>
+            <% } %>
+            <% if (contacts && contacts.phone) { %>
+              <li>
+                <span class="footer__list-icon">
+                  <i class="fas fa-phone"></i>
+                </span>
+                <a
+                  href="tel:+<%= contacts.phone.replace(/\D/g, '') %>"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <%= contacts.phone %>
+                </a>
+              </li>
+            <% } %>
+            <% if (contacts && contacts.email) { %>
+              <li>
+                <a href="mailto:<%= contacts.email %>" target="_blank" rel="noopener">
+                  <%= contacts.email %>
+                </a>
+              </li>
+            <% } %>     
+            <% if (contacts && contacts.socials) { %>
+              <li>
+                <p class="footer__social">
+                  <% networksWithColors.forEach(([network, color]) => { %>
+                    <% if (contacts[network]) { %>
+                      <a
+                        href="<%= contacts[network] %>"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="<%= network %>"
+                        style="color: <%= color %>"
+                      >
+                        <i class="fab fa-<%= network %>"></i>
+                      </a>
+                    <% } %>
+                  <% }) %>
+                </p>
+              </li>
+            <% } %>
+          </ul>
+        </section>
+      </div>
+
+      <div class="ecom-credits">
+        <a href="https://e-com.plus" target="_blank" rel="noopener">
+          Powered by
+          <img
+            src="https://ecom.nyc3.digitaloceanspaces.com/brand/plus/198x43.png"
+            alt="E-Com Plus"
+            width="92"
+            height="19.98"
+          />
+        </a>
+      </div>
+    </main>
+
+    <%- await include('/@/json') %> <%- await include('/@/scripts') %>
+  </body>
+</html>
