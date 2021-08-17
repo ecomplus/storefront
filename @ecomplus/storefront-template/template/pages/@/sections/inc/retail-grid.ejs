@@ -1,11 +1,12 @@
 <%
 let items
 if (!opt.items) {
+  const search = opt.search || new _.EcomSearch()
   if (opt.sort) {
-    opt.search.setSortOrder(opt.sort)
+    search.setSortOrder(opt.sort)
   }
-  await opt.search.fetch()
-  items = await opt.search.getItems()
+  await search.fetch()
+  items = await search.getItems()
 } else {
   items = opt.items
 }
@@ -23,6 +24,12 @@ if (!opt.items) {
       <% } %>
       <% if (opt.sort) { %>
         data-sort="<%= opt.sort %>"
+      <% } %>
+      <% if (opt.disable_filters) { %>
+        data-disable-filters="true"
+      <% } %>
+      <% if (opt.disable_load_more) { %>
+        data-disable-load-more="true"
       <% } %>
     >
       <% if (items.length) { %>
