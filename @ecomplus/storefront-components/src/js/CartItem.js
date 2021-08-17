@@ -67,7 +67,7 @@ export default {
     },
 
     img () {
-      return getImg(this.item, null, 'small')
+      return getImg(this.item.picture || this.item, null, 'small')
     },
 
     name () {
