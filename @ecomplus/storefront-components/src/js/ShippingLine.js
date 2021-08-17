@@ -23,6 +23,10 @@ export default {
     shippingLine: {
       type: Object,
       required: true
+    },
+    productionDeadline: {
+      type: Number,
+      default: 0
     }
   },
 
@@ -35,6 +39,7 @@ export default {
       if (shipping.delivery_time) {
         days += shipping.delivery_time.days
       }
+      days += this.productionDeadline
       if (days > 1) {
         return `${i18n(i19upTo)} ${days} ` +
           i18n(isWorkingDays ? i19workingDays : i19days).toLowerCase()
