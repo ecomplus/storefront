@@ -124,9 +124,10 @@ export default (options = {}, elId = 'search-engine', paginationElId = 'search-p
             ...props,
             term: vm.term,
             page: vm.page,
-            canLoadMore: !options.pagination,
+            canLoadMore: !options.pagination && !$searchEngine.dataset.disableLoadMore,
             canShowItems: vm.canShowItems,
-            loadMoreSelector: $dock ? '#search-engine-load' : null
+            loadMoreSelector: $dock ? '#search-engine-load' : null,
+            isFilterable: !$searchEngine.dataset.disableFilters
           },
 
           on: {
