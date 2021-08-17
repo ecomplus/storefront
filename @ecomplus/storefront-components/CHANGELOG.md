@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.97](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.96...@ecomplus/storefront-components@1.0.0-beta.97) (2021-08-17)
+
+
+### Bug Fixes
+
+* **components/cart-item:** properly use `item.picture` when set instead of product pictures list ([047871d](https://github.com/ecomplus/storefront/commit/047871d3991072dc85fe91972f5d1246ceb066ed))
+* **components/product-gallery:** change `videoAspectRatio` prop default value ([#517](https://github.com/ecomplus/storefront/issues/517)) ([232af01](https://github.com/ecomplus/storefront/commit/232af018ec3806e080db4109f4cb20f0e4829baf))
+* **components/shipping-calculator:** handle production time from shipped items [[#273](https://github.com/ecomplus/storefront/issues/273)] ([73c489c](https://github.com/ecomplus/storefront/commit/73c489cea14494ae4bd919e425155619b632214a))
+
+
+### Features
+
+* **components/shipping-line:** add new optional prop `productionDeadline` [[#273](https://github.com/ecomplus/storefront/issues/273)] ([bc38eea](https://github.com/ecomplus/storefront/commit/bc38eea7fb21a9131bb3611ef0bffc21f36f13e3))
+
+
+
+
+
 # [1.0.0-beta.96](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.95...@ecomplus/storefront-components@1.0.0-beta.96) (2021-08-02)
 
 
