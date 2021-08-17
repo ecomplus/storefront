@@ -120,6 +120,20 @@ export default {
       return this.hasPaidOption && this.amountSubtotal < this.freeFromValue
         ? Math.round(this.amountSubtotal * 100 / this.freeFromValue)
         : null
+    },
+
+    productionDeadline () {
+      let maxDeadline = 0
+      this.shippedItems.forEach(item => {
+        if (item.quantity && item.production_time) {
+          const { days, cumulative } = item.production_time
+          const itemDeadline = cumulative ? days * item.quantity : days
+          if (itemDeadline > maxDeadline) {
+            maxDeadline = itemDeadline
+          }
+        }
+      })
+      return maxDeadline
     }
   },
 
