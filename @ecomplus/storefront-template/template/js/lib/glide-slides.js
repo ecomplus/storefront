@@ -81,9 +81,12 @@ for (let i = 0; i < $glides.length; i++) {
       observer.disconnect()
       setTimeout(() => setupGlide($glide), 300)
     })
-    observer.observe($glide.getElementsByClassName('product-item')[0], {
-      childList: true
-    })
+    const $item = $glide.getElementsByClassName('product-item')[0]
+    if ($item) {
+      observer.observe($item, {
+        childList: true
+      })
+    }
   } else {
     setupGlide($glide)
   }
