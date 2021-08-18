@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.139](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.138...@ecomplus/storefront-template@2.0.0-beta.139) (2021-08-18)
+
+
+### Bug Fixes
+
+* **template/glide-slied:** prevent error observing empty carousel items ([7405238](https://github.com/ecomplus/storefront/commit/74052381bdd4069469e253e26401e04fcf3b0b12))
+
+
+
+
+
 # [2.0.0-beta.138](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.137...@ecomplus/storefront-template@2.0.0-beta.138) (2021-08-17)
 
 
