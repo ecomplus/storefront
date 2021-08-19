@@ -1,0 +1,18 @@
+<%
+if (opt && opt.logo && opt.logo.url) {
+    const { width, height } = _.tryImageSize(opt.logo.url)
+    const { logo } = opt
+    %>
+    <img
+        id="logo"
+        class="header__logo"
+        src="<%= logo.url %>"
+        alt="<%= logo.alt %>"
+        <% if (width) { %>
+          width="<%= width %>"
+          height="<%= height %>"
+        <% } %>
+    >
+<% } else { %>
+    <%= _.settings.name || _.store.name %>
+<% } %>

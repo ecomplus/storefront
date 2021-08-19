@@ -28,10 +28,8 @@ const maintanance = _.cms('maintanance') || {}
 if (maintanance.activate) { 
   %>
     <script>
-        if (location.pathname !== '/maintanance' && (location.hash !== '#sb' && location.pathname !== '/admin/')) {
+        if (location.pathname !== '/maintanance') {
           location.href = '/maintanance';
-        } else if (location.pathname !== '/maintanance' && (location.hash == '#sb' || location.pathname == '/admin/')) {
-            //do nothing
         }
     </script>
 <% } %>

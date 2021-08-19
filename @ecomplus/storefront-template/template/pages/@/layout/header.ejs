@@ -144,22 +144,7 @@ if (header.categories_list) {
 
       <div class="col col-lg-auto pl-1 pl-md-2 pl-lg-3">
         <a href="/">
-          <% if (logo && logo.url) {
-            const { width, height } = _.tryImageSize(logo.url)
-            %>
-            <img
-              id="logo"
-              class="header__logo"
-              src="<%= logo.url %>"
-              alt="<%= logo.alt %>"
-              <% if (width) { %>
-                width="<%= width %>"
-                height="<%= height %>"
-              <% } %>
-            >
-          <% } else { %>
-            <%= _.settings.name || _.store.name %>
-          <% } %>
+          <%- await include('/@/sections/logo', { _, opt: { logo: logo } }) %>
         </a>
       </div>
 

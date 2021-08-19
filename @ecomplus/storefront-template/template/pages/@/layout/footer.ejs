@@ -3,16 +3,6 @@
 const footer = _.cms('footer') || {}
 const contacts = _.cms('contacts') || {}
 
-// social networks handled by contacts
-const networksWithColors = [
-  ['facebook', '#3b5998'],
-  ['youtube', '#ff0000'],
-  ['instagram', '#e1306c'],
-  ['twitter', '#1da1f2'],
-  ['tiktok', '#000000'],
-  ['pinterest', '#bd081c'],
-  ['linkedin', '#0073b1']
-]
 %>
 
 <footer class="footer py-3 py-lg-4 py-xl-5">
@@ -77,19 +67,7 @@ const networksWithColors = [
 
           <% if (footer.contacts.socials) { %>
             <p class="footer__social">
-              <% networksWithColors.forEach(([network, color]) => { %>
-                <% if (contacts[network]) { %>
-                  <a
-                    href="<%= contacts[network] %>"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="<%= network %>"
-                    style="color: <%= color %>"
-                  >
-                    <i class="fab fa-<%= network %>"></i>
-                  </a>
-                <% } %>
-              <% }) %>
+              <%- await include('/@/sections/networks', { opt: { contacts: contacts } }) %>
             </p>
           <% } %>
         </div>
@@ -215,14 +193,4 @@ const networksWithColors = [
   </div>
 </footer>
 
-<div class="ecom-credits">
-  <a href="https://e-com.plus" target="_blank" rel="noopener">
-    Powered by
-    <img
-      src="https://ecom.nyc3.digitaloceanspaces.com/brand/plus/198x43.png"
-      alt="E-Com Plus"
-      width="92"
-      height="19.98"
-    >
-  </a>
-</div>
+<%- await include('/@/sections/inc/ecom-credits') %>
