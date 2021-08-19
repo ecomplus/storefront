@@ -14,6 +14,7 @@ export default (options = {}, elId = 'search-engine', paginationElId = 'search-p
     const $dock = document.getElementById(`${elId}-dock`)
     let $productItems
     const getScopedSlots = window.storefront && window.storefront.getScopedSlots
+    const { dataset } = $searchEngine
 
     const urlParams = new URLSearchParams(window.location.search)
     const props = {
@@ -28,17 +29,14 @@ export default (options = {}, elId = 'search-engine', paginationElId = 'search-p
         }
         filters[gridId].push(option)
         return filters
-      }, {})
-    }
-    const { sort } = $searchEngine.dataset
-    if (sort) {
-      props.defaultSort = sort
+      }, {}),
+      defaultSort: dataset.sort || urlParams.get('sort')
     }
 
     ;['brands', 'categories'].forEach(resource => {
-      if ($searchEngine.dataset[resource]) {
+      if (dataset[resource]) {
         try {
-          props[resource] = JSON.parse($searchEngine.dataset[resource])
+          props[resource] = JSON.parse(dataset[resource])
         } catch (err) {
           console.error(err)
           return
@@ -124,10 +122,10 @@ export default (options = {}, elId = 'search-engine', paginationElId = 'search-p
             ...props,
             term: vm.term,
             page: vm.page,
-            canLoadMore: !options.pagination && !$searchEngine.dataset.disableLoadMore,
+            canLoadMore: !options.pagination && !dataset.disableLoadMore,
             canShowItems: vm.canShowItems,
             loadMoreSelector: $dock ? '#search-engine-load' : null,
-            isFilterable: !$searchEngine.dataset.disableFilters
+            isFilterable: !dataset.disableFilters
           },
 
           on: {
