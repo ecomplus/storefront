@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.98](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.97...@ecomplus/storefront-components@1.0.0-beta.98) (2021-08-19)
+
+
+### Bug Fixes
+
+* **components/cart-item:** prevent reseting quantity while input focused [[#521](https://github.com/ecomplus/storefront/issues/521)] ([0e1f049](https://github.com/ecomplus/storefront/commit/0e1f0493ea3f6a6c8b46e6bb734cb03a544a03ab))
+
+
+
+
+
 # [1.0.0-beta.97](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.96...@ecomplus/storefront-components@1.0.0-beta.97) (2021-08-17)
 
 
