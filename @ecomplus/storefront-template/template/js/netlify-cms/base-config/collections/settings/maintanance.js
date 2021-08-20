@@ -15,7 +15,7 @@ export default ({ baseDir }) => ({
       widget: 'markdown'
     },
     {
-      label: 'Ativar Página de Manutenção',
+      label: 'Loja em manutenção',
       name: 'activate',
       widget: 'boolean',
       default: false,
