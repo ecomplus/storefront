@@ -4,7 +4,7 @@ export default ({ baseDir }) => ({
   name: 'maintanance',
   fields: [
     {
-      label: 'Título da Página de Manutenção',
+      label: 'Título da página de manutenção',
       required: false,
       name: 'title',
       widget: 'string'
