@@ -25,10 +25,10 @@ if (customCode.css) {
 const maintanance = _.cms('maintanance') || {}
 if (maintanance.activate) { 
   %>
-    <script>
-        if (location.pathname !== '/maintanance') {
-          location.href = '/maintanance';
-        }
-    </script>
+  <script>
+  if (location.pathname !== '/maintanance') {
+    location.href = '/maintanance'
+  }
+  </script>
 <% } %>
 <%- customCode.html_head %>
