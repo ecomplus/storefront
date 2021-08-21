@@ -21,11 +21,6 @@ let marketingStripeStyle = ''
   }
 })
 
-// store logo object
-const logo = _.settings.logo
-  ? { url: _.settings.logo, alt: _.settings.name }
-  : _.store.logo
-
 // list featured categories
 let categories = []
 let isCategoriesNavFull
@@ -144,7 +139,7 @@ if (header.categories_list) {
 
       <div class="col col-lg-auto pl-1 pl-md-2 pl-lg-3">
         <a href="/">
-          <%- await include('/@/sections/logo', { _, opt: { logo: logo } }) %>
+          <%- await include('/@/layout/inc/logo', { _ }) %>
         </a>
       </div>
 

@@ -16,7 +16,7 @@ export default ({ baseDir }) => ({
     },
     {
       label: 'Loja em manutenção',
-      name: 'activate',
+      name: 'active',
       widget: 'boolean',
       default: false,
       required: false

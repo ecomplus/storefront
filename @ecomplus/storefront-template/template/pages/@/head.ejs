@@ -23,7 +23,7 @@ if (customCode.css) {
 }
 // redirect to maintanance page
 const maintanance = _.cms('maintanance') || {}
-if (maintanance.activate) { 
+if (maintanance.active) { 
   %>
   <script>
   if (location.pathname !== '/maintanance') {

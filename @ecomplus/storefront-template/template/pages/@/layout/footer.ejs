@@ -67,7 +67,7 @@ const contacts = _.cms('contacts') || {}
 
           <% if (footer.contacts.socials) { %>
             <p class="footer__social">
-              <%- await include('/@/sections/networks', { opt: { contacts: contacts } }) %>
+              <%- await include('/@/layout/inc/networks', { _, contacts }) %>
             </p>
           <% } %>
         </div>
@@ -193,4 +193,4 @@ const contacts = _.cms('contacts') || {}
   </div>
 </footer>
 
-<%- await include('/@/sections/inc/ecom-credits') %>
+<%- await include('/@/layout/inc/ecom-credits') %>
