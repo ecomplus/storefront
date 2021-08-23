@@ -1,13 +1,27 @@
 <%- await include('/@/meta') %>
 
-<script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').then(registration => {
-    console.log('SW registered: ', registration)
-  }).catch(registrationError => {
-    console.log('SW registration failed: ', registrationError)
-  })
+<%
+const maintenance = _.cms('maintenance') || {}
+if (maintenance.active) {
+  // redirect to maintanance page
+  %>
+  <script>
+    if (!location.pathname.startsWith('/maintenance/')) {
+      location.href = '/maintenance/'
+    }
+  </script>
+  <%
 }
+%>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').then(registration => {
+      console.log('SW registered: ', registration)
+    }).catch(registrationError => {
+      console.log('SW registration failed: ', registrationError)
+    })
+  }
 </script>
 <link rel="stylesheet" type="text/css" href="/storefront.css">
 
@@ -21,14 +35,5 @@ if (customCode.css) {
   </style>
   <%
 }
-// redirect to maintanance page
-const maintanance = _.cms('maintanance') || {}
-if (maintanance.active) { 
-  %>
-  <script>
-  if (location.pathname !== '/maintanance') {
-    location.href = '/maintanance'
-  }
-  </script>
-<% } %>
+%>
 <%- customCode.html_head %>

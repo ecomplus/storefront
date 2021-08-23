@@ -1,7 +1,7 @@
 export default ({ baseDir }) => ({
   label: 'Manutenção',
-  file: `${baseDir}content/maintanance.json`,
-  name: 'maintanance',
+  file: `${baseDir}content/maintenance.json`,
+  name: 'maintenance',
   fields: [
     {
       label: 'Título da página de manutenção',
@@ -20,6 +20,6 @@ export default ({ baseDir }) => ({
       widget: 'boolean',
       default: false,
       required: false
-    } 
+    }
   ]
 })

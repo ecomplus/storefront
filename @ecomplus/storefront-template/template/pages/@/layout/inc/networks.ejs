@@ -11,15 +11,15 @@ const networksWithColors = [
 ]
 
 networksWithColors.forEach(([network, color]) => { %>
-    <% if (contacts[network]) { %>
-      <a
-        href="<%= contacts[network] %>"
-        target="_blank"
-        rel="noopener"
-        aria-label="<%= network %>"
-        style="color: <%= color %>"
-      >
-        <i class="fab fa-<%= network %>"></i>
-      </a>
-    <% } %>
+  <% if (contacts[network]) { %>
+    <a
+      href="<%= contacts[network] %>"
+      target="_blank"
+      rel="noopener"
+      aria-label="<%= network %>"
+      style="color: <%= color %>"
+    >
+      <i class="fab fa-<%= network %>"></i>
+    </a>
+  <% } %>
 <% }) %>
