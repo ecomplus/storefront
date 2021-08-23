@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.142](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.141...@ecomplus/storefront-template@2.0.0-beta.142) (2021-08-23)
+
+
+### Bug Fixes
+
+* **template/cms:** minor fix maintenance config fields ([7c36594](https://github.com/ecomplus/storefront/commit/7c365944465b60f955aa58db234ce374953d7471))
+* **template/cms:** must import maintenance page config on settings ([265af9d](https://github.com/ecomplus/storefront/commit/265af9df51b82b16fa30afac11f31e7d3983365d))
+
+
+
+
+
 # [2.0.0-beta.141](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.140...@ecomplus/storefront-template@2.0.0-beta.141) (2021-08-23)
 
 
