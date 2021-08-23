@@ -21,5 +21,14 @@ if (customCode.css) {
   </style>
   <%
 }
-%>
+// redirect to maintanance page
+const maintanance = _.cms('maintanance') || {}
+if (maintanance.active) { 
+  %>
+  <script>
+  if (location.pathname !== '/maintanance') {
+    location.href = '/maintanance'
+  }
+  </script>
+<% } %>
 <%- customCode.html_head %>

@@ -1,0 +1,56 @@
+<%
+// load contacts from content 
+const contacts = _.cms('contacts') || {}
+const maintanance = _.cms('maintanance') || {}
+%>
+
+<!DOCTYPE html>
+<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+  <head>
+    <%- await include('/@/head') %>
+    <style>
+      .maintanance .container {
+        flex-direction: column; 
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+
+  <body id="maintanance-page" class="maintanance">
+    <main role="main" id="main">
+      <div class="container py-5">
+        <section class="maintanance__logo">
+          <%- await include('/@/layout/inc/logo', { _ }) %>
+        </section>
+        <section id="maintanance__title">
+          <% if (maintanance && maintanance.title) { %>
+            <h1>
+              <%= maintanance.title %>
+            </h1>
+          <% } %>
+        </section>
+        <section class="maintanance__body">
+          <div class="html-clearfix">
+            <%if (maintanance && maintanance.body) { %>
+              <%- _.md.render(maintanance.body) %>
+            <% } %>
+          </div>
+        </section>
+        <section class="maintanance__contacts">
+
+          <% if (contacts) { %>
+            <p class="footer__social">
+               <%- await include('/@/layout/inc/networks', { _, contacts }) %>
+            </p>
+          <% } %>
+        </section>
+      </div>
+
+      <%- await include('/@/layout/inc/ecom-credits') %>
+    </main>
+
+    <%- await include('/@/json') %> <%- await include('/@/scripts') %>
+  </body>
+</html>
