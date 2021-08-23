@@ -2,6 +2,7 @@ import getGeneral from './settings/general'
 import getContacts from './settings/contacts'
 import getInfo from './settings/info'
 import getSocial from './settings/social'
+import getMaintenance from './settings/maintenance'
 
 export default options => ({
   name: 'settings',
@@ -15,6 +16,7 @@ export default options => ({
     getGeneral(options),
     getContacts(options),
     getInfo(options),
-    getSocial(options)
+    getSocial(options),
+    getMaintenance(options)
   ]
 })
