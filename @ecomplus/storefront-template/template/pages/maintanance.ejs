@@ -1,11 +1,6 @@
 <% // load contacts from content 
 const contacts = _.cms('contacts') || {}
 const maintanance = _.cms('maintanance') || {}
-
-// store logo object
-const logo = _.settings.logo
-  ? { url: _.settings.logo, alt: _.settings.name }
-  : _.store.logo
 %>
 
 <!DOCTYPE html>
