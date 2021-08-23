@@ -5,7 +5,7 @@
   <div class="cart-item__container">
     <div class="cart-item__thumb">
       <component
-        v-if="item.picture && Object.keys(item.picture).length"
+        v-if="img"
         :is="item.slug ? 'a-link' : 'span'"
         :href="`/${item.slug}`"
       >
@@ -104,7 +104,6 @@
             :max="maxQuantity"
             :step="isIntegerQnt ? null : 0.001"
             class="form-control"
-            placeholder="1"
             v-model.number="quantity"
             :readonly="!price"
             @blur="updateInputType"

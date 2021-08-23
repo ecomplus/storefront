@@ -66,7 +66,10 @@
               name="option"
               v-bind="{ service }"
             >
-              <shipping-line :shipping-line="service.shipping_line"/>
+              <shipping-line
+                :shipping-line="service.shipping_line"
+                :production-deadline="productionDeadline"
+              />
               <small>{{ service.label }}</small>
             </slot>
           </span>

@@ -21,6 +21,11 @@ export default ({ baseDir, state }) => ({
       }
     },
     {
+      label: 'Ordem alfabética',
+      name: 'alphabetical_order',
+      widget: 'boolean'
+    },
+    {
       label: 'Mostrar telefone ou WhatsApp',
       name: 'phone_wpp',
       widget: 'boolean'

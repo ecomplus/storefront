@@ -67,7 +67,7 @@ export default {
     },
 
     img () {
-      return getImg(this.item, null, 'small')
+      return getImg(this.item.picture || this.item, null, 'small')
     },
 
     name () {
@@ -112,7 +112,18 @@ export default {
       }
     },
 
+    validateQuantity () {
+      if (this.minQuantity <= this.maxQuantity) {
+        if (this.quantity < this.minQuantity) {
+          this.quantity = this.minQuantity
+        } else if (this.quantity > this.maxQuantity) {
+          this.quantity = this.maxQuantity
+        }
+      }
+    },
+
     updateInputType () {
+      this.validateQuantity()
       this.canInputSelect = this.isIntegerQnt && this.quantity > 0 && this.quantity <= 10
     },
 
@@ -132,7 +143,9 @@ export default {
   watch: {
     'item.quantity': {
       handler (qnt) {
-        this.quantity = qnt || 0
+        if (this.quantity || qnt > 1) {
+          this.quantity = qnt || 0
+        }
       },
       immediate: true
     },
@@ -142,7 +155,7 @@ export default {
         qnt = 0
       }
       if (qnt !== this.item.quantity) {
-        const quantityToAdd = qnt - oldQnt
+        const quantityToAdd = qnt - this.item.quantity
         this.$emit('increase', {
           quantityToAdd,
           newQuantity: qnt
@@ -160,13 +173,6 @@ export default {
             this.$refs.input.focus()
           }
         })
-      }
-      if (this.minQuantity <= this.maxQuantity) {
-        if (qnt < this.minQuantity) {
-          this.quantity = this.minQuantity
-        } else if (qnt > this.maxQuantity) {
-          this.quantity = this.maxQuantity
-        }
       }
     }
   },

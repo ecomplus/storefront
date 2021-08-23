@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.97](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.96...@ecomplus/widget-search-engine@1.0.0-beta.97) (2021-08-19)
+
+
+### Features
+
+* **widget-search-engine/url-params:** test `sort` option from url param ([6a8cdd0](https://github.com/ecomplus/storefront/commit/6a8cdd0eef6b94ed69828736b1aee17ec8f196c6))
+
+
+
+
+
+# [1.0.0-beta.96](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.95...@ecomplus/widget-search-engine@1.0.0-beta.96) (2021-08-17)
+
+
+### Features
+
+* **widget-search-engine/options:** handle disable filters and load more options from el dataset ([8171600](https://github.com/ecomplus/storefront/commit/8171600eb57c014395aa237ec94c2caeb9ebc494))
+
+
+
+
+
 # [1.0.0-beta.95](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.94...@ecomplus/widget-search-engine@1.0.0-beta.95) (2021-08-02)
 
 **Note:** Version bump only for package @ecomplus/widget-search-engine

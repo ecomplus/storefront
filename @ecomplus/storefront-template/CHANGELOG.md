@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.140](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.139...@ecomplus/storefront-template@2.0.0-beta.140) (2021-08-19)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.139](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.138...@ecomplus/storefront-template@2.0.0-beta.139) (2021-08-18)
+
+
+### Bug Fixes
+
+* **template/glide-slied:** prevent error observing empty carousel items ([7405238](https://github.com/ecomplus/storefront/commit/74052381bdd4069469e253e26401e04fcf3b0b12))
+
+
+
+
+
+# [2.0.0-beta.138](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.137...@ecomplus/storefront-template@2.0.0-beta.138) (2021-08-17)
+
+
+### Features
+
+* **template/cms:** add new menu config option to sort categories alphabetically [[#399](https://github.com/ecomplus/storefront/issues/399)] ([9f5f23b](https://github.com/ecomplus/storefront/commit/9f5f23b787423e78b8c52b3a1465421be14dd3d6))
+* **template/dynamic-showcase:** add new dynamic showcase section ui/cms section ([377a8a5](https://github.com/ecomplus/storefront/commit/377a8a52a48da6e6376b369a2db7a99df1bdf5ed))
+* **template/product-json-ld:** add `priceValidUntil` and `gtin` fields ([#515](https://github.com/ecomplus/storefront/issues/515)) ([7cbe73b](https://github.com/ecomplus/storefront/commit/7cbe73b2524166be79b2f19255226ed1de5655b9))
+
+
+
+
+
 # [2.0.0-beta.137](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.136...@ecomplus/storefront-template@2.0.0-beta.137) (2021-08-03)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
