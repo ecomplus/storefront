@@ -4,8 +4,13 @@ export default ({ baseDir }) => ({
   name: 'maintenance',
   fields: [
     {
+      label: 'Loja em manutenção',
+      name: 'active',
+      widget: 'boolean',
+      default: false
+    },
+    {
       label: 'Título da página de manutenção',
-      required: false,
       name: 'title',
       widget: 'string'
     },
@@ -13,13 +18,6 @@ export default ({ baseDir }) => ({
       label: 'Corpo',
       name: 'body',
       widget: 'markdown'
-    },
-    {
-      label: 'Loja em manutenção',
-      name: 'active',
-      widget: 'boolean',
-      default: false,
-      required: false
     }
   ]
 })
