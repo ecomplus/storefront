@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.99](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.98...@ecomplus/storefront-components@1.0.0-beta.99) (2021-09-02)
+
+
+### Features
+
+* **components/account-addresses:** handle new `canShowForm` prop and emit `show-form` event ([8961136](https://github.com/ecomplus/storefront/commit/896113678f2e53fa54b03e2c6a36ebb8e17089cf))
+
+
+
+
+
+
 # [1.0.0-beta.98](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.97...@ecomplus/storefront-components@1.0.0-beta.98) (2021-08-19)
 
 

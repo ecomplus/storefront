@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.98](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.97...@ecomplus/widget-search-engine@1.0.0-beta.98) (2021-09-02)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+
 # [1.0.0-beta.97](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.96...@ecomplus/widget-search-engine@1.0.0-beta.97) (2021-08-19)
 
 

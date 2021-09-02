@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.106](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.105...@ecomplus/storefront-app@2.0.0-beta.106) (2021-09-02)
+
+
+### Bug Fixes
+
+* **app/checkout:** dealing better whith address form and checkout steps ([9e5b07a](https://github.com/ecomplus/storefront/commit/9e5b07a7f2d39254b2c3f7060704d7915a18002d))
+
+
+
+
+
+
 # [2.0.0-beta.105](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.104...@ecomplus/storefront-app@2.0.0-beta.105) (2021-08-19)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
