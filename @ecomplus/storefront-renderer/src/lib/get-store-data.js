@@ -71,9 +71,17 @@ module.exports = (storeId = config.storeId, pubSrc = paths.pub, ecomManifest) =>
             })
           } else if (search) {
             // request with search engine instance
-            req = ecomSearch.fetch().then(() => {
-              data[prop] = ecomSearch.getItems()
-            })
+            req = ecomSearch.fetch()
+              .then(() => {
+                data[prop] = ecomSearch.getItems()
+              })
+              .catch(error => {
+                if (error.response && error.response.status === 404) {
+                  data[prop] = []
+                } else {
+                  throw error
+                }
+              })
           }
 
           // add request to promises list
