@@ -30,12 +30,16 @@ export default {
       }
     },
     zipCode: String,
-    formBtnText: String
+    formBtnText: String,
+    canShowForm: {
+      type: Boolean,
+      default: true
+    }
   },
 
   data () {
     return {
-      canShowForm: false,
+      isForm: false,
       isNewAddress: false,
       editAddressIndex: -1
     }
@@ -76,7 +80,7 @@ export default {
           this.isNewAddress = false
           this.selectAddress(address)
         }
-        this.canShowForm = false
+        this.isForm = false
       }
     }
   },
@@ -116,17 +120,17 @@ export default {
     addresses (newList, oldList) {
       if (!oldList.length) {
         if (newList.length && this.isNewAddress) {
-          this.canShowForm = this.isNewAddress = false
+          this.isForm = this.isNewAddress = false
         }
       } else if (!newList.length) {
-        this.canShowForm = this.isNewAddress = true
+        this.isForm = this.isNewAddress = true
       }
     },
 
     isNewAddress (isAddAddress) {
       if (isAddAddress) {
         this.editAddressIndex = this.addresses.length
-        this.canShowForm = true
+        this.isForm = true
       }
     },
 
@@ -136,11 +140,12 @@ export default {
         if (address) {
           this.selectAddress(address)
         }
-        this.canShowForm = true
+        this.isForm = true
       }
     },
 
-    canShowForm (isVisible) {
+    isForm (isVisible) {
+      this.$emit('show-form', isVisible)
       if (!isVisible) {
         this.editAddressIndex = -1
       }

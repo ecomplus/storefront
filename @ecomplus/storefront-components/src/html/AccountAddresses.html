@@ -2,7 +2,7 @@
   <transition-group enter-active-class="animated fadeIn">
     <address-form 
       key="form" 
-      v-if="canShowForm" 
+      v-if="isForm && canShowForm"
       :address.sync="localAddress" 
       :btn-text="formBtnText"
     />
