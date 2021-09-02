@@ -124,6 +124,7 @@ export default {
       editAccount: false,
       editShippingService: !this.shippingService,
       localZipCode: this.shippingZipCode,
+      isEditingAddr: false,
       paymentGateways: [],
       loyaltyPointsApplied: {},
       loyaltyPointsAmount: 0,
