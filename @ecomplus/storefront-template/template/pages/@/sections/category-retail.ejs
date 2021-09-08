@@ -3,11 +3,20 @@ const search = new _.EcomSearch()
 search
   .setCategoryNames([_.state.name])
   .setSortOrder(opt.sort)
-await search.fetch()
-let items = await search.getItems()
+let items
+try {
+  await search.fetch()
+  items = search.getItems()
+} catch (err) {
+  if (err.response && err.response.status === 404) {
+    console.error(err)
+  } else {
+    throw err
+  }
+}
 const categoryNames = [_.state.name]
 
-if (!items.length) {
+if (items && !items.length) {
   const childCategories = _.categories.filter(({ parent }) => {
     return parent && parent._id === _.state._id
   })
