@@ -9,7 +9,7 @@ if (!opt.items) {
     await search.fetch()
     items = search.getItems()
   } catch (err) {
-    if (err.response && err.response.status === 404) {
+    if (_.pageName === 'home' || (err.response && err.response.status === 404)) {
       items = []
       console.error(err)
     } else {
