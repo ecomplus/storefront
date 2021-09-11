@@ -11,6 +11,18 @@
   <transition :enter-active-class="transitionClass">
     <section v-if="!isLoading">
       <slot
+        name="new-tag"
+        v-bind="{ isNew }"
+      >
+        <span
+          v-if="isActive && isNew"
+          class="product-card__new-stamp"
+        >
+        {{ i19new }}
+        </span>
+      </slot>
+
+      <slot
         name="discount-tag"
         v-bind="{ discount }"
       >

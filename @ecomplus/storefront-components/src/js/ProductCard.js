@@ -2,7 +2,8 @@ import {
   i19buy,
   i19connectionErrorProductMsg,
   i19outOfStock,
-  i19unavailable
+  i19unavailable,
+  i19new
 } from '@ecomplus/i18n'
 
 import {
@@ -61,7 +62,11 @@ export default {
     },
     isLoaded: Boolean,
     installmentsOption: Object,
-    discountOption: Object
+    discountOption: Object,
+    timeToNew: {
+      type: Number,
+      default: 15
+    }
   },
 
   data () {
@@ -77,6 +82,7 @@ export default {
   computed: {
     i19outOfStock: () => i18n(i19outOfStock),
     i19unavailable: () => i18n(i19unavailable),
+    i19new: () => i18n(i19new),
 
     ratingHtml () {
       return getExternalHtml('Rating', this.body)
@@ -113,6 +119,16 @@ export default {
       return checkOnPromotion(body)
         ? Math.round(((body.base_price - getPrice(body)) * 100) / body.base_price)
         : 0
+    },
+
+    isNew () {
+      const { body } = this
+      const today = new Date()
+      const createdAt = new Date(body.created_at)
+      const differenceDates = today.getTime() - createdAt.getTime()
+      return differenceDates / (24 * 60 * 60 * 1000) < this.timeToNew 
+        ? true
+        : false
     }
   },
 
