@@ -38,7 +38,7 @@
   "dependencies": {
     "@babel/core": "^7.15.5",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
     "@ecomplus/storefront-renderer": "^2.8.2",
     "@ecomplus/storefront-router": "^2.2.1",
     "autoprefixer": "^9.8.6",
@@ -68,6 +68,6 @@
     "webpack-dev-middleware": "^3.7.3",
     "webpack-merge": "^4.2.2",
     "webpack-pwa-manifest": "^4.3.0",
-    "workbox-webpack-plugin": "^6.2.4"
+    "workbox-webpack-plugin": "^6.3.0"
   }
 }
