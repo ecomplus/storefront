@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-ebit#readme",
   "peerDependencies": {
-    "@ecomplus/passport-client": "^1.0.10",
+    "@ecomplus/passport-client": "^1.1.0",
     "@ecomplus/utils": "^1.4.1",
     "core-js": "3.x"
   },
