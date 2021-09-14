@@ -47,18 +47,22 @@ export default {
         this.orders = result
       })
       .catch(console.error)
+    const startInterval = () => {
+      this.updateInterval = setInterval(update, 7000)
+    }
     if (this.ecomPassport.checkAuthorization()) {
       this.ecomPassport.requestApi('/orders.json')
         .then(({ data }) => {
           const { result } = data
           this.ecomPassport.setCustomer({ orders: result })
-          this.orders = result
+          this.orders = result.sort((a, b) => a.number > b.number ? -1 : 1).slice(0, 10)
         })
         .catch(update)
+        .finally(startInterval)
     } else {
       update()
+      startInterval()
     }
-    this.updateInterval = setInterval(update, 5000)
   },
 
   beforeDestroy () {
