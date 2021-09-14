@@ -28,7 +28,9 @@ const fetchCart = _id => ecomClient.store({
     }
   }
   data.items.forEach(item => {
-    const currentItem = ecomCart.data.items.find(({ _id }) => _id === item._id)
+    const currentItem = ecomCart.data.items.find(({ _id, sku }) => {
+      return (item.sku && sku === item.sku) || _id === item._id
+    })
     if (!currentItem) {
       ecomCart.addItem(item)
     } else if (currentItem.quantity < item.quantity) {
