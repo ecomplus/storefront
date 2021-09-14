@@ -264,7 +264,9 @@ export default {
       if (!this.skipCustomerUpdate && localOrder.number && ecomPassport.checkAuthorization()) {
         ecomPassport.requestApi('/me.json')
           .then(({ data }) => {
-            const orders = data.orders || []
+            const orders = data.orders
+              ? data.orders.slice(-300)
+              : []
             const resumedOrderBody = {}
             ;[
               '_id',
