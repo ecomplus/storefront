@@ -3,10 +3,17 @@
 <%
 const maintenance = _.cms('maintenance') || {}
 if (maintenance.active) {
-  // redirect to maintanance page
+  // redirect to maintenance page
   %>
   <script>
-    if (!location.pathname.startsWith('/maintenance/')) {
+    var unlockKey
+    <% if (maintenance.unlock_key) { %>
+      unlockKey = '<%= maintenance.unlock_key %>'
+      if (location.hash === '#' + unlockKey) {
+        sessionStorage.setItem('unlockKey', unlockKey)
+      }
+    <% } %>
+    if (!location.pathname.startsWith('/maintenance/') && sessionStorage.getItem('unlockKey') !== unlockKey) {
       location.href = '/maintenance/'
     }
   </script>

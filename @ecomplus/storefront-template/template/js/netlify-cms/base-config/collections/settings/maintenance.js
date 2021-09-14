@@ -18,6 +18,13 @@ export default ({ baseDir }) => ({
       label: 'Corpo',
       name: 'body',
       widget: 'markdown'
+    },
+    {
+      label: 'Chave de desbloqueio',
+      name: 'unlock_key',
+      required: false,
+      widget: 'string',
+      hint: 'Se preenchido a loja poderá ser visualizada usando #CHAVE no URL'
     }
   ]
 })
