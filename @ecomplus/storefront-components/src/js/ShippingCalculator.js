@@ -145,6 +145,7 @@ export default {
     },
 
     parseShippingOptions (shippingResult = [], isRetry = false) {
+      this.freeFromValue = null
       this.shippingServices = []
       if (shippingResult.length) {
         shippingResult.forEach(appResult => {
