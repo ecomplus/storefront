@@ -19,7 +19,8 @@ export default {
 
   data () {
     return {
-      ecomPassport: ecomPassport
+      isMounted: false,
+      ecomPassport
     }
   },
 
@@ -31,7 +32,7 @@ export default {
       set (customer) {
         this.setCustomer(customer)
         const { ecomPassport } = this
-        if (ecomPassport && ecomPassport.checkAuthorization()) {
+        if (ecomPassport && ecomPassport.checkAuthorization() && this.isMounted) {
           this.triggerLoading(true)
           this.saveCustomer({ ecomPassport })
             .finally(() => this.triggerLoading(false))
@@ -81,5 +82,9 @@ export default {
         })
       }
     }
+  },
+
+  mounted () {
+    this.isMounted = true
   }
 }
