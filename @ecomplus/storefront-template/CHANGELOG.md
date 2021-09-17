@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.144](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.143...@ecomplus/storefront-template@2.0.0-beta.144) (2021-09-17)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/passport-client to v1.1.0 ([e43a2c0](https://github.com/ecomplus/storefront/commit/e43a2c09cb059ecb1a14b532ab5251be86739008))
+* **deps:** update @ecomplus/passport-client to v1.1.1 ([b713159](https://github.com/ecomplus/storefront/commit/b7131596a14556ca53c4608a234ace3b12b39943))
+* **template/grids:** prevent error with unset search index ([60870e9](https://github.com/ecomplus/storefront/commit/60870e9a4aee0d50331210f208f7954c34c8f485))
+* **template/retail-grid:** must not be blocking for home page rendering (dynamic showcase) ([34e8bb9](https://github.com/ecomplus/storefront/commit/34e8bb9fe7db16c232c66d1541c63f321024b0e3))
+
+
+### Features
+
+* **template/cms:** add configurable unlock key for maintenance page [[#486](https://github.com/ecomplus/storefront/issues/486)] ([abab318](https://github.com/ecomplus/storefront/commit/abab3185e7e38f442e27cc669ed5ae128a408514))
+
+
+
+
+
 # [2.0.0-beta.143](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.142...@ecomplus/storefront-template@2.0.0-beta.143) (2021-09-02)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

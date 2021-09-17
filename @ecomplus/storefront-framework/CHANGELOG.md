@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.17.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.30...@ecomplus/storefront-framework@5.17.0) (2021-09-17)
+
+
+### Features
+
+* **framework/robots-txt:** dynamically add add sitemap url to static robots.txt on build ([1018b84](https://github.com/ecomplus/storefront/commit/1018b84a8f766ef2fdd9ef4c117eac67feb60816))
+
+
+
+
+
 ## [5.16.30](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.16.29...@ecomplus/storefront-framework@5.16.30) (2021-09-02)
 
 

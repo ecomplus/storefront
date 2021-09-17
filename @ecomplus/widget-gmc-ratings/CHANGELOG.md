@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.16](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.2.15...@ecomplus/widget-gmc-ratings@1.2.16) (2021-09-17)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/passport-client to v1.1.0 ([e43a2c0](https://github.com/ecomplus/storefront/commit/e43a2c09cb059ecb1a14b532ab5251be86739008))
+* **deps:** update @ecomplus/passport-client to v1.1.1 ([b713159](https://github.com/ecomplus/storefront/commit/b7131596a14556ca53c4608a234ace3b12b39943))
+
+
+
+
+
 ## [1.2.15](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.2.14...@ecomplus/widget-gmc-ratings@1.2.15) (2021-07-24)
 
 **Note:** Version bump only for package @ecomplus/widget-gmc-ratings

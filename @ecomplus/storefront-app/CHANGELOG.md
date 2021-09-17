@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.107](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.106...@ecomplus/storefront-app@2.0.0-beta.107) (2021-09-17)
+
+
+### Bug Fixes
+
+* **app/order-info:** save up to 300 orders (last ones) on customer account data ([e470bfe](https://github.com/ecomplus/storefront/commit/e470bfe5d21a7cb36ee6a146e8677b6c32fb47a6))
+* **app/orders-list:** prevent bump effect by properlly sorting and slicing full orders list ([b0b152c](https://github.com/ecomplus/storefront/commit/b0b152c0e2194aa761bd839d9117d161aefd2014))
+* **app/sync-cart-to-api:** check cart item by sku or object id to update local cart ([26b91c2](https://github.com/ecomplus/storefront/commit/26b91c2e746a460b6d6623d9d13887f1eb9e54ec))
+* **deps:** update @ecomplus/passport-client to v1.1.0 ([e43a2c0](https://github.com/ecomplus/storefront/commit/e43a2c09cb059ecb1a14b532ab5251be86739008))
+* **deps:** update @ecomplus/passport-client to v1.1.1 ([b713159](https://github.com/ecomplus/storefront/commit/b7131596a14556ca53c4608a234ace3b12b39943))
+
+
+### Performance Improvements
+
+* **app/account:** prevent updating customer unnecessarily on preset ([cba90e5](https://github.com/ecomplus/storefront/commit/cba90e5ba3ac7f0d627d352757bf4c6c06287590))
+
+
+
+
+
 # [2.0.0-beta.106](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.105...@ecomplus/storefront-app@2.0.0-beta.106) (2021-09-02)
 
 
