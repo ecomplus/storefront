@@ -214,17 +214,33 @@ bundler.then(async ({ assetsByChunkName }) => {
     }
   }
 
-  if (!routes.find(({ path }) => path === '/sitemap.xml')) {
-    // generate Sitemap
-    const sitemapSrc = path.join(__dirname, '../../assets/sitemap.xml.ejs')
-    ejs.renderFile(sitemapSrc, { domain: settings.domain, routes }, (err, xml) => {
+  const { domain } = settings
+  if (domain) {
+    if (!routes.find(({ path }) => path === '/sitemap.xml')) {
+      // generate Sitemap
+      const sitemapSrc = path.join(__dirname, '../../assets/sitemap.xml.ejs')
+      ejs.renderFile(sitemapSrc, { domain, routes }, (err, xml) => {
+        if (err) {
+          console.error(err)
+        } else {
+          // save default sitemap.xml on output dir
+          fs.writeFileSync(path.join(paths.output, 'sitemap.xml'), xml)
+        }
+      })
+    }
+
+    // check robots.txt
+    fs.readFile(path.join(paths.output, 'robots.txt'), 'utf8', (err, txt) => {
       if (err) {
-        console.error(err)
-      } else {
-        // save default sitemap.xml on output dir
-        fs.writeFileSync(path.join(paths.output, 'sitemap.xml'), xml)
+        console.log('WARN: You should have a /template/public/admin/robots.txt file')
+      } else if (txt.indexOf('Sitemap:') === -1) {
+        // add sitemap to static robots.txt
+        txt += `\nSitemap: https://${domain}/sitemap.xml`
+        fs.writeFileSync(path.join(paths.output, 'robots.txt'), txt)
       }
     })
+  } else {
+    console.log('WARN: You should set domain on settings for SEO purposes')
   }
 
   // cache bundler result
