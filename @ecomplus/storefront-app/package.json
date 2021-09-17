@@ -35,7 +35,7 @@
   "dependencies": {
     "@ecomplus/client": "^2.2.1",
     "@ecomplus/i18n": "^1.23.0",
-    "@ecomplus/passport-client": "^1.1.0",
+    "@ecomplus/passport-client": "^1.1.1",
     "@ecomplus/shopping-cart": "^2.5.5",
     "@ecomplus/storefront-components": "^1.0.0-beta.99",
     "@ecomplus/storefront-twbs": "^5.11.1",
