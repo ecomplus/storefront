@@ -31,6 +31,10 @@ export default {
       'selectedAddress'
     ]),
 
+    cart () {
+      return ecomCart.data
+    },
+
     checkoutMode () {
       const { mode } = this.$route.params
       return mode ? mode.toLowerCase() : null

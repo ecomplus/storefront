@@ -4,10 +4,14 @@
       <div
         v-if="isLpCheckout"
         class="col-lg-4"
+        :class="cart.items.length ? null : 'offset-lg-4'"
       >
         <div ref="product"></div>
       </div>
-      <div class="col">
+      <div
+        v-if="!isLpCheckout || cart.items.length"
+        class="col"
+      >
         <ec-checkout
           :is-guest-checkout="isGuestCheckout"
           :can-recommend-items="!isLpCheckout"
