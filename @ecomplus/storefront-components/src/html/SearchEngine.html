@@ -35,15 +35,14 @@
           >
             <template v-once>
               <button
-                class="btn"
+                class="btn text-truncate"
                 type="button"
                 data-toggle="collapse"
                 :data-target="`#collapse-${filter}`"
                 :aria-expanded="i < 5 ? 'true' : 'false'"
                 :aria-controls="`collapse-${filter}`"
               >
-                <i class="fas fa-chevron-down"></i>
-                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i>
                 {{ getFilterLabel(filter) }}
               </button>
 
@@ -69,9 +68,7 @@
                     :for="`${filter}-${index}`"
                   >
                     {{ opt.key }}
-                    <small v-if="!isSpec">
-                      ({{ opt.doc_count }})
-                    </small>
+                    <small v-if="!isSpec">({{ opt.doc_count }})</small>
                   </label>
                 </div>
               </div>
