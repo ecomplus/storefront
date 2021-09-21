@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.108](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.107...@ecomplus/storefront-app@2.0.0-beta.108) (2021-09-21)
+
+
+### Bug Fixes
+
+* **app/checkout:** hide checkout block on lp while cart empty (product with variations) ([1f8391a](https://github.com/ecomplus/storefront/commit/1f8391a3d4c14dbf14adc527b9e05cf38bcac303))
+
+
+
+
+
 # [2.0.0-beta.107](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.106...@ecomplus/storefront-app@2.0.0-beta.107) (2021-09-17)
 
 

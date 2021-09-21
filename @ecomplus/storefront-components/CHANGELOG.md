@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.101](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.100...@ecomplus/storefront-components@1.0.0-beta.101) (2021-09-21)
+
+
+### Bug Fixes
+
+* **components/search-engine:** minor style fixes for filter btn and buttons (truncate) ([1768faf](https://github.com/ecomplus/storefront/commit/1768fafcd6b047e5b8763fb0e836c65faaf24f81))
+
+
+### Features
+
+* **components/search-engine:** add price range filters [[#512](https://github.com/ecomplus/storefront/issues/512)] ([97121b6](https://github.com/ecomplus/storefront/commit/97121b683c77b033f7d58356d37762f6c0857d41))
+
+
+
+
+
 # [1.0.0-beta.100](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.99...@ecomplus/storefront-components@1.0.0-beta.100) (2021-09-17)
 
 
