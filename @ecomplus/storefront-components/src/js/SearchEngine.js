@@ -1,4 +1,6 @@
 import {
+  // i19all,
+  i19asOf,
   i19brands,
   i19categories,
   i19clearFilters,
@@ -12,6 +14,7 @@ import {
   i19name,
   i19noResultsFor,
   i19popularProducts,
+  i19price,
   i19refineSearch,
   i19releases,
   i19relevance,
@@ -20,10 +23,15 @@ import {
   i19searchAgain,
   i19searchingFor,
   i19searchOfflineErrorMsg,
-  i19sort
+  i19sort,
+  i19upTo
 } from '@ecomplus/i18n'
 
-import { i18n } from '@ecomplus/utils'
+import {
+  i18n,
+  formatMoney
+} from '@ecomplus/utils'
+
 import lozad from 'lozad'
 import EcomSearch from '@ecomplus/search-engine'
 import { Portal } from '@linusborg/vue-simple-portal'
@@ -113,6 +121,9 @@ export default {
       noResultsTerm: '',
       keepNoResultsTerm: false,
       filters: [],
+      priceRange: {},
+      priceOptions: [],
+      hasSetPriceRange: false,
       lastSelectedFilter: null,
       selectedOptions: {},
       selectedSortOption: null,
@@ -129,6 +140,11 @@ export default {
   },
 
   computed: {
+    i19all: () => i18n({
+      en_us: 'All',
+      pt_br: 'Todos'
+    }),
+
     i19clearFilters: () => i18n(i19clearFilters),
     i19closeFilters: () => i18n(i19closeFilters),
     i19didYouMean: () => i18n(i19didYouMean),
@@ -137,6 +153,7 @@ export default {
     i19itemsFound: () => i18n(i19itemsFound),
     i19noResultsFor: () => i18n(i19noResultsFor),
     i19popularProducts: () => i18n(i19popularProducts),
+    i19price: () => i18n(i19price),
     i19refineSearch: () => i18n(i19refineSearch),
     i19relevance: () => i18n(i19relevance),
     i19results: () => i18n(i19results),
@@ -188,7 +205,10 @@ export default {
 
     isNavVisible () {
       return this.hasSearched && this.isFilterable &&
-        (this.isSearching || this.totalSearchResults > 8 || this.hasSelectedOptions)
+        (this.isSearching ||
+          this.totalSearchResults > 8 ||
+          this.hasSelectedOptions ||
+          this.hasSetPriceRange)
     },
 
     isResultsVisible () {
@@ -197,7 +217,8 @@ export default {
 
     hasFilters () {
       return this.hasSelectedOptions ||
-        this.filters.find(({ options }) => options.length)
+        this.filters.find(({ options }) => options.length) ||
+        this.hasSetPriceRange
     },
 
     suggestedItems () {
@@ -283,11 +304,36 @@ export default {
       }
       addFilter('Brands', this.ecomSearch.getBrands())
       addFilter('Categories', this.ecomSearch.getCategories())
-      this.ecomSearch.getSpecs().forEach(({ key, options }, index) => {
+      this.ecomSearch.getSpecs().forEach(({ key, options }) => {
         addFilter(key, options, true)
       })
       this.filters = this.filters.filter((_, i) => updatedFilters.includes(i))
       this.searchFilterId = Date.now()
+    },
+
+    updatePriceOptions () {
+      this.priceRange = this.ecomSearch.getPriceRange()
+      if (Math.round(this.priceRange.min) < Math.round(this.priceRange.avg)) {
+        const price1 = Math.ceil(Math.max(this.priceRange.min * 1.5, this.priceRange.avg / 2))
+        const price2 = Math.ceil(Math.min(this.priceRange.max / 1.5, this.priceRange.avg * 2))
+        if (price1 !== price2) {
+          this.priceOptions = [Math.min(price1, price2), Math.max(price1, price2), null]
+            .map((max, i, prices) => {
+              const min = prices[i - 1]
+              return {
+                min,
+                max,
+                label: !min
+                  ? `${i18n(i19upTo)} ${formatMoney(max)}`
+                  : i < 2
+                    ? `${formatMoney(min)} - ${formatMoney(max)}`
+                    : `${i18n(i19asOf)} ${formatMoney(min)}`
+              }
+            })
+          return
+        }
+      }
+      this.priceOptions = []
     },
 
     handleSuggestions () {
@@ -347,6 +393,7 @@ export default {
           }
         }
       }
+      this.updatePriceOptions()
       this.handleSuggestions()
       if (!this.totalSearchResults && this.hasPopularItems && !this.hasSetPopularItems) {
         this.fetchItems(false, true)
@@ -440,6 +487,32 @@ export default {
         default:
           ecomSearch.setSpec(filter, setOptions)
       }
+    },
+
+    handlePriceInputs () {
+      const { inputMinPrice, inputMaxPrice } = this.$refs
+      const min = Number(inputMinPrice.value) || null
+      const max = Number(inputMaxPrice.value) || null
+      if ((min && !max) || min <= max) {
+        this.setPriceRange(min, max)
+      }
+      inputMinPrice.value = (min || '')
+      inputMaxPrice.value = (max || '')
+    },
+
+    setPriceRange (min, max) {
+      if (
+        (min && min !== this.priceRange.min) ||
+        (max && max !== this.priceRange.max)
+      ) {
+        this.hasSetPriceRange = true
+      } else if (this.hasSetPriceRange) {
+        this.hasSetPriceRange = false
+      } else {
+        return
+      }
+      this.ecomSearch.setPriceRange(min, max)
+      this.scheduleFetch()
     },
 
     setFilterOption (filter, option, isSet) {

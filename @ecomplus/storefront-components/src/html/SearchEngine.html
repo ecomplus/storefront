@@ -27,6 +27,75 @@
           :key="searchFilterId"
         >
           <div
+            v-if="hasSetPriceRange || priceOptions.length"
+            class="search-engine__filter search-engine__filter--price"
+          >
+            <h5>{{ i19price }}</h5>
+            <a
+              v-if="hasSetPriceRange"
+              href="#"
+              class="btn btn-link btn-sm mb-2"
+              @click.prevent="setPriceRange()"
+            >
+              <i class="fas fa-arrow-left mr-1"></i>
+              {{ i19all }}
+            </a>
+
+            <div
+              class="search-engine__option custom-control custom-radio"
+              v-for="({ label, min, max }, index) in priceOptions"
+              :key="`Price-${index}`"
+            >
+              <input
+                type="radio"
+                class="custom-control-input"
+                name="price-option"
+                :id="`Price-${index}`"
+                @click="setPriceRange(min, max)"
+              >
+              <label
+                class="custom-control-label"
+                :for="`Price-${index}`"
+              >
+                {{ label }}
+              </label>
+            </div>
+
+            <div
+              v-if="priceRange.max - priceRange.min > 2"
+              class="search-engine__option-range input-group input-group-sm mt-2"
+            >
+              <input
+                ref="inputMinPrice"
+                type="text"
+                class="form-control"
+                aria-describedby="search-engine-price-range"
+                :aria-label="`Min ${i19price}`"
+                :placeholder="`Min: ${Math.floor(priceRange.min)}`"
+              >
+              <input
+                ref="inputMaxPrice"
+                type="text"
+                class="form-control"
+                aria-label="Max"
+                aria-describedby="search-engine-price-range"
+                :aria-label="`Max ${i19price}`"
+                :placeholder="`Max: ${Math.ceil(priceRange.max)}`"
+              >
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="search-engine-price-range"
+                  @click="handlePriceInputs()"
+                >
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
             v-for="({ filter, options, isSpec }, i) in filters"
             v-if="options.length"
             :key="`filters-${filter}`"
@@ -249,7 +318,7 @@
             </div>
           </template>
 
-          <h3 v-else-if="popularItems.length">
+          <h3 v-else-if="hasEmptyResult && popularItems.length">
             {{ i19popularProducts }}
           </h3>
 
