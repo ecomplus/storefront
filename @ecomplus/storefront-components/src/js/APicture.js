@@ -159,6 +159,10 @@ export default {
           const { localFallbackSrc } = this
           const $img = $el.tagName === 'IMG' ? $el : $el.lastChild
           $img.style.opacity = 0
+          if (this.imgHeight) {
+            $img.height = this.imgHeight
+            $img.width = this.imgWidth
+          }
           $img.onerror = function () {
             console.error(new Error('Image load error'), this)
             $el.style.display = 'none'
