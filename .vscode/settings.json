@@ -5,5 +5,8 @@
   "standard.run": "onSave",
   "yaml.schemas": {
     "https://json.schemastore.org/github-workflow": "/.github/workflows/**/*.yml"
+  },
+  "files.associations": {
+    "**/html/*.html": "vue-html"
   }
 }
