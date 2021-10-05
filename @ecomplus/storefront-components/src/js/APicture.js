@@ -69,6 +69,8 @@ export default {
   data () {
     return {
       sources: [],
+      imgWidth: 0,
+      imgHeight: 0,
       height: null,
       opacity: null
     }
@@ -116,10 +118,13 @@ export default {
         const imgObj = this.src[thumb]
         const { url, size } = (imgObj || this.defaultImgObj)
         srcset = url
-        if (clientWidth && size && this.canCalcHeight) {
-          const [width, height] = size.split('x').map(px => parseInt(px, 10))
-          if (height) {
-            this.height = `${(clientWidth >= width ? height : clientWidth * height / width)}px`
+        if (size) {
+          [this.imgWidth, this.imgHeight] = size.split('x').map(px => parseInt(px, 10))
+          if (clientWidth && this.imgHeight && this.canCalcHeight) {
+            this.height = (clientWidth >= this.imgWidth
+              ? this.imgHeight
+              : clientWidth * this.imgHeight / this.imgWidth) +
+              'px'
           }
         }
       } else {
