@@ -2,7 +2,6 @@
   "recommendations": [
     "atishay-jain.all-autocomplete",
     "standard.vscode-standard",
-    "xabikos.javascriptsnippets",
-    "bungcip.better-toml"
+    "xabikos.javascriptsnippets"
   ]
 }
