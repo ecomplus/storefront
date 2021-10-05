@@ -2,6 +2,8 @@
   "recommendations": [
     "atishay-jain.all-autocomplete",
     "standard.vscode-standard",
-    "xabikos.javascriptsnippets"
+    "xabikos.javascriptsnippets",
+    "digitalbrainstem.javascript-ejs-support",
+    "octref.vetur"
   ]
 }

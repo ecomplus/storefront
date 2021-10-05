@@ -4,3 +4,5 @@ vscode:
     - standard.vscode-standard
     - atishay-jain.all-autocomplete
     - xabikos.javascriptsnippets
+    - octref.vetur
+    - digitalbrainstem.javascript-ejs-support
