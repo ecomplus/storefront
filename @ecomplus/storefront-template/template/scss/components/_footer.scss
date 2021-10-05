@@ -1,7 +1,6 @@
 .footer {
   background: var(--light);
   border-top: var(--spacer-1) solid var(--secondary);
-  color: var(--gray);
 
   &__contacts {
     @media (min-width: 992px) {
