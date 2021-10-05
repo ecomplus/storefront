@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.146](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.145...@ecomplus/storefront-template@2.0.0-beta.146) (2021-10-05)
+
+
+### Performance Improvements
+
+* **scss:** minor a11y and stamps images aspec ratio fixes (footer) ([8737d09](https://github.com/ecomplus/storefront/commit/8737d09116322ec8b50ff7703b5411c3f4e91e5d))
+
+
+
+
+
 # [2.0.0-beta.145](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.144...@ecomplus/storefront-template@2.0.0-beta.145) (2021-09-21)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

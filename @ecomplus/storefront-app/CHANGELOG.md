@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.109](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.108...@ecomplus/storefront-app@2.0.0-beta.109) (2021-10-05)
+
+
+### Features
+
+* **app/cart:** parse `cart_items` url params if set, then clear url query ([3db8038](https://github.com/ecomplus/storefront/commit/3db80381e9e492fd4afd24f8351af00587b41517))
+
+
+
+
+
 # [2.0.0-beta.108](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.107...@ecomplus/storefront-app@2.0.0-beta.108) (2021-09-21)
 
 

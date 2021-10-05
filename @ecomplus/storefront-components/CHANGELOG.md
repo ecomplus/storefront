@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.102](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.101...@ecomplus/storefront-components@1.0.0-beta.102) (2021-10-05)
+
+
+### Performance Improvements
+
+* **components/picture:** explicitly show first picture <img> width/height when available ([4392360](https://github.com/ecomplus/storefront/commit/4392360ba212bba041d6193a08392aa414814f75))
+
+
+
+
+
 # [1.0.0-beta.101](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.100...@ecomplus/storefront-components@1.0.0-beta.101) (2021-09-21)
 
 
