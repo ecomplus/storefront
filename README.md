@@ -22,6 +22,8 @@
 
 ## Development
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ecomplus/storefront)
+
 Fork/clone this monorepo and install dependencies normally:
 
 ```bash
