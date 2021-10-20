@@ -87,7 +87,7 @@ export default {
 
     zipInfoLink () {
       return countryCode === 'BR'
-        ? 'http://www.buscacep.correios.com.br/sistemas/buscacep/default.cfm'
+        ? 'https://buscacepinter.correios.com.br/app/endereco/index.php'
         : null
     }
   },
