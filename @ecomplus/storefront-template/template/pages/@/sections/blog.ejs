@@ -5,32 +5,43 @@ if (Array.isArray(posts) && posts.length) {
     <div class="blog my-4 my-lg-5">
       <div class="container">
         <div class="row">
-          <% posts.forEach(slug => { %>
-            <% const { title, thumbnail, description } = _.cms(`posts/${slug}`) %>
+          <% let postsList = []
+          posts.forEach(slug => { 
+            const post = (_.cms(`posts/${slug}`))
+            post.slug = slug
+            postsList.push(post)
+            
+          }); 
+          postsList = postsList.sort(function(a,b){
+            return new Date(b.date) - new Date(a.date);
+          }) %>
+          <% postsList.forEach(post => { 
+            const { title, slug, thumbnail, description, date } = post 
+            %>
             <div class="col col-md-6 col-lg-4">
-              <div class="card">
-                <% if (thumbnail) { %>
+            <div class="card">
+              <% if (thumbnail) { %>
+                <a href="/posts/<%= slug %>">
+                  <img
+                    src="<%= thumbnail %>"
+                    class="card-img-top"
+                    alt="<%= title %>"
+                  >
+                </a>
+              <% } %>
+              <div class="card-body">
+                <h5 class="card-title">
                   <a href="/posts/<%= slug %>">
-                    <img
-                      src="<%= thumbnail %>"
-                      class="card-img-top"
-                      alt="<%= title %>"
-                    >
+                    <%= title %>
                   </a>
-                <% } %>
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <a href="/posts/<%= slug %>">
-                      <%= title %>
-                    </a>
-                  </h5>
-                  <p class="card-text">
-                    <%= description %>
-                  </p>
-                </div>
+                </h5>
+                <p class="card-text">
+                  <%= description %>
+                </p>
               </div>
             </div>
-          <% }) %>
+            </div>
+            <% }) %>
         </div>
       </div>
     </div>
