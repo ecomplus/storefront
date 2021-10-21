@@ -5,7 +5,8 @@ if (Array.isArray(posts) && posts.length) {
     <div class="blog my-4 my-lg-5">
       <div class="container">
         <div class="row">
-          <% const postsList = []
+          <%
+          const postsList = []
           posts.forEach(slug => { 
             const post = (_.cms(`posts/${slug}`))
             post.slug = slug
