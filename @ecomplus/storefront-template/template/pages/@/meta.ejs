@@ -53,8 +53,12 @@ if (pathname) {
       const picture = _.ecomUtils.img(_.state, null, 'zoom')
       ogImage = picture && picture.url
     }
-    if (!ogImage && social.og_image) {
-      ogImage = social.og_image.charAt(0) === '/' ? `https://${domain}${social.og_image}` : social.og_image
+    if (!ogImage) {
+      if (social.og_image) {
+        ogImage = social.og_image.charAt(0) === '/' ? `https://${domain}${social.og_image}` : social.og_image
+      }
+    } else {
+      ogImage = ogImage.replace(/(\w+\.)?(ecoms\d)\.com/i, '$2-nyc3.nyc3.cdn.digitaloceanspaces.com')
     }
   }
 }
