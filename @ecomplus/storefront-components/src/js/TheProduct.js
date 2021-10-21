@@ -15,7 +15,8 @@ import {
   i19unavailable,
   i19units,
   i19unitsInStock,
-  i19workingDays
+  i19workingDays,
+
 } from '@ecomplus/i18n'
 
 import {
@@ -28,7 +29,9 @@ import {
   variationsGrids as getVariationsGrids,
   specTextValue as getSpecTextValue,
   specValueByText as getSpecValueByText,
+  img as getImg,
   formatMoney
+  
 } from '@ecomplus/utils'
 
 import { store, modules } from '@ecomplus/client'
@@ -46,6 +49,7 @@ import ProductGallery from '../ProductGallery.vue'
 import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
+import APicture from '../APicture.vue'
 
 const storefront = (typeof window === 'object' && window.storefront) || {}
 const getContextBody = () => (storefront.context && storefront.context.body) || {}
@@ -74,7 +78,8 @@ export default {
     ProductGallery,
     QuantitySelector,
     ShippingCalculator,
-    PaymentOption
+    PaymentOption,
+    APicture
   },
 
   props: {
@@ -160,6 +165,12 @@ export default {
       return this.selectedVariation.name || getName(this.body)
     },
 
+    scroll () {
+      const scrollOnItem = document.querySelector('#scrollBy')
+        return scrollOnItem.scrollIntoView()
+    
+    },
+
     isInStock () {
       return checkInStock(this.body)
     },
@@ -172,6 +183,10 @@ export default {
       }
     },
 
+    img () {
+      return getImg(this.item.picture || this.item, null, 'small')
+    },
+
     isLowQuantity () {
       return this.productQuantity > 0 && this.lowQuantityToWarn > 0 &&
         this.productQuantity <= this.lowQuantityToWarn
@@ -180,6 +195,8 @@ export default {
     strBuy () {
       return this.buyText || i18n(i19buy)
     },
+
+
 
     discount () {
       const { body } = this
@@ -440,4 +457,5 @@ export default {
       this.fetchProduct()
     }
   }
+    
 }

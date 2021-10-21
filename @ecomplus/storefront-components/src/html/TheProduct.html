@@ -38,6 +38,7 @@
             </product-gallery>
             <slot name="gallery-footer"/>
           </component>
+          
         </div>
       </slot>
 
@@ -76,6 +77,7 @@
             <p class="product__unavailable">
               {{ i19unavailable }}
             </p>
+            
           </slot>
 
           <slot
@@ -249,7 +251,7 @@
                 <article>
                   <div class="product__payment card mb-3">
                     <a
-                      id="product-payment-header"
+                      id="product-payment-header scrollBy"
                       class="card-header"
                       role="button"
                       href="#product-payment"
@@ -260,7 +262,7 @@
                       <span>{{ i19paymentOptions }}</span>
                       <i class="fas fa-chevron-down"></i>
                     </a>
-
+                                  
                     <div
                       id="product-payment"
                       class="collapse"
@@ -348,5 +350,29 @@
     </div>
   </transition>
 
-  <slot v-if="!body._id"/>
+  <div class="quick-buy position-fixed pr-5">
+      <div class="img-info">
+        <a-picture
+        v-if="body"
+        :src="body"
+        />
+
+        <a-picture
+          v-else
+          class="d-none"
+        />
+      <p>{{name}}</p>
+      </div>
+
+      <a @prevent.click="scroll"
+        class="btn btn-primary btn-lg">
+
+       <slot name="buy-button-content">
+      <i class="fas fa-shopping-bag mr-1"></i>
+        {{ strBuy }}
+      </slot>
+    </a>
+    </div>
 </section>
+
+

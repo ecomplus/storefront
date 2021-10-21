@@ -1,3 +1,11 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-bottom: 200px;
+}
+
 .product {
   &__sku {
     color: var(--text-muted);
@@ -54,5 +62,60 @@
   &__free-shipping-from {
     font-size: var(--font-size);
     color: var(--secondary);
+  }
+
+  .quick-buy {
+    background-color: var(--white);
+    z-index: 5000;
+    bottom: 0;
+    left: 0;
+    padding: 5px 30px 10px 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: ease 0.2s;
+    box-shadow: 0px 1px 30px 0 rgba(50, 50, 50, 0.75);
+  }
+
+  .quick-buy a {
+    padding: 20px 10px;
+  }
+
+  .img-info img {
+    max-width: 6.5rem;
+    width: 100%;
+    display: block;
+    flex: 1;
+  }
+
+  .img-info {
+    display: flex;
+    align-items: center;
+  }
+
+  .img-info .picture {
+    display: flex;
+    width: 100px;
+  }
+
+  .img-info p {
+    margin: 12px;
+    align-self: center;
+  }
+
+  @media screen and (max-width: 715px) {
+    .quick-buy {
+      display: flex;
+      justify-content: center;
+    }
+
+    .quick-buy p {
+      display: none;
+    }
+
+   .img-info {
+     display: none;
+   }
   }
 }
