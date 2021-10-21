@@ -88,7 +88,7 @@
               {{ i19outOfStock }}
             </p>
           </slot>
-
+                  
           <template v-else>
             <slot name="prices">
               <p class="product__prices">
@@ -316,7 +316,10 @@
                   quantity: body.min_quantity || 1
                 }]"
               >
+
+              
                 <template v-slot:free-from-value="{ amountSubtotal, freeFromValue }">
+
                   <div class="product__free-shipping-from">
                     {{ i19freeShippingFrom }}
                     <strong>
@@ -324,6 +327,7 @@
                       {{ i19units }}
                     </strong>
                   </div>
+                  
                 </template>
               </shipping-calculator>
             </slot>
@@ -335,6 +339,42 @@
                 :data-sku="body.sku"
               ></div>
             </slot>
+            <div class="lozad quick-buy position-fixed  pr-5">
+          
+            <div class="img-info">
+            <a-picture
+              v-if="body"
+              :src="body"
+            >
+            </a-picture>
+            <p>{{name}}</p>
+
+            </div>
+
+            <div class="d-flex quick-buy_prices">
+              <span class="font-size-lg bold"> 
+                {{i19upTo}} 
+              </span> 
+           
+              <span> 
+              {{i19from}} 
+              </span> 
+            
+            <span> 
+              {{i19interestFree}}
+              {{body.installments}}
+            </span>
+        
+        <a class="btn btn-primary btn-lg">
+        
+        <slot name="buy-button-content">
+        <i class="fas fa-shopping-bag mr-1"></i>
+          {{ strBuy }}
+        </slot>
+      
+      </a>
+      </div>
+    </div>
           </template>
         </component>
 
@@ -350,29 +390,6 @@
     </div>
   </transition>
 
-  <div class="quick-buy position-fixed pr-5">
-      <div class="img-info">
-        <a-picture
-        v-if="body"
-        :src="body"
-        />
-
-        <a-picture
-          v-else
-          class="d-none"
-        />
-      <p>{{name}}</p>
-      </div>
-
-      <a @prevent.click="scroll"
-        class="btn btn-primary btn-lg">
-
-       <slot name="buy-button-content">
-      <i class="fas fa-shopping-bag mr-1"></i>
-        {{ strBuy }}
-      </slot>
-    </a>
-    </div>
 </section>
 
 

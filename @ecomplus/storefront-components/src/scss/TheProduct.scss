@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  padding-bottom: 200px;
+  padding-bottom: 100px;
 }
 
 .product {
@@ -69,24 +69,24 @@ body {
     z-index: 5000;
     bottom: 0;
     left: 0;
-    padding: 5px 30px 10px 30px;
+    padding: 5px 30px 5px 30px !important;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    transition: ease 0.2s;
+    transition: ease 0.5s;
     box-shadow: 0px 1px 30px 0 rgba(50, 50, 50, 0.75);
   }
 
   .quick-buy a {
-    padding: 20px 10px;
+    padding: 10px 50px;
+    display: block;
   }
 
   .img-info img {
     max-width: 6.5rem;
     width: 100%;
     display: block;
-    flex: 1;
   }
 
   .img-info {
@@ -94,14 +94,21 @@ body {
     align-items: center;
   }
 
-  .img-info .picture {
-    display: flex;
+  .img-info .picture{
     width: 100px;
+    max-width: 6.5rem;
   }
 
   .img-info p {
     margin: 12px;
     align-self: center;
+    font-weight: var(--font-light);
+  }
+
+
+  .quick-buy_prices {
+  
+    align-items: center;
   }
 
   @media screen and (max-width: 715px) {

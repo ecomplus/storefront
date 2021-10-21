@@ -16,6 +16,9 @@ import {
   i19units,
   i19unitsInStock,
   i19workingDays,
+  i19upTo,
+  i19interestFree,
+  i19from,
 
 } from '@ecomplus/i18n'
 
@@ -29,7 +32,6 @@ import {
   variationsGrids as getVariationsGrids,
   specTextValue as getSpecTextValue,
   specValueByText as getSpecValueByText,
-  img as getImg,
   formatMoney
   
 } from '@ecomplus/utils'
@@ -50,6 +52,8 @@ import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
 import APicture from '../APicture.vue'
+import lozad from 'lozad'
+import { observer } from '../../../storefront-template/template/js/lib/lazy-load'
 
 const storefront = (typeof window === 'object' && window.storefront) || {}
 const getContextBody = () => (storefront.context && storefront.context.body) || {}
@@ -154,6 +158,9 @@ export default {
     i19units: () => i18n(i19units).toLowerCase(),
     i19unitsInStock: () => i18n(i19unitsInStock),
     i19workingDays: () => i18n(i19workingDays),
+    i19upTo: () => i18n(i19upTo.toLowerCase()),
+    i19interestFree: () => i18n(i19interestFree),
+    i19from: () => i18n(i19from.toLowerCase()),
 
     selectedVariation () {
       return this.selectedVariationId
@@ -163,12 +170,6 @@ export default {
 
     name () {
       return this.selectedVariation.name || getName(this.body)
-    },
-
-    scroll () {
-      const scrollOnItem = document.querySelector('#scrollBy')
-        return scrollOnItem.scrollIntoView()
-    
     },
 
     isInStock () {
@@ -456,6 +457,12 @@ export default {
     } else {
       this.fetchProduct()
     }
-  }
+  },
+
+  mounted() {
     
+    
+  
+  }
+  
 }
