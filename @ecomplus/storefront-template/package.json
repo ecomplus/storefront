@@ -44,7 +44,7 @@
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-template#readme",
   "dependencies": {
     "@ecomplus/client": "^2.2.1",
-    "@ecomplus/i18n": "^1.23.0",
+    "@ecomplus/i18n": "^1.24.0",
     "@ecomplus/passport-client": "^1.1.1",
     "@ecomplus/search-engine": "^2.6.1",
     "@ecomplus/shopping-cart": "^2.5.5",
@@ -72,7 +72,7 @@
     "@ecomplus/widget-user": "^1.0.0-beta.100",
     "@glidejs/glide": "^3.4.1",
     "bootswatch": "^4.6.0",
-    "core-js": ">=3.16.0 <3.19",
+    "core-js": ">=3.16.0 <3.20",
     "ejs": "^3.1.6",
     "eventemitter3": "^4.0.7",
     "lodash.clonedeep": "^4.5.0",
