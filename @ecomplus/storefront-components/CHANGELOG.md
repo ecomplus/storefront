@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.104](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.103...@ecomplus/storefront-components@1.0.0-beta.104) (2021-10-25)
+
+
+### Bug Fixes
+
+* **components/address-form:** update correios cep finder url ([#546](https://github.com/ecomplus/storefront/issues/546)) ([3e425ed](https://github.com/ecomplus/storefront/commit/3e425ed06dc4c292cf7ffb55fa83b8ebd686b0e1))
+* **deps:** update all non-major dependencies ([#550](https://github.com/ecomplus/storefront/issues/550)) ([433f9c5](https://github.com/ecomplus/storefront/commit/433f9c51d5bbc2701351be74e1b9289a1cb1a28c))
+
+
+
+
+
 # [1.0.0-beta.103](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.102...@ecomplus/storefront-components@1.0.0-beta.103) (2021-10-05)
 
 
