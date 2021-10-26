@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .product {
   &__sku {
     color: var(--text-muted);
@@ -35,6 +39,7 @@
   }
 
   &__production {
+
     i,
     svg {
       color: var(--info);
@@ -45,7 +50,7 @@
     }
   }
 
-  &__payment > a {
+  &__payment>a {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,4 +60,106 @@
     font-size: var(--font-size);
     color: var(--secondary);
   }
-}
+
+
+  .product__sticky-buy {
+    opacity: 0;
+    display: flex;
+    transition: 3s ease-in-out;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    font-weight: 400;
+    padding: 10px 30px 10px 30px;
+    transition: 0.3s ease-in-out;
+    position: fixed;
+    z-index: 5000;
+    bottom: 0;
+    left: 0;
+    box-shadow: 5px 4px 9px black;
+    background-color: var(--white);
+
+    a {
+      padding: 10px 30px 10px 30px;
+      margin-left: 12px;
+      white-space: nowrap;
+    }
+
+    .prices {
+      font-weight: 500;
+      align-items: center;
+      display: flex;
+      justify-content: space-around;
+      padding: 0px 0px 0px 30px;
+      gap: 10px;
+      justify-content: end;
+      white-space: nowrap;
+
+      .prices__discount span {
+        font-size: 1rem;
+      }
+
+      strong {
+        font-size: 1.7rem;
+      }
+    }
+
+    .d-flex {
+      align-items: center;
+
+      p {
+        margin: 0px 0px 0px 15px;
+        word-wrap: break-word;
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+    }
+
+    .product__sticky-img {
+      width: 100px;
+    }
+
+
+  }
+
+  @media (max-width: 768px) {
+
+    .product__sticky-buy .prices {
+      display: none;
+
+      p,
+      img,
+      d-flex {
+        display: none;
+      }
+    }
+
+    .product__sticky-buy {
+      justify-content: center;
+      padding: 15px;
+
+      a {
+        padding: 15px 80px 15px 80px;
+        align-items: center;
+
+        i {
+          align-items: center;
+        }
+      }
+
+      d-flex,
+      p,
+      img {
+        display: none;
+      }
+
+      picture {
+        display: none;
+      }
+
+      #buy-now {
+        bottom: -2000px
+      }
+    }
+  }
+  }

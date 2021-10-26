@@ -28,15 +28,22 @@ import {
   variationsGrids as getVariationsGrids,
   specTextValue as getSpecTextValue,
   specValueByText as getSpecValueByText,
-  formatMoney
+  formatMoney,
+  img as getImg
+
 } from '@ecomplus/utils'
 
-import { store, modules } from '@ecomplus/client'
+import {
+  store,
+  modules
+} from '@ecomplus/client'
 import EcomSearch from '@ecomplus/search-engine'
 import ecomCart from '@ecomplus/shopping-cart'
 import sortApps from './helpers/sort-apps'
 import addIdleCallback from './helpers/add-idle-callback'
-import { Portal } from '@linusborg/vue-simple-portal'
+import {
+  Portal
+} from '@linusborg/vue-simple-portal'
 import ALink from '../ALink.vue'
 import AAlert from '../AAlert.vue'
 import APrices from '../APrices.vue'
@@ -46,6 +53,8 @@ import ProductGallery from '../ProductGallery.vue'
 import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
+import APicture from '../APicture.vue'
+import lozad from 'lozad'
 
 const storefront = (typeof window === 'object' && window.storefront) || {}
 const getContextBody = () => (storefront.context && storefront.context.body) || {}
@@ -74,7 +83,9 @@ export default {
     ProductGallery,
     QuantitySelector,
     ShippingCalculator,
-    PaymentOption
+    PaymentOption,
+    APicture,
+    lozad
   },
 
   props: {
@@ -94,6 +105,12 @@ export default {
       type: String,
       default: 'col-12 col-md-6'
     },
+
+    hasStickyScroll: {
+      type: Boolean,
+      default: true
+    },
+
     canAddToCart: {
       type: Boolean,
       default: true
@@ -117,7 +134,7 @@ export default {
     isSSR: Boolean
   },
 
-  data () {
+  data() {
     return {
       body: {},
       fixedPrice: null,
@@ -150,21 +167,28 @@ export default {
     i19unitsInStock: () => i18n(i19unitsInStock),
     i19workingDays: () => i18n(i19workingDays),
 
-    selectedVariation () {
-      return this.selectedVariationId
-        ? this.body.variations.find(({ _id }) => _id === this.selectedVariationId)
-        : {}
+    selectedVariation() {
+      return this.selectedVariationId ?
+        this.body.variations.find(({
+          _id
+        }) => _id === this.selectedVariationId) :
+        {}
     },
 
-    name () {
+    name() {
       return this.selectedVariation.name || getName(this.body)
     },
 
-    isInStock () {
+    isInStock() {
       return checkInStock(this.body)
     },
 
-    productQuantity () {
+    img() {
+      return getImg(this.body, null, 'small')
+    },
+
+
+    productQuantity() {
       if (this.selectedVariation.quantity) {
         return this.selectedVariation.quantity
       } else if (this.body.quantity) {
@@ -172,25 +196,27 @@ export default {
       }
     },
 
-    isLowQuantity () {
+    isLowQuantity() {
       return this.productQuantity > 0 && this.lowQuantityToWarn > 0 &&
         this.productQuantity <= this.lowQuantityToWarn
     },
 
-    strBuy () {
+    strBuy() {
       return this.buyText || i18n(i19buy)
     },
 
-    discount () {
-      const { body } = this
-      return checkOnPromotion(body)
-        ? Math.round(((body.base_price - getPrice(body)) * 100) / body.base_price)
-        : 0
+    discount() {
+      const {
+        body
+      } = this
+      return checkOnPromotion(body) ?
+        Math.round(((body.base_price - getPrice(body)) * 100) / body.base_price) :
+        0
     },
 
-    ghostProductForPrices () {
-      const prices = {}
-      ;['price', 'base_price'].forEach(field => {
+    ghostProductForPrices() {
+      const prices = {};
+      ['price', 'base_price'].forEach(field => {
         let price = this.selectedVariation[field] || this.body[field]
         if (price !== undefined) {
           this.customizations.forEach(customization => {
@@ -201,7 +227,9 @@ export default {
         }
         prices[field] = price
       })
-      const ghostProduct = { ...this.body }
+      const ghostProduct = {
+        ...this.body
+      }
       if (this.selectedVariationId) {
         Object.assign(ghostProduct, this.selectedVariation)
         delete ghostProduct.variations
@@ -212,11 +240,11 @@ export default {
       }
     },
 
-    hasVariations () {
+    hasVariations() {
       return this.body.variations && this.body.variations.length
     },
 
-    isKit () {
+    isKit() {
       return this.body.kit_composition && this.body.kit_composition.length
     }
   },
@@ -225,7 +253,7 @@ export default {
     getVariationsGrids,
     getSpecValueByText,
 
-    setBody (data) {
+    setBody(data) {
       this.body = {
         ...data,
         body_html: '',
@@ -235,15 +263,19 @@ export default {
       this.$emit('update:product', data)
     },
 
-    fetchProduct (isRetry = false) {
-      const { productId } = this
+    fetchProduct(isRetry = false) {
+      const {
+        productId
+      } = this
       store({
-        url: `/products/${productId}.json`,
-        axiosConfig: {
-          timeout: isRetry ? 2500 : 6000
-        }
-      })
-        .then(({ data }) => {
+          url: `/products/${productId}.json`,
+          axiosConfig: {
+            timeout: isRetry ? 2500 : 6000
+          }
+        })
+        .then(({
+          data
+        }) => {
           this.setBody(data)
           if (getContextId() === productId) {
             storefront.context.body = this.body
@@ -252,7 +284,9 @@ export default {
         })
         .catch(err => {
           console.error(err)
-          const { response } = err
+          const {
+            response
+          } = err
           if (!response || !(response.status >= 400 && response.status < 500)) {
             if (!isRetry) {
               this.fetchProduct(true)
@@ -266,30 +300,39 @@ export default {
         })
     },
 
-    getAdditionalPrice ({ type, addition }) {
-      return type === 'fixed'
-        ? addition
-        : getPrice(this.body) * addition / 100
+    getAdditionalPrice({
+      type,
+      addition
+    }) {
+      return type === 'fixed' ?
+        addition :
+        getPrice(this.body) * addition / 100
     },
 
-    formatAdditionalPrice (addToPrice) {
+    formatAdditionalPrice(addToPrice) {
       if (addToPrice && addToPrice.addition) {
         return formatMoney(this.getAdditionalPrice(addToPrice))
       }
       return ''
     },
 
-    setCustomizationOption (customization, text) {
-      const index = this.customizations.findIndex(({ _id }) => _id === customization._id)
+    setCustomizationOption(customization, text) {
+      const index = this.customizations.findIndex(({
+        _id
+      }) => _id === customization._id)
       if (text) {
         if (index > -1) {
-          this.customizations[index].option = { text }
+          this.customizations[index].option = {
+            text
+          }
         } else {
           this.customizations.push({
             _id: customization._id,
             label: customization.label,
             add_to_price: customization.add_to_price,
-            option: { text }
+            option: {
+              text
+            }
           })
         }
       } else if (index > -1) {
@@ -297,16 +340,22 @@ export default {
       }
     },
 
-    showVariationPicture (variation) {
+    showVariationPicture(variation) {
       if (variation.picture_id) {
-        const pictureIndex = this.body.pictures.findIndex(({ _id }) => {
+        const pictureIndex = this.body.pictures.findIndex(({
+          _id
+        }) => {
           return _id === variation.picture_id
         })
         this.currentGalleyImg = pictureIndex + 1
       }
     },
 
-    handleGridOption ({ gridId, gridIndex, optionText }) {
+    handleGridOption({
+      gridId,
+      gridIndex,
+      optionText
+    }) {
       if (gridIndex === 0) {
         const variation = this.body.variations.find(variation => {
           return getSpecTextValue(variation, gridId) === optionText
@@ -317,7 +366,7 @@ export default {
       }
     },
 
-    buy () {
+    buy() {
       this.hasClickedBuy = true
       const product = sanitizeProductBody(this.body)
       let variationId
@@ -328,17 +377,26 @@ export default {
           return
         }
       }
-      const { customizations } = this
-      this.$emit('buy', { product, variationId, customizations })
+      const {
+        customizations
+      } = this
+      this.$emit('buy', {
+        product,
+        variationId,
+        customizations
+      })
       if (this.canAddToCart) {
-        ecomCart.addProduct({ ...product, customizations }, variationId)
+        ecomCart.addProduct({
+          ...product,
+          customizations
+        }, variationId)
       }
       this.isOnCart = true
     }
   },
 
   watch: {
-    selectedVariationId (variationId) {
+    selectedVariationId(variationId) {
       if (variationId) {
         if (this.hasClickedBuy) {
           this.hasClickedBuy = false
@@ -347,23 +405,25 @@ export default {
       }
     },
 
-    fixedPrice (price) {
+    fixedPrice(price) {
       if (price > 0 && !this.isQuickview) {
         addIdleCallback(() => {
           modules({
-            url: '/list_payments.json',
-            method: 'POST',
-            data: {
-              amount: {
-                total: price
-              },
-              items: [{
-                ...sanitizeProductBody(this.body),
-                product_id: this.body._id
-              }]
-            }
-          })
-            .then(({ data }) => {
+              url: '/list_payments.json',
+              method: 'POST',
+              data: {
+                amount: {
+                  total: price
+                },
+                items: [{
+                  ...sanitizeProductBody(this.body),
+                  product_id: this.body._id
+                }]
+              }
+            })
+            .then(({
+              data
+            }) => {
               if (Array.isArray(this.paymentAppsSort) && this.paymentAppsSort.length) {
                 sortApps(data.result, this.paymentAppsSort)
               }
@@ -379,9 +439,9 @@ export default {
                 }, [])
                 .sort((a, b) => {
                   return a.discount_option && a.discount_option.value &&
-                    !(b.discount_option && b.discount_option.value)
-                    ? -1
-                    : 1
+                    !(b.discount_option && b.discount_option.value) ?
+                    -1 :
+                    1
                 })
             })
             .catch(console.error)
@@ -390,17 +450,23 @@ export default {
     },
 
     isKit: {
-      handler (isKit) {
+      handler(isKit) {
         if (isKit && !this.kitItems.length) {
           const kitComposition = this.body.kit_composition
           const ecomSearch = new EcomSearch()
           ecomSearch
             .setPageSize(kitComposition.length)
-            .setProductIds(kitComposition.map(({ _id }) => _id))
+            .setProductIds(kitComposition.map(({
+              _id
+            }) => _id))
             .fetch(true)
             .then(() => {
               ecomSearch.getItems().forEach(product => {
-                const { quantity } = kitComposition.find(({ _id }) => _id === product._id)
+                const {
+                  quantity
+                } = kitComposition.find(({
+                  _id
+                }) => _id === product._id)
                 const addKitItem = variationId => {
                   const item = ecomCart.parseProduct(product, variationId, quantity)
                   if (quantity) {
@@ -430,7 +496,7 @@ export default {
     }
   },
 
-  created () {
+  created() {
     if (this.product) {
       this.body = this.product
       if (this.isSSR) {
@@ -439,5 +505,41 @@ export default {
     } else {
       this.fetchProduct()
     }
+  },
+
+  mounted() {
+    const setStickyBuyObserver = (isToVisible = true) => {
+      const $div = document.createElement('div');
+      const stickyDiv = document.querySelector('.product__sticky-buy ').offsetHeight;
+      document.body.style.paddingBottom = `${stickyDiv}px`
+      $div.setAttribute('id', 'buy-now')
+      this.$refs.stickyAnchor.insertBefore($div, this.$refs.stickyBox);
+
+      if (isToVisible) {
+        $div.style.position = "absolute"
+        $div.style.bottom = isToVisible ? '-1200px' : '-300px'
+      }
+
+      if (window.innerWidth < 768) {
+        $div.style.position = "absolute"
+        $div.style.bottom = isToVisible ? '-1800px' : '-300px'
+      }
+
+      const obs = lozad($div, {
+        rootMargin: '0px 0px 200px 0px',
+        threshold: 0,
+        load: () => {
+          this.$refs.stickyBox.style.opacity = isToVisible ? '1' : '0'
+          $div.style.display = "none"
+          $div.remove()
+          setStickyBuyObserver(!isToVisible)
+        }
+      })
+
+      obs.observe();
+    }
+
+    setStickyBuyObserver()
+
   }
 }

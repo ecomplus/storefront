@@ -3,6 +3,7 @@
   :data-product-id="body._id"
   :data-sku="body.sku"
 >
+<div id="product__sticky-top"></div>
   <a-alert
     :can-show="hasLoadError"
     variant="danger"
@@ -314,6 +315,7 @@
                   quantity: body.min_quantity || 1
                 }]"
               >
+              
                 <template v-slot:free-from-value="{ amountSubtotal, freeFromValue }">
                   <div class="product__free-shipping-from">
                     {{ i19freeShippingFrom }}
@@ -325,7 +327,6 @@
                 </template>
               </shipping-calculator>
             </slot>
-
             <slot name="track-price">
               <div
                 v-once
@@ -335,7 +336,6 @@
             </slot>
           </template>
         </component>
-
         <slot
           v-if="!isSSR && body.short_description"
           name="short-description"
@@ -348,5 +348,53 @@
     </div>
   </transition>
 
+  <div ref="stickyAnchor">
+    <div 
+    class="product__sticky-buy" 
+    v-if="hasStickyScroll" 
+    ref="stickyBox"
+    >
+      <div class="d-flex">
+        <a-picture 
+        width="100px"
+        :src="img" 
+        class="product__sticky-img"
+        :canCalcHeight="false"
+        />
+        <p>{{name}}</p>
+      </div>
+
+      <div class="d-flex">
+        <a-prices
+        :product="ghostProductForPrices" 
+        :isLiteral="false" 
+        :canShowPriceOptions="true" 
+        :price="false"
+        v-if="isInStock"
+        />
+
+        <a 
+        class="btn btn-lg btn-primary" 
+        href="#buy-now"
+        v-if="isInStock">
+          
+        <slot name="buy-button-content">
+            <i class="fas fa-shopping-bag mr-1"></i>
+            {{ strBuy }}
+          </slot>
+        </a>
+
+        <a 
+        class="btn btn-lg btn-primary" 
+        href="#buy-now"
+        v-else>
+          
+        <slot name="offers-notification">
+            <i class="fas fa-bell"></i>
+          </slot>
+        </a>
+      </div>
+    </div>
+  </div>  
   <slot v-if="!body._id"/>
 </section>
