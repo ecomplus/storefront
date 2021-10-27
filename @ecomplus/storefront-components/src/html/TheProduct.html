@@ -3,7 +3,6 @@
   :data-product-id="body._id"
   :data-sku="body.sku"
 >
-<div id="product__sticky-top"></div>
   <a-alert
     :can-show="hasLoadError"
     variant="danger"
@@ -350,33 +349,34 @@
 
   <div ref="stickyAnchor">
     <div 
-    class="product__sticky-buy" 
-    v-if="hasStickyScroll" 
-    ref="stickyBox"
+      ref="stickyBox"
+      v-if="hasStickyBuyButton"
+      class="product__sticky-buy"  
     >
       <div class="d-flex">
         <a-picture 
-        width="100px"
-        :src="img" 
-        class="product__sticky-img"
-        :canCalcHeight="false"
+          :canCalcHeight="false"
+          :src="img"
+          width="100px" 
+          class="product__sticky-img"
         />
-        <p>{{name}}</p>
+          <p>{{name}}</p>
       </div>
 
       <div class="d-flex">
         <a-prices
-        :product="ghostProductForPrices" 
-        :isLiteral="false" 
-        :canShowPriceOptions="true" 
-        :price="false"
-        v-if="isInStock"
+          v-if="isInStock"
+          :product="ghostProductForPrices" 
+          :isLiteral="false" 
+          :canShowPriceOptions="true" 
+          :price="false"
         />
 
-        <a 
-        class="btn btn-lg btn-primary" 
-        href="#buy-now"
-        v-if="isInStock">
+        <a
+          v-if="isInStock" 
+          class="btn btn-lg btn-primary" 
+          href="#buy-now"
+        >
           
         <slot name="buy-button-content">
             <i class="fas fa-shopping-bag mr-1"></i>
@@ -385,9 +385,10 @@
         </a>
 
         <a 
-        class="btn btn-lg btn-primary" 
-        href="#buy-now"
-        v-else>
+          v-else
+          class="btn btn-lg btn-primary" 
+          href="#buy-now"
+        >
           
         <slot name="offers-notification">
             <i class="fas fa-bell"></i>
@@ -395,6 +396,7 @@
         </a>
       </div>
     </div>
-  </div>  
+  </div>
+    
   <slot v-if="!body._id"/>
 </section>

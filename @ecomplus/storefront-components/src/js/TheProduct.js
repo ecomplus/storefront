@@ -106,7 +106,7 @@ export default {
       default: 'col-12 col-md-6'
     },
 
-    hasStickyScroll: {
+    hasStickyBuyButton: {
       type: Boolean,
       default: true
     },
@@ -134,7 +134,7 @@ export default {
     isSSR: Boolean
   },
 
-  data() {
+  data () {
     return {
       body: {},
       fixedPrice: null,
@@ -167,28 +167,23 @@ export default {
     i19unitsInStock: () => i18n(i19unitsInStock),
     i19workingDays: () => i18n(i19workingDays),
 
-    selectedVariation() {
-      return this.selectedVariationId ?
-        this.body.variations.find(({
-          _id
-        }) => _id === this.selectedVariationId) :
-        {}
+    selectedVariation () {
+      return this.selectedVariationId ? this.body.variations.find(({ _id }) => _id === this.selectedVariationId) : {}
     },
 
-    name() {
+    name () {
       return this.selectedVariation.name || getName(this.body)
     },
 
-    isInStock() {
+    isInStock () {
       return checkInStock(this.body)
     },
 
-    img() {
+    img () {
       return getImg(this.body, null, 'small')
     },
 
-
-    productQuantity() {
+    productQuantity () {
       if (this.selectedVariation.quantity) {
         return this.selectedVariation.quantity
       } else if (this.body.quantity) {
@@ -196,25 +191,23 @@ export default {
       }
     },
 
-    isLowQuantity() {
+    isLowQuantity () {
       return this.productQuantity > 0 && this.lowQuantityToWarn > 0 &&
         this.productQuantity <= this.lowQuantityToWarn
     },
 
-    strBuy() {
+    strBuy () {
       return this.buyText || i18n(i19buy)
     },
 
-    discount() {
+    discount () {
       const {
         body
       } = this
-      return checkOnPromotion(body) ?
-        Math.round(((body.base_price - getPrice(body)) * 100) / body.base_price) :
-        0
+      return checkOnPromotion(body) ? Math.round(((body.base_price - getPrice(body)) * 100) / body.base_price) : 0
     },
 
-    ghostProductForPrices() {
+    ghostProductForPrices () {
       const prices = {};
       ['price', 'base_price'].forEach(field => {
         let price = this.selectedVariation[field] || this.body[field]
@@ -240,11 +233,11 @@ export default {
       }
     },
 
-    hasVariations() {
+    hasVariations () {
       return this.body.variations && this.body.variations.length
     },
 
-    isKit() {
+    isKit () {
       return this.body.kit_composition && this.body.kit_composition.length
     }
   },
@@ -253,7 +246,7 @@ export default {
     getVariationsGrids,
     getSpecValueByText,
 
-    setBody(data) {
+    setBody (data) {
       this.body = {
         ...data,
         body_html: '',
@@ -263,16 +256,16 @@ export default {
       this.$emit('update:product', data)
     },
 
-    fetchProduct(isRetry = false) {
+    fetchProduct (isRetry = false) {
       const {
         productId
       } = this
       store({
-          url: `/products/${productId}.json`,
-          axiosConfig: {
-            timeout: isRetry ? 2500 : 6000
-          }
-        })
+        url: `/products/${productId}.json`,
+        axiosConfig: {
+          timeout: isRetry ? 2500 : 6000
+        }
+      })
         .then(({
           data
         }) => {
@@ -300,23 +293,21 @@ export default {
         })
     },
 
-    getAdditionalPrice({
+    getAdditionalPrice ({
       type,
       addition
     }) {
-      return type === 'fixed' ?
-        addition :
-        getPrice(this.body) * addition / 100
+      return type === 'fixed' ? addition : getPrice(this.body) * addition / 100
     },
 
-    formatAdditionalPrice(addToPrice) {
+    formatAdditionalPrice (addToPrice) {
       if (addToPrice && addToPrice.addition) {
         return formatMoney(this.getAdditionalPrice(addToPrice))
       }
       return ''
     },
 
-    setCustomizationOption(customization, text) {
+    setCustomizationOption (customization, text) {
       const index = this.customizations.findIndex(({
         _id
       }) => _id === customization._id)
@@ -340,7 +331,7 @@ export default {
       }
     },
 
-    showVariationPicture(variation) {
+    showVariationPicture (variation) {
       if (variation.picture_id) {
         const pictureIndex = this.body.pictures.findIndex(({
           _id
@@ -351,7 +342,7 @@ export default {
       }
     },
 
-    handleGridOption({
+    handleGridOption ({
       gridId,
       gridIndex,
       optionText
@@ -366,7 +357,7 @@ export default {
       }
     },
 
-    buy() {
+    buy () {
       this.hasClickedBuy = true
       const product = sanitizeProductBody(this.body)
       let variationId
@@ -396,7 +387,7 @@ export default {
   },
 
   watch: {
-    selectedVariationId(variationId) {
+    selectedVariationId (variationId) {
       if (variationId) {
         if (this.hasClickedBuy) {
           this.hasClickedBuy = false
@@ -405,22 +396,19 @@ export default {
       }
     },
 
-    fixedPrice(price) {
+    fixedPrice (price) {
       if (price > 0 && !this.isQuickview) {
         addIdleCallback(() => {
           modules({
-              url: '/list_payments.json',
-              method: 'POST',
-              data: {
-                amount: {
-                  total: price
-                },
-                items: [{
-                  ...sanitizeProductBody(this.body),
-                  product_id: this.body._id
-                }]
-              }
-            })
+            url: '/list_payments.json',
+            method: 'POST',
+            data: {
+              amount: {
+                total: price
+              },
+              items: [{ ...sanitizeProductBody(this.body), product_id: this.body._id }]
+            }
+          })
             .then(({
               data
             }) => {
@@ -438,10 +426,7 @@ export default {
                   return paymentOptions
                 }, [])
                 .sort((a, b) => {
-                  return a.discount_option && a.discount_option.value &&
-                    !(b.discount_option && b.discount_option.value) ?
-                    -1 :
-                    1
+                  return a.discount_option && a.discount_option.value && !(b.discount_option && b.discount_option.value) ? -1 : 1
                 })
             })
             .catch(console.error)
@@ -450,7 +435,7 @@ export default {
     },
 
     isKit: {
-      handler(isKit) {
+      handler (isKit) {
         if (isKit && !this.kitItems.length) {
           const kitComposition = this.body.kit_composition
           const ecomSearch = new EcomSearch()
@@ -496,7 +481,7 @@ export default {
     }
   },
 
-  created() {
+  created () {
     if (this.product) {
       this.body = this.product
       if (this.isSSR) {
@@ -507,21 +492,21 @@ export default {
     }
   },
 
-  mounted() {
+  mounted () {
     const setStickyBuyObserver = (isToVisible = true) => {
-      const $div = document.createElement('div');
-      const stickyDiv = document.querySelector('.product__sticky-buy ').offsetHeight;
+      const $div = document.createElement('div')
+      const stickyDiv = document.querySelector('.product__sticky-buy').offsetHeight
       document.body.style.paddingBottom = `${stickyDiv}px`
       $div.setAttribute('id', 'buy-now')
-      this.$refs.stickyAnchor.insertBefore($div, this.$refs.stickyBox);
+      this.$refs.stickyAnchor.insertBefore($div, this.$refs.stickyBox)
 
       if (isToVisible) {
-        $div.style.position = "absolute"
+        $div.style.position = 'absolute'
         $div.style.bottom = isToVisible ? '-1200px' : '-300px'
       }
 
       if (window.innerWidth < 768) {
-        $div.style.position = "absolute"
+        $div.style.position = 'absolute'
         $div.style.bottom = isToVisible ? '-1800px' : '-300px'
       }
 
@@ -530,16 +515,15 @@ export default {
         threshold: 0,
         load: () => {
           this.$refs.stickyBox.style.opacity = isToVisible ? '1' : '0'
-          $div.style.display = "none"
+          $div.style.display = 'none'
           $div.remove()
           setStickyBuyObserver(!isToVisible)
         }
       })
 
-      obs.observe();
+      obs.observe()
     }
 
     setStickyBuyObserver()
-
   }
 }
