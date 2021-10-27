@@ -5,8 +5,19 @@ if (Array.isArray(posts) && posts.length) {
     <div class="blog my-4 my-lg-5">
       <div class="container">
         <div class="row">
-          <% posts.forEach(slug => { %>
-            <% const { title, thumbnail, description } = _.cms(`posts/${slug}`) %>
+          <%
+          const postsList = []
+          posts.forEach(slug => { 
+            const post = (_.cms(`posts/${slug}`))
+            post.slug = slug
+            postsList.push(post)            
+          }) 
+          postsList.sort((a, b) => {
+            return b.date > a.date ? 1 : -1
+          })
+          postsList.forEach(post => { 
+            const { title, slug, thumbnail, description } = post 
+            %>
             <div class="col col-md-6 col-lg-4">
               <div class="card">
                 <% if (thumbnail) { %>

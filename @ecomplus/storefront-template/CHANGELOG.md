@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.148](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.147...@ecomplus/storefront-template@2.0.0-beta.148) (2021-10-25)
+
+
+### Bug Fixes
+
+* **cms:** set function `tryImageSize` to ejs render on preview ([0b0dc95](https://github.com/ecomplus/storefront/commit/0b0dc956d8201f3930d81e5bde52eac3eb01d342))
+* **deps:** update all non-major dependencies ([#550](https://github.com/ecomplus/storefront/issues/550)) ([433f9c5](https://github.com/ecomplus/storefront/commit/433f9c51d5bbc2701351be74e1b9289a1cb1a28c))
+* **template/blog:** sort blog posts by date ([#548](https://github.com/ecomplus/storefront/issues/548)) ([45f7e2b](https://github.com/ecomplus/storefront/commit/45f7e2b5933ebc17438bb10938d7d8b8535af93e))
+* **template/cms:** remove not available `superhero` bootswatch theme option ([250b6ef](https://github.com/ecomplus/storefront/commit/250b6ef893c9bcc555a6bba0c603d1d39cbe1cd4))
+* **template/meta-og-image:** prevent undefined `ogImage` error ([7635269](https://github.com/ecomplus/storefront/commit/76352690b00c4f95dd83f7f9ab9129b7947e6208))
+* **template/meta-og-image:** replace resource (products) picture url to do cdn directly ([f630da1](https://github.com/ecomplus/storefront/commit/f630da196bf8a9f8c7e153cb57fdfa359c5e09e8))
+* **template/product-microdata:** replace picture url on jsonld to do cdn directly ([b1a5099](https://github.com/ecomplus/storefront/commit/b1a5099b607cf6a66ae718a829333c2954488e13))
+
+
+
+
+
 # [2.0.0-beta.147](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.146...@ecomplus/storefront-template@2.0.0-beta.147) (2021-10-05)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

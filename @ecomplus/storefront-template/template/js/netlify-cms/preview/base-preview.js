@@ -57,6 +57,7 @@ export default class BasePreview extends React.Component {
       ..._settings,
       settings: _settings,
       devMode: true,
+
       cms: function (content) {
         const contents = {
           info: _info,
@@ -96,6 +97,10 @@ export default class BasePreview extends React.Component {
           return this._.cms(`dictionary/${lang}`)[term] || ''
         }
         return this._.cms(`dictionary/${lang}`)
+      },
+
+      tryImageSize: function () {
+        return {}
       },
 
       md: new MarkdownIt({ html: true }),
