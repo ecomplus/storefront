@@ -205,8 +205,8 @@ export default {
     },
 
     ghostProductForPrices () {
-      const prices = {};
-      ['price', 'base_price'].forEach(field => {
+      const prices = {}
+      ;['price', 'base_price'].forEach(field => {
         let price = this.selectedVariation[field] || this.body[field]
         if (price !== undefined) {
           this.customizations.forEach(customization => {
