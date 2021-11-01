@@ -403,7 +403,7 @@ export default {
                 }, [])
                 .sort((a, b) => {
                   return a.discount_option && a.discount_option.value &&
-                  !(b.discount_option && b.discount_option.value)
+                    !(b.discount_option && b.discount_option.value)
                     ? -1
                     : 1
                 })
