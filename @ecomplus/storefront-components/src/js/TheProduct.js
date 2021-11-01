@@ -41,6 +41,8 @@ import EcomSearch from '@ecomplus/search-engine'
 import ecomCart from '@ecomplus/shopping-cart'
 import sortApps from './helpers/sort-apps'
 import addIdleCallback from './helpers/add-idle-callback'
+import scrollToElement from './helpers/scroll-to-element'
+
 import {
   Portal
 } from '@linusborg/vue-simple-portal'
@@ -106,6 +108,11 @@ export default {
       default: 'col-12 col-md-6'
     },
 
+    isStickyBuyVisible: {
+      type: Boolean,
+      default: true
+    },
+
     hasStickyBuyButton: {
       type: Boolean,
       default: true
@@ -140,6 +147,7 @@ export default {
       fixedPrice: null,
       selectedVariationId: null,
       currentGalleyImg: 1,
+      isVisible: true,
       isOnCart: false,
       hasClickedBuy: false,
       hasLoadError: false,
@@ -168,7 +176,9 @@ export default {
     i19workingDays: () => i18n(i19workingDays),
 
     selectedVariation () {
-      return this.selectedVariationId ? this.body.variations.find(({ _id }) => _id === this.selectedVariationId) : {}
+      return this.selectedVariationId
+        ? this.body.variations.find(({ _id }) => _id === this.selectedVariationId)
+        : {}
     },
 
     name () {
@@ -201,10 +211,10 @@ export default {
     },
 
     discount () {
-      const {
-        body
-      } = this
-      return checkOnPromotion(body) ? Math.round(((body.base_price - getPrice(body)) * 100) / body.base_price) : 0
+      const { body } = this
+      return checkOnPromotion(body)
+        ? Math.round(((body.base_price - getPrice(body)) * 100) / body.base_price)
+        : 0
     },
 
     ghostProductForPrices () {
@@ -220,9 +230,7 @@ export default {
         }
         prices[field] = price
       })
-      const ghostProduct = {
-        ...this.body
-      }
+      const ghostProduct = { ...this.body }
       if (this.selectedVariationId) {
         Object.assign(ghostProduct, this.selectedVariation)
         delete ghostProduct.variations
@@ -246,6 +254,10 @@ export default {
     getVariationsGrids,
     getSpecValueByText,
 
+    goToProduct () {
+      return scrollToElement(this.$refs.stickyToTop.$el, 120)
+    },
+
     setBody (data) {
       this.body = {
         ...data,
@@ -257,18 +269,14 @@ export default {
     },
 
     fetchProduct (isRetry = false) {
-      const {
-        productId
-      } = this
+      const { productId } = this
       store({
         url: `/products/${productId}.json`,
         axiosConfig: {
           timeout: isRetry ? 2500 : 6000
         }
       })
-        .then(({
-          data
-        }) => {
+        .then(({ data }) => {
           this.setBody(data)
           if (getContextId() === productId) {
             storefront.context.body = this.body
@@ -277,9 +285,7 @@ export default {
         })
         .catch(err => {
           console.error(err)
-          const {
-            response
-          } = err
+          const { response } = err
           if (!response || !(response.status >= 400 && response.status < 500)) {
             if (!isRetry) {
               this.fetchProduct(true)
@@ -297,7 +303,9 @@ export default {
       type,
       addition
     }) {
-      return type === 'fixed' ? addition : getPrice(this.body) * addition / 100
+      return type === 'fixed'
+        ? addition
+        : getPrice(this.body) * addition / 100
     },
 
     formatAdditionalPrice (addToPrice) {
@@ -308,9 +316,7 @@ export default {
     },
 
     setCustomizationOption (customization, text) {
-      const index = this.customizations.findIndex(({
-        _id
-      }) => _id === customization._id)
+      const index = this.customizations.findIndex(({ _id }) => _id === customization._id)
       if (text) {
         if (index > -1) {
           this.customizations[index].option = {
@@ -333,20 +339,14 @@ export default {
 
     showVariationPicture (variation) {
       if (variation.picture_id) {
-        const pictureIndex = this.body.pictures.findIndex(({
-          _id
-        }) => {
+        const pictureIndex = this.body.pictures.findIndex(({ _id }) => {
           return _id === variation.picture_id
         })
         this.currentGalleyImg = pictureIndex + 1
       }
     },
 
-    handleGridOption ({
-      gridId,
-      gridIndex,
-      optionText
-    }) {
+    handleGridOption ({ gridId, gridIndex, optionText }) {
       if (gridIndex === 0) {
         const variation = this.body.variations.find(variation => {
           return getSpecTextValue(variation, gridId) === optionText
@@ -368,19 +368,10 @@ export default {
           return
         }
       }
-      const {
-        customizations
-      } = this
-      this.$emit('buy', {
-        product,
-        variationId,
-        customizations
-      })
+      const { customizations } = this
+      this.$emit('buy', { product, variationId, customizations })
       if (this.canAddToCart) {
-        ecomCart.addProduct({
-          ...product,
-          customizations
-        }, variationId)
+        ecomCart.addProduct({ ...product, customizations }, variationId)
       }
       this.isOnCart = true
     }
@@ -406,12 +397,13 @@ export default {
               amount: {
                 total: price
               },
-              items: [{ ...sanitizeProductBody(this.body), product_id: this.body._id }]
+              items: [{
+                ...sanitizeProductBody(this.body),
+                product_id: this.body._id
+              }]
             }
           })
-            .then(({
-              data
-            }) => {
+            .then(({ data }) => {
               if (Array.isArray(this.paymentAppsSort) && this.paymentAppsSort.length) {
                 sortApps(data.result, this.paymentAppsSort)
               }
@@ -426,7 +418,10 @@ export default {
                   return paymentOptions
                 }, [])
                 .sort((a, b) => {
-                  return a.discount_option && a.discount_option.value && !(b.discount_option && b.discount_option.value) ? -1 : 1
+                  return a.discount_option && a.discount_option.value &&
+                  !(b.discount_option && b.discount_option.value)
+                    ? -1
+                    : 1
                 })
             })
             .catch(console.error)
@@ -441,17 +436,11 @@ export default {
           const ecomSearch = new EcomSearch()
           ecomSearch
             .setPageSize(kitComposition.length)
-            .setProductIds(kitComposition.map(({
-              _id
-            }) => _id))
+            .setProductIds(kitComposition.map(({ _id }) => _id))
             .fetch(true)
             .then(() => {
               ecomSearch.getItems().forEach(product => {
-                const {
-                  quantity
-                } = kitComposition.find(({
-                  _id
-                }) => _id === product._id)
+                const { quantity } = kitComposition.find(({ _id }) => _id === product._id)
                 const addKitItem = variationId => {
                   const item = ecomCart.parseProduct(product, variationId, quantity)
                   if (quantity) {
@@ -497,25 +486,20 @@ export default {
       const $div = document.createElement('div')
       const stickyDiv = document.querySelector('.product__sticky-buy').offsetHeight
       document.body.style.paddingBottom = `${stickyDiv}px`
-      $div.setAttribute('id', 'buy-now')
       this.$refs.stickyAnchor.insertBefore($div, this.$refs.stickyBox)
 
       if (isToVisible) {
         $div.style.position = 'absolute'
-        $div.style.bottom = isToVisible ? '-1200px' : '-300px'
-      }
-
-      if (window.innerWidth < 768) {
-        $div.style.position = 'absolute'
-        $div.style.bottom = isToVisible ? '-1800px' : '-300px'
+        $div.style.bottom = isToVisible
+          ? '-800px'
+          : '-500px'
       }
 
       const obs = lozad($div, {
-        rootMargin: '0px 0px 200px 0px',
+        rootMargin: '100px',
         threshold: 0,
         load: () => {
-          this.$refs.stickyBox.style.opacity = isToVisible ? '1' : '0'
-          $div.style.display = 'none'
+          this.$refs.stickyBox.style.display = isToVisible ? 'flex' : 'none'
           $div.remove()
           setStickyBuyObserver(!isToVisible)
         }
@@ -523,7 +507,6 @@ export default {
 
       obs.observe()
     }
-
     setStickyBuyObserver()
   }
 }

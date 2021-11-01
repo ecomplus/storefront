@@ -60,6 +60,7 @@
         <component
           :is="isSSR ? 'portal' : 'div'"
           selector="#product-actions"
+          ref="stickyToTop"
         >
           <slot name="rating">
             <div
@@ -331,7 +332,8 @@
                 v-once
                 class="product__track-price"
                 :data-sku="body.sku"
-              ></div>
+              >
+              </div>
             </slot>
           </template>
         </component>
@@ -347,56 +349,60 @@
     </div>
   </transition>
 
-  <div ref="stickyAnchor">
-    <div 
-      ref="stickyBox"
-      v-if="hasStickyBuyButton"
-      class="product__sticky-buy"  
+  <div 
+    ref="stickyAnchor" 
+    v-if="isInStock" 
+    v-show="body.available"
     >
-      <div class="d-flex">
+    <div 
+      v-if="hasStickyBuyButton"
+      ref="stickyBox" 
+      class="product__sticky-buy"
+      >
+      <div 
+        id="product__sticky-name" 
+        class="d-flex"
+      >
         <a-picture 
-          :canCalcHeight="false"
-          :src="img"
-          width="100px" 
-          class="product__sticky-img"
-        />
+          :can-calc-height="false" 
+          :src="img" width="100px" 
+          class="product__sticky-img" 
+          />
+        
           <p>{{name}}</p>
       </div>
 
-      <div class="d-flex">
-        <a-prices
-          v-if="isInStock"
+      <div class="d-flex product__sticky-buy-button">
+        <a-prices 
           :product="ghostProductForPrices" 
           :isLiteral="false" 
-          :canShowPriceOptions="true" 
-          :price="false"
-        />
-
-        <a
-          v-if="isInStock" 
-          class="btn btn-lg btn-primary" 
-          href="#buy-now"
-        >
-          
-        <slot name="buy-button-content">
-            <i class="fas fa-shopping-bag mr-1"></i>
-            {{ strBuy }}
-          </slot>
-        </a>
-
+          :can-show-price-options="true" 
+          :price="false" 
+          />
+     
         <a 
-          v-else
-          class="btn btn-lg btn-primary" 
-          href="#buy-now"
-        >
-          
-        <slot name="offers-notification">
-            <i class="fas fa-bell"></i>
-          </slot>
+          v-if="hasVariations || isKit" 
+          class="btn btn-lg btn-primary mr-12" 
+          @click="goToProduct">
+          <slot name="sticky-buy-button">
+            <i class="fas fa-shopping-bag"></i>
+              {{ strBuy }}
+         </slot>
         </a>
+
+        <template v-else>
+          <slot name="sticky-go-to-cart">
+            <a 
+              class="btn btn-lg btn-primary" 
+              @click="buy">
+              <i class="fas fa-shopping-bag"></i>
+              {{ strBuy }}
+            </a>
+          </slot>
+        </template>
       </div>
     </div>
   </div>
-    
-  <slot v-if="!body._id"/>
+
+  <slot v-if="!body._id" />
 </section>
