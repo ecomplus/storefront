@@ -41,10 +41,7 @@ import ecomCart from '@ecomplus/shopping-cart'
 import sortApps from './helpers/sort-apps'
 import addIdleCallback from './helpers/add-idle-callback'
 import scrollToElement from './helpers/scroll-to-element'
-
-import {
-  Portal
-} from '@linusborg/vue-simple-portal'
+import { Portal } from '@linusborg/vue-simple-portal'
 import ALink from '../ALink.vue'
 import AAlert from '../AAlert.vue'
 import APrices from '../APrices.vue'
