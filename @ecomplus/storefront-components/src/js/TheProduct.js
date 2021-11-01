@@ -32,10 +32,7 @@ import {
   img as getImg
 } from '@ecomplus/utils'
 
-import {
-  store,
-  modules
-} from '@ecomplus/client'
+import { store, modules } from '@ecomplus/client'
 import EcomSearch from '@ecomplus/search-engine'
 import ecomCart from '@ecomplus/shopping-cart'
 import sortApps from './helpers/sort-apps'
