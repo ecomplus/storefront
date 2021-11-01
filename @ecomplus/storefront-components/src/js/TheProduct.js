@@ -114,7 +114,6 @@ export default {
       type: Boolean,
       default: true
     },
-
     canAddToCart: {
       type: Boolean,
       default: true
