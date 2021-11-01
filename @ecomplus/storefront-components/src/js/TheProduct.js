@@ -140,7 +140,6 @@ export default {
       fixedPrice: null,
       selectedVariationId: null,
       currentGalleyImg: 1,
-      isVisible: true,
       isOnCart: false,
       hasClickedBuy: false,
       hasLoadError: false,
