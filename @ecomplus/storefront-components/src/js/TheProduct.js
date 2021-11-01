@@ -30,7 +30,6 @@ import {
   specValueByText as getSpecValueByText,
   formatMoney,
   img as getImg
-
 } from '@ecomplus/utils'
 
 import {
