@@ -354,7 +354,7 @@
 
   <div 
     ref="stickyAnchor" 
-    v-if="isInStock" 
+    v-if="hasStickyBuyButton && isInStock" 
     v-show="body.available"
     >
     <div 
