@@ -106,7 +106,6 @@ export default {
       type: String,
       default: 'col-12 col-md-6'
     },
-
     isStickyBuyVisible: {
       type: Boolean,
       default: true
