@@ -468,7 +468,6 @@ export default {
       const stickyDiv = document.querySelector('.product__sticky-buy').offsetHeight
       document.body.style.paddingBottom = `${stickyDiv}px`
       this.$refs.stickyAnchor.insertBefore($div, this.$refs.stickyBox)
-
       if (isToVisible) {
         $div.style.position = 'absolute'
         $div.style.bottom = '-800px'
