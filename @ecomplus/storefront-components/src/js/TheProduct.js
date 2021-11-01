@@ -110,7 +110,6 @@ export default {
       type: Boolean,
       default: true
     },
-
     hasStickyBuyButton: {
       type: Boolean,
       default: true
