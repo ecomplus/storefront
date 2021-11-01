@@ -290,10 +290,7 @@ export default {
         })
     },
 
-    getAdditionalPrice ({
-      type,
-      addition
-    }) {
+    getAdditionalPrice ({ type, addition }) {
       return type === 'fixed'
         ? addition
         : getPrice(this.body) * addition / 100
