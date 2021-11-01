@@ -474,9 +474,7 @@ export default {
 
       if (isToVisible) {
         $div.style.position = 'absolute'
-        $div.style.bottom = isToVisible
-          ? '-800px'
-          : '-500px'
+        $div.style.bottom = '-800px'
       }
 
       const obs = lozad($div, {
