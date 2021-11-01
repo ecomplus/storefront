@@ -486,7 +486,6 @@ export default {
           setStickyBuyObserver(!isToVisible)
         }
       })
-
       obs.observe()
     }
     setStickyBuyObserver()
