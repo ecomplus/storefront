@@ -15,7 +15,7 @@
     "preversion": "lerna run build --since",
     "version": "GH_TOKEN=$(grep GH_TOKEN .env | cut -d '=' -f2) lerna version",
     "config": "npm config set //npm.pkg.github.com/:_authToken=$(grep GH_PKG_TOKEN .env | cut -d '=' -f2)",
-    "release": "npm run config && npm run version && lerna publish from-git",
+    "release": "npm run version && lerna publish from-git",
     "release:all": "npm run version -- --force-publish && lerna publish from-git",
     "docs:dev": "vuepress dev",
     "docs:build": "vuepress build",
