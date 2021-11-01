@@ -82,8 +82,7 @@ export default {
     QuantitySelector,
     ShippingCalculator,
     PaymentOption,
-    APicture,
-    lozad
+    APicture
   },
 
   props: {
