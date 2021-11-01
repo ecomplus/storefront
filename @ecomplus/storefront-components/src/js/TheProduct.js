@@ -472,7 +472,6 @@ export default {
         $div.style.position = 'absolute'
         $div.style.bottom = '-800px'
       }
-
       const obs = lozad($div, {
         rootMargin: '100px',
         threshold: 0,
