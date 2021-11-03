@@ -106,7 +106,7 @@
     }
   }
 
-  @media (max-width: map-get($grid-breakpoints, md)) {
+@media (max-width: map-get($grid-breakpoints, md)) {
     &__sticky {
       justify-content: center;
  
