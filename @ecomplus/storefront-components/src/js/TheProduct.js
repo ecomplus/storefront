@@ -303,9 +303,7 @@ export default {
             _id: customization._id,
             label: customization.label,
             add_to_price: customization.add_to_price,
-            option: {
-              text
-            }
+            option: { text }
           })
         }
       } else if (index > -1) {
