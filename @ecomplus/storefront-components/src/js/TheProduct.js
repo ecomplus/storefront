@@ -297,9 +297,7 @@ export default {
       const index = this.customizations.findIndex(({ _id }) => _id === customization._id)
       if (text) {
         if (index > -1) {
-          this.customizations[index].option = {
-            text
-          }
+          this.customizations[index].option = { text }
         } else {
           this.customizations.push({
             _id: customization._id,
