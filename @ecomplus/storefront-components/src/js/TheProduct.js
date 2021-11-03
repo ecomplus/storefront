@@ -73,13 +73,13 @@ export default {
     ALink,
     AAlert,
     APrices,
+    APicture,
     AShare,
     ProductVariations,
     ProductGallery,
     QuantitySelector,
     ShippingCalculator,
-    PaymentOption,
-    APicture
+    PaymentOption
   },
 
   props: {
@@ -133,6 +133,7 @@ export default {
       selectedVariationId: null,
       currentGalleyImg: 1,
       isOnCart: false,
+      isStickyBuyVisible: true,
       hasClickedBuy: false,
       hasLoadError: false,
       paymentOptions: [],
@@ -237,10 +238,6 @@ export default {
   methods: {
     getVariationsGrids,
     getSpecValueByText,
-
-    goToProduct () {
-      return scrollToElement(this.$refs.stickyToTop.$el, 120)
-    },
 
     setBody (data) {
       this.body = {
@@ -355,6 +352,14 @@ export default {
         ecomCart.addProduct({ ...product, customizations }, variationId)
       }
       this.isOnCart = true
+    },
+
+    scrollToProduct () {
+      if (this.hasVariations || this.isKit) {
+        scrollToElement(this.$refs.stickyToTop.$el, 120)
+      } else {
+        this.buy()
+      }
     }
   },
 
@@ -463,26 +468,35 @@ export default {
   },
 
   mounted () {
-    const setStickyBuyObserver = (isToVisible = true) => {
-      const $div = document.createElement('div')
-      const stickyDiv = document.querySelector('.product__sticky-buy').offsetHeight
-      document.body.style.paddingBottom = `${stickyDiv}px`
-      this.$refs.stickyAnchor.insertBefore($div, this.$refs.stickyBox)
-      if (isToVisible) {
-        $div.style.position = 'absolute'
-        $div.style.bottom = '-800px'
-      }
-      const obs = lozad($div, {
-        rootMargin: '100px',
-        threshold: 0,
-        load: () => {
-          this.$refs.stickyBox.style.display = isToVisible ? 'flex' : 'none'
-          $div.remove()
-          setStickyBuyObserver(!isToVisible)
+    if (this.hasStickyBuyButton) {
+      const setStickyBuyObserver = (isToVisible = true) => {
+        const stickyDiv = document.querySelector('.product__sticky-buy').offsetHeight
+        document.body.style.paddingBottom = `${stickyDiv}px`
+
+        if (!this.$refs.stickyAnchor) {
+          return
         }
-      })
-      obs.observe()
+
+        const $div = document.createElement('div')
+        this.$refs.stickyAnchor.insertBefore($div, this.$refs.stickyBox)
+
+        if (isToVisible) {
+          $div.style.position = 'absolute'
+          $div.style.bottom = '-800px'
+        }
+
+        const obs = lozad($div, {
+          rootMargin: '100px',
+          threshold: 0,
+          load: () => {
+            this.$refs.stickyBox.style.display = isToVisible ? 'flex' : 'none'
+            $div.remove()
+            setStickyBuyObserver(!isToVisible)
+          }
+        })
+        obs.observe()
+      }
+      setStickyBuyObserver()
     }
-    setStickyBuyObserver()
   }
 }

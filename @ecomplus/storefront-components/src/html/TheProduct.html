@@ -17,7 +17,9 @@
     </a>
   </a-alert>
 
-  <transition enter-active-class="animated fadeIn slower">
+  <transition 
+  enter-active-class="animated fadeIn slow"
+  leave-active-class="animated fadeOut fast">
     <div
       v-if="body._id"
       class="row"
@@ -337,9 +339,6 @@
           </template>
         </component>
 
-
-
-
         <slot
           v-if="!isSSR && body.short_description"
           name="short-description"
@@ -352,59 +351,52 @@
     </div>
   </transition>
 
+
   <div 
     ref="stickyAnchor" 
     v-if="hasStickyBuyButton && isInStock" 
     v-show="body.available"
   >
+  <transition 
+  enter-active-class="animated fadeIn"
+  leave-active-class="animated fadeOut fast" 
+  >  
     <div 
-      v-if="hasStickyBuyButton"
+      v-show="isStickyBuyVisible"
       ref="stickyBox" 
       class="product__sticky-buy"
     >
       <div 
-        class="product__sticky-name"
+        class="product__sticky-info"
       >
         <a-picture 
           :can-calc-height="false" 
-          :src="img" width="100px" 
-          class="product__sticky-img" 
+          :src="img" 
+           width="100px" 
+           class="product__sticky-img" 
         />
         <p>{{ name }}</p>
       </div>
 
-      <div class="d-flex product__sticky-buy-button">
+      <div class="product__sticky-buy-button">
         <a-prices 
           :product="ghostProductForPrices" 
           :isLiteral="false" 
           :can-show-price-options="true" 
           :price="false" 
         />
-     
-        <a 
-          v-if="hasVariations || isKit" 
+        
+        <a  
           class="btn btn-lg btn-primary mr-12" 
-          @click="goToProduct"
+          @click="scrollToProduct"
         >
-          <slot name="sticky-buy-button">
-            <i class="fas fa-shopping-bag"></i>
-            {{ strBuy }}
-         </slot>
+          <i class="fas fa-shopping-bag"></i>
+          {{ strBuy }}
         </a>
 
-        <template v-else>
-          <slot name="sticky-go-to-cart">
-            <a 
-              class="btn btn-lg btn-primary" 
-              @click="buy"
-            >
-              <i class="fas fa-shopping-bag"></i>
-              {{ strBuy }}
-            </a>
-          </slot>
-        </template>
       </div>
     </div>
+  </transition>
   </div>
 
   <slot v-if="!body._id"/>

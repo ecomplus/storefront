@@ -58,63 +58,61 @@
     color: var(--secondary);
   }
 
-  .product__sticky-buy {
-    display: none;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    position: fixed;
-    padding: var(--spacer-2) var(--spacer-3);
-    z-index: 500;
-    bottom: 0;
-    left: 0;
-    box-shadow: var(--box-shadow-lg);
-    background-color: var(--white);
-    a {
-      padding: var(--spacer-2) var(--spacer-5);
-      margin-left: var(--spacer-3);
-      white-space: nowrap;
-    }
-
-    .prices {
+  &__sticky {
+    
+    &-buy {
+      display: none;
+      position: fixed;
+      z-index: 500;
+      width: 100%;
+      bottom: 0;
+      padding: var(--spacer-2) var(--spacer-3);
+      left: 0;
       align-items: center;
-      display: flex;
-      gap: var(--spacer-2);
-      white-space: nowrap;
-      position: relative;
-    }
-
-    #product__sticky-name {
-      align-items: center;
-      position: relative;
-
-      p {
-        margin: 0px 0px 0px var(--spacer-3);
-      }
-
-    .product__sticky-img {
-      width: 100px;
-    }
-  }
-}  
-
-@media (max-width: map-get($grid-breakpoints, md)) {
-    .product__sticky-buy,
-    .product__sticky-buy-button {
-      justify-content: center;
+      justify-content: space-around;
+      background-color: var(--white);
+      box-shadow: var(--box-shadow-lg);
 
       a {
         padding: var(--spacer-2) var(--spacer-5);
-        margin: 0;
+        margin-left: var(--spacer-3);
+        white-space: nowrap
       }
-      
+
       .prices {
-        display: none;
+        align-items: center; display: flex;
+        gap: var(--spacer-2);
+        white-space: nowrap;
+        position: relative;
       }
     }
 
-    #product__sticky-name {
-      display: none !important
+    &-img {
+      width: 100px;
     }
-  }  
+
+    &-info {
+      align-items: center;
+      display: flex;
+      position: relative;
+
+      p {
+        margin: 0px 0px 0px var(--spacer-3)
+      }
+    }
+
+    &-buy-button {
+      display: flex;
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, md)) {
+    &__sticky {
+      justify-content: center;
+ 
+      &-info, &-buy-button .prices {
+        display: none;
+      }
+    }
+   }
 }
