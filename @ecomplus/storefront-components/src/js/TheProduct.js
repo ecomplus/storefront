@@ -485,7 +485,7 @@ export default {
           rootMargin: '100px',
           threshold: 0,
           load: () => {
-            this.$refs.stickyBox.style.display = isToVisible ? 'flex' : 'none'
+            this.isStickyBuyVisible = isToVisible
             $div.remove()
             setStickyBuyObserver(!isToVisible)
           }
