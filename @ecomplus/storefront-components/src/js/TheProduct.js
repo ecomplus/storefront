@@ -465,6 +465,7 @@ export default {
 
   mounted () {
     if (this.hasStickyBuyButton) {
+      let isBodyPaddingSet = false
       const setStickyBuyObserver = (isToVisible = true) => {
         if (!this.$refs.stickyAnchor) {
           return
