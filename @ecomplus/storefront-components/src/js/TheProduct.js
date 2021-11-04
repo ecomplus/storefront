@@ -466,9 +466,6 @@ export default {
   mounted () {
     if (this.hasStickyBuyButton) {
       const setStickyBuyObserver = (isToVisible = true) => {
-        const stickyDiv = document.querySelector('.product__sticky-buy').offsetHeight
-        document.body.style.paddingBottom = `${stickyDiv}px`
-
         if (!this.$refs.stickyAnchor) {
           return
         }
