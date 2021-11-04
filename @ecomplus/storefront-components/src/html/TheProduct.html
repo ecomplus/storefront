@@ -352,8 +352,7 @@
 
   <div 
     ref="stickyAnchor" 
-    v-if="hasStickyBuyButton && isInStock" 
-    v-show="body.available"
+    v-if="hasStickyBuyButton && body.available && isInStock"
   >
   <transition 
   enter-active-class="animated fadeIn"
