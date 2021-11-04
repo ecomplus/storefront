@@ -488,6 +488,7 @@ export default {
               this.$nextTick(() => {
                 const stickyHeight = this.$refs.stickyBox.offsetHeight
                 document.body.style.paddingBottom = `${stickyHeight}px`
+                this.isBodyPaddingSet = true
               })
             }
             $div.remove()
