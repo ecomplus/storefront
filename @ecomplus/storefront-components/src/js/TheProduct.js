@@ -484,6 +484,12 @@ export default {
           threshold: 0,
           load: () => {
             this.isStickyBuyVisible = isToVisible
+            if (isToVisible && !isBodyPaddingSet) {
+              this.$nextTick(() => {
+                const stickyHeight = this.$refs.stickyBox.offsetHeight
+                document.body.style.paddingBottom = `${stickyHeight}px`
+              })
+            }
             $div.remove()
             setStickyBuyObserver(!isToVisible)
           }
