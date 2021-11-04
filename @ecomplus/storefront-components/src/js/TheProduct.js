@@ -133,7 +133,7 @@ export default {
       selectedVariationId: null,
       currentGalleyImg: 1,
       isOnCart: false,
-      isStickyBuyVisible: true,
+      isStickyBuyVisible: false,
       hasClickedBuy: false,
       hasLoadError: false,
       paymentOptions: [],
