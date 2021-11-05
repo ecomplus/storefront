@@ -25,22 +25,24 @@ import {
   inStock as checkInStock,
   onPromotion as checkOnPromotion,
   price as getPrice,
+  img as getImg,
   variationsGrids as getVariationsGrids,
   specTextValue as getSpecTextValue,
   specValueByText as getSpecValueByText,
-  formatMoney,
-  img as getImg
+  formatMoney
 } from '@ecomplus/utils'
 
 import { store, modules } from '@ecomplus/client'
 import EcomSearch from '@ecomplus/search-engine'
 import ecomCart from '@ecomplus/shopping-cart'
+import lozad from 'lozad'
 import sortApps from './helpers/sort-apps'
 import addIdleCallback from './helpers/add-idle-callback'
 import scrollToElement from './helpers/scroll-to-element'
 import { Portal } from '@linusborg/vue-simple-portal'
 import ALink from '../ALink.vue'
 import AAlert from '../AAlert.vue'
+import APicture from '../APicture.vue'
 import APrices from '../APrices.vue'
 import AShare from '../AShare.vue'
 import ProductVariations from '../ProductVariations.vue'
@@ -48,8 +50,6 @@ import ProductGallery from '../ProductGallery.vue'
 import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
-import APicture from '../APicture.vue'
-import lozad from 'lozad'
 
 const storefront = (typeof window === 'object' && window.storefront) || {}
 const getContextBody = () => (storefront.context && storefront.context.body) || {}
@@ -72,8 +72,8 @@ export default {
     Portal,
     ALink,
     AAlert,
-    APrices,
     APicture,
+    APrices,
     AShare,
     ProductVariations,
     ProductGallery,
@@ -174,7 +174,7 @@ export default {
       return checkInStock(this.body)
     },
 
-    img () {
+    thumbnail () {
       return getImg(this.body, null, 'small')
     },
 
@@ -350,9 +350,9 @@ export default {
       this.isOnCart = true
     },
 
-    scrollToProduct () {
+    buyOrScroll () {
       if (this.hasVariations || this.isKit) {
-        scrollToElement(this.$refs.stickyToTop.$el, 120)
+        scrollToElement(this.$refs.actions.$el, 120)
       } else {
         this.buy()
       }
@@ -470,15 +470,12 @@ export default {
         if (!this.$refs.stickyAnchor) {
           return
         }
-
         const $div = document.createElement('div')
         this.$refs.stickyAnchor.insertBefore($div, this.$refs.stickyBox)
-
         if (isToVisible) {
           $div.style.position = 'absolute'
           $div.style.bottom = '-800px'
         }
-
         const obs = lozad($div, {
           rootMargin: '100px',
           threshold: 0,
