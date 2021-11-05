@@ -60,7 +60,7 @@
         <component
           :is="isSSR ? 'portal' : 'div'"
           selector="#product-actions"
-          ref="productActions"
+          ref="actions"
         >
           <slot name="rating">
             <div
@@ -366,7 +366,7 @@
         <div class="product__sticky-info">
           <a-picture
             :can-calc-height="false"
-            :src="smallImg"
+            :src="thumbnail"
             width="100px"
             class="product__sticky-img"
           />
