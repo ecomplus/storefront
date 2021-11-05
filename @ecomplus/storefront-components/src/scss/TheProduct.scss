@@ -36,7 +36,6 @@
   }
 
   &__production {
-
     i,
     svg {
       color: var(--info);
@@ -59,18 +58,16 @@
   }
 
   &__sticky {
-    
     &-buy {
       display: flex;
       position: fixed;
+      bottom: 0;
+      left: 0;
       z-index: 500;
       width: 100%;
-      bottom: 0;
       padding: var(--spacer-2) var(--spacer-3);
-      left: 0;
       align-items: center;
       justify-content: space-around;
-      background-color: var(--white);
       box-shadow: var(--box-shadow-lg);
 
       a {
@@ -80,7 +77,8 @@
       }
 
       .prices {
-        align-items: center; display: flex;
+        display: flex;
+        align-items: center;
         gap: var(--spacer-2);
         white-space: nowrap;
         position: relative;
@@ -92,12 +90,12 @@
     }
 
     &-info {
-      align-items: center;
       display: flex;
+      align-items: center;
       position: relative;
 
       p {
-        margin: 0px 0px 0px var(--spacer-3)
+        margin: 0px 0px 0px var(--spacer-3);
       }
     }
 
@@ -106,13 +104,14 @@
     }
   }
 
-@media (max-width: map-get($grid-breakpoints, md)) {
+  @media (max-width: map-get($grid-breakpoints, md)) {
     &__sticky {
       justify-content: center;
  
-      &-info, &-buy-button .prices {
+      &-info,
+      &-buy-button .prices {
         display: none;
       }
     }
-   }
+  }
 }
