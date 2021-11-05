@@ -1,3 +1,4 @@
+
 .product {
   &__sku {
     color: var(--text-muted);
@@ -54,5 +55,63 @@
   &__free-shipping-from {
     font-size: var(--font-size);
     color: var(--secondary);
+  }
+
+  &__sticky {
+    &-buy {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 500;
+      width: 100%;
+      padding: var(--spacer-2) var(--spacer-3);
+      align-items: center;
+      justify-content: space-around;
+      box-shadow: var(--box-shadow-lg);
+
+      a {
+        padding: var(--spacer-2) var(--spacer-5);
+        margin-left: var(--spacer-3);
+        white-space: nowrap
+      }
+
+      .prices {
+        display: flex;
+        align-items: center;
+        gap: var(--spacer-2);
+        white-space: nowrap;
+        position: relative;
+      }
+    }
+
+    &-img {
+      width: 100px;
+    }
+
+    &-info {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      p {
+        margin: 0px 0px 0px var(--spacer-3);
+      }
+    }
+
+    &-buy-button {
+      display: flex;
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, md)) {
+    &__sticky {
+      justify-content: center;
+ 
+      &-info,
+      &-buy-button .prices {
+        display: none;
+      }
+    }
   }
 }

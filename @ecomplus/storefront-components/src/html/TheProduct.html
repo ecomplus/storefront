@@ -60,6 +60,7 @@
         <component
           :is="isSSR ? 'portal' : 'div'"
           selector="#product-actions"
+          ref="actions"
         >
           <slot name="rating">
             <div
@@ -347,6 +348,48 @@
       </div>
     </div>
   </transition>
+
+
+  <div
+    v-if="hasStickyBuyButton && body.available && isInStock"
+    ref="stickyAnchor"
+  >
+    <transition
+      enter-active-class="animated fadeIn"
+      leave-active-class="animated fadeOut fast" 
+    >
+      <div 
+        v-show="isStickyBuyVisible"
+        ref="stickyBox" 
+        class="product__sticky-buy"
+      >
+        <div class="product__sticky-info">
+          <a-picture
+            :can-calc-height="false"
+            :src="thumbnail"
+            width="100px"
+            class="product__sticky-img"
+          />
+          <p>{{ name }}</p>
+        </div>
+
+        <div class="product__sticky-buy-button">
+          <a-prices
+            :product="ghostProductForPrices"
+            :is-literal="false"
+            :can-show-price-options="true"
+          />
+          <a
+            class="btn btn-lg btn-primary" 
+            @click="buyOrScroll"
+          >
+            <i class="fas fa-shopping-bag mr-1"></i>
+            {{ strBuy }}
+          </a>
+        </div>
+      </div>
+    </transition>
+  </div>
 
   <slot v-if="!body._id"/>
 </section>
