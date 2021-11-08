@@ -111,13 +111,13 @@
     }
   }
 
-  @media (max-width: map-get($grid-breakpoints, lg)) {
+  @media (max-width: 768px) {
     &__sticky-info {
       display: none;
     }
   }
 
-  @media (max-width: map-get($grid-breakpoints, md)) {
+  @media (max-width: 992px) {
     &__sticky {
       &-buy {
         width: 100%;
