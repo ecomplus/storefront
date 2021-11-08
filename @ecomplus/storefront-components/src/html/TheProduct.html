@@ -41,7 +41,10 @@
         </div>
       </slot>
 
-      <div class="col">
+      <div
+        class="col"
+        ref="actions"
+      >
         <slot
           v-if="!isSSR"
           name="heading"
@@ -60,7 +63,6 @@
         <component
           :is="isSSR ? 'portal' : 'div'"
           selector="#product-actions"
-          ref="actions"
         >
           <slot name="rating">
             <div
@@ -200,6 +202,7 @@
               <div
                 v-if="hasBuyButton"
                 class="product__buy"
+                ref="buy"
               >
                 <span @click="buy">
                   <slot
@@ -349,47 +352,44 @@
     </div>
   </transition>
 
-
-  <div
-    v-if="hasStickyBuyButton && body.available && isInStock"
-    ref="stickyAnchor"
-  >
+  <template v-if="!isQuickview && hasStickyBuyButton && body.available && isInStock">
     <transition
       enter-active-class="animated fadeIn"
       leave-active-class="animated fadeOut fast" 
     >
-      <div 
+      <div
         v-show="isStickyBuyVisible"
-        ref="stickyBox" 
-        class="product__sticky-buy"
+        ref="sticky" 
+        class="product__sticky"
       >
-        <div class="product__sticky-info">
-          <a-picture
-            :can-calc-height="false"
-            :src="thumbnail"
-            width="100px"
-            class="product__sticky-img"
-          />
-          <p>{{ name }}</p>
-        </div>
+        <div class="product__sticky-container container">
+          <div class="product__sticky-info">
+            <a-picture
+              :can-calc-height="false"
+              :src="thumbnail"
+              class="product__sticky-picture"
+            />
+            <h5>{{ name }}</h5>
+          </div>
 
-        <div class="product__sticky-buy-button">
-          <a-prices
-            :product="ghostProductForPrices"
-            :is-literal="false"
-            :can-show-price-options="true"
-          />
-          <a
-            class="btn btn-lg btn-primary" 
-            @click="buyOrScroll"
-          >
-            <i class="fas fa-shopping-bag mr-1"></i>
-            {{ strBuy }}
-          </a>
+          <div class="product__sticky-buy">
+            <a-prices
+              :product="ghostProductForPrices"
+              :is-literal="false"
+              :can-show-price-options="true"
+            />
+            <a
+              class="btn btn-lg btn-primary" 
+              @click="buyOrScroll"
+            >
+              <i class="fas fa-shopping-bag mr-1"></i>
+              {{ strBuy }}
+            </a>
+          </div>
         </div>
       </div>
     </transition>
-  </div>
+  </template>
 
   <slot v-if="!body._id"/>
 </section>

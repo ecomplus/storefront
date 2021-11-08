@@ -35,6 +35,7 @@ import {
 import { store, modules } from '@ecomplus/client'
 import EcomSearch from '@ecomplus/search-engine'
 import ecomCart from '@ecomplus/shopping-cart'
+import { isMobile } from '@ecomplus/storefront-twbs'
 import lozad from 'lozad'
 import sortApps from './helpers/sort-apps'
 import addIdleCallback from './helpers/add-idle-callback'
@@ -352,7 +353,7 @@ export default {
 
     buyOrScroll () {
       if (this.hasVariations || this.isKit) {
-        scrollToElement(this.$refs.actions.$el, 120)
+        scrollToElement(this.$refs.actions)
       } else {
         this.buy()
       }
@@ -464,32 +465,40 @@ export default {
   },
 
   mounted () {
-    if (this.hasStickyBuyButton) {
+    if (this.$refs.sticky) {
       let isBodyPaddingSet = false
       const setStickyBuyObserver = (isToVisible = true) => {
-        if (!this.$refs.stickyAnchor) {
+        const $anchor = this.$refs[isToVisible ? 'sticky' : 'buy']
+        if (!$anchor) {
           return
         }
-        const $div = document.createElement('div')
-        this.$refs.stickyAnchor.insertBefore($div, this.$refs.stickyBox)
+        const $tmpDiv = document.createElement('div')
+        $anchor.parentNode.insertBefore($tmpDiv, $anchor)
         if (isToVisible) {
-          $div.style.position = 'absolute'
-          $div.style.bottom = '-800px'
+          $tmpDiv.style.position = 'absolute'
+          $tmpDiv.style.bottom = isMobile ? '-1600px' : '-1000px'
         }
-        const obs = lozad($div, {
+        const obs = lozad($tmpDiv, {
           rootMargin: '100px',
           threshold: 0,
           load: () => {
             this.isStickyBuyVisible = isToVisible
             if (isToVisible && !isBodyPaddingSet) {
               this.$nextTick(() => {
-                const stickyHeight = this.$refs.stickyBox.offsetHeight
-                document.body.style.paddingBottom = `${stickyHeight}px`
-                this.isBodyPaddingSet = true
+                const stickyHeight = this.$refs.sticky.offsetHeight
+                document.body.style.paddingBottom = `${(stickyHeight + 4)}px`
+                isBodyPaddingSet = true
               })
             }
-            $div.remove()
-            setStickyBuyObserver(!isToVisible)
+            $tmpDiv.remove()
+            setTimeout(() => {
+              const createObserver = function () {
+                console.log(123)
+                setStickyBuyObserver(!isToVisible)
+                document.removeEventListener('scroll', createObserver)
+              }
+              document.addEventListener('scroll', createObserver)
+            }, 100)
           }
         })
         obs.observe()
