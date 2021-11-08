@@ -8,6 +8,7 @@ const {
 
 exports.ssr = (req, res, getCacheControl) => {
   const {
+    NODE_ENV,
     STOREFRONT_BUNDLES_PATH,
     STOREFRONT_LONG_CACHE
   } = process.env
@@ -50,7 +51,13 @@ exports.ssr = (req, res, getCacheControl) => {
     if (url.slice(-1) === '/') {
       redirect(url.slice(0, -1))
     } else if (url !== '/404' && (/\/[^/.]+$/.test(url) || /\.x?html$/.test(url))) {
-      redirect(`/404?url=${encodeURIComponent(req.url)}`)
+      let status
+      const encodedUrl = encodeURIComponent(url)
+      if (NODE_ENV !== 'development') {
+        status = 404
+        res.set('Set-Cookie', `referrerUrl=${encodedUrl}; Max-Age=30`)
+      }
+      redirect(`/404?url=${encodedUrl}`, status)
     } else {
       setStatusAndCache(404, isLongCache
         ? 'public, max-age=60, s-maxage=86400'
