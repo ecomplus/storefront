@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.149](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.148...@ecomplus/storefront-template@2.0.0-beta.149) (2021-11-09)
+
+
+### Features
+
+* **template/fallback-404:** also try referrer url from cookie ([2c3c497](https://github.com/ecomplus/storefront/commit/2c3c497062eb76d02590fdeca71bdb63d98fead0))
+
+
+
+
+
 # [2.0.0-beta.148](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.147...@ecomplus/storefront-template@2.0.0-beta.148) (2021-10-25)
 
 

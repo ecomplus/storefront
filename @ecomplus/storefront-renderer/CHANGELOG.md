@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.8.3...@ecomplus/storefront-renderer@2.8.4) (2021-11-09)
+
+
+### Bug Fixes
+
+* **renderer/404:** return 404 status code for not found pages and set fallback cookie [[#555](https://github.com/ecomplus/storefront/issues/555)] ([4587978](https://github.com/ecomplus/storefront/commit/458797803d42af75cf6ffd77c464b99807ede4f7))
+
+
+
+
+
 ## [2.8.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.8.2...@ecomplus/storefront-renderer@2.8.3) (2021-10-25)
 
 

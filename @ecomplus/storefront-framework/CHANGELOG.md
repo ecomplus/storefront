@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.17.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.3...@ecomplus/storefront-framework@5.17.4) (2021-11-09)
+
+
+### Bug Fixes
+
+* **framework/webpack:** bump corejs version to 3.19 ([2a158b2](https://github.com/ecomplus/storefront/commit/2a158b287d9da0a87c6c4f4f904e3ee33990062c))
+
+
+
+
+
 ## [5.17.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.2...@ecomplus/storefront-framework@5.17.3) (2021-10-25)
 
 
