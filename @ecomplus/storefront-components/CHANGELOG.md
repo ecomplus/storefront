@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.106](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.105...@ecomplus/storefront-components@1.0.0-beta.106) (2021-11-09)
+
+
+### Bug Fixes
+
+* **components/product:** sticky bar style fixes (image and product name) ([07169e6](https://github.com/ecomplus/storefront/commit/07169e6006b746716bdb915db7ca6ab7488c1bde))
+
+
+
+
+
 # [1.0.0-beta.105](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.104...@ecomplus/storefront-components@1.0.0-beta.105) (2021-11-09)
 
 
