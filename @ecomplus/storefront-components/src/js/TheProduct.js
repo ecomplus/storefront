@@ -493,7 +493,6 @@ export default {
             $tmpDiv.remove()
             setTimeout(() => {
               const createObserver = function () {
-                console.log(123)
                 setStickyBuyObserver(!isToVisible)
                 document.removeEventListener('scroll', createObserver)
               }
