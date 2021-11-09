@@ -92,7 +92,7 @@
       width: auto;
 
       img {
-        height: 70px;
+        max-height: 70px;
         width: auto;
       }
     }
@@ -103,6 +103,11 @@
 
       h5 {
         margin: 0 var(--spacer-3);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
       }
     }
 
