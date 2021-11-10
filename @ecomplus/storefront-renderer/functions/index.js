@@ -8,7 +8,6 @@ const {
 
 exports.ssr = (req, res, getCacheControl) => {
   const {
-    NODE_ENV,
     STOREFRONT_BUNDLES_PATH,
     STOREFRONT_LONG_CACHE
   } = process.env
@@ -53,15 +52,11 @@ exports.ssr = (req, res, getCacheControl) => {
     } else if (url !== '/404' && (/\/[^/.]+$/.test(url) || /\.x?html$/.test(url))) {
       const encodedUrl = encodeURIComponent(url)
       const fallback404Url = `/404?url=${encodedUrl}`
-      if (NODE_ENV !== 'development') {
-        res.set('Set-Cookie', `referrerUrl=${encodedUrl}; Max-Age=30`)
-        setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)
-          .send('<html><head>' +
-            `<meta http-equiv="refresh" content="0; url=${fallback404Url}"/>` +
-            '</head><body></body></html>')
-      } else {
-        redirect(fallback404Url)
-      }
+      res.set('Set-Cookie', `referrerUrl=${encodedUrl}; Max-Age=30`)
+      setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)
+        .send('<html><head>' +
+          `<meta http-equiv="refresh" content="0; url=${fallback404Url}"/>` +
+          '</head><body></body></html>')
     } else {
       setStatusAndCache(404, isLongCache
         ? 'public, max-age=60, s-maxage=86400'
