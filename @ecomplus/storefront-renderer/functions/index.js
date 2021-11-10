@@ -47,31 +47,20 @@ exports.ssr = (req, res, getCacheControl) => {
     console.error(err)
   }
 
-  const fixHtml = html => {
-    if (cache) {
-      html = minifyHtml(html, getAssetsReferences(cache.assetsByChunkName))
-    }
-    return html
-  }
-
   const fallback = () => {
     if (url.slice(-1) === '/') {
       redirect(url.slice(0, -1))
     } else if (url !== '/404' && (/\/[^/.]+$/.test(url) || /\.x?html$/.test(url))) {
       const encodedUrl = encodeURIComponent(url)
+      const fallback404Url = `/404?url=${encodedUrl}`
       if (NODE_ENV !== 'development') {
         res.set('Set-Cookie', `referrerUrl=${encodedUrl}; Max-Age=30`)
-        renderer('/404')
-          .then(html => {
-            setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)
-              .send(fixHtml(html))
-          })
-          .catch(err => {
-            setStatusAndCache(404, 'public, max-age=5').end()
-            console.error(err)
-          })
+        setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)
+          .send('<html><head>' +
+            `<meta http-equiv="refresh" content="0; url=${fallback404Url}"/>` +
+            '</head><body></body></html>')
       } else {
-        redirect(`/404?url=${encodedUrl}`)
+        redirect(fallback404Url)
       }
     } else {
       setStatusAndCache(404, isLongCache
@@ -84,10 +73,13 @@ exports.ssr = (req, res, getCacheControl) => {
   return renderer(url)
     .then(html => {
       if (html) {
+        if (cache) {
+          html = minifyHtml(html, getAssetsReferences(cache.assetsByChunkName))
+        }
         setStatusAndCache(200, isLongCache
           ? 'public, max-age=60, s-maxage=604800'
           : 'public, max-age=60, s-maxage=300, stale-while-revalidate=2592000'
-        ).send(fixHtml(html))
+        ).send(html)
       } else {
         fallback()
       }
