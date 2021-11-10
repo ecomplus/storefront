@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.8.5...@ecomplus/storefront-renderer@2.8.6) (2021-11-10)
+
+
+### Bug Fixes
+
+* **renderer/functions:** returns 404 status code and refresh meta tag for 404 fallback ([7273876](https://github.com/ecomplus/storefront/commit/7273876b04251da96bf14372bed33718c4436657))
+
+
+
+
+
 ## [2.8.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.8.4...@ecomplus/storefront-renderer@2.8.5) (2021-11-10)
 
 
