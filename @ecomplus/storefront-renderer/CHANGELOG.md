@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.8.4...@ecomplus/storefront-renderer@2.8.5) (2021-11-10)
+
+
+### Bug Fixes
+
+* **renderer/404:** render 404 ejs internally without redirect on url not found ([fee59b5](https://github.com/ecomplus/storefront/commit/fee59b5979b9814e284afbd97005e02531e44fb2))
+
+
+
+
+
 ## [2.8.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.8.3...@ecomplus/storefront-renderer@2.8.4) (2021-11-09)
 
 
