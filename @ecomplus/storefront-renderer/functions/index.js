@@ -19,7 +19,7 @@ exports.ssr = (req, res, getCacheControl) => {
 
   const setStatusAndCache = (status, defaultCache) => {
     return res.status(status)
-      .set('X-SSR-ID', `v2/${Math.random()}`)
+      .set('X-SSR-ID', `v2.8/${Math.random()}`)
       .set(
         'Cache-Control',
         (typeof getCacheControl === 'function' && getCacheControl(status)) || defaultCache
@@ -50,11 +50,9 @@ exports.ssr = (req, res, getCacheControl) => {
     if (url.slice(-1) === '/') {
       redirect(url.slice(0, -1))
     } else if (url !== '/404' && (/\/[^/.]+$/.test(url) || /\.x?html$/.test(url))) {
-      const encodedUrl = encodeURIComponent(url)
-      res.set('Set-Cookie', `referrerUrl=${encodedUrl}; Max-Age=30`)
       setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)
         .send('<html><head>' +
-          `<meta http-equiv="refresh" content="0; url=/404?url=${encodedUrl}"/>` +
+          `<meta http-equiv="refresh" content="0; url=/404?url=${encodeURIComponent(url)}"/>` +
           '</head><body></body></html>')
     } else {
       setStatusAndCache(404, isLongCache
