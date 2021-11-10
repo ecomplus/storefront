@@ -51,11 +51,10 @@ exports.ssr = (req, res, getCacheControl) => {
       redirect(url.slice(0, -1))
     } else if (url !== '/404' && (/\/[^/.]+$/.test(url) || /\.x?html$/.test(url))) {
       const encodedUrl = encodeURIComponent(url)
-      const fallback404Url = `/404?url=${encodedUrl}`
       res.set('Set-Cookie', `referrerUrl=${encodedUrl}; Max-Age=30`)
       setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)
         .send('<html><head>' +
-          `<meta http-equiv="refresh" content="0; url=${fallback404Url}"/>` +
+          `<meta http-equiv="refresh" content="0; url=/404?url=${encodedUrl}"/>` +
           '</head><body></body></html>')
     } else {
       setStatusAndCache(404, isLongCache
