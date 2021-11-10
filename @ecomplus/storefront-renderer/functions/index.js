@@ -47,17 +47,30 @@ exports.ssr = (req, res, getCacheControl) => {
     console.error(err)
   }
 
+  const fixHtml = html => {
+    if (cache) {
+      html = minifyHtml(html, getAssetsReferences(cache.assetsByChunkName))
+    }
+    return html
+  }
+
   const fallback = () => {
     if (url.slice(-1) === '/') {
       redirect(url.slice(0, -1))
     } else if (url !== '/404' && (/\/[^/.]+$/.test(url) || /\.x?html$/.test(url))) {
-      let status
       const encodedUrl = encodeURIComponent(url)
       if (NODE_ENV !== 'development') {
-        status = 404
         res.set('Set-Cookie', `referrerUrl=${encodedUrl}; Max-Age=30`)
+        renderer('/404').then(html => {
+          setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)
+            .send(fixHtml(html))
+        }).catch(err => {
+          setStatusAndCache(404, 'public, max-age=5').end()
+          console.error(err)
+        })
+      } else {
+        redirect(`/404?url=${encodedUrl}`)
       }
-      redirect(`/404?url=${encodedUrl}`, status)
     } else {
       setStatusAndCache(404, isLongCache
         ? 'public, max-age=60, s-maxage=86400'
@@ -70,13 +83,10 @@ exports.ssr = (req, res, getCacheControl) => {
 
     .then(html => {
       if (html) {
-        if (cache) {
-          html = minifyHtml(html, getAssetsReferences(cache.assetsByChunkName))
-        }
         setStatusAndCache(200, isLongCache
           ? 'public, max-age=60, s-maxage=604800'
           : 'public, max-age=60, s-maxage=300, stale-while-revalidate=2592000'
-        ).send(html)
+        ).send(fixHtml(html))
       } else {
         fallback()
       }
