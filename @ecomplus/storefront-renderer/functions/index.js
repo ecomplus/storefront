@@ -61,13 +61,15 @@ exports.ssr = (req, res, getCacheControl) => {
       const encodedUrl = encodeURIComponent(url)
       if (NODE_ENV !== 'development') {
         res.set('Set-Cookie', `referrerUrl=${encodedUrl}; Max-Age=30`)
-        renderer('/404').then(html => {
-          setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)
-            .send(fixHtml(html))
-        }).catch(err => {
-          setStatusAndCache(404, 'public, max-age=5').end()
-          console.error(err)
-        })
+        renderer('/404')
+          .then(html => {
+            setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)
+              .send(fixHtml(html))
+          })
+          .catch(err => {
+            setStatusAndCache(404, 'public, max-age=5').end()
+            console.error(err)
+          })
       } else {
         redirect(`/404?url=${encodedUrl}`)
       }
@@ -80,7 +82,6 @@ exports.ssr = (req, res, getCacheControl) => {
   }
 
   return renderer(url)
-
     .then(html => {
       if (html) {
         setStatusAndCache(200, isLongCache
@@ -92,7 +93,6 @@ exports.ssr = (req, res, getCacheControl) => {
       }
       return false
     })
-
     .catch(err => {
       fallback()
       console.error(err)
