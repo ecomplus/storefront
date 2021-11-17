@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.107](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.106...@ecomplus/storefront-components@1.0.0-beta.107) (2021-11-17)
+
+
+### Bug Fixes
+
+* **components/cart:** reset freebies on cart items (paid) changes ([#565](https://github.com/ecomplus/storefront/issues/565)) ([43a175a](https://github.com/ecomplus/storefront/commit/43a175a34ad2a3fd8d8cc8b40a9fbff9eb64e556))
+
+
+
+
+
+
 # [1.0.0-beta.106](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.105...@ecomplus/storefront-components@1.0.0-beta.106) (2021-11-09)
 
 

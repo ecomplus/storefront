@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.114](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.113...@ecomplus/storefront-app@2.0.0-beta.114) (2021-11-17)
+
+
+### Bug Fixes
+
+* **app/checkout:** ensure discount is applied also when summary is not shown ([2b7e8e8](https://github.com/ecomplus/storefront/commit/2b7e8e8b9a36a3fedcaafefd14a79d29b0229c9a))
+
+
+
+
+
+
 # [2.0.0-beta.113](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.112...@ecomplus/storefront-app@2.0.0-beta.113) (2021-11-09)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
