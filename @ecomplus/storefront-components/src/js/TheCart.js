@@ -135,7 +135,6 @@ export default {
             ecomCart.removeItem(_id)
           }
         })
-      }
         oldNumItems = numItems
       }
     }
