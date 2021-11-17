@@ -13,7 +13,7 @@
     "build": "npm run run:main -- build",
     "build:demo": "npm run run:main -- build:site",
     "preversion": "lerna run build --since",
-    "version": "export $(cat .env | xargs) && lerna version",
+    "version": "lerna version",
     "config": "npm config set //npm.pkg.github.com/:_authToken=$(grep GH_PKG_TOKEN .env | cut -d '=' -f2)",
     "release": "npm run version && lerna publish from-git",
     "release:all": "npm run version -- --force-publish && lerna publish from-git",
