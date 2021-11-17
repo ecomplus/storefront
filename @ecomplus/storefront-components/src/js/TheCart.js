@@ -136,7 +136,8 @@ export default {
           }
         })
       }
-      oldNumItems = numItems
+        oldNumItems = numItems
+      }
     }
     ecomCart.on('change', cartWatcher)
     this.$once('hook:beforeDestroy', () => {
