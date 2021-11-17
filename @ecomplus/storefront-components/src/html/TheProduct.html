@@ -41,7 +41,10 @@
         </div>
       </slot>
 
-      <div class="col">
+      <div
+        class="col"
+        ref="actions"
+      >
         <slot
           v-if="!isSSR"
           name="heading"
@@ -199,6 +202,7 @@
               <div
                 v-if="hasBuyButton"
                 class="product__buy"
+                ref="buy"
               >
                 <span @click="buy">
                   <slot
@@ -347,6 +351,45 @@
       </div>
     </div>
   </transition>
+
+  <template v-if="!isQuickview && hasStickyBuyButton && body.available && isInStock">
+    <transition
+      enter-active-class="animated fadeIn"
+      leave-active-class="animated fadeOut fast" 
+    >
+      <div
+        v-show="isStickyBuyVisible"
+        ref="sticky" 
+        class="product__sticky"
+      >
+        <div class="product__sticky-container container">
+          <div class="product__sticky-info">
+            <a-picture
+              :can-calc-height="false"
+              :src="thumbnail"
+              class="product__sticky-picture"
+            />
+            <h5>{{ name }}</h5>
+          </div>
+
+          <div class="product__sticky-buy">
+            <a-prices
+              :product="ghostProductForPrices"
+              :is-literal="false"
+              :can-show-price-options="true"
+            />
+            <a
+              class="btn btn-lg btn-primary" 
+              @click="buyOrScroll"
+            >
+              <i class="fas fa-shopping-bag mr-1"></i>
+              {{ strBuy }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </template>
 
   <slot v-if="!body._id"/>
 </section>

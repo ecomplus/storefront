@@ -156,6 +156,16 @@
               </transition>
             </div>
           </div>
+
+          <discount-applier
+            v-if="canHideSummary && enabledCheckoutStep > 1"
+            class="checkout__discount mt-4"
+            :amount="amount"
+            :coupon-code.sync="localDiscountCoupon"
+            @set-discount-rule="discountRule => $emit('set-discount-rule', discountRule)"
+            :modules-payload="modulesPayload"
+            is-attention-wanted
+          />
         </div>
 
         <div

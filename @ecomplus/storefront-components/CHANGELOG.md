@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.106](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.105...@ecomplus/storefront-components@1.0.0-beta.106) (2021-11-09)
+
+
+### Bug Fixes
+
+* **components/product:** sticky bar style fixes (image and product name) ([07169e6](https://github.com/ecomplus/storefront/commit/07169e6006b746716bdb915db7ca6ab7488c1bde))
+
+
+
+
+
+# [1.0.0-beta.105](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.104...@ecomplus/storefront-components@1.0.0-beta.105) (2021-11-09)
+
+
+### Bug Fixes
+
+* **components/picture:** prevent alt text while image being lazy loaded ([2d6c3d8](https://github.com/ecomplus/storefront/commit/2d6c3d8e26ca0c7222dc08a892ce0aa40a468bae))
+* **components/product:** general fixes and better ux for sticky buy bar [[#331](https://github.com/ecomplus/storefront/issues/331)] ([f2d4095](https://github.com/ecomplus/storefront/commit/f2d40956367ec88065323541ef4a91c7bd997baf))
+
+
+### Features
+
+* **components/product:** sticky quick buy bar on scroll ([#549](https://github.com/ecomplus/storefront/issues/549)) ([c354b97](https://github.com/ecomplus/storefront/commit/c354b97391a8cf5b677a1a967510939f94c4ec93))
+
+
+
+
+
+# [1.0.0-beta.104](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.103...@ecomplus/storefront-components@1.0.0-beta.104) (2021-10-25)
+
+
+### Bug Fixes
+
+* **components/address-form:** update correios cep finder url ([#546](https://github.com/ecomplus/storefront/issues/546)) ([3e425ed](https://github.com/ecomplus/storefront/commit/3e425ed06dc4c292cf7ffb55fa83b8ebd686b0e1))
+* **deps:** update all non-major dependencies ([#550](https://github.com/ecomplus/storefront/issues/550)) ([433f9c5](https://github.com/ecomplus/storefront/commit/433f9c51d5bbc2701351be74e1b9289a1cb1a28c))
+
+
+
+
+
 # [1.0.0-beta.103](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.102...@ecomplus/storefront-components@1.0.0-beta.103) (2021-10-05)
 
 

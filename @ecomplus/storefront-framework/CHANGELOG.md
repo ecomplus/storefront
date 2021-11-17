@@ -3,6 +3,61 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.17.8](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.7...@ecomplus/storefront-framework@5.17.8) (2021-11-10)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.17.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.6...@ecomplus/storefront-framework@5.17.7) (2021-11-10)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.17.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.5...@ecomplus/storefront-framework@5.17.6) (2021-11-10)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.17.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.4...@ecomplus/storefront-framework@5.17.5) (2021-11-10)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.17.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.3...@ecomplus/storefront-framework@5.17.4) (2021-11-09)
+
+
+### Bug Fixes
+
+* **framework/webpack:** bump corejs version to 3.19 ([2a158b2](https://github.com/ecomplus/storefront/commit/2a158b287d9da0a87c6c4f4f904e3ee33990062c))
+
+
+
+
+
+## [5.17.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.2...@ecomplus/storefront-framework@5.17.3) (2021-10-25)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#550](https://github.com/ecomplus/storefront/issues/550)) ([433f9c5](https://github.com/ecomplus/storefront/commit/433f9c51d5bbc2701351be74e1b9289a1cb1a28c))
+* **deps:** update dependency firebase-admin to v10 ([#544](https://github.com/ecomplus/storefront/issues/544)) ([edd7a8a](https://github.com/ecomplus/storefront/commit/edd7a8ab796a10f18dc9ad8f6d6364db0355b894))
+
+
+
+
+
 ## [5.17.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.1...@ecomplus/storefront-framework@5.17.2) (2021-10-05)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

@@ -175,10 +175,6 @@ export default ({ baseDir }) => ({
               value: 'spacelab'
             },
             {
-              label: 'Superhero',
-              value: 'superhero'
-            },
-            {
               label: 'United',
               value: 'united'
             },

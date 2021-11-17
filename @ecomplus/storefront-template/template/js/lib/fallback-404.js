@@ -8,7 +8,16 @@ import SearchEngine from '#components/SearchEngine.vue'
 const $fallback404 = $('#fallback-404')
 if ($fallback404.length) {
   const urlParams = new URLSearchParams(window.location.search)
-  const url = urlParams.get('url')
+  let url = urlParams.get('url')
+  if (!url && document.cookie) {
+    const referrerCookie = document.cookie
+      .split('; ')
+      .find(row => row.startsWith('referrerUrl='))
+    if (referrerCookie) {
+      url = referrerCookie.split('=')[1]
+    }
+  }
+
   if (url) {
     const router = new EcomRouter()
     $fallback404.html('<div class="spinner-border" role="status"></div>')

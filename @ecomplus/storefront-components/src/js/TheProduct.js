@@ -25,6 +25,7 @@ import {
   inStock as checkInStock,
   onPromotion as checkOnPromotion,
   price as getPrice,
+  img as getImg,
   variationsGrids as getVariationsGrids,
   specTextValue as getSpecTextValue,
   specValueByText as getSpecValueByText,
@@ -34,11 +35,15 @@ import {
 import { store, modules } from '@ecomplus/client'
 import EcomSearch from '@ecomplus/search-engine'
 import ecomCart from '@ecomplus/shopping-cart'
+import { isMobile } from '@ecomplus/storefront-twbs'
+import lozad from 'lozad'
 import sortApps from './helpers/sort-apps'
 import addIdleCallback from './helpers/add-idle-callback'
+import scrollToElement from './helpers/scroll-to-element'
 import { Portal } from '@linusborg/vue-simple-portal'
 import ALink from '../ALink.vue'
 import AAlert from '../AAlert.vue'
+import APicture from '../APicture.vue'
 import APrices from '../APrices.vue'
 import AShare from '../AShare.vue'
 import ProductVariations from '../ProductVariations.vue'
@@ -68,6 +73,7 @@ export default {
     Portal,
     ALink,
     AAlert,
+    APicture,
     APrices,
     AShare,
     ProductVariations,
@@ -93,6 +99,10 @@ export default {
     galleryColClassName: {
       type: String,
       default: 'col-12 col-md-6'
+    },
+    hasStickyBuyButton: {
+      type: Boolean,
+      default: true
     },
     canAddToCart: {
       type: Boolean,
@@ -124,6 +134,7 @@ export default {
       selectedVariationId: null,
       currentGalleyImg: 1,
       isOnCart: false,
+      isStickyBuyVisible: false,
       hasClickedBuy: false,
       hasLoadError: false,
       paymentOptions: [],
@@ -162,6 +173,10 @@ export default {
 
     isInStock () {
       return checkInStock(this.body)
+    },
+
+    thumbnail () {
+      return getImg(this.body, null, 'small')
     },
 
     productQuantity () {
@@ -334,6 +349,14 @@ export default {
         ecomCart.addProduct({ ...product, customizations }, variationId)
       }
       this.isOnCart = true
+    },
+
+    buyOrScroll () {
+      if (this.hasVariations || this.isKit) {
+        scrollToElement(this.$refs.actions)
+      } else {
+        this.buy()
+      }
     }
   },
 
@@ -438,6 +461,48 @@ export default {
       }
     } else {
       this.fetchProduct()
+    }
+  },
+
+  mounted () {
+    if (this.$refs.sticky) {
+      let isBodyPaddingSet = false
+      const setStickyBuyObserver = (isToVisible = true) => {
+        const $anchor = this.$refs[isToVisible ? 'sticky' : 'buy']
+        if (!$anchor) {
+          return
+        }
+        const $tmpDiv = document.createElement('div')
+        $anchor.parentNode.insertBefore($tmpDiv, $anchor)
+        if (isToVisible) {
+          $tmpDiv.style.position = 'absolute'
+          $tmpDiv.style.bottom = isMobile ? '-1600px' : '-1000px'
+        }
+        const obs = lozad($tmpDiv, {
+          rootMargin: '100px',
+          threshold: 0,
+          load: () => {
+            this.isStickyBuyVisible = isToVisible
+            if (isToVisible && !isBodyPaddingSet) {
+              this.$nextTick(() => {
+                const stickyHeight = this.$refs.sticky.offsetHeight
+                document.body.style.paddingBottom = `${(stickyHeight + 4)}px`
+                isBodyPaddingSet = true
+              })
+            }
+            $tmpDiv.remove()
+            setTimeout(() => {
+              const createObserver = function () {
+                setStickyBuyObserver(!isToVisible)
+                document.removeEventListener('scroll', createObserver)
+              }
+              document.addEventListener('scroll', createObserver)
+            }, 100)
+          }
+        })
+        obs.observe()
+      }
+      setStickyBuyObserver()
     }
   }
 }
