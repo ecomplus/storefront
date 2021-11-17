@@ -33,7 +33,7 @@ export default {
   props: {
     amount: {
       type: Object,
-      default() {
+      default () {
         return {}
       }
     },
@@ -46,13 +46,13 @@ export default {
     modulesPayload: Object,
     ecomCart: {
       type: Object,
-      default() {
+      default () {
         return ecomCart
       }
     }
   },
 
-  data() {
+  data () {
     return {
       localZipCode: this.zipCode,
       canApplyDiscount: false,
@@ -66,19 +66,19 @@ export default {
     i19discount: () => i18n(i19discount),
     i19emptyCart: () => i18n(i19emptyCart),
 
-    cart() {
+    cart () {
       return this.ecomCart.data
     },
 
-    isValidCart() {
+    isValidCart () {
       return this.ecomCart.data.items.find(({ quantity }) => quantity)
     },
 
     localDiscountCoupon: {
-      get() {
+      get () {
         return this.discountCoupon
       },
-      set(couponCode) {
+      set (couponCode) {
         this.$emit('update:discount-coupon', couponCode)
       }
     }
@@ -87,14 +87,14 @@ export default {
   methods: {
     formatMoney,
 
-    selectShippingService(service) {
+    selectShippingService (service) {
       this.$emit('select-shipping', service)
       this.$nextTick(() => {
         this.canApplyDiscount = true
       })
     },
 
-    setDiscountRule(discountRule) {
+    setDiscountRule (discountRule) {
       this.$emit('set-discount-rule', discountRule)
       this.$nextTick(() => {
         this.isCouponApplied = Boolean(this.discountCoupon && this.amount.discount)
@@ -103,18 +103,18 @@ export default {
   },
 
   watch: {
-    localZipCode(zipCode) {
+    localZipCode (zipCode) {
       this.$emit('update:zip-code', zipCode)
     },
 
-    canApplyDiscount(canApplyDiscount) {
+    canApplyDiscount (canApplyDiscount) {
       if (!canApplyDiscount) {
         this.isCouponApplied = false
       }
     }
   },
 
-  mounted() {
+  mounted () {
     this.$nextTick(() => {
       this.canApplyDiscount = !this.localZipCode
     })
