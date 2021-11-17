@@ -119,17 +119,24 @@ export default {
       this.canApplyDiscount = !this.localZipCode
     })
     const { ecomCart } = this
-    let oldSubtotal = ecomCart.data.subtotal
-    const cartWatcher = ({ data }) => {
+    const getNumItems = () => ecomCart.data.items.reduce((numItems, { flags, quantity }) => {
+      if (!flags || !flags.includes('freebie')) {
+        numItems += quantity
+      }
+      return numItems
+    }, 0)
+    let oldNumItems = getNumItems()
+    const cartWatcher = () => {
       this.canApplyDiscount = !this.localZipCode
-      if (oldSubtotal > data.subtotal) {
+      const numItems = getNumItems()
+      if (oldNumItems !== numItems) {
         ecomCart.data.items.forEach(({ _id, quantity, flags }) => {
           if (Array.isArray(flags) && flags.includes('freebie') && quantity === 1) {
             ecomCart.removeItem(_id)
           }
         })
+        oldNumItems = numItems
       }
-      oldSubtotal = data.subtotal
     }
     ecomCart.on('change', cartWatcher)
     this.$once('hook:beforeDestroy', () => {
