@@ -28,15 +28,14 @@ export default (options = {}) => {
             const customerName = getFullName(customer)
             const date = new Date()
 
-            let ccParam = `orderSellerID=${compreConfieStoreId}&orderPlatform=ecomplus` +
+            let ccParam = `orderSellerID=${compreConfieStoreId}` +
               `&orderTotalSpent=${order.amount.total}` +
               `&orderDeliveryTax=${(order.amount.freight || 0)}` +
               `&orderID=${(order.number || order._id)}` +
               `&consumerEmail=${customer.main_email}` +
               `&billingEmail=${customer.main_email}` +
               `&consumerName=${encodeURIComponent(customerName)}` +
-              `&orderDate=${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} | ` +
-                `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+              `&orderDate=${date.getFullYear()}-${(date.getMonth() + 1)}-${date.getDate()}`
             if (customer.gender === 'm') {
               ccParam += '&consumerGender=Masculino&billingGender=Masculino'
             } else if (customer.gender === 'f') {
@@ -50,6 +49,11 @@ export default (options = {}) => {
               const { day, month, year } = customer.birth_date
               ccParam += `&consumerBirthDate=${day.toString().padStart(2, '0')}` +
                 `/${month.toString().padStart(2, '0')}/${year}`
+            }
+            if (navigator && navigator.userAgent.includes('Mobile')) {
+              ccParam += '&orderPlatform=1'
+            } else {
+              ccParam += '&orderPlatform=0'
             }
 
             const { items } = order
@@ -97,8 +101,30 @@ export default (options = {}) => {
             }
 
             if (transaction) {
-              if (transaction.app && transaction.app.intermediator && transaction.app.intermediator.name) {
-                ccParam += `&orderPartnerPayment=${transaction.app.intermediator.name}`
+              if (transaction.app && transaction.app.intermediator && transaction.app.intermediator.code) {
+                ccParam += `&orderPartnerPayment=`
+                switch (transaction.app.intermediator.code.toLowerCase()) {
+                  case 'mercadopago':
+                    ccParam += '1'
+                    break
+                  case 'paypal':
+                    ccParam += '2'
+                    break
+                  case 'pagseguro':
+                    ccParam += '4'
+                    break
+                  case 'pagarme':
+                    ccParam += '7'
+                    break
+                  case 'wirecard':
+                    ccParam += '8'
+                    break
+                  case 'vindi':
+                    ccParam += '12'
+                    break
+                  default:
+                    ccParam += '17'
+                }
               }
               ccParam += `&billingName=${encodeURIComponent((payer && payer.fullname) || customerName)}`
               ccParam += `&orderParcels=${((transaction.installments && transaction.installments.number) || 1)}`
