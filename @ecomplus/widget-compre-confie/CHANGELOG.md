@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-compre-confie@1.1.7...@ecomplus/widget-compre-confie@1.1.8) (2021-11-19)
+
+
+### Bug Fixes
+
+* **widget-compre-confie:** update confirmation banner params ([#566](https://github.com/ecomplus/storefront/issues/566)) ([0228ee7](https://github.com/ecomplus/storefront/commit/0228ee75f65f40b68afcb89bb18936e33216c8dd))
+
+
+
+
+
+
 ## [1.1.7](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-compre-confie@1.1.6...@ecomplus/widget-compre-confie@1.1.7) (2021-09-17)
 
 
