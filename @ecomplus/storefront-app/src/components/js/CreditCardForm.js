@@ -67,6 +67,7 @@ export default {
       },
       isLoadingInstallments: false,
       hasLoadedInstallments: false,
+      isWaitingCardHash: false,
       installmentList: [],
       alert: {
         bin: false,
@@ -254,11 +255,15 @@ export default {
         const $form = this.$el
         if ($form.checkValidity() && this.validateDate() && this.validateCvv()) {
           if (this.jsClient) {
+            this.isWaitingCardHash = true
             this.generateCardHash()
               .then(this.emitCardData)
               .catch(err => {
                 console.error(err)
                 this.notifyInvalidCard()
+              })
+              .finally(() => {
+                this.isWaitingCardHash = false
               })
           } else {
             this.emitCardData()

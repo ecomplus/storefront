@@ -10,4 +10,17 @@
       text-transform: uppercase;
     }
   }
+
+  &__loading {
+    position: absolute;
+    width: 95%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    opacity: .8;
+    z-index: 1;
+  }
 }
+
