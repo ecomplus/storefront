@@ -10,4 +10,16 @@
       text-transform: uppercase;
     }
   }
+
+  &-loading {
+    position: absolute;
+    width: 95%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsla(0,0%,100%,.7);
+    z-index: 1;
+  }
 }
+

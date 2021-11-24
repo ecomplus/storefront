@@ -3,13 +3,18 @@
   @submit.prevent="submit"
   novalidate
 >
-  <div
-    v-show="isWaitingCardHash" 
-    class="spinner-border"
-    role="status"
-  >
-    <span class="sr-only">Loading...</span>
-  </div>
+  <transition name="fade">
+    <div
+      v-show="isWaitingCardHash" 
+      class="credit-card-loading">
+      <div 
+        class="spinner-border"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </transition>
   <div class="form-group credit-card__bin">
     <label for="credit-card-bin">
       {{ i19cardNumber }}
