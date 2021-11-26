@@ -77,7 +77,8 @@ export default {
         if (this.discount.type === 'percentage') {
           return this.price * (100 - this.discount.value) / 100
         } else {
-          return Math.min(this.price - this.discount.value, 0)
+          const finalPrice = this.price - this.discount.value
+          return (finalPrice > 0 ? finalPrice : 0)
         }
       }
       return this.price
