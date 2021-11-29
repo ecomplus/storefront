@@ -38,7 +38,7 @@
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "@ecomplus/storefront-renderer": "^2.8.8",
     "@ecomplus/storefront-router": "^2.2.1",
     "autoprefixer": "^9.8.8",
