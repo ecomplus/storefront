@@ -36,7 +36,6 @@
         :class="[selectedOptions[grid] === optionText ? 'variations__option--selected' : null, `variations__option--${optionText}`]"
         :style="grid === 'colors' ? getColorOptionBg(optionText) : null"
         @click="selectOption(optionText, grid, index)"
-        :disabled="!filteredGrids[grid].includes(optionText)"
       >
         {{ optionText }}
       </button>
