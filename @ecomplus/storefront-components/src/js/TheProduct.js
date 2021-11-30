@@ -175,9 +175,6 @@ export default {
       return checkInStock(this.selectedVariationId ? this.selectedVariation : this.body)
     },
 
-    isVariableStock () {
-      return this.selectedVariationId()
-    },
 
     thumbnail () {
       return getImg(this.body, null, 'small')
