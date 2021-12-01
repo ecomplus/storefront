@@ -111,9 +111,14 @@ export default {
       const variations = product.variations.slice(0)
       for (let i = 0; i < variations.length; i++) {
         const variation = variations[i]
-        if (checkStock(variation)) {
-          variations.splice(i, 1)
-          i--
+        if (!checkStock(variation)) {
+          const { specifications } = variation
+          for (const grid in specifications) {
+            if (selectedOptions[grid] !== getSpecTextValue(variation, grid)) {
+              variations.splice(i, 1)
+              i--
+            }
+          }
         } else {
           const { specifications } = variation
           for (const grid in specifications) {

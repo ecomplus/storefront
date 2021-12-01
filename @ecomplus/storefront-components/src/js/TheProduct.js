@@ -172,9 +172,11 @@ export default {
     },
 
     isInStock () {
-      return checkInStock(this.selectedVariationId ? this.selectedVariation : this.body)
+      return checkInStock(this.body)
     },
 
+    isVariableInStock () {
+    },
 
     thumbnail () {
       return getImg(this.body, null, 'small')

@@ -33,7 +33,7 @@
       <button
         v-for="optionText in options"
         class="variations__option btn btn-light"
-        :class="[selectedOptions[grid] === optionText ? 'variations__option--selected' : null, `variations__option--${optionText}`]"
+        :class="[selectedOptions[grid] === optionText ? 'variations__option--selected' : null, `variations__option--${optionText}`, filteredGrids[grid].includes(optionText) ? null : 'disabled']"
         :style="grid === 'colors' ? getColorOptionBg(optionText) : null"
         @click="selectOption(optionText, grid, index)"
       >
