@@ -2,6 +2,7 @@
   class="product"
   :data-product-id="body._id"
   :data-sku="body.sku"
+  :data-selected-variation="selectedVariationId"
 >
   <a-alert
     :can-show="hasLoadError"

@@ -175,6 +175,9 @@ export default {
       return checkInStock(this.body)
     },
 
+    isVariableInStock () {
+    },
+
     thumbnail () {
       return getImg(this.body, null, 'small')
     },
