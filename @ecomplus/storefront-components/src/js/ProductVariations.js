@@ -119,7 +119,6 @@ export default {
           }
         }
       }
-      console.log(variations[0])
       this.$emit('update:selected-id', variations.length ? variations[0]._id : null)
     }
   },
