@@ -111,25 +111,15 @@ export default {
       const variations = product.variations.slice(0)
       for (let i = 0; i < variations.length; i++) {
         const variation = variations[i]
-        if (!checkStock(variation)) {
-          const { specifications } = variation
-          for (const grid in specifications) {
-            if (selectedOptions[grid] !== getSpecTextValue(variation, grid)) {
-              variations.splice(i, 1)
-              i--
-            }
-          }
-        } else {
-          const { specifications } = variation
-          for (const grid in specifications) {
-            if (selectedOptions[grid] !== getSpecTextValue(variation, grid)) {
-              variations.splice(i, 1)
-              i--
-              break
-            }
+        const { specifications } = variation
+        for (const grid in specifications) {
+          if (selectedOptions[grid] !== getSpecTextValue(variation, grid)) {
+            variations.splice(i, 1)
+            i--
           }
         }
       }
+      console.log(variations[0])
       this.$emit('update:selected-id', variations.length ? variations[0]._id : null)
     }
   },

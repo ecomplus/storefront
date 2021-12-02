@@ -84,7 +84,7 @@
 
           <slot
             name="out-of-stock"
-            v-else-if="!isInStock"
+            v-else-if="!isInStock || variationOutOfStock"
           >
             <p class="product__out-of-stock">
               {{ i19outOfStock }}
@@ -124,7 +124,8 @@
                 :product="body"
                 :selected-id.sync="selectedVariationId"
                 :max-options-btns="maxVariationOptionsBtns"
-                @select-option="handleGridOption"
+                @select-option="handleGridOption"                
+                @update:selected-id="isVariationInStock($event)"
               />
               <a-alert :can-show="hasClickedBuy && !selectedVariationId">
                 {{ i19selectVariationMsg }}

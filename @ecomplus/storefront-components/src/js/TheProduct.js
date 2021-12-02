@@ -137,6 +137,7 @@ export default {
       isStickyBuyVisible: false,
       hasClickedBuy: false,
       hasLoadError: false,
+      variationOutOfStock: false,
       paymentOptions: [],
       customizations: [],
       kitItems: []
@@ -282,6 +283,14 @@ export default {
             }
           }
         })
+    },
+
+    isVariationInStock (variationId) {
+      this.body.variations.forEach((variation) => {
+        if (variation._id === variationId) {
+          this.variationOutOfStock = variation.quantity <= 0
+        }
+      })
     },
 
     getAdditionalPrice ({ type, addition }) {
