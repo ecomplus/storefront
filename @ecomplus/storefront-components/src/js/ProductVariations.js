@@ -52,7 +52,7 @@ export default {
 
     orderedGrids () {
       return Object.keys(this.variationsGrids)
-    },
+    }
   },
 
   methods: {
