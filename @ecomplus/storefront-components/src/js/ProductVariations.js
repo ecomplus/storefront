@@ -116,6 +116,7 @@ export default {
           if (selectedOptions[grid] !== getSpecTextValue(variation, grid)) {
             variations.splice(i, 1)
             i--
+            break
           }
         }
       }
