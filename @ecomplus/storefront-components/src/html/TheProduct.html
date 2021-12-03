@@ -91,7 +91,7 @@
             </p>
           </slot>
 
-          <template v-else>            
+          <template v-else>
             <slot name="prices">
               <p class="product__prices">
                 <a-prices
@@ -208,6 +208,7 @@
                   {{ i19outOfStock }}
                 </p>
               </slot>
+
               <div
                 v-else-if="hasBuyButton"
                 class="product__buy"
