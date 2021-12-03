@@ -84,14 +84,14 @@
 
           <slot
             name="out-of-stock"
-            v-else-if="!isInStock || variationOutOfStock"
+            v-else-if="!isInStock"
           >
             <p class="product__out-of-stock">
               {{ i19outOfStock }}
             </p>
           </slot>
 
-          <template v-else>
+          <template v-else>            
             <slot name="prices">
               <p class="product__prices">
                 <a-prices
@@ -124,8 +124,7 @@
                 :product="body"
                 :selected-id.sync="selectedVariationId"
                 :max-options-btns="maxVariationOptionsBtns"
-                @select-option="handleGridOption"                
-                @update:selected-id="isVariationInStock($event)"
+                @select-option="handleGridOption"
               />
               <a-alert :can-show="hasClickedBuy && !selectedVariationId">
                 {{ i19selectVariationMsg }}
@@ -201,8 +200,16 @@
             </div>
 
             <template v-else>
+              <slot
+                v-if="!isVariationInStock"
+                name="out-of-stock"                
+              >
+                <p class="product__out-of-stock">
+                  {{ i19outOfStock }}
+                </p>
+              </slot>
               <div
-                v-if="hasBuyButton"
+                v-else-if="hasBuyButton"
                 class="product__buy"
                 ref="buy"
               >
