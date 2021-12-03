@@ -41,9 +41,10 @@
       box-shadow: 0 0 0 .1rem rgba(var(--secondary-rgb), .6);
     }
 
-    &:disabled {
+    &--disabled {
       cursor: not-allowed;
       position: relative;
+      opacity: .22;
 
       &::after {
         content: 'x';
