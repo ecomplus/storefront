@@ -200,14 +200,20 @@
             </div>
 
             <template v-else>
-              <slot
+              <div
                 v-if="!isVariationInStock"
-                name="out-of-stock"                
+                class="offers-variation-notification"
               >
-                <p class="product__out-of-stock">
-                  {{ i19outOfStock }}
-                </p>
-              </slot>
+                <slot
+                  
+                  name="out-of-stock"                
+                >
+                  <p class="product__out-of-stock">
+                    {{ i19outOfStock }}
+                  </p>
+                </slot>
+              </div>
+              
 
               <div
                 v-else-if="hasBuyButton"
