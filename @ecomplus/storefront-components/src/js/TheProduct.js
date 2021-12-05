@@ -175,6 +175,10 @@ export default {
       return checkInStock(this.body)
     },
 
+    isVariationInStock () {
+      return checkInStock(this.selectedVariationId ? this.selectedVariation : this.body)
+    },
+
     thumbnail () {
       return getImg(this.body, null, 'small')
     },

@@ -7,8 +7,10 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
 <script>
   window._offersNtShow = function (type) {
     var $iframe = document.getElementById('_offers-nt__iframe-' + type);
+    var $product = $iframe.closest(".product");
+    var variationId = ($product.querySelector('.product') || $product).dataset.selectedVariation || '';
     if (!$iframe.hasAttribute('src')) {
-      $iframe.setAttribute('src', $iframe.dataset.src);
+      $iframe.setAttribute('src', $iframe.dataset.src + '&variationId=' + variationId);
       $iframe.onload = setTimeout(function () {
         document.getElementById('_offers-nt__spinner-' + type).style.display = 'none';
       }, 500);
