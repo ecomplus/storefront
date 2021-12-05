@@ -15,6 +15,7 @@
     font-weight: var(--font-bold);
     font-size: var(--font-size-lg);
     color: var(--warning);
+    margin-bottom: var(--spacer-3);
   }
 
   &__discount {
@@ -138,4 +139,8 @@
       }
     }
   }
+}
+
+.offers-variation-notification {
+  margin: -1rem 0 1rem 0;
 }

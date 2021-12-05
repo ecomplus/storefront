@@ -2,6 +2,7 @@
   class="product"
   :data-product-id="body._id"
   :data-sku="body.sku"
+  :data-selected-variation="selectedVariationId"
 >
   <a-alert
     :can-show="hasLoadError"
@@ -72,23 +73,23 @@
             ></div>
           </slot>
 
-          <slot
-            name="unavailable"
+          <div
             v-if="!body.available"
+            class="product__unavailable"
           >
-            <p class="product__unavailable">
+            <slot name="unavailable">
               {{ i19unavailable }}
-            </p>
-          </slot>
+            </slot>
+          </div>
 
-          <slot
-            name="out-of-stock"
+          <div
             v-else-if="!isInStock"
+            class="product__out-of-stock"
           >
-            <p class="product__out-of-stock">
+            <slot name="out-of-stock">
               {{ i19outOfStock }}
-            </p>
-          </slot>
+            </slot>
+          </div>
 
           <template v-else>
             <slot name="prices">
@@ -200,7 +201,16 @@
 
             <template v-else>
               <div
-                v-if="hasBuyButton"
+                v-if="!isVariationInStock"
+                class="product__out-of-stock"
+              >
+                <slot name="out-of-stock">
+                  {{ i19outOfStock }}
+                </slot>
+              </div>
+
+              <div
+                v-else-if="hasBuyButton"
                 class="product__buy"
                 ref="buy"
               >

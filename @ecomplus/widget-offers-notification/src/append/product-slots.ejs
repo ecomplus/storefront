@@ -7,8 +7,10 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
 <script>
   window._offersNtShow = function (type) {
     var $iframe = document.getElementById('_offers-nt__iframe-' + type);
+    var $product = $iframe.closest(".product");
+    var variationId = ($product.querySelector('.product') || $product).dataset.selectedVariation || '';
     if (!$iframe.hasAttribute('src')) {
-      $iframe.setAttribute('src', $iframe.dataset.src);
+      $iframe.setAttribute('src', $iframe.dataset.src + '&variationId=' + variationId);
       $iframe.onload = setTimeout(function () {
         document.getElementById('_offers-nt__spinner-' + type).style.display = 'none';
       }, 500);
@@ -21,7 +23,7 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
     <% if (options.enableOutOfStock) { %>
       <button
         type="button"
-        class="btn btn-lg btn-primary mt-3 offers-notification"
+        class="btn btn-lg btn-primary offers-notification"
         data-toggle="collapse"
         href="#_offers-nt__collapse-stock"
         onclick="_offersNtShow('stock')"
@@ -36,7 +38,7 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
       <div class="collapse mt-4" id="_offers-nt__collapse-stock">
         <div class="card card-body">
           <div
-            class="spinner-border spinner-border-sm position-absolute"
+            class="spinner-border position-absolute"
             role="status"
             id="_offers-nt__spinner-stock"
           >
@@ -76,7 +78,7 @@ const url = 'https://us-central1-ecom-offers-notification.cloudfunctions.net/app
       <div class="collapse mt-4" id="_offers-nt__collapse-price">
         <div class="card card-body">
           <div
-            class="spinner-border spinner-border-sm position-absolute"
+            class="spinner-border position-absolute"
             role="status"
             id="_offers-nt__spinner-price"
           >

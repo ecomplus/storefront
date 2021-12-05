@@ -36,14 +36,15 @@
       margin-right: var(--spacer-2);
     }
 
-    &--selected:not(:disabled) {
+    &--selected:not(.disabled) {
       border-color: var(--secondary);
       box-shadow: 0 0 0 .1rem rgba(var(--secondary-rgb), .6);
     }
 
-    &:disabled {
+    &.disabled {
       cursor: not-allowed;
       position: relative;
+      opacity: .5;
 
       &::after {
         content: 'x';
