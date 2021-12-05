@@ -73,23 +73,23 @@
             ></div>
           </slot>
 
-          <slot
-            name="unavailable"
+          <div
             v-if="!body.available"
+            class="product__unavailable"
           >
-            <p class="product__unavailable">
+            <slot name="unavailable">
               {{ i19unavailable }}
-            </p>
-          </slot>
+            </slot>
+          </div>
 
-          <slot
-            name="out-of-stock"
+          <div
             v-else-if="!isInStock"
+            class="product__out-of-stock"
           >
-            <p class="product__out-of-stock">
+            <slot name="out-of-stock">
               {{ i19outOfStock }}
-            </p>
-          </slot>
+            </slot>
+          </div>
 
           <template v-else>
             <slot name="prices">
@@ -202,15 +202,12 @@
             <template v-else>
               <div
                 v-if="!isVariationInStock"
-                class="offers-variation-notification"
+                class="product__out-of-stock"
               >
                 <slot name="out-of-stock">
-                  <p class="product__out-of-stock">
-                    {{ i19outOfStock }}
-                  </p>
+                  {{ i19outOfStock }}
                 </slot>
               </div>
-              
 
               <div
                 v-else-if="hasBuyButton"
