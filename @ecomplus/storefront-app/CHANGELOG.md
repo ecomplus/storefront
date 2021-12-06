@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.115](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.114...@ecomplus/storefront-app@2.0.0-beta.115) (2021-12-06)
+
+
+### Bug Fixes
+
+* **app/credit-card-form:** loading spinner while card hash is being generated ([#568](https://github.com/ecomplus/storefront/issues/568)) ([27e07c5](https://github.com/ecomplus/storefront/commit/27e07c55dd21b05ece77f7d8a24130779740be88))
+
+
+
+
+
 # [2.0.0-beta.114](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.113...@ecomplus/storefront-app@2.0.0-beta.114) (2021-11-17)
 
 

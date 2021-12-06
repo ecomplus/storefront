@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-offers-notification@1.1.3...@ecomplus/widget-offers-notification@1.2.0) (2021-12-06)
+
+
+### Features
+
+* **components/product:** handle out of stock slot also for variations ([#575](https://github.com/ecomplus/storefront/issues/575)) ([8186c12](https://github.com/ecomplus/storefront/commit/8186c1236f2075ade32b7b3ad8e6506ef465452a))
+
+
+
+
+
+
 ## [1.1.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-offers-notification@1.1.2...@ecomplus/widget-offers-notification@1.1.3) (2021-07-24)
 
 **Note:** Version bump only for package @ecomplus/widget-offers-notification

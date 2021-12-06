@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.108](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.107...@ecomplus/storefront-components@1.0.0-beta.108) (2021-12-06)
+
+
+### Bug Fixes
+
+* **components/payment-option:** fix price with fixed payment option discount ([#569](https://github.com/ecomplus/storefront/issues/569)) ([3c0cded](https://github.com/ecomplus/storefront/commit/3c0cded99ebf190863845d259f25a1fde4bc6e58))
+
+
+### Features
+
+* **components/product:** handle out of stock slot also for variations ([#575](https://github.com/ecomplus/storefront/issues/575)) ([8186c12](https://github.com/ecomplus/storefront/commit/8186c1236f2075ade32b7b3ad8e6506ef465452a))
+
+
+
+
+
 # [1.0.0-beta.107](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.106...@ecomplus/storefront-components@1.0.0-beta.107) (2021-11-17)
 
 
