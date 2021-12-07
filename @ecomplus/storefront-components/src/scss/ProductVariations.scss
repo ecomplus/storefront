@@ -44,7 +44,6 @@
     &.disabled {
       cursor: not-allowed;
       position: relative;
-      opacity: .5;
 
       &::after {
         content: 'x';
