@@ -213,7 +213,7 @@ export default {
         }
       } else if (
         isForceUpdate ||
-        (!this.isUpdateSheduled && this.amount && this.amount.total)
+        (!this.isUpdateSheduled && this.amount && this.localAmountTotal)
       ) {
         this.fetchDiscountOptions()
       }
