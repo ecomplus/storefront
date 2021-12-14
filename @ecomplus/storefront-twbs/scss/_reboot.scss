@@ -181,10 +181,10 @@ a {
   text-decoration: $link-decoration;
 
   @media (hover: hover) {
-    @include hover() {
+    // @include hover() {
       color: $link-hover-color;
       text-decoration: $link-hover-decoration;
-    }
+    // }
   }
 }
 
@@ -197,10 +197,10 @@ a:not([href]):not([class]) {
   color: inherit;
   text-decoration: none;
 
-  @include hover() {
+  //@include hover() {
     color: inherit;
     text-decoration: none;
-  }
+  //}
 }
 
 
@@ -264,8 +264,8 @@ table {
 }
 
 caption {
-  padding-top: $table-cell-padding;
-  padding-bottom: $table-cell-padding;
+  padding-top: $pagination-padding-y-lg;
+  padding-bottom: $pagination-padding-y-lg;
   color: $table-caption-color;
   text-align: left;
   caption-side: bottom;
@@ -285,7 +285,7 @@ th {
 label {
   // Allow labels to use `margin` for spacing.
   display: inline-block;
-  margin-bottom: $label-margin-bottom;
+  margin-bottom: $form-label-margin-bottom;
 }
 
 // Remove the default `border-radius` that macOS Chrome adds.
@@ -352,7 +352,7 @@ button,
 }
 
 // Opinionated: add "hand" cursor to non-disabled button elements.
-@if $enable-pointer-cursor-for-buttons {
+@if $enable-button-pointers {
   button,
   [type="button"],
   [type="reset"],
