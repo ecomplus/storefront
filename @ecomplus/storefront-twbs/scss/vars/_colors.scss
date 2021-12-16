@@ -7,11 +7,13 @@
     --#{$color}: #{$value};
     --#{$color}-yiq: #{color-yiq($value)};
     --#{$color}-rgb: #{red($value)}, #{green($value)}, #{blue($value)};
+    --#{$color}-hover: var(--#{$color}-rgb, 100% - $link-shade-percentage);
   }
 
   @each $color, $value in $brand-colors {
     --#{$color}: #{$value};
     --#{$color}-yiq: #{color-yiq($value)};
     --#{$color}-rgb: #{red($value)}, #{green($value)}, #{blue($value)};
+    --#{$color}-hover: var(--#{$color}-rgb, 100% - $link-shade-percentage);
   }
 }
