@@ -5,16 +5,24 @@
     --#{$color}-hr: #{$value};
   }
 
+  @each $color, $value in $grays {
+    --gray-#{$color}: #{$value};
+  }
+
   @each $color, $value in $theme-colors {
     --#{$color}: #{$value};
-    --#{$color}-yiq: #{color-yiq($value)};
+    --#{$color}-yiq: #{color-contrast($value)};
     --#{$color}-rgb: #{red($value)}, #{green($value)}, #{blue($value)};
     --#{$color}-hover: var(--#{$color}-rgb, 100% - $link-shade-percentage);
   }
 
+  @each $color, $value in $theme-colors-rgb {
+    --#{$color}-rgb: #{$value};
+  }
+
   @each $color, $value in $brand-colors {
     --#{$color}: #{$value};
-    --#{$color}-yiq: #{color-yiq($value)};
+    --#{$color}-yiq: #{color-contrast($value)};
     --#{$color}-rgb: #{red($value)}, #{green($value)}, #{blue($value)};
     --#{$color}-hover: var(--#{$color}-rgb, 100% - $link-shade-percentage);
   }
