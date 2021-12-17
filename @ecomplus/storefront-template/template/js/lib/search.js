@@ -12,9 +12,13 @@ if ($searchBar) {
     if (resizeState !== isScreenLg) {
       if (isScreenLg) {
         $searchBar.addClass('d-none')
-        $searchBar.collapse('show')
+        $(function () {
+          $searchBar.collapse('show')
+        })
       } else {
-        $searchBar.collapse('hide')
+        $(function () {
+          $searchBar.collapse('hide')
+        })
         $searchBar.removeClass('d-none')
       }
       resizeState = isScreenLg

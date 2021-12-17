@@ -18,7 +18,9 @@ if ((isSafari || isIOS || isIE) && !isSafariNew) {
 }
 
 if (!isScreenXs) {
-  $('.footer .collapse').collapse('show')
+  $(function () {
+    $('.footer .collapse').collapse('show')
+  })
 }
 
 $('.whatsapp-link').each(function () {

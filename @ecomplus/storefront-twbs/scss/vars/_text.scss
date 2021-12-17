@@ -25,4 +25,21 @@
   // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
   --font-family-sans-serif: #{inspect($font-family-sans-serif)};
   --font-family-monospace: #{inspect($font-family-monospace)};
+
+  /* BS 5 */
+  --font-sans-serif: var(--font-family-sans-serif);
+  --font-monospace: var(--font-monospace);
+
+  // Root and body
+  @if $font-size-root != null {
+    --root-font-size: #{$font-size-root};
+  }
+  --body-font-family: #{$font-family-base};
+  @include rfs($font-size-base, --body-font-size);
+  --body-font-weight: #{$font-weight-base};
+  --body-line-height: #{$line-height-base};
+  --body-color: #{$body-color};
+  @if $body-text-align != null {
+    --body-text-align: #{$body-text-align};
+  }
 }
