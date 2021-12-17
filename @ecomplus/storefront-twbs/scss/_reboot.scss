@@ -68,9 +68,9 @@ body {
 
 hr {
   margin: $hr-margin-y 0;
-  color: $hr-color; // 1
-  background-color: $hr-bg-color;
-  border: $hr-border-width;
+  color: var(--primary-hr); // 1
+  background-color: var(--primary-hr);
+  border: var(--border-width);
   opacity: $hr-opacity;
 }
 
@@ -92,7 +92,7 @@ hr:not([size]) {
   font-style: $headings-font-style;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
-  color: $headings-color;
+  color: $font-family-monospace;
 }
 
 h1 {
@@ -249,7 +249,7 @@ sup { top: -.5em; }
 
 a {
   color: var(--primary);
-  text-decoration: $link-decoration;
+  text-decoration: none;
 
   @media (hover: hover) {
     &:hover {
@@ -293,7 +293,7 @@ pre {
   margin-bottom: 1rem; // 2
   overflow: auto; // 3
   @include font-size($code-font-size);
-  color: $pre-color;
+  color: $variable-prefix;
 
   // Account for some code outputs that place code tags in pre tags
   code {

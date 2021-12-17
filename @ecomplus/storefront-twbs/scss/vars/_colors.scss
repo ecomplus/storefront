@@ -1,6 +1,8 @@
 & {
   @each $color, $value in $colors {
     --#{$color}: #{$value};
+    /* B5 Features */
+    --#{$color}-hr: #{$value};
   }
 
   @each $color, $value in $theme-colors {
