@@ -92,7 +92,7 @@ hr:not([size]) {
   font-style: $headings-font-style;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
-  color: $font-family-monospace;
+  color: $headings-color;
 }
 
 h1 {
@@ -293,7 +293,7 @@ pre {
   margin-bottom: 1rem; // 2
   overflow: auto; // 3
   @include font-size($code-font-size);
-  color: $variable-prefix;
+  color: $pre-color;
 
   // Account for some code outputs that place code tags in pre tags
   code {
