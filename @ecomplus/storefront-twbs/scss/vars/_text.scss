@@ -28,7 +28,7 @@
 
   /* BS 5 */
   --font-sans-serif: var(--font-family-sans-serif);
-  --font-monospace: var(--font-monospace);
+  --font-monospace: var(--font-family-monospace);
 
   // Root and body
   @if $font-size-root != null {
