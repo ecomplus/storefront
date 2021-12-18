@@ -21,7 +21,7 @@ const webpackConfig = {
   output,
 
   devServer: {
-    contentBase: path.resolve(__dirname, '__tests__'),
+    static: path.resolve(__dirname, '__tests__'),
     port: 3376,
     open: true
   },
@@ -102,31 +102,33 @@ const externals = {
   }
 }
 
-module.exports = devMode ? [webpackConfig] : [
-  {
-    ...webpackConfig,
-    entry: path.resolve(__dirname, 'src/index.js'),
-    output: {
-      ...output,
-      libraryTarget: 'var',
-      filename: output.filename.replace('.bundle', '.var'),
-      path: path.resolve(output.path, 'public')
-    },
-    externals: Object.keys(externals).reduce((rootExternals, lib) => ({
-      ...rootExternals,
-      [lib]: externals[lib].root
-    }), {})
-  },
+module.exports = devMode
+  ? [webpackConfig]
+  : [
+      {
+        ...webpackConfig,
+        entry: path.resolve(__dirname, 'src/index.js'),
+        output: {
+          ...output,
+          libraryTarget: 'var',
+          filename: output.filename.replace('.bundle', '.var'),
+          path: path.resolve(output.path, 'public')
+        },
+        externals: Object.keys(externals).reduce((rootExternals, lib) => ({
+          ...rootExternals,
+          [lib]: externals[lib].root
+        }), {})
+      },
 
-  {
-    ...webpackConfig,
-    entry: path.resolve(__dirname, 'src/index.js'),
-    output: {
-      ...output,
-      filename: output.filename.replace('.bundle', '')
-    },
-    externals
-  },
+      {
+        ...webpackConfig,
+        entry: path.resolve(__dirname, 'src/index.js'),
+        output: {
+          ...output,
+          filename: output.filename.replace('.bundle', '')
+        },
+        externals
+      },
 
-  webpackConfig
-]
+      webpackConfig
+    ]
