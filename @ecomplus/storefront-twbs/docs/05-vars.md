@@ -148,18 +148,33 @@ Try to use it whenever possible (specially for colors) to respect the store's id
   background-color: var(--orange);
   color: var(--white);
 }
+.y-divisor {
+  display: inline-block;
+  width: var(--border-width);
+  background: var(--secondary);
+  height: var(--font-size);
+  margin: 0 var(--spacer-3);
+}
 ```
 
 ```html
 <button class="btn btn-orange">
   Orange button
 </button>
+<span class="y-divisor"></span>
+<span style="font-weight: var(--font-light); color: var(--text-muted);">
+  Light muted text
+</span>
 ```
 
 <div class="demo">
   <button class="btn btn-orange">
     Orange button
   </button>
+  <span class="y-divisor"></span>
+  <span style="font-weight: var(--font-light); color: var(--text-muted);">
+    Light muted text
+  </span>
 </div>
 
 <style>
@@ -167,4 +182,63 @@ Try to use it whenever possible (specially for colors) to respect the store's id
     background-color: var(--orange);
     color: var(--white);
   }
+  .demo .y-divisor {
+    display: inline-block;
+    width: var(--border-width);
+    background: var(--secondary);
+    height: var(--font-size);
+    margin: 0 var(--spacer-3);
+  }
 </style>
+
+## Colors YIQ and RGB
+
+For each brand and context color we also have CSS vars with YIQ contrast color for foregrounds and RGB when you need transparency:
+
+```css
+.opaque-info-block {
+  background-color: rgba(var(--info-rgb), .85);
+  color: var(--info-yiq);
+}
+```
+
+```html
+<div class="opaque-info-block">
+  85% opaque info block
+</div>
+```
+
+<div class="demo">
+  <div class="opaque-info-block">
+    85% opaque info block
+  </div>
+</div>
+
+<style>
+  .demo .opaque-info-block {
+    background-color: rgba(var(--info-rgb), .85);
+    color: var(--info-yiq);
+  }
+</style>
+
+## Brand colors variants
+
+For _primary_ and _secondary_ brand colors we have additional CSS vars with lighten/darken color versions, by default with following weigths:
+
+| Label    | Weigth      |
+| ---      | ----        |
+| whiter   | 75% lighten |
+| white    | 50% lighten |
+| lightest | 33% lighten |
+| lighter  | 21% lighten |
+| light    | 10% lighten |
+| lighten  | 7% lighten  |
+| darken   | 8% darken   |
+| dark     | 10% darken  |
+| darker   | 13% darken  |
+| darkest  | 16% darken  |
+| black    | 50% darken  |
+
+Light* and dark* variants also have [`-yiq` and `-rgb`](#colors-yiq-and-rgb) vars.
+
+You may change those weigths at compilation time with [`$color-shift-weights` Sass map](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-twbs/scss/presets/_colors.scss) or runtime just overwriting respective CSS vars values with wanted colors.
