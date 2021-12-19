@@ -1,18 +1,18 @@
 // Theming Bootstrap:
 // https://getbootstrap.com/docs/4.5/getting-started/theming/
 
-// Preset custom SCSS variables
-@import "variables";
+// Preset custom SCSS variables and functions
+@import "presets/defaults";
+@import "presets/colors";
 
 // Required Bootstrap SASS
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
+@import "functions";
+@import "variables";
+@import "mixins";
 
 // Custom root with additional CSS vars
 :root {
   @import "vars/body";
-  @import "vars/colors";
   @import "vars/breakpoints";
   @import "vars/borders";
   @import "vars/shadows";

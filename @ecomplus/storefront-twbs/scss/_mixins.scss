@@ -12,7 +12,7 @@
 @import "bootstrap/scss/mixins/breakpoints";
 @import "bootstrap/scss/mixins/hover";
 @import "bootstrap/scss/mixins/image";
-@import "bootstrap/scss/mixins/badge";
+@import "mixins/badge";
 @import "bootstrap/scss/mixins/resize";
 @import "bootstrap/scss/mixins/screen-reader";
 @import "bootstrap/scss/mixins/size";
@@ -23,12 +23,12 @@
 @import "bootstrap/scss/mixins/visibility";
 
 // Components
-@import "bootstrap/scss/mixins/alert";
+@import "mixins/alert";
 @import "mixins/buttons";
 @import "bootstrap/scss/mixins/caret";
 @import "bootstrap/scss/mixins/pagination";
 @import "bootstrap/scss/mixins/lists";
-@import "bootstrap/scss/mixins/list-group";
+@import "mixins/list-group";
 @import "bootstrap/scss/mixins/nav-divider";
 @import "mixins/forms";
 @import "mixins/table-row";

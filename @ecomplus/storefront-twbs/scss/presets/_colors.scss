@@ -1,0 +1,217 @@
+// Parse color shift weight by range
+
+$color-shift-weights: (
+  -75:  "whiter",
+  -50:  "white",
+  -33:  "lightest",
+  -21:  "lighter",
+  -10:  "light",
+  -7:   "lighten",
+  0:    "",
+  8:    "darken",
+  10:   "dark",
+  13:   "darker",
+  16:   "darkest",
+  50:   "black"
+);
+
+@function label-color-weight($min-shift-weight) {
+  @each $shift-weight, $label in $color-shift-weights {
+    @if $shift-weight >= $min-shift-weight {
+      @return $label;
+    }
+  }
+  @return $min-shift-weight;
+}
+
+// Lighten a color or get light CSS var
+@function lighten-color($color, $weight) {
+  @if type-of($color) == color {
+    @return lighten($color, $weight);
+  } @else {
+    @return str-insert($color, -#{label-color-weight(-$weight)}, -2);
+  }
+}
+
+// Darken a color or get dark CSS var
+@function darken-color($color, $weight) {
+  @if $weight < 0 {
+    @return lighten-color($color, -$weight);
+  }
+  @if type-of($color) == color {
+    @return darken($color, $weight);
+  } @else {
+    @return str-insert($color, -#{label-color-weight($weight)}, -2);
+  }
+}
+
+// RGB color opacity with alpha
+@function rgba-color($color, $alpha) {
+  @if type-of($color) == color {
+    @return rgba($color, $alpha);
+  } @else {
+    @return rgba(#{str-insert($color, -rgb, -2)}, #{$alpha});
+  }
+}
+
+// Color contrast
+@function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
+  @if type-of($color) == color {
+    $r: red($color);
+    $g: green($color);
+    $b: blue($color);
+    $yiq: (($r * 299) + ($g * 587) + ($b * 114)) * .001;
+    @if ($yiq >= $yiq-contrasted-threshold) {
+      @return $dark;
+    } @else {
+      @return $light;
+    }
+  } @else {
+    @return str-insert($color, -yiq, -2);
+  }
+}
+
+// Request a theme color level
+@function theme-color-level($color-name: "primary", $level: 0) {
+  $color: theme-color($color-name);
+  $weight: $level * $theme-color-interval;
+  @return if($level > 0, darken-color($color, $weight), lighten-color($color, -$weight));
+}
+
+// Color system
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$grays: () !default;
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900
+  ),
+  $grays
+);
+
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+$colors: () !default;
+$colors: map-merge(
+  (
+    "blue":       $blue,
+    "indigo":     $indigo,
+    "purple":     $purple,
+    "pink":       $pink,
+    "red":        $red,
+    "orange":     $orange,
+    "yellow":     $yellow,
+    "green":      $green,
+    "teal":       $teal,
+    "cyan":       $cyan,
+    "white":      $white,
+    "gray":       $gray-600,
+    "gray-dark":  $gray-800
+  ),
+  $colors
+);
+
+$primary:       $blue !default;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+  ),
+  $theme-colors
+);
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval:      8% !default;
+
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold:  150 !default;
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark:             $gray-900 !default;
+$yiq-text-light:            $white !default;
+
+// Preset colors CSS vars
+
+:root {
+  @each $color, $value in $colors {
+    --#{$color}: #{$value};
+  }
+
+  @each $color, $value in $theme-colors {
+    --#{$color}: #{$value};
+    --#{$color}-yiq: #{color-yiq($value)};
+    --#{$color}-rgb: #{red($value)}, #{green($value)}, #{blue($value)};
+  }
+
+  @each $color in "primary", "secondary" {
+    $value: map-get($theme-colors, $color);
+    @each $shift-weight, $label in $color-shift-weights {
+      @if $label != "" {
+        $shift-var: #{$color}-#{$label};
+        $shift-value: darken-color($value, $shift-weight);
+        
+        --#{$shift-var}: #{$shift-value};
+        @if str-index($label, "light") or str-index($label, "dark") {
+          --#{$shift-var}-rgb: #{red($shift-value)}, #{green($shift-value)}, #{blue($shift-value)};
+          --#{$shift-var}-yiq: #{color-yiq($shift-value)};
+        }
+      }
+    }
+  }
+}
+
+// Set brand colors to CSS native vars
+
+$primary:   var(--primary);
+$secondary: var(--secondary);
+
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    "primary":    $primary,
+    "secondary":  $secondary
+  )
+);

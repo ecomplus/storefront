@@ -160,8 +160,8 @@
 
       &:checked {
         ~ .custom-control-label::before {
-          border-color: lighten($color, 10%);
-          @include gradient-bg(lighten($color, 10%));
+          border-color: lighten-color($color, 10%);
+          @include gradient-bg(lighten-color($color, 10%));
         }
       }
 
