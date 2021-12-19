@@ -29,7 +29,7 @@ const getSidebarItems = pkg => {
 }
 
 const alias = {
-  '@ecomplus/storefront-twbs': path.resolve(__dirname, 'dist/storefront-twbs.min.js'),
+  '@ecomplus/storefront-twbs': path.resolve(__dirname, '../@ecomplus/storefront-twbs/dist/storefront-twbs.min.js'),
   './scss/ProductCard.scss': path.resolve(__dirname, 'styles/components/DemoProductCard.scss'),
   './scss/InstantSearch.scss': path.resolve(__dirname, 'styles/components/DemoInstantSearch.scss')
 }
