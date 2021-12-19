@@ -1,7 +1,0 @@
-& {
-  @each $size, $length in $spacers {
-    @if $size > 0 {
-      --spacer-#{$size}: #{$length};
-    }
-  }
-}

@@ -1,4 +1,37 @@
 & {
+  // Custom variable values only support SassScript inside `#{}`
+
+  // Body
+  --body-bg: #{$body-bg};
+  --body-color: #{$body-color};
+
+  // Breakpoints
+  @each $bp, $value in $grid-breakpoints {
+    --breakpoint-#{$bp}: #{$value};
+  }
+
+  // Borders
+  --border-width: #{$border-width};
+  --border-color: #{$border-color};
+  --border-radius-sm: #{$border-radius-sm};
+  --border-radius: #{$border-radius};
+  --border-radius-lg: #{$border-radius-lg};
+  --rounded-pill: #{$rounded-pill};
+
+  // Shadows
+  --box-shadow-sm: #{$box-shadow-sm};
+  --box-shadow: #{$box-shadow};
+  --box-shadow-lg: #{$box-shadow-lg};
+
+  // Spacing
+  @each $size, $length in $spacers {
+    @if $size > 0 {
+      --spacer-#{$size}: #{$length};
+    }
+  }
+
+  // Typography
+
   --text-muted: #{$text-muted};
 
   --font-light: #{$font-weight-light};

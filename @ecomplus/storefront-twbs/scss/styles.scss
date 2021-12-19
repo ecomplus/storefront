@@ -5,6 +5,22 @@
 @import "presets/defaults";
 @import "presets/colors";
 
+// Colors and derivatives CSS vars
+:root {
+  @import "presets/vars/colors";
+}
+
+// Set brand colors to CSS native vars
+$primary:      var(--primary);
+$secondary:    var(--secondary);
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    "primary":    $primary,
+    "secondary":  $secondary
+  )
+);
+
 // Required Bootstrap SASS
 @import "functions";
 @import "variables";
@@ -12,12 +28,7 @@
 
 // Custom root with additional CSS vars
 :root {
-  @import "vars/body";
-  @import "vars/breakpoints";
-  @import "vars/borders";
-  @import "vars/shadows";
-  @import "vars/spacing";
-  @import "vars/text";
+  @import "vars";
 }
 
 // Bootstrap layout and content styles
