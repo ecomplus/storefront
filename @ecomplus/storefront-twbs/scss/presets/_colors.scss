@@ -1,18 +1,22 @@
 // Parse color shift weight by range
 
-$color-shift-weights: (
-  -75:  "whiter",
-  -50:  "white",
-  -33:  "lightest",
-  -21:  "lighter",
-  -10:  "light",
-  -7:   "lighten",
-  0:    "",
-  8:    "darken",
-  10:   "dark",
-  13:   "darker",
-  16:   "darkest",
-  50:   "black"
+$color-shift-weights: () !default;
+$color-shift-weights: map-merge(
+  (
+    -75:  "whiter",
+    -50:  "white",
+    -33:  "lightest",
+    -21:  "lighter",
+    -10:  "light",
+    -7:   "lighten",
+    0:    "",
+    8:    "darken",
+    10:   "dark",
+    13:   "darker",
+    16:   "darkest",
+    50:   "black"
+  ),
+  $color-shift-weights
 );
 
 @function label-color-weight($min-shift-weight) {
