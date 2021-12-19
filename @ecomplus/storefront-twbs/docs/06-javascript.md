@@ -4,7 +4,7 @@ Some Bootstrap 4 JS plugins are included at [`src/bootstrap.js`](https://github.
 
 ## jQuery
 
-jQuery will be available globally as `window.$`. For example, you can setup [tooltips](https://getbootstrap.com/docs/4.5/components/tooltips/) with jQuery following Bootstrap documentation:
+jQuery will be available globally as `window.$`. For example, you can setup [tooltips](https://getbootstrap.com/docs/4.6/components/tooltips/) with jQuery following Bootstrap documentation:
 
 ```js
 $(function () {

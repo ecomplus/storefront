@@ -2,13 +2,13 @@
 
 Majority part (_but not all_) of Bootstrap CSS is imported, with almost all components, some utility classes and custom additional [CSS vars](./05-vars.md).
 
-> Almost all content here is copied from [Bootstrap documentation](https://getbootstrap.com/docs/4.5/components/alerts/), you can get the detailed reference there. Here we're just pointing some differences and resuming original reference.
+> Almost all content here is copied from [Bootstrap documentation](https://getbootstrap.com/docs/4.6/components/alerts/), you can get the detailed reference there. Here we're just pointing some differences and resuming original reference.
 
 ## Content
 
-Bootstrap content styles are fully imported, including reboot, typography, images, tables and code, check reference from [Bootstrap 4 documentation](https://getbootstrap.com/docs/4.5/content/).
+Bootstrap content styles are fully imported, including reboot, typography, images, tables and code, check reference from [Bootstrap 4 documentation](https://getbootstrap.com/docs/4.6/content/).
 
-Storefront Twbs also enables [responsive font sizes](https://getbootstrap.com/docs/4.5/content/typography/#responsive-font-sizes) by default.
+Storefront Twbs also enables [responsive font sizes](https://getbootstrap.com/docs/4.6/content/typography/#responsive-font-sizes) by default.
 
 <div class="demo">
   <h3>
@@ -42,7 +42,7 @@ Storefront Twbs also enables [responsive font sizes](https://getbootstrap.com/do
 
 ## Grid system
 
-Grid system is also imported as is, using default [responsive breakpoints](https://getbootstrap.com/docs/4.5/layout/overview/#responsive-breakpoints). Check [Bootstrap 4 reference](https://getbootstrap.com/docs/4.5/layout/grid/) for details and more examples.
+Grid system is also imported as is, using default [responsive breakpoints](https://getbootstrap.com/docs/4.6/layout/overview/#responsive-breakpoints). Check [Bootstrap 4 reference](https://getbootstrap.com/docs/4.6/layout/grid/) for details and more examples.
 
 <div class="demo">
   <div class="container">
@@ -96,7 +96,7 @@ Even so, some most useful (generally non-atomic) utility classes still imported 
 <div class="clearfix">...</div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/utilities/clearfix/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/utilities/clearfix/)
 
 ### Display
 
@@ -120,7 +120,7 @@ Even so, some most useful (generally non-atomic) utility classes still imported 
 </div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/utilities/display/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/utilities/display/)
 
 ### Embed
 
@@ -136,7 +136,7 @@ Even so, some most useful (generally non-atomic) utility classes still imported 
 </div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/utilities/embed/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/utilities/embed/)
 
 ### Position
 
@@ -153,7 +153,7 @@ Even so, some most useful (generally non-atomic) utility classes still imported 
 <div class="sticky-top">...</div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/utilities/position/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/utilities/position/)
 
 ### Screen readers
 
@@ -165,7 +165,7 @@ Even so, some most useful (generally non-atomic) utility classes still imported 
 </a>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/utilities/screen-readers/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/utilities/screen-readers/)
 
 ### Stretched link
 
@@ -203,7 +203,7 @@ Even so, some most useful (generally non-atomic) utility classes still imported 
 </div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/utilities/stretched-link/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/utilities/stretched-link/)
 
 ### Spacing
 
@@ -223,7 +223,7 @@ Especially the _spacing_ utilities are defined **without `!important` rule**.
 </span>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/utilities/spacing/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/utilities/spacing/)
 
 ### Text
 
@@ -291,7 +291,7 @@ Storefront Twbs includes only `.text-truncate` and `.text-muted` text utilities 
 </div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/alerts/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/alerts/)
 
 ## Badge
 
@@ -324,7 +324,7 @@ Storefront Twbs includes only `.text-truncate` and `.text-muted` text utilities 
 <span class="badge badge-dark">Dark</span>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/badge/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/badge/)
 
 
 ## Breadcrumb
@@ -351,7 +351,7 @@ Storefront Twbs includes only `.text-truncate` and `.text-muted` text utilities 
 </nav>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/breadcrumb/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/breadcrumb/)
 
 ## Buttons
 
@@ -413,7 +413,7 @@ Storefront Twbs includes only `.text-truncate` and `.text-muted` text utilities 
 <button type="button" class="btn btn-dark mt-3">Dark</button>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/buttons/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/buttons/)
 
 ## Button group
 
@@ -435,7 +435,7 @@ Storefront Twbs includes only `.text-truncate` and `.text-muted` text utilities 
 </div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/button-group/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/button-group/)
 
 ## Card
 
@@ -463,7 +463,7 @@ Storefront Twbs includes only `.text-truncate` and `.text-muted` text utilities 
 </div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/card/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/card/)
 
 ## Collapse
 
@@ -501,7 +501,7 @@ Storefront Twbs includes only `.text-truncate` and `.text-muted` text utilities 
 </div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/collapse/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/collapse/)
 
 ## Dropdown
 
@@ -533,7 +533,7 @@ Storefront Twbs includes only `.text-truncate` and `.text-muted` text utilities 
 </div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/dropdowns/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/dropdowns/)
 
 ## Forms
 
@@ -635,7 +635,7 @@ Storefront Twbs includes only `.text-truncate` and `.text-muted` text utilities 
 </form>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/forms/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/forms/)
 
 ## Input group
 
@@ -695,7 +695,7 @@ Storefront Twbs includes only `.text-truncate` and `.text-muted` text utilities 
 </div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/input-group/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/input-group/)
 
 ## List group
 
@@ -725,7 +725,7 @@ Storefront Twbs includes only `.text-truncate` and `.text-muted` text utilities 
 </div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/list-group/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/list-group/)
 
 ## Modal
 
@@ -781,7 +781,7 @@ Storefront Twbs includes only `.text-truncate` and `.text-muted` text utilities 
 </div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/modal/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/modal/)
 
 ## Navs
 
@@ -821,7 +821,7 @@ Storefront Twbs includes only `.text-truncate` and `.text-muted` text utilities 
 </ul>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/navs/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/navs/)
 
 ## Pagination
 
@@ -863,7 +863,7 @@ Storefront Twbs includes only `.text-truncate` and `.text-muted` text utilities 
 </nav>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/pagination/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/pagination/)
 
 ## Popover
 
@@ -881,7 +881,7 @@ $(function () {
 })
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/popovers/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/popovers/)
 
 # Progress
 
@@ -905,7 +905,7 @@ $(function () {
 </div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/progress/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/progress/)
 
 ## Spinners
 
@@ -941,7 +941,7 @@ $(function () {
 </div>
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/spinners/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/spinners/)
 
 ## Toasts
 
@@ -971,7 +971,7 @@ $(function () {
 })
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/toasts/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/toasts/)
 
 ## Tooltips
 
@@ -1000,4 +1000,4 @@ $(function () {
 })
 ```
 
-[Bootstrap reference](https://getbootstrap.com/docs/4.5/components/tooltips/)
+[Bootstrap reference](https://getbootstrap.com/docs/4.6/components/tooltips/)
