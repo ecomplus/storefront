@@ -223,9 +223,6 @@ pre {
   margin-bottom: 1rem;
   // Don't allow content to break outside
   overflow: auto;
-  // Disable auto-hiding scrollbar in IE & legacy Edge to avoid overlap,
-  // making it impossible to interact with the content
-  -ms-overflow-style: scrollbar;
 }
 
 
@@ -243,14 +240,8 @@ figure {
 // Images and content
 //
 
-img {
-  vertical-align: middle;
-}
-
+img,
 svg {
-  // Workaround for the SVG overflow bug in IE10/11 is still required.
-  // See https://github.com/twbs/bootstrap/issues/26878
-  overflow: hidden;
   vertical-align: middle;
 }
 
@@ -294,15 +285,6 @@ label {
 button {
   // stylelint-disable-next-line property-blacklist
   border-radius: 0;
-}
-
-// Work around a Firefox/IE bug where the transparent `button` background
-// results in a loss of the default `button` focus styles.
-//
-// Credit: https://github.com/suitcss/base/
-button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
 }
 
 input,
@@ -373,7 +355,6 @@ button::-moz-focus-inner,
 }
 
 textarea {
-  overflow: auto; // Remove the default vertical scrollbar in IE.
   // Textareas should really only resize vertically so they don't break their (horizontal) containers.
   resize: vertical;
 }
@@ -455,12 +436,7 @@ summary {
   cursor: pointer;
 }
 
-template {
-  display: none; // Add the correct display in IE
-}
-
 // Always hide an element with the `hidden` HTML attribute (from PureCSS).
-// Needed for proper display in IE 10-.
 [hidden] {
   display: none !important;
 }
