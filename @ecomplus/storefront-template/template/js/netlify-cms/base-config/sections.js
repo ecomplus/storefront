@@ -109,16 +109,16 @@ export default ({ state }) => [
             required: false,
             name: 'start',
             widget: 'datetime',
-            dateFormat: 'DD/MM/YYYY',
-            timeFormat: 'HH:mm'
+            date_format: 'DD/MM/YYYY',
+            time_format: 'HH:mm'
           },
           {
             label: 'Data de encerramento',
             required: false,
             name: 'end',
             widget: 'datetime',
-            dateFormat: 'DD/MM/YYYY',
-            timeFormat: 'HH:mm'
+            date_format: 'DD/MM/YYYY',
+            time_format: 'HH:mm'
           }
         ])
       },
@@ -159,15 +159,15 @@ export default ({ state }) => [
         required: false,
         name: 'start',
         widget: 'datetime',
-        dateFormat: 'DD/MM/YYYY',
-        timeFormat: 'HH:mm'
+        date_format: 'DD/MM/YYYY',
+        time_format: 'HH:mm'
       },
       {
         label: 'Data de encerramento',
         name: 'end',
         widget: 'datetime',
-        dateFormat: 'DD/MM/YYYY',
-        timeFormat: 'HH:mm'
+        date_format: 'DD/MM/YYYY',
+        time_format: 'HH:mm'
       },
       {
         label: 'Notas',
