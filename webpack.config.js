@@ -101,17 +101,19 @@ if (devMode) {
   }))
 }
 
-module.exports = devMode ? generalConfig : [
-  generalConfig,
+module.exports = devMode
+  ? generalConfig
+  : [
+      generalConfig,
 
-  {
-    ...generalConfig,
-    output: {
-      ...output,
-      libraryTarget: 'var',
-      filename: output.filename.replace('.min.js', '.var.min.js'),
-      path: path.join(output.path, 'public')
-    },
-    externals
-  }
-]
+      {
+        ...generalConfig,
+        output: {
+          ...output,
+          libraryTarget: 'var',
+          filename: output.filename.replace('.min.js', '.var.min.js'),
+          path: path.join(output.path, 'public')
+        },
+        externals
+      }
+    ]
