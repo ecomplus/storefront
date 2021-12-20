@@ -6,6 +6,7 @@
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "scripts": {
+    "prepare": "husky install",
     "postinstall": "lerna bootstrap --hoist && npm run startup",
     "startup": "node ./scripts/setup.js && npx lerna run --scope=@ecomplus/storefront-twbs build",
     "run:main": "lerna run --scope=@ecomplus/storefront-template --stream",
