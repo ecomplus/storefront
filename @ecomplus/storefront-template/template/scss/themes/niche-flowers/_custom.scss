@@ -9,7 +9,7 @@ main {
     }
 
     a.top-bar__countdown {
-      background-image: linear-gradient(rgba($white, 0.4), rgba($primary, 0.1)), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/bg.png");
+      background-image: linear-gradient(rgba-color($white, 0.4), rgba-color($primary, 0.1)), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/bg.png");
       font-weight: var(--font-bold);
       height: 60px;
       display: flex;
@@ -107,7 +107,7 @@ main {
   }
 
   .footer {
-    background-image: linear-gradient(rgba($white, 1), rgba($white, 0.6)), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/bg.png");
+    background-image: linear-gradient(rgba-color($white, 1), rgba-color($white, 0.6)), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/bg.png");
   }
 
   .go-to-top {

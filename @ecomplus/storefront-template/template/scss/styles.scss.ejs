@@ -8,13 +8,7 @@ const importThemeFiles = isVariables => {
     if (themeName && themeName.length > 1) {
       if (isVariables) {
         scss += `@import "${themesPath}/${themeName}/variables"; `
-        if (themeColl !== 'custom') {
-          scss += `@import "${themeColl}/dist/${themeName}/variables"; `
-        }
       } else {
-        if (themeColl !== 'custom') {
-          scss += `@import "${themeColl}/dist/${themeName}/${themeColl}"; `
-        }
         scss += `@import "${themesPath}/${themeName}/custom"; `
       }
     }
