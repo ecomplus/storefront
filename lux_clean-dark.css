@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap");
+.navbar {
+  font-size: 0.765625rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.navbar-nav .nav-link {
+  padding-top: 0.715rem;
+  padding-bottom: 0.715rem;
+}
+.navbar-brand {
+  margin-right: 2rem;
+}
+
+.bg-primary {
+  background-color: #222222 !important;
+}
+
+.bg-light {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.bg-light.navbar-fixed-top {
+  border-width: 0 0 1px;
+}
+.bg-light.navbar-bottom-top {
+  border-width: 1px 0 0;
+}
+
+.nav-item {
+  margin-right: 2rem;
+}
+
+.btn {
+  font-size: 0.765625rem;
+  text-transform: uppercase;
+}
+.btn-sm {
+  font-size: 10px;
+}
+.btn-warning, .btn-warning:hover, .btn-warning:not([disabled]):not(.disabled):active, .btn-warning:focus {
+  color: #fff;
+}
+
+.btn-outline-secondary {
+  border-color: #919aa1;
+  color: #919aa1;
+}
+.btn-outline-secondary:not([disabled]):not(.disabled):hover, .btn-outline-secondary:not([disabled]):not(.disabled):focus, .btn-outline-secondary:not([disabled]):not(.disabled):active {
+  background-color: #ced4da;
+  border-color: #ced4da;
+  color: #fff;
+}
+.btn-outline-secondary:not([disabled]):not(.disabled):focus {
+  box-shadow: 0 0 0 0.2rem rgba(206, 212, 218, 0.5);
+}
+
+[class*=btn-outline-] {
+  border-width: 2px;
+}
+
+.border-secondary {
+  border: 1px solid #ced4da !important;
+}
+
+body {
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.text-secondary {
+  color: #f8f9fa !important;
+}
+
+th {
+  font-size: 0.765625rem;
+  text-transform: uppercase;
+}
+
+.table th,
+.table td {
+  padding: 1.5rem;
+}
+.table-sm th,
+.table-sm td {
+  padding: 0.75rem;
+}
+
+.custom-switch .custom-control-label::after {
+  top: calc(0.15625rem + 2px);
+  left: calc(-2.25rem + 2px);
+  width: calc(1rem - 4px);
+  height: calc(1rem - 4px);
+}
+
+.dropdown-menu {
+  font-size: 0.765625rem;
+  text-transform: none;
+}
+
+.badge {
+  padding-top: 0.28rem;
+}
+.badge-pill {
+  border-radius: 10rem;
+}
+
+.list-group-item h1,
+.list-group-item h2,
+.list-group-item h3,
+.list-group-item h4,
+.list-group-item h5,
+.list-group-item h6,
+.list-group-item .h1,
+.list-group-item .h2,
+.list-group-item .h3,
+.list-group-item .h4,
+.list-group-item .h5,
+.list-group-item .h6 {
+  color: inherit;
+}
+
+.card-title, .card-header {
+  color: inherit;
+}
+
+.form-control-lg {
+  height: calc(0.5em + 4rem);
+}
+
+.ec-minicart__button, #ec-user-popover, .header__toggler {
+  font-size: 1.1rem;
+}
+
+#ec-user-popover {
+  margin-right: 0.2rem;
+}
+
+#ec-shipping-zip {
+  height: calc(2.2em + 1.5rem);
+}
+
+.btn-lg {
+  padding: 1.5rem 2rem;
+}
+
+main .top-bar {
+  background-color: #000;
+}
+main .top-bar a {
+  color: #f7f7f9;
+}
+main .top-bar__nav {
+  font-size: 75%;
+}
+main .top-bar a.top-bar__countdown {
+  background-color: #000;
+  color: #fff;
+  filter: drop-shadow(1px 1px 2px #adb5bd);
+}
+main .header {
+  border-bottom: none;
+  background-color: #000;
+}
+main .header__nav a {
+  color: #fff;
+}
+main .header__nav a:hover {
+  border-bottom-color: #f8f9fa;
+  color: #222222;
+  background-color: transparent;
+}
+main #search-input {
+  border: solid 1px #919aa1;
+}
+main #cart-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #cart-button .fa-shopping-bag:before {
+  background-color: #fff;
+}
+@media (hover: hover) {
+  main #cart-button .fa-shopping-bag:hover:before {
+    background-color: #222222;
+  }
+}
+main #user-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #user-button .fa-user:before {
+  background-color: #fff;
+}
+@media (hover: hover) {
+  main #user-button .fa-user:hover:before {
+    background-color: #222222;
+  }
+}
+main .info-bar {
+  background-color: #000;
+  color: #f7f7f9;
+}
+main .account-addresses__card {
+  background-color: #1a1a1a;
+}
+main .footer {
+  background-color: #000;
+}
+main .footer__title {
+  color: #f7f7f9;
+}
+main .footer__payment-methods i {
+  filter: contrast(60%);
+}
+main .close {
+  color: #fff;
+}
+main .search__box {
+  background-color: #343a40;
+}
+main .search-engine__nav {
+  background-color: #343a40;
+}
+main .checkout__info {
+  background-color: #1a1a1a;
+}
+main .minicart__aside {
+  background-color: #000;
+}
+main .cart__info {
+  background-color: #000;
+  border: solid 1px #919aa1;
+}
+main .login__info {
+  background-color: #1a1a1a;
+}
+main .card-body {
+  background-color: #1a1a1a;
+}
+main .html-clearfix {
+  background-color: #343a40;
+}
+
+.app .app__header {
+  background-color: #000;
+}
+.app .app__footer {
+  border-top: var(--spacer-1) solid #fff;
+  background: #fff;
+}
+.app .app__credits.container {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  max-width: 100vw;
+}

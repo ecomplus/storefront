@@ -6,13 +6,11 @@
 .bg-light {
   background-color: #fff !important;
   color: #000;
-  border: 1px solid #e9ecef;
+  border: 1px solid #eee;
 }
-
 .bg-light.navbar-fixed-top {
   border-width: 0 0 1px;
 }
-
 .bg-light.navbar-fixed-bottom {
   border-width: 1px 0 0;
 }
@@ -20,21 +18,20 @@
 .navbar {
   font-size: 18px;
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .navbar-brand {
-  padding-top: .5rem;
+  padding-top: 0.5rem;
   font-size: inherit;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 .btn {
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
-  font-weight: 500;
+  font-weight: 700;
 }
-
 .btn-secondary, .btn-warning {
   color: #fff;
 }
@@ -47,7 +44,6 @@
   background: var(--light);
   color: var(--primary);
 }
-
 .pitbar__item:after {
   background: var(--primary);
 }
@@ -55,7 +51,6 @@
 a {
   color: var(--primary);
 }
-
 @media (hover: hover) {
   a:hover {
     color: var(--primary-lightest);

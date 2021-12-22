@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap");
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+.progress .progress-bar {
+  font-size: 8px;
+  line-height: 8px;
+}
+
+#ec-user-popover {
+  margin-right: 0.5rem;
+}
+
+.breadcrumb {
+  padding-left: 1rem;
+}
+
+main .top-bar {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column-reverse;
+}
+main .top-bar__nav {
+  font-size: 75%;
+}
+main .top-bar a.top-bar__countdown {
+  background-color: #fff;
+  color: #495057;
+  filter: drop-shadow(8px 8px 10px #adb5bd);
+}
+main .header {
+  border-bottom: none;
+  background-color: #fff;
+}
+main .header__nav a {
+  color: #000;
+}
+main .header__nav a:hover {
+  border-bottom-color: #868e96;
+  color: #adb5bd;
+  background-color: transparent;
+}
+main #search-input {
+  border: solid 1px #e9ecef;
+}
+main #cart-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #cart-button .fa-shopping-bag:before {
+  background-color: #000;
+}
+@media (hover: hover) {
+  main #cart-button .fa-shopping-bag:hover:before {
+    background-color: #222222;
+  }
+}
+main #user-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #user-button .fa-user:before {
+  background-color: #000;
+}
+@media (hover: hover) {
+  main #user-button .fa-user:hover:before {
+    background-color: #222222;
+  }
+}
+main .info-bar {
+  background-color: #000;
+}
+main .footer {
+  background-color: #fff;
+}
+main .go-to-top {
+  background-color: #000;
+}

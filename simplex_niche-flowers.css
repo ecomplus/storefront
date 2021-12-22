@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+.navbar {
+  border-width: 1px;
+  border-style: solid;
+}
+.navbar-fixed-top {
+  border-width: 0 0 1px;
+}
+.navbar-fixed-bottom {
+  border-top-width: 1px 0 0 0;
+  border-style: solid;
+}
+
+.bg-primary {
+  background-color: #222222 !important;
+  border-color: #111111 !important;
+}
+
+.bg-dark {
+  border-color: #27292b !important;
+}
+
+.bg-light {
+  border-color: #eeeeee;
+}
+
+.btn-primary,
+.btn-primary:hover {
+  background-image: linear-gradient(#2a2a2a, #222222 6%, #1a1a1a);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #111111;
+}
+
+.btn-secondary,
+.btn-secondary:hover {
+  background-image: linear-gradient(#7f7f7f, #777777 6%, #6f6f6f);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #666666;
+}
+
+.btn-secondary:focus,
+.btn-secondary:not([disabled]):not(.disabled):active,
+.btn-secondary:not([disabled]):not(.disabled).active {
+  box-shadow: 0 0 0 0.2rem rgba(221, 221, 221, 0.5);
+}
+
+.btn-success,
+.btn-success:hover {
+  background-image: linear-gradient(#4da309, #469408 6%, #3f8507);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #377506;
+}
+
+.btn-info,
+.btn-info:hover {
+  background-image: linear-gradient(#02a5de, #029acf 6%, #028fc0);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #0282ae;
+}
+
+.btn-warning,
+.btn-warning:hover {
+  background-image: linear-gradient(#e08b27, #d9831f 6%, #cc7b1d);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #bc711b;
+}
+
+.btn-danger,
+.btn-danger:hover {
+  background-image: linear-gradient(#a54caa, #9b479f 6%, #914294);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #853d88;
+}
+
+.btn-dark,
+.btn-dark:hover {
+  background-image: linear-gradient(#3e4244, #373a3c 6%, #303234);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #27292b;
+}
+
+.btn-light,
+.btn-light:hover {
+  background-image: linear-gradient(white, #fff 6%, #f7f7f7);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #eeeeee;
+}
+
+.btn-outline-secondary {
+  border-color: #bbb;
+  color: #bbb;
+}
+.btn-outline-secondary:hover {
+  background-color: #bbb;
+  color: #fff;
+}
+
+.text-secondary {
+  color: #777 !important;
+}
+
+.breadcrumb {
+  border: 1px solid #eeeeee;
+}
+
+.pagination .page-link:hover {
+  text-decoration: none;
+}
+
+.breadcrumb {
+  padding-left: 1rem;
+}
+
+a {
+  color: var(--primary);
+}
+@media (hover: hover) {
+  a:hover {
+    color: var(--primary-lightest);
+  }
+}
+
+#ec-user-popover {
+  margin-right: 0.2rem;
+}
+
+main .top-bar {
+  display: flex;
+  flex-direction: column-reverse;
+}
+main .top-bar__nav {
+  font-size: 85%;
+  width: 100%;
+}
+main .top-bar a.top-bar__countdown {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(34, 34, 34, 0.1)), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/bg.png");
+  font-weight: var(--font-bold);
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .header {
+  border-bottom: none;
+}
+main .header__nav a {
+  color: #777777;
+}
+main .header__nav a:hover {
+  color: #222222;
+  background-color: transparent;
+}
+main .header__buttons .btn {
+  padding: 2px;
+}
+main .header__row {
+  display: flex;
+  flex-direction: row;
+}
+main .header__row .col-auto {
+  order: 1;
+}
+main .header__row .col {
+  order: 2;
+}
+main .header__row .d-none {
+  order: 3;
+}
+main .header__row #search-bar {
+  order: 4;
+}
+main .header__row .order-lg-last {
+  order: 5;
+}
+main #search-input {
+  border: solid 1px #ddd;
+}
+main #cart-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  -webkit-mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/bag.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/bag.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #cart-button .fa-shopping-bag:before {
+  background-color: #777777;
+}
+@media (hover: hover) {
+  main #cart-button .fa-shopping-bag:hover:before {
+    background-color: #222222;
+  }
+}
+main #user-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  -webkit-mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/assignment.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/assignment.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #user-button .fa-user:before {
+  background-color: #777777;
+}
+@media (hover: hover) {
+  main #user-button .fa-user:hover:before {
+    background-color: #222222;
+  }
+}
+main .footer {
+  background-image: linear-gradient(white, rgba(255, 255, 255, 0.6)), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/flowers/bg.png");
+}
+main .go-to-top {
+  background-color: #777777;
+}

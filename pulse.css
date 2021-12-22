@@ -1,60 +1,49 @@
 .btn:focus, .btn:active, .btn:active:focus, .btn.active:focus {
   outline: none;
 }
-
 .btn-secondary {
   background-color: #fff;
   border-color: #ccc;
-  color: #212529;
+  color: #17141f;
 }
-
 .btn-secondary:hover {
-  background-color: #dee2e6;
+  background-color: #ededed;
   border-color: #adb5bd;
-  color: #212529;
+  color: #17141f;
 }
-
 .btn-secondary.disabled {
   background-color: #fff;
   border-color: #d9d9d9;
-  color: #2c3237;
+  color: #231e2f;
 }
-
 .btn-warning {
   color: #fff;
 }
-
 .btn-primary:focus {
-  box-shadow: 0 0 5px #3395ff;
+  box-shadow: 0 0 5px #3c3c3c;
 }
-
 .btn-secondary:focus {
-  box-shadow: 0 0 5px #ced4da;
+  box-shadow: 0 0 5px #cbc8d0;
 }
-
 .btn-success:focus {
-  box-shadow: 0 0 5px #34ce57;
+  box-shadow: 0 0 5px #18e76a;
 }
-
 .btn-info:focus {
-  box-shadow: 0 0 5px #1fc8e3;
+  box-shadow: 0 0 5px #10b9ff;
 }
-
 .btn-warning:focus {
-  box-shadow: 0 0 5px #ffce3a;
+  box-shadow: 0 0 5px #f2b64d;
 }
-
 .btn-danger:focus {
-  box-shadow: 0 0 5px #e4606d;
+  box-shadow: 0 0 5px #fd6b6b;
 }
-
 .btn.disabled:focus {
   box-shadow: none;
 }
 
 .table .thead-dark th {
-  background-color: #6c757d;
-  border-color: #dee2e6;
+  background-color: #777777;
+  border-color: rgba(0, 0, 0, 0.05);
 }
 
 .form-control:focus {
@@ -65,26 +54,23 @@
 .nav-tabs .nav-link.active {
   border-width: 0 0 1px;
 }
-
 .nav-tabs .nav-link:hover,
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-link.active:hover,
 .nav-tabs .nav-link.active:focus {
-  border-bottom: 1px solid #007bff;
+  border-bottom: 1px solid #222222;
 }
-
 .nav-tabs .nav-item + .nav-item {
   margin-left: 0;
 }
 
 .breadcrumb-item.active {
-  color: #495057;
+  color: #444;
 }
 
 .badge {
-  padding-bottom: .4em;
+  padding-bottom: 0.4em;
 }
-
 .badge-secondary, .badge-warning {
   color: #fff;
 }
@@ -96,21 +82,17 @@
 .list-group-item {
   color: rgba(255, 255, 255, 0.8);
 }
-
 .list-group-item.active, .list-group-item:hover, .list-group-item:focus {
   color: #fff;
 }
-
 .list-group-item.active {
   font-weight: 700;
 }
-
 .list-group-item.active:hover {
-  background-color: #f8f9fa;
+  background-color: #2e283e;
 }
-
 .list-group-item.disabled:hover {
-  color: #6c757d;
+  color: #5c507c;
 }
 
 #ec-user-popover {

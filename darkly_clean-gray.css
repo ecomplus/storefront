@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap");
+.blockquote-footer {
+  color: #888;
+}
+
+.table-primary,
+.table-primary > th,
+.table-primary > td {
+  background-color: #222222;
+}
+.table-secondary,
+.table-secondary > th,
+.table-secondary > td {
+  background-color: #303030;
+}
+.table-light,
+.table-light > th,
+.table-light > td {
+  background-color: #eee;
+}
+.table-dark,
+.table-dark > th,
+.table-dark > td {
+  background-color: #303030;
+}
+.table-success,
+.table-success > th,
+.table-success > td {
+  background-color: #00bc8c;
+}
+.table-info,
+.table-info > th,
+.table-info > td {
+  background-color: #dee2e6;
+}
+.table-danger,
+.table-danger > th,
+.table-danger > td {
+  background-color: #e74c3c;
+}
+.table-warning,
+.table-warning > th,
+.table-warning > td {
+  background-color: #f39c12;
+}
+.table-active,
+.table-active > th,
+.table-active > td {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+.table-hover .table-primary:hover,
+.table-hover .table-primary:hover > th,
+.table-hover .table-primary:hover > td {
+  background-color: #151515;
+}
+.table-hover .table-secondary:hover,
+.table-hover .table-secondary:hover > th,
+.table-hover .table-secondary:hover > td {
+  background-color: #232323;
+}
+.table-hover .table-light:hover,
+.table-hover .table-light:hover > th,
+.table-hover .table-light:hover > td {
+  background-color: #e1e1e1;
+}
+.table-hover .table-dark:hover,
+.table-hover .table-dark:hover > th,
+.table-hover .table-dark:hover > td {
+  background-color: #232323;
+}
+.table-hover .table-success:hover,
+.table-hover .table-success:hover > th,
+.table-hover .table-success:hover > td {
+  background-color: #00a379;
+}
+.table-hover .table-info:hover,
+.table-hover .table-info:hover > th,
+.table-hover .table-info:hover > td {
+  background-color: #cfd5db;
+}
+.table-hover .table-danger:hover,
+.table-hover .table-danger:hover > th,
+.table-hover .table-danger:hover > td {
+  background-color: #e43725;
+}
+.table-hover .table-warning:hover,
+.table-hover .table-warning:hover > th,
+.table-hover .table-warning:hover > td {
+  background-color: #e08e0b;
+}
+.table-hover .table-active:hover,
+.table-hover .table-active:hover > th,
+.table-hover .table-active:hover > td {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.input-group-addon {
+  color: #fff;
+}
+
+.nav-tabs .nav-link,
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link.active:focus,
+.nav-tabs .nav-link.active:hover,
+.nav-tabs .nav-item.open .nav-link,
+.nav-tabs .nav-item.open .nav-link:focus,
+.nav-tabs .nav-item.open .nav-link:hover,
+.nav-pills .nav-link,
+.nav-pills .nav-link.active,
+.nav-pills .nav-link.active:focus,
+.nav-pills .nav-link.active:hover,
+.nav-pills .nav-item.open .nav-link,
+.nav-pills .nav-item.open .nav-link:focus,
+.nav-pills .nav-item.open .nav-link:hover {
+  color: #fff;
+}
+
+.breadcrumb a {
+  color: #fff;
+}
+
+.pagination a:hover {
+  text-decoration: none;
+}
+
+.close {
+  opacity: 0.4;
+}
+.close:hover, .close:focus {
+  opacity: 1;
+}
+
+.alert {
+  border: none;
+  color: #fff;
+}
+.alert a,
+.alert .alert-link {
+  color: #fff;
+  text-decoration: underline;
+}
+.alert-primary {
+  background-color: #222222;
+}
+.alert-secondary {
+  background-color: #303030;
+}
+.alert-success {
+  background-color: #00bc8c;
+}
+.alert-info {
+  background-color: #dee2e6;
+}
+.alert-warning {
+  background-color: #f39c12;
+}
+.alert-danger {
+  background-color: #e74c3c;
+}
+.alert-light {
+  background-color: #eee;
+}
+.alert-dark {
+  background-color: #303030;
+}
+
+.list-group-item-action {
+  color: #fff;
+}
+.list-group-item-action:hover, .list-group-item-action:focus {
+  background-color: #444;
+  color: #fff;
+}
+.list-group-item-action .list-group-item-heading {
+  color: #fff;
+}
+
+#ec-user-popover {
+  margin-right: 0.5rem;
+}
+
+a {
+  color: var(--primary);
+}
+@media (hover: hover) {
+  a:hover {
+    color: var(--primary-lightest);
+  }
+}
+
+main .top-bar {
+  display: flex;
+  flex-direction: column-reverse;
+}
+main .top-bar__nav {
+  font-size: 85%;
+}
+main .top-bar a.top-bar__countdown {
+  background-color: #303030;
+}
+main .header {
+  border-bottom: none;
+}
+main .header__nav a {
+  color: #303030;
+  border-bottom: solid 2px transparent;
+}
+main .header__nav a:hover {
+  border-bottom-color: #888;
+}
+main #search-input {
+  border: solid 1px #888;
+}

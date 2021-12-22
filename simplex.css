@@ -3,23 +3,21 @@
   border-width: 1px;
   border-style: solid;
 }
-
 .navbar-fixed-top {
   border-width: 0 0 1px;
 }
-
 .navbar-fixed-bottom {
   border-top-width: 1px 0 0 0;
   border-style: solid;
 }
 
 .bg-primary {
-  background-color: #007bff !important;
-  border-color: #006bde !important;
+  background-color: #222222 !important;
+  border-color: #111111 !important;
 }
 
 .bg-dark {
-  border-color: #25292e !important;
+  border-color: #27292b !important;
 }
 
 .bg-light {
@@ -28,86 +26,85 @@
 
 .btn-primary,
 .btn-primary:hover {
-  background-image: linear-gradient(#0f83ff, #007bff 6%, #0074f0);
+  background-image: linear-gradient(#2a2a2a, #222222 6%, #1a1a1a);
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #006bde;
+  border: 1px solid #111111;
 }
 
 .btn-secondary,
 .btn-secondary:hover {
-  background-image: linear-gradient(#737d85, #6c757d 6%, #656d75);
+  background-image: linear-gradient(#7f7f7f, #777777 6%, #6f6f6f);
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #5d646b;
+  border: 1px solid #666666;
 }
 
 .btn-secondary:focus,
 .btn-secondary:not([disabled]):not(.disabled):active,
 .btn-secondary:not([disabled]):not(.disabled).active {
-  box-shadow: 0 0 0 0.2rem rgba(233, 236, 239, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(221, 221, 221, 0.5);
 }
 
 .btn-success,
 .btn-success:hover {
-  background-image: linear-gradient(#2bb34a, #28a745 6%, #259b40);
+  background-image: linear-gradient(#4da309, #469408 6%, #3f8507);
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #228c3a;
+  border: 1px solid #377506;
 }
 
 .btn-info,
 .btn-info:hover {
-  background-image: linear-gradient(#19aec6, #17a2b8 6%, #1596aa);
+  background-image: linear-gradient(#02a5de, #029acf 6%, #028fc0);
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #13889b;
+  border: 1px solid #0282ae;
 }
 
 .btn-warning,
 .btn-warning:hover {
-  background-image: linear-gradient(#ffc516, #ffc107 6%, #f7b900);
+  background-image: linear-gradient(#e08b27, #d9831f 6%, #cc7b1d);
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #e5ac00;
+  border: 1px solid #bc711b;
 }
 
 .btn-danger,
 .btn-danger:hover {
-  background-image: linear-gradient(#de4251, #dc3545 6%, #da2839);
+  background-image: linear-gradient(#a54caa, #9b479f 6%, #914294);
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #cc2334;
+  border: 1px solid #853d88;
 }
 
 .btn-dark,
 .btn-dark:hover {
-  background-image: linear-gradient(#3b4248, #343a40 6%, #2d3238);
+  background-image: linear-gradient(#3e4244, #373a3c 6%, #303234);
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #25292e;
+  border: 1px solid #27292b;
 }
 
 .btn-light,
 .btn-light:hover {
-  background-image: linear-gradient(white, #f8f9fa 6%, #eff1f4);
+  background-image: linear-gradient(white, #fff 6%, #f7f7f7);
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #e5e8ec;
+  border: 1px solid #eeeeee;
 }
 
 .btn-outline-secondary {
-  border-color: #ced4da;
-  color: #ced4da;
+  border-color: #bbb;
+  color: #bbb;
 }
-
 .btn-outline-secondary:hover {
-  background-color: #ced4da;
+  background-color: #bbb;
   color: #fff;
 }
 
 .text-secondary {
-  color: #6c757d !important;
+  color: #777 !important;
 }
 
 .breadcrumb {
@@ -125,7 +122,6 @@
 a {
   color: var(--primary);
 }
-
 @media (hover: hover) {
   a:hover {
     color: var(--primary-lightest);

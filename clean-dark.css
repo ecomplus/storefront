@@ -1,40 +1,32 @@
 main .top-bar {
   background-color: #000;
 }
-
 main .top-bar a {
   color: #e9ecef;
 }
-
 main .top-bar__nav {
   font-size: 75%;
 }
-
 main .top-bar a.top-bar__countdown {
   background-color: #000;
   color: #fff;
   filter: drop-shadow(1px 1px 2px #adb5bd);
 }
-
 main .header {
   border-bottom: none;
   background-color: #000;
 }
-
 main .header__nav a {
   color: #fff;
 }
-
 main .header__nav a:hover {
   border-bottom-color: #f8f9fa;
-  color: #007bff;
+  color: #222222;
   background-color: transparent;
 }
-
 main #search-input {
   border: solid 1px #6c757d;
 }
-
 main #cart-button i:before {
   content: "";
   display: inline-block;
@@ -46,17 +38,14 @@ main #cart-button i:before {
   -webkit-mask-size: cover;
   mask-size: cover;
 }
-
 main #cart-button .fa-shopping-bag:before {
   background-color: #fff;
 }
-
 @media (hover: hover) {
   main #cart-button .fa-shopping-bag:hover:before {
-    background-color: #007bff;
+    background-color: #222222;
   }
 }
-
 main #user-button i:before {
   content: "";
   display: inline-block;
@@ -68,71 +57,55 @@ main #user-button i:before {
   -webkit-mask-size: cover;
   mask-size: cover;
 }
-
 main #user-button .fa-user:before {
   background-color: #fff;
 }
-
 @media (hover: hover) {
   main #user-button .fa-user:hover:before {
-    background-color: #007bff;
+    background-color: #222222;
   }
 }
-
 main .info-bar {
   background-color: #000;
   color: #e9ecef;
 }
-
 main .account-addresses__card {
   background-color: #212529;
 }
-
 main .footer {
   background-color: #000;
 }
-
 main .footer__title {
   color: #e9ecef;
 }
-
 main .footer__payment-methods i {
   filter: contrast(60%);
 }
-
 main .close {
   color: #fff;
 }
-
 main .search__box {
   background-color: #343a40;
 }
-
 main .search-engine__nav {
   background-color: #343a40;
 }
-
 main .checkout__info {
   background-color: #212529;
 }
-
 main .minicart__aside {
   background-color: #000;
 }
-
 main .cart__info {
   background-color: #000;
   border: solid 1px #6c757d;
 }
-
 main .login__info {
   background-color: #212529;
 }
-
 main .card-body {
   background-color: #212529;
 }
-
 main .html-clearfix {
   background-color: #343a40;
 }
@@ -140,12 +113,10 @@ main .html-clearfix {
 .app .app__header {
   background-color: #000;
 }
-
 .app .app__footer {
   border-top: var(--spacer-1) solid #fff;
   background: #fff;
 }
-
 .app .app__credits.container {
   background-color: #fff;
   display: flex;

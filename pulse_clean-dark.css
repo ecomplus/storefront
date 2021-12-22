@@ -1,0 +1,226 @@
+.btn:focus, .btn:active, .btn:active:focus, .btn.active:focus {
+  outline: none;
+}
+.btn-secondary {
+  background-color: #fff;
+  border-color: #ccc;
+  color: #17141f;
+}
+.btn-secondary:hover {
+  background-color: #ededed;
+  border-color: #adb5bd;
+  color: #17141f;
+}
+.btn-secondary.disabled {
+  background-color: #fff;
+  border-color: #d9d9d9;
+  color: #231e2f;
+}
+.btn-warning {
+  color: #fff;
+}
+.btn-primary:focus {
+  box-shadow: 0 0 5px #3c3c3c;
+}
+.btn-secondary:focus {
+  box-shadow: 0 0 5px #cbc8d0;
+}
+.btn-success:focus {
+  box-shadow: 0 0 5px #18e76a;
+}
+.btn-info:focus {
+  box-shadow: 0 0 5px #10b9ff;
+}
+.btn-warning:focus {
+  box-shadow: 0 0 5px #f2b64d;
+}
+.btn-danger:focus {
+  box-shadow: 0 0 5px #fd6b6b;
+}
+.btn.disabled:focus {
+  box-shadow: none;
+}
+
+.table .thead-dark th {
+  background-color: #fff;
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+.form-control:focus {
+  box-shadow: 0 0 5px rgba(100, 65, 164, 0.4);
+}
+
+.nav-tabs .nav-link,
+.nav-tabs .nav-link.active {
+  border-width: 0 0 1px;
+}
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link.active:hover,
+.nav-tabs .nav-link.active:focus {
+  border-bottom: 1px solid #222222;
+}
+.nav-tabs .nav-item + .nav-item {
+  margin-left: 0;
+}
+
+.breadcrumb-item.active {
+  color: #444;
+}
+
+.badge {
+  padding-bottom: 0.4em;
+}
+.badge-secondary, .badge-warning {
+  color: #fff;
+}
+
+.progress {
+  height: 8px;
+}
+
+.list-group-item {
+  color: rgba(255, 255, 255, 0.8);
+}
+.list-group-item.active, .list-group-item:hover, .list-group-item:focus {
+  color: #fff;
+}
+.list-group-item.active {
+  font-weight: 700;
+}
+.list-group-item.active:hover {
+  background-color: #2e283e;
+}
+.list-group-item.disabled:hover {
+  color: #5c507c;
+}
+
+#ec-user-popover {
+  margin-right: 0.5rem;
+}
+
+main .top-bar {
+  background-color: #000;
+}
+main .top-bar a {
+  color: #f9f8fc;
+}
+main .top-bar__nav {
+  font-size: 75%;
+}
+main .top-bar a.top-bar__countdown {
+  background-color: #000;
+  color: #fff;
+  filter: drop-shadow(1px 1px 2px #adb5bd);
+}
+main .header {
+  border-bottom: none;
+  background-color: #000;
+}
+main .header__nav a {
+  color: #fff;
+}
+main .header__nav a:hover {
+  border-bottom-color: #fafafa;
+  color: #222222;
+  background-color: transparent;
+}
+main #search-input {
+  border: solid 1px #868e96;
+}
+main #cart-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #cart-button .fa-shopping-bag:before {
+  background-color: #fff;
+}
+@media (hover: hover) {
+  main #cart-button .fa-shopping-bag:hover:before {
+    background-color: #222222;
+  }
+}
+main #user-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #user-button .fa-user:before {
+  background-color: #fff;
+}
+@media (hover: hover) {
+  main #user-button .fa-user:hover:before {
+    background-color: #222222;
+  }
+}
+main .info-bar {
+  background-color: #000;
+  color: #f9f8fc;
+}
+main .account-addresses__card {
+  background-color: #17141f;
+}
+main .footer {
+  background-color: #000;
+}
+main .footer__title {
+  color: #f9f8fc;
+}
+main .footer__payment-methods i {
+  filter: contrast(60%);
+}
+main .close {
+  color: #fff;
+}
+main .search__box {
+  background-color: #343a40;
+}
+main .search-engine__nav {
+  background-color: #343a40;
+}
+main .checkout__info {
+  background-color: #17141f;
+}
+main .minicart__aside {
+  background-color: #000;
+}
+main .cart__info {
+  background-color: #000;
+  border: solid 1px #868e96;
+}
+main .login__info {
+  background-color: #17141f;
+}
+main .card-body {
+  background-color: #17141f;
+}
+main .html-clearfix {
+  background-color: #343a40;
+}
+
+.app .app__header {
+  background-color: #000;
+}
+.app .app__footer {
+  border-top: var(--spacer-1) solid #fff;
+  background: #fff;
+}
+.app .app__credits.container {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  max-width: 100vw;
+}

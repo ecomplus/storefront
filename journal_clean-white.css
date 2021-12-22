@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap");
+.bg-dark {
+  background-color: #000 !important;
+}
+
+.bg-light {
+  background-color: #fff !important;
+  color: #000;
+  border: 1px solid #eee;
+}
+.bg-light.navbar-fixed-top {
+  border-width: 0 0 1px;
+}
+.bg-light.navbar-fixed-bottom {
+  border-width: 1px 0 0;
+}
+
+.navbar {
+  font-size: 18px;
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-weight: 700;
+}
+
+.navbar-brand {
+  padding-top: 0.5rem;
+  font-size: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.btn {
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-weight: 700;
+}
+.btn-secondary, .btn-warning {
+  color: #fff;
+}
+
+.pagination a:hover {
+  text-decoration: none;
+}
+
+.pitbar {
+  background: var(--light);
+  color: var(--primary);
+}
+.pitbar__item:after {
+  background: var(--primary);
+}
+
+a {
+  color: var(--primary);
+}
+@media (hover: hover) {
+  a:hover {
+    color: var(--primary-lightest);
+  }
+}
+
+#ec-user-popover {
+  margin-right: 0.5rem;
+}
+
+main .top-bar {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column-reverse;
+}
+main .top-bar__nav {
+  font-size: 75%;
+}
+main .top-bar a.top-bar__countdown {
+  background-color: #fff;
+  color: #495057;
+  filter: drop-shadow(8px 8px 10px #aaa);
+}
+main .header {
+  border-bottom: none;
+  background-color: #fff;
+}
+main .header__nav a {
+  color: #000;
+}
+main .header__nav a:hover {
+  border-bottom-color: #777;
+  color: #aaa;
+  background-color: transparent;
+}
+main #search-input {
+  border: solid 1px #eee;
+}
+main #cart-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #cart-button .fa-shopping-bag:before {
+  background-color: #000;
+}
+@media (hover: hover) {
+  main #cart-button .fa-shopping-bag:hover:before {
+    background-color: #222222;
+  }
+}
+main #user-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #user-button .fa-user:before {
+  background-color: #000;
+}
+@media (hover: hover) {
+  main #user-button .fa-user:hover:before {
+    background-color: #222222;
+  }
+}
+main .info-bar {
+  background-color: #000;
+}
+main .footer {
+  background-color: #fff;
+}
+main .go-to-top {
+  background-color: #000;
+}

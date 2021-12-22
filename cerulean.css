@@ -1,10 +1,10 @@
 .bg-primary {
-  background-image: linear-gradient(#2990ff, #007bff 60%, #0071eb);
+  background-image: linear-gradient(#363636, #222222 60%, #181818);
   background-repeat: no-repeat;
 }
 
 .bg-dark {
-  background-image: linear-gradient(#2990ff, #007bff 60%, #0071eb);
+  background-image: linear-gradient(#04519b, #033c73 60%, #02325f);
   background-repeat: no-repeat;
 }
 
@@ -23,33 +23,33 @@
 }
 
 .btn-primary {
-  background-image: linear-gradient(#2990ff, #007bff 60%, #0071eb);
+  background-image: linear-gradient(#363636, #222222 60%, #181818);
   background-repeat: no-repeat;
 }
 
 .btn-secondary {
-  background-image: linear-gradient(#808992, #6c757d 60%, #636b72);
+  background-image: linear-gradient(#8b8b8b, #777777 60%, #6d6d6d);
   background-repeat: no-repeat;
   color: #495057;
 }
 
 .btn-success {
-  background-image: linear-gradient(#30c853, #28a745 60%, #24973e);
+  background-image: linear-gradient(#88c149, #73a839 60%, #699934);
   background-repeat: no-repeat;
 }
 
 .btn-info {
-  background-image: linear-gradient(#1cc2dc, #17a2b8 60%, #1592a6);
+  background-image: linear-gradient(#04519b, #033c73 60%, #02325f);
   background-repeat: no-repeat;
 }
 
 .btn-warning {
-  background-image: linear-gradient(#ffcb30, #ffc107 60%, #f2b500);
+  background-image: linear-gradient(#ff6707, #dd5600 60%, #c94e00);
   background-repeat: no-repeat;
 }
 
 .btn-danger {
-  background-image: linear-gradient(#e25865, #dc3545 60%, #d72536);
+  background-image: linear-gradient(#e12b31, #c71c22 60%, #b5191f);
   background-repeat: no-repeat;
 }
 
@@ -107,7 +107,7 @@
 }
 
 .dropdown-menu .dropdown-header {
-  color: #6c757d;
+  color: #868e96;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {

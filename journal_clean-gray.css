@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap");
+.bg-dark {
+  background-color: #000 !important;
+}
+
+.bg-light {
+  background-color: #fff !important;
+  color: #000;
+  border: 1px solid #eee;
+}
+.bg-light.navbar-fixed-top {
+  border-width: 0 0 1px;
+}
+.bg-light.navbar-fixed-bottom {
+  border-width: 1px 0 0;
+}
+
+.navbar {
+  font-size: 18px;
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-weight: 700;
+}
+
+.navbar-brand {
+  padding-top: 0.5rem;
+  font-size: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.btn {
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-weight: 700;
+}
+.btn-secondary, .btn-warning {
+  color: #fff;
+}
+
+.pagination a:hover {
+  text-decoration: none;
+}
+
+.pitbar {
+  background: var(--light);
+  color: var(--primary);
+}
+.pitbar__item:after {
+  background: var(--primary);
+}
+
+a {
+  color: var(--primary);
+}
+@media (hover: hover) {
+  a:hover {
+    color: var(--primary-lightest);
+  }
+}
+
+#ec-user-popover {
+  margin-right: 0.5rem;
+}
+
+main .top-bar {
+  display: flex;
+  flex-direction: column-reverse;
+}
+main .top-bar__nav {
+  font-size: 85%;
+}
+main .top-bar a.top-bar__countdown {
+  background-color: #333;
+}
+main .header {
+  border-bottom: none;
+}
+main .header__nav a {
+  color: #333;
+  border-bottom: solid 2px transparent;
+}
+main .header__nav a:hover {
+  border-bottom-color: #777;
+}
+main #search-input {
+  border: solid 1px #777;
+}

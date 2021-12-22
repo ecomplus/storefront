@@ -1,0 +1,326 @@
+.navbar {
+  font-size: 0.930125rem;
+}
+.navbar.bg-dark {
+  background-color: #02b875 !important;
+}
+.navbar.bg-light {
+  background-color: #fff !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.navbar.bg-light.navbar-fixed-top {
+  border-width: 0 0 1px;
+}
+.navbar.bg-light.navbar-fixed-bottom {
+  border-width: 1px 0 0;
+}
+
+p {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+footer {
+  font-size: 0.930125rem;
+}
+
+.lead {
+  color: #868e96;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+table,
+.table {
+  font-size: 0.930125rem;
+}
+table-primary, table-secondary, table-success, table-info, table-warning, table-danger,
+.table-primary,
+.table-secondary,
+.table-success,
+.table-info,
+.table-warning,
+.table-danger {
+  color: #fff;
+}
+
+.table-primary,
+.table-primary > th,
+.table-primary > td {
+  background-color: #222222;
+}
+.table-secondary,
+.table-secondary > th,
+.table-secondary > td {
+  background-color: #777777;
+}
+.table-light,
+.table-light > th,
+.table-light > td {
+  background-color: #f8f9fa;
+}
+.table-dark,
+.table-dark > th,
+.table-dark > td {
+  background-color: #343a40;
+}
+.table-success,
+.table-success > th,
+.table-success > td {
+  background-color: #02b875;
+}
+.table-info,
+.table-info > th,
+.table-info > td {
+  background-color: #17a2b8;
+}
+.table-danger,
+.table-danger > th,
+.table-danger > td {
+  background-color: #d9534f;
+}
+.table-warning,
+.table-warning > th,
+.table-warning > td {
+  background-color: #f0ad4e;
+}
+.table-active,
+.table-active > th,
+.table-active > td {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+.table-hover .table-primary:hover,
+.table-hover .table-primary:hover > th,
+.table-hover .table-primary:hover > td {
+  background-color: #151515;
+}
+.table-hover .table-secondary:hover,
+.table-hover .table-secondary:hover > th,
+.table-hover .table-secondary:hover > td {
+  background-color: #6a6a6a;
+}
+.table-hover .table-light:hover,
+.table-hover .table-light:hover > th,
+.table-hover .table-light:hover > td {
+  background-color: #e9ecef;
+}
+.table-hover .table-dark:hover,
+.table-hover .table-dark:hover > th,
+.table-hover .table-dark:hover > td {
+  background-color: #292d32;
+}
+.table-hover .table-success:hover,
+.table-hover .table-success:hover > th,
+.table-hover .table-success:hover > td {
+  background-color: #029f65;
+}
+.table-hover .table-info:hover,
+.table-hover .table-info:hover > th,
+.table-hover .table-info:hover > td {
+  background-color: #148ea1;
+}
+.table-hover .table-danger:hover,
+.table-hover .table-danger:hover > th,
+.table-hover .table-danger:hover > td {
+  background-color: #d43f3a;
+}
+.table-hover .table-warning:hover,
+.table-hover .table-warning:hover > th,
+.table-hover .table-warning:hover > td {
+  background-color: #eea236;
+}
+.table-hover .table-active:hover,
+.table-hover .table-active:hover > th,
+.table-hover .table-active:hover > td {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.nav,
+.breadcrumb,
+.pagination {
+  font-size: 0.930125rem;
+}
+
+.dropdown-menu {
+  font-size: 0.930125rem;
+}
+
+.alert {
+  color: #fff;
+  font-size: 0.930125rem;
+}
+.alert,
+.alert p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.alert a,
+.alert .alert-link {
+  color: #fff;
+  font-weight: 400;
+  text-decoration: underline;
+}
+.alert-primary {
+  background-color: #222222;
+}
+.alert-secondary {
+  background-color: #777777;
+}
+.alert-success {
+  background-color: #02b875;
+}
+.alert-info {
+  background-color: #17a2b8;
+}
+.alert-warning {
+  background-color: #f0ad4e;
+}
+.alert-danger {
+  background-color: #d9534f;
+}
+.alert-light {
+  background-color: #f8f9fa;
+}
+.alert-dark {
+  background-color: #343a40;
+}
+.alert-light,
+.alert-light a,
+.alert-light .alert-link {
+  color: #343a40;
+}
+
+.badge {
+  vertical-align: bottom;
+}
+
+.list-group {
+  font-size: 0.930125rem;
+}
+
+.badge {
+  padding: 0.4rem;
+}
+
+#ec-user-popover {
+  margin-right: 0.5rem;
+}
+
+.menu__btn--close {
+  color: var(--primary);
+}
+
+.menu__item {
+  border-radius: 1.078em;
+}
+
+.form-control {
+  border-radius: 1.078em;
+}
+
+.header__search {
+  border-radius: 1.078em;
+}
+
+.custom-select {
+  border-radius: 1.078em;
+}
+
+.ec-identify-email {
+  border-radius: 1.078em;
+}
+
+main .top-bar {
+  display: flex;
+  flex-direction: column-reverse;
+}
+main .top-bar__nav {
+  font-size: 75%;
+  width: 100%;
+}
+main .top-bar a.top-bar__countdown {
+  background-image: linear-gradient(rgba(34, 34, 34, 0.9), rgba(34, 34, 34, 0.8)), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bg.png");
+  font-weight: var(--font-bold);
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .banner {
+  overflow: hidden;
+}
+main .banner img {
+  transition: all 10s;
+}
+main .banner:hover img {
+  transform: scale(1.3);
+}
+main .header {
+  border-bottom: none;
+  height: 100px;
+}
+main .header__nav a {
+  color: #777777;
+  font-weight: var(--font-bold);
+}
+main .header__nav a:hover {
+  border-bottom-color: #868e96;
+  color: #222222;
+  background-color: transparent;
+}
+main #search-input {
+  border: solid 1px #e9ecef;
+}
+main #cart-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bag.png") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bag.png") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #cart-button .fa-shopping-bag:before {
+  background-color: #777777;
+}
+@media (hover: hover) {
+  main #cart-button .fa-shopping-bag:hover:before {
+    background-color: #222222;
+    filter: drop-shadow(24px 11px 16px #000000);
+  }
+}
+main #user-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/user.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/user.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #user-button .fa-user:before {
+  background-color: #777777;
+}
+@media (hover: hover) {
+  main #user-button .fa-user:hover:before {
+    background-color: #222222;
+  }
+}
+main .info-bar {
+  height: 100px;
+}
+main .info-bar__item {
+  font-weight: var(--font-bold);
+  font-size: 90%;
+}
+main #content {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9), white), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bg.png");
+}
+main .footer {
+  background-image: linear-gradient(rgba(248, 249, 250, 0.8), white), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bg-simple.svg");
+}

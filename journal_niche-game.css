@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap");
+.bg-dark {
+  background-color: #000 !important;
+}
+
+.bg-light {
+  background-color: #fff !important;
+  color: #000;
+  border: 1px solid #eee;
+}
+.bg-light.navbar-fixed-top {
+  border-width: 0 0 1px;
+}
+.bg-light.navbar-fixed-bottom {
+  border-width: 1px 0 0;
+}
+
+.navbar {
+  font-size: 18px;
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-weight: 700;
+}
+
+.navbar-brand {
+  padding-top: 0.5rem;
+  font-size: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.btn {
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-weight: 700;
+}
+.btn-secondary, .btn-warning {
+  color: #fff;
+}
+
+.pagination a:hover {
+  text-decoration: none;
+}
+
+.pitbar {
+  background: var(--light);
+  color: var(--primary);
+}
+.pitbar__item:after {
+  background: var(--primary);
+}
+
+a {
+  color: var(--primary);
+}
+@media (hover: hover) {
+  a:hover {
+    color: var(--primary-lightest);
+  }
+}
+
+#ec-user-popover {
+  margin-right: 0.5rem;
+}
+
+main .top-bar {
+  display: flex;
+  flex-direction: column-reverse;
+}
+main .top-bar__nav {
+  font-size: 75%;
+  width: 100%;
+}
+main .top-bar a.top-bar__countdown {
+  background-image: linear-gradient(rgba(34, 34, 34, 0.9), rgba(34, 34, 34, 0.8)), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bg.png");
+  font-weight: var(--font-bold);
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .banner {
+  overflow: hidden;
+}
+main .banner img {
+  transition: all 10s;
+}
+main .banner:hover img {
+  transform: scale(1.3);
+}
+main .header {
+  border-bottom: none;
+  height: 100px;
+}
+main .header__nav a {
+  color: #777777;
+  font-weight: var(--font-bold);
+}
+main .header__nav a:hover {
+  border-bottom-color: #777;
+  color: #222222;
+  background-color: transparent;
+}
+main #search-input {
+  border: solid 1px #eee;
+}
+main #cart-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bag.png") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bag.png") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #cart-button .fa-shopping-bag:before {
+  background-color: #777777;
+}
+@media (hover: hover) {
+  main #cart-button .fa-shopping-bag:hover:before {
+    background-color: #222222;
+    filter: drop-shadow(24px 11px 16px #000000);
+  }
+}
+main #user-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/user.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/user.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #user-button .fa-user:before {
+  background-color: #777777;
+}
+@media (hover: hover) {
+  main #user-button .fa-user:hover:before {
+    background-color: #222222;
+  }
+}
+main .info-bar {
+  height: 100px;
+}
+main .info-bar__item {
+  font-weight: var(--font-bold);
+  font-size: 90%;
+}
+main #content {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9), white), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bg.png");
+}
+main .footer {
+  background-image: linear-gradient(rgba(248, 249, 250, 0.8), white), url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bg-simple.svg");
+}

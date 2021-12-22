@@ -1,0 +1,245 @@
+.bg-primary {
+  background-image: linear-gradient(#363636, #222222 60%, #181818);
+  background-repeat: no-repeat;
+}
+
+.bg-dark {
+  background-image: linear-gradient(#04519b, #033c73 60%, #02325f);
+  background-repeat: no-repeat;
+}
+
+.bg-light {
+  background-image: linear-gradient(white, #e9ecef 60%, #e3e7eb);
+  background-repeat: no-repeat;
+}
+
+.navbar-brand,
+.nav-link {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.btn {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary {
+  background-image: linear-gradient(#363636, #222222 60%, #181818);
+  background-repeat: no-repeat;
+}
+
+.btn-secondary {
+  background-image: linear-gradient(white, #fff 60%, whitesmoke);
+  background-repeat: no-repeat;
+  color: #495057;
+}
+
+.btn-success {
+  background-image: linear-gradient(#88c149, #73a839 60%, #699934);
+  background-repeat: no-repeat;
+}
+
+.btn-info {
+  background-image: linear-gradient(#04519b, #033c73 60%, #02325f);
+  background-repeat: no-repeat;
+}
+
+.btn-warning {
+  background-image: linear-gradient(#ff6707, #dd5600 60%, #c94e00);
+  background-repeat: no-repeat;
+}
+
+.btn-danger {
+  background-image: linear-gradient(#e12b31, #c71c22 60%, #b5191f);
+  background-repeat: no-repeat;
+}
+
+.btn-light {
+  background-image: linear-gradient(#5c646d, #495057 60%, #40464c);
+  background-repeat: no-repeat;
+}
+
+.btn-dark {
+  background-image: linear-gradient(#464e57, #343a40 60%, #2b3035);
+  background-repeat: no-repeat;
+}
+
+.text-secondary {
+  color: #adb5bd !important;
+}
+
+.bg-primary h1,
+.bg-primary h2,
+.bg-primary h3,
+.bg-primary h4,
+.bg-primary h5,
+.bg-primary h6,
+.bg-success h1,
+.bg-success h2,
+.bg-success h3,
+.bg-success h4,
+.bg-success h5,
+.bg-success h6,
+.bg-info h1,
+.bg-info h2,
+.bg-info h3,
+.bg-info h4,
+.bg-info h5,
+.bg-info h6,
+.bg-warning h1,
+.bg-warning h2,
+.bg-warning h3,
+.bg-warning h4,
+.bg-warning h5,
+.bg-warning h6,
+.bg-danger h1,
+.bg-danger h2,
+.bg-danger h3,
+.bg-danger h4,
+.bg-danger h5,
+.bg-danger h6,
+.bg-dark h1,
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark h4,
+.bg-dark h5,
+.bg-dark h6 {
+  color: #fff;
+}
+
+.dropdown-menu .dropdown-header {
+  color: #868e96;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  color: var(--secondary);
+}
+
+#ec-user-popover {
+  margin-right: 0.5rem;
+}
+
+main .top-bar {
+  background-color: #000;
+}
+main .top-bar a {
+  color: #e9ecef;
+}
+main .top-bar__nav {
+  font-size: 75%;
+}
+main .top-bar a.top-bar__countdown {
+  background-color: #000;
+  color: #fff;
+  filter: drop-shadow(1px 1px 2px #adb5bd);
+}
+main .header {
+  border-bottom: none;
+  background-color: #000;
+}
+main .header__nav a {
+  color: #fff;
+}
+main .header__nav a:hover {
+  border-bottom-color: #f8f9fa;
+  color: #222222;
+  background-color: transparent;
+}
+main #search-input {
+  border: solid 1px #868e96;
+}
+main #cart-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #cart-button .fa-shopping-bag:before {
+  background-color: #fff;
+}
+@media (hover: hover) {
+  main #cart-button .fa-shopping-bag:hover:before {
+    background-color: #222222;
+  }
+}
+main #user-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #user-button .fa-user:before {
+  background-color: #fff;
+}
+@media (hover: hover) {
+  main #user-button .fa-user:hover:before {
+    background-color: #222222;
+  }
+}
+main .info-bar {
+  background-color: #000;
+  color: #e9ecef;
+}
+main .account-addresses__card {
+  background-color: #212529;
+}
+main .footer {
+  background-color: #000;
+}
+main .footer__title {
+  color: #e9ecef;
+}
+main .footer__payment-methods i {
+  filter: contrast(60%);
+}
+main .close {
+  color: #fff;
+}
+main .search__box {
+  background-color: #343a40;
+}
+main .search-engine__nav {
+  background-color: #343a40;
+}
+main .checkout__info {
+  background-color: #212529;
+}
+main .minicart__aside {
+  background-color: #000;
+}
+main .cart__info {
+  background-color: #000;
+  border: solid 1px #868e96;
+}
+main .login__info {
+  background-color: #212529;
+}
+main .card-body {
+  background-color: #212529;
+}
+main .html-clearfix {
+  background-color: #343a40;
+}
+
+.app .app__header {
+  background-color: #000;
+}
+.app .app__footer {
+  border-top: var(--spacer-1) solid #fff;
+  background: #fff;
+}
+.app .app__credits.container {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  max-width: 100vw;
+}

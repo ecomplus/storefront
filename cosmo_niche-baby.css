@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap");
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+.progress .progress-bar {
+  font-size: 8px;
+  line-height: 8px;
+}
+
+#ec-user-popover {
+  margin-right: 0.5rem;
+}
+
+.breadcrumb {
+  padding-left: 1rem;
+}
+
+main .top-bar__nav {
+  font-size: 80%;
+}
+main .top-bar a.top-bar__countdown {
+  background-image: linear-gradient(rgba(34, 34, 34, 0.5), rgba(34, 34, 34, 0.7)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
+  font-weight: var(--font-bold);
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .info-bar {
+  display: flex;
+  flex-direction: column;
+}
+main .header {
+  border-bottom: none;
+}
+main .header__nav {
+  color: #777777;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .header__nav a:hover {
+  border-radius: unset;
+  background-color: transparent;
+  border-bottom: solid 2px;
+}
+main #search-input {
+  border: solid 1px;
+}
+main .cart__btn-checkout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main #cart-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/cart.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/cart.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #cart-button .fa-shopping-bag:before {
+  background-color: #777777;
+}
+@media (hover: hover) {
+  main #cart-button .fa-shopping-bag:hover:before {
+    background-color: #222222;
+  }
+}
+main #user-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/login.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/login.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #user-button .fa-user:before {
+  background-color: #777777;
+}
+@media (hover: hover) {
+  main #user-button .fa-user:hover:before {
+    background-color: #222222;
+  }
+}
+main .footer {
+  background: linear-gradient(#f8f9fa, rgba(255, 255, 255, 0.8)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
+}
+
+.menu__social {
+  background-image: linear-gradient(#f8f9fa, rgba(255, 255, 255, 0.4)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
+}
+
+.card-header {
+  font-weight: var(--font-bold);
+}

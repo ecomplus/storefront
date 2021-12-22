@@ -3,36 +3,29 @@ main .top-bar {
   display: flex;
   flex-direction: column-reverse;
 }
-
 main .top-bar__nav {
   font-size: 75%;
 }
-
 main .top-bar a.top-bar__countdown {
   background-color: #fff;
   color: #495057;
   filter: drop-shadow(8px 8px 10px #adb5bd);
 }
-
 main .header {
   border-bottom: none;
   background-color: #fff;
 }
-
 main .header__nav a {
-  color: #000;
+  color: #383d44;
 }
-
 main .header__nav a:hover {
   border-bottom-color: #6c757d;
   color: #adb5bd;
   background-color: transparent;
 }
-
 main #search-input {
   border: solid 1px #e9ecef;
 }
-
 main #cart-button i:before {
   content: "";
   display: inline-block;
@@ -44,17 +37,14 @@ main #cart-button i:before {
   -webkit-mask-size: cover;
   mask-size: cover;
 }
-
 main #cart-button .fa-shopping-bag:before {
-  background-color: #000;
+  background-color: #383d44;
 }
-
 @media (hover: hover) {
   main #cart-button .fa-shopping-bag:hover:before {
-    background-color: #007bff;
+    background-color: #222222;
   }
 }
-
 main #user-button i:before {
   content: "";
   display: inline-block;
@@ -66,25 +56,20 @@ main #user-button i:before {
   -webkit-mask-size: cover;
   mask-size: cover;
 }
-
 main #user-button .fa-user:before {
-  background-color: #000;
+  background-color: #383d44;
 }
-
 @media (hover: hover) {
   main #user-button .fa-user:hover:before {
-    background-color: #007bff;
+    background-color: #222222;
   }
 }
-
 main .info-bar {
-  background-color: #000;
+  background-color: #383d44;
 }
-
 main .footer {
   background-color: #fff;
 }
-
 main .go-to-top {
-  background-color: #000;
+  background-color: #383d44;
 }

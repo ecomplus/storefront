@@ -1,167 +1,141 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
 .btn-primary {
-  background: #007bff linear-gradient(180deg, #268fff, #007bff) repeat-x;
+  background: #222222 linear-gradient(180deg, #434343, #222222) repeat-x;
 }
-
 .btn-secondary {
-  background: #6c757d linear-gradient(180deg, #828a91, #6c757d) repeat-x;
+  background: #777777 linear-gradient(180deg, #8b8b8b, #777777) repeat-x;
 }
-
 .btn-success {
-  background: #28a745 linear-gradient(180deg, #48b461, #28a745) repeat-x;
+  background: #2aa198 linear-gradient(180deg, #4aafa7, #2aa198) repeat-x;
 }
-
 .btn-info {
-  background: #17a2b8 linear-gradient(180deg, #3ab0c3, #17a2b8) repeat-x;
+  background: #268bd2 linear-gradient(180deg, #479cd9, #268bd2) repeat-x;
 }
-
 .btn-warning {
-  background: #ffc107 linear-gradient(180deg, #ffca2c, #ffc107) repeat-x;
+  background: #cb4b16 linear-gradient(180deg, #d36639, #cb4b16) repeat-x;
 }
-
 .btn-danger {
-  background: #dc3545 linear-gradient(180deg, #e15361, #dc3545) repeat-x;
+  background: #d33682 linear-gradient(180deg, #da5495, #d33682) repeat-x;
 }
-
 .btn-light {
-  background: #f8f9fa linear-gradient(180deg, #f9fafb, #f8f9fa) repeat-x;
+  background: #fdf6e3 linear-gradient(180deg, #fdf7e7, #fdf6e3) repeat-x;
 }
-
 .btn-dark {
-  background: #343a40 linear-gradient(180deg, #52585d, #343a40) repeat-x;
+  background: #073642 linear-gradient(180deg, #2c545e, #073642) repeat-x;
 }
 
 .table-primary, .table-secondary, .table-dark, .table-success, .table-info, .table-warning, .table-danger {
   color: #fff;
 }
-
 .table-primary,
 .table-primary > th,
 .table-primary > td {
-  background-color: #007bff;
+  background-color: #222222;
 }
-
 .table-secondary,
 .table-secondary > th,
 .table-secondary > td {
-  background-color: #6c757d;
+  background-color: #777777;
 }
-
 .table-light,
 .table-light > th,
 .table-light > td {
-  background-color: #f8f9fa;
+  background-color: #fdf6e3;
 }
-
 .table-dark,
 .table-dark > th,
 .table-dark > td {
-  background-color: #343a40;
+  background-color: #073642;
 }
-
 .table-success,
 .table-success > th,
 .table-success > td {
-  background-color: #28a745;
+  background-color: #2aa198;
 }
-
 .table-info,
 .table-info > th,
 .table-info > td {
-  background-color: #17a2b8;
+  background-color: #268bd2;
 }
-
 .table-danger,
 .table-danger > th,
 .table-danger > td {
-  background-color: #dc3545;
+  background-color: #d33682;
 }
-
 .table-warning,
 .table-warning > th,
 .table-warning > td {
-  background-color: #ffc107;
+  background-color: #cb4b16;
 }
-
 .table-active,
 .table-active > th,
 .table-active > td {
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: rgba(255, 255, 255, 0.075);
 }
-
 .table-hover .table-primary:hover,
 .table-hover .table-primary:hover > th,
 .table-hover .table-primary:hover > td {
-  background-color: #006fe6;
+  background-color: #151515;
 }
-
 .table-hover .table-secondary:hover,
 .table-hover .table-secondary:hover > th,
 .table-hover .table-secondary:hover > td {
-  background-color: #60686f;
+  background-color: #6a6a6a;
 }
-
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
 .table-hover .table-light:hover > td {
-  background-color: #e9ecef;
+  background-color: #fbeecb;
 }
-
 .table-hover .table-dark:hover,
 .table-hover .table-dark:hover > th,
 .table-hover .table-dark:hover > td {
-  background-color: #292d32;
+  background-color: #05232b;
 }
-
 .table-hover .table-success:hover,
 .table-hover .table-success:hover > th,
 .table-hover .table-success:hover > td {
-  background-color: #23923d;
+  background-color: #258d85;
 }
-
 .table-hover .table-info:hover,
 .table-hover .table-info:hover > th,
 .table-hover .table-info:hover > td {
-  background-color: #148ea1;
+  background-color: #227dbc;
 }
-
 .table-hover .table-danger:hover,
 .table-hover .table-danger:hover > th,
 .table-hover .table-danger:hover > td {
-  background-color: #d32535;
+  background-color: #c42b75;
 }
-
 .table-hover .table-warning:hover,
 .table-hover .table-warning:hover > th,
 .table-hover .table-warning:hover > td {
-  background-color: #edb100;
+  background-color: #b44314;
 }
-
 .table-hover .table-active:hover,
 .table-hover .table-active:hover > th,
 .table-hover .table-active:hover > td {
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: rgba(255, 255, 255, 0.075);
 }
 
 .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #007bff;
+  background-color: #222222;
   background-image: none;
 }
 
 .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
-  border-color: #007bff;
+  border-color: #222222;
 }
 
 .custom-control-input:not(:disabled):active ~ .custom-control-label::before {
-  background-color: #007bff;
+  background-color: #222222;
   background-image: none;
-  border-color: #007bff;
+  border-color: #222222;
 }
 
 .custom-switch .custom-control-label::after {
   background-color: white;
 }
-
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
   background-color: rgba(255, 255, 255, 0.75);
 }
@@ -170,49 +144,39 @@
   border: none;
   color: #fff;
 }
-
 .alert a,
 .alert .alert-link {
   color: #fff;
   text-decoration: underline;
 }
-
 .alert-primary {
-  background: #007bff linear-gradient(180deg, #268fff, #007bff) repeat-x;
+  background: #222222 linear-gradient(180deg, #434343, #222222) repeat-x;
 }
-
 .alert-secondary {
-  background: #6c757d linear-gradient(180deg, #828a91, #6c757d) repeat-x;
+  background: #777777 linear-gradient(180deg, #8b8b8b, #777777) repeat-x;
 }
-
 .alert-success {
-  background: #28a745 linear-gradient(180deg, #48b461, #28a745) repeat-x;
+  background: #2aa198 linear-gradient(180deg, #4aafa7, #2aa198) repeat-x;
 }
-
 .alert-info {
-  background: #17a2b8 linear-gradient(180deg, #3ab0c3, #17a2b8) repeat-x;
+  background: #268bd2 linear-gradient(180deg, #479cd9, #268bd2) repeat-x;
 }
-
 .alert-warning {
-  background: #ffc107 linear-gradient(180deg, #ffca2c, #ffc107) repeat-x;
+  background: #cb4b16 linear-gradient(180deg, #d36639, #cb4b16) repeat-x;
 }
-
 .alert-danger {
-  background: #dc3545 linear-gradient(180deg, #e15361, #dc3545) repeat-x;
+  background: #d33682 linear-gradient(180deg, #da5495, #d33682) repeat-x;
 }
-
 .alert-light {
-  background: #f8f9fa linear-gradient(180deg, #f9fafb, #f8f9fa) repeat-x;
+  background: #fdf6e3 linear-gradient(180deg, #fdf7e7, #fdf6e3) repeat-x;
 }
-
 .alert-dark {
-  background: #343a40 linear-gradient(180deg, #52585d, #343a40) repeat-x;
+  background: #073642 linear-gradient(180deg, #2c545e, #073642) repeat-x;
 }
-
 .alert-light,
 .alert-light a:not(.btn),
 .alert-light .alert-link {
-  color: #fff;
+  color: #002b36;
 }
 
 #ec-user-popover {
@@ -234,7 +198,6 @@
 a {
   color: var(--primary);
 }
-
 @media (hover: hover) {
   a:hover {
     color: var(--primary-lightest);

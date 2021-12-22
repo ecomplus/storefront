@@ -1,0 +1,387 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+.navbar.bg-primary {
+  border: 1px solid #282828;
+}
+.navbar.bg-dark {
+  background-color: #000 !important;
+  border: 1px solid #282828;
+}
+.navbar.bg-light {
+  background-color: #888 !important;
+}
+.navbar.fixed-top {
+  border-width: 0 0 1px;
+}
+.navbar.fixed-bottom {
+  border-width: 1px 0 0;
+}
+
+.btn-primary {
+  background-color: #222222;
+}
+.btn-secondary {
+  background-color: #fff;
+}
+.btn-success {
+  background-color: #77b300;
+}
+.btn-info {
+  background-color: #93c;
+}
+.btn-warning {
+  background-color: #f80;
+}
+.btn-danger {
+  background-color: #d62a2a;
+}
+.btn-light {
+  background-color: #282828;
+}
+.btn-dark {
+  background-color: #adafae;
+}
+
+table {
+  color: #fff;
+}
+
+.table-primary,
+.table-primary > th,
+.table-primary > td {
+  background-color: #222222;
+}
+.table-secondary,
+.table-secondary > th,
+.table-secondary > td {
+  background-color: #fff;
+}
+.table-light,
+.table-light > th,
+.table-light > td {
+  background-color: #282828;
+}
+.table-dark,
+.table-dark > th,
+.table-dark > td {
+  background-color: #adafae;
+}
+.table-success,
+.table-success > th,
+.table-success > td {
+  background-color: #77b300;
+}
+.table-info,
+.table-info > th,
+.table-info > td {
+  background-color: #93c;
+}
+.table-danger,
+.table-danger > th,
+.table-danger > td {
+  background-color: #d62a2a;
+}
+.table-warning,
+.table-warning > th,
+.table-warning > td {
+  background-color: #f80;
+}
+.table-active,
+.table-active > th,
+.table-active > td {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+.table-hover .table-primary:hover,
+.table-hover .table-primary:hover > th,
+.table-hover .table-primary:hover > td {
+  background-color: #151515;
+}
+.table-hover .table-secondary:hover,
+.table-hover .table-secondary:hover > th,
+.table-hover .table-secondary:hover > td {
+  background-color: #f2f2f2;
+}
+.table-hover .table-light:hover,
+.table-hover .table-light:hover > th,
+.table-hover .table-light:hover > td {
+  background-color: #1b1b1b;
+}
+.table-hover .table-dark:hover,
+.table-hover .table-dark:hover > th,
+.table-hover .table-dark:hover > td {
+  background-color: #a0a2a1;
+}
+.table-hover .table-success:hover,
+.table-hover .table-success:hover > th,
+.table-hover .table-success:hover > td {
+  background-color: #669a00;
+}
+.table-hover .table-info:hover,
+.table-hover .table-info:hover > th,
+.table-hover .table-info:hover > td {
+  background-color: #8a2eb8;
+}
+.table-hover .table-danger:hover,
+.table-hover .table-danger:hover > th,
+.table-hover .table-danger:hover > td {
+  background-color: #c12525;
+}
+.table-hover .table-warning:hover,
+.table-hover .table-warning:hover > th,
+.table-hover .table-warning:hover > td {
+  background-color: #e67a00;
+}
+.table-hover .table-active:hover,
+.table-hover .table-active:hover > th,
+.table-hover .table-active:hover > td {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+legend {
+  color: #fff;
+}
+
+.form-control {
+  background-clip: border-box;
+}
+.form-control:disabled, .form-control[readonly] {
+  border-color: transparent;
+}
+
+.nav-tabs .nav-link,
+.nav-pills .nav-link {
+  color: #fff;
+}
+.nav-tabs .nav-link:hover,
+.nav-pills .nav-link:hover {
+  background-color: #282828;
+}
+.nav-tabs .nav-link.disabled, .nav-tabs .nav-link.disabled:hover,
+.nav-pills .nav-link.disabled,
+.nav-pills .nav-link.disabled:hover {
+  background-color: transparent;
+  color: #555;
+}
+.nav-tabs .nav-link.active,
+.nav-pills .nav-link.active {
+  background-color: #222222;
+}
+
+.breadcrumb a {
+  color: #fff;
+}
+
+.pagination a:hover {
+  text-decoration: none;
+}
+
+.alert {
+  border: none;
+  color: #fff;
+}
+.alert a,
+.alert .alert-link {
+  color: #fff;
+  text-decoration: underline;
+}
+.alert-primary {
+  background-color: #222222;
+}
+.alert-secondary {
+  background-color: #fff;
+}
+.alert-success {
+  background-color: #77b300;
+}
+.alert-info {
+  background-color: #93c;
+}
+.alert-warning {
+  background-color: #f80;
+}
+.alert-danger {
+  background-color: #d62a2a;
+}
+.alert-light {
+  background-color: #282828;
+}
+.alert-dark {
+  background-color: #adafae;
+}
+
+.badge-warning {
+  color: #fff;
+}
+
+.close {
+  opacity: 0.6;
+}
+.close:hover {
+  opacity: 1;
+}
+
+.list-group-item:hover {
+  background-color: #282828;
+  color: #fff;
+}
+.list-group-item-action {
+  color: #888;
+}
+.list-group-item-action .list-group-item-heading {
+  color: #888;
+}
+.list-group-item:hover .list-group-item-heading {
+  color: #fff;
+}
+
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6,
+.list-group-item h1,
+.list-group-item h2,
+.list-group-item h3,
+.list-group-item h4,
+.list-group-item h5,
+.list-group-item h6 {
+  color: inherit;
+}
+
+.popover-title {
+  border-bottom: none;
+}
+
+.breadcrumb {
+  padding-left: 1rem;
+}
+
+.menu__btn--close {
+  color: var(--gray);
+}
+
+main .top-bar {
+  background-color: #000;
+}
+main .top-bar a {
+  color: #e9ecef;
+}
+main .top-bar__nav {
+  font-size: 75%;
+}
+main .top-bar a.top-bar__countdown {
+  background-color: #000;
+  color: #fff;
+  filter: drop-shadow(1px 1px 2px #888);
+}
+main .header {
+  border-bottom: none;
+  background-color: #000;
+}
+main .header__nav a {
+  color: #fff;
+}
+main .header__nav a:hover {
+  border-bottom-color: #f8f9fa;
+  color: #222222;
+  background-color: transparent;
+}
+main #search-input {
+  border: solid 1px #555;
+}
+main #cart-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #cart-button .fa-shopping-bag:before {
+  background-color: #fff;
+}
+@media (hover: hover) {
+  main #cart-button .fa-shopping-bag:hover:before {
+    background-color: #222222;
+  }
+}
+main #user-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #user-button .fa-user:before {
+  background-color: #fff;
+}
+@media (hover: hover) {
+  main #user-button .fa-user:hover:before {
+    background-color: #222222;
+  }
+}
+main .info-bar {
+  background-color: #000;
+  color: #e9ecef;
+}
+main .account-addresses__card {
+  background-color: #212529;
+}
+main .footer {
+  background-color: #000;
+}
+main .footer__title {
+  color: #e9ecef;
+}
+main .footer__payment-methods i {
+  filter: contrast(60%);
+}
+main .close {
+  color: #fff;
+}
+main .search__box {
+  background-color: #222;
+}
+main .search-engine__nav {
+  background-color: #222;
+}
+main .checkout__info {
+  background-color: #212529;
+}
+main .minicart__aside {
+  background-color: #000;
+}
+main .cart__info {
+  background-color: #000;
+  border: solid 1px #555;
+}
+main .login__info {
+  background-color: #212529;
+}
+main .card-body {
+  background-color: #212529;
+}
+main .html-clearfix {
+  background-color: #222;
+}
+
+.app .app__header {
+  background-color: #000;
+}
+.app .app__footer {
+  border-top: var(--spacer-1) solid #fff;
+  background: #fff;
+}
+.app .app__credits.container {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  max-width: 100vw;
+}

@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap");
+.bg-primary .navbar-nav .active > .nav-link,
+.bg-primary .navbar-nav .nav-link:hover,
+.bg-primary .navbar-nav .nav-link:focus,
+.bg-primary .navbar-nav .show > .nav-link,
+.bg-primary .navbar-nav .nav-link.show,
+.bg-primary .navbar-nav .nav-link.active {
+  color: #18bc9c !important;
+}
+
+.btn-secondary, .btn-secondary:hover, .btn-warning, .btn-warning:hover {
+  color: #fff;
+}
+
+.table-primary, .table-secondary, .table-success, .table-info, .table-warning, .table-danger {
+  color: #fff;
+}
+.table-primary,
+.table-primary > th,
+.table-primary > td {
+  background-color: #222222;
+}
+.table-secondary,
+.table-secondary > th,
+.table-secondary > td {
+  background-color: #777777;
+}
+.table-light,
+.table-light > th,
+.table-light > td {
+  background-color: #ecf0f1;
+}
+.table-dark,
+.table-dark > th,
+.table-dark > td {
+  background-color: #7b8a8b;
+}
+.table-success,
+.table-success > th,
+.table-success > td {
+  background-color: #18bc9c;
+}
+.table-info,
+.table-info > th,
+.table-info > td {
+  background-color: #3498db;
+}
+.table-danger,
+.table-danger > th,
+.table-danger > td {
+  background-color: #e74c3c;
+}
+.table-warning,
+.table-warning > th,
+.table-warning > td {
+  background-color: #f39c12;
+}
+.table-active,
+.table-active > th,
+.table-active > td {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+.table-hover .table-primary:hover,
+.table-hover .table-primary:hover > th,
+.table-hover .table-primary:hover > td {
+  background-color: #151515;
+}
+.table-hover .table-secondary:hover,
+.table-hover .table-secondary:hover > th,
+.table-hover .table-secondary:hover > td {
+  background-color: #6a6a6a;
+}
+.table-hover .table-light:hover,
+.table-hover .table-light:hover > th,
+.table-hover .table-light:hover > td {
+  background-color: #dde4e6;
+}
+.table-hover .table-dark:hover,
+.table-hover .table-dark:hover > th,
+.table-hover .table-dark:hover > td {
+  background-color: #6f7d7e;
+}
+.table-hover .table-success:hover,
+.table-hover .table-success:hover > th,
+.table-hover .table-success:hover > td {
+  background-color: #15a589;
+}
+.table-hover .table-info:hover,
+.table-hover .table-info:hover > th,
+.table-hover .table-info:hover > td {
+  background-color: #258cd1;
+}
+.table-hover .table-danger:hover,
+.table-hover .table-danger:hover > th,
+.table-hover .table-danger:hover > td {
+  background-color: #e43725;
+}
+.table-hover .table-warning:hover,
+.table-hover .table-warning:hover > th,
+.table-hover .table-warning:hover > td {
+  background-color: #e08e0b;
+}
+.table-hover .table-active:hover,
+.table-hover .table-active:hover > th,
+.table-hover .table-active:hover > td {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link.active:focus,
+.nav-tabs .nav-link.active:hover,
+.nav-tabs .nav-item.open .nav-link,
+.nav-tabs .nav-item.open .nav-link:focus,
+.nav-tabs .nav-item.open .nav-link:hover {
+  color: #222222;
+}
+
+.pagination a:hover {
+  text-decoration: none;
+}
+
+.close {
+  text-decoration: none;
+  opacity: 0.4;
+}
+.close:hover, .close:focus {
+  opacity: 1;
+}
+
+.badge-secondary, .badge-warning {
+  color: #fff;
+}
+
+.alert {
+  border: none;
+  color: #fff;
+}
+.alert a,
+.alert .alert-link {
+  color: #fff;
+  text-decoration: underline;
+}
+.alert-primary {
+  background-color: #222222;
+}
+.alert-secondary {
+  background-color: #777777;
+}
+.alert-success {
+  background-color: #18bc9c;
+}
+.alert-info {
+  background-color: #3498db;
+}
+.alert-warning {
+  background-color: #f39c12;
+}
+.alert-danger {
+  background-color: #e74c3c;
+}
+.alert-light {
+  background-color: #ecf0f1;
+}
+.alert-dark {
+  background-color: #7b8a8b;
+}
+.alert-light,
+.alert-light a,
+.alert-light .alert-link {
+  color: #212529;
+}
+
+.modal .close,
+.toast .close {
+  color: #000;
+}
+.modal .close:not(:disabled):not(.disabled):hover, .modal .close:not(:disabled):not(.disabled):focus,
+.toast .close:not(:disabled):not(.disabled):hover,
+.toast .close:not(:disabled):not(.disabled):focus {
+  color: #000;
+}
+
+a {
+  color: var(--primary);
+}
+@media (hover: hover) {
+  a:hover {
+    color: var(--primary-lightest);
+  }
+}
+
+#ec-user-popover {
+  margin-right: 0.5rem;
+}
+
+.menu__btn--close {
+  color: var(--primary);
+}
+
+main .top-bar__nav {
+  font-size: 80%;
+}
+main .top-bar a.top-bar__countdown {
+  background-image: linear-gradient(rgba(34, 34, 34, 0.5), rgba(34, 34, 34, 0.7)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
+  font-weight: var(--font-bold);
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .info-bar {
+  display: flex;
+  flex-direction: column;
+}
+main .header {
+  border-bottom: none;
+}
+main .header__nav {
+  color: #777777;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .header__nav a:hover {
+  border-radius: unset;
+  background-color: transparent;
+  border-bottom: solid 2px;
+}
+main #search-input {
+  border: solid 1px;
+}
+main .cart__btn-checkout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main #cart-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/cart.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/cart.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #cart-button .fa-shopping-bag:before {
+  background-color: #777777;
+}
+@media (hover: hover) {
+  main #cart-button .fa-shopping-bag:hover:before {
+    background-color: #222222;
+  }
+}
+main #user-button i:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/login.svg") no-repeat 50% 50%;
+  mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/login.svg") no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+main #user-button .fa-user:before {
+  background-color: #777777;
+}
+@media (hover: hover) {
+  main #user-button .fa-user:hover:before {
+    background-color: #222222;
+  }
+}
+main .footer {
+  background: linear-gradient(#f8f9fa, rgba(255, 255, 255, 0.8)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
+}
+
+.menu__social {
+  background-image: linear-gradient(#f8f9fa, rgba(255, 255, 255, 0.4)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
+}
+
+.card-header {
+  font-weight: var(--font-bold);
+}
