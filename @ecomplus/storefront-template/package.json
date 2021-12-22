@@ -71,7 +71,6 @@
     "@ecomplus/widget-trustvox": "^2.2.6",
     "@ecomplus/widget-user": "^1.0.0-beta.105",
     "@glidejs/glide": "^3.5.2",
-    "bootswatch": "^4.6.1",
     "core-js": ">=3.19.0 <3.21",
     "ejs": "^3.1.6",
     "eventemitter3": "^4.0.7",
