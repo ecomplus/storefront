@@ -83,7 +83,7 @@ $color-shift-weights: map-merge(
     $level: abs($level);
     @return mix($color-base, $color, $level * $theme-color-interval);
   } @else {
-    $weight: $level * $theme-color-interval / 2;
+    $weight: calc($level * $theme-color-interval / 2);
     @return if($level > 0, darken-color($color, $weight), lighten-color($color, -$weight));
   }
 }
