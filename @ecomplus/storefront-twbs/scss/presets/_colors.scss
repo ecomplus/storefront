@@ -75,17 +75,25 @@ $color-shift-weights: map-merge(
   }
 }
 
-// Request a theme color level
+// Request a theme color level with mix
+
+@function mix-color($color-base, $color, $weight: 50) {
+  @if type-of($color-base) == color {
+    @if type-of($color) == color {
+      @return mix($color-base, $color, $weight);
+    }
+  }
+  @if $color-base == $white or $color-base == $white {
+    @return lighten-color($color, calc($weight / 2));
+  } @else {
+    @return darken-color($color, calc($weight / 2));
+  }
+}
+
 @function theme-color-level($color-name: "primary", $level: 0) {
   $color: theme-color($color-name);
-  @if type-of($color) == color {
-    $color-base: if($level > 0, $black, $white);
-    $level: abs($level);
-    @return mix($color-base, $color, $level * $theme-color-interval);
-  } @else {
-    $weight: calc($level * $theme-color-interval / 2);
-    @return if($level > 0, darken-color($color, $weight), lighten-color($color, -$weight));
-  }
+  $color-base: if($level > 0, $black, $white);
+  @return mix-color($color-base, $color, abs($level * $theme-color-interval));
 }
 
 // Color system
