@@ -105,7 +105,7 @@ const compileScss = (themes, isBundle) => {
       ...themes.map(theme => path.resolve(themesPath, theme)),
       path.resolve(ROOT_DIR, 'node_modules')
     ],
-    outputStyle
+    style: outputStyle
   }).css.toString()
 
   if (outputCss) {
