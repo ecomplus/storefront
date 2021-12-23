@@ -105,7 +105,7 @@ export default {
       if (typeof this.getGreetingsMsg === 'function') {
         return this.getGreetingsMsg(this.name)
       } else {
-        return `${i18n(i19hello)} ${this.name || i18n(i19visitor)}`
+        return `${i18n(i19hello)}, ${this.name || i18n(i19visitor)}`
       }
     }
   },
