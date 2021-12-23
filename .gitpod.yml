@@ -1,7 +1,5 @@
-image:
-  file: .gitpod.Dockerfile
 tasks:
-  - init: npm i
+  - init: nvm install 14 && nvm use 14 && nvm alias default 14 && npm i
 vscode:
   extensions:
     - standard.vscode-standard
