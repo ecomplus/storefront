@@ -21,7 +21,7 @@ export const getColorRgb = (colorHex) => {
 export const darkenColor = (color, percent) => {
   // https://css-tricks.com/snippets/javascript/lighten-darken-color/#comment-1754753
   let usePound = false
-  const amt = -percent
+  const amt = percent < 0 ? percent * -5.25 : percent * -4
   if (color[0] === '#') {
     color = color.slice(1)
     usePound = true
@@ -36,6 +36,5 @@ export const darkenColor = (color, percent) => {
   let g = (num & 0x0000FF) + amt
   if (g > 255) g = 255
   else if (g < 0) g = 0
-  ;[r, g, b] = [r, g, b].map(color => color <= 15 ? `0${color.toString(16)}` : color.toString(16))
-  return (usePound ? '#' : '') + r + b + g
+  return (usePound ? '#' : '') + (g | (b << 8) | (r << 16)).toString(16)
 }
