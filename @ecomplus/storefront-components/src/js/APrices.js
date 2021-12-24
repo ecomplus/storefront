@@ -61,7 +61,8 @@ export default {
       },
       extraDiscount: {
         type: null,
-        value: 0
+        value: 0,
+        min_amount: 0
       },
       discountLabel: this.discountText,
       pointsProgramName: null,
@@ -81,7 +82,7 @@ export default {
 
     price () {
       const price = getPrice(this.product)
-      if (this.extraDiscount.value) {
+      if (this.extraDiscount.value && (price > this.extraDiscount.min_amount)) {
         return getPriceWithDiscount(price, this.extraDiscount)
       }
       return price
