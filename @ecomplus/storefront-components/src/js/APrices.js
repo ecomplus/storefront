@@ -19,11 +19,17 @@ import waitStorefrontInfo from './helpers/wait-storefront-info'
 
 const getPriceWithDiscount = (price, discount) => {
   const { type, value } = discount
+  let priceWithDiscount
+  const nonNegativeDiscount = (priceWithDiscount, price) => {
+    return priceWithDiscount > 0 ? priceWithDiscount : price
+  }
   if (value) {
     if (type === 'percentage') {
-      return price * (100 - value) / 100
+      priceWithDiscount = price * (100 - value) / 100
+      return nonNegativeDiscount(priceWithDiscount, price)
     } else {
-      return price - value
+      priceWithDiscount = price - value
+      return nonNegativeDiscount(priceWithDiscount, price)
     }
   }
 }
@@ -82,7 +88,10 @@ export default {
 
     price () {
       const price = getPrice(this.product)
-      if (this.extraDiscount.value && (price > this.extraDiscount.min_amount)) {
+      if (
+        this.extraDiscount.value &&
+        (!this.extraDiscount.min_amount || price > this.extraDiscount.min_amount)
+      ) {
         return getPriceWithDiscount(price, this.extraDiscount)
       }
       return price
