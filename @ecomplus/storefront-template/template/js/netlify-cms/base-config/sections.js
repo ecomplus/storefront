@@ -130,6 +130,12 @@ export default ({ state }) => [
         step: 1000,
         default: 9000,
         widget: 'number'
+      },
+      {
+        label: 'Slider Full Width',
+        name: 'full_width',
+        widget: 'boolean',
+        default: true
       }
     ]
   },
