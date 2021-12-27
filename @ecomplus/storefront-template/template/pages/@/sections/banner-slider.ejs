@@ -14,7 +14,10 @@ if (Array.isArray(opt.slides)) {
 }
 
 if (slides && slides.length) {
+  const isBannerFullWidth = opt.full_width
   let style = ''
+  let bannerFullWidthStyle = null
+  bannerFullWidthStyle = isBannerFullWidth? "banner-slider--full-width" : null
   for (let i = 0; i < 2; i++) {
     const img = slides[0][i ? 'mobile_img' : 'img']
     if (img) {
@@ -30,7 +33,7 @@ if (slides && slides.length) {
   }
   %>
 
-  <div class="banner-slider" style="<%- style %>">
+  <div class="banner-slider <%- bannerFullWidthStyle %>" style="<%- style %>">
     <div class="glide" data-autoplay="<%= opt.autoplay %>">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides banner-slider__slides">
