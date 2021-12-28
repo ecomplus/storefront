@@ -20,9 +20,6 @@ import waitStorefrontInfo from './helpers/wait-storefront-info'
 const getPriceWithDiscount = (price, discount) => {
   const { type, value } = discount
   let priceWithDiscount
-  const nonNegativeDiscount = (priceWithDiscount, price) => {
-    return priceWithDiscount > 0 ? priceWithDiscount : price
-  }
   if (value) {
     if (type === 'percentage') {
       priceWithDiscount = price * (100 - value) / 100
