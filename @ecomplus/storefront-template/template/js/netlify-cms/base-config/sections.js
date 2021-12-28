@@ -132,7 +132,7 @@ export default ({ state }) => [
         widget: 'number'
       },
       {
-        label: 'Slider Full Width',
+        label: 'Slider largura total',
         name: 'full_width',
         widget: 'boolean',
         default: true
