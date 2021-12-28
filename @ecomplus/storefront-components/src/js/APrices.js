@@ -28,6 +28,7 @@ const getPriceWithDiscount = (price, discount) => {
       priceWithDiscount = price - value
       return nonNegativeDiscount(priceWithDiscount, price)
     }
+    return priceWithDiscount > 0 ? priceWithDiscount : 0
   }
 }
 
