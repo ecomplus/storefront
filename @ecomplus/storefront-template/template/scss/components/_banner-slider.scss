@@ -13,6 +13,7 @@
 
   &--full-width {
     max-width: initial;
+    max-height: var(--banner-aspect-ratio);
   }
   
   &__slides,
