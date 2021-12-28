@@ -23,10 +23,8 @@ const getPriceWithDiscount = (price, discount) => {
   if (value) {
     if (type === 'percentage') {
       priceWithDiscount = price * (100 - value) / 100
-      return nonNegativeDiscount(priceWithDiscount, price)
     } else {
       priceWithDiscount = price - value
-      return nonNegativeDiscount(priceWithDiscount, price)
     }
     return priceWithDiscount > 0 ? priceWithDiscount : 0
   }
