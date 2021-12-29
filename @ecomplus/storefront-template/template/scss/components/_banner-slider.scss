@@ -11,6 +11,11 @@
     max-height: calc(80rem * var(--banner-aspect-ratio-mobile, --banner-aspect-ratio));
   }
 
+  &--full-width {
+    max-width: 160rem;
+    max-height: calc(160rem * var(--banner-aspect-ratio));
+  }
+  
   &__slides,
   &__slides > li {
     overflow: hidden;
