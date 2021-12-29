@@ -1,14 +1,56 @@
 import BasePreview from '../base-preview'
 import virtualDoc from '../virtual-doc'
 import fetchPage from '../fetch-page'
+import { getColorYiq, getColorRgb, darkenColor } from './lib/color-functions'
 
 const themesUrl = 'https://cdn.jsdelivr.net/gh/ecomplus/storefront@themes-dist'
 
-const fetchCssTheme = (theme) => {
-  if (theme === '_') {
+const fetchCssTheme = (themes) => {
+  let mergedThemeLabel
+  for (const themeType in themes) {
+    const themeName = themes[themeType]
+    if (themeName && themeName !== '_') {
+      if (mergedThemeLabel) {
+        mergedThemeLabel += `_${themeName}`
+      } else {
+        mergedThemeLabel = themeName
+      }
+    }
+  }
+  if (!mergedThemeLabel) {
     return Promise.resolve('')
   }
-  return window.fetch(`${themesUrl}/${theme}.css`)
+  return window.fetch(`${themesUrl}/${mergedThemeLabel}.bundle.min.css`)
+}
+
+const colorVariants = {
+  whiter: -75,
+  white: -50,
+  lightest: -33,
+  lighter: -21,
+  light: -10,
+  lighten: -7,
+  darken: 8,
+  dark: 10,
+  darker: 13,
+  darkest: 16,
+  black: 50
+}
+
+const parseColorCssVars = (colorLabel, colorHex) => {
+  return `--${colorLabel}: ${colorHex}; ` +
+    `--${colorLabel}-yiq: ${getColorYiq(colorHex)}; ` +
+    `--${colorLabel}-rgb: ${getColorRgb(colorHex)}; `
+}
+
+const genColorCssVars = (colorName, colorHex) => {
+  let cssVars = parseColorCssVars(colorName, colorHex)
+  for (const variant in colorVariants) {
+    if (colorVariants[variant]) {
+      cssVars += parseColorCssVars(`${colorName}-${variant}`, darkenColor(colorHex, colorVariants[variant]))
+    }
+  }
+  return cssVars
 }
 
 export default class CodePreview extends BasePreview {
@@ -71,72 +113,37 @@ export default class CodePreview extends BasePreview {
       }
 
       $styleTag.innerHTML = `<style>
-        :root {
-          --primary: ${entries.primary_color};
-          --primary-light: ${entries.primary_color};
-          --primary-lighter: ${entries.primary_color};
-          --secondary: ${entries.secondary_color};
-          --secondary-light: ${entries.secondary_color};
-          --secondary-lighter: ${entries.secondary_color};
-        }
-        body .btn-primary,
-        body .alert-primary,
-        body .badge-primary {
-          background-color: ${entries.primary_color};
-          border-color: ${entries.primary_color};
-        }
-        body .btn-outline-primary {
-          border-color: ${entries.primary_color};
-        }
-        body .btn-secondary,
-        body .alert-secondary,
-        body .badge-secondary {
-          background-color: ${entries.secondary_color};
-          border-color: ${entries.secondary_color};
-        }
-        body .btn-outline-secondary {
-          border-color: ${entries.secondary_color};
-        }
-        body .text-primary,
-        body a,
-        body a:hover {
-          color: ${entries.primary_color};
+        body {
+          ${genColorCssVars('primary', entries.primary_color)}
+          ${genColorCssVars('secondary', entries.secondary_color)}
         }
         .lozad-delay.fade {
-          opacity: 1;
+          opacity: 1 !important;
         }
       </style>`
 
       const { theme } = entries
-
       if ((this.bootswatch !== theme.bootswatch) || (this.custom !== theme.custom)) {
-        const promises = []
         let styles = ''
-        for (const name in theme) {
-          if (theme[name]) {
-            promises.push(fetchCssTheme(theme[name])
-              .then(async response => {
-                styles += await response.text()
-                styles += ' '
-              })
-              .catch(() => {
-                console.log('theme not found ignored')
-              }))
+        await fetchCssTheme(theme).then(async response => {
+          if (response.text) {
+            styles += await response.text()
+            styles += ' '
           }
-        }
-
-        await Promise.all(promises).then(() => {
-          let $themesTag = vDoc.getElementById('storefront-themes')
-          if (!$themesTag) {
-            $themesTag = document.createElement('div')
-            $themesTag.id = 'storefront-themes'
-            vDoc.body.appendChild($themesTag)
-          }
-          $themesTag.innerHTML = `<style>${styles}</style>`
-          this.bootswatch = theme.bootswatch
-          this.custom = theme.custom
-          change = true
         })
+          .then(() => {
+            let $themesTag = vDoc.getElementById('storefront-themes')
+            if (!$themesTag) {
+              $themesTag = document.createElement('div')
+              $themesTag.id = 'storefront-themes'
+              vDoc.body.appendChild($themesTag)
+            }
+            $themesTag.innerHTML = `<style>${styles}</style>`
+            this.bootswatch = theme.bootswatch
+            this.custom = theme.custom
+            change = true
+          })
+          .catch(console.error)
       }
 
       if (change) {

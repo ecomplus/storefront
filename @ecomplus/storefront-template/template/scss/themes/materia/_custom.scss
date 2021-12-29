@@ -1,12 +1,17 @@
+@import "bootswatch";
+
 #ec-user-popover {
   margin-right: 0.2rem;
 }
-.header__toggler{
+
+.header__toggler {
   padding: 1rem;
 }
-.btn-outline-secondary{
+
+.btn-outline-secondary {
   color: var(--secondary);
 }
+
 .btn-lg {
   padding: 1rem 1.5rem;
 }

@@ -1,4 +1,5 @@
-
+tasks:
+  - init: nvm install 14 && nvm use 14 && nvm alias default 14 && npm i
 vscode:
   extensions:
     - standard.vscode-standard

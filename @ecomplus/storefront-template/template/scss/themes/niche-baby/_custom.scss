@@ -5,7 +5,7 @@ main {
     }
 
     a.top-bar__countdown {
-      background-image: linear-gradient(rgba($primary, 0.5), rgba($primary, 0.7)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
+      background-image: linear-gradient(rgba-color($primary, 0.5), rgba-color($primary, 0.7)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
       font-weight: var(--font-bold);
       height: 60px;
       display: flex;
@@ -98,12 +98,12 @@ main {
   }
 
   .footer {
-    background: linear-gradient(rgba($gray-100, 1), rgba($white, 0.8)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
+    background: linear-gradient(rgba-color($gray-100, 1), rgba-color($white, 0.8)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
   }
 }
 
 .menu__social {
-  background-image: linear-gradient(rgba($gray-100, 1), rgba($white, 0.4)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
+  background-image: linear-gradient(rgba-color($gray-100, 1), rgba-color($white, 0.4)), url("https://ecom.nyc3.digitaloceanspaces.com/storefront/baby/bg.webp");
 }
 
 .card-header {
