@@ -12,8 +12,8 @@
   }
 
   &--full-width {
-    max-width: 100vw;
-    max-height: none;
+    max-width: 160rem;
+    max-height: calc(160rem * var(--banner-aspect-ratio));
   }
   
   &__slides,
