@@ -132,7 +132,7 @@ export default ({ state }) => [
         widget: 'number'
       },
       {
-        label: 'Slider largura total',
+        label: 'Banners em tela cheia',
         name: 'full_width',
         widget: 'boolean',
         default: false
