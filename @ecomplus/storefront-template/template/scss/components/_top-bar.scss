@@ -31,7 +31,7 @@
   }
 
   &__nav {
-    max-width: 80rem;
+    max-width: var(--content-max-width);
     color: var(--gray);
     margin-left: auto;
     margin-right: auto;
