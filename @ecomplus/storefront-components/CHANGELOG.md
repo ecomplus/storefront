@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.109](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.108...@ecomplus/storefront-components@1.0.0-beta.109) (2021-12-29)
+
+
+### Bug Fixes
+
+* **APrices:** check min amount from extra discount on price ([#588](https://github.com/ecomplus/storefront/issues/588)) ([7250bda](https://github.com/ecomplus/storefront/commit/7250bdad80c8c409e05b4d6654425101444cfc95))
+* **components/discount-applier:** check `localAmountTotal` (without current discount) instead of `amount.total` [[#578](https://github.com/ecomplus/storefront/issues/578)] ([f60cfe0](https://github.com/ecomplus/storefront/commit/f60cfe07aff2956065ebc81b6ba091089aaa59ed))
+
+
+
+
+
 # [1.0.0-beta.108](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.107...@ecomplus/storefront-components@1.0.0-beta.108) (2021-12-06)
 
 

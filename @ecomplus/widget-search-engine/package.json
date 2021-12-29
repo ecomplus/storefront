@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-search-engine",
-  "version": "1.0.0-beta.107",
+  "version": "1.0.0-beta.108",
   "description": "Storefront plugin & Vue component for dynamic search page",
   "module": "src/index.js",
   "browser": "dist/widget-search-engine.min.js",
@@ -34,8 +34,8 @@
     "vue": ">=2 <4"
   },
   "dependencies": {
-    "@ecomplus/storefront-components": "^1.0.0-beta.108",
-    "@ecomplus/storefront-twbs": "^5.11.1"
+    "@ecomplus/storefront-components": "^1.0.0-beta.109",
+    "@ecomplus/storefront-twbs": "^5.12.0"
   },
   "webpackOutput": {
     "library": "widgetSearchEngine",
