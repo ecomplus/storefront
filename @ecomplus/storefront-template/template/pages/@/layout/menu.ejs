@@ -62,7 +62,7 @@ if (mainCategories) {
             aria-expanded="false"
           <% } %>
           data-parent="#accordion-menu"
-        >
+        > 
 
           <% if (slug !== '_') { %>
             <% category = _.categories.find(category => category.slug === slug) %>
@@ -178,3 +178,19 @@ if (mainCategories) {
     <% } %>
   </footer>
 </aside>
+<button onclick="megaMenu()"></button>
+<div id="menu__mega" class="menu__mega shadow"> 
+  <% const mainCategoriesMegaMenu = mainCategories.slice(0, 4) %>
+    <% mainCategoriesMegaMenu.forEach(categories => { %>
+        <% if (!categories.slug) { %>
+          <% return %>
+        <% } else { %>
+          <ul>
+            <a href="<%= categories.slug %>">
+              <%= categories.name %>
+              </a>
+            </ul>
+        <% } %> 
+  <% }) %>  
+  </div>
+  

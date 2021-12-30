@@ -37,3 +37,20 @@ const toggleSidenav = (slug, isClose) => {
 }
 
 window.toggleSidenav = toggleSidenav
+// Mega Menu Implementation JS //
+
+const $menuMega = $('#menu__mega')[0]
+
+const megaMenu = () => {
+  if (!isVisible) {
+    animateCss($menuMega, 'fadeIn')
+    $menuMega.style.display = 'flex'
+    isVisible = true
+  } else {
+    animateCss($menuMega, 'fadeOut').then(() => {
+      $menuMega.style.display = null
+      isVisible = false
+    })
+  }
+}
+window.megaMenu = megaMenu

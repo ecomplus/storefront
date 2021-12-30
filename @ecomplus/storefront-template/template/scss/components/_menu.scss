@@ -90,3 +90,11 @@
     margin: var(--spacer-1);
   }
 }
+
+.menu__mega { 
+  display: none;
+  position: fixed;
+  background-color: var(--body-bg);
+  padding: var(--spacer-3);
+  z-index: 1100;
+}
