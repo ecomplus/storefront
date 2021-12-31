@@ -2,10 +2,10 @@ import {
   i19close,
   i19continueLoginOnPopup,
   i19email,
-  // i19enterEmailCodeMsg,
+  i19enterEmailCodeMsg,
   i19guestCheckoutMsg,
   i19hello,
-  // i19incorrectEmailCodeMsg,
+  i19incorrectEmailCodeMsg,
   i19loginErrorMsg,
   i19login,
   i19logout,
@@ -77,19 +77,9 @@ export default {
     i19close: () => i18n(i19close),
     i19continueLoginOnPopup: () => i18n(i19continueLoginOnPopup),
     i19email: () => i18n(i19email).toLowerCase(),
-
-    i19enterEmailCodeMsg: () => i18n({
-      pt_br: 'Insira o código de verificação que te enviamos por e-mail.',
-      en_us: 'Enter the verification code we send you by email.'
-    }),
-
+    i19enterEmailCodeMsg: () => i18n(i19enterEmailCodeMsg),
     i19guestCheckoutMsg: () => i18n(i19guestCheckoutMsg),
-
-    i19incorrectEmailCodeMsg: () => i18n({
-      pt_br: 'Código incorreto, verifique o e-mail que te enviados, se necessário procure no spam ou aguarde alguns instantes se não tiver recebido.',
-      en_us: 'Incorrect code, check the email sent to you, search for spam if necessary or wait a few moments if you haven\'t received it.'
-    }),
-
+    i19incorrectEmailCodeMsg: () => i18n(i19incorrectEmailCodeMsg),
     i19loginErrorMsg: () => i18n(i19loginErrorMsg),
     i19login: () => i18n(i19login),
     i19logout: () => i18n(i19logout),
