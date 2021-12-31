@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.159](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.158...@ecomplus/storefront-template@2.0.0-beta.159) (2021-12-31)
+
+
+### Features
+
+* **template/css:** new `--content-max-width` replacing hardset 80rem ([5053e91](https://github.com/ecomplus/storefront/commit/5053e9176d8fc2c309f5b7266de7adc2d11ec9b6))
+
+
+
+
+
 # [2.0.0-beta.158](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.157...@ecomplus/storefront-template@2.0.0-beta.158) (2021-12-29)
 
 

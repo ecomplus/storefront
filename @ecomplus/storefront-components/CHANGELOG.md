@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.110](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.109...@ecomplus/storefront-components@1.0.0-beta.110) (2021-12-31)
+
+
+### Features
+
+* **components/login-block:** handle signup/login by email code [[#593](https://github.com/ecomplus/storefront/issues/593)] ([9fe600a](https://github.com/ecomplus/storefront/commit/9fe600afdfd874e95ded22a5573dd92a9d2f24c3))
+
+
+
+
+
 # [1.0.0-beta.109](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.108...@ecomplus/storefront-components@1.0.0-beta.109) (2021-12-29)
 
 

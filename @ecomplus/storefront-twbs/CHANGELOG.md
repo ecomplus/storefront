@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.12.0...@ecomplus/storefront-twbs@5.12.1) (2021-12-31)
+
+
+### Bug Fixes
+
+* **twbs/scss-colors:** fix setting yiq text dark/light with css vars ([bb6a902](https://github.com/ecomplus/storefront/commit/bb6a90221103262ad47cf2fb74b1933ece837174))
+
+
+
+
+
 # [5.12.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.11.1...@ecomplus/storefront-twbs@5.12.0) (2021-12-29)
 
 
