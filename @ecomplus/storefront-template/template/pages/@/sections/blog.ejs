@@ -10,8 +10,8 @@ if (Array.isArray(posts) && posts.length) {
           posts.forEach(slug => { 
             const post = (_.cms(`posts/${slug}`))
             post.slug = slug
-            postsList.push(post)            
-          }) 
+            postsList.push(post)
+          })
           postsList.sort((a, b) => {
             return b.date > a.date ? 1 : -1
           })
