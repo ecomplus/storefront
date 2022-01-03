@@ -1,0 +1,3 @@
+[submodule "@ecomplus/storefront-template/template/pages"]
+	path = @ecomplus/storefront-template/template/pages
+	url = git@github.com:ecomplus/storefront-starter-views.git
