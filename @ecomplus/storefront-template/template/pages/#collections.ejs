@@ -1,9 +1,0 @@
-<%
-const { body } = await _.resolveRoute()
-_.breadcrumbs = [{
-  name: _.ecomUtils.name(body),
-  link: `/${body.slug}`
-}]
-%>
-
-<%- await include('/@/view') %>
