@@ -13,7 +13,7 @@ import {
   i19notifyAboutOrders,
   i19oauthOnPopup,
   i19orProceedWith,
-  // i19sendLoginCodeByEmail,
+  i19sendLoginCodeByEmail,
   i19signInWith,
   i19signInWithAnotherEmail,
   i19signUp,
@@ -75,10 +75,7 @@ export default {
     i19notifyAboutOrders: () => i18n(i19notifyAboutOrders),
     i19oauthOnPopup: () => i18n(i19oauthOnPopup),
     i19orProceedWith: () => i18n(i19orProceedWith),
-    i19sendLoginCodeByEmail: () => i18n({
-      pt_br: 'Enviar código de login por e-mail',
-      en_us: 'Send login code by e-mail'
-    }),
+    i19sendLoginCodeByEmail: () => i18n(i19sendLoginCodeByEmail),
     i19signInWith: () => i18n(i19signInWith),
     i19signInWithAnotherEmail: () => i18n(i19signInWithAnotherEmail),
     i19signUp: () => i18n(i19signUp),
