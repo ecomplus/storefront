@@ -15,10 +15,15 @@ const dirGitStarterViews = path.join(dirPkgStarter, 'template/pages')
 recursiveCopy(path.join(dirPkgTemplate, 'template/pages'), dirGitStarterViews)
 recursiveCopy(path.join(dirPkgTemplate, 'content'), path.join(dirGitStarter, 'content'), false, true)
 
-const commitCmd = 'git add . && ' +
-  `git commit -m \"Update with @ecomplus/storefront-template v${version}\" && ` +
-  'git push'
+const parseCommitCmd = commitMsg => `git diff-index --quiet HEAD || (git commit -m \"${commitMsg}\" && git push)`
 
-;[dirGitStarterViews, dirGitStarter].forEach(cwd => {
-  execSync(commitCmd, { cwd, stdio: [0, 1, 2] })
+;[dirGitStarter, dirGitStarterViews].forEach(cwd => {
+  execSync(`git add . && ${parseCommitCmd(`Update with @ecomplus/storefront-template v${version}`)}`, { cwd })
 })
+
+execSync(
+  'git submodule update --remote --merge && ' +
+  'git add @ecomplus/storefront-starter && ' +
+  parseCommitCmd('chore(starter): update submodules'),
+  { cwd: path.resolve(__dirname, '..') }
+)
