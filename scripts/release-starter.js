@@ -19,8 +19,6 @@ const commitCmd = 'git add . && ' +
   `git commit -m \"Update with @ecomplus/storefront-template v${version}\" && ` +
   'git push'
 
-execSync(
-  `cd ${dirGitStarterViews} && ${commitCmd} && ` +
-  `cd ${dirGitStarter} && ${commitCmd}`,
-  { stdio: [0, 1, 2] }
-)
+;[dirGitStarterViews, dirGitStarter].forEach(cwd => {
+  execSync(commitCmd, { cwd, stdio: [0, 1, 2] })
+})
