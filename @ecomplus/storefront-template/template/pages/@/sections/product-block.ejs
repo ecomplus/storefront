@@ -84,6 +84,66 @@
               <% if (_.state.variations && _.state.variations.length) { %>
                 <div data-slot="variations-info">
                   <!-- Custom info for products with variations, such as sizes table link -->
+                  <% if (opt.sizeGuide && opt.sizeGuide.active) { %>
+                    <div 
+                      class="mb-3"
+                    >
+                      <a 
+                        href="javascript:;"  
+                        data-toggle="modal" 
+                        data-target="#modal-size-guide"
+                      >
+                      <%= `${(opt.sizeGuide.title && (typeof opt.sizeGuide.title !== '') ? opt.sizeGuide.title : 'Tabela de Medidas')}` %>
+                      </a>
+                    </div>
+                    <div 
+                      class="modal modal-center fade" 
+                      id="modal-size-guide" 
+                      tabindex="-1" 
+                      style="display: none;" 
+                      aria-hidden="true"
+                    >
+                      <div 
+                        class="modal-dialog"
+                      >
+                        <div 
+                          class="modal-content"
+                        >
+                          <div 
+                            class="modal-header d-flex align-items-center justify-content-between"
+                          >
+                            <h5 
+                              class="modal-title"
+                            >
+                            <%= `${(opt.sizeGuide.title && (typeof opt.sizeGuide.title !== '') ? opt.sizeGuide.title : 'Tabela de Medidas')}` %>
+                            </h5>
+                            <button 
+                              type="button" 
+                              class="close" 
+                              data-dismiss="modal"
+                            >
+                              <span 
+                                aria-hidden="true"
+                              > 
+                                x
+                              </span>
+                            </button>
+                          </div>
+                          <div 
+                            class="modal-body"
+                          > 
+                            <% if (opt.sizeGuide.image && (typeof opt.sizeGuide.image !== '')) { %>
+                              <img 
+                                class="img-fluid" 
+                                src="<%= opt.sizeGuide.image %>" 
+                                alt="<%= `${(opt.sizeGuide.title && (typeof opt.sizeGuide.title !== '') ? opt.sizeGuide.title : 'Tabela de Medidas')}` %>"
+                              >
+                            <% } %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% } %>
                 </div>
               <% } %>
 

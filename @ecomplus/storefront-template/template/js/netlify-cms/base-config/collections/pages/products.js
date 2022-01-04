@@ -19,6 +19,29 @@ export default ({ baseDir, sections }) => ({
               name: 'enabled',
               widget: 'boolean',
               default: true
+            },
+            {
+              label: 'Tabela de Medidas',
+              widget: 'object',
+              name: 'sizeGuide',
+              fields: [
+                {
+                  label: 'Ativer Tabela de Medidas',
+                  name: 'active',
+                  widget: 'boolean',
+                  default: false
+                },
+                {
+                  label: 'Imagem da Tabela de Medidas',
+                  name: 'image',
+                  widget: 'image'
+                },
+                {
+                  label: 'Título da Tabela de Medidas',
+                  name: 'title',
+                  widget: 'string'
+                }
+              ]
             }
           ]
         },

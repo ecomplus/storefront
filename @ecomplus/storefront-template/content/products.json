@@ -6,7 +6,12 @@
     },
     {
       "type": "product-block",
-      "enabled": true
+      "enabled": true,
+      "sizeGuide": {
+        "active": false,
+        "image": "/img/uploads/headless.png",
+        "title": "Tabela de Medidas"
+      }
     },
     {
       "type": "related-products",
