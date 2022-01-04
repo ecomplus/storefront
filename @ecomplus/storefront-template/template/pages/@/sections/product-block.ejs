@@ -84,7 +84,7 @@
               <% if (_.state.variations && _.state.variations.length) { %>
                 <div data-slot="variations-info">
                   <!-- Custom info for products with variations, such as sizes table link -->
-                  <% if (opt.size_guide && (opt.size_guide.image && (typeof opt.size_guide.image !== ''))) { %>
+                  <% if (opt.size_guide && opt.size_guide.image) { %>
                     <%
                       const renderTitleSizeGuide = title => {
                         return (title && (typeof title !== '') ? title : 'Tabela de medidas')
