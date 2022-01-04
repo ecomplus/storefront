@@ -21,7 +21,7 @@ export default ({ baseDir, sections }) => ({
               default: true
             },
             {
-              label: 'Tabela de Medidas',
+              label: 'Tabela de medidas',
               widget: 'object',
               name: 'size_guide',
               fields: [
