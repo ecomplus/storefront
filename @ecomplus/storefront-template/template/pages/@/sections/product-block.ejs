@@ -84,6 +84,47 @@
               <% if (_.state.variations && _.state.variations.length) { %>
                 <div data-slot="variations-info">
                   <!-- Custom info for products with variations, such as sizes table link -->
+                  <% if (opt.size_guide && opt.size_guide.image) { %>
+                    <% const sizeGuideTitle = opt.size_guide.title || 'Tabela de medidas' %>
+                    <div class="mb-3">
+                      <a 
+                        href="javascript:;"  
+                        data-toggle="modal" 
+                        data-target="#modal-size-guide"
+                      >
+                      <%= sizeGuideTitle %>
+                      </a>
+                    </div>
+                    <div 
+                      class="modal modal-center fade" 
+                      id="modal-size-guide" 
+                      tabindex="-1" 
+                      style="display: none;" 
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header d-flex align-items-center justify-content-between">
+                            <h5 class="modal-title">
+                              <%= sizeGuideTitle %>
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span aria-hidden="true">
+                                x
+                              </span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <img 
+                              class="img-fluid" 
+                              src="<%= opt.size_guide.image %>" 
+                              alt="<%= sizeGuideTitle %>"
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% } %>
                 </div>
               <% } %>
 
