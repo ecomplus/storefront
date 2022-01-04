@@ -10,7 +10,7 @@
     "storefront-tmpl-pack": "./scripts/pack.js"
   },
   "scripts": {
-    "pack": "cross-env STOREFRONT_TEMPLATE=$INIT_CWD node ./scripts/pack.js",
+    "pack": "cross-env STOREFRONT_TEMPLATE=$INIT_CWD PKG_BASE_DIR=@ecomplus/storefront-template/ node ./scripts/pack.js",
     "serve": "npm run pack serve",
     "dev": "npm run pack serve -- --analyze",
     "build": "cross-env ECOMCLIENT_NOTIMEOUT=true WEBPACK_BUILD_DEV=true npm run pack build",
