@@ -31,7 +31,7 @@ export default ({ baseDir, sections }) => ({
                   widget: 'image'
                 },
                 {
-                  label: 'Título da tabela de medidas',
+                  label: 'Título da tabela',
                   name: 'title',
                   widget: 'string'
                 }
