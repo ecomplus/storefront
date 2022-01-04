@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.111](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.110...@ecomplus/storefront-components@1.0.0-beta.111) (2022-01-04)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.25.0 ([ffe7a27](https://github.com/ecomplus/storefront/commit/ffe7a27a0d0ef5a5ce166c66062002c56d9f3068))
+
+
+
+
+
+# [1.0.0-beta.110](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.109...@ecomplus/storefront-components@1.0.0-beta.110) (2021-12-31)
+
+
+### Features
+
+* **components/login-block:** handle signup/login by email code [[#593](https://github.com/ecomplus/storefront/issues/593)] ([9fe600a](https://github.com/ecomplus/storefront/commit/9fe600afdfd874e95ded22a5573dd92a9d2f24c3))
+
+
+
+
+
+# [1.0.0-beta.109](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.108...@ecomplus/storefront-components@1.0.0-beta.109) (2021-12-29)
+
+
+### Bug Fixes
+
+* **APrices:** check min amount from extra discount on price ([#588](https://github.com/ecomplus/storefront/issues/588)) ([7250bda](https://github.com/ecomplus/storefront/commit/7250bdad80c8c409e05b4d6654425101444cfc95))
+* **components/discount-applier:** check `localAmountTotal` (without current discount) instead of `amount.total` [[#578](https://github.com/ecomplus/storefront/issues/578)] ([f60cfe0](https://github.com/ecomplus/storefront/commit/f60cfe07aff2956065ebc81b6ba091089aaa59ed))
+
+
+
+
+
 # [1.0.0-beta.108](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.107...@ecomplus/storefront-components@1.0.0-beta.108) (2021-12-06)
 
 

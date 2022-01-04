@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.12.0...@ecomplus/storefront-twbs@5.12.1) (2021-12-31)
+
+
+### Bug Fixes
+
+* **twbs/scss-colors:** fix setting yiq text dark/light with css vars ([bb6a902](https://github.com/ecomplus/storefront/commit/bb6a90221103262ad47cf2fb74b1933ece837174))
+
+
+
+
+
+# [5.12.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.11.1...@ecomplus/storefront-twbs@5.12.0) (2021-12-29)
+
+
+### Bug Fixes
+
+* **twbs/colors:** fix scss `theme-color-level` with `mix` function as bs original ([7914426](https://github.com/ecomplus/storefront/commit/7914426154ec2e4f0086324dc7b7ab2769efdac2))
+* **twbs/scss-color:** more color functions fixes (triggered by custom themes) ([4e46b4c](https://github.com/ecomplus/storefront/commit/4e46b4cb78a9076312bbfb453391ec6f88e22bfe))
+* **twbs/scss-colors:** fix gradients mixin to use `color-mix` function ([6740be1](https://github.com/ecomplus/storefront/commit/6740be1331d137e2ce7dfad531829f407e497ccd))
+
+
+### Features
+
+* **twbs/color-shift-weights:** keep and merge `$color-shift-weights` if set for variant colors customization ([be3a978](https://github.com/ecomplus/storefront/commit/be3a978de80adc91795f0b783cd68455770639e3))
+* **twbs/css-vars:** more css vars for brand colors and make it consistent on bs components :partying_face: ([d76adc4](https://github.com/ecomplus/storefront/commit/d76adc401531476d87915c3d935b77f594061f34)), closes [#509](https://github.com/ecomplus/storefront/issues/509)
+* **twbs/scss-colors:** new `mix-color` function safe for css vars ([441ce35](https://github.com/ecomplus/storefront/commit/441ce355b7354c129dc96496647262caeca9cc95))
+
+
+### Performance Improvements
+
+* **twbs/scss-reset:** remove some ie specific workarounds ([db7490c](https://github.com/ecomplus/storefront/commit/db7490c940711b3e70530b9b9bdd687a204a8f8f))
+
+
+
+
+
 ## [5.11.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.11.0...@ecomplus/storefront-twbs@5.11.1) (2021-07-24)
 
 

@@ -13,13 +13,13 @@ const maintenance = _.cms('maintenance') || {}
     </head>
   <% } else { %>
     <head>
-      <%- await include('/@/head') %>
+      <%- await include('@/head') %>
     </head>
   
     <body class="maintenance">
       <main class="container py-5">
         <section class="maintenance__logo mb-5">
-          <%- await include('/@/layout/inc/logo', { _ }) %>
+          <%- await include('@/layout/inc/logo', { _ }) %>
         </section>
   
         <section class="maintenance__title">
@@ -40,14 +40,14 @@ const maintenance = _.cms('maintenance') || {}
         <section class="maintenance__contacts">
           <% if (contacts) { %>
             <p class="footer__social">
-              <%- await include('/@/layout/inc/networks', { _, contacts }) %>
+              <%- await include('@/layout/inc/networks', { _, contacts }) %>
             </p>
           <% } %>
         </section>
       </main>
   
       <footer>
-        <%- await include('/@/layout/inc/ecom-credits') %>
+        <%- await include('@/layout/inc/ecom-credits') %>
       </footer>
     </body>
   <% } %>

@@ -67,7 +67,7 @@ if (opt.sort || opt.collection_id) {
 %>
 
 <div class="collection-shelf my-lg-5">
-  <%- await include('/@/sections/inc/products-carousel', {
+  <%- await include('@/sections/inc/products-carousel', {
     _, opt: { items, collection, title, link, shuffle, headless }
   }) %>
 </div>

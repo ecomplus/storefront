@@ -14,7 +14,7 @@
   }
 
   &__container {
-    max-width: 80rem;
+    max-width: var(--content-max-width);
 
     @media (min-width: 768px) {
       margin-top: var(--spacer-1);

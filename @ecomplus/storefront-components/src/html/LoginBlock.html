@@ -52,7 +52,55 @@
       leave-active-class="animated position-absolute fadeOutUp"
     >
       <div
-        v-if="confirmAccount()"
+        v-if="isEmailCodeSent"
+        class="login__code"
+      >
+        <a-alert
+          :can-show="isWrongCode"
+          variant="warning"
+        >
+          {{ i19incorrectEmailCodeMsg }}
+        </a-alert>
+
+        <div class="input-group input-group-lg">
+          <input
+            ref="inputCode"
+            type="number"
+            class="form-control"
+            id="login-email-code"
+            placeholder="999999"
+            min="100000"
+            max="999999"
+            maxlength="6"
+            v-model.number="emailCode"
+            required
+          >
+
+          <div class="input-group-append">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              :disabled="isWaitingLogin"
+              :aria-label="i19continue"
+            >
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-text">
+          {{ i19enterEmailCodeMsg }}
+        </div>
+        <a
+          href="#"
+          @click.prevent="clearEmail"
+        >
+          {{ i19signInWithAnotherEmail }}
+        </a>
+      </div>
+
+      <div
+        v-else-if="confirmAccount()"
         class="login__confirm"
       >
         <div class="login__hello">
@@ -93,8 +141,17 @@
     <a-alert
       class="mt-3"
       :can-show="Boolean(failAlertText)"
+      :variant="hasNoProfileFound ? 'info' : undefined"
     >
       {{ failAlertText }}
+      <a
+        v-if="!isEmailCodeSent"
+        href="#"
+        class="alert-link"
+        @click.prevent="sendEmailCode"
+      >
+        {{ hasNoProfileFound ? i19signUp : i19sendLoginCodeByEmail }}
+      </a>
     </a-alert>
 
     <transition enter-active-class="animated fadeInUp">

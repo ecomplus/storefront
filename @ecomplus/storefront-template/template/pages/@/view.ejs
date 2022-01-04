@@ -2,7 +2,7 @@
 <html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
 
 <head>
-  <%- await include('/@/head') %>
+  <%- await include('@/head') %>
 </head>
 
 <body
@@ -15,16 +15,16 @@
     data-cms-collection="<%= _.route.collection %>"
   <% } %>
 >
-  <%- await include('/@/layout/menu') %>
+  <%- await include('@/layout/menu') %>
 
   <main role="main" id="main">
-    <%- await include('/@/layout/header') %>
-    <%- await include('/@/layout/sections') %>
-    <%- await include('/@/layout/footer') %>
+    <%- await include('@/layout/header') %>
+    <%- await include('@/layout/sections') %>
+    <%- await include('@/layout/footer') %>
   </main>
 
-  <%- await include('/@/json') %>
-  <%- await include('/@/scripts') %>
+  <%- await include('@/json') %>
+  <%- await include('@/scripts') %>
 </body>
 
 </html>

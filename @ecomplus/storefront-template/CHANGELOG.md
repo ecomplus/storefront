@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.160](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.159...@ecomplus/storefront-template@2.0.0-beta.160) (2022-01-04)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.25.0 ([ffe7a27](https://github.com/ecomplus/storefront/commit/ffe7a27a0d0ef5a5ce166c66062002c56d9f3068))
+
+
+### Reverts
+
+* Revert "chore(template): delete pages to use submodule" ([97f4cc5](https://github.com/ecomplus/storefront/commit/97f4cc5ebe8618ebd8e12d0f3954c82b441dcc32))
+
+
+
+
+
+# [2.0.0-beta.159](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.158...@ecomplus/storefront-template@2.0.0-beta.159) (2021-12-31)
+
+
+### Features
+
+* **template/css:** new `--content-max-width` replacing hardset 80rem ([5053e91](https://github.com/ecomplus/storefront/commit/5053e9176d8fc2c309f5b7266de7adc2d11ec9b6))
+
+
+
+
+
+# [2.0.0-beta.158](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.157...@ecomplus/storefront-template@2.0.0-beta.158) (2021-12-29)
+
+
+### Bug Fixes
+
+* **template/cms:** edit `darkenColor` function for results closer to Sass on preview ([4281256](https://github.com/ecomplus/storefront/commit/4281256d6ad7b58cb073e92b66ca62b554d1db9a))
+* **template/cms:** fix themes preview loading merged custom themes bundle ([956897d](https://github.com/ecomplus/storefront/commit/956897d17ee4e22018e00d39adf6d5028c5106a1))
+* **template/cms:** update general route preview for new brand colors css vars ([c22c868](https://github.com/ecomplus/storefront/commit/c22c8680b99b3e172b3061bbc4c6c3da65a630d0))
+* **template/themes:** copy bootstwatch and edit themes to use css vars safe scss functions [[#583](https://github.com/ecomplus/storefront/issues/583)] ([f4c367b](https://github.com/ecomplus/storefront/commit/f4c367bd6eb54c45c2c81a400e3bbd767067f9d1))
+
+
+### Features
+
+* **template/banner-slider:** add full width option to banner slider ([#591](https://github.com/ecomplus/storefront/issues/591)) ([c4871ac](https://github.com/ecomplus/storefront/commit/c4871ac45e7b35b9a5fb41105e2c5cc551ac36ba))
+
+
+
+
+
 # [2.0.0-beta.157](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.156...@ecomplus/storefront-template@2.0.0-beta.157) (2021-12-06)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
