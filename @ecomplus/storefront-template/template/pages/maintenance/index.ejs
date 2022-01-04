@@ -1,0 +1,54 @@
+<%
+const contacts = _.cms('contacts') || {}
+const maintenance = _.cms('maintenance') || {}
+%>
+
+<!DOCTYPE html>
+<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+  <% if (!maintenance.active) { %>
+    <head>
+      <script>
+        location.href = '/'
+      </script>
+    </head>
+  <% } else { %>
+    <head>
+      <%- await include('/@/head') %>
+    </head>
+  
+    <body class="maintenance">
+      <main class="container py-5">
+        <section class="maintenance__logo mb-5">
+          <%- await include('/@/layout/inc/logo', { _ }) %>
+        </section>
+  
+        <section class="maintenance__title">
+          <% if (maintenance && maintenance.title) { %>
+            <h1>
+              <%= maintenance.title %>
+            </h1>
+          <% } %>
+        </section>
+        <section class="maintenance__body">
+          <div class="html-clearfix">
+            <%if (maintenance && maintenance.body) { %>
+              <%- _.md.render(maintenance.body) %>
+            <% } %>
+          </div>
+        </section>
+  
+        <section class="maintenance__contacts">
+          <% if (contacts) { %>
+            <p class="footer__social">
+              <%- await include('/@/layout/inc/networks', { _, contacts }) %>
+            </p>
+          <% } %>
+        </section>
+      </main>
+  
+      <footer>
+        <%- await include('/@/layout/inc/ecom-credits') %>
+      </footer>
+    </body>
+  <% } %>
+</html>

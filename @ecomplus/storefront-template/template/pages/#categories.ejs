@@ -1,0 +1,16 @@
+<%
+const { body } = await _.resolveRoute()
+_.breadcrumbs = [{
+  name: _.ecomUtils.name(body),
+  link: `/${body.slug}`
+}]
+const { parent } = body
+if (parent) {
+  _.breadcrumbs.unshift({
+    name: _.ecomUtils.name(parent),
+    link: `/${parent.slug}`
+  })
+}
+%>
+
+<%- await include('/@/view') %>

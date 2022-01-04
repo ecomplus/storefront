@@ -1,0 +1,180 @@
+<%
+// load menu options and contacts from content
+const menu = _.cms('menu') || {}
+const contacts = _.cms('contacts') || {}
+
+// some social networks handled by contacts
+const networksWithColors = [
+  ['facebook', '#3b5998'],
+  ['youtube', '#ff0000'],
+  ['instagram', '#e1306c'],
+  ['twitter', '#1da1f2']
+]
+
+// start grouping categories by parent slug
+const allCategories = menu.alphabetical_order
+  ? _.lodash.sortBy(_.categories, ['name'])
+  : _.categories
+const categoryParents = _.lodash.groupBy(allCategories, ({ parent }) => {
+  return !parent || !parent.slug ? '_' : parent.slug
+})
+const getSubmenuId = slug => `a-${slug.replace(/\//g, '_')}`
+
+const mainCategories = categoryParents._
+if (mainCategories) {
+  if (Array.isArray(menu.sort_categories)) {
+    // reorder first level categories list
+    for (let i = menu.sort_categories.length - 1; i >= 0; i--) {
+      const slug = menu.sort_categories[i]
+      const categoryIndex = mainCategories.findIndex(category => category.slug === slug)
+      if (categoryIndex > -1) {
+        const category = mainCategories[categoryIndex]
+        mainCategories.splice(categoryIndex, 1)
+        mainCategories.unshift(category)
+      }
+    }
+  }
+}
+%>
+
+<aside id="menu" class="menu shadow">
+  <nav class="accordion" id="accordion-menu">
+    <button
+      class="menu__btn menu__btn--close btn"
+      type="button"
+      onclick="toggleSidenav()"
+      aria-label="Toggle Side Navigation"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+
+    <% for (const slug in categoryParents) { %>
+      <% if (categoryParents.hasOwnProperty(slug)) { %>
+        <% let category, parent %>
+        <div
+          <% if (slug === '_') { %>
+            id="categories-nav"
+            class="collapse show"
+            aria-expanded="true"
+          <% } else { %>
+            id="<%= getSubmenuId(slug) %>"
+            class="collapse"
+            aria-expanded="false"
+          <% } %>
+          data-parent="#accordion-menu"
+        >
+
+          <% if (slug !== '_') { %>
+            <% category = _.categories.find(category => category.slug === slug) %>
+            <% parent = category && category.parent %>
+            <button
+              class="menu__btn btn"
+              type="button"
+              data-toggle="collapse"
+              <% if (!parent || !parent.slug) { %>
+                aria-expanded="true"
+                data-target="#categories-nav"
+                aria-controls="categories-nav"
+              <% } else {
+                const submenuId = getSubmenuId(parent.slug)
+                %>
+                aria-expanded="false"
+                data-target="#<%= submenuId %>"
+                aria-controls="<%= submenuId %>"
+              <% } %>
+            >
+              <i class="fas fa-arrow-left"></i>
+            </button>
+          <% } %>
+
+          <div class="menu__list">
+            <% categoryParents[slug].forEach((subcategory, index) => { %>
+              <% const hasSubmenu = Array.isArray(categoryParents[subcategory.slug]) %>
+              <a
+                <% if (hasSubmenu) {
+                  const submenuId = getSubmenuId(subcategory.slug)
+                  %>
+                  href="#<%= submenuId %>"
+                  data-toggle="collapse"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="<%= submenuId %>"
+                <% } else { %>
+                  href="/<%= subcategory.slug %>"
+                <% } %>
+                id="c-<%= subcategory._id %>"
+                class="menu__item"
+              >
+                <% if (subcategory.icon) { %>
+                  <span class="menu__item-icon">
+                    <img
+                      data-src="<%= subcategory.icon.url %>"
+                      alt="<%= subcategory.icon.alt || subcategory.name %>"
+                      class="lozad"
+                      data-preload="<%= (index * 200) %>"
+                    >
+                  </span>
+                <% } %>
+                <span>
+                  <%= subcategory.name %>
+                </span>
+              </a>
+            <% }) %>
+          </div>
+
+          <% if (category && category.slug) { %>
+            <a href="/<%= category.slug %>" class="menu__link">
+              <%= _.dictionary('seeAll$1Category').replace('$1', category.name) %>
+            </a>
+          <% } %>
+        </div>
+      <% } %>
+    <% } %>
+  </nav>
+
+  <footer class="menu__footer">
+    <% if (menu.phone_wpp) { %>
+      <div class="menu__phone">
+        <% if (contacts.whatsapp) { %>
+          <a
+            href="javascript:;"
+            target="_blank"
+            rel="noopener"
+            class="whatsapp-link"
+            data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>"
+          >
+            <i class="fab fa-whatsapp mr-1"></i>
+            <%= contacts.whatsapp %>
+          </a>
+        <% } else if (contacts.phone) { %>
+          <a
+            href="tel:+<%= contacts.phone.replace(/\D/g, '') %>"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fas fa-phone mr-1"></i>
+            <%= contacts.phone %>
+          </a>
+        <% } %>
+      </div>
+    <% } %>
+
+    <% if (menu.socials) { %>
+      <div class="menu__social">
+        <% networksWithColors.forEach(([network, color]) => { %>
+          <% if (contacts[network]) { %>
+            <a
+              href="<%= contacts[network] %>"
+              target="_blank"
+              rel="noopener"
+              aria-label="<%= network %>"
+              style="color: <%= color %>"
+            >
+              <i class="fab fa-<%= network %>"></i>
+            </a>
+          <% } %>
+        <% }) %>
+      </div>
+    <% } %>
+  </footer>
+</aside>

@@ -1,0 +1,25 @@
+<% 
+// social networks handled by contacts
+const networksWithColors = [
+  ['facebook', '#3b5998'],
+  ['youtube', '#ff0000'],
+  ['instagram', '#e1306c'],
+  ['twitter', '#1da1f2'],
+  ['tiktok', '#000000'],
+  ['pinterest', '#bd081c'],
+  ['linkedin', '#0073b1']
+]
+
+networksWithColors.forEach(([network, color]) => { %>
+  <% if (contacts[network]) { %>
+    <a
+      href="<%= contacts[network] %>"
+      target="_blank"
+      rel="noopener"
+      aria-label="<%= network %>"
+      style="color: <%= color %>"
+    >
+      <i class="fab fa-<%= network %>"></i>
+    </a>
+  <% } %>
+<% }) %>

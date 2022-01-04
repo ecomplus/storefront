@@ -1,0 +1,36 @@
+<%
+const info = _.cms('info')
+const barCols = []
+;[
+  ['shipping', 'shipping-fast'],
+  ['installments', 'credit-card'],
+  ['exchange', 'exchange-alt'],
+  ['promo', 'percent']
+].forEach(([prop, icon]) => {
+  if (info[prop] && info[prop].show) {
+    const { link, text } = info[prop]
+    barCols.push({ link, text, icon })
+  }
+})
+%>
+
+<% if (barCols.length) { %>
+  <section class="info-bar">
+    <div class="container">
+      <div class="info-bar__nav row">
+        <% barCols.forEach(({ link, icon, text }) => { %>
+          <div class="col-auto col-sm-6 col-lg">
+            <a class="info-bar__item" href="<%= link || 'javascript:;' %>">
+              <span class="rounded-icon">
+                <i class="fas fa-<%= icon %>"></i>
+              </span>
+              <div class="ml-2 ml-md-3">
+                <%= text %>
+              </div>
+            </a>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+<% } %>

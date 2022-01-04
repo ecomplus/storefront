@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+
+<head>
+  <%- await include('/@/head') %>
+</head>
+
+<body id="page-404">
+  <%- await include('/@/layout/menu') %>
+
+  <main role="main" id="main">
+    <%- await include('/@/layout/header') %>
+
+    <div class="container py-5">
+      <article id="fallback-404">
+        <span class="text-muted">
+          404 - Not found
+        </span>
+      </article>
+    </div>
+
+    <%- await include('/@/layout/footer') %>
+  </main>
+
+  <%- await include('/@/json') %>
+  <%- await include('/@/scripts') %>
+</body>
+
+</html>

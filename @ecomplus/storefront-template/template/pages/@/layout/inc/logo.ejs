@@ -1,0 +1,22 @@
+<%
+// store logo object
+const logo = _.settings.logo
+  ? { url: _.settings.logo, alt: _.settings.name }
+  : _.store.logo
+  
+if (logo && logo.url) {
+  const { width, height } = _.tryImageSize(logo.url)
+  %>
+  <img
+    id="logo"
+    class="header__logo"
+    src="<%= logo.url %>"
+    alt="<%= logo.alt %>"
+    <% if (width) { %>
+      width="<%= width %>"
+      height="<%= height %>"
+    <% } %>
+  >
+<% } else { %>
+  <%= _.settings.name || _.store.name %>
+<% } %>

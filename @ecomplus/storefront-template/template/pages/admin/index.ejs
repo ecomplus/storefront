@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+  <%- await include('/@/meta') %>
+</head>
+
+<body>
+  <div id="cms"></div>
+
+  <script src="https://unpkg.com/@ecomplus/i18n@1/dist/i18n.min.js"></script>
+  <script src="https://unpkg.com/ejs@3/ejs.min.js"></script>
+  <script src="https://unpkg.com/lodash@4/lodash.min.js"></script>
+  <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/markdown-it@11/dist/markdown-it.min.js"></script>
+  <script>
+    window.lodash = _;
+    if (!window.MarkdownIt) {
+      window.MarkdownIt = markdownit;
+    }
+  </script>
+
+  <script>
+    window.CMS_MANUAL_INIT = true;
+    window.CMS_LOAD_CONFIG_FILE = false;
+    window.CMS_CUSTOM_CONFIG = {};
+    if (typeof PKG_BASE_DIR !== 'string') {
+      window.PKG_BASE_DIR = '@ecomplus/storefront-template/';
+    }
+  </script>
+  <% if (!_.settings.repository || !_.settings.repository.startsWith('ecomplus-stores/')) { %>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <% } %>
+  <script src="https://unpkg.com/netlify-cms@2/dist/netlify-cms.js"></script>
+
+  <script src="https://unpkg.com/netlify-cms-widget-native-color@3/dist/umd/native-color.min.js"></script>
+  <script>
+    CMS.registerWidget('color', NetlifyCMSWidgetNativeColor.Control);
+  </script>
+
+  <%- await include('/@/json', { _ }) %>
+  <script src="/admin.js"></script>
+</body>
+
+</html>

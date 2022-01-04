@@ -1,0 +1,77 @@
+<%
+const { resource, body, collection, slug } = await _.resolveRoute()
+let echoContext = {}
+if (body) {
+  // store resource
+  // remove large description strings if any
+  echoContext = {
+    resource,
+    body: {
+      ...body,
+      body_html: '',
+      body_text: '',
+      inventory_records: []
+    }
+  }
+} else if (slug) {
+  // cms folder collection
+  // keep the slug only
+  echoContext = {
+    collection,
+    slug,
+    content: {}
+  }
+}
+
+// also expose some store data
+let echoData = {
+  // up to 8 first level categories
+  categories: _.categories.filter(({ parent }) => !parent).slice(0, 8),
+  // all grids with less data
+  grids: _.grids.map(({ grid_id, title, i18n }) => ({ grid_id, title, i18n })),
+  // up to 8 items with less and 'stable' data
+  items: _.items.slice(0, 8).map(({ _id, sku, name, slug, pictures }) => {
+    const item = { _id, sku, name, slug }
+    if (Array.isArray(pictures)) {
+      // output one picture per item only
+      const picture = pictures.find(({ normal }) => normal)
+      if (picture) {
+        const { _id, normal } = picture
+        item.pictures = [{ _id, normal }]
+      }
+    }
+    return item
+  })
+}
+
+// setup widgets object
+let echoWidgets = {}
+if (Array.isArray(_.widgets)) {
+  // parse active widgets list to object
+  echoWidgets = _.widgets.reduce((obj, widget) => {
+    if (!widget.disablePages || widget.enableCheckout) {
+      obj[widget.pkg] = { ...widget }
+      delete obj[widget.pkg].pkg
+    }
+    return obj
+  }, {})
+}
+%>
+
+<script>/*<!--*/<%-
+  `window._settings=${JSON.stringify(_.settings)};` +
+  `window._info=${JSON.stringify(_.cms('info'))};` +
+  `window._widgets=${JSON.stringify(echoWidgets)};` +
+  `window._context=${JSON.stringify(echoContext)};` +
+  `window._data=${JSON.stringify(echoData)};`
+%>/*-->*/</script>
+
+<script type="application/ld+json"><%-
+  JSON.stringify({
+    '@context': 'http://schema.org',
+    '@type': 'Organization',
+    name: _.settings.name || _.store.name,
+    url: _.store.homepage || `https://${(_.store.domain || _.settings.domain)}/`,
+    logo: (_.store.logo && _.store.logo.url) || `https://${_.settings.domain}${_.settings.logo}`
+  })
+%></script>

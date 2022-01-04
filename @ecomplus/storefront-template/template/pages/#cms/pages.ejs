@@ -1,0 +1,18 @@
+<%
+const { slug, content } = await _.resolveRoute()
+_.breadcrumbs = [{
+  name: content.title,
+  link: `/pages/${slug}`
+}]
+if (!content.sections || !content.sections.length) {
+  content.sections = [
+    { type: 'breadcrumbs' },
+    { type: 'page-title' },
+    { type: 'extra-page' }
+  ]
+} else if (!content.sections.find(({ type }) => type === 'extra-page')) {
+  content.sections.push({ type: 'extra-page' })
+}
+%>
+
+<%- await include('/@/view') %>

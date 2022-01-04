@@ -1,0 +1,21 @@
+<%
+const { body } = await _.resolveRoute()
+_.breadcrumbs = []
+_.ecomUtils.categoriesList(body).forEach(categoryName => {
+  const findCategory = category => category.name === categoryName
+  const category = (body.categories && body.categories.find(findCategory)) ||
+    _.categories.find(findCategory)
+  if (category) {
+    _.breadcrumbs.push({
+      name: _.ecomUtils.name(category),
+      link: `/${category.slug}`
+    })
+  }
+})
+_.breadcrumbs.push({
+  name: _.ecomUtils.name(body),
+  link: `/${body.slug}`
+})
+%>
+
+<%- await include('/@/view') %>

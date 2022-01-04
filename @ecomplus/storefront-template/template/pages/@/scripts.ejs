@@ -1,0 +1,50 @@
+<% if (!_.devMode) { %>
+  <% if (Array.isArray(_.widgets) && _.widgets.find(({ useJquery }) => useJquery)) { %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+  <% } else { %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"
+    ></script>
+  <% } %>
+  <script>
+    if (!window.jQuery) {
+      document.write('<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"><\/script>')
+    }
+  </script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    if (!window.Popper) {
+      document.write('<script src="https://unpkg.com/popper.js@1.16.1/dist/umd/popper.min.js"><\/script>')
+    }
+  </script>
+<% } %>
+
+<script src="/<%= _.route.path.startsWith('/app/') ? 'checkout' : 'storefront' %>.js"></script>
+
+<%
+if (Array.isArray(_.widgets) && _.widgets.length) {
+  // append widgets additional HTML
+  %>
+  <%- await include('/@/helpers/widgets-append', {
+    _, opt: {}, field: 'bodyAppend'
+  }) %>
+  <%
+}
+
+// custom HTML before /body
+const customCode = _.cms('code')
+if (customCode) {
+  %> <%- customCode.html_body %> <%
+}
+%>

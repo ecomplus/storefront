@@ -1,0 +1,28 @@
+<% if (_.state.specifications) { %>
+  <section id="product-specs" class="product-specs my-4 my-lg-5">
+    <div class="container">
+      <p class="lead">
+        <a href="#specs" name="specs">#</a>
+        <%= _.dictionary('productSpecifications') %>
+      </p>
+      <table class="table table-striped">
+        <tbody>
+          <% for (const gridId in _.state.specifications) {
+            if (_.state.specifications[gridId]) {
+              %>
+              <tr>
+                <td class="text-muted">
+                  <%= _.ecomUtils.gridTitle(gridId, _.grids) %>
+                </td>
+                <td>
+                  <%= _.ecomUtils.specTextValue(_.state, gridId, _.grids) %>
+                </td>
+              </tr>
+              <%
+            }
+          } %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+<% } %>
