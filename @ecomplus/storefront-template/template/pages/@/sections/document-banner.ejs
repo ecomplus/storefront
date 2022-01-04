@@ -11,7 +11,7 @@ if (Array.isArray(_.state.pictures) && _.state.pictures.length) {
         alt="<%= _.state.pictures[0].alt %>"
       >
     <% } else { %>
-      <%- await include('/@/sections/banner-slider', {
+      <%- await include('@/sections/banner-slider', {
         _, opt: {
           slides: _.state.pictures.map(({ url, alt }) => ({ img: url, alt }))
         }

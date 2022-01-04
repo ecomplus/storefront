@@ -36,7 +36,7 @@
 if (Array.isArray(_.widgets) && _.widgets.length) {
   // append widgets additional HTML
   %>
-  <%- await include('/@/helpers/widgets-append', {
+  <%- await include('@/helpers/widgets-append', {
     _, opt: {}, field: 'bodyAppend'
   }) %>
   <%
