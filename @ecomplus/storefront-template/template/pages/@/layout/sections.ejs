@@ -8,7 +8,7 @@
         const opt = sections[i]
         if (opt && opt.enabled !== false) {
           %>
-          <%- await include(`/@/sections/${opt.type}`, { _, opt }) %>
+          <%- await include(`@/sections/${opt.type}`, { _, opt }) %>
           <%
         }
       }
