@@ -7,7 +7,7 @@
     {
       "type": "product-block",
       "enabled": true,
-      "sizeGuide": {
+      "size_guide": {
         "active": false,
         "image": "/img/uploads/headless.png",
         "title": "Tabela de medidas"
