@@ -124,6 +124,7 @@ export default {
       editAccount: false,
       editShippingService: !this.shippingService,
       localZipCode: this.shippingZipCode,
+      selectedAddressId: null,
       isEditingAddr: false,
       paymentGateways: [],
       loyaltyPointsApplied: {},
@@ -223,7 +224,8 @@ export default {
     shippingAddress () {
       const { addresses } = this.customer
       return addresses && addresses.find(addr => {
-        return Boolean(addr.default && addr.street && addr.city && addr.province_code)
+        return (this.selectedAddressId === addr._id || addr.default) &&
+          Boolean(addr.street && addr.city && addr.province_code)
       })
     },
 
@@ -289,6 +291,7 @@ export default {
     selectAddress (addressId) {
       this.$emit('address-selected', addressId)
       this.updateZipCode()
+      this.selectedAddressId = addressId
     },
 
     goToTop () {
