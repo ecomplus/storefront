@@ -84,16 +84,19 @@
               <% if (_.state.variations && _.state.variations.length) { %>
                 <div data-slot="variations-info">
                   <!-- Custom info for products with variations, such as sizes table link -->
-                  <% if (opt.sizeGuide && opt.sizeGuide.active) { %>
-                    <div 
-                      class="mb-3"
-                    >
+                  <% if (opt.size_guide && (opt.size_guide.image && (typeof opt.size_guide.image !== ''))) { %>
+                    <%
+                      const renderTitleSizeGuide = title => {
+                        return (title && (typeof title !== '') ? title : 'Tabela de medidas')
+                      }
+                    %>
+                    <div class="mb-3">
                       <a 
                         href="javascript:;"  
                         data-toggle="modal" 
                         data-target="#modal-size-guide"
                       >
-                      <%= `${(opt.sizeGuide.title && (typeof opt.sizeGuide.title !== '') ? opt.sizeGuide.title : 'Tabela de Medidas')}` %>
+                      <%= renderTitleSizeGuide(opt.size_guide.title) %>
                       </a>
                     </div>
                     <div 
@@ -107,7 +110,7 @@
                         <div class="modal-content">
                           <div class="modal-header d-flex align-items-center justify-content-between">
                             <h5 class="modal-title">
-                            <%= `${(opt.sizeGuide.title && (typeof opt.sizeGuide.title !== '') ? opt.sizeGuide.title : 'Tabela de Medidas')}` %>
+                              <%= renderTitleSizeGuide(opt.size_guide.title) %>
                             </h5>
                             <button 
                               type="button" 
@@ -123,14 +126,12 @@
                           </div>
                           <div 
                             class="modal-body"
-                          > 
-                            <% if (opt.sizeGuide.image && (typeof opt.sizeGuide.image !== '')) { %>
-                              <img 
-                                class="img-fluid" 
-                                src="<%= opt.sizeGuide.image %>" 
-                                alt="<%= `${(opt.sizeGuide.title && (typeof opt.sizeGuide.title !== '') ? opt.sizeGuide.title : 'Tabela de Medidas')}` %>"
-                              >
-                            <% } %>
+                          >
+                            <img 
+                              class="img-fluid" 
+                              src="<%= opt.size_guide.image %>" 
+                              alt="<%= renderTitleSizeGuide(opt.size_guide.title) %>"
+                            >
                           </div>
                         </div>
                       </div>

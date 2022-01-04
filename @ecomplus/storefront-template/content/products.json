@@ -8,9 +8,8 @@
       "type": "product-block",
       "enabled": true,
       "size_guide": {
-        "active": false,
-        "image": "/img/uploads/headless.png",
-        "title": "Tabela de medidas"
+        "image": "",
+        "title": ""
       }
     },
     {
