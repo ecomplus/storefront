@@ -12,7 +12,7 @@
   "main": "template/js/index.js",
   "scripts": {
     "serve": "storefront-tmpl-pack serve",
-    "build": "ECOMCLIENT_NOTIMEOUT=true storefront-tmpl-pack build",
+    "build": "cross-env ECOMCLIENT_NOTIMEOUT=true storefront-tmpl-pack build --prerender=index,app/index,search,404,blog,admin/index --prerender-limit=0",
     "setup": "storefront-tmpl"
   },
   "author": "E-Com Club <ti@e-com.club>",
