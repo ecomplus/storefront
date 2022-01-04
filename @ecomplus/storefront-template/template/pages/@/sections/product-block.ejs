@@ -85,11 +85,7 @@
                 <div data-slot="variations-info">
                   <!-- Custom info for products with variations, such as sizes table link -->
                   <% if (opt.size_guide && opt.size_guide.image) { %>
-                    <%
-                      const renderTitleSizeGuide = title => {
-                        return (title && (typeof title !== '') ? title : 'Tabela de medidas')
-                      }
-                    %>
+                    <% const sizeGuideTitle = opt.size_guide.title || 'Tabela de medidas' %>
                     <div class="mb-3">
                       <a 
                         href="javascript:;"  
