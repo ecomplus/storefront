@@ -1,102 +1,179 @@
-// Font Awesome 5 curated icons list
+// Curated icons list
 // Font files generated with http://fontello.com
+$icons-font: "line-awesome" !default;
+$icons-font-file: "../assets/icons/" + $icons-font + "/font/storefront-icons";
+
 @font-face {
-  font-family: "storefront-fa";
-  src: url("../assets/icons/font/storefront-fa.woff2") format("woff2"),
-       url("../assets/icons/font/storefront-fa.woff") format("woff");
+  font-family: "Storefront Icons";
+  src: url($icons-font-file + ".woff2") format("woff2"),
+       url($icons-font-file + ".woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-// Adapted Font Awesome core
-i[class^="fa-"],
-i[class*=" fa-"] {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
+// Generic icoons core
+i[class^="i-"],
+i[class*=" i-"] {
+  font-family: "Storefront Icons";
   font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  text-decoration: inherit;
-  text-transform: none;
-  line-height: 1;
-  font-family: "storefront-fa";
   font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-// Brands
-.fa-facebook:before { content: '\f09a'; }
-.fa-facebook-f:before { content: '\f39e'; }
-.fa-facebook-messenger:before { content: '\f39f'; }
-.fa-youtube:before { content: '\f167'; }
-.fa-instagram:before { content: '\f16d'; }
-.fa-windows:before { content: '\f17a'; }
-.fa-google:before { content: '\f1a0'; }
-.fa-tiktok:before { content: '\e800'; }
-.fa-linkedin:before { content: '\f08c'; }
-.fa-twitter:before { content: '\f099'; }
-.fa-whatsapp:before { content: '\f232'; }
-.fa-pinterest:before { content: '\f0d2'; }
-.fa-telegram:before { content: '\f2c6'; }
 
-// Solid
-.fa-search:before { content: '\f002'; }
-.fa-heart:before { content: '\f004'; }
-.fa-user:before { content: '\f007'; }
-.fa-check:before { content: '\f00c'; }
-.fa-times:before { content: '\f00d'; }
-.fa-home:before { content: '\f015'; }
-.fa-lock:before { content: '\f023'; }
-.fa-barcode:before { content: '\f02a'; }
-.fa-tag:before { content: '\f02b'; }
-.fa-print:before { content: '\f02f'; }
-.fa-edit:before { content: '\f044'; }
-.fa-play:before { content: '\f04b'; }
-.fa-forward:before { content: '\f04e'; }
-.fa-chevron-left:before { content: '\f053'; }
-.fa-chevron-right:before { content: '\f054'; }
-.fa-times-circle:before { content: '\f057'; }
-.fa-check-circle:before { content: '\f058'; }
-.fa-question-circle:before { content: '\f059'; }
-.fa-info-circle:before { content: '\f05a'; }
-.fa-arrow-left:before { content: '\f060'; }
-.fa-arrow-right:before { content: '\f061'; }
-.fa-arrow-up:before { content: '\f062'; }
-.fa-arrow-down:before { content: '\f063'; }
-.fa-plus:before { content: '\f067'; }
-.fa-gift:before { content: '\f06b'; }
-.fa-exclamation-triangle:before { content: '\f071'; }
-.fa-chevron-up:before { content: '\f077'; }
-.fa-chevron-down:before { content: '\f078'; }
-.fa-shopping-cart:before { content: '\f07a'; }
-.fa-phone:before { content: '\f095'; }
-.fa-credit-card:before { content: '\f09d'; }
-.fa-filter:before { content: '\f0b0'; }
-.fa-copy:before { content: '\f0c5'; }
-.fa-bars:before { content: '\f0c9'; }
-.fa-truck:before { content: '\f0d1'; }
-.fa-sort:before { content: '\f0dc'; }
-.fa-envelope:before { content: '\f0e0'; }
-.fa-bell:before { content: '\f0f3'; }
-.fa-history:before { content: '\f1da'; }
-.fa-wifi:before { content: '\f1eb'; }
-.fa-cart-arrow-down:before { content: '\f218'; }
-.fa-shopping-bag:before { content: '\f290'; }
-.fa-shopping-basket:before { content: '\f291'; }
-.fa-hashtag:before { content: '\f292'; }
-.fa-percent:before { content: '\f295'; }
-.fa-user-circle:before { content: '\f2bd'; }
-.fa-trash-alt:before { content: '\f2ed'; }
-.fa-stopwatch:before { content: '\f2f2'; }
-.fa-sign-out-alt:before { content: '\f2f5'; }
-.fa-pencil-alt:before { content: '\f303'; }
-.fa-exchange-alt:before { content: '\f362'; }
-.fa-shield-alt:before { content: '\f3ed'; }
-.fa-shipping-fast:before { content: '\f48b'; }
-.fa-comment-dots:before { content: '\f4ad'; }
-.fa-money-check:before { content: '\f53c'; }
-.fa-receipt:before { content: '\f543'; }
-.fa-store:before { content: '\f54e'; }
-.fa-map-marked-alt:before { content: '\f5a0'; }
-.fa-blog:before { content: '\f781'; }
+@if $icons-font == "line-awesome" {
+  // Line Awesome 1
+  .i-tiktok:before { content: '\e800'; }
+  .i-copy:before { content: '\e849'; }
+  .i-bell:before { content: '\e84a'; }
+  .i-arrow-left:before { content: '\e84b'; }
+  .i-arrow-right:before { content: '\e84c'; }
+  .i-arrow-down:before { content: '\e84d'; }
+  .i-arrow-up:before { content: '\e84e'; }
+  .i-check:before { content: '\e853'; }
+  .i-check-circle:before { content: '\e854'; }
+  .i-comment-dots:before { content: '\e855'; }
+  .i-envelope:before { content: '\e856'; }
+  .i-sort:before { content: '\e857'; }
+  .i-search:before { content: '\e858'; }
+  .i-heart:before { content: '\e859'; }
+  .i-user:before { content: '\e85a'; }
+  .i-user-circle:before { content: '\e85b'; }
+  .i-times:before { content: '\e85c'; }
+  .i-times-circle:before { content: '\e85d'; }
+  .i-question-circle:before { content: '\e85e'; }
+  .i-info-circle:before { content: '\e85f'; }
+  .i-exclamation-triangle:before { content: '\e860'; }
+  .i-gift:before { content: '\e861'; }
+  .i-shopping-cart:before { content: '\e864'; }
+  .i-shopping-bag:before { content: '\e865'; }
+  .i-shopping-basket:before { content: '\e866'; }
+  .i-phone:before { content: '\e867'; }
+  .i-plus:before { content: '\e868'; }
+  .i-home:before { content: '\e869'; }
+  .i-lock:before { content: '\e86a'; }
+  .i-barcode:before { content: '\e86b'; }
+  .i-tag:before { content: '\e86c'; }
+  .i-print:before { content: '\e86d'; }
+  .i-edit:before { content: '\e86e'; }
+  .i-play:before { content: '\e86f'; }
+  .i-forward:before { content: '\e870'; }
+  .i-credit-card:before { content: '\e871'; }
+  .i-filter:before { content: '\e872'; }
+  .i-bars:before { content: '\e873'; }
+  .i-truck:before { content: '\e874'; }
+  .i-history:before { content: '\e875'; }
+  .i-wifi:before { content: '\e876'; }
+  .i-hashtag:before { content: '\e877'; }
+  .i-percent:before { content: '\e878'; }
+  .i-trash-alt:before { content: '\e879'; }
+  .i-stopwatch:before { content: '\e87a'; }
+  .i-sign-out-alt:before { content: '\e87b'; }
+  .i-pencil-alt:before { content: '\e87c'; }
+  .i-exchange-alt:before { content: '\e87d'; }
+  .i-shipping-fast:before { content: '\e87e'; }
+  .i-shield-alt:before { content: '\e87f'; }
+  .i-money-check:before { content: '\e880'; }
+  .i-receipt:before { content: '\e881'; }
+  .i-store:before { content: '\e882'; }
+  .i-map-marked-alt:before { content: '\e883'; }
+  .i-blog:before { content: '\e884'; }
+  .i-ruler:before { content: '\e885'; }
+  .i-chevron-down:before { content: '\e886'; }
+  .i-chevron-left:before { content: '\e887'; }
+  .i-chevron-right:before { content: '\e888'; }
+  .i-chevron-up:before { content: '\e889'; }
+  .i-linkedin:before { content: '\f08c'; }
+  .i-twitter:before { content: '\f099'; }
+  .i-facebook:before { content: '\f09a'; }
+  .i-pinterest:before { content: '\f0d2'; }
+  .i-youtube:before { content: '\f167'; }
+  .i-instagram:before { content: '\f16d'; }
+  .i-windows:before { content: '\f17a'; }
+  .i-google:before { content: '\f1a0'; }
+  .i-whatsapp:before { content: '\f232'; }
+  .i-telegram:before { content: '\f2c6'; }
+  .i-facebook-f:before { content: '\f39e'; }
+  .i-facebook-messenger:before { content: '\f39f'; }
+} @else {
+  // Font Awesome 5
+  .i-tiktok:before { content: '\e800'; }
+  .i-ruler:before { content: '\e848'; }
+  .i-search:before { content: '\f002'; }
+  .i-heart:before { content: '\f004'; }
+  .i-user:before { content: '\f007'; }
+  .i-check:before { content: '\f00c'; }
+  .i-times:before { content: '\f00d'; }
+  .i-home:before { content: '\f015'; }
+  .i-lock:before { content: '\f023'; }
+  .i-barcode:before { content: '\f02a'; }
+  .i-tag:before { content: '\f02b'; }
+  .i-print:before { content: '\f02f'; }
+  .i-edit:before { content: '\f044'; }
+  .i-play:before { content: '\f04b'; }
+  .i-forward:before { content: '\f04e'; }
+  .i-chevron-left:before { content: '\f053'; }
+  .i-chevron-right:before { content: '\f054'; }
+  .i-times-circle:before { content: '\f057'; }
+  .i-check-circle:before { content: '\f058'; }
+  .i-question-circle:before { content: '\f059'; }
+  .i-info-circle:before { content: '\f05a'; }
+  .i-arrow-left:before { content: '\f060'; }
+  .i-arrow-right:before { content: '\f061'; }
+  .i-arrow-up:before { content: '\f062'; }
+  .i-arrow-down:before { content: '\f063'; }
+  .i-plus:before { content: '\f067'; }
+  .i-gift:before { content: '\f06b'; }
+  .i-exclamation-triangle:before { content: '\f071'; }
+  .i-chevron-up:before { content: '\f077'; }
+  .i-chevron-down:before { content: '\f078'; }
+  .i-shopping-cart:before { content: '\f07a'; }
+  .i-linkedin:before { content: '\f08c'; }
+  .i-phone:before { content: '\f095'; }
+  .i-twitter:before { content: '\f099'; }
+  .i-facebook:before { content: '\f09a'; }
+  .i-credit-card:before { content: '\f09d'; }
+  .i-filter:before { content: '\f0b0'; }
+  .i-copy:before { content: '\f0c5'; }
+  .i-bars:before { content: '\f0c9'; }
+  .i-truck:before { content: '\f0d1'; }
+  .i-pinterest:before { content: '\f0d2'; }
+  .i-sort:before { content: '\f0dc'; }
+  .i-envelope:before { content: '\f0e0'; }
+  .i-bell:before { content: '\f0f3'; }
+  .i-youtube:before { content: '\f167'; }
+  .i-instagram:before { content: '\f16d'; }
+  .i-windows:before { content: '\f17a'; }
+  .i-google:before { content: '\f1a0'; }
+  .i-history:before { content: '\f1da'; }
+  .i-wifi:before { content: '\f1eb'; }
+  .i-whatsapp:before { content: '\f232'; }
+  .i-shopping-bag:before { content: '\f290'; }
+  .i-shopping-basket:before { content: '\f291'; }
+  .i-hashtag:before { content: '\f292'; }
+  .i-percent:before { content: '\f295'; }
+  .i-user-circle:before { content: '\f2bd'; }
+  .i-telegram:before { content: '\f2c6'; }
+  .i-trash-alt:before { content: '\f2ed'; }
+  .i-stopwatch:before { content: '\f2f2'; }
+  .i-sign-out-alt:before { content: '\f2f5'; }
+  .i-pencil-alt:before { content: '\f303'; }
+  .i-exchange-alt:before { content: '\f362'; }
+  .i-facebook-f:before { content: '\f39e'; }
+  .i-facebook-messenger:before { content: '\f39f'; }
+  .i-shield-alt:before { content: '\f3ed'; }
+  .i-shipping-fast:before { content: '\f48b'; }
+  .i-comment-dots:before { content: '\f4ad'; }
+  .i-money-check:before { content: '\f53c'; }
+  .i-receipt:before { content: '\f543'; }
+  .i-store:before { content: '\f54e'; }
+  .i-map-marked-alt:before { content: '\f5a0'; }
+  .i-blog:before { content: '\f781'; }
+}
