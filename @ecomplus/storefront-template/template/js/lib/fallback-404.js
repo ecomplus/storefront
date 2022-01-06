@@ -26,7 +26,7 @@ if ($fallback404.length) {
       $fallback404.html($('<h3>', {
         class: 'my-4',
         html: [
-          '<i class="text-muted fas fa-exclamation-triangle mr-3"></i>',
+          '<i class="text-muted i-exclamation-triangle mr-3"></i>',
           i18n({
             pt_br: 'Página não encontrada',
             en_us: 'Page not found'
