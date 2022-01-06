@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.118](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.117...@ecomplus/storefront-app@2.0.0-beta.118) (2022-01-04)
+
+
+### Bug Fixes
+
+* **app/checkout:** ensure shipping address is reactive to address selection ([8bad209](https://github.com/ecomplus/storefront/commit/8bad209c0923b4e999c78fb68bf8025e2fc85e66))
+* **deps:** update @ecomplus/i18n to v1.25.0 ([ffe7a27](https://github.com/ecomplus/storefront/commit/ffe7a27a0d0ef5a5ce166c66062002c56d9f3068))
+
+
+
+
+
+# [2.0.0-beta.117](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.116...@ecomplus/storefront-app@2.0.0-beta.117) (2021-12-31)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.116](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.115...@ecomplus/storefront-app@2.0.0-beta.116) (2021-12-29)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
 # [2.0.0-beta.115](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.114...@ecomplus/storefront-app@2.0.0-beta.115) (2021-12-06)
 
 

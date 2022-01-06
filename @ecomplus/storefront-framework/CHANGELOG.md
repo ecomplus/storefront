@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.17.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.11...@ecomplus/storefront-framework@5.17.12) (2022-01-04)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.17.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.10...@ecomplus/storefront-framework@5.17.11) (2021-12-29)
+
+
+### Bug Fixes
+
+* **framework/deps:** replace deprecated `node-sass` with `sass` ([eaadbe0](https://github.com/ecomplus/storefront/commit/eaadbe0951af2f4ac2031678e00fe34b979507b3))
+* **framework/webpack-config:** bump corejs version to 3.20 ([d28efd3](https://github.com/ecomplus/storefront/commit/d28efd314e101c923c7c306edce04422c0c69b51))
+
+
+
+
+
 ## [5.17.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.9...@ecomplus/storefront-framework@5.17.10) (2021-12-06)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

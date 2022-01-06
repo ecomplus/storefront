@@ -2,14 +2,14 @@
 <html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
 
 <head>
-  <%- await include('/@/head') %>
+  <%- await include('@/head') %>
 </head>
 
 <body id="page-404">
-  <%- await include('/@/layout/menu') %>
+  <%- await include('@/layout/menu') %>
 
   <main role="main" id="main">
-    <%- await include('/@/layout/header') %>
+    <%- await include('@/layout/header') %>
 
     <div class="container py-5">
       <article id="fallback-404">
@@ -19,11 +19,11 @@
       </article>
     </div>
 
-    <%- await include('/@/layout/footer') %>
+    <%- await include('@/layout/footer') %>
   </main>
 
-  <%- await include('/@/json') %>
-  <%- await include('/@/scripts') %>
+  <%- await include('@/json') %>
+  <%- await include('@/scripts') %>
 </body>
 
 </html>

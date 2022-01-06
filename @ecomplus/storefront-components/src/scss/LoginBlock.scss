@@ -8,7 +8,8 @@
     overflow: hidden;
   }
 
-  &__confirm {
+  &__confirm,
+  &__code {
     max-width: 525px;
     margin: var(--spacer-3) auto 0;
 

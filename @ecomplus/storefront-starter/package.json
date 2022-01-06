@@ -1,0 +1,42 @@
+{
+  "browserslist": [
+    "> 0.5%",
+    "not dead",
+    "not ie 11",
+    "not ie_mob 11"
+  ],
+  "private": true,
+  "name": "@ecomplus/storefront-starter",
+  "version": "2.0.0-starter.0",
+  "description": "PWA and JAMstack based e-commerce template for E-Com Plus stores",
+  "main": "template/js/index.js",
+  "scripts": {
+    "serve": "storefront-tmpl-pack serve",
+    "_build": "cross-env ECOMCLIENT_NOTIMEOUT=true storefront-tmpl-pack build --prerender=index --prerender-limit=0",
+    "setup": "storefront-tmpl"
+  },
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomplus/storefront/issues"
+  },
+  "homepage": "https://developers.e-com.plus/storefront/",
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "jamstack-ecommerce",
+    "pwa-ecommerce",
+    "ecommerce-template",
+    "ecommerce-theme",
+    "pwa-boilerplate",
+    "ecommerce-boilerplate",
+    "store-theme"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomplus/storefront-starter.git"
+  },
+  "dependencies": {
+    "@ecomplus/storefront-template": "^2.0.0-beta.160"
+  }
+}
