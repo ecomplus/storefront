@@ -45,7 +45,7 @@ if (mainCategories) {
       onclick="toggleSidenav()"
       aria-label="Toggle Side Navigation"
     >
-      <i class="fas fa-times"></i>
+      <i class="i-times"></i>
     </button>
 
     <% for (const slug in categoryParents) { %>
@@ -83,7 +83,7 @@ if (mainCategories) {
                 aria-controls="<%= submenuId %>"
               <% } %>
             >
-              <i class="fas fa-arrow-left"></i>
+              <i class="i-arrow-left"></i>
             </button>
           <% } %>
 
@@ -143,7 +143,7 @@ if (mainCategories) {
             class="whatsapp-link"
             data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>"
           >
-            <i class="fab fa-whatsapp mr-1"></i>
+            <i class="i-whatsapp mr-1"></i>
             <%= contacts.whatsapp %>
           </a>
         <% } else if (contacts.phone) { %>
@@ -152,7 +152,7 @@ if (mainCategories) {
             target="_blank"
             rel="noopener"
           >
-            <i class="fas fa-phone mr-1"></i>
+            <i class="i-phone mr-1"></i>
             <%= contacts.phone %>
           </a>
         <% } %>
@@ -170,7 +170,7 @@ if (mainCategories) {
               aria-label="<%= network %>"
               style="color: <%= color %>"
             >
-              <i class="fab fa-<%= network %>"></i>
+              <i class="i-<%= network %>"></i>
             </a>
           <% } %>
         <% }) %>

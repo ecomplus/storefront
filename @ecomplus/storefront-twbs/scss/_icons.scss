@@ -1,102 +1,202 @@
-// Font Awesome 5 curated icons list
+// Curated icons list
 // Font files generated with http://fontello.com
+$icons-font: "font-awesome" !default;
+$icons-font-file: "../assets/icons/" + $icons-font + "/font/storefront-icons";
+
+// Optional backport for .fa-* icon class names
+$icons-fa-backport: true !default;
+$icons-base-selector: "i[class^=\"i-\"], i[class*=\" i-\"]";
+@if ($icons-fa-backport) {
+  $icons-base-selector: $icons-base-selector + ", i[class^=\"fa-\"], i[class*=\" fa-\"]";
+}
+
 @font-face {
-  font-family: "storefront-fa";
-  src: url("../assets/icons/font/storefront-fa.woff2") format("woff2"),
-       url("../assets/icons/font/storefront-fa.woff") format("woff");
+  font-family: "Storefront Icons";
+  src: url($icons-font-file + ".woff2") format("woff2"),
+       url($icons-font-file + ".woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-// Adapted Font Awesome core
-i[class^="fa-"],
-i[class*=" fa-"] {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
+// Generic icons core
+#{$icons-base-selector} {
+  font-family: "Storefront Icons";
   font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  text-decoration: inherit;
-  text-transform: none;
-  line-height: 1;
-  font-family: "storefront-fa";
   font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-// Brands
-.fa-facebook:before { content: '\f09a'; }
-.fa-facebook-f:before { content: '\f39e'; }
-.fa-facebook-messenger:before { content: '\f39f'; }
-.fa-youtube:before { content: '\f167'; }
-.fa-instagram:before { content: '\f16d'; }
-.fa-windows:before { content: '\f17a'; }
-.fa-google:before { content: '\f1a0'; }
-.fa-tiktok:before { content: '\e800'; }
-.fa-linkedin:before { content: '\f08c'; }
-.fa-twitter:before { content: '\f099'; }
-.fa-whatsapp:before { content: '\f232'; }
-.fa-pinterest:before { content: '\f0d2'; }
-.fa-telegram:before { content: '\f2c6'; }
+$icons-content: () !default;
+$icons-content: map-merge(
+  (
+    "line-awesome": (
+      // Line Awesome 1
+      "tiktok": '\e800',
+      "copy": '\e849',
+      "bell": '\e84a',
+      "arrow-left": '\e84b',
+      "arrow-right": '\e84c',
+      "arrow-down": '\e84d',
+      "arrow-up": '\e84e',
+      "check": '\e853',
+      "check-circle": '\e854',
+      "comment-dots": '\e855',
+      "envelope": '\e856',
+      "sort": '\e857',
+      "search": '\e858',
+      "heart": '\e859',
+      "user": '\e85a',
+      "user-circle": '\e85b',
+      "times": '\e85c',
+      "times-circle": '\e85d',
+      "question-circle": '\e85e',
+      "info-circle": '\e85f',
+      "exclamation-triangle": '\e860',
+      "gift": '\e861',
+      "shopping-cart": '\e864',
+      "shopping-bag": '\e865',
+      "shopping-basket": '\e866',
+      "phone": '\e867',
+      "plus": '\e868',
+      "home": '\e869',
+      "lock": '\e86a',
+      "barcode": '\e86b',
+      "tag": '\e86c',
+      "print": '\e86d',
+      "edit": '\e86e',
+      "play": '\e86f',
+      "forward": '\e870',
+      "credit-card": '\e871',
+      "filter": '\e872',
+      "bars": '\e873',
+      "truck": '\e874',
+      "history": '\e875',
+      "wifi": '\e876',
+      "hashtag": '\e877',
+      "percent": '\e878',
+      "trash-alt": '\e879',
+      "stopwatch": '\e87a',
+      "sign-out-alt": '\e87b',
+      "pencil-alt": '\e87c',
+      "exchange-alt": '\e87d',
+      "shipping-fast": '\e87e',
+      "shield-alt": '\e87f',
+      "money-check": '\e880',
+      "receipt": '\e881',
+      "store": '\e882',
+      "map-marked-alt": '\e883',
+      "blog": '\e884',
+      "ruler": '\e885',
+      "chevron-down": '\e886',
+      "chevron-left": '\e887',
+      "chevron-right": '\e888',
+      "chevron-up": '\e889',
+      "linkedin": '\f08c',
+      "twitter": '\f099',
+      "facebook": '\f09a',
+      "pinterest": '\f0d2',
+      "youtube": '\f167',
+      "instagram": '\f16d',
+      "windows": '\f17a',
+      "google": '\f1a0',
+      "whatsapp": '\f232',
+      "telegram": '\f2c6',
+      "facebook-f": '\f39e',
+      "facebook-messenger": '\f39f'
+    ),
+    "font-awesome": (
+      // Font Awesome 5
+      "tiktok": '\e800',
+      "ruler": '\e848',
+      "search": '\f002',
+      "heart": '\f004',
+      "user": '\f007',
+      "check": '\f00c',
+      "times": '\f00d',
+      "home": '\f015',
+      "lock": '\f023',
+      "barcode": '\f02a',
+      "tag": '\f02b',
+      "print": '\f02f',
+      "edit": '\f044',
+      "play": '\f04b',
+      "forward": '\f04e',
+      "chevron-left": '\f053',
+      "chevron-right": '\f054',
+      "times-circle": '\f057',
+      "check-circle": '\f058',
+      "question-circle": '\f059',
+      "info-circle": '\f05a',
+      "arrow-left": '\f060',
+      "arrow-right": '\f061',
+      "arrow-up": '\f062',
+      "arrow-down": '\f063',
+      "plus": '\f067',
+      "gift": '\f06b',
+      "exclamation-triangle": '\f071',
+      "chevron-up": '\f077',
+      "chevron-down": '\f078',
+      "shopping-cart": '\f07a',
+      "linkedin": '\f08c',
+      "phone": '\f095',
+      "twitter": '\f099',
+      "facebook": '\f09a',
+      "credit-card": '\f09d',
+      "filter": '\f0b0',
+      "copy": '\f0c5',
+      "bars": '\f0c9',
+      "truck": '\f0d1',
+      "pinterest": '\f0d2',
+      "sort": '\f0dc',
+      "envelope": '\f0e0',
+      "bell": '\f0f3',
+      "youtube": '\f167',
+      "instagram": '\f16d',
+      "windows": '\f17a',
+      "google": '\f1a0',
+      "history": '\f1da',
+      "wifi": '\f1eb',
+      "whatsapp": '\f232',
+      "shopping-bag": '\f290',
+      "shopping-basket": '\f291',
+      "hashtag": '\f292',
+      "percent": '\f295',
+      "user-circle": '\f2bd',
+      "telegram": '\f2c6',
+      "trash-alt": '\f2ed',
+      "stopwatch": '\f2f2',
+      "sign-out-alt": '\f2f5',
+      "pencil-alt": '\f303',
+      "exchange-alt": '\f362',
+      "facebook-f": '\f39e',
+      "facebook-messenger": '\f39f',
+      "shield-alt": '\f3ed',
+      "shipping-fast": '\f48b',
+      "comment-dots": '\f4ad',
+      "money-check": '\f53c',
+      "receipt": '\f543',
+      "store": '\f54e',
+      "map-marked-alt": '\f5a0',
+      "blog": '\f781'
+    )
+  ),
+  $icons-content
+);
 
-// Solid
-.fa-search:before { content: '\f002'; }
-.fa-heart:before { content: '\f004'; }
-.fa-user:before { content: '\f007'; }
-.fa-check:before { content: '\f00c'; }
-.fa-times:before { content: '\f00d'; }
-.fa-home:before { content: '\f015'; }
-.fa-lock:before { content: '\f023'; }
-.fa-barcode:before { content: '\f02a'; }
-.fa-tag:before { content: '\f02b'; }
-.fa-print:before { content: '\f02f'; }
-.fa-edit:before { content: '\f044'; }
-.fa-play:before { content: '\f04b'; }
-.fa-forward:before { content: '\f04e'; }
-.fa-chevron-left:before { content: '\f053'; }
-.fa-chevron-right:before { content: '\f054'; }
-.fa-times-circle:before { content: '\f057'; }
-.fa-check-circle:before { content: '\f058'; }
-.fa-question-circle:before { content: '\f059'; }
-.fa-info-circle:before { content: '\f05a'; }
-.fa-arrow-left:before { content: '\f060'; }
-.fa-arrow-right:before { content: '\f061'; }
-.fa-arrow-up:before { content: '\f062'; }
-.fa-arrow-down:before { content: '\f063'; }
-.fa-plus:before { content: '\f067'; }
-.fa-gift:before { content: '\f06b'; }
-.fa-exclamation-triangle:before { content: '\f071'; }
-.fa-chevron-up:before { content: '\f077'; }
-.fa-chevron-down:before { content: '\f078'; }
-.fa-shopping-cart:before { content: '\f07a'; }
-.fa-phone:before { content: '\f095'; }
-.fa-credit-card:before { content: '\f09d'; }
-.fa-filter:before { content: '\f0b0'; }
-.fa-copy:before { content: '\f0c5'; }
-.fa-bars:before { content: '\f0c9'; }
-.fa-truck:before { content: '\f0d1'; }
-.fa-sort:before { content: '\f0dc'; }
-.fa-envelope:before { content: '\f0e0'; }
-.fa-bell:before { content: '\f0f3'; }
-.fa-history:before { content: '\f1da'; }
-.fa-wifi:before { content: '\f1eb'; }
-.fa-cart-arrow-down:before { content: '\f218'; }
-.fa-shopping-bag:before { content: '\f290'; }
-.fa-shopping-basket:before { content: '\f291'; }
-.fa-hashtag:before { content: '\f292'; }
-.fa-percent:before { content: '\f295'; }
-.fa-user-circle:before { content: '\f2bd'; }
-.fa-trash-alt:before { content: '\f2ed'; }
-.fa-stopwatch:before { content: '\f2f2'; }
-.fa-sign-out-alt:before { content: '\f2f5'; }
-.fa-pencil-alt:before { content: '\f303'; }
-.fa-exchange-alt:before { content: '\f362'; }
-.fa-shield-alt:before { content: '\f3ed'; }
-.fa-shipping-fast:before { content: '\f48b'; }
-.fa-comment-dots:before { content: '\f4ad'; }
-.fa-money-check:before { content: '\f53c'; }
-.fa-receipt:before { content: '\f543'; }
-.fa-store:before { content: '\f54e'; }
-.fa-map-marked-alt:before { content: '\f5a0'; }
-.fa-blog:before { content: '\f781'; }
+$icons-font-content: map-get($icons-content, $icons-font) !default;
+@each $icon-name, $content in $icons-font-content {
+  $icon-selector: ".i-" + $icon-name + ":before";
+  @if ($icons-fa-backport) {
+    $icon-selector: $icon-selector + ", .fa-" + $icon-name + ":before";
+  }
+  #{$icon-selector} {
+    content: $content;
+  }
+}

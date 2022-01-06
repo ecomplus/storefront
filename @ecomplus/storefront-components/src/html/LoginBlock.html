@@ -29,7 +29,7 @@
             v-if="!isWaitingLogin"
             key="login"
           >
-            <i class="fas fa-arrow-right"></i>
+            <i class="i-arrow-right"></i>
             <span class="d-none d-md-inline ml-1">
               {{ i19continue }}
             </span>
@@ -83,7 +83,7 @@
               :disabled="isWaitingLogin"
               :aria-label="i19continue"
             >
-              <i class="fas fa-check"></i>
+              <i class="i-check"></i>
             </button>
           </div>
         </div>
@@ -131,7 +131,7 @@
               :disabled="isWaitingLogin"
               :aria-label="i19continue"
             >
-              <i class="fas fa-check"></i>
+              <i class="i-check"></i>
             </button>
           </div>
         </div>
@@ -184,7 +184,7 @@
 
   <div class="login__info">
     <div class="login__info-title">
-      <i class="fas fa-lock"></i>
+      <i class="i-lock"></i>
       {{ i19weUseYourDataToMsg }}:
     </div>
 
@@ -192,7 +192,7 @@
       class="login__info-row"
       v-for="label in [i19identifyYourAccount, i19notifyAboutOrders, i19manageYourPurchaseHistory]"
     >
-      <i class="fas fa-check"></i>
+      <i class="i-check"></i>
       {{ label }}
     </div>
   </div>

@@ -45,7 +45,7 @@ Vue.prototype.$toast = ({ title, body, variant, delay } = {}) => {
 
   $toast[0].innerHTML = `
   <div class="toast-header" style="color: var(--${(variant || 'warning')})">
-    <i class="fas fa-${icon} mr-2"></i>
+    <i class="i-${icon} mr-2"></i>
     <strong class="mr-auto">
       ${(title || i18n(i19error))}
     </strong>

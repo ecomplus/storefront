@@ -46,7 +46,7 @@
                   :class="status === 'cancelled' ? 'btn-success' : 'btn-info'"
                   @click="toggle"
                 >
-                  <i class="fas fa-check-circle mr-1"></i>
+                  <i class="i-check-circle mr-1"></i>
                   {{ i19reopenOrder }}
                 </button>
               </transition>
@@ -79,7 +79,7 @@
             :href="accountOrdersUrl"
             class="order-info__orders-link d-none d-md-block btn btn-light"
           >
-            <i class="fas fa-chevron-left mr-1"></i>
+            <i class="i-chevron-left mr-1"></i>
             {{ i19myOrders }}
           </a>
         </div>
@@ -107,7 +107,7 @@
                         class="btn btn-outline-primary mr-3"
                         @click="() => toClipboard(transaction.banking_billet.code)"
                       >
-                        <i class="fas fa-copy mr-1"></i>
+                        <i class="i-copy mr-1"></i>
                         {{ i19copyCode }}
                       </button>
                     </template>
@@ -118,7 +118,7 @@
                       v-if="transaction.banking_billet.link"
                       :href="transaction.banking_billet.link"
                     >
-                      <i class="fas fa-print mr-1"></i>
+                      <i class="i-print mr-1"></i>
                       {{ i19printBillet }}
                     </a>
                   </div>
@@ -136,7 +136,7 @@
                       class="btn btn-lg btn-success"
                       :href="transaction.payment_link"
                     >
-                      <i class="fas fa-arrow-right mr-1"></i>
+                      <i class="i-arrow-right mr-1"></i>
                       {{ i19redirectToPayment }}
                     </a>
                   </div>
@@ -154,7 +154,7 @@
                           class="order-info__financial-status"
                           :class="`order-info__financial-status--${financialStatus}`"
                         >
-                          <i class="fas fa-money-check mr-1"></i>
+                          <i class="i-money-check mr-1"></i>
                           {{ i19FinancialStatus(financialStatus) }}
                         </span>
                       </div>
@@ -222,7 +222,7 @@
                               class="btn btn-sm btn-light"
                               @click="() => toClipboard(transaction.intermediator.transaction_code)"
                             >
-                              <i class="fas fa-copy mr-1"></i>
+                              <i class="i-copy mr-1"></i>
                               {{ i19copyCode }}
                             </button>
                           </div>
@@ -260,11 +260,11 @@
                             class="order-info__fulfillment-status"
                             :class="`order-info__fulfillment-status--${fulfillmentStatus}`"
                           >
-                            <i class="fas fa-truck mr-1"></i>
+                            <i class="i-truck mr-1"></i>
                             {{ i19FulfillmentStatus(fulfillmentStatus) }}
                           </span>
                           <template v-else>
-                            <i class="fas fa-truck mr-1"></i>
+                            <i class="i-truck mr-1"></i>
                             {{ i19freight }}
                           </template>
                         </div>
@@ -308,7 +308,7 @@
                         class="order-info__shipping-address card"
                       >
                         <div class="card-header">
-                          <i class="fas fa-map-marked-alt mr-1"></i>
+                          <i class="i-map-marked-alt mr-1"></i>
                           {{ i19shippingAddress }}
                         </div>
 
@@ -374,7 +374,7 @@
                     class="btn btn-primary mt-2"
                     :href="accountOrdersUrl"
                   >
-                    <i class="fas fa-user mr-1"></i>
+                    <i class="i-user mr-1"></i>
                     {{ i19login }}
                   </a>
                 </p>
@@ -401,7 +401,7 @@
                 class="order-info__toggle btn btn-danger"
                 @click="toggle"
               >
-                <i class="fas fa-exclamation-triangle mr-1"></i>
+                <i class="i-exclamation-triangle mr-1"></i>
                 {{ i19cancelOrder }}
               </button>
 
@@ -412,7 +412,7 @@
                   :class="isNew ? 'btn-outline-secondary' : 'btn-primary'"
                   @click="buyAgain"
                 >
-                  <i class="fas fa-shopping-bag mr-1"></i>
+                  <i class="i-shopping-bag mr-1"></i>
                   {{ i19buyAgain }}
                 </button>
               </slot>
@@ -428,7 +428,7 @@
     :href="accountOrdersUrl"
     class="order-info__orders-link d-md-none btn btn-light"
   >
-    <i class="fas fa-chevron-left mr-1"></i>
+    <i class="i-chevron-left mr-1"></i>
     {{ i19myOrders }}
   </a>
 </div>
