@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <%- await include('/@/meta') %>
+  <%- await include('@/meta') %>
 </head>
 
 <body>
@@ -26,9 +26,7 @@
     window.CMS_MANUAL_INIT = true;
     window.CMS_LOAD_CONFIG_FILE = false;
     window.CMS_CUSTOM_CONFIG = {};
-    if (typeof PKG_BASE_DIR !== 'string') {
-      window.PKG_BASE_DIR = '@ecomplus/storefront-template/';
-    }
+    window.PKG_BASE_DIR = '<%= process.env.PKG_BASE_DIR || '' %>';
   </script>
   <% if (!_.settings.repository || !_.settings.repository.startsWith('ecomplus-stores/')) { %>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -38,7 +36,7 @@
     window.CMS = StorefrontCMS;
   </script>
 
-  <%- await include('/@/json', { _ }) %>
+  <%- await include('@/json', { _ }) %>
   <script src="/admin.js"></script>
 </body>
 

@@ -16,9 +16,9 @@
               class="checkout__step"
               :title="i18n('BackToCart')"
             >
-              <i class="fas fa-arrow-left"></i>
+              <i class="i-arrow-left"></i>
               <span class="d-none d-md-inline">
-                <i class="fas fa-shopping-cart"></i>
+                <i class="i-shopping-cart"></i>
               </span>
             </a>
             <a
@@ -78,7 +78,7 @@
                         class="btn btn-sm btn-secondary"
                         @click.prevent="editShippingService = true"
                       >
-                        <i class="fas fa-edit mr-1"></i>
+                        <i class="i-edit mr-1"></i>
                         {{ i18n('ChangeShippingMethod') }}
                       </a>
                     </div>
@@ -114,7 +114,7 @@
                     class="checkout__btn-proceed btn btn-success mt-4"
                     @click="toCheckoutStep = 2"
                   >
-                    <i class="fas fa-chevron-right mr-1"></i>
+                    <i class="i-chevron-right mr-1"></i>
                     {{ i18n('ProceedToPayment') }}
                   </button>
                 </transition>
@@ -189,7 +189,7 @@
                     class="checkout__btn-offers btn btn-sm btn-link"
                     @click="goToOffers"
                   >
-                    <i class="fas fa-plus mr-1"></i>
+                    <i class="i-plus mr-1"></i>
                     {{ i19selectedOffers }}
                   </button>
                 </transition>
@@ -233,7 +233,7 @@
 
             <div class="checkout__back">
               <a :href="cartUrl" class="btn btn-sm btn-light">
-                <i class="fas fa-chevron-left mr-1"></i>
+                <i class="i-chevron-left mr-1"></i>
                 {{ i18n('BackToCart') }}
               </a>
             </div>
@@ -265,7 +265,7 @@
           class="checkout__btn-top btn btn-link"
           @click="goToTop"
         >
-          <i class="fas fa-chevron-up mr-1"></i>
+          <i class="i-chevron-up mr-1"></i>
           {{ i19checkout }}
         </button>
       </template>

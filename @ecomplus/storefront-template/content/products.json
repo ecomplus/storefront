@@ -6,7 +6,11 @@
     },
     {
       "type": "product-block",
-      "enabled": true
+      "enabled": true,
+      "size_guide": {
+        "image": "",
+        "title": ""
+      }
     },
     {
       "type": "related-products",

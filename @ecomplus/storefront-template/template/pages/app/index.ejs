@@ -10,7 +10,7 @@ const logo = _.settings.logo
 <html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
 
 <head>
-  <%- await include('/@/head') %>
+  <%- await include('@/head') %>
 </head>
 
 <body class="app">
@@ -42,7 +42,7 @@ const logo = _.settings.logo
 
           <div class="app__safe">
             <span class="app__safe-icon">
-              <i class="fas fa-shield-alt"></i>
+              <i class="i-shield-alt"></i>
             </span>
             <%= _.dictionary('safeEnvMsg') %>
           </div>
@@ -53,7 +53,7 @@ const logo = _.settings.logo
 
   <main id="spa">
     <div id="storefront-app">
-      <%- await include('/@/sections/inc/loading') %>
+      <%- await include('@/sections/inc/loading') %>
     </div>
   </main>
 
@@ -61,7 +61,7 @@ const logo = _.settings.logo
     <div class="app__footer">
       <div class="container-fluid">
         <div class="app__stamps">
-          <%- await include(`/@/sections/stamps`, { _, opt: { stamps: footer.stamps } }) %>
+          <%- await include(`@/sections/stamps`, { _, opt: { stamps: footer.stamps } }) %>
         </div>
       </div>
     </div>
@@ -77,12 +77,12 @@ const logo = _.settings.logo
         <% } %>
       </div>
 
-      <%- await include('/@/layout/inc/ecom-credits') %>
+      <%- await include('@/layout/inc/ecom-credits') %>
     </div>
   </footer>
 
-  <%- await include('/@/json', { _ }) %>
-  <%- await include('/@/scripts') %>
+  <%- await include('@/json', { _ }) %>
+  <%- await include('@/scripts') %>
 </body>
 
 </html>

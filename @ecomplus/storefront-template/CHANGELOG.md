@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.160](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.159...@ecomplus/storefront-template@2.0.0-beta.160) (2022-01-04)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.25.0 ([ffe7a27](https://github.com/ecomplus/storefront/commit/ffe7a27a0d0ef5a5ce166c66062002c56d9f3068))
+
+
+### Reverts
+
+* Revert "chore(template): delete pages to use submodule" ([97f4cc5](https://github.com/ecomplus/storefront/commit/97f4cc5ebe8618ebd8e12d0f3954c82b441dcc32))
+
+
+
+
+
 # [2.0.0-beta.159](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.158...@ecomplus/storefront-template@2.0.0-beta.159) (2021-12-31)
 
 

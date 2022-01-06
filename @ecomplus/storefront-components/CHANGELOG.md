@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.111](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.110...@ecomplus/storefront-components@1.0.0-beta.111) (2022-01-04)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.25.0 ([ffe7a27](https://github.com/ecomplus/storefront/commit/ffe7a27a0d0ef5a5ce166c66062002c56d9f3068))
+
+
+
+
+
 # [1.0.0-beta.110](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.109...@ecomplus/storefront-components@1.0.0-beta.110) (2021-12-31)
 
 
@@ -325,7 +336,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **cart-quickview:** minicart subtotal el should not be <strong> (contains APrice) ([9e04410](https://github.com/ecomplus/storefront/commit/9e04410b5444a9840d24c82fb2475731adcd4c94))
+* **cart-quickview:** minicart subtotal el should not be strong (contains APrice) ([9e04410](https://github.com/ecomplus/storefront/commit/9e04410b5444a9840d24c82fb2475731adcd4c94))
 
 
 ### Features
