@@ -336,7 +336,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **cart-quickview:** minicart subtotal el should not be <strong> (contains APrice) ([9e04410](https://github.com/ecomplus/storefront/commit/9e04410b5444a9840d24c82fb2475731adcd4c94))
+* **cart-quickview:** minicart subtotal el should not be strong (contains APrice) ([9e04410](https://github.com/ecomplus/storefront/commit/9e04410b5444a9840d24c82fb2475731adcd4c94))
 
 
 ### Features
