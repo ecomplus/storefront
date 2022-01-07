@@ -11,7 +11,6 @@
 }
 
 .i-tiktok { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe800;&nbsp;'); }
-.i-ruler { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe848;&nbsp;'); }
 .i-search { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf002;&nbsp;'); }
 .i-heart { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf004;&nbsp;'); }
 .i-user { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf007;&nbsp;'); }
@@ -45,14 +44,14 @@
 .i-phone { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf095;&nbsp;'); }
 .i-twitter { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf099;&nbsp;'); }
 .i-facebook { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf09a;&nbsp;'); }
-.i-credit-card-1 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf09d;&nbsp;'); }
+.i-credit-card { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf09d;&nbsp;'); }
 .i-filter { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0b0;&nbsp;'); }
-.i-copy-1 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0c5;&nbsp;'); }
+.i-copy { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0c5;&nbsp;'); }
 .i-bars { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0c9;&nbsp;'); }
 .i-truck { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0d1;&nbsp;'); }
 .i-pinterest { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0d2;&nbsp;'); }
 .i-sort { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0dc;&nbsp;'); }
-.i-envelope-1 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0e0;&nbsp;'); }
+.i-envelope { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0e0;&nbsp;'); }
 .i-bell { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0f3;&nbsp;'); }
 .i-youtube { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf167;&nbsp;'); }
 .i-instagram { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf16d;&nbsp;'); }
@@ -79,6 +78,7 @@
 .i-comment-dots { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf4ad;&nbsp;'); }
 .i-money-check { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf53c;&nbsp;'); }
 .i-receipt { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf543;&nbsp;'); }
+.i-ruler { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf545;&nbsp;'); }
 .i-store { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf54e;&nbsp;'); }
 .i-map-marked-alt { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf5a0;&nbsp;'); }
 .i-blog { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf781;&nbsp;'); }
