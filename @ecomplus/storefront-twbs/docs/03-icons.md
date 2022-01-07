@@ -93,8 +93,8 @@ You can use those curated FA icons by just adding `.i-{icon-name}` class, eg.:
       <code>i-user-circle</code>
     </div>
     <div class="wrapper-icon">
-      <i class="i-sign-out-alt"></i>
-      <code>i-sign-out-alt</code>
+      <i class="i-sign-out"></i>
+      <code>i-sign-out</code>
     </div>
     <div class="wrapper-icon">
       <i class="i-bell"></i>
@@ -181,8 +181,8 @@ You can use those curated FA icons by just adding `.i-{icon-name}` class, eg.:
       <code>i-money-check</code>
     </div>
     <div class="wrapper-icon">
-      <i class="i-exchange-alt"></i>
-      <code>i-exchange-alt</code>
+      <i class="i-exchange"></i>
+      <code>i-exchange</code>
     </div>
     <div class="wrapper-icon">
       <i class="i-percent"></i>
@@ -193,8 +193,8 @@ You can use those curated FA icons by just adding `.i-{icon-name}` class, eg.:
       <code>i-home</code>
     </div>
     <div class="wrapper-icon">
-      <i class="i-trash-alt"></i>
-      <code>i-trash-alt</code>
+      <i class="i-trash"></i>
+      <code>i-trash</code>
     </div>
     <div class="wrapper-icon">
       <i class="i-check"></i>
@@ -213,8 +213,8 @@ You can use those curated FA icons by just adding `.i-{icon-name}` class, eg.:
       <code>i-lock</code>
     </div>
     <div class="wrapper-icon">
-      <i class="i-shield-alt"></i>
-      <code>i-shield-alt</code>
+      <i class="i-shield"></i>
+      <code>i-shield</code>
     </div>
     <div class="wrapper-icon">
       <i class="i-filter"></i>
@@ -225,8 +225,8 @@ You can use those curated FA icons by just adding `.i-{icon-name}` class, eg.:
       <code>i-sort</code>
     </div>
     <div class="wrapper-icon">
-      <i class="i-pencil-alt"></i>
-      <code>i-pencil-alt</code>
+      <i class="i-pencil"></i>
+      <code>i-pencil</code>
     </div>
     <div class="wrapper-icon">
       <i class="i-ruler"></i>
@@ -277,8 +277,8 @@ You can use those curated FA icons by just adding `.i-{icon-name}` class, eg.:
       <code>i-gift</code>
     </div>
     <div class="wrapper-icon">
-      <i class="i-map-marked-alt"></i>
-      <code>i-map-marked-alt</code>
+      <i class="i-map-marked"></i>
+      <code>i-map-marked</code>
     </div>
     <div class="wrapper-icon">
       <i class="i-store"></i>
