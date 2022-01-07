@@ -8,7 +8,6 @@ import BlogPreview from './preview/blog-preview'
 import CodePreview from './preview/code-preview'
 import GeneralSettings from './preview/settings/general'
 
-window.CMS.registerPreviewStyle('https://use.fontawesome.com/releases/v5.12.0/css/all.css')
 window.CMS.registerPreviewStyle('/storefront.css')
 window.CMS.registerPreviewStyle('/assets/cms-preview.css')
 window.CMS.registerPreviewTemplate('home', HomePreview)
