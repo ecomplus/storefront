@@ -11,6 +11,7 @@ on:
       - '@ecomplus/*/*.md'
       - '@ecomplus/*/docs/**.md'
       - '.github/workflows/build-docs.yml'
+      - '.github/build-docs'
 
 jobs:
   build-docs:
