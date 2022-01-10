@@ -11,37 +11,37 @@ const shareNetworks = [
   {
     network: 'whatsapp',
     name: 'WhatsApp',
-    icon: 'fab fa-whatsapp',
+    icon: 'i-whatsapp',
     color: '#25d366'
   },
   {
     network: 'facebook',
     name: 'Facebook',
-    icon: 'fab fa-facebook',
+    icon: 'i-facebook',
     color: '#1877f2'
   },
   {
     network: 'twitter',
     name: 'Twitter',
-    icon: 'fab fa-twitter',
+    icon: 'i-twitter',
     color: '#1da1f2'
   },
   {
     network: 'telegram',
     name: 'Telegram',
-    icon: 'fab fa-telegram',
+    icon: 'i-telegram',
     color: '#0088cc'
   },
   {
     network: 'pinterest',
     name: 'Pinterest',
-    icon: 'fab fa-pinterest',
+    icon: 'i-pinterest',
     color: '#bd081c'
   },
   {
     network: 'email',
     name: 'Email',
-    icon: 'fas fa-envelope',
+    icon: 'i-envelope',
     color: '#333333'
   },
   {

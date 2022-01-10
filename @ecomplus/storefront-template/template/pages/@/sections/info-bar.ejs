@@ -4,7 +4,7 @@ const barCols = []
 ;[
   ['shipping', 'shipping-fast'],
   ['installments', 'credit-card'],
-  ['exchange', 'exchange-alt'],
+  ['exchange', 'exchange'],
   ['promo', 'percent']
 ].forEach(([prop, icon]) => {
   if (info[prop] && info[prop].show) {
@@ -22,7 +22,7 @@ const barCols = []
           <div class="col-auto col-sm-6 col-lg">
             <a class="info-bar__item" href="<%= link || 'javascript:;' %>">
               <span class="rounded-icon">
-                <i class="fas fa-<%= icon %>"></i>
+                <i class="i-<%= icon %>"></i>
               </span>
               <div class="ml-2 ml-md-3">
                 <%= text %>

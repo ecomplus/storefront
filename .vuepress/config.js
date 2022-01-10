@@ -34,7 +34,7 @@ const alias = {
   './scss/InstantSearch.scss': path.resolve(__dirname, 'styles/components/DemoInstantSearch.scss')
 }
 ;['eot', 'woff2', 'woff', 'svg', 'ttf'].forEach(fontExt => {
-  const filepath = `assets/icons/font/storefront-fa.${fontExt}`
+  const filepath = `assets/icons/font-awesome/font/storefront-icons.${fontExt}`
   alias[`../${filepath}`] = path.resolve(__dirname, `../@ecomplus/storefront-twbs/${filepath}`)
 })
 

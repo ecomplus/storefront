@@ -20,7 +20,7 @@ const contacts = _.cms('contacts') || {}
               <% if (contacts.whatsapp) { %>
                 <li>
                   <span class="footer__list-icon">
-                    <i class="fab fa-whatsapp"></i>
+                    <i class="i-whatsapp"></i>
                   </span>
                   <a
                     href="javascript:;"
@@ -36,7 +36,7 @@ const contacts = _.cms('contacts') || {}
               <% if (contacts.phone) { %>
                 <li>
                   <span class="footer__list-icon">
-                    <i class="fas fa-phone"></i>
+                    <i class="i-phone"></i>
                   </span>
                   <a
                     href="tel:+<%= contacts.phone.replace(/\D/g, '') %>"
@@ -90,7 +90,7 @@ const contacts = _.cms('contacts') || {}
                 <% (_.cms('pages') || []).forEach(slug => { %>
                   <% const { title } = _.cms(`pages/${slug}`) %>
                   <li>
-                    <i class="fas fa-angle-right"></i>
+                    <i class="i-chevron-right"></i>
                     <a href="/pages/<%= slug %>">
                       <%= title %>
                     </a>
@@ -101,7 +101,7 @@ const contacts = _.cms('contacts') || {}
               <ul class="footer__links">
                 <% footer.links_1.list.forEach(({ url, text }) => { %>
                   <li>
-                    <i class="fas fa-angle-right"></i>
+                    <i class="i-chevron-right"></i>
                     <a href="<%= url %>">
                       <%= text %>
                     </a>
@@ -131,7 +131,7 @@ const contacts = _.cms('contacts') || {}
                 <% _.categories.forEach(({ name, slug, parent }) => { %>
                   <% if (!parent) { %>
                     <li>
-                      <i class="fas fa-angle-right"></i>
+                      <i class="i-chevron-right"></i>
                       <a href="/<%= slug %>">
                         <%= name %>
                       </a>
@@ -143,7 +143,7 @@ const contacts = _.cms('contacts') || {}
               <ul class="footer__links">
                 <% footer.links_2.list.forEach(({ url, text }) => { %>
                   <li>
-                    <i class="fas fa-angle-right"></i>
+                    <i class="i-chevron-right"></i>
                     <a href="<%= url %>">
                       <%= text %>
                     </a>
@@ -186,7 +186,7 @@ const contacts = _.cms('contacts') || {}
         type="button"
         aria-label="<%= _.dictionary('goToTop') %>"
       >
-        <i class="fas fa-chevron-up"></i>
+        <i class="i-chevron-up"></i>
       </button>
     </div>
   </div>

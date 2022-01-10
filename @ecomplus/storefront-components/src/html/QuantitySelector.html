@@ -9,7 +9,7 @@
       @click="changeQnt(item, -1)"
       :disabled="item.min_quantity >= selectedQnts[item._id]"
     >
-      <i class="fas fa-chevron-down"></i>
+      <i class="i-chevron-down"></i>
     </button>
     <input
       type="tel"
@@ -27,7 +27,7 @@
       @click="changeQnt(item, 1)"
       :disabled="item.max_quantity <= selectedQnts[item._id]"
     >
-      <i class="fas fa-chevron-up"></i>
+      <i class="i-chevron-up"></i>
     </button>
 
     <span class="quantity-selector__label">
@@ -69,7 +69,7 @@
         @click="buy"
       >
         <slot name="buy-button-content">
-          <i class="fas fa-shopping-bag mr-1"></i>
+          <i class="i-shopping-bag mr-1"></i>
           {{ strBuy }}
         </slot>
       </button>
