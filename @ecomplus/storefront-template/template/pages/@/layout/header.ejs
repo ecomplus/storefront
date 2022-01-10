@@ -122,7 +122,7 @@ if (header.categories_list) {
   <div class="header__container container-fluid">
     <div class="header__row row">
       <div class="col-auto p-0">
-        <button
+          <button
           class="btn header__toggler"
           type="button"
           onclick="toggleSidenav()"
@@ -134,7 +134,7 @@ if (header.categories_list) {
               Menu
             </span>
           <% } %>
-        </button>
+          </button>
       </div>
 
       <div class="col col-lg-auto pl-1 pl-md-2 pl-lg-3">
@@ -255,13 +255,26 @@ if (header.categories_list) {
         <div class="d-none d-lg-block <%= isCategoriesNavFull ? 'col-12 order-lg-last' : 'col' %>">
           <nav class="header__nav<%= isCategoriesNavFull ? ' header__nav--full' : '' %>">
             <% categories.forEach(({ slug, name }) => { %>
-              <a href="javascript:;" onclick="toggleSidenav('<%= slug %>')">
+              <a href="<%= slug %>" onmouseover="toggleSubmenu('<%= slug %>')">
                 <%= ` ${name} ` %>
               </a>
             <% }) %>
           </nav>
+          <% categories.forEach(({slug, name}) => { %>
+          <%  if (slug) { %>
+              <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
+              <% _.categories.forEach(subcategory => { %>
+               <% if (subcategory.parent?.slug !== slug) { %>
+                  <% return %>
+               <% } else { %>
+                  <a href="<%= subcategory.slug %>"> <%= subcategory.name %> </a>
+               <% } %> 
+          <% }) %>
+          </nav>
+        <% } %>
+      <% }) %>
         </div>
-      <% } %>
+    <% } %>
     </div>
   </div>
 </header>

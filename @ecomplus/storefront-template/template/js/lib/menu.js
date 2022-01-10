@@ -1,8 +1,52 @@
-import { animateCss, $ } from '@ecomplus/storefront-twbs'
+import { isMobile, animateCss, $ } from '@ecomplus/storefront-twbs'
 import overlay from './overlay'
 
 const $menu = $('#menu')[0]
 let isVisible = false
+
+let $openSubMenu
+
+const closeSubmenu = () => {
+  $openSubMenu.style.display = 'none'
+  $openSubMenu = null
+}
+
+const toggleSubmenu = (slug, isClose) => {
+  if (!isMobile) {
+    if ($openSubMenu || isClose) {
+      closeSubmenu()
+    }
+    if (slug && !isClose) {
+      $openSubMenu = document.getElementById(`s-${slug.replace(/\//g, '_')}`)
+      if (!$openSubMenu) {
+        window.location = `/${slug}`
+        return
+      }
+
+      if ($openSubMenu) {
+        $openSubMenu.style.display = 'flex'
+        animateCss($openSubMenu, 'fadeIn')
+        setTimeout(() => { document.addEventListener('click', isOutClicked) }, 200)
+      }
+    }
+  }
+}
+
+const isOutClicked = (e) => {
+  if (!$openSubMenu.contains(e.target)) {
+    closeSubmenu()
+    document.removeEventListener('click', isOutClicked)
+  }
+}
+
+const isTogglerAvaliable = () => {
+  const togglerMenu = document.querySelector('.header__toggler')
+  if (isMobile) {
+    togglerMenu.style.display = 'block'
+  } else {
+    togglerMenu.style.display = 'none'
+  }
+}
 
 const toggleSidenav = (slug, isClose) => {
   let $collapse
@@ -37,20 +81,5 @@ const toggleSidenav = (slug, isClose) => {
 }
 
 window.toggleSidenav = toggleSidenav
-// Mega Menu Implementation JS //
-
-const $menuMega = $('#menu__mega')[0]
-
-const megaMenu = () => {
-  if (!isVisible) {
-    animateCss($menuMega, 'fadeIn')
-    $menuMega.style.display = 'flex'
-    isVisible = true
-  } else {
-    animateCss($menuMega, 'fadeOut').then(() => {
-      $menuMega.style.display = null
-      isVisible = false
-    })
-  }
-}
-window.megaMenu = megaMenu
+window.toggleSubmenu = toggleSubmenu
+isTogglerAvaliable()

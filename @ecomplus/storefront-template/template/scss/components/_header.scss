@@ -97,6 +97,23 @@
     }
   }
 
+  &__submenu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+    background-color: var(--body-bg);
+    position: absolute;
+    padding: var(--spacer-5);
+    box-shadow: var(--box-shadow-sm);
+
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 12px
+    }
+  }
+
   &__buttons .btn {
     padding: var(--spacer-2);
     margin-left: var(--spacer-1);
