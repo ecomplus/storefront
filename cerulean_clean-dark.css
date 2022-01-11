@@ -150,7 +150,7 @@ main #search-input {
 main #cart-button i:before {
   content: "";
   display: inline-block;
-  background-repeat: no-repeat;
+  background-color: var(--white);
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
@@ -158,18 +158,15 @@ main #cart-button i:before {
   -webkit-mask-size: cover;
   mask-size: cover;
 }
-main #cart-button .fa-shopping-bag:before {
-  background-color: #fff;
-}
 @media (hover: hover) {
-  main #cart-button .fa-shopping-bag:hover:before {
+  main #cart-button i:hover:before {
     background-color: #222222;
   }
 }
 main #user-button i:before {
   content: "";
   display: inline-block;
-  background-repeat: no-repeat;
+  background-color: var(--white);
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
@@ -177,11 +174,8 @@ main #user-button i:before {
   -webkit-mask-size: cover;
   mask-size: cover;
 }
-main #user-button .fa-user:before {
-  background-color: #fff;
-}
 @media (hover: hover) {
-  main #user-button .fa-user:hover:before {
+  main #user-button i:hover:before {
     background-color: #222222;
   }
 }

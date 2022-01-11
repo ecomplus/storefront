@@ -197,7 +197,7 @@ main #search-input {
 main #cart-button i:before {
   content: "";
   display: inline-block;
-  background-repeat: no-repeat;
+  background-color: #777777;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/bag.png") no-repeat 50% 50%;
@@ -205,11 +205,8 @@ main #cart-button i:before {
   -webkit-mask-size: cover;
   mask-size: cover;
 }
-main #cart-button .fa-shopping-bag:before {
-  background-color: #777777;
-}
 @media (hover: hover) {
-  main #cart-button .fa-shopping-bag:hover:before {
+  main #cart-button i:hover:before {
     background-color: #222222;
     filter: drop-shadow(24px 11px 16px #000000);
   }
@@ -217,7 +214,7 @@ main #cart-button .fa-shopping-bag:before {
 main #user-button i:before {
   content: "";
   display: inline-block;
-  background-repeat: no-repeat;
+  background-color: #777777;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/game/user.svg") no-repeat 50% 50%;
@@ -225,11 +222,8 @@ main #user-button i:before {
   -webkit-mask-size: cover;
   mask-size: cover;
 }
-main #user-button .fa-user:before {
-  background-color: #777777;
-}
 @media (hover: hover) {
-  main #user-button .fa-user:hover:before {
+  main #user-button i:hover:before {
     background-color: #222222;
   }
 }
