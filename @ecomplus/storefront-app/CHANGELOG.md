@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.119](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.118...@ecomplus/storefront-app@2.0.0-beta.119) (2022-01-11)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.26.0 ([8df8b66](https://github.com/ecomplus/storefront/commit/8df8b662386a40f9ea7e3ecc1a34516409a53c2a))
+* **icons:** update icon class names to `.i-*` ([0254be3](https://github.com/ecomplus/storefront/commit/0254be314abfe62627135480089b7788ced43d34))
+* **icons:** update icon class names without `-alt` suffix ([0416133](https://github.com/ecomplus/storefront/commit/04161338d04562332a47ee64917624b3c6137fb1))
+
+
+
+
+
 # [2.0.0-beta.118](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.117...@ecomplus/storefront-app@2.0.0-beta.118) (2022-01-04)
 
 
