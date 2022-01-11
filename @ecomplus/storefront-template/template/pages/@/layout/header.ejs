@@ -264,7 +264,7 @@ if (header.categories_list) {
             <%  if (slug) { %>
               <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
               <% _.categories.forEach(subcategory => { %>
-               <% if (subcategory.parent?.slug !== slug) { %>
+               <% if (!subcategory.parent || subcategory.parent.slug !== slug) { %>
                   <% return %>
                <% } else { %>
                   <a href="<%= subcategory.slug %>"> <%= subcategory.name %> </a>
