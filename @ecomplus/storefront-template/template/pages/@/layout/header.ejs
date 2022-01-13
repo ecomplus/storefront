@@ -262,19 +262,19 @@ if (header.categories_list) {
         <%  if (slug) { %>
           <% const subcategories = _.categories.filter(subcategory => subcategory.parent && subcategory.parent.slug === slug) %>
             <% if (subcategories.length) { %>
-                    <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
-                      <% subcategories.forEach(subcategories => { %>
-                        <% if (!subcategories.parent || subcategories.parent.slug !== slug) return %>               
-                          <a href="<%= subcategories.slug %>"><%= subcategories.name %></a>
-                      <% }) %>
-                    </nav>
-                  <% } %>
+                <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
+                  <% subcategories.forEach(subcategories => { %>
+                    <% if (!subcategories.parent || subcategories.parent.slug !== slug) return %>               
+                        <a href="<%= subcategories.slug %>"><%= subcategories.name %></a>
+                    <% }) %>
+                  </nav>
                 <% } %>
-              </div>
-            <% }) %>
-          </nav>
-        </div>
-      <% } %>
-    </div>
+              <% } %>
+            </div>
+          <% }) %>
+        </nav>
+      </div>
+    <% } %>
   </div>
+</div>
 </header>
