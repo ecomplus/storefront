@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.8.10...@ecomplus/storefront-renderer@2.8.11) (2022-01-11)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.26.0 ([8df8b66](https://github.com/ecomplus/storefront/commit/8df8b662386a40f9ea7e3ecc1a34516409a53c2a))
+
+
+
+
+
 ## [2.8.10](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.8.9...@ecomplus/storefront-renderer@2.8.10) (2022-01-04)
 
 

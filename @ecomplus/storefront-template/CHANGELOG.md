@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.161](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.160...@ecomplus/storefront-template@2.0.0-beta.161) (2022-01-11)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.26.0 ([8df8b66](https://github.com/ecomplus/storefront/commit/8df8b662386a40f9ea7e3ecc1a34516409a53c2a))
+* **icons:** update icon class names to `.i-*` ([0254be3](https://github.com/ecomplus/storefront/commit/0254be314abfe62627135480089b7788ced43d34))
+* **icons:** update icon class names without `-alt` suffix ([0416133](https://github.com/ecomplus/storefront/commit/04161338d04562332a47ee64917624b3c6137fb1))
+* **template/cms:** stop importing fa 5 styles on cms preview ([69c8db1](https://github.com/ecomplus/storefront/commit/69c8db19d028128da637c421dc9e13ed93ee3384))
+* **template/footer:** fix angle icons to chevron ([05976d1](https://github.com/ecomplus/storefront/commit/05976d1d0aa33b1741c9e239ea299a1225b29d2b))
+* **template/product-block:** fix size guide i18n, add ruler icon and modal times ([da99b3a](https://github.com/ecomplus/storefront/commit/da99b3a209deb2be8cf7ba68603f39e1d6f22d38))
+* **template/themes:** update custom icons selectors [skip ci] ([baff69b](https://github.com/ecomplus/storefront/commit/baff69b338a36d2c7070b5124c623eb45e9bcfe2))
+
+
+### Features
+
+* **template/product-block:** configurable modal size guide ([#599](https://github.com/ecomplus/storefront/issues/599)) ([3bb65dc](https://github.com/ecomplus/storefront/commit/3bb65dc8c06f3a23fc14d31852f544eb0d988d7c))
+* **template/themes:** set line awesome as default icons font for some themes ([1b9b408](https://github.com/ecomplus/storefront/commit/1b9b408efdf5fc8f89c28df9ebb0afd327464a2b))
+
+
+
+
+
 # [2.0.0-beta.160](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.159...@ecomplus/storefront-template@2.0.0-beta.160) (2022-01-04)
 
 
