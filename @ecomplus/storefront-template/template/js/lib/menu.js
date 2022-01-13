@@ -11,12 +11,12 @@ const closeSubmenu = () => {
   $openSubMenu = null
 }
 
-const toggleSubmenu = (slug, isClose) => {
+const toggleSubmenu = (slug, subcategories, isClose) => {
   if (!isMobile) {
     if ($openSubMenu || isClose) {
       closeSubmenu()
     }
-    if (slug && !isClose) {
+    if (slug && !isClose && subcategories.length) {
       $openSubMenu = document.getElementById(`s-${slug.replace(/\//g, '_')}`)
       if (!$openSubMenu) {
         window.location = `/${slug}`

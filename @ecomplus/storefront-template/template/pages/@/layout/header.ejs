@@ -255,24 +255,24 @@ if (header.categories_list) {
         <div class="d-none d-lg-block <%= isCategoriesNavFull ? 'col-12 order-lg-last' : 'col' %>">
           <nav class="header__nav<%= isCategoriesNavFull ? ' header__nav--full' : '' %>">
             <% categories.forEach(({ slug, name }) => { %>
-              <a href="<%= slug %>" onmouseover="toggleSubmenu('<%= slug %>')">
-                <%= ` ${name} ` %>
-              </a>
+              <% const subcategories = _.categories.filter(subcategory => subcategory.parent?.slug == slug) %>
+                <div class="d-inline-block">
+                  <a href="<%= slug %>" onmouseover="toggleSubmenu('<%= slug %>', '<%= subcategories %>')">
+                    <%= ` ${name} ` %>
+                  </a>
+                  <%  if (slug) { %>
+                    <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
+                      <% _.categories.forEach(subcategories => { %>
+                        <% if (!subcategories.parent || subcategories.parent.slug !== slug) return %>               
+                          <a href="<%= subcategories.slug %>">
+                            <%= subcategories.name %> 
+                          </a>
+                    <% }) %>
+                  </nav>
+                <% } %>
+              </div>
             <% }) %>
           </nav>
-          <% categories.forEach(({slug, name}) => { %>
-            <%  if (slug) { %>
-              <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
-              <% _.categories.forEach(subcategory => { %>
-               <% if (!subcategory.parent || subcategory.parent.slug !== slug) { %>
-                  <% return %>
-               <% } else { %>
-                  <a href="<%= subcategory.slug %>"> <%= subcategory.name %> </a>
-               <% } %> 
-            <% }) %>
-            </nav>
-          <% } %>
-        <% }) %>
         </div>
       <% } %>
     </div>

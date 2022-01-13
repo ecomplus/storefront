@@ -84,7 +84,7 @@
       border-radius: var(--border-radius-sm);
       display: inline-block;
       transition: background-color .15s;
-
+      
       &:hover {
         background: var(--primary-lightest);
         text-decoration: none;
@@ -99,18 +99,25 @@
 
   &__submenu {
     display: none;
-    flex-direction: column;
-    justify-content: space-evenly;
-    gap: 10px;
-    background-color: var(--body-bg);
     position: absolute;
-    padding: var(--spacer-5);
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-top: var(--spacer-2);
+    gap: var(--spacer-2);
+    padding: var(--spacer-4) var(--spacer-4) var(--spacer-4) var(--spacer-2) ;
+    background-color: var(--body-bg);
     box-shadow: var(--box-shadow-sm);
 
-    .close {
+    &::before {
+      content: '';
       position: absolute;
-      top: 12px;
-      right: 12px
+      background-color: var(--secondary);
+      left: 0;
+      top: 0;
+      width: 20%;
+      height: var(--spacer-1);
     }
   }
 
