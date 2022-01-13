@@ -13,7 +13,7 @@ const closeSubmenu = () => {
 
 const toggleSubmenu = (slug, isClick) => {
   if (!isMobile) {
-    if ($openSubMenu || isClose) {
+    if ($openSubMenu || isClick) {
       closeSubmenu()
     }
     if (slug) {
