@@ -259,18 +259,16 @@ if (header.categories_list) {
                   <a href="javascript:;" onmouseover="toggleSubmenu('<%= slug %>')" onclick="toggleSubmenu('<%= slug %>', true)">
                     <%= ` ${name} ` %>
                   </a>
-                  <%  if (slug) { %>
-                    <% const subcategories = _.categories.filter(subcategory => subcategory.parent && subcategory.parent.slug === slug) %>
-                      <% if (subcategories.length) { %>
-                        <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
-                      <% _.categories.forEach(subcategories => { %>
+        <%  if (slug) { %>
+          <% const subcategories = _.categories.filter(subcategory => subcategory.parent && subcategory.parent.slug === slug) %>
+            <% if (subcategories.length) { %>
+                    <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
+                      <% subcategories.forEach(subcategories => { %>
                         <% if (!subcategories.parent || subcategories.parent.slug !== slug) return %>               
-                          <a href="<%= subcategories.slug %>">
-                            <%= subcategories.name %> 
-                          </a>
-                    <% }) %>
-                  </nav>
-                      <% } %>
+                          <a href="<%= subcategories.slug %>"><%= subcategories.name %></a>
+                      <% }) %>
+                    </nav>
+                  <% } %>
                 <% } %>
               </div>
             <% }) %>
