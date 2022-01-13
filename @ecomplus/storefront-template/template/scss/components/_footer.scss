@@ -76,6 +76,10 @@
     padding-left: 0;
     list-style: none;
 
+    i {
+      color: var(--text-muted);
+    }
+
     @media (min-width: 576px) {
       font-size: 94%;
     }

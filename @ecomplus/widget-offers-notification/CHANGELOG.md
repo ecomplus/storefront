@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-offers-notification@1.2.0...@ecomplus/widget-offers-notification@1.2.1) (2022-01-11)
+
+
+### Bug Fixes
+
+* **icons:** update icon class names to `.i-*` ([0254be3](https://github.com/ecomplus/storefront/commit/0254be314abfe62627135480089b7788ced43d34))
+
+
+
+
+
 # [1.2.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-offers-notification@1.1.3...@ecomplus/widget-offers-notification@1.2.0) (2021-12-06)
 
 

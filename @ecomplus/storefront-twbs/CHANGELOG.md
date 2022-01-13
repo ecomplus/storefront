@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.12.1...@ecomplus/storefront-twbs@6.0.0) (2022-01-11)
+
+
+### Bug Fixes
+
+* **twbs/icons:** always keep same icon codes (fa original charset) even on different fonts ([74d9dab](https://github.com/ecomplus/storefront/commit/74d9dab533ebb9205d0130d4d338673c822fb830))
+
+
+### Features
+
+* **scss/icons:** add line awesome icons option and scss var `$icons-font` ([30a0830](https://github.com/ecomplus/storefront/commit/30a0830125a3da356eb43c67df74a71ca561a464))
+* **twbs/icons:** optional backport for .fa- icon class names with `$icons-fa-backport` ([2808afa](https://github.com/ecomplus/storefront/commit/2808afa22cdb5452ebd80116b5070cdae56fc712))
+
+
+### BREAKING CHANGES
+
+* **twbs/icons:** icons renamed without `-alt` suffix
+
+`-alt` suffix is still used with FA backport only
+* **scss/icons:** icon classes changed to use generic prefix `.i-` instead of fa specific
+
+
+
+
+
 ## [5.12.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.12.0...@ecomplus/storefront-twbs@5.12.1) (2021-12-31)
 
 
