@@ -256,7 +256,7 @@ if (header.categories_list) {
           <nav class="header__nav<%= isCategoriesNavFull ? ' header__nav--full' : '' %>">
             <% categories.forEach(({ slug, name }) => { %>
                 <div class="d-inline-block">
-                  <a href="<%= slug %>" onmouseover="toggleSubmenu('<%= slug %>')">
+                  <a href="javascript:;" onmouseover="toggleSubmenu('<%= slug %>')" onclick="toggleSubmenu('<%= slug %>', true)">
                     <%= ` ${name} ` %>
                   </a>
                   <%  if (slug) { %>
