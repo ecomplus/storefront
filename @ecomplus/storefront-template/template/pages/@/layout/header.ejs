@@ -255,21 +255,21 @@ if (header.categories_list) {
         <div class="d-none d-lg-block <%= isCategoriesNavFull ? 'col-12 order-lg-last' : 'col' %>">
           <nav class="header__nav<%= isCategoriesNavFull ? ' header__nav--full' : '' %>">
             <% categories.forEach(({ slug, name }) => { %>
-                <div class="d-inline-block">
-                  <a href="javascript:;" onmouseover="toggleSubmenu('<%= slug %>')" onclick="toggleSubmenu('<%= slug %>', true)">
-                    <%= ` ${name} ` %>
-                  </a>
-        <%  if (slug) { %>
-          <% const subcategories = _.categories.filter(subcategory => subcategory.parent && subcategory.parent.slug === slug) %>
-            <% if (subcategories.length) { %>
-                <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
-                  <% subcategories.forEach(subcategories => { %>
-                    <% if (!subcategories.parent || subcategories.parent.slug !== slug) return %>               
+              <div class="d-inline-block">
+                <a href="javascript:;" onmouseover="toggleSubmenu('<%= slug %>')" onclick="toggleSubmenu('<%= slug %>', true)">
+                  <%= ` ${name} ` %>
+                </a>
+                <%  if (slug) { %>
+                  <% const subcategories = _.categories.filter(subcategory => subcategory.parent && subcategory.parent.slug === slug) %>
+                  <% if (subcategories.length) { %>
+                    <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
+                      <% subcategories.forEach(subcategories => { %>
+                        <% if (!subcategories.parent || subcategories.parent.slug !== slug) return %>               
                         <a href="<%= subcategories.slug %>"><%= subcategories.name %></a>
-                    <% }) %>
-                  </nav>
+                      <% }) %>
+                    </nav>
+                  <% } %>
                 <% } %>
-              <% } %>
             </div>
           <% }) %>
         </nav>
