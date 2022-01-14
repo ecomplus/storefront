@@ -48,6 +48,12 @@
       }
     }
 
+    @media (min-width: 991px) {
+      & {
+        display: none
+      }
+    }
+
     &:focus {
       box-shadow: none;
     }

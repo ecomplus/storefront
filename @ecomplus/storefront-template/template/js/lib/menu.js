@@ -29,25 +29,16 @@ const toggleSubmenu = (slug, isClick) => {
       if ($openSubMenu) {
         $openSubMenu.style.display = 'flex'
         animateCss($openSubMenu, 'fadeIn')
-        setTimeout(() => { document.addEventListener('click', isOutClicked) }, 200)
+        setTimeout(() => { document.addEventListener('click', checkSubmenuOutClick) }, 200)
       }
     }
   }
 }
 
-const isOutClicked = (e) => {
+const checkSubmenuOutClick = (e) => {
   if (!$openSubMenu.contains(e.target)) {
     closeSubmenu()
-    document.removeEventListener('click', isOutClicked)
-  }
-}
-
-const isTogglerAvaliable = () => {
-  const togglerMenu = document.querySelector('.header__toggler')
-  if (isMobile) {
-    togglerMenu.style.display = 'block'
-  } else {
-    togglerMenu.style.display = 'none'
+    document.removeEventListener('click', checkSubmenuOutClick)
   }
 }
 
@@ -85,4 +76,3 @@ const toggleSidenav = (slug, isClose) => {
 
 window.toggleSidenav = toggleSidenav
 window.toggleSubmenu = toggleSubmenu
-isTogglerAvaliable()
