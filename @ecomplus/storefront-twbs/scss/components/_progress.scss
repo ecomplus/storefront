@@ -33,15 +33,3 @@
   @include gradient-striped();
   background-size: $progress-height $progress-height;
 }
-
-@if $enable-transitions {
-  .progress-bar-animated {
-    animation: $progress-bar-animation-timing progress-bar-stripes;
-
-    @if $enable-prefers-reduced-motion-media-query {
-      @media (prefers-reduced-motion: reduce) {
-        animation: none;
-      }
-    }
-  }
-}
