@@ -190,3 +190,53 @@ $yiq-contrasted-threshold:  150 !default;
 // Customize the light and dark text colors for use in our YIQ color contrast function.
 $yiq-text-dark:             var(--gray-dark) !default;
 $yiq-text-light:            var(--white) !default;
+
+// Smaller color maps for less used components
+
+$alert-colors: () !default;
+$alert-colors: map-merge(
+  (
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger
+  ),
+  $alert-colors
+);
+
+$badge-colors: () !default;
+$badge-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "dark":       $dark
+  ),
+  $badge-colors
+);
+
+$btn-colors: () !default;
+$btn-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+  ),
+  $btn-colors
+);
+
+$btn-outline-colors: () !default;
+$btn-outline-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "danger":     $danger
+  ),
+  $btn-outline-colors
+);
