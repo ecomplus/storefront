@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@6.0.0...@ecomplus/storefront-twbs@7.0.0) (2022-01-18)
+
+
+### Performance Improvements
+
+* **twbs/components-variants:** smaller color maps for less used components [[#606](https://github.com/ecomplus/storefront/issues/606)] ([830631a](https://github.com/ecomplus/storefront/commit/830631adeafb284139b85ee511a5025188d838cf))
+* **twbs/components:** exclude bs button groups [[#606](https://github.com/ecomplus/storefront/issues/606)] ([2c7bb0c](https://github.com/ecomplus/storefront/commit/2c7bb0cb4910fe0c3f5fbe3bbf2d7a19779a0cba))
+* **twbs/content-code:** removed styles for not used pre (code snippets) and kbd tags [[#606](https://github.com/ecomplus/storefront/issues/606)] ([755bc51](https://github.com/ecomplus/storefront/commit/755bc51de3943c6d820221c82900a103efd72504))
+* **twbs/content-images:** removed thumbnail and figure not used styles [[#606](https://github.com/ecomplus/storefront/issues/606)] ([726f069](https://github.com/ecomplus/storefront/commit/726f06981155013f2d983fee7baebe633e6fe004))
+* **twbs/css-utilities:** remove stretched link css util [[#606](https://github.com/ecomplus/storefront/issues/606)] ([86a83f9](https://github.com/ecomplus/storefront/commit/86a83f91a55be34213f397e0d48037b6770267d0))
+* **twbs/dropdowns:** remove dropup, left and right, keep normal dropdown only [[#606](https://github.com/ecomplus/storefront/issues/606)] ([ed016af](https://github.com/ecomplus/storefront/commit/ed016afd59210f18be9be1cfb075ab803fd61997))
+* **twbs/forms:** remove usuned form variant classes [[#606](https://github.com/ecomplus/storefront/issues/606)] ([d419925](https://github.com/ecomplus/storefront/commit/d419925fef7da87a96ac732d48374365a18d6881))
+* **twbs/list-group:** remove horizontal list group and context color variations [[#606](https://github.com/ecomplus/storefront/issues/606)] ([4ec2d7c](https://github.com/ecomplus/storefront/commit/4ec2d7ce78bb6646edbb34dfdc71b18b4c070304))
+* **twbs/modal:** remove usuned modal centered and derivatives [[#606](https://github.com/ecomplus/storefront/issues/606)] ([ad02e01](https://github.com/ecomplus/storefront/commit/ad02e01e580b5759564dc41acf0ff840cc2a4614))
+* **twbs/nav:** remove nav style variants [[#606](https://github.com/ecomplus/storefront/issues/606)] ([d65803e](https://github.com/ecomplus/storefront/commit/d65803eeac84af85d9e32f487b2fb918fda84210))
+* **twbs/pagination:** remove pagination sizing variants [[#606](https://github.com/ecomplus/storefront/issues/606)] ([8590d16](https://github.com/ecomplus/storefront/commit/8590d16be90221e4c26cd1b54eacee932b49535e))
+* **twbs/progress:** remove progress animated variant [[#606](https://github.com/ecomplus/storefront/issues/606)] ([044464a](https://github.com/ecomplus/storefront/commit/044464a33881af4a409872c9df2411cce602c626))
+* **twbs/table:** remove background tables, responsive inflix and dark theads [[#606](https://github.com/ecomplus/storefront/issues/606)] ([a45075d](https://github.com/ecomplus/storefront/commit/a45075da484d10b7a183264fe624ce5556cc0ff2))
+
+
+### BREAKING CHANGES
+
+* **twbs/content-images:** no more `.img-thumbnail` and `.figure*` classes
+* **twbs/table:** tons of table additional classes removed
+* **twbs/progress:** `..progress-bar-animated` class removed
+* **twbs/pagination:** node more `.pagination-lg` and `pagination-sm` classes
+* **twbs/nav:** node more `.nav-pills`, `.nav-justified` and `.nav-fill` classes
+* **twbs/modal:** `.modal-dialog-centered` removed
+* **twbs/list-group:** no more `.list-group-horizontal*` and `.list-group-item-{color}` classes
+* **twbs/forms:** `.form-control-plaintext`, `.form-inline`, `.col-form*`, `.form-check*` removed
+* **twbs/dropdowns:** `.dropup`, `.dropleft`, `.dropright` no more available
+* **twbs/css-utilities:** `.stretched-link` class no more available
+* **twbs/components:** no more `.btn-group*` classes available
+
+
+
+
+
 # [6.0.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@5.12.1...@ecomplus/storefront-twbs@6.0.0) (2022-01-11)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.162](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.161...@ecomplus/storefront-template@2.0.0-beta.162) (2022-01-18)
+
+
+### Bug Fixes
+
+* **template/cms:** product block size guide config must be optional ([5b285f6](https://github.com/ecomplus/storefront/commit/5b285f6db7ffea4ae6389a3fa69d6e90af0cd7db))
+
+
+
+
+
 # [2.0.0-beta.161](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.160...@ecomplus/storefront-template@2.0.0-beta.161) (2022-01-11)
 
 
