@@ -28,12 +28,14 @@ export default ({ baseDir, sections }) => ({
                 {
                   label: 'Imagem da tabela de medidas',
                   name: 'image',
-                  widget: 'image'
+                  widget: 'image',
+                  required: false
                 },
                 {
                   label: 'Título da tabela',
                   name: 'title',
-                  widget: 'string'
+                  widget: 'string',
+                  required: false
                 }
               ]
             }
