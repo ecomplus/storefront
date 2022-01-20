@@ -254,27 +254,32 @@ if (header.categories_list) {
       <% if (categories && categories.length) { %>
         <div class="d-none d-lg-block <%= isCategoriesNavFull ? 'col-12 order-lg-last' : 'col' %>">
           <nav class="header__nav<%= isCategoriesNavFull ? ' header__nav--full' : '' %>">
-            <% categories.forEach(({ slug, name }) => { %>
+            <% categories.forEach(({ slug, name}) => { %>
               <div class="d-inline-block">
                 <a href="javascript:;" onmouseover="toggleSubmenu('<%= slug %>')" onclick="toggleSubmenu('<%= slug %>', true)">
                   <%= ` ${name} ` %>
                 </a>
-                <%  if (slug) { %>
-                  <% const subcategories = _.categories.filter(subcategory => subcategory.parent && subcategory.parent.slug === slug) %>
-                  <% if (subcategories.length) { %>
-                    <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
-                      <% subcategories.forEach(subcategories => { %>
-                        <% if (!subcategories.parent || subcategories.parent.slug !== slug) return %>               
-                        <a href="<%= subcategories.slug %>"><%= subcategories.name %></a>
+
+        <%  if (slug) { %>
+          <% const subcategories = _.categories.filter(subcategory => subcategory.parent && subcategory.parent.slug === slug) %>
+            <% if (subcategories.length) { %>
+              <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
+                <% subcategories.forEach(subcategories => { %>
+                  <% if (!subcategories.parent || subcategories.parent.slug !== slug) return %>               
+                    <a href="<%= subcategories.slug %>"><%= subcategories.name %></a>
+                        <% const subcategoriesOfSub = _.categories.filter(subcats => subcats.parent && subcats.parent.slug === subcategories.slug) %>
+                          <% subcategoriesOfSub.forEach(subcat => { %>
+                            <a href="<%= subcat.slug %>"><%= subcat.name %></a>
+                        <% }) %>
                       <% }) %>
                     </nav>
                   <% } %>
                 <% } %>
-            </div>
-          <% }) %>
-        </nav>
-      </div>
-    <% } %>
+              </div>
+            <% }) %>
+          </nav>
+        </div>
+      <% } %>
+    </div>
   </div>
-</div>
 </header>

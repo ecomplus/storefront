@@ -27,19 +27,20 @@ const toggleSubmenu = (slug, isClick) => {
       }
 
       if ($openSubMenu) {
-        $openSubMenu.style.display = 'flex'
-        animateCss($openSubMenu, 'fadeIn')
-        setTimeout(() => { document.addEventListener('click', checkSubmenuOutClick) }, 200)
+        setTimeout(() => {
+          $openSubMenu.style.display = 'flex'
+          $openSubMenu.addEventListener('mouseleave', checkSubmenuOutClick)
+          document.addEventListener('click', checkSubmenuOutClick)
+          animateCss($openSubMenu, 'fadeIn')
+        }, 300)
       }
     }
   }
 }
 
-const checkSubmenuOutClick = (e) => {
-  if (!$openSubMenu.contains(e.target)) {
-    closeSubmenu()
-    document.removeEventListener('click', checkSubmenuOutClick)
-  }
+const checkSubmenuOutClick = () => {
+  closeSubmenu()
+  document.removeEventListener('click', checkSubmenuOutClick)
 }
 
 const toggleSidenav = (slug, isClose) => {
