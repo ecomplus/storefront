@@ -1,7 +1,7 @@
 {
   "domain": "storefront-demo.e-com.plus",
   "currency_symbol": "R$",
-  "primary_color": "#e83e8c",
+  "primary_color": "",
   "theme": {
     "bootswatch": "_",
     "custom": "_"
@@ -16,7 +16,7 @@
   "mini_logo": "",
   "favicon": "/img/uploads/favicon.png",
   "country_code": "BR",
-  "secondary_color": "#333333",
+  "secondary_color": "",
   "icon": "/img/icon.png",
   "store_id": 1011,
   "description": "My PWA Shop",
