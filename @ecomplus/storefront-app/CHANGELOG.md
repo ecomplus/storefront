@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.120](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.119...@ecomplus/storefront-app@2.0.0-beta.120) (2022-01-18)
+
+
+### Bug Fixes
+
+* **app/order-info:** remove no more available `.btn-info` variant ([07a708a](https://github.com/ecomplus/storefront/commit/07a708a61b9b405cff2a42d8c08e10030abf743f))
+
+
+
+
+
 # [2.0.0-beta.119](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.118...@ecomplus/storefront-app@2.0.0-beta.119) (2022-01-11)
 
 
