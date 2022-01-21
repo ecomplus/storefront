@@ -5,13 +5,15 @@ const $menu = $('#menu')[0]
 let isVisible = false
 
 let $openSubMenu
+let closeSubmenuTimer = null
+let isSubmenuHovered = false
 
 const closeSubmenu = () => {
   $openSubMenu.style.display = 'none'
   $openSubMenu = null
 }
 
-const toggleSubmenu = (slug, isClick) => {
+const toggleSubmenu = (slug, $categoryLink, isClick) => {
   if (isClick && slug) {
     window.location = `/${slug}`
     return
@@ -27,27 +29,36 @@ const toggleSubmenu = (slug, isClick) => {
       }
 
       if ($openSubMenu) {
-        $openSubMenu.style.display = 'flex'
+        isSubmenuHovered = false
+        clearTimeout(closeSubmenuTimer)
+        const checkHoverAndClose = () => {
+          clearTimeout(closeSubmenuTimer)
+          closeSubmenuTimer = setTimeout(() => {
+            if (!isSubmenuHovered) {
+              $openSubMenu.removeEventListener('mouseover', onSubmenuOver)
+              closeSubmenu()
+            }
+          }, 800)
+        }
+        if ($categoryLink) {
+          $categoryLink.addEventListener('mouseleave', checkHoverAndClose, { once: true })
+        }
+
+        const onSubmenuOver = () => {
+          isSubmenuHovered = true
+          $openSubMenu.addEventListener('mouseleave', () => {
+            if (isSubmenuHovered) {
+              isSubmenuHovered = false
+              checkHoverAndClose()
+            }
+          }, { once: true })
+        }
+        $openSubMenu.addEventListener('mouseover', onSubmenuOver)
+
+        $openSubMenu.style.display = 'grid'
         animateCss($openSubMenu, 'fadeIn')
-        setTimeout(() => { document.addEventListener('click', isOutClicked) }, 200)
       }
     }
-  }
-}
-
-const isOutClicked = (e) => {
-  if (!$openSubMenu.contains(e.target)) {
-    closeSubmenu()
-    document.removeEventListener('click', isOutClicked)
-  }
-}
-
-const isTogglerAvaliable = () => {
-  const togglerMenu = document.querySelector('.header__toggler')
-  if (isMobile) {
-    togglerMenu.style.display = 'block'
-  } else {
-    togglerMenu.style.display = 'none'
   }
 }
 
@@ -85,4 +96,3 @@ const toggleSidenav = (slug, isClose) => {
 
 window.toggleSidenav = toggleSidenav
 window.toggleSubmenu = toggleSubmenu
-isTogglerAvaliable()

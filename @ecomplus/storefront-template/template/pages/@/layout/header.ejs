@@ -256,25 +256,32 @@ if (header.categories_list) {
           <nav class="header__nav<%= isCategoriesNavFull ? ' header__nav--full' : '' %>">
             <% categories.forEach(({ slug, name }) => { %>
               <div class="d-inline-block">
-                <a href="javascript:;" onmouseover="toggleSubmenu('<%= slug %>')" onclick="toggleSubmenu('<%= slug %>', true)">
+                <a href="javascript:;" onmouseover="toggleSubmenu('<%= slug %>', this)" onclick="toggleSubmenu('<%= slug %>', this, true)">
                   <%= ` ${name} ` %>
                 </a>
                 <%  if (slug) { %>
                   <% const subcategories = _.categories.filter(subcategory => subcategory.parent && subcategory.parent.slug === slug) %>
                   <% if (subcategories.length) { %>
                     <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
-                      <% subcategories.forEach(subcategories => { %>
-                        <% if (!subcategories.parent || subcategories.parent.slug !== slug) return %>               
-                        <a href="<%= subcategories.slug %>"><%= subcategories.name %></a>
+                      <% subcategories.forEach(subcategory => { %>
+                        <div>               
+                          <a href="<%= subcategory.slug %>"><%= subcategory.name %></a>
+                          <% const subcategoriesOfSub = _.categories.filter(subcat=> subcat.parent && subcat.parent.slug === subcategory.slug) %>
+                          <% subcategoriesOfSub.forEach(subcat=> { %>
+                            <a class="subcategories" href="<%= subcat.slug %>">
+                              <%= subcat.name %>
+                            </a>
+                          <% }) %>
+                        </div>
                       <% }) %>
                     </nav>
                   <% } %>
                 <% } %>
-            </div>
-          <% }) %>
-        </nav>
-      </div>
-    <% } %>
+              </div>
+            <% }) %>
+          </nav>
+        </div>
+      <% } %>
   </div>
 </div>
 </header>
