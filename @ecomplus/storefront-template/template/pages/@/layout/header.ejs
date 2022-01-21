@@ -267,7 +267,7 @@ if (header.categories_list) {
                         <% if (!subcategory.parent || subcategory.parent.slug !==slug) return %>
                         <div>               
                           <a href="<%= subcategory.slug %>"><%= subcategory.name %></a>
-                          <% const subcategoriesOfSub = _.categories.filter(subcat=> subcat.parent && subcat.parent.slug === subcategory.slug) %>
+                          <% const subcategoriesOfSub = _.categories.filter(subcat => subcat.parent && subcat.parent.slug === subcategory.slug) %>
                           <% subcategoriesOfSub.forEach(subcat=> { %>
                             <a class="header__submenu-subcategory" href="<%= subcat.slug %>">
                               <%= subcat.name %>
