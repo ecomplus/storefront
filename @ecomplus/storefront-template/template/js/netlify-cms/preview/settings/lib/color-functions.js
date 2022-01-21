@@ -38,3 +38,115 @@ export const darkenColor = (color, percent) => {
   else if (g < 0) g = 0
   return (usePound ? '#' : '') + (g | (b << 8) | (r << 16)).toString(16)
 }
+
+const bootswatchColors = {
+  cerulean: {
+    primary: '#2fa4e7',
+    secondary: '#e9ecef'
+  },
+  cosmo: {
+    primary: '#2780e3',
+    secondary: '#373a3c'
+  },
+  cyborg: {
+    primary: '#2a9fd6',
+    secondary: '#555'
+  },
+  darkly: {
+    primary: '#375a7f',
+    secondary: '#444'
+  },
+  flatly: {
+    primary: '#2c3e50',
+    secondary: '#95a5a6'
+  },
+  journal: {
+    primary: '#eb6864',
+    secondary: '#aaa'
+  },
+  litera: {
+    primary: '#4582ec',
+    secondary: '#adb5bd'
+  },
+  lumen: {
+    primary: '#158cba',
+    secondary: '#f0f0f0'
+  },
+  lux: {
+    primary: '#1a1a1a',
+    secondary: '#919aa1'
+  },
+  materia: {
+    primary: '#2196f3',
+    secondary: '#666'
+  },
+  minty: {
+    primary: '#78c2ad',
+    secondary: '#f3969a'
+  },
+  pulse: {
+    primary: '#593196',
+    secondary: '#a991d4'
+  },
+  sandstone: {
+    primary: '#325d88',
+    secondary: '#8e8c84'
+  },
+  simplex: {
+    primary: '#d9230f',
+    secondary: '#777'
+  },
+  sketchy: {
+    primary: '#333',
+    secondary: '#555'
+  },
+  slate: {
+    primary: '#3a3f44',
+    secondary: '#7a8288'
+  },
+  solar: {
+    primary: '#b58900',
+    secondary: '#839496'
+  },
+  spacelab: {
+    primary: '#446e9b',
+    secondary: '#999'
+  },
+  united: {
+    primary: '#e95420',
+    secondary: '#aea79f'
+  },
+  yeti: {
+    primary: '#008cba',
+    secondary: '#adb5bd'
+  }
+}
+
+const customThemesColors = {
+  'clean-dark': {
+    secondary: '#fff'
+  },
+  'clean-gray': {
+    secondary: '#343a40'
+  },
+  'clean-white': {
+    secondary: '#383d44'
+  }
+}
+
+export const getThemeColors = (bootswatchTheme, customTheme) => {
+  let colors = {}
+  if (bootswatchTheme) {
+    const bootswatchThemeColors = bootswatchColors[bootswatchTheme]
+    if (bootswatchThemeColors) {
+      colors = bootswatchThemeColors
+    }
+  }
+  if (customTheme) {
+    const customThemeColors = customThemesColors[customTheme]
+    if (customThemeColors) {
+      Object.assign(colors, customThemeColors)
+    }
+  }
+  return colors
+}

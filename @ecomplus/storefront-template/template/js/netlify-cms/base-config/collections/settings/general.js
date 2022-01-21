@@ -38,19 +38,9 @@ export default ({ baseDir }) => ({
       widget: 'text'
     },
     {
-      label: 'Cor primária',
-      name: 'primary_color',
-      widget: 'color'
-    },
-    {
-      label: 'Cor secundária',
-      name: 'secondary_color',
-      widget: 'color'
-    },
-    {
-      label: 'Cor de fundo do app',
-      name: 'bg_color',
-      widget: 'color'
+      label: 'Logo',
+      name: 'logo',
+      widget: 'image'
     },
     {
       label: 'Tema',
@@ -187,9 +177,21 @@ export default ({ baseDir }) => ({
       ]
     },
     {
-      label: 'Logo',
-      name: 'logo',
-      widget: 'image'
+      label: 'Cor primária',
+      name: 'primary_color',
+      widget: 'color',
+      required: false
+    },
+    {
+      label: 'Cor secundária',
+      name: 'secondary_color',
+      widget: 'color',
+      required: false
+    },
+    {
+      label: 'Cor de fundo do app',
+      name: 'bg_color',
+      widget: 'color'
     },
     {
       label: 'Ícone do app',

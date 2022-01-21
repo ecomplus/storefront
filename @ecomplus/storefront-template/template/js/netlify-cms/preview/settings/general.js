@@ -1,7 +1,7 @@
 import BasePreview from '../base-preview'
 import virtualDoc from '../virtual-doc'
 import fetchPage from '../fetch-page'
-import { getColorYiq, getColorRgb, darkenColor } from './lib/color-functions'
+import { getColorYiq, getColorRgb, darkenColor, getThemeColors } from './lib/color-functions'
 
 const themesUrl = 'https://cdn.jsdelivr.net/gh/ecomplus/storefront@themes-dist'
 
@@ -112,17 +112,22 @@ export default class CodePreview extends BasePreview {
         vDoc.body.appendChild($styleTag)
       }
 
+      const { theme } = entries
+      const themeColors = getThemeColors(theme.bootswatch, theme.custom)
+      console.log({ theme, themeColors })
+      const primaryColor = entries.primary_color || themeColors.primary || '#20c997'
+      const secondaryColor = entries.secondary_color || themeColors.secondary || '#343a40'
+
       $styleTag.innerHTML = `<style>
         body {
-          ${genColorCssVars('primary', entries.primary_color)}
-          ${genColorCssVars('secondary', entries.secondary_color)}
+          ${genColorCssVars('primary', primaryColor)}
+          ${genColorCssVars('secondary', secondaryColor)}
         }
         .lozad-delay.fade {
           opacity: 1 !important;
         }
       </style>`
 
-      const { theme } = entries
       if ((this.bootswatch !== theme.bootswatch) || (this.custom !== theme.custom)) {
         let styles = ''
         await fetchCssTheme(theme).then(async response => {
