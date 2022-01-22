@@ -38,6 +38,14 @@ try {
 // base output name for entry files on production
 const filenameSchema = process.env.WEBPACK_OUTPUT_FILENAME || '[name].[contenthash]'
 
+// inject brand colors
+let scssInject = `$primary: ${primaryColor}; ` +
+`$secondary: ${secondaryColor}; ` +
+`$settings-theme: ${jsonSassVars.convertJs(settings.theme || {})}; `
+if (settings.icons_font && settings.icons_font.length > 2) {
+  scssInject += `$icons-font: "${settings.icons_font}"; `
+}
+
 // setup base loaders for styles module
 // parse SCSS and fix compiled CSS with Postcss
 const getBaseScssModule = () => ([
@@ -72,10 +80,7 @@ const getBaseScssModule = () => ([
   {
     loader: 'sass-loader',
     options: {
-      // inject brand colors
-      additionalData: `$primary: ${primaryColor}; ` +
-        `$secondary: ${secondaryColor}; ` +
-        `$settings-theme: ${jsonSassVars.convertJs(settings.theme || {})}; `,
+      additionalData: scssInject,
       sassOptions: {
         // include path to import from node modules
         includePaths: [
