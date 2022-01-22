@@ -72,6 +72,7 @@ export default class CodePreview extends BasePreview {
     this.logo = ''
     this.bootswatch = '_'
     this.custom = '_'
+    this.icons_font = '_'
   }
 
   fetchPage () {
@@ -88,21 +89,27 @@ export default class CodePreview extends BasePreview {
       const { vDoc } = this.state
       const { entry } = this.props
       const entries = entry.getIn(['data']).toJSON()
-      const propsArray = [
+      const propsList = [
         'name',
         'bg_color',
         'primary_color',
-        'secondary_color'
+        'secondary_color',
+        'icons_font'
       ]
+      let isChanged = propsList.some(prop => (entries[prop] !== this[prop]))
 
-      let change = propsArray.some(prop => (entries[prop] && entries[prop] !== this[prop]))
+      let iconsFont = entries.icons_font
+      if (iconsFont && iconsFont.length < 3) {
+        iconsFont = null
+      }
+      console.log({ iconsFont })
 
       if (this.logo !== entries.logo) {
         this.logo = entries.logo
         const $logo = vDoc.getElementById('logo')
         $logo.src = this.logo
         $logo.alt = entries.name
-        change = true
+        isChanged = true
       }
 
       let $styleTag = vDoc.getElementById('override_vars')
@@ -128,7 +135,12 @@ export default class CodePreview extends BasePreview {
         }
       </style>`
 
-      if ((this.bootswatch !== theme.bootswatch) || (this.custom !== theme.custom)) {
+      if (
+        this.bootswatch !== theme.bootswatch ||
+        this.custom !== theme.custom ||
+        this.icons_font !== entries.icons_font
+      ) {
+        console.log(iconsFont)
         const $loading = document.createElement('div')
         $loading.className = 'loading'
         document.body.appendChild($loading)
@@ -146,17 +158,20 @@ export default class CodePreview extends BasePreview {
               $themesTag.id = 'storefront-themes'
               vDoc.body.appendChild($themesTag)
             }
+            if (iconsFont) {
+              styles = styles.replace(/\/icons\/[^/]+\/font/, `/icons/${iconsFont}/font`)
+            }
             $themesTag.innerHTML = `<style>${styles}</style>`
             this.bootswatch = theme.bootswatch
             this.custom = theme.custom
-            change = true
+            isChanged = true
           })
           .catch(console.error)
           .finally(() => $loading.remove())
       }
 
-      if (change) {
-        propsArray.forEach(prop => (this[prop] = entries[prop]))
+      if (isChanged) {
+        propsList.forEach(prop => (this[prop] = entries[prop]))
         let parseHtml
         if (vDoc.childNodes && vDoc.childNodes.length) {
           parseHtml = vDoc.childNodes[1].innerHTML.replace(/data-src=/ig, 'src=')

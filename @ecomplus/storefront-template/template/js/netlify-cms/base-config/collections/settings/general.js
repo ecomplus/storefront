@@ -189,6 +189,25 @@ export default ({ baseDir }) => ({
       required: false
     },
     {
+      label: 'Ícones',
+      name: 'icons_font',
+      widget: 'select',
+      options: [
+        {
+          label: 'Padrão do tema',
+          value: '_'
+        },
+        {
+          label: 'Font Awesome',
+          value: 'font-awesome'
+        },
+        {
+          label: 'Line Awesome',
+          value: 'line-awesome'
+        }
+      ]
+    },
+    {
       label: 'Cor de fundo do app',
       name: 'bg_color',
       widget: 'color'
