@@ -134,19 +134,18 @@ const customThemesColors = {
   }
 }
 
-export const getThemeColors = (bootswatchTheme, customTheme) => {
-  let colors = {}
+export const getThemeColors = (bootswatchTheme, customTheme, brandColors = {}) => {
   if (bootswatchTheme) {
     const bootswatchThemeColors = bootswatchColors[bootswatchTheme]
     if (bootswatchThemeColors) {
-      colors = bootswatchThemeColors
+      brandColors = Object.assign(bootswatchThemeColors, brandColors)
     }
   }
   if (customTheme) {
     const customThemeColors = customThemesColors[customTheme]
     if (customThemeColors) {
-      Object.assign(colors, customThemeColors)
+      Object.assign(brandColors, customThemeColors)
     }
   }
-  return colors
+  return brandColors
 }

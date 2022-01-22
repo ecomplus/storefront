@@ -113,15 +113,15 @@ export default class CodePreview extends BasePreview {
       }
 
       const { theme } = entries
-      const themeColors = getThemeColors(theme.bootswatch, theme.custom)
-      console.log({ theme, themeColors })
-      const primaryColor = entries.primary_color || themeColors.primary || '#20c997'
-      const secondaryColor = entries.secondary_color || themeColors.secondary || '#343a40'
+      const themeColors = getThemeColors(theme.bootswatch, theme.custom, {
+        primary: entries.primary_color || '#20c997',
+        secondary: entries.secondary_color || '#343a40'
+      })
 
       $styleTag.innerHTML = `<style>
         body {
-          ${genColorCssVars('primary', primaryColor)}
-          ${genColorCssVars('secondary', secondaryColor)}
+          ${genColorCssVars('primary', themeColors.primary)}
+          ${genColorCssVars('secondary', themeColors.secondary)}
         }
         .lozad-delay.fade {
           opacity: 1 !important;
@@ -129,6 +129,9 @@ export default class CodePreview extends BasePreview {
       </style>`
 
       if ((this.bootswatch !== theme.bootswatch) || (this.custom !== theme.custom)) {
+        const $loading = document.createElement('div')
+        $loading.className = 'loading'
+        document.body.appendChild($loading)
         let styles = ''
         await fetchCssTheme(theme).then(async response => {
           if (response.text) {
@@ -149,6 +152,7 @@ export default class CodePreview extends BasePreview {
             change = true
           })
           .catch(console.error)
+          .finally(() => $loading.remove())
       }
 
       if (change) {
