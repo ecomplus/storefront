@@ -57,7 +57,7 @@ const validateCartItem = (item, data) => new Promise((resolve, reject) => {
     min_quantity: typeof data.min_quantity === 'number' ? data.min_quantity : 1,
     max_quantity: data.quantity
   })
-  item.quantity = data.quantity >= item.min_quantity
+  item.quantity = data.available && data.quantity >= item.min_quantity
     ? Math.min(data.quantity, quantity)
     : 0
   if (item.quantity > 0 && item.kit_product) {
