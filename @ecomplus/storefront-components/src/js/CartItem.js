@@ -92,6 +92,9 @@ export default {
     },
 
     maxQuantity () {
+      if (this.item.available === false) {
+        return 0
+      }
       const maxQuantity = this.item.max_quantity
       return typeof maxQuantity === 'number' && maxQuantity >= 0
         ? maxQuantity
