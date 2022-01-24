@@ -39,7 +39,7 @@
     "@ecomplus/shopping-cart": "^2.5.5",
     "@ecomplus/storefront-components": "^1.0.0-beta.113",
     "@ecomplus/storefront-twbs": "^7.0.0",
-    "axios": "^0.24.0",
+    "axios": "^0.25.0",
     "card-validator": "^8.1.1",
     "cleave.js": "^1.6.0",
     "credit-card-type": "^9.1.0",
