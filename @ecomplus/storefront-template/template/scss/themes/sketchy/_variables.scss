@@ -53,6 +53,7 @@ $border-radius-sm:          15px !default;
 // Fonts
 
 // stylelint-disable-next-line value-keyword-case
+$web-font-path:               "https://fonts.googleapis.com/css?family=Neucha|Cabin+Sketch&display=swap" !default;
 $font-family-sans-serif:      Neucha, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
 $font-weight-base:            700 !default;
 $headings-font-family:        "Cabin Sketch", cursive !default;

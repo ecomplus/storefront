@@ -207,8 +207,8 @@ $alert-colors: map-merge(
 $badge-colors: () !default;
 $badge-colors: map-merge(
   (
-    "primary":    $primary,
-    "secondary":  $secondary,
+    "primary":    var(--primary),
+    "secondary":  var(--secondary),
     "success":    $success,
     "info":       $info,
     "warning":    $warning,
@@ -220,8 +220,8 @@ $badge-colors: map-merge(
 $btn-colors: () !default;
 $btn-colors: map-merge(
   (
-    "primary":    $primary,
-    "secondary":  $secondary,
+    "primary":    var(--primary),
+    "secondary":  var(--secondary),
     "success":    $success,
     "danger":     $danger,
     "light":      $light,
@@ -233,8 +233,8 @@ $btn-colors: map-merge(
 $btn-outline-colors: () !default;
 $btn-outline-colors: map-merge(
   (
-    "primary":    $primary,
-    "secondary":  $secondary,
+    "primary":    var(--primary),
+    "secondary":  var(--secondary),
     "success":    $success,
     "danger":     $danger
   ),
