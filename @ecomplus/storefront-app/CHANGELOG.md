@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.121](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.120...@ecomplus/storefront-app@2.0.0-beta.121) (2022-01-24)
+
+
+### Bug Fixes
+
+* **app/checkout:** must check item `available` while validating ([df95218](https://github.com/ecomplus/storefront/commit/df9521829bdaa3b38581742a1fa3f4f05a6be062))
+
+
+
+
+
 # [2.0.0-beta.120](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.119...@ecomplus/storefront-app@2.0.0-beta.120) (2022-01-18)
 
 
