@@ -45,6 +45,16 @@ let scssInject = `$primary: ${primaryColor}; ` +
 if (settings.icons_font && settings.icons_font.length > 2) {
   scssInject += `$icons-font: "${settings.icons_font}"; `
 }
+if (settings.font_family && settings.font_family.length > 2) {
+  const fontUrl = 'https://fonts.googleapis.com/css2' +
+    `?family=${settings.font_family.replace(/\s+/g, '+')}` +
+      ':wght@300;400;700&display=swap'
+  scssInject += `$web-font-path: "${fontUrl}"; ` +
+    `$font-family-sans-serif: "${settings.font_family}", ` +
+      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", ' +
+      'Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", ' +
+      '"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; '
+}
 
 // setup base loaders for styles module
 // parse SCSS and fix compiled CSS with Postcss
