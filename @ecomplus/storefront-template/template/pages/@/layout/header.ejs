@@ -3,6 +3,8 @@
 const header = _.cms('header') || {}
 const contacts = _.cms('contacts') || {}
 
+const renderMegaMenu = header.desktop_megamenu
+
 // social networks handled by contacts
 const networks = [
   'facebook',
@@ -117,13 +119,19 @@ if (header.categories_list) {
     </div>
   </div>
 </div>
-
+<% let togglerClassName
+  if(renderMegaMenu) {
+    togglerClassName = "d-lg-none btn header__toggler"
+  } else {
+    togglerClassName = "btn header__toggler"
+  }
+%>
 <header class="header" id="header">
   <div class="header__container container-fluid">
     <div class="header__row row">
       <div class="col-auto p-0">
         <button
-          class="btn header__toggler"
+          class="<%= togglerClassName %>"
           type="button"
           onclick="toggleSidenav()"
           aria-label="Toggle side navigation"
@@ -251,15 +259,26 @@ if (header.categories_list) {
         </div>
       <% } %>
 
+      <% let $categoryLink %>
+
       <% if (categories && categories.length) { %>
         <div class="d-none d-lg-block <%= isCategoriesNavFull ? 'col-12 order-lg-last' : 'col' %>">
           <nav class="header__nav<%= isCategoriesNavFull ? ' header__nav--full' : '' %>">
             <% categories.forEach(({ slug, name}) => { %>
               <div class="d-inline-block">
-                <a href="javascript:;" onmouseover="toggleSubmenu('<%= slug %>', this)" onclick="toggleSubmenu('<%= slug %>', this, true)">
-                  <%= ` ${name} ` %>
-                </a>
-                <%  if (slug) { %>
+                <% if(renderMegaMenu) {
+                  $categoryLink =
+                    `<a href="javascript:;" onmouseover="toggleSubmenu('${slug}', this)" onclick="toggleSubmenu('${slug}', this, true)">
+                      ${name}
+                    </a>`
+                } else {
+                  $categoryLink =
+                    `<a href="javascript:;" onclick="toggleSidenav('${slug}')">
+                      ${name}
+                    </a>`
+                } %>
+                <%- $categoryLink %>
+                <%  if (slug && renderMegaMenu) { %>
                   <% const subcategories = _.categories.filter(subcategory => subcategory.parent && subcategory.parent.slug === slug) %>
                   <% if (subcategories.length) { %>
                     <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">

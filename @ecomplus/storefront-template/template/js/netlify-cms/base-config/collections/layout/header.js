@@ -111,6 +111,11 @@ export default ({ baseDir, state }) => ({
       ]
     },
     {
+      label: 'Ativar Megamenu no desktop',
+      name: 'desktop_megamenu',
+      widget: 'boolean'
+    },
+    {
       label: 'Mostrar input de busca',
       name: 'search_input',
       widget: 'boolean'
