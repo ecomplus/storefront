@@ -2,6 +2,7 @@ import BasePreview from '../base-preview'
 import virtualDoc from '../virtual-doc'
 import fetchPage from '../fetch-page'
 import { getColorYiq, getColorRgb, darkenColor, getThemeColors } from './lib/color-functions'
+import setCustomFont from './lib/set-custom-font'
 
 const themesUrl = 'https://cdn.jsdelivr.net/gh/ecomplus/storefront@themes-dist'
 
@@ -53,6 +54,16 @@ const genColorCssVars = (colorName, colorHex) => {
   return cssVars
 }
 
+const getVDocDiv = (vDoc, elId) => {
+  let $el = vDoc.getElementById(elId)
+  if (!$el) {
+    $el = document.createElement('div')
+    $el.id = elId
+    vDoc.body.appendChild($el)
+  }
+  return $el
+}
+
 export default class CodePreview extends BasePreview {
   constructor () {
     super()
@@ -73,6 +84,7 @@ export default class CodePreview extends BasePreview {
     this.bootswatch = '_'
     this.custom = '_'
     this.icons_font = '_'
+    this.font_family = '_'
   }
 
   fetchPage () {
@@ -94,15 +106,10 @@ export default class CodePreview extends BasePreview {
         'bg_color',
         'primary_color',
         'secondary_color',
-        'icons_font'
+        'icons_font',
+        'font_family'
       ]
       let isChanged = propsList.some(prop => (entries[prop] !== this[prop]))
-
-      let iconsFont = entries.icons_font
-      if (iconsFont && iconsFont.length < 3) {
-        iconsFont = null
-      }
-      console.log({ iconsFont })
 
       if (this.logo !== entries.logo) {
         this.logo = entries.logo
@@ -112,20 +119,13 @@ export default class CodePreview extends BasePreview {
         isChanged = true
       }
 
-      let $styleTag = vDoc.getElementById('override_vars')
-      if (!$styleTag) {
-        $styleTag = document.createElement('div')
-        $styleTag.id = 'override_vars'
-        vDoc.body.appendChild($styleTag)
-      }
-
       const { theme } = entries
       const themeColors = getThemeColors(theme.bootswatch, theme.custom, {
         primary: entries.primary_color || '#20c997',
         secondary: entries.secondary_color || '#343a40'
       })
 
-      $styleTag.innerHTML = `<style>
+      getVDocDiv(vDoc, 'override_vars').innerHTML = `<style>
         body {
           ${genColorCssVars('primary', themeColors.primary)}
           ${genColorCssVars('secondary', themeColors.secondary)}
@@ -135,12 +135,15 @@ export default class CodePreview extends BasePreview {
         }
       </style>`
 
+      if (this.font_family !== entries.font_family) {
+        getVDocDiv(vDoc, 'override_font').innerHTML = setCustomFont(entries.font_family)
+      }
+
       if (
         this.bootswatch !== theme.bootswatch ||
         this.custom !== theme.custom ||
         this.icons_font !== entries.icons_font
       ) {
-        console.log(iconsFont)
         const $loading = document.createElement('div')
         $loading.className = 'loading'
         document.body.appendChild($loading)
@@ -152,16 +155,11 @@ export default class CodePreview extends BasePreview {
           }
         })
           .then(() => {
-            let $themesTag = vDoc.getElementById('storefront-themes')
-            if (!$themesTag) {
-              $themesTag = document.createElement('div')
-              $themesTag.id = 'storefront-themes'
-              vDoc.body.appendChild($themesTag)
-            }
-            if (iconsFont) {
+            const iconsFont = entries.icons_font
+            if (iconsFont && iconsFont.length > 2) {
               styles = styles.replace(/\/icons\/[^/]+\/font/, `/icons/${iconsFont}/font`)
             }
-            $themesTag.innerHTML = `<style>${styles}</style>`
+            getVDocDiv(vDoc, 'storefront_themes').innerHTML = `<style>${styles}</style>`
             this.bootswatch = theme.bootswatch
             this.custom = theme.custom
             isChanged = true
