@@ -136,7 +136,6 @@ export default {
   data () {
     return {
       body: {},
-      itemQuantity: 0,
       fixedPrice: null,
       selectedVariationId: null,
       currentGalleyImg: 1,

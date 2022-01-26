@@ -12,14 +12,19 @@
 
   &__quantity {
    display: flex;
-
+   align-items: center;
 
     &-item {
       display: flex;
       align-items: center;
       gap: 30px;
-      border: var(--border-width);
+      border: solid 1px var(--text-muted);
       padding: 10px;
+      border-radius: var(--border-radius-sm);
+
+      i {
+        color: var(--primary)
+      }
     }
   }
 
