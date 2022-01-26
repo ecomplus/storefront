@@ -67,6 +67,14 @@
         ></div>
       </slot>
 
+      <slot name="add-to-favorites">
+        <span>
+          <button class="btn">
+            <i class="i-heart"></i>
+          </button>
+        </span>        
+      </slot>
+
       <slot
         name="unavailable"
         v-if="!body.available || !body.visible"
