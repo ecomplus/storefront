@@ -104,6 +104,12 @@ export default {
       type: Boolean,
       default: true
     },
+
+    hasQuantityForNonKitProducts: {
+      type: Boolean,
+      default: true
+    },
+
     canAddToCart: {
       type: Boolean,
       default: true
@@ -130,6 +136,7 @@ export default {
   data () {
     return {
       body: {},
+      itemQuantity: 0,
       fixedPrice: null,
       selectedVariationId: null,
       currentGalleyImg: 1,

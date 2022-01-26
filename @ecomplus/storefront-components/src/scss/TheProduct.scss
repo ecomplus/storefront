@@ -10,6 +10,19 @@
     margin-bottom: var(--spacer-3);
   }
 
+  &__quantity {
+   display: flex;
+
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      border: var(--border-width);
+      padding: 10px;
+    }
+  }
+
   &__unavailable,
   &__out-of-stock {
     font-weight: var(--font-bold);

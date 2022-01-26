@@ -227,10 +227,27 @@
                       <slot name="buy-button-content">
                         <i class="i-shopping-bag mr-1"></i>
                         {{ strBuy }}
-                      </slot>
+                      </slot> 
                     </button>
                   </slot>
                 </span>
+              </div>
+
+              <div v-if="hasQuantityForNonKitProducts">
+                <div class="product__quantity">
+                  <div class="product__quantity-item">
+                    <i class="i-plus" @click="itemQuantity++"> </i>
+                    {{itemQuantity}}
+                    <i class="i-minus" @click="itemQuantity--">-</i>
+                  </div>
+                  <a
+                    class="btn btn-lg btn-primary ml-4" 
+                    @click="buyOrScroll"
+                  >
+                  <i class="i-shopping-bag mr-1"></i>
+                    {{ strBuy }}
+                  </a>
+                </div>
               </div>
 
               <p
