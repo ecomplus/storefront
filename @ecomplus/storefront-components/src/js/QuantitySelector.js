@@ -1,5 +1,6 @@
 import {
   i19buyKit,
+  i19buy,
   i19maxQuantity,
   i19minQuantity
 } from '@ecomplus/i18n'
@@ -33,6 +34,7 @@ export default {
     kitProductId: String,
     kitName: String,
     kitPrice: Number,
+    isTestKit: Boolean,
     canAddToCart: {
       type: Boolean,
       default: true
@@ -79,6 +81,10 @@ export default {
 
     strBuy () {
       return this.buyText || i18n(i19buyKit)
+    },
+
+    strNoKit () {
+      return this.buyText || i18n(i19buy)
     }
   },
 

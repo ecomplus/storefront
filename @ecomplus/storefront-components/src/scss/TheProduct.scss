@@ -1,4 +1,3 @@
-
 .product {
   &__sku {
     color: var(--text-muted);
@@ -8,24 +7,6 @@
   &__buy {
     cursor: pointer;
     margin-bottom: var(--spacer-3);
-  }
-
-  &__quantity {
-   display: flex;
-   align-items: center;
-
-    &-item {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      border: solid 1px var(--text-muted);
-      padding: 10px;
-      border-radius: var(--border-radius-sm);
-
-      i {
-        color: var(--primary)
-      }
-    }
   }
 
   &__unavailable,

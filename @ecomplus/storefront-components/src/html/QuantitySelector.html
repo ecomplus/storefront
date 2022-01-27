@@ -50,6 +50,7 @@
     <strong>{{ min }}</strong>
   </a-alert>
 
+
   <a-alert
     :can-show="hasMaxAlert"
     :variant="alertVariant"
@@ -74,5 +75,26 @@
         </slot>
       </button>
     </slot>
+  </div>
+
+  <div 
+  v-if="isTestKit" 
+  class="quantity-selector__kitless"
+  >
+    <div class="quantity-selector__kitless-amount">
+      <button>
+        <i class="i-plus-circle"></i>
+      </button>
+      <button>
+        <i class="i-minus-circle"></i>
+      </button>
+    </div>
+    <button
+      type="button"
+      class="btn btn-sm btn-primary"    
+    >
+      <i class="i-shopping-bag mr-1"></i>
+      {{ strNoKit }}
+    </button>
   </div>
 </div>

@@ -105,11 +105,6 @@ export default {
       default: true
     },
 
-    hasQuantityForNonKitProducts: {
-      type: Boolean,
-      default: true
-    },
-
     canAddToCart: {
       type: Boolean,
       default: true
