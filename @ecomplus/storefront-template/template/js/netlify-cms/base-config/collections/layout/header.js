@@ -111,7 +111,7 @@ export default ({ baseDir, state }) => ({
       ]
     },
     {
-      label: 'Ativar Megamenu no desktop',
+      label: 'Megamenu no desktop',
       name: 'desktop_megamenu',
       widget: 'boolean'
     },
