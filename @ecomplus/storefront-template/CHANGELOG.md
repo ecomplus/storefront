@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.163](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.162...@ecomplus/storefront-template@2.0.0-beta.163) (2022-01-24)
+
+
+### Bug Fixes
+
+* **template/cms:** never skip component update hooks (sections) ([c792bf8](https://github.com/ecomplus/storefront/commit/c792bf820e279ccf14adf466d17c683203df9765))
+* **template/cms:** prevent skip on first sections load (empty preview) ([8260d00](https://github.com/ecomplus/storefront/commit/8260d00bf05dc084fa867d8d0494a397905e84e8))
+* **template/themes:** prevent loading google fonts twice for bootstwatch themes ([3c0b7cd](https://github.com/ecomplus/storefront/commit/3c0b7cd7dd7c69e0fd6f7ae506d2fc4c5b4592b0))
+
+
+### Features
+
+* **template/cms:** make brand colors optional to use (and preview) theme ones [[#607](https://github.com/ecomplus/storefront/issues/607)] ([96987fe](https://github.com/ecomplus/storefront/commit/96987fe31f8311639d78722c841f8ecd3e3e310e))
+* **template/cms:** new select widget to chose font family [[#607](https://github.com/ecomplus/storefront/issues/607)] ([30a07c3](https://github.com/ecomplus/storefront/commit/30a07c3ebb692f2f633b1ed3b88c6c807ef69a48))
+* **template/cms:** new select widget to chose icons font [[#607](https://github.com/ecomplus/storefront/issues/607)] ([d27b641](https://github.com/ecomplus/storefront/commit/d27b64174879c4b033ec6b6bd1bfef7f51b838b3))
+
+
+
+
+
 # [2.0.0-beta.162](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.161...@ecomplus/storefront-template@2.0.0-beta.162) (2022-01-18)
 
 

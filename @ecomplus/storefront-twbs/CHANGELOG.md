@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.1.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@7.0.0...@ecomplus/storefront-twbs@7.1.0) (2022-01-24)
+
+
+### Bug Fixes
+
+* **twbs/colors:** custom components colors maps must use css vars for brand colors ([4c4ff5f](https://github.com/ecomplus/storefront/commit/4c4ff5f2681c4e2d7bf838a439ea2cdffbf32664))
+
+
+### Features
+
+* **twbs/fonts:** load custom font family from `$web-font-path` scss var [[#607](https://github.com/ecomplus/storefront/issues/607)] ([7ff3943](https://github.com/ecomplus/storefront/commit/7ff3943d4a1a6dd4e43cd1a2833855da1408edef))
+
+
+
+
+
 # [7.0.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@6.0.0...@ecomplus/storefront-twbs@7.0.0) (2022-01-18)
 
 

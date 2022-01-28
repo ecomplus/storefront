@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.114](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.113...@ecomplus/storefront-components@1.0.0-beta.114) (2022-01-24)
+
+
+### Bug Fixes
+
+* **components/cart-item:** show item out of stock when unavailable ([b435958](https://github.com/ecomplus/storefront/commit/b435958d588f17d1cea95107f5e4a68d1544ebac))
+
+
+
+
+
 # [1.0.0-beta.113](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.112...@ecomplus/storefront-components@1.0.0-beta.113) (2022-01-18)
 
 

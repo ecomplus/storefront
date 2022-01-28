@@ -158,9 +158,6 @@ export default class BasePreview extends React.Component {
                     if (!isArrayEqual(oldEntry[key], entry[key])) {
                       change = true
                     }
-                  } else if (typeof oldEntry[key] === 'object') {
-                    return
-                    // todo
                   }
                   break
               }
