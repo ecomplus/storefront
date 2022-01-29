@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.114](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.113...@ecomplus/storefront-components@1.0.0-beta.114) (2022-01-24)
+
+
+### Bug Fixes
+
+* **components/cart-item:** show item out of stock when unavailable ([b435958](https://github.com/ecomplus/storefront/commit/b435958d588f17d1cea95107f5e4a68d1544ebac))
+
+
+
+
+
+# [1.0.0-beta.113](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.112...@ecomplus/storefront-components@1.0.0-beta.113) (2022-01-18)
+
+
+### Bug Fixes
+
+* **components/payment-option:** minor fix discount value styles to not be transformed to lowercase ([e218844](https://github.com/ecomplus/storefront/commit/e218844f2d4e3f93b2e4a3b3236aa93680ced738))
+
+
+
+
+
+# [1.0.0-beta.112](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.111...@ecomplus/storefront-components@1.0.0-beta.112) (2022-01-11)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.26.0 ([8df8b66](https://github.com/ecomplus/storefront/commit/8df8b662386a40f9ea7e3ecc1a34516409a53c2a))
+* **icons:** update icon class names to `.i-*` ([0254be3](https://github.com/ecomplus/storefront/commit/0254be314abfe62627135480089b7788ced43d34))
+* **icons:** update icon class names without `-alt` suffix ([0416133](https://github.com/ecomplus/storefront/commit/04161338d04562332a47ee64917624b3c6137fb1))
+
+
+
+
+
 # [1.0.0-beta.111](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.110...@ecomplus/storefront-components@1.0.0-beta.111) (2022-01-04)
 
 

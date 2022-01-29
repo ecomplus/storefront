@@ -18,7 +18,12 @@ recursiveCopy(path.join(dirPkgTemplate, 'content'), path.join(dirGitStarter, 'co
 const parseCommitCmd = commitMsg => `git diff-index --quiet HEAD || (git commit -m \"${commitMsg}\" && git push)`
 
 ;[dirGitStarter, dirGitStarterViews].forEach(cwd => {
-  execSync(`git add . && ${parseCommitCmd(`Update with @ecomplus/storefront-template v${version}`)}`, { cwd })
+  execSync(
+    'git checkout master && ' +
+    'git add . && ' +
+    parseCommitCmd(`Update with @ecomplus/storefront-template v${version}`),
+    { cwd }
+  )
 })
 
 execSync(

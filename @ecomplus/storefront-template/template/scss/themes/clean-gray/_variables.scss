@@ -1,14 +1,14 @@
-$white: #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
-$black: #000 !default;
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
 
 $border-radius: .05rem !default;
 $border-radius-sm: .025rem !default;
@@ -24,3 +24,5 @@ $list-group-border-color: $secondary;
 $breadcrumb-divider-color: $gray-500;
 $breadcrumb-active-color: $secondary;
 $breadcrumb-divider: quote("·");
+
+$icons-font: "line-awesome" !default;

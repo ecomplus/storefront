@@ -43,7 +43,7 @@
                 <button
                   v-if="canReopenOrder"
                   class="order-info__toggle btn"
-                  :class="status === 'cancelled' ? 'btn-success' : 'btn-info'"
+                  :class="status === 'cancelled' ? 'btn-success' : 'btn-secondary'"
                   @click="toggle"
                 >
                   <i class="i-check-circle mr-1"></i>
@@ -308,7 +308,7 @@
                         class="order-info__shipping-address card"
                       >
                         <div class="card-header">
-                          <i class="i-map-marked-alt mr-1"></i>
+                          <i class="i-map-marked mr-1"></i>
                           {{ i19shippingAddress }}
                         </div>
 

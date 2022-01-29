@@ -13,8 +13,8 @@ try {
   console.error(err)
   settings = {}
 }
-const primaryColor = settings.primary_color || '#3fe3e3'
-const secondaryColor = settings.secondary_color || '#5e1efe'
+const primaryColor = settings.primary_color || '#20c997'
+const secondaryColor = settings.secondary_color || '#343a40'
 const lang = settings.lang || 'en_us'
 // number Store ID from content settings or env var
 let storeId = settings.store_id || process.env.ECOM_STORE_ID || 1011

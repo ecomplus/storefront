@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.18.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.14...@ecomplus/storefront-framework@5.18.0) (2022-01-24)
+
+
+### Features
+
+* **framework/webpack:** inject `font_family` from settings to scss [[#607](https://github.com/ecomplus/storefront/issues/607)] ([1397ef4](https://github.com/ecomplus/storefront/commit/1397ef48ad7f5d71671595a6ee65b90665c2fb17))
+* **framework/webpack:** inject `icons_font` to scss from settings [[#607](https://github.com/ecomplus/storefront/issues/607)] ([908fa54](https://github.com/ecomplus/storefront/commit/908fa5428cf1a23c184d2e5bf7ec16285d8029a2))
+
+
+
+
+
+## [5.17.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.13...@ecomplus/storefront-framework@5.17.14) (2022-01-18)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.17.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.12...@ecomplus/storefront-framework@5.17.13) (2022-01-11)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
 ## [5.17.12](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.11...@ecomplus/storefront-framework@5.17.12) (2022-01-04)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

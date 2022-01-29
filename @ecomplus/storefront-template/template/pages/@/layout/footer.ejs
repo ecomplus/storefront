@@ -90,7 +90,7 @@ const contacts = _.cms('contacts') || {}
                 <% (_.cms('pages') || []).forEach(slug => { %>
                   <% const { title } = _.cms(`pages/${slug}`) %>
                   <li>
-                    <i class="i-angle-right"></i>
+                    <i class="i-chevron-right"></i>
                     <a href="/pages/<%= slug %>">
                       <%= title %>
                     </a>
@@ -101,7 +101,7 @@ const contacts = _.cms('contacts') || {}
               <ul class="footer__links">
                 <% footer.links_1.list.forEach(({ url, text }) => { %>
                   <li>
-                    <i class="i-angle-right"></i>
+                    <i class="i-chevron-right"></i>
                     <a href="<%= url %>">
                       <%= text %>
                     </a>
@@ -131,7 +131,7 @@ const contacts = _.cms('contacts') || {}
                 <% _.categories.forEach(({ name, slug, parent }) => { %>
                   <% if (!parent) { %>
                     <li>
-                      <i class="i-angle-right"></i>
+                      <i class="i-chevron-right"></i>
                       <a href="/<%= slug %>">
                         <%= name %>
                       </a>
@@ -143,7 +143,7 @@ const contacts = _.cms('contacts') || {}
               <ul class="footer__links">
                 <% footer.links_2.list.forEach(({ url, text }) => { %>
                   <li>
-                    <i class="i-angle-right"></i>
+                    <i class="i-chevron-right"></i>
                     <a href="<%= url %>">
                       <%= text %>
                     </a>

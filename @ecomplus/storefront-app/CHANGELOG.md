@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.121](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.120...@ecomplus/storefront-app@2.0.0-beta.121) (2022-01-24)
+
+
+### Bug Fixes
+
+* **app/checkout:** must check item `available` while validating ([df95218](https://github.com/ecomplus/storefront/commit/df9521829bdaa3b38581742a1fa3f4f05a6be062))
+
+
+
+
+
+# [2.0.0-beta.120](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.119...@ecomplus/storefront-app@2.0.0-beta.120) (2022-01-18)
+
+
+### Bug Fixes
+
+* **app/order-info:** remove no more available `.btn-info` variant ([07a708a](https://github.com/ecomplus/storefront/commit/07a708a61b9b405cff2a42d8c08e10030abf743f))
+
+
+
+
+
+# [2.0.0-beta.119](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.118...@ecomplus/storefront-app@2.0.0-beta.119) (2022-01-11)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.26.0 ([8df8b66](https://github.com/ecomplus/storefront/commit/8df8b662386a40f9ea7e3ecc1a34516409a53c2a))
+* **icons:** update icon class names to `.i-*` ([0254be3](https://github.com/ecomplus/storefront/commit/0254be314abfe62627135480089b7788ced43d34))
+* **icons:** update icon class names without `-alt` suffix ([0416133](https://github.com/ecomplus/storefront/commit/04161338d04562332a47ee64917624b3c6137fb1))
+
+
+
+
+
 # [2.0.0-beta.118](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.117...@ecomplus/storefront-app@2.0.0-beta.118) (2022-01-04)
 
 

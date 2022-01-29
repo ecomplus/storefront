@@ -1,3 +1,5 @@
+$icons-font: "line-awesome" !default;
+
 // Lux 4.6.1
 // Bootswatch
 
@@ -29,7 +31,7 @@ $teal:    #20c997 !default;
 $cyan:    #1f9bcf !default;
 
 $primary:       $gray-900 !default;
-$secondary:     $white !default;
+$secondary:     $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -50,6 +52,7 @@ $body-color:                $gray-700 !default;
 // Fonts
 
 // stylelint-disable-next-line value-keyword-case
+$web-font-path:               "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" !default;
 $font-family-sans-serif:      "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $font-size-base:              .875rem !default;
 $h1-font-size:                2rem !default;

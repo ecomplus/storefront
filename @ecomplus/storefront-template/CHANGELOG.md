@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.163](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.162...@ecomplus/storefront-template@2.0.0-beta.163) (2022-01-24)
+
+
+### Bug Fixes
+
+* **template/cms:** never skip component update hooks (sections) ([c792bf8](https://github.com/ecomplus/storefront/commit/c792bf820e279ccf14adf466d17c683203df9765))
+* **template/cms:** prevent skip on first sections load (empty preview) ([8260d00](https://github.com/ecomplus/storefront/commit/8260d00bf05dc084fa867d8d0494a397905e84e8))
+* **template/themes:** prevent loading google fonts twice for bootstwatch themes ([3c0b7cd](https://github.com/ecomplus/storefront/commit/3c0b7cd7dd7c69e0fd6f7ae506d2fc4c5b4592b0))
+
+
+### Features
+
+* **template/cms:** make brand colors optional to use (and preview) theme ones [[#607](https://github.com/ecomplus/storefront/issues/607)] ([96987fe](https://github.com/ecomplus/storefront/commit/96987fe31f8311639d78722c841f8ecd3e3e310e))
+* **template/cms:** new select widget to chose font family [[#607](https://github.com/ecomplus/storefront/issues/607)] ([30a07c3](https://github.com/ecomplus/storefront/commit/30a07c3ebb692f2f633b1ed3b88c6c807ef69a48))
+* **template/cms:** new select widget to chose icons font [[#607](https://github.com/ecomplus/storefront/issues/607)] ([d27b641](https://github.com/ecomplus/storefront/commit/d27b64174879c4b033ec6b6bd1bfef7f51b838b3))
+
+
+
+
+
+# [2.0.0-beta.162](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.161...@ecomplus/storefront-template@2.0.0-beta.162) (2022-01-18)
+
+
+### Bug Fixes
+
+* **template/cms:** product block size guide config must be optional ([5b285f6](https://github.com/ecomplus/storefront/commit/5b285f6db7ffea4ae6389a3fa69d6e90af0cd7db))
+
+
+
+
+
+# [2.0.0-beta.161](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.160...@ecomplus/storefront-template@2.0.0-beta.161) (2022-01-11)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.26.0 ([8df8b66](https://github.com/ecomplus/storefront/commit/8df8b662386a40f9ea7e3ecc1a34516409a53c2a))
+* **icons:** update icon class names to `.i-*` ([0254be3](https://github.com/ecomplus/storefront/commit/0254be314abfe62627135480089b7788ced43d34))
+* **icons:** update icon class names without `-alt` suffix ([0416133](https://github.com/ecomplus/storefront/commit/04161338d04562332a47ee64917624b3c6137fb1))
+* **template/cms:** stop importing fa 5 styles on cms preview ([69c8db1](https://github.com/ecomplus/storefront/commit/69c8db19d028128da637c421dc9e13ed93ee3384))
+* **template/footer:** fix angle icons to chevron ([05976d1](https://github.com/ecomplus/storefront/commit/05976d1d0aa33b1741c9e239ea299a1225b29d2b))
+* **template/product-block:** fix size guide i18n, add ruler icon and modal times ([da99b3a](https://github.com/ecomplus/storefront/commit/da99b3a209deb2be8cf7ba68603f39e1d6f22d38))
+* **template/themes:** update custom icons selectors [skip ci] ([baff69b](https://github.com/ecomplus/storefront/commit/baff69b338a36d2c7070b5124c623eb45e9bcfe2))
+
+
+### Features
+
+* **template/product-block:** configurable modal size guide ([#599](https://github.com/ecomplus/storefront/issues/599)) ([3bb65dc](https://github.com/ecomplus/storefront/commit/3bb65dc8c06f3a23fc14d31852f544eb0d988d7c))
+* **template/themes:** set line awesome as default icons font for some themes ([1b9b408](https://github.com/ecomplus/storefront/commit/1b9b408efdf5fc8f89c28df9ebb0afd327464a2b))
+
+
+
+
+
 # [2.0.0-beta.160](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.159...@ecomplus/storefront-template@2.0.0-beta.160) (2022-01-04)
 
 

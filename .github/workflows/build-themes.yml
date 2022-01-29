@@ -8,8 +8,9 @@ on:
     branches:
       - master
     paths:
-      - '.github/workflows/build-themes.yml'
       - 'scripts/build-themes.js'
+      - '.github/workflows/build-themes.yml'
+      - '.github/build-themes'
 
 jobs:
   build-themes:
@@ -35,9 +36,8 @@ jobs:
         run: npm run themes:build
 
       - name: Push output CSS to custom branch
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: themes-dist
-          FOLDER: dist/themes
-          CLEAN: true
+          branch: themes-dist
+          folder: dist/themes
+          clean: true

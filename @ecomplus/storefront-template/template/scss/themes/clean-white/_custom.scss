@@ -38,7 +38,7 @@ main {
     i:before {
       content: "";
       display: inline-block;
-      background-repeat: no-repeat;
+      background-color: $secondary;
       width: 36px;
       height: 36px;
       -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
@@ -47,12 +47,8 @@ main {
       mask-size: cover;
     }
 
-    .fa-shopping-bag:before {
-      background-color: $secondary;
-    }
-
     @media (hover: hover) {
-      .fa-shopping-bag:hover:before {
+      i:hover:before {
         background-color: $primary;
       }
     }
@@ -62,7 +58,7 @@ main {
     i:before {
       content: "";
       display: inline-block;
-      background-repeat: no-repeat;
+      background-color: $secondary;
       width: 36px;
       height: 36px;
       -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
@@ -71,12 +67,8 @@ main {
       mask-size: cover;
     }
 
-    .fa-user:before {
-      background-color: $secondary;
-    }
-
     @media (hover: hover) {
-      .fa-user:hover:before {
+      i:hover:before {
         background-color: $primary;
       }
     }
