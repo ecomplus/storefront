@@ -2,6 +2,7 @@ import { name } from './package.json'
 
 export default () => ({
   label: 'Avaliações Ebit',
+  thumbnail: 'https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/widgets/ebit.png',
   fields: [
     {
       name: 'pkg',

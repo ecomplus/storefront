@@ -2,6 +2,7 @@ import { name } from './package.json'
 
 export default () => ({
   label: 'GMC avaliações do consumidor',
+  thumbnail: 'https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/widgets/gmc-ratings.png',
   fields: [
     {
       name: 'pkg',

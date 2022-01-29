@@ -2,6 +2,7 @@ import { name } from './package.json'
 
 export default () => ({
   label: 'Avaliações Compre & Confie',
+  thumbnail: 'https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/widgets/compre-confie.png',
   fields: [
     {
       name: 'pkg',

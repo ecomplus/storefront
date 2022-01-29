@@ -2,6 +2,7 @@ import { name } from './package.json'
 
 export default () => ({
   label: 'Google Analytics',
+  thumbnail: 'https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/widgets/analytics.png',
   fields: [
     {
       name: 'pkg',

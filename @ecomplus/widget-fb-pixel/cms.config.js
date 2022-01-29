@@ -2,6 +2,7 @@ import { name } from './package.json'
 
 export default () => ({
   label: 'Facebook Pixel',
+  thumbnail: 'https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/widgets/fb-pixel.png',
   fields: [
     {
       name: 'pkg',

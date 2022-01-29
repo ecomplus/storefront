@@ -2,6 +2,7 @@ import { name } from './package.json'
 
 export default () => ({
   label: 'Chat Tawk.to',
+  thumbnail: 'https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/widgets/tawkto.png',
   fields: [
     {
       name: 'pkg',

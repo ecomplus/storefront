@@ -2,6 +2,7 @@ import { name } from './package.json'
 
 export default () => ({
   label: 'Google Tag Manager',
+  thumbnail: 'https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/widgets/tag-manager.png',
   fields: [
     {
       name: 'pkg',
