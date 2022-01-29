@@ -34,12 +34,6 @@ export default options => ({
     preview: false
   },
   files: [
-    fixWidgetConfig(options, getWidgetProductCard),
-    fixWidgetConfig(options, getWidgetProduct),
-    fixWidgetConfig(options, getWidgetSearch),
-    fixWidgetConfig(options, getWidgetSearchEngine),
-    fixWidgetConfig(options, getWidgetMinicart),
-    fixWidgetConfig(options, getWidgetOffersNotification),
     fixWidgetConfig(options, getWidgetAnalytics),
     fixWidgetConfig(options, getWidgetFbPixel),
     fixWidgetConfig(options, getWidgetTagManager),
@@ -48,6 +42,12 @@ export default options => ({
     fixWidgetConfig(options, getWidgetTrustvox),
     fixWidgetConfig(options, getWidgetEbit),
     fixWidgetConfig(options, getWidgetCompreConfie),
-    fixWidgetConfig(options, getWidgetOpinioesVerificadas)
+    fixWidgetConfig(options, getWidgetOpinioesVerificadas),
+    fixWidgetConfig(options, getWidgetOffersNotification),
+    fixWidgetConfig(options, getWidgetProductCard),
+    fixWidgetConfig(options, getWidgetProduct),
+    fixWidgetConfig(options, getWidgetSearch),
+    fixWidgetConfig(options, getWidgetSearchEngine),
+    fixWidgetConfig(options, getWidgetMinicart)
   ]
 })
