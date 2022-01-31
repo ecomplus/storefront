@@ -33,16 +33,16 @@
 
 .btn-secondary,
 .btn-secondary:hover {
-  background-image: linear-gradient(#3e4244, #373a3c 6%, #303234);
+  background-image: linear-gradient(#3b4248, #343a40 6%, #2d3238);
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #27292b;
+  border: 1px solid #25292e;
 }
 
 .btn-secondary:focus,
 .btn-secondary:not([disabled]):not(.disabled):active,
 .btn-secondary:not([disabled]):not(.disabled).active {
-  box-shadow: 0 0 0 0.2rem rgba(221, 221, 221, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(233, 236, 239, 0.5);
 }
 
 .btn-success,
@@ -55,10 +55,10 @@
 
 .btn-info,
 .btn-info:hover {
-  background-image: linear-gradient(#d4d4d4, #ccc 6%, #c4c4c4);
+  background-image: linear-gradient(#e7eaed, #dee2e6 6%, #d5dadf);
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #bbbbbb;
+  border: 1px solid #cbd1d8;
 }
 
 .btn-warning,
@@ -94,16 +94,16 @@
 }
 
 .btn-outline-secondary {
-  border-color: #bbb;
-  color: #bbb;
+  border-color: #ced4da;
+  color: #ced4da;
 }
 .btn-outline-secondary:hover {
-  background-color: #bbb;
+  background-color: #ced4da;
   color: #fff;
 }
 
 .text-secondary {
-  color: #777 !important;
+  color: #6c757d !important;
 }
 
 .breadcrumb {
@@ -139,18 +139,18 @@ main .top-bar__nav {
   font-size: 85%;
 }
 main .top-bar a.top-bar__countdown {
-  background-color: #373a3c;
+  background-color: #343a40;
 }
 main .header {
   border-bottom: none;
 }
 main .header__nav a {
-  color: #373a3c;
+  color: #343a40;
   border-bottom: solid 2px transparent;
 }
 main .header__nav a:hover {
-  border-bottom-color: #777;
+  border-bottom-color: #6c757d;
 }
 main #search-input {
-  border: solid 1px #777;
+  border: solid 1px #6c757d;
 }

@@ -18,10 +18,10 @@
 }
 
 .bg-dark {
-  background-color: #333 !important;
+  background-color: #343a40 !important;
 }
 .bg-dark .dropdown-menu {
-  background-color: #333;
+  background-color: #343a40;
 }
 .bg-dark .dropdown-menu .dropdown-item,
 .bg-dark .dropdown-menu .dropdown-item:focus {
@@ -30,29 +30,29 @@
 .bg-dark .dropdown-menu .dropdown-item.active,
 .bg-dark .dropdown-menu .dropdown-item:hover,
 .bg-dark .dropdown-menu .dropdown-item:focus {
-  background-color: #262626;
+  background-color: #292d32;
   color: #fff;
 }
 
 .bg-light .dropdown-menu {
-  background-color: #eee;
+  background-color: #e9ecef;
 }
 .bg-light .dropdown-menu .dropdown-item,
 .bg-light .dropdown-menu .dropdown-item:focus {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(56, 61, 68, 0.5);
 }
 .bg-light .dropdown-menu .dropdown-item.active,
 .bg-light .dropdown-menu .dropdown-item:hover,
 .bg-light .dropdown-menu .dropdown-item:focus {
-  background-color: #fbfbfb;
-  color: rgba(0, 0, 0, 0.7);
+  background-color: #f8f9fa;
+  color: rgba(56, 61, 68, 0.7);
 }
 
 .btn-primary {
   border-color: #151515;
 }
 .btn-secondary {
-  border-color: black;
+  border-color: #2c3036;
 }
 .btn-success {
   border-color: #3c9a5f;
@@ -90,15 +90,15 @@
   background-color: #0e0e0e;
 }
 .btn-group .dropdown-toggle.btn-secondary ~ .dropdown-menu {
-  background-color: #000;
-  border-color: black;
+  background-color: #383d44;
+  border-color: #2c3036;
 }
 .btn-group .dropdown-toggle.btn-secondary ~ .dropdown-menu .dropdown-item {
-  color: #222;
+  color: #212529;
 }
 .btn-group .dropdown-toggle.btn-secondary ~ .dropdown-menu .dropdown-item:hover,
 .btn-group .dropdown-toggle.btn-secondary ~ .dropdown-menu .dropdown-item:focus {
-  background-color: black;
+  background-color: #26292e;
 }
 .btn-group .dropdown-toggle.btn-success ~ .dropdown-menu {
   background-color: #43ac6a;
@@ -150,7 +150,7 @@
 }
 
 .blockquote-footer {
-  color: #888;
+  color: #6c757d;
 }
 
 table {
@@ -168,7 +168,7 @@ table {
 .table-secondary,
 .table-secondary > th,
 .table-secondary > td {
-  background-color: #000;
+  background-color: #383d44;
 }
 .table-light,
 .table-light > th,
@@ -203,7 +203,7 @@ table {
 .table-active,
 .table-active > th,
 .table-active > td {
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: rgba(56, 61, 68, 0.075);
 }
 .table-hover .table-primary:hover,
 .table-hover .table-primary:hover > th,
@@ -213,7 +213,7 @@ table {
 .table-hover .table-secondary:hover,
 .table-hover .table-secondary:hover > th,
 .table-hover .table-secondary:hover > td {
-  background-color: black;
+  background-color: #2c3036;
 }
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
@@ -248,7 +248,7 @@ table {
 .table-hover .table-active:hover,
 .table-hover .table-active:hover > th,
 .table-hover .table-active:hover > td {
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: rgba(56, 61, 68, 0.075);
 }
 
 label,
@@ -272,11 +272,11 @@ label,
 .nav-tabs .nav-link.disabled:hover,
 .nav-tabs .nav-link.disabled:focus {
   border-color: rgba(0, 0, 0, 0.1);
-  background-color: #eee;
+  background-color: #e9ecef;
 }
 .nav-tabs .nav-link:hover,
 .nav-tabs .nav-link:focus {
-  background-color: #fbfbfb;
+  background-color: #f8f9fa;
 }
 
 .nav-pills .active {
@@ -342,7 +342,7 @@ label,
 .alert-secondary,
 .alert-secondary > th,
 .alert-secondary > td {
-  background-color: #000;
+  background-color: #383d44;
 }
 .alert-success,
 .alert-success > th,
@@ -384,7 +384,7 @@ label,
 .alert-secondary .alert-link, .alert-light,
 .alert-light a:not(.btn),
 .alert-light .alert-link {
-  color: #222;
+  color: #212529;
 }
 
 .badge {
@@ -436,20 +436,20 @@ main .header {
   background-color: #fff;
 }
 main .header__nav a {
-  color: #000;
+  color: #383d44;
 }
 main .header__nav a:hover {
-  border-bottom-color: #888;
+  border-bottom-color: #6c757d;
   color: #adb5bd;
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #eee;
+  border: solid 1px #e9ecef;
 }
 main #cart-button i:before {
   content: "";
   display: inline-block;
-  background-color: #000;
+  background-color: #383d44;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
@@ -465,7 +465,7 @@ main #cart-button i:before {
 main #user-button i:before {
   content: "";
   display: inline-block;
-  background-color: #000;
+  background-color: #383d44;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
@@ -479,11 +479,11 @@ main #user-button i:before {
   }
 }
 main .info-bar {
-  background-color: #000;
+  background-color: #383d44;
 }
 main .footer {
   background-color: #fff;
 }
 main .go-to-top {
-  background-color: #000;
+  background-color: #383d44;
 }

@@ -2,7 +2,7 @@
   background: #222222 linear-gradient(180deg, #434343, #222222) repeat-x;
 }
 .btn-secondary {
-  background: #000 linear-gradient(180deg, #262626, #000) repeat-x;
+  background: #383d44 linear-gradient(180deg, #565a60, #383d44) repeat-x;
 }
 .btn-success {
   background: #2aa198 linear-gradient(180deg, #4aafa7, #2aa198) repeat-x;
@@ -34,7 +34,7 @@
 .table-secondary,
 .table-secondary > th,
 .table-secondary > td {
-  background-color: #000;
+  background-color: #383d44;
 }
 .table-light,
 .table-light > th,
@@ -79,7 +79,7 @@
 .table-hover .table-secondary:hover,
 .table-hover .table-secondary:hover > th,
 .table-hover .table-secondary:hover > td {
-  background-color: black;
+  background-color: #2c3036;
 }
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
@@ -152,7 +152,7 @@
   background: #222222 linear-gradient(180deg, #434343, #222222) repeat-x;
 }
 .alert-secondary {
-  background: #000 linear-gradient(180deg, #262626, #000) repeat-x;
+  background: #383d44 linear-gradient(180deg, #565a60, #383d44) repeat-x;
 }
 .alert-success {
   background: #2aa198 linear-gradient(180deg, #4aafa7, #2aa198) repeat-x;
@@ -221,20 +221,20 @@ main .header {
   background-color: #fff;
 }
 main .header__nav a {
-  color: #000;
+  color: #383d44;
 }
 main .header__nav a:hover {
-  border-bottom-color: #839496;
+  border-bottom-color: #6c757d;
   color: #adb5bd;
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #eee8d5;
+  border: solid 1px #e9ecef;
 }
 main #cart-button i:before {
   content: "";
   display: inline-block;
-  background-color: #000;
+  background-color: #383d44;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
@@ -250,7 +250,7 @@ main #cart-button i:before {
 main #user-button i:before {
   content: "";
   display: inline-block;
-  background-color: #000;
+  background-color: #383d44;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
@@ -264,11 +264,11 @@ main #user-button i:before {
   }
 }
 main .info-bar {
-  background-color: #000;
+  background-color: #383d44;
 }
 main .footer {
   background-color: #fff;
 }
 main .go-to-top {
-  background-color: #000;
+  background-color: #383d44;
 }

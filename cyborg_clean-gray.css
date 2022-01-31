@@ -1,12 +1,12 @@
 .navbar.bg-primary {
-  border: 1px solid #282828;
+  border: 1px solid #495057;
 }
 .navbar.bg-dark {
   background-color: #060606 !important;
-  border: 1px solid #282828;
+  border: 1px solid #495057;
 }
 .navbar.bg-light {
-  background-color: #888 !important;
+  background-color: #adb5bd !important;
 }
 .navbar.fixed-top {
   border-width: 0 0 1px;
@@ -19,7 +19,7 @@
   background-color: #222222;
 }
 .btn-secondary {
-  background-color: #222;
+  background-color: #343a40;
 }
 .btn-success {
   background-color: #77b300;
@@ -52,7 +52,7 @@ table {
 .table-secondary,
 .table-secondary > th,
 .table-secondary > td {
-  background-color: #222;
+  background-color: #343a40;
 }
 .table-light,
 .table-light > th,
@@ -97,7 +97,7 @@ table {
 .table-hover .table-secondary:hover,
 .table-hover .table-secondary:hover > th,
 .table-hover .table-secondary:hover > td {
-  background-color: #151515;
+  background-color: #292d32;
 }
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
@@ -152,13 +152,13 @@ legend {
 }
 .nav-tabs .nav-link:hover,
 .nav-pills .nav-link:hover {
-  background-color: #282828;
+  background-color: #495057;
 }
 .nav-tabs .nav-link.disabled, .nav-tabs .nav-link.disabled:hover,
 .nav-pills .nav-link.disabled,
 .nav-pills .nav-link.disabled:hover {
   background-color: transparent;
-  color: #555;
+  color: #6c757d;
 }
 .nav-tabs .nav-link.active,
 .nav-pills .nav-link.active {
@@ -186,7 +186,7 @@ legend {
   background-color: #222222;
 }
 .alert-secondary {
-  background-color: #222;
+  background-color: #343a40;
 }
 .alert-success {
   background-color: #77b300;
@@ -219,14 +219,14 @@ legend {
 }
 
 .list-group-item:hover {
-  background-color: #282828;
+  background-color: #495057;
   color: #fff;
 }
 .list-group-item-action {
-  color: #888;
+  color: #adb5bd;
 }
 .list-group-item-action .list-group-item-heading {
-  color: #888;
+  color: #adb5bd;
 }
 .list-group-item:hover .list-group-item-heading {
   color: #fff;
@@ -267,18 +267,18 @@ main .top-bar__nav {
   font-size: 85%;
 }
 main .top-bar a.top-bar__countdown {
-  background-color: #222;
+  background-color: #343a40;
 }
 main .header {
   border-bottom: none;
 }
 main .header__nav a {
-  color: #222;
+  color: #343a40;
   border-bottom: solid 2px transparent;
 }
 main .header__nav a:hover {
-  border-bottom-color: #555;
+  border-bottom-color: #6c757d;
 }
 main #search-input {
-  border: solid 1px #555;
+  border: solid 1px #6c757d;
 }

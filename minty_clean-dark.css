@@ -17,13 +17,13 @@
   color: #fff;
 }
 .btn-light, .btn-light:hover {
-  color: #5a5a5a;
+  color: #495057;
 }
 .btn-link, .btn-link:hover {
   color: #222222;
 }
 .btn-link.disabled:hover {
-  color: #888;
+  color: #6c757d;
 }
 .btn-outline-primary {
   color: #222222;
@@ -47,7 +47,7 @@
   color: #343a40;
 }
 .btn-outline-light {
-  color: #5a5a5a;
+  color: #495057;
 }
 
 .table-primary, .table-secondary, .table-success, .table-info, .table-warning, .table-danger {
@@ -66,7 +66,7 @@
 .table-light,
 .table-light > th,
 .table-light > td {
-  background-color: #5a5a5a;
+  background-color: #495057;
 }
 .table-dark,
 .table-dark > th,
@@ -111,7 +111,7 @@
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
 .table-hover .table-light:hover > td {
-  background-color: #4d4d4d;
+  background-color: #3d4349;
 }
 .table-hover .table-dark:hover,
 .table-hover .table-dark:hover > th,
@@ -218,7 +218,7 @@ legend {
 .alert-light,
 .alert-light > th,
 .alert-light > td {
-  background-color: #5a5a5a;
+  background-color: #495057;
 }
 .alert-light,
 .alert-light a:not(.btn),
@@ -230,7 +230,7 @@ legend {
   color: #fff;
 }
 .badge-light {
-  color: #5a5a5a;
+  color: #495057;
 }
 
 .card h1,
@@ -256,7 +256,7 @@ main .top-bar {
   background-color: #000;
 }
 main .top-bar a {
-  color: #f7f7f9;
+  color: #e9ecef;
 }
 main .top-bar__nav {
   font-size: 75%;
@@ -264,7 +264,7 @@ main .top-bar__nav {
 main .top-bar a.top-bar__countdown {
   background-color: #000;
   color: #fff;
-  filter: drop-shadow(1px 1px 2px #aaa);
+  filter: drop-shadow(1px 1px 2px #adb5bd);
 }
 main .header {
   border-bottom: none;
@@ -279,7 +279,7 @@ main .header__nav a:hover {
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #888;
+  border: solid 1px #6c757d;
 }
 main #cart-button i:before {
   content: "";
@@ -315,7 +315,7 @@ main #user-button i:before {
 }
 main .info-bar {
   background-color: #000;
-  color: #f7f7f9;
+  color: #e9ecef;
 }
 main .account-addresses__card {
   background-color: #212529;
@@ -324,7 +324,7 @@ main .footer {
   background-color: #000;
 }
 main .footer__title {
-  color: #f7f7f9;
+  color: #e9ecef;
 }
 main .footer__payment-methods i {
   filter: contrast(60%);
@@ -346,7 +346,7 @@ main .minicart__aside {
 }
 main .cart__info {
   background-color: #000;
-  border: solid 1px #888;
+  border: solid 1px #6c757d;
 }
 main .login__info {
   background-color: #212529;

@@ -27,7 +27,7 @@
 .table-light,
 .table-light > th,
 .table-light > td {
-  background-color: #7b8a8b;
+  background-color: #495057;
 }
 .table-dark,
 .table-dark > th,
@@ -72,7 +72,7 @@
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
 .table-hover .table-light:hover > td {
-  background-color: #6f7d7e;
+  background-color: #3d4349;
 }
 .table-hover .table-dark:hover,
 .table-hover .table-dark:hover > th,
@@ -158,7 +158,7 @@
   background-color: #e74c3c;
 }
 .alert-light {
-  background-color: #7b8a8b;
+  background-color: #495057;
 }
 .alert-dark {
   background-color: #7b8a8b;
@@ -200,7 +200,7 @@ main .top-bar {
   background-color: #000;
 }
 main .top-bar a {
-  color: #ecf0f1;
+  color: #e9ecef;
 }
 main .top-bar__nav {
   font-size: 75%;
@@ -208,7 +208,7 @@ main .top-bar__nav {
 main .top-bar a.top-bar__countdown {
   background-color: #000;
   color: #fff;
-  filter: drop-shadow(1px 1px 2px #b4bcc2);
+  filter: drop-shadow(1px 1px 2px #adb5bd);
 }
 main .header {
   border-bottom: none;
@@ -223,7 +223,7 @@ main .header__nav a:hover {
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #95a5a6;
+  border: solid 1px #6c757d;
 }
 main #cart-button i:before {
   content: "";
@@ -259,7 +259,7 @@ main #user-button i:before {
 }
 main .info-bar {
   background-color: #000;
-  color: #ecf0f1;
+  color: #e9ecef;
 }
 main .account-addresses__card {
   background-color: #212529;
@@ -268,7 +268,7 @@ main .footer {
   background-color: #000;
 }
 main .footer__title {
-  color: #ecf0f1;
+  color: #e9ecef;
 }
 main .footer__payment-methods i {
   filter: contrast(60%);
@@ -290,7 +290,7 @@ main .minicart__aside {
 }
 main .cart__info {
   background-color: #000;
-  border: solid 1px #95a5a6;
+  border: solid 1px #6c757d;
 }
 main .login__info {
   background-color: #212529;

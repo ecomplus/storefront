@@ -28,7 +28,7 @@ footer {
 }
 
 .lead {
-  color: #868e96;
+  color: #6c757d;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
@@ -74,7 +74,7 @@ table-primary, table-secondary, table-success, table-info, table-warning, table-
 .table-info,
 .table-info > th,
 .table-info > td {
-  background-color: #ddd;
+  background-color: #dee2e6;
 }
 .table-danger,
 .table-danger > th,
@@ -119,7 +119,7 @@ table-primary, table-secondary, table-success, table-info, table-warning, table-
 .table-hover .table-info:hover,
 .table-hover .table-info:hover > th,
 .table-hover .table-info:hover > td {
-  background-color: #d0d0d0;
+  background-color: #cfd5db;
 }
 .table-hover .table-danger:hover,
 .table-hover .table-danger:hover > th,
@@ -171,7 +171,7 @@ table-primary, table-secondary, table-success, table-info, table-warning, table-
   background-color: #02b875;
 }
 .alert-info {
-  background-color: #ddd;
+  background-color: #dee2e6;
 }
 .alert-warning {
   background-color: #f0ad4e;
@@ -249,8 +249,8 @@ main .header__nav a {
   border-bottom: solid 2px transparent;
 }
 main .header__nav a:hover {
-  border-bottom-color: #868e96;
+  border-bottom-color: #6c757d;
 }
 main #search-input {
-  border: solid 1px #868e96;
+  border: solid 1px #6c757d;
 }

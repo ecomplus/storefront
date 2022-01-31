@@ -1,5 +1,5 @@
 .blockquote-footer {
-  color: #888;
+  color: #6c757d;
 }
 
 .table-primary,
@@ -10,7 +10,7 @@
 .table-secondary,
 .table-secondary > th,
 .table-secondary > td {
-  background-color: #000;
+  background-color: #383d44;
 }
 .table-light,
 .table-light > th,
@@ -45,7 +45,7 @@
 .table-active,
 .table-active > th,
 .table-active > td {
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: rgba(56, 61, 68, 0.075);
 }
 .table-hover .table-primary:hover,
 .table-hover .table-primary:hover > th,
@@ -55,7 +55,7 @@
 .table-hover .table-secondary:hover,
 .table-hover .table-secondary:hover > th,
 .table-hover .table-secondary:hover > td {
-  background-color: black;
+  background-color: #2c3036;
 }
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
@@ -90,7 +90,7 @@
 .table-hover .table-active:hover,
 .table-hover .table-active:hover > th,
 .table-hover .table-active:hover > td {
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: rgba(56, 61, 68, 0.075);
 }
 
 .input-group-addon {
@@ -142,7 +142,7 @@
   background-color: #222222;
 }
 .alert-secondary {
-  background-color: #000;
+  background-color: #383d44;
 }
 .alert-success {
   background-color: #00bc8c;
@@ -167,7 +167,7 @@
   color: #fff;
 }
 .list-group-item-action:hover, .list-group-item-action:focus {
-  background-color: #444;
+  background-color: #495057;
   color: #fff;
 }
 .list-group-item-action .list-group-item-heading {
@@ -197,7 +197,7 @@ main .top-bar__nav {
 }
 main .top-bar a.top-bar__countdown {
   background-color: #fff;
-  color: #444;
+  color: #495057;
   filter: drop-shadow(8px 8px 10px #adb5bd);
 }
 main .header {
@@ -205,20 +205,20 @@ main .header {
   background-color: #fff;
 }
 main .header__nav a {
-  color: #000;
+  color: #383d44;
 }
 main .header__nav a:hover {
-  border-bottom-color: #888;
+  border-bottom-color: #6c757d;
   color: #adb5bd;
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #ebebeb;
+  border: solid 1px #e9ecef;
 }
 main #cart-button i:before {
   content: "";
   display: inline-block;
-  background-color: #000;
+  background-color: #383d44;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
@@ -234,7 +234,7 @@ main #cart-button i:before {
 main #user-button i:before {
   content: "";
   display: inline-block;
-  background-color: #000;
+  background-color: #383d44;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
@@ -248,11 +248,11 @@ main #user-button i:before {
   }
 }
 main .info-bar {
-  background-color: #000;
+  background-color: #383d44;
 }
 main .footer {
   background-color: #fff;
 }
 main .go-to-top {
-  background-color: #000;
+  background-color: #383d44;
 }

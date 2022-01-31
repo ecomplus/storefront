@@ -3,11 +3,11 @@
 }
 
 .bg-dark {
-  background-color: #000 !important;
+  background-color: #383d44 !important;
 }
 
 .border-dark {
-  border-color: #000 !important;
+  border-color: #383d44 !important;
 }
 
 .btn {
@@ -17,19 +17,19 @@
   color: #fff;
 }
 .btn-light, .btn-light:hover {
-  color: #5a5a5a;
+  color: #495057;
 }
 .btn-link, .btn-link:hover {
   color: #222222;
 }
 .btn-link.disabled:hover {
-  color: #888;
+  color: #6c757d;
 }
 .btn-outline-primary {
   color: #222222;
 }
 .btn-outline-secondary {
-  color: #000;
+  color: #383d44;
 }
 .btn-outline-success {
   color: #56cc9d;
@@ -61,7 +61,7 @@
 .table-secondary,
 .table-secondary > th,
 .table-secondary > td {
-  background-color: #000;
+  background-color: #383d44;
 }
 .table-light,
 .table-light > th,
@@ -96,7 +96,7 @@
 .table-active,
 .table-active > th,
 .table-active > td {
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: rgba(56, 61, 68, 0.075);
 }
 .table-hover .table-primary:hover,
 .table-hover .table-primary:hover > th,
@@ -106,7 +106,7 @@
 .table-hover .table-secondary:hover,
 .table-hover .table-secondary:hover > th,
 .table-hover .table-secondary:hover > td {
-  background-color: black;
+  background-color: #2c3036;
 }
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
@@ -141,7 +141,7 @@
 .table-hover .table-active:hover,
 .table-hover .table-active:hover > th,
 .table-hover .table-active:hover > td {
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: rgba(56, 61, 68, 0.075);
 }
 .table .thead-dark th {
   background-color: #222222;
@@ -188,7 +188,7 @@ legend {
 .alert-secondary,
 .alert-secondary > th,
 .alert-secondary > td {
-  background-color: #000;
+  background-color: #383d44;
 }
 .alert-success,
 .alert-success > th,
@@ -230,7 +230,7 @@ legend {
   color: #fff;
 }
 .badge-light {
-  color: #5a5a5a;
+  color: #495057;
 }
 
 .card h1,
@@ -262,28 +262,28 @@ main .top-bar__nav {
 }
 main .top-bar a.top-bar__countdown {
   background-color: #fff;
-  color: #5a5a5a;
-  filter: drop-shadow(8px 8px 10px #aaa);
+  color: #495057;
+  filter: drop-shadow(8px 8px 10px #adb5bd);
 }
 main .header {
   border-bottom: none;
   background-color: #fff;
 }
 main .header__nav a {
-  color: #000;
+  color: #383d44;
 }
 main .header__nav a:hover {
-  border-bottom-color: #888;
-  color: #aaa;
+  border-bottom-color: #6c757d;
+  color: #adb5bd;
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #f7f7f9;
+  border: solid 1px #e9ecef;
 }
 main #cart-button i:before {
   content: "";
   display: inline-block;
-  background-color: #000;
+  background-color: #383d44;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
@@ -299,7 +299,7 @@ main #cart-button i:before {
 main #user-button i:before {
   content: "";
   display: inline-block;
-  background-color: #000;
+  background-color: #383d44;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
@@ -313,11 +313,11 @@ main #user-button i:before {
   }
 }
 main .info-bar {
-  background-color: #000;
+  background-color: #383d44;
 }
 main .footer {
   background-color: #fff;
 }
 main .go-to-top {
-  background-color: #000;
+  background-color: #383d44;
 }

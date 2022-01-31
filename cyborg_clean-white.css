@@ -1,12 +1,12 @@
 .navbar.bg-primary {
-  border: 1px solid #282828;
+  border: 1px solid #495057;
 }
 .navbar.bg-dark {
   background-color: #060606 !important;
-  border: 1px solid #282828;
+  border: 1px solid #495057;
 }
 .navbar.bg-light {
-  background-color: #888 !important;
+  background-color: #adb5bd !important;
 }
 .navbar.fixed-top {
   border-width: 0 0 1px;
@@ -19,7 +19,7 @@
   background-color: #222222;
 }
 .btn-secondary {
-  background-color: #000;
+  background-color: #383d44;
 }
 .btn-success {
   background-color: #77b300;
@@ -52,7 +52,7 @@ table {
 .table-secondary,
 .table-secondary > th,
 .table-secondary > td {
-  background-color: #000;
+  background-color: #383d44;
 }
 .table-light,
 .table-light > th,
@@ -97,7 +97,7 @@ table {
 .table-hover .table-secondary:hover,
 .table-hover .table-secondary:hover > th,
 .table-hover .table-secondary:hover > td {
-  background-color: black;
+  background-color: #2c3036;
 }
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
@@ -152,13 +152,13 @@ legend {
 }
 .nav-tabs .nav-link:hover,
 .nav-pills .nav-link:hover {
-  background-color: #282828;
+  background-color: #495057;
 }
 .nav-tabs .nav-link.disabled, .nav-tabs .nav-link.disabled:hover,
 .nav-pills .nav-link.disabled,
 .nav-pills .nav-link.disabled:hover {
   background-color: transparent;
-  color: #555;
+  color: #6c757d;
 }
 .nav-tabs .nav-link.active,
 .nav-pills .nav-link.active {
@@ -186,7 +186,7 @@ legend {
   background-color: #222222;
 }
 .alert-secondary {
-  background-color: #000;
+  background-color: #383d44;
 }
 .alert-success {
   background-color: #77b300;
@@ -219,14 +219,14 @@ legend {
 }
 
 .list-group-item:hover {
-  background-color: #282828;
+  background-color: #495057;
   color: #fff;
 }
 .list-group-item-action {
-  color: #888;
+  color: #adb5bd;
 }
 .list-group-item-action .list-group-item-heading {
-  color: #888;
+  color: #adb5bd;
 }
 .list-group-item:hover .list-group-item-heading {
   color: #fff;
@@ -269,19 +269,19 @@ main .top-bar__nav {
 }
 main .top-bar a.top-bar__countdown {
   background-color: #fff;
-  color: #282828;
-  filter: drop-shadow(8px 8px 10px #888);
+  color: #495057;
+  filter: drop-shadow(8px 8px 10px #adb5bd);
 }
 main .header {
   border-bottom: none;
   background-color: #fff;
 }
 main .header__nav a {
-  color: #000;
+  color: #383d44;
 }
 main .header__nav a:hover {
-  border-bottom-color: #555;
-  color: #888;
+  border-bottom-color: #6c757d;
+  color: #adb5bd;
   background-color: transparent;
 }
 main #search-input {
@@ -290,7 +290,7 @@ main #search-input {
 main #cart-button i:before {
   content: "";
   display: inline-block;
-  background-color: #000;
+  background-color: #383d44;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
@@ -306,7 +306,7 @@ main #cart-button i:before {
 main #user-button i:before {
   content: "";
   display: inline-block;
-  background-color: #000;
+  background-color: #383d44;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
@@ -320,11 +320,11 @@ main #user-button i:before {
   }
 }
 main .info-bar {
-  background-color: #000;
+  background-color: #383d44;
 }
 main .footer {
   background-color: #fff;
 }
 main .go-to-top {
-  background-color: #000;
+  background-color: #383d44;
 }

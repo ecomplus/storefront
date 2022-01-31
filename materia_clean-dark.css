@@ -143,7 +143,7 @@
   top: 0;
   left: 0;
   margin-left: 0;
-  background-image: radial-gradient(circle, #bbb 10%, transparent 10.01%);
+  background-image: radial-gradient(circle, #adb5bd 10%, transparent 10.01%);
   background-repeat: no-repeat;
   background-size: 1000% 1000%;
   background-position: 50%;
@@ -173,7 +173,7 @@
   top: 0;
   left: 0;
   margin-left: 0;
-  background-image: radial-gradient(circle, #bbb 10%, transparent 10.01%);
+  background-image: radial-gradient(circle, #adb5bd 10%, transparent 10.01%);
   background-repeat: no-repeat;
   background-size: 1000% 1000%;
   background-position: 50%;
@@ -545,11 +545,11 @@
   position: relative;
 }
 .btn-light:focus {
-  background-color: #444;
+  background-color: #495057;
   box-shadow: 0 0 0 2px rgba(204, 204, 204, 0.5);
 }
 .btn-light:hover, .btn-light:active:hover {
-  background-color: #353535;
+  background-color: #3b4146;
 }
 .btn-light:active {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
@@ -627,7 +627,7 @@
   text-decoration: underline;
 }
 .btn-link.disabled:hover, .btn-link.disabled:active:hover, .btn-link[disabled]:hover, .btn-link[disabled]:active:hover, fieldset[disabled] .btn-link:hover, fieldset[disabled] .btn-link:active:hover {
-  color: #666;
+  color: #6c757d;
   text-decoration: none;
 }
 .btn-secondary.disabled, .btn-secondary[disabled], fieldset[disabled] .btn-secondary {
@@ -639,7 +639,7 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 .btn-outline-secondary {
-  border-color: #eee;
+  border-color: #e9ecef;
   color: #dee2e6;
 }
 .btn-warning {
@@ -683,7 +683,7 @@ p {
 }
 
 .text-secondary {
-  color: #bbb !important;
+  color: #adb5bd !important;
 }
 
 .table-hover > tbody > tr,
@@ -806,7 +806,7 @@ select,
 select.form-control {
   appearance: none;
   padding: 0.5rem 0;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='4' viewBox='0 0 8 4'%3e%3cpolygon fill='%23666' points='8 0 4 4 0 0'/%3e%3c/svg%3e%0a");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='4' viewBox='0 0 8 4'%3e%3cpolygon fill='%236c757d' points='8 0 4 4 0 0'/%3e%3c/svg%3e%0a");
   background-size: 8px 4px;
   background-repeat: no-repeat;
   background-position: right center;
@@ -827,7 +827,7 @@ select.form-control.input-lg {
 select:focus,
 select.form-control:focus {
   box-shadow: inset 0 -2px 0 #222222;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='4' viewBox='0 0 8 4'%3e%3cpolygon fill='%23212121' points='8 0 4 4 0 0'/%3e%3c/svg%3e%0a");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='4' viewBox='0 0 8 4'%3e%3cpolygon fill='%23212529' points='8 0 4 4 0 0'/%3e%3c/svg%3e%0a");
 }
 select[multiple],
 select.form-control[multiple] {
@@ -873,14 +873,14 @@ select.form-control[multiple] {
 .custom-switch .custom-control-label::before {
   top: 0.125rem;
   height: 0.875rem;
-  background-color: #bbb;
+  background-color: #adb5bd;
   border: none;
 }
 .custom-switch .custom-control-input:disabled ~ .custom-control-label {
   opacity: 0.7;
 }
 .custom-switch .custom-control-input:disabled ~ .custom-control-label::before {
-  background-color: #bbb;
+  background-color: #adb5bd;
 }
 .custom-switch .custom-control-label::after {
   background-color: #fff;
@@ -911,7 +911,7 @@ select.form-control[multiple] {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 0 9px rgba(33, 150, 243, 0.16);
 }
 .custom-switch .custom-control-input:active:not(:checked) ~ .custom-control-label::before {
-  background-color: #bbb;
+  background-color: #adb5bd;
 }
 
 .has-warning input:not([type=checkbox]),
@@ -1089,7 +1089,7 @@ select.form-control[multiple] {
   background: #e51c23 linear-gradient(180deg, #c3181e, #e51c23) repeat-x;
 }
 .alert-light {
-  background: #444 linear-gradient(180deg, #3a3a3a, #444) repeat-x;
+  background: #495057 linear-gradient(180deg, #3e444a, #495057) repeat-x;
 }
 .alert-dark {
   background: #222 linear-gradient(180deg, #1d1d1d, #222) repeat-x;
@@ -1111,11 +1111,11 @@ select.form-control[multiple] {
 }
 
 .badge-secondary {
-  background-color: #bbb;
+  background-color: #adb5bd;
   color: #fff;
 }
 .badge-light {
-  background-color: #eee;
+  background-color: #e9ecef;
 }
 .badge-warning {
   color: #fff;
@@ -1193,7 +1193,7 @@ main .top-bar {
   background-color: #000;
 }
 main .top-bar a {
-  color: #eee;
+  color: #e9ecef;
 }
 main .top-bar__nav {
   font-size: 75%;
@@ -1201,7 +1201,7 @@ main .top-bar__nav {
 main .top-bar a.top-bar__countdown {
   background-color: #000;
   color: #fff;
-  filter: drop-shadow(1px 1px 2px #bbb);
+  filter: drop-shadow(1px 1px 2px #adb5bd);
 }
 main .header {
   border-bottom: none;
@@ -1216,7 +1216,7 @@ main .header__nav a:hover {
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #666;
+  border: solid 1px #6c757d;
 }
 main #cart-button i:before {
   content: "";
@@ -1252,16 +1252,16 @@ main #user-button i:before {
 }
 main .info-bar {
   background-color: #000;
-  color: #eee;
+  color: #e9ecef;
 }
 main .account-addresses__card {
-  background-color: #212121;
+  background-color: #212529;
 }
 main .footer {
   background-color: #000;
 }
 main .footer__title {
-  color: #eee;
+  color: #e9ecef;
 }
 main .footer__payment-methods i {
   filter: contrast(60%);
@@ -1270,29 +1270,29 @@ main .close {
   color: #fff;
 }
 main .search__box {
-  background-color: #222;
+  background-color: #343a40;
 }
 main .search-engine__nav {
-  background-color: #222;
+  background-color: #343a40;
 }
 main .checkout__info {
-  background-color: #212121;
+  background-color: #212529;
 }
 main .minicart__aside {
   background-color: #000;
 }
 main .cart__info {
   background-color: #000;
-  border: solid 1px #666;
+  border: solid 1px #6c757d;
 }
 main .login__info {
-  background-color: #212121;
+  background-color: #212529;
 }
 main .card-body {
-  background-color: #212121;
+  background-color: #212529;
 }
 main .html-clearfix {
-  background-color: #222;
+  background-color: #343a40;
 }
 
 .app .app__header {

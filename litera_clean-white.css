@@ -28,7 +28,7 @@ footer {
 }
 
 .lead {
-  color: #868e96;
+  color: #6c757d;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
@@ -54,7 +54,7 @@ table-primary, table-secondary, table-success, table-info, table-warning, table-
 .table-secondary,
 .table-secondary > th,
 .table-secondary > td {
-  background-color: #000;
+  background-color: #383d44;
 }
 .table-light,
 .table-light > th,
@@ -89,7 +89,7 @@ table-primary, table-secondary, table-success, table-info, table-warning, table-
 .table-active,
 .table-active > th,
 .table-active > td {
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: rgba(56, 61, 68, 0.075);
 }
 .table-hover .table-primary:hover,
 .table-hover .table-primary:hover > th,
@@ -99,7 +99,7 @@ table-primary, table-secondary, table-success, table-info, table-warning, table-
 .table-hover .table-secondary:hover,
 .table-hover .table-secondary:hover > th,
 .table-hover .table-secondary:hover > td {
-  background-color: black;
+  background-color: #2c3036;
 }
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
@@ -134,7 +134,7 @@ table-primary, table-secondary, table-success, table-info, table-warning, table-
 .table-hover .table-active:hover,
 .table-hover .table-active:hover > th,
 .table-hover .table-active:hover > td {
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: rgba(56, 61, 68, 0.075);
 }
 
 .nav,
@@ -165,7 +165,7 @@ table-primary, table-secondary, table-success, table-info, table-warning, table-
   background-color: #222222;
 }
 .alert-secondary {
-  background-color: #000;
+  background-color: #383d44;
 }
 .alert-success {
   background-color: #02b875;
@@ -249,10 +249,10 @@ main .header {
   background-color: #fff;
 }
 main .header__nav a {
-  color: #000;
+  color: #383d44;
 }
 main .header__nav a:hover {
-  border-bottom-color: #868e96;
+  border-bottom-color: #6c757d;
   color: #adb5bd;
   background-color: transparent;
 }
@@ -262,7 +262,7 @@ main #search-input {
 main #cart-button i:before {
   content: "";
   display: inline-block;
-  background-color: #000;
+  background-color: #383d44;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
@@ -278,7 +278,7 @@ main #cart-button i:before {
 main #user-button i:before {
   content: "";
   display: inline-block;
-  background-color: #000;
+  background-color: #383d44;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
@@ -292,11 +292,11 @@ main #user-button i:before {
   }
 }
 main .info-bar {
-  background-color: #000;
+  background-color: #383d44;
 }
 main .footer {
   background-color: #fff;
 }
 main .go-to-top {
-  background-color: #000;
+  background-color: #383d44;
 }

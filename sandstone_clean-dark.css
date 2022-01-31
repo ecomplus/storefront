@@ -7,7 +7,7 @@
 }
 
 .bg-light {
-  background-color: #f8f5f0 !important;
+  background-color: #e9ecef !important;
 }
 
 .sandstone, .tooltip, .dropdown-menu .dropdown-item, .pagination, .breadcrumb, .nav-pills .nav-link, .nav-tabs .nav-link, .btn, .navbar .nav-link {
@@ -33,41 +33,41 @@
 }
 
 .nav-tabs .nav-link {
-  background-color: #f8f5f0;
-  border-color: #dfd7ca;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
 }
 .nav-tabs .nav-link,
 .nav-tabs .nav-link:hover,
 .nav-tabs .nav-link:focus {
-  color: #8e8c84;
+  color: #6c757d;
 }
 .nav-tabs .nav-link.disabled,
 .nav-tabs .nav-link.disabled:hover,
 .nav-tabs .nav-link.disabled:focus {
-  background-color: #f8f5f0;
-  border-color: #dfd7ca;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
   color: #dfd7ca;
 }
 
 .nav-pills .nav-link {
   border: 1px solid transparent;
-  color: #8e8c84;
+  color: #6c757d;
 }
 .nav-pills .nav-link.active,
 .nav-pills .nav-link:hover,
 .nav-pills .nav-link:focus {
-  background-color: #f8f5f0;
-  border-color: #dfd7ca;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
 }
 .nav-pills .nav-link.disabled,
 .nav-pills .nav-link.disabled:hover {
   background-color: transparent;
   border-color: transparent;
-  color: #dfd7ca;
+  color: #dee2e6;
 }
 
 .breadcrumb {
-  border: 1px solid #dfd7ca;
+  border: 1px solid #dee2e6;
 }
 
 .pagination a:hover {
@@ -133,11 +133,11 @@
 }
 
 .close {
-  color: #dfd7ca;
+  color: #dee2e6;
   opacity: 1;
 }
 .close:hover {
-  color: #b9a78a;
+  color: #a4afba;
 }
 
 #ec-user-popover {
@@ -161,7 +161,7 @@ main .top-bar {
   background-color: #000;
 }
 main .top-bar a {
-  color: #f8f5f0;
+  color: #e9ecef;
 }
 main .top-bar__nav {
   font-size: 75%;
@@ -169,7 +169,7 @@ main .top-bar__nav {
 main .top-bar a.top-bar__countdown {
   background-color: #000;
   color: #fff;
-  filter: drop-shadow(1px 1px 2px #98978b);
+  filter: drop-shadow(1px 1px 2px #adb5bd);
 }
 main .header {
   border-bottom: none;
@@ -184,7 +184,7 @@ main .header__nav a:hover {
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #8e8c84;
+  border: solid 1px #6c757d;
 }
 main #cart-button i:before {
   content: "";
@@ -220,7 +220,7 @@ main #user-button i:before {
 }
 main .info-bar {
   background-color: #000;
-  color: #f8f5f0;
+  color: #e9ecef;
 }
 main .account-addresses__card {
   background-color: #212529;
@@ -229,7 +229,7 @@ main .footer {
   background-color: #000;
 }
 main .footer__title {
-  color: #f8f5f0;
+  color: #e9ecef;
 }
 main .footer__payment-methods i {
   filter: contrast(60%);
@@ -238,10 +238,10 @@ main .close {
   color: #fff;
 }
 main .search__box {
-  background-color: #3e3f3a;
+  background-color: #343a40;
 }
 main .search-engine__nav {
-  background-color: #3e3f3a;
+  background-color: #343a40;
 }
 main .checkout__info {
   background-color: #212529;
@@ -251,7 +251,7 @@ main .minicart__aside {
 }
 main .cart__info {
   background-color: #000;
-  border: solid 1px #8e8c84;
+  border: solid 1px #6c757d;
 }
 main .login__info {
   background-color: #212529;
@@ -260,7 +260,7 @@ main .card-body {
   background-color: #212529;
 }
 main .html-clearfix {
-  background-color: #3e3f3a;
+  background-color: #343a40;
 }
 
 .app .app__header {

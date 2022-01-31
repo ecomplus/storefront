@@ -3,11 +3,11 @@
 }
 
 .bg-dark {
-  background-color: #3e3f3a !important;
+  background-color: #343a40 !important;
 }
 
 .bg-light {
-  background-color: #f8f5f0 !important;
+  background-color: #e9ecef !important;
 }
 
 .sandstone, .tooltip, .dropdown-menu .dropdown-item, .pagination, .breadcrumb, .nav-pills .nav-link, .nav-tabs .nav-link, .btn, .navbar .nav-link {
@@ -33,41 +33,41 @@
 }
 
 .nav-tabs .nav-link {
-  background-color: #f8f5f0;
-  border-color: #dfd7ca;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
 }
 .nav-tabs .nav-link,
 .nav-tabs .nav-link:hover,
 .nav-tabs .nav-link:focus {
-  color: #8e8c84;
+  color: #6c757d;
 }
 .nav-tabs .nav-link.disabled,
 .nav-tabs .nav-link.disabled:hover,
 .nav-tabs .nav-link.disabled:focus {
-  background-color: #f8f5f0;
-  border-color: #dfd7ca;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
   color: #dfd7ca;
 }
 
 .nav-pills .nav-link {
   border: 1px solid transparent;
-  color: #8e8c84;
+  color: #6c757d;
 }
 .nav-pills .nav-link.active,
 .nav-pills .nav-link:hover,
 .nav-pills .nav-link:focus {
-  background-color: #f8f5f0;
-  border-color: #dfd7ca;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
 }
 .nav-pills .nav-link.disabled,
 .nav-pills .nav-link.disabled:hover {
   background-color: transparent;
   border-color: transparent;
-  color: #dfd7ca;
+  color: #dee2e6;
 }
 
 .breadcrumb {
-  border: 1px solid #dfd7ca;
+  border: 1px solid #dee2e6;
 }
 
 .pagination a:hover {
@@ -90,7 +90,7 @@
 .alert-secondary,
 .alert-secondary > th,
 .alert-secondary > td {
-  background-color: #3e3f3a;
+  background-color: #343a40;
 }
 .alert-success,
 .alert-success > th,
@@ -100,7 +100,7 @@
 .alert-info,
 .alert-info > th,
 .alert-info > td {
-  background-color: #dfd7ca;
+  background-color: #dee2e6;
 }
 .alert-danger,
 .alert-danger > th,
@@ -133,11 +133,11 @@
 }
 
 .close {
-  color: #dfd7ca;
+  color: #dee2e6;
   opacity: 1;
 }
 .close:hover {
-  color: #b9a78a;
+  color: #a4afba;
 }
 
 #ec-user-popover {
@@ -165,18 +165,18 @@ main .top-bar__nav {
   font-size: 85%;
 }
 main .top-bar a.top-bar__countdown {
-  background-color: #3e3f3a;
+  background-color: #343a40;
 }
 main .header {
   border-bottom: none;
 }
 main .header__nav a {
-  color: #3e3f3a;
+  color: #343a40;
   border-bottom: solid 2px transparent;
 }
 main .header__nav a:hover {
-  border-bottom-color: #8e8c84;
+  border-bottom-color: #6c757d;
 }
 main #search-input {
-  border: solid 1px #8e8c84;
+  border: solid 1px #6c757d;
 }

@@ -41,8 +41,8 @@
 }
 
 .btn-outline-secondary {
-  border-color: #919aa1;
-  color: #919aa1;
+  border-color: #6c757d;
+  color: #6c757d;
 }
 .btn-outline-secondary:not([disabled]):not(.disabled):hover, .btn-outline-secondary:not([disabled]):not(.disabled):focus, .btn-outline-secondary:not([disabled]):not(.disabled):active {
   background-color: #ced4da;
@@ -156,7 +156,7 @@ main .top-bar {
   background-color: #000;
 }
 main .top-bar a {
-  color: #f7f7f9;
+  color: #e9ecef;
 }
 main .top-bar__nav {
   font-size: 75%;
@@ -179,7 +179,7 @@ main .header__nav a:hover {
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #919aa1;
+  border: solid 1px #6c757d;
 }
 main #cart-button i:before {
   content: "";
@@ -215,16 +215,16 @@ main #user-button i:before {
 }
 main .info-bar {
   background-color: #000;
-  color: #f7f7f9;
+  color: #e9ecef;
 }
 main .account-addresses__card {
-  background-color: #1a1a1a;
+  background-color: #212529;
 }
 main .footer {
   background-color: #000;
 }
 main .footer__title {
-  color: #f7f7f9;
+  color: #e9ecef;
 }
 main .footer__payment-methods i {
   filter: contrast(60%);
@@ -239,20 +239,20 @@ main .search-engine__nav {
   background-color: #343a40;
 }
 main .checkout__info {
-  background-color: #1a1a1a;
+  background-color: #212529;
 }
 main .minicart__aside {
   background-color: #000;
 }
 main .cart__info {
   background-color: #000;
-  border: solid 1px #919aa1;
+  border: solid 1px #6c757d;
 }
 main .login__info {
-  background-color: #1a1a1a;
+  background-color: #212529;
 }
 main .card-body {
-  background-color: #1a1a1a;
+  background-color: #212529;
 }
 main .html-clearfix {
   background-color: #343a40;

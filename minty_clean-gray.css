@@ -17,13 +17,13 @@
   color: #fff;
 }
 .btn-light, .btn-light:hover {
-  color: #5a5a5a;
+  color: #495057;
 }
 .btn-link, .btn-link:hover {
   color: #222222;
 }
 .btn-link.disabled:hover {
-  color: #888;
+  color: #6c757d;
 }
 .btn-outline-primary {
   color: #222222;
@@ -35,7 +35,7 @@
   color: #56cc9d;
 }
 .btn-outline-info {
-  color: #eceeef;
+  color: #dee2e6;
 }
 .btn-outline-warning {
   color: #ffce67;
@@ -81,7 +81,7 @@
 .table-info,
 .table-info > th,
 .table-info > td {
-  background-color: #eceeef;
+  background-color: #dee2e6;
 }
 .table-danger,
 .table-danger > th,
@@ -126,7 +126,7 @@
 .table-hover .table-info:hover,
 .table-hover .table-info:hover > th,
 .table-hover .table-info:hover > td {
-  background-color: #dee2e3;
+  background-color: #cfd5db;
 }
 .table-hover .table-danger:hover,
 .table-hover .table-danger:hover > th,
@@ -198,7 +198,7 @@ legend {
 .alert-info,
 .alert-info > th,
 .alert-info > td {
-  background-color: #eceeef;
+  background-color: #dee2e6;
 }
 .alert-danger,
 .alert-danger > th,
@@ -230,7 +230,7 @@ legend {
   color: #fff;
 }
 .badge-light {
-  color: #5a5a5a;
+  color: #495057;
 }
 
 .card h1,
@@ -270,8 +270,8 @@ main .header__nav a {
   border-bottom: solid 2px transparent;
 }
 main .header__nav a:hover {
-  border-bottom-color: #888;
+  border-bottom-color: #6c757d;
 }
 main #search-input {
-  border: solid 1px #888;
+  border: solid 1px #6c757d;
 }

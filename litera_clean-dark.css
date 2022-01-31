@@ -28,7 +28,7 @@ footer {
 }
 
 .lead {
-  color: #868e96;
+  color: #6c757d;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
@@ -258,7 +258,7 @@ main .header__nav a:hover {
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #868e96;
+  border: solid 1px #6c757d;
 }
 main #cart-button i:before {
   content: "";
@@ -325,7 +325,7 @@ main .minicart__aside {
 }
 main .cart__info {
   background-color: #000;
-  border: solid 1px #868e96;
+  border: solid 1px #6c757d;
 }
 main .login__info {
   background-color: #212529;

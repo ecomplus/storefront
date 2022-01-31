@@ -48,7 +48,7 @@
   border-color: #ff7702;
 }
 .btn-light {
-  border-color: #484848;
+  border-color: #3d4349;
 }
 .btn-dark {
   border-color: #484848;
@@ -68,11 +68,11 @@
 }
 
 .text-secondary {
-  color: #555 !important;
+  color: #495057 !important;
 }
 
 .blockquote-footer {
-  color: #999;
+  color: #6c757d;
 }
 
 .table-primary, .table-success, .table-info, .table-warning, .table-danger {
@@ -99,7 +99,7 @@
 .table-light,
 .table-light > th,
 .table-light > td {
-  background-color: #555;
+  background-color: #495057;
 }
 .table-dark,
 .table-dark > th,
@@ -144,7 +144,7 @@
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
 .table-hover .table-light:hover > td {
-  background-color: #484848;
+  background-color: #3d4349;
 }
 .table-hover .table-dark:hover,
 .table-hover .table-dark:hover > th,
@@ -193,7 +193,7 @@
 }
 
 .nav-tabs .nav-link {
-  color: #f6f6f6;
+  color: #f8f9fa;
 }
 .nav-tabs .nav-link, .nav-tabs .nav-link.disabled, .nav-tabs .nav-link.disabled:hover, .nav-tabs .nav-link.disabled:focus {
   margin-top: 6px;
@@ -314,8 +314,8 @@
   border-color: #484848;
 }
 .alert-light {
-  background-color: #555;
-  border-color: #484848;
+  background-color: #495057;
+  border-color: #3d4349;
 }
 .alert .alert-link {
   font-weight: 400;
@@ -327,7 +327,7 @@
 .alert-secondary .alert-link, .alert-light,
 .alert-light a,
 .alert-light .alert-link {
-  color: #f6f6f6;
+  color: #f8f9fa;
 }
 
 .badge-warning, .badge-info {
@@ -354,7 +354,7 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 }
 
 .jumbotron {
-  border: 1px solid #f0f0f0;
+  border: 1px solid #e9ecef;
   box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.05);
 }
 
@@ -372,7 +372,7 @@ main .top-bar {
   background-color: #000;
 }
 main .top-bar a {
-  color: #f0f0f0;
+  color: #e9ecef;
 }
 main .top-bar__nav {
   font-size: 75%;
@@ -390,12 +390,12 @@ main .header__nav a {
   color: #fff;
 }
 main .header__nav a:hover {
-  border-bottom-color: #f6f6f6;
+  border-bottom-color: #f8f9fa;
   color: #222222;
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #999;
+  border: solid 1px #6c757d;
 }
 main #cart-button i:before {
   content: "";
@@ -431,16 +431,16 @@ main #user-button i:before {
 }
 main .info-bar {
   background-color: #000;
-  color: #f0f0f0;
+  color: #e9ecef;
 }
 main .account-addresses__card {
-  background-color: #222;
+  background-color: #212529;
 }
 main .footer {
   background-color: #000;
 }
 main .footer__title {
-  color: #f0f0f0;
+  color: #e9ecef;
 }
 main .footer__payment-methods i {
   filter: contrast(60%);
@@ -449,29 +449,29 @@ main .close {
   color: #fff;
 }
 main .search__box {
-  background-color: #333;
+  background-color: #343a40;
 }
 main .search-engine__nav {
-  background-color: #333;
+  background-color: #343a40;
 }
 main .checkout__info {
-  background-color: #222;
+  background-color: #212529;
 }
 main .minicart__aside {
   background-color: #000;
 }
 main .cart__info {
   background-color: #000;
-  border: solid 1px #999;
+  border: solid 1px #6c757d;
 }
 main .login__info {
-  background-color: #222;
+  background-color: #212529;
 }
 main .card-body {
-  background-color: #222;
+  background-color: #212529;
 }
 main .html-clearfix {
-  background-color: #333;
+  background-color: #343a40;
 }
 
 .app .app__header {

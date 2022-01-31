@@ -18,10 +18,10 @@
 }
 
 .bg-dark {
-  background-color: #333 !important;
+  background-color: #343a40 !important;
 }
 .bg-dark .dropdown-menu {
-  background-color: #333;
+  background-color: #343a40;
 }
 .bg-dark .dropdown-menu .dropdown-item,
 .bg-dark .dropdown-menu .dropdown-item:focus {
@@ -30,12 +30,12 @@
 .bg-dark .dropdown-menu .dropdown-item.active,
 .bg-dark .dropdown-menu .dropdown-item:hover,
 .bg-dark .dropdown-menu .dropdown-item:focus {
-  background-color: #262626;
+  background-color: #292d32;
   color: #fff;
 }
 
 .bg-light .dropdown-menu {
-  background-color: #eee;
+  background-color: #e9ecef;
 }
 .bg-light .dropdown-menu .dropdown-item,
 .bg-light .dropdown-menu .dropdown-item:focus {
@@ -44,7 +44,7 @@
 .bg-light .dropdown-menu .dropdown-item.active,
 .bg-light .dropdown-menu .dropdown-item:hover,
 .bg-light .dropdown-menu .dropdown-item:focus {
-  background-color: #fbfbfb;
+  background-color: #f8f9fa;
   color: rgba(0, 0, 0, 0.7);
 }
 
@@ -150,7 +150,7 @@
 }
 
 .blockquote-footer {
-  color: #888;
+  color: #6c757d;
 }
 
 table {
@@ -272,11 +272,11 @@ label,
 .nav-tabs .nav-link.disabled:hover,
 .nav-tabs .nav-link.disabled:focus {
   border-color: rgba(0, 0, 0, 0.1);
-  background-color: #eee;
+  background-color: #e9ecef;
 }
 .nav-tabs .nav-link:hover,
 .nav-tabs .nav-link:focus {
-  background-color: #fbfbfb;
+  background-color: #f8f9fa;
 }
 
 .nav-pills .active {
@@ -422,7 +422,7 @@ main .top-bar {
   background-color: #000;
 }
 main .top-bar a {
-  color: #eee;
+  color: #e9ecef;
 }
 main .top-bar__nav {
   font-size: 75%;
@@ -445,7 +445,7 @@ main .header__nav a:hover {
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #888;
+  border: solid 1px #6c757d;
 }
 main #cart-button i:before {
   content: "";
@@ -481,16 +481,16 @@ main #user-button i:before {
 }
 main .info-bar {
   background-color: #000;
-  color: #eee;
+  color: #e9ecef;
 }
 main .account-addresses__card {
-  background-color: #222;
+  background-color: #212529;
 }
 main .footer {
   background-color: #000;
 }
 main .footer__title {
-  color: #eee;
+  color: #e9ecef;
 }
 main .footer__payment-methods i {
   filter: contrast(60%);
@@ -499,29 +499,29 @@ main .close {
   color: #fff;
 }
 main .search__box {
-  background-color: #333;
+  background-color: #343a40;
 }
 main .search-engine__nav {
-  background-color: #333;
+  background-color: #343a40;
 }
 main .checkout__info {
-  background-color: #222;
+  background-color: #212529;
 }
 main .minicart__aside {
   background-color: #000;
 }
 main .cart__info {
   background-color: #000;
-  border: solid 1px #888;
+  border: solid 1px #6c757d;
 }
 main .login__info {
-  background-color: #222;
+  background-color: #212529;
 }
 main .card-body {
-  background-color: #222;
+  background-color: #212529;
 }
 main .html-clearfix {
-  background-color: #333;
+  background-color: #343a40;
 }
 
 .app .app__header {

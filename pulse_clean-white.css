@@ -4,17 +4,17 @@
 .btn-secondary {
   background-color: #fff;
   border-color: #ccc;
-  color: #17141f;
+  color: #212529;
 }
 .btn-secondary:hover {
-  background-color: #ededed;
+  background-color: #dee2e6;
   border-color: #adb5bd;
-  color: #17141f;
+  color: #212529;
 }
 .btn-secondary.disabled {
   background-color: #fff;
   border-color: #d9d9d9;
-  color: #231e2f;
+  color: #2c3237;
 }
 .btn-warning {
   color: #fff;
@@ -23,7 +23,7 @@
   box-shadow: 0 0 5px #3c3c3c;
 }
 .btn-secondary:focus {
-  box-shadow: 0 0 5px #cbc8d0;
+  box-shadow: 0 0 5px #ced4da;
 }
 .btn-success:focus {
   box-shadow: 0 0 5px #18e76a;
@@ -42,7 +42,7 @@
 }
 
 .table .thead-dark th {
-  background-color: #000;
+  background-color: #383d44;
   border-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -65,7 +65,7 @@
 }
 
 .breadcrumb-item.active {
-  color: #444;
+  color: #495057;
 }
 
 .badge {
@@ -109,7 +109,7 @@ main .top-bar__nav {
 }
 main .top-bar a.top-bar__countdown {
   background-color: #fff;
-  color: #444;
+  color: #495057;
   filter: drop-shadow(8px 8px 10px #adb5bd);
 }
 main .header {
@@ -117,20 +117,20 @@ main .header {
   background-color: #fff;
 }
 main .header__nav a {
-  color: #000;
+  color: #383d44;
 }
 main .header__nav a:hover {
-  border-bottom-color: #868e96;
+  border-bottom-color: #6c757d;
   color: #adb5bd;
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #f9f8fc;
+  border: solid 1px #e9ecef;
 }
 main #cart-button i:before {
   content: "";
   display: inline-block;
-  background-color: #000;
+  background-color: #383d44;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/cart.svg") no-repeat 50% 50%;
@@ -146,7 +146,7 @@ main #cart-button i:before {
 main #user-button i:before {
   content: "";
   display: inline-block;
-  background-color: #000;
+  background-color: #383d44;
   width: 36px;
   height: 36px;
   -webkit-mask: url("https://ecom.nyc3.digitaloceanspaces.com/storefront/clean/login.svg") no-repeat 50% 50%;
@@ -160,11 +160,11 @@ main #user-button i:before {
   }
 }
 main .info-bar {
-  background-color: #000;
+  background-color: #383d44;
 }
 main .footer {
   background-color: #fff;
 }
 main .go-to-top {
-  background-color: #000;
+  background-color: #383d44;
 }

@@ -14,7 +14,7 @@ main .top-bar__nav {
 main .top-bar a.top-bar__countdown {
   background-color: #000;
   color: #fff;
-  filter: drop-shadow(1px 1px 2px #aea79f);
+  filter: drop-shadow(1px 1px 2px #adb5bd);
 }
 main .header {
   border-bottom: none;
@@ -29,7 +29,7 @@ main .header__nav a:hover {
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #868e96;
+  border: solid 1px #6c757d;
 }
 main #cart-button i:before {
   content: "";
@@ -83,10 +83,10 @@ main .close {
   color: #fff;
 }
 main .search__box {
-  background-color: #333;
+  background-color: #343a40;
 }
 main .search-engine__nav {
-  background-color: #333;
+  background-color: #343a40;
 }
 main .checkout__info {
   background-color: #212529;
@@ -96,7 +96,7 @@ main .minicart__aside {
 }
 main .cart__info {
   background-color: #000;
-  border: solid 1px #868e96;
+  border: solid 1px #6c757d;
 }
 main .login__info {
   background-color: #212529;
@@ -105,7 +105,7 @@ main .card-body {
   background-color: #212529;
 }
 main .html-clearfix {
-  background-color: #333;
+  background-color: #343a40;
 }
 
 .app .app__header {

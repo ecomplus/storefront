@@ -10,10 +10,10 @@
   border: 1px solid #090909;
 }
 .navbar.bg-dark {
-  background-image: linear-gradient(#595959, #333 50%, #292929);
+  background-image: linear-gradient(#56606a, #343a40 50%, #2b3035);
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #1a1a1a;
+  border: 1px solid #1d2124;
 }
 .navbar.bg-light {
   background-image: linear-gradient(white, #eee 50%, #e4e4e4);
@@ -54,17 +54,17 @@
 }
 
 .btn-secondary {
-  background-image: linear-gradient(#595959, #333 50%, #292929);
+  background-image: linear-gradient(#56606a, #343a40 50%, #2b3035);
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #1a1a1a;
+  border: 1px solid #1d2124;
 }
 
 .btn-secondary:not(.disabled):hover {
-  background-image: linear-gradient(#4f4f4f, #292929 50%, #1f1f1f);
+  background-image: linear-gradient(#4d565f, #2b3035 50%, #222629);
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #0f0f0f;
+  border: 1px solid #141619;
 }
 
 .btn-success {
@@ -199,18 +199,18 @@ main .top-bar__nav {
   font-size: 85%;
 }
 main .top-bar a.top-bar__countdown {
-  background-color: #333;
+  background-color: #343a40;
 }
 main .header {
   border-bottom: none;
 }
 main .header__nav a {
-  color: #333;
+  color: #343a40;
   border-bottom: solid 2px transparent;
 }
 main .header__nav a:hover {
-  border-bottom-color: #777;
+  border-bottom-color: #6c757d;
 }
 main #search-input {
-  border: solid 1px #777;
+  border: solid 1px #6c757d;
 }

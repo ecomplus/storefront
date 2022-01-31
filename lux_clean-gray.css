@@ -41,8 +41,8 @@
 }
 
 .btn-outline-secondary {
-  border-color: #919aa1;
-  color: #919aa1;
+  border-color: #6c757d;
+  color: #6c757d;
 }
 .btn-outline-secondary:not([disabled]):not(.disabled):hover, .btn-outline-secondary:not([disabled]):not(.disabled):focus, .btn-outline-secondary:not([disabled]):not(.disabled):active {
   background-color: #ced4da;
@@ -170,8 +170,8 @@ main .header__nav a {
   border-bottom: solid 2px transparent;
 }
 main .header__nav a:hover {
-  border-bottom-color: #919aa1;
+  border-bottom-color: #6c757d;
 }
 main #search-input {
-  border: solid 1px #919aa1;
+  border: solid 1px #6c757d;
 }

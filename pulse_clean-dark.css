@@ -4,17 +4,17 @@
 .btn-secondary {
   background-color: #fff;
   border-color: #ccc;
-  color: #17141f;
+  color: #212529;
 }
 .btn-secondary:hover {
-  background-color: #ededed;
+  background-color: #dee2e6;
   border-color: #adb5bd;
-  color: #17141f;
+  color: #212529;
 }
 .btn-secondary.disabled {
   background-color: #fff;
   border-color: #d9d9d9;
-  color: #231e2f;
+  color: #2c3237;
 }
 .btn-warning {
   color: #fff;
@@ -23,7 +23,7 @@
   box-shadow: 0 0 5px #3c3c3c;
 }
 .btn-secondary:focus {
-  box-shadow: 0 0 5px #cbc8d0;
+  box-shadow: 0 0 5px #ced4da;
 }
 .btn-success:focus {
   box-shadow: 0 0 5px #18e76a;
@@ -65,7 +65,7 @@
 }
 
 .breadcrumb-item.active {
-  color: #444;
+  color: #495057;
 }
 
 .badge {
@@ -103,7 +103,7 @@ main .top-bar {
   background-color: #000;
 }
 main .top-bar a {
-  color: #f9f8fc;
+  color: #e9ecef;
 }
 main .top-bar__nav {
   font-size: 75%;
@@ -121,12 +121,12 @@ main .header__nav a {
   color: #fff;
 }
 main .header__nav a:hover {
-  border-bottom-color: #fafafa;
+  border-bottom-color: #f8f9fa;
   color: #222222;
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #868e96;
+  border: solid 1px #6c757d;
 }
 main #cart-button i:before {
   content: "";
@@ -162,16 +162,16 @@ main #user-button i:before {
 }
 main .info-bar {
   background-color: #000;
-  color: #f9f8fc;
+  color: #e9ecef;
 }
 main .account-addresses__card {
-  background-color: #17141f;
+  background-color: #212529;
 }
 main .footer {
   background-color: #000;
 }
 main .footer__title {
-  color: #f9f8fc;
+  color: #e9ecef;
 }
 main .footer__payment-methods i {
   filter: contrast(60%);
@@ -186,20 +186,20 @@ main .search-engine__nav {
   background-color: #343a40;
 }
 main .checkout__info {
-  background-color: #17141f;
+  background-color: #212529;
 }
 main .minicart__aside {
   background-color: #000;
 }
 main .cart__info {
   background-color: #000;
-  border: solid 1px #868e96;
+  border: solid 1px #6c757d;
 }
 main .login__info {
-  background-color: #17141f;
+  background-color: #212529;
 }
 main .card-body {
-  background-color: #17141f;
+  background-color: #212529;
 }
 main .html-clearfix {
   background-color: #343a40;

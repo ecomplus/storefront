@@ -107,7 +107,7 @@
 }
 
 .dropdown-menu .dropdown-header {
-  color: #868e96;
+  color: #6c757d;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -136,8 +136,8 @@ main .header__nav a {
   border-bottom: solid 2px transparent;
 }
 main .header__nav a:hover {
-  border-bottom-color: #868e96;
+  border-bottom-color: #6c757d;
 }
 main #search-input {
-  border: solid 1px #868e96;
+  border: solid 1px #6c757d;
 }

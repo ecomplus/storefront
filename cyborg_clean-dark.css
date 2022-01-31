@@ -1,12 +1,12 @@
 .navbar.bg-primary {
-  border: 1px solid #282828;
+  border: 1px solid #495057;
 }
 .navbar.bg-dark {
   background-color: #000 !important;
-  border: 1px solid #282828;
+  border: 1px solid #495057;
 }
 .navbar.bg-light {
-  background-color: #888 !important;
+  background-color: #adb5bd !important;
 }
 .navbar.fixed-top {
   border-width: 0 0 1px;
@@ -34,7 +34,7 @@
   background-color: #d62a2a;
 }
 .btn-light {
-  background-color: #282828;
+  background-color: #495057;
 }
 .btn-dark {
   background-color: #adafae;
@@ -57,7 +57,7 @@ table {
 .table-light,
 .table-light > th,
 .table-light > td {
-  background-color: #282828;
+  background-color: #495057;
 }
 .table-dark,
 .table-dark > th,
@@ -102,7 +102,7 @@ table {
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
 .table-hover .table-light:hover > td {
-  background-color: #1b1b1b;
+  background-color: #3d4349;
 }
 .table-hover .table-dark:hover,
 .table-hover .table-dark:hover > th,
@@ -152,13 +152,13 @@ legend {
 }
 .nav-tabs .nav-link:hover,
 .nav-pills .nav-link:hover {
-  background-color: #282828;
+  background-color: #495057;
 }
 .nav-tabs .nav-link.disabled, .nav-tabs .nav-link.disabled:hover,
 .nav-pills .nav-link.disabled,
 .nav-pills .nav-link.disabled:hover {
   background-color: transparent;
-  color: #555;
+  color: #6c757d;
 }
 .nav-tabs .nav-link.active,
 .nav-pills .nav-link.active {
@@ -201,7 +201,7 @@ legend {
   background-color: #d62a2a;
 }
 .alert-light {
-  background-color: #282828;
+  background-color: #495057;
 }
 .alert-dark {
   background-color: #adafae;
@@ -219,14 +219,14 @@ legend {
 }
 
 .list-group-item:hover {
-  background-color: #282828;
+  background-color: #495057;
   color: #fff;
 }
 .list-group-item-action {
-  color: #888;
+  color: #adb5bd;
 }
 .list-group-item-action .list-group-item-heading {
-  color: #888;
+  color: #adb5bd;
 }
 .list-group-item:hover .list-group-item-heading {
   color: #fff;
@@ -271,7 +271,7 @@ main .top-bar__nav {
 main .top-bar a.top-bar__countdown {
   background-color: #000;
   color: #fff;
-  filter: drop-shadow(1px 1px 2px #888);
+  filter: drop-shadow(1px 1px 2px #adb5bd);
 }
 main .header {
   border-bottom: none;
@@ -286,7 +286,7 @@ main .header__nav a:hover {
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #555;
+  border: solid 1px #6c757d;
 }
 main #cart-button i:before {
   content: "";
@@ -340,10 +340,10 @@ main .close {
   color: #fff;
 }
 main .search__box {
-  background-color: #222;
+  background-color: #343a40;
 }
 main .search-engine__nav {
-  background-color: #222;
+  background-color: #343a40;
 }
 main .checkout__info {
   background-color: #212529;
@@ -353,7 +353,7 @@ main .minicart__aside {
 }
 main .cart__info {
   background-color: #000;
-  border: solid 1px #555;
+  border: solid 1px #6c757d;
 }
 main .login__info {
   background-color: #212529;
@@ -362,7 +362,7 @@ main .card-body {
   background-color: #212529;
 }
 main .html-clearfix {
-  background-color: #222;
+  background-color: #343a40;
 }
 
 .app .app__header {

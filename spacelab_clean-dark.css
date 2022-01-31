@@ -195,7 +195,7 @@ main .top-bar {
   background-color: #000;
 }
 main .top-bar a {
-  color: #eee;
+  color: #e9ecef;
 }
 main .top-bar__nav {
   font-size: 75%;
@@ -203,7 +203,7 @@ main .top-bar__nav {
 main .top-bar a.top-bar__countdown {
   background-color: #000;
   color: #fff;
-  filter: drop-shadow(1px 1px 2px #999);
+  filter: drop-shadow(1px 1px 2px #adb5bd);
 }
 main .header {
   border-bottom: none;
@@ -218,7 +218,7 @@ main .header__nav a:hover {
   background-color: transparent;
 }
 main #search-input {
-  border: solid 1px #777;
+  border: solid 1px #6c757d;
 }
 main #cart-button i:before {
   content: "";
@@ -254,16 +254,16 @@ main #user-button i:before {
 }
 main .info-bar {
   background-color: #000;
-  color: #eee;
+  color: #e9ecef;
 }
 main .account-addresses__card {
-  background-color: #2d2d2d;
+  background-color: #212529;
 }
 main .footer {
   background-color: #000;
 }
 main .footer__title {
-  color: #eee;
+  color: #e9ecef;
 }
 main .footer__payment-methods i {
   filter: contrast(60%);
@@ -272,29 +272,29 @@ main .close {
   color: #fff;
 }
 main .search__box {
-  background-color: #333;
+  background-color: #343a40;
 }
 main .search-engine__nav {
-  background-color: #333;
+  background-color: #343a40;
 }
 main .checkout__info {
-  background-color: #2d2d2d;
+  background-color: #212529;
 }
 main .minicart__aside {
   background-color: #000;
 }
 main .cart__info {
   background-color: #000;
-  border: solid 1px #777;
+  border: solid 1px #6c757d;
 }
 main .login__info {
-  background-color: #2d2d2d;
+  background-color: #212529;
 }
 main .card-body {
-  background-color: #2d2d2d;
+  background-color: #212529;
 }
 main .html-clearfix {
-  background-color: #333;
+  background-color: #343a40;
 }
 
 .app .app__header {
