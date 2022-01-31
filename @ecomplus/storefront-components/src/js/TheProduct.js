@@ -509,5 +509,7 @@ export default {
       }
       setStickyBuyObserver()
     }
+
+    console.log(this.body._id)
   }
 }

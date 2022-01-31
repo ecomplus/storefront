@@ -77,21 +77,22 @@
     </slot>
   </div>
 
-  <div 
-  v-if="isTestKit" 
+  <div v-if="byQuantity"
   class="quantity-selector__kitless"
   >
     <div class="quantity-selector__kitless-amount">
       <button>
-        <i class="i-plus-circle"></i>
+        <i class="i-chevron-down"></i>
       </button>
+      {{ NonKitMin }}
       <button>
-        <i class="i-minus-circle"></i>
+        <i class="i-chevron-up"></i>
       </button>
     </div>
     <button
       type="button"
-      class="btn btn-sm btn-primary"    
+      class="btn btn-sm btn-primary"
+      @click="buy"  
     >
       <i class="i-shopping-bag mr-1"></i>
       {{ strNoKit }}

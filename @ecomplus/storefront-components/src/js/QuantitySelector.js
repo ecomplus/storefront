@@ -28,13 +28,17 @@ export default {
       type: Number,
       default: 1
     },
+    NonKitMin: {
+      type: Number,
+      default: 1
+    },
     max: Number,
     slug: String,
     buyText: String,
     kitProductId: String,
     kitName: String,
     kitPrice: Number,
-    isTestKit: Boolean,
+    byQuantity: Boolean,
     canAddToCart: {
       type: Boolean,
       default: true

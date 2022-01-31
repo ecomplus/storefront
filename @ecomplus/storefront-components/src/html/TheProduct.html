@@ -181,7 +181,7 @@
                     :kit-product-id="body._id"
                     :kit-name="name"
                     :kit-price="fixedPrice"
-                    :is-test-kit="true"
+                    :by-quantity="true"
                     @buy="d => $emit('buy', d)"
                   >
                     <template #buy-button-content>
@@ -401,6 +401,5 @@
       </div>
     </transition>
   </template>
-
   <slot v-if="!body._id"/>
 </section>
