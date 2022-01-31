@@ -67,7 +67,6 @@ const sanitizeProductBody = body => {
   return product
 }
 
-
 export default {
   name: 'TheProduct',
 
