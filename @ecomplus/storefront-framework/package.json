@@ -59,7 +59,7 @@
     "recursive-readdir": "^2.2.2",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.49.0",
-    "sass-loader": "^10.2.1",
+    "sass-loader": "^12.4.0",
     "terser-webpack-plugin": "^4.2.3",
     "url-loader": "^4.1.1",
     "vue-loader": "^15.9.8",
