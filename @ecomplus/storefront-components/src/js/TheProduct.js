@@ -51,6 +51,7 @@ import ProductGallery from '../ProductGallery.vue'
 import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
+import ecomPassport from '@ecomplus/passport-client'
 
 const storefront = (typeof window === 'object' && window.storefront) || {}
 const getContextBody = () => (storefront.context && storefront.context.body) || {}
@@ -65,6 +66,7 @@ const sanitizeProductBody = body => {
   delete product.price_change_records
   return product
 }
+
 
 export default {
   name: 'TheProduct',
@@ -124,7 +126,13 @@ export default {
         return window.ecomPaymentApps || []
       }
     },
-    isSSR: Boolean
+    isSSR: Boolean,
+    ecomPassport: {
+      type: Object,
+      default () {
+        return ecomPassport
+      }
+    }
   },
 
   data () {
@@ -189,6 +197,10 @@ export default {
       } else if (this.body.quantity) {
         return this.body.quantity
       }
+    },
+
+    isMarkedAsFavorite () {
+      return ecomPassport.customer.favorites && ecomPassport.customer.favorites.includes(this.body._id, 0)
     },
 
     isLowQuantity () {
@@ -333,6 +345,24 @@ export default {
         if (variation) {
           this.showVariationPicture(variation)
         }
+      }
+    },
+
+    addToFavorites () {
+      if (!this.isMarkedAsFavorite) {
+        let favorites = []
+        if (!ecomPassport.customer.favorites) {
+          ecomPassport.requestApi('/me.json', 'patch', { favorites })
+            .then(({ data }) => {
+              console.log(data)
+            })
+        }
+        favorites = ecomPassport.customer.favorites
+        favorites.push(this.body._id)
+        ecomPassport.requestApi('/me.json', 'patch', { favorites })
+          .then(({ data }) => {
+            console.log(data)
+          })
       }
     },
 

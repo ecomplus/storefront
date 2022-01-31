@@ -255,10 +255,18 @@
             </slot>
 
             <slot name="add-to-favorites">
-              <span>
-                <button class="btn"><i class="i-heart"></i></button>
-                Favoritar
-              </span>
+              <div>
+                <button
+                  class="btn btn--favorite"
+                  @click="addToFavorites()"
+                >
+                  <i 
+                    class="i-heart"                    
+                    :class="{ 'active': isMarkedAsFavorite }"
+                  ></i>
+                  <span>Favoritar</span>
+                </button>
+              </div>
             </slot>
 
             <transition enter-active-class="animated fadeInUp">
