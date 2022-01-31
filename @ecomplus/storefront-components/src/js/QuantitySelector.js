@@ -1,6 +1,5 @@
 import {
   i19buyKit,
-  i19buy,
   i19maxQuantity,
   i19minQuantity
 } from '@ecomplus/i18n'
@@ -85,10 +84,6 @@ export default {
 
     strBuy () {
       return this.buyText || i18n(i19buyKit)
-    },
-
-    strNoKit () {
-      return this.buyText || i18n(i19buy)
     }
   },
 
