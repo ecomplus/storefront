@@ -254,17 +254,16 @@
               />
             </slot>
 
-            <slot name="add-to-favorites">
+            <slot name="favorite">
               <div>
                 <button
-                  class="btn btn--favorite"
-                  @click="addToFavorites()"
+                  class="btn product__favorite"
+                  @click="addOrRemoveFavorite"
                 >
                   <i 
                     class="i-heart"                    
-                    :class="{ 'active': isMarkedAsFavorite }"
+                    :class="{ 'active': isFavorite }"
                   ></i>
-                  <span>Favoritar</span>
                 </button>
               </div>
             </slot>

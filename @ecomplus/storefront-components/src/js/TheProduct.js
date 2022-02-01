@@ -52,6 +52,7 @@ import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
 import ecomPassport from '@ecomplus/passport-client'
+import { addToFavorites, removeFromFavorites } from './helpers/add-or-remove-favorite'
 
 const storefront = (typeof window === 'object' && window.storefront) || {}
 const getContextBody = () => (storefront.context && storefront.context.body) || {}
@@ -198,8 +199,9 @@ export default {
       }
     },
 
-    isMarkedAsFavorite () {
-      return ecomPassport.customer.favorites && ecomPassport.customer.favorites.includes(this.body._id, 0)
+    isFavorite () {
+      const { favorites } = this.ecomPassport.getCustomer()
+      return favorites && favorites.includes(this.body._id)
     },
 
     isLowQuantity () {
@@ -347,21 +349,11 @@ export default {
       }
     },
 
-    addToFavorites () {
-      if (!this.isMarkedAsFavorite) {
-        let favorites = []
-        if (!ecomPassport.customer.favorites) {
-          ecomPassport.requestApi('/me.json', 'patch', { favorites })
-            .then(({ data }) => {
-              console.log(data)
-            })
-        }
-        favorites = ecomPassport.customer.favorites
-        favorites.push(this.body._id)
-        ecomPassport.requestApi('/me.json', 'patch', { favorites })
-          .then(({ data }) => {
-            console.log(data)
-          })
+    addOrRemoveFavorite () {
+      if (!this.isFavorite) {
+        addToFavorites(this.body._id)
+      } else {
+        removeFromFavorites(this.body._id)
       }
     },
 

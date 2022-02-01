@@ -116,6 +116,10 @@
       display: flex;
     }
   }
+  
+  &__favorite .active {
+    color: var(--red)
+  }
 
   @media (max-width: 768px) {
     &__sticky-info {
@@ -143,8 +147,4 @@
 
 .offers-variation-notification {
   margin: -1rem 0 1rem 0;
-}
-
-.btn--favorite .active {
-  color: var(--red)
 }
