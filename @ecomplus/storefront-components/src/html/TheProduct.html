@@ -244,6 +244,21 @@
               </p>
             </template>
 
+            <slot name="favorite">
+              <div>
+                <button
+                  class="btn product__favorite"
+                  @click="toggleFavorite"
+                >
+                  <i 
+                    class="i-heart mr-1"                    
+                    :class="isFavorite ? 'active' : null"
+                  ></i>
+                  {{ i19addToFavorites }}
+                </button>
+              </div>
+            </slot>
+            
             <slot name="share">
               <a-share
                 v-if="body.slug"
@@ -252,20 +267,6 @@
                 :title="body.name"
                 :description="body.short_description"
               />
-            </slot>
-
-            <slot name="favorite">
-              <div>
-                <button
-                  class="btn product__favorite"
-                  @click="addOrRemoveFavorite"
-                >
-                  <i 
-                    class="i-heart"                    
-                    :class="{ 'active': isFavorite }"
-                  ></i>
-                </button>
-              </div>
             </slot>
 
             <transition enter-active-class="animated fadeInUp">

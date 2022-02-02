@@ -52,7 +52,7 @@ import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
 import ecomPassport from '@ecomplus/passport-client'
-import { addToFavorites, removeFromFavorites } from './helpers/add-or-remove-favorite'
+import { toggleFavorite, checkFavorite } from './helpers/favorite'
 
 const storefront = (typeof window === 'object' && window.storefront) || {}
 const getContextBody = () => (storefront.context && storefront.context.body) || {}
@@ -143,6 +143,7 @@ export default {
       currentGalleyImg: 1,
       isOnCart: false,
       isStickyBuyVisible: false,
+      isFavorite: false,
       hasClickedBuy: false,
       hasLoadError: false,
       paymentOptions: [],
@@ -168,6 +169,7 @@ export default {
     i19units: () => i18n(i19units).toLowerCase(),
     i19unitsInStock: () => i18n(i19unitsInStock),
     i19workingDays: () => i18n(i19workingDays),
+    i19addToFavorites: () => { return 'Adicionar aos favoritos' },
 
     selectedVariation () {
       return this.selectedVariationId
@@ -197,11 +199,6 @@ export default {
       } else if (this.body.quantity) {
         return this.body.quantity
       }
-    },
-
-    isFavorite () {
-      const { favorites } = this.ecomPassport.getCustomer()
-      return favorites && favorites.includes(this.body._id)
     },
 
     isLowQuantity () {
@@ -349,12 +346,9 @@ export default {
       }
     },
 
-    addOrRemoveFavorite () {
-      if (!this.isFavorite) {
-        addToFavorites(this.body._id)
-      } else {
-        removeFromFavorites(this.body._id)
-      }
+    toggleFavorite () {
+      toggleFavorite(this.body._id, this.ecomPassport)
+      this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
     },
 
     buy () {
@@ -481,6 +475,7 @@ export default {
   created () {
     if (this.product) {
       this.body = this.product
+      this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
       if (this.isSSR) {
         this.fetchProduct()
       }

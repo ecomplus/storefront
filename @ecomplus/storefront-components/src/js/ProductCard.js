@@ -19,6 +19,8 @@ import ecomCart from '@ecomplus/shopping-cart'
 import ALink from '../ALink.vue'
 import APicture from '../APicture.vue'
 import APrices from '../APrices.vue'
+import ecomPassport from '@ecomplus/passport-client'
+import { toggleFavorite, checkFavorite } from './helpers/favorite'
 
 const getExternalHtml = (varName, product) => {
   if (typeof window === 'object') {
@@ -59,6 +61,12 @@ export default {
       type: Boolean,
       default: true
     },
+    ecomPassport: {
+      type: Object,
+      default () {
+        return ecomPassport
+      }
+    },
     isLoaded: Boolean,
     installmentsOption: Object,
     discountOption: Object
@@ -70,6 +78,7 @@ export default {
       isLoading: false,
       isWaitingBuy: false,
       isHovered: false,
+      isFavorite: false,
       error: ''
     }
   },
@@ -77,6 +86,7 @@ export default {
   computed: {
     i19outOfStock: () => i18n(i19outOfStock),
     i19unavailable: () => i18n(i19unavailable),
+    i19addToFavorites: () => 'Adicionar aos favoritos',
 
     ratingHtml () {
       return getExternalHtml('Rating', this.body)
@@ -146,6 +156,11 @@ export default {
       }
     },
 
+    toggleFavorite () {
+      toggleFavorite(this.body._id, this.ecomPassport)
+      this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
+    },
+
     buy () {
       const product = this.body
       this.$emit('buy', { product })
@@ -192,6 +207,7 @@ export default {
       if (this.product.visible === undefined) {
         this.body.visible = true
       }
+      this.isFavorite = checkFavorite(this.body._id, ecomPassport)
     }
     if (!this.isLoaded) {
       this.fetchItem()

@@ -67,14 +67,6 @@
         ></div>
       </slot>
 
-      <slot name="add-to-favorites">
-        <span>
-          <button class="btn">
-            <i class="i-heart"></i>
-          </button>
-        </span>        
-      </slot>
-
       <slot
         name="unavailable"
         v-if="!body.available || !body.visible"
@@ -134,7 +126,23 @@
             </button>
           </slot>
         </div>
-      </template>
+      </template>      
+      
+      <slot name="favorite">
+        <div>
+          <button 
+            class="btn product-card__favorite"
+            @click="toggleFavorite"
+          >
+            <i 
+              class="i-heart mr-1"
+              :class="isFavorite ? 'active' : null"
+            >
+            </i>
+            {{ i19addToFavorites }}
+          </button>
+        </div>       
+      </slot>
 
       <slot name="footer">
         <div
