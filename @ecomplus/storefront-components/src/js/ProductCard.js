@@ -207,7 +207,7 @@ export default {
       if (this.product.visible === undefined) {
         this.body.visible = true
       }
-      this.isFavorite = checkFavorite(this.body._id, ecomPassport)
+      this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
     }
     if (!this.isLoaded) {
       this.fetchItem()

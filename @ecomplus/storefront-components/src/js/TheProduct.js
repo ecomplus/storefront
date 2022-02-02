@@ -169,7 +169,7 @@ export default {
     i19units: () => i18n(i19units).toLowerCase(),
     i19unitsInStock: () => i18n(i19unitsInStock),
     i19workingDays: () => i18n(i19workingDays),
-    i19addToFavorites: () => { return 'Adicionar aos favoritos' },
+    i19addToFavorites: () => 'Adicionar aos favoritos',
 
     selectedVariation () {
       return this.selectedVariationId
