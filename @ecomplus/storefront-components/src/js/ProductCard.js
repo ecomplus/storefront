@@ -163,8 +163,6 @@ export default {
       const isLoggedIn = ecomPassport.checkLogin()
       if (isLoggedIn) {
         this.isFavorite = toggleFavorite(this.body._id, this.ecomPassport)
-      } else {
-        // mostra o modal de login...
       }
     },
 
