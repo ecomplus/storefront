@@ -86,7 +86,10 @@ export default {
   computed: {
     i19outOfStock: () => i18n(i19outOfStock),
     i19unavailable: () => i18n(i19unavailable),
-    i19addToFavorites: () => 'Adicionar aos favoritos',
+    i19addToFavorites: () => i18n({
+      pt_br: 'Adicionar aos favoritos',
+      en_us: 'Add to favorites'
+    }),
 
     ratingHtml () {
       return getExternalHtml('Rating', this.body)
@@ -157,8 +160,12 @@ export default {
     },
 
     toggleFavorite () {
-      toggleFavorite(this.body._id, this.ecomPassport)
-      this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
+      const isLoggedIn = ecomPassport.checkLogin()
+      if (isLoggedIn) {
+        this.isFavorite = toggleFavorite(this.body._id, this.ecomPassport)
+      } else {
+        // mostra o modal de login...
+      }
     },
 
     buy () {
@@ -207,10 +214,13 @@ export default {
       if (this.product.visible === undefined) {
         this.body.visible = true
       }
-      this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
     }
     if (!this.isLoaded) {
       this.fetchItem()
     }
+  },
+
+  mounted () {
+    this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
   }
 }

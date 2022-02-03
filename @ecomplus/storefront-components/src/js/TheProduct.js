@@ -169,7 +169,10 @@ export default {
     i19units: () => i18n(i19units).toLowerCase(),
     i19unitsInStock: () => i18n(i19unitsInStock),
     i19workingDays: () => i18n(i19workingDays),
-    i19addToFavorites: () => 'Adicionar aos favoritos',
+    i19addToFavorites: () => i18n({
+      pt_br: 'Adicionar aos favoritos',
+      en_us: 'Add to favorites'
+    }),
 
     selectedVariation () {
       return this.selectedVariationId
@@ -347,8 +350,10 @@ export default {
     },
 
     toggleFavorite () {
-      toggleFavorite(this.body._id, this.ecomPassport)
-      this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
+      const isLoggedIn = ecomPassport.checkLogin()
+      if (isLoggedIn) {
+        this.isFavorite = toggleFavorite(this.body._id, this.ecomPassport)
+      }
     },
 
     buy () {
@@ -475,7 +480,6 @@ export default {
   created () {
     if (this.product) {
       this.body = this.product
-      this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
       if (this.isSSR) {
         this.fetchProduct()
       }
@@ -485,6 +489,8 @@ export default {
   },
 
   mounted () {
+    this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
+
     if (this.$refs.sticky) {
       let isBodyPaddingSet = false
       const setStickyBuyObserver = (isToVisible = true) => {

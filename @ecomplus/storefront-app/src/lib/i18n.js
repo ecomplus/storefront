@@ -502,13 +502,6 @@ export const ZipCode = {
   pt_br: 'CEP'
 }
 
-/*
-  export const AddToFavorites = {
-  en_us: 'Add to Favorites',
-  pt_br: 'Adicionar aos favoritos'
-}
-*/
-
 export const _FinancialStatus = {
   pending: {
     en_us: 'Pending payment',
