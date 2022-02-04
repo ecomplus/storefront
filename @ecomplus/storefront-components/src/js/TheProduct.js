@@ -51,6 +51,8 @@ import ProductGallery from '../ProductGallery.vue'
 import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
+import ecomPassport from '@ecomplus/passport-client'
+import { toggleFavorite, checkFavorite } from './helpers/favorite'
 
 const storefront = (typeof window === 'object' && window.storefront) || {}
 const getContextBody = () => (storefront.context && storefront.context.body) || {}
@@ -124,7 +126,13 @@ export default {
         return window.ecomPaymentApps || []
       }
     },
-    isSSR: Boolean
+    isSSR: Boolean,
+    ecomPassport: {
+      type: Object,
+      default () {
+        return ecomPassport
+      }
+    }
   },
 
   data () {
@@ -135,6 +143,7 @@ export default {
       currentGalleyImg: 1,
       isOnCart: false,
       isStickyBuyVisible: false,
+      isFavorite: false,
       hasClickedBuy: false,
       hasLoadError: false,
       paymentOptions: [],
@@ -160,6 +169,10 @@ export default {
     i19units: () => i18n(i19units).toLowerCase(),
     i19unitsInStock: () => i18n(i19unitsInStock),
     i19workingDays: () => i18n(i19workingDays),
+    i19addToFavorites: () => i18n({
+      pt_br: 'Adicionar aos favoritos',
+      en_us: 'Add to favorites'
+    }),
 
     selectedVariation () {
       return this.selectedVariationId
@@ -336,6 +349,13 @@ export default {
       }
     },
 
+    toggleFavorite () {
+      const isLoggedIn = ecomPassport.checkLogin()
+      if (isLoggedIn) {
+        this.isFavorite = toggleFavorite(this.body._id, this.ecomPassport)
+      }
+    },
+
     buy () {
       this.hasClickedBuy = true
       const product = sanitizeProductBody(this.body)
@@ -469,6 +489,8 @@ export default {
   },
 
   mounted () {
+    this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
+
     if (this.$refs.sticky) {
       let isBodyPaddingSet = false
       const setStickyBuyObserver = (isToVisible = true) => {
