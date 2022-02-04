@@ -189,7 +189,7 @@ export default {
 
     submitEmail () {
       this.isLoginForm = false
-      const promise = this.ecomPassport.fetchLogin(this.email, null, this.emailCode)
+      const promise = this.ecomPassport.fetchLogin(this.email.toLowerCase(), null, this.emailCode)
         .catch(err => {
           const { response } = err
           if (response && response.status === 403) {
