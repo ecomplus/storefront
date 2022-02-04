@@ -67,6 +67,10 @@ export default {
         return ecomPassport
       }
     },
+    accountUrl: {
+      type: String,
+      default: '/app/#/account/'
+    },
     isLoaded: Boolean,
     installmentsOption: Object,
     discountOption: Object
@@ -121,6 +125,10 @@ export default {
       return this.body.available && this.body.visible && this.isInStock
     },
 
+    hasLoggedIn () {
+      return ecomPassport.checkAuthorization()
+    },
+
     discount () {
       const { body } = this
       return checkOnPromotion(body)
@@ -160,8 +168,7 @@ export default {
     },
 
     toggleFavorite () {
-      const isLoggedIn = ecomPassport.checkLogin()
-      if (isLoggedIn) {
+      if (this.hasLoggedIn) {
         this.isFavorite = toggleFavorite(this.body._id, this.ecomPassport)
       }
     },

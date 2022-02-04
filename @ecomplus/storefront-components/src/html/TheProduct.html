@@ -246,19 +246,21 @@
 
             <slot name="favorite">
               <div>
-                <button
+                <a 
                   class="btn product__favorite"
                   @click="toggleFavorite"
+                  :href="hasLoggedIn ? null : accountUrl"
                 >
                   <i 
-                    class="i-heart mr-1"                    
+                    class="i-heart mr-1"
                     :class="isFavorite ? 'active' : null"
-                  ></i>
+                  >
+                  </i>
                   {{ i19addToFavorites }}
-                </button>
-              </div>
+                </a>
+              </div>       
             </slot>
-            
+
             <slot name="share">
               <a-share
                 v-if="body.slug"
