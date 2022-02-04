@@ -1,8 +1,66 @@
-import { animateCss, $ } from '@ecomplus/storefront-twbs'
+import { isMobile, animateCss, $ } from '@ecomplus/storefront-twbs'
 import overlay from './overlay'
 
 const $menu = $('#menu')[0]
 let isVisible = false
+
+let $openSubMenu
+let closeSubmenuTimer = null
+let isSubmenuHovered = false
+
+const closeSubmenu = () => {
+  $openSubMenu.style.display = 'none'
+  $openSubMenu = null
+}
+
+const toggleSubmenu = (slug, $categoryLink, isClick) => {
+  if (isClick && slug) {
+    window.location = `/${slug}`
+    return
+  }
+  if (!isMobile) {
+    if ($openSubMenu || isClick) {
+      closeSubmenu()
+    }
+    if (slug) {
+      $openSubMenu = document.getElementById(`s-${slug.replace(/\//g, '_')}`)
+      if (!$openSubMenu) {
+        return
+      }
+
+      if ($openSubMenu) {
+        isSubmenuHovered = false
+        clearTimeout(closeSubmenuTimer)
+        const checkHoverAndClose = () => {
+          clearTimeout(closeSubmenuTimer)
+          closeSubmenuTimer = setTimeout(() => {
+            if (!isSubmenuHovered) {
+              $openSubMenu.removeEventListener('mouseover', onSubmenuOver)
+              closeSubmenu()
+            }
+          }, 800)
+        }
+        if ($categoryLink) {
+          $categoryLink.addEventListener('mouseleave', checkHoverAndClose, { once: true })
+        }
+
+        const onSubmenuOver = () => {
+          isSubmenuHovered = true
+          $openSubMenu.addEventListener('mouseleave', () => {
+            if (isSubmenuHovered) {
+              isSubmenuHovered = false
+              checkHoverAndClose()
+            }
+          }, { once: true })
+        }
+        $openSubMenu.addEventListener('mouseover', onSubmenuOver)
+
+        $openSubMenu.style.display = 'grid'
+        animateCss($openSubMenu, 'fadeIn')
+      }
+    }
+  }
+}
 
 const toggleSidenav = (slug, isClose) => {
   let $collapse
@@ -37,3 +95,4 @@ const toggleSidenav = (slug, isClose) => {
 }
 
 window.toggleSidenav = toggleSidenav
+window.toggleSubmenu = toggleSubmenu
