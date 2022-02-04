@@ -116,6 +116,10 @@
       display: flex;
     }
   }
+  
+  &__favorite .active {
+    color: var(--red)
+  }
 
   @media (max-width: 768px) {
     &__sticky-info {

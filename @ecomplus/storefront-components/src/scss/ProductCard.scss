@@ -110,6 +110,10 @@ $product-card-picture-lg: 250px !default;
     }
   }
 
+  &__favorite .active {
+    color: var(--red)
+  }
+
   &__buy {
     position: relative;
     margin-top: var(--spacer-1);
