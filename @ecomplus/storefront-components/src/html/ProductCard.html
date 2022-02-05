@@ -132,7 +132,7 @@
         <a 
           class="btn product-card__favorite fade"
           @click="toggleFavorite"
-          :href="hasLoggedIn ? null : accountUrl"
+          :href="isLogged ? null : accountUrl"
         >
           <i 
             class="i-heart mr-1"

@@ -117,8 +117,13 @@
     }
   }
   
-  &__favorite .active {
-    color: var(--red)
+  &__favorite i {
+    opacity: 0.4;
+    color: var(--red);
+
+    &.active {
+      opacity: 1;
+    }
   }
 
   @media (max-width: 768px) {

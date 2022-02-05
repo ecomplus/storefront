@@ -246,10 +246,10 @@
 
             <slot name="favorite">
               <div>
-                <a 
-                  class="btn product__favorite"
+                <a
+                  class="btn btn-sm product__favorite"
                   @click="toggleFavorite"
-                  :href="hasLoggedIn ? null : accountUrl"
+                  :href="isLogged ? null : accountUrl"
                 >
                   <i 
                     class="i-heart mr-1"
