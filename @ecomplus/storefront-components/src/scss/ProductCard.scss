@@ -116,9 +116,9 @@ $product-card-picture-lg: 250px !default;
     font-size: var(--font-size-lg);
     z-index: 9;
 
-  .active {
-    color: var(--red);
-  }
+    .active {
+      color: var(--red);
+    }
   }
 
   &__buy {

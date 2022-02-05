@@ -144,6 +144,7 @@ export default {
       delete this.body.body_text
       delete this.body.inventory_records
       delete this.body.price_change_records
+      this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
     },
 
     fetchItem () {
@@ -223,9 +224,5 @@ export default {
     if (!this.isLoaded) {
       this.fetchItem()
     }
-  },
-
-  mounted () {
-    this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
   }
 }
