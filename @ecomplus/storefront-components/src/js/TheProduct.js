@@ -132,6 +132,10 @@ export default {
       default () {
         return ecomPassport
       }
+    },
+    accountUrl: {
+      type: String,
+      default: '/app/#/account/'
     }
   },
 
@@ -190,6 +194,10 @@ export default {
 
     isVariationInStock () {
       return checkInStock(this.selectedVariationId ? this.selectedVariation : this.body)
+    },
+
+    hasLoggedIn () {
+      return ecomPassport.checkAuthorization()
     },
 
     thumbnail () {
@@ -350,8 +358,7 @@ export default {
     },
 
     toggleFavorite () {
-      const isLoggedIn = ecomPassport.checkLogin()
-      if (isLoggedIn) {
+      if (this.hasLoggedIn) {
         this.isFavorite = toggleFavorite(this.body._id, this.ecomPassport)
       }
     },
@@ -486,11 +493,10 @@ export default {
     } else {
       this.fetchProduct()
     }
+    this.isFavorite = checkFavorite(this.body._id || this.productId, this.ecomPassport)
   },
 
   mounted () {
-    this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
-
     if (this.$refs.sticky) {
       let isBodyPaddingSet = false
       const setStickyBuyObserver = (isToVisible = true) => {

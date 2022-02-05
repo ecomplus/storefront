@@ -67,6 +67,10 @@ export default {
         return ecomPassport
       }
     },
+    accountUrl: {
+      type: String,
+      default: '/app/#/account/'
+    },
     isLoaded: Boolean,
     installmentsOption: Object,
     discountOption: Object
@@ -121,6 +125,10 @@ export default {
       return this.body.available && this.body.visible && this.isInStock
     },
 
+    hasLoggedIn () {
+      return ecomPassport.checkAuthorization()
+    },
+
     discount () {
       const { body } = this
       return checkOnPromotion(body)
@@ -136,6 +144,7 @@ export default {
       delete this.body.body_text
       delete this.body.inventory_records
       delete this.body.price_change_records
+      this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
     },
 
     fetchItem () {
@@ -160,8 +169,7 @@ export default {
     },
 
     toggleFavorite () {
-      const isLoggedIn = ecomPassport.checkLogin()
-      if (isLoggedIn) {
+      if (this.hasLoggedIn) {
         this.isFavorite = toggleFavorite(this.body._id, this.ecomPassport)
       }
     },
@@ -216,9 +224,5 @@ export default {
     if (!this.isLoaded) {
       this.fetchItem()
     }
-  },
-
-  mounted () {
-    this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
   }
 }

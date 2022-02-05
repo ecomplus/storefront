@@ -129,19 +129,17 @@
       </template>      
       
       <slot name="favorite">
-        <div>
-          <button 
-            class="btn product-card__favorite"
-            @click="toggleFavorite"
+        <a 
+          class="btn product-card__favorite fade"
+          @click="toggleFavorite"
+          :href="hasLoggedIn ? null : accountUrl"
+        >
+          <i 
+            class="i-heart mr-1"
+            :class="isFavorite ? 'active' : null"
           >
-            <i 
-              class="i-heart mr-1"
-              :class="isFavorite ? 'active' : null"
-            >
-            </i>
-            {{ i19addToFavorites }}
-          </button>
-        </div>       
+          </i>
+        </a>      
       </slot>
 
       <slot name="footer">
