@@ -66,12 +66,14 @@ export default ({ state }) => [
     label: 'Banner responsivo',
     name: 'responsive-banner',
     widget: 'object',
+    icon: 'https://api.iconify.design/bi:file-image.svg',
     fields: bannerFields
   },
   {
     label: 'Grid de banners',
     name: 'banners-grid',
     widget: 'object',
+    icon: 'https://api.iconify.design/bi:grid.svg',
     fields: [
       {
         label: 'Banners',
@@ -85,6 +87,7 @@ export default ({ state }) => [
     label: 'Conteúdo customizado',
     name: 'custom-content',
     widget: 'object',
+    icon: 'https://api.iconify.design/bi:file-richtext.svg',
     fields: [
       {
         label: 'Conteúdo markdown customizado',
@@ -98,6 +101,7 @@ export default ({ state }) => [
     label: 'Slider de banners',
     name: 'banner-slider',
     widget: 'object',
+    icon: 'https://api.iconify.design/bi:images.svg',
     fields: [
       {
         label: 'Slides',
@@ -143,6 +147,7 @@ export default ({ state }) => [
     label: 'Temporizador de ofertas',
     name: 'offers-timer',
     widget: 'object',
+    icon: 'https://api.iconify.design/bi:stopwatch.svg',
     fields: [
       {
         label: 'Ofertas',
@@ -195,6 +200,7 @@ export default ({ state }) => [
     label: 'Barra de informações',
     name: 'info-bar',
     widget: 'object',
+    icon: 'https://api.iconify.design/bi:info-square.svg',
     fields: [
       {
         label: 'Exibir barra de informações',
@@ -208,6 +214,7 @@ export default ({ state }) => [
     label: 'Estante de produtos',
     name: 'collection-shelf',
     widget: 'object',
+    icon: 'https://api.iconify.design/bi:bag-check.svg',
     fields: [
       {
         label: 'Coleção de produtos',
@@ -288,6 +295,7 @@ export default ({ state }) => [
     label: 'Vitrine dinâmica',
     name: 'dynamic-showcase',
     widget: 'object',
+    icon: 'https://api.iconify.design/bi:basket.svg',
     fields: [
       searchOrderField,
       {
@@ -303,6 +311,7 @@ export default ({ state }) => [
     label: 'Carrossel de marcas',
     name: 'brands-carousel',
     widget: 'object',
+    icon: 'https://api.iconify.design/mdi:copyright.svg',
     fields: [
       {
         label: 'Ordenação',
@@ -349,6 +358,7 @@ export default ({ state }) => [
     label: 'Breadcrumbs',
     name: 'breadcrumbs',
     widget: 'object',
+    icon: 'https://api.iconify.design/bi:bookmarks.svg',
     fields: [
       {
         label: 'Exibir breadcrumbs',
@@ -362,6 +372,7 @@ export default ({ state }) => [
     label: 'Título da página (SEO)',
     name: 'page-title',
     widget: 'object',
+    icon: 'https://api.iconify.design/icon-park-outline:seo.svg',
     fields: [
       {
         label: 'Título (H1)',
@@ -383,6 +394,7 @@ export default ({ state }) => [
     label: 'Blog',
     name: 'blog',
     widget: 'object',
+    icon: 'https://api.iconify.design/la:blog.svg',
     fields: [
       {
         label: 'Listar posts do blog',
@@ -396,6 +408,7 @@ export default ({ state }) => [
     label: 'Código HTML',
     name: 'custom-html',
     widget: 'object',
+    icon: 'https://api.iconify.design/bi:code-slash.svg',
     fields: [
       {
         label: 'Conteúdo HTML customizado',

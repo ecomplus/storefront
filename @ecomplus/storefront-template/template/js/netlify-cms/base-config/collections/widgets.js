@@ -3,6 +3,7 @@ import getWidgetProduct from '@ecomplus/widget-product/cms.config'
 import getWidgetSearchEngine from '@ecomplus/widget-search-engine/cms.config'
 import getWidgetSearch from '@ecomplus/widget-search/cms.config'
 import getWidgetMinicart from '@ecomplus/widget-minicart/cms.config'
+import getWidgetUser from '@ecomplus/widget-user/cms.config'
 import getWidgetOffersNotification from '@ecomplus/widget-offers-notification/cms.config'
 import getWidgetAnalytics from '@ecomplus/widget-analytics/cms.config'
 import getWidgetFbPixel from '@ecomplus/widget-fb-pixel/cms.config'
@@ -34,12 +35,6 @@ export default options => ({
     preview: false
   },
   files: [
-    fixWidgetConfig(options, getWidgetProductCard),
-    fixWidgetConfig(options, getWidgetProduct),
-    fixWidgetConfig(options, getWidgetSearch),
-    fixWidgetConfig(options, getWidgetSearchEngine),
-    fixWidgetConfig(options, getWidgetMinicart),
-    fixWidgetConfig(options, getWidgetOffersNotification),
     fixWidgetConfig(options, getWidgetAnalytics),
     fixWidgetConfig(options, getWidgetFbPixel),
     fixWidgetConfig(options, getWidgetTagManager),
@@ -48,6 +43,13 @@ export default options => ({
     fixWidgetConfig(options, getWidgetTrustvox),
     fixWidgetConfig(options, getWidgetEbit),
     fixWidgetConfig(options, getWidgetCompreConfie),
-    fixWidgetConfig(options, getWidgetOpinioesVerificadas)
+    fixWidgetConfig(options, getWidgetOpinioesVerificadas),
+    fixWidgetConfig(options, getWidgetOffersNotification),
+    fixWidgetConfig(options, getWidgetProductCard),
+    fixWidgetConfig(options, getWidgetProduct),
+    fixWidgetConfig(options, getWidgetSearch),
+    fixWidgetConfig(options, getWidgetSearchEngine),
+    fixWidgetConfig(options, getWidgetMinicart),
+    fixWidgetConfig(options, getWidgetUser)
   ]
 })

@@ -2,6 +2,7 @@ import { name } from './package.json'
 
 export default () => ({
   label: 'Detalhes do produto',
+  thumbnail: 'https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/widgets/product.png',
   fields: [
     {
       name: 'pkg',

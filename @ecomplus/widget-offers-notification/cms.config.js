@@ -2,6 +2,7 @@ import { name } from './package.json'
 
 export default () => ({
   label: 'Notificação de ofertas e estoque',
+  thumbnail: 'https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/widgets/offers-notification.png',
   fields: [
     {
       name: 'pkg',
