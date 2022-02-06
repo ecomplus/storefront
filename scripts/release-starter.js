@@ -15,6 +15,9 @@ const dirGitStarterViews = path.join(dirPkgStarter, 'template/pages')
 recursiveCopy(path.join(dirPkgTemplate, 'template/pages'), dirGitStarterViews)
 recursiveCopy(path.join(dirPkgTemplate, 'content'), path.join(dirGitStarter, 'content'), false, true)
 
+const dirMonorepo = path.resolve(__dirname, '..')
+execSync('git submodule update --remote --merge', { cwd: dirMonorepo })
+
 const parseCommitCmd = commitMsg => `git diff-index --quiet HEAD || (git commit -m \"${commitMsg}\" && git push)`
 
 ;[dirGitStarter, dirGitStarterViews].forEach(cwd => {
@@ -30,5 +33,5 @@ execSync(
   'git submodule update --remote --merge && ' +
   'git add @ecomplus/storefront-starter && ' +
   parseCommitCmd('chore(starter): update submodules'),
-  { cwd: path.resolve(__dirname, '..') }
+  { cwd: dirMonorepo }
 )
