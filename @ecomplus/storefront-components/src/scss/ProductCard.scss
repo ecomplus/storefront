@@ -110,8 +110,15 @@ $product-card-picture-lg: 250px !default;
     }
   }
 
-  &__favorite .active {
-    color: var(--red)
+  &__favorite {
+    position: absolute;
+    top: var(--spacer-1);
+    font-size: var(--font-size-lg);
+    z-index: 9;
+
+    .active {
+      color: var(--red);
+    }
   }
 
   &__buy {
@@ -148,6 +155,10 @@ $product-card-picture-lg: 250px !default;
 
       .product-card__buy {
         opacity: 1;
+      }
+
+      .product-card__favorite {
+        opacity: 0.7;
       }
     }
   }

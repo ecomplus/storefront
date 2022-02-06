@@ -24,7 +24,7 @@
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-renderer#readme",
   "dependencies": {
     "@ecomplus/client": "^2.2.1",
-    "@ecomplus/i18n": "^1.26.0",
+    "@ecomplus/i18n": "^1.27.0",
     "@ecomplus/search-engine": "^2.6.1",
     "@ecomplus/storefront-router": "^2.2.1",
     "@ecomplus/utils": "^1.4.1",

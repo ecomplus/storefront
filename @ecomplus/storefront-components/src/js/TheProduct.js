@@ -1,4 +1,5 @@
 import {
+  i19addToFavorites,
   i19buy,
   i19close,
   i19days,
@@ -132,6 +133,10 @@ export default {
       default () {
         return ecomPassport
       }
+    },
+    accountUrl: {
+      type: String,
+      default: '/app/#/account/'
     }
   },
 
@@ -153,6 +158,7 @@ export default {
   },
 
   computed: {
+    i19addToFavorites: () => i18n(i19addToFavorites),
     i19close: () => i18n(i19close),
     i19days: () => i18n(i19days),
     i19discountOf: () => i18n(i19discountOf),
@@ -169,10 +175,6 @@ export default {
     i19units: () => i18n(i19units).toLowerCase(),
     i19unitsInStock: () => i18n(i19unitsInStock),
     i19workingDays: () => i18n(i19workingDays),
-    i19addToFavorites: () => i18n({
-      pt_br: 'Adicionar aos favoritos',
-      en_us: 'Add to favorites'
-    }),
 
     selectedVariation () {
       return this.selectedVariationId
@@ -190,6 +192,10 @@ export default {
 
     isVariationInStock () {
       return checkInStock(this.selectedVariationId ? this.selectedVariation : this.body)
+    },
+
+    isLogged () {
+      return ecomPassport.checkAuthorization()
     },
 
     thumbnail () {
@@ -350,8 +356,7 @@ export default {
     },
 
     toggleFavorite () {
-      const isLoggedIn = ecomPassport.checkLogin()
-      if (isLoggedIn) {
+      if (this.isLogged) {
         this.isFavorite = toggleFavorite(this.body._id, this.ecomPassport)
       }
     },
@@ -486,11 +491,10 @@ export default {
     } else {
       this.fetchProduct()
     }
+    this.isFavorite = checkFavorite(this.body._id || this.productId, this.ecomPassport)
   },
 
   mounted () {
-    this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
-
     if (this.$refs.sticky) {
       let isBodyPaddingSet = false
       const setStickyBuyObserver = (isToVisible = true) => {

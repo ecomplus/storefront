@@ -1,4 +1,5 @@
 import {
+  i19addToFavorites,
   i19buy,
   i19connectionErrorProductMsg,
   i19outOfStock,
@@ -67,6 +68,10 @@ export default {
         return ecomPassport
       }
     },
+    accountUrl: {
+      type: String,
+      default: '/app/#/account/'
+    },
     isLoaded: Boolean,
     installmentsOption: Object,
     discountOption: Object
@@ -84,12 +89,9 @@ export default {
   },
 
   computed: {
+    i19addToFavorites: () => i18n(i19addToFavorites),
     i19outOfStock: () => i18n(i19outOfStock),
     i19unavailable: () => i18n(i19unavailable),
-    i19addToFavorites: () => i18n({
-      pt_br: 'Adicionar aos favoritos',
-      en_us: 'Add to favorites'
-    }),
 
     ratingHtml () {
       return getExternalHtml('Rating', this.body)
@@ -121,6 +123,10 @@ export default {
       return this.body.available && this.body.visible && this.isInStock
     },
 
+    isLogged () {
+      return ecomPassport.checkAuthorization()
+    },
+
     discount () {
       const { body } = this
       return checkOnPromotion(body)
@@ -136,6 +142,7 @@ export default {
       delete this.body.body_text
       delete this.body.inventory_records
       delete this.body.price_change_records
+      this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
     },
 
     fetchItem () {
@@ -160,8 +167,7 @@ export default {
     },
 
     toggleFavorite () {
-      const isLoggedIn = ecomPassport.checkLogin()
-      if (isLoggedIn) {
+      if (this.isLogged) {
         this.isFavorite = toggleFavorite(this.body._id, this.ecomPassport)
       }
     },
@@ -216,9 +222,5 @@ export default {
     if (!this.isLoaded) {
       this.fetchItem()
     }
-  },
-
-  mounted () {
-    this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
   }
 }
