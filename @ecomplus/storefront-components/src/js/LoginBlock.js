@@ -103,7 +103,8 @@ export default {
     submitLogin () {
       if (!this.isWaitingLogin) {
         this.isWaitingLogin = true
-        const { email, docNumber } = this
+        const { docNumber } = this
+        const email = this.email && this.email.toLowerCase()
         const isAccountConfirm = this.confirmAccount()
         const emitUpdate = () => this.$emit('update', { email, docNumber })
         this.ecomPassport.fetchLogin(email, isAccountConfirm ? docNumber : null, this.emailCode)
