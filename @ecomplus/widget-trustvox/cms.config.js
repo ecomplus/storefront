@@ -2,6 +2,7 @@ import { name } from './package.json'
 
 export default () => ({
   label: 'Trustvox',
+  thumbnail: 'https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/widgets/trustvox.png',
   fields: [
     {
       name: 'pkg',

@@ -2,6 +2,7 @@ import { name } from './package.json'
 
 export default () => ({
   label: 'Busca instantânea',
+  thumbnail: 'https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/widgets/search.png',
   fields: [
     {
       name: 'pkg',
