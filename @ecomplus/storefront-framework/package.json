@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-framework",
-  "version": "5.18.0",
+  "version": "5.18.1",
   "description": "Framework for PWA and JAMstack e-commerce templates with E-Com Plus APIs",
   "main": "src/index.js",
   "bin": {
@@ -39,7 +39,7 @@
     "@babel/core": "^7.16.12",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.16.11",
-    "@ecomplus/storefront-renderer": "^2.8.13",
+    "@ecomplus/storefront-renderer": "^2.8.14",
     "@ecomplus/storefront-router": "^2.2.1",
     "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.3",

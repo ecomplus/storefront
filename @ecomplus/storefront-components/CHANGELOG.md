@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.115](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.114...@ecomplus/storefront-components@1.0.0-beta.115) (2022-02-06)
+
+
+### Bug Fixes
+
+* **components/login:** check email with lowercase ([#623](https://github.com/ecomplus/storefront/issues/623)) ([d3eb9b5](https://github.com/ecomplus/storefront/commit/d3eb9b511104bdfcf87f995845c9ca5eeb5ba777))
+* **components/product:** check customer logged to handle favorites ([#624](https://github.com/ecomplus/storefront/issues/624)) ([6a3fe02](https://github.com/ecomplus/storefront/commit/6a3fe02d2c1fab45ebb946ce490b870d4a2bf0bf))
+* **components/shipping-calculator:** insert aria label on button with icon ([#622](https://github.com/ecomplus/storefront/issues/622)) ([969ed21](https://github.com/ecomplus/storefront/commit/969ed21023d2720fa8900bb4579cf059c4ea295f))
+* **deps:** update @ecomplus/i18n to v1.27.0 ([d83db09](https://github.com/ecomplus/storefront/commit/d83db098e43520fbf8cc2eaaf3b69de839eedc64))
+
+
+### Features
+
+* **components/product:** add favotite option on product and card ([#621](https://github.com/ecomplus/storefront/issues/621)) ([fb63ddf](https://github.com/ecomplus/storefront/commit/fb63ddfe7d6d6ea36a79748f13faf9d255ad4c88))
+
+
+
+
+
 # [1.0.0-beta.114](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.113...@ecomplus/storefront-components@1.0.0-beta.114) (2022-01-24)
 
 

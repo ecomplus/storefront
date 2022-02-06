@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.2.16...@ecomplus/widget-gmc-ratings@1.3.0) (2022-02-06)
+
+
+### Features
+
+* **template/cms:** using @ecomplus/storefront-cms in place of raw netlify cms ([#596](https://github.com/ecomplus/storefront/issues/596)) ([95c8d3a](https://github.com/ecomplus/storefront/commit/95c8d3ab3f73b0b1dff0a1f5f45b5abfb6dddafa)), closes [#issuecomment-1006566949](https://github.com/ecomplus/storefront/issues/issuecomment-1006566949) [#issuecomment-1003380562](https://github.com/ecomplus/storefront/issues/issuecomment-1003380562)
+
+
+
+
+
 ## [1.2.16](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.2.15...@ecomplus/widget-gmc-ratings@1.2.16) (2021-09-17)
 
 

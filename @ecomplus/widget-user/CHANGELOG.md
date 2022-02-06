@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.112](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-user@1.0.0-beta.111...@ecomplus/widget-user@1.0.0-beta.112) (2022-02-06)
+
+**Note:** Version bump only for package @ecomplus/widget-user
+
+
+
+
+
 # [1.0.0-beta.111](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-user@1.0.0-beta.110...@ecomplus/widget-user@1.0.0-beta.111) (2022-01-24)
 
 **Note:** Version bump only for package @ecomplus/widget-user

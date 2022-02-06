@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.18.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.18.0...@ecomplus/storefront-framework@5.18.1) (2022-02-06)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#617](https://github.com/ecomplus/storefront/issues/617)) ([1a54810](https://github.com/ecomplus/storefront/commit/1a548108e025277cbc6797dbe91240898c6067e5))
+
+
+
+
+
 # [5.18.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.17.14...@ecomplus/storefront-framework@5.18.0) (2022-01-24)
 
 

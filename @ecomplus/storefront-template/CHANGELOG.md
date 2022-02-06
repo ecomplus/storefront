@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.164](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.163...@ecomplus/storefront-template@2.0.0-beta.164) (2022-02-06)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/i18n to v1.27.0 ([d83db09](https://github.com/ecomplus/storefront/commit/d83db098e43520fbf8cc2eaaf3b69de839eedc64))
+
+
+### Features
+
+* **template/cms:** using @ecomplus/storefront-cms in place of raw netlify cms ([#596](https://github.com/ecomplus/storefront/issues/596)) ([95c8d3a](https://github.com/ecomplus/storefront/commit/95c8d3ab3f73b0b1dff0a1f5f45b5abfb6dddafa)), closes [#issuecomment-1006566949](https://github.com/ecomplus/storefront/issues/issuecomment-1006566949) [#issuecomment-1003380562](https://github.com/ecomplus/storefront/issues/issuecomment-1003380562)
+* **template/menu:** add optional mega menu for desktop view ([#594](https://github.com/ecomplus/storefront/issues/594)) ([32cc7d6](https://github.com/ecomplus/storefront/commit/32cc7d66c7b4fd4f11699e5cd2bcd752d6e804d4))
+
+
+
+
+
 # [2.0.0-beta.163](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.162...@ecomplus/storefront-template@2.0.0-beta.163) (2022-01-24)
 
 
