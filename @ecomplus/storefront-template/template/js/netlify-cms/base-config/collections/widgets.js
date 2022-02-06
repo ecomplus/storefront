@@ -3,6 +3,7 @@ import getWidgetProduct from '@ecomplus/widget-product/cms.config'
 import getWidgetSearchEngine from '@ecomplus/widget-search-engine/cms.config'
 import getWidgetSearch from '@ecomplus/widget-search/cms.config'
 import getWidgetMinicart from '@ecomplus/widget-minicart/cms.config'
+import getWidgetUser from '@ecomplus/widget-user/cms.config'
 import getWidgetOffersNotification from '@ecomplus/widget-offers-notification/cms.config'
 import getWidgetAnalytics from '@ecomplus/widget-analytics/cms.config'
 import getWidgetFbPixel from '@ecomplus/widget-fb-pixel/cms.config'
@@ -48,6 +49,7 @@ export default options => ({
     fixWidgetConfig(options, getWidgetProduct),
     fixWidgetConfig(options, getWidgetSearch),
     fixWidgetConfig(options, getWidgetSearchEngine),
-    fixWidgetConfig(options, getWidgetMinicart)
+    fixWidgetConfig(options, getWidgetMinicart),
+    fixWidgetConfig(options, getWidgetUser)
   ]
 })
