@@ -48,7 +48,21 @@ export default {
         this.$router.push({
           name: 'account',
           params: {
-            tab: isShowOrders ? 'orders' : null
+            tab: isShowOrders ? 'orders' : 'favorites'
+          }
+        })
+      }
+    },
+
+    isFavoritesList: {
+      get () {
+        return this.$route.params.tab === 'favorites'
+      },
+      set (isShowFavorites) {
+        this.$router.push({
+          name: 'account',
+          params: {
+            tab: isShowFavorites ? 'favorites' : 'orders'
           }
         })
       }

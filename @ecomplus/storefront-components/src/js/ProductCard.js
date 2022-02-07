@@ -92,6 +92,10 @@ export default {
     i19addToFavorites: () => i18n(i19addToFavorites),
     i19outOfStock: () => i18n(i19outOfStock),
     i19unavailable: () => i18n(i19unavailable),
+    i19addToFavorites: () => i18n({
+      pt_br: 'Adicionar aos favoritos',
+      en_us: 'Add to favorites'
+    }),
 
     ratingHtml () {
       return getExternalHtml('Rating', this.body)
@@ -222,5 +226,9 @@ export default {
     if (!this.isLoaded) {
       this.fetchItem()
     }
+  },
+
+  mounted () {
+    this.isFavorite = checkFavorite(this.body._id, this.ecomPassport)
   }
 }
