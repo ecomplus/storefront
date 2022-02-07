@@ -4,6 +4,7 @@
       :ecom-passport="ecomPassport"
       :customer.sync="customer"
       :is-orders-list.sync="isOrdersList"
+      :is-favorites-list.sync="isFavoritesList"
       @login="login"
       @logout="resetAccount"
     >
