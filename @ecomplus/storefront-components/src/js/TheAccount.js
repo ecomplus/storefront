@@ -14,12 +14,14 @@ import {
 
 import ecomPassport from '@ecomplus/passport-client'
 import LoginBlock from '../LoginBlock.vue'
+import RecommendedItems from '../RecommendedItems.vue'
 
 export default {
   name: 'TheAccount',
 
   components: {
-    LoginBlock
+    LoginBlock,
+    RecommendedItems
   },
 
   props: {
@@ -29,7 +31,7 @@ export default {
         return {}
       }
     },
-    isOrdersList: Boolean,
+    currentTab: String,
     ecomPassport: {
       type: Object,
       default () {
@@ -45,13 +47,23 @@ export default {
     i19logout: () => i18n(i19logout),
     i19orders: () => i18n(i19orders),
     i19registration: () => i18n(i19registration),
+    i19favorites: () => i18n({
+      pt_br: 'Favoritos',
+      en_us: 'Favorites'
+    }),
 
     activeTab: {
       get () {
-        return this.isOrdersList ? 1 : 0
+        if (this.currentTab === 'orders') {
+          return 1
+        } else if (this.currentTab === 'favorites') {
+          return 2
+        } else {
+          return 0
+        }
       },
       set (tabIndex) {
-        this.$emit('update:is-orders-list', tabIndex === 1)
+        this.$emit('update:active-tab', tabIndex === 1 ? 'orders' : tabIndex === 2 ? 'favorites' : null)
       }
     },
 

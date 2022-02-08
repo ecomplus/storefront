@@ -1,7 +1,10 @@
 <section class="recommended-items">
   <transition enter-active-class="animated fadeIn">
     <div v-if="items.length">
-      <div class="recommended-items__title">
+      <div
+        v-if="!isFavoritesTab" 
+        class="recommended-items__title"
+      >
         <slot name="title">
           <p class="lead">
             {{ i19weRecommendToYou }}

@@ -40,15 +40,15 @@ export default {
       }
     },
 
-    isOrdersList: {
+    currentTab: {
       get () {
-        return this.$route.params.tab === 'orders'
+        return this.$route.params.tab
       },
-      set (isShowOrders) {
+      set (tab) {
         this.$router.push({
           name: 'account',
           params: {
-            tab: isShowOrders ? 'orders' : null
+            tab: tab
           }
         })
       }

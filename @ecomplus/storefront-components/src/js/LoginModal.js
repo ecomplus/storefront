@@ -48,6 +48,10 @@ export default {
       type: String,
       default: '/app/#/account/orders'
     },
+    favoritesUrl: {
+      type: String,
+      default: '/app/#/account/favorites'
+    },
     ecomPassport: {
       type: Object,
       default () {
@@ -90,6 +94,10 @@ export default {
     i19signInWithAnotherEmail: () => i18n(i19signInWithAnotherEmail),
     i19signUp: () => i18n(i19signUp),
     i19signUpWith: () => i18n(i19signUpWith),
+    i19myFavorites: () => i18n({
+      pt_br: 'Meus Favoritos',
+      en_us: 'My Favorites'
+    }),
 
     greetings () {
       if (typeof this.getGreetingsMsg === 'function') {

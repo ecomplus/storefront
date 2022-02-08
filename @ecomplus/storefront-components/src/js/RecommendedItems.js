@@ -9,12 +9,13 @@ import {
   recommendedIds as getRecommendedIds
 } from '@ecomplus/utils'
 
-import { graphs } from '@ecomplus/client'
+import { graphs, store } from '@ecomplus/client'
 import EcomSearch from '@ecomplus/search-engine'
 import ecomCart from '@ecomplus/shopping-cart'
 import { isMobile } from '@ecomplus/storefront-twbs'
 import addIdleCallback from './helpers/add-idle-callback'
 import ProductCard from '../ProductCard.vue'
+import ecomPassport from '@ecomplus/passport-client'
 
 export default {
   name: 'RecommendedItems',
@@ -60,6 +61,16 @@ export default {
       default () {
         return ecomCart
       }
+    },
+    ecomPassport: {
+      type: Object,
+      default () {
+        return ecomPassport
+      }
+    },
+    isFavoritesTab: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -133,9 +144,21 @@ export default {
         }
       })
     }
-    addIdleCallback(() => {
-      fetchRecommendations()
-    })
+    if (this.isFavoritesTab) {
+      this.totalCount = 0
+      this.items = []
+      const { favorites } = this.ecomPassport.getCustomer()
+      favorites.forEach(favoriteId => {
+        store({ url: `/products/${favoriteId}.json` })
+          .then(({ data }) => {
+            this.items.push(data)
+          })
+      })
+    } else {
+      addIdleCallback(() => {
+        fetchRecommendations()
+      })
+    }
   },
 
   watch: {
@@ -154,7 +177,9 @@ export default {
     },
 
     pageNumber () {
-      this.fetchItems()
+      if (!this.isFavoritesTab) {
+        this.fetchItems()
+      }
     }
   }
 }
