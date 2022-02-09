@@ -56,7 +56,7 @@ export default dataLayer => {
           } catch (e) {
           }
         }
-        const { amount } = window.storefrontApp
+        const { amount } = order || window.storefrontApp
         const actionField = {
           id: orderId,
           revenue: (
