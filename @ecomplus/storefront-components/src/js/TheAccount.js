@@ -1,5 +1,6 @@
 import {
   i19addresses,
+  i19favorites,
   i19hello,
   i19isNotYou,
   i19logout,
@@ -12,6 +13,7 @@ import {
   nickname as getNickname
 } from '@ecomplus/utils'
 
+import { store } from '@ecomplus/client'
 import ecomPassport from '@ecomplus/passport-client'
 import LoginBlock from '../LoginBlock.vue'
 import RecommendedItems from '../RecommendedItems.vue'
@@ -31,7 +33,11 @@ export default {
         return {}
       }
     },
-    currentTab: String,
+    currentTab: {
+      validator: function (value) {
+        return ['orders', 'favorites'].includes(value)
+      }
+    },
     ecomPassport: {
       type: Object,
       default () {
@@ -40,30 +46,27 @@ export default {
     }
   },
 
+  data () {
+    return {
+      favoriteItems: []
+    }
+  },
+
   computed: {
     i19addresses: () => i18n(i19addresses),
+    i19favorites: () => i18n(i19favorites),
     i19hello: () => i18n(i19hello),
     i19isNotYou: () => i18n(i19isNotYou),
     i19logout: () => i18n(i19logout),
     i19orders: () => i18n(i19orders),
     i19registration: () => i18n(i19registration),
-    i19favorites: () => i18n({
-      pt_br: 'Favoritos',
-      en_us: 'Favorites'
-    }),
 
     activeTab: {
       get () {
-        if (this.currentTab === 'orders') {
-          return 1
-        } else if (this.currentTab === 'favorites') {
-          return 2
-        } else {
-          return 0
-        }
+        return this.currentTab === 'orders' ? 1 : this.currentTab === 'favorites' ? 2 : 0
       },
       set (tabIndex) {
-        this.$emit('update:active-tab', tabIndex === 1 ? 'orders' : tabIndex === 2 ? 'favorites' : null)
+        this.$emit('update:current-tab', tabIndex === 1 ? 'orders' : tabIndex === 2 ? 'favorites' : null)
       }
     },
 
@@ -95,5 +98,15 @@ export default {
         this.$emit('logout')
       }
     }
+  },
+
+  created () {
+    const { favorites } = this.ecomPassport.getCustomer()
+    favorites.forEach(favoriteId => {
+      store({ url: `/products/${favoriteId}.json` })
+        .then(({ data }) => {
+          this.favoriteItems.push(data)
+        })
+    })
   }
 }

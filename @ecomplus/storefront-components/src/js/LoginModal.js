@@ -10,6 +10,7 @@ import {
   i19login,
   i19logout,
   i19myAccount,
+  i19myFavorites,
   i19myOrders,
   i19noProfileFoundWithEmail,
   i19signInWith,
@@ -88,16 +89,13 @@ export default {
     i19login: () => i18n(i19login),
     i19logout: () => i18n(i19logout),
     i19myAccount: () => i18n(i19myAccount),
+    i19myFavorites: () => i18n(i19myFavorites),
     i19myOrders: () => i18n(i19myOrders),
     i19noProfileFoundWithEmail: () => i18n(i19noProfileFoundWithEmail),
     i19signInWith: () => i18n(i19signInWith),
     i19signInWithAnotherEmail: () => i18n(i19signInWithAnotherEmail),
     i19signUp: () => i18n(i19signUp),
     i19signUpWith: () => i18n(i19signUpWith),
-    i19myFavorites: () => i18n({
-      pt_br: 'Meus Favoritos',
-      en_us: 'My Favorites'
-    }),
 
     greetings () {
       if (typeof this.getGreetingsMsg === 'function') {
