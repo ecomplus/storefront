@@ -4,10 +4,16 @@ import { currency } from './common'
 export default (fbq, options) => {
   const router = window.storefrontApp && window.storefrontApp.router
   if (router) {
-    let isCartSent, isCheckoutSent, isPurchaseSent
-
-    const getPurchaseData = () => {
-      const { amount } = window.storefrontApp
+    let isCartSent, isCheckoutSent, isPurchaseSent, order
+    const orderJason = decodeURIComponent(params.json)
+    if (orderJson) {
+      try { 
+        order = JSON.parse(orderJson)
+        } catch (e) {
+      }
+    }
+    const getPurchaseData = order => {
+      const { amount } = order || window.storefrontApp
       const data = {
         value: (
           (amount && amount.total) ||
@@ -27,7 +33,7 @@ export default (fbq, options) => {
     }
 
     const emitCheckout = (step, option) => {
-      const purchaseData = getPurchaseData()
+      const purchaseData = getPurchaseData(order)
       const customData = {
         ...purchaseData,
         checkout_step: step,
@@ -46,7 +52,7 @@ export default (fbq, options) => {
     const emitPurchase = orderId => {
       if (!isPurchaseSent && options.disablePurchase !== true) {
         fbq('Purchase', {
-          ...getPurchaseData(),
+          ...getPurchaseData(order),
           order_id: orderId
         })
         isPurchaseSent = true
