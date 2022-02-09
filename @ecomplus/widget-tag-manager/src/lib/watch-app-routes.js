@@ -49,7 +49,14 @@ export default dataLayer => {
 
     const emitPurchase = (orderId, orderJson) => {
       if (!isPurchaseSent) {
-        const { amount } = window.storefrontApp
+        let order
+        if (orderJson) {
+          try {
+            order = JSON.parse(orderJson)
+          } catch (e) {
+          }
+        }
+        const { amount } = order || window.storefrontApp
         const actionField = {
           id: orderId,
           revenue: (
@@ -67,13 +74,6 @@ export default dataLayer => {
           }
         }
 
-        let order
-        if (orderJson) {
-          try {
-            order = JSON.parse(orderJson)
-          } catch (e) {
-          }
-        }
         if (order) {
           ;['payment_method_label', 'shipping_method_label'].forEach((field, i) => {
             if (order[field]) {
