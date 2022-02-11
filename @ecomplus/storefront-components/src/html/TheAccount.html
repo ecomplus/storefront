@@ -72,6 +72,7 @@
       >
         <div v-if="currentTab === 'favorites'">
           <recommended-items
+            v-if="favoriteItems.length"
             :items="favoriteItems"
           >
           </recommended-items>
