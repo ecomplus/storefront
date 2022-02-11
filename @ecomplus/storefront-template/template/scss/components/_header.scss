@@ -26,6 +26,31 @@
     align-items: center;
     min-height: 45px;
 
+    &--grid {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+
+      .grid-logo {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      .grid-search {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .grid-nav {
+        grid-column: 1/span 3;
+        grid-row: 2;
+        margin-top: var(--spacer-3);
+      }
+
+      .grid-icons {
+        grid-column: 4;
+        grid-row: 1;
+      }
+    }
+
     @media (min-width: 768px) {
       min-height: 60px;
     }
@@ -77,6 +102,8 @@
     font-size: var(--font-size-sm);
     line-height: var(--line-height-lg);
     text-transform: uppercase;
+    display: flex;
+    justify-content: space-around;
 
     a {
       font-weight: var(--font-headings);

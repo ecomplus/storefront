@@ -116,6 +116,11 @@ export default ({ baseDir, state }) => ({
       widget: 'boolean'
     },
     {
+      label: 'Megamenu em largura total',
+      name: 'full_width_megamenu',
+      widget: 'boolean'
+    },
+    {
       label: 'Mostrar input de busca',
       name: 'search_input',
       widget: 'boolean'
