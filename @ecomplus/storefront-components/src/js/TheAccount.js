@@ -13,7 +13,7 @@ import {
   nickname as getNickname
 } from '@ecomplus/utils'
 
-import { store } from '@ecomplus/client'
+import EcomSearch from '@ecomplus/search-engine'
 import ecomPassport from '@ecomplus/passport-client'
 import LoginBlock from '../LoginBlock.vue'
 import RecommendedItems from '../RecommendedItems.vue'
@@ -34,8 +34,9 @@ export default {
       }
     },
     currentTab: {
+      type: String,
       validator: function (value) {
-        return ['orders', 'favorites'].includes(value)
+        return ['orders', 'favorites', null].includes(value)
       }
     },
     ecomPassport: {
@@ -48,6 +49,7 @@ export default {
 
   data () {
     return {
+      ecomSearch: new EcomSearch(),
       favoriteItems: []
     }
   },
@@ -102,11 +104,8 @@ export default {
 
   created () {
     const { favorites } = this.ecomPassport.getCustomer()
-    favorites.forEach(favoriteId => {
-      store({ url: `/products/${favoriteId}.json` })
-        .then(({ data }) => {
-          this.favoriteItems.push(data)
-        })
+    this.ecomSearch.setProductIds(favorites).fetch().then(() => {
+      this.favoriteItems = this.ecomSearch.getItems()
     })
   }
 }
