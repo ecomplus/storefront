@@ -13,7 +13,6 @@ import {
   nickname as getNickname
 } from '@ecomplus/utils'
 
-import EcomSearch from '@ecomplus/search-engine'
 import ecomPassport from '@ecomplus/passport-client'
 import LoginBlock from '../LoginBlock.vue'
 import RecommendedItems from '../RecommendedItems.vue'
@@ -49,7 +48,6 @@ export default {
 
   data () {
     return {
-      ecomSearch: new EcomSearch(),
       favoriteIds: []
     }
   },
