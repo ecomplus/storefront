@@ -36,7 +36,7 @@ export default {
     currentTab: {
       type: String,
       validator: function (value) {
-        return ['orders', 'favorites', null].includes(value)
+        return ['orders', 'favorites', 'account'].includes(value)
       }
     },
     ecomPassport: {
@@ -50,7 +50,7 @@ export default {
   data () {
     return {
       ecomSearch: new EcomSearch(),
-      favoriteItems: []
+      favoriteIds: []
     }
   },
 
@@ -60,6 +60,10 @@ export default {
     i19hello: () => i18n(i19hello),
     i19isNotYou: () => i18n(i19isNotYou),
     i19logout: () => i18n(i19logout),
+    i19noFavoritesMsg: () => i18n({
+      pt_br: 'Você ainda não tem itens favoritos',
+      en_us: 'You have no favorite item yet'
+    }),
     i19orders: () => i18n(i19orders),
     i19registration: () => i18n(i19registration),
 
@@ -68,7 +72,7 @@ export default {
         return this.currentTab === 'orders' ? 1 : this.currentTab === 'favorites' ? 2 : 0
       },
       set (tabIndex) {
-        this.$emit('update:current-tab', tabIndex === 1 ? 'orders' : tabIndex === 2 ? 'favorites' : null)
+        this.$emit('update:current-tab', tabIndex === 1 ? 'orders' : tabIndex === 2 ? 'favorites' : 'account')
       }
     },
 
@@ -104,8 +108,6 @@ export default {
 
   created () {
     const { favorites } = this.ecomPassport.getCustomer()
-    this.ecomSearch.setProductIds(favorites).fetch().then(() => {
-      this.favoriteItems = this.ecomSearch.getItems()
-    })
+    this.favoriteIds = favorites
   }
 }

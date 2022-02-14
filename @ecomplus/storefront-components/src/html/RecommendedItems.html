@@ -1,8 +1,8 @@
 <section class="recommended-items">
   <transition enter-active-class="animated fadeIn">
-    <div v-if="localItems.length">
+    <div v-if="items.length">
       <div
-        v-if="!items.length" 
+        v-if="!productIds.length" 
         class="recommended-items__title"
       >
         <slot name="title">
@@ -14,7 +14,7 @@
 
       <div :class="rowClassName">
         <div
-          v-for="item in localItems"
+          v-for="item in items"
           :key="item._id"
           :class="colClassName"
         >

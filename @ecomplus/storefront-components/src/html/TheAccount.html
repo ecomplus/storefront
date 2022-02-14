@@ -40,7 +40,7 @@
         enter-active-class="animated fadeInLeft slow"
         leave-active-class="animated fadeOutLeft"
       >
-        <div v-if="currentTab == null">
+        <div v-if="currentTab === 'account'">
           <slot name="registration">
             <div class="row">
               <div class="col-md-7">
@@ -71,12 +71,18 @@
         leave-active-class="animated fadeOutRight position-absolute"
       >
         <div v-if="currentTab === 'favorites'">
-          <recommended-items
-            v-if="favoriteItems.length"
-            :items="favoriteItems"
-          >
-          </recommended-items>
+          <slot name="favorites">
+            <recommended-items
+              v-if="favoriteIds.length"
+              :productIds="favoriteIds"
+            >
+            </recommended-items>
+            <div v-else>
+              {{ i19noFavoritesMsg }}
+            </div>
+          </slot>          
         </div>
+        
       </transition>
     </div>
   </div>

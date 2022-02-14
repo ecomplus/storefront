@@ -61,9 +61,9 @@ export default {
         return ecomCart
       }
     },
-    items: {
+    productIds: {
       type: Array,
-      default() {
+      default () {
         return []
       }
     }
@@ -85,7 +85,7 @@ export default {
           }
         }),
       pageNumber: 1,
-      localItems: []
+      items: []
     }
   },
 
@@ -98,11 +98,11 @@ export default {
     fetchItems () {
       delete this.ecomSearch.dsl.aggs
       this.ecomSearch.setPageNumber(this.pageNumber).fetch().then(() => {
-        this.localItems = this.localItems.concat(this.ecomSearch.getItems())
+        this.items = this.items.concat(this.ecomSearch.getItems())
         this.totalCount = this.ecomSearch.getTotalCount()
         if (this.totalCount) {
           this.$emit('recommend-items', {
-            items: this.localItems,
+            items: this.items,
             totalCount: this.totalCount
           })
         }
@@ -139,9 +139,11 @@ export default {
         }
       })
     }
-    if (this.items.length) {
+    if (this.productIds.length) {
+      this.ecomSearch.setProductIds(this.productIds).fetch().then(() => {
+        this.items = this.ecomSearch.getItems()
+      })
       this.totalCount = this.items.length
-      this.localItems = this.items
     } else {
       addIdleCallback(() => {
         fetchRecommendations()
@@ -165,7 +167,7 @@ export default {
     },
 
     pageNumber () {
-      if (!this.items.length) {
+      if (!this.productIds.length) {
         this.fetchItems()
       }
     }
