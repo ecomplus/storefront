@@ -4,10 +4,17 @@ import { currency } from './common'
 export default (fbq, options) => {
   const router = window.storefrontApp && window.storefrontApp.router
   if (router) {
-    let isCartSent, isCheckoutSent, isPurchaseSent
+    let isCartSent, isCheckoutSent, isPurchaseSent, order
+    const orderJson = decodeURIComponent(params.json)
+    if (orderJson) {
+      try { 
+        order = JSON.parse(orderJson)
+      } catch (e) {
+      }
+    }
 
     const getPurchaseData = () => {
-      const { amount } = window.storefrontApp
+      const { amount } = order || window.storefrontApp
       const data = {
         value: (
           (amount && amount.total) ||
