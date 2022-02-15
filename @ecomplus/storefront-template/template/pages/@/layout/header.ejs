@@ -139,13 +139,13 @@ const fullWidthMegamenu = hasMegamenu && header.full_width_megamenu
         </button>
       </div>
 
-      <div class="col col-lg-auto pl-1 pl-md-2 pl-lg-3 <%= fullWidthMegamenu ? ' grid-logo' : '' %>">
+      <div class="col col-lg-auto pl-1 pl-md-2 pl-lg-3 <%= fullWidthMegamenu ? ' header__row--grid__logo' : '' %>">
         <a href="/">
           <%- await include('@/layout/inc/logo', { _ }) %>
         </a>
       </div>
 
-      <div class="order-lg-last col-auto p-0 <%= fullWidthMegamenu ? ' grid-icons' : '' %>">
+      <div class="order-lg-last col-auto p-0 <%= fullWidthMegamenu ? ' header__row--grid__icons' : '' %>">
         <div
           class="header__buttons"
           role="group"
@@ -204,7 +204,7 @@ const fullWidthMegamenu = hasMegamenu && header.full_width_megamenu
         const searchColSize = !isCategoriesNavFull && categories.length ? '-3' : ''
         %>
         <div
-          class="d-none d-lg-block col-12 col-lg<%= searchColSize %> collapse show <%= fullWidthMegamenu ? ' grid-search' : '' %>"
+          class="d-none d-lg-block col-12 col-lg<%= searchColSize %> collapse show <%= fullWidthMegamenu ? ' header__row--grid__search' : '' %>"
           id="search-bar"
         >
           <form
@@ -254,7 +254,7 @@ const fullWidthMegamenu = hasMegamenu && header.full_width_megamenu
       <% } %>
 
       <% if (categories && categories.length) { %>
-        <div class="d-none d-lg-block <%= isCategoriesNavFull ? 'col-12 order-lg-last' : 'col' %> <%= fullWidthMegamenu ? ' grid-nav' : '' %>">
+        <div class="d-none d-lg-block <%= isCategoriesNavFull ? 'col-12 order-lg-last' : 'col' %> <%= fullWidthMegamenu ? ' header__row--grid__nav' : '' %>">
           <nav class="header__nav<%= isCategoriesNavFull ? ' header__nav--full' : '' %>">
             <% categories.forEach(({ slug, name}) => { %>
               <% let $categoryLink %>
