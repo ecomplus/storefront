@@ -5,14 +5,14 @@ export default (fbq, options) => {
   const router = window.storefrontApp && window.storefrontApp.router
   if (router) {
     let isCartSent, isCheckoutSent, isPurchaseSent, order
-    const orderJason = decodeURIComponent(params.json)
+    const orderJson = decodeURIComponent(params.json)
     if (orderJson) {
       try { 
         order = JSON.parse(orderJson)
         } catch (e) {
       }
     }
-    const getPurchaseData = order => {
+    const getPurchaseData = () => {
       const { amount } = order || window.storefrontApp
       const data = {
         value: (
@@ -33,7 +33,7 @@ export default (fbq, options) => {
     }
 
     const emitCheckout = (step, option) => {
-      const purchaseData = getPurchaseData(order)
+      const purchaseData = getPurchaseData()
       const customData = {
         ...purchaseData,
         checkout_step: step,
@@ -52,7 +52,7 @@ export default (fbq, options) => {
     const emitPurchase = orderId => {
       if (!isPurchaseSent && options.disablePurchase !== true) {
         fbq('Purchase', {
-          ...getPurchaseData(order),
+          ...getPurchaseData(),
           order_id: orderId
         })
         isPurchaseSent = true
