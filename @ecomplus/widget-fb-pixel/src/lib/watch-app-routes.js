@@ -9,7 +9,7 @@ export default (fbq, options) => {
     if (orderJson) {
       try { 
         order = JSON.parse(orderJson)
-        } catch (e) {
+      } catch (e) {
       }
     }
     const getPurchaseData = () => {
