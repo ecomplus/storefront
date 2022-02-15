@@ -45,12 +45,14 @@ export default {
         return this.$route.params.tab
       },
       set (tab) {
-        this.$router.push({
-          name: 'account',
-          params: {
-            tab
-          }
-        })
+        if (tab !== this.$route.params.tab) {
+          this.$router.push({
+            name: 'account',
+            params: {
+              tab
+            }
+          })
+        }
       }
     }
   },
