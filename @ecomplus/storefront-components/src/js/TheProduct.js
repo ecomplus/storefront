@@ -11,6 +11,7 @@ import {
   i19paymentOptions,
   i19perUnit,
   i19productionDeadline,
+  // i19removeFromFavorites,
   i19retry,
   i19selectVariationMsg,
   i19unavailable,
@@ -53,7 +54,7 @@ import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
 import PaymentOption from '../PaymentOption.vue'
 import ecomPassport from '@ecomplus/passport-client'
-import { toggleFavorite, checkFavorite } from './helpers/favorite'
+import { toggleFavorite, checkFavorite } from './helpers/favorite-products'
 
 const storefront = (typeof window === 'object' && window.storefront) || {}
 const getContextBody = () => (storefront.context && storefront.context.body) || {}
@@ -169,6 +170,10 @@ export default {
     i19paymentOptions: () => i18n(i19paymentOptions),
     i19perUnit: () => i18n(i19perUnit),
     i19productionDeadline: () => i18n(i19productionDeadline),
+    i19removeFromFavorites: () => i18n({
+      pt_br: 'Remover dos favoritos',
+      en_us: 'Remove from favorites'
+    }),
     i19retry: () => i18n(i19retry),
     i19selectVariationMsg: () => i18n(i19selectVariationMsg),
     i19unavailable: () => i18n(i19unavailable),

@@ -1,4 +1,6 @@
-const toggleFavorite = (productId, ecomPassport = ecomPassport) => {
+import _ecomPassport from '@ecomplus/passport-client'
+
+const toggleFavorite = (productId, ecomPassport = _ecomPassport) => {
   const customer = ecomPassport.getCustomer()
   const favorites = customer.favorites || []
   const isFavorite = checkFavorite(productId, ecomPassport)
@@ -11,9 +13,6 @@ const toggleFavorite = (productId, ecomPassport = ecomPassport) => {
   }
 
   ecomPassport.requestApi('/me.json', 'patch', { favorites })
-    .then(({ data }) => {
-      console.log(data)
-    })
   return !isFavorite
 }
 

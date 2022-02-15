@@ -21,7 +21,7 @@ import ALink from '../ALink.vue'
 import APicture from '../APicture.vue'
 import APrices from '../APrices.vue'
 import ecomPassport from '@ecomplus/passport-client'
-import { toggleFavorite, checkFavorite } from './helpers/favorite'
+import { toggleFavorite, checkFavorite } from './helpers/favorite-products'
 
 const getExternalHtml = (varName, product) => {
   if (typeof window === 'object') {

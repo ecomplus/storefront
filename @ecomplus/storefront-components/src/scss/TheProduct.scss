@@ -123,6 +123,10 @@
 
     &.active {
       opacity: 1;
+
+      + span {
+        color: var(--text-muted);
+      }
     }
   }
 

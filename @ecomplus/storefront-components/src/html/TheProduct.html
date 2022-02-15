@@ -256,7 +256,9 @@
                     :class="isFavorite ? 'active' : null"
                   >
                   </i>
-                  {{ i19addToFavorites }}
+                  <span>
+                    {{ isFavorite ? i19removeFromFavorites : i19addToFavorites }}
+                  </span>
                 </a>
               </div>
             </slot>
