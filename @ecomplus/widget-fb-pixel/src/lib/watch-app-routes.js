@@ -12,6 +12,7 @@ export default (fbq, options) => {
       } catch (e) {
       }
     }
+
     const getPurchaseData = () => {
       const { amount } = order || window.storefrontApp
       const data = {
