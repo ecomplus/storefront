@@ -21,7 +21,7 @@
 
     <ul class="account__nav nav nav-tabs">
       <li
-        v-for="(label, i) in [i19registration, i19orders]"
+        v-for="(label, i) in [i19registration, i19orders, i19favorites]"
         class="nav-item"
       >
         <a
@@ -40,7 +40,7 @@
         enter-active-class="animated fadeInLeft slow"
         leave-active-class="animated fadeOutLeft"
       >
-        <div v-if="!isOrdersList">
+        <div v-if="currentTab === 'account'">
           <slot name="registration">
             <div class="row">
               <div class="col-md-7">
@@ -62,9 +62,27 @@
         enter-active-class="animated fadeInRight slow"
         leave-active-class="animated fadeOutRight position-absolute"
       >
-        <div v-if="isOrdersList">
+        <div v-if="currentTab === 'orders'">
           <slot name="orders-list"/>
         </div>
+      </transition>
+      <transition
+        enter-active-class="animated fadeInRight slow"
+        leave-active-class="animated fadeOutRight position-absolute"
+      >
+        <div v-if="currentTab === 'favorites'">
+          <slot name="favorites">
+            <recommended-items
+              v-if="favoriteIds.length"
+              :product-ids="favoriteIds"
+            >
+            </recommended-items>
+            <div v-else>
+              {{ i19noFavoritesMsg }}
+            </div>
+          </slot>          
+        </div>
+        
       </transition>
     </div>
   </div>

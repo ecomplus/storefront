@@ -3,7 +3,7 @@
     <the-account
       :ecom-passport="ecomPassport"
       :customer.sync="customer"
-      :is-orders-list.sync="isOrdersList"
+      :current-tab.sync="currentTab"
       @login="login"
       @logout="resetAccount"
     >

@@ -10,6 +10,7 @@ import {
   i19login,
   i19logout,
   i19myAccount,
+  i19myFavorites,
   i19myOrders,
   i19noProfileFoundWithEmail,
   i19signInWith,
@@ -48,6 +49,10 @@ export default {
       type: String,
       default: '/app/#/account/orders'
     },
+    favoritesUrl: {
+      type: String,
+      default: '/app/#/account/favorites'
+    },
     ecomPassport: {
       type: Object,
       default () {
@@ -84,6 +89,7 @@ export default {
     i19login: () => i18n(i19login),
     i19logout: () => i18n(i19logout),
     i19myAccount: () => i18n(i19myAccount),
+    i19myFavorites: () => i18n(i19myFavorites),
     i19myOrders: () => i18n(i19myOrders),
     i19noProfileFoundWithEmail: () => i18n(i19noProfileFoundWithEmail),
     i19signInWith: () => i18n(i19signInWith),

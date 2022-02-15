@@ -60,6 +60,12 @@ export default {
       default () {
         return ecomCart
       }
+    },
+    productIds: {
+      type: Array,
+      default () {
+        return []
+      }
     }
   },
 
@@ -133,9 +139,15 @@ export default {
         }
       })
     }
-    addIdleCallback(() => {
-      fetchRecommendations()
-    })
+    if (this.productIds.length) {
+      this.ecomSearch.setProductIds(this.productIds)
+      this.totalCount = this.items.length
+      this.fetchItems()
+    } else {
+      addIdleCallback(() => {
+        fetchRecommendations()
+      })
+    }
   },
 
   watch: {
