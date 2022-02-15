@@ -40,7 +40,7 @@
         enter-active-class="animated fadeInLeft slow"
         leave-active-class="animated fadeOutLeft"
       >
-        <div v-if="currentTab === 'account'">
+        <div v-if="currentTab === 'account' || !currentTab">
           <slot name="registration">
             <div class="row">
               <div class="col-md-7">
@@ -66,6 +66,7 @@
           <slot name="orders-list"/>
         </div>
       </transition>
+
       <transition
         enter-active-class="animated fadeInRight slow"
         leave-active-class="animated fadeOutRight position-absolute"
@@ -78,11 +79,10 @@
             >
             </recommended-items>
             <div v-else>
-              {{ i19noFavoritesMsg }}
+              {{ i19noSavedFavoritesMsg }}
             </div>
           </slot>          
         </div>
-        
       </transition>
     </div>
   </div>

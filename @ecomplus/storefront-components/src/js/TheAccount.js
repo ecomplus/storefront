@@ -58,9 +58,9 @@ export default {
     i19hello: () => i18n(i19hello),
     i19isNotYou: () => i18n(i19isNotYou),
     i19logout: () => i18n(i19logout),
-    i19noFavoritesMsg: () => i18n({
-      pt_br: 'Você ainda não tem itens favoritos',
-      en_us: 'You have no favorite item yet'
+    i19noSavedFavoritesMsg: () => i18n({
+      pt_br: 'Você ainda não tem produtos salvos como favoritos.',
+      en_us: 'You don\'t have any products saved as favorites yet.'
     }),
     i19orders: () => i18n(i19orders),
     i19registration: () => i18n(i19registration),
@@ -106,6 +106,6 @@ export default {
 
   created () {
     const { favorites } = this.ecomPassport.getCustomer()
-    this.favoriteIds = favorites
+    this.favoriteIds = favorites || []
   }
 }
