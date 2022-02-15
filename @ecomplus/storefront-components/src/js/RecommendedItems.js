@@ -140,10 +140,9 @@ export default {
       })
     }
     if (this.productIds.length) {
-      this.ecomSearch.setProductIds(this.productIds).fetch().then(() => {
-        this.items = this.ecomSearch.getItems()
-      })
+      this.ecomSearch.setProductIds(this.productIds)
       this.totalCount = this.items.length
+      this.fetchItems()
     } else {
       addIdleCallback(() => {
         fetchRecommendations()
@@ -167,9 +166,7 @@ export default {
     },
 
     pageNumber () {
-      if (!this.productIds.length) {
-        this.fetchItems()
-      }
+      this.fetchItems()
     }
   }
 }

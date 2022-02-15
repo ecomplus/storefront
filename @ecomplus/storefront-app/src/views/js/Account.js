@@ -48,7 +48,7 @@ export default {
         this.$router.push({
           name: 'account',
           params: {
-            tab: tab
+            tab
           }
         })
       }
