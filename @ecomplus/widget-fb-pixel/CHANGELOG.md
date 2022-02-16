@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.4.0...@ecomplus/widget-fb-pixel@1.4.1) (2022-02-16)
+
+
+### Bug Fixes
+
+* **widget-fb-pixel:** get amount for value from order router param ([#630](https://github.com/ecomplus/storefront/issues/630)) ([baf6ed2](https://github.com/ecomplus/storefront/commit/baf6ed2d1de61963dd3a5d645d040ccd5ef1738e))
+
+
+
+
+
 # [1.4.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.3.1...@ecomplus/widget-fb-pixel@1.4.0) (2022-02-06)
 
 

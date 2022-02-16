@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.116](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.115...@ecomplus/storefront-components@1.0.0-beta.116) (2022-02-16)
+
+
+### Bug Fixes
+
+* **components/account:** prevent error with undefined customer `favorites` ([62e7c4e](https://github.com/ecomplus/storefront/commit/62e7c4e1ce572601784ba0b6c0bd0ba27a5b20a3))
+* **components/product:** better showing "add to favorites" state ([eb6e5b7](https://github.com/ecomplus/storefront/commit/eb6e5b793b6198b1faf600c2671d545422ea8676))
+
+
+### Features
+
+* **components/account:** add tab on account to show favorite products ([#628](https://github.com/ecomplus/storefront/issues/628)) ([9dc76d5](https://github.com/ecomplus/storefront/commit/9dc76d5e71ae462a7131d2f48c9fb240066005bd))
+
+
+
+
+
 # [1.0.0-beta.115](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.114...@ecomplus/storefront-components@1.0.0-beta.115) (2022-02-06)
 
 

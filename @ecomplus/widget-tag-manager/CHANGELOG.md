@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.6.0...@ecomplus/widget-tag-manager@1.6.1) (2022-02-16)
+
+
+### Bug Fixes
+
+* **widget-tag-manager:** get amount for revenue from order router param ([#629](https://github.com/ecomplus/storefront/issues/629)) ([746cc6a](https://github.com/ecomplus/storefront/commit/746cc6a3b848f7339782c0b127230571e74338a6))
+
+
+
+
+
 # [1.6.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.5.1...@ecomplus/widget-tag-manager@1.6.0) (2022-02-06)
 
 

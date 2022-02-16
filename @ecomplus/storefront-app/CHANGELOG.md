@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.123](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.122...@ecomplus/storefront-app@2.0.0-beta.123) (2022-02-16)
+
+
+### Bug Fixes
+
+* **app/account:** prevent repeated route (same param) push ([4aeec10](https://github.com/ecomplus/storefront/commit/4aeec1085a20ea52e1838a154ea73e2653aba03b))
+
+
+### Features
+
+* **components/account:** add tab on account to show favorite products ([#628](https://github.com/ecomplus/storefront/issues/628)) ([9dc76d5](https://github.com/ecomplus/storefront/commit/9dc76d5e71ae462a7131d2f48c9fb240066005bd))
+
+
+
+
+
 # [2.0.0-beta.122](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.121...@ecomplus/storefront-app@2.0.0-beta.122) (2022-02-06)
 
 
