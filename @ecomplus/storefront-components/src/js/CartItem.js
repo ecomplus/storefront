@@ -137,7 +137,8 @@ export default {
         this.canInputSelect = false
         this.$nextTick(() => {
           ecomCart.removeItem(this.itemId)
-          this.$destroy()
+          // ! Vue 3 incompatible
+          // this.$destroy()
         })
       }
     }

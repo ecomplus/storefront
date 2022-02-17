@@ -103,7 +103,7 @@ export default {
       this.fixAvailablePoints()
     }
     this.ecomPassport.on('login', this.fixAvailablePoints)
-    this.$once('hook:beforeDestroy', () => {
+    this.$emit('hook:beforeDestroy', () => {
       this.ecomPassport.off('login', this.fixAvailablePoints)
     })
   }

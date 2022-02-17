@@ -139,7 +139,7 @@ export default {
       }
     }
     ecomCart.on('change', cartWatcher)
-    this.$once('hook:beforeDestroy', () => {
+    this.$emit('hook:beforeUnmount', () => {
       ecomCart.off('change', cartWatcher)
     })
   }

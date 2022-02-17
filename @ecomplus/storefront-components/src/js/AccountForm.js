@@ -301,7 +301,7 @@ export default {
     }
   },
 
-  destroyed () {
+  unmounted () {
     clearInterval(this.storageInterval)
   }
 }

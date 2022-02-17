@@ -14,7 +14,7 @@ import {
   price as getPrice
 } from '@ecomplus/utils'
 
-import Vue from 'vue'
+import { createApp } from 'vue'
 import { store } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import ALink from '../ALink.vue'
@@ -185,13 +185,12 @@ export default {
               if (selectOptions && selectOptions.length) {
                 return import('../ProductQuickview.vue')
                   .then(quickview => {
-                    new Vue({
-                      render: h => h(quickview.default, {
-                        props: {
-                          product: data
-                        }
-                      })
-                    }).$mount(this.$refs.quickview)
+                    // Vue 3 app init
+                    // Maybe listem to events emmited by this vue instance and then unmount
+                    const quickviewInstance = createApp(quickview.default, { 
+                      props: { product: data } 
+                    }).mount(this.$refs.quickview)
+                    // Then unmount instance on event
                   })
               }
             }

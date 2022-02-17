@@ -231,7 +231,7 @@ export default {
     this.glide = glide
   },
 
-  beforeDestroy () {
+  beforeUnmount () {
     if (this.glide) {
       this.glide.destroy()
     }
