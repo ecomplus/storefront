@@ -1,17 +1,17 @@
+// Dependencies
 import Vue from 'vue'
-import Vuex from 'vuex'
-import checkout from './modules/checkout'
-import account from './modules/account'
+import { createStore } from 'vuex'
 
-Vue.use(Vuex)
+// Store modules
+import modules from './modules'
 
-export default new Vuex.Store({
+// Vuex 4 store create
+const store = createStore({
   state: {
     loading: 0,
     title: '',
     fluidPage: false
   },
-
   mutations: {
     triggerLoading (state, loading = true) {
       if (!loading) {
@@ -31,9 +31,12 @@ export default new Vuex.Store({
       state.fluidPage = isFluid
     }
   },
-
-  modules: {
-    checkout,
-    account
-  }
+  // All store modules joined by file name example: account.store.js -> account
+  modules
 })
+
+// Attach store
+Vue.use(store)
+
+// Exporting store
+export default store
