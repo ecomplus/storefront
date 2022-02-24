@@ -41,7 +41,7 @@ export default () => ({
           label: 'ID de acompanhamento de conversões do Google Ads',
           name: 'googleAdsId',
           widget: 'string',
-          hint: 'Insira o texto AW-000000000/bbb-CCClllEEEIbbbYYY que mostra no script gerado no Google Adwords'
+          hint: 'Insira o código no formato "AW-000000000/bbb-CCClllEEEIbbbYYY" existente no script gerado pelo Google Ads'
         }
       ]
     },
