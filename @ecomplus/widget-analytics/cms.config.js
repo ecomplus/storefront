@@ -36,6 +36,12 @@ export default () => ({
           label: 'ID do acompanhamento',
           name: 'gaTrackingId',
           widget: 'string'
+        },
+        {
+          label: 'Código de Acompanhamento Google Ads Conversion',
+          name: 'googleAdsId',
+          widget: 'string',
+          hint: 'Insira o texto AW-000000000/bbb-CCClllEEEIbbbYYY que mostra no script gerado no Google Adwords'
         }
       ]
     },

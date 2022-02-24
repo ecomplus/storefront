@@ -2,7 +2,7 @@ import watchAppRoutes from '@ecomplus/widget-tag-manager/src/lib/watch-app-route
 
 const { location, $ } = window
 
-export default (gtag, gaTrackingId) => {
+export default (gtag, gaTrackingId, googleAdsId) => {
   const emitPageView = () => setTimeout(() => {
     gtag('event', 'page_view', {
       page_title: document.title || 'Checkout',
@@ -41,6 +41,14 @@ export default (gtag, gaTrackingId) => {
               shipping: data.actionField.shipping ? Number(data.actionField.shipping) : 0,
               items: data.products
             })
+            if (googleAdsId) {
+              gtag('event', 'conversion', {
+                send_to: googleAdsId,
+                value: Number(data.actionField.revenue),
+                currency: ecommerce.currencyCode,
+                transaction_id: data.actionField.id
+              })
+            }
           }
           break
 
