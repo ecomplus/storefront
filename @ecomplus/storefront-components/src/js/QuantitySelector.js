@@ -36,6 +36,10 @@ export default {
     canAddToCart: {
       type: Boolean,
       default: true
+    },
+    hasBuyButton: {
+      type: Boolean,
+      default: true
     }
   },
 
@@ -63,11 +67,6 @@ export default {
           total += selectedQnts[key]
         }
       })
-      if (total >= this.min && this.hasMinAlert) {
-        this.hasMinAlert = false
-      } else if (total <= this.max && this.hasMaxAlert) {
-        this.hasMaxAlert = false
-      }
       return total
     },
 
@@ -99,6 +98,9 @@ export default {
       } else if (ev) {
         selectedQnts[item._id] = ev.target.value.replace(/\D/g, '')
         newQnt = parseInt(selectedQnts[item._id], 10)
+      }
+      if (this.items.length === 1 && this.min > newQnt) {
+        newQnt = this.min
       }
       if (newQnt > 0) {
         if (item.min_quantity > newQnt) {

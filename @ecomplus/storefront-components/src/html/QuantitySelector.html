@@ -19,7 +19,7 @@
       @keyup.down="changeQnt(item, -1)"
       :value="selectedQnts[item._id]"
       :disabled="!checkInStock(item)"
-      :readonly="item.min_quantity === item.max_quantity"
+      :readonly="item.min_quantity && item.min_quantity === item.max_quantity"
     >
     <button
       class="btn btn-sm btn-link"
@@ -31,17 +31,19 @@
     </button>
 
     <span class="quantity-selector__label">
-      <a-link
-        v-if="item.slug"
-        target="_blank"
-        :href="`/${item.slug}`"
-        :title="item.name"
-      >
-        {{ item.name }}
-      </a-link>
-      <template v-else>
-        {{ item.name }}
-      </template>
+      <slot v-bind="{ item }">
+        <a-link
+          v-if="item.slug"
+          target="_blank"
+          :href="`/${item.slug}`"
+          :title="item.name"
+        >
+          {{ item.name }}
+        </a-link>
+        <template v-else>
+          {{ item.name }}
+        </template>
+      </slot>
     </span>
   </div>
 
@@ -58,7 +60,10 @@
     <strong>{{ max }}</strong>
   </a-alert>
 
-  <div class="quantity-selector__buy">
+  <div
+    v-if="hasBuyButton"
+    class="quantity-selector__buy"
+  >
     <slot
       name="buy"
       v-bind="{ selectedQnts, buy }"
