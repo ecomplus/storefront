@@ -108,6 +108,7 @@ export default {
       type: Boolean,
       default: true
     },
+    hasQuantitySelector: Boolean,
     canAddToCart: {
       type: Boolean,
       default: true
@@ -148,6 +149,7 @@ export default {
       selectedVariationId: null,
       currentGalleyImg: 1,
       isOnCart: false,
+      qntToBuy: 1,
       isStickyBuyVisible: false,
       isFavorite: false,
       hasClickedBuy: false,
@@ -380,7 +382,7 @@ export default {
       const { customizations } = this
       this.$emit('buy', { product, variationId, customizations })
       if (this.canAddToCart) {
-        ecomCart.addProduct({ ...product, customizations }, variationId)
+        ecomCart.addProduct({ ...product, customizations }, variationId, this.qntToBuy)
       }
       this.isOnCart = true
     },

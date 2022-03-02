@@ -214,23 +214,32 @@
                 class="product__buy"
                 ref="buy"
               >
-                <span @click="buy">
-                  <slot
-                    name="buy"
-                    v-bind="{ hasClickedBuy, isOnCart }"
-                  >
-                    <button
-                      type="button"
-                      class="btn btn-lg btn-primary"
-                      :disabled="hasClickedBuy && !isOnCart"
+                <component
+                  :is="hasQuantitySelector ? 'quantity-selector' : 'div'"
+                  :items="hasQuantitySelector ? [{ _id: body._id, quantity: 1 }] : null"
+                  :min="body.min_quantity"
+                  :max="body.quantity"
+                  :has-buy-button="false"
+                  @set-quantity="({ quantity }) => qntToBuy = quantity"
+                >
+                  <span @click="buy">
+                    <slot
+                      name="buy"
+                      v-bind="{ hasClickedBuy, isOnCart }"
                     >
-                      <slot name="buy-button-content">
-                        <i class="i-shopping-bag mr-1"></i>
-                        {{ strBuy }}
-                      </slot>
-                    </button>
-                  </slot>
-                </span>
+                      <button
+                        type="button"
+                        class="btn btn-lg btn-primary"
+                        :disabled="hasClickedBuy && !isOnCart"
+                      >
+                        <slot name="buy-button-content">
+                          <i class="i-shopping-bag mr-1"></i>
+                          {{ strBuy }}
+                        </slot>
+                      </button>
+                    </slot>
+                  </span>
+                </component>
               </div>
 
               <p
