@@ -44,6 +44,25 @@ export default () => ({
           output_code_only: true
         },
         {
+          label: 'Seletor de quantidade',
+          name: 'strHasQuantitySelector',
+          widget: 'select',
+          options: [
+            {
+              label: 'Padrão do tema',
+              value: '_'
+            },
+            {
+              label: 'Apenas botão (adiciona 1 unidade)',
+              value: ' '
+            },
+            {
+              label: 'Input antes do botão',
+              value: 'true'
+            }
+          ]
+        },
+        {
           label: 'Alerta de quantidade',
           name: 'lowQuantityToWarn',
           widget: 'number',

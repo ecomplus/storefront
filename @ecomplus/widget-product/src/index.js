@@ -14,10 +14,11 @@ export default (options = {}, elId = 'product') => {
     const $dock = document.getElementById(`${elId}-dock`)
     const isSSR = Boolean($dock)
     const { storefront } = window
-    let getScopedSlots, body
+    let getScopedSlots, body, themeConfig
     if (storefront) {
       getScopedSlots = storefront.getScopedSlots
       body = storefront.context && storefront.context.body
+      themeConfig = storefront.theme && storefront.theme.product
     }
 
     let mounted
@@ -34,6 +35,7 @@ export default (options = {}, elId = 'product') => {
 
     const {
       buyText,
+      strHasQuantitySelector,
       lowQuantityToWarn,
       maxVariationOptionsBtns
     } = options
@@ -47,6 +49,9 @@ export default (options = {}, elId = 'product') => {
           ...options.props,
           product: isSSR && body && body.available && checkInStock(body) ? body : null,
           buyText,
+          hasQuantitySelector: strHasQuantitySelector === '_'
+            ? Boolean(themeConfig && themeConfig.hasQuantitySelector)
+            : strHasQuantitySelector ? Boolean(strHasQuantitySelector.trim()) : false,
           lowQuantityToWarn,
           maxVariationOptionsBtns,
           isSSR
