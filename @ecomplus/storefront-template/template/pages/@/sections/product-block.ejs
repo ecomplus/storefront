@@ -147,7 +147,7 @@
                       
                       <% if(Array.isArray(_.widgets)) { 
                         const productWidget = _.widgets.find(item => item.pkg === '@ecomplus/widget-product')
-                        const buyText = productWidget.options && productWidget.options.buyText && productWidget.options.buyText !== '' ? productWidget.options.buyText : undefined
+                        const buyText = productWidget && productWidget.options.buyText
                       %>
                         <%= buyText || _.dictionary('buy') %>
                       <% } %>
