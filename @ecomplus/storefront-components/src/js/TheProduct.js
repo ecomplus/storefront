@@ -228,8 +228,9 @@ export default {
 
     discount () {
       const { body } = this
+      const priceValue = this.fixedPrice || getPrice(body)
       return checkOnPromotion(body)
-        ? Math.round(((body.base_price - getPrice(body)) * 100) / body.base_price)
+        ? Math.round(((body.base_price - priceValue) * 100) / body.base_price)
         : 0
     },
 
