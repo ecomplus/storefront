@@ -5,8 +5,7 @@
   "main": "dist/lib/js/app.js",
   "scripts": {
     "serve": "vue-cli-service serve __tests__/index.js",
-    "build": "echo 'run build:lib script'",
-    "build:lib": "vue-cli-service build --lib",
+    "build": "vue-cli-service build --lib",
     "build:spa": "vue-cli-service build"
   },
   "repository": {
