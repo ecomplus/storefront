@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.117](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.116...@ecomplus/storefront-components@1.0.0-beta.117) (2022-03-05)
+
+
+### Bug Fixes
+
+* **components/product:** compare with fixed price for discount value ([#658](https://github.com/ecomplus/storefront/issues/658)) ([c36e257](https://github.com/ecomplus/storefront/commit/c36e257453d6f40fbae7ecfdfcd72a572c182c85))
+
+
+### Features
+
+* **components/product:** add new `hasQuantitySelector` [[#592](https://github.com/ecomplus/storefront/issues/592)] ([174ef58](https://github.com/ecomplus/storefront/commit/174ef58b047fd6a069ca793250b0fac381b8db75))
+* **components/quantity-selector:** add default slot for items label and `hasBuyButton` prop ([f651d05](https://github.com/ecomplus/storefront/commit/f651d05121ccbf6c4322bed43a4e4a758b71515b)), closes [#592](https://github.com/ecomplus/storefront/issues/592)
+
+
+
+
+
 # [1.0.0-beta.116](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.115...@ecomplus/storefront-components@1.0.0-beta.116) (2022-02-16)
 
 

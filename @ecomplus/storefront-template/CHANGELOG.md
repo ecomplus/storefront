@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.166](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.165...@ecomplus/storefront-template@2.0.0-beta.166) (2022-03-05)
+
+
+### Bug Fixes
+
+* **template/product-block:** get `buyText` from cms config to button slot ([#656](https://github.com/ecomplus/storefront/issues/656)) ([797a20d](https://github.com/ecomplus/storefront/commit/797a20d6f69a159eeb5755213d83866834059d5d))
+
+
+### Features
+
+* **widget-analytics:** add google ads conversion event ([#646](https://github.com/ecomplus/storefront/issues/646)) ([0078945](https://github.com/ecomplus/storefront/commit/0078945a88088257c8d92bc5512d3d3829781582))
+
+
+
+
+
 # [2.0.0-beta.165](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.164...@ecomplus/storefront-template@2.0.0-beta.165) (2022-02-16)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
