@@ -143,8 +143,13 @@
                     <i class="i-shopping-bag mr-1"></i>
                     <% if (_.state.kit_composition && _.state.kit_composition.length) { %>
                       <%= _.dictionary('buyKit') %>
-                    <% } else { %>
-                      <%= _.dictionary('buy') %>
+                    <% } else { %> 
+                      <% let buyText %>
+                      <% if (Array.isArray(_.widgets)) { %>
+                        <% const productWidget = _.widgets.find(item => item.pkg === '@ecomplus/widget-product') %>
+                        <% buyText = productWidget && productWidget.options.buyText %>
+                      <% } %>
+                      <%= buyText || _.dictionary('buy') %>
                     <% } %>
                   </div>
                 </button>
