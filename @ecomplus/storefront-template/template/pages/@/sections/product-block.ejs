@@ -144,11 +144,12 @@
                     <% if (_.state.kit_composition && _.state.kit_composition.length) { %>
                       <%= _.dictionary('buyKit') %>
                     <% } else { %> 
-                      <% if(Array.isArray(_.widgets)) { %>
+                      <% let buyText %>
+                      <% if (Array.isArray(_.widgets)) { %>
                         <% const productWidget = _.widgets.find(item => item.pkg === '@ecomplus/widget-product') %>
-                        <% const buyText = productWidget && productWidget.options.buyText %>
-                        <%= buyText || _.dictionary('buy') %>
+                        <% buyText = productWidget && productWidget.options.buyText %>
                       <% } %>
+                      <%= buyText || _.dictionary('buy') %>
                     <% } %>
                   </div>
                 </button>
