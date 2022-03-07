@@ -136,29 +136,3 @@
     color: var(--#{$variable-prefix}table-hover-color);
   }
 }
-
-
-// Table variants
-//
-// Table variants set the table cell backgrounds, border colors
-// and the colors of the striped, hovered & active tables
-
-@each $color, $value in $table-variants {
-  @include table-variant($color, $value);
-}
-
-// Responsive tables
-//
-// Generate series of `.table-responsive-*` classes for configuring the screen
-// size of where your table will overflow.
-
-@each $breakpoint in map-keys($grid-breakpoints) {
-  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-
-  @include media-breakpoint-down($breakpoint) {
-    .table-responsive#{$infix} {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-  }
-}
