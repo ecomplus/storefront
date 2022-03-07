@@ -32,22 +32,6 @@
   }
 }
 
-// Colors
-@function to-rgb($value) {
-  @return red($value), green($value), blue($value);
-}
-
-// stylelint-disable scss/dollar-variable-pattern
-@function rgba-css-var($identifier, $target) {
-  @if $identifier == "body" and $target == "bg" {
-    @return rgba(var(--#{$variable-prefix}#{$identifier}-bg-rgb), var(--#{$variable-prefix}#{$target}-opacity));
-  } @if $identifier == "body" and $target == "text" {
-    @return rgba(var(--#{$variable-prefix}#{$identifier}-color-rgb), var(--#{$variable-prefix}#{$target}-opacity));
-  } @else {
-    @return rgba(var(--#{$variable-prefix}#{$identifier}-rgb), var(--#{$variable-prefix}#{$target}-opacity));
-  }
-}
-
 @function map-loop($map, $func, $args...) {
   $_map: ();
 
@@ -166,23 +150,6 @@
 @function opaque($background, $foreground) {
   @return mix(rgba($foreground, 1), $background, opacity($foreground) * 100);
 }
-
-// scss-docs-start color-functions
-// Tint a color: mix a color with white
-@function tint-color($color, $weight) {
-  @return mix(white, $color, $weight);
-}
-
-// Shade a color: mix a color with black
-@function shade-color($color, $weight) {
-  @return mix(black, $color, $weight);
-}
-
-// Shade the color if the weight is positive, else tint it
-@function shift-color($color, $weight) {
-  @return if($weight > 0, shade-color($color, $weight), tint-color($color, -$weight));
-}
-// scss-docs-end color-functions
 
 // Return valid calc
 @function add($value1, $value2, $return-calc: true) {

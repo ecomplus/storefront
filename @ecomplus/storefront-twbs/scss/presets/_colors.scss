@@ -28,6 +28,38 @@ $color-shift-weights: map-merge(
   @return $min-shift-weight;
 }
 
+// scss-docs-start color-functions
+// Tint a color: mix a color with white
+@function tint-color($color, $weight) {
+  @if $weight < 0 {
+    @return shade-color($color, -$weight);
+  }
+  @if type-of($color) == color {
+    @return mix(white, $color, $weight);
+  } @else {
+    @return str-insert($color, -#{label-color-weight(-$weight)}, -2);
+  }
+}
+
+// Shade a color: mix a color with black
+@function shade-color($color, $weight) {
+  @if $weight < 0 {
+    @return tint-color($color, -$weight);
+  }
+  @if type-of($color) == color{
+    @return mix(black, $color, $weight);
+  } @else {
+    @return str-insert($color, -#{label-color-weight(-$weight)}, -2);
+  }
+  
+}
+
+// Shade the color if the weight is positive, else tint it
+@function shift-color($color, $weight) {
+  @return if($weight > 0, shade-color($color, $weight), tint-color($color, -$weight));
+}
+// scss-docs-end color-functions
+
 // Lighten a color or get light CSS var
 @function lighten-color($color, $weight) {
   @if type-of($color) == color {
@@ -72,12 +104,18 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
 
   @each $color in $foregrounds {
     $contrast-ratio: contrast-ratio($background, $color);
-    @if $contrast-ratio > $min-contrast-ratio {
-      @return $color;
-    } @else if $contrast-ratio > $max-ratio {
-      $max-ratio: $contrast-ratio;
-      $max-ratio-color: $color;
+    @if (type-of($background) == color) {
+      @if $contrast-ratio > $min-contrast-ratio {
+        @return $color;
+      } @else if $contrast-ratio > $max-ratio {
+        $max-ratio: $contrast-ratio;
+        $max-ratio-color: $color;
+      }
     }
+    @else {
+      @return str-insert($color, $contrast-ratio, -2);
+    }
+    
   }
 
   @warn "Found no color leading to #{$min-contrast-ratio}:1 contrast ratio against #{$background}...";
