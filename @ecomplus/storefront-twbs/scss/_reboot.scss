@@ -246,10 +246,13 @@ a {
   color: $link-color;
   text-decoration: $link-decoration;
 
+  @media (hover: hover) {
     &:hover {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
+      color: $link-hover-color;
+      text-decoration: $link-hover-decoration;
+    }
   }
+  
 }
 
 // And undo these styles for placeholder links/named anchors (without href).
@@ -258,11 +261,14 @@ a {
 // See https://github.com/twbs/bootstrap/issues/19402
 
 a:not([href]):not([class]) {
-  &,
-  &:hover {
-    color: inherit;
-    text-decoration: none;
+  @media (hover: hover) {
+    &,
+    &:hover {
+      color: inherit;
+      text-decoration: none;
+    }
   }
+  
 }
 
 
@@ -360,9 +366,9 @@ caption {
 // 3. Fix alignment for Safari
 
 th {
-  font-weight: $table-th-font-weight; // 1
-  text-align: inherit; // 2
-  text-align: -webkit-match-parent; // 3
+  // Matches default `<td>` alignment by inheriting from the `<body>`, or the
+  // closest parent with a set `text-align`.
+  text-align: inherit;
 }
 
 thead,
@@ -391,15 +397,6 @@ label {
 button {
   // stylelint-disable-next-line property-disallowed-list
   border-radius: 0;
-}
-
-// Explicitly remove focus outline in Chromium when it shouldn't be
-// visible (e.g. as result of mouse click or touch tap). It already
-// should be doing this automatically, but seems to currently be
-// confused and applies its very visible two-tone outline anyway.
-
-button:focus:not(:focus-visible) {
-  outline: 0;
 }
 
 // 1. Remove the margin in Firefox and Safari
