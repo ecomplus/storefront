@@ -23,12 +23,12 @@
 // Components
 @import "mixins/alert";
 @import "mixins/backdrop";
-@import "mixins/buttons";
+@import "bootstrap/scss/mixins/buttons";
 @import "bootstrap/scss/mixins/caret";
 @import "bootstrap/scss/mixins/pagination";
 @import "bootstrap/scss/mixins/lists";
 @import "mixins/list-group";
-// @import "mixins/forms";
+@import "bootstrap/scss/mixins/forms";
 @import "mixins/table-variants";
 
 // Skins
