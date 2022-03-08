@@ -103,13 +103,13 @@
 //
 
 // scss-docs-start btn-variant-loops
-@each $color, $value in $theme-colors {
+@each $color, $value in $btn-colors {
   .btn-#{$color} {
     @include button-variant($value, $value);
   }
 }
 
-@each $color, $value in $theme-colors {
+@each $color, $value in $btn-outline-colors {
   .btn-outline-#{$color} {
     @include button-outline-variant($value);
   }
