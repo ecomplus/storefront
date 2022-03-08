@@ -49,7 +49,7 @@ $color-shift-weights: map-merge(
   @if type-of($color) == color{
     @return mix(black, $color, $weight);
   } @else {
-    @return str-insert($color, -#{label-color-weight(-$weight)}, -2);
+    @return str-insert($color, -#{label-color-weight($weight)}, -2);
   }
   
 }
@@ -128,6 +128,31 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
   $l2: luminance(opaque($background, $foreground));
 
   @return if($l1 > $l2, divide($l1 + .05, $l2 + .05), divide($l2 + .05, $l1 + .05));
+}
+
+// Return WCAG2.0 relative luminance
+// See https://www.w3.org/WAI/GL/wiki/Relative_luminance
+// See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+@function luminance($color) {
+  $rgb: (
+    "r": red($color),
+    "g": green($color),
+    "b": blue($color)
+  );
+
+  @each $name, $value in $rgb {
+    $value: if(divide($value, 255) < .03928, divide(divide($value, 255), 12.92), nth($_luminance-list, $value + 1));
+    $rgb: map-merge($rgb, ($name: $value));
+  }
+
+  @return (map-get($rgb, "r") * .2126) + (map-get($rgb, "g") * .7152) + (map-get($rgb, "b") * .0722);
+    
+}
+
+// Return opaque color
+// opaque(#fff, rgba(0, 0, 0, .5)) => #808080
+@function opaque($background, $foreground) {
+  @return mix(rgba($foreground, 1), $background, opacity($foreground) * 100);
 }
 
 // Request a theme color level with mix
