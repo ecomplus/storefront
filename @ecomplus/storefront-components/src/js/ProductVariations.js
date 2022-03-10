@@ -5,7 +5,6 @@ import {
 
 import {
   i18n,
-  inStock as checkStock,
   specValueByText as getSpecValueByText,
   specTextValue as getSpecTextValue,
   variationsGrids as getVariationsGrids,
