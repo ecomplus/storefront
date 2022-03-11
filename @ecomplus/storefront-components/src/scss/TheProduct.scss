@@ -130,15 +130,15 @@
     }
   }
 
-  .sale-timer {
+  &__sale-timer {
     width: 100%;
     max-width: 300px;
-    background-color: var(--primary);
+    background-color: var(--secondary-light);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5px 10px;
-    color: #ffffff;
+    color: var(--secondary-light-yiq);
     border-radius: 8px;
     margin-bottom: 1rem;
 

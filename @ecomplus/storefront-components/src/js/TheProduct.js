@@ -523,10 +523,10 @@ export default {
     const getRemainingPromoTime = (c, t) => {
       const distance = t - c;
       // Uncomment days if you wish to show the full promo time
-      // const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      // const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000)
       return `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`
     }
 
@@ -535,16 +535,10 @@ export default {
     const targetTime = new Date(`${currentTime.split('T')[0]}T23:59:59`).getTime()
 
     // Show promo timer just if product is on sale and if the user allow it
-    if (
-      checkOnPromotion(this.body) && 
-      this.body.price_effective_date &&
-      this.body.price_effective_date.end &&
-      new Date().getTime() < new Date(this.body.price_effective_date.end).getTime()
-      /*&& this.body.show_timer*/
-      ) {
+    if (this.isOnSale) {
       this.currentTimer = setInterval(function() {
-        // In order to get a reactive timer on a ssr rendered page i m forcing html DOM to update a div inner content
-        document.getElementById('promo-time').innerHTML = getRemainingPromoTime(new Date().getTime(), targetTime)
+        // In order to get a reactive timer on a ssr rendered page i'm forcing html DOM to update a div inner content
+        document.getElementById('product-promo-time').innerHTML = getRemainingPromoTime(new Date().getTime(), targetTime)
       }, 1000)
     }
   },

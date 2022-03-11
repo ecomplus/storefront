@@ -167,7 +167,10 @@
               v-if="isKit"
               class="product__kit"
             >
-              <slot name="kit" v-bind="{ kitItems }">
+              <slot
+                name="kit"
+                v-bind="{ kitItems }"
+              >
                 <transition enter-active-class="animated fadeInUp">
                   <quantity-selector
                     v-if="kitItems.length"
@@ -254,7 +257,12 @@
             <slot name="sale-timer">
               <div v-if="isOnSale" class="sale-timer">
                 <span>Oferta<br>acaba em:</span>
-                <h1 id="promo-time">00:00:00</h1>
+                <div
+                  class="h1"
+                  id="product-promo-time"
+                >
+                  00:00:00
+                </div>
               </div>
             </slot>
 
