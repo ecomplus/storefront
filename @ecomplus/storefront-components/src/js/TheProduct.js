@@ -156,7 +156,9 @@ export default {
       hasLoadError: false,
       paymentOptions: [],
       customizations: [],
-      kitItems: []
+      kitItems: [],
+      // Timer props
+      currentTimer: null,
     }
   },
 
@@ -232,6 +234,17 @@ export default {
       return checkOnPromotion(body)
         ? Math.round(((body.base_price - priceValue) * 100) / body.base_price)
         : 0
+    },
+
+    isOnSale ()  {
+      const { body } = this
+      return (
+        checkOnPromotion(body) &&
+        this.body.price_effective_date &&
+        this.body.price_effective_date.end &&
+        new Date().getTime() < new Date(this.body.price_effective_date.end).getTime()
+        /*&& this.body.show_timer*/
+      )
     },
 
     ghostProductForPrices () {
@@ -500,6 +513,40 @@ export default {
       this.fetchProduct()
     }
     this.isFavorite = checkFavorite(this.body._id || this.productId, this.ecomPassport)
+
+    // Just for number length check
+    const formatTime = (number) => {
+      return number.toString().length === 1 ? `0${number}` : number
+    }
+
+    // Retrieve promo timer
+    const getRemainingPromoTime = (c, t) => {
+      const distance = t - c;
+      // Uncomment days if you wish to show the full promo time
+      // const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      return `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`
+    }
+
+    // Retrieve timestamps
+    const currentTime = new Date().toISOString()
+    const targetTime = new Date(`${currentTime.split('T')[0]}T23:59:59`).getTime()
+
+    // Show promo timer just if product is on sale and if the user allow it
+    if (
+      checkOnPromotion(this.body) && 
+      this.body.price_effective_date &&
+      this.body.price_effective_date.end &&
+      new Date().getTime() < new Date(this.body.price_effective_date.end).getTime()
+      /*&& this.body.show_timer*/
+      ) {
+      this.currentTimer = setInterval(function() {
+        // In order to get a reactive timer on a ssr rendered page i m forcing html DOM to update a div inner content
+        document.getElementById('promo-time').innerHTML = getRemainingPromoTime(new Date().getTime(), targetTime)
+      }, 1000)
+    }
   },
 
   mounted () {
@@ -541,6 +588,12 @@ export default {
         obs.observe()
       }
       setStickyBuyObserver()
+    }
+  },
+
+  destroyed () {
+    if (this.currentTimer) {
+      clearInterval(this.currentTimer)
     }
   }
 }

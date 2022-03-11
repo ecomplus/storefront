@@ -130,6 +130,27 @@
     }
   }
 
+  .sale-timer {
+    width: 100%;
+    max-width: 300px;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+
+    span {
+      margin-right: 1rem;
+    }
+
+    h1 {
+      margin: 0;
+    }
+  }
+
   @media (max-width: 768px) {
     &__sticky-info {
       display: none;

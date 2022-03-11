@@ -167,10 +167,7 @@
               v-if="isKit"
               class="product__kit"
             >
-              <slot
-                name="kit"
-                v-bind="{ kitItems }"
-              >
+              <slot name="kit" v-bind="{ kitItems }">
                 <transition enter-active-class="animated fadeInUp">
                   <quantity-selector
                     v-if="kitItems.length"
@@ -252,6 +249,14 @@
                 {{ i19unitsInStock }}
               </p>
             </template>
+
+            <!-- Predefined slot for promotion timers -->
+            <slot name="sale-timer">
+              <div v-if="isOnSale" class="sale-timer">
+                <span>Oferta<br>acaba em:</span>
+                <h1 id="promo-time">00:00:00</h1>
+              </div>
+            </slot>
 
             <slot name="favorite">
               <div>
