@@ -54,7 +54,8 @@ export default (options = {}, elId = 'product') => {
             : strHasQuantitySelector ? Boolean(strHasQuantitySelector.trim()) : false,
           lowQuantityToWarn,
           maxVariationOptionsBtns,
-          isSSR
+          isSSR,
+          showPromotionalTimer: true  // storefront.showPromotionalTimer ???
         },
         on: {
           'update:product' (product) {

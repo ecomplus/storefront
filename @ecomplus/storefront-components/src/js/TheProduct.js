@@ -104,6 +104,10 @@ export default {
       type: String,
       default: 'col-12 col-md-6'
     },
+    showPromotionalTimer: {
+      type: Boolean,
+      default: true
+    },
     hasStickyBuyButton: {
       type: Boolean,
       default: true
@@ -242,8 +246,8 @@ export default {
         checkOnPromotion(body) &&
         this.body.price_effective_date &&
         this.body.price_effective_date.end &&
-        new Date().getTime() < new Date(this.body.price_effective_date.end).getTime()
-        /*&& this.body.show_timer*/
+        new Date().getTime() < new Date(this.body.price_effective_date.end).getTime() &&
+        this.showPromotionalTimer
       )
     },
 
