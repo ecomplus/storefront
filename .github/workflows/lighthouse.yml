@@ -28,7 +28,7 @@ jobs:
             https://$HOST_PREVIEW/app/
 
       - name: Save report artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         with:
