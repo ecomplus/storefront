@@ -505,7 +505,7 @@ export default {
 
   created () {
     if (this.product) {
-      this.body = this.product
+      this.body = { ...this.product }
       if (this.isSSR) {
         this.fetchProduct()
       }
@@ -523,23 +523,38 @@ export default {
     const getRemainingPromoTime = (c, t) => {
       const distance = t - c;
       // Uncomment days if you wish to show the full promo time
-      // const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24))
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
       const seconds = Math.floor((distance % (1000 * 60)) / 1000)
-      return `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`
+      return `${days > 0 ? `${formatTime(days)}:` : ''}${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`
     }
 
     // Retrieve timestamps
     const currentTime = new Date().toISOString()
-    const targetTime = new Date(`${currentTime.split('T')[0]}T23:59:59`).getTime()
+    const saleEndTime = this.isOnSale
+      ? new Date(this.body.price_effective_date.end)
+      : null
+    const targetTime = saleEndTime
+      ? saleEndTime
+      : new Date(`${currentTime.split('T')[0]}T23:59:59`)
+
+    // Flags
+    const daysBetween = Math.floor((targetTime.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))
 
     // Show promo timer just if product is on sale and if the user allow it
     if (this.isOnSale) {
-      this.currentTimer = setInterval(function() {
-        // In order to get a reactive timer on a ssr rendered page i'm forcing html DOM to update a div inner content
-        document.getElementById('product-promo-time').innerHTML = getRemainingPromoTime(new Date().getTime(), targetTime)
-      }, 1000)
+      // Final timestamp
+      if (targetTime.getTime() > new Date().getTime()) {
+        const displayTargetTime = daysBetween > 2
+          ? new Date(`${currentTime.split('T')[0]}T${targetTime.toISOString().split('T')[1].split('.')[0]}`).getTime()
+          : targetTime.getTime()
+
+        this.currentTimer = setInterval(function() {
+          // In order to get a reactive timer on a ssr rendered page i'm forcing html DOM to update a div inner content
+          document.getElementById('product-promo-time').innerHTML = getRemainingPromoTime(new Date().getTime(), displayTargetTime)
+        }, 1000)
+      }
     }
   },
 
