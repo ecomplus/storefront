@@ -256,7 +256,7 @@
             <!-- Predefined slot for promotion timers -->
             <slot name="saletimer">
               <div v-if="isOnSale" class="product__saletimer">
-                <span>Oferta<br>acaba em:</span>
+                <span>{{ i19timerOffer }}<br>{{ i19timerOfferEnds }}</span>
                 <div
                   class="h1"
                   id="product-promo-time"

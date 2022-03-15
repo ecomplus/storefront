@@ -104,10 +104,7 @@ export default {
       type: String,
       default: 'col-12 col-md-6'
     },
-    showPromotionalTimer: {
-      type: Boolean,
-      default: true
-    },
+    hasPromotionTimer: Boolean,
     hasStickyBuyButton: {
       type: Boolean,
       default: true
@@ -182,6 +179,14 @@ export default {
       pt_br: 'Remover dos favoritos',
       en_us: 'Remove from favorites'
     }),
+    i19timerOffer: () => i18n({
+      pt_br: 'Oferta',
+      en_us: 'Offer'
+    }),
+    i19timerOfferEnds: () => i18n({
+      pt_br: 'acaba em:',
+      en_us: 'ends in:'
+    }),
     i19retry: () => i18n(i19retry),
     i19selectVariationMsg: () => i18n(i19selectVariationMsg),
     i19unavailable: () => i18n(i19unavailable),
@@ -243,11 +248,11 @@ export default {
     isOnSale ()  {
       const { body } = this
       return (
+        this.hasPromotionTimer &&
         checkOnPromotion(body) &&
         this.body.price_effective_date &&
         this.body.price_effective_date.end &&
-        new Date().getTime() < new Date(this.body.price_effective_date.end).getTime() &&
-        this.showPromotionalTimer
+        new Date().getTime() < new Date(this.body.price_effective_date.end).getTime()
       )
     },
 
@@ -509,7 +514,7 @@ export default {
 
   created () {
     if (this.product) {
-      this.body = { ...this.product }
+      this.body = this.product
       if (this.isSSR) {
         this.fetchProduct()
       }
@@ -534,20 +539,21 @@ export default {
       return `${days > 0 ? `${formatTime(days)}:` : ''}${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`
     }
 
-    // Retrieve timestamps
-    const currentTime = new Date().toISOString()
-    const saleEndTime = this.isOnSale
-      ? new Date(this.body.price_effective_date.end)
-      : null
-    const targetTime = saleEndTime
-      ? saleEndTime
-      : new Date(`${currentTime.split('T')[0]}T23:59:59`)
-
-    // Flags
-    const daysBetween = Math.floor((targetTime.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))
-
     // Show promo timer just if product is on sale and if the user allow it
     if (this.isOnSale) {
+
+      // Retrieve timestamps
+      const currentTime = new Date().toISOString()
+      const saleEndTime = this.isOnSale
+        ? new Date(this.body.price_effective_date.end)
+        : null
+      const targetTime = saleEndTime
+        ? saleEndTime
+        : new Date(`${currentTime.split('T')[0]}T23:59:59`)
+
+      // Flags
+      const daysBetween = Math.floor((targetTime.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))
+
       // Final timestamp
       if (targetTime.getTime() > new Date().getTime()) {
         const displayTargetTime = daysBetween > 2
