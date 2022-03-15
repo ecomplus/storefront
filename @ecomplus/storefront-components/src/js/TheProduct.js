@@ -161,8 +161,7 @@ export default {
       paymentOptions: [],
       customizations: [],
       kitItems: [],
-      // Timer props
-      currentTimer: null,
+      currentTimer: null
     }
   },
 
