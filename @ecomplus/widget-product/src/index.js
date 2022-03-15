@@ -55,7 +55,7 @@ export default (options = {}, elId = 'product') => {
           lowQuantityToWarn,
           maxVariationOptionsBtns,
           isSSR,
-          showPromotionalTimer: options.hasPromotionTimer || false
+          hasPromotionTimer: options.hasPromotionTimer || false
         },
         on: {
           'update:product' (product) {
