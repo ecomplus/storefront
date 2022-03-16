@@ -4,8 +4,10 @@ import {
   i19close,
   i19days,
   i19discountOf,
+  // i19endsIn,
   i19freeShippingFrom,
   i19loadProductErrorMsg,
+  // i19offer,
   i19only,
   i19outOfStock,
   i19paymentOptions,
@@ -167,8 +169,16 @@ export default {
     i19close: () => i18n(i19close),
     i19days: () => i18n(i19days),
     i19discountOf: () => i18n(i19discountOf),
+    i19endsIn: () => i18n({
+      pt_br: 'Acaba em',
+      en_us: 'Ends in'
+    }),
     i19freeShippingFrom: () => i18n(i19freeShippingFrom),
     i19loadProductErrorMsg: () => i18n(i19loadProductErrorMsg),
+    i19offer: () => i18n({
+      pt_br: 'Oferta',
+      en_us: 'Offer'
+    }),
     i19only: () => i18n(i19only),
     i19outOfStock: () => i18n(i19outOfStock),
     i19paymentOptions: () => i18n(i19paymentOptions),
@@ -177,14 +187,6 @@ export default {
     i19removeFromFavorites: () => i18n({
       pt_br: 'Remover dos favoritos',
       en_us: 'Remove from favorites'
-    }),
-    i19timerOffer: () => i18n({
-      pt_br: 'Oferta',
-      en_us: 'Offer'
-    }),
-    i19timerOfferEnds: () => i18n({
-      pt_br: 'acaba em:',
-      en_us: 'ends in:'
     }),
     i19retry: () => i18n(i19retry),
     i19selectVariationMsg: () => i18n(i19selectVariationMsg),
@@ -244,15 +246,13 @@ export default {
         : 0
     },
 
-    isOnSale ()  {
+    isOnSale () {
       const { body } = this
-      return (
-        this.hasPromotionTimer &&
+      return this.hasPromotionTimer &&
         checkOnPromotion(body) &&
-        this.body.price_effective_date &&
-        this.body.price_effective_date.end &&
-        new Date().getTime() < new Date(this.body.price_effective_date.end).getTime()
-      )
+        body.price_effective_date &&
+        body.price_effective_date.end &&
+        Date.now() < new Date(body.price_effective_date.end).getTime()
     },
 
     ghostProductForPrices () {
@@ -521,50 +521,6 @@ export default {
       this.fetchProduct()
     }
     this.isFavorite = checkFavorite(this.body._id || this.productId, this.ecomPassport)
-
-    // Just for number length check
-    const formatTime = (number) => {
-      return number.toString().length === 1 ? `0${number}` : number
-    }
-
-    // Retrieve promo timer
-    const getRemainingPromoTime = (c, t) => {
-      const distance = t - c;
-      // Uncomment days if you wish to show the full promo time
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24))
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000)
-      return `${days > 0 ? `${formatTime(days)}:` : ''}${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`
-    }
-
-    // Show promo timer just if product is on sale and if the user allow it
-    if (this.isOnSale) {
-
-      // Retrieve timestamps
-      const currentTime = new Date().toISOString()
-      const saleEndTime = this.isOnSale
-        ? new Date(this.body.price_effective_date.end)
-        : null
-      const targetTime = saleEndTime
-        ? saleEndTime
-        : new Date(`${currentTime.split('T')[0]}T23:59:59`)
-
-      // Flags
-      const daysBetween = Math.floor((targetTime.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))
-
-      // Final timestamp
-      if (targetTime.getTime() > new Date().getTime()) {
-        const displayTargetTime = daysBetween > 2
-          ? new Date(`${currentTime.split('T')[0]}T${targetTime.toISOString().split('T')[1].split('.')[0]}`).getTime()
-          : targetTime.getTime()
-
-        this.currentTimer = setInterval(function() {
-          // In order to get a reactive timer on a ssr rendered page i'm forcing html DOM to update a div inner content
-          document.getElementById('product-promo-time').innerHTML = getRemainingPromoTime(new Date().getTime(), displayTargetTime)
-        }, 1000)
-      }
-    }
   },
 
   mounted () {
@@ -606,6 +562,31 @@ export default {
         obs.observe()
       }
       setStickyBuyObserver()
+    }
+    if (this.isOnSale) {
+      const [currentIsoDay] = new Date().toISOString().split('T', 2)
+      const targetTime = new Date(this.body.price_effective_date.end)
+      const now = Date.now()
+      if (targetTime.getTime() > now) {
+        const dayMs = 24 * 60 * 60 * 1000
+        const formatTime = (number) => number < 10 ? `0${number}` : number
+        const getRemainingTime = (targetDate) => {
+          const distance = targetDate.getTime() - Date.now()
+          const days = Math.floor(distance / dayMs)
+          const hours = Math.floor((distance % dayMs) / (1000 * 60 * 60))
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+          return (days > 0 ? `${formatTime(days)}:` : '') +
+            `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`
+        }
+        const daysBetween = Math.floor((targetTime.getTime() - now) / dayMs)
+        const targetDate = daysBetween > 2
+          ? new Date(`${currentIsoDay}T${targetTime.toISOString().split('T')[1]}`)
+          : targetTime
+        this.currentTimer = setInterval(() => {
+          this.$refs.timer.innerHTML = getRemainingTime(targetDate)
+        }, 1000)
+      }
     }
   },
 

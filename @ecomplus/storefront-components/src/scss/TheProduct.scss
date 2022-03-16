@@ -130,20 +130,22 @@
     }
   }
 
-  &__saletimer {
+  &__sale-timer {
     width: 100%;
     max-width: 300px;
     background-color: var(--secondary-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px 10px;
+    padding: var(--spacer-2);
     color: var(--secondary-light-yiq);
-    border-radius: 8px;
-    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
 
-    span {
-      margin-right: 1rem;
+    small {
+      text-transform: lowercase;
     }
   }
 

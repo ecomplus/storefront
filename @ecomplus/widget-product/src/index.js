@@ -54,8 +54,7 @@ export default (options = {}, elId = 'product') => {
             : strHasQuantitySelector ? Boolean(strHasQuantitySelector.trim()) : false,
           lowQuantityToWarn,
           maxVariationOptionsBtns,
-          isSSR,
-          hasPromotionTimer: options.hasPromotionTimer || false
+          isSSR
         },
         on: {
           'update:product' (product) {
