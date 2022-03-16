@@ -63,6 +63,25 @@ export default () => ({
           ]
         },
         {
+          label: 'Temporizador de oferta',
+          name: 'strHasPromotionTimer',
+          widget: 'select',
+          options: [
+            {
+              label: 'Padrão do tema',
+              value: '_'
+            },
+            {
+              label: 'Sem temporizador',
+              value: ' '
+            },
+            {
+              label: 'Temporizador em produtos com oferta e prazo',
+              value: 'true'
+            }
+          ]
+        },
+        {
           label: 'Alerta de quantidade',
           name: 'lowQuantityToWarn',
           widget: 'number',

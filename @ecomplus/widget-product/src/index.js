@@ -36,9 +36,16 @@ export default (options = {}, elId = 'product') => {
     const {
       buyText,
       strHasQuantitySelector,
+      strHasPromotionTimer,
       lowQuantityToWarn,
       maxVariationOptionsBtns
     } = options
+
+    const strOptionToBool = (strOption, prop) => {
+      return strOption === '_'
+        ? Boolean(themeConfig && themeConfig[prop])
+        : strOption ? Boolean(strOption.trim()) : false
+    }
 
     new Vue({
       render: h => h(TheProduct, {
@@ -49,9 +56,8 @@ export default (options = {}, elId = 'product') => {
           ...options.props,
           product: isSSR && body && body.available && checkInStock(body) ? body : null,
           buyText,
-          hasQuantitySelector: strHasQuantitySelector === '_'
-            ? Boolean(themeConfig && themeConfig.hasQuantitySelector)
-            : strHasQuantitySelector ? Boolean(strHasQuantitySelector.trim()) : false,
+          hasQuantitySelector: strOptionToBool(strHasQuantitySelector, 'hasQuantitySelector'),
+          hasPromotionTimer: strOptionToBool(strHasPromotionTimer, 'hasPromotionTimer'),
           lowQuantityToWarn,
           maxVariationOptionsBtns,
           isSSR
