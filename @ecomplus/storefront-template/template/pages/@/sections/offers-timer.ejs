@@ -1,35 +1,45 @@
 <%
 if (Array.isArray(opt.offers) && opt.offers.length) {
   const search = new _.EcomSearch()
-  await search.setProductIds(opt.offers).fetch(true)
-  const items = search.getItems().filter(item => _.ecomUtils.inStock(item))
-  %>
+  let items
+  try {
+    await search.setProductIds(opt.offers).fetch(true)
+    items = search.getItems().filter(item => _.ecomUtils.inStock(item))
+  } catch (err) {
+    console.error(err)
+    items = []
+  }
 
-  <section class="offers-timer my-4 my-lg-5">
-    <div class="container">
-      <div class="row">
-        <div
-          <% if (items.length <= 3) { %>
-            class="col-12 col-md-<%= (7 - items.length) %>"
-          <% } else { %>
-            class="col-12 col-lg-3"
-          <% } %>
-        >
-          <%- await include('@/sections/inc/timer', { _, opt }) %>
-        </div>
-
-        <div class="col-12 col-md">
-          <div class="row">
-            <% for (let i = 0; i < items.length; i++) { %>
-              <div class="col-6 col-md">
-                <%- await include('@/sections/inc/product-item', {
-                  _, opt: { item: items[i] }
-                }) %>
-              </div>
+  if (items.length) {
+    %>
+    <section class="offers-timer my-4 my-lg-5">
+      <div class="container">
+        <div class="row">
+          <div
+            <% if (items.length <= 3) { %>
+              class="col-12 col-md-<%= (7 - items.length) %>"
+            <% } else { %>
+              class="col-12 col-lg-3"
             <% } %>
+          >
+            <%- await include('@/sections/inc/timer', { _, opt }) %>
+          </div>
+
+          <div class="col-12 col-md">
+            <div class="row">
+              <% for (let i = 0; i < items.length; i++) { %>
+                <div class="col-6 col-md">
+                  <%- await include('@/sections/inc/product-item', {
+                    _, opt: { item: items[i] }
+                  }) %>
+                </div>
+              <% } %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-<% } %>
+    </section>
+    <%
+  }
+}
+%>
