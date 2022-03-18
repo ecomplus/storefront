@@ -96,23 +96,11 @@
               <p class="product__prices">
                 <a-prices
                   :product="ghostProductForPrices"
+                  :canShowDiscountTag="true"
                   :is-literal="true"
                   :is-big="true"
                   @fix-price="price => fixedPrice = price"
                 />
-
-                <slot
-                  name="discount-tag"
-                  v-bind="{ discount }"
-                >
-                  <span
-                    v-if="discount > 0"
-                    class="product__discount"
-                  >
-                    {{ i19discountOf }}
-                    <strong>{{ discount }}%</strong>
-                  </span>
-                </slot>
               </p>
             </slot>
 

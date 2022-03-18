@@ -3,7 +3,6 @@ import {
   i19buy,
   i19close,
   i19days,
-  i19discountOf,
   // i19endsIn,
   i19freeShippingFrom,
   i19loadProductErrorMsg,
@@ -168,7 +167,6 @@ export default {
     i19addToFavorites: () => i18n(i19addToFavorites),
     i19close: () => i18n(i19close),
     i19days: () => i18n(i19days),
-    i19discountOf: () => i18n(i19discountOf),
     i19endsIn: () => i18n({
       pt_br: 'Acaba em',
       en_us: 'Ends in'
@@ -236,14 +234,6 @@ export default {
 
     strBuy () {
       return this.buyText || i18n(i19buy)
-    },
-
-    discount () {
-      const { body } = this
-      const priceValue = this.fixedPrice || getPrice(body)
-      return checkOnPromotion(body)
-        ? Math.round(((body.base_price - priceValue) * 100) / body.base_price)
-        : 0
     },
 
     isOnSale () {

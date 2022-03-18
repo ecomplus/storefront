@@ -82,5 +82,13 @@
         </span>
       </template>
     </div>
+    <span
+      class="product__discount"
+      v-if="discountTagValue > 0 && canShowDiscountTag"
+      key="discountTagValue"
+    >
+      {{ i19discountOf }}
+      <strong>{{ discountTagValue }}%</strong>
+    </span>
   </transition-group>
 </div>

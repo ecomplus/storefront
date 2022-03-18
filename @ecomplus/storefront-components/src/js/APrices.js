@@ -1,5 +1,6 @@
 import {
   i19asOf,
+  i19discountOf,
   i19from,
   i19interestFree,
   i19of,
@@ -50,6 +51,10 @@ export default {
     canShowPriceOptions: {
       type: Boolean,
       default: true
+    },
+    canShowDiscountTag: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -75,6 +80,7 @@ export default {
 
   computed: {
     i19asOf: () => i18n(i19asOf),
+    i19discountOf: () => i18n(i19discountOf),
     i19from: () => i18n(i19from),
     i19interestFree: () => i18n(i19interestFree),
     i19of: () => i18n(i19of),
@@ -120,6 +126,14 @@ export default {
 
     priceWithDiscount () {
       return this.canShowPriceOptions && getPriceWithDiscount(this.price, this.discount)
+    },
+
+    discountTagValue () {
+      const { product } = this
+      const priceValue = this.price || getPrice(product)
+      return checkOnPromotion(product) || this.extraDiscount.value > 0
+        ? Math.round(((product.base_price - priceValue) * 100) / product.base_price)
+        : 0
     },
 
     installmentValue () {
