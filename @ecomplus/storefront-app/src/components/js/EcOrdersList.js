@@ -23,6 +23,10 @@ export default {
     ecomPassport: {
       type: Object,
       default: () => ecomPassport
+    },
+    isRecurrentOrdersList: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -44,7 +48,7 @@ export default {
   created () {
     const update = () => this.ecomPassport.fetchOrdersList()
       .then(result => {
-        this.orders = result
+        this.orders = this.isRecurrentOrdersList ? result.filter(({ transactions }) => transactions.type === 'recurrence') : result
       })
       .catch(console.error)
     const startInterval = () => {
@@ -55,7 +59,7 @@ export default {
         .then(({ data }) => {
           const { result } = data
           this.ecomPassport.setCustomer({ orders: result })
-          this.orders = result.sort((a, b) => a.number > b.number ? -1 : 1).slice(0, 10)
+          this.orders = this.isRecurrentOrdersList ? result.filter(({ transactions }) => transactions.type === 'recurrence') : result.sort((a, b) => a.number > b.number ? -1 : 1).slice(0, 10)
         })
         .catch(update)
         .finally(startInterval)

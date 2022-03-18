@@ -16,13 +16,15 @@ import {
 import ecomPassport from '@ecomplus/passport-client'
 import LoginBlock from '../LoginBlock.vue'
 import RecommendedItems from '../RecommendedItems.vue'
+import EcOrdersList from '../../../storefront-app/src/components/EcOrdersList.vue'
 
 export default {
   name: 'TheAccount',
 
   components: {
     LoginBlock,
-    RecommendedItems
+    RecommendedItems,
+    EcOrdersList
   },
 
   props: {
@@ -35,7 +37,7 @@ export default {
     currentTab: {
       type: String,
       validator: function (value) {
-        return ['orders', 'favorites', 'account'].includes(value)
+        return ['orders', 'favorites', 'recurrent-orders', 'account'].includes(value)
       }
     },
     ecomPassport: {
@@ -63,14 +65,18 @@ export default {
       en_us: 'You don\'t have any products saved as favorites yet.'
     }),
     i19orders: () => i18n(i19orders),
+    i19recurrentOrders: () => i18n({
+      pt_br: 'Pedidos recorrentes',
+      en_us: 'Recurrent orders'
+    }),
     i19registration: () => i18n(i19registration),
 
     activeTab: {
       get () {
-        return this.currentTab === 'orders' ? 1 : this.currentTab === 'favorites' ? 2 : 0
+        return this.currentTab === 'orders' ? 1 : this.currentTab === 'favorites' ? 2 : this.currentTab === 'recurrent-orders' ? 3 : 0
       },
       set (tabIndex) {
-        this.$emit('update:current-tab', tabIndex === 1 ? 'orders' : tabIndex === 2 ? 'favorites' : 'account')
+        this.$emit('update:current-tab', tabIndex === 1 ? 'orders' : tabIndex === 2 ? 'favorites' : tabIndex === 3 ? 'recurrent-orders' : 'account')
       }
     },
 
