@@ -4,8 +4,10 @@ import {
   i19close,
   i19days,
   i19discountOf,
+  // i19endsIn,
   i19freeShippingFrom,
   i19loadProductErrorMsg,
+  // i19offer,
   i19only,
   i19outOfStock,
   i19paymentOptions,
@@ -104,6 +106,7 @@ export default {
       type: String,
       default: 'col-12 col-md-6'
     },
+    hasPromotionTimer: Boolean,
     hasStickyBuyButton: {
       type: Boolean,
       default: true
@@ -156,7 +159,8 @@ export default {
       hasLoadError: false,
       paymentOptions: [],
       customizations: [],
-      kitItems: []
+      kitItems: [],
+      currentTimer: null
     }
   },
 
@@ -165,8 +169,16 @@ export default {
     i19close: () => i18n(i19close),
     i19days: () => i18n(i19days),
     i19discountOf: () => i18n(i19discountOf),
+    i19endsIn: () => i18n({
+      pt_br: 'Acaba em',
+      en_us: 'Ends in'
+    }),
     i19freeShippingFrom: () => i18n(i19freeShippingFrom),
     i19loadProductErrorMsg: () => i18n(i19loadProductErrorMsg),
+    i19offer: () => i18n({
+      pt_br: 'Oferta',
+      en_us: 'Offer'
+    }),
     i19only: () => i18n(i19only),
     i19outOfStock: () => i18n(i19outOfStock),
     i19paymentOptions: () => i18n(i19paymentOptions),
@@ -232,6 +244,15 @@ export default {
       return checkOnPromotion(body)
         ? Math.round(((body.base_price - priceValue) * 100) / body.base_price)
         : 0
+    },
+
+    isOnSale () {
+      const { body } = this
+      return this.hasPromotionTimer &&
+        checkOnPromotion(body) &&
+        body.price_effective_date &&
+        body.price_effective_date.end &&
+        Date.now() < new Date(body.price_effective_date.end).getTime()
     },
 
     ghostProductForPrices () {
@@ -541,6 +562,37 @@ export default {
         obs.observe()
       }
       setStickyBuyObserver()
+    }
+    if (this.isOnSale) {
+      const [currentIsoDay] = new Date().toISOString().split('T', 2)
+      const targetTime = new Date(this.body.price_effective_date.end)
+      const now = Date.now()
+      if (targetTime.getTime() > now) {
+        const dayMs = 24 * 60 * 60 * 1000
+        const formatTime = (number) => number < 10 ? `0${number}` : number
+        const getRemainingTime = (targetDate) => {
+          const distance = targetDate.getTime() - Date.now()
+          const days = Math.floor(distance / dayMs)
+          const hours = Math.floor((distance % dayMs) / (1000 * 60 * 60))
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+          return (days > 0 ? `${formatTime(days)}:` : '') +
+            `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`
+        }
+        const daysBetween = Math.floor((targetTime.getTime() - now) / dayMs)
+        const targetDate = daysBetween > 2
+          ? new Date(`${currentIsoDay}T${targetTime.toISOString().split('T')[1]}`)
+          : targetTime
+        this.currentTimer = setInterval(() => {
+          this.$refs.timer.innerHTML = getRemainingTime(targetDate)
+        }, 1000)
+      }
+    }
+  },
+
+  destroyed () {
+    if (this.currentTimer) {
+      clearInterval(this.currentTimer)
     }
   }
 }

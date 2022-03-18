@@ -253,6 +253,24 @@
               </p>
             </template>
 
+            <slot name="sale-timer">
+              <div
+                v-if="isOnSale"
+                class="product__sale-timer mb-3"
+              >
+                <div>
+                  {{ i19offer }}
+                  <br><small>{{ i19endsIn }}</small>
+                </div>
+                <div
+                  class="h1 ml-3 mb-0"
+                  ref="timer"
+                >
+                  00:00:00
+                </div>
+              </div>
+            </slot>
+
             <slot name="favorite">
               <div>
                 <a
