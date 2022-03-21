@@ -1,12 +1,11 @@
 {
   "name": "@ecomplus/storefront-app",
-  "version": "2.0.0-beta.123",
+  "version": "2.0.0-beta.124",
   "description": "Vue.js ecommerce app with cart, checkout and account pages",
   "main": "dist/lib/js/app.js",
   "scripts": {
     "serve": "vue-cli-service serve __tests__/index.js",
-    "build": "echo 'run build:lib script'",
-    "build:lib": "vue-cli-service build --lib",
+    "build": "vue-cli-service build --lib",
     "build:spa": "vue-cli-service build"
   },
   "repository": {
@@ -34,12 +33,12 @@
   },
   "dependencies": {
     "@ecomplus/client": "^2.2.1",
-    "@ecomplus/i18n": "^1.27.0",
+    "@ecomplus/i18n": "^1.28.0",
     "@ecomplus/passport-client": "^1.1.1",
     "@ecomplus/shopping-cart": "^2.5.5",
-    "@ecomplus/storefront-components": "^1.0.0-beta.116",
+    "@ecomplus/storefront-components": "^1.0.0-beta.117",
     "@ecomplus/storefront-twbs": "^7.1.0",
-    "axios": "^0.26.0",
+    "axios": "^0.26.1",
     "card-validator": "^8.1.1",
     "cleave.js": "^1.6.0",
     "credit-card-type": "^9.1.0",

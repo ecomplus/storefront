@@ -339,7 +339,18 @@ const actions = {
     }
     const checkoutBody = {
       ...baseModulesRequestData,
-      items: ecomCart.data.items,
+      items: ecomCart.data.items.map(item => {
+        if (Array.isArray(item.flags)) {
+          const flags = []
+          item.flags.forEach(flag => {
+            if (!flags.includes(flag)) {
+              flags.push(flag)
+            }
+          })
+          item.flags = flags
+        }
+        return item
+      }),
       shipping: {
         ...getters.shippingService,
         to: customer.addresses.find(addr => addr.default)

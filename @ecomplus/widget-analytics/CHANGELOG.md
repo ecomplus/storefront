@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-analytics@1.2.1...@ecomplus/widget-analytics@1.3.0) (2022-03-05)
+
+
+### Features
+
+* **widget-analytics:** add google ads conversion event ([#646](https://github.com/ecomplus/storefront/issues/646)) ([0078945](https://github.com/ecomplus/storefront/commit/0078945a88088257c8d92bc5512d3d3829781582))
+
+
+
+
+
 ## [1.2.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-analytics@1.2.0...@ecomplus/widget-analytics@1.2.1) (2022-02-16)
 
 **Note:** Version bump only for package @ecomplus/widget-analytics

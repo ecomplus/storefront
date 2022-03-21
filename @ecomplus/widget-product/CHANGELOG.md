@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.114](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@1.0.0-beta.113...@ecomplus/widget-product@1.0.0-beta.114) (2022-03-05)
+
+
+### Features
+
+* **widget-product:** cms config to toggle quantity selector [[#592](https://github.com/ecomplus/storefront/issues/592)] ([46f4ad8](https://github.com/ecomplus/storefront/commit/46f4ad85fecb270c754cb4e45e190cf5bc29c380))
+
+
+
+
+
 # [1.0.0-beta.113](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@1.0.0-beta.112...@ecomplus/widget-product@1.0.0-beta.113) (2022-02-16)
 
 **Note:** Version bump only for package @ecomplus/widget-product

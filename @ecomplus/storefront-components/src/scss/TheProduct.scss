@@ -130,6 +130,25 @@
     }
   }
 
+  &__sale-timer {
+    width: 100%;
+    max-width: 300px;
+    background-color: var(--secondary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacer-2);
+    color: var(--secondary-light-yiq);
+    border-radius: var(--border-radius);
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+
+    small {
+      text-transform: lowercase;
+    }
+  }
+
   @media (max-width: 768px) {
     &__sticky-info {
       display: none;
