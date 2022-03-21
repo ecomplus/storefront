@@ -22,6 +22,9 @@
     "docs:build": "vuepress build",
     "themes:build": "node ./scripts/build-themes.js"
   },
+  "engines": {
+    "node": "14"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ecomplus/storefront.git"
