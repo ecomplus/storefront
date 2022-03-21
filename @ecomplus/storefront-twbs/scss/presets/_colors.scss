@@ -241,7 +241,7 @@ $btn-outline-colors: map-merge(
   $btn-outline-colors
 );
 
-/* BS 5 */
+// -- BS 5 --
 
 @function to-rgb($value) {
   @if type-of($value) == color {

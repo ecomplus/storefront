@@ -165,7 +165,7 @@
   @return $result;
 }
 
-/* BS 5 */
+// -- BS 5 --
 
 @function map-loop($map, $func, $args...) {
   $_map: ();
