@@ -58,7 +58,6 @@ export default {
       this.ecomPassport.requestApi(`/orders.json?${this.ordersListFilter}`)
         .then(({ data }) => {
           const { result } = data
-          console.log(data)
           this.ecomPassport.setCustomer({ orders: result })
           this.orders = result.sort((a, b) => a.number > b.number ? -1 : 1).slice(0, 10)
         })
