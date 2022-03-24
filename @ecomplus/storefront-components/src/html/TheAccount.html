@@ -91,7 +91,7 @@
         <div v-if="currentTab === 'recurrent-orders'">
           <slot name="recurrent-orders">
             <ec-orders-list
-              :is-recurrent-orders-list=true
+              :orders-list-filter="'transactions.type=recurrency'"
             ></ec-orders-list>
           </slot>
         </div>
