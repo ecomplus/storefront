@@ -89,11 +89,7 @@
         leave-active-class="animated fadeOutRight position-absolute"
       >
         <div v-if="currentTab === 'recurrent-orders'">
-          <slot name="recurrent-orders">
-            <ec-orders-list
-              :orders-list-filter="'transactions.type=recurrence'"
-            ></ec-orders-list>
-          </slot>
+          <slot name="recurrent-orders-list" />
         </div>
       </transition>
     </div>
