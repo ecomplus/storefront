@@ -50,7 +50,8 @@ export default {
 
   data () {
     return {
-      favoriteIds: []
+      favoriteIds: [],
+      subscriptions: []
     }
   },
 
@@ -134,5 +135,22 @@ export default {
   created () {
     const { favorites } = this.ecomPassport.getCustomer()
     this.favoriteIds = favorites || []
+
+    const update = () => this.ecomPassport.fetchOrdersList()
+      .then(result => {
+        this.subscriptions = result
+      })
+      .catch(console.error)
+    if (this.ecomPassport.checkAuthorization()) {
+      this.ecomPassport.requestApi('/orders.json?transactions.type=recurrence')
+        .then(({ data }) => {
+          const { result } = data
+          this.ecomPassport.setCustomer({ orders: result })
+          this.subscriptions = result
+        })
+        .catch(update)
+    } else {
+      update()
+    }
   }
 }
