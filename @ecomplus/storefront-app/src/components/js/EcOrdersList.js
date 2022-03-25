@@ -24,7 +24,7 @@ export default {
       type: Object,
       default: () => ecomPassport
     },
-    ordersListFilter: {
+    ordersListParams: {
       type: String,
       default: ''
     }
@@ -55,7 +55,7 @@ export default {
       this.updateInterval = setInterval(update, 7000)
     }
     if (this.ecomPassport.checkAuthorization()) {
-      this.ecomPassport.requestApi(`/orders.json?${this.ordersListFilter}`)
+      this.ecomPassport.requestApi(`/orders.json?${this.ordersListParams}`)
         .then(({ data }) => {
           const { result } = data
           this.ecomPassport.setCustomer({ orders: result })

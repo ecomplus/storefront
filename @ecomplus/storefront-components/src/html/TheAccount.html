@@ -21,7 +21,7 @@
 
     <ul class="account__nav nav nav-tabs">
       <li
-        v-for="(label, i) in [i19registration, i19orders, i19favorites, i19recurrentOrders]"
+        v-for="(label, i) in [i19registration, i19orders, i19favorites, i19subscriptions]"
         class="nav-item"
       >
         <a
@@ -88,7 +88,7 @@
         enter-active-class="animated fadeInRight slow"
         leave-active-class="animated fadeOutRight position-absolute"
       >
-        <div v-if="currentTab === 'recurrent-orders'">
+        <div v-if="currentTab === 'subscriptions'">
           <slot name="recurrent-orders-list" />
         </div>
       </transition>

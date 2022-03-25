@@ -37,7 +37,7 @@ export default {
     currentTab: {
       type: String,
       validator: function (value) {
-        return ['orders', 'favorites', 'recurrent-orders', 'account'].includes(value)
+        return ['orders', 'favorites', 'subscriptions', 'account'].includes(value)
       }
     },
     ecomPassport: {
@@ -65,18 +65,39 @@ export default {
       en_us: 'You don\'t have any products saved as favorites yet.'
     }),
     i19orders: () => i18n(i19orders),
-    i19recurrentOrders: () => i18n({
-      pt_br: 'Pedidos recorrentes',
-      en_us: 'Recurrent orders'
+    i19subscriptions: () => i18n({
+      pt_br: 'Assinaturas',
+      en_us: 'Subscriptions'
     }),
     i19registration: () => i18n(i19registration),
 
     activeTab: {
       get () {
-        return this.currentTab === 'orders' ? 1 : this.currentTab === 'favorites' ? 2 : this.currentTab === 'recurrent-orders' ? 3 : 0
+        switch (this.currentTab) {
+          case 'orders':
+            return 1
+          case 'favorites':
+            return 2
+          case 'subscriptions':
+            return 3
+          default:
+            return 0
+        }
       },
       set (tabIndex) {
-        this.$emit('update:current-tab', tabIndex === 1 ? 'orders' : tabIndex === 2 ? 'favorites' : tabIndex === 3 ? 'recurrent-orders' : 'account')
+        switch (tabIndex) {
+          case 1:
+            this.$emit('update:current-tab', 'orders')
+            break
+          case 2:
+            this.$emit('update:current-tab', 'favorites')
+            break
+          case 3:
+            this.$emit('update:current-tab', 'subscriptions')
+            break
+          default:
+            this.$emit('update:current-tab', 'account')
+        }
       }
     },
 

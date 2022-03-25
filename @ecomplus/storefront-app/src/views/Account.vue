@@ -26,7 +26,7 @@
         <ec-orders-list
           :ecom-passport="ecomPassport"
           @click:order="viewOrder"
-          :orders-list-filter="'transactions.type=recurrence'"
+          :orders-list-params="'transactions.type=recurrence'"
         />
       </template>
     </the-account>

@@ -53,9 +53,9 @@ export default {
       type: String,
       default: '/app/#/account/favorites'
     },
-    recurrentOrdersUrl: {
+    subscriptionsUrl: {
       type: String,
-      default: '/app/#/account/recurrent-orders'
+      default: '/app/#/account/subscriptions'
     },
     ecomPassport: {
       type: Object,
@@ -96,9 +96,9 @@ export default {
     i19myFavorites: () => i18n(i19myFavorites),
     i19myOrders: () => i18n(i19myOrders),
     i19noProfileFoundWithEmail: () => i18n(i19noProfileFoundWithEmail),
-    i19myRecurrentOrders: () => i18n({
-      pt_br: 'Meus pedidos recorrentes',
-      en_us: 'My recurrent orders'
+    i19mySubscriptions: () => i18n({
+      pt_br: 'Minhas assinaturas',
+      en_us: 'My subscriptions'
     }),
     i19signInWith: () => i18n(i19signInWith),
     i19signInWithAnotherEmail: () => i18n(i19signInWithAnotherEmail),
