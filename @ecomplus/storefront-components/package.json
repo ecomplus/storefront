@@ -34,10 +34,10 @@
   "dependencies": {
     "@brazilian-utils/brazilian-utils": "^1.0.0-rc.12",
     "@ecomplus/client": "^2.2.1",
-    "@ecomplus/i18n": "^1.28.0",
+    "@ecomplus/i18n": "^1.29.0",
     "@ecomplus/passport-client": "^1.1.1",
     "@ecomplus/search-engine": "^2.6.1",
-    "@ecomplus/shopping-cart": "^2.5.5",
+    "@ecomplus/shopping-cart": "^2.5.6",
     "@ecomplus/storefront-twbs": "^7.1.0",
     "@glidejs/glide": "^3.5.2",
     "@linusborg/vue-simple-portal": "^0.1.5",

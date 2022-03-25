@@ -1,5 +1,5 @@
 import {
-  // i19all,
+  i19all,
   i19asOf,
   i19brands,
   i19categories,
@@ -140,11 +140,7 @@ export default {
   },
 
   computed: {
-    i19all: () => i18n({
-      en_us: 'All',
-      pt_br: 'Todos'
-    }),
-
+    i19all: () => i18n(i19all),
     i19clearFilters: () => i18n(i19clearFilters),
     i19closeFilters: () => i18n(i19closeFilters),
     i19didYouMean: () => i18n(i19didYouMean),

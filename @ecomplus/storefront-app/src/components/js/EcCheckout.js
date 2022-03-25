@@ -4,7 +4,7 @@ import {
   i19buyAlsoMsg,
   i19checkout,
   i19orderNotesInputMsg,
-  // i19proceed,
+  i19proceed,
   i19selectedOffers
 } from '@ecomplus/i18n'
 
@@ -139,7 +139,7 @@ export default {
     i19buyAlsoMsg: () => i18n(i19buyAlsoMsg),
     i19checkout: () => i18n(i19checkout),
     i19orderNotesInputMsg: () => i18n(i19orderNotesInputMsg),
-    i19proceed: () => i18n({ en_us: 'Proceed', pt_br: 'Prosseguir' }),
+    i19proceed: () => i18n(i19proceed),
     i19selectedOffers: () => i18n(i19selectedOffers),
     modulesPayload: () => baseModulesRequestData,
 

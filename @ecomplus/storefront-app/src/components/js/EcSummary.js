@@ -8,7 +8,7 @@ import {
   i19myAccount,
   i19subtotal,
   i19summary,
-  // i19toPay,
+  i19toPay,
   i19total
 } from '@ecomplus/i18n'
 
@@ -61,7 +61,7 @@ export default {
     i19myAccount: () => i18n(i19myAccount),
     i19subtotal: () => i18n(i19subtotal),
     i19summary: () => i18n(i19summary),
-    i19toPay: () => 'A pagar',
+    i19toPay: () => i18n(i19toPay),
     i19total: () => i18n(i19total),
 
     amountToPay () {
