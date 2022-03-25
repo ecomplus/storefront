@@ -2,7 +2,7 @@ import {
   i19days,
   i19free,
   i19freeShipping,
-  // i19pickUpToday,
+  i19pickUpToday,
   i19receiveToday,
   i19untilTomorrow,
   i19upTo,
@@ -13,8 +13,6 @@ import {
   i18n,
   formatMoney
 } from '@ecomplus/utils'
-
-const i19pickUpToday = 'Retire hoje'
 
 export default {
   name: 'ShippingLine',

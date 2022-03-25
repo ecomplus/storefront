@@ -4,8 +4,10 @@ import {
   i19hello,
   i19isNotYou,
   i19logout,
+  i19noSavedFavoritesMsg,
   i19orders,
-  i19registration
+  i19registration,
+  i19subscriptions
 } from '@ecomplus/i18n'
 
 import {
@@ -60,15 +62,9 @@ export default {
     i19hello: () => i18n(i19hello),
     i19isNotYou: () => i18n(i19isNotYou),
     i19logout: () => i18n(i19logout),
-    i19noSavedFavoritesMsg: () => i18n({
-      pt_br: 'Você ainda não tem produtos salvos como favoritos.',
-      en_us: 'You don\'t have any products saved as favorites yet.'
-    }),
+    i19noSavedFavoritesMsg: () => i18n(i19noSavedFavoritesMsg),
     i19orders: () => i18n(i19orders),
-    i19subscriptions: () => i18n({
-      pt_br: 'Assinaturas',
-      en_us: 'Subscriptions'
-    }),
+    i19subscriptions: () => i18n(i19subscriptions),
     i19registration: () => i18n(i19registration),
 
     activeTab: {

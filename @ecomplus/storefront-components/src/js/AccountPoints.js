@@ -1,7 +1,7 @@
 import {
   i19available,
   i19loyaltyPoints,
-  // i19pointsEarned,
+  i19pointsEarned,
   i19upTo
 } from '@ecomplus/i18n'
 
@@ -25,7 +25,7 @@ export default {
   computed: {
     i19available: () => i18n(i19available),
     i19loyaltyPoints: () => i18n(i19loyaltyPoints),
-    i19pointsEarned: () => 'Pontos ganhos',
+    i19pointsEarned: () => i18n(i19pointsEarned),
     i19upTo: () => i18n(i19upTo),
 
     validPointsEntries () {
