@@ -33,9 +33,9 @@
   },
   "dependencies": {
     "@ecomplus/client": "^2.2.1",
-    "@ecomplus/i18n": "^1.28.0",
+    "@ecomplus/i18n": "^1.29.0",
     "@ecomplus/passport-client": "^1.1.1",
-    "@ecomplus/shopping-cart": "^2.5.5",
+    "@ecomplus/shopping-cart": "^2.5.6",
     "@ecomplus/storefront-components": "^1.0.0-beta.117",
     "@ecomplus/storefront-twbs": "^7.1.0",
     "axios": "^0.26.1",
