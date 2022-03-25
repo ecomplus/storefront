@@ -22,7 +22,7 @@
           @click:order="viewOrder"
         />
       </template>
-      <template #recurrent-orders-list>
+      <template #subscriptions>
         <ec-orders-list
           :ecom-passport="ecomPassport"
           @click:order="viewOrder"
