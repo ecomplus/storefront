@@ -53,7 +53,8 @@ export default {
   data () {
     return {
       favoriteIds: [],
-      subscriptions: []
+      subscriptions: [],
+      navTabs: [this.i19registration, this.i19orders, this.i19favorites],
     }
   },
 
@@ -65,7 +66,10 @@ export default {
     i19logout: () => i18n(i19logout),
     i19noSavedFavoritesMsg: () => i18n(i19noSavedFavoritesMsg),
     i19orders: () => i18n(i19orders),
-    i19subscriptions: () => i18n(i19subscriptions),
+    i19subscriptions: () => i18n({
+      en_us: 'Subscriptions',
+      pt_br: 'Assinaturas'
+    }),
     i19registration: () => i18n(i19registration),
 
     activeTab: {
@@ -132,21 +136,15 @@ export default {
     const { favorites } = this.ecomPassport.getCustomer()
     this.favoriteIds = favorites || []
 
-    const update = () => this.ecomPassport.fetchOrdersList()
-      .then(result => {
-        this.subscriptions = result
-      })
-      .catch(console.error)
     if (this.ecomPassport.checkAuthorization()) {
-      this.ecomPassport.requestApi('/orders.json?transactions.type=recurrence')
+      this.ecomPassport.requestApi('/orders.json?transactions.type=recurrence&limit=1&fields=_id')
         .then(({ data }) => {
           const { result } = data
-          this.ecomPassport.setCustomer({ orders: result })
-          this.subscriptions = result
+          if (result.length) {
+            this.navTabs.push(this.i19subscriptions)
+          }
         })
-        .catch(update)
-    } else {
-      update()
+        .catch(console.error)
     }
   }
 }
