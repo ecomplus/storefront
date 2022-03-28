@@ -66,10 +66,7 @@ export default {
     i19logout: () => i18n(i19logout),
     i19noSavedFavoritesMsg: () => i18n(i19noSavedFavoritesMsg),
     i19orders: () => i18n(i19orders),
-    i19subscriptions: () => i18n({
-      en_us: 'Subscriptions',
-      pt_br: 'Assinaturas'
-    }),
+    i19subscriptions: () => i18n(i19subscriptions),
     i19registration: () => i18n(i19registration),
 
     activeTab: {
