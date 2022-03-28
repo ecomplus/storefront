@@ -42,7 +42,7 @@
     "@ecomplus/storefront-renderer": "^2.8.14",
     "@ecomplus/storefront-router": "^2.2.1",
     "autoprefixer": "^10.4.4",
-    "babel-loader": "^8.2.3",
+    "babel-loader": "^8.2.4",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^6.4.1",
     "core-js": ">=3.19.0 <3.22",
@@ -68,6 +68,6 @@
     "webpack-dev-middleware": "^3.7.3",
     "webpack-merge": "^4.2.2",
     "webpack-pwa-manifest": "^4.3.0",
-    "workbox-webpack-plugin": "^6.5.1"
+    "workbox-webpack-plugin": "^6.5.2"
   }
 }
