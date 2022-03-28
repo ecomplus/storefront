@@ -53,8 +53,7 @@ export default {
   data () {
     return {
       favoriteIds: [],
-      subscriptions: [],
-      navTabs: [this.i19registration, this.i19orders, this.i19favorites],
+      navTabs: [i19registration, i19orders, i19favorites]
     }
   },
 
@@ -138,7 +137,7 @@ export default {
         .then(({ data }) => {
           const { result } = data
           if (result.length) {
-            this.navTabs.push(this.i19subscriptions)
+            this.navTabs.push(i19subscriptions)
           }
         })
         .catch(console.error)
