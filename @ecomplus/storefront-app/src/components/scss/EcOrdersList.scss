@@ -82,4 +82,16 @@
       color: var(--success);
     }
   }
+
+  &__pagination {
+    margin-top: var(--spacer-4);
+
+    .pagination {
+      justify-content: center;
+    }
+
+    .page-link {
+      cursor: pointer;
+    }
+  }
 }

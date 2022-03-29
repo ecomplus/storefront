@@ -33,7 +33,10 @@ export default {
   data () {
     return {
       updateInterval: null,
-      orders: []
+      orders: [],
+      pages: [],
+      items: [],
+      currentPage: null
     }
   },
 
@@ -48,7 +51,7 @@ export default {
   created () {
     const update = () => this.ecomPassport.fetchOrdersList()
       .then(result => {
-        this.orders = result
+        this.items = result
       })
       .catch(console.error)
     const startInterval = () => {
@@ -59,7 +62,13 @@ export default {
         .then(({ data }) => {
           const { result } = data
           this.ecomPassport.setCustomer({ orders: result })
-          this.orders = result.sort((a, b) => a.number > b.number ? -1 : 1).slice(0, 10)
+          this.items = result.sort((a, b) => a.number > b.number ? -1 : 1)
+
+          for (let i = 0; i < this.items.length; i += 10) {
+            this.pages.push(this.items.slice(i, i + 10))
+          }
+
+          this.currentPage = this.pages.length ? 1 : 0
         })
         .catch(update)
         .finally(startInterval)
@@ -71,5 +80,13 @@ export default {
 
   beforeDestroy () {
     clearInterval(this.updateInterval)
+  },
+
+  watch: {
+    currentPage () {
+      if (this.currentPage > 0 && this.currentPage <= this.pages.length) {
+        this.orders = this.pages[this.currentPage - 1]
+      }
+    }
   }
 }
