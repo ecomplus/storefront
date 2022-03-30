@@ -24,6 +24,10 @@ export default {
       type: Object,
       default: () => ecomPassport
     },
+    pageLimit: {
+      type: Number,
+      default: 5
+    },
     ordersListParams: {
       type: String,
       default: ''
@@ -40,12 +44,43 @@ export default {
     }
   },
 
+  computed: {
+    links () {
+      const first = [1, '...']
+      const last = ['...', this.pages.length]
+      let range = []
+
+      if (this.currentPage <= this.pageLimit) {
+        range = this.range(1, this.pageLimit + 1)
+        return (this.currentPage + range.length) <= this.pages.length ? range.concat(last) : range
+      } else if (this.currentPage > (this.pages.length - this.pageLimit)) {
+        range = this.range(this.pages.length - (this.pageLimit), this.pages.length)
+        return (this.currentPage - range.length) >= 1 ? first.concat(range) : range
+      } else {
+        range = this.range(this.currentPage - Math.ceil(this.pageLimit / 2), this.currentPage + Math.ceil(this.pageLimit / 2))
+        return first.concat(range).concat(last)
+      }
+    }
+  },
+
   methods: {
     formatDate,
     formatMoney,
     i19FinancialStatus: prop => i18n(i19FinancialStatus)[prop],
     i19FulfillmentStatus: prop => i18n(i19FulfillmentStatus)[prop],
-    i19OrderStatus: prop => i18n(i19OrderStatus)[prop]
+    i19OrderStatus: prop => i18n(i19OrderStatus)[prop],
+
+    range (start, end) {
+      const pages = []
+
+      for (let i = start - 1; i < end; i++) {
+        if (this.pages[i]) {
+          pages.push(i + 1)
+        }
+      }
+
+      return pages
+    }
   },
 
   created () {

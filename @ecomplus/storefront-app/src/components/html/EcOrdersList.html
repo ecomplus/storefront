@@ -1,8 +1,7 @@
-<div
-  v-if="orders.length"
-  class="orders-list">
+<div class="orders-list">
   <div
     class="list-group list-group-flush"
+    v-if="orders.length"
     v-for="order in orders"
   >
     <a
@@ -69,15 +68,15 @@
         </button>
       </li>
       <li
-        v-for="(page, index) in pages"
+        v-for="(link) in links"
         class="page-item"
-        :class="{'active': currentPage === (index + 1)}"
+        :class="{'active': currentPage === (link), 'disabled': isNaN(link)}"
       >
         <button 
           class="page-link"
-          @click="(currentPage = index + 1)"
+          @click="(currentPage = link)"
         >
-          {{ index + 1 }}
+          {{ link }}
         </button>
       </li>
       <li
