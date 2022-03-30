@@ -68,9 +68,9 @@
         </button>
       </li>
       <li
-        v-for="(link) in links"
+        v-for="link in links"
         class="page-item"
-        :class="{'active': currentPage === (link), 'disabled': isNaN(link)}"
+        :class="{'active': currentPage === link, 'disabled': isNaN(link)}"
       >
         <button 
           class="page-link"
