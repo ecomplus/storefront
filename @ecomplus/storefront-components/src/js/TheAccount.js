@@ -130,7 +130,6 @@ export default {
     this.navTabs = [this.i19registration, this.i19orders, this.i19favorites]
     const { favorites } = this.ecomPassport.getCustomer()
     this.favoriteIds = favorites || []
-
     if (this.ecomPassport.checkAuthorization()) {
       this.ecomPassport.requestApi('/orders.json?transactions.type=recurrence&limit=1&fields=_id')
         .then(({ data }) => {
