@@ -128,7 +128,6 @@ export default {
 
   created () {
     this.navTabs = [this.i19registration, this.i19orders, this.i19favorites]
-
     const { favorites } = this.ecomPassport.getCustomer()
     this.favoriteIds = favorites || []
 
