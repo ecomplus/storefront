@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.115](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@1.0.0-beta.114...@ecomplus/widget-product@1.0.0-beta.115) (2022-04-01)
+
+
+### Features
+
+* **widget-product:** cms config to toggle promotion timer [[#554](https://github.com/ecomplus/storefront/issues/554)] ([1bc6b4a](https://github.com/ecomplus/storefront/commit/1bc6b4a659b0e5fa276a2c2a2a0de4141bb37a4f))
+
+
+
+
+
 # [1.0.0-beta.114](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@1.0.0-beta.113...@ecomplus/widget-product@1.0.0-beta.114) (2022-03-05)
 
 

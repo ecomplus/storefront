@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.167](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.166...@ecomplus/storefront-template@2.0.0-beta.167) (2022-04-01)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.5.6 and @ecomplus/i18n to v1.29.0 ([2c111ea](https://github.com/ecomplus/storefront/commit/2c111ea49757044cb54393bd331e616edda5169f))
+* **template/header:** fix absolute url (first slash) for category menu links ([#675](https://github.com/ecomplus/storefront/issues/675)) ([3dafb8e](https://github.com/ecomplus/storefront/commit/3dafb8eb0af7456f21fd3821aeccef4401355b65))
+* **template/offers-timer:** prevent fatal error on search failure ([17ae7f6](https://github.com/ecomplus/storefront/commit/17ae7f6cbd183c36ef4b58220845386e8e5bb72a))
+
+
+
+
+
 # [2.0.0-beta.166](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.165...@ecomplus/storefront-template@2.0.0-beta.166) (2022-03-05)
 
 

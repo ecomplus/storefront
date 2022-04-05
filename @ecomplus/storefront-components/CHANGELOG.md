@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.118](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.117...@ecomplus/storefront-components@1.0.0-beta.118) (2022-04-01)
+
+
+### Bug Fixes
+
+* **app/components:** pass query to ecOrdersList filter api request results ([666f9eb](https://github.com/ecomplus/storefront/commit/666f9eb974cd4225aa0f71c3ba2fee416a001c92))
+* **components/account:** hide subscriptions tab when customer has no subscriptions ([#680](https://github.com/ecomplus/storefront/issues/680)) ([ca8821a](https://github.com/ecomplus/storefront/commit/ca8821aa3df7a647a9b01a382d14f4766fe4d07b))
+* **components:** fix typo on component TheAccount ([f401e39](https://github.com/ecomplus/storefront/commit/f401e39440fe9d7d25db39d7cb9e8ffa15ee3a03))
+* **deps:** update @ecomplus/shopping-cart to v2.5.6 and @ecomplus/i18n to v1.29.0 ([2c111ea](https://github.com/ecomplus/storefront/commit/2c111ea49757044cb54393bd331e616edda5169f))
+* minor fixes ([70b43e3](https://github.com/ecomplus/storefront/commit/70b43e377bf52065589caa12a20076e4da3d98d9))
+* rename subscriptions slot ([b149b52](https://github.com/ecomplus/storefront/commit/b149b52a0059e75ee5f2796eecc0753477fa4359))
+
+
+### Features
+
+* **account:** add tab o account to show recurrent orders ([2aeca12](https://github.com/ecomplus/storefront/commit/2aeca121eb538c991282bebd412bcb1726b8f233))
+* **app/components:** new slot for recurrent orders on Account ([ad36760](https://github.com/ecomplus/storefront/commit/ad3676050428d6148110526769b22763d4c7d458))
+* **components/product:** added optional promo timer by prop `hasPromotionTimer` ([#664](https://github.com/ecomplus/storefront/issues/664)) ([6aae7e2](https://github.com/ecomplus/storefront/commit/6aae7e216bfc668013fa6dab8c97c4ce6d792a26))
+
+
+
+
+
 # [1.0.0-beta.117](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.116...@ecomplus/storefront-components@1.0.0-beta.117) (2022-03-05)
 
 

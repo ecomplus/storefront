@@ -18,15 +18,13 @@ import {
 import ecomPassport from '@ecomplus/passport-client'
 import LoginBlock from '../LoginBlock.vue'
 import RecommendedItems from '../RecommendedItems.vue'
-import EcOrdersList from '../../../storefront-app/src/components/EcOrdersList.vue'
 
 export default {
   name: 'TheAccount',
 
   components: {
     LoginBlock,
-    RecommendedItems,
-    EcOrdersList
+    RecommendedItems
   },
 
   props: {
@@ -52,7 +50,8 @@ export default {
 
   data () {
     return {
-      favoriteIds: []
+      favoriteIds: [],
+      navTabs: []
     }
   },
 
@@ -128,7 +127,18 @@ export default {
   },
 
   created () {
+    this.navTabs = [this.i19registration, this.i19orders, this.i19favorites]
     const { favorites } = this.ecomPassport.getCustomer()
     this.favoriteIds = favorites || []
+    if (this.ecomPassport.checkAuthorization()) {
+      this.ecomPassport.requestApi('/orders.json?transactions.type=recurrence&limit=1&fields=_id')
+        .then(({ data }) => {
+          const { result } = data
+          if (result.length) {
+            this.navTabs.push(this.i19subscriptions)
+          }
+        })
+        .catch(console.error)
+    }
   }
 }
