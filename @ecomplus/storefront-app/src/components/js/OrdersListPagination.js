@@ -68,7 +68,7 @@ export default {
         range = this.range(this.pageQuantity - (this.pageLimit), this.pageQuantity)
         return (this.currentPage - range.length) >= 1 ? first.concat(range) : range
       } else {
-        range = this.range(this.currentPage - Math.ceil(this.pageLimit / 2), this.currentPage + Math.ceil(this.pageLimit / 2))
+        range = this.range(this.currentPage - Math.floor(this.pageLimit / 2), this.currentPage + Math.floor(this.pageLimit / 2))
         return first.concat(range).concat(last)
       }
     }
