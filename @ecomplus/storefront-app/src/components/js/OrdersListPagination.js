@@ -39,7 +39,7 @@ export default {
         return this.page
       },
       set: function (page) {
-        const from = (page - 1) * 10
+        const from = (page - 1) * this.pageSize
         this.page = page
 
         this.$emit('update-orders', from)
