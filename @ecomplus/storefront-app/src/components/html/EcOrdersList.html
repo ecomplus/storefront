@@ -49,4 +49,10 @@
       </span>
     </a>
   </div>
+  <orders-list-pagination
+    v-if="ordersLength > 1"
+    :items-length = "ordersLength"
+    @update-orders = "updateOrders"
+  >
+  </orders-list-pagination>
 </div>

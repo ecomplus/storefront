@@ -7,12 +7,14 @@ import {
 import { i18n, formatDate, formatMoney } from '@ecomplus/utils'
 import ecomPassport from '@ecomplus/passport-client'
 import EcOrderInfo from './../EcOrderInfo.vue'
+import OrdersListPagination from './../OrdersListPagination.vue'
 
 export default {
   name: 'EcOrdersList',
 
   components: {
-    EcOrderInfo
+    EcOrderInfo,
+    OrdersListPagination
   },
 
   props: {
@@ -33,7 +35,9 @@ export default {
   data () {
     return {
       updateInterval: null,
-      orders: []
+      orders: [],
+      start: 0,
+      ordersLength: 0
     }
   },
 
@@ -42,29 +46,35 @@ export default {
     formatMoney,
     i19FinancialStatus: prop => i18n(i19FinancialStatus)[prop],
     i19FulfillmentStatus: prop => i18n(i19FulfillmentStatus)[prop],
-    i19OrderStatus: prop => i18n(i19OrderStatus)[prop]
+    i19OrderStatus: prop => i18n(i19OrderStatus)[prop],
+
+    updateOrders (from = this.start) {
+      return this.ecomPassport.fetchOrdersList(from)
+        .then(result => {
+          this.orders = result
+          this.start = from
+        })
+        .catch(console.error)
+    }
   },
 
   created () {
-    const update = () => this.ecomPassport.fetchOrdersList()
-      .then(result => {
-        this.orders = result
-      })
-      .catch(console.error)
     const startInterval = () => {
-      this.updateInterval = setInterval(update, 7000)
+      this.updateInterval = setInterval(this.updateOrders, 7000)
     }
     if (this.ecomPassport.checkAuthorization()) {
       this.ecomPassport.requestApi(`/orders.json?${this.ordersListParams}`)
         .then(({ data }) => {
           const { result } = data
           this.ecomPassport.setCustomer({ orders: result })
-          this.orders = result.sort((a, b) => a.number > b.number ? -1 : 1).slice(0, 10)
+          this.updateOrders()
+
+          this.ordersLength = result.length
         })
-        .catch(update)
+        .catch(this.updateOrders)
         .finally(startInterval)
     } else {
-      update()
+      this.updateOrders()
       startInterval()
     }
   },
