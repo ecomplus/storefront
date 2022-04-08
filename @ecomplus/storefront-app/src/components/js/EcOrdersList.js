@@ -7,14 +7,14 @@ import {
 import { i18n, formatDate, formatMoney } from '@ecomplus/utils'
 import ecomPassport from '@ecomplus/passport-client'
 import EcOrderInfo from './../EcOrderInfo.vue'
-import OrdersListPagination from './../OrdersListPagination.vue'
+import APagination from './../APagination.vue'
 
 export default {
   name: 'EcOrdersList',
 
   components: {
     EcOrderInfo,
-    OrdersListPagination
+    APagination
   },
 
   props: {
@@ -36,8 +36,23 @@ export default {
     return {
       updateInterval: null,
       orders: [],
-      start: 0,
-      ordersLength: 0
+      ordersLength: 0,
+      startIndex: 0,
+      currentPage: 1,
+      pageSize: 10
+    }
+  },
+
+  computed: {
+    page: {
+      get: function () {
+        return this.currentPage
+      },
+      set: function (page) {
+        this.currentPage = page
+        const from = Math.floor((page - 1) * this.pageSize)
+        this.updateOrders(from)
+      }
     }
   },
 
@@ -48,13 +63,13 @@ export default {
     i19FulfillmentStatus: prop => i18n(i19FulfillmentStatus)[prop],
     i19OrderStatus: prop => i18n(i19OrderStatus)[prop],
 
-    updateOrders (from = this.start) {
+    updateOrders (from = this.startIndex) {
       return this.ecomPassport.fetchOrdersList(from)
         .then(result => {
           this.orders = result
-          this.start = from
         })
         .catch(console.error)
+        .finally(this.startIndex = from)
     }
   },
 

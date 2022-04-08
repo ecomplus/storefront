@@ -1,5 +1,5 @@
 <nav 
-  v-if="pageQuantity > 1"
+  v-if="pageCount > 1"
   class="orders-list-pagination"
 >
   <ul class="pagination">
@@ -9,7 +9,7 @@
     >
       <button 
         class="page-link" 
-        @click="currentPage--"
+        @click="localCurrentPage--"
         :aria-label="i19previous"
       >
         <span aria-hidden="true"><i class="i-chevron-left"></i></span>
@@ -23,18 +23,18 @@
     >
       <button 
         class="page-link"
-        @click="(currentPage = pageLink)"
+        @click="(localCurrentPage = pageLink)"
       >
         {{ pageLink }}
       </button>
     </li>
     <li
       class="page-item"
-      :class="{'disabled': currentPage >= pageQuantity}"
+      :class="{'disabled': currentPage >= pageCount}"
     >
       <button 
         class="page-link"
-        @click="currentPage++"
+        @click="localCurrentPage++"
         :aria-label="i19next"
       >
         <span aria-hidden="true"><i class="i-chevron-right"></i></span>
