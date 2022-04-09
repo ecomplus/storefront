@@ -67,7 +67,6 @@ export default {
           pages.push(i)
         }
       }
-
       return pages
     }
   }
