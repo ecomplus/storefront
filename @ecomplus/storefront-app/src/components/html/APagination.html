@@ -1,0 +1,42 @@
+<nav v-if="pageCount > 1">
+  <ul class="pagination">
+    <li
+      class="page-item"
+      :class="{'disabled': currentPage <= 1}"
+    >
+      <button 
+        class="page-link" 
+        @click="localCurrentPage--"
+        :aria-label="i19previous"
+      >
+        <span aria-hidden="true"><i class="i-chevron-left"></i></span>
+        <span class="sr-only">{{ i19previous }}</span>
+      </button>
+    </li>
+    <li
+      v-for="pageLink in pageLinks"
+      class="page-item"
+      :class="{'active': currentPage === pageLink, 'disabled': isNaN(pageLink)}"
+    >
+      <button 
+        class="page-link"
+        @click="(localCurrentPage = pageLink)"
+      >
+        {{ pageLink }}
+      </button>
+    </li>
+    <li
+      class="page-item"
+      :class="{'disabled': currentPage >= pageCount}"
+    >
+      <button 
+        class="page-link"
+        @click="localCurrentPage++"
+        :aria-label="i19next"
+      >
+        <span aria-hidden="true"><i class="i-chevron-right"></i></span>
+        <span class="sr-only">{{ i19next }}</span>
+      </button>
+    </li>
+  </ul>
+</nav>

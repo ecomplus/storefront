@@ -49,4 +49,10 @@
       </span>
     </a>
   </div>
+  <a-pagination
+    v-if="ordersLength > 1"
+    :item-count="ordersLength"
+    :current-page.sync="page"
+    :page-size="pageSize"
+  />
 </div>
