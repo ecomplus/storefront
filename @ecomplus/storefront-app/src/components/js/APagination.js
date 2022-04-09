@@ -62,7 +62,6 @@ export default {
   methods: {
     range (start, end) {
       const pages = []
-
       for (let i = start; i <= end; i++) {
         if (this.pageCount >= i && i > 0) {
           pages.push(i)
