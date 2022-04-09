@@ -46,7 +46,6 @@ export default {
       const first = [1, '...']
       const last = ['...', this.pageCount]
       let range = []
-
       if (this.currentPage < this.pageLimit) {
         range = this.range(1, this.pageLimit)
         return (this.currentPage + range.length) <= this.pageCount ? range.concat(last) : range
