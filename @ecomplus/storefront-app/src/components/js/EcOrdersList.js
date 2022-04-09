@@ -83,7 +83,6 @@ export default {
           const { result } = data
           this.ecomPassport.setCustomer({ orders: result })
           this.updateOrders()
-
           this.ordersLength = result.length
         })
         .catch(this.updateOrders)
