@@ -6,8 +6,8 @@ import {
 
 import { i18n, formatDate, formatMoney } from '@ecomplus/utils'
 import ecomPassport from '@ecomplus/passport-client'
+import APagination from '#components/APagination.vue'
 import EcOrderInfo from './../EcOrderInfo.vue'
-import APagination from './../APagination.vue'
 
 export default {
   name: 'EcOrdersList',
@@ -36,23 +36,9 @@ export default {
     return {
       updateInterval: null,
       orders: [],
-      ordersLength: 0,
-      startIndex: 0,
+      totalOrders: 0,
       currentPage: 1,
       pageSize: 10
-    }
-  },
-
-  computed: {
-    page: {
-      get: function () {
-        return this.currentPage
-      },
-      set: function (page) {
-        this.currentPage = page
-        const from = Math.floor((page - 1) * this.pageSize)
-        this.updateOrders(from)
-      }
     }
   },
 
@@ -63,13 +49,12 @@ export default {
     i19FulfillmentStatus: prop => i18n(i19FulfillmentStatus)[prop],
     i19OrderStatus: prop => i18n(i19OrderStatus)[prop],
 
-    updateOrders (from = this.startIndex) {
-      return this.ecomPassport.fetchOrdersList(from)
+    updateOrders () {
+      return this.ecomPassport.fetchOrdersList((this.currentPage - 1) * this.pageSize)
         .then(result => {
           this.orders = result
         })
         .catch(console.error)
-        .finally(this.startIndex = from)
     }
   },
 
@@ -83,13 +68,19 @@ export default {
           const { result } = data
           this.ecomPassport.setCustomer({ orders: result })
           this.updateOrders()
-          this.ordersLength = result.length
+          this.totalOrders = result.length
         })
         .catch(this.updateOrders)
         .finally(startInterval)
     } else {
       this.updateOrders()
       startInterval()
+    }
+  },
+
+  watch: {
+    currentPage () {
+      this.updateOrders()
     }
   },
 
