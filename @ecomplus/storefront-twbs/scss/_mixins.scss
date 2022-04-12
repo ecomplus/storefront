@@ -10,17 +10,17 @@
 
 // Utilities
 @import "bootstrap/scss/mixins/breakpoints";
-@import "bootstrap/scss/mixins/hover";
+@import "mixins/hover";
 @import "bootstrap/scss/mixins/image";
 @import "mixins/badge";
 @import "bootstrap/scss/mixins/resize";
-@import "bootstrap/scss/mixins/screen-reader";
-@import "bootstrap/scss/mixins/size";
+@import "mixins/screen-reader";
+@import "mixins/size";
 @import "bootstrap/scss/mixins/reset-text";
-@import "bootstrap/scss/mixins/text-emphasis";
-@import "bootstrap/scss/mixins/text-hide";
+@import "mixins/text-emphasis";
+@import "mixins/text-hide";
 @import "bootstrap/scss/mixins/text-truncate";
-@import "bootstrap/scss/mixins/visibility";
+@import "mixins/visibility";
 
 // Components
 @import "mixins/alert";
@@ -29,12 +29,12 @@
 @import "bootstrap/scss/mixins/pagination";
 @import "bootstrap/scss/mixins/lists";
 @import "mixins/list-group";
-@import "bootstrap/scss/mixins/nav-divider";
+@import "mixins/nav-divider";
 @import "mixins/forms";
 @import "mixins/table-row";
 
 // Skins
-@import "bootstrap/scss/mixins/background-variant";
+@import "mixins/background-variant";
 @import "bootstrap/scss/mixins/border-radius";
 @import "bootstrap/scss/mixins/box-shadow";
 @import "mixins/gradients";
@@ -42,6 +42,7 @@
 
 // Layout
 @import "bootstrap/scss/mixins/clearfix";
-@import "bootstrap/scss/mixins/grid-framework";
+@import "mixins/grid-framework";
+@import "bootstrap/scss/mixins/container";
 @import "bootstrap/scss/mixins/grid";
-@import "bootstrap/scss/mixins/float";
+@import "mixins/float";
