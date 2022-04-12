@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.15](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.8.14...@ecomplus/storefront-renderer@2.8.15) (2022-04-01)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.5.6 and @ecomplus/i18n to v1.29.0 ([2c111ea](https://github.com/ecomplus/storefront/commit/2c111ea49757044cb54393bd331e616edda5169f))
+
+
+
+
+
 ## [2.8.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.8.13...@ecomplus/storefront-renderer@2.8.14) (2022-02-06)
 
 

@@ -21,7 +21,7 @@
 
     <ul class="account__nav nav nav-tabs">
       <li
-        v-for="(label, i) in [i19registration, i19orders, i19favorites]"
+        v-for="(label, i) in navTabs"
         class="nav-item"
       >
         <a
@@ -82,6 +82,14 @@
               {{ i19noSavedFavoritesMsg }}
             </div>
           </slot>          
+        </div>
+      </transition>
+      <transition
+        enter-active-class="animated fadeInRight slow"
+        leave-active-class="animated fadeOutRight position-absolute"
+      >
+        <div v-if="currentTab === 'subscriptions'">
+          <slot name="subscriptions" />
         </div>
       </transition>
     </div>

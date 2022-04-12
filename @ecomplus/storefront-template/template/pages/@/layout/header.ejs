@@ -274,10 +274,10 @@ const hasMegamenu = header.desktop_megamenu
                     <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
                       <% subcategories.forEach(subcategory => { %>
                         <div>               
-                          <a href="<%= subcategory.slug %>"><%= subcategory.name %></a>
+                          <a href="/<%= subcategory.slug %>"><%= subcategory.name %></a>
                           <% const thirdCategories = _.categories.filter(({ parent }) => parent && parent.slug === subcategory.slug) %>
                           <% thirdCategories.forEach(thirdCategory => { %>
-                            <a class="header__submenu-subcategory" href="<%= thirdCategory.slug %>">
+                            <a class="header__submenu-subcategory" href="/<%= thirdCategory.slug %>">
                               <%= thirdCategory.name %>
                             </a>
                           <% }) %>

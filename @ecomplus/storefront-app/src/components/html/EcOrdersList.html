@@ -49,4 +49,12 @@
       </span>
     </a>
   </div>
+
+  <a-pagination
+    v-if="totalOrders > 1"
+    class="mt-3"
+    :total-items="totalOrders"
+    :page.sync="currentPage"
+    :page-size="pageSize"
+  />
 </div>

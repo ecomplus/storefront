@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.125](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.124...@ecomplus/storefront-app@2.0.0-beta.125) (2022-04-01)
+
+
+### Bug Fixes
+
+* **app/checkout:** double check items flags to prevent duplication errors ([bca57d9](https://github.com/ecomplus/storefront/commit/bca57d9fe5f22e1877816e2b2f33670df97ec281))
+* **app/components:**  remove useless console log from EcOrdersList component ([adf5152](https://github.com/ecomplus/storefront/commit/adf515233401ee227c04dcfcc892ad76b2994e37))
+* **app/components:** pass query to ecOrdersList filter api request results ([666f9eb](https://github.com/ecomplus/storefront/commit/666f9eb974cd4225aa0f71c3ba2fee416a001c92))
+* **deps:** update @ecomplus/shopping-cart to v2.5.6 and @ecomplus/i18n to v1.29.0 ([2c111ea](https://github.com/ecomplus/storefront/commit/2c111ea49757044cb54393bd331e616edda5169f))
+* minor fixes ([70b43e3](https://github.com/ecomplus/storefront/commit/70b43e377bf52065589caa12a20076e4da3d98d9))
+* rename subscriptions slot ([b149b52](https://github.com/ecomplus/storefront/commit/b149b52a0059e75ee5f2796eecc0753477fa4359))
+
+
+### Features
+
+* **account:** add tab o account to show recurrent orders ([2aeca12](https://github.com/ecomplus/storefront/commit/2aeca121eb538c991282bebd412bcb1726b8f233))
+* **app/components:** new slot for recurrent orders on Account ([ad36760](https://github.com/ecomplus/storefront/commit/ad3676050428d6148110526769b22763d4c7d458))
+
+
+
+
+
 # [2.0.0-beta.124](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.123...@ecomplus/storefront-app@2.0.0-beta.124) (2022-03-05)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

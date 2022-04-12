@@ -6,13 +6,15 @@ import {
 
 import { i18n, formatDate, formatMoney } from '@ecomplus/utils'
 import ecomPassport from '@ecomplus/passport-client'
+import APagination from '#components/APagination.vue'
 import EcOrderInfo from './../EcOrderInfo.vue'
 
 export default {
   name: 'EcOrdersList',
 
   components: {
-    EcOrderInfo
+    EcOrderInfo,
+    APagination
   },
 
   props: {
@@ -23,13 +25,20 @@ export default {
     ecomPassport: {
       type: Object,
       default: () => ecomPassport
+    },
+    ordersListParams: {
+      type: String,
+      default: ''
     }
   },
 
   data () {
     return {
       updateInterval: null,
-      orders: []
+      orders: [],
+      totalOrders: 0,
+      currentPage: 1,
+      pageSize: 10
     }
   },
 
@@ -38,30 +47,40 @@ export default {
     formatMoney,
     i19FinancialStatus: prop => i18n(i19FinancialStatus)[prop],
     i19FulfillmentStatus: prop => i18n(i19FulfillmentStatus)[prop],
-    i19OrderStatus: prop => i18n(i19OrderStatus)[prop]
+    i19OrderStatus: prop => i18n(i19OrderStatus)[prop],
+
+    updateOrders () {
+      return this.ecomPassport.fetchOrdersList((this.currentPage - 1) * this.pageSize)
+        .then(result => {
+          this.orders = result
+        })
+        .catch(console.error)
+    }
   },
 
   created () {
-    const update = () => this.ecomPassport.fetchOrdersList()
-      .then(result => {
-        this.orders = result
-      })
-      .catch(console.error)
     const startInterval = () => {
-      this.updateInterval = setInterval(update, 7000)
+      this.updateInterval = setInterval(this.updateOrders, 7000)
     }
     if (this.ecomPassport.checkAuthorization()) {
-      this.ecomPassport.requestApi('/orders.json')
+      this.ecomPassport.requestApi(`/orders.json?${this.ordersListParams}`)
         .then(({ data }) => {
           const { result } = data
           this.ecomPassport.setCustomer({ orders: result })
-          this.orders = result.sort((a, b) => a.number > b.number ? -1 : 1).slice(0, 10)
+          this.updateOrders()
+          this.totalOrders = result.length
         })
-        .catch(update)
+        .catch(this.updateOrders)
         .finally(startInterval)
     } else {
-      update()
+      this.updateOrders()
       startInterval()
+    }
+  },
+
+  watch: {
+    currentPage () {
+      this.updateOrders()
     }
   },
 

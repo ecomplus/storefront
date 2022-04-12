@@ -4,8 +4,10 @@ import {
   i19hello,
   i19isNotYou,
   i19logout,
+  i19noSavedFavoritesMsg,
   i19orders,
-  i19registration
+  i19registration,
+  i19subscriptions
 } from '@ecomplus/i18n'
 
 import {
@@ -35,7 +37,7 @@ export default {
     currentTab: {
       type: String,
       validator: function (value) {
-        return ['orders', 'favorites', 'account'].includes(value)
+        return ['orders', 'favorites', 'subscriptions', 'account'].includes(value)
       }
     },
     ecomPassport: {
@@ -48,7 +50,8 @@ export default {
 
   data () {
     return {
-      favoriteIds: []
+      favoriteIds: [],
+      navTabs: []
     }
   },
 
@@ -58,19 +61,38 @@ export default {
     i19hello: () => i18n(i19hello),
     i19isNotYou: () => i18n(i19isNotYou),
     i19logout: () => i18n(i19logout),
-    i19noSavedFavoritesMsg: () => i18n({
-      pt_br: 'Você ainda não tem produtos salvos como favoritos.',
-      en_us: 'You don\'t have any products saved as favorites yet.'
-    }),
+    i19noSavedFavoritesMsg: () => i18n(i19noSavedFavoritesMsg),
     i19orders: () => i18n(i19orders),
+    i19subscriptions: () => i18n(i19subscriptions),
     i19registration: () => i18n(i19registration),
 
     activeTab: {
       get () {
-        return this.currentTab === 'orders' ? 1 : this.currentTab === 'favorites' ? 2 : 0
+        switch (this.currentTab) {
+          case 'orders':
+            return 1
+          case 'favorites':
+            return 2
+          case 'subscriptions':
+            return 3
+          default:
+            return 0
+        }
       },
       set (tabIndex) {
-        this.$emit('update:current-tab', tabIndex === 1 ? 'orders' : tabIndex === 2 ? 'favorites' : 'account')
+        switch (tabIndex) {
+          case 1:
+            this.$emit('update:current-tab', 'orders')
+            break
+          case 2:
+            this.$emit('update:current-tab', 'favorites')
+            break
+          case 3:
+            this.$emit('update:current-tab', 'subscriptions')
+            break
+          default:
+            this.$emit('update:current-tab', 'account')
+        }
       }
     },
 
@@ -105,7 +127,18 @@ export default {
   },
 
   created () {
+    this.navTabs = [this.i19registration, this.i19orders, this.i19favorites]
     const { favorites } = this.ecomPassport.getCustomer()
     this.favoriteIds = favorites || []
+    if (this.ecomPassport.checkAuthorization()) {
+      this.ecomPassport.requestApi('/orders.json?transactions.type=recurrence&limit=1&fields=_id')
+        .then(({ data }) => {
+          const { result } = data
+          if (result.length) {
+            this.navTabs.push(this.i19subscriptions)
+          }
+        })
+        .catch(console.error)
+    }
   }
 }

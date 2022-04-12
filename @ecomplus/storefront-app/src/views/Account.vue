@@ -22,6 +22,13 @@
           @click:order="viewOrder"
         />
       </template>
+      <template #subscriptions>
+        <ec-orders-list
+          :ecom-passport="ecomPassport"
+          @click:order="viewOrder"
+          :orders-list-params="'transactions.type=recurrence'"
+        />
+      </template>
     </the-account>
   </div>
 </template>
