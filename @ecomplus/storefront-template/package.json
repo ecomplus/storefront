@@ -71,7 +71,7 @@
     "@ecomplus/widget-trustvox": "^2.3.0",
     "@ecomplus/widget-user": "^1.0.0-beta.115",
     "@glidejs/glide": "^3.5.2",
-    "core-js": ">=3.19.0 <3.22",
+    "core-js": ">=3.19.0 <3.23",
     "ejs": "^3.1.6",
     "eventemitter3": "^4.0.7",
     "lodash.clonedeep": "^4.5.0",
