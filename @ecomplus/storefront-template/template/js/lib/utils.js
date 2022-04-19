@@ -17,7 +17,7 @@ if ((isSafari || isIOS || isIE) && !isSafariNew) {
 }
 
 if (!isScreenXs) {
-  document.querySelector('.footer .collapse').collapse('show')
+  document.querySelector('.footer .collapse').style.display = 'block'
 }
 
 document.querySelectorAll('.whatsapp-link').forEach(function ($wppLink) {
@@ -88,6 +88,4 @@ if ($timers.length) {
   })
 }
 
-document.querySelector('#go-to-top').addEventListener("click", () => {
-  window.scrollTo(0, 0)
-})
+document.querySelector('#go-to-top').addEventListener('click', () => window.scrollTo(0, 0))
