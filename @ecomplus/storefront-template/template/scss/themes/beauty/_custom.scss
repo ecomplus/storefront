@@ -1,0 +1,117 @@
+@import "variables";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  color: var(--secondary);
+}
+.h1, .h2, .h3, .h5, h1, h2, h3, h5 {
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+}
+
+.h4, .h6, h4, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+#ec-user-popover {
+  margin-right:  0.5rem;
+}
+
+.header__category {
+  color: $secondary-text;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.breadcrumb-item {
+  a {
+    color: $secondary;
+  }
+  &.active {
+    color: $primary;
+  }
+}
+
+.product-card {
+  .prices {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: var(--spacer-2);
+
+    &__value {
+      color: $primary;
+    }
+    
+    &__compare {
+      color: $price-old;
+    }
+
+    &__installments,
+    &__discount {
+      display: none
+    }
+  }
+
+  &__offer-stamp {
+    background-color: $primary;
+  }
+}
+.product {
+  &__name {
+    font-family: 'Poppins', serif;
+    font-size: 1.5rem;
+  }
+  .prices {
+    &__value {
+    color: $primary;
+    }
+
+    &__compare {
+      color: $secondary;
+    }
+  }
+  .variations {
+    &__grid-title {
+      font-family: 'Poppins', serif;
+      font-size: 1rem;
+    }
+    &__option {
+      @media (hover: hover) {
+        &:hover {
+          border-color: var(--primary-light);
+        }
+      }
+
+      &--selected:not(.disabled) {
+        border-color: $primary;
+        box-shadow: 0 0 0 .1rem rgba(var(--primary-rgb), .6);
+      }
+    }
+  }
+  .share-network-whatsapp {
+    color: var(--secondary);
+  }
+}
+
+.shipping-calculator {
+  label,
+  strong {
+    color: $secondary;
+  }
+  .btn {
+    background-color: $primary;
+    color: $primary-yiq;
+    border-color: $primary;
+
+    &:hover {
+      background-color: $primary-yiq;
+      color: $primary
+    }
+  }
+  .i-shipping-fast::before {
+    content: "OK";
+    font-family: 'Poppins' serif;
+    font-weight: bold;
+  }
+}
