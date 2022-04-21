@@ -52,7 +52,7 @@ Vue.prototype.$toast = ({ title, body, variant, delay } = {}) => {
     ${(body || i18n(i19errorMsg))}
   </div>`
 
-  $toast.appendTo($toastDock)
+  $toastDock.appendChild($toast)
   $toast.addEventListener('show.bs.toast', () => {
     $toastAside.style.zIndex = '3000'
   })
