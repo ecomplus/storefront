@@ -56,7 +56,7 @@ export default (fbq, options) => {
         }
         let eventID
         if (order && order.number) {
-          eventID = `${order.number}:${order.amount.total}`
+          eventID = `${order.number}:r${parseInt(Math.random() * 1000, 10)}`
         } else {
           eventID = orderId
         }
