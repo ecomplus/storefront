@@ -5,7 +5,7 @@ import TheProduct from '#components/TheProduct.vue'
 import SearchEngine from '#components/SearchEngine.vue'
 
 const $fallback404 = document.getElementById('fallback-404')
-if ($fallback404.length) {
+if ($fallback404) {
   const urlParams = new URLSearchParams(window.location.search)
   let url = urlParams.get('url')
   if (!url && document.cookie) {
@@ -31,18 +31,18 @@ if ($fallback404.length) {
       }</i></h3>`
       router.list()
         .then(routes => {
-          $fallback404.append([
+          $fallback404.insertAdjacentHTML('beforeend',
             `<p class="lead">
             ${
               i18n({
                 pt_br: 'Mapa do site:',
                 en_us: 'Sitemap:'
               })
-            }</p>`,
-            `<ul>${routes.map(({ path }) => {
+            }</p>
+            <ul>${routes.map(({ path }) => {
               return `<li><a href="${path}">${path}</a></li>`
             })}</ul>`
-          ])
+          )
         })
         .catch(console.error)
     }
