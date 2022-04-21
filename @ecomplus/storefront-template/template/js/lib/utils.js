@@ -4,7 +4,8 @@ import {
   isIOS,
   isIE,
   isMobile,
-  isScreenXs
+  isScreenXs,
+  Collapse
 } from '@ecomplus/storefront-twbs'
 
 if ((isSafari || isIOS || isIE) && !isSafariNew) {
@@ -17,7 +18,7 @@ if ((isSafari || isIOS || isIE) && !isSafariNew) {
 }
 
 if (!isScreenXs) {
-  document.querySelector('.footer .collapse').style.display = 'block'
+  new Collapse(document.querySelector('.footer .collapse')).show()
 }
 
 document.querySelectorAll('.whatsapp-link').forEach(function ($wppLink) {
@@ -88,4 +89,9 @@ if ($timers.length) {
   })
 }
 
-document.querySelector('#go-to-top').addEventListener('click', () => window.scrollTo(0, 0))
+document.getElementById('go-to-top').addEventListener('click', () => {
+  window.scroll({
+    top: 0,
+    behavior: 'smooth'
+  })
+})

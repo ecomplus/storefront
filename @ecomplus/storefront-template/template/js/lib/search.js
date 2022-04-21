@@ -1,21 +1,22 @@
-import { isScreenLg, $ } from '@ecomplus/storefront-twbs'
+import { isScreenLg, Collapse } from '@ecomplus/storefront-twbs'
 
-const $searchBar = $('#search-bar')
+const $searchBar = document.getElementById('search-bar')
 
 if ($searchBar) {
-  $searchBar.on('shown.bs.collapse', () => {
-    $('#search-input').trigger('focus')
+  $searchBar.addEventListener('shown.bs.collapse', () => {
+    const focusEvent = new Event('focus')
+    document.getElementById('search-input').dispatchEvent(focusEvent)
   })
 
   let resizeState
   const onResize = () => {
     if (resizeState !== isScreenLg) {
       if (isScreenLg) {
-        $searchBar.addClass('d-none')
-        $searchBar.collapse('show')
+        $searchBar.classList.add('d-none')
+        new Collapse($searchBar).show()
       } else {
-        $searchBar.collapse('hide')
-        $searchBar.removeClass('d-none')
+        new Collapse($searchBar).hide()
+        $searchBar.classList.remove('d-none')
       }
       resizeState = isScreenLg
     }
