@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.119](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.118...@ecomplus/storefront-components@1.0.0-beta.119) (2022-04-21)
+
+
+### Bug Fixes
+
+* **components/address-form:** set inputs maxlength to prevent api error ([#690](https://github.com/ecomplus/storefront/issues/690)) ([82ea8ff](https://github.com/ecomplus/storefront/commit/82ea8fff36d3309d35a4b7332669f33a81a1a03b)), closes [#689](https://github.com/ecomplus/storefront/issues/689)
+
+
+
+
+
 # [1.0.0-beta.118](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.117...@ecomplus/storefront-components@1.0.0-beta.118) (2022-04-01)
 
 
