@@ -55,7 +55,8 @@ export default (fbq, options) => {
         }
         fbq('Purchase', {
           ...getPurchaseData(order),
-          order_id: orderId
+          order_id: orderId,
+          eventID: orderId
         })
         isPurchaseSent = true
       }

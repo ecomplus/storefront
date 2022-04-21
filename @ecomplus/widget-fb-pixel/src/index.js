@@ -8,7 +8,14 @@ export default (options = {}) => {
       if (options.debug) {
         console.log('fbq', evName, data)
       }
-      window.fbq(isCustomEv ? 'trackCustom' : 'track', evName, data)
+      const action = isCustomEv ? 'trackCustom' : 'track'
+      if (data.eventID) {
+        const eventID = data.eventID
+        delete data.eventID
+        window.fbq(action, evName, data, { eventID })
+      } else {
+        window.fbq(action, evName, data)
+      }
     }
 
     parseContext(track)
