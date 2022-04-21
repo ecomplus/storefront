@@ -1,4 +1,5 @@
 import ecomCart from '@ecomplus/shopping-cart'
+import ecomPassport from '@ecomplus/passport-client'
 import { currency } from './common'
 
 export default (fbq, options) => {
@@ -53,12 +54,26 @@ export default (fbq, options) => {
             order = null
           }
         }
+        let eventID
+        if (order && order.number) {
+          eventID = `${order.number}:${order.amount.total}`
+        } else {
+          eventID = orderId
+        }
         fbq('Purchase', {
           ...getPurchaseData(order),
           order_id: orderId,
-          eventID: orderId
+          eventID
         })
         isPurchaseSent = true
+        ecomPassport.requestApi(`/orders/${orderId}/metafields.json`, 'POST', {
+          namespace: 'fb',
+          field: 'pixel',
+          value: JSON.stringify({
+            eventID,
+            userAgent: navigator.userAgent
+          })
+        })
       }
     }
 
