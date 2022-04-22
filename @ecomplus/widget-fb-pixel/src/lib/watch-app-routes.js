@@ -1,19 +1,13 @@
 import ecomCart from '@ecomplus/shopping-cart'
+import ecomPassport from '@ecomplus/passport-client'
 import { currency } from './common'
 
 export default (fbq, options) => {
   const router = window.storefrontApp && window.storefrontApp.router
   if (router) {
-    let isCartSent, isCheckoutSent, isPurchaseSent, order
-    const orderJson = decodeURIComponent(params.json)
-    if (orderJson) {
-      try { 
-        order = JSON.parse(orderJson)
-      } catch (e) {
-      }
-    }
+    let isCartSent, isCheckoutSent, isPurchaseSent
 
-    const getPurchaseData = () => {
+    const getPurchaseData = (order) => {
       const { amount } = order || window.storefrontApp
       const data = {
         value: (
@@ -50,16 +44,40 @@ export default (fbq, options) => {
       }
     }
 
-    const emitPurchase = orderId => {
+    const emitPurchase = (orderId, orderJson) => {
       if (!isPurchaseSent && options.disablePurchase !== true) {
+        let order
+        if (orderJson) {
+          try {
+            order = JSON.parse(orderJson)
+          } catch (e) {
+            order = null
+          }
+        }
+        let eventID
+        if (order && order.number) {
+          eventID = `${order.number}:r${parseInt(Math.random() * 1000, 10)}`
+        } else {
+          eventID = orderId
+        }
         fbq('Purchase', {
-          ...getPurchaseData(),
-          order_id: orderId
+          ...getPurchaseData(order),
+          order_id: orderId,
+          eventID
         })
         isPurchaseSent = true
+        ecomPassport.requestApi(`/orders/${orderId}/metafields.json`, 'POST', {
+          namespace: 'fb',
+          field: 'pixel',
+          value: JSON.stringify({
+            eventID,
+            userAgent: navigator.userAgent
+          })
+        })
       }
     }
 
+    let emitPurchaseTimer
     const addRouteToData = ({ name, params }) => {
       switch (name) {
         case 'cart':
@@ -69,7 +87,14 @@ export default (fbq, options) => {
           emitCheckout(2, 'Confirm Purchase')
           break
         case 'confirmation':
-          emitPurchase(params.id)
+          clearTimeout(emitPurchaseTimer)
+          if (params.json) {
+            emitPurchase(params.id, decodeURIComponent(params.json))
+          } else {
+            emitPurchaseTimer = setTimeout(() => {
+              emitPurchase(params.id)
+            }, 1500)
+          }
           break
       }
     }

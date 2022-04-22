@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.126](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.125...@ecomplus/storefront-app@2.0.0-beta.126) (2022-04-21)
+
+
+### Features
+
+* **app/orders-list:** add pagination to account orders ([#683](https://github.com/ecomplus/storefront/issues/683)) ([38a40e4](https://github.com/ecomplus/storefront/commit/38a40e4025840e16737ecf2e82dcef5432d42d88))
+
+
+### Performance Improvements
+
+* **app/orders-list:** must re-use `APagination` from components lib ([c5d6cf6](https://github.com/ecomplus/storefront/commit/c5d6cf6cb9976a55965edf9c8cd884aade17d517))
+
+
+
+
+
 # [2.0.0-beta.125](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.124...@ecomplus/storefront-app@2.0.0-beta.125) (2022-04-01)
 
 
