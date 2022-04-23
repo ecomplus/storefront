@@ -19,16 +19,17 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
 
-$blue:    #033c73 !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #e83e8c !default;
-$red:     #dc3545 !default;
-$orange:  #fd7e14 !default;
-$yellow:  #ffc107 !default;
-$green:   #28a745 !default;
-$teal:    #20c997 !default;
-$cyan:    #17a2b8 !default;
+$blue:        #033c73 !default;
+$indigo:      #6610f2 !default;
+$purple:      #6f42c1 !default;
+$pink:        #e83e8c !default;
+$salmon-pink: #D88C88 !default;
+$red:         #dc3545 !default;
+$orange:      #fd7e14 !default;
+$yellow:      #ffc107 !default;
+$green:       #28a745 !default;
+$teal:        #20c997 !default;
+$cyan:        #17a2b8 !default;
 
 $primary:       $pink !default;
 $primary-yiq:   $white !default;
@@ -47,7 +48,8 @@ $body-bg:       $white !default;
 
 // Fonts
 
-$secondary-text:         #5F506B;
+$font-headings:  700 !default;
+$secondary-text: #5F506B;
 
 // Dropdowns
 
