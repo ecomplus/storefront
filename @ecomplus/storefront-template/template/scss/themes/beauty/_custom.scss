@@ -16,6 +16,10 @@ main {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
   }
+
+  .header {
+    border-bottom: 1px solid $gray-200;
+  }
   
   .banner-slider {
     .glide {  
@@ -28,9 +32,19 @@ main {
   
   }
   
-  .info-bar__item div {
-    font-family: 'Playfair Display';
-    text-transform: capitalize;
+  .info-bar {
+    background-color: $primary-yiq;
+    border-bottom: solid 2px $gray-200;
+
+    &__item {
+      color: $secondary;
+      font-family: 'Playfair Display';
+      text-transform: capitalize;
+    
+      &:hover {
+        color: $secondary-text;
+      }
+    }
   }
   
   .breadcrumb-item {
