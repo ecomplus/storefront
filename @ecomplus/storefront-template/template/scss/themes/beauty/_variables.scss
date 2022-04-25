@@ -1,7 +1,6 @@
 $icons-font: "line-awesome" !default;
 
 // Beauty E-Com
-// Bootswatch
 
 //
 // Color system
@@ -10,30 +9,36 @@ $icons-font: "line-awesome" !default;
 $white:    #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
+$gray-300: #d9d9d9 !default;
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
-$gray-600: #868e96 !default;
+$gray-600: #9A9A9A !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
 
-$blue:        #033c73 !default;
-$indigo:      #6610f2 !default;
-$purple:      #6f42c1 !default;
-$pink:        #e83e8c !default;
-$salmon-pink: #D88C88 !default;
-$red:         #dc3545 !default;
-$orange:      #fd7e14 !default;
-$yellow:      #ffc107 !default;
-$green:       #28a745 !default;
-$teal:        #20c997 !default;
-$cyan:        #17a2b8 !default;
+$blue:           #033c73 !default;
+$indigo:         #6610f2 !default;
+$purple:         #6f42c1 !default;
+$purple-dark:    #37003c !default;
+$grayish-purple: #5F506B !default;
+$purple-light:   #C0B9DD !default;
+$pink-baby:      #E3D0D8 !default;
+$salmon-pink:    #D88C88 !default;
+$pink:           #e83e8d !default;
+$red:            #dc3545 !default;
+$orange:         #fd7e14 !default;
+$yellow:         #ffc107 !default;
+$green:          #28a745 !default;
+$teal:           #20c997 !default;
+$cyan:           #17a2b8 !default;
 
 $primary:       $pink !default;
 $primary-yiq:   $white !default;
-$secondary:     #37003c !default;
+$primary-dark: #e93f8e99 !default;
+$primary-light: #ed6ca7 !default;
+$secondary:     $purple-dark !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -43,13 +48,14 @@ $dark:          $gray-800 !default;
 
 // Body
 
-$body-color:    #9A9A9A !default;
+$body-color:    $gray-600 !default;
 $body-bg:       $white !default;
 
 // Fonts
 
 $font-headings:  700 !default;
-$secondary-text: #5F506B;
+$secondary-text: $grayish-purple !default;
+$font-size-lg: 1rem !default;
 
 // Dropdowns
 
@@ -59,11 +65,14 @@ $dropdown-link-hover-bg:        $primary !default;
 
 // Navbar
 
-$navbar-dark-color:             rgba($white, .8) !default;
+$navbar-dark-color:             #ffffffcc !default;
 $navbar-dark-hover-color:       $white !default;
 
-$price-old:   #C0B9DD;
+$price-old:   $purple-light !default;
 
-$boder-color:   #d9d9d9;
+$boder-color: $gray-300 !default;
 
-$lines:       #E3D0D8;
+$lines:       $pink-baby !default;
+
+$spacer-2: .5rem !default;
+$spacer-4: 1.5rem !default;

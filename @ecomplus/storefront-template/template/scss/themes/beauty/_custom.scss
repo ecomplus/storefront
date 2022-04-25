@@ -4,23 +4,48 @@
 
 main {
   .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    color: var(--secondary);
+    color: $secondary;
   }
   
   .h1, .h2, .h3, .h5, h1, h2, h3, h5 {
     font-family: 'Playfair Display', serif;
-    font-weight: bold;
+    font-weight: $font-headings;
   }
   
   .h4, .h6, h4, h6 {
     font-family: 'Poppins', sans-serif;
-    font-weight: bold;
+    font-weight: $font-headings;
+  }
+
+  .top-bar,
+  .header {
+    background-color: $primary-yiq;
   }
 
   .header {
     border-bottom: 1px solid $gray-200;
+
+    &__nav--full {
+      font-size: $font-size-lg;
+
+      a {
+        padding: 0 $spacer-4;
+      }
+    }
+    &__buttons {
+      .badge-primary {
+        background-color: $purple-light;
+        border-radius: 50%;
+        margin-top: 10px;
+        margin-right: 3px;
+      }
+    }
   }
-  
+
+  .btn-lg {
+    font-size: 1.5rem;
+  }
+
   .banner-slider {
     .glide {  
       &__bullet,
@@ -29,7 +54,9 @@ main {
         border-color: $gray-900;
       }
     }
-  
+    .glide__arrow {
+      display: none;
+    }  
   }
   
   .info-bar {
@@ -65,7 +92,7 @@ main {
     .prices {
       flex-direction: row;
       justify-content: flex-start;
-      gap: var(--spacer-2);
+      gap: $spacer-2;
   
       &__value {
         color: $primary;
@@ -115,26 +142,23 @@ main {
       }
   
       &__option {
-        @media (hover: hover) {
-          &:hover {
-            border-color: var(--primary-light);
-          }
+        &:hover {
+          border-color: $primary-light;
         }
   
         &--selected:not(.disabled) {
           border-color: $primary;
-          box-shadow: 0 0 0 .1rem rgba(var(--primary-rgb), .6);
+          box-shadow: 0 0 0 .1rem $primary-dark;
         }
       }
     }
   
     .share-network-whatsapp {
-      color: var(--secondary);
+      color: $secondary;
     }
   }
   
-  .shipping-calculator {
-  
+  .shipping-calculator {  
     label,
     strong {
       color: $secondary;
@@ -155,6 +179,13 @@ main {
       content: "OK";
       font-family: 'Poppins', serif;
       font-weight: bold;
+    }
+  }
+
+  .search-engine__results,
+  .page-title__head {
+    h1 {
+      font-weight: normal;
     }
   }
   
@@ -179,7 +210,6 @@ main {
       a {
         color: $primary-yiq;
         font-family: 'Poppins', serif;
-        font-size: 80%;
       }
 
       .i-chevron-right::before {
@@ -187,10 +217,25 @@ main {
       }
     }
   }
+
+  .ecom-credits {
+    background-color: $primary;
+
+    a { 
+      color: $primary-yiq;
+    }
+  }
+
+  .blog {
+    .card-title a {
+      color: $secondary;
+    }
+  }
 }
+
 .header__nav {
   .header {
-    div>&__category {
+    div > &__category {
       color: $secondary-text;
       font-weight: bold;
       text-transform: capitalize;
@@ -215,4 +260,3 @@ main {
     }
   }
 }
-
