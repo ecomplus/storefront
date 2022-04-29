@@ -5,6 +5,9 @@ if (!opt.items) {
   if (opt.sort) {
     search.setSortOrder(opt.sort)
   }
+  if (opt.page_size) {
+    search.setPageSize(opt.page_size)
+  }
   try {
     await search.fetch()
     items = search.getItems()
