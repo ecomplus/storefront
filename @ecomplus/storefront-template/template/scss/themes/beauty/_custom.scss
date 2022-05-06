@@ -1,80 +1,76 @@
-@import "variables";
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import "header";
+@import "product-card";
+@import "product";
+@import "footer";
+
+body {
+  padding-bottom: 40px!important;
+}
 
 main {
-  .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  .top-bar {
+    background-color: $body-bg;
+
+    &__nav {
+      color: $body-color-secondary;
+    }
+  }
+
+  .h1, .h2, .h5 {
+    font-family: $playfair-display;
+    font-style: $font-style-normal;
+    font-weight: $font-weight-normal;
+    letter-spacing: $character-spacing-0;
     color: $secondary;
   }
-  
-  .h1, .h2, .h3, .h5, h1, h2, h3, h5 {
-    font-family: 'Playfair Display', serif;
-    font-weight: $font-headings;
-  }
-  
-  .h4, .h6, h4, h6 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: $font-headings;
+  .h1 {
+    font-size: $font-size-40;
+    line-height: $line-spacing-42;
   }
 
-  .top-bar,
-  .header {
-    background-color: $primary-yiq;
+  .h2 {
+    font-size: $font-size-32;
+    line-height: $line-spacing-36;
   }
 
-  .header {
-    border-bottom: 1px solid $gray-200;
-
-    &__nav--full {
-      font-size: $font-size-lg;
-
-      a {
-        padding: 0 $spacer-4;
-      }
-    }
-    &__buttons {
-      .badge-primary {
-        background-color: $purple-light;
-        border-radius: 50%;
-        margin-top: 10px;
-        margin-right: 3px;
-      }
-    }
+  .product__name, .h4, .h6 {
+    font-family: $poppins;
+    font-style: $font-style-normal;
+    font-weight: $font-weight-600;
+    letter-spacing: $character-spacing-0;
+    color: $secondary;
   }
 
-  .btn-lg {
-    font-size: 1.5rem;
+  .h4 {
+    font-size: $font-size-24;
+    line-height: $line-spacing-29;
   }
 
-  .banner-slider {
-    .glide {  
-      &__bullet,
-      &__bullet--active {
-        background-color: $white;
-        border-color: $gray-900;
-      }
-    }
-    .glide__arrow {
-      display: none;
-    }  
+  .h5 {
+    font-size: $font-size-18;
+    line-height: $line-spacing-22;
   }
-  
-  .info-bar {
-    background-color: $primary-yiq;
-    border-bottom: solid 2px $gray-200;
 
-    &__item {
-      color: $secondary;
-      font-family: 'Playfair Display';
-      text-transform: capitalize;
-    
-      &:hover {
-        color: $secondary-text;
-      }
-    }
+  .h6 {
+    font-size: $font-size-16;
+    line-height: $line-spacing-19;
   }
-  
+
   .breadcrumb-item {
+    font-size: 12px;
+
+    .i-home {
+      font-size: $font-size-16;
+    }
+
+    & + .breadcrumb-item::before {
+      content: '\226B';
+      color: $secondary;
+      padding-right: 11px;
+      padding-left: 11px;
+    }
     a {
       color: $secondary;
     }
@@ -83,180 +79,78 @@ main {
       color: $primary;
     }
   }
+
+  .banner-slider {
+    .glide {
   
-  .product-card {
-    a {
+      &__bullet,
+      &__bullet--active {
+        background-color: $body-bg;
+        border-color: #505050;
+        border-radius: 6px;
+      }
+
+      @media (max-width: 575.98px) {
+        &__bullet {
+          width: 32px;
+          height: 13px;
+        }
+      }
+    }
+    
+    .glide__arrow {
+      display: none;
+    }
+  }
+
+  .info-bar {
+    background-color: $body-bg;
+    box-shadow: 0px 1px 0px rgba($black, .1);
+  
+    &__item {
       color: $secondary;
-    }
   
-    .prices {
-      flex-direction: row;
-      justify-content: flex-start;
-      gap: $spacer-2;
-  
-      &__value {
-        color: $primary;
+      &:hover {
+        color: $secondary-text;
       }
-  
-      &__compare {
-        color: $price-old;
-      }
-  
-      &__installments,
-      &__discount {
-        display: none
+
+      div {
+        margin-left: 0;
+        font-family: $playfair-display;
+        font-size: $font-size-18;
+        font-weight: bold;
+        font-style: italic;
+        text-transform: capitalize;
       }
     }
-  
-    &__offer-stamp {
-      background-color: $primary;
+
+    @media (max-width: 575.98px) {
+      &__nav {
+        .col-auto {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+      }
     }
   }
 
   .products-carousel {
+    &__title {
+      color: $secondary;
+      font-family: $playfair-display;
+      font-size: $font-size-28;
+      
+      &::before {
+        display: none;
+      }    
+    }
+
     .glide__arrow {
       color: $primary;
     }
   }
-  
-  .product {
-    &__name {
-      font-family: 'Poppins', serif;
-      font-size: 1.5rem;
-    }
-  
-    .prices {
-      &__value {
-        color: $primary;
-      }
-  
-      &__compare {
-        color: $secondary;
-      }
-    }
-  
-    .variations {
-      &__grid-title {
-        font-family: 'Poppins', serif;
-        font-size: 1rem;
-      }
-  
-      &__option {
-        &:hover {
-          border-color: $primary-light;
-        }
-  
-        &--selected:not(.disabled) {
-          border-color: $primary;
-          box-shadow: 0 0 0 .1rem $primary-dark;
-        }
-      }
-    }
-  
-    .share-network-whatsapp {
-      color: $secondary;
-    }
-  }
-  
-  .shipping-calculator {  
-    label,
-    strong {
-      color: $secondary;
-    }
-  
-    .btn {
-      background-color: $primary;
-      color: $primary-yiq;
-      border-color: $primary;
-  
-      &:hover {
-        background-color: $primary-yiq;
-        color: $primary
-      }
-    }
-  
-    .i-shipping-fast::before {
-      content: "OK";
-      font-family: 'Poppins', serif;
-      font-weight: bold;
-    }
-  }
 
-  .search-engine__results,
-  .page-title__head {
-    h1 {
-      font-weight: normal;
-    }
-  }
-  
-  .footer {
-    background-color: $primary;
-    color: $primary-yiq;
-    border: none;
-  
-    &__social,
-    .list-unstyled {
-      a {
-        color: $primary-yiq!important;
-      }
-    }
-  
-    &__title {
-      color: $primary-yiq;
-      font-weight: 700;
-    }
-  
-    &__links{
-      a {
-        color: $primary-yiq;
-        font-family: 'Poppins', serif;
-      }
-
-      .i-chevron-right::before {
-        content: "";
-      }
-    }
-  }
-
-  .ecom-credits {
-    background-color: $primary;
-
-    a { 
-      color: $primary-yiq;
-    }
-  }
-
-  .blog {
-    .card-title a {
-      color: $secondary;
-    }
-  }
-}
-
-.header__nav {
-  .header {
-    div > &__category {
-      color: $secondary-text;
-      font-weight: bold;
-      text-transform: capitalize;
-  
-      &:hover {
-        color: $salmon-pink;
-        background-color: transparent;
-      }
-    }
-  
-    &__submenu {
-      a {
-        color: $salmon-pink;
-        text-transform: capitalize;
-        font-weight: bold;
-      }
-  
-      div > &-subcategory {
-        color: $secondary-text;
-        font-weight: normal;
-      }
-    }
+  .search-engine__count {
+    color: $secondary;
   }
 }

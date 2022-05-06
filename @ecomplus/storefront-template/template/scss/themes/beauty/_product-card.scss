@@ -1,0 +1,51 @@
+main {
+  .product-card {
+    &__offer-stamp {
+      min-width: 52px;
+      background-color: $primary;
+      border-radius: 0;
+
+      .i-arrow-down::before {
+        content: '-';
+      }
+    }
+
+    &__link {
+      color: $secondary;
+      font-family: $playfair-display;
+    }
+
+    &__name {
+      font-size: $font-size-18;
+      margin-bottom: 9px;
+    }
+
+    .prices {
+      flex-direction: row;
+      justify-content: flex-start;
+
+      &__compare {
+        font-size: $font-size-16;
+        margin-right: 14px;
+
+        s {
+          color: $price-old;
+        }
+      }
+
+      &__discount,
+      &__installments {
+        display: none;
+      }
+
+      &__value {
+        color: $primary;
+        font-size: $font-size-16;
+
+        small {
+          display: none;
+        }
+      }
+    }
+  }
+}

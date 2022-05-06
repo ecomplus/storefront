@@ -1,0 +1,71 @@
+main {
+  .footer {
+    background-color: $primary;
+    border-color: $primary;
+    color: $body-bg;
+
+    p {
+      font-size: 14px;
+    }
+
+    &__title {
+      color: $body-bg;
+      font-size: 20px;
+      font-weight: $font-weight-600;
+    }
+
+    &__links {
+      .i-chevron-right {
+        display: none;
+      }
+
+      a {
+        color: $body-bg;
+        font-size: 13px;
+      }
+
+      li {
+        line-height: 30px;
+      }
+    }
+
+    &__contacts a {
+      color: $body-bg;
+      font-size: 18px;
+    }
+
+    &__credits {
+      button {
+        background-color: $secondary;
+        border-color: $secondary;
+        color: $body-bg;
+      }
+    }
+
+    &__payment-methods {
+      i {
+        background-color: $body-bg;
+        border-radius: 5px;
+      }
+    }
+
+    &__social {
+      a {
+        opacity: 1;
+      }
+
+      i {
+        color: $body-bg;
+        font-size: 33px;
+      }
+    }
+  }
+
+  .ecom-credits {
+    background-color: $primary;
+
+    a {
+      color: $body-bg;
+    }
+  }
+}
