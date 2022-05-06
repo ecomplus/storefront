@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.169](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.168...@ecomplus/storefront-template@2.0.0-beta.169) (2022-05-06)
+
+
+### Bug Fixes
+
+* **template/collection-retail:** render up to 100 items on collection page ([2a1e2cc](https://github.com/ecomplus/storefront/commit/2a1e2ccdc370a7005eab78e731dcf402886fdfd0))
+
+
+
+
+
 # [2.0.0-beta.168](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.167...@ecomplus/storefront-template@2.0.0-beta.168) (2022-04-21)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

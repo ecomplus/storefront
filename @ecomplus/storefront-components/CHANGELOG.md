@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.120](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.119...@ecomplus/storefront-components@1.0.0-beta.120) (2022-05-06)
+
+
+### Bug Fixes
+
+* **components/search-engine:** prevent consecutive load more ([cd0559a](https://github.com/ecomplus/storefront/commit/cd0559a40d18e7e819991ce20bb65f86e5fcafc6))
+
+
+
+
+
 # [1.0.0-beta.119](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.118...@ecomplus/storefront-components@1.0.0-beta.119) (2022-04-21)
 
 
