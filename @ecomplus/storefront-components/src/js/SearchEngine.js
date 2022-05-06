@@ -131,6 +131,7 @@ export default {
       lastRequestId: null,
       isScheduled: false,
       isLoadingMore: false,
+      mustSkipLoadMore: false,
       hasNetworkError: false,
       popularItems: [],
       hasSetPopularItems: false,
@@ -224,8 +225,10 @@ export default {
     loadObserver () {
       return this.canLoadMore && lozad('#search-engine-load-more', {
         load: () => {
-          this.isLoadingMore = true
-          this.fetchItems()
+          if (!this.mustSkipLoadMore) {
+            this.mustSkipLoadMore = this.isLoadingMore = true
+            this.fetchItems()
+          }
         }
       })
     }
@@ -266,7 +269,12 @@ export default {
         })
         .finally(() => {
           this.countOpenRequests--
-          this.isLoadingMore = false
+          if (this.isLoadingMore) {
+            this.isLoadingMore = false
+            this.$nextTick(() => setTimeout(() => {
+              this.mustSkipLoadMore = false
+            }, 100))
+          }
         })
       this.$emit('fetch', { ecomSearch, fetching, isPopularItems })
     },
