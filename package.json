@@ -48,7 +48,7 @@
     "babel-loader": "^8.2.5",
     "bootstrap": "^4.6.1",
     "browser-sync": "^2.27.9",
-    "caniuse-lite": "^1.0.30001335",
+    "caniuse-lite": "^1.0.30001338",
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^3.6.0",
@@ -61,7 +61,7 @@
     "jquery": "3.6.0",
     "lerna": "^4.0.0",
     "lint-staged": "^12.4.1",
-    "markdown-it": "^13.0.0",
+    "markdown-it": "^13.0.1",
     "mini-css-extract-plugin": "^0.12.0",
     "popper.js": "^1.16.1",
     "standard": "^16.0.4",
@@ -71,7 +71,7 @@
     "webpack": "^4.46.0",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.8.1"
+    "webpack-dev-server": "^4.9.0"
   },
   "standard": {
     "parser": "babel-eslint"
