@@ -19,50 +19,50 @@ main {
   }
 
   .h1, .h2, .h5 {
-    font-family: $playfair-display;
-    font-style: $font-style-normal;
-    font-weight: $font-weight-normal;
-    letter-spacing: $character-spacing-0;
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 0;
     color: $secondary;
   }
   .h1 {
-    font-size: $font-size-40;
-    line-height: $line-spacing-42;
+    font-size: 40px;
+    line-height: 42px;
   }
 
   .h2 {
-    font-size: $font-size-32;
-    line-height: $line-spacing-36;
+    font-size: 32px;
+    line-height: 36px;
   }
 
   .product__name, .h4, .h6 {
-    font-family: $poppins;
-    font-style: $font-style-normal;
-    font-weight: $font-weight-600;
-    letter-spacing: $character-spacing-0;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0;
     color: $secondary;
   }
 
   .h4 {
-    font-size: $font-size-24;
-    line-height: $line-spacing-29;
+    font-size: 24px;
+    line-height: 29px;
   }
 
   .h5 {
-    font-size: $font-size-18;
-    line-height: $line-spacing-22;
+    font-size: 18px;
+    line-height: 22px;
   }
 
   .h6 {
-    font-size: $font-size-16;
-    line-height: $line-spacing-19;
+    font-size: 16px;
+    line-height: 19px;
   }
 
   .breadcrumb-item {
     font-size: 12px;
 
     .i-home {
-      font-size: $font-size-16;
+      font-size: 16px;
     }
 
     & + .breadcrumb-item::before {
@@ -116,8 +116,8 @@ main {
 
       div {
         margin-left: 0;
-        font-family: $playfair-display;
-        font-size: $font-size-18;
+        font-family: 'Playfair Display';
+        font-size: 18px;
         font-weight: bold;
         font-style: italic;
         text-transform: capitalize;
@@ -137,8 +137,8 @@ main {
   .products-carousel {
     &__title {
       color: $secondary;
-      font-family: $playfair-display;
-      font-size: $font-size-28;
+      font-family: 'Playfair Display';
+      font-size: 28px;
       
       &::before {
         display: none;

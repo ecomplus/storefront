@@ -44,19 +44,19 @@ main {
     }
 
     a {
-      padding: 0 $line-spacing-42;
+      padding: 0 42px;
     }
   }
 
   .header {
     div > &__category {
-      font-family: $poppins;
-      font-style: $font-style-normal;
-      font-weight: $font-weight-600;
-      letter-spacing: $character-spacing-0;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: 0;
       color: $secondary;
-      font-size: $font-size-16;
-      line-height: $line-spacing-25;
+      font-size: 16px;
+      line-height: 25px;
       text-transform: capitalize;
       text-align: center;
 
@@ -67,13 +67,13 @@ main {
     }
 
     &__submenu {
-      font-family: $poppins;
+      font-family: 'Poppins';
 
       a {
         color: $nav-item-hover;
         text-transform: capitalize;
-        font-weight: $font-weight-600;
-        letter-spacing: $character-spacing-0;
+        font-weight: 600;
+        letter-spacing: 0;
       }
 
       div > &-subcategory {

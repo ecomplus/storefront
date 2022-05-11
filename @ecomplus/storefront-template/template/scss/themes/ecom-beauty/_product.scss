@@ -1,8 +1,8 @@
 main {
   .product {  
     &__name {
-      font-size: $font-size-24;
-      line-height: $line-spacing-32;
+      font-size: 24px;
+      line-height: 32px;
     }
 
     &__sku {
@@ -27,14 +27,14 @@ main {
 
       &__compare {
         color: $secondary;
-        font-size: $font-size-18;
+        font-size: 18px;
 
         small:not(.prices__discount-label) {
           text-transform: capitalize;
         }
 
         small:last-child {
-          font-size: $font-size-32;
+          font-size: 32px;
           color: $primary;
           font-weight: bold;
           position: absolute;
@@ -51,7 +51,7 @@ main {
       &__value {
         color: $primary;
         font-weight: bold;
-        font-size: $font-size-32;
+        font-size: 32px;
       }
     }
 
@@ -60,9 +60,9 @@ main {
       border-bottom: 1px solid $product-border-color;
 
       &__grid-title {
-        font-family: $poppins;
-        font-size: $font-size-14;
-        font-weight: $font-weight-600;
+        font-family: 'Poppins';
+        font-size: 14px;
+        font-weight: 600;
       }
 
       &__option {
@@ -85,7 +85,7 @@ main {
     }
 
     &__buy {
-      margin-top: $line-spacing-24;
+      margin-top: 24px;
 
       @media (max-width: 575.98px) {
         button {
@@ -97,15 +97,15 @@ main {
 
     .share-network-whatsapp {
       color: $secondary;
-      font-size: $font-size-14;
+      font-size: 14px;
     }
 
     .shipping-calculator {
       label {
         color: $secondary;
-        font-family: $poppins;
-        font-size: $font-size-14;
-        font-weight: $font-weight-600;
+        font-family: 'Poppins';
+        font-size: 14px;
+        font-weight: 600;
         margin-bottom: 1rem;
       }
 
@@ -128,7 +128,7 @@ main {
 
           .i-shipping-fast::before {
             content: 'OK';
-            font-family: $poppins;
+            font-family: 'Poppins';
             font-weight: bold;
             font-size: 15px;
           }
@@ -162,12 +162,12 @@ main {
       border-radius: 6px;
       padding-top: 30px;
       padding-bottom: 30px;
-      font-family: $poppins;
+      font-family: 'Poppins';
 
       .lead {
         color: $secondary;
         font-size: 15px;
-        font-weight: $font-weight-600;
+        font-weight: 600;
         text-transform: uppercase;
 
         a {
@@ -181,7 +181,7 @@ main {
 
       dt {
         color: $secondary;
-        font-weight: $font-weight-600 !important;
+        font-weight: 600 !important;
         font-size: 0.75rem;
       }
 

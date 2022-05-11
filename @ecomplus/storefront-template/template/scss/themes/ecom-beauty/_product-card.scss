@@ -12,11 +12,11 @@ main {
 
     &__link {
       color: $secondary;
-      font-family: $playfair-display;
+      font-family: 'Playfair Display';
     }
 
     &__name {
-      font-size: $font-size-18;
+      font-size: 18px;
       margin-bottom: 9px;
     }
 
@@ -25,7 +25,7 @@ main {
       justify-content: flex-start;
 
       &__compare {
-        font-size: $font-size-16;
+        font-size: 16px;
         margin-right: 14px;
 
         s {
@@ -40,7 +40,7 @@ main {
 
       &__value {
         color: $primary;
-        font-size: $font-size-16;
+        font-size: 16px;
 
         small {
           display: none;
