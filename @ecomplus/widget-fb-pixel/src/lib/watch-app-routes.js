@@ -46,34 +46,37 @@ export default (fbq, options) => {
 
     const emitPurchase = (orderId, orderJson) => {
       if (!isPurchaseSent && options.disablePurchase !== true) {
-        let order
-        if (orderJson) {
-          try {
-            order = JSON.parse(orderJson)
-          } catch (e) {
-            order = null
+        if (window.localStorage.getItem('fbq.orderIdSent') !== orderId) {
+          let order
+          if (orderJson) {
+            try {
+              order = JSON.parse(orderJson)
+            } catch (e) {
+              order = null
+            }
           }
-        }
-        let eventID
-        if (order && order.number) {
-          eventID = `${order.number}:r${parseInt(Math.random() * 1000, 10)}`
-        } else {
-          eventID = orderId
-        }
-        fbq('Purchase', {
-          ...getPurchaseData(order),
-          order_id: orderId,
-          eventID
-        })
-        isPurchaseSent = true
-        ecomPassport.requestApi(`/orders/${orderId}/metafields.json`, 'POST', {
-          namespace: 'fb',
-          field: 'pixel',
-          value: JSON.stringify({
-            eventID,
-            userAgent: navigator.userAgent
+          let eventID
+          if (order && order.number) {
+            eventID = `${order.number}:r${parseInt(Math.random() * 1000, 10)}`
+          } else {
+            eventID = orderId
+          }
+          fbq('Purchase', {
+            ...getPurchaseData(order),
+            order_id: orderId,
+            eventID
           })
-        })
+          ecomPassport.requestApi(`/orders/${orderId}/metafields.json`, 'POST', {
+            namespace: 'fb',
+            field: 'pixel',
+            value: JSON.stringify({
+              eventID,
+              userAgent: navigator.userAgent
+            })
+          })
+          window.localStorage.setItem('fbq.orderIdSent', orderId)
+        }
+        isPurchaseSent = true
       }
     }
 

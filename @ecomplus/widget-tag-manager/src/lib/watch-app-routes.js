@@ -49,55 +49,58 @@ export default dataLayer => {
 
     const emitPurchase = (orderId, orderJson) => {
       if (!isPurchaseSent) {
-        let order
-        if (orderJson) {
-          try {
-            order = JSON.parse(orderJson)
-          } catch (e) {
+        if (window.localStorage.getItem('gtm.orderIdSent') !== orderId) {
+          let order
+          if (orderJson) {
+            try {
+              order = JSON.parse(orderJson)
+            } catch (e) {
+            }
           }
-        }
-        const { amount } = order || window.storefrontApp
-        const actionField = {
-          id: orderId,
-          revenue: (
-            (amount && amount.total) ||
-            (ecomCart.data && ecomCart.data.subtotal) ||
-            0
-          ).toFixed(2)
-        }
-        if (amount) {
-          if (amount.freight !== undefined) {
-            actionField.shipping = amount.freight.toFixed(2)
+          const { amount } = order || window.storefrontApp
+          const actionField = {
+            id: orderId,
+            revenue: (
+              (amount && amount.total) ||
+              (ecomCart.data && ecomCart.data.subtotal) ||
+              0
+            ).toFixed(2)
           }
-          if (amount.tax !== undefined) {
-            actionField.tax = amount.tax.toFixed(2)
+          if (amount) {
+            if (amount.freight !== undefined) {
+              actionField.shipping = amount.freight.toFixed(2)
+            }
+            if (amount.tax !== undefined) {
+              actionField.tax = amount.tax.toFixed(2)
+            }
           }
-        }
 
-        if (order) {
-          ;['payment_method_label', 'shipping_method_label'].forEach((field, i) => {
-            if (order[field]) {
-              emitCheckoutOption({
-                step: 3 + i,
-                option: order[field]
-              })
+          if (order) {
+            ;['payment_method_label', 'shipping_method_label'].forEach((field, i) => {
+              if (order[field]) {
+                emitCheckoutOption({
+                  step: 3 + i,
+                  option: order[field]
+                })
+              }
+            })
+            if (order.extra_discount && order.extra_discount.discount_coupon) {
+              actionField.coupon = order.extra_discount.discount_coupon
+            }
+          }
+
+          dataLayer.push({
+            event: 'eec.purchase',
+            ecommerce: {
+              currencyCode,
+              purchase: {
+                actionField,
+                products: getCartProductsList()
+              }
             }
           })
-          if (order.extra_discount && order.extra_discount.discount_coupon) {
-            actionField.coupon = order.extra_discount.discount_coupon
-          }
+          window.localStorage.setItem('gtm.orderIdSent', orderId)
         }
-
-        dataLayer.push({
-          event: 'eec.purchase',
-          ecommerce: {
-            currencyCode,
-            purchase: {
-              actionField,
-              products: getCartProductsList()
-            }
-          }
-        })
         isPurchaseSent = true
       }
     }
