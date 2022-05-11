@@ -35,7 +35,7 @@ const validateCartItem = (item, data) => new Promise((resolve, reject) => {
       const product = data
       data = variation
       for (const field in product) {
-        if (product[field] && !variation[field]) {
+        if (product[field] && !variation[field] && variation[field] !== 0) {
           variation[field] = product[field]
         }
       }
