@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.128](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.127...@ecomplus/storefront-app@2.0.0-beta.128) (2022-05-11)
+
+
+### Bug Fixes
+
+* **app/checkout:** should not overwrite variation quantity when zero ([4b69bb3](https://github.com/ecomplus/storefront/commit/4b69bb3bc5aa562a8bacb290d244d1e72762e306))
+
+
+
+
+
 # [2.0.0-beta.127](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.126...@ecomplus/storefront-app@2.0.0-beta.127) (2022-05-06)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
