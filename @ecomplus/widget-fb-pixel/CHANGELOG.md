@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.5.0...@ecomplus/widget-fb-pixel@1.5.1) (2022-05-11)
+
+
+### Bug Fixes
+
+* **widget-fb-pixel:** save order id sent to prevent duplicated purchase ([2b7a09f](https://github.com/ecomplus/storefront/commit/2b7a09fec064b1848bbc9fa833339990544f37ff))
+
+
+
+
+
 # [1.5.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.4.1...@ecomplus/widget-fb-pixel@1.5.0) (2022-04-21)
 
 
