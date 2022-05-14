@@ -1,0 +1,255 @@
+main {
+
+  .product {  
+    &__name {
+      color: $secondary;
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 600;
+    }
+
+    &__sku {
+      margin-bottom: 1.125rem;
+    }
+
+    &__prices {
+      padding-bottom: 1rem;
+      border-bottom: 1px solid $product-border-color;
+    }
+
+    #product-actions>div {
+
+      article,
+      .mb-3:not(.product__payment) {
+        padding-bottom: 16px;
+        border-bottom: 1px solid $product-border-color;
+      }
+    }
+
+    .prices {
+
+      &__compare {
+        color: $secondary;
+        font-size: 18px;
+
+        small:not(.prices__discount-label) {
+          text-transform: capitalize;
+        }
+
+        small:last-child {
+          font-size: 32px;
+          color: $primary;
+          font-weight: bold;
+          position: absolute;
+          left: 15px;
+          margin-top: 21px;
+          margin-left: 0;
+        }
+
+        &+strong {
+          margin-left: 60px;
+        }
+      }
+
+      &__value {
+        color: $primary;
+        font-weight: bold;
+        font-size: 32px;
+      }
+    }
+
+    .variations {
+      padding-top: 1rem;
+      border-bottom: 1px solid $product-border-color;
+
+      &__grid-title {
+        color: $secondary;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      &__option {
+        background-color: #F2F2F2;
+
+        &:hover {
+          border-color: $variations-option-border;
+        }
+
+        &--selected:not(.disabled) {
+          border-color: $variations-option-border;
+          box-shadow: 0px 2px 3px rgba($black, .1);
+        }
+
+        &:hover,
+        &:focus {
+          background-color: #D4D3D3;
+        }
+      }
+    }
+
+    &__buy {
+      margin-top: 24px;
+
+      button {
+        padding: 8px 24px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 575.98px) {
+        button {
+          width: 100%;
+        }
+      }
+
+    }
+
+    .share-network-whatsapp {
+      color: $secondary;
+      font-size: 14px;
+    }
+
+    .shipping-calculator {
+      padding-top: 16px;
+
+      label {
+        color: $secondary;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .input-group {
+        border-color: #C8C8C8;
+
+        input {
+          min-height: 38px;
+          color: $body-color;
+          font-size: 14px;
+        }
+
+        button {
+          background-color: $primary;
+          border-color: $primary;
+          color: $body-bg;
+
+          &:hover {
+            background-color: $body-bg;
+            color: $primary;
+          }
+
+          .i-shipping-fast::before {
+            content: 'OK';
+            font-family: 'Poppins';
+            font-weight: bold;
+            font-size: 15px;
+          }
+        }
+      }
+
+      .list-group-item {
+        border-color: 1px solid $product-border-color;
+      }
+
+      &__option {
+        color: #707070;
+
+        strong {
+          color: $secondary;
+        }
+
+        small {
+          top: 0;
+        }
+
+        strong, span, small {
+          font-size: 12px;
+        }
+      }
+    }
+
+    &__sticky {
+      .prices__compare+strong {
+        margin-left: 0;
+      }
+    }
+
+    &__sticky-info {
+      h5 {
+        color: $secondary;
+      }
+    }
+  }
+
+  .product-description,
+  .product-specs {
+    .container {
+      border: 1px solid $border-color;
+      background-color: $body-bg;
+      border-radius: 6px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+
+      .a-column {
+        color: $secondary !important;
+        font-family: 'Poppins' !important;
+      }
+
+      table {
+        th {
+          background-color: $body-bg !important;
+          font-size: 12px !important;
+          font-weight: 600 !important;
+          color: $secondary !important;
+        }
+        td {
+          font-size: 12px !important;
+          color: #707070 !important;
+        }
+      }
+
+      .lead {
+        color: $secondary;
+        font-size: 15px;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        a {
+          display: none;
+        }
+
+        #text {
+          border-bottom: 3px solid #F7F7F7;
+        }
+      }
+
+      dt {
+        color: $secondary;
+        font-weight: 600 !important;
+        font-size: 0.75rem;
+      }
+
+      .table {
+        height: 47px;
+        border-bottom: 1px solid $product-border-color !important;
+        border-collapse: initial !important;
+      }
+
+      dl {
+        border-top: 1px solid $product-border-color!important
+      }
+
+      .odd,
+      .even {
+        background-color: $body-bg !important;
+      }
+    }
+  }
+
+  .page--products .recommended-products {
+    .products-carousel__title {
+      font-size: 18px;
+      font-weight: 400;
+      text-align: start;
+    }
+  }
+}
