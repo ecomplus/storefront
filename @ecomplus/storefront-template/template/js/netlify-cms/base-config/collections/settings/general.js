@@ -46,6 +46,10 @@ export default ({ baseDir }) => ({
               value: '_'
             },
             {
+              label: 'ECom.Beauty',
+              value: 'ecom-beauty'
+            },
+            {
               label: 'Clean: Branco',
               value: 'clean-white'
             },
