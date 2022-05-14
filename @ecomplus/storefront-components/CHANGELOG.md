@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.121](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.120...@ecomplus/storefront-components@1.0.0-beta.121) (2022-05-14)
+
+
+### Bug Fixes
+
+* **components/search-engine:** fix selectors for icon styles ([d9d603a](https://github.com/ecomplus/storefront/commit/d9d603abf943eafe24ad4dc3c36bc2a39d30c52f))
+
+
+
+
+
 # [1.0.0-beta.120](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.119...@ecomplus/storefront-components@1.0.0-beta.120) (2022-05-06)
 
 

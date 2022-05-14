@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.171](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.170...@ecomplus/storefront-template@2.0.0-beta.171) (2022-05-14)
+
+
+### Features
+
+* **template/cms:** new Storefront theme option "ECom.Beauty" ([bbb4a24](https://github.com/ecomplus/storefront/commit/bbb4a247c828b59d23724f13be09e8ce4adb3a10))
+* **template/themes:** New ECom.Beauty theme ([#695](https://github.com/ecomplus/storefront/issues/695)) ([19f176d](https://github.com/ecomplus/storefront/commit/19f176de37105862bab434fb3dfda3d0683ef431))
+
+
+
+
+
 # [2.0.0-beta.170](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.169...@ecomplus/storefront-template@2.0.0-beta.170) (2022-05-11)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
