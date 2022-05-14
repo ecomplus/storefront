@@ -25,13 +25,19 @@ main {
       }
 
       li {
-        line-height: 30px;
+        line-height: 28px;
       }
     }
 
-    &__contacts a {
-      color: $body-bg;
-      font-size: 18px;
+    &__contacts {
+      a {
+        color: $body-bg;
+        font-size: 18px;
+      }
+
+      .list-unstyled li {
+        line-height: 32px;
+      }
     }
 
     &__credits {

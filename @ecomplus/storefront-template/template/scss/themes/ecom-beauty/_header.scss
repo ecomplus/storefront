@@ -50,7 +50,6 @@ main {
 
   .header {
     div > &__category {
-      font-family: 'Poppins';
       font-style: normal;
       font-weight: 600;
       letter-spacing: 0;
@@ -67,18 +66,27 @@ main {
     }
 
     &__submenu {
-      font-family: 'Poppins';
+      background-color: $body-bg;
+      border-top: none;
+      box-shadow: 0px 3px 20px rgba($black, .1);
+
+      &::after {
+        height: 2px;
+        top: 0;
+      }
 
       a {
         color: $nav-item-hover;
         text-transform: capitalize;
         font-weight: 600;
         letter-spacing: 0;
+        font-size: 17px;
       }
 
       div > &-subcategory {
         color: $secondary-text;
         font-weight: normal;
+        font-size: 14px;
       }
     }
   }
