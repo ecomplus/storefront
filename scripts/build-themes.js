@@ -35,7 +35,7 @@ const bootswatchThemes = [
 ]
 const storeThemes = [
   '',
-  'beauty',
+  'ecom-beauty',
   'clean-white',
   'clean-gray',
   'clean-dark',
