@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.19.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.18.7...@ecomplus/storefront-framework@5.19.0) (2022-05-15)
+
+
+### Features
+
+* **framework/webpack:** inject brand colors from settings to scss as vars ([c4f7705](https://github.com/ecomplus/storefront/commit/c4f7705074e8ddde838eca633c2ebbc002cb1f67))
+
+
+
+
+
 ## [5.18.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.18.6...@ecomplus/storefront-framework@5.18.7) (2022-05-11)
 
 

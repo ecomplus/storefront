@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.172](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.171...@ecomplus/storefront-template@2.0.0-beta.172) (2022-05-15)
+
+
+### Bug Fixes
+
+* **template/cms:** setup "ECom.Beauty" theme default colors on preview [[#706](https://github.com/ecomplus/storefront/issues/706)] ([afa67c6](https://github.com/ecomplus/storefront/commit/afa67c619d5b10f0a6693834a24c350910c1e003))
+
+
+### Features
+
+* **template/themes:** use theme default colors when brand colors not configured (empty) [[#706](https://github.com/ecomplus/storefront/issues/706)] ([19879c8](https://github.com/ecomplus/storefront/commit/19879c8d6acee31d802602dd2ea3dd4b36cc3810))
+
+
+
+
+
 # [2.0.0-beta.171](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.170...@ecomplus/storefront-template@2.0.0-beta.171) (2022-05-14)
 
 
