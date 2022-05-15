@@ -7,3 +7,12 @@ $breadcrumb-bg:                     transparent !default;
 $breadcrumb-divider-color:          #ced4da !default;
 $breadcrumb-active-color:           #6c757d !default;
 $breadcrumb-divider:                quote("/") !default;
+
+@if map-get($settings-theme, 'custom') != "_" OR map-get($settings-theme, 'bootswatch') != "_" {
+  @if $settings-primary-color == "" {
+    $primary: null;
+  }
+  @if $settings-secondary-color == "" {
+    $secondary: null;
+  }
+}
