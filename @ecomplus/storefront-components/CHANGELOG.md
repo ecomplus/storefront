@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.122](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.121...@ecomplus/storefront-components@1.0.0-beta.122) (2022-05-17)
+
+
+### Bug Fixes
+
+* **components/search-engine:** fix handling load more with scroll to page anchor [[#707](https://github.com/ecomplus/storefront/issues/707)] ([41530b9](https://github.com/ecomplus/storefront/commit/41530b98bddde542f27532c01b42cc8fe29a0a59))
+
+
+
+
+
 # [1.0.0-beta.121](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.120...@ecomplus/storefront-components@1.0.0-beta.121) (2022-05-14)
 
 
