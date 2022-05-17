@@ -35,6 +35,7 @@ import {
 import lozad from 'lozad'
 import EcomSearch from '@ecomplus/search-engine'
 import { Portal } from '@linusborg/vue-simple-portal'
+import scrollToElement from './helpers/scroll-to-element'
 import ABackdrop from '../ABackdrop.vue'
 import ProductCard from '../ProductCard.vue'
 
@@ -231,6 +232,12 @@ export default {
           }
         }
       })
+    },
+
+    pageAnchorIndex () {
+      const count = this.suggestedItems.length
+      const rest = count % this.pageSize
+      return rest === 0 ? count - this.pageSize : count - rest
     }
   },
 
@@ -273,7 +280,8 @@ export default {
             this.isLoadingMore = false
             this.$nextTick(() => setTimeout(() => {
               this.mustSkipLoadMore = false
-            }, 100))
+              this.loadObserver.observe()
+            }, 300))
           }
         })
       this.$emit('fetch', { ecomSearch, fetching, isPopularItems })
@@ -583,7 +591,11 @@ export default {
     isSearching (isSearching) {
       if (!isSearching && this.loadObserver) {
         this.$nextTick(() => {
-          this.loadObserver.observe()
+          if (!this.mustSkipLoadMore) {
+            this.loadObserver.observe()
+          } else {
+            setTimeout(() => scrollToElement(this.$refs.pageAnchor[0], -100), 50)
+          }
         })
       }
     }
