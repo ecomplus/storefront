@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.174](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.173...@ecomplus/storefront-template@2.0.0-beta.174) (2022-05-17)
+
+
+### Bug Fixes
+
+* **template/scss:** prevent fatal error with undefined `$settings-theme` var ([d9b2663](https://github.com/ecomplus/storefront/commit/d9b2663a41572e7e716a6d10737fd8c74236adca))
+
+
+
+
+
 # [2.0.0-beta.173](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.172...@ecomplus/storefront-template@2.0.0-beta.173) (2022-05-17)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
