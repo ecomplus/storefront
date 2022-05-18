@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.123](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.122...@ecomplus/storefront-components@1.0.0-beta.123) (2022-05-18)
+
+
+### Bug Fixes
+
+* **components/search-engine:** edit auto load page anchor to keep showing last item [[#707](https://github.com/ecomplus/storefront/issues/707)] ([702494b](https://github.com/ecomplus/storefront/commit/702494b15f8b527f54bb912f931ef1b0cfcdda9b))
+
+
+
+
+
 # [1.0.0-beta.122](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.121...@ecomplus/storefront-components@1.0.0-beta.122) (2022-05-17)
 
 
