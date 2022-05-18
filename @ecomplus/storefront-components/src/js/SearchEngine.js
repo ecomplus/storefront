@@ -237,7 +237,7 @@ export default {
     pageAnchorIndex () {
       const count = this.suggestedItems.length
       const rest = count % this.pageSize
-      return rest === 0 ? count - this.pageSize : count - rest
+      return (rest === 0 ? count - this.pageSize : count - rest) - 1
     }
   },
 
@@ -594,7 +594,7 @@ export default {
           if (!this.mustSkipLoadMore) {
             this.loadObserver.observe()
           } else {
-            setTimeout(() => scrollToElement(this.$refs.pageAnchor[0], -100), 50)
+            setTimeout(() => scrollToElement(this.$refs.pageAnchor[0], 40), 100)
           }
         })
       }
