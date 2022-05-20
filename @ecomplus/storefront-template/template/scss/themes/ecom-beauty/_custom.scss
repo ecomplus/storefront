@@ -19,6 +19,30 @@ main {
 
     &__nav {
       color: $body-color-secondary;
+      a {
+        color: #A8A8A8;
+        font-size: 12px;
+      }
+    }
+
+    &__countdown {
+      font-size: 12px;
+    }
+
+    &__page-links {
+      
+      a {
+        color: #707070;
+        font-size: 13px;
+        font-weight: 500;
+      }
+    }
+
+    .i-facebook,
+    .i-youtube,
+    .i-instagram {
+      color: $secondary-text;
+      font-size: 18px;
     }
   }
 
@@ -72,12 +96,12 @@ main {
     box-shadow: 0px 1px 0px rgba($black, .1);
   
     &__item {
-      color: $secondary;
-  
+      color: $secondary-text;
+      
       &:hover {
         color: $secondary-text;
       }
-
+      
       div {
         margin-left: 0;
         font-family: 'Playfair Display';
@@ -85,6 +109,10 @@ main {
         font-weight: bold;
         font-style: italic;
         text-transform: capitalize;
+      }
+
+      &::after {
+        background-color: $secondary-text;
       }
     }
 
@@ -159,6 +187,29 @@ main {
         height: 53px;
         border-radius: 0;
         font-size: 15px;
+      }
+    }
+  }
+
+  .blog {
+
+    .card {
+      border: none;
+    }
+
+    .card-title {
+      a {
+        color: $secondary;
+        font-family: 'Playfair Display', 'Regular Roman';
+      }
+    
+      &::after {
+        content: ' ';
+        display: block;
+        width: 60px;
+        height: 1px;
+        margin-top: 25px;
+        background-color: #9B9B9B;
       }
     }
   }
