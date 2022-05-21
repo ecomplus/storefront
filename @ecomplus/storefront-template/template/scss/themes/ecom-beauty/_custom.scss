@@ -29,8 +29,7 @@ main {
       font-size: 12px;
     }
 
-    &__page-links {
-      
+    &__page-links {      
       a {
         color: #707070;
         font-size: 13px;
@@ -103,12 +102,18 @@ main {
       }
       
       div {
+        .info-bar__title {
+          margin-left: 0;
+          font-family: 'Playfair Display';
+          font-size: 18px;
+          font-weight: bold;
+          font-style: italic;
+        }
+
         margin-left: 0;
-        font-family: 'Playfair Display';
-        font-size: 18px;
-        font-weight: bold;
-        font-style: italic;
-        text-transform: capitalize;
+        font-size: 13px;
+        font-weight: 500;
+        text-transform: none;
       }
 
       &::after {
@@ -192,7 +197,6 @@ main {
   }
 
   .blog {
-
     .card {
       border: none;
     }
