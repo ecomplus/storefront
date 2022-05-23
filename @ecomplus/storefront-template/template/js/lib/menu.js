@@ -1,7 +1,7 @@
-import { isMobile, animateCss, $ } from '@ecomplus/storefront-twbs'
+import { isMobile, animateCss, Collapse } from '@ecomplus/storefront-twbs'
 import overlay from './overlay'
 
-const $menu = $('#menu')[0]
+const $menu = document.getElementById('menu')
 let isVisible = false
 
 let $openSubMenu
@@ -65,7 +65,7 @@ const toggleSubmenu = (slug, $categoryLink, isClick) => {
 const toggleSidenav = (slug, isClose) => {
   let $collapse
   if (slug) {
-    $collapse = $(`#a-${slug.replace(/\//g, '_')}`)
+    $collapse = document.getElementById(`a-${slug.replace(/\//g, '_')}`)
     if (!$collapse.length) {
       window.location = `/${slug}`
       return
@@ -82,7 +82,7 @@ const toggleSidenav = (slug, isClose) => {
       animateCss($menu, 'slideInLeft')
       isVisible = true
       if ($collapse) {
-        $collapse.collapse('show')
+        new Collapse($collapse).show()
       }
     }
   } else {

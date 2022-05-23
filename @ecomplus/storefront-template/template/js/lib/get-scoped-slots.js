@@ -1,5 +1,3 @@
-import { $ } from '@ecomplus/storefront-twbs'
-
 export default ($el, h, canSetDefault = true) => {
   const scopedSlots = {}
   if (canSetDefault) {
@@ -12,9 +10,9 @@ export default ($el, h, canSetDefault = true) => {
     }
   }
 
-  $($el).find('[data-slot]').each(function () {
-    const innerHTML = $(this).html()
-    scopedSlots[$(this).data('slot')] = function () {
+  ($el).querySelectorAll('[data-slot]').forEach(function ($dataSlot) {
+    const innerHTML = $dataSlot.innerHTML
+    scopedSlots[$dataSlot.dataset.slot] = function () {
       return h('span', {
         domProps: { innerHTML }
       })
