@@ -17,3 +17,5 @@ export {
   _self,
   animateCss
 }
+
+export * from 'bootstrap'
