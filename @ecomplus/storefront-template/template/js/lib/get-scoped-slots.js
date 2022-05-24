@@ -10,7 +10,7 @@ export default ($el, h, canSetDefault = true) => {
     }
   }
 
-  ($el).querySelectorAll('[data-slot]').forEach(function ($dataSlot) {
+  $el.querySelectorAll('[data-slot]').forEach(function ($dataSlot) {
     const innerHTML = $dataSlot.innerHTML
     scopedSlots[$dataSlot.dataset.slot] = function () {
       return h('span', {
