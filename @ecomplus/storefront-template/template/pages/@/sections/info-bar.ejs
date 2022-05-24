@@ -25,10 +25,14 @@ const barCols = []
                 <i class="i-<%= icon %>"></i>
               </span>
               <div class="ml-2 ml-md-3">
-                <div class="info-bar__title">
-                  <%= title %>
+                <% if(title) { %>
+                  <div class="info-bar__title">
+                    <%= title %>
+                  </div>
+                <% } %>
+                <div>
+                  <%= text %>
                 </div>
-                <%= text %>
               </div>
             </a>
           </div>
