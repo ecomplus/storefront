@@ -201,7 +201,7 @@ main {
     .card-title {
       a {
         color: $secondary;
-        font-family: 'Playfair Display', 'Regular Roman';
+        font-family: 'Playfair Display', 'Regular Roman', sans-serif;
       }
     
       &::after {
