@@ -143,7 +143,7 @@ export default (options = {}, elId = 'search-engine', paginationElId = 'search-p
                   vm.countRequests++
                   const renderNewItems = () => {
                     vm.canShowItems = true
-                    document.body.removeChild(document.getElementById('search-engine-snap'))
+                    document.getElementById('search-engine-snap').remove()
                   }
                   if (!vm.canShowItems) {
                     if (vm.countRequests > 1) {
