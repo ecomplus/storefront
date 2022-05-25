@@ -9,12 +9,13 @@ $toastDock.setAttribute('style', 'position: absolute; top: 0; right: 0')
 const $toastAside = document.createElement('aside')
 $toastAside.setAttribute('style', 'position: fixed; top: 15px; right: 15px; width: 100%; max-width: 300px; z-index: -1')
 
-$toastAside.insertAdjacentHTML(
-  'beforeend',
-  `<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px">
-    ${$toastDock.outerHTML}
-  </div>`
-)
+const $toastDockContainer = document.createElement('div')
+$toastDockContainer.setAttribute('aria-live', 'polite')
+$toastDockContainer.setAttribute('aria-atomic', 'true')
+$toastDockContainer.setAttribute('style', 'position: relative; min-height: 200px')
+
+$toastDockContainer.appendChild($toastDock)
+$toastAside.appendChild($toastDockContainer)
 
 document.body.appendChild($toastAside)
 
