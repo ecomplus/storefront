@@ -617,6 +617,24 @@ main .top-bar {
 main .top-bar__nav {
   color: #A8A8A8;
 }
+main .top-bar__nav a {
+  color: #A8A8A8;
+  font-size: 12px;
+}
+main .top-bar__countdown {
+  font-size: 12px;
+}
+main .top-bar__page-links a {
+  color: #707070;
+  font-size: 13px;
+  font-weight: 500;
+}
+main .top-bar .i-facebook,
+main .top-bar .i-youtube,
+main .top-bar .i-instagram {
+  color: #5F506B;
+  font-size: 18px;
+}
 main .breadcrumb-item {
   font-size: 12px;
 }
@@ -654,18 +672,26 @@ main .info-bar {
   box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
 main .info-bar__item {
-  color: #777777;
+  color: #5F506B;
 }
 main .info-bar__item:hover {
   color: #5F506B;
 }
 main .info-bar__item div {
   margin-left: 0;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: none;
+}
+main .info-bar__item div .info-bar__title {
+  margin-left: 0;
   font-family: "Playfair Display";
   font-size: 18px;
   font-weight: bold;
   font-style: italic;
-  text-transform: capitalize;
+}
+main .info-bar__item::after {
+  background-color: #5F506B;
 }
 @media (max-width: 575.98px) {
   main .info-bar__nav .col-auto {
@@ -720,4 +746,19 @@ main .search-engine .card-footer button {
   height: 53px;
   border-radius: 0;
   font-size: 15px;
+}
+main .blog .card {
+  border: none;
+}
+main .blog .card-title a {
+  color: #777777;
+  font-family: "Playfair Display", "Regular Roman", sans-serif;
+}
+main .blog .card-title::after {
+  content: " ";
+  display: block;
+  width: 60px;
+  height: 1px;
+  margin-top: 25px;
+  background-color: #9B9B9B;
 }
