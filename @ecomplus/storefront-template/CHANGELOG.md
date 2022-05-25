@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.176](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.175...@ecomplus/storefront-template@2.0.0-beta.176) (2022-05-25)
+
+
+### Bug Fixes
+
+* **themes/ecom-beauty:** ECom.Beauty styles fine tune ([#709](https://github.com/ecomplus/storefront/issues/709)) ([d08ccb7](https://github.com/ecomplus/storefront/commit/d08ccb7b8a182ed7d570e3ddf0e7d83b01f24e31))
+
+
+### Features
+
+* **sections/info-bar:** add title on info bar items ([#710](https://github.com/ecomplus/storefront/issues/710)) ([2513fde](https://github.com/ecomplus/storefront/commit/2513fdeb2ce029c9357041e87a32ac1c95e4a377))
+
+
+
+
+
 # [2.0.0-beta.175](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.174...@ecomplus/storefront-template@2.0.0-beta.175) (2022-05-18)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

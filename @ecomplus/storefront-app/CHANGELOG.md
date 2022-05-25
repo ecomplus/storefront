@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.132](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.131...@ecomplus/storefront-app@2.0.0-beta.132) (2022-05-25)
+
+
+### Features
+
+* **app/ec-summary:** show order amout balance if any ([7b9d4b8](https://github.com/ecomplus/storefront/commit/7b9d4b84f6d816b4cd46316c34c72e4ee77dd224))
+
+
+
+
+
 # [2.0.0-beta.131](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.130...@ecomplus/storefront-app@2.0.0-beta.131) (2022-05-18)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
