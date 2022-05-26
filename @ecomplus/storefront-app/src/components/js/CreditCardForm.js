@@ -337,8 +337,8 @@ export default {
         break
       }
     }
-    (function () {
+    document.addEventListener('DOMContentLoaded', function () {
       return new Popover(document.querySelector('[data-toggle="popover"]'))
-    })()
+    })
   }
 }
