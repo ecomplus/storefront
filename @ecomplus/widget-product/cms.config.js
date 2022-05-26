@@ -72,10 +72,6 @@ export default () => ({
               value: '_'
             },
             {
-              label: 'Sem temporizador',
-              value: ' '
-            },
-            {
               label: 'Padrão e quando tem utm',
               value: 'true'
             }
