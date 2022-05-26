@@ -20,6 +20,7 @@
     display: inline-flex;
     top: 100%;
     margin-top: -35px;
+    flex-wrap: wrap;
 
     @media (min-width: 992px) {
       position: static;
@@ -36,7 +37,7 @@
     opacity: .5;
     transition: opacity .15s linear;
     cursor: pointer;
-    margin-right: 15px;
+    margin: 0 15px 15px 0;
 
     &:last-of-type {
       margin-right: 0;
