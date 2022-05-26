@@ -112,6 +112,7 @@ export default {
       default: true
     },
     hasQuantitySelector: Boolean,
+    hasDiscountTagOnUtm: Boolean,
     canAddToCart: {
       type: Boolean,
       default: true
@@ -232,7 +233,7 @@ export default {
     discount () {
       const { body } = this
       const priceValue = this.fixedPrice || getPrice(body)
-      return checkOnPromotion(body)
+      return checkOnPromotion(body) || this.hasDiscountTagOnUtm
         ? Math.round(((body.base_price - priceValue) * 100) / body.base_price)
         : 0
     },

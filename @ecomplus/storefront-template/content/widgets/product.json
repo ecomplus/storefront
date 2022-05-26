@@ -5,6 +5,7 @@
   "options": {
     "buyText": "",
     "buy": "",
+    "strHasDiscountTagOnUtm": "_",
     "strHasQuantitySelector": "_",
     "lowQuantityToWarn": 12,
     "maxVariationOptionsBtns": 6

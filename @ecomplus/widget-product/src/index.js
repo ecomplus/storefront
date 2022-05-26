@@ -35,6 +35,7 @@ export default (options = {}, elId = 'product') => {
 
     const {
       buyText,
+      strHasDiscountTagOnUtm,
       strHasQuantitySelector,
       strHasPromotionTimer,
       lowQuantityToWarn,
@@ -56,6 +57,7 @@ export default (options = {}, elId = 'product') => {
           ...options.props,
           product: isSSR && body && body.available && checkInStock(body) ? body : null,
           buyText,
+          hasDiscountTagOnUtm: strOptionToBool(strHasDiscountTagOnUtm, 'hasDiscountTagOnUtm'),
           hasQuantitySelector: strOptionToBool(strHasQuantitySelector, 'hasQuantitySelector'),
           hasPromotionTimer: strOptionToBool(strHasPromotionTimer, 'hasPromotionTimer'),
           lowQuantityToWarn,

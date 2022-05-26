@@ -63,6 +63,25 @@ export default () => ({
           ]
         },
         {
+          label: 'Tag de Desconto',
+          name: 'strHasDiscountTagOnUtm',
+          widget: 'select',
+          options: [
+            {
+              label: 'Padrão do tema',
+              value: '_'
+            },
+            {
+              label: 'Sem temporizador',
+              value: ' '
+            },
+            {
+              label: 'Padrão e quando tem utm',
+              value: 'true'
+            }
+          ]
+        },
+        {
           label: 'Temporizador de oferta',
           name: 'strHasPromotionTimer',
           widget: 'select',
