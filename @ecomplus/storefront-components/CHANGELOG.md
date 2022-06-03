@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.124](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.123...@ecomplus/storefront-components@1.0.0-beta.124) (2022-06-03)
+
+
+### Bug Fixes
+
+* **components/product-gallery:** prevent horizontal scroll whith slide dots on mobile ([#718](https://github.com/ecomplus/storefront/issues/718)) ([9df07c6](https://github.com/ecomplus/storefront/commit/9df07c616e908eff783a31010aa5bb6a4a4276bd))
+* **components/product:** fix handling promo countdown with mocked deadline [[#772](https://github.com/ecomplus/storefront/issues/772)] ([4b079d4](https://github.com/ecomplus/storefront/commit/4b079d42024e51a4fd433b47ec1357c0da42351c)), closes [#issuecomment-1141367914](https://github.com/ecomplus/storefront/issues/issuecomment-1141367914)
+
+
+
+
+
 # [1.0.0-beta.123](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.122...@ecomplus/storefront-components@1.0.0-beta.123) (2022-05-18)
 
 
