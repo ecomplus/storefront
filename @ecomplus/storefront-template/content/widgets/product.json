@@ -5,8 +5,9 @@
   "options": {
     "buyText": "",
     "buy": "",
-    "strHasDiscountTagOnUtm": "_",
+    "strAlwaysShowTimer": "_",
     "strHasQuantitySelector": "_",
+    "strHasPromotionTimer": "_",
     "lowQuantityToWarn": 12,
     "maxVariationOptionsBtns": 6
   }

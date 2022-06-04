@@ -112,7 +112,7 @@ export default {
       default: true
     },
     hasQuantitySelector: Boolean,
-    hasDiscountTagOnUtm: Boolean,
+    alwaysShowTimer: Boolean,
     canAddToCart: {
       type: Boolean,
       default: true
@@ -233,18 +233,33 @@ export default {
     discount () {
       const { body } = this
       const priceValue = this.fixedPrice || getPrice(body)
-      return checkOnPromotion(body) || (this.hasDiscountTagOnUtm && (body.base_price > priceValue))
+      return checkOnPromotion(body) || (body.price > priceValue)
         ? Math.round(((body.base_price - priceValue) * 100) / body.base_price)
         : 0
     },
 
-    isOnSale () {
+    mockNewPromoDate () {
       const { body } = this
+      const newPromoDate = { ...body }
+      console.log(newPromoDate.price_effective_date)
+      if (this.alwaysShowTimer) {
+        const tomorrow = new Date(new Date().getTime() + 86400000).setHours(0, 0, 0, 0)
+        newPromoDate.price_effective_date = {}
+        newPromoDate.price_effective_date.end = new Date(tomorrow).toISOString()
+        console.log(newPromoDate)
+        return newPromoDate
+      } else {
+        return body
+      }
+    },
+
+    isOnSale () {
+      const { mockNewPromoDate } = this
       return this.hasPromotionTimer &&
-        checkOnPromotion(body) &&
-        body.price_effective_date &&
-        body.price_effective_date.end &&
-        Date.now() < new Date(body.price_effective_date.end).getTime()
+        checkOnPromotion(mockNewPromoDate) &&
+        mockNewPromoDate.price_effective_date &&
+        mockNewPromoDate.price_effective_date.end &&
+        Date.now() < new Date(mockNewPromoDate.price_effective_date.end).getTime()
     },
 
     ghostProductForPrices () {
@@ -557,7 +572,7 @@ export default {
     }
     if (this.isOnSale) {
       const [currentIsoDay] = new Date().toISOString().split('T', 2)
-      const targetTime = new Date(this.body.price_effective_date.end)
+      const targetTime = new Date(this.mockNewPromoDate.price_effective_date.end)
       const now = Date.now()
       if (targetTime.getTime() > now) {
         const dayMs = 24 * 60 * 60 * 1000
