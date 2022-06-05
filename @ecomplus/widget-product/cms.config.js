@@ -63,22 +63,6 @@ export default () => ({
           ]
         },
         {
-          label: 'Sempre mostrar temporizador com data futura',
-          name: 'strAlwaysShowTimer',
-          widget: 'select',
-          hint: 'Com essa opção selecionada como verdadeira, irá mostrar temporizador independente se tiver promoção ou não, apenas como um gatilho de escassez',
-          options: [
-            {
-              label: 'Padrão do tema',
-              value: '_'
-            },
-            {
-              label: 'Padrão e quando tem utm',
-              value: 'true'
-            }
-          ]
-        },
-        {
           label: 'Temporizador de oferta',
           name: 'strHasPromotionTimer',
           widget: 'select',

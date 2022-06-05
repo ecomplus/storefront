@@ -5,7 +5,6 @@
   "options": {
     "buyText": "",
     "buy": "",
-    "strAlwaysShowTimer": "_",
     "strHasQuantitySelector": "_",
     "strHasPromotionTimer": "_",
     "lowQuantityToWarn": 12,

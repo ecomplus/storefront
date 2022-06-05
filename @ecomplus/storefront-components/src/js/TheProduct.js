@@ -112,7 +112,6 @@ export default {
       default: true
     },
     hasQuantitySelector: Boolean,
-    alwaysShowTimer: Boolean,
     canAddToCart: {
       type: Boolean,
       default: true
@@ -238,26 +237,13 @@ export default {
         : 0
     },
 
-    mockNewPromoDate () {
-      const { body } = this
-      const newPromoDate = { ...body }
-      if (this.alwaysShowTimer) {
-        const tomorrow = new Date(new Date().getTime() + 86400000).setHours(0, 0, 0, 0)
-        newPromoDate.price_effective_date = {}
-        newPromoDate.price_effective_date.end = new Date(tomorrow).toISOString()
-        return newPromoDate
-      } else {
-        return body
-      }
-    },
-
     isOnSale () {
-      const { mockNewPromoDate } = this
+      const { body } = this
       return this.hasPromotionTimer &&
-        checkOnPromotion(mockNewPromoDate) &&
-        mockNewPromoDate.price_effective_date &&
-        mockNewPromoDate.price_effective_date.end &&
-        Date.now() < new Date(mockNewPromoDate.price_effective_date.end).getTime()
+        checkOnPromotion(body) &&
+        body.price_effective_date &&
+        body.price_effective_date.end &&
+        Date.now() < new Date(body.price_effective_date.end).getTime()
     },
 
     ghostProductForPrices () {
