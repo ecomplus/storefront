@@ -241,12 +241,10 @@ export default {
     mockNewPromoDate () {
       const { body } = this
       const newPromoDate = { ...body }
-      console.log(newPromoDate.price_effective_date)
       if (this.alwaysShowTimer) {
         const tomorrow = new Date(new Date().getTime() + 86400000).setHours(0, 0, 0, 0)
         newPromoDate.price_effective_date = {}
         newPromoDate.price_effective_date.end = new Date(tomorrow).toISOString()
-        console.log(newPromoDate)
         return newPromoDate
       } else {
         return body
