@@ -555,13 +555,20 @@ export default {
       setStickyBuyObserver()
     }
     if (this.isOnSale) {
-      const [currentIsoDay] = new Date().toISOString().split('T', 2)
-      const targetTime = new Date(this.mockNewPromoDate.price_effective_date.end)
+      const promotionDate = new Date(this.body.price_effective_date.end)
       const now = Date.now()
-      if (targetTime.getTime() > now) {
+      if (promotionDate.getTime() > now) {
+        let targetDate
         const dayMs = 24 * 60 * 60 * 1000
+        const daysBetween = Math.floor((promotionDate.getTime() - now) / dayMs)
+        if (daysBetween > 2) {
+          targetDate = new Date()
+          targetDate.setHours(23, 59, 59, 999)
+        } else {
+          targetDate = promotionDate
+        }
         const formatTime = (number) => number < 10 ? `0${number}` : number
-        const getRemainingTime = (targetDate) => {
+        const getRemainingTime = () => {
           const distance = targetDate.getTime() - Date.now()
           const days = Math.floor(distance / dayMs)
           const hours = Math.floor((distance % dayMs) / (1000 * 60 * 60))
@@ -570,12 +577,8 @@ export default {
           return (days > 0 ? `${formatTime(days)}:` : '') +
             `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`
         }
-        const daysBetween = Math.floor((targetTime.getTime() - now) / dayMs)
-        const targetDate = daysBetween > 2
-          ? new Date(`${currentIsoDay}T${targetTime.toISOString().split('T')[1]}`)
-          : targetTime
         this.currentTimer = setInterval(() => {
-          this.$refs.timer.innerHTML = getRemainingTime(targetDate)
+          this.$refs.timer.innerHTML = getRemainingTime()
         }, 1000)
       }
     }

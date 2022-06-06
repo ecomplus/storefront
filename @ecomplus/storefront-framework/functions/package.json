@@ -13,12 +13,12 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@ecomplus/storefront-renderer": "^2.8.16",
+    "@ecomplus/storefront-renderer": "^2.8.17",
     "firebase-admin": "^10.2.0",
-    "firebase-functions": "^3.21.0"
+    "firebase-functions": "^3.21.2"
   },
   "devDependencies": {
-    "firebase-functions-test": "^2.0.1"
+    "firebase-functions-test": "^2.2.0"
   },
   "private": true
 }
