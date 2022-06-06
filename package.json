@@ -36,8 +36,8 @@
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
-    "@commitlint/cli": "^17.0.1",
-    "@commitlint/config-conventional": "^17.0.0",
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
     "@ecomplus/storefront-snapshot": "^1.2.0",
     "@vue/cli-plugin-babel": "^4.5.17",
     "@vue/cli-plugin-router": "^4.5.17",
@@ -48,7 +48,7 @@
     "babel-loader": "^8.2.5",
     "bootstrap": "^4.6.1",
     "browser-sync": "^2.27.10",
-    "caniuse-lite": "^1.0.30001344",
+    "caniuse-lite": "^1.0.30001346",
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^3.6.0",
@@ -60,7 +60,7 @@
     "husky": "^7.0.4",
     "jquery": "3.6.0",
     "lerna": "^4.0.0",
-    "lint-staged": "^12.4.3",
+    "lint-staged": "^12.5.0",
     "markdown-it": "^13.0.1",
     "mini-css-extract-plugin": "^0.12.0",
     "popper.js": "^1.16.1",
@@ -71,7 +71,7 @@
     "webpack": "^4.46.0",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.9.0"
+    "webpack-dev-server": "^4.9.1"
   },
   "standard": {
     "parser": "babel-eslint"
