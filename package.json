@@ -59,7 +59,7 @@
     "html-webpack-plugin": "^4.5.2",
     "husky": "^8.0.1",
     "jquery": "3.6.0",
-    "lerna": "^4.0.0",
+    "lerna": "^5.1.2",
     "lint-staged": "^12.5.0",
     "markdown-it": "^13.0.1",
     "mini-css-extract-plugin": "^0.12.0",
