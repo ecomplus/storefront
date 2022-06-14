@@ -1,14 +1,14 @@
 <% 
   const requireThemeFiles = () => {
-    let js = ''
     for (const themeColl in theme) {
       const themeName = theme[themeColl]
       if (themeName && themeName.length > 1) {
-        js += `require('./${themesPath}/${themeName}/product')`
+        return JSON.stringify(require(`../${themesPath}/${themeName}/config`))
+      } else {
+        return '{}'
       }
     }
-    return js
   }
 %>
 
-<%- requireThemeFiles() %>
+window._theme = <%- requireThemeFiles() %>

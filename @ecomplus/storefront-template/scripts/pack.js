@@ -3,7 +3,6 @@
 'use strict'
 
 require('./install')
-require('./styles')
-require('./scripts')
+require('./theme')
 
 require('@ecomplus/storefront-framework/bin')
