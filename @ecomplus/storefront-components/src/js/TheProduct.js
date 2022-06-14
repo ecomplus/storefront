@@ -232,7 +232,7 @@ export default {
     discount () {
       const { body } = this
       const priceValue = this.fixedPrice || getPrice(body)
-      return checkOnPromotion(body)
+      return checkOnPromotion(body) || (body.price > priceValue)
         ? Math.round(((body.base_price - priceValue) * 100) / body.base_price)
         : 0
     },
