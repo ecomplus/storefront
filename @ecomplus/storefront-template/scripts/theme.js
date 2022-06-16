@@ -7,7 +7,7 @@ const path = require('path')
 const ejs = require('ejs')
 const { theme } = require(path.resolve(INIT_CWD, 'content/settings.json'))
 let themeConfig
-if (theme.custom) {
+if (theme.custom && theme.custom !== '_') {
   themeConfig = require(path.join(__dirname, `../themes/${theme.custom}/config`))
 }
 
