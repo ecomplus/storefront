@@ -1,6 +1,7 @@
 const themeConfig = {
   product: {
-    strHasQuantitySelector: true
+    hasQuantitySelector: true,
+    hasPromotionTimer: false,
   },
 }
 module.exports = themeConfig

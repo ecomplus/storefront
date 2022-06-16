@@ -18,7 +18,7 @@ export default (options = {}, elId = 'product') => {
     if (storefront) {
       getScopedSlots = storefront.getScopedSlots
       body = storefront.context && storefront.context.body
-      themeConfig = storefront.theme && storefront.theme.product
+      themeConfig = window._theme && window._theme.product
     }
 
     let mounted
@@ -40,7 +40,6 @@ export default (options = {}, elId = 'product') => {
       lowQuantityToWarn,
       maxVariationOptionsBtns
     } = options
-
     const strOptionToBool = (strOption, prop) => {
       return strOption === '_'
         ? Boolean(themeConfig && themeConfig[prop])

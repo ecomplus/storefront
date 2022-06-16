@@ -6,11 +6,13 @@ const fs = require('fs')
 const path = require('path')
 const ejs = require('ejs')
 const { theme } = require(path.resolve(INIT_CWD, 'content/settings.json'))
-let themesPath = INIT_CWD === path.resolve(__dirname, '..')
-  ? 'themes' : '@ecomplus/storefront-template/template/js/themes'
+let themeConfig
+if (theme.custom) {
+  themeConfig = require(path.join(__dirname, `../themes/${theme.custom}/config`))
+}
 
 const scriptFile = path.resolve(__dirname, '../template/js/lib/theme.js.ejs')
-ejs.renderFile(scriptFile, { themesPath, theme }, {}, (err, js) => {
+ejs.renderFile(scriptFile, { themeConfig, theme }, {}, (err, js) => {
   if (err) {
     console.error(err)
   } else {
@@ -21,7 +23,7 @@ ejs.renderFile(scriptFile, { themesPath, theme }, {}, (err, js) => {
   }
 })
 
-themesPath = INIT_CWD === path.resolve(__dirname, '..')
+const themesPath = INIT_CWD === path.resolve(__dirname, '..')
   ? 'themes' : '@ecomplus/storefront-template/template/scss/themes'
 const templateFile = path.resolve(__dirname, '../template/scss/styles.scss.ejs')
 ejs.renderFile(templateFile, { themesPath, theme }, {}, (err, scss) => {
