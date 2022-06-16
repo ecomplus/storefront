@@ -12,7 +12,7 @@ if (theme.custom && theme.custom !== '_') {
 }
 
 const scriptFile = path.resolve(__dirname, '../template/js/lib/theme.js.ejs')
-ejs.renderFile(scriptFile, { themeConfig, theme }, {}, (err, js) => {
+ejs.renderFile(scriptFile, { themeConfig }, {}, (err, js) => {
   if (err) {
     console.error(err)
   } else {

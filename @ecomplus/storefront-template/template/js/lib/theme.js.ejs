@@ -1,14 +1,8 @@
 <% 
   const requireThemeFiles = () => {
-    for (const themeColl in theme) {
-      const themeName = theme[themeColl]
-      if (themeName && themeName.length > 1) {
-        return JSON.stringify(themeConfig)
-      } else {
-        return '{}'
-      }
-    }
+    return themeConfig ? JSON.stringify(themeConfig) : '{}'
   }
+  
 %>
 
 window._theme = <%- requireThemeFiles() %>
