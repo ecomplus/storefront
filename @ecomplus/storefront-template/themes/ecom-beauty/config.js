@@ -1,7 +1,7 @@
 const themeConfig = {
   product: {
     hasQuantitySelector: true,
-    hasPromotionTimer: false,
-  },
+    hasPromotionTimer: false
+  }
 }
 module.exports = themeConfig
