@@ -1,7 +1,7 @@
 /* eslint-disable */
 <% 
   const requireThemeFiles = () => {
-    return themeConfig ? JSON.stringify(themeConfig) : '{}'
+    return themeConfig ? JSON.stringify(themeConfig, null, 2) : '{}'
   }
   
 %>
