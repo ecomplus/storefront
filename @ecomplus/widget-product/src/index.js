@@ -18,7 +18,7 @@ export default (options = {}, elId = 'product') => {
     if (storefront) {
       getScopedSlots = storefront.getScopedSlots
       body = storefront.context && storefront.context.body
-      themeConfig = window._theme && window._theme.product
+      themeConfig = storefront.theme && storefront.theme.product
     }
 
     let mounted

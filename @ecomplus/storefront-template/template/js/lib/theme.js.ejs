@@ -1,8 +1,8 @@
+/* eslint-disable */
 <% 
   const requireThemeFiles = () => {
     return themeConfig ? JSON.stringify(themeConfig) : '{}'
   }
   
 %>
-
 window._theme = <%- requireThemeFiles() %>

@@ -1,4 +1,5 @@
 import { name, version } from '../../package.json'
+import './lib/theme'
 import './lib/ecom'
 import '@ecomplus/storefront-twbs'
 
@@ -9,7 +10,6 @@ import './lib/menu'
 import './lib/search'
 import './lib/shopping-cart'
 import './lib/persist-utm'
-import './lib/theme'
 
 import lozad from 'lozad'
 import * as cloneDeep from 'lodash.clonedeep'

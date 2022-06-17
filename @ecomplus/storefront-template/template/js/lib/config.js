@@ -31,6 +31,7 @@ window.storefront = {
   widgets: window._widgets,
   context: window._context,
   data: window._data,
+  theme: window._theme,
   ...events
 }
 
