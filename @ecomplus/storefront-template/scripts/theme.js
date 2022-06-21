@@ -1,4 +1,3 @@
-
 'use strict'
 
 const { INIT_CWD } = process.env
@@ -8,7 +7,11 @@ const ejs = require('ejs')
 const { theme } = require(path.resolve(INIT_CWD, 'content/settings.json'))
 let themeConfig
 if (theme.custom && theme.custom !== '_') {
-  themeConfig = require(path.join(__dirname, `../themes/${theme.custom}/config`))
+  try {
+    themeConfig = require(path.join(__dirname, `../template/scss/themes/${theme.custom}/config`))
+  } catch (err) {
+    themeConfig = null
+  }
 }
 
 const scriptFile = path.resolve(__dirname, '../template/js/lib/theme.js.ejs')
