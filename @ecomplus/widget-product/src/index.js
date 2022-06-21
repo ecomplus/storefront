@@ -40,6 +40,7 @@ export default (options = {}, elId = 'product') => {
       lowQuantityToWarn,
       maxVariationOptionsBtns
     } = options
+
     const strOptionToBool = (strOption, prop) => {
       return strOption === '_'
         ? Boolean(themeConfig && themeConfig[prop])
