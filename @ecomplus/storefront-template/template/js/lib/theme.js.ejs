@@ -3,6 +3,5 @@
   const requireThemeFiles = () => {
     return themeConfig ? JSON.stringify(themeConfig, null, 2) : '{}'
   }
-  
 %>
 window._theme = <%- requireThemeFiles() %>
