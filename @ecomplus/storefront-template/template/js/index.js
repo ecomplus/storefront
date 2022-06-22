@@ -1,4 +1,5 @@
 import { name, version } from '../../package.json'
+import './lib/theme'
 import './lib/ecom'
 import '@ecomplus/storefront-twbs'
 
