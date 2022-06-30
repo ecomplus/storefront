@@ -1,6 +1,6 @@
 import watchAppRoutes from '@ecomplus/widget-tag-manager/src/lib/watch-app-routes'
 
-const { location, $ } = window
+const { location } = window
 
 export default (gtag, gaTrackingId, googleAdsId) => {
   const emitPageView = () => setTimeout(() => {
@@ -34,7 +34,7 @@ export default (gtag, gaTrackingId, googleAdsId) => {
           if (data && data.actionField) {
             gtag('event', 'purchase', {
               transaction_id: data.actionField.id,
-              affiliation: $('meta[name="author"]').attr('content') || 'Shop',
+              affiliation: document.querySelector('meta[name="author"]').getAttribute('content') || 'Shop',
               value: Number(data.actionField.revenue),
               currency: ecommerce.currencyCode,
               tax: data.actionField.tax ? Number(data.actionField.tax) : 0,
