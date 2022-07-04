@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.178](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.177...@ecomplus/storefront-template@2.0.0-beta.178) (2022-07-04)
+
+
+### Bug Fixes
+
+* **template/scripts:** properly run new `scripts/theme.js` script on build/serve ([5c3d8eb](https://github.com/ecomplus/storefront/commit/5c3d8eb3f33581488dbe2439a0f7af2996a41cf2))
+
+
+### Features
+
+* **components/product:** also show discount tag on extra discount applied ([#716](https://github.com/ecomplus/storefront/issues/716)) ([5c9a09c](https://github.com/ecomplus/storefront/commit/5c9a09c4b9b3f4e85cdcf3c9df1872ed071cf331))
+* **template/header:** add tiktok icon if configured ([#725](https://github.com/ecomplus/storefront/issues/725)) ([e42fd18](https://github.com/ecomplus/storefront/commit/e42fd189aa6fe4903177385dbc60ad0a24cdd1d9))
+* **template/themes:** start handling optional theme js config ([#728](https://github.com/ecomplus/storefront/issues/728)) ([af4ad0d](https://github.com/ecomplus/storefront/commit/af4ad0d3407b058c63850f3b8a56273d71f29dba))
+
+
+
+
+
 # [2.0.0-beta.177](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.176...@ecomplus/storefront-template@2.0.0-beta.177) (2022-06-03)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.125](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.124...@ecomplus/storefront-components@1.0.0-beta.125) (2022-07-04)
+
+
+### Features
+
+* **components/product:** also show discount tag on extra discount applied ([#716](https://github.com/ecomplus/storefront/issues/716)) ([5c9a09c](https://github.com/ecomplus/storefront/commit/5c9a09c4b9b3f4e85cdcf3c9df1872ed071cf331))
+
+
+
+
+
 # [1.0.0-beta.124](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.123...@ecomplus/storefront-components@1.0.0-beta.124) (2022-06-03)
 
 
