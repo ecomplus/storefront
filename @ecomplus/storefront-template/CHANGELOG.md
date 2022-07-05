@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.179](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.178...@ecomplus/storefront-template@2.0.0-beta.179) (2022-07-05)
+
+
+### Bug Fixes
+
+* **template/setup:** fix settings up local imported `js/lib/theme.js` file ([dfbcdd7](https://github.com/ecomplus/storefront/commit/dfbcdd7b69db9946e2afd8b76e826eec9979cd86))
+
+
+
+
+
 # [2.0.0-beta.178](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.177...@ecomplus/storefront-template@2.0.0-beta.178) (2022-07-04)
 
 
