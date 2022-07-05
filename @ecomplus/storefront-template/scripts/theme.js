@@ -21,7 +21,7 @@ ejs.renderFile(scriptFile, { themeConfig }, {}, (err, js) => {
   if (err) {
     console.error(err)
   } else {
-    const filename = path.resolve(INIT_CWD, 'template/js/lib/theme.js')
+    const filename = path.resolve(__dirname, '../template/js/lib/theme.js')
     fs.writeFileSync(filename, js, 'utf8')
     console.log(`[JS] ${filename}`)
     console.log()
