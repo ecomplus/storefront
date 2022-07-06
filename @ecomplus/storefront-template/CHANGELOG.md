@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.180](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.179...@ecomplus/storefront-template@2.0.0-beta.180) (2022-07-06)
+
+
+### Bug Fixes
+
+* **deps:** revert vue to 2.6.x ([555d642](https://github.com/ecomplus/storefront/commit/555d6421e977b2263bb446dba389a2ec20677594))
+
+
+
+
+
 # [2.0.0-beta.179](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.178...@ecomplus/storefront-template@2.0.0-beta.179) (2022-07-05)
 
 

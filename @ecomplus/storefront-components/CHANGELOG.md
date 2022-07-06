@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.126](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.125...@ecomplus/storefront-components@1.0.0-beta.126) (2022-07-06)
+
+
+### Bug Fixes
+
+* **deps:** revert vue to 2.6.x ([555d642](https://github.com/ecomplus/storefront/commit/555d6421e977b2263bb446dba389a2ec20677594))
+
+
+
+
+
 # [1.0.0-beta.125](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.124...@ecomplus/storefront-components@1.0.0-beta.125) (2022-07-04)
 
 
