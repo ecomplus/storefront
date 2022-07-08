@@ -46,6 +46,10 @@ main {
         border-color: $secondary;
         color: $body-bg;
       }
+
+      @media(max-width: 575.98px) {
+        flex-direction: column;
+      }
     }
 
     &__payment-methods {
@@ -65,6 +69,12 @@ main {
         font-size: 33px;
       }
     }
+  }
+
+  .ecom-credits-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .ecom-credits {

@@ -37,6 +37,11 @@ main {
       }
     }
 
+    &__contacts-container {
+      margin-right: 0;
+      margin-left: auto;
+    }
+
     .i-facebook,
     .i-youtube,
     .i-instagram {
@@ -212,6 +217,16 @@ main {
         margin-top: 25px;
         background-color: #9B9B9B;
       }
+    }
+
+    .blog-post-link {
+      color: $secondary;
+      font-size: 14px;
+    }
+
+    .blog-post-date {
+      color: $primary;
+      font-size: 13px;
     }
   }
 }
