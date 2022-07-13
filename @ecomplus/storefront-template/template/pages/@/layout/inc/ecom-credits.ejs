@@ -1,4 +1,5 @@
-<div class="ecom-credits">
+<% const themeCustom = _.settings.theme.custom || '' %>
+<div class="ecom-credits <%= themeCustom === 'ecom-beauty' ? ' d-none' : '' %>">
   <a href="https://e-com.plus" target="_blank" rel="noopener">
     Powered by
     <img

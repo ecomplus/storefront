@@ -229,4 +229,22 @@ main {
       font-size: 13px;
     }
   }
+
+  form {
+    .form-control {
+      color: #3D414A;
+      &:focus {
+        border: 1px solid #158DF6;
+      }
+    }
+    .custom-select {
+      &:focus {
+        border: 1px solid #158DF6;
+      }
+      option {
+        background-color: var(--body-bg);
+        color: #60688B;
+      }
+    }
+  }
 }

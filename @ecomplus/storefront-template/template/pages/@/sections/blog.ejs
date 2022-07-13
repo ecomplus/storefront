@@ -32,7 +32,7 @@ if (Array.isArray(posts) && posts.length) {
                 <% } %>
                 <div class="card-body">
                   <span class="blog-post-date <%= themeCustom==='ecom-beauty' ? '' : ' d-none' %>">
-                    <% const postDate = new Date(date).toLocaleDateString() %>
+                    <% const postDate = _.ecomUtils.formatDate(date) %>
                     <%= postDate %>
                   </span>
                   <h5 class="card-title">
@@ -45,7 +45,7 @@ if (Array.isArray(posts) && posts.length) {
                       href="/posts/<%= slug %>"
                       class="blog-post-link"
                     >
-                      Continue Lendo
+                      <%- _.dictionary('seeMore') %>
                       <i class="i-chevron-right"></i>
                     </a>
                   <% } else {%>

@@ -79,9 +79,14 @@ main {
 
   .ecom-credits {
     background-color: $primary;
+    padding-right: 6px;
 
     a {
       color: $body-bg;
+    }
+
+    img {
+      max-width: initial;
     }
   }
 }

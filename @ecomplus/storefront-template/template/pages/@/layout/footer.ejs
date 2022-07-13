@@ -181,9 +181,18 @@ const themeCustom = _.settings.theme.custom || ''
       <span>
         <%= footer.credits || `© ${_.store.name} / ${contacts.address} / ${contacts.doc_number}` %>
       </span>
-      <% if (themeCustom==='ecom-beauty' ) { %>
+      <% if (themeCustom === 'ecom-beauty' ) { %>
         <div class="ecom-credits-container">
-          <%- await include('@/layout/inc/ecom-credits') %>
+          <div class="ecom-credits">
+            <a href="https://e-com.plus" target="_blank" rel="noopener">
+              <img
+                src="img/ecom-credits-white.png"
+                alt="E-Com Plus"
+                width="125.42"
+                height="20"
+              >
+            </a>
+          </div>
         </div>
       <% } %>
       <button
@@ -198,6 +207,5 @@ const themeCustom = _.settings.theme.custom || ''
   </div>
   
 </footer>
-<% if (themeCustom!=='ecom-beauty' ) { %>
-  <%- await include('@/layout/inc/ecom-credits') %>
-<% } %>
+
+<%- await include('@/layout/inc/ecom-credits') %>
