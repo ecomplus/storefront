@@ -3,9 +3,9 @@
     class="quantity-selector__item"
     v-for="item in items"
   >
-    <div class="d-flex quantity-selector__btn-container">
+    <div class="row quantity-selector__btn-container">
       <button
-        class="btn btn-sm btn-link"
+        class="btn btn-sm btn-link col-sm-3"
         type="button"
         @click="changeQnt(item, -1)"
         :disabled="item.min_quantity >= selectedQnts[item._id]"
@@ -14,7 +14,7 @@
       </button>
       <input
         type="tel"
-        class="form-control quantity-selector__input"
+        class="form-control quantity-selector__input col-sm-6"
         @change="ev => changeQnt(item, null, ev)"
         @keyup.up="changeQnt(item, 1)"
         @keyup.down="changeQnt(item, -1)"
@@ -23,7 +23,7 @@
         :readonly="item.min_quantity && item.min_quantity === item.max_quantity"
       >
       <button
-        class="btn btn-sm btn-link"
+        class="btn btn-sm btn-link col-sm-3"
         type="button"
         @click="changeQnt(item, 1)"
         :disabled="item.max_quantity <= selectedQnts[item._id]"
