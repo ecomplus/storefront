@@ -1,5 +1,6 @@
 <% const themeCustom = _.settings.theme.custom || '' %>
-<div class="ecom-credits <%= themeCustom === 'ecom-beauty' ? ' d-none' : '' %>">
+<% if (themeCustom !== 'ecom-beauty') { %>
+<div class="ecom-credits">
   <a href="https://e-com.plus" target="_blank" rel="noopener">
     Powered by
     <img
@@ -10,3 +11,4 @@
     >
   </a>
 </div>
+<% } %>

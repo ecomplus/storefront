@@ -31,7 +31,7 @@ if (Array.isArray(posts) && posts.length) {
                   </a>
                 <% } %>
                 <div class="card-body">
-                  <span class="blog-post-date <%= themeCustom==='ecom-beauty' ? '' : ' d-none' %>">
+                  <span class="blog-post-date <%= themeCustom === 'ecom-beauty' ? '' : ' d-none' %>">
                     <% const postDate = _.ecomUtils.formatDate(date) %>
                     <%= postDate %>
                   </span>
@@ -40,7 +40,7 @@ if (Array.isArray(posts) && posts.length) {
                       <%= title %>
                     </a>
                   </h5>
-                  <% if(themeCustom==='ecom-beauty') { %>
+                  <% if(themeCustom === 'ecom-beauty') { %>
                     <a
                       href="/posts/<%= slug %>"
                       class="blog-post-link"
@@ -48,7 +48,7 @@ if (Array.isArray(posts) && posts.length) {
                       <%- _.dictionary('seeMore') %>
                       <i class="i-chevron-right"></i>
                     </a>
-                  <% } else {%>
+                  <% } else { %>
                     <p class="card-text">
                       <%= description %>
                     </p>
