@@ -72,7 +72,7 @@ const hasMegamenu = header.desktop_megamenu
   <div class="top-bar__nav d-none d-md-block">
     <div class="container-fluid">
       <div class="row">
-        <div class="col <%= themeCustom === 'ecom-beauty' ? ' d-flex' : '' %>">
+        <div class="col d-flex">
           <nav class="top-bar__page-links">
             <% if (header.contacts_stripe.pages) { %>
               <div class="<%= (themeCustom === 'ecom-beauty' && isCategoriesNavFull) ? 'd-lg-none' : '' %>">
@@ -250,16 +250,16 @@ const hasMegamenu = header.desktop_megamenu
         </div>
       <% } %>
 
-      <% if(themeCustom === 'ecom-beauty' && isCategoriesNavFull) { %>
+      <% if (themeCustom === 'ecom-beauty' && isCategoriesNavFull) { %>
         <% if (header.contacts_stripe.pages) { %>
           <div class="header__page-links d-none d-lg-inline-block">
             <% header.contacts_stripe.pages.forEach(({ link, title })=> { %>
               <a href="<%= link %>">
                 <%= title %>
               </a>
-              <% }) %>
+            <% }) %>
           </div>
-         <% } %>
+        <% } %>
       <% } %>
 
       <% if (categories && categories.length) { %>
