@@ -90,17 +90,54 @@ main {
     &__buy {
       margin-top: 24px;
 
-      button {
+      .btn-lg {
         padding: 8px 24px;
         font-weight: 600;
+        box-sizing: border-box;
+        height: 44px;
+        width: 173px;
       }
 
       @media (max-width: 575.98px) {
-        button {
+        .btn-lg {
           width: 100%;
         }
       }
 
+      .quantity-selector {
+        &__btn-container {
+          height: 44px;
+          width: 135px;
+          margin-right: calc(var(--spacer-3) + var(--spacer-1));
+          justify-content: center;
+          border: 1px solid #C8C8C8;
+          border-radius: 4px;
+        }
+
+        &__input {
+          border: none;
+        }
+      }
+
+      .i-chevron-up::before,
+      .i-chevron-down::before {
+        display: flex;        
+        border: 1px solid $primary;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 21px;
+        font-size: 18px;
+      }
+      
+      .i-chevron-up::before {
+        content: '+';
+      }
+
+      .i-chevron-down::before {
+        content: '-';
+      }
     }
 
     .share-network-whatsapp {

@@ -1,4 +1,8 @@
 .quantity-selector {
+  &__btn-container {
+    min-width: 7rem;
+  }
+
   &__item {
     display: flex;
     align-items: center;

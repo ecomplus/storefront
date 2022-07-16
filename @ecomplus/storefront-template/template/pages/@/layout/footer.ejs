@@ -2,12 +2,13 @@
 // load footer options and contacts from content
 const footer = _.cms('footer') || {}
 const contacts = _.cms('contacts') || {}
+const themeCustom = _.settings.theme.custom || ''
 %>
 
 <footer class="footer py-3 py-lg-4 py-xl-5">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-lg-auto order-lg-last pl-xl-4">
+      <div class="col-12 col-lg-auto order-<%= themeCustom === 'ecom-beauty' ? '' : 'lg-'%>last pl-xl-4">
         <div class="footer__contacts">
           <% if (footer.contacts.title) { %>
             <div class="footer__title">
@@ -155,7 +156,7 @@ const contacts = _.cms('contacts') || {}
         </div>
       <% } %>
 
-      <div class="col-12 col-xl order-lg-first">
+      <div class="col-12 col-xl order-<%= themeCustom === 'ecom-beauty' ? '' : 'lg-'%>first">
         <h2 class="footer__title footer__store">
           <%= footer.description.title || _.settings.name %>
         </h2>
@@ -180,6 +181,20 @@ const contacts = _.cms('contacts') || {}
       <span>
         <%= footer.credits || `© ${_.store.name} / ${contacts.address} / ${contacts.doc_number}` %>
       </span>
+      <% if (themeCustom === 'ecom-beauty') { %>
+        <div class="ecom-credits-container">
+          <div class="ecom-credits">
+            <a href="https://e-com.plus" target="_blank" rel="noopener">
+              <img
+                src="img/ecom-credits-white.png"
+                alt="E-Com Plus"
+                width="125.42"
+                height="20"
+              >
+            </a>
+          </div>
+        </div>
+      <% } %>
       <button
         id="go-to-top"
         class="btn btn-primary ml-3"
@@ -189,7 +204,7 @@ const contacts = _.cms('contacts') || {}
         <i class="i-chevron-up"></i>
       </button>
     </div>
-  </div>
+  </div>  
 </footer>
 
 <%- await include('@/layout/inc/ecom-credits') %>
