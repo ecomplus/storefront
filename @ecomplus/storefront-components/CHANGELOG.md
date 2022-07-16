@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.127](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.126...@ecomplus/storefront-components@1.0.0-beta.127) (2022-07-16)
+
+
+### Features
+
+* **template/pages:** extending `ecom-beauty` theme with custom ejs ([#746](https://github.com/ecomplus/storefront/issues/746)) ([e728267](https://github.com/ecomplus/storefront/commit/e72826710b0a3c9b95c92a20bdc73171dc27fac3))
+
+
+
+
+
 # [1.0.0-beta.126](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.125...@ecomplus/storefront-components@1.0.0-beta.126) (2022-07-06)
 
 
