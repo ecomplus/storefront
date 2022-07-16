@@ -448,8 +448,12 @@ main .header {
   background-color: #272b30;
   border-color: #EFEDF0;
 }
+main .header__row {
+  padding: 0 16px;
+}
 main .header__buttons .btn {
   font-size: 26px;
+  margin-left: 0;
 }
 main .header__buttons .i-user::before {
   content: "\f2bd";
@@ -465,6 +469,16 @@ main .header__search {
 }
 main .header__search .i-search {
   color: #5F506B;
+}
+main .header__page-links a {
+  color: #707070;
+  font-weight: 500;
+  font-size: 13px;
+}
+@media (min-width: 992px) {
+  main .header__page-links a {
+    margin-right: 30px;
+  }
 }
 
 div > .header__nav--full {
@@ -623,14 +637,45 @@ main .product .variations__option:hover, main .product .variations__option:focus
 main .product__buy {
   margin-top: 24px;
 }
-main .product__buy button {
+main .product__buy .btn-lg {
   padding: 8px 24px;
   font-weight: 600;
+  box-sizing: border-box;
+  height: 44px;
+  width: 173px;
 }
 @media (max-width: 575.98px) {
-  main .product__buy button {
+  main .product__buy .btn-lg {
     width: 100%;
   }
+}
+main .product__buy .quantity-selector__btn-container {
+  height: 44px;
+  width: 135px;
+  margin-right: calc(var(--spacer-3) + var(--spacer-1));
+  justify-content: center;
+  border: 1px solid #C8C8C8;
+  border-radius: 4px;
+}
+main .product__buy .quantity-selector__input {
+  border: none;
+}
+main .product__buy .i-chevron-up::before,
+main .product__buy .i-chevron-down::before {
+  display: flex;
+  border: 1px solid #222222;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 21px;
+  font-size: 18px;
+}
+main .product__buy .i-chevron-up::before {
+  content: "+";
+}
+main .product__buy .i-chevron-down::before {
+  content: "-";
 }
 main .product .share-network-whatsapp {
   color: #777777;
@@ -792,6 +837,11 @@ main .footer__credits button {
   border-color: #777777;
   color: #272b30;
 }
+@media (max-width: 575.98px) {
+  main .footer__credits {
+    flex-direction: column;
+  }
+}
 main .footer__payment-methods i {
   background-color: #272b30;
   border-radius: 5px;
@@ -803,11 +853,20 @@ main .footer__social i {
   color: #272b30;
   font-size: 33px;
 }
+main .ecom-credits-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
 main .ecom-credits {
   background-color: #222222;
+  padding-right: 6px;
 }
 main .ecom-credits a {
   color: #272b30;
+}
+main .ecom-credits img {
+  max-width: initial;
 }
 
 main {
@@ -835,6 +894,10 @@ main .top-bar__page-links a {
   color: #707070;
   font-size: 13px;
   font-weight: 500;
+}
+main .top-bar__contacts-container {
+  margin-right: 0;
+  margin-left: auto;
 }
 main .top-bar .i-facebook,
 main .top-bar .i-youtube,
@@ -968,4 +1031,25 @@ main .blog .card-title::after {
   height: 1px;
   margin-top: 25px;
   background-color: #9B9B9B;
+}
+main .blog .blog-post-link {
+  color: #777777;
+  font-size: 14px;
+}
+main .blog .blog-post-date {
+  color: #222222;
+  font-size: 13px;
+}
+main form .form-control {
+  color: #3D414A;
+}
+main form .form-control:focus {
+  border: 1px solid #158DF6;
+}
+main form .custom-select:focus {
+  border: 1px solid #158DF6;
+}
+main form .custom-select option {
+  background-color: var(--body-bg);
+  color: #60688B;
 }
