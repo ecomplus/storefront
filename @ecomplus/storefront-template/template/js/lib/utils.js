@@ -43,7 +43,7 @@ if ($pictures.length) {
         const width = parseInt($picture.dataset.width, 10)
         if (width > 0) {
           const $parent = $picture.parentElement
-          $parent.css('min-height', $parent.innerWidth() * height / width)
+          $parent.style.minHeight = `${($parent.clientWidth * height / width)}px`
         }
       }
     })
