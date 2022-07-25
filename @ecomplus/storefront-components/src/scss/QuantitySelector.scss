@@ -1,6 +1,10 @@
 .quantity-selector {
   &__btn-container {
     min-width: 7rem;
+
+    button {
+      max-width: 28px;
+    }
   }
 
   &__item {
