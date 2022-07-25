@@ -197,6 +197,10 @@ export default ({ baseDir }) => ({
         {
           label: 'Line Awesome',
           value: 'line-awesome'
+        },
+        {
+          label: 'Bootstrap Icons',
+          value: 'bootstrap-icons'
         }
       ]
     },
