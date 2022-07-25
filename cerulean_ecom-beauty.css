@@ -337,8 +337,21 @@ main .product__buy .quantity-selector__btn-container {
   border: 1px solid #C8C8C8;
   border-radius: 4px;
 }
+main .product__buy .quantity-selector__btn-container button {
+  padding: var(--spacer-2) var(--spacer-1);
+}
+@media (max-width: 575.98px) {
+  main .product__buy .quantity-selector__btn-container {
+    display: none;
+  }
+}
 main .product__buy .quantity-selector__input {
   border: none;
+}
+@media (max-width: 575.98px) {
+  main .product__buy .quantity-selector__label {
+    width: 100%;
+  }
 }
 main .product__buy .i-chevron-up::before,
 main .product__buy .i-chevron-down::before {
@@ -356,6 +369,11 @@ main .product__buy .i-chevron-up::before {
 }
 main .product__buy .i-chevron-down::before {
   content: "-";
+}
+@media (max-width: 575.98px) {
+  main .product .quantity-selector__buy button {
+    width: 100%;
+  }
 }
 main .product .share-network-whatsapp {
   color: #777777;
