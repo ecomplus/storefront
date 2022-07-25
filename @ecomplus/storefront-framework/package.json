@@ -41,7 +41,7 @@
     "@babel/preset-env": "^7.18.9",
     "@ecomplus/storefront-renderer": "^2.8.17",
     "@ecomplus/storefront-router": "^2.2.1",
-    "autoprefixer": "^10.4.4",
+    "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^6.4.1",
