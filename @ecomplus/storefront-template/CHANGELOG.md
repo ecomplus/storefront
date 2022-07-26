@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.182](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.181...@ecomplus/storefront-template@2.0.0-beta.182) (2022-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update boostrap and other non-major dependencies ([#754](https://github.com/ecomplus/storefront/issues/754)) ([c962e3f](https://github.com/ecomplus/storefront/commit/c962e3ff7c2c59ed5918598b45a29d8093e9fa45)), closes [#d2h-075385](https://github.com/ecomplus/storefront/issues/d2h-075385)
+* **template/themes:** repair quantity selector broken styles on ecom-beauty theme ([#753](https://github.com/ecomplus/storefront/issues/753)) ([fa3c78d](https://github.com/ecomplus/storefront/commit/fa3c78d1fdb49a11bf05c767140a61fe1ca5ff18))
+
+
+### Features
+
+* **twbs/icons:** new Bootstrap Icons iconset ([#759](https://github.com/ecomplus/storefront/issues/759)) ([fe7ca9a](https://github.com/ecomplus/storefront/commit/fe7ca9ad2e47a8e7468b708bac70a21bf2591445))
+
+
+
+
+
 # [2.0.0-beta.181](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.180...@ecomplus/storefront-template@2.0.0-beta.181) (2022-07-16)
 
 

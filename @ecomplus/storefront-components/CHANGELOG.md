@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.128](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.127...@ecomplus/storefront-components@1.0.0-beta.128) (2022-07-26)
+
+
+### Bug Fixes
+
+* **template/themes:** repair quantity selector broken styles on ecom-beauty theme ([#753](https://github.com/ecomplus/storefront/issues/753)) ([fa3c78d](https://github.com/ecomplus/storefront/commit/fa3c78d1fdb49a11bf05c767140a61fe1ca5ff18))
+
+
+
+
+
 # [1.0.0-beta.127](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.126...@ecomplus/storefront-components@1.0.0-beta.127) (2022-07-16)
 
 
