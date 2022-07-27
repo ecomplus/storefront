@@ -201,6 +201,10 @@ export default ({ baseDir }) => ({
         {
           label: 'Bootstrap Icons',
           value: 'bootstrap-icons'
+        },
+        {
+          label: 'Feather Icons',
+          value: 'feather-icons'
         }
       ]
     },
