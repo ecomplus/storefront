@@ -203,6 +203,10 @@ export default ({ baseDir }) => ({
           value: 'bootstrap-icons'
         },
         {
+          label: 'Tabler Icons',
+          value: 'tabler-icons'
+        },
+        {
           label: 'Feather Icons',
           value: 'feather-icons'
         }
