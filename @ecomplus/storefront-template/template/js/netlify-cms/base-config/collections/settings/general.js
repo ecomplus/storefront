@@ -205,6 +205,10 @@ export default ({ baseDir }) => ({
         {
           label: 'Tabler Icons',
           value: 'tabler-icons'
+        },
+        {
+          label: 'Feather Icons',
+          value: 'feather-icons'
         }
       ]
     },
