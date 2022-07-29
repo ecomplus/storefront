@@ -18,7 +18,10 @@ if ((isSafari || isIOS || isIE) && !isSafariNew) {
 }
 
 if (!isScreenXs) {
-  new Collapse(document.querySelector('.footer .collapse')).show()
+  const $collapseEls = document.querySelectorAll('.footer .collapse')
+  if ($collapseEls && $collapseEls.length) {
+    $collapseEls.forEach($collapse => new Collapse($collapse).show())
+  }
 }
 
 document.querySelectorAll('.whatsapp-link').forEach(function ($wppLink) {
@@ -89,9 +92,13 @@ if ($timers.length) {
   })
 }
 
-document.getElementById('go-to-top').addEventListener('click', () => {
-  window.scroll({
-    top: 0,
-    behavior: 'smooth'
+const $goToTop = document.getElementById('go-to-top')
+
+if ($goToTop) {
+  $goToTop.addEventListener('click', () => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
   })
-})
+}
