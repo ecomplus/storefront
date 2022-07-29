@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.3.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@7.2.0...@ecomplus/storefront-twbs@7.3.0) (2022-07-28)
+
+
+### Features
+
+* **twbs/icons:** New Feather Icons iconset ([#761](https://github.com/ecomplus/storefront/issues/761)) ([20515e0](https://github.com/ecomplus/storefront/commit/20515e0deb944a2f041ff449c171a98fcd65ea7f))
+* **twbs/icons:** new tabler icons iconset ([#760](https://github.com/ecomplus/storefront/issues/760)) ([db8b966](https://github.com/ecomplus/storefront/commit/db8b966d3d0ae80773fce1ca695421c9999c46da))
+
+
+
+
+
+# [7.2.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@7.1.0...@ecomplus/storefront-twbs@7.2.0) (2022-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update boostrap and other non-major dependencies ([#754](https://github.com/ecomplus/storefront/issues/754)) ([c962e3f](https://github.com/ecomplus/storefront/commit/c962e3ff7c2c59ed5918598b45a29d8093e9fa45)), closes [#d2h-075385](https://github.com/ecomplus/storefront/issues/d2h-075385)
+
+
+### Features
+
+* **twbs/icons:** new Bootstrap Icons iconset ([#759](https://github.com/ecomplus/storefront/issues/759)) ([fe7ca9a](https://github.com/ecomplus/storefront/commit/fe7ca9ad2e47a8e7468b708bac70a21bf2591445))
+
+
+
+
+
 # [7.1.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@7.0.0...@ecomplus/storefront-twbs@7.1.0) (2022-01-24)
 
 

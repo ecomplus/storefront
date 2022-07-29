@@ -11,6 +11,7 @@
 
 /@ecomplus/storefront-template/template/public/assets/vendor/
 /@ecomplus/storefront-template/template/scss/styles.scss
+/@ecomplus/storefront-template/template/js/lib/theme.js
 
 /@ecomplus/storefront-twbs/scss/animate.css/
 /@ecomplus/storefront-twbs/scss/bootstrap/

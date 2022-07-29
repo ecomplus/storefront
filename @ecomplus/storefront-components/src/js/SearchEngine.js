@@ -35,6 +35,7 @@ import {
 import lozad from 'lozad'
 import EcomSearch from '@ecomplus/search-engine'
 import { Portal } from '@linusborg/vue-simple-portal'
+import scrollToElement from './helpers/scroll-to-element'
 import ABackdrop from '../ABackdrop.vue'
 import ProductCard from '../ProductCard.vue'
 
@@ -131,6 +132,7 @@ export default {
       lastRequestId: null,
       isScheduled: false,
       isLoadingMore: false,
+      mustSkipLoadMore: false,
       hasNetworkError: false,
       popularItems: [],
       hasSetPopularItems: false,
@@ -224,10 +226,18 @@ export default {
     loadObserver () {
       return this.canLoadMore && lozad('#search-engine-load-more', {
         load: () => {
-          this.isLoadingMore = true
-          this.fetchItems()
+          if (!this.mustSkipLoadMore) {
+            this.mustSkipLoadMore = this.isLoadingMore = true
+            this.fetchItems()
+          }
         }
       })
+    },
+
+    pageAnchorIndex () {
+      const count = this.suggestedItems.length
+      const rest = count % this.pageSize
+      return (rest === 0 ? count - this.pageSize : count - rest) - 1
     }
   },
 
@@ -266,7 +276,13 @@ export default {
         })
         .finally(() => {
           this.countOpenRequests--
-          this.isLoadingMore = false
+          if (this.isLoadingMore) {
+            this.isLoadingMore = false
+            this.$nextTick(() => setTimeout(() => {
+              this.mustSkipLoadMore = false
+              this.loadObserver.observe()
+            }, 300))
+          }
         })
       this.$emit('fetch', { ecomSearch, fetching, isPopularItems })
     },
@@ -575,7 +591,11 @@ export default {
     isSearching (isSearching) {
       if (!isSearching && this.loadObserver) {
         this.$nextTick(() => {
-          this.loadObserver.observe()
+          if (!this.mustSkipLoadMore) {
+            this.loadObserver.observe()
+          } else {
+            setTimeout(() => scrollToElement(this.$refs.pageAnchor[0], 40), 100)
+          }
         })
       }
     }

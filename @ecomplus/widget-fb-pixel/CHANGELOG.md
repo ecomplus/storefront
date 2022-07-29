@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.5.0...@ecomplus/widget-fb-pixel@1.5.1) (2022-05-11)
+
+
+### Bug Fixes
+
+* **widget-fb-pixel:** save order id sent to prevent duplicated purchase ([2b7a09f](https://github.com/ecomplus/storefront/commit/2b7a09fec064b1848bbc9fa833339990544f37ff))
+
+
+
+
+
+# [1.5.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.4.1...@ecomplus/widget-fb-pixel@1.5.0) (2022-04-21)
+
+
+### Bug Fixes
+
+* **widget-fb-pixel:** fix handling json order param for amount ([89cfba1](https://github.com/ecomplus/storefront/commit/89cfba1608106f8140b1a127a020a755e2c3c2b1))
+* **widget-fb-pixel:** send `eventID` to prevent duplicated entries with conversions api ([a67d313](https://github.com/ecomplus/storefront/commit/a67d31393abc4cca864cd46c2cbc3a2ba03dc6fb))
+
+
+### Features
+
+* **widget-fb-pixel:** add metafieldto order with info for fb conversions api app ([523c631](https://github.com/ecomplus/storefront/commit/523c6317474c2f4dd183e28436d637eb26f79263))
+
+
+
+
+
 ## [1.4.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.4.0...@ecomplus/widget-fb-pixel@1.4.1) (2022-02-16)
 
 

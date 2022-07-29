@@ -3,6 +3,93 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.19.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.19.4...@ecomplus/storefront-framework@5.19.5) (2022-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update boostrap and other non-major dependencies ([#754](https://github.com/ecomplus/storefront/issues/754)) ([c962e3f](https://github.com/ecomplus/storefront/commit/c962e3ff7c2c59ed5918598b45a29d8093e9fa45)), closes [#d2h-075385](https://github.com/ecomplus/storefront/issues/d2h-075385)
+
+
+
+
+
+## [5.19.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.19.3...@ecomplus/storefront-framework@5.19.4) (2022-07-16)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.19.3](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.19.2...@ecomplus/storefront-framework@5.19.3) (2022-07-06)
+
+
+### Bug Fixes
+
+* **deps:** revert vue to 2.6.x ([555d642](https://github.com/ecomplus/storefront/commit/555d6421e977b2263bb446dba389a2ec20677594))
+
+
+
+
+
+## [5.19.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.19.1...@ecomplus/storefront-framework@5.19.2) (2022-07-04)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.19.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.19.0...@ecomplus/storefront-framework@5.19.1) (2022-06-03)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+# [5.19.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.18.7...@ecomplus/storefront-framework@5.19.0) (2022-05-15)
+
+
+### Features
+
+* **framework/webpack:** inject brand colors from settings to scss as vars ([c4f7705](https://github.com/ecomplus/storefront/commit/c4f7705074e8ddde838eca633c2ebbc002cb1f67))
+
+
+
+
+
+## [5.18.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.18.6...@ecomplus/storefront-framework@5.18.7) (2022-05-11)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#700](https://github.com/ecomplus/storefront/issues/700)) ([4efe044](https://github.com/ecomplus/storefront/commit/4efe0443ec84310e332fd5d40615377a152c927f))
+
+
+
+
+
+## [5.18.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.18.5...@ecomplus/storefront-framework@5.18.6) (2022-05-06)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.18.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.18.4...@ecomplus/storefront-framework@5.18.5) (2022-04-21)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#684](https://github.com/ecomplus/storefront/issues/684)) ([be1d1c2](https://github.com/ecomplus/storefront/commit/be1d1c2d5fb5ed55179eeec5f20846331bfab1ed))
+
+
+
+
+
 ## [5.18.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.18.3...@ecomplus/storefront-framework@5.18.4) (2022-04-01)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

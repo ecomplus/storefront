@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.128](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.127...@ecomplus/widget-search-engine@1.0.0-beta.128) (2022-07-28)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.127](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.126...@ecomplus/widget-search-engine@1.0.0-beta.127) (2022-07-26)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.126](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.125...@ecomplus/widget-search-engine@1.0.0-beta.126) (2022-07-16)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.125](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.124...@ecomplus/widget-search-engine@1.0.0-beta.125) (2022-07-06)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.124](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.123...@ecomplus/widget-search-engine@1.0.0-beta.124) (2022-07-04)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.123](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.122...@ecomplus/widget-search-engine@1.0.0-beta.123) (2022-06-03)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.122](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.121...@ecomplus/widget-search-engine@1.0.0-beta.122) (2022-05-18)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.121](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.120...@ecomplus/widget-search-engine@1.0.0-beta.121) (2022-05-17)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.120](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.119...@ecomplus/widget-search-engine@1.0.0-beta.120) (2022-05-14)
+
+
+### Bug Fixes
+
+* **widget-search-engine:** force div min height when replacing search snap ([cc8fd29](https://github.com/ecomplus/storefront/commit/cc8fd29273d319cb7966499acf7c509dc1649a93))
+
+
+
+
+
+# [1.0.0-beta.119](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.118...@ecomplus/widget-search-engine@1.0.0-beta.119) (2022-05-06)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
+# [1.0.0-beta.118](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.117...@ecomplus/widget-search-engine@1.0.0-beta.118) (2022-04-21)
+
+**Note:** Version bump only for package @ecomplus/widget-search-engine
+
+
+
+
+
 # [1.0.0-beta.117](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.116...@ecomplus/widget-search-engine@1.0.0-beta.117) (2022-04-01)
 
 **Note:** Version bump only for package @ecomplus/widget-search-engine

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.6.1...@ecomplus/widget-tag-manager@1.6.2) (2022-05-11)
+
+
+### Bug Fixes
+
+* **widget-tag-manager:** save order id sent to prevent duplicated purchase ([dabbc5f](https://github.com/ecomplus/storefront/commit/dabbc5fd1e475db98e8a6e475a02fbecdf6ac181))
+
+
+
+
+
 ## [1.6.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.6.0...@ecomplus/widget-tag-manager@1.6.1) (2022-02-16)
 
 

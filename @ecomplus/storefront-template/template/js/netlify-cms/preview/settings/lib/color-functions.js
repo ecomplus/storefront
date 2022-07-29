@@ -123,6 +123,10 @@ const bootswatchColors = {
 }
 
 const customThemesColors = {
+  'ecom-beauty': {
+    primary: '#e83e8c',
+    secondary: '#37003c'
+  },
   'clean-dark': {
     secondary: '#fff'
   },

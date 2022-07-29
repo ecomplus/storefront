@@ -1,5 +1,6 @@
 <%
 const posts = _.cms('posts')
+const themeCustom = _.settings.theme.custom || ''
 if (Array.isArray(posts) && posts.length) {
   %>
     <div class="blog my-4 my-lg-5">
@@ -16,7 +17,7 @@ if (Array.isArray(posts) && posts.length) {
             return b.date > a.date ? 1 : -1
           })
           postsList.forEach(post => { 
-            const { title, slug, thumbnail, description } = post 
+            const { title, slug, thumbnail, description, date } = post 
             %>
             <div class="col col-md-6 col-lg-4">
               <div class="card">
@@ -30,14 +31,28 @@ if (Array.isArray(posts) && posts.length) {
                   </a>
                 <% } %>
                 <div class="card-body">
+                  <span class="blog-post-date <%= themeCustom === 'ecom-beauty' ? '' : ' d-none' %>">
+                    <% const postDate = _.ecomUtils.formatDate(date) %>
+                    <%= postDate %>
+                  </span>
                   <h5 class="card-title">
                     <a href="/posts/<%= slug %>">
                       <%= title %>
                     </a>
                   </h5>
-                  <p class="card-text">
-                    <%= description %>
-                  </p>
+                  <% if(themeCustom === 'ecom-beauty') { %>
+                    <a
+                      href="/posts/<%= slug %>"
+                      class="blog-post-link"
+                    >
+                      <%- _.dictionary('seeMore') %>
+                      <i class="i-chevron-right"></i>
+                    </a>
+                  <% } else { %>
+                    <p class="card-text">
+                      <%= description %>
+                    </p>
+                  <% } %>
                 </div>
               </div>
             </div>

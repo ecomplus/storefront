@@ -2,6 +2,7 @@
 // load header options and contacts from content
 const header = _.cms('header') || {}
 const contacts = _.cms('contacts') || {}
+const themeCustom = _.settings.theme.custom || ''
 
 // social networks handled by contacts
 const networks = [
@@ -10,7 +11,8 @@ const networks = [
   'instagram',
   'twitter',
   'pinterest',
-  'linkedin'
+  'linkedin',
+  'tiktok'
 ]
 
 // marketing stripe custom styles
@@ -70,37 +72,33 @@ const hasMegamenu = header.desktop_megamenu
   <div class="top-bar__nav d-none d-md-block">
     <div class="container-fluid">
       <div class="row">
-        <div class="col">
+        <div class="col d-flex">
           <nav class="top-bar__page-links">
             <% if (header.contacts_stripe.pages) { %>
-              <% header.contacts_stripe.pages.forEach(({ link, title }) => { %>
-                <a href="<%= link %>"><%= title %></a>
-              <% }) %>
+              <div class="<%= (themeCustom === 'ecom-beauty' && isCategoriesNavFull) ? 'd-lg-none' : '' %>">
+                <% header.contacts_stripe.pages.forEach(({ link, title }) => { %>
+                  <a href="<%= link %>"><%= title %></a>
+                <% }) %>
+              </div>
             <% } %>
           </nav>
           <% if (header.contacts_stripe.phone_wpp) { %>
-            <% if (contacts.whatsapp) { %>
-              <a
-                href="javascript:;"
-                target="_blank"
-                rel="noopener"
-                class="whatsapp-link"
-                data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>"
-              >
-                <i class="i-whatsapp"></i>
-                <%= contacts.whatsapp %>
-              </a>
-            <% } %>
-            <% if (contacts.phone) { %>
-              <a
-                href="tel:+<%= contacts.phone.replace(/\D/g, '') %>"
-                target="_blank"
-                rel="noopener"
-              >
-                <i class="i-phone"></i>
-                <%= contacts.phone %>
-              </a>
-            <% } %>
+            <div class="top-bar__contacts-container">
+              <% if (contacts.whatsapp) { %>
+                <a href="javascript:;" target="_blank" rel="noopener" class="whatsapp-link"
+                  data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>">
+                  <i class="i-whatsapp"></i>
+                  <%= contacts.whatsapp %>
+                </a>
+                <% } %>
+              <% if (contacts.phone) { %>
+                <a href="tel:+<%= contacts.phone.replace(/\D/g, '') %>" target="_blank" rel="noopener">
+                  <i class="i-phone"></i>
+                  <%= contacts.phone %>
+                </a>
+              <% } %>
+            </div>
+            
           <% } %>
         </div>
         <% if (header.contacts_stripe.socials) { %>
@@ -252,15 +250,28 @@ const hasMegamenu = header.desktop_megamenu
         </div>
       <% } %>
 
+      <% if (themeCustom === 'ecom-beauty' && isCategoriesNavFull) { %>
+        <% if (header.contacts_stripe.pages) { %>
+          <div class="header__page-links d-none d-lg-inline-block">
+            <% header.contacts_stripe.pages.forEach(({ link, title })=> { %>
+              <a href="<%= link %>">
+                <%= title %>
+              </a>
+            <% }) %>
+          </div>
+        <% } %>
+      <% } %>
+
       <% if (categories && categories.length) { %>
         <div class="d-none d-lg-block <%= isCategoriesNavFull ? 'col-12 order-lg-last' : 'col' %>">
           <nav class="header__nav<%= isCategoriesNavFull ? ' header__nav--full' : '' %>">
-            <% categories.forEach(({ slug, name}) => { %>
+            <% categories.forEach(({ slug, name, _id}) => { %>
               <% let $categoryLink %>
               <div class="d-inline-block">
                 <a
                   href="javascript:;"
                   class="header__category"
+                  id="cd-<%= _id %>"
                   <%- hasMegamenu
                     ? `onmouseover="toggleSubmenu('${slug}', this)" onclick="toggleSubmenu('${slug}', this, true)"`
                     : `onclick="toggleSidenav('${slug}')"` %>
@@ -274,10 +285,10 @@ const hasMegamenu = header.desktop_megamenu
                     <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
                       <% subcategories.forEach(subcategory => { %>
                         <div>               
-                          <a href="/<%= subcategory.slug %>"><%= subcategory.name %></a>
+                          <a id="sd-<%= subcategory._id %>" href="/<%= subcategory.slug %>"><%= subcategory.name %></a>
                           <% const thirdCategories = _.categories.filter(({ parent }) => parent && parent.slug === subcategory.slug) %>
                           <% thirdCategories.forEach(thirdCategory => { %>
-                            <a class="header__submenu-subcategory" href="/<%= thirdCategory.slug %>">
+                            <a id="td-<%= thirdCategory._id %>" class="header__submenu-subcategory" href="/<%= thirdCategory.slug %>">
                               <%= thirdCategory.name %>
                             </a>
                           <% }) %>

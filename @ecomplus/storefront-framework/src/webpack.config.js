@@ -40,8 +40,10 @@ const filenameSchema = process.env.WEBPACK_OUTPUT_FILENAME || '[name].[contentha
 
 // inject brand colors
 let scssInject = `$primary: ${primaryColor}; ` +
-`$secondary: ${secondaryColor}; ` +
-`$settings-theme: ${jsonSassVars.convertJs(settings.theme || {})}; `
+  `$secondary: ${secondaryColor}; ` +
+  `$settings-theme: ${jsonSassVars.convertJs(settings.theme || {})}; ` +
+  `$settings-primary-color: "${settings.primary_color}"; ` +
+  `$settings-secondary-color: "${settings.secondary_color}"; `
 if (settings.icons_font && settings.icons_font.length > 2) {
   scssInject += `$icons-font: "${settings.icons_font}"; `
 }
@@ -184,7 +186,7 @@ let config = {
             presets: [
               ['@babel/preset-env', {
                 useBuiltIns: 'usage',
-                corejs: '3.20',
+                corejs: '3.23',
                 modules: false
               }]
             ],

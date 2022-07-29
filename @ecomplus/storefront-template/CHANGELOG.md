@@ -3,6 +3,197 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.183](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.182...@ecomplus/storefront-template@2.0.0-beta.183) (2022-07-28)
+
+
+### Bug Fixes
+
+* **template/footer:** use ecom credits white image from CDN ([9a91921](https://github.com/ecomplus/storefront/commit/9a9192158df0c9b5c40262131bdc8c2ab7bb32b4))
+
+
+### Features
+
+* **twbs/icons:** New Feather Icons iconset ([#761](https://github.com/ecomplus/storefront/issues/761)) ([20515e0](https://github.com/ecomplus/storefront/commit/20515e0deb944a2f041ff449c171a98fcd65ea7f))
+* **twbs/icons:** new tabler icons iconset ([#760](https://github.com/ecomplus/storefront/issues/760)) ([db8b966](https://github.com/ecomplus/storefront/commit/db8b966d3d0ae80773fce1ca695421c9999c46da))
+
+
+
+
+
+# [2.0.0-beta.182](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.181...@ecomplus/storefront-template@2.0.0-beta.182) (2022-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update boostrap and other non-major dependencies ([#754](https://github.com/ecomplus/storefront/issues/754)) ([c962e3f](https://github.com/ecomplus/storefront/commit/c962e3ff7c2c59ed5918598b45a29d8093e9fa45)), closes [#d2h-075385](https://github.com/ecomplus/storefront/issues/d2h-075385)
+* **template/themes:** repair quantity selector broken styles on ecom-beauty theme ([#753](https://github.com/ecomplus/storefront/issues/753)) ([fa3c78d](https://github.com/ecomplus/storefront/commit/fa3c78d1fdb49a11bf05c767140a61fe1ca5ff18))
+
+
+### Features
+
+* **twbs/icons:** new Bootstrap Icons iconset ([#759](https://github.com/ecomplus/storefront/issues/759)) ([fe7ca9a](https://github.com/ecomplus/storefront/commit/fe7ca9ad2e47a8e7468b708bac70a21bf2591445))
+
+
+
+
+
+# [2.0.0-beta.181](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.180...@ecomplus/storefront-template@2.0.0-beta.181) (2022-07-16)
+
+
+### Features
+
+* **template/pages:** extending `ecom-beauty` theme with custom ejs ([#746](https://github.com/ecomplus/storefront/issues/746)) ([e728267](https://github.com/ecomplus/storefront/commit/e72826710b0a3c9b95c92a20bdc73171dc27fac3))
+
+
+
+
+
+# [2.0.0-beta.180](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.179...@ecomplus/storefront-template@2.0.0-beta.180) (2022-07-06)
+
+
+### Bug Fixes
+
+* **deps:** revert vue to 2.6.x ([555d642](https://github.com/ecomplus/storefront/commit/555d6421e977b2263bb446dba389a2ec20677594))
+
+
+
+
+
+# [2.0.0-beta.179](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.178...@ecomplus/storefront-template@2.0.0-beta.179) (2022-07-05)
+
+
+### Bug Fixes
+
+* **template/setup:** fix settings up local imported `js/lib/theme.js` file ([dfbcdd7](https://github.com/ecomplus/storefront/commit/dfbcdd7b69db9946e2afd8b76e826eec9979cd86))
+
+
+
+
+
+# [2.0.0-beta.178](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.177...@ecomplus/storefront-template@2.0.0-beta.178) (2022-07-04)
+
+
+### Bug Fixes
+
+* **template/scripts:** properly run new `scripts/theme.js` script on build/serve ([5c3d8eb](https://github.com/ecomplus/storefront/commit/5c3d8eb3f33581488dbe2439a0f7af2996a41cf2))
+
+
+### Features
+
+* **components/product:** also show discount tag on extra discount applied ([#716](https://github.com/ecomplus/storefront/issues/716)) ([5c9a09c](https://github.com/ecomplus/storefront/commit/5c9a09c4b9b3f4e85cdcf3c9df1872ed071cf331))
+* **template/header:** add tiktok icon if configured ([#725](https://github.com/ecomplus/storefront/issues/725)) ([e42fd18](https://github.com/ecomplus/storefront/commit/e42fd189aa6fe4903177385dbc60ad0a24cdd1d9))
+* **template/themes:** start handling optional theme js config ([#728](https://github.com/ecomplus/storefront/issues/728)) ([af4ad0d](https://github.com/ecomplus/storefront/commit/af4ad0d3407b058c63850f3b8a56273d71f29dba))
+
+
+
+
+
+# [2.0.0-beta.177](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.176...@ecomplus/storefront-template@2.0.0-beta.177) (2022-06-03)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.176](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.175...@ecomplus/storefront-template@2.0.0-beta.176) (2022-05-25)
+
+
+### Bug Fixes
+
+* **themes/ecom-beauty:** ECom.Beauty styles fine tune ([#709](https://github.com/ecomplus/storefront/issues/709)) ([d08ccb7](https://github.com/ecomplus/storefront/commit/d08ccb7b8a182ed7d570e3ddf0e7d83b01f24e31))
+
+
+### Features
+
+* **sections/info-bar:** add title on info bar items ([#710](https://github.com/ecomplus/storefront/issues/710)) ([2513fde](https://github.com/ecomplus/storefront/commit/2513fdeb2ce029c9357041e87a32ac1c95e4a377))
+
+
+
+
+
+# [2.0.0-beta.175](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.174...@ecomplus/storefront-template@2.0.0-beta.175) (2022-05-18)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.174](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.173...@ecomplus/storefront-template@2.0.0-beta.174) (2022-05-17)
+
+
+### Bug Fixes
+
+* **template/scss:** prevent fatal error with undefined `$settings-theme` var ([d9b2663](https://github.com/ecomplus/storefront/commit/d9b2663a41572e7e716a6d10737fd8c74236adca))
+
+
+
+
+
+# [2.0.0-beta.173](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.172...@ecomplus/storefront-template@2.0.0-beta.173) (2022-05-17)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.172](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.171...@ecomplus/storefront-template@2.0.0-beta.172) (2022-05-15)
+
+
+### Bug Fixes
+
+* **template/cms:** setup "ECom.Beauty" theme default colors on preview [[#706](https://github.com/ecomplus/storefront/issues/706)] ([afa67c6](https://github.com/ecomplus/storefront/commit/afa67c619d5b10f0a6693834a24c350910c1e003))
+
+
+### Features
+
+* **template/themes:** use theme default colors when brand colors not configured (empty) [[#706](https://github.com/ecomplus/storefront/issues/706)] ([19879c8](https://github.com/ecomplus/storefront/commit/19879c8d6acee31d802602dd2ea3dd4b36cc3810))
+
+
+
+
+
+# [2.0.0-beta.171](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.170...@ecomplus/storefront-template@2.0.0-beta.171) (2022-05-14)
+
+
+### Features
+
+* **template/cms:** new Storefront theme option "ECom.Beauty" ([bbb4a24](https://github.com/ecomplus/storefront/commit/bbb4a247c828b59d23724f13be09e8ce4adb3a10))
+* **template/themes:** New ECom.Beauty theme ([#695](https://github.com/ecomplus/storefront/issues/695)) ([19f176d](https://github.com/ecomplus/storefront/commit/19f176de37105862bab434fb3dfda3d0683ef431))
+
+
+
+
+
+# [2.0.0-beta.170](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.169...@ecomplus/storefront-template@2.0.0-beta.170) (2022-05-11)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.169](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.168...@ecomplus/storefront-template@2.0.0-beta.169) (2022-05-06)
+
+
+### Bug Fixes
+
+* **template/collection-retail:** render up to 100 items on collection page ([2a1e2cc](https://github.com/ecomplus/storefront/commit/2a1e2ccdc370a7005eab78e731dcf402886fdfd0))
+
+
+
+
+
+# [2.0.0-beta.168](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.167...@ecomplus/storefront-template@2.0.0-beta.168) (2022-04-21)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
 # [2.0.0-beta.167](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.166...@ecomplus/storefront-template@2.0.0-beta.167) (2022-04-01)
 
 

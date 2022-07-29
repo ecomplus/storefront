@@ -5,7 +5,11 @@ if (_.state.products && _.state.products.length) {
   %>
   <div class="collection-retail">
     <%- await include('@/sections/inc/retail-grid', {
-      _, opt: { search, sort: opt.sort }
+      _, opt: {
+        search,
+        sort: opt.sort,
+        page_size: 100
+      }
     }) %>
   </div>
   <%

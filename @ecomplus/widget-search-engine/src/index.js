@@ -143,7 +143,13 @@ export default (options = {}, elId = 'search-engine', paginationElId = 'search-p
                   vm.countRequests++
                   const renderNewItems = () => {
                     vm.canShowItems = true
-                    document.getElementById('search-engine-snap').remove()
+                    const $searchSnap = $searchEngine.querySelector('#search-engine-snap')
+                    const $nextSearchResults = $searchEngine.querySelector('.search-engine__results')
+                    $nextSearchResults.style.minHeight = $searchSnap.offsetHeight + 'px'
+                    $searchSnap.remove()
+                    setTimeout(() => {
+                      $nextSearchResults.style.minHeight = null
+                    }, 600)
                   }
                   if (!vm.canShowItems) {
                     if (vm.countRequests > 1) {

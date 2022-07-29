@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import "header";
+@import "product-card";
+@import "product";
+@import "footer";
+
+main {
+  font-family: 'Poppins';
+
+  .page-title__head h1 {
+    font-family: 'Playfair Display';
+    font-weight: 400;
+    line-height: 42px;
+  }
+  
+  .top-bar {
+    background-color: $body-bg;
+
+    &__nav {
+      color: $body-color-secondary;
+      a {
+        color: #A8A8A8;
+        font-size: 12px;
+      }
+    }
+
+    &__countdown {
+      font-size: 12px;
+    }
+
+    &__page-links {      
+      a {
+        color: #707070;
+        font-size: 13px;
+        font-weight: 500;
+      }
+    }
+
+    &__contacts-container {
+      margin-right: 0;
+      margin-left: auto;
+    }
+
+    .i-facebook,
+    .i-youtube,
+    .i-instagram {
+      color: $secondary-text;
+      font-size: 18px;
+    }
+  }
+
+  .breadcrumb-item {
+    font-size: 12px;
+
+    .i-home {
+      font-size: 16px;
+    }
+
+    & + .breadcrumb-item::before {
+      content: '\226B';
+      color: $secondary;
+      padding-right: 11px;
+      padding-left: 11px;
+    }
+    a {
+      color: $secondary;
+    }
+  
+    &.active {
+      color: $active-item-color;
+    }
+  }
+
+  .banner-slider {
+    .glide {  
+      &__bullet,
+      &__bullet--active {
+        background-color: $body-bg;
+        border-color: #505050;
+        border-radius: 6px;
+      }
+
+      @media (max-width: 575.98px) {
+        &__bullet {
+          width: 32px;
+          height: 13px;
+        }
+      }
+    }
+    
+    .glide__arrow {
+      display: none;
+    }
+  }
+
+  .info-bar {
+    background-color: $body-bg;
+    box-shadow: 0px 1px 0px rgba($black, .1);
+  
+    &__item {
+      color: $secondary-text;
+      &:hover {
+        color: $secondary-text;
+      }
+      div {
+        .info-bar__title {
+          margin-left: 0;
+          font-family: 'Playfair Display';
+          font-size: 18px;
+          font-weight: bold;
+          font-style: italic;
+        }
+
+        margin-left: 0;
+        font-size: 13px;
+        font-weight: 500;
+        text-transform: none;
+      }
+
+      &::after {
+        background-color: $secondary-text;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      &__nav {
+        .col-auto {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+      }
+    }
+  }
+
+  .products-carousel {
+    &__title {
+      color: $secondary;
+      font-family: 'Playfair Display';
+      font-size: 28px;
+      
+      &::before {
+        display: none;
+      }    
+    }
+
+    .glide__arrow {
+      color: $primary;
+    }
+  }
+
+  .search-engine {
+    &__count {
+      color: $secondary;
+    }
+    
+    &__filter {
+      border: 1px solid #E4E4E4;
+      border-radius: 6px;
+      padding: 20px;
+
+      &--price {
+        h5 {
+          color: $secondary;
+          font-size: 15px;
+          font-weight: 600;
+        }
+      }
+
+      button {
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .custom-control-input {
+        font-size: 14px;
+      }
+
+      .custom-control-input:checked~.custom-control-label::before {
+        background-color: $active-item-color;
+        border-color: $active-item-color;
+      }
+      .custom-checkbox .custom-control-label::before {
+        border-radius: 0;
+        border-color: $secondary;
+      }
+    }
+
+    .card-footer {
+      background-color: $body-bg;
+      box-shadow: 0px -3px 6px rgba($black, .1);
+
+      button {
+        height: 53px;
+        border-radius: 0;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .blog {
+    .card {
+      border: none;
+    }
+
+    .card-title {
+      a {
+        color: $secondary;
+        font-family: 'Playfair Display', 'Regular Roman', sans-serif;
+      }
+    
+      &::after {
+        content: ' ';
+        display: block;
+        width: 60px;
+        height: 1px;
+        margin-top: 25px;
+        background-color: #9B9B9B;
+      }
+    }
+
+    .blog-post-link {
+      color: $secondary;
+      font-size: 14px;
+    }
+
+    .blog-post-date {
+      color: $primary;
+      font-size: 13px;
+    }
+  }
+
+  form {
+    .form-control {
+      color: #3D414A;
+      &:focus {
+        border: 1px solid #158DF6;
+      }
+    }
+    .custom-select {
+      &:focus {
+        border: 1px solid #158DF6;
+      }
+      option {
+        background-color: var(--body-bg);
+        color: #60688B;
+      }
+    }
+  }
+}

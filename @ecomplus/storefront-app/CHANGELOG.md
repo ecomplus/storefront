@@ -3,6 +3,127 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.138](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.137...@ecomplus/storefront-app@2.0.0-beta.138) (2022-07-28)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.137](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.136...@ecomplus/storefront-app@2.0.0-beta.137) (2022-07-26)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.136](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.135...@ecomplus/storefront-app@2.0.0-beta.136) (2022-07-16)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.135](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.134...@ecomplus/storefront-app@2.0.0-beta.135) (2022-07-06)
+
+
+### Bug Fixes
+
+* **deps:** revert vue to 2.6.x ([555d642](https://github.com/ecomplus/storefront/commit/555d6421e977b2263bb446dba389a2ec20677594))
+
+
+
+
+
+# [2.0.0-beta.134](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.133...@ecomplus/storefront-app@2.0.0-beta.134) (2022-07-04)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.133](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.132...@ecomplus/storefront-app@2.0.0-beta.133) (2022-06-03)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.132](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.131...@ecomplus/storefront-app@2.0.0-beta.132) (2022-05-25)
+
+
+### Features
+
+* **app/ec-summary:** show order amout balance if any ([7b9d4b8](https://github.com/ecomplus/storefront/commit/7b9d4b84f6d816b4cd46316c34c72e4ee77dd224))
+
+
+
+
+
+# [2.0.0-beta.131](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.130...@ecomplus/storefront-app@2.0.0-beta.131) (2022-05-18)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.130](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.129...@ecomplus/storefront-app@2.0.0-beta.130) (2022-05-17)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.129](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.128...@ecomplus/storefront-app@2.0.0-beta.129) (2022-05-14)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.128](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.127...@ecomplus/storefront-app@2.0.0-beta.128) (2022-05-11)
+
+
+### Bug Fixes
+
+* **app/checkout:** should not overwrite variation quantity when zero ([4b69bb3](https://github.com/ecomplus/storefront/commit/4b69bb3bc5aa562a8bacb290d244d1e72762e306))
+
+
+
+
+
+# [2.0.0-beta.127](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.126...@ecomplus/storefront-app@2.0.0-beta.127) (2022-05-06)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+
+
+
+
+# [2.0.0-beta.126](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.125...@ecomplus/storefront-app@2.0.0-beta.126) (2022-04-21)
+
+
+### Features
+
+* **app/orders-list:** add pagination to account orders ([#683](https://github.com/ecomplus/storefront/issues/683)) ([38a40e4](https://github.com/ecomplus/storefront/commit/38a40e4025840e16737ecf2e82dcef5432d42d88))
+
+
+### Performance Improvements
+
+* **app/orders-list:** must re-use `APagination` from components lib ([c5d6cf6](https://github.com/ecomplus/storefront/commit/c5d6cf6cb9976a55965edf9c8cd884aade17d517))
+
+
+
+
+
 # [2.0.0-beta.125](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.124...@ecomplus/storefront-app@2.0.0-beta.125) (2022-04-01)
 
 

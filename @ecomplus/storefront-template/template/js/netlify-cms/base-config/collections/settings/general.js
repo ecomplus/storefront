@@ -46,6 +46,10 @@ export default ({ baseDir }) => ({
               value: '_'
             },
             {
+              label: 'ECom.Beauty',
+              value: 'ecom-beauty'
+            },
+            {
               label: 'Clean: Branco',
               value: 'clean-white'
             },
@@ -193,6 +197,18 @@ export default ({ baseDir }) => ({
         {
           label: 'Line Awesome',
           value: 'line-awesome'
+        },
+        {
+          label: 'Bootstrap Icons',
+          value: 'bootstrap-icons'
+        },
+        {
+          label: 'Tabler Icons',
+          value: 'tabler-icons'
+        },
+        {
+          label: 'Feather Icons',
+          value: 'feather-icons'
         }
       ]
     },

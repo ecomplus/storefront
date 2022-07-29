@@ -11,6 +11,12 @@ export default ({ baseDir }) => ({
       widget: 'object',
       fields: [
         {
+          label: 'Título',
+          required: false,
+          name: 'title',
+          widget: 'string'
+        },
+        {
           label: 'Texto',
           required: false,
           name: 'text',
@@ -36,6 +42,12 @@ export default ({ baseDir }) => ({
       name: 'installments',
       widget: 'object',
       fields: [
+        {
+          label: 'Título',
+          required: false,
+          name: 'title',
+          widget: 'string'
+        },
         {
           label: 'Texto',
           required: false,
@@ -63,6 +75,12 @@ export default ({ baseDir }) => ({
       widget: 'object',
       fields: [
         {
+          label: 'Título',
+          required: false,
+          name: 'title',
+          widget: 'string'
+        },
+        {
           label: 'Texto',
           required: false,
           name: 'text',
@@ -88,6 +106,12 @@ export default ({ baseDir }) => ({
       name: 'promo',
       widget: 'object',
       fields: [
+        {
+          label: 'Título',
+          required: false,
+          name: 'title',
+          widget: 'string'
+        },
         {
           label: 'Texto',
           required: false,

@@ -3,6 +3,125 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.129](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.128...@ecomplus/storefront-components@1.0.0-beta.129) (2022-07-28)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+
+
+
+
+# [1.0.0-beta.128](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.127...@ecomplus/storefront-components@1.0.0-beta.128) (2022-07-26)
+
+
+### Bug Fixes
+
+* **template/themes:** repair quantity selector broken styles on ecom-beauty theme ([#753](https://github.com/ecomplus/storefront/issues/753)) ([fa3c78d](https://github.com/ecomplus/storefront/commit/fa3c78d1fdb49a11bf05c767140a61fe1ca5ff18))
+
+
+
+
+
+# [1.0.0-beta.127](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.126...@ecomplus/storefront-components@1.0.0-beta.127) (2022-07-16)
+
+
+### Features
+
+* **template/pages:** extending `ecom-beauty` theme with custom ejs ([#746](https://github.com/ecomplus/storefront/issues/746)) ([e728267](https://github.com/ecomplus/storefront/commit/e72826710b0a3c9b95c92a20bdc73171dc27fac3))
+
+
+
+
+
+# [1.0.0-beta.126](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.125...@ecomplus/storefront-components@1.0.0-beta.126) (2022-07-06)
+
+
+### Bug Fixes
+
+* **deps:** revert vue to 2.6.x ([555d642](https://github.com/ecomplus/storefront/commit/555d6421e977b2263bb446dba389a2ec20677594))
+
+
+
+
+
+# [1.0.0-beta.125](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.124...@ecomplus/storefront-components@1.0.0-beta.125) (2022-07-04)
+
+
+### Features
+
+* **components/product:** also show discount tag on extra discount applied ([#716](https://github.com/ecomplus/storefront/issues/716)) ([5c9a09c](https://github.com/ecomplus/storefront/commit/5c9a09c4b9b3f4e85cdcf3c9df1872ed071cf331))
+
+
+
+
+
+# [1.0.0-beta.124](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.123...@ecomplus/storefront-components@1.0.0-beta.124) (2022-06-03)
+
+
+### Bug Fixes
+
+* **components/product-gallery:** prevent horizontal scroll whith slide dots on mobile ([#718](https://github.com/ecomplus/storefront/issues/718)) ([9df07c6](https://github.com/ecomplus/storefront/commit/9df07c616e908eff783a31010aa5bb6a4a4276bd))
+* **components/product:** fix handling promo countdown with mocked deadline [[#772](https://github.com/ecomplus/storefront/issues/772)] ([4b079d4](https://github.com/ecomplus/storefront/commit/4b079d42024e51a4fd433b47ec1357c0da42351c)), closes [#issuecomment-1141367914](https://github.com/ecomplus/storefront/issues/issuecomment-1141367914)
+
+
+
+
+
+# [1.0.0-beta.123](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.122...@ecomplus/storefront-components@1.0.0-beta.123) (2022-05-18)
+
+
+### Bug Fixes
+
+* **components/search-engine:** edit auto load page anchor to keep showing last item [[#707](https://github.com/ecomplus/storefront/issues/707)] ([702494b](https://github.com/ecomplus/storefront/commit/702494b15f8b527f54bb912f931ef1b0cfcdda9b))
+
+
+
+
+
+# [1.0.0-beta.122](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.121...@ecomplus/storefront-components@1.0.0-beta.122) (2022-05-17)
+
+
+### Bug Fixes
+
+* **components/search-engine:** fix handling load more with scroll to page anchor [[#707](https://github.com/ecomplus/storefront/issues/707)] ([41530b9](https://github.com/ecomplus/storefront/commit/41530b98bddde542f27532c01b42cc8fe29a0a59))
+
+
+
+
+
+# [1.0.0-beta.121](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.120...@ecomplus/storefront-components@1.0.0-beta.121) (2022-05-14)
+
+
+### Bug Fixes
+
+* **components/search-engine:** fix selectors for icon styles ([d9d603a](https://github.com/ecomplus/storefront/commit/d9d603abf943eafe24ad4dc3c36bc2a39d30c52f))
+
+
+
+
+
+# [1.0.0-beta.120](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.119...@ecomplus/storefront-components@1.0.0-beta.120) (2022-05-06)
+
+
+### Bug Fixes
+
+* **components/search-engine:** prevent consecutive load more ([cd0559a](https://github.com/ecomplus/storefront/commit/cd0559a40d18e7e819991ce20bb65f86e5fcafc6))
+
+
+
+
+
+# [1.0.0-beta.119](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.118...@ecomplus/storefront-components@1.0.0-beta.119) (2022-04-21)
+
+
+### Bug Fixes
+
+* **components/address-form:** set inputs maxlength to prevent api error ([#690](https://github.com/ecomplus/storefront/issues/690)) ([82ea8ff](https://github.com/ecomplus/storefront/commit/82ea8fff36d3309d35a4b7332669f33a81a1a03b)), closes [#689](https://github.com/ecomplus/storefront/issues/689)
+
+
+
+
+
 # [1.0.0-beta.118](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.117...@ecomplus/storefront-components@1.0.0-beta.118) (2022-04-01)
 
 

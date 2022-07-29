@@ -83,6 +83,13 @@
         <span>{{ i19discount }}</span>
         <div>{{ formatMoney(amount.discount) }}</div>
       </div>
+      <div
+        v-if="amount.balance"
+        class="summary__amount__row"
+      >
+        <span>{{ i19balanceOrPoints }}</span>
+        <div>{{ formatMoney(amount.balance) }}</div>
+      </div>
 
       <div
         v-if="paidInAdvance > 0"

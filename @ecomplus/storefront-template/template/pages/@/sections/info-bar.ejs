@@ -8,8 +8,8 @@ const barCols = []
   ['promo', 'percent']
 ].forEach(([prop, icon]) => {
   if (info[prop] && info[prop].show) {
-    const { link, text } = info[prop]
-    barCols.push({ link, text, icon })
+    const { link, title, text } = info[prop]
+    barCols.push({ link, title, text, icon })
   }
 })
 %>
@@ -18,14 +18,21 @@ const barCols = []
   <section class="info-bar">
     <div class="container">
       <div class="info-bar__nav row">
-        <% barCols.forEach(({ link, icon, text }) => { %>
+        <% barCols.forEach(({ link, icon, title, text }) => { %>
           <div class="col-auto col-sm-6 col-lg">
             <a class="info-bar__item" href="<%= link || 'javascript:;' %>">
               <span class="rounded-icon">
                 <i class="i-<%= icon %>"></i>
               </span>
               <div class="ml-2 ml-md-3">
-                <%= text %>
+                <% if(title) { %>
+                  <div class="info-bar__title">
+                    <%= title %>
+                  </div>
+                <% } %>
+                <div class="info-bar__text">
+                  <%= text %>
+                </div>
               </div>
             </a>
           </div>
