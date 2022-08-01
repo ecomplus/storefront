@@ -1,16 +1,28 @@
 <%
 const { title, showcaseType } = opt
-if (showcaseType) {
+let productIds
+if (showcaseType === 'related' && _.state.related_products) {
+  const relatedProducts = _.state.related_products.find(relatedProducts => {
+    return relatedProducts.product_ids.length
+  })
+  if (relatedProducts) {
+    productIds = relatedProducts.product_ids
+  }
+}
+if (!productIds && showcaseType) {
   const url = `/products/${_.state._id}/${showcaseType}.json`
   try {
     const { data } = await _.ecomClient.graphs({ url })
-    const productIds = _.ecomUtils.recommendedIds(data)
-    let items = []
-    if (Array.isArray(productIds) && productIds.length) {
-      const search = new _.EcomSearch()
-      await search.setProductIds(productIds).fetch()
-      items = search.getItems()
-    }
+    productIds = _.ecomUtils.recommendedIds(data)
+  } catch (err) {
+    console.error(err)
+  }
+}
+if (Array.isArray(productIds) && productIds.length) {
+  try {
+    const search = new _.EcomSearch()
+    await search.setProductIds(productIds).fetch()
+    const items = search.getItems()
     %>
     <%- await include('@/sections/inc/products-carousel', {
       _, opt: { items, title, showcaseType }
