@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.3.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@7.2.0...@ecomplus/storefront-twbs@7.3.0) (2022-07-28)
+
+
+### Features
+
+* **twbs/icons:** New Feather Icons iconset ([#761](https://github.com/ecomplus/storefront/issues/761)) ([20515e0](https://github.com/ecomplus/storefront/commit/20515e0deb944a2f041ff449c171a98fcd65ea7f))
+* **twbs/icons:** new tabler icons iconset ([#760](https://github.com/ecomplus/storefront/issues/760)) ([db8b966](https://github.com/ecomplus/storefront/commit/db8b966d3d0ae80773fce1ca695421c9999c46da))
+
+
+
+
+
 # [7.2.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@7.1.0...@ecomplus/storefront-twbs@7.2.0) (2022-07-26)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.183](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.182...@ecomplus/storefront-template@2.0.0-beta.183) (2022-07-28)
+
+
+### Bug Fixes
+
+* **template/footer:** use ecom credits white image from CDN ([9a91921](https://github.com/ecomplus/storefront/commit/9a9192158df0c9b5c40262131bdc8c2ab7bb32b4))
+
+
+### Features
+
+* **twbs/icons:** New Feather Icons iconset ([#761](https://github.com/ecomplus/storefront/issues/761)) ([20515e0](https://github.com/ecomplus/storefront/commit/20515e0deb944a2f041ff449c171a98fcd65ea7f))
+* **twbs/icons:** new tabler icons iconset ([#760](https://github.com/ecomplus/storefront/issues/760)) ([db8b966](https://github.com/ecomplus/storefront/commit/db8b966d3d0ae80773fce1ca695421c9999c46da))
+
+
+
+
+
 # [2.0.0-beta.182](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.181...@ecomplus/storefront-template@2.0.0-beta.182) (2022-07-26)
 
 
