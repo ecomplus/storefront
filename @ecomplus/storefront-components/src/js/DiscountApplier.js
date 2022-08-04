@@ -19,7 +19,10 @@ import AAlert from '../AAlert.vue'
 const addFreebieItems = (ecomCart, productIds) => {
   if (Array.isArray(productIds)) {
     productIds.forEach(productId => {
-      if (!ecomCart.data.items.find(item => item.product_id === productId)) {
+      const canAddFreebie = !ecomCart.data.items.find(item => {
+        return item.product_id === productId && item.flags && item.flags.includes('freebie')
+      })
+      if (canAddFreebie) {
         store({ url: `/products/${productId}.json` })
           .then(({ data }) => {
             if (data.quantity > 0 && (!data.variations || !data.variations.length)) {
