@@ -16,6 +16,34 @@ import ecomCart from '@ecomplus/shopping-cart'
 import ecomPassport from '@ecomplus/passport-client'
 import AAlert from '../AAlert.vue'
 
+const addFreebieItems = (ecomCart, productIds) => {
+  if (Array.isArray(productIds)) {
+    productIds.forEach(productId => {
+      const canAddFreebie = !ecomCart.data.items.find(item => {
+        return item.product_id === productId && item.flags && item.flags.includes('freebie')
+      })
+      if (canAddFreebie) {
+        store({ url: `/products/${productId}.json` })
+          .then(({ data }) => {
+            if (data.quantity > 0 && (!data.variations || !data.variations.length)) {
+              ecomCart.addProduct(
+                {
+                  ...data,
+                  flags: ['freebie', '__tmp']
+                },
+                null,
+                productIds.reduce((qnt, _id) => {
+                  return _id === productId ? qnt + 1 : qnt
+                }, 0)
+              )
+            }
+          })
+          .catch(console.error)
+      }
+    })
+  }
+}
+
 export default {
   name: 'DiscountApplier',
 
@@ -56,7 +84,6 @@ export default {
     return {
       alertText: null,
       alertVariant: null,
-      freebieCount: 0,
       isFormVisible: this.isFormAlwaysVisible || this.couponCode,
       isLoading: false,
       localCouponCode: this.couponCode,
@@ -89,33 +116,6 @@ export default {
       this.localAmountTotal = (amount.subtotal || 0) + (amount.freight || 0)
     },
 
-    addFreebieItems (ecomCart, productIds) {
-      if (Array.isArray(productIds)) {
-        productIds.forEach(productId => {
-          const itemFreebie = ecomCart.data.items.find(item => item.product_id === productId)
-          if (!itemFreebie || !this.freebieCount) {
-            store({ url: `/products/${productId}.json` })
-              .then(({ data }) => {
-                if (data.quantity > 0 && (!data.variations || !data.variations.length) && data.available) {
-                  ecomCart.addProduct(
-                    {
-                      ...data,
-                      flags: ['freebie', '__tmp']
-                    },
-                    null,
-                    productIds.reduce((qnt, _id) => {
-                      return _id === productId ? qnt + 1 : qnt
-                    }, 0)
-                  )
-                  this.freebieCount++
-                }
-              })
-              .catch(console.error)
-          }
-        })
-      }
-    },
-
     parseDiscountOptions (listResult = []) {
       let extraDiscountValue = 0
       if (listResult.length) {
@@ -137,7 +137,7 @@ export default {
               invalidCouponMsg = response.invalid_coupon_message
             }
             if (this.canAddFreebieItems) {
-              this.addFreebieItems(this.ecomCart, response.freebie_product_ids)
+              addFreebieItems(this.ecomCart, response.freebie_product_ids)
             }
           }
         })
