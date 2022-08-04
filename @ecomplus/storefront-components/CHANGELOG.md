@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.130](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.129...@ecomplus/storefront-components@1.0.0-beta.130) (2022-08-04)
+
+
+### Bug Fixes
+
+* **components/discount-applier:** allowed insert freebie, if freebie is equal to a product from cart ([#762](https://github.com/ecomplus/storefront/issues/762)) ([ce8e675](https://github.com/ecomplus/storefront/commit/ce8e6759bc3b0448a25cc47f7acd8190111b1fd1))
+* **deps:** update @ecomplus/shopping-cart to v2.5.7 ([b60fb00](https://github.com/ecomplus/storefront/commit/b60fb00e2408864d40f3c46d861eaa0c6080496e))
+
+
+
+
+
 # [1.0.0-beta.129](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.128...@ecomplus/storefront-components@1.0.0-beta.129) (2022-07-28)
 
 **Note:** Version bump only for package @ecomplus/storefront-components

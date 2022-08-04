@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.184](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.183...@ecomplus/storefront-template@2.0.0-beta.184) (2022-08-04)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.5.7 ([b60fb00](https://github.com/ecomplus/storefront/commit/b60fb00e2408864d40f3c46d861eaa0c6080496e))
+
+
+### Features
+
+* **template/recommendations-shelf:** handle manually selected related products ([#765](https://github.com/ecomplus/storefront/issues/765)) ([bcb8504](https://github.com/ecomplus/storefront/commit/bcb850426ba6334b1f2d65311c9dd6bda2a509f8))
+
+
+
+
+
 # [2.0.0-beta.183](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.182...@ecomplus/storefront-template@2.0.0-beta.183) (2022-07-28)
 
 

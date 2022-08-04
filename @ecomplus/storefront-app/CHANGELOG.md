@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.139](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.138...@ecomplus/storefront-app@2.0.0-beta.139) (2022-08-04)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.5.7 ([b60fb00](https://github.com/ecomplus/storefront/commit/b60fb00e2408864d40f3c46d861eaa0c6080496e))
+
+
+
+
+
 # [2.0.0-beta.138](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.137...@ecomplus/storefront-app@2.0.0-beta.138) (2022-07-28)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
