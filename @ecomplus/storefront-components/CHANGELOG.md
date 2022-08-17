@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.131](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.130...@ecomplus/storefront-components@1.0.0-beta.131) (2022-08-17)
+
+
+### Bug Fixes
+
+* **components/product:** must pass kit items with proper quantity to calculate shipping [[#739](https://github.com/ecomplus/storefront/issues/739)] ([c78e11e](https://github.com/ecomplus/storefront/commit/c78e11ea1e4994192006d7607dcceddf739ddb1f))
+* **components/product:** wait kit items fetch to render shipping calculator [[#739](https://github.com/ecomplus/storefront/issues/739)] ([db28ae5](https://github.com/ecomplus/storefront/commit/db28ae59fa26616d2fde9988e3a7279248d19f8c))
+
+
+
+
+
 # [1.0.0-beta.130](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.129...@ecomplus/storefront-components@1.0.0-beta.130) (2022-08-04)
 
 
