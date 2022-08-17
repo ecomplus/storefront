@@ -364,7 +364,7 @@
             </p>
 
             <slot
-              v-if="!isQuickview"
+              v-if="!isQuickview && (!isKit || kitItems.length)"
               name="shipping"
             >
               <shipping-calculator
