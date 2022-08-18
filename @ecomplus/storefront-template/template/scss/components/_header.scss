@@ -111,10 +111,6 @@
     max-width: 500px;
     text-align: left;
     overflow: auto;
-
-    &::after {
-      display: none;
-    }
   
     &::-webkit-scrollbar {
       width: 4px;
@@ -143,6 +139,10 @@
 
       a {
         display: block;
+      }
+      
+      &::after {
+        display: none;
       }
     }
 
