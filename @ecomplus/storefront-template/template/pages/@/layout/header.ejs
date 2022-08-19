@@ -285,7 +285,7 @@ const fullWidthSubmenu = header.full_width_submenu
                   <% const subcategories = _.categories.filter(({ parent }) => parent && parent.slug === slug) %>
                   <% if (subcategories.length) { %>
                     <%
-                      if (alphabeticalOrderSubmenu) {
+                      if (isAlphabeticalOrderSubmenu) {
                         subcategories.sort((a, b)=> {
                           return b.name > a.name ? -1 : 1
                         })
