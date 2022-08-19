@@ -30,12 +30,13 @@
   padding-right: $close-font-size + $alert-padding-x * 2;
 
   // Adjust close link position
+  .btn-close,
   .close {
     position: absolute;
     top: 0;
     right: 0;
     z-index: 2;
-    padding: $alert-padding-y $alert-padding-x;
+    padding: $alert-padding-y * 1.25 $alert-padding-x;
     color: inherit;
   }
 }
