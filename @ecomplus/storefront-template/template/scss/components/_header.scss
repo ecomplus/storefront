@@ -110,6 +110,41 @@
     min-width: 300px;
     max-width: 500px;
     text-align: left;
+    overflow: auto;
+  
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: var(--secondary);
+    }
+  
+    &::-webkit-scrollbar-track {
+      background: var(--primary-yiq);
+    }
+
+    &--full {
+      width: 98%;
+      max-width: 1200px;
+      max-height: 600px;
+      left: 50%;
+      transform: translateX(-50%);
+      scrollbar-width: thin;
+      scrollbar-color: var(--secondary) var(--primary-yiq);
+
+      .header__submenu-subcategory {
+        width: 180px;
+      }
+
+      a {
+        display: block;
+      }
+      
+      &::after {
+        display: none;
+      }
+    }
 
     &::after {
       content: '';
