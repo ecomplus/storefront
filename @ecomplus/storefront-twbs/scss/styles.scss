@@ -65,7 +65,7 @@ $theme-colors: map-merge(
 @import "components/progress";
 // @import "bootstrap/scss/media";
 @import "components/list-group";
-@import "bootstrap/scss/close";
+@import "close";
 @import "bootstrap/scss/toasts";
 @import "components/modal";
 @import "bootstrap/scss/tooltip";
@@ -97,8 +97,10 @@ $theme-colors: map-merge(
 @import "utilities/spacing";
 @import "utilities/text";
 
+@import "backport";
+
 // Animate.css base styles and selected animations
-@import "animate";
+@import "utilities/order";
 
 // Some Font Awesome icons web fonts
 @import "icons";
@@ -108,3 +110,5 @@ $theme-colors: map-merge(
 
 // Custom fonts and additional CSS @import
 @import "imports";
+
+@import "bootstrap/scss/utilities/api";
