@@ -101,14 +101,6 @@
               <a
                 href="#"
                 class="alert-link"
-                @click.prevent="signUpEmail"
-              >
-                {{ i19signUp }}
-              </a>
-              <br>
-              <a
-                href="#"
-                class="alert-link"
                 @click.prevent="hasNoProfileFound = false"
               >
                 {{ i19signInWithAnotherEmail }}
@@ -170,11 +162,7 @@
                 >
                   <i class="i-arrow-left"></i>
                 </button>
-
-                <label
-                  v-if="!isEmailCodeSent"
-                  for="login-modal-email"
-                >
+                <label for="login-modal-email">
                   {{ `${i19signInWith} ${i19email}` }}
                 </label>
                 <input
@@ -185,44 +173,8 @@
                   placeholder="email@mail.com"
                   v-model="email"
                   required
-                  :readonly="isEmailCodeSent"
                 >
               </div>
-
-              <div
-                v-if="isEmailCodeSent"
-                class="form-group"
-              >
-                <a-alert
-                  :can-show="isWrongCode"
-                  variant="warning"
-                >
-                  {{ i19incorrectEmailCodeMsg }}
-                </a-alert>
-
-                <input
-                  ref="inputCode"
-                  type="number"
-                  class="form-control"
-                  id="login-modal-email-code"
-                  placeholder="999999"
-                  min="100000"
-                  max="999999"
-                  maxlength="6"
-                  v-model.number="emailCode"
-                  required
-                >
-                <div class="form-text">
-                  {{ i19enterEmailCodeMsg }}
-                </div>
-                <a
-                  href="#"
-                  @click.prevent="isEmailCodeSent = false"
-                >
-                  {{ i19signInWithAnotherEmail }}
-                </a>
-              </div>
-
               <button
                 type="submit"
                 class="btn btn-block btn-primary"
