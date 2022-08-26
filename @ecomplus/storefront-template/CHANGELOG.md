@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.186](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.185...@ecomplus/storefront-template@2.0.0-beta.186) (2022-08-26)
+
+
+### Features
+
+* **template/header:** Alphabetical sort and full submenu options ([#773](https://github.com/ecomplus/storefront/issues/773)) ([509e431](https://github.com/ecomplus/storefront/commit/509e43156dab5db15298a09e13ee2b13770cd85c))
+
+
+
+
+
 # [2.0.0-beta.185](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.184...@ecomplus/storefront-template@2.0.0-beta.185) (2022-08-17)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

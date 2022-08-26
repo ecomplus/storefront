@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.132](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.131...@ecomplus/storefront-components@1.0.0-beta.132) (2022-08-26)
+
+
+### Reverts
+
+* **components:** removing login/signup by email code ([662db3f](https://github.com/ecomplus/storefront/commit/662db3ff110d746b7222f5a6fd6c9ea647963f02))
+
+
+
+
+
 # [1.0.0-beta.131](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.130...@ecomplus/storefront-components@1.0.0-beta.131) (2022-08-17)
 
 
