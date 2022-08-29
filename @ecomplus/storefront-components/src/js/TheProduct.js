@@ -152,7 +152,7 @@ export default {
       selectedVariationId: null,
       currentGalleyImg: 1,
       isOnCart: false,
-      qntToBuy: 1,
+      qntToBuy: this.product.min_quantity || 1,
       isStickyBuyVisible: false,
       isFavorite: false,
       hasClickedBuy: false,

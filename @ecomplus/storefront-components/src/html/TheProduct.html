@@ -371,7 +371,7 @@
                 :shippedItems="isKit ? kitItems : [{
                   ...body,
                   product_id: body._id,
-                  quantity: body.min_quantity || 1
+                  quantity: qntToBuy || body.min_quantity || 1
                 }]"
               >
                 <template v-slot:free-from-value="{ amountSubtotal, freeFromValue }">
