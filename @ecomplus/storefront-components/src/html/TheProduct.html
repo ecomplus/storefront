@@ -216,7 +216,7 @@
               >
                 <component
                   :is="hasQuantitySelector ? 'quantity-selector' : 'div'"
-                  :items="hasQuantitySelector ? [{ _id: body._id, quantity: 1, min_quantity: body.min_quantity || 1 }] : null"
+                  :items="hasQuantitySelector ? [{ _id: body._id, quantity: body.min_quantity || 1 }] : null"
                   :min="body.min_quantity"
                   :max="body.quantity"
                   :has-buy-button="false"

@@ -152,7 +152,7 @@ export default {
       selectedVariationId: null,
       currentGalleyImg: 1,
       isOnCart: false,
-      qntToBuy: this.product.min_quantity || 1,
+      qntToBuy: 1,
       isStickyBuyVisible: false,
       isFavorite: false,
       hasClickedBuy: false,
@@ -505,6 +505,7 @@ export default {
   created () {
     if (this.product) {
       this.body = this.product
+      this.qntToBuy = this.product.min_quantity || this.qntToBuy
       if (this.isSSR) {
         this.fetchProduct()
       }

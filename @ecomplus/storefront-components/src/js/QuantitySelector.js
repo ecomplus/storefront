@@ -46,7 +46,7 @@ export default {
   data () {
     return {
       selectedQnts: this.items.reduce((selectedQnts, item) => {
-        selectedQnts[item._id] = item.min_quantity || item.quantity || 0
+        selectedQnts[item._id] = item.quantity || 0
         return selectedQnts
       }, {}),
       hasMinAlert: false,
