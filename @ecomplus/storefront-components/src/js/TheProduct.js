@@ -295,7 +295,7 @@ export default {
 
     fetchProduct (isRetry = false) {
       const { productId } = this
-      store({
+      return store({
         url: `/products/${productId}.json`,
         axiosConfig: {
           timeout: isRetry ? 2500 : 6000
@@ -503,13 +503,18 @@ export default {
   },
 
   created () {
+    const presetQntToBuy = () => {
+      this.qntToBuy = this.body.min_quantity || 1
+    }
     if (this.product) {
       this.body = this.product
       if (this.isSSR) {
-        this.fetchProduct()
+        this.fetchProduct().then(presetQntToBuy)
+      } else {
+        presetQntToBuy()
       }
     } else {
-      this.fetchProduct()
+      this.fetchProduct().then(presetQntToBuy)
     }
     this.isFavorite = checkFavorite(this.body._id || this.productId, this.ecomPassport)
   },
