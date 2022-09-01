@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.187](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.186...@ecomplus/storefront-template@2.0.0-beta.187) (2022-09-01)
+
+
+### Bug Fixes
+
+* **template/cms:** add default empty datetime on create slider banner ([#779](https://github.com/ecomplus/storefront/issues/779)) ([d309405](https://github.com/ecomplus/storefront/commit/d3094059210764a1d5ce85c726d20f90ce1ecdf4))
+
+
+
+
+
 # [2.0.0-beta.186](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.185...@ecomplus/storefront-template@2.0.0-beta.186) (2022-08-26)
 
 

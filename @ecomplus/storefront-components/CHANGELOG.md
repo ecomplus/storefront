@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.133](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.132...@ecomplus/storefront-components@1.0.0-beta.133) (2022-09-01)
+
+
+### Bug Fixes
+
+* **components/product:** use min quantity for shipping calculation and quantity selector ([#781](https://github.com/ecomplus/storefront/issues/781)) ([d52e994](https://github.com/ecomplus/storefront/commit/d52e9943af92dca6ca5f9aaf7dff8173798e1d22))
+
+
+
+
+
 # [1.0.0-beta.132](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.131...@ecomplus/storefront-components@1.0.0-beta.132) (2022-08-26)
 
 
