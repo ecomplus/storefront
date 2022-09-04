@@ -34,9 +34,9 @@ const ejsOptions = {
   // resolve absolute includes from template pkg
   root: (process.env.STOREFRONT_FRAMEWORK || process.env.STOREFRONT_RENDERER_WITH_TEMPLATE)
     ? path.join(
-        /^[./A-Z]/.test(templatePkg) ? templatePkg : path.join(paths.modules, templatePkg),
-        'template', 'pages'
-      )
+      /^[./A-Z]/.test(templatePkg) ? templatePkg : path.join(paths.modules, templatePkg),
+      'template', 'pages'
+    )
     : paths.pages,
   // add include paths from node modules and pages directory
   views: [
