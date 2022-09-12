@@ -88,6 +88,7 @@
                       :key="`shipTo${localZipCode}`"
                       :can-select-services="true"
                       :shipped-items="cart.items"
+                      :selected-address-id="selectedAddressId"
                       :zip-code="localZipCode"
                       :can-input-zip="false"
                       @select-service="service => $emit('update:shipping-service', service)"

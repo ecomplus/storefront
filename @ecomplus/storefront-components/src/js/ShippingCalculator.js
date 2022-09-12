@@ -62,6 +62,8 @@ export default {
       type: String,
       default: $ecomConfig.get('country_code')
     },
+    selectedAddressId: null,
+    shippingAddress: null,
     shippedItems: {
       type: Array,
       default () {
@@ -300,6 +302,14 @@ export default {
         }
       },
       immediate: true
+    },
+
+    selectedAddressId: {
+      handler (selectedAddressId) {
+        if (selectedAddressId) {
+          this.fetchShippingServices(true)
+        }
+      }
     }
   },
 

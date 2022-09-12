@@ -284,7 +284,9 @@ export default {
 
     updateZipCode () {
       if (this.shippingAddress) {
-        this.localZipCode = this.shippingAddress.zip
+        setTimeout(() => {
+          this.localZipCode = this.shippingAddress.zip
+        }, 500)
       }
     },
 
