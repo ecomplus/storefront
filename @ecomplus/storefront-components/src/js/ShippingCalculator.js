@@ -62,7 +62,6 @@ export default {
       type: String,
       default: $ecomConfig.get('country_code')
     },
-    shippingAddress: null,
     shippedItems: {
       type: Array,
       default () {
