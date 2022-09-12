@@ -284,16 +284,14 @@ export default {
 
     updateZipCode () {
       if (this.shippingAddress) {
-        setTimeout(() => {
-          this.localZipCode = this.shippingAddress.zip
-        }, 500)
+        this.localZipCode = this.shippingAddress.zip
       }
     },
 
     selectAddress (addressId) {
       this.$emit('address-selected', addressId)
-      this.updateZipCode()
       this.selectedAddressId = addressId
+      this.updateZipCode()
     },
 
     goToTop () {
