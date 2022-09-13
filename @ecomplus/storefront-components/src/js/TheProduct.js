@@ -396,6 +396,7 @@ export default {
       this.$emit('buy', { product, variationId, customizations })
       if (this.canAddToCart) {
         ecomCart.addProduct({ ...product, customizations }, variationId, this.qntToBuy)
+        this.$nextTick(this.customizations = [])
       }
       this.isOnCart = true
     },
