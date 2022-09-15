@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.134](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.133...@ecomplus/storefront-components@1.0.0-beta.134) (2022-09-15)
+
+
+### Bug Fixes
+
+* **components/product:** Avoid mix text in customization ([#785](https://github.com/ecomplus/storefront/issues/785)) ([d534cf2](https://github.com/ecomplus/storefront/commit/d534cf2913100777318697fa6abcbe5e40f8e0fd))
+
+
+
+
+
 # [1.0.0-beta.133](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.132...@ecomplus/storefront-components@1.0.0-beta.133) (2022-09-01)
 
 

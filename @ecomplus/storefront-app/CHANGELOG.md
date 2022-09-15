@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.143](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.142...@ecomplus/storefront-app@2.0.0-beta.143) (2022-09-15)
+
+
+### Bug Fixes
+
+* **app/checkout:** ensure update zip and calculate shipping runs after address change ([#784](https://github.com/ecomplus/storefront/issues/784)) ([ef4840c](https://github.com/ecomplus/storefront/commit/ef4840c0a54a6dc19586dc0410cf802b61dafec9))
+
+
+
+
+
 # [2.0.0-beta.142](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.141...@ecomplus/storefront-app@2.0.0-beta.142) (2022-09-01)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
