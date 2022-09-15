@@ -395,10 +395,7 @@ export default {
       const customizations = [...this.customizations]
       this.$emit('buy', { product, variationId, customizations })
       if (this.canAddToCart) {
-        ecomCart.addProduct({
-          ...product,
-          customizations: [...this.customizations]
-        }, variationId, this.qntToBuy)
+        ecomCart.addProduct({ ...product, customizations }, variationId, this.qntToBuy)
       }
       this.isOnCart = true
     },
