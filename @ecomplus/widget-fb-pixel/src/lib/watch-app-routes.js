@@ -45,7 +45,7 @@ export default (fbq, options) => {
     }
 
     const emitPurchase = (orderId, orderJson) => {
-      if (!isPurchaseSent && options.disablePurchase !== true) {
+      if (!isPurchaseSent && options.disablePurchase !== true && orderJson) {
         if (window.localStorage.getItem('fbq.orderIdSent') !== orderId) {
           let order
           if (orderJson) {
