@@ -28,6 +28,9 @@ export default (fbq, options) => {
     }
 
     const emitCheckout = (step, option) => {
+      if (window.localStorage.getItem('fbq.orderIdSent')) {
+        window.localStorage.removeItem('fbq.orderIdSent')
+      }
       const purchaseData = getPurchaseData()
       const customData = {
         ...purchaseData,
@@ -45,7 +48,7 @@ export default (fbq, options) => {
     }
 
     const emitPurchase = (orderId, orderJson) => {
-      if (!isPurchaseSent && options.disablePurchase !== true && orderJson) {
+      if (!isPurchaseSent && options.disablePurchase !== true) {
         if (window.localStorage.getItem('fbq.orderIdSent') !== orderId) {
           let order
           if (orderJson) {
@@ -95,8 +98,12 @@ export default (fbq, options) => {
             emitPurchase(params.id, decodeURIComponent(params.json))
           } else {
             emitPurchaseTimer = setTimeout(() => {
-              emitPurchase(params.id)
-            }, 1500)
+              if (params.json) {
+                emitPurchase(params.id, decodeURIComponent(params.json))
+              } else {
+                emitPurchase(params.id)
+              }
+            }, params.json ? 1 : 1500)
           }
           break
       }
