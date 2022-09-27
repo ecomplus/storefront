@@ -1,22 +1,16 @@
 import {
   i19continue,
-  i19enterEmailCodeMsg,
   i19enterYourDocNumberMsg,
   i19enterYourEmailMsg,
   i19helloAgain,
   i19identifyYourAccount,
-  i19incorrectEmailCodeMsg,
   i19invalidLoginInfoMsg,
   i19loginErrorMsg,
   i19manageYourPurchaseHistory,
-  i19noProfileFoundWithEmail,
   i19notifyAboutOrders,
   i19oauthOnPopup,
   i19orProceedWith,
-  i19sendLoginCodeByEmail,
   i19signInWith,
-  i19signInWithAnotherEmail,
-  i19signUp,
   i19weUseYourDataToMsg
 } from '@ecomplus/i18n'
 
@@ -50,44 +44,30 @@ export default {
   data () {
     return {
       email: this.customerEmail,
-      emailCode: null,
       docNumber: '',
       isCompany: false,
       oauthProviders: [],
       isWaitingPopup: false,
       isWaitingLogin: false,
-      isEmailCodeSent: false,
-      hasNoProfileFound: false,
-      isWrongCode: false,
       failAlertText: null
     }
   },
 
   computed: {
     i19continue: () => i18n(i19continue),
-    i19enterEmailCodeMsg: () => i18n(i19enterEmailCodeMsg),
     i19enterYourDocNumberMsg: () => i18n(i19enterYourDocNumberMsg),
     i19enterYourEmailMsg: () => i18n(i19enterYourEmailMsg),
     i19helloAgain: () => i18n(i19helloAgain),
     i19identifyYourAccount: () => i18n(i19identifyYourAccount),
-    i19incorrectEmailCodeMsg: () => i18n(i19incorrectEmailCodeMsg),
     i19manageYourPurchaseHistory: () => i18n(i19manageYourPurchaseHistory),
     i19notifyAboutOrders: () => i18n(i19notifyAboutOrders),
     i19oauthOnPopup: () => i18n(i19oauthOnPopup),
     i19orProceedWith: () => i18n(i19orProceedWith),
-    i19sendLoginCodeByEmail: () => i18n(i19sendLoginCodeByEmail),
     i19signInWith: () => i18n(i19signInWith),
-    i19signInWithAnotherEmail: () => i18n(i19signInWithAnotherEmail),
-    i19signUp: () => i18n(i19signUp),
     i19weUseYourDataToMsg: () => i18n(i19weUseYourDataToMsg)
   },
 
   methods: {
-    clearEmail () {
-      this.email = ''
-      this.$refs.inputEmail.focus()
-    },
-
     confirmAccount () {
       const { checkLogin, checkAuthorization, getCustomer } = this.ecomPassport
       const isIdentified = checkLogin() && !checkAuthorization() &&
@@ -103,11 +83,12 @@ export default {
     submitLogin () {
       if (!this.isWaitingLogin) {
         this.isWaitingLogin = true
+        this.failAlertText = null
         const { docNumber } = this
         const email = this.email && this.email.toLowerCase()
         const isAccountConfirm = this.confirmAccount()
         const emitUpdate = () => this.$emit('update', { email, docNumber })
-        this.ecomPassport.fetchLogin(email, isAccountConfirm ? docNumber : null, this.emailCode)
+        this.ecomPassport.fetchLogin(email, isAccountConfirm ? docNumber : null)
           .then(() => {
             if (isAccountConfirm) {
               emitUpdate()
@@ -121,35 +102,9 @@ export default {
             } else if (!isAccountConfirm && this.canAcceptGuest) {
               this.$emit('update:customer-email', email)
               emitUpdate()
-            } else if (!isAccountConfirm) {
-              this.hasNoProfileFound = true
-              this.failAlertText = `${i18n(i19noProfileFoundWithEmail)} ${email}.`
             } else {
               this.failAlertText = i18n(i19invalidLoginInfoMsg)
             }
-          })
-          .finally(() => {
-            this.isWaitingLogin = false
-          })
-      }
-    },
-
-    sendEmailCode () {
-      if (this.email && !this.isWaitingLogin && !this.isEmailCodeSent) {
-        this.isWaitingLogin = true
-        this.ecomPassport.sendEmailCode(this.email)
-          .then(() => new Promise(resolve => {
-            setTimeout(() => {
-              this.isEmailCodeSent = true
-              this.$nextTick(() => {
-                this.$refs.inputCode.focus()
-              })
-              resolve()
-            }, 2000)
-          }))
-          .catch(err => {
-            console.error(err)
-            this.failAlertText = i18n(i19loginErrorMsg)
           })
           .finally(() => {
             this.isWaitingLogin = false
@@ -169,17 +124,10 @@ export default {
   watch: {
     email () {
       this.failAlertText = null
-      this.isEmailCodeSent = this.hasNoProfileFound = false
     },
 
     docNumber () {
       this.failAlertText = null
-    },
-
-    isWaitingLogin (isWaiting) {
-      if (isWaiting) {
-        this.failAlertText = null
-      }
     }
   },
 

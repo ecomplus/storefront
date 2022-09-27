@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.134](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.133...@ecomplus/storefront-components@1.0.0-beta.134) (2022-09-15)
+
+
+### Bug Fixes
+
+* **components/product:** Avoid mix text in customization ([#785](https://github.com/ecomplus/storefront/issues/785)) ([d534cf2](https://github.com/ecomplus/storefront/commit/d534cf2913100777318697fa6abcbe5e40f8e0fd))
+
+
+
+
+
+# [1.0.0-beta.133](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.132...@ecomplus/storefront-components@1.0.0-beta.133) (2022-09-01)
+
+
+### Bug Fixes
+
+* **components/product:** use min quantity for shipping calculation and quantity selector ([#781](https://github.com/ecomplus/storefront/issues/781)) ([d52e994](https://github.com/ecomplus/storefront/commit/d52e9943af92dca6ca5f9aaf7dff8173798e1d22))
+
+
+
+
+
+# [1.0.0-beta.132](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.131...@ecomplus/storefront-components@1.0.0-beta.132) (2022-08-26)
+
+
+### Reverts
+
+* **components:** removing login/signup by email code ([662db3f](https://github.com/ecomplus/storefront/commit/662db3ff110d746b7222f5a6fd6c9ea647963f02))
+
+
+
+
+
+# [1.0.0-beta.131](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.130...@ecomplus/storefront-components@1.0.0-beta.131) (2022-08-17)
+
+
+### Bug Fixes
+
+* **components/product:** must pass kit items with proper quantity to calculate shipping [[#739](https://github.com/ecomplus/storefront/issues/739)] ([c78e11e](https://github.com/ecomplus/storefront/commit/c78e11ea1e4994192006d7607dcceddf739ddb1f))
+* **components/product:** wait kit items fetch to render shipping calculator [[#739](https://github.com/ecomplus/storefront/issues/739)] ([db28ae5](https://github.com/ecomplus/storefront/commit/db28ae59fa26616d2fde9988e3a7279248d19f8c))
+
+
+
+
+
+# [1.0.0-beta.130](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.129...@ecomplus/storefront-components@1.0.0-beta.130) (2022-08-04)
+
+
+### Bug Fixes
+
+* **components/discount-applier:** allowed insert freebie, if freebie is equal to a product from cart ([#762](https://github.com/ecomplus/storefront/issues/762)) ([ce8e675](https://github.com/ecomplus/storefront/commit/ce8e6759bc3b0448a25cc47f7acd8190111b1fd1))
+* **deps:** update @ecomplus/shopping-cart to v2.5.7 ([b60fb00](https://github.com/ecomplus/storefront/commit/b60fb00e2408864d40f3c46d861eaa0c6080496e))
+
+
+
+
+
 # [1.0.0-beta.129](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.128...@ecomplus/storefront-components@1.0.0-beta.129) (2022-07-28)
 
 **Note:** Version bump only for package @ecomplus/storefront-components

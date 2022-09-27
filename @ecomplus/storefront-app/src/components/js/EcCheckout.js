@@ -290,8 +290,8 @@ export default {
 
     selectAddress (addressId) {
       this.$emit('address-selected', addressId)
-      this.updateZipCode()
       this.selectedAddressId = addressId
+      this.$nextTick(this.updateZipCode)
     },
 
     goToTop () {

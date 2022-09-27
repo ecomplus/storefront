@@ -113,6 +113,7 @@ export default ({ state }) => [
             required: false,
             name: 'start',
             widget: 'datetime',
+            default: '',
             date_format: 'DD/MM/YYYY',
             time_format: 'HH:mm'
           },
@@ -121,6 +122,7 @@ export default ({ state }) => [
             required: false,
             name: 'end',
             widget: 'datetime',
+            default: '',
             date_format: 'DD/MM/YYYY',
             time_format: 'HH:mm'
           }

@@ -119,6 +119,16 @@ export default ({ baseDir, state }) => ({
       label: 'Mostrar input de busca',
       name: 'search_input',
       widget: 'boolean'
+    },
+    {
+      label: 'Submenu em ordem alfabética',
+      name: 'alphabetical_order_submenu',
+      widget: 'boolean'
+    },
+    {
+      label: 'Submenu em tela cheia',
+      name: 'full_width_submenu',
+      widget: 'boolean'
     }
   ]
 })

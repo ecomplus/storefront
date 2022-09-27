@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.131](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.130...@ecomplus/widget-product-card@1.0.0-beta.131) (2022-09-15)
+
+**Note:** Version bump only for package @ecomplus/widget-product-card
+
+
+
+
+
+# [1.0.0-beta.130](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.129...@ecomplus/widget-product-card@1.0.0-beta.130) (2022-09-01)
+
+**Note:** Version bump only for package @ecomplus/widget-product-card
+
+
+
+
+
+# [1.0.0-beta.129](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.128...@ecomplus/widget-product-card@1.0.0-beta.129) (2022-08-26)
+
+**Note:** Version bump only for package @ecomplus/widget-product-card
+
+
+
+
+
+# [1.0.0-beta.128](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.127...@ecomplus/widget-product-card@1.0.0-beta.128) (2022-08-17)
+
+**Note:** Version bump only for package @ecomplus/widget-product-card
+
+
+
+
+
+# [1.0.0-beta.127](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.126...@ecomplus/widget-product-card@1.0.0-beta.127) (2022-08-04)
+
+**Note:** Version bump only for package @ecomplus/widget-product-card
+
+
+
+
+
 # [1.0.0-beta.126](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.125...@ecomplus/widget-product-card@1.0.0-beta.126) (2022-07-28)
 
 **Note:** Version bump only for package @ecomplus/widget-product-card

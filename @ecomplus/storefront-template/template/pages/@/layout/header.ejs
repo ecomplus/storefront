@@ -46,6 +46,8 @@ if (header.categories_list) {
   isCategoriesNavFull = header.categories_list.full_width
 }
 const hasMegamenu = header.desktop_megamenu
+const isAlphabeticalOrderSubmenu = header.alphabetical_order_submenu
+const fullWidthSubmenu = header.full_width_submenu
 %>
 
 <div id="overlay" class="fade"></div>
@@ -282,11 +284,25 @@ const hasMegamenu = header.desktop_megamenu
                 <%  if (slug && hasMegamenu) { %>
                   <% const subcategories = _.categories.filter(({ parent }) => parent && parent.slug === slug) %>
                   <% if (subcategories.length) { %>
-                    <nav class="header__submenu" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
+                    <%
+                      if (isAlphabeticalOrderSubmenu) {
+                        subcategories.sort((a, b)=> {
+                          return b.name > a.name ? -1 : 1
+                        })
+                      }
+                    %>
+                    <nav class="header__submenu<%= fullWidthSubmenu ? ' header__submenu--full' : '' %>" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
                       <% subcategories.forEach(subcategory => { %>
                         <div>               
                           <a id="sd-<%= subcategory._id %>" href="/<%= subcategory.slug %>"><%= subcategory.name %></a>
                           <% const thirdCategories = _.categories.filter(({ parent }) => parent && parent.slug === subcategory.slug) %>
+                          <%
+                            if (isAlphabeticalOrderSubmenu) {
+                              thirdCategories.sort((a, b)=> {
+                                return b.name > a.name ? -1 : 1
+                              })
+                            }
+                          %>
                           <% thirdCategories.forEach(thirdCategory => { %>
                             <a id="td-<%= thirdCategory._id %>" class="header__submenu-subcategory" href="/<%= thirdCategory.slug %>">
                               <%= thirdCategory.name %>

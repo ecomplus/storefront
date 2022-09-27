@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.19.8](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.19.7...@ecomplus/storefront-framework@5.19.8) (2022-09-27)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.19.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.19.6...@ecomplus/storefront-framework@5.19.7) (2022-09-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-framework
+
+
+
+
+
+## [5.19.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.19.5...@ecomplus/storefront-framework@5.19.6) (2022-08-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency firebase-admin to v11 ([#769](https://github.com/ecomplus/storefront/issues/769)) [skip ci] ([07122fa](https://github.com/ecomplus/storefront/commit/07122fae426187bf66a26b9d78eca6df71ebc35c))
+
+
+
+
+
 ## [5.19.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.19.4...@ecomplus/storefront-framework@5.19.5) (2022-07-26)
 
 

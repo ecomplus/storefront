@@ -3,6 +3,68 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.189](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.188...@ecomplus/storefront-template@2.0.0-beta.189) (2022-09-27)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.188](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.187...@ecomplus/storefront-template@2.0.0-beta.188) (2022-09-15)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.187](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.186...@ecomplus/storefront-template@2.0.0-beta.187) (2022-09-01)
+
+
+### Bug Fixes
+
+* **template/cms:** add default empty datetime on create slider banner ([#779](https://github.com/ecomplus/storefront/issues/779)) ([d309405](https://github.com/ecomplus/storefront/commit/d3094059210764a1d5ce85c726d20f90ce1ecdf4))
+
+
+
+
+
+# [2.0.0-beta.186](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.185...@ecomplus/storefront-template@2.0.0-beta.186) (2022-08-26)
+
+
+### Features
+
+* **template/header:** Alphabetical sort and full submenu options ([#773](https://github.com/ecomplus/storefront/issues/773)) ([509e431](https://github.com/ecomplus/storefront/commit/509e43156dab5db15298a09e13ee2b13770cd85c))
+
+
+
+
+
+# [2.0.0-beta.185](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.184...@ecomplus/storefront-template@2.0.0-beta.185) (2022-08-17)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
+
+
+
+
+# [2.0.0-beta.184](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.183...@ecomplus/storefront-template@2.0.0-beta.184) (2022-08-04)
+
+
+### Bug Fixes
+
+* **deps:** update @ecomplus/shopping-cart to v2.5.7 ([b60fb00](https://github.com/ecomplus/storefront/commit/b60fb00e2408864d40f3c46d861eaa0c6080496e))
+
+
+### Features
+
+* **template/recommendations-shelf:** handle manually selected related products ([#765](https://github.com/ecomplus/storefront/issues/765)) ([bcb8504](https://github.com/ecomplus/storefront/commit/bcb850426ba6334b1f2d65311c9dd6bda2a509f8))
+
+
+
+
+
 # [2.0.0-beta.183](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.182...@ecomplus/storefront-template@2.0.0-beta.183) (2022-07-28)
 
 

@@ -2,10 +2,8 @@ import {
   i19close,
   i19continueLoginOnPopup,
   i19email,
-  i19enterEmailCodeMsg,
   i19guestCheckoutMsg,
   i19hello,
-  i19incorrectEmailCodeMsg,
   i19loginErrorMsg,
   i19login,
   i19logout,
@@ -15,7 +13,6 @@ import {
   i19noProfileFoundWithEmail,
   i19signInWith,
   i19signInWithAnotherEmail,
-  i19signUp,
   i19signUpWith,
   i19visitor
 } from '@ecomplus/i18n'
@@ -68,10 +65,8 @@ export default {
       isLogged: false,
       email: '',
       name: '',
-      emailCode: null,
       oauthProviders: [],
       isLoginForm: false,
-      isEmailCodeSent: false,
       hasLoginError: false,
       hasNoProfileFound: false,
       isWrongCode: false
@@ -82,9 +77,7 @@ export default {
     i19close: () => i18n(i19close),
     i19continueLoginOnPopup: () => i18n(i19continueLoginOnPopup),
     i19email: () => i18n(i19email).toLowerCase(),
-    i19enterEmailCodeMsg: () => i18n(i19enterEmailCodeMsg),
     i19guestCheckoutMsg: () => i18n(i19guestCheckoutMsg),
-    i19incorrectEmailCodeMsg: () => i18n(i19incorrectEmailCodeMsg),
     i19loginErrorMsg: () => i18n(i19loginErrorMsg),
     i19login: () => i18n(i19login),
     i19logout: () => i18n(i19logout),
@@ -94,7 +87,6 @@ export default {
     i19noProfileFoundWithEmail: () => i18n(i19noProfileFoundWithEmail),
     i19signInWith: () => i18n(i19signInWith),
     i19signInWithAnotherEmail: () => i18n(i19signInWithAnotherEmail),
-    i19signUp: () => i18n(i19signUp),
     i19signUpWith: () => i18n(i19signUpWith),
 
     greetings () {
@@ -195,15 +187,11 @@ export default {
 
     submitEmail () {
       this.isLoginForm = false
-      const promise = this.ecomPassport.fetchLogin(this.email.toLowerCase(), null, this.emailCode)
+      const promise = this.ecomPassport.fetchLogin(this.email.toLowerCase())
         .catch(err => {
           const { response } = err
           if (response && response.status === 403) {
             this.hasNoProfileFound = true
-            if (this.isEmailCodeSent) {
-              this.isLoginForm = true
-              this.isWrongCode = true
-            }
           } else {
             setTimeout(() => {
               this.hasLoginError = true
@@ -212,27 +200,6 @@ export default {
           }
         })
       this.waitPromise(promise)
-    },
-
-    signUpEmail () {
-      if (this.email) {
-        if (!this.isEmailCodeSent) {
-          const promise = this.ecomPassport.sendEmailCode(this.email)
-            .then(() => new Promise(resolve => {
-              setTimeout(() => {
-                this.isLoginForm = this.isEmailCodeSent = true
-                resolve()
-              }, 2000)
-            }))
-            .catch(err => {
-              console.error(err)
-              this.hasLoginError = true
-            })
-          this.waitPromise(promise)
-        } else {
-          this.isLoginForm = true
-        }
-      }
     },
 
     logout () {
@@ -244,7 +211,6 @@ export default {
     hasNoProfileFound (newStatus) {
       if (newStatus === false) {
         this.email = ''
-        this.isEmailCodeSent = false
       }
       this.isLoginForm = !newStatus
     },
@@ -255,21 +221,10 @@ export default {
         this.isWaitingPopup = false
         this.$nextTick(() => {
           setTimeout(() => {
-            this.$refs[this.email ? 'inputCode' : 'input'].focus()
+            this.$refs.input.focus()
           }, 200)
         })
       }
-    },
-
-    isEmailCodeSent (isWaitingCode) {
-      if (!isWaitingCode) {
-        this.emailCode = null
-        this.hasNoProfileFound = false
-      }
-    },
-
-    emailCode () {
-      this.isWrongCode = false
     }
   },
 
