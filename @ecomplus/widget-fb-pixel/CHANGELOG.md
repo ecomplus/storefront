@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.5.1...@ecomplus/widget-fb-pixel@1.5.2) (2022-09-27)
+
+
+### Bug Fixes
+
+* **widget-fb-pixel:** only emit purchase with order data set ([#787](https://github.com/ecomplus/storefront/issues/787)) ([1eda601](https://github.com/ecomplus/storefront/commit/1eda6016c5cf559a4b551e77c4bc696fda1c79b6))
+
+
+
+
+
 ## [1.5.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.5.0...@ecomplus/widget-fb-pixel@1.5.1) (2022-05-11)
 
 
