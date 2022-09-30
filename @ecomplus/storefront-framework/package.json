@@ -48,7 +48,7 @@
     "core-js": ">=3.19.0 <3.25",
     "css-loader": "^3.6.0",
     "cssnano": "^5.1.4",
-    "ejs": "^3.1.6",
+    "ejs": "^3.1.8",
     "file-loader": "^6.2.0",
     "json-sass-vars": "^3.1.0",
     "mini-css-extract-plugin": "^0.12.0",
