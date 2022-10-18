@@ -58,7 +58,7 @@
     "raw-loader": "^4.0.2",
     "recursive-readdir": "^2.2.2",
     "resolve-url-loader": "^5.0.0",
-    "sass": "^1.54.0",
+    "sass": "^1.55.0",
     "sass-loader": "^10.3.1",
     "terser-webpack-plugin": "^4.2.3",
     "url-loader": "^4.1.1",
@@ -68,6 +68,6 @@
     "webpack-dev-middleware": "^3.7.3",
     "webpack-merge": "^4.2.2",
     "webpack-pwa-manifest": "^4.3.0",
-    "workbox-webpack-plugin": "^6.5.3"
+    "workbox-webpack-plugin": "^6.5.4"
   }
 }
