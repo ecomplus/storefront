@@ -6,9 +6,7 @@
 
 import { name, version } from './../package.json'
 
-import $ from './$'
 import animateCss from './animate-css'
-import './bootstrap'
 
 const _self = name + '@' + version
 
@@ -16,8 +14,7 @@ export * from './_env'
 
 export {
   _self,
-  $,
   animateCss
 }
 
-export default $
+export { Alert, Button, Collapse, Dropdown, Modal, Popover, Tab, Toast, Tooltip } from 'bootstrap'

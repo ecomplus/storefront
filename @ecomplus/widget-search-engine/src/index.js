@@ -4,7 +4,6 @@
  * Released under the MIT License.
  */
 
-import { $ } from '@ecomplus/storefront-twbs'
 import Vue from 'vue'
 import SearchEngine from '#components/SearchEngine.vue'
 
@@ -186,12 +185,10 @@ export default (options = {}, elId = 'search-engine', paginationElId = 'search-p
     })
 
     if ($dock) {
-      $($searchEngine).append($('<div>', {
-        id: 'search-engine-load'
-      }))
+      $searchEngine.insertAdjacentHTML('beforeend', '<div id="search-engine-load"></div>')
 
       const mount = () => vueApp.$mount($dock)
-      $productItems = $('#search-engine-snap .product-item')
+      $productItems = document.querySelectorAll('#search-engine-snap .product-item')
       if ($productItems.length) {
         const observer = new window.MutationObserver(() => {
           clearTimeout(fallbackTimer)

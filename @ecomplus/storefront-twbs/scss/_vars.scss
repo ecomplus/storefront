@@ -1,10 +1,6 @@
 & {
   // Custom variable values only support SassScript inside `#{}`
 
-  // Body
-  --body-bg: #{$body-bg};
-  --body-color: #{$body-color};
-
   // Breakpoints
   @each $bp, $value in $grid-breakpoints {
     --breakpoint-#{$bp}: #{$value};
@@ -56,6 +52,21 @@
 
   // Use `inspect` for lists so that quoted items keep the quotes
   // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
-  --font-family-sans-serif: #{inspect($font-family-sans-serif)};
-  --font-family-monospace: #{inspect($font-family-monospace)};
+  --font-sans-serif: #{inspect($font-family-sans-serif)};
+  --font-monospace: #{inspect($font-family-monospace)};
+  --gradient: #{$gradient};
+
+  // Root and body
+  @if $font-size-root != null {
+    --root-font-size: #{$font-size-root};
+  }
+  --body-font-family: #{$font-family-base};
+  --body-font-size: #{$font-size-base};
+  --body-font-weight: #{$font-weight-base};
+  --body-line-height: #{$line-height-base};
+  --body-color: #{$body-color};
+  @if $body-text-align != null {
+    --body-text-align: #{$body-text-align};
+  }
+  --body-bg: #{$body-bg};
 }

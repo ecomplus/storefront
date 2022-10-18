@@ -22,7 +22,7 @@ import {
   formatMoney
 } from '@ecomplus/utils'
 
-import { $ } from '@ecomplus/storefront-twbs'
+import { Popover } from '@ecomplus/storefront-twbs'
 import * as cardValidator from 'card-validator'
 import loadPaymentClient from './../../lib/load-payment-client'
 import InputDate from '#components/InputDate.vue'
@@ -337,8 +337,8 @@ export default {
         break
       }
     }
-    $(function () {
-      $('[data-toggle="popover"]').popover()
+    document.addEventListener('DOMContentLoaded', function () {
+      return new Popover(document.querySelector('[data-toggle="popover"]'))
     })
   }
 }

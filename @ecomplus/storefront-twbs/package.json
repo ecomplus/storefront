@@ -32,7 +32,6 @@
     "url": "https://github.com/ecomplus/storefront-twbs/issues"
   },
   "dependencies": {
-    "jquery": "3.6.0",
-    "popper.js": "^1.16.1"
+    "@popperjs/core": "^2.11.4"
   }
 }

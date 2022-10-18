@@ -1,26 +1,23 @@
 import { i19close, i19error, i19errorMsg } from '@ecomplus/i18n'
 import { i18n } from '@ecomplus/utils'
-import { $ } from '@ecomplus/storefront-twbs'
+import { Toast } from '@ecomplus/storefront-twbs'
 import Vue from 'vue'
 
-const $toastDock = $('<div>', {
-  style: 'position: absolute; top: 0; right: 0'
-})
+const $toastDock = document.createElement('div')
+$toastDock.setAttribute('style', 'position: absolute; top: 0; right: 0')
 
-const $toastAside = $('<aside>', {
-  style: 'position: fixed; top: 15px; right: 15px; width: 100%; max-width: 300px; z-index: -1'
-})
+const $toastAside = document.createElement('aside')
+$toastAside.setAttribute('style', 'position: fixed; top: 15px; right: 15px; width: 100%; max-width: 300px; z-index: -1')
 
-$toastAside
-  .append(
-    $('<div>', {
-      'aria-live': 'polite',
-      'aria-atomic': 'true',
-      style: 'position: relative; min-height: 200px'
-    })
-      .append($toastDock)
-  )
-  .appendTo('body')
+const $toastDockContainer = document.createElement('div')
+$toastDockContainer.setAttribute('aria-live', 'polite')
+$toastDockContainer.setAttribute('aria-atomic', 'true')
+$toastDockContainer.setAttribute('style', 'position: relative; min-height: 200px')
+
+$toastDockContainer.appendChild($toastDock)
+$toastAside.appendChild($toastDockContainer)
+
+document.body.appendChild($toastAside)
 
 Vue.prototype.$toast = ({ title, body, variant, delay } = {}) => {
   let icon
@@ -35,15 +32,14 @@ Vue.prototype.$toast = ({ title, body, variant, delay } = {}) => {
       icon = 'exclamation-triangle'
   }
 
-  const $toast = $('<div>', {
-    class: 'toast',
-    role: 'alert',
-    'aria-live': 'assertive',
-    'aria-atomic': 'true',
-    'data-delay': delay || 7000
-  })
+  const $toast = document.createElement('div')
+  $toast.setAttribute('class', 'toast')
+  $toast.setAttribute('role', 'alert')
+  $toast.setAttribute('aria-live', 'assertive')
+  $toast.setAttribute('aria-atomic', 'true')
+  $toast.setAttribute('data-delay', `${(delay || 7000)}`)
 
-  $toast[0].innerHTML = `
+  $toast.innerHTML = `
   <div class="toast-header" style="color: var(--${(variant || 'warning')})">
     <i class="i-${icon} mr-2"></i>
     <strong class="mr-auto">
@@ -62,14 +58,14 @@ Vue.prototype.$toast = ({ title, body, variant, delay } = {}) => {
     ${(body || i18n(i19errorMsg))}
   </div>`
 
-  $toast.appendTo($toastDock)
-  $toast.on('show.bs.toast', () => {
-    $toastAside.css('z-index', 3000)
+  $toastDock.appendChild($toast)
+  $toast.addEventListener('show.bs.toast', () => {
+    $toastAside.style.zIndex = 3000
   })
-  $toast.on('hidden.bs.toast', () => {
-    if ($toastDock.children().length <= 1) {
-      $toastAside.css('z-index', -1)
+  $toast.addEventListener('hidden.bs.toast', () => {
+    if ($toastDock.children.length <= 1) {
+      $toastAside.style.zIndex = -1
     }
   })
-  $toast.toast('show')
+  new Toast($toast).show()
 }
