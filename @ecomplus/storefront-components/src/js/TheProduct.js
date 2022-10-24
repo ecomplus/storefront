@@ -432,7 +432,9 @@ export default {
               items: [{
                 ...sanitizeProductBody(this.body),
                 product_id: this.body._id
-              }]
+              }],
+              currency_id: this.body.currency_id || window.$ecomConfig.get('currency'),
+              currency_symbol: this.body.currency_symbol || window.$ecomConfig.get('currency_symbol')
             }
           })
             .then(({ data }) => {

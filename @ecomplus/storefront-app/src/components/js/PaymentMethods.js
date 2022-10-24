@@ -262,7 +262,9 @@ export default {
         items,
         amount,
         domain: window.location.hostname,
-        can_fetch_when_selected: true
+        can_fetch_when_selected: true,
+        currency_id: items[0].currency_id || window.$ecomConfig.get('currency'),
+        currency_symbol: items[0].currency_symbol || window.$ecomConfig.get('currency_symbol')
       }
       if (!isRetry && this.customer) {
         data.customer = {}
