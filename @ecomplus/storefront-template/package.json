@@ -71,13 +71,13 @@
     "@ecomplus/widget-trustvox": "^2.3.0",
     "@ecomplus/widget-user": "^1.0.0-beta.131",
     "@glidejs/glide": "^3.6.0",
-    "core-js": ">=3.25.0 <3.27",
+    "core-js": ">=3.26.0 <3.27",
     "ejs": "^3.1.6",
     "eventemitter3": "^4.0.7",
     "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.2",
     "lozad": "^1.16.0",
-    "vue": "2.7.x"
+    "vue": "2.6.14"
   },
   "devDependencies": {
     "cross-env": "^7.0.3"
