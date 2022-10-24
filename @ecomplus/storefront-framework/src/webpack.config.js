@@ -186,7 +186,7 @@ let config = {
             presets: [
               ['@babel/preset-env', {
                 useBuiltIns: 'usage',
-                corejs: '3.25',
+                corejs: '3.26',
                 modules: false
               }]
             ],
