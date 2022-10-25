@@ -33,7 +33,8 @@ import {
   variationsGrids as getVariationsGrids,
   specTextValue as getSpecTextValue,
   specValueByText as getSpecValueByText,
-  formatMoney
+  formatMoney,
+  $ecomConfig
 } from '@ecomplus/utils'
 
 import { store, modules } from '@ecomplus/client'
@@ -432,7 +433,9 @@ export default {
               items: [{
                 ...sanitizeProductBody(this.body),
                 product_id: this.body._id
-              }]
+              }],
+              currency_id: this.body.currency_id || $ecomConfig.get('currency'),
+              currency_symbol: this.body.currency_symbol || $ecomConfig.get('currency_symbol')
             }
           })
             .then(({ data }) => {
