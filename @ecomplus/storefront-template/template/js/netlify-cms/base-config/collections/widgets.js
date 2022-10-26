@@ -14,6 +14,8 @@ import getWidgetTrustvox from '@ecomplus/widget-trustvox/cms.config'
 import getWidgetEbit from '@ecomplus/widget-ebit/cms.config'
 import getWidgetCompreConfie from '@ecomplus/widget-compre-confie/cms.config'
 import getWidgetOpinioesVerificadas from '@ecomplus/widget-opinioes-verificadas/cms.config'
+import getWidgetYourviews from '@ecomplus/widget-yourviews/cms.config'
+console.log('Checando yourviews', getWidgetYourviews)
 
 const fixWidgetConfig = ({ baseDir }, getWidget) => {
   const baseConfig = getWidget()
@@ -41,6 +43,7 @@ export default options => ({
     fixWidgetConfig(options, getWidgetGmcRatings),
     fixWidgetConfig(options, getWidgetTawkto),
     fixWidgetConfig(options, getWidgetTrustvox),
+    fixWidgetConfig(options, getWidgetYourviews),
     fixWidgetConfig(options, getWidgetEbit),
     fixWidgetConfig(options, getWidgetCompreConfie),
     fixWidgetConfig(options, getWidgetOpinioesVerificadas),
