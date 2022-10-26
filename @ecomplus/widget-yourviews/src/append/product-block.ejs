@@ -1,0 +1,14 @@
+<%
+  const urlImage = Array.isArray(_.state.pictures) ? _.state.pictures[0].big.url : undefined
+%>
+<input id="yv-productId" type="hidden" value="<%- _.state.sku %>">
+<input id="yv-productName" type="hidden" value="<%- _.state.name %>">
+<input id="yv-productImage" type="hidden" value="<%- urlImage %>">
+<input id="yv-productPrice" type="hidden" value="<%- _.state.price %>">
+
+<div class="container my-4 my-lg-5">
+  <div id="yv-reviews"></div>
+  <div class="yv-qa"></div>
+</div>
+
+

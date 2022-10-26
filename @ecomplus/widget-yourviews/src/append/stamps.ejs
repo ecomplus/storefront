@@ -1,0 +1,8 @@
+<% if (options.yourviewsStoreId) {
+  let { domain } = _.store
+  domain = domain.split('.')[0]
+   %>
+  <li>
+    <a href="https://www.lojaconfiavel.com/<%- domain %>" class="ts-footerstamp" data-lcname="<%- domain %>" target="_blank"><img src="//service.yourviews.com.br/Image/<%- options.yourviewsStoreId %>/Footer.jpg" title="Loja Confiável" alt="Loja Confiável">
+  </li>
+<% } %>
