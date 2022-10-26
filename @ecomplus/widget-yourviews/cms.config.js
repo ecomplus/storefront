@@ -37,7 +37,7 @@ export default () => ({
       hint: 'Personalizações do widget',
       fields: [
         {
-          label: 'ID da loja na yourviews',
+          label: 'ID da loja na Yourviews',
           name: 'yourviewsStoreId',
           widget: 'number'
         }
