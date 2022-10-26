@@ -15,7 +15,6 @@ import getWidgetEbit from '@ecomplus/widget-ebit/cms.config'
 import getWidgetCompreConfie from '@ecomplus/widget-compre-confie/cms.config'
 import getWidgetOpinioesVerificadas from '@ecomplus/widget-opinioes-verificadas/cms.config'
 import getWidgetYourviews from '@ecomplus/widget-yourviews/cms.config'
-console.log('Checando yourviews', getWidgetYourviews)
 
 const fixWidgetConfig = ({ baseDir }, getWidget) => {
   const baseConfig = getWidget()
