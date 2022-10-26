@@ -2,7 +2,7 @@ import { name } from './package.json'
 
 export default () => ({
   label: 'Yourviews',
-  thumbnail: 'https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/widgets/trustvox.png',
+  thumbnail: 'https://www.lojaconfiavel.com/Content/TrustedStore/css/img/yourviews-modal.png',
   fields: [
     {
       name: 'pkg',
