@@ -19,6 +19,25 @@
       </div>
     </div>
   </transition>
+
+  <div
+    v-if="gatewayOptions && gatewayOptions.length"
+    class="form-group"
+  >
+    <select
+      class="custom-select"
+      id="credit-card-gateway"
+      @change="ev => $emit('select-gateway', gatewayOptions[ev.target.value])"
+    >
+      <option
+        v-for="({ label }, i) in gatewayOptions"
+        :value="i"
+      >
+        {{ label.replace(creditCardRegex, '') }}
+      </option>
+    </select>
+  </div>
+
   <div class="form-group credit-card__bin">
     <label for="credit-card-bin">
       {{ i19cardNumber }}

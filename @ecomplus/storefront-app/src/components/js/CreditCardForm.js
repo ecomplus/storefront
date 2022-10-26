@@ -5,6 +5,7 @@ import {
   i19birthdate,
   i19cardNumber,
   i19confirmPurchase,
+  // i19creditCard,
   i19holderName,
   i19interestFree,
   i19invalidCard,
@@ -49,6 +50,7 @@ export default {
     canSkipHolderInfo: Boolean,
     isCompany: Boolean,
     installmentOptions: Array,
+    gatewayOptions: Array,
     jsClient: Object,
     jsClientLoad: Promise
   },
@@ -118,6 +120,11 @@ export default {
 
     compareName () {
       return this.checkHolder.replace(/(\s.*)/, '')
+    },
+
+    creditCardRegex () {
+      return /cartão de crédito/i
+      // return new RegExp(i18n(i19creditCard), 'i')
     }
   },
 

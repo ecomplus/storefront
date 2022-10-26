@@ -9,6 +9,7 @@ import {
   i19paymentError,
   i19paymentErrorMsg,
   i19recurrent,
+  i19subscription,
   i19total,
   i19tryAgain,
   i19upTo
@@ -63,6 +64,10 @@ export default {
       type: Boolean,
       default: !(window.ecomPaymentGateways && window.ecomPaymentGateways.length)
     },
+    canGroupRecurrentGateways: {
+      type: Boolean,
+      default: window.ecomGroupRecurrentGateways !== false
+    },
     ecomCart: {
       type: Object,
       default () {
@@ -91,6 +96,7 @@ export default {
     i19ofDiscount: () => i18n(i19ofDiscount),
     i19onFreight: () => i18n(i19onFreight),
     i19recurrent: () => i18n(i19recurrent),
+    i19subscription: () => i18n(i19subscription),
     i19total: () => i18n(i19total),
     i19tryAgain: () => i18n(i19tryAgain),
     i19upTo: () => i18n(i19upTo),
@@ -154,6 +160,13 @@ export default {
       return false
     },
 
+    cardFormGatewayOptions () {
+      if (this.paymentGateway.type === 'recurrence' && this.canGroupRecurrentGateways) {
+        return this.paymentGateways.filter(({ type }) => type === 'recurrence')
+      }
+      return null
+    },
+
     isCompany () {
       return this.customer && this.customer.registry_type !== 'p'
     },
@@ -165,6 +178,22 @@ export default {
 
   methods: {
     formatMoney,
+
+    checkListedGateway (gateway, i) {
+      if (gateway.payment_method.code !== 'loyalty_points') {
+        if (gateway.type === 'recurrence' && this.canGroupRecurrentGateways) {
+          return i === 0
+        }
+        return true
+      }
+      return false
+    },
+
+    checkShownGateway (gateway, i) {
+      return this.selectedGateway === -1 ||
+        this.selectedGateway === i ||
+        (this.canGroupRecurrentGateways && gateway.type === 'recurrence')
+    },
 
     gatewayIcon (gateway) {
       switch (gateway.payment_method.code) {
@@ -231,7 +260,11 @@ export default {
                 ...gateway
               }
               if (!isUpdatingSelected) {
-                paymentGateways.push(paymentGateway)
+                if (paymentGateway.type !== 'recurrence') {
+                  paymentGateways.push(paymentGateway)
+                } else {
+                  paymentGateways.unshift(paymentGateway)
+                }
               } else {
                 this.setupGatewayClient(paymentGateway, this.selectedGateway)
                 paymentGateways[this.selectedGateway] = paymentGateway
@@ -303,6 +336,12 @@ export default {
             })
         }, appId ? 5 : 50)
       }
+    },
+
+    onCardFormSelectGateway (gateway) {
+      this.selectedGateway = this.paymentGateways.findIndex((paymentGateway) => {
+        return gateway === paymentGateway
+      })
     },
 
     handleCheckout () {
