@@ -11,7 +11,7 @@ export default () => ({
     },
     {
       label: 'Ativar',
-      hint: 'Instalar avaliações de produtos via yourviews',
+      hint: 'Instalar avaliações de produtos via Yourviews',
       name: 'active',
       widget: 'boolean'
     },
