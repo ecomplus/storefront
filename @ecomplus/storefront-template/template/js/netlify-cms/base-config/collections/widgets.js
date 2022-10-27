@@ -7,6 +7,7 @@ import getWidgetUser from '@ecomplus/widget-user/cms.config'
 import getWidgetOffersNotification from '@ecomplus/widget-offers-notification/cms.config'
 import getWidgetAnalytics from '@ecomplus/widget-analytics/cms.config'
 import getWidgetFbPixel from '@ecomplus/widget-fb-pixel/cms.config'
+import getWidgetTiktokPixel from '@ecomplus/widget-tiktok-pixel/cms.config'
 import getWidgetTagManager from '@ecomplus/widget-tag-manager/cms.config'
 import getWidgetGmcRatings from '@ecomplus/widget-gmc-ratings/cms.config'
 import getWidgetTawkto from '@ecomplus/widget-tawkto/cms.config'
@@ -37,6 +38,7 @@ export default options => ({
   files: [
     fixWidgetConfig(options, getWidgetAnalytics),
     fixWidgetConfig(options, getWidgetFbPixel),
+    fixWidgetConfig(options, getWidgetTiktokPixel),
     fixWidgetConfig(options, getWidgetTagManager),
     fixWidgetConfig(options, getWidgetGmcRatings),
     fixWidgetConfig(options, getWidgetTawkto),
