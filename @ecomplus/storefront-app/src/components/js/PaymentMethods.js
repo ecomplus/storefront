@@ -181,8 +181,16 @@ export default {
 
     checkListedGateway (gateway, i) {
       if (gateway.payment_method.code !== 'loyalty_points') {
-        if (gateway.type === 'recurrence' && this.canGroupRecurrentGateways) {
-          return i === 0
+        if (this.canGroupRecurrentGateways) {
+          const checkRecurrentCardGateway = (gateway) => {
+            return gateway.type === 'recurrence' &&
+              gateway.payment_method.code === 'credit_card'
+          }
+          if (checkRecurrentCardGateway(gateway)) {
+            return i === this.paymentGateways.findIndex((gateway) => {
+              return checkRecurrentCardGateway(gateway)
+            })
+          }
         }
         return true
       }
@@ -192,7 +200,9 @@ export default {
     checkShownGateway (gateway, i) {
       return this.selectedGateway === -1 ||
         this.selectedGateway === i ||
-        (this.canGroupRecurrentGateways && gateway.type === 'recurrence')
+        (this.canGroupRecurrentGateways &&
+          gateway.type === 'recurrence' &&
+          this.paymentGateway.type === 'recurrence')
     },
 
     gatewayIcon (gateway) {

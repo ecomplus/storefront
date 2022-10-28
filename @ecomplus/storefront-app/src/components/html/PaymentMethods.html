@@ -36,7 +36,7 @@
           <span class="payment__title">
             <span
               class="payment__back"
-              v-if="selectedGateway === i"
+              v-if="selectedGateway > -1"
               :aria-label="i19changePaymentMethod"
             >
               <i class="i-chevron-left"></i>
