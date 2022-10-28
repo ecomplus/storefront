@@ -70,6 +70,7 @@
     "@ecomplus/widget-tawkto": "^1.2.0",
     "@ecomplus/widget-trustvox": "^2.3.0",
     "@ecomplus/widget-user": "^1.0.0-beta.132",
+    "@ecomplus/widget-yourviews": "^1.0.0",
     "@glidejs/glide": "^3.6.0",
     "core-js": ">=3.26.0 <3.27",
     "ejs": "^3.1.6",
