@@ -33,9 +33,6 @@ export default (ttq, options) => {
     }
 
     const emitCheckout = (step) => {
-      if (window.localStorage.getItem('ttq.orderIdSent')) {
-        window.localStorage.removeItem('ttq.orderIdSent')
-      }
       const purchaseData = getPurchaseData()
       if (!isCartSent || step <= 1) {
         ttq.track('InitiateCheckout', purchaseData)
@@ -59,12 +56,6 @@ export default (ttq, options) => {
               order = null
             }
           }
-          let eventID
-          if (order && order.number) {
-            eventID = `${order.number}:r${parseInt(Math.random() * 1000, 10)}`
-          } else {
-            eventID = orderId
-          }
           ttq.track('CompletePayment', {
             ...getPurchaseData(order)
           })
@@ -72,7 +63,6 @@ export default (ttq, options) => {
             namespace: 'tiktok',
             field: 'pixel',
             value: JSON.stringify({
-              eventID,
               userAgent: navigator.userAgent
             })
           })
