@@ -87,13 +87,13 @@ export default (ttq, options) => {
       console.log(params)
       switch (name) {
         case 'cart':
-          emitCheckout(1, 'Review Cart')
+          emitCheckout(1)
           break
         case 'checkout':
           if (!params.id) {
-            emitCheckout(2, 'Register')
+            emitCheckout(2)
           }
-          emitCheckout(3, 'Confirm Purchase')
+          emitCheckout(3)
           break
         case 'confirmation':
           clearTimeout(emitPurchaseTimer)
