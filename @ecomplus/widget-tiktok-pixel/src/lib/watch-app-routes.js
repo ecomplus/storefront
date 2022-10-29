@@ -32,7 +32,7 @@ export default (ttq, options) => {
       return data
     }
 
-    const emitCheckout = (step, option) => {
+    const emitCheckout = (step) => {
       if (window.localStorage.getItem('ttq.orderIdSent')) {
         window.localStorage.removeItem('ttq.orderIdSent')
       }
