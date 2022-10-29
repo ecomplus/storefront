@@ -23,7 +23,7 @@ export default (ttq, options) => {
           data.contents.push({
             content_id: sku,
             content_name: name,
-            price: parseFloat(price),
+            price: price,
             content_type: 'product',
             quantity
           })
