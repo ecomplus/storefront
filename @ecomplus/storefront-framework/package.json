@@ -42,7 +42,7 @@
     "@ecomplus/storefront-renderer": "^2.8.20",
     "@ecomplus/storefront-router": "^2.2.1",
     "autoprefixer": "^10.4.7",
-    "babel-loader": "^8.2.5",
+    "babel-loader": "^9.0.1",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^6.4.1",
     "core-js": ">=3.26.0 <3.27",
