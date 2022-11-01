@@ -58,6 +58,7 @@ export default {
   data () {
     return {
       formattedCardBin: '',
+      cardBinSetTimer: null,
       card: {
         bin: '',
         name: '',
@@ -295,8 +296,13 @@ export default {
       immediate: true
     },
 
-    formattedCardBin (bin) {
-      this.card.bin = bin.replace(/\D/g, '')
+    formattedCardBin () {
+      if (!this.cardBinSetTimer) {
+        this.cardBinSetTimer = setTimeout(() => {
+          this.card.bin = this.formattedCardBin.replace(/\D/g, '')
+          this.cardBinSetTimer = null
+        }, 400)
+      }
     },
 
     'card.bin' (bin) {
