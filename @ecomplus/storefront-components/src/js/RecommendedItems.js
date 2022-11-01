@@ -106,6 +106,8 @@ export default {
             totalCount: this.totalCount
           })
         }
+      }).finally(() => {
+        this.$emit('fetched')
       })
     }
   },
