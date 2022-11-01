@@ -1,0 +1,10 @@
+.buy-together {
+  &__title {
+    text-align: center;
+  }
+
+  &__row {
+    justify-content: space-around;
+    align-items: center;
+  }
+}
