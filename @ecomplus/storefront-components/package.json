@@ -37,7 +37,7 @@
     "@ecomplus/i18n": "^1.32.2",
     "@ecomplus/passport-client": "^1.1.1",
     "@ecomplus/search-engine": "^2.6.1",
-    "@ecomplus/shopping-cart": "^2.5.7",
+    "@ecomplus/shopping-cart": "^2.5.8",
     "@ecomplus/storefront-twbs": "^7.3.1",
     "@glidejs/glide": "^3.6.0",
     "@linusborg/vue-simple-portal": "^0.1.5",
