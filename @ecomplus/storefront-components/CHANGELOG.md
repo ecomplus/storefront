@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.136](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.135...@ecomplus/storefront-components@1.0.0-beta.136) (2022-11-01)
+
+### Bug Fixes
+
+- **components/cart-item:** prevet quantity edit if `keep_item_quantity` ([1c33936](https://github.com/ecomplus/storefront/commit/1c33936db98ec962bb18ccb2d384a6264fca226a))
+- **components/payment-methos:** pass item currency on list payments ([#802](https://github.com/ecomplus/storefront/issues/802)) ([37e9f2a](https://github.com/ecomplus/storefront/commit/37e9f2a0c981cbbf9d4fac38a883bd8fdbaa08cd))
+- **deps:** update @ecomplus/shopping-cart to v2.5.8 ([e86a2b0](https://github.com/ecomplus/storefront/commit/e86a2b0259adbba56a1b7fc75099d7afcf5b9490))
+
+### Features
+
+- **components/buy-together:** new `BuyTogether` component :tada: ([c3f32f9](https://github.com/ecomplus/storefront/commit/c3f32f9ccafb9a6a7c4770efcd03b7ff9db917fe))
+
 # [1.0.0-beta.135](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.134...@ecomplus/storefront-components@1.0.0-beta.135) (2022-10-25)
 
 ### Bug Fixes

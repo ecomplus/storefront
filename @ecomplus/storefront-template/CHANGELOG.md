@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.191](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.190...@ecomplus/storefront-template@2.0.0-beta.191) (2022-11-01)
+
+### Bug Fixes
+
+- **deps:** properly add `@ecomplus/widget-yourviews` to template pkg ([1d6510c](https://github.com/ecomplus/storefront/commit/1d6510c96ba19e1c6e7fbb9523ae97dea7adf7ef))
+- **deps:** update @ecomplus/shopping-cart to v2.5.8 ([e86a2b0](https://github.com/ecomplus/storefront/commit/e86a2b0259adbba56a1b7fc75099d7afcf5b9490))
+
+### Features
+
+- **template/buy-together:** setup buy together section and cms config ([2c6c10d](https://github.com/ecomplus/storefront/commit/2c6c10d396819016bf15b7bbbe4206d3966a1585))
+- **widget-yourviews:** create new yourviews widget and cms config ([#805](https://github.com/ecomplus/storefront/issues/805)) ([60c4c92](https://github.com/ecomplus/storefront/commit/60c4c9236c075d2fe38b3b647d245a6f736962fd))
+
 # [2.0.0-beta.190](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.189...@ecomplus/storefront-template@2.0.0-beta.190) (2022-10-25)
 
 ### Bug Fixes

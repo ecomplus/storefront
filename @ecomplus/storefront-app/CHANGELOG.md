@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.145](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.144...@ecomplus/storefront-app@2.0.0-beta.145) (2022-11-01)
+
+### Bug Fixes
+
+- **app/credit-card-form:** try to fix gpay autocomplete loop with delay ([b3bd610](https://github.com/ecomplus/storefront/commit/b3bd610b4828f53bd0a651e2143b9688a7cb2fae))
+- **app/payment-methods:** group recurrence payment with credit card only ([766ddf4](https://github.com/ecomplus/storefront/commit/766ddf4df2c8bfd6cd9a3bfcc132b6882f8aca56))
+- **components/payment-methos:** pass item currency on list payments ([#802](https://github.com/ecomplus/storefront/issues/802)) ([37e9f2a](https://github.com/ecomplus/storefront/commit/37e9f2a0c981cbbf9d4fac38a883bd8fdbaa08cd))
+- **deps:** update @ecomplus/shopping-cart to v2.5.8 ([e86a2b0](https://github.com/ecomplus/storefront/commit/e86a2b0259adbba56a1b7fc75099d7afcf5b9490))
+
+### Features
+
+- **app/checkout:** grouping recurrent payment gateway options [[#767](https://github.com/ecomplus/storefront/issues/767)] ([ad5681c](https://github.com/ecomplus/storefront/commit/ad5681c87f295750af2dafa5577f55df1187ef51))
+
 # [2.0.0-beta.144](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.143...@ecomplus/storefront-app@2.0.0-beta.144) (2022-10-25)
 
 ### Bug Fixes
