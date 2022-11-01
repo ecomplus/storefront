@@ -59,13 +59,6 @@ export default (ttq, options) => {
           ttq.track('CompletePayment', {
             ...getPurchaseData(order)
           })
-          ecomPassport.requestApi(`/orders/${orderId}/metafields.json`, 'POST', {
-            namespace: 'tiktok',
-            field: 'pixel',
-            value: JSON.stringify({
-              userAgent: navigator.userAgent
-            })
-          })
           window.localStorage.setItem('ttq.orderIdSent', orderId)
         }
         isPurchaseSent = true
