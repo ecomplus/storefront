@@ -1,4 +1,6 @@
 import lozad from 'lozad'
+import Vue from 'vue'
+import getScopedSlots from './get-scoped-slots'
 
 const lazyLoad = className => {
   const observer = lozad('.' + className, {
@@ -23,3 +25,19 @@ window.addEventListener('load', () => {
     }
   }, 2000)
 })
+
+lozad('#buy-together', {
+  loaded ($buyTogether) {
+    import('@ecomplus/storefront-components/src/BuyTogether.vue')
+      .then(({ default: BuyTogether }) => {
+        new Vue({
+          render (createElement) {
+            return createElement(BuyTogether, {
+              props: {},
+              scopedSlots: getScopedSlots($buyTogether, createElement)
+            })
+          }
+        }).$mount($buyTogether)
+      })
+  }
+}).observe()
