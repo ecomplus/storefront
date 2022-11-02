@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-template",
-  "version": "2.0.0-beta.191",
+  "version": "2.0.0-beta.192",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "template/js/index.js",
   "bin": {
@@ -50,7 +50,7 @@
     "@ecomplus/shopping-cart": "^2.5.8",
     "@ecomplus/storefront-app": "^2.0.0-beta.145",
     "@ecomplus/storefront-components": "^1.0.0-beta.136",
-    "@ecomplus/storefront-framework": "^5.19.9",
+    "@ecomplus/storefront-framework": "^5.19.10",
     "@ecomplus/storefront-router": "^2.2.1",
     "@ecomplus/storefront-twbs": "^7.3.1",
     "@ecomplus/utils": "^1.4.1",
@@ -68,7 +68,7 @@
     "@ecomplus/widget-search-engine": "^1.0.0-beta.135",
     "@ecomplus/widget-tag-manager": "^1.6.2",
     "@ecomplus/widget-tawkto": "^1.2.0",
-    "@ecomplus/widget-tiktok-pixel": "^1.0.0",
+    "@ecomplus/widget-tiktok-pixel": "^1.1.0",
     "@ecomplus/widget-trustvox": "^2.3.0",
     "@ecomplus/widget-user": "^1.0.0-beta.133",
     "@ecomplus/widget-yourviews": "^1.1.0",

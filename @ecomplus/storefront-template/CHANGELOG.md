@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.192](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.191...@ecomplus/storefront-template@2.0.0-beta.192) (2022-11-02)
+
+### Features
+
+- **widget-tiktok-pixel:** add tiktok pixel widget ([#806](https://github.com/ecomplus/storefront/issues/806)) ([13e1e77](https://github.com/ecomplus/storefront/commit/13e1e77a745c69033a3c3176e7f34e225db2d313))
+
 # [2.0.0-beta.191](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.190...@ecomplus/storefront-template@2.0.0-beta.191) (2022-11-01)
 
 ### Bug Fixes
