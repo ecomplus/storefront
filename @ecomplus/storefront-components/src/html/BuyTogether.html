@@ -1,0 +1,51 @@
+<div class="buy-together">
+  <transition enter-active-class="animated fadeInDown">
+    <div v-if="hasLoadedIds">
+      <div class="buy-together__title">
+        <div
+          v-if="discount"
+          class="buy-together__discount lead mb-1"
+        >
+          {{ i19buyTogetherWith }}
+          <span class="badge badge-success">
+            {{ formatMoney(discount) }} <span>OFF</span>
+          </span>
+        </div>
+        <h5>{{ baseProduct.name }} <strong class="text-muted">+</strong></h5>
+      </div>
+
+      <div class="buy-together__row row">
+        <div class="col-auto">
+          <recommended-items
+            v-if="productIds.length"
+            :product-ids="productIds"
+            @fetched="hasLoadedItems = true"
+            @recommend-items="result => recommendedItems = result.items"
+          />
+        </div>
+        <div
+          v-if="recommendedItems.length"
+          class="buy-together__cta col-auto"
+        >
+          <a-prices
+            :product="{ price: subtotal - discount, base_price: subtotal }"
+            :is-literal="true"
+            :is-big="true"
+          />
+          <button
+            v-if="canAddToCart"
+            class="btn btn-lg btn-primary mt-3"
+            @click="buy"
+          >
+            <i class="i-shopping-basket mr-1"></i>
+            {{ i19buyTogether }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </transition>
+
+  <transition leave-active-class="animated fadeOut">
+    <slot v-if="!hasLoadedItems"/>
+  </transition>
+</div>

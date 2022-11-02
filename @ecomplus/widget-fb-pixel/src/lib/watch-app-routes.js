@@ -28,9 +28,6 @@ export default (fbq, options) => {
     }
 
     const emitCheckout = (step, option) => {
-      if (window.localStorage.getItem('fbq.orderIdSent')) {
-        window.localStorage.removeItem('fbq.orderIdSent')
-      }
       const purchaseData = getPurchaseData()
       const customData = {
         ...purchaseData,
@@ -48,38 +45,38 @@ export default (fbq, options) => {
     }
 
     const emitPurchase = (orderId, orderJson) => {
-      if (!isPurchaseSent && options.disablePurchase !== true) {
-        if (window.localStorage.getItem('fbq.orderIdSent') !== orderId) {
-          let order
-          if (orderJson) {
-            try {
-              order = JSON.parse(orderJson)
-            } catch (e) {
-              order = null
-            }
+      if (!isPurchaseSent && window.localStorage.getItem('fbq.orderIdSent') !== orderId) {
+        let order
+        if (orderJson) {
+          try {
+            order = JSON.parse(orderJson)
+          } catch (e) {
+            order = null
           }
-          let eventID
-          if (order && order.number) {
-            eventID = `${order.number}:r${parseInt(Math.random() * 1000, 10)}`
-          } else {
-            eventID = orderId
-          }
+        }
+        let eventID
+        if (order && order.number) {
+          eventID = `${order.number}:r${parseInt(Math.random() * 1000, 10)}`
+        } else {
+          eventID = orderId
+        }
+        if (options.disablePurchase !== true) {
           fbq('Purchase', {
             ...getPurchaseData(order),
             order_id: orderId,
             eventID
           })
-          ecomPassport.requestApi(`/orders/${orderId}/metafields.json`, 'POST', {
-            namespace: 'fb',
-            field: 'pixel',
-            value: JSON.stringify({
-              eventID,
-              userAgent: navigator.userAgent
-            })
-          })
-          window.localStorage.setItem('fbq.orderIdSent', orderId)
         }
+        ecomPassport.requestApi(`/orders/${orderId}/metafields.json`, 'POST', {
+          namespace: 'fb',
+          field: 'pixel',
+          value: JSON.stringify({
+            eventID,
+            userAgent: navigator.userAgent
+          })
+        })
         isPurchaseSent = true
+        window.localStorage.setItem('fbq.orderIdSent', orderId)
       }
     }
 

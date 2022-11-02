@@ -306,7 +306,7 @@ export default {
 
     selectPaymentGateway (gateway) {
       this.$emit('update:payment-gateway', gateway)
-      if (this.checkoutStep === 2) {
+      if (this.checkoutStep === 2 && !this.paymentGateway) {
         this.goToTop()
       }
     },

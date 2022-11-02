@@ -1,0 +1,15 @@
+<% if (options.yourviewsStoreId) {
+  %>
+  <script type="text/javascript">
+     (function () {
+      console.log('loading yv')
+         var yvs = document.createElement("script");
+         yvs.type = "text/javascript";
+         yvs.async = true;
+         yvs.id = "_yvsrc";
+         yvs.src = "//service.yourviews.com.br/script/<%- options.yourviewsStoreId %>/yvapi.js";
+         var yvs_script = document.getElementsByTagName("script")[0];
+         yvs_script.parentNode.insertBefore(yvs, yvs_script);
+     })();
+ </script>
+<% } %>

@@ -92,6 +92,19 @@ export default ({ baseDir, sections }) => ({
               widget: 'string'
             }
           ]
+        },
+        {
+          label: 'Compre junto',
+          name: 'buy-together',
+          widget: 'object',
+          fields: [
+            {
+              label: 'Exibir spinner de carregamento',
+              name: 'enabled',
+              widget: 'boolean',
+              default: false
+            }
+          ]
         }
       ].concat(sections)
     }

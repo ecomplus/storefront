@@ -262,6 +262,13 @@ export default {
     saveCustomerOrder () {
       const { localOrder, ecomPassport } = this
       if (!this.skipCustomerUpdate && localOrder.number && ecomPassport.checkAuthorization()) {
+        if (
+          localOrder.transactions && localOrder.transactions.find(transaction => {
+            return transaction.payment_method.code === 'loyalty_points'
+          })
+        ) {
+          ecomPassport.setCustomer({ loyalty_points_entries: [] })
+        }
         ecomPassport.requestApi('/me.json')
           .then(({ data }) => {
             const orders = data.orders
