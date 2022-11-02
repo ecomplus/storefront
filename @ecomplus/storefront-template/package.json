@@ -68,6 +68,7 @@
     "@ecomplus/widget-search-engine": "^1.0.0-beta.135",
     "@ecomplus/widget-tag-manager": "^1.6.2",
     "@ecomplus/widget-tawkto": "^1.2.0",
+    "@ecomplus/widget-tiktok-pixel": "^1.0.0",
     "@ecomplus/widget-trustvox": "^2.3.0",
     "@ecomplus/widget-user": "^1.0.0-beta.133",
     "@ecomplus/widget-yourviews": "^1.1.0",

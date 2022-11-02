@@ -1,0 +1,41 @@
+{
+  "name": "@ecomplus/widget-tiktok-pixel",
+  "version": "1.0.0",
+  "description": "Storefront plugin to handle Tiktok Pixel events",
+  "main": "dist/widget-tiktok-pixel.min.js",
+  "module": "src/index.js",
+  "browser": "dist/widget-tiktok-pixel.min.js",
+  "jsdelivr": "dist/public/widget-tiktok-pixel.var.min.js",
+  "unpkg": "dist/public/widget-tiktok-pixel.var.min.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "serve": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomplus/storefront.git",
+    "directory": "@ecomplus/widget-tiktok-pixel"
+  },
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "tiktok-pixel",
+    "tiktok",
+    "tiktok-ads"
+  ],
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomplus/storefront/issues"
+  },
+  "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-fb-pixel#readme",
+  "peerDependencies": {
+    "@ecomplus/shopping-cart": ">=1 <3",
+    "@ecomplus/utils": "^1.4.1",
+    "core-js": "3.x"
+  },
+  "webpackOutput": {
+    "library": "widgetTiktokPixel",
+    "filename": "widget-tiktok-pixel.min.js"
+  }
+}
