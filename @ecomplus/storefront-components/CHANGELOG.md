@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.137](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.136...@ecomplus/storefront-components@1.0.0-beta.137) (2022-11-04)
+
+### Bug Fixes
+
+- **components/buy-together:** show nothing when no items to recommend ([f884157](https://github.com/ecomplus/storefront/commit/f884157aef726d2042ed97d839ce591adfdba85b))
+
 # [1.0.0-beta.136](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.135...@ecomplus/storefront-components@1.0.0-beta.136) (2022-11-01)
 
 ### Bug Fixes
