@@ -147,6 +147,11 @@ export default {
         }
       }).finally(() => {
         this.hasLoadedIds = true
+        this.$nextTick(() => {
+          if (!this.productIds.length) {
+            this.hasLoadedItems = true
+          }
+        })
       })
     }
   }

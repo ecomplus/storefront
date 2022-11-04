@@ -1,6 +1,6 @@
 <div class="buy-together">
   <transition enter-active-class="animated fadeInDown">
-    <div v-if="hasLoadedIds">
+    <div v-if="hasLoadedIds && (!hasLoadedItems || recommendedItems.length)">
       <div class="buy-together__title">
         <div
           v-if="discount"
@@ -15,10 +15,14 @@
       </div>
 
       <div class="buy-together__row row">
-        <div class="col-auto">
+        <div
+          class="col-12"
+          :class="productIds.length > 1 ? 'col-md' : 'col-md-6 col-lg-4'"
+        >
           <recommended-items
             v-if="productIds.length"
             :product-ids="productIds"
+            :col-class-name="productIds.length > 1 ? null : 'col'"
             @fetched="hasLoadedItems = true"
             @recommend-items="result => recommendedItems = result.items"
           />
