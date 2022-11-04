@@ -55,19 +55,19 @@
 
 @media (max-width: 576px) {
   .navbar-expand-sm .navbar-brand,
-.navbar-expand-sm .nav-link {
+  .navbar-expand-sm .nav-link {
     border: none !important;
   }
 }
 @media (max-width: 768px) {
   .navbar-expand-md .navbar-brand,
-.navbar-expand-md .nav-link {
+  .navbar-expand-md .nav-link {
     border: none !important;
   }
 }
 @media (max-width: 992px) {
   .navbar-expand-lg .navbar-brand,
-.navbar-expand-lg .nav-link {
+  .navbar-expand-lg .nav-link {
     border: none !important;
   }
 }
