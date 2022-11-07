@@ -79,7 +79,7 @@
     "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.2",
     "lozad": "^1.16.0",
-    "vue": "2.6.14"
+    "vue": "2.7.13"
   },
   "devDependencies": {
     "cross-env": "^7.0.3"
