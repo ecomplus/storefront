@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.138](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.137...@ecomplus/storefront-components@1.0.0-beta.138) (2022-11-10)
+
+### Bug Fixes
+
+- **components/recommended-items:** properly fetch cart related/recommended items by product id ([b7f5553](https://github.com/ecomplus/storefront/commit/b7f555371b81a9fc7e6aaba5592d433cbe718024))
+
 # [1.0.0-beta.137](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.136...@ecomplus/storefront-components@1.0.0-beta.137) (2022-11-04)
 
 ### Bug Fixes
