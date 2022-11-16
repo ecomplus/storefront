@@ -166,129 +166,111 @@ export default ({ baseDir }) => ({
       widget: 'object',
       fields: [
         {
-          label: 'Boleto',
-          name: 'boleto',
+          label: 'Pix',
+          name: 'pix',
           widget: 'boolean',
-          default: true,
           required: false
         },
         {
           label: 'Visa',
           name: 'visa',
           widget: 'boolean',
-          default: true,
           required: false
         },
         {
           label: 'Mastercard',
           name: 'mastercard',
           widget: 'boolean',
-          default: true,
           required: false
         },
         {
           label: 'Elo',
           name: 'elo',
           widget: 'boolean',
-          default: true,
           required: false
         },
         {
           label: 'American Express',
           name: 'amex',
           widget: 'boolean',
-          default: true,
           required: false
         },
         {
           label: 'Hipercard',
           name: 'hipercard',
           widget: 'boolean',
-          default: true,
           required: false
         },
         {
           label: 'Hiper',
           name: 'hiper',
           widget: 'boolean',
-          default: true,
+          required: false
+        },
+        {
+          label: 'Boleto',
+          name: 'boleto',
+          widget: 'boolean',
           required: false
         },
         {
           label: 'Diners',
           name: 'diners',
           widget: 'boolean',
-          default: true,
           required: false
         },
         {
           label: 'Aura',
           name: 'aura',
           widget: 'boolean',
-          default: true,
-          required: false
-        },
-        {
-          label: 'Itaú',
-          name: 'itau',
-          widget: 'boolean',
-          default: true,
-          required: false
-        },
-        {
-          label: 'Bradesco',
-          name: 'bradesco',
-          widget: 'boolean',
-          default: true,
-          required: false
-        },
-        {
-          label: 'Banco do Brasil',
-          name: 'bb',
-          widget: 'boolean',
-          default: true,
-          required: false
-        },
-        {
-          label: 'Santander',
-          name: 'santander',
-          widget: 'boolean',
-          default: true,
-          required: false
-        },
-        {
-          label: 'Citibank',
-          name: 'citibank',
-          widget: 'boolean',
-          default: true,
-          required: false
-        },
-        {
-          label: 'HSBC',
-          name: 'hsbc',
-          widget: 'boolean',
-          default: true,
-          required: false
-        },
-        {
-          label: 'Banrisul',
-          name: 'banrisul',
-          widget: 'boolean',
-          default: true,
           required: false
         },
         {
           label: 'Mais',
           name: 'mais',
           widget: 'boolean',
-          default: true,
           required: false
         },
         {
           label: 'Paypal',
           name: 'paypal',
           widget: 'boolean',
-          default: true,
+          required: false
+        },
+        {
+          label: 'Itaú',
+          name: 'itau',
+          widget: 'boolean',
+          required: false
+        },
+        {
+          label: 'Bradesco',
+          name: 'bradesco',
+          widget: 'boolean',
+          required: false
+        },
+        {
+          label: 'Banco do Brasil',
+          name: 'bb',
+          widget: 'boolean',
+          required: false
+        },
+        {
+          label: 'Citibank',
+          name: 'citibank',
+          widget: 'boolean',
+          required: false
+        },
+        {
+          label: 'HSBC',
+          name: 'hsbc',
+          widget: 'boolean',
+          required: false
+        },
+        {
+          label: 'Banrisul',
+          name: 'banrisul',
+          widget: 'boolean',
           required: false
         }
       ]
