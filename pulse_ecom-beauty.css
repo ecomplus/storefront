@@ -210,22 +210,21 @@ main .product-card__name {
   margin-bottom: 9px;
 }
 main .product-card .prices {
-  flex-direction: row;
-  justify-content: flex-start;
+  display: block;
+}
+main .product-card .prices__compare, main .product-card .prices__value {
+  font-size: 16px;
+  display: inline-block;
+  width: auto;
 }
 main .product-card .prices__compare {
-  font-size: 16px;
   margin-right: 14px;
 }
 main .product-card .prices__compare s {
   color: #C0B9DD;
 }
-main .product-card .prices__discount, main .product-card .prices__installments {
-  display: none;
-}
 main .product-card .prices__value {
   color: #222222;
-  font-size: 16px;
 }
 main .product-card .prices__value small {
   display: none;
