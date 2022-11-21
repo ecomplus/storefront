@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-template",
-  "version": "2.0.0-beta.195",
+  "version": "2.0.0-beta.196",
   "description": "Reusable & upgradable views and scripts for E-Com Plus storefront",
   "main": "template/js/index.js",
   "bin": {
@@ -50,7 +50,7 @@
     "@ecomplus/shopping-cart": "^2.5.8",
     "@ecomplus/storefront-app": "^2.0.0-beta.147",
     "@ecomplus/storefront-components": "^1.0.0-beta.138",
-    "@ecomplus/storefront-framework": "^5.19.12",
+    "@ecomplus/storefront-framework": "^5.19.13",
     "@ecomplus/storefront-router": "^2.2.1",
     "@ecomplus/storefront-twbs": "^7.3.1",
     "@ecomplus/utils": "^1.4.1",

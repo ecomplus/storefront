@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.196](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.195...@ecomplus/storefront-template@2.0.0-beta.196) (2022-11-21)
+
+### Bug Fixes
+
+- **template/scss:** fix "ecom-beauty" theme product card styles (prices) ([01009c7](https://github.com/ecomplus/storefront/commit/01009c77614ea5400c76795c233ce7c221b33605))
+
 # [2.0.0-beta.195](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.194...@ecomplus/storefront-template@2.0.0-beta.195) (2022-11-16)
 
 ### Features
