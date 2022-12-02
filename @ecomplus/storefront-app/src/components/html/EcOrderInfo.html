@@ -383,7 +383,7 @@
 
             <div
               v-if="localOrder.amount"
-              class="col-lg-6"
+              class="col-lg-6 order-info__right"
             >
               <div class="order-info__summary card">
                 <div class="card-body">
@@ -396,26 +396,42 @@
                 </div>
               </div>
 
-              <button
-                v-if="!isUpdating && status === 'open' && !fulfillmentStatus"
-                class="order-info__toggle btn btn-danger"
-                @click="toggle"
+              <slot
+                name="unsubscribe"
+                v-if="isSubscription && status !== 'cancelled'"
               >
-                <i class="i-exclamation-triangle mr-1"></i>
-                {{ i19cancelOrder }}
-              </button>
-
-              <slot name="buy">
                 <button
                   type="button"
-                  class="order-info__buy-again btn"
-                  :class="isNew ? 'btn-outline-secondary' : 'btn-primary'"
-                  @click="buyAgain"
+                  class="order-info__unsubscribe btn btn-outline-danger"
+                  @click="toggle"
                 >
-                  <i class="i-shopping-bag mr-1"></i>
-                  {{ i19buyAgain }}
+                  <i class="i-exclamation-triangle mr-1"></i>
+                  {{ i19unsubscribe }}
                 </button>
               </slot>
+
+              <template v-else>
+                <slot name="buy">
+                  <button
+                    type="button"
+                    class="order-info__buy-again btn"
+                    :class="isNew ? 'btn-outline-secondary' : 'btn-primary'"
+                    @click="buyAgain"
+                  >
+                    <i class="i-shopping-bag mr-1"></i>
+                    {{ i19buyAgain }}
+                  </button>
+                </slot>
+
+                <button
+                  v-if="!isUpdating && status === 'open' && !fulfillmentStatus"
+                  class="order-info__toggle btn btn-sm btn-danger"
+                  @click="toggle"
+                >
+                  <i class="i-exclamation-triangle mr-1"></i>
+                  {{ i19cancelOrder }}
+                </button>
+              </template>
             </div>
           </div>
         </div>

@@ -21,6 +21,7 @@ import {
   i19transactionCode,
   i19ticketCode,
   i19trackDelivery,
+  i19unsubscribe,
   i19zipCode,
   i19FinancialStatus,
   i19FulfillmentStatus,
@@ -112,6 +113,7 @@ export default {
     i19transactionCode: () => i18n(i19transactionCode),
     i19ticketCode: () => i18n(i19ticketCode),
     i19trackDelivery: () => i18n(i19trackDelivery),
+    i19unsubscribe: () => i18n(i19unsubscribe),
     i19zipCode: () => i18n(i19zipCode),
 
     localOrder: {
@@ -224,6 +226,11 @@ export default {
 
     isAuthenticated () {
       return this.ecomPassport.checkAuthorization()
+    },
+
+    isSubscription () {
+      return this.localOrder.transactions &&
+        this.localOrder.transactions.find(({ type }) => type === 'recurrence')
     }
   },
 
@@ -319,7 +326,7 @@ export default {
 
     toggle () {
       this.isUpdating = true
-      const data = this.localOrder.status === 'open'
+      const data = this.localOrder.status !== 'cancelled'
         ? {
             status: 'cancelled',
             cancel_reason: 'customer'
