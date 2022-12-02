@@ -27,6 +27,7 @@
           :ecom-passport="ecomPassport"
           @click:order="viewOrder"
           :orders-list-params="'transactions.type=recurrence'"
+          :is-subscriptions="true"
         />
       </template>
     </the-account>
