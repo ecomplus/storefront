@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.148](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.147...@ecomplus/storefront-app@2.0.0-beta.148) (2022-12-02)
+
+### Bug Fixes
+
+- **app/orders-list:** better describing active/inactive subscription orders ([f14cb29](https://github.com/ecomplus/storefront/commit/f14cb2995103b78449174ebf2c9ffb7faf3e75ec))
+
+### Features
+
+- **app/order-info:** custom actions (btn) for recurrent order unsubscribe ([5b69790](https://github.com/ecomplus/storefront/commit/5b69790c11170422123d26dd8fc413bfa15a236f))
+
 # [2.0.0-beta.147](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.146...@ecomplus/storefront-app@2.0.0-beta.147) (2022-11-10)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
