@@ -52,7 +52,7 @@
         :raw="false"
         @blur="alert.bin = card.bin && !isNumberPotentiallyValid"
         :options="{ creditCard: true }"
-        x-autocompletetype="cc-number"
+        autocomplete="cc-number"
         required
       />
 
@@ -83,6 +83,7 @@
         :placeholder="i19nameOnCard"
         v-model="card.name"
         @change="checkName"
+        autocomplete="cc-name"
         required
       />
     </div>
@@ -134,6 +135,7 @@
           date: true,
           datePattern: ['m', 'y']
         }"
+        autocomplete="cc-exp"
         required
       />
     </div>
@@ -164,6 +166,7 @@
         placeholder="123"
         v-model="card.cvv"
         @blur="() => { alert.cvv = card.cvv && !validateCvv() }"
+        autocomplete="cc-csc"
         required
       />
     </div>

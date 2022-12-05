@@ -70,6 +70,7 @@ export default {
       },
       isLoadingInstallments: false,
       hasLoadedInstallments: false,
+      loadInstallmentsTimer: null,
       isWaitingCardHash: false,
       installmentList: [],
       alert: {
@@ -163,28 +164,36 @@ export default {
 
     updateInstallmentList () {
       const cardInstallments = this.jsClient.cc_installments
-      if (cardInstallments && cardInstallments.function && this.card.bin.length >= 6) {
-        const installmentList = window[cardInstallments.function]({
-          number: this.card.bin,
-          amount: this.amount.total
-        })
-        if (cardInstallments.is_promise) {
-          this.isLoadingInstallments = true
-          installmentList
-            .then(installmentList => {
-              this.installmentList = installmentList
-              if (installmentList.length) {
-                this.card.installment = 1
-              }
-              this.hasLoadedInstallments = true
-            })
-            .catch(console.error)
-            .finally(() => {
-              this.isLoadingInstallments = false
-            })
-        } else {
-          this.installmentList = installmentList
-        }
+      if (
+        cardInstallments &&
+        cardInstallments.function &&
+        this.card.bin.length >= 6 &&
+        !this.loadInstallmentsTimer
+      ) {
+        this.loadInstallmentsTimer = setTimeout(() => {
+          this.loadInstallmentsTimer = null
+          const installmentList = window[cardInstallments.function]({
+            number: this.card.bin,
+            amount: this.amount.total
+          })
+          if (cardInstallments.is_promise) {
+            this.isLoadingInstallments = true
+            installmentList
+              .then(installmentList => {
+                this.installmentList = installmentList
+                if (installmentList.length) {
+                  this.card.installment = 1
+                }
+                this.hasLoadedInstallments = true
+              })
+              .catch(console.error)
+              .finally(() => {
+                this.isLoadingInstallments = false
+              })
+          } else {
+            this.installmentList = installmentList
+          }
+        }, 300)
       }
     },
 
@@ -299,8 +308,8 @@ export default {
     formattedCardBin () {
       if (!this.cardBinSetTimer) {
         this.cardBinSetTimer = setTimeout(() => {
-          this.card.bin = this.formattedCardBin.replace(/\D/g, '')
           this.cardBinSetTimer = null
+          this.card.bin = this.formattedCardBin.replace(/\D/g, '')
         }, 400)
       }
     },
@@ -313,10 +322,10 @@ export default {
           this.activeBrand = numberCheck.card.type
           if (this.activeBrand) {
             this.hasLoadedInstallments = false
-            this.updateInstallmentList()
+            this.$nextTick(this.updateInstallmentList)
           }
         } else if (!this.hasLoadedInstallments && !this.isLoadingInstallments) {
-          this.updateInstallmentList()
+          this.$nextTick(this.updateInstallmentList)
         }
         if (numberCheck.isValid) {
           this.isNumberValidated = this.isNumberPotentiallyValid = true
