@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.149](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.148...@ecomplus/storefront-app@2.0.0-beta.149) (2022-12-05)
+
+### Bug Fixes
+
+- **app/credit-card-form:** add delay to load installments function ([3a7ce05](https://github.com/ecomplus/storefront/commit/3a7ce057c756b3a29e03cba17d7f0af7d3c4e6f8))
+
 # [2.0.0-beta.148](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.147...@ecomplus/storefront-app@2.0.0-beta.148) (2022-12-02)
 
 ### Bug Fixes
