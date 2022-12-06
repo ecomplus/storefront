@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.199](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.198...@ecomplus/storefront-template@2.0.0-beta.199) (2022-12-06)
+
+### Bug Fixes
+
+- **template/header:** limit submenu max height and use scroll ([#830](https://github.com/ecomplus/storefront/issues/830)) ([deea765](https://github.com/ecomplus/storefront/commit/deea765e3ccc7d534965d2b43aac3162e3b42a71))
+
 # [2.0.0-beta.198](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.197...@ecomplus/storefront-template@2.0.0-beta.198) (2022-12-05)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

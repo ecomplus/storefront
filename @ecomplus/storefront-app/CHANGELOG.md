@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.150](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.149...@ecomplus/storefront-app@2.0.0-beta.150) (2022-12-06)
+
+### Bug Fixes
+
+- **app/credit-card-form:** prevent resenting `this.card.bin` data with same value ([27c0856](https://github.com/ecomplus/storefront/commit/27c08564eedc80e2f4de9f63e2371e0b7213787f))
+- **app/order-info:** hide cancel button on new orders by default ([b574254](https://github.com/ecomplus/storefront/commit/b574254cfa97aef09f16413576beeb22be311068))
+
 # [2.0.0-beta.149](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.148...@ecomplus/storefront-app@2.0.0-beta.149) (2022-12-05)
 
 ### Bug Fixes
