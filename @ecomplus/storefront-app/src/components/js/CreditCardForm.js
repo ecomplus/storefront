@@ -305,8 +305,8 @@ export default {
       immediate: true
     },
 
-    formattedCardBin () {
-      if (!this.cardBinSetTimer) {
+    formattedCardBin (formattedBin) {
+      if (!this.cardBinSetTimer && formattedBin.replace(/\D/g, '') !== this.card.bin) {
         this.cardBinSetTimer = setTimeout(() => {
           this.cardBinSetTimer = null
           this.card.bin = this.formattedCardBin.replace(/\D/g, '')
