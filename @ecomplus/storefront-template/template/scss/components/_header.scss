@@ -127,7 +127,8 @@
     &--full {
       width: 98%;
       max-width: 1200px;
-      max-height: 600px;
+      max-height: 400px;
+      overflow-y: auto;
       left: 50%;
       transform: translateX(-50%);
       scrollbar-width: thin;
