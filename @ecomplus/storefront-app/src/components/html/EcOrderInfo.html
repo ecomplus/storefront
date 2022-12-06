@@ -426,6 +426,7 @@
                 <button
                   v-if="!isUpdating && status === 'open' && !fulfillmentStatus"
                   class="order-info__toggle btn btn-sm btn-danger"
+                  :style="isNew ? 'display: none' : null"
                   @click="toggle"
                 >
                   <i class="i-exclamation-triangle mr-1"></i>
