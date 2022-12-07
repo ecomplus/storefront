@@ -68,6 +68,8 @@ export default {
         doc: '',
         installment: this.installmentOptions ? 1 : 0
       },
+      expInputComponent: 'input',
+      rawCardExp: '',
       isLoadingInstallments: false,
       hasLoadedInstallments: false,
       loadInstallmentsTimer: null,
@@ -193,7 +195,18 @@ export default {
           } else {
             this.installmentList = installmentList
           }
-        }, 300)
+        }, 200)
+      }
+    },
+
+    setExpInputComponent (isFocus) {
+      if (!this.card.date) {
+        this.expInputComponent = 'cleave-input'
+      }
+      if (isFocus === true) {
+        this.$nextTick(() => {
+          this.$refs.expInput.$el.focus()
+        })
       }
     },
 
@@ -310,7 +323,7 @@ export default {
         this.cardBinSetTimer = setTimeout(() => {
           this.cardBinSetTimer = null
           this.card.bin = this.formattedCardBin.replace(/\D/g, '')
-        }, 400)
+        }, 200)
       }
     },
 
@@ -335,6 +348,12 @@ export default {
       } else {
         this.activeBrand = ''
       }
+    },
+
+    rawCardExp (dateStr) {
+      this.card.date = dateStr.length === 7
+        ? `${dateStr.substr(0, 2)}${dateStr.substr(5, 2)}`
+        : dateStr.replace('/', '')
     },
 
     alert: {
