@@ -314,8 +314,10 @@ export default {
           this.canFormatBinInput = true
           this.$nextTick(() => {
             const $binInput = this.$refs.binInput.$el
-            $binInput.setSelectionRange(1, 1)
             $binInput.focus()
+            setTimeout(() => {
+              $binInput.setSelectionRange(1, 1)
+            }, 10)
           })
         }
       }
@@ -356,8 +358,10 @@ export default {
           this.canFormatExpInput = true
           this.$nextTick(() => {
             const $expInput = this.$refs.expInput.$el
-            $expInput.setSelectionRange(1, 1)
             $expInput.focus()
+            setTimeout(() => {
+              $expInput.setSelectionRange(1, 1)
+            }, 10)
           })
         }
       }
