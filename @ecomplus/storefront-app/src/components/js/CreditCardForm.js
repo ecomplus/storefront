@@ -365,9 +365,9 @@ export default {
           })
         }
       }
-      this.card.date = dateStr.length === 7
-        ? `${dateStr.substr(0, 2)}${dateStr.substr(5, 2)}`
-        : dateStr.replace('/', '')
+      this.card.date = dateStr.length > 5
+        ? `${dateStr.substr(0, 2)}${dateStr.substr(dateStr.length - 2, 2)}` // mm/YYYY | mmYYYY
+        : dateStr.replace('/', '') // mmyy | mm/yy
     },
 
     alert: {
