@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.153](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.152...@ecomplus/storefront-app@2.0.0-beta.153) (2022-12-07)
+
+### Bug Fixes
+
+- **app/credit-card-form:** start card bin as normal input to prevent autocomplete errors ([3e89f9c](https://github.com/ecomplus/storefront/commit/3e89f9c10611ad0146d39c38686a4035a41c26bd))
+
 # [2.0.0-beta.152](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.151...@ecomplus/storefront-app@2.0.0-beta.152) (2022-12-07)
 
 ### Bug Fixes
