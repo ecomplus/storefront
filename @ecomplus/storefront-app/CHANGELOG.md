@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.154](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.153...@ecomplus/storefront-app@2.0.0-beta.154) (2022-12-07)
+
+### Bug Fixes
+
+- **app/credit-card-form:** fix input cursor when changing to formatted fields ([d0ee582](https://github.com/ecomplus/storefront/commit/d0ee582c3d4acb15e10f279de7e3bec4ddb4c88a))
+
 # [2.0.0-beta.153](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.152...@ecomplus/storefront-app@2.0.0-beta.153) (2022-12-07)
 
 ### Bug Fixes
