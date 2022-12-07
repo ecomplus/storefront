@@ -43,7 +43,19 @@
       {{ i19cardNumber }}
     </label>
     <div class="input-group">
+      <input
+        v-if="!canFormatBinInput"
+        type="tel"
+        class="form-control"
+        :class="!isNumberPotentiallyValid && alert.bin ? 'is-invalid': null"
+        v-model="formattedCardBin"
+        @blur="alert.bin = card.bin && !isNumberPotentiallyValid"
+        autocomplete="cc-number"
+        required
+      />
       <cleave-input
+        v-else
+        ref="binInput"
         type="tel"
         class="form-control"
         :class="!isNumberPotentiallyValid && alert.bin ? 'is-invalid': null"
@@ -52,7 +64,7 @@
         :raw="false"
         @blur="alert.bin = card.bin && !isNumberPotentiallyValid"
         :options="{ creditCard: true }"
-        autocomplete="cc-number"
+        autocomplete="off"
         required
       />
 

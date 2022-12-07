@@ -57,6 +57,7 @@ export default {
 
   data () {
     return {
+      canFormatBinInput: false,
       formattedCardBin: '',
       cardBinSetTimer: null,
       card: {
@@ -308,6 +309,16 @@ export default {
     },
 
     formattedCardBin (formattedBin) {
+      if (formattedBin.length === 1) {
+        if (!this.card.bin) {
+          this.canFormatBinInput = true
+          this.$nextTick(() => {
+            const $binInput = this.$refs.binInput.$el
+            $binInput.setSelectionRange(1, 1)
+            $binInput.focus()
+          })
+        }
+      }
       if (!this.cardBinSetTimer && formattedBin.replace(/\D/g, '') !== this.card.bin) {
         this.cardBinSetTimer = setTimeout(() => {
           this.cardBinSetTimer = null
