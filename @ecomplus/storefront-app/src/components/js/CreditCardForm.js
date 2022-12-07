@@ -68,7 +68,7 @@ export default {
         doc: '',
         installment: this.installmentOptions ? 1 : 0
       },
-      expInputComponent: 'input',
+      canFormatExpInput: false,
       rawCardExp: '',
       isLoadingInstallments: false,
       hasLoadedInstallments: false,
@@ -196,17 +196,6 @@ export default {
             this.installmentList = installmentList
           }
         }, 200)
-      }
-    },
-
-    setExpInputComponent (isFocus) {
-      if (!this.card.date) {
-        this.expInputComponent = 'cleave-input'
-      }
-      if (isFocus === true) {
-        this.$nextTick(() => {
-          this.$refs.expInput.$el.focus()
-        })
       }
     },
 
@@ -351,6 +340,16 @@ export default {
     },
 
     rawCardExp (dateStr) {
+      if (dateStr.length === 1) {
+        if (!this.card.date) {
+          this.canFormatExpInput = true
+          this.$nextTick(() => {
+            const $expInput = this.$refs.expInput.$el
+            $expInput.setSelectionRange(1, 1)
+            $expInput.focus()
+          })
+        }
+      }
       this.card.date = dateStr.length === 7
         ? `${dateStr.substr(0, 2)}${dateStr.substr(5, 2)}`
         : dateStr.replace('/', '')

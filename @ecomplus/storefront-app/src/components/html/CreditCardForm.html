@@ -122,23 +122,32 @@
       <label for="credit-card-validate">
         {{ i19validThru }}
       </label>
-      <component
-        :is="expInputComponent"
+      <input
+        v-if="!canFormatExpInput"
+        type="tel"
+        class="form-control"
+        :class="alert.date ? 'is-invalid': null"
+        :placeholder="`mm/${(lang === 'pt_br' ? 'aa' : 'yy')}`"
+        @blur="() => { alert.date = card.date && !validateDate() }"
+        v-model="rawCardExp"
+        autocomplete="cc-exp"
+        required
+      />
+      <cleave-input
+        v-else
         ref="expInput"
         type="tel"
         class="form-control"
         :class="alert.date ? 'is-invalid': null"
         id="credit-card-validate"
-        maxlength="7"
         :placeholder="`mm/${(lang === 'pt_br' ? 'aa' : 'yy')}`"
-        @focus="setExpInputComponent(true)"
         @blur="() => { alert.date = card.date && !validateDate() }"
         v-model="rawCardExp"
         :options="{
           date: true,
           datePattern: ['m', 'y']
         }"
-        autocomplete="cc-exp"
+        autocomplete="off"
         required
       />
     </div>
