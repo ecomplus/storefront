@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.155](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.154...@ecomplus/storefront-app@2.0.0-beta.155) (2022-12-08)
+
+### Bug Fixes
+
+- **app/credit-card-form:** also accept (parse) date on format "mmYYYY" ([7e830aa](https://github.com/ecomplus/storefront/commit/7e830aa3ae823bc0ab0cbfde4655d30c584a5e19))
+
 # [2.0.0-beta.154](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.153...@ecomplus/storefront-app@2.0.0-beta.154) (2022-12-07)
 
 ### Bug Fixes

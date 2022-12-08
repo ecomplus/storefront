@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-starter.44](https://github.com/ecomplus/storefront-starter/compare/@ecomplus/storefront-starter@2.0.0-starter.43...@ecomplus/storefront-starter@2.0.0-starter.44) (2022-12-08)
+
+**Note:** Version bump only for package @ecomplus/storefront-starter
+
 # [2.0.0-starter.43](https://github.com/ecomplus/storefront-starter/compare/@ecomplus/storefront-starter@2.0.0-starter.42...@ecomplus/storefront-starter@2.0.0-starter.43) (2022-12-07)
 
 **Note:** Version bump only for package @ecomplus/storefront-starter
