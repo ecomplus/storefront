@@ -29,7 +29,12 @@ export default ({ baseDir }) => ({
     {
       label: 'Logo',
       name: 'logo',
-      widget: 'image'
+      widget: 'image',
+      media_library: {
+        config: {
+          max_file_size: 1000000
+        }
+      }
     },
     {
       label: 'Tema',
@@ -261,17 +266,32 @@ export default ({ baseDir }) => ({
     {
       label: 'Ícone do app',
       name: 'icon',
-      widget: 'image'
+      widget: 'image',
+      media_library: {
+        config: {
+          max_file_size: 1000000
+        }
+      }
     },
     {
       label: 'Ícone grande',
       name: 'large_icon',
-      widget: 'image'
+      widget: 'image',
+      media_library: {
+        config: {
+          max_file_size: 1000000
+        }
+      }
     },
     {
       label: 'Favicon',
       name: 'favicon',
-      widget: 'image'
+      widget: 'image',
+      media_library: {
+        config: {
+          max_file_size: 1000000
+        }
+      }
     },
     {
       label: 'Language',

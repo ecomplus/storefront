@@ -144,7 +144,12 @@ export default ({ baseDir }) => ({
           label: 'Imagem',
           required: false,
           name: 'src',
-          widget: 'image'
+          widget: 'image',
+          media_library: {
+            config: {
+              max_file_size: 1000000
+            }
+          }
         },
         {
           label: 'alt',

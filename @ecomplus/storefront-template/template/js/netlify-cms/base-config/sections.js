@@ -2,7 +2,12 @@ const bannerFields = [
   {
     label: 'Imagem',
     name: 'img',
-    widget: 'image'
+    widget: 'image',
+    media_library: {
+      config: {
+        max_file_size: 1000000
+      }
+    }
   },
   {
     label: 'Link',
@@ -20,7 +25,12 @@ const bannerFields = [
     label: 'Imagem para mobile',
     required: false,
     name: 'mobile_img',
-    widget: 'image'
+    widget: 'image',
+    media_library: {
+      config: {
+        max_file_size: 1000000
+      }
+    }
   }
 ]
 

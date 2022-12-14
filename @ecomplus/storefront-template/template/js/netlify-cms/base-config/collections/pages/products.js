@@ -29,6 +29,11 @@ export default ({ baseDir, sections }) => ({
                   label: 'Imagem da tabela de medidas',
                   name: 'image',
                   widget: 'image',
+                  media_library: {
+                    config: {
+                      max_file_size: 1000000
+                    }
+                  },
                   required: false
                 },
                 {

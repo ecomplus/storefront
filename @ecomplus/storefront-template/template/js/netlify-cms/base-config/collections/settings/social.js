@@ -9,6 +9,11 @@ export default ({ baseDir }) => ({
       name: 'og_image',
       required: false,
       widget: 'image',
+      media_library: {
+        config: {
+          max_file_size: 1000000
+        }
+      },
       hint: 'Imagem que é exibida quando o site é compartilhado'
     },
     {
