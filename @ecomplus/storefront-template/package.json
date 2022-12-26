@@ -73,7 +73,7 @@
     "@ecomplus/widget-user": "^1.0.0-beta.135",
     "@ecomplus/widget-yourviews": "^1.1.0",
     "@glidejs/glide": "^3.6.0",
-    "core-js": ">=3.26.0 <3.27",
+    "core-js": ">=3.26.0 <3.28",
     "ejs": "^3.1.6",
     "eventemitter3": "^4.0.7",
     "lodash.clonedeep": "^4.5.0",
