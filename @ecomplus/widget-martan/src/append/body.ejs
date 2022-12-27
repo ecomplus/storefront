@@ -1,0 +1,56 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+    const startWidget = () => {
+      const storeId = "<%- options.martanStoreId %>"
+      const widgetKey = "<%- options.martanWidgetKey %>"
+      const $reviewsTarget = "<%- options.martanReviewsTarget || 'martan_reviews_widget' %>"
+      const $questionsTarget = "<%- options.martanQuestionsTarget || 'martan_questions_widget' %>"
+
+      const reviewsIsEnabled = "<%- options.showWidgetReviews %>"
+      const questionsIsEnabled = "<%- options.showWidgetQuestions %>"
+
+      const widgets = new window.martan({
+        storeId: parseInt(storeId, 10),
+        widgetKey
+      })
+
+      try {
+        setTimeout(() => {
+          widgets
+            .averange({
+              fontSize: 22
+            })
+            .build()
+        }, 500);
+      } catch (error) {
+
+      }
+
+      if (page === 'products') {
+        storefront.on('widget:@ecomplus/widget-product', function (r) {
+          setTimeout(function () {
+            try {
+              if (Boolean(reviewsIsEnabled === 'true')) {
+                widgets
+                  .reviews()
+                  .build($reviewsTarget);
+              }
+            } catch (error) {
+              console.error('Can\'t setup review widget: ', error)
+            }
+          }, 800);
+        });
+      }
+    }
+
+    const scriptUrl = "<%- options.widgetSrc || 'https://unpkg.com/martan-widgets@1.0.34/bundle/widgets.js' %>"
+    const page = "<%- _.route.resource %>"
+
+    const script = document.createElement('script')
+    script.setAttribute('src', scriptUrl)
+    script.setAttribute('id', 'martan-scripts')
+    script.async = true
+    script.onload = startWidget
+    document.body.appendChild(script)
+  });
+</script>

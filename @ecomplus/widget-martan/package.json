@@ -1,0 +1,36 @@
+{
+  "name": "@ecomplus/widget-martan",
+  "version": "1.0.0",
+  "description": "Storefront plugin for martan product reviews, product q&a",
+  "main": "dist/widget-martan.min.js",
+  "module": "src/index.js",
+  "browser": "dist/widget-martan.min.js",
+  "jsdelivr": "dist/public/widget-martan.var.min.js",
+  "unpkg": "dist/public/widget-martan.var.min.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "serve": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomplus/storefront.git",
+    "directory": "@ecomplus/widget-martan"
+  },
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "widget",
+    "martan",
+    "reviews"
+  ],
+  "author": "Talisson Trindade <tt@martan.app>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomplus/storefront/issues"
+  },
+  "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-martan#readme",
+  "webpackOutput": {
+    "library": "widgetMartan",
+    "filename": "widget-martan.min.js"
+  }
+}
