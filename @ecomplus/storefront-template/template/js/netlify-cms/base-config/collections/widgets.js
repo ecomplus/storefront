@@ -14,6 +14,7 @@ import getWidgetTrustvox from '@ecomplus/widget-trustvox/cms.config'
 import getWidgetEbit from '@ecomplus/widget-ebit/cms.config'
 import getWidgetCompreConfie from '@ecomplus/widget-compre-confie/cms.config'
 import getWidgetOpinioesVerificadas from '@ecomplus/widget-opinioes-verificadas/cms.config'
+import getWidgetMartan from '@ecomplus/widget-martan/cms.config'
 
 const fixWidgetConfig = ({ baseDir }, getWidget) => {
   const baseConfig = getWidget()
@@ -50,6 +51,7 @@ export default options => ({
     fixWidgetConfig(options, getWidgetSearch),
     fixWidgetConfig(options, getWidgetSearchEngine),
     fixWidgetConfig(options, getWidgetMinicart),
-    fixWidgetConfig(options, getWidgetUser)
+    fixWidgetConfig(options, getWidgetUser),
+    fixWidgetConfig(options, getWidgetMartan)
   ]
 })

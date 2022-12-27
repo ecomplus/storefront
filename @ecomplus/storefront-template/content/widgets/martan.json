@@ -1,0 +1,14 @@
+{
+  "active": true,
+  "options": {
+    "martanStoreId": 1,
+    "martanWidgetKey": "WK_OTQ4ZWY4OTktYjUwZS01ODcwLWE4YzAtMTE4ODFkY2M2NDc0",
+    "showWidgetReviews": true,
+    "showWidgetQuestions": true,
+    "showAverageScore": true,
+    "settings": {
+      "font_size": 12,
+      "star_color": "#a512a5"
+    }
+  }
+}
