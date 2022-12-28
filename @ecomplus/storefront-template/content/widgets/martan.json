@@ -10,5 +10,11 @@
       "font_size": 12,
       "star_color": "#a512a5"
     }
-  }
+  },
+  "headAppend": "src/append/head",
+  "bodyAppend": "src/append/body",
+  "productDescriptionAppend": "src/append/product-block",
+  "productCardSlots": "src/append/product-card-slots",
+  "productSlots": "src/append/product-slots",
+  "stampsAppend": "src/append/stamps"
 }
