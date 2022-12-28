@@ -1,11 +1,11 @@
-# Widget Trustvox
+# Widget Martan
 
-Storefront plugin for Trustvox reviews widgets
+Storefront plugin for Martan reviews widgets
 
 ```js
-import widgetTrustvox from '@ecomplus/widget-trustvox'
+import widgetMartan from '@ecomplus/widget-martan'
 
-widgetTrustvox({
-  trustvoxStoreId: 123
+widgetMartan({
+  martanStoreId: 123
 })
 ```
