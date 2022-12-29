@@ -1,4 +1,5 @@
 {
+  "pkg": "@ecomplus/widget-martan",
   "active": true,
   "options": {
     "martanStoreId": 1,
