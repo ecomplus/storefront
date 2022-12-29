@@ -42,6 +42,7 @@ export default dataLayer => {
       }
     }
 
+    dataLayer.push({ ecommerce: null })
     dataLayer.push({
       event: 'eec.impressions',
       ecommerce: {

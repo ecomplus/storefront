@@ -3,9 +3,15 @@ import { currencyCode, getProductData } from './common'
 
 export default dataLayer => {
   const productsBySku = {}
+  setTimeout(() => {
+    ecomCart.data.items.forEach((item) => {
+      productsBySku[item.sku] = getProductData(item)
+    })
+  }, 10)
 
   const emitAddToCart = item => {
     const productData = getProductData(item)
+    dataLayer.push({ ecommerce: null })
     dataLayer.push({
       event: 'eec.add',
       ecommerce: {
@@ -21,6 +27,7 @@ export default dataLayer => {
 
   const emitRemoveFromCart = item => {
     const productData = productsBySku[item.sku]
+    dataLayer.push({ ecommerce: null })
     dataLayer.push({
       event: 'eec.remove',
       ecommerce: {

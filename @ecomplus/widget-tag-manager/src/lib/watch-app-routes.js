@@ -16,6 +16,7 @@ export default dataLayer => {
     }
 
     const emitCheckoutOption = actionField => {
+      dataLayer.push({ ecommerce: null })
       dataLayer.push({
         event: 'eec.checkout_option',
         ecommerce: {
@@ -28,6 +29,7 @@ export default dataLayer => {
     const emitCheckout = (step, option) => {
       const actionField = { step, option }
       if (step <= 1 || !isCartSent) {
+        dataLayer.push({ ecommerce: null })
         dataLayer.push({
           event: 'eec.checkout',
           ecommerce: {
@@ -89,6 +91,7 @@ export default dataLayer => {
             }
           }
 
+          dataLayer.push({ ecommerce: null })
           dataLayer.push({
             event: 'eec.purchase',
             ecommerce: {

@@ -20,7 +20,8 @@ export default dataLayer => {
     const categories = categoriesList(body)
     if (categories.length) {
       productData.category = body.category_tree
-        ? body.category_tree.replace(/\s>\s/g, '/') : categories[0]
+        ? body.category_tree.replace(/\s>\s/g, '/')
+        : categories[0]
       data.ecommerce.detail.actionField = {
         list: categories[0]
       }
@@ -29,6 +30,7 @@ export default dataLayer => {
       productData.brand = body.brands[0].name
     }
 
+    dataLayer.push({ ecommerce: null })
     dataLayer.push(data)
   }
 }
