@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@7.3.1...@ecomplus/storefront-twbs@7.3.2) (2022-12-29)
+
+### Bug Fixes
+
+- **deps:** update all non-major dependencies ([#837](https://github.com/ecomplus/storefront/issues/837)) ([257b66e](https://github.com/ecomplus/storefront/commit/257b66e74f7791a1662720c2a0830179d68f2bc4))
+
 ## [7.3.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-twbs@7.3.0...@ecomplus/storefront-twbs@7.3.1) (2022-10-25)
 
 ### Bug Fixes
