@@ -11,20 +11,28 @@ export default (gtag, gaTrackingId, googleAdsId) => {
     })
   }, 300)
 
+  let isCheckoutSent = false
   watchAppRoutes({
     push: ({ event, ecommerce }) => {
-      let data
+      if (!event) {
+        return
+      }
+      let data, step
       switch (event) {
         case 'eec.checkout':
         case 'eec.checkout_option':
           data = ecommerce && ecommerce.checkout
           if (data) {
-            gtag('event', 'begin_checkout', {
-              items: data.products
-            })
+            if (!isCheckoutSent) {
+              gtag('event', 'begin_checkout', {
+                items: data.products
+              })
+              isCheckoutSent = true
+            }
+            step = data.actionField && data.actionField.step
           }
           gtag('event', 'set_checkout_option', {
-            checkout_step: location.hash.startsWith('#/cart') ? 1 : 2
+            checkout_step: step || (location.hash.startsWith('#/cart') ? 1 : 2)
           })
           break
 
