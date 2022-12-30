@@ -155,6 +155,11 @@ export default {
 
   watch: {
     checkoutStep (stepNumber, lastStep) {
+      this.$router.push({
+        params: {
+          step: stepNumber
+        }
+      })
       if (stepNumber && !lastStep) {
         this.setFluidPage(true)
       }
