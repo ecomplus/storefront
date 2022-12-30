@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.4](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-analytics@1.3.3...@ecomplus/widget-analytics@1.3.4) (2022-12-30)
+
+### Bug Fixes
+
+- **widget-analytics:** skip datalayer push without event name (ecommerce clear) ([699a8bd](https://github.com/ecomplus/storefront/commit/699a8bd716dc40f66b608d2d69e5ac8c2239ead2))
+
 ## [1.3.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-analytics@1.3.2...@ecomplus/widget-analytics@1.3.3) (2022-12-29)
 
 **Note:** Version bump only for package @ecomplus/widget-analytics

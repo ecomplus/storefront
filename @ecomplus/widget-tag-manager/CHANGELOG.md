@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.6.3...@ecomplus/widget-tag-manager@1.7.0) (2022-12-30)
+
+### Features
+
+- **widget-tag-manager:** sending more checkout (by step) events ([2e932e2](https://github.com/ecomplus/storefront/commit/2e932e28a5e04c93a3a51b6e1b8400b0e9301f4b))
+
 ## [1.6.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.6.2...@ecomplus/widget-tag-manager@1.6.3) (2022-12-29)
 
 ### Bug Fixes

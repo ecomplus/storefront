@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.157](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.156...@ecomplus/storefront-app@2.0.0-beta.157) (2022-12-30)
+
+### Features
+
+- **app/checkout:** set `step` on url hash as router param for analytics tracking ([56c3270](https://github.com/ecomplus/storefront/commit/56c32700eee7c791537e92dff82855d15341f209))
+
 # [2.0.0-beta.156](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.155...@ecomplus/storefront-app@2.0.0-beta.156) (2022-12-29)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
