@@ -24,6 +24,8 @@ export default dataLayer => {
           case 'collections':
             defaultList = `Collection: ${name}`
         }
+      } else {
+        defaultList = 'Home'
       }
     }
 
@@ -32,7 +34,6 @@ export default dataLayer => {
       const { sku } = $product.dataset
       if (skus.indexOf(sku) === -1) {
         skus.push(sku)
-
         if ($product.closest) {
           const $carousel = $product.closest('.products-carousel')
           if (!isSearchPage && $carousel) {
@@ -40,21 +41,59 @@ export default dataLayer => {
           }
         }
       }
+
+      const $link = $product.querySelector('a')
+      if ($link) {
+        const sendProductClick = function (ev) {
+          ev.preventDefault()
+          const impression = impressions.find(({ id }) => id === sku)
+          dataLayer.push({ ecommerce: null })
+          dataLayer.push({
+            event: 'eec.click',
+            ecommerce: {
+              click: {
+                actionField: { list: impression.list || '' },
+                products: [impression]
+              }
+            },
+            eventCallback: function () {
+              $link.removeEventListener('click',
+                sendProductClick,
+                false
+              )
+              $link.click()
+            }
+          })
+        }
+        $link.addEventListener('click',
+          sendProductClick,
+          false
+        )
+      }
     }
+
+    const countPerList = {}
+    const impressions = skus.map(sku => {
+      const listName = listNameBySku[sku] || defaultList
+      const item = { id: sku }
+      if (listName) {
+        item.list = listName
+        if (!countPerList[listName]) {
+          countPerList[listName] = 1
+        } else {
+          countPerList[listName]++
+        }
+        item.position = countPerList[listName]
+      }
+      return item
+    })
 
     dataLayer.push({ ecommerce: null })
     dataLayer.push({
       event: 'eec.impressions',
       ecommerce: {
         currencyCode,
-        impressions: skus.map(sku => {
-          const listName = listNameBySku[sku] || defaultList
-          const item = { id: sku }
-          if (listName) {
-            item.list = listName
-          }
-          return item
-        })
+        impressions
       }
     })
   }
