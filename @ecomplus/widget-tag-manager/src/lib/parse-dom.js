@@ -44,6 +44,13 @@ export default dataLayer => {
 
       const $link = $product.querySelector('a')
       if ($link) {
+        const eventCallback = function () {
+          $link.removeEventListener('click',
+            sendProductClick,
+            false
+          )
+          $link.click()
+        }
         const sendProductClick = function (ev) {
           ev.preventDefault()
           const impression = impressions.find(({ id }) => id === sku)
@@ -56,14 +63,9 @@ export default dataLayer => {
                 products: [impression]
               }
             },
-            eventCallback: function () {
-              $link.removeEventListener('click',
-                sendProductClick,
-                false
-              )
-              $link.click()
-            }
+            eventCallback
           })
+          setTimeout(eventCallback, 1000)
         }
         $link.addEventListener('click',
           sendProductClick,
