@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.7.0...@ecomplus/widget-tag-manager@1.8.0) (2023-01-09)
+
+### Features
+
+- **widget-tag-manager:** add position to impressions, send click events ([45b4fd7](https://github.com/ecomplus/storefront/commit/45b4fd78fdbfca6b3efe48cd3b383ba7b24fed00))
+- **widget-tag-manager:** add position to impressions, send click events ([6302729](https://github.com/ecomplus/storefront/commit/630272966def257063c591f3d45d376db1d207a4))
+
 # [1.7.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.6.3...@ecomplus/widget-tag-manager@1.7.0) (2022-12-30)
 
 ### Features

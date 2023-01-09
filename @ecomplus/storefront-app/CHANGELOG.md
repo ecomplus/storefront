@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.158](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.157...@ecomplus/storefront-app@2.0.0-beta.158) (2023-01-09)
+
+### Bug Fixes
+
+- **deps:** bump @ecomplus/passport-client and @ecomplus/shopping-cart ([3b60f09](https://github.com/ecomplus/storefront/commit/3b60f098f3fef0621fd045afea47ded663c69967))
+
 # [2.0.0-beta.157](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.156...@ecomplus/storefront-app@2.0.0-beta.157) (2022-12-30)
 
 ### Features
