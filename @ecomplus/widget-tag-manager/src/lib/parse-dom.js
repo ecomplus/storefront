@@ -42,14 +42,14 @@ export default dataLayer => {
         }
       }
 
-      const $link = $product.querySelector('a')
-      if ($link) {
+      const $item = $product.parentElement
+      if ($item) {
         const eventCallback = function () {
-          $link.removeEventListener('click',
+          $item.removeEventListener('click',
             sendProductClick,
             false
           )
-          $link.click()
+          $item.querySelector('a').click()
         }
         const sendProductClick = function (ev) {
           ev.preventDefault()
@@ -67,7 +67,7 @@ export default dataLayer => {
           })
           setTimeout(eventCallback, 1000)
         }
-        $link.addEventListener('click',
+        $item.addEventListener('click',
           sendProductClick,
           false
         )
