@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.8.0...@ecomplus/widget-tag-manager@1.8.1) (2023-01-10)
+
+### Bug Fixes
+
+- **widget-tag-manager:** add click listener to `.product-item` el instead ([b3c9e17](https://github.com/ecomplus/storefront/commit/b3c9e1787a6f28b219e1af45e0810a3990b6bbab))
+
 # [1.8.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.7.0...@ecomplus/widget-tag-manager@1.8.0) (2023-01-09)
 
 ### Features
