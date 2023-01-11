@@ -1,0 +1,11 @@
+{
+  "pkg": "@ecomplus/widget-addi",
+  "active": true,
+  "desktopOnly": false,
+  "options": {
+    "enableWidgetProduct": true,
+    "allySlug": "blowgummies-ecommerce"
+  },
+  "productSlots": "src/append/product-slots",
+  "bodyAppend": "src/append/body"
+}

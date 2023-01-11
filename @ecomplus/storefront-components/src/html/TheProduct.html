@@ -340,6 +340,7 @@
                             :installments-option="paymentOption.installments_option"
                             :price="fixedPrice"
                           />
+                          <slot :name="`payment-info-${paymentOption.app_id}`"/>
                         </div>
                       </div>
                     </div>
