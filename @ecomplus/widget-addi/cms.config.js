@@ -1,7 +1,8 @@
 import { name } from './package.json'
 
 export default () => ({
-  label: 'Widget addi com preço dos produtos',
+  label: 'Widget Addi com preço dos produtos',
+
   thumbnail: 'https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/widgets/offers-notification.png',
   fields: [
     {
