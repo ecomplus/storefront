@@ -5,7 +5,7 @@
   "desktopOnly": false,
   "options": {
     "enableWidgetProduct": true,
-    "allySlug": "blowgummies-ecommerce"
+    "allySlug": ""
   },
   "productSlots": "src/append/product-slots",
   "bodyAppend": "src/append/body"
