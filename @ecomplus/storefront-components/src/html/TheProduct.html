@@ -333,13 +333,15 @@
                           :id="`product-payment-${paymentOption.app_id}`"
                           class="mb-3"
                         >
-                          <payment-option
-                            v-for="(gateway, i) in paymentOption.payment_gateways"
-                            :key="`${paymentOption.app_id}-${i}`"
-                            :payment-gateway="gateway"
-                            :installments-option="paymentOption.installments_option"
-                            :price="fixedPrice"
-                          />
+                          <slot :name="`payment-${paymentOption.app_id}`">
+                            <payment-option
+                              v-for="(gateway, i) in paymentOption.payment_gateways"
+                              :key="`${paymentOption.app_id}-${i}`"
+                              :payment-gateway="gateway"
+                              :installments-option="paymentOption.installments_option"
+                              :price="fixedPrice"
+                            />
+                          </slot>
                         </div>
                       </div>
                     </div>

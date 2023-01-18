@@ -1,0 +1,35 @@
+{
+  "name": "@ecomplus/widget-addi",
+  "version": "0.0.1",
+  "description": "Storefront plugin to show Addi widget on product page",
+  "main": "dist/widget-addi.min.js",
+  "module": "src/index.js",
+  "browser": "dist/widget-addi.min.js",
+  "jsdelivr": "dist/public/widget-addi.var.min.js",
+  "unpkg": "dist/public/widget-addi.var.min.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "serve": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomplus/storefront.git",
+    "directory": "@ecomplus/widget-addi"
+  },
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "widget",
+    "addi"
+  ],
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomplus/storefront/issues"
+  },
+  "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-addi#readme",
+  "webpackOutput": {
+    "library": "widgetAddi",
+    "filename": "widget-addi.min.js"
+  }
+}
