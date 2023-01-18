@@ -44,14 +44,16 @@ export default dataLayer => {
 
       const $item = $product.parentElement
       if ($item) {
+        let evTarget
         const eventCallback = function () {
           $item.removeEventListener('click',
             sendProductClick,
             false
           )
-          $item.querySelector('a').click()
+          evTarget.click()
         }
         const sendProductClick = function (ev) {
+          evTarget = ev.target
           ev.preventDefault()
           const impression = impressions.find(({ id }) => id === sku)
           dataLayer.push({ ecommerce: null })

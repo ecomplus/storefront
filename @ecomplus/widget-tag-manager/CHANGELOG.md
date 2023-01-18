@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.8.1...@ecomplus/widget-tag-manager@1.8.2) (2023-01-11)
+
+### Bug Fixes
+
+- **widget-tag-manager:** click original event target after product click handler ([4d4ca2b](https://github.com/ecomplus/storefront/commit/4d4ca2bf5566bc66d52b34efbe0d26928df9b38f))
+
 ## [1.8.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.8.0...@ecomplus/widget-tag-manager@1.8.1) (2023-01-10)
 
 ### Bug Fixes
