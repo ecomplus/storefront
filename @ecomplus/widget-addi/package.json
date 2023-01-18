@@ -1,7 +1,8 @@
 {
   "name": "@ecomplus/widget-addi",
   "version": "0.0.1",
-  "description": "Storefront plugin for show addi widget on product",
+  "description": "Storefront plugin to show Addi widget on product page",
+
   "main": "dist/widget-addi.min.js",
   "module": "src/index.js",
   "browser": "dist/widget-addi.min.js",
