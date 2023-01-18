@@ -10,7 +10,8 @@ export default () => ({
     },
     {
       label: 'Ativar',
-      hint: 'Habilitar widget addi',
+      hint: 'Habilitar widget Addi',
+
       name: 'active',
       widget: 'boolean'
     },
