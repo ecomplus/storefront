@@ -46,7 +46,9 @@ export default {
       hasLoadedItems: false,
       productQnts: {},
       recommendedItems: [],
-      discount: 0
+      discount: 0,
+      discountType: 'fixed',
+      discountValue: 0
     }
   },
 
@@ -93,8 +95,26 @@ export default {
         cartItem.quantity = (this.productQnts[item._id] || 1)
         cartItem.keep_item_quantity = true
         this.ecomCart.addItem(cartItem)
-        console.log({ cartItem })
       })
+    },
+
+    calcDiscount () {
+      if (this.discountType === 'fixed') {
+        this.discount = this.discountValue
+      } else {
+        this.discount = this.subtotal * this.discountValue / 100
+      }
+    }
+  },
+
+  watch: {
+    subtotal: {
+      handler (subtotal, oldSubtotal) {
+        if (subtotal !== oldSubtotal) {
+          this.calcDiscount()
+        }
+      },
+      immediate: true
     }
   },
 
@@ -135,12 +155,10 @@ export default {
             if (buyTogether[0]) {
               const { products, discount } = buyTogether[0]
               this.productQnts = products || []
+              this.discountType = discount.type
+              this.discountValue = discount.value
               this.$nextTick(() => {
-                if (discount.type === 'fixed') {
-                  this.discount = discount.value
-                } else {
-                  this.discount = this.subtotal * discount.value / 100
-                }
+                this.calcDiscount()
               })
             }
           }
