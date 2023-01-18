@@ -5,6 +5,7 @@ import getWidgetSearch from '@ecomplus/widget-search/cms.config'
 import getWidgetMinicart from '@ecomplus/widget-minicart/cms.config'
 import getWidgetUser from '@ecomplus/widget-user/cms.config'
 import getWidgetOffersNotification from '@ecomplus/widget-offers-notification/cms.config'
+import getWidgetAddi from '@ecomplus/widget-addi/cms.config'
 import getWidgetAnalytics from '@ecomplus/widget-analytics/cms.config'
 import getWidgetFbPixel from '@ecomplus/widget-fb-pixel/cms.config'
 import getWidgetTiktokPixel from '@ecomplus/widget-tiktok-pixel/cms.config'
@@ -37,6 +38,7 @@ export default options => ({
     preview: false
   },
   files: [
+    fixWidgetConfig(options, getWidgetAddi),
     fixWidgetConfig(options, getWidgetAnalytics),
     fixWidgetConfig(options, getWidgetFbPixel),
     fixWidgetConfig(options, getWidgetTiktokPixel),
