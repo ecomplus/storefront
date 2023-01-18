@@ -61,8 +61,7 @@ const renderFilePromise = (filename, params) => new Promise((resolve, reject) =>
   })
 })
 
-// insert lib files for serviceworker
-
+// insert partytown lib files for serviceworker
 async function myBuildTask() {
   await copyLibFiles('template/public/~partytown')
 }
