@@ -2,7 +2,6 @@ import { name } from './package.json'
 
 export default () => ({
   label: 'Widget Addi com preço dos produtos',
-
   thumbnail: 'https://ecom-addi.web.app/icon.png',
   fields: [
     {
