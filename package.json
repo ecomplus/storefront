@@ -75,8 +75,5 @@
   },
   "standard": {
     "parser": "babel-eslint"
-  },
-  "dependencies": {
-    "@builder.io/partytown": "^0.7.4"
   }
 }
