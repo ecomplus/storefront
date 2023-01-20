@@ -1,3 +1,4 @@
+import ecomCart from '@ecomplus/shopping-cart'
 import { currencyCode } from './common'
 
 export default dataLayer => {
@@ -45,15 +46,32 @@ export default dataLayer => {
       const $item = $product.parentElement
       if ($item) {
         let evTarget
+        let fallbackTimer = null
+        let isAddedToCart = false
         const eventCallback = function () {
+          clearTimeout(fallbackTimer)
           $item.removeEventListener('click',
             sendProductClick,
             false
           )
-          evTarget.click()
+          if (isAddedToCart) {
+            return
+          }
+          setTimeout(() => {
+            if (!isAddedToCart) {
+              evTarget.click()
+            }
+          }, evTarget.tagName === 'BUTTON' || evTarget.tagName === 'I' ? 150 : 20)
         }
         const sendProductClick = function (ev) {
+          ecomCart.on('addItem', ({ item }) => {
+            isAddedToCart = item.sku === sku
+          })
+          ecomCart.on('increaseItemQnt', ({ item }) => {
+            isAddedToCart = item.sku === sku
+          })
           evTarget = ev.target
+          ev.stopPropagation()
           ev.preventDefault()
           const impression = impressions.find(({ id }) => id === sku)
           dataLayer.push({ ecommerce: null })
@@ -67,7 +85,7 @@ export default dataLayer => {
             },
             eventCallback
           })
-          setTimeout(eventCallback, 1000)
+          fallbackTimer = setTimeout(eventCallback, 1000)
         }
         $item.addEventListener('click',
           sendProductClick,
