@@ -58,16 +58,19 @@ export default dataLayer => {
             return
           }
           setTimeout(() => {
-            if (!isAddedToCart) {
+            if (!isAddedToCart && !evTarget.disabled && !evTarget.parentElement.disabled) {
               evTarget.click()
             }
           }, evTarget.tagName === 'BUTTON' || evTarget.tagName === 'I' ? 150 : 20)
         }
         const sendProductClick = function (ev) {
-          ecomCart.on('addItem', ({ item }) => {
+          if (isAddedToCart) {
+            return
+          }
+          ecomCart.once('addItem', ({ item }) => {
             isAddedToCart = item.sku === sku
           })
-          ecomCart.on('increaseItemQnt', ({ item }) => {
+          ecomCart.once('increaseItemQnt', ({ item }) => {
             isAddedToCart = item.sku === sku
           })
           evTarget = ev.target
