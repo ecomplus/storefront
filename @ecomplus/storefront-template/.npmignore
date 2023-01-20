@@ -1,6 +1,7 @@
 /template/**/storefront-template
 /template/public/assets/vendor/
 /template/public/admin/cms/
+/template/public/~partytown
 /template/scss/styles.scss
 /template/js/lib/theme.js
 /copy

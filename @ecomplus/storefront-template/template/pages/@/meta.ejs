@@ -79,6 +79,9 @@ if (pathname) {
 
 <% if (!path.startsWith('/admin/')) { %>
   <link rel="preload" href="/storefront.css" as="style">
+  <script>
+    <%- _.snippetText %>
+  </script>
   <% if (!path.startsWith('/app/')) { %>
     <link rel="preload" href="/storefront.js" as="script">
   <% } %>
