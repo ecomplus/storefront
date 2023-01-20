@@ -15,8 +15,7 @@ const lodash = require('lodash')
 const MarkdownIt = require('markdown-it')
 const imageSize = require('image-size')
 const { partytownSnippet } = require('@builder.io/partytown/integration')
-const { copyLibFiles } = require('@builder.io/partytown/utils')
-const snippetText = partytownSnippet()
+const partytownSnippetText = partytownSnippet()
 
 const { devMode, storeId, lang, settings, templatePkg } = config
 
@@ -60,12 +59,6 @@ const renderFilePromise = (filename, params) => new Promise((resolve, reject) =>
     }
   })
 })
-
-// insert partytown lib files for serviceworker
-async function myBuildTask() {
-  await copyLibFiles('template/public/~partytown')
-}
-myBuildTask()
 
 // precompile EJS templates on production
 const templates = {}
@@ -129,7 +122,16 @@ const tryImageSize = src => {
 }
 
 // setup initial template data
-const data = { ...config, lodash, ecomUtils, ecomClient, EcomSearch, imageSize, tryImageSize, snippetText }
+const data = {
+  ...config,
+  lodash,
+  ecomUtils,
+  ecomClient,
+  EcomSearch,
+  imageSize,
+  tryImageSize,
+  partytownSnippetText
+}
 
 const dataPromise = getStoreData().then(storeData => {
   Object.assign(data, storeData)
