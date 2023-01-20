@@ -79,9 +79,6 @@ if (pathname) {
 
 <% if (!path.startsWith('/admin/')) { %>
   <link rel="preload" href="/storefront.css" as="style">
-  <script>
-    <%- _.snippetText %>
-  </script>
   <% if (!path.startsWith('/app/')) { %>
     <link rel="preload" href="/storefront.js" as="script">
   <% } %>
@@ -90,9 +87,22 @@ if (pathname) {
   // setup preloaded widget partials (pixels, tags)
   if (_.widgets.length) {
     %>
+    <script>
+      partytown = { forward: [] };
+    </script>
     <%- await include('@/helpers/widgets-append', {
       _, opt: {}, field: 'headAppend'
     }) %>
+    <% if (
+      Array.isArray(_.widgets) &&
+      _.widgets.find(({ usePartytown, options }) => {
+        return (usePartytown || (options && options.partytown))
+      })
+    ) { %>
+      <script>
+        <%- _.partytownSnippetText %>
+      </script>
+    <% } %>
     <%
   }
   %>
