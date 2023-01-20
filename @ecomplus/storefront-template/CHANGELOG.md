@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.211](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.210...@ecomplus/storefront-template@2.0.0-beta.211) (2023-01-20)
+
+### Features
+
+- **widget-addi:** insert new Addi widget and payment slot by method ([#849](https://github.com/ecomplus/storefront/issues/849)) ([42fee84](https://github.com/ecomplus/storefront/commit/42fee8446490954a8c7a37f9207bb19f70119b5e))
+
 # [2.0.0-beta.210](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.209...@ecomplus/storefront-template@2.0.0-beta.210) (2023-01-11)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
