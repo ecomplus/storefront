@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.212](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.211...@ecomplus/storefront-template@2.0.0-beta.212) (2023-01-20)
+
+### Features
+
+- **renderer:** add partytown to run 3-party script in workers (perf optim) ([#853](https://github.com/ecomplus/storefront/issues/853)) ([1dc32b0](https://github.com/ecomplus/storefront/commit/1dc32b0a405ea3df8df8df8b7c1717490f565f61))
+- **template/partytown:** add support for widget specific partytown setup (no proxy yet) ([dc2f786](https://github.com/ecomplus/storefront/commit/dc2f7864a43e84ae6039772efd90a984af817092))
+
 # [2.0.0-beta.211](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.210...@ecomplus/storefront-template@2.0.0-beta.211) (2023-01-20)
 
 ### Features

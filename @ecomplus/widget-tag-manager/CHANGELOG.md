@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.8.3...@ecomplus/widget-tag-manager@1.9.0) (2023-01-20)
+
+### Bug Fixes
+
+- **widget-tag-manager:** also check button disabled right after stop propagation on product click ([a3cdb20](https://github.com/ecomplus/storefront/commit/a3cdb203d497e86f943e742510dbd8d3dd14f2e0))
+- **widget-tag-manager:** skip (re)click if button disabled after click event sent ([fc5355d](https://github.com/ecomplus/storefront/commit/fc5355d6f100552cdbc7143d9051b6d35e2afe32))
+
+### Features
+
+- **renderer:** add partytown to run 3-party script in workers (perf optim) ([#853](https://github.com/ecomplus/storefront/issues/853)) ([1dc32b0](https://github.com/ecomplus/storefront/commit/1dc32b0a405ea3df8df8df8b7c1717490f565f61))
+- **widget-tag-manager:** add "run on partytown" cms option ([dd787eb](https://github.com/ecomplus/storefront/commit/dd787eb8f882e7712e437e9e162c7848f6c61b0b))
+
 ## [1.8.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.8.2...@ecomplus/widget-tag-manager@1.8.3) (2023-01-20)
 
 ### Bug Fixes

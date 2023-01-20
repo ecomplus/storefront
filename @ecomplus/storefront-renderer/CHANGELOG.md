@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.8.20...@ecomplus/storefront-renderer@2.9.0) (2023-01-20)
+
+### Bug Fixes
+
+- **renderer/partytown:** stop copying lib files (build time instead), rename `partytownSnippetText` ([cbfefd4](https://github.com/ecomplus/storefront/commit/cbfefd4a8a22fa0a37c9b59c49a1e49ceee121e2))
+
+### Features
+
+- **renderer:** add partytown to run 3-party script in workers (perf optim) ([#853](https://github.com/ecomplus/storefront/issues/853)) ([1dc32b0](https://github.com/ecomplus/storefront/commit/1dc32b0a405ea3df8df8df8b7c1717490f565f61))
+
 ## [2.8.20](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.8.19...@ecomplus/storefront-renderer@2.8.20) (2022-10-25)
 
 ### Bug Fixes

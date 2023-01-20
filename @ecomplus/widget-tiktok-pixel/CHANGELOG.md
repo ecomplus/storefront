@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tiktok-pixel@1.1.0...@ecomplus/widget-tiktok-pixel@1.2.0) (2023-01-20)
+
+### Features
+
+- **widget-tik-tok:** add "run on partytown" cms option ([0ff1ef9](https://github.com/ecomplus/storefront/commit/0ff1ef9d932a7ae92f205f69ee8efc7d3b055d25))
+
 # 1.1.0 (2022-11-02)
 
 ### Features
