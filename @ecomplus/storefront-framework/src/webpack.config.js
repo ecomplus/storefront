@@ -12,6 +12,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const partytown = require('@builder.io/partytown/utils')
 
 const {
   devMode,
@@ -251,7 +252,12 @@ if (!process.env.WEBPACK_BUILD_LIB) {
     // copy files from public folders recursivily
     new CopyPlugin({
       patterns: [
-        { from: paths.pub, to: paths.output }
+        { from: paths.pub, to: paths.output },
+        // https://partytown.builder.io/copy-library-files#webpack
+        {
+          from: partytown.libDirPath(),
+          to: path.join(paths.output, '~partytown')
+        }
       ]
     })
   )
