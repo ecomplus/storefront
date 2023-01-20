@@ -46,6 +46,13 @@ export default () => ({
           name: 'parseDomMsDelay',
           widget: 'hidden',
           default: 300
+        },
+        {
+          label: 'Carregamento otimizado (beta)',
+          name: 'partytown',
+          widget: 'boolean',
+          default: false,
+          description: 'APENAS PARA GA4: Usar Partytown para melhor performance importando as tags em web worker'
         }
       ]
     },
