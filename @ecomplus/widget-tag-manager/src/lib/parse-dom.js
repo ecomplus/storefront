@@ -46,6 +46,7 @@ export default dataLayer => {
       const $item = $product.parentElement
       if ($item) {
         let evTarget
+        let isTargetDisabled = false
         let fallbackTimer = null
         let isAddedToCart = false
         const eventCallback = function () {
@@ -54,7 +55,7 @@ export default dataLayer => {
             sendProductClick,
             false
           )
-          if (isAddedToCart) {
+          if (isAddedToCart || isTargetDisabled) {
             return
           }
           setTimeout(() => {
@@ -76,6 +77,7 @@ export default dataLayer => {
           evTarget = ev.target
           ev.stopPropagation()
           ev.preventDefault()
+          isTargetDisabled = evTarget.disabled || evTarget.parentElement.disabled
           const impression = impressions.find(({ id }) => id === sku)
           dataLayer.push({ ecommerce: null })
           dataLayer.push({
@@ -88,7 +90,7 @@ export default dataLayer => {
             },
             eventCallback
           })
-          fallbackTimer = setTimeout(eventCallback, 1000)
+          fallbackTimer = setTimeout(eventCallback, 700)
         }
         $item.addEventListener('click',
           sendProductClick,
