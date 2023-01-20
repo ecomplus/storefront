@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.8.2...@ecomplus/widget-tag-manager@1.8.3) (2023-01-20)
+
+### Bug Fixes
+
+- **widget-tag-manager:** prevent duplicated add to cart event on click ([f256e3e](https://github.com/ecomplus/storefront/commit/f256e3eb4afd0d127fb51d3e0c1f5ee4bed28e14))
+
 ## [1.8.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.8.1...@ecomplus/widget-tag-manager@1.8.2) (2023-01-11)
 
 ### Bug Fixes
