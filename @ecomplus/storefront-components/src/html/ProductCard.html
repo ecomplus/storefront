@@ -85,6 +85,15 @@
         </p>
       </slot>
 
+      <slot
+        name="upon-request"
+        v-else-if="isUponRequest"
+      >
+        <p class="badge badge-info mt-auto">
+          {{ i19uponRequest }}
+        </p>
+      </slot>
+
       <template v-else>
         <slot name="prices">
           <a-prices

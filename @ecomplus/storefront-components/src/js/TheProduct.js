@@ -161,7 +161,8 @@ export default {
       paymentOptions: [],
       customizations: [],
       kitItems: [],
-      currentTimer: null
+      currentTimer: null,
+      whatsappLink: null
     }
   },
 
@@ -183,6 +184,7 @@ export default {
     i19retry: () => i18n(i19retry),
     i19selectVariationMsg: () => i18n(i19selectVariationMsg),
     i19unavailable: () => i18n(i19unavailable),
+    i19quoteProduct: () => 'Cotar produto',
     i19units: () => i18n(i19units).toLowerCase(),
     i19unitsInStock: () => i18n(i19unitsInStock),
     i19workingDays: () => i18n(i19workingDays),
@@ -199,6 +201,10 @@ export default {
 
     isInStock () {
       return checkInStock(this.body)
+    },
+
+    isQuoteProduct () {
+      return !getPrice(this.body)
     },
 
     isVariationInStock () {
@@ -523,7 +529,7 @@ export default {
   },
 
   mounted () {
-    if (this.$refs.sticky) {
+    if (this.$refs.sticky && !this.isQuoteProduct) {
       let isBodyPaddingSet = false
       const setStickyBuyObserver = (isToVisible = true) => {
         const $anchor = this.$refs[isToVisible ? 'sticky' : 'buy']
@@ -590,11 +596,24 @@ export default {
         }, 1000)
       }
     }
+    if (this.isQuoteProduct) {
+      const tel = document.querySelector('.whatsapp-link')
+      if (tel) {
+        const cellphone = tel.dataset && tel.dataset.tel
+        const href = 'https://' + (isMobile ? 'api' : 'web') + '.whatsapp.com/send?phone=' + encodeURIComponent('+' + cellphone ? cellphone : `+55${cellphone}`) + `&text=${this.i19quoteProduct} : ${encodeURIComponent(window.location.href)}`
+        this.whatsappLink = setInterval(() => {
+          this.$refs.whatsapp.href = href
+        }, 1000)
+      }
+    }
   },
 
   destroyed () {
     if (this.currentTimer) {
       clearInterval(this.currentTimer)
+    }
+    if (this.whatsappLink) {
+      clearInterval(this.whatsappLink)
     }
   }
 }

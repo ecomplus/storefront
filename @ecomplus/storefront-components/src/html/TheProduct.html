@@ -91,6 +91,21 @@
             </slot>
           </div>
 
+          <div
+            v-else-if="isQuoteProduct"
+            class="product__quote-product"
+          >
+            <slot name="quote-product">
+              <a 
+                target="_blank" 
+                ref="whatsapp"
+                href=""
+              >
+                {{ i19quoteProduct }}
+              </a>
+            </slot>
+          </div>
+
           <template v-else>
             <slot name="prices">
               <p class="product__prices">
