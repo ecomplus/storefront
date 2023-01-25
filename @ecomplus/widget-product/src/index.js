@@ -51,7 +51,6 @@ export default (options = {}, elId = 'product') => {
 
     const formatLink = (quoteInfo) => {
       if (quoteInfo.indexOf('http') === -1) {
-        console.log(isMobile)
         const cellphone = quoteInfo.replace(/\D/g, '')
         return 'https://' + (isMobile ? 'api' : 'web') + '.whatsapp.com/send?phone=' + encodeURIComponent('+' + cellphone ? cellphone : `+55${cellphone}`) + `&text=Cotar produto: ${encodeURIComponent(window.location.href)}`
       }
