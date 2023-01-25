@@ -85,6 +85,15 @@
         </p>
       </slot>
 
+      <slot
+        name="without-price"
+        v-else-if="isWithoutPrice"
+      >
+        <p class="badge badge-info mt-auto">
+          {{ i19uponRequest }}
+        </p>
+      </slot>
+
       <template v-else>
         <slot name="prices">
           <a-prices

@@ -133,6 +133,7 @@ export default {
         return window.ecomPaymentApps || []
       }
     },
+    quoteLink: String,
     isSSR: Boolean,
     ecomPassport: {
       type: Object,
@@ -183,6 +184,7 @@ export default {
     i19retry: () => i18n(i19retry),
     i19selectVariationMsg: () => i18n(i19selectVariationMsg),
     i19unavailable: () => i18n(i19unavailable),
+    i19quoteProduct: () => 'Cotar produto',
     i19units: () => i18n(i19units).toLowerCase(),
     i19unitsInStock: () => i18n(i19unitsInStock),
     i19workingDays: () => i18n(i19workingDays),
@@ -199,6 +201,10 @@ export default {
 
     isInStock () {
       return checkInStock(this.body)
+    },
+
+    isWithoutPrice () {
+      return !getPrice(this.body)
     },
 
     isVariationInStock () {
@@ -523,7 +529,7 @@ export default {
   },
 
   mounted () {
-    if (this.$refs.sticky) {
+    if (this.$refs.sticky && !this.isWithoutPrice) {
       let isBodyPaddingSet = false
       const setStickyBuyObserver = (isToVisible = true) => {
         const $anchor = this.$refs[isToVisible ? 'sticky' : 'buy']

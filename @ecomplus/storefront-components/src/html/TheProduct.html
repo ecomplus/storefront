@@ -91,6 +91,22 @@
             </slot>
           </div>
 
+          <div
+            v-else-if="isWithoutPrice"
+            class="product__without-price"
+          >
+            <slot name="without-price">
+              <a 
+                v-if="quoteLink"
+                target="_blank"
+                rel="noopener"
+                :href="quoteLink"
+              >
+                {{ i19quoteProduct }}
+              </a>
+            </slot>
+          </div>
+
           <template v-else>
             <slot name="prices">
               <p class="product__prices">
