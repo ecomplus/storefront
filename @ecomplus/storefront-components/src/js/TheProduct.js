@@ -133,6 +133,7 @@ export default {
         return window.ecomPaymentApps || []
       }
     },
+    quoteLink: String,
     isSSR: Boolean,
     ecomPassport: {
       type: Object,
@@ -161,8 +162,7 @@ export default {
       paymentOptions: [],
       customizations: [],
       kitItems: [],
-      currentTimer: null,
-      whatsappLink: null
+      currentTimer: null
     }
   },
 
@@ -203,7 +203,7 @@ export default {
       return checkInStock(this.body)
     },
 
-    isQuoteProduct () {
+    isWithoutPrice () {
       return !getPrice(this.body)
     },
 
@@ -529,7 +529,7 @@ export default {
   },
 
   mounted () {
-    if (this.$refs.sticky && !this.isQuoteProduct) {
+    if (this.$refs.sticky && !this.isWithoutPrice) {
       let isBodyPaddingSet = false
       const setStickyBuyObserver = (isToVisible = true) => {
         const $anchor = this.$refs[isToVisible ? 'sticky' : 'buy']
@@ -596,24 +596,11 @@ export default {
         }, 1000)
       }
     }
-    if (this.isQuoteProduct) {
-      const tel = document.querySelector('.whatsapp-link')
-      if (tel) {
-        const cellphone = tel.dataset && tel.dataset.tel
-        const href = 'https://' + (isMobile ? 'api' : 'web') + '.whatsapp.com/send?phone=' + encodeURIComponent('+' + cellphone ? cellphone : `+55${cellphone}`) + `&text=${this.i19quoteProduct} : ${encodeURIComponent(window.location.href)}`
-        this.whatsappLink = setInterval(() => {
-          this.$refs.whatsapp.href = href
-        }, 1000)
-      }
-    }
   },
 
   destroyed () {
     if (this.currentTimer) {
       clearInterval(this.currentTimer)
-    }
-    if (this.whatsappLink) {
-      clearInterval(this.whatsappLink)
     }
   }
 }

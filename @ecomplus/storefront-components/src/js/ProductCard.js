@@ -94,7 +94,7 @@ export default {
     i19unavailable: () => i18n(i19unavailable),
     i19uponRequest: () => 'Sob consulta',
 
-    isUponRequest () {
+    isWithoutPrice () {
       return !getPrice(this.body)
     },
 

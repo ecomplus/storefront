@@ -38,7 +38,8 @@ export default (options = {}, elId = 'product') => {
       strHasQuantitySelector,
       strHasPromotionTimer,
       lowQuantityToWarn,
-      maxVariationOptionsBtns
+      maxVariationOptionsBtns,
+      quoteLink
     } = options
 
     const strOptionToBool = (strOption, prop) => {
@@ -60,6 +61,7 @@ export default (options = {}, elId = 'product') => {
           hasPromotionTimer: strOptionToBool(strHasPromotionTimer, 'hasPromotionTimer'),
           lowQuantityToWarn,
           maxVariationOptionsBtns,
+          quoteLink,
           isSSR
         },
         on: {

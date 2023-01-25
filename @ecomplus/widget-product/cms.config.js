@@ -99,6 +99,13 @@ export default () => ({
           default: 6,
           hint: 'Máximo de opções por grade (tamanho, cor...) que poderão ser listadas com botões, ' +
             'acima do máximo as opções serão listadas em um seletor'
+        },
+        {
+          label: 'Link para cotação de produto',
+          name: 'quoteLink',
+          required: false,
+          widget: 'string',
+          hint: 'Link para direcionar a cotação do produto'
         }
       ]
     }

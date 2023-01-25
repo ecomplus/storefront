@@ -92,14 +92,13 @@
           </div>
 
           <div
-            v-else-if="isQuoteProduct"
-            class="product__quote-product"
+            v-else-if="isWithoutPrice"
+            class="product__without-price"
           >
-            <slot name="quote-product">
+            <slot name="without-price">
               <a 
                 target="_blank" 
-                ref="whatsapp"
-                href=""
+                :href="quoteLink"
               >
                 {{ i19quoteProduct }}
               </a>
