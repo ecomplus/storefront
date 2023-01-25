@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.142](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.141...@ecomplus/storefront-components@1.0.0-beta.142) (2023-01-25)
+
+### Features
+
+- **components/product:** handle no price (upon request) products ([#857](https://github.com/ecomplus/storefront/issues/857)) ([b5eb947](https://github.com/ecomplus/storefront/commit/b5eb9478917336fc23b40ce714f0293e046e2272))
+
 # [1.0.0-beta.141](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.140...@ecomplus/storefront-components@1.0.0-beta.141) (2023-01-20)
 
 ### Bug Fixes

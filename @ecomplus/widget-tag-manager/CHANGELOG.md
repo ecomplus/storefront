@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.9.0...@ecomplus/widget-tag-manager@1.9.1) (2023-01-25)
+
+### Bug Fixes
+
+- **widget-tag-manager:** do not send `quantity` on product detail, send `stock` instead ([fae28c5](https://github.com/ecomplus/storefront/commit/fae28c57f3c6695688ec135c43893ed510a1aef1))
+- **widget-tag-manager:** do not send click on product block, cards only ([611fa48](https://github.com/ecomplus/storefront/commit/611fa4836d5300511797bb854758cb5f2c91327a))
+- **widget-tag-manager:** normalize `item.name` without variant specs ([a84fc70](https://github.com/ecomplus/storefront/commit/a84fc700558cd021dde1045c06bb4ad72b7cac02))
+
 # [1.9.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.8.3...@ecomplus/widget-tag-manager@1.9.0) (2023-01-20)
 
 ### Bug Fixes

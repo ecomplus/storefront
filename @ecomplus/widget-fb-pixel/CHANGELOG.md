@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.5.3...@ecomplus/widget-fb-pixel@1.5.4) (2023-01-25)
+
+### Bug Fixes
+
+- **widget-fb-pixel:** prevent duplicated pixel due to noscript fallback ([#858](https://github.com/ecomplus/storefront/issues/858)) ([3dfa78d](https://github.com/ecomplus/storefront/commit/3dfa78dfa052100dd8e6c6ed495686d4d8d454cf))
+
 ## [1.5.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.5.2...@ecomplus/widget-fb-pixel@1.5.3) (2022-10-25)
 
 ### Bug Fixes
