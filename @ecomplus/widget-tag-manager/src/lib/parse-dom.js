@@ -44,7 +44,7 @@ export default dataLayer => {
       }
 
       const $item = $product.parentElement
-      if ($item) {
+      if ($item && $item.classList.contains('product-item')) {
         let evTarget
         let isTargetDisabled = false
         let fallbackTimer = null
