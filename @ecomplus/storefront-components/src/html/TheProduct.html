@@ -97,6 +97,7 @@
           >
             <slot name="without-price">
               <a 
+                v-if="quoteLink"
                 target="_blank" 
                 :href="quoteLink"
               >
