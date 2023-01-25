@@ -4,7 +4,7 @@ export const currencyCode = $ecomConfig.get('currency') || 'BRL'
 
 export const getProductData = item => {
   const productData = {
-    name: name(item),
+    name: name(item).replace(/\s\/\s.*/, ''),
     id: item.sku,
     price: price(item).toFixed(2)
   }
