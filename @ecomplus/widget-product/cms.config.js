@@ -101,11 +101,11 @@ export default () => ({
             'acima do máximo as opções serão listadas em um seletor'
         },
         {
-          label: 'Link para cotação de produto',
-          name: 'quoteLink',
+          label: 'Link para cotação de produto ou número do whatsapp',
+          name: 'quoteInfo',
           required: false,
           widget: 'string',
-          hint: 'Link para direcionar a cotação do produto'
+          hint: 'Se for link, precisa ter https. Se for número, somente dígitos com ddd'
         }
       ]
     }
