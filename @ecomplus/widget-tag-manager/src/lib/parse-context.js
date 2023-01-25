@@ -6,7 +6,9 @@ export default dataLayer => {
   if (context && context.resource === 'products') {
     const { body } = context
 
-    const productData = getProductData(body)
+    const productData = { ...getProductData(body) }
+    productData.stock = productData.quantity
+    delete productData.quantity
     const data = {
       event: 'eec.detail',
       ecommerce: {
