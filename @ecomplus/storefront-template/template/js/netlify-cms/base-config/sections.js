@@ -300,6 +300,15 @@ export default ({ state }) => [
         widget: 'number',
         min: 1,
         default: 1
+      },
+      {
+        label: 'Carousel autoplay',
+        required: false,
+        name: 'autoplay',
+        hint: 'Exibição de cada página em milisegundos, 0 desativa o autoplay',
+        min: 0,
+        step: 1000,
+        widget: 'number'
       }
     ]
   },
