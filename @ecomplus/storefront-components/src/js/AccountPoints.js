@@ -7,7 +7,8 @@ import {
 
 import {
   i18n,
-  formatDate
+  formatDate,
+  formatMoney
 } from '@ecomplus/utils'
 
 export default {
@@ -38,10 +39,25 @@ export default {
         })
       }
       return []
+    },
+
+    totalPoints () {
+      if (this.validPointsEntries.length) {
+        return this.validPointsEntries.reduce((prev, curr) => prev + curr.active_points, 0)
+      }
+      return 0
+    },
+
+    totalCashback () {
+      if (this.validPointsEntries.length) {
+        return this.validPointsEntries.reduce((prev, curr) => prev + (curr.active_points * curr.ratio), 0)
+      }
+      return 0
     }
   },
 
   methods: {
-    formatDate
+    formatDate,
+    formatMoney
   }
 }
