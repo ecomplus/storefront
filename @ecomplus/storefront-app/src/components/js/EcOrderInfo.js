@@ -115,6 +115,7 @@ export default {
     i19trackDelivery: () => i18n(i19trackDelivery),
     i19unsubscribe: () => i18n(i19unsubscribe),
     i19zipCode: () => i18n(i19zipCode),
+    i19invoice: () => 'Nota fiscal',
 
     localOrder: {
       get () {

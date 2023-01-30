@@ -300,6 +300,25 @@
                               </span>
                             </samp>
                           </div>
+
+                          <div
+                            if="shippingLine.invoices"
+                            class="order-info__shipping-nfe"
+                          >
+                            <hr>
+                            <samp
+                              v-for="(invoice, i) in shippingLine.invoices"
+                              :key="`invoice-${i}`"
+                            >
+                              <a
+                                v-if="invoice.link || invoice.access_key"
+                                :href="`${invoice.link || `https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConteudo=7PhJ+gAVw2g=&tipoConsulta=resumo&nfe=${invoice.access_key}&`}`"
+                                target="_blank"
+                              >
+                                {{ i19invoice }}
+                              </a>
+                            </samp>
+                          </div>
                         </div>
                       </div>
 
