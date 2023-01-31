@@ -312,7 +312,7 @@
                             >
                               <a
                                 v-if="invoice.link || invoice.access_key"
-                                :href="`${invoice.link || `https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConteudo=7PhJ+gAVw2g=&tipoConsulta=resumo&nfe=${invoice.access_key}&`}`"
+                                :href="`${invoice.link || `${nfeLink + invoice.access_key}`}`"
                                 target="_blank"
                               >
                                 {{ i19invoice }}
