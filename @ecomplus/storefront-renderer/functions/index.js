@@ -26,6 +26,25 @@ exports.ssr = (req, res, getCacheControl) => {
       )
   }
 
+  const partytownProxyReverse = url => {
+    const urlInstance = new URL(url)
+    if (urlInstance.pathname = '/proxy-reverse/') {
+      const requestUrl = urlInstance.searchParam.get('url')
+      fetch(requestUrl)
+        .then(response => {
+          return response.text()
+        })
+        .then(html => {
+            const parser = new DOMParser()
+            const doc = parser.parseFromString(html, "text/html")
+            return doc
+        })
+        .catch(err => {  
+            console.log('Failed to fetch page: ', err)
+        })
+    }
+  }
+
   const redirect = (url, status = 302) => {
     let sMaxAge = status === 301 ? 360 : 12
     if (isLongCache) {
@@ -49,6 +68,10 @@ exports.ssr = (req, res, getCacheControl) => {
   const fallback = () => {
     if (url.slice(-1) === '/') {
       redirect(url.slice(0, -1))
+    } else if (url.indexOf('/proxy-reverse/') > -1) {
+      const script = partytownProxyReverse(url)
+      setStatusAndCache(200, `public, max-age=${(isLongCache ? 120 : 30)}`)
+        .send(script)
     } else if (url !== '/404' && (/\/[^/.]+$/.test(url) || /\.x?html$/.test(url))) {
       setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)
         .send('<html><head>' +

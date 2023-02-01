@@ -1,4 +1,22 @@
-<script>
+<% if (options.partytown) { %>
+  <script>
+    partytown = {
+      resolveUrl: function (url, location) {
+        if (url.hostname === 'connect.facebook.net') {
+          console.log(location)
+          const proxyUrl = new URL(location.href + 'proxy-reverse/');
+          proxyUrl.searchParams.append('url', url.href);
+          return proxyUrl;
+        }
+    },
+    forward: [
+      "fbq",
+      ...partytown.forward
+    ]
+  }
+  </script>
+<% } %>
+<script <%- (options.partytown ? 'type="text/partytown"' : '') %> >
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
