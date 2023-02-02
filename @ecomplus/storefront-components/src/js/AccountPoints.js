@@ -50,7 +50,7 @@ export default {
 
     totalCashback () {
       if (this.validPointsEntries.length) {
-        return this.validPointsEntries.reduce((prev, curr) => prev + (curr.active_points * curr.ratio), 0)
+        return this.validPointsEntries.reduce((prev, curr) => (prev + (curr.active_points * curr.ratio)), 0)
       }
       return 0
     }
