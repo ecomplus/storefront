@@ -309,9 +309,9 @@
                             <samp
                               v-for="(invoice, i) in shippingLine.invoices"
                               :key="`invoice-${i}`"
+                              v-if="invoice.link || invoice.access_key"
                             >
                               <a
-                                v-if="invoice.link || invoice.access_key"
                                 :href="`${invoice.link || `${nfeLink + invoice.access_key}`}`"
                                 target="_blank"
                               >
