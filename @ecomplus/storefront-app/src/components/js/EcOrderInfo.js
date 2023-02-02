@@ -78,7 +78,7 @@ export default {
         return ecomPassport
       }
     },
-    nfeLink: {
+    invoiceBaseLink: {
       type: String,
       default: 'https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConteudo=7PhJ+gAVw2g=&tipoConsulta=resumo&nfe='
     }
