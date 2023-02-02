@@ -3,8 +3,7 @@
     partytown = {
       resolveUrl: function (url, location) {
         if (url.hostname === 'connect.facebook.net') {
-          console.log(location)
-          const proxyUrl = new URL(location.href + 'proxy-reverse/');
+          const proxyUrl = new URL(location.href + 'reverse-proxy/');
           proxyUrl.searchParams.append('url', url.href);
           return proxyUrl;
         }

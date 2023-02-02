@@ -1,4 +1,5 @@
 const path = require('path')
+const axios = require('axios')
 
 const {
   getAssetsReferences,
@@ -16,6 +17,7 @@ exports.ssr = (req, res, getCacheControl) => {
 
   const isLongCache = String(STOREFRONT_LONG_CACHE).toLowerCase() === 'true'
   const url = req.url.replace(/\?.*$/, '').replace(/\.html$/, '')
+  const { headers } = req
 
   const setStatusAndCache = (status, defaultCache) => {
     return res.status(status)
@@ -26,21 +28,13 @@ exports.ssr = (req, res, getCacheControl) => {
       )
   }
 
-  const partytownProxyReverse = url => {
+  const proxy = url => {
     const urlInstance = new URL(url)
-    if (urlInstance.pathname = '/proxy-reverse/') {
+    if (urlInstance.pathname = '/reverse-proxy/') {
       const requestUrl = urlInstance.searchParam.get('url')
-      fetch(requestUrl)
-        .then(response => {
-          return response.text()
-        })
-        .then(html => {
-            const parser = new DOMParser()
-            const doc = parser.parseFromString(html, "text/html")
-            return doc
-        })
-        .catch(err => {  
-            console.log('Failed to fetch page: ', err)
+      axios.get(requestUrl, { headers, timeout: 5000 })
+        .then(({ data, headers, status }) => {
+          return { data, headers, status }
         })
     }
   }
@@ -68,10 +62,9 @@ exports.ssr = (req, res, getCacheControl) => {
   const fallback = () => {
     if (url.slice(-1) === '/') {
       redirect(url.slice(0, -1))
-    } else if (url.indexOf('/proxy-reverse/') > -1) {
-      const script = partytownProxyReverse(url)
-      setStatusAndCache(200, `public, max-age=${(isLongCache ? 120 : 30)}`)
-        .send(script)
+    } else if (url.startsWith('/reverse-proxy/')) {
+      const { data, status, headers } = proxy(url)
+      res.writeHead(status, headers).send(data)
     } else if (url !== '/404' && (/\/[^/.]+$/.test(url) || /\.x?html$/.test(url))) {
       setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)
         .send('<html><head>' +
