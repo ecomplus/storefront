@@ -312,7 +312,7 @@
                               v-if="invoice.link || invoice.access_key"
                             >
                               <a
-                                :href="`${invoice.link || `${nfeLink + invoice.access_key}`}`"
+                                :href="`${invoice.link || `${(nfeLink + invoice.access_key)}`}`"
                                 target="_blank"
                               >
                                 {{ i19invoice }}
