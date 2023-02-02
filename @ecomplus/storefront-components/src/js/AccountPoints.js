@@ -43,7 +43,7 @@ export default {
 
     totalPoints () {
       if (this.validPointsEntries.length) {
-        return this.validPointsEntries.reduce((prev, curr) => prev + curr.active_points, 0)
+        return this.validPointsEntries.reduce((prev, curr) => (prev + curr.active_points), 0)
       }
       return 0
     },
