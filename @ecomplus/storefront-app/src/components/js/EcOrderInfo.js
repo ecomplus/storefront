@@ -77,6 +77,10 @@ export default {
       default () {
         return ecomPassport
       }
+    },
+    invoiceBaseLink: {
+      type: String,
+      default: 'https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConteudo=7PhJ+gAVw2g=&tipoConsulta=resumo&nfe='
     }
   },
 
@@ -115,6 +119,7 @@ export default {
     i19trackDelivery: () => i18n(i19trackDelivery),
     i19unsubscribe: () => i18n(i19unsubscribe),
     i19zipCode: () => i18n(i19zipCode),
+    i19invoice: () => 'Nota fiscal',
 
     localOrder: {
       get () {

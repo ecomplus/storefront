@@ -300,6 +300,25 @@
                               </span>
                             </samp>
                           </div>
+
+                          <div
+                            if="shippingLine.invoices"
+                            class="order-info__shipping-nfe"
+                          >
+                            <hr>
+                            <samp
+                              v-for="(invoice, i) in shippingLine.invoices"
+                              :key="`invoice-${i}`"
+                              v-if="invoice.link || invoice.access_key"
+                            >
+                              <a
+                                :href="`${invoice.link || `${(invoiceBaseLink + invoice.access_key)}`}`"
+                                target="_blank"
+                              >
+                                {{ i19invoice }}
+                              </a>
+                            </samp>
+                          </div>
                         </div>
                       </div>
 
