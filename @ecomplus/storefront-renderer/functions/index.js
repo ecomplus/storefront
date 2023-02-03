@@ -62,8 +62,11 @@ exports.ssr = (req, res, getCacheControl) => {
     if (url.slice(-1) === '/') {
       redirect(url.slice(0, -1))
     } else if (url.startsWith('/reverse-proxy/')) {
-      proxy(url).then(({ data, status, headers }) => {
-        res.writeHead(status, headers).send(data)
+      proxy(url).then((response) => {
+        if (response) {
+          return res.writeHead(status, headers).send(data)
+        }
+        return res.sendStatus(400)
       })
     } else if (url !== '/404' && (/\/[^/.]+$/.test(url) || /\.x?html$/.test(url))) {
       setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)
