@@ -64,6 +64,7 @@ exports.ssr = (req, res, getCacheControl) => {
     } else if (url.startsWith('/reverse-proxy/')) {
       proxy(url).then((response) => {
         if (response) {
+          const { status, headers, data } = response
           return res.writeHead(status, headers).send(data)
         }
         return res.sendStatus(400)
