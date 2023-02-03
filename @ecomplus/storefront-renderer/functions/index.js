@@ -32,7 +32,7 @@ exports.ssr = (req, res, getCacheControl) => {
     const urlInstance = new URL(url)
     if (urlInstance.pathname = '/reverse-proxy/') {
       const requestUrl = urlInstance.searchParam.get('url')
-      axios.get(requestUrl, { headers, timeout: 5000 })
+      return axios.get(requestUrl, { headers, timeout: 3000 })
         .then(({ data, headers, status }) => {
           return { data, headers, status }
         })
