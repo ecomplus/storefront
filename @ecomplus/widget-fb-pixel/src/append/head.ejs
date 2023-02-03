@@ -1,18 +1,6 @@
 <% if (options.partytown) { %>
   <script>
-    partytown = {
-      resolveUrl: function (url, location) {
-        if (url.hostname === 'connect.facebook.net') {
-          const proxyUrl = new URL(location.href + 'reverse-proxy/');
-          proxyUrl.searchParams.append('url', url.href);
-          return proxyUrl;
-        }
-    },
-    forward: [
-      "fbq",
-      ...partytown.forward
-    ]
-  }
+    partytown.forward.push('fbq')
   </script>
 <% } %>
 <script <%- (options.partytown ? 'type="text/partytown"' : '') %> >

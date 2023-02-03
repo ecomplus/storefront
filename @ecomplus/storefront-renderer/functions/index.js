@@ -30,13 +30,12 @@ exports.ssr = (req, res, getCacheControl) => {
 
   const proxy = url => {
     const urlInstance = new URL(url)
-    if (urlInstance.pathname = '/reverse-proxy/') {
-      const requestUrl = urlInstance.searchParam.get('url')
+    const requestUrl = urlInstance.searchParam.get('url')
+    if (requestUrl) {
       return axios.get(requestUrl, { headers, timeout: 3000 })
-        .then(({ data, headers, status }) => {
-          return { data, headers, status }
-        })
+        .catch(console.error)
     }
+    return { data: '', status: 404, headers: ''}
   }
 
   const redirect = (url, status = 302) => {
