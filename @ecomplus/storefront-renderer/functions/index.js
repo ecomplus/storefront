@@ -32,10 +32,13 @@ exports.ssr = (req, res, getCacheControl) => {
     const urlInstance = new URL(url)
     const requestUrl = urlInstance.searchParam.get('url')
     if (requestUrl) {
-      return axios.get(requestUrl, { headers, timeout: 3000 })
-        .catch(console.error)
+      return axios.get(requestUrl, { headers, timeout: 3000 }, {
+        validateStatus: (status) => {
+          return status; // Resolve only if has status
+        }
+      })
     }
-    return { data: '', status: 404, headers: ''}
+    return { data: null, status: 400, headers: null}
   }
 
   const redirect = (url, status = 302) => {
