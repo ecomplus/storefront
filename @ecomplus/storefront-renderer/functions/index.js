@@ -34,7 +34,7 @@ exports.ssr = (req, res, getCacheControl) => {
     if (requestUrl) {
       return axios.get(requestUrl, { headers, timeout: 3000 }, {
         validateStatus: (status) => {
-          return status; // Resolve only if has status
+          return Boolean(status); // Resolve only if has status
         }
       })
     }
