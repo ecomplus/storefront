@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.161](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.160...@ecomplus/storefront-app@2.0.0-beta.161) (2023-02-04)
+
+### Bug Fixes
+
+- **app/order-info:** fix status entries order with different timezones ([4cb254a](https://github.com/ecomplus/storefront/commit/4cb254a995def7ac7176f2580da91c9828dffdf8))
+
+### Features
+
+- **app/order-info:** show invoice link when available ([#863](https://github.com/ecomplus/storefront/issues/863)) ([a5e4dc7](https://github.com/ecomplus/storefront/commit/a5e4dc7af4dde1fabe216e1c1fbd9256b17e5840))
+
 # [2.0.0-beta.160](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.159...@ecomplus/storefront-app@2.0.0-beta.160) (2023-01-25)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
