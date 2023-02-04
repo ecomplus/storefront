@@ -38,7 +38,7 @@ exports.ssr = (req, res, getCacheControl) => {
         }
       })
     }
-    return { data: null, status: 400, headers: null}
+    return null
   }
 
   const redirect = (url, status = 302) => {
