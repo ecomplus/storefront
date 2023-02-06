@@ -50,8 +50,7 @@ export default {
 
   data () {
     return {
-      favoriteIds: [],
-      navTabs: []
+      favoriteIds: []
     }
   },
 
@@ -65,6 +64,23 @@ export default {
     i19orders: () => i18n(i19orders),
     i19subscriptions: () => i18n(i19subscriptions),
     i19registration: () => i18n(i19registration),
+
+    navTabs () {
+      return [
+        {
+          label: this.i19registration,
+          value: 'account'
+        },
+        {
+          label: this.i19orders,
+          value: 'orders'
+        },
+        {
+          label: this.i19favorites,
+          value: 'favorites'
+        }
+      ]
+    },
 
     activeTab: {
       get () {
@@ -106,20 +122,6 @@ export default {
   },
 
   created () {
-    this.navTabs = [
-      {
-        label: this.i19registration,
-        value: 'account'
-      },
-      {
-        label: this.i19orders,
-        value: 'orders'
-      },
-      {
-        label: this.i19favorites,
-        value: 'favorites'
-      }
-    ]
     const { favorites } = this.ecomPassport.getCustomer()
     this.favoriteIds = favorites || []
     if (this.ecomPassport.checkAuthorization()) {
