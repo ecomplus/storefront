@@ -135,7 +135,10 @@ export default {
         })
         .catch(console.error)
     }
-    if (this.customer.loyalty_points_entries) {
+  },
+
+  mounted () {
+    if (Array.isArray(this.customer.loyalty_points_entries) && this.customer.loyalty_points_entries.length) {
       this.navTabs.push({
         label: 'Cashback',
         value: 'points'
