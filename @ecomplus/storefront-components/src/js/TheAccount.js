@@ -50,7 +50,8 @@ export default {
 
   data () {
     return {
-      favoriteIds: []
+      favoriteIds: [],
+      navTabs: []
     }
   },
 
@@ -64,23 +65,6 @@ export default {
     i19orders: () => i18n(i19orders),
     i19subscriptions: () => i18n(i19subscriptions),
     i19registration: () => i18n(i19registration),
-
-    navTabs () {
-      return [
-        {
-          label: this.i19registration,
-          value: 'account'
-        },
-        {
-          label: this.i19orders,
-          value: 'orders'
-        },
-        {
-          label: this.i19favorites,
-          value: 'favorites'
-        }
-      ]
-    },
 
     activeTab: {
       get () {
@@ -121,7 +105,36 @@ export default {
     }
   },
 
+  watch: {
+    customer: {
+       handler(customer){
+        const hasPoints = this.navTabs.some(tab => tab.value === 'points')
+        if (Array.isArray(customer.loyalty_points_entries) && customer.loyalty_points_entries.length && !hasPoints) {
+          this.navTabs.push({
+            label: 'Cashback',
+            value: 'points'
+          })
+        }
+       },
+       deep: true
+    }
+  },
+
   created () {
+    this.navTabs = [
+      {
+        label: this.i19registration,
+        value: 'account'
+      },
+      {
+        label: this.i19orders,
+        value: 'orders'
+      },
+      {
+        label: this.i19favorites,
+        value: 'favorites'
+      }
+    ]
     const { favorites } = this.ecomPassport.getCustomer()
     this.favoriteIds = favorites || []
     if (this.ecomPassport.checkAuthorization()) {
@@ -136,15 +149,6 @@ export default {
           }
         })
         .catch(console.error)
-    }
-  },
-
-  mounted () {
-    if (Array.isArray(this.customer.loyalty_points_entries) && this.customer.loyalty_points_entries.length) {
-      this.navTabs.push({
-        label: 'Cashback',
-        value: 'points'
-      })
     }
   }
 }
