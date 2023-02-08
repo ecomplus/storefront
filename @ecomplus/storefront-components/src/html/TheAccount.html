@@ -85,9 +85,7 @@
         enter-active-class="animated fadeInRight slow"
         leave-active-class="animated fadeOutRight position-absolute"
       >
-        <div 
-          v-if="currentTab === 'points'"
-        >
+        <div v-if="currentTab === 'points'">
           <slot name="account-points"/>
         </div>
       </transition>
