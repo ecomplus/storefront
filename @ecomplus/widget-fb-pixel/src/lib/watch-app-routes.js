@@ -60,24 +60,16 @@ export default (fbq, options) => {
         } else {
           eventID = orderId
         }
-        let buyerSha256
+        let externalId
         if (Array.isArray(order.buyers) && order.buyers.length) {
-          const buyerId = order.buyers[0]._id
-          async function sha256Text(message) {
-            const msgUint8 = new TextEncoder().encode(message);                         
-            const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);         
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
-            return hashHex;
-          }
-          buyerSha256 = await sha256Text(buyerId)
+          externalId = order.buyers[0]._id
         }
         if (options.disablePurchase !== true) {
           fbq('Purchase', {
             ...getPurchaseData(order),
             order_id: orderId,
             eventID,
-            external_id: buyerSha256
+            external_id: externalId
           })
         }
         ecomPassport.requestApi(`/orders/${orderId}/metafields.json`, 'POST', {
