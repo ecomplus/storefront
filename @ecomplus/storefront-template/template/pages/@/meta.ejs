@@ -90,7 +90,7 @@ if (pathname) {
     <script>
       partytown = { 
         resolveUrl: function (url, location) {
-          if (url.hostname !== 'www.googletagmanager.com') {
+          if (url.hostname !== 'analytics.google.com') {
             const proxyUrl = new URL(location.href + 'reverse-proxy/');
             proxyUrl.searchParams.append('url', url.href);
             return proxyUrl;
