@@ -7,6 +7,8 @@
       v-if="shownCheckoutStep"
       :key="`app${checkoutAppId}`"
       class="checkout__app"
+      :data-current-step="shownCheckoutStep"
+      :data-enabled-step="enabledCheckoutStep"
     >
       <div class="row">
         <div :class="canHideSummary ? 'col' : 'col-lg-8'">

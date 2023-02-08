@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.214](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.213...@ecomplus/storefront-template@2.0.0-beta.214) (2023-02-04)
+
+### Features
+
+- **template/cms:** insert autoplay field to collection shelf config ([#859](https://github.com/ecomplus/storefront/issues/859)) ([370a7e2](https://github.com/ecomplus/storefront/commit/370a7e27ddda3ed0cd8bbdafdd05160e4b555818))
+
 # [2.0.0-beta.213](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.212...@ecomplus/storefront-template@2.0.0-beta.213) (2023-01-25)
 
 ### Features
