@@ -87,7 +87,6 @@ export default {
     nickname () {
       return getNickname(this.customer)
     }
-
   },
 
   methods: {
