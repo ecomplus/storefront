@@ -87,6 +87,7 @@ export default {
     nickname () {
       return getNickname(this.customer)
     }
+
   },
 
   methods: {
@@ -107,7 +108,7 @@ export default {
 
   watch: {
     customer: {
-       handler(customer){
+      handler (customer) {
         const hasPoints = this.navTabs.some(tab => tab.value === 'points')
         if (Array.isArray(customer.loyalty_points_entries) && customer.loyalty_points_entries.length && !hasPoints) {
           this.navTabs.push({
@@ -115,8 +116,9 @@ export default {
             value: 'points'
           })
         }
-       },
-       deep: true
+      },
+      immediate: true,
+      deep: true
     }
   },
 
