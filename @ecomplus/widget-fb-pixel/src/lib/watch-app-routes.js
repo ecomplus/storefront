@@ -44,7 +44,7 @@ export default (fbq, options) => {
       }
     }
 
-    const emitPurchase = async (orderId, orderJson) => {
+    const emitPurchase = (orderId, orderJson) => {
       if (!isPurchaseSent && window.localStorage.getItem('fbq.orderIdSent') !== orderId) {
         let order
         if (orderJson) {
