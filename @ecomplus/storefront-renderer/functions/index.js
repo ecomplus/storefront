@@ -1,4 +1,5 @@
 const path = require('path')
+const axios = require('axios')
 
 const {
   getAssetsReferences,
@@ -16,6 +17,7 @@ exports.ssr = (req, res, getCacheControl) => {
 
   const isLongCache = String(STOREFRONT_LONG_CACHE).toLowerCase() === 'true'
   const url = req.url.replace(/\?.*$/, '').replace(/\.html$/, '')
+  const { headers } = req
 
   const setStatusAndCache = (status, defaultCache) => {
     return res.status(status)
@@ -24,6 +26,19 @@ exports.ssr = (req, res, getCacheControl) => {
         'Cache-Control',
         (typeof getCacheControl === 'function' && getCacheControl(status)) || defaultCache
       )
+  }
+
+  const proxy = url => {
+    const urlInstance = new URL(url)
+    const requestUrl = urlInstance.searchParam.get('url')
+    if (requestUrl) {
+      return axios.get(requestUrl, { headers, timeout: 3000 }, {
+        validateStatus: (status) => {
+          return Boolean(status); // Resolve only if has status
+        }
+      })
+    }
+    return null
   }
 
   const redirect = (url, status = 302) => {
@@ -49,6 +64,14 @@ exports.ssr = (req, res, getCacheControl) => {
   const fallback = () => {
     if (url.slice(-1) === '/') {
       redirect(url.slice(0, -1))
+    } else if (url.startsWith('/reverse-proxy/')) {
+      proxy(url).then((response) => {
+        if (response) {
+          const { status, headers, data } = response
+          return res.writeHead(status, headers).send(data)
+        }
+        return res.sendStatus(400)
+      })
     } else if (url !== '/404' && (/\/[^/.]+$/.test(url) || /\.x?html$/.test(url))) {
       setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)
         .send('<html><head>' +
