@@ -77,6 +77,10 @@ export default {
       default () {
         return ecomPassport
       }
+    },
+    invoiceBaseLink: {
+      type: String,
+      default: 'https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConteudo=7PhJ+gAVw2g=&tipoConsulta=resumo&nfe='
     }
   },
 
@@ -115,6 +119,7 @@ export default {
     i19trackDelivery: () => i18n(i19trackDelivery),
     i19unsubscribe: () => i18n(i19unsubscribe),
     i19zipCode: () => i18n(i19zipCode),
+    i19invoice: () => 'Nota fiscal',
 
     localOrder: {
       get () {
@@ -164,7 +169,11 @@ export default {
       if (localOrder.payments_history) {
         let statusRecord
         localOrder.payments_history.forEach(record => {
-          if (record && (!statusRecord || !record.date_time || record.date_time >= statusRecord.date_time)) {
+          if (
+            record &&
+            (!statusRecord || !record.date_time ||
+              new Date(record.date_time).getTime() >= new Date(statusRecord.date_time).getTime())
+          ) {
             statusRecord = record
           }
         })
@@ -208,7 +217,7 @@ export default {
       if (statusRecords.length) {
         statusRecords = statusRecords = statusRecords.sort((a, b) => {
           if (a.date_time && b.date_time) {
-            return a.date_time > b.date_time
+            return new Date(a.date_time).getTime() > new Date(b.date_time).getTime()
               ? -1
               : 1
           }

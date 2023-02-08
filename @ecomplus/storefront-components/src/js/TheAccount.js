@@ -37,7 +37,7 @@ export default {
     currentTab: {
       type: String,
       validator: function (value) {
-        return ['orders', 'favorites', 'subscriptions', 'account'].includes(value)
+        return ['orders', 'favorites', 'subscriptions', 'points', 'account'].includes(value)
       }
     },
     ecomPassport: {
@@ -68,31 +68,10 @@ export default {
 
     activeTab: {
       get () {
-        switch (this.currentTab) {
-          case 'orders':
-            return 1
-          case 'favorites':
-            return 2
-          case 'subscriptions':
-            return 3
-          default:
-            return 0
-        }
+        return this.currentTab || 'account'
       },
-      set (tabIndex) {
-        switch (tabIndex) {
-          case 1:
-            this.$emit('update:current-tab', 'orders')
-            break
-          case 2:
-            this.$emit('update:current-tab', 'favorites')
-            break
-          case 3:
-            this.$emit('update:current-tab', 'subscriptions')
-            break
-          default:
-            this.$emit('update:current-tab', 'account')
-        }
+      set (tab) {
+        this.$emit('update:current-tab', tab)
       }
     },
 
@@ -126,8 +105,37 @@ export default {
     }
   },
 
+  watch: {
+    customer: {
+      handler (customer) {
+        const hasPoints = this.navTabs.some(tab => tab.value === 'points')
+        if (Array.isArray(customer.loyalty_points_entries) && customer.loyalty_points_entries.length && !hasPoints) {
+          this.navTabs.push({
+            label: 'Cashback',
+            value: 'points'
+          })
+        }
+      },
+      immediate: true,
+      deep: true
+    }
+  },
+
   created () {
-    this.navTabs = [this.i19registration, this.i19orders, this.i19favorites]
+    this.navTabs = [
+      {
+        label: this.i19registration,
+        value: 'account'
+      },
+      {
+        label: this.i19orders,
+        value: 'orders'
+      },
+      {
+        label: this.i19favorites,
+        value: 'favorites'
+      }
+    ]
     const { favorites } = this.ecomPassport.getCustomer()
     this.favoriteIds = favorites || []
     if (this.ecomPassport.checkAuthorization()) {
@@ -135,7 +143,10 @@ export default {
         .then(({ data }) => {
           const { result } = data
           if (result.length) {
-            this.navTabs.push(this.i19subscriptions)
+            this.navTabs.push({
+              label: this.i19subscriptions,
+              value: 'subscriptions'
+            })
           }
         })
         .catch(console.error)
