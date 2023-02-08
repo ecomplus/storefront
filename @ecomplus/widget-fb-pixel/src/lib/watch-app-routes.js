@@ -60,11 +60,16 @@ export default (fbq, options) => {
         } else {
           eventID = orderId
         }
+        let externalId
+        if (Array.isArray(order.buyers) && order.buyers.length) {
+          externalId = order.buyers[0]._id
+        }
         if (options.disablePurchase !== true) {
           fbq('Purchase', {
             ...getPurchaseData(order),
             order_id: orderId,
-            eventID
+            eventID,
+            external_id: externalId
           })
         }
         ecomPassport.requestApi(`/orders/${orderId}/metafields.json`, 'POST', {
