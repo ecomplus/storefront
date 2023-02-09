@@ -1,6 +1,6 @@
 // import { i19buyTogetherWith } from '@ecomplus/i18n'
-import { formatMoney, price as getPrice } from '@ecomplus/utils'
-import { modules } from '@ecomplus/client'
+import { formatMoney, price as getPrice, recommendedIds } from '@ecomplus/utils'
+import { modules, graphs } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import APrices from './../APrices.vue'
 import RecommendedItems from './../RecommendedItems.vue'
@@ -48,7 +48,8 @@ export default {
       recommendedItems: [],
       discount: 0,
       discountType: 'fixed',
-      discountValue: 0
+      discountValue: 0,
+      keyUpdate: 0
     }
   },
 
@@ -58,6 +59,13 @@ export default {
 
     productIds () {
       return Object.keys(this.productQnts)
+    },
+
+    relatedProducts () {
+      if (Array.isArray(this.baseProduct.related_products) && this.baseProduct.related_products.length && Array.isArray(this.baseProduct.related_products[0].product_ids) && this.baseProduct.related_products[0].product_ids.length) {
+        return this.setProductQnts(this.baseProduct.related_products[0].product_ids)
+      }
+      return false
     },
 
     items () {
@@ -104,6 +112,16 @@ export default {
       } else {
         this.discount = this.subtotal * this.discountValue / 100
       }
+    },
+
+    setProductQnts (productsIds) {
+      if (productsIds.length) {
+        const productsDefaultQnts = {}
+        productsIds.slice(0, 3).forEach(id => {
+          productsDefaultQnts[id] = 1
+        })
+        return productsDefaultQnts
+      }
     }
   },
 
@@ -113,6 +131,13 @@ export default {
         if (subtotal !== oldSubtotal) {
           this.calcDiscount()
         }
+      },
+      immediate: true
+    },
+
+    productIds: {
+      handler () {
+        this.keyUpdate += 1
       },
       immediate: true
     }
@@ -165,11 +190,23 @@ export default {
         }
       }).finally(() => {
         this.hasLoadedIds = true
+        if (this.relatedProducts) {
+          this.productQnts = this.relatedProducts || []
+        }
         this.$nextTick(() => {
           if (!this.productIds.length) {
             this.hasLoadedItems = true
           }
         })
+      })
+    }
+  },
+
+  mounted () {
+    if (!this.productIds.length) {
+      graphs({ url: `/products/${this.baseProduct._id}/related.json` }).then(({ data }) => {
+        const recommendProducts = recommendedIds(data)
+        this.productQnts = this.setProductQnts(recommendProducts)
       })
     }
   }
