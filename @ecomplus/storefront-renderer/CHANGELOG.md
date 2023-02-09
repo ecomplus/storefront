@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.9.1...@ecomplus/storefront-renderer@2.10.0) (2023-02-09)
+
+### Features
+
+- **widget-fb-pixel:** add partytown support with reverse proxy ([#862](https://github.com/ecomplus/storefront/issues/862)) ([6a86941](https://github.com/ecomplus/storefront/commit/6a869415402352aa02e7d9f4c5f56c7493f4efc2))
+
 ## [2.9.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.9.0...@ecomplus/storefront-renderer@2.9.1) (2023-01-25)
 
 ### Bug Fixes

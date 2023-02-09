@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.5.4...@ecomplus/widget-fb-pixel@1.6.0) (2023-02-09)
+
+### Bug Fixes
+
+- **widget-fb-pixel:** send purchase with `external_id` ([#869](https://github.com/ecomplus/storefront/issues/869)) ([28aed86](https://github.com/ecomplus/storefront/commit/28aed8638f2a67169efac33533336282f928f3eb))
+
+### Features
+
+- **widget-fb-pixel:** add partytown support with reverse proxy ([#862](https://github.com/ecomplus/storefront/issues/862)) ([6a86941](https://github.com/ecomplus/storefront/commit/6a869415402352aa02e7d9f4c5f56c7493f4efc2))
+
 ## [1.5.4](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.5.3...@ecomplus/widget-fb-pixel@1.5.4) (2023-01-25)
 
 ### Bug Fixes

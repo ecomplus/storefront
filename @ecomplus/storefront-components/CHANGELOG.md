@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.143](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.142...@ecomplus/storefront-components@1.0.0-beta.143) (2023-02-09)
+
+### Features
+
+- **components/account-points:** additional cashback info, render as account page tab ([#864](https://github.com/ecomplus/storefront/issues/864)) ([9835ec2](https://github.com/ecomplus/storefront/commit/9835ec2547aeba4fa193d8502afcda6a480fff0d))
+
 # [1.0.0-beta.142](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.141...@ecomplus/storefront-components@1.0.0-beta.142) (2023-01-25)
 
 ### Features

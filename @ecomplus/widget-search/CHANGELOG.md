@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.140](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search@1.0.0-beta.139...@ecomplus/widget-search@1.0.0-beta.140) (2023-02-09)
+
+**Note:** Version bump only for package @ecomplus/widget-search
+
 # [1.0.0-beta.139](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search@1.0.0-beta.138...@ecomplus/widget-search@1.0.0-beta.139) (2023-01-25)
 
 **Note:** Version bump only for package @ecomplus/widget-search
