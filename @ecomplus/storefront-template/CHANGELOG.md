@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.216](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.215...@ecomplus/storefront-template@2.0.0-beta.216) (2023-02-14)
+
+### Bug Fixes
+
+- **template/partytown:** fix handling partytown `resolveUrl` for reverse proxy ([aa78cfe](https://github.com/ecomplus/storefront/commit/aa78cfec11f00af1e26967024c0f58dc69b20908))
+
 # [2.0.0-beta.215](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.214...@ecomplus/storefront-template@2.0.0-beta.215) (2023-02-09)
 
 ### Features

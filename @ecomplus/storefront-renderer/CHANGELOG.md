@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.10.0...@ecomplus/storefront-renderer@2.10.1) (2023-02-14)
+
+### Bug Fixes
+
+- **renderer/reverse-proxy:** check reserve proxy route before trailing slash redirect ([ccbe938](https://github.com/ecomplus/storefront/commit/ccbe9388ab63f43fa481ae8321f85c4d9f2b7873))
+- **template/partytown:** fix handling partytown `resolveUrl` for reverse proxy ([aa78cfe](https://github.com/ecomplus/storefront/commit/aa78cfec11f00af1e26967024c0f58dc69b20908))
+
 # [2.10.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.9.1...@ecomplus/storefront-renderer@2.10.0) (2023-02-09)
 
 ### Features
