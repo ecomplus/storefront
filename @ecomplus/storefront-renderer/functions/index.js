@@ -62,9 +62,7 @@ exports.ssr = (req, res, getCacheControl) => {
   }
 
   const fallback = () => {
-    if (url.slice(-1) === '/') {
-      redirect(url.slice(0, -1))
-    } else if (url.startsWith('/reverse-proxy/')) {
+    if (url.startsWith('/reverse-proxy/')) {
       proxy(url).then((response) => {
         if (response) {
           const { status, headers, data } = response
@@ -72,6 +70,8 @@ exports.ssr = (req, res, getCacheControl) => {
         }
         return res.sendStatus(400)
       })
+    } else if (url.slice(-1) === '/') {
+      redirect(url.slice(0, -1))
     } else if (url !== '/404' && (/\/[^/.]+$/.test(url) || /\.x?html$/.test(url))) {
       setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)
         .send('<html><head>' +
