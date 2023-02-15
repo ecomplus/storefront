@@ -1,6 +1,6 @@
 <div class="buy-together">
   <transition enter-active-class="animated fadeInDown">
-    <div v-if="hasLoadedIds && (!hasLoadedItems || recommendedItems.length)">
+    <div v-if="hasLoadedIds && (!hasLoadedItems || recommendedItems.length || productIds.length)">
       <div class="buy-together__title">
         <div
           v-if="discount"
