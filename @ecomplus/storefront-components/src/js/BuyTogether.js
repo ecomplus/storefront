@@ -133,13 +133,6 @@ export default {
         }
       },
       immediate: true
-    },
-
-    productIds: {
-      handler () {
-        this.keyUpdate += 1
-      },
-      immediate: true
     }
   },
 
@@ -190,23 +183,19 @@ export default {
         }
       }).finally(() => {
         this.hasLoadedIds = true
-        if (this.relatedProducts) {
-          this.productQnts = this.relatedProducts || []
-        }
         this.$nextTick(() => {
           if (!this.productIds.length) {
             this.hasLoadedItems = true
+            if (this.relatedProducts) {
+              this.productQnts = this.relatedProducts || []
+            } else {
+              graphs({ url: `/products/${this.baseProduct._id}/related.json` }).then(({ data }) => {
+                const recommendProducts = recommendedIds(data)
+                this.productQnts = this.setProductQnts(recommendProducts)
+              })
+            }
           }
         })
-      })
-    }
-  },
-
-  mounted () {
-    if (!this.productIds.length) {
-      graphs({ url: `/products/${this.baseProduct._id}/related.json` }).then(({ data }) => {
-        const recommendProducts = recommendedIds(data)
-        this.productQnts = this.setProductQnts(recommendProducts)
       })
     }
   }
