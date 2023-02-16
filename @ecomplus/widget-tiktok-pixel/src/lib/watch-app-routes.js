@@ -1,5 +1,4 @@
 import ecomCart from '@ecomplus/shopping-cart'
-import ecomPassport from '@ecomplus/passport-client'
 import { currency } from './common'
 
 export default (ttq, options) => {
@@ -23,7 +22,7 @@ export default (ttq, options) => {
           data.contents.push({
             content_id: sku,
             content_name: name,
-            price: price,
+            price,
             content_type: 'product',
             quantity
           })
@@ -67,7 +66,6 @@ export default (ttq, options) => {
 
     let emitPurchaseTimer
     const addRouteToData = ({ name, params }) => {
-      console.log(params)
       switch (name) {
         case 'cart':
           emitCheckout(1)
