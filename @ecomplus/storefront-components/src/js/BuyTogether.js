@@ -48,8 +48,7 @@ export default {
       recommendedItems: [],
       discount: 0,
       discountType: 'fixed',
-      discountValue: 0,
-      keyUpdate: 0
+      discountValue: 0
     }
   },
 
