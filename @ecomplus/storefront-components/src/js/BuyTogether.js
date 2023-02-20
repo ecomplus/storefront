@@ -115,11 +115,11 @@ export default {
 
     setProductQnts (productsIds) {
       if (productsIds.length) {
-        const productsDefaultQnts = {}
+        const productQnts = {}
         productsIds.slice(0, 3).forEach(id => {
-          productsDefaultQnts[id] = 1
+          productQnts[id] = 1
         })
-        return productsDefaultQnts
+        this.productQnts = productQnts
       }
     }
   },
