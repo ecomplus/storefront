@@ -184,13 +184,16 @@ export default {
         this.hasLoadedIds = true
         this.$nextTick(() => {
           if (!this.productIds.length) {
-            this.hasLoadedItems = true
-            if (this.relatedProducts) {
-              this.productQnts = this.relatedProducts || []
+            if (this.relatedProducts.length) {
+              this.setProductQnts(this.relatedProducts)
             } else {
               graphs({ url: `/products/${this.baseProduct._id}/related.json` }).then(({ data }) => {
-                const recommendProducts = recommendedIds(data)
-                this.productQnts = this.setProductQnts(recommendProducts)
+                this.setProductQnts(recommendedIds(data))
+                this.$nextTick(() => {
+                  if (!this.productIds.length) {
+                    this.hasLoadedItems = true
+                  }
+                })
               })
             }
           }
