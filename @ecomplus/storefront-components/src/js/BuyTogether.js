@@ -61,10 +61,10 @@ export default {
     },
 
     relatedProducts () {
-      if (Array.isArray(this.baseProduct.related_products) && this.baseProduct.related_products.length && Array.isArray(this.baseProduct.related_products[0].product_ids) && this.baseProduct.related_products[0].product_ids.length) {
-        return this.setProductQnts(this.baseProduct.related_products[0].product_ids)
-      }
-      return false
+      const relatedProducts = this.baseProduct.related_products && this.baseProduct.related_products[0]
+      return relatedProducts && relatedProducts.product_ids.length
+        ? relatedProducts.product_ids
+        : []
     },
 
     items () {
