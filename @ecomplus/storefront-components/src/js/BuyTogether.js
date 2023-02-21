@@ -113,7 +113,7 @@ export default {
       }
     },
 
-    getProductQnts (productsIds) {
+    setProductQnts (productsIds) {
       if (productsIds.length) {
         const productQnts = {}
         productsIds.slice(0, 3).forEach(id => {
@@ -185,10 +185,10 @@ export default {
         this.$nextTick(() => {
           if (!this.productIds.length) {
             if (this.relatedProducts.length) {
-              this.getProductQnts(this.relatedProducts)
+              this.setProductQnts(this.relatedProducts)
             } else {
               graphs({ url: `/products/${this.baseProduct._id}/related.json` }).then(({ data }) => {
-                this.getProductQnts(recommendedIds(data))
+                this.setProductQnts(recommendedIds(data))
                 this.$nextTick(() => {
                   if (!this.productIds.length) {
                     this.hasLoadedItems = true
