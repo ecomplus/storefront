@@ -25,10 +25,6 @@ export default {
     productionDeadline: {
       type: Number,
       default: 0
-    },
-    serviceCode: {
-      type: String,
-      default: ''
     }
   },
 
