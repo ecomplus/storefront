@@ -75,6 +75,10 @@ export default {
       }
     },
 
+    authorization () {
+      return this.ecomPassport.checkAuthorization()
+    },
+
     localCustomer: {
       get () {
         return this.customer
@@ -92,6 +96,22 @@ export default {
   methods: {
     hasTab (tabValue) {
       return this.navTabs.some(tab => tab.value === tabValue)
+    },
+
+    insertSubscriptionTab (hasSubscriptions = false) {
+      if (this.ecomPassport.checkAuthorization() && !hasSubscriptions) {
+        this.ecomPassport.requestApi('/orders.json?transactions.type=recurrence&limit=1&fields=_id')
+          .then(({ data }) => {
+            const { result } = data
+            if (result.length) {
+              this.navTabs.push({
+                label: this.i19subscriptions,
+                value: 'subscriptions'
+              })
+            }
+          })
+          .catch(console.error)
+      }
     },
 
     login (ecomPassport) {
@@ -112,20 +132,6 @@ export default {
   watch: {
     customer: {
       handler (customer) {
-        const hasSubscriptions = this.hasTab('subscriptions')
-        if (this.ecomPassport.checkAuthorization() && customer.doc_number  && !hasSubscriptions) {
-          this.ecomPassport.requestApi('/orders.json?transactions.type=recurrence&limit=1&fields=_id')
-            .then(({ data }) => {
-              const { result } = data
-              if (result.length) {
-                this.navTabs.push({
-                  label: this.i19subscriptions,
-                  value: 'subscriptions'
-                })
-              }
-            })
-            .catch(console.error)
-        }
         const hasPoints = this.hasTab('points')
         if (Array.isArray(customer.loyalty_points_entries) && customer.loyalty_points_entries.length && !hasPoints) {
           this.navTabs.push({
@@ -136,6 +142,11 @@ export default {
       },
       immediate: true,
       deep: true
+    },
+
+    authorization () {
+      const hasSubscriptions = this.hasTab('subscriptions')
+      this.insertSubscriptionTab(hasSubscriptions)
     }
   },
 
@@ -156,5 +167,6 @@ export default {
     ]
     const { favorites } = this.ecomPassport.getCustomer()
     this.favoriteIds = favorites || []
+    this.insertSubscriptionTab()
   }
 }
