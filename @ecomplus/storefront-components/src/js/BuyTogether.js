@@ -1,6 +1,6 @@
 // import { i19buyTogetherWith } from '@ecomplus/i18n'
-import { formatMoney, price as getPrice } from '@ecomplus/utils'
-import { modules } from '@ecomplus/client'
+import { formatMoney, price as getPrice, recommendedIds } from '@ecomplus/utils'
+import { modules, graphs } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import APrices from './../APrices.vue'
 import RecommendedItems from './../RecommendedItems.vue'
@@ -60,6 +60,13 @@ export default {
       return Object.keys(this.productQnts)
     },
 
+    relatedProducts () {
+      const relatedProducts = this.baseProduct.related_products && this.baseProduct.related_products[0]
+      return relatedProducts && relatedProducts.product_ids.length
+        ? relatedProducts.product_ids
+        : []
+    },
+
     items () {
       return [
         this.baseProduct,
@@ -103,6 +110,16 @@ export default {
         this.discount = this.discountValue
       } else {
         this.discount = this.subtotal * this.discountValue / 100
+      }
+    },
+
+    setProductQnts (productsIds) {
+      if (productsIds.length) {
+        const productQnts = {}
+        productsIds.slice(0, 3).forEach(id => {
+          productQnts[id] = 1
+        })
+        this.productQnts = productQnts
       }
     }
   },
@@ -167,7 +184,18 @@ export default {
         this.hasLoadedIds = true
         this.$nextTick(() => {
           if (!this.productIds.length) {
-            this.hasLoadedItems = true
+            if (this.relatedProducts.length) {
+              this.setProductQnts(this.relatedProducts)
+            } else {
+              graphs({ url: `/products/${this.baseProduct._id}/related.json` }).then(({ data }) => {
+                this.setProductQnts(recommendedIds(data))
+                this.$nextTick(() => {
+                  if (!this.productIds.length) {
+                    this.hasLoadedItems = true
+                  }
+                })
+              })
+            }
           }
         })
       })
