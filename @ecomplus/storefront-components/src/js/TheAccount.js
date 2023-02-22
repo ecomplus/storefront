@@ -50,7 +50,6 @@ export default {
 
   data () {
     return {
-      authorization: false,
       favoriteIds: [],
       navTabs: []
     }
@@ -95,7 +94,8 @@ export default {
       return this.navTabs.some(tab => tab.value === tabValue)
     },
 
-    insertSubscriptionTab (hasSubscriptions = false) {
+    insertSubscriptionTab () {
+      const hasSubscriptions = this.hasTab('subscriptions')
       if (this.ecomPassport.checkAuthorization() && !hasSubscriptions) {
         this.ecomPassport.requestApi('/orders.json?transactions.type=recurrence&limit=1&fields=_id')
           .then(({ data }) => {
@@ -139,11 +139,6 @@ export default {
       },
       immediate: true,
       deep: true
-    },
-
-    authorization () {
-      const hasSubscriptions = this.hasTab('subscriptions')
-      this.insertSubscriptionTab(hasSubscriptions)
     }
   },
 
@@ -165,5 +160,8 @@ export default {
     const { favorites } = this.ecomPassport.getCustomer()
     this.favoriteIds = favorites || []
     this.insertSubscriptionTab()
+    this.ecomPassport.on('login', () => {
+      this.insertSubscriptionTab()
+    })
   }
 }
