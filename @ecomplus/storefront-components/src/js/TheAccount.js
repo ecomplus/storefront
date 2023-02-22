@@ -50,6 +50,7 @@ export default {
 
   data () {
     return {
+      authorization: false,
       favoriteIds: [],
       navTabs: []
     }
@@ -73,10 +74,6 @@ export default {
       set (tab) {
         this.$emit('update:current-tab', tab)
       }
-    },
-
-    authorization () {
-      return this.ecomPassport.checkAuthorization()
     },
 
     localCustomer: {
