@@ -91,8 +91,8 @@ export default {
       }
       const fixedSrc = typeof src === 'object'
         ? src.zoom
-            ? src.zoom.url
-            : defaultImgObj.url
+          ? src.zoom.url
+          : defaultImgObj.url
         : src
       return fixedSrc ? fixedSrc.replace(/\.webp$/, '') : this.placeholder
     },
