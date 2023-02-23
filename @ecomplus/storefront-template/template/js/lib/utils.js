@@ -1,21 +1,8 @@
 import {
-  isSafari,
-  isSafariNew,
-  isIOS,
-  isIE,
   isMobile,
   isScreenXs,
   $
 } from '@ecomplus/storefront-twbs'
-
-if ((isSafari || isIOS || isIE) && !isSafariNew) {
-  $('img').each(function () {
-    const src = $(this).attr('src')
-    if (src && src.endsWith('.webp')) {
-      $(this).attr('src', src.replace('.webp', '.png'))
-    }
-  })
-}
 
 if (!isScreenXs) {
   $('.footer .collapse').collapse('show')
