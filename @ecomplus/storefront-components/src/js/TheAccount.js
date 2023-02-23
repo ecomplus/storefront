@@ -90,6 +90,27 @@ export default {
   },
 
   methods: {
+    hasTab (tabValue) {
+      return this.navTabs.some(tab => tab.value === tabValue)
+    },
+
+    insertSubscriptionTab () {
+      const hasSubscriptions = this.hasTab('subscriptions')
+      if (this.ecomPassport.checkAuthorization() && !hasSubscriptions) {
+        this.ecomPassport.requestApi('/orders.json?transactions.type=recurrence&limit=1&fields=_id')
+          .then(({ data }) => {
+            const { result } = data
+            if (result.length) {
+              this.navTabs.push({
+                label: this.i19subscriptions,
+                value: 'subscriptions'
+              })
+            }
+          })
+          .catch(console.error)
+      }
+    },
+
     login (ecomPassport) {
       if (ecomPassport.checkAuthorization()) {
         this.localCustomer = ecomPassport.getCustomer()
@@ -108,7 +129,7 @@ export default {
   watch: {
     customer: {
       handler (customer) {
-        const hasPoints = this.navTabs.some(tab => tab.value === 'points')
+        const hasPoints = this.hasTab('points')
         if (Array.isArray(customer.loyalty_points_entries) && customer.loyalty_points_entries.length && !hasPoints) {
           this.navTabs.push({
             label: 'Cashback',
@@ -138,18 +159,10 @@ export default {
     ]
     const { favorites } = this.ecomPassport.getCustomer()
     this.favoriteIds = favorites || []
-    if (this.ecomPassport.checkAuthorization()) {
-      this.ecomPassport.requestApi('/orders.json?transactions.type=recurrence&limit=1&fields=_id')
-        .then(({ data }) => {
-          const { result } = data
-          if (result.length) {
-            this.navTabs.push({
-              label: this.i19subscriptions,
-              value: 'subscriptions'
-            })
-          }
-        })
-        .catch(console.error)
-    }
+    this.insertSubscriptionTab()
+    this.ecomPassport.on('login', this.insertSubscriptionTab)
+    this.$once('hook:beforeDestroy', () => {
+      this.ecomPassport.off('login', this.insertSubscriptionTab)
+    })
   }
 }
