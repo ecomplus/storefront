@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-tiktok-pixel",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Storefront plugin to handle Tiktok Pixel events",
   "main": "dist/widget-tiktok-pixel.min.js",
   "module": "src/index.js",

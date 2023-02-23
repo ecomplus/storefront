@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.144](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.143...@ecomplus/storefront-components@1.0.0-beta.144) (2023-02-23)
+
+### Bug Fixes
+
+- **components/account:** remove vertical scroll and watch login to setup subscription tab ([#873](https://github.com/ecomplus/storefront/issues/873)) ([4217874](https://github.com/ecomplus/storefront/commit/4217874aa013dc546045cf570516af6d98694ad9))
+
+### Features
+
+- **components/buy-together:** use related products when no discount campaign found ([#870](https://github.com/ecomplus/storefront/issues/870)) ([f53eeb3](https://github.com/ecomplus/storefront/commit/f53eeb3f80e4e9c46a2c131b49c30ad9b79aa0f4))
+
 # [1.0.0-beta.143](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.142...@ecomplus/storefront-components@1.0.0-beta.143) (2023-02-09)
 
 ### Features

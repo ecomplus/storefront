@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.217](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.216...@ecomplus/storefront-template@2.0.0-beta.217) (2023-02-23)
+
+### Performance Improvements
+
+- **template/webp:** safari and ios now supports webp, remove hard replace to png ([e7edeb3](https://github.com/ecomplus/storefront/commit/e7edeb3c1764b414e1d55a0acbb7fe50e695ca7b))
+
 # [2.0.0-beta.216](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.215...@ecomplus/storefront-template@2.0.0-beta.216) (2023-02-14)
 
 ### Bug Fixes

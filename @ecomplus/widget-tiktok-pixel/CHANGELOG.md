@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tiktok-pixel@1.2.0...@ecomplus/widget-tiktok-pixel@1.2.1) (2023-02-23)
+
+### Performance Improvements
+
+- **widget-tiktok-pixel:** remove uncessary import and debug ([a0834c9](https://github.com/ecomplus/storefront/commit/a0834c9d728fa6ed9945e8747ee933cf2955b3ba))
+
 # [1.2.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tiktok-pixel@1.1.0...@ecomplus/widget-tiktok-pixel@1.2.0) (2023-01-20)
 
 ### Features
