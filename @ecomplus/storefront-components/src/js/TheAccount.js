@@ -160,8 +160,9 @@ export default {
     const { favorites } = this.ecomPassport.getCustomer()
     this.favoriteIds = favorites || []
     this.insertSubscriptionTab()
-    this.ecomPassport.on('login', () => {
-      this.insertSubscriptionTab()
+    this.ecomPassport.on('login', this.insertSubscriptionTab)
+    this.$once('hook:beforeDestroy', () => {
+      this.ecomPassport.off('login', this.insertSubscriptionTab)
     })
   }
 }
