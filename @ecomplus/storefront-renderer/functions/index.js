@@ -32,10 +32,12 @@ exports.ssr = (req, res, getCacheControl) => {
     const urlInstance = new URL(url)
     const requestUrl = urlInstance.searchParam.get('url')
     if (requestUrl) {
-      return axios.get(requestUrl, { headers, timeout: 3000 }, {
+      return axios.get(requestUrl, { 
+        headers,
+        timeout: 3000,
         validateStatus: (status) => {
           return Boolean(status)
-        }
+        } 
       })
     }
     return null
