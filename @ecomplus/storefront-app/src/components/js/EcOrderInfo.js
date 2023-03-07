@@ -167,10 +167,16 @@ export default {
     financialStatus () {
       const { localOrder, transaction } = this
       if (localOrder.payments_history) {
+        const transaction = localOrder.transactions &&
+          localOrder.transactions.find((transaction) => {
+            return transaction.payment_method.code !== 'loyalty_points'
+          })
         let statusRecord
         localOrder.payments_history.forEach(record => {
           if (
             record &&
+            (!transaction || !record.transaction_id ||
+              record.transaction_id === transaction._id) &&
             (!statusRecord || !record.date_time ||
               new Date(record.date_time).getTime() >= new Date(statusRecord.date_time).getTime())
           ) {
