@@ -203,7 +203,7 @@
                   class="checkout__loyalty-points"
                   :points-applied.sync="loyaltyPointsApplied"
                   :points-amount.sync="loyaltyPointsAmount"
-                  :max-points-amount="amount.subtotal - 5"
+                  :max-points-amount="Math.min(amount.subtotal - 5, amount.total / 2)"
                 />
               </template>
 
