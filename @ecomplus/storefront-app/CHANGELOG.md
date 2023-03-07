@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.164](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.163...@ecomplus/storefront-app@2.0.0-beta.164) (2023-03-07)
+
+### Bug Fixes
+
+- **app/checkout:** limit poits applier to half of amount total ([405309e](https://github.com/ecomplus/storefront/commit/405309e8d3a5ea4d6cf23e1967862337b64c6e4a))
+- **app/order-info:** get correct financial status from payments history on many transactions ([941c5d8](https://github.com/ecomplus/storefront/commit/941c5d86ca2a7bbd8d1d75d1460a335d080d4ba3))
+
 # [2.0.0-beta.163](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.162...@ecomplus/storefront-app@2.0.0-beta.163) (2023-02-23)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

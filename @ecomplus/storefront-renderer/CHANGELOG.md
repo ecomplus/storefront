@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.2](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.10.1...@ecomplus/storefront-renderer@2.10.2) (2023-03-07)
+
+### Bug Fixes
+
+- **renderer/reverse-proxy:** insert validate status with headers and timeout ([36b3537](https://github.com/ecomplus/storefront/commit/36b3537300dbb6dd4ac5a2c7a7764a1edb16b210))
+
 ## [2.10.1](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.10.0...@ecomplus/storefront-renderer@2.10.1) (2023-02-14)
 
 ### Bug Fixes
