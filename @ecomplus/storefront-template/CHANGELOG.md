@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.219](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.218...@ecomplus/storefront-template@2.0.0-beta.219) (2023-03-08)
+
+### Features
+
+- **template/fetch-info:** handle `window.modulesToFetch` to optionally skip modules fetch reqs ([e2e97ce](https://github.com/ecomplus/storefront/commit/e2e97ce0b3b575bdb859a1efeae422daf6efda63))
+
 # [2.0.0-beta.218](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.217...@ecomplus/storefront-template@2.0.0-beta.218) (2023-03-07)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
