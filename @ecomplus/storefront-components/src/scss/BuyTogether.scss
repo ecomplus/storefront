@@ -7,4 +7,24 @@
     justify-content: center;
     align-items: center;
   }
+  &__item {
+    padding-bottom: 2rem !important;
+    &::after {
+      content: '+';
+      position: absolute;
+      right: 50%;
+      font-size: 1.5rem;
+    }
+    &:last-child::after {
+      content: '=';
+    }
+    @media(min-width: 767px) {
+      padding-right: .5rem !important;
+      padding-left: .5rem !important;
+      &::after {
+        top: 50%;
+        right: 0;
+      }
+    }
+  }
 }

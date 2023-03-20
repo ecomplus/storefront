@@ -3,6 +3,7 @@ import { formatMoney, price as getPrice, recommendedIds } from '@ecomplus/utils'
 import { modules, graphs } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import APrices from './../APrices.vue'
+import ProductCard from './../ProductCard.vue'
 import RecommendedItems from './../RecommendedItems.vue'
 
 const storefront = (typeof window === 'object' && window.storefront) || {}
@@ -22,6 +23,7 @@ export default {
 
   components: {
     APrices,
+    ProductCard,
     RecommendedItems
   },
 
@@ -37,18 +39,32 @@ export default {
       default () {
         return ecomCart
       }
-    }
+    },
+    rowClassName: {
+      type: String,
+      default: 'row no-gutters'
+    },
+    productCardProps: {
+      type: Object,
+      default () {
+        return {
+          isSmall: true
+        }
+      }
+    },
   },
 
   data () {
     return {
+      isLoaded: false,
       hasLoadedIds: false,
       hasLoadedItems: false,
       productQnts: {},
       recommendedItems: [],
       discount: 0,
       discountType: 'fixed',
-      discountValue: 0
+      discountValue: 0,
+      colClassName: 'col-12 col-md-4 col-lg-3 buy-together__item'
     }
   },
 
@@ -57,7 +73,21 @@ export default {
     i19buyTogetherWith: () => 'Compre junto com',
 
     productIds () {
-      return Object.keys(this.productQnts)
+      const Ids = Object.keys(this.productQnts)
+      switch (Ids.length) {
+        case 4:
+          this.colClassName = 'col-12 col-md-2 col-lg-2 buy-together__item'
+          break;
+        case 2:
+          this.colClassName = 'col-12 col-md-4 col-lg-4 buy-together__item'
+          break;
+        case 1: 
+          this.colClassName = 'col-12 col-md-6 col-lg-6 buy-together__item'
+          break;
+        default:
+          break;
+      }
+      return Ids
     },
 
     relatedProducts () {

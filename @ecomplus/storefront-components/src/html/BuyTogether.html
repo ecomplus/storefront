@@ -3,15 +3,16 @@
     <div v-if="hasLoadedIds && (!hasLoadedItems || recommendedItems.length)">
       <div class="buy-together__title">
         <div
-          v-if="discount"
           class="buy-together__discount lead mb-1"
         >
-          {{ i19buyTogetherWith }}
-          <span class="badge badge-success">
+          {{ i19buyTogether }}
+          <span
+            v-if="discount"
+            class="badge badge-success"
+          >
             {{ formatMoney(discount) }} <span>OFF</span>
           </span>
         </div>
-        <h5>{{ baseProduct.name }} <strong class="text-muted">+</strong></h5>
       </div>
 
       <div class="buy-together__row row">
@@ -19,16 +20,36 @@
           class="col-12"
           :class="productIds.length > 1 ? 'col-md' : 'col-md-6 col-lg-4'"
         >
-          <recommended-items
-            v-if="productIds.length"
-            :product-ids="productIds"
-            :col-class-name="productIds.length > 1 ? null : 'col'"
-            @fetched="hasLoadedItems = true"
-            @recommend-items="result => recommendedItems = result.items"
-          />
+          <div :class="rowClassName">
+            <div
+              v-if="productIds.length"
+              :key="baseProduct._id"
+              :class="colClassName"
+            >
+              <product-card
+                :product="baseProduct"
+                :productId="baseProduct._id"
+                :is-loaded="true"
+                v-bind="productCardProps"
+              />
+            </div>
+            <div
+              v-if="productIds.length"
+              v-for="productId in productIds"
+              :key="productId"
+              :class="colClassName"
+            >
+              <product-card
+                :productId="productId"
+                :is-loaded="false"
+                @update:product="product => recommendedItems.push(product)"
+                v-bind="productCardProps"
+              />
+            </div>
+          </div>
         </div>
         <div
-          v-if="recommendedItems.length"
+          v-if="productIds.length"
           class="buy-together__cta col-auto"
         >
           <a-prices
@@ -50,6 +71,6 @@
   </transition>
 
   <transition leave-active-class="animated fadeOut">
-    <slot v-if="!hasLoadedItems"/>
+    <slot v-if="!productIds.length"/>
   </transition>
 </div>
