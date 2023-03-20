@@ -4,7 +4,6 @@ import { modules, graphs } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import APrices from './../APrices.vue'
 import ProductCard from './../ProductCard.vue'
-import RecommendedItems from './../RecommendedItems.vue'
 
 const storefront = (typeof window === 'object' && window.storefront) || {}
 const getContextBody = () => (storefront.context && storefront.context.body) || {}
@@ -23,8 +22,7 @@ export default {
 
   components: {
     APrices,
-    ProductCard,
-    RecommendedItems
+    ProductCard
   },
 
   props: {
