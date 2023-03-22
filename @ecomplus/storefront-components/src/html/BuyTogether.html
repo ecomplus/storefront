@@ -1,6 +1,6 @@
 <div class="buy-together">
   <transition enter-active-class="animated fadeInDown">
-    <div v-if="hasLoadedIds && (productIds.length > 1 || recommendedItems.length)">
+    <div v-if="hasLoadedIds && (!hasLoadedItems || recommendedItems.length)">
       <div class="buy-together__title">
         <div
           class="buy-together__discount lead mb-1"
@@ -22,34 +22,22 @@
         >
           <div :class="rowClassName">
             <div
-              v-if="productIds.length"
-              :key="baseProduct._id"
+              v-if="items.length"
+              v-for="item in items"
+              :key="item._id"
               :class="colClassName"
             >
               <product-card
-                :product="baseProduct"
-                :productId="baseProduct._id"
+                :product="item"
+                :productId="item._id"
                 :is-loaded="true"
-                v-bind="productCardProps"
-              />
-            </div>
-            <div
-              v-if="productIds.length"
-              v-for="productId in productIds"
-              :key="productId"
-              :class="colClassName"
-            >
-              <product-card
-                :productId="productId"
-                :is-loaded="false"
-                @update:product="product => recommendedItems.push(product)"
                 v-bind="productCardProps"
               />
             </div>
           </div>
         </div>
         <div
-          v-if="productIds.length"
+          v-if="recommendedItems.length"
           class="buy-together__cta col-auto"
         >
           <a-prices
@@ -71,6 +59,6 @@
   </transition>
 
   <transition leave-active-class="animated fadeOut">
-    <slot v-if="!productIds.length > 1"/>
+    <slot v-if="!hasLoadedItems"/>
   </transition>
 </div>

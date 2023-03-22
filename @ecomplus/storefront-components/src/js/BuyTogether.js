@@ -2,6 +2,7 @@
 import { formatMoney, price as getPrice, recommendedIds } from '@ecomplus/utils'
 import { modules, graphs } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
+import EcomSearch from '@ecomplus/search-engine'
 import APrices from './../APrices.vue'
 import ProductCard from './../ProductCard.vue'
 
@@ -54,7 +55,19 @@ export default {
 
   data () {
     return {
-      isLoaded: false,
+      ecomSearch: new EcomSearch()
+        .mergeFilter({
+          range: {
+            quantity: {
+              gt: 0
+            }
+          }
+        })
+        .mergeFilter({
+          term: {
+            available: true
+          }
+        }),
       hasLoadedIds: false,
       hasLoadedItems: false,
       productQnts: {},
@@ -62,7 +75,8 @@ export default {
       discount: 0,
       discountType: 'fixed',
       discountValue: 0,
-      colClassName: 'col-12 col-md-4 col-lg-3 buy-together__item'
+      colClassName: 'col-12 col-md-4 col-lg-3 buy-together__item',
+      pageNumber: 1
     }
   },
 
@@ -70,22 +84,15 @@ export default {
     i19buyTogether: () => 'Compre junto',
     i19buyTogetherWith: () => 'Compre junto com',
 
+    items () {
+      return [
+        this.baseProduct,
+        ...this.recommendedItems
+      ]
+    },
+
     productIds () {
-      const Ids = Object.keys(this.productQnts)
-      switch (Ids.length) {
-        case 4:
-          this.colClassName = 'col-12 col-md-2 col-lg-2 buy-together__item'
-          break;
-        case 2:
-          this.colClassName = 'col-12 col-md-4 col-lg-4 buy-together__item'
-          break;
-        case 1: 
-          this.colClassName = 'col-12 col-md-6 col-lg-6 buy-together__item'
-          break;
-        default:
-          break;
-      }
-      return Ids
+      return Object.keys(this.productQnts)
     },
 
     relatedProducts () {
@@ -93,13 +100,6 @@ export default {
       return relatedProducts && relatedProducts.product_ids.length
         ? relatedProducts.product_ids
         : []
-    },
-
-    items () {
-      return [
-        this.baseProduct,
-        ...this.recommendedItems
-      ]
     },
 
     subtotal () {
@@ -149,6 +149,15 @@ export default {
         })
         this.productQnts = productQnts
       }
+    },
+
+    fetchItems () {
+      delete this.ecomSearch.dsl.aggs
+      this.ecomSearch.setPageNumber(this.pageNumber).fetch().then(() => {
+        this.recommendedItems = this.recommendedItems.concat(this.ecomSearch.getItems())
+      }).finally(() => {
+        this.hasLoadedItems = true
+      })
     }
   },
 
@@ -160,6 +169,26 @@ export default {
         }
       },
       immediate: true
+    },
+
+    items: {
+      handler (ids) {
+        if (ids.length) {
+          switch (ids.length) {
+            case 4:
+              this.colClassName = 'col-12 col-md-3 col-lg-3 buy-together__item'
+              break;
+            case 3:
+              this.colClassName = 'col-12 col-md-4 col-lg-4 buy-together__item'
+              break;
+            case 2: 
+              this.colClassName = 'col-12 col-md-6 col-lg-6 buy-together__item'
+              break;
+            default:
+              break;
+          }
+        }
+      }
     }
   },
 
@@ -214,6 +243,9 @@ export default {
           if (!this.productIds.length) {
             if (this.relatedProducts.length) {
               this.setProductQnts(this.relatedProducts)
+              this.hasLoadedItems = true
+              this.ecomSearch.setProductIds(this.productIds)
+              this.fetchItems()
             } else {
               graphs({ url: `/products/${this.baseProduct._id}/related.json` }).then(({ data }) => {
                 this.setProductQnts(recommendedIds(data))
@@ -221,10 +253,14 @@ export default {
                   if (!this.productIds.length) {
                     this.hasLoadedItems = true
                   }
+                  this.ecomSearch.setProductIds(this.productIds)
+                  this.fetchItems()
                 })
               })
             }
           }
+          this.ecomSearch.setProductIds(this.productIds)
+          this.fetchItems()
         })
       })
     }
