@@ -39,10 +39,6 @@ export default {
         return ecomCart
       }
     },
-    rowClassName: {
-      type: String,
-      default: 'row no-gutters'
-    },
     productCardProps: {
       type: Object,
       default () {
@@ -50,7 +46,7 @@ export default {
           isSmall: true
         }
       }
-    },
+    }
   },
 
   data () {
@@ -74,9 +70,7 @@ export default {
       recommendedItems: [],
       discount: 0,
       discountType: 'fixed',
-      discountValue: 0,
-      colClassName: 'col-12 col-md-4 col-lg-3 buy-together__item',
-      pageNumber: 1
+      discountValue: 0
     }
   },
 
@@ -152,8 +146,13 @@ export default {
     },
 
     fetchItems () {
+      if (!this.productIds.length) {
+        this.hasLoadedItems = true
+        return
+      }
+      this.ecomSearch.setProductIds(this.productIds)
       delete this.ecomSearch.dsl.aggs
-      this.ecomSearch.setPageNumber(this.pageNumber).fetch().then(() => {
+      this.ecomSearch.fetch().then(() => {
         this.recommendedItems = this.recommendedItems.concat(this.ecomSearch.getItems())
       }).finally(() => {
         this.hasLoadedItems = true
@@ -169,26 +168,6 @@ export default {
         }
       },
       immediate: true
-    },
-
-    items: {
-      handler (ids) {
-        if (ids.length) {
-          switch (ids.length) {
-            case 4:
-              this.colClassName = 'col-12 col-md-3 col-lg-3 buy-together__item'
-              break;
-            case 3:
-              this.colClassName = 'col-12 col-md-4 col-lg-4 buy-together__item'
-              break;
-            case 2: 
-              this.colClassName = 'col-12 col-md-6 col-lg-6 buy-together__item'
-              break;
-            default:
-              break;
-          }
-        }
-      }
     }
   },
 
@@ -243,24 +222,18 @@ export default {
           if (!this.productIds.length) {
             if (this.relatedProducts.length) {
               this.setProductQnts(this.relatedProducts)
-              this.hasLoadedItems = true
-              this.ecomSearch.setProductIds(this.productIds)
               this.fetchItems()
             } else {
               graphs({ url: `/products/${this.baseProduct._id}/related.json` }).then(({ data }) => {
                 this.setProductQnts(recommendedIds(data))
                 this.$nextTick(() => {
-                  if (!this.productIds.length) {
-                    this.hasLoadedItems = true
-                  }
-                  this.ecomSearch.setProductIds(this.productIds)
                   this.fetchItems()
                 })
               })
             }
+          } else {
+            this.fetchItems()
           }
-          this.ecomSearch.setProductIds(this.productIds)
-          this.fetchItems()
         })
       })
     }

@@ -1,10 +1,8 @@
 <div class="buy-together">
   <transition enter-active-class="animated fadeInDown">
-    <div v-if="hasLoadedIds && (!hasLoadedItems || recommendedItems.length)">
+    <div v-if="hasLoadedItems && recommendedItems.length">
       <div class="buy-together__title">
-        <div
-          class="buy-together__discount lead mb-1"
-        >
+        <div class="buy-together__discount lead mb-3">
           {{ i19buyTogether }}
           <span
             v-if="discount"
@@ -20,12 +18,13 @@
           class="col-12"
           :class="productIds.length > 1 ? 'col-md' : 'col-md-6 col-lg-4'"
         >
-          <div :class="rowClassName">
+          <div class="row">
             <div
               v-if="items.length"
               v-for="item in items"
               :key="item._id"
-              :class="colClassName"
+              class="buy-together__item col-12"
+              :class="`col-md-${(12 / items.length)}`"
             >
               <product-card
                 :product="item"
@@ -36,10 +35,7 @@
             </div>
           </div>
         </div>
-        <div
-          v-if="recommendedItems.length"
-          class="buy-together__cta col-auto"
-        >
+        <div class="buy-together__cta col-auto">
           <a-prices
             :product="{ price: subtotal - discount, base_price: subtotal }"
             :is-literal="true"
