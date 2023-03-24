@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.145](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.144...@ecomplus/storefront-components@1.0.0-beta.145) (2023-03-24)
+
+### Features
+
+- **components/buy-together:** improving component ui ([#881](https://github.com/ecomplus/storefront/issues/881)) ([50c3765](https://github.com/ecomplus/storefront/commit/50c376502f73d39c0fbd75909cabda68103c0013))
+
 # [1.0.0-beta.144](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.143...@ecomplus/storefront-components@1.0.0-beta.144) (2023-02-23)
 
 ### Bug Fixes
