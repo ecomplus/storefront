@@ -1,17 +1,16 @@
 <div class="buy-together">
   <transition enter-active-class="animated fadeInDown">
-    <div v-if="hasLoadedIds && (!hasLoadedItems || recommendedItems.length)">
+    <div v-if="hasLoadedItems && recommendedItems.length">
       <div class="buy-together__title">
-        <div
-          v-if="discount"
-          class="buy-together__discount lead mb-1"
-        >
-          {{ i19buyTogetherWith }}
-          <span class="badge badge-success">
+        <div class="buy-together__discount lead mb-3">
+          {{ i19buyTogether }}
+          <span
+            v-if="discount"
+            class="badge badge-success"
+          >
             {{ formatMoney(discount) }} <span>OFF</span>
           </span>
         </div>
-        <h5>{{ baseProduct.name }} <strong class="text-muted">+</strong></h5>
       </div>
 
       <div class="buy-together__row row">
@@ -19,18 +18,24 @@
           class="col-12"
           :class="productIds.length > 1 ? 'col-md' : 'col-md-6 col-lg-4'"
         >
-          <recommended-items
-            v-if="productIds.length"
-            :product-ids="productIds"
-            :col-class-name="productIds.length > 1 ? null : 'col'"
-            @fetched="hasLoadedItems = true"
-            @recommend-items="result => recommendedItems = result.items"
-          />
+          <div class="row">
+            <div
+              v-if="items.length"
+              v-for="item in items"
+              :key="item._id"
+              class="buy-together__item col-12"
+              :class="`col-md-${(12 / items.length)}`"
+            >
+              <product-card
+                :product="item"
+                :productId="item._id"
+                :is-loaded="true"
+                v-bind="productCardProps"
+              />
+            </div>
+          </div>
         </div>
-        <div
-          v-if="recommendedItems.length"
-          class="buy-together__cta col-auto"
-        >
+        <div class="buy-together__cta col-auto">
           <a-prices
             :product="{ price: subtotal - discount, base_price: subtotal }"
             :is-literal="true"

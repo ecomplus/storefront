@@ -2,8 +2,9 @@
 import { formatMoney, price as getPrice, recommendedIds } from '@ecomplus/utils'
 import { modules, graphs } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
+import EcomSearch from '@ecomplus/search-engine'
 import APrices from './../APrices.vue'
-import RecommendedItems from './../RecommendedItems.vue'
+import ProductCard from './../ProductCard.vue'
 
 const storefront = (typeof window === 'object' && window.storefront) || {}
 const getContextBody = () => (storefront.context && storefront.context.body) || {}
@@ -22,7 +23,7 @@ export default {
 
   components: {
     APrices,
-    RecommendedItems
+    ProductCard
   },
 
   props: {
@@ -37,11 +38,32 @@ export default {
       default () {
         return ecomCart
       }
+    },
+    productCardProps: {
+      type: Object,
+      default () {
+        return {
+          isSmall: true
+        }
+      }
     }
   },
 
   data () {
     return {
+      ecomSearch: new EcomSearch()
+        .mergeFilter({
+          range: {
+            quantity: {
+              gt: 0
+            }
+          }
+        })
+        .mergeFilter({
+          term: {
+            available: true
+          }
+        }),
       hasLoadedIds: false,
       hasLoadedItems: false,
       productQnts: {},
@@ -56,6 +78,13 @@ export default {
     i19buyTogether: () => 'Compre junto',
     i19buyTogetherWith: () => 'Compre junto com',
 
+    items () {
+      return [
+        this.baseProduct,
+        ...this.recommendedItems
+      ]
+    },
+
     productIds () {
       return Object.keys(this.productQnts)
     },
@@ -65,13 +94,6 @@ export default {
       return relatedProducts && relatedProducts.product_ids.length
         ? relatedProducts.product_ids
         : []
-    },
-
-    items () {
-      return [
-        this.baseProduct,
-        ...this.recommendedItems
-      ]
     },
 
     subtotal () {
@@ -121,6 +143,20 @@ export default {
         })
         this.productQnts = productQnts
       }
+    },
+
+    fetchItems () {
+      if (!this.productIds.length) {
+        this.hasLoadedItems = true
+        return
+      }
+      this.ecomSearch.setProductIds(this.productIds)
+      delete this.ecomSearch.dsl.aggs
+      this.ecomSearch.fetch().then(() => {
+        this.recommendedItems = this.recommendedItems.concat(this.ecomSearch.getItems())
+      }).finally(() => {
+        this.hasLoadedItems = true
+      })
     }
   },
 
@@ -186,16 +222,17 @@ export default {
           if (!this.productIds.length) {
             if (this.relatedProducts.length) {
               this.setProductQnts(this.relatedProducts)
+              this.fetchItems()
             } else {
               graphs({ url: `/products/${this.baseProduct._id}/related.json` }).then(({ data }) => {
                 this.setProductQnts(recommendedIds(data))
                 this.$nextTick(() => {
-                  if (!this.productIds.length) {
-                    this.hasLoadedItems = true
-                  }
+                  this.fetchItems()
                 })
               })
             }
+          } else {
+            this.fetchItems()
           }
         })
       })
