@@ -48,6 +48,7 @@ if (header.categories_list) {
 const hasMegamenu = header.desktop_megamenu
 const isAlphabeticalOrderSubmenu = header.alphabetical_order_submenu
 const fullWidthSubmenu = header.full_width_submenu
+const isCentralizedLogo = header.centralized_logo
 %>
 
 <div id="overlay" class="fade"></div>
@@ -121,7 +122,7 @@ const fullWidthSubmenu = header.full_width_submenu
 
 <header class="header" id="header">
   <div class="header__container container-fluid">
-    <div class="header__row row">
+    <div class="header__row row<%= isCentralizedLogo ? ' header__row--centralized-logo' : '' %><%= isCentralizedLogo && isCategoriesNavFull ? ' full_width' : '' %>">
       <div class="col-auto p-0">
         <button
           class="btn header__toggler<%= hasMegamenu ? ' d-lg-none' : '' %>"
