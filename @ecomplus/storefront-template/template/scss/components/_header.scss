@@ -240,7 +240,7 @@
         line-height: var(--line-height-lg);
         height: calc(var(--line-height-lg) * var(--font-size-lg) + 2 * var(--spacer-2));
         &::-webkit-search-cancel-button {
-          margin-right: 30px;
+          display: none;
         }
       }
 
