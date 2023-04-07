@@ -112,7 +112,6 @@ export default ({ baseDir, state }) => ({
     },
     {
       label: 'Logotipo centralizado',
-      hint: 'Logotipo centralizado, se estiver ativo exibir categorias em largura total',
       name: 'centralized_logo',
       widget: 'boolean'
     },

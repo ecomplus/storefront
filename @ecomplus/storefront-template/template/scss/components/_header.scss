@@ -29,24 +29,24 @@
     @media (min-width: 768px) {
       min-height: 60px;
       &--centralized-logo {
-        .header__row--toggler {
+        .header__toggler-block {
           order: -2;
           flex-basis: 3%;
           max-width: 3%;
         }
-        .header__row--logo {
+        .header__logo-block {
           flex-basis: 33.33%;
           max-width: 33.33%;
           display: flex;
           justify-content: center;
         }
-        .header__row--buttons {
+        .header__buttons-block {
           display: flex;
           flex-basis: 8%;
           max-width: 8%;
           justify-content: flex-end;
         }
-        .header__row--nav {
+        .header__nav-block {
           display: flex;
           flex: 1 1 25.33%;
         }
@@ -59,7 +59,7 @@
         }
       }
       &--full-width {
-        .header__row--buttons {
+        .header__buttons-block {
           flex-basis: 33.33% !important;
           max-width: 33.33% !important;
         }
