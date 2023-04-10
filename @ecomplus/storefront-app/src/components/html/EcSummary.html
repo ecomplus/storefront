@@ -56,12 +56,18 @@
 
   <slot name="amount">
     <div class="summary__amount">
-      <div class="summary__amount__row">
+      <div
+        class="summary__amount__row"
+        :data-subtotal="amount.subtotal.toFixed(2)"
+      >
         <span>{{ i19subtotal }}</span>
         <div>{{ formatMoney(amount.subtotal) }}</div>
       </div>
 
-      <div class="summary__amount__row">
+      <div
+        class="summary__amount__row"
+        :data-freight="amount.freight.toFixed(2)"
+      >
         <span>
           {{ i19freight }}
           <small v-if="shippingAddress">
@@ -79,6 +85,7 @@
       <div
         v-if="amount.discount"
         class="summary__amount__row"
+        :data-discount="amount.discount.toFixed(2)"
       >
         <span>{{ i19discount }}</span>
         <div>{{ formatMoney(amount.discount) }}</div>
@@ -86,6 +93,7 @@
       <div
         v-if="amount.balance"
         class="summary__amount__row"
+        :data-balance="amount.balance.toFixed(2)"
       >
         <span>{{ i19balanceOrPoints }}</span>
         <div>{{ formatMoney(amount.balance) }}</div>
