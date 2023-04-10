@@ -111,6 +111,11 @@ export default ({ baseDir, state }) => ({
       ]
     },
     {
+      label: 'Logotipo centralizado',
+      name: 'centralized_logo',
+      widget: 'boolean'
+    },
+    {
       label: 'Megamenu no desktop',
       name: 'desktop_megamenu',
       widget: 'boolean'

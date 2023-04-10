@@ -48,6 +48,7 @@ if (header.categories_list) {
 const hasMegamenu = header.desktop_megamenu
 const isAlphabeticalOrderSubmenu = header.alphabetical_order_submenu
 const fullWidthSubmenu = header.full_width_submenu
+const isCentralizedLogo = header.centralized_logo
 %>
 
 <div id="overlay" class="fade"></div>
@@ -121,8 +122,8 @@ const fullWidthSubmenu = header.full_width_submenu
 
 <header class="header" id="header">
   <div class="header__container container-fluid">
-    <div class="header__row row">
-      <div class="col-auto p-0">
+    <div class="header__row row<%= isCentralizedLogo ? ' header__row--centralized-logo' : '' %><%= isCentralizedLogo && isCategoriesNavFull ? ' header__row--full-width' : '' %>">
+      <div class="col-auto p-0 header__toggler-block">
         <button
           class="btn header__toggler<%= hasMegamenu ? ' d-lg-none' : '' %>"
           type="button"
@@ -138,13 +139,13 @@ const fullWidthSubmenu = header.full_width_submenu
         </button>
       </div>
 
-      <div class="col col-lg-auto pl-1 pl-md-2 pl-lg-3">
+      <div class="col col-lg-auto pl-1 pl-md-2 pl-lg-3 header__logo-block">
         <a href="/">
           <%- await include('@/layout/inc/logo', { _ }) %>
         </a>
       </div>
 
-      <div class="order-lg-last col-auto p-0">
+      <div class="order-lg-last col-auto p-0 header__buttons-block">
         <div
           class="header__buttons"
           role="group"
@@ -265,7 +266,7 @@ const fullWidthSubmenu = header.full_width_submenu
       <% } %>
 
       <% if (categories && categories.length) { %>
-        <div class="d-none d-lg-block <%= isCategoriesNavFull ? 'col-12 order-lg-last' : 'col' %>">
+        <div class="d-none d-lg-block <%= isCategoriesNavFull ? 'col-12 order-lg-last' : 'col' %> header__nav-block">
           <nav class="header__nav<%= isCategoriesNavFull ? ' header__nav--full' : '' %>">
             <% categories.forEach(({ slug, name, _id}) => { %>
               <% let $categoryLink %>
