@@ -109,7 +109,10 @@
 
       <slot name="amount-custom"/>
 
-      <div class="summary__amount__row summary__amount__row--total">
+      <div
+        class="summary__amount__row summary__amount__row--total"
+        :data-total="amountToPay.toFixed(2)"
+      >
         <span>{{ paidInAdvance ? i19toPay : i19total }}</span>
         <a-prices
           :product="{ price: amountToPay }"
