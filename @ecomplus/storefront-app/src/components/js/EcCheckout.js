@@ -104,6 +104,12 @@ export default {
     canHideSummary: Boolean,
     shippingZipCode: String,
     shippingService: Object,
+    skipShippingApps: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
     paymentGateway: Object,
     discountCoupon: String,
     notes: String,
@@ -352,6 +358,10 @@ export default {
 
     localZipCode () {
       this.editShippingService = true
+    },
+
+    skipShippingApps () {
+      this.toCheckoutStep = 1
     },
 
     toCheckoutStep (stepNumber) {

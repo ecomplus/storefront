@@ -23,6 +23,7 @@
           @address-selected="selectAddress"
           :shipping-zip-code="shippingZipCode"
           :shipping-service.sync="shippingService"
+          :skip-shipping-apps="skipShippingApps"
           :payment-gateway.sync="paymentGateway"
           :discount-coupon.sync="discountCoupon"
           :notes.sync="notes"

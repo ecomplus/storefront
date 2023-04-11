@@ -67,7 +67,7 @@
                 >
                   <transition-group enter-active-class="animated fadeInDown">
                     <div
-                      v-if="shippingService && !editShippingService"
+                      v-if="shippingService && !editShippingService && !skipShippingApps.length"
                       key="shipping"
                     >
                       <div class="checkout__shipping-method">
@@ -92,6 +92,7 @@
                       :shipped-items="cart.items"
                       :zip-code="localZipCode"
                       :can-input-zip="false"
+                      :skip-app-ids="skipShippingApps"
                       @select-service="service => $emit('update:shipping-service', service)"
                     />
                   </transition-group>
