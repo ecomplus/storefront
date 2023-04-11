@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.166](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.165...@ecomplus/storefront-app@2.0.0-beta.166) (2023-04-11)
+
+### Bug Fixes
+
+- **app/checkout:** alert shipping error on checkout and update/filter service options ([1febe68](https://github.com/ecomplus/storefront/commit/1febe6897fa3c5fcd9647efd2f884612cb4918a5))
+
 # [2.0.0-beta.165](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.164...@ecomplus/storefront-app@2.0.0-beta.165) (2023-03-24)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

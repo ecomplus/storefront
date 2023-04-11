@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.221](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.220...@ecomplus/storefront-template@2.0.0-beta.221) (2023-04-11)
+
+### Features
+
+- **template/cms:** add header config option for centralized logo ([#889](https://github.com/ecomplus/storefront/issues/889)) ([493fd9b](https://github.com/ecomplus/storefront/commit/493fd9b7e64ca0d859e7d31468073df6f25d50ae))
+
 # [2.0.0-beta.220](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.219...@ecomplus/storefront-template@2.0.0-beta.220) (2023-03-24)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
