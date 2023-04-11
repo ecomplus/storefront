@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.147](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.146...@ecomplus/storefront-components@1.0.0-beta.147) (2023-04-11)
+
+### Features
+
+- **components/cart:** add data-[field] to each cart summary row/value ([78f06b7](https://github.com/ecomplus/storefront/commit/78f06b77fbd2cbb73661bfdf77019c121db3ed6d))
+
 # [1.0.0-beta.146](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.145...@ecomplus/storefront-components@1.0.0-beta.146) (2023-04-11)
 
 **Note:** Version bump only for package @ecomplus/storefront-components
