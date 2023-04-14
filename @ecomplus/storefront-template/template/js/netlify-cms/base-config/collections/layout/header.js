@@ -106,34 +106,40 @@ export default ({ baseDir, state }) => ({
         {
           label: 'Exibir em largura total',
           name: 'full_width',
-          widget: 'boolean'
+          widget: 'boolean',
+          required: false,
         }
       ]
     },
     {
       label: 'Logotipo centralizado',
       name: 'centralized_logo',
-      widget: 'boolean'
+      widget: 'boolean',
+      required: false,
     },
     {
       label: 'Megamenu no desktop',
       name: 'desktop_megamenu',
-      widget: 'boolean'
+      widget: 'boolean',
+      required: false,
     },
     {
       label: 'Mostrar input de busca',
       name: 'search_input',
-      widget: 'boolean'
+      widget: 'boolean',
+      required: false,
     },
     {
       label: 'Submenu em ordem alfabética',
       name: 'alphabetical_order_submenu',
-      widget: 'boolean'
+      widget: 'boolean',
+      required: false,
     },
     {
       label: 'Submenu em tela cheia',
       name: 'full_width_submenu',
-      widget: 'boolean'
+      widget: 'boolean',
+      required: false,
     }
   ]
 })
