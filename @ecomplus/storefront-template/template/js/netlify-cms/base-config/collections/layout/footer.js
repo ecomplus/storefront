@@ -147,7 +147,7 @@ export default ({ baseDir }) => ({
           widget: 'image',
           media_library: {
             config: {
-              max_file_size: 1000000
+              max_file_size: Math.max(window.CMS_MAX_FILE_SIZE || 0, 1000000)
             }
           }
         },
