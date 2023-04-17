@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.168](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.167...@ecomplus/storefront-app@2.0.0-beta.168) (2023-04-17)
+
+### Features
+
+- **app/checkout:** send customer `referral` to checkout if set on session ([3c4d3b6](https://github.com/ecomplus/storefront/commit/3c4d3b683c9d7f6bc47f920fc46bbdedf4d772af))
+
 # [2.0.0-beta.167](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.166...@ecomplus/storefront-app@2.0.0-beta.167) (2023-04-11)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

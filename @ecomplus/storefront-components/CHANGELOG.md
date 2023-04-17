@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.148](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.147...@ecomplus/storefront-components@1.0.0-beta.148) (2023-04-17)
+
+### Features
+
+- **components/login:** oauth signup with `referral` if set on user session ([e5aba9a](https://github.com/ecomplus/storefront/commit/e5aba9ac184d01ec36c37eea9a9ae96bfa18a458))
+
 # [1.0.0-beta.147](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.146...@ecomplus/storefront-components@1.0.0-beta.147) (2023-04-11)
 
 ### Features

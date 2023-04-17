@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.223](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.222...@ecomplus/storefront-template@2.0.0-beta.223) (2023-04-17)
+
+### Bug Fixes
+
+- **template/cms:** explicit new cms header options not required ([#892](https://github.com/ecomplus/storefront/issues/892)) ([4314b61](https://github.com/ecomplus/storefront/commit/4314b616ff2eeb1267bf9cc10f3f94e760344ac9))
+
 # [2.0.0-beta.222](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.221...@ecomplus/storefront-template@2.0.0-beta.222) (2023-04-11)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
