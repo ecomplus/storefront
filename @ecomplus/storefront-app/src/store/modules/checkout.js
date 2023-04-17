@@ -337,6 +337,10 @@ const actions = {
         delete customer[prop]
       }
     }
+    const referral = sessionStorage.getItem('ecomReferral')
+    if (typeof referral === 'string' && /^[0-9a-f]{24}$/.test(referral)) {
+      customer.referral = referral
+    }
     const checkoutBody = {
       ...baseModulesRequestData,
       items: ecomCart.data.items.map(item => {
