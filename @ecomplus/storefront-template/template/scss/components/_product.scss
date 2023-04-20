@@ -26,6 +26,18 @@
       height: auto;
     }
   }
+  &__seal {
+    position: absolute;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    img {
+      width: 70px;
+    }
+  }
 }
 
 @media (min-width: 992px) {

@@ -1,3 +1,10 @@
+<%
+const seals = _.cms('seals') || {}
+let tags
+if (seals && Array.isArray(seals.seals_list) && seals.seals_list.length) {
+  tags = seals.seals_list
+}
+%>
 <div id="product-block" class="product-block my-4 mb-lg-5">
   <div class="container">
     <section
@@ -22,6 +29,25 @@
             <% if (imgObj) { %>
               <% const [width, height] = (imgObj.size || '').split('x').map(px => parseInt(px, 10)) %>
               <div id="product-gallery">
+                <div data-slot="seal-tag">
+                  <% if (tags && Array.isArray(tags) && tags.length) { %>
+                    <div class="product__seal">
+                      <% for (tag of tags) { 
+                        let skuList
+                        if (Array.isArray(tag.seals_list_products) && tag.seals_list_products.length) {
+                          skuList = tag.seals_list_products
+                          const hasSku = skuList.some(sku => sku === _.state.sku)
+                          if (hasSku) {
+                          %>
+                            <span class="product-gallery__seal-<%= tag.id %>">
+                              <img src="<%= tag.img %>" alt="<%= tag.id %>">
+                            </span>
+                        <% } %>
+                       <% } %>
+                      <% } %>
+                    </div>
+                  <% } %>
+                </div>
                 <div
                   class="product__picture"
                   <% if (width) { %>

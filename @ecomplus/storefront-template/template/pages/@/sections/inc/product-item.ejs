@@ -1,4 +1,5 @@
 <%
+const seals = _.cms('seals') || {}
 const itemData = {}
 let itemDataFields = ['_id', 'sku', 'slug', 'quantity']
 if (Array.isArray(_.itemDataFields)) {
@@ -15,6 +16,11 @@ if (imgObj) {
     normal: imgObj
   }]
 }
+let tags
+if (seals && Array.isArray(seals.seals_list) && seals.seals_list.length) {
+  tags = seals.seals_list
+}
+
 %>
 
 <article class="product-item" data-product="<%= JSON.stringify(itemData) %>">
@@ -30,6 +36,27 @@ if (imgObj) {
       `ProductCard` should be rendered (hydrated) here:
       https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/ProductCard.html
     -->
+    <div data-slot="seal-tag">
+      <% if (tags && Array.isArray(tags) && tags.length) { %>
+        <div class="product-card__seal">
+          <% for (tag of tags) { 
+            let skuList
+            if (Array.isArray(tag.seals_list_products) && tag.seals_list_products.length) {
+              skuList = tag.seals_list_products
+              const hasSku = skuList.some(sku => sku === itemData.sku)
+              if (hasSku) {
+              %>
+                <span class="product-card__seal-<%= tag.id %>">
+                  <img src="<%= tag.img %>" alt="<%= tag.id %>">
+                </span>
+            <% } %>
+           <% } %>
+          <% } %>
+        </div>
+      <% } %>
+
+    </div>
+
     <a
       href="/<%= itemData.slug %>"
       class="product-card__link"
