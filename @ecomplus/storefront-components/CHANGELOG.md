@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.149](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.148...@ecomplus/storefront-components@1.0.0-beta.149) (2023-04-20)
+
+### Features
+
+- **components/recomended-items:** add new `defaultMatchType` to configure related/recommended fetch ([9adaaa1](https://github.com/ecomplus/storefront/commit/9adaaa1f6cb9ea2fca77937da56d7bafa24dbdb1))
+
 # [1.0.0-beta.148](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.147...@ecomplus/storefront-components@1.0.0-beta.148) (2023-04-17)
 
 ### Features
