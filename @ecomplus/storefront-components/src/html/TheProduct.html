@@ -29,7 +29,7 @@
             :is="isSSR ? 'portal' : 'div'"
             selector="#product-gallery"
           > 
-            <slot name="seal-tag"/>
+            <slot name="stamps"/>
             <product-gallery
               :product="body"
               :can-add-to-cart="canAddToCart && body.available && isInStock"

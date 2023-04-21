@@ -11,7 +11,7 @@
     color: var(--gray);
   }
 
-  &__seal {
+  &__stamps {
     position: absolute;
     position: absolute;
     top: 0px;
@@ -25,7 +25,7 @@
   }
 
   &:has(.product-card__favorite) {
-    .product-card__seal {
+    .product-card__stamps {
       top: 40px;
       right: 0;
       left: unset;

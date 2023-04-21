@@ -1,14 +1,14 @@
-export default ({ baseDir }) => ({
+export default ({ baseDir, state }) => ({
   label: 'Selos',
-  file: `${baseDir}content/seals.json`,
-  name: 'seals',
+  file: `${baseDir}content/stamps.json`,
+  name: 'stamps',
   hint: 'Selos nos produtos',
   widget: 'object',
   fields: [
     {
       label: 'Lista de selos do produto',
       required: false,
-      name: 'seals_list',
+      name: 'stamps_list',
       widget: 'list',
       fields: [
         {
@@ -32,7 +32,7 @@ export default ({ baseDir }) => ({
         {
           label: 'Lista de produtos',
           required: false,
-          name: 'seals_list_products',
+          name: 'skus',
           widget: 'list',
           fields: [
             {

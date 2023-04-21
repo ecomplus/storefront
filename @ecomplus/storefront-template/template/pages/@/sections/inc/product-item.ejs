@@ -1,5 +1,5 @@
 <%
-const seals = _.cms('seals') || {}
+const stamps = _.cms('stamps') || {}
 const itemData = {}
 let itemDataFields = ['_id', 'sku', 'slug', 'quantity']
 if (Array.isArray(_.itemDataFields)) {
@@ -16,9 +16,9 @@ if (imgObj) {
     normal: imgObj
   }]
 }
-let tags
-if (seals && Array.isArray(seals.seals_list) && seals.seals_list.length) {
-  tags = seals.seals_list
+let stampsList
+if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
+  stampsList = stamps.stamps_list
 }
 
 %>
@@ -36,18 +36,18 @@ if (seals && Array.isArray(seals.seals_list) && seals.seals_list.length) {
       `ProductCard` should be rendered (hydrated) here:
       https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/ProductCard.html
     -->
-    <div data-slot="seal-tag">
-      <% if (tags && Array.isArray(tags) && tags.length) { %>
-        <div class="product-card__seal">
-          <% for (tag of tags) { 
+    <div data-slot="stamps">
+      <% if (stampsList && Array.isArray(stampsList) && stampsList.length) { %>
+        <div class="product-card__stamps">
+          <% for (stamp of stampsList) { 
             let skuList
-            if (Array.isArray(tag.seals_list_products) && tag.seals_list_products.length) {
-              skuList = tag.seals_list_products
+            if (Array.isArray(stamp.skus) && stamp.skus.length) {
+              skuList = stamp.skus
               const hasSku = skuList.some(sku => sku === itemData.sku)
               if (hasSku) {
               %>
-                <span class="product-card__seal-<%= tag.id %>">
-                  <img src="<%= tag.img %>" alt="<%= tag.id %>">
+                <span class="product-card__stamps-<%= stamp.id %>">
+                  <img src="<%= stamp.img %>" alt="<%= stamp.id %>">
                 </span>
             <% } %>
            <% } %>
