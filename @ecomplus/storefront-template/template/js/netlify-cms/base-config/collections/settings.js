@@ -1,8 +1,9 @@
-import getGeneral from './settings/general'
 import getContacts from './settings/contacts'
+import getGeneral from './settings/general'
 import getInfo from './settings/info'
-import getSocial from './settings/social'
 import getMaintenance from './settings/maintenance'
+import getSocial from './settings/social'
+import getStamps from './settings/stamps'
 
 export default options => ({
   name: 'settings',
@@ -13,10 +14,11 @@ export default options => ({
     preview: false
   },
   files: [
-    getGeneral(options),
     getContacts(options),
     getInfo(options),
+    getGeneral(options),
+    getMaintenance(options),
     getSocial(options),
-    getMaintenance(options)
+    getStamps(options)
   ]
 })

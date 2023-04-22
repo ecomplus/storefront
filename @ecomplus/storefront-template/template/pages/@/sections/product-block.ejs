@@ -1,3 +1,10 @@
+<%
+const stamps = _.cms('stamps') || {}
+let stampsList
+if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
+  stampsList = stamps.stamps_list
+}
+%>
 <div id="product-block" class="product-block my-4 mb-lg-5">
   <div class="container">
     <section
@@ -22,6 +29,24 @@
             <% if (imgObj) { %>
               <% const [width, height] = (imgObj.size || '').split('x').map(px => parseInt(px, 10)) %>
               <div id="product-gallery">
+                <div data-slot="stamps">
+                  <% if (Array.isArray(stampsList) && stampsList.length) { %>
+                    <div class="product__stamps">
+                      <% for (stamp of stampsList) { 
+                        let skuList
+                        if (Array.isArray(stamp.skus) && stamp.skus.length) {
+                          skuList = stamp.skus
+                          if (skuList.includes(_.state.sku)) {
+                          %>
+                            <span class="product__stamps-<%= stamp.id %>">
+                              <img src="<%= stamp.img %>" alt="<%= stamp.id %>">
+                            </span>
+                        <% } %>
+                       <% } %>
+                      <% } %>
+                    </div>
+                  <% } %>
+                </div>
                 <div
                   class="product__picture"
                   <% if (width) { %>
