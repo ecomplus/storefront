@@ -30,7 +30,7 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
               <% const [width, height] = (imgObj.size || '').split('x').map(px => parseInt(px, 10)) %>
               <div id="product-gallery">
                 <div data-slot="stamps">
-                  <% if (stampsList && Array.isArray(stampsList) && stampsList.length) { %>
+                  <% if (Array.isArray(stampsList) && stampsList.length) { %>
                     <div class="product__stamps">
                       <% for (stamp of stampsList) { 
                         let skuList
