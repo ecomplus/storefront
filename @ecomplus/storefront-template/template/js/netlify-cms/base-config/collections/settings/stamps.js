@@ -36,7 +36,7 @@ export default ({ baseDir, state }) => ({
           widget: 'list',
           fields: [
             {
-              label: 'Sku do produto',
+              label: 'SKU do produto',
               required: false,
               name: 'sku',
               widget: 'string',
