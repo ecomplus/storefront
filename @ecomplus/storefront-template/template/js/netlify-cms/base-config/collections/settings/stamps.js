@@ -25,7 +25,7 @@ export default ({ baseDir, state }) => ({
           widget: 'image',
           media_library: {
             config: {
-              max_file_size: 1000000
+              max_file_size: 300000
             }
           }
         },
