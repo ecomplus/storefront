@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.146](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.145...@ecomplus/widget-product-card@1.0.0-beta.146) (2023-04-20)
+
+**Note:** Version bump only for package @ecomplus/widget-product-card
+
 # [1.0.0-beta.145](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product-card@1.0.0-beta.144...@ecomplus/widget-product-card@1.0.0-beta.145) (2023-04-17)
 
 **Note:** Version bump only for package @ecomplus/widget-product-card

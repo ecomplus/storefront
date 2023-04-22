@@ -66,6 +66,12 @@ export default {
       default () {
         return []
       }
+    },
+    defaultMatchType: {
+      type: String,
+      default: typeof window === 'object'
+        ? window.ecomRecommendationsType
+        : 'recommended'
     }
   },
 
@@ -113,7 +119,7 @@ export default {
   },
 
   created () {
-    const fetchRecommendations = (matchType = 'recommended') => {
+    const fetchRecommendations = (matchType = this.defaultMatchType) => {
       const promises = []
       const items = this.ecomCart.data.items.sort((a, b) => a.quantity > b.quantity ? -1 : 1)
       for (let i = 0; i < items.length && i <= 4; i++) {

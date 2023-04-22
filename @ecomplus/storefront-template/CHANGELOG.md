@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.224](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.223...@ecomplus/storefront-template@2.0.0-beta.224) (2023-04-20)
+
+### Features
+
+- **template/session:** persisting `coupon` from URL param on user session ([56981db](https://github.com/ecomplus/storefront/commit/56981db31460297017e7afbc5cc771574c5ae616))
+
 # [2.0.0-beta.223](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.222...@ecomplus/storefront-template@2.0.0-beta.223) (2023-04-17)
 
 ### Bug Fixes

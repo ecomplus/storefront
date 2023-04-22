@@ -4,7 +4,7 @@
   "files.insertFinalNewline": true,
   "files.autoSave": "off",
   "files.autoSaveDelay": 5000,
-  "standard.run": "onSave",
+  "standard.enable": true,
   "yaml.schemas": {
     "https://json.schemastore.org/github-workflow": "/.github/workflows/**/*.yml"
   },
