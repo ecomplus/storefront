@@ -37,7 +37,7 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
       https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/ProductCard.html
     -->
     <div data-slot="stamps">
-      <% if (stampsList && Array.isArray(stampsList) && stampsList.length) { %>
+      <% if (Array.isArray(stampsList) && stampsList.length) { %>
         <div class="product-card__stamps">
           <% for (stamp of stampsList) { 
             let skuList
