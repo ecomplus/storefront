@@ -43,8 +43,7 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
             let skuList
             if (Array.isArray(stamp.skus) && stamp.skus.length) {
               skuList = stamp.skus
-              const hasSku = skuList.some(sku => sku === itemData.sku)
-              if (hasSku) {
+              if (skuList.includes(itemData.sku)) {
               %>
                 <span class="product-card__stamps-<%= stamp.id %>">
                   <img src="<%= stamp.img %>" alt="<%= stamp.id %>">
