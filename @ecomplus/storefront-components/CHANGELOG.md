@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.150](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.149...@ecomplus/storefront-components@1.0.0-beta.150) (2023-04-22)
+
+### Features
+
+- **template/cms:** config stamps for product card and gallery ([#893](https://github.com/ecomplus/storefront/issues/893)) ([13b1401](https://github.com/ecomplus/storefront/commit/13b1401cfd737d674b24d14e6a95bd72d89a880c))
+
 # [1.0.0-beta.149](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.148...@ecomplus/storefront-components@1.0.0-beta.149) (2023-04-20)
 
 ### Features
