@@ -1,3 +1,20 @@
 {
-  "stamps_list": []
+  "stamps_list": [
+    {
+      "skus": [
+        {
+          "sku": "cx-ed-021"
+        },
+        {
+          "sku": "ms-csr-303"
+        },
+        {
+          "sku": "ms-csr-303"
+        }
+      ],
+      "name": "",
+      "img": "https://storefront-demo.e-com.plus/img/uploads/favicon.png",
+      "id": "teste"
+    }
+  ]
 }
