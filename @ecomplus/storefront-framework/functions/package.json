@@ -13,9 +13,9 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@ecomplus/storefront-renderer": "^2.10.2",
-    "firebase-admin": "^11.6.0",
-    "firebase-functions": "^4.2.1"
+    "@ecomplus/storefront-renderer": "^2.10.3",
+    "firebase-admin": "^11.7.0",
+    "firebase-functions": "^4.3.1"
   },
   "devDependencies": {
     "firebase-functions-test": "^2.4.0"
