@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.151](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.150...@ecomplus/storefront-components@1.0.0-beta.151) (2023-04-24)
+
+### Bug Fixes
+
+- **components/recommended-items:** fix default match type `recommended` ([1a255b6](https://github.com/ecomplus/storefront/commit/1a255b6a4a4950d284eedfae0cfdd4edb630f1e6))
+
 # [1.0.0-beta.150](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.149...@ecomplus/storefront-components@1.0.0-beta.150) (2023-04-22)
 
 ### Features
