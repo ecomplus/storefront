@@ -69,9 +69,7 @@ export default {
     },
     defaultMatchType: {
       type: String,
-      default: typeof window === 'object'
-        ? window.ecomRecommendationsType
-        : 'recommended'
+      default: (typeof window === 'object' && window.ecomRecommendationsType) || 'recommended'
     }
   },
 
