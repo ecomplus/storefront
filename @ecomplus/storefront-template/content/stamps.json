@@ -1,26 +1,3 @@
 {
-  "stamps_list": [
-    {
-      "skus": [
-        [
-          "156845662",
-          "cx-ed-1052",
-          "cx-ed-021",
-          "ms-csr-303",
-          "hd-lgt-6652",
-          "smtp-xomi-2345",
-          "CSR8199",
-          "cd-pcy-1256",
-          "cd-acl-9965",
-          "hd-csr-303",
-          "cx-ed-23456",
-          "HBT6818",
-          "nb-apl-1203",
-          "smtp-xomi-9746"
-        ]
-      ],
-      "id": "frete",
-      "img": "https://storefront-demo.e-com.plus/img/uploads/favicon.png"
-    }
-  ]
+  "stamps_list": []
 }
