@@ -29,7 +29,7 @@ export default ({ baseDir, state }) => ({
           }
         },
         {
-          label: 'Lista de skus de produtos',
+          label: 'Lista de SKUs de produtos',
           name: 'skus',
           required: false,
           widget: 'select',
