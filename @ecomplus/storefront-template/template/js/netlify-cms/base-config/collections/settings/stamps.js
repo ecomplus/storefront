@@ -21,7 +21,6 @@ export default ({ baseDir, state }) => ({
           label: 'Imagem do selo',
           hint: 'Respeitar tamanho máximo de 140px por 140px',
           name: 'img',
-          required: false,
           widget: 'image',
           media_library: {
             config: {
