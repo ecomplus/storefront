@@ -1,3 +1,23 @@
 {
-  "stamps_list": []
+  "stamps_list": [
+    {
+      "id": "frete",
+      "img": "https://storefront-demo.e-com.plus/img/uploads/favicon.png",
+      "skus": [
+        "ms-csr-303",
+        "cx-ed-1052",
+        "cx-ed-23456",
+        "156845662"
+      ]
+    },
+    {
+      "id": "uva_argentina",
+      "img": "https://storefront-demo.e-com.plus/img/uploads/favicon.png",
+      "skus": [
+        "cx-ed-021",
+        "156845662",
+        "cd-pcy-1256"
+      ]
+    }
+  ]
 }
