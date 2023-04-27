@@ -21,7 +21,6 @@ export default ({ baseDir, state }) => ({
           label: 'Imagem do selo',
           hint: 'Respeitar tamanho máximo de 140px por 140px',
           name: 'img',
-          required: false,
           widget: 'image',
           media_library: {
             config: {
@@ -30,24 +29,17 @@ export default ({ baseDir, state }) => ({
           }
         },
         {
-          label: 'Lista de produtos',
-          required: false,
+          label: 'Lista de SKUs de produtos',
           name: 'skus',
-          widget: 'list',
-          fields: [
-            {
-              label: 'SKU do produto',
-              required: false,
-              name: 'sku',
-              widget: 'string',
-              options: state.routes
-                .filter(({ sku }) => typeof sku === 'string')
-                .map(({ sku }) => ({
-                  label: sku,
-                  value: sku
-                }))
-            }
-          ]
+          required: false,
+          widget: 'select',
+          multiple: true,
+          options: state.routes
+            .filter(({ sku }) => typeof sku === 'string')
+            .map(({ sku }) => ({
+              label: sku,
+              value: sku
+            }))
         }
       ]
     }

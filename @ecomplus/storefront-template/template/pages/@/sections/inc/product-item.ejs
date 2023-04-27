@@ -40,16 +40,12 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
       <% if (Array.isArray(stampsList) && stampsList.length) { %>
         <div class="product-card__stamps">
           <% for (stamp of stampsList) { 
-            let skuList
-            if (Array.isArray(stamp.skus) && stamp.skus.length) {
-              skuList = stamp.skus
-              if (skuList.includes(itemData.sku)) {
+            if (stamp.img && (!stamp.skus || !stamp.skus.length || stamp.skus.includes(itemData.sku))) {
               %>
-                <span class="product-card__stamps-<%= stamp.id %>">
-                  <img src="<%= stamp.img %>" alt="<%= stamp.id %>">
-                </span>
+              <span class="product-card__stamps-<%= stamp.id && stamp.id.toLowerCase().replace(/\s/g, '-') %>">
+                <img src="<%= stamp.img %>" alt="<%= stamp.id %>">
+              </span>
             <% } %>
-           <% } %>
           <% } %>
         </div>
       <% } %>
