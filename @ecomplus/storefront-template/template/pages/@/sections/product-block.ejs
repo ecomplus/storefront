@@ -33,10 +33,7 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
                   <% if (Array.isArray(stampsList) && stampsList.length) { %>
                     <div class="product__stamps">
                       <% for (stamp of stampsList) { 
-                        let skuList, hasStamp
-                        hasStamp = typeof stamp.img === 'string' && stamp.img.includes('http')
-                        skuList = stamp.skus || []
-                        if (skuList.includes(_.state.sku) || hasStamp) {
+                        if (stamp.img && (!stamp.skus || !stamp.skus.length || stamp.skus.includes(_.state.sku))) {
                           %>
                           <span class="product__stamps-<%= stamp.id && stamp.id.toLowerCase().replace(/\s/g, '-') %>">
                             <img src="<%= stamp.img %>" alt="<%= stamp.id %>">
