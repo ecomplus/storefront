@@ -46,6 +46,10 @@ export default {
           isSmall: true
         }
       }
+    },
+    fallbackMatchType: {
+      type: String,
+      default: (typeof window === 'object' && window.ecomRecommendationsType) || 'recommended'
     }
   },
 
@@ -223,13 +227,14 @@ export default {
             if (this.relatedProducts.length) {
               this.setProductQnts(this.relatedProducts)
               this.fetchItems()
-            } else {
-              graphs({ url: `/products/${this.baseProduct._id}/related.json` }).then(({ data }) => {
-                this.setProductQnts(recommendedIds(data))
-                this.$nextTick(() => {
-                  this.fetchItems()
+            } else if (this.fallbackMatchType) {
+              graphs({ url: `/products/${this.baseProduct._id}/${this.fallbackMatchType}.json` })
+                .then(({ data }) => {
+                  this.setProductQnts(recommendedIds(data))
+                  this.$nextTick(() => {
+                    this.fetchItems()
+                  })
                 })
-              })
             }
           } else {
             this.fetchItems()
