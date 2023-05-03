@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.227](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.226...@ecomplus/storefront-template@2.0.0-beta.227) (2023-05-03)
+
+### Bug Fixes
+
+- **template/cms:** better cms config and ejs handlers for product stamps ([#895](https://github.com/ecomplus/storefront/issues/895)) ([92bee79](https://github.com/ecomplus/storefront/commit/92bee79222bf6884d5ab07317a261831ce218fb5))
+- **template/cms:** import CMS from UNPKG CDN with ^2 semver ([06c12a4](https://github.com/ecomplus/storefront/commit/06c12a46d22c14e8286a0875bfbac4f7eb384280))
+
 # [2.0.0-beta.226](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.225...@ecomplus/storefront-template@2.0.0-beta.226) (2023-04-24)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
