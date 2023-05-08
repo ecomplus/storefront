@@ -4,6 +4,7 @@ import {
   i19codeCopied,
   i19copyCode,
   i19copyErrorMsg,
+  i19days,
   i19doPaymentMsg,
   i19freight,
   i19login,
@@ -90,7 +91,9 @@ export default {
       isUpdating: false,
       reloadInterval: null,
       orderBody: this.order,
-      canReopenOrder: false
+      canReopenOrder: false,
+      currentTimer: null,
+      validThru: null
     }
   },
 
@@ -100,7 +103,9 @@ export default {
     i19codeCopied: () => i18n(i19codeCopied),
     i19copyCode: () => i18n(i19copyCode),
     i19copyErrorMsg: () => i18n(i19copyErrorMsg),
+    i19days: () => i18n(i19days),
     i19doPaymentMsg: () => i18n(i19doPaymentMsg),
+    i19expirationDate: () => 'Prazo de vencimento',
     i19freight: () => i18n(i19freight),
     i19login: () => i18n(i19login),
     i19loginForOrderDetailsMsg: () => i18n(i19loginForOrderDetailsMsg),
@@ -142,6 +147,13 @@ export default {
       return transactions && transactions.length
         ? transactions[0]
         : {}
+    },
+
+    isValidThru () {
+      const transactionMethod = this.transaction['banking_billet'] || this.transaction['account_deposit']
+      return transactionMethod && 
+        transactionMethod.valid_thru &&
+        Date.now() < new Date(transactionMethod.valid_thru).getTime()
     },
 
     shippingAddress () {
@@ -437,7 +449,43 @@ export default {
     }
   },
 
+  mounted () {
+    if (this.isValidThru) {
+      const transactionMethod = this.transaction['banking_billet'] || this.transaction['account_deposit']
+      this.validThru = transactionMethod && transactionMethod.valid_thru
+      const validDate = new Date(this.validThru)
+      const now = Date.now()
+      if (validDate.getTime() > now) {
+        let targetDate
+        const dayMs = 24 * 60 * 60 * 1000
+        const daysBetween = Math.floor((validDate.getTime() - now) / dayMs)
+        if (daysBetween > 2) {
+          targetDate = new Date()
+          targetDate.setHours(23, 59, 59, 999)
+        } else {
+          targetDate = validDate
+        }
+        const formatTime = (number) => number < 10 ? `0${number}` : number
+        const getRemainingTime = () => {
+          const distance = targetDate.getTime() - Date.now()
+          const days = Math.floor(distance / dayMs)
+          const hours = Math.floor((distance % dayMs) / (1000 * 60 * 60))
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+          return (days > 0 ? `${formatTime(days)} ${i19days} - ` : '') +
+            `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`
+        }
+        this.currentTimer = setInterval(() => {
+          this.$refs.timer.innerHTML = getRemainingTime()
+        }, 1000)
+      }
+    }
+  },
+
   beforeDestroy () {
     clearInterval(this.reloadInterval)
+    if (this.currentTimer) {
+      clearInterval(this.currentTimer)
+    }
   }
 }
