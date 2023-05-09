@@ -149,11 +149,9 @@ export default {
         : {}
     },
 
-    isValidThru () {
+    validThru () {
       const transactionMethod = this.transaction['banking_billet'] || this.transaction['account_deposit']
-      return transactionMethod && 
-        transactionMethod.valid_thru &&
-        Date.now() < new Date(transactionMethod.valid_thru).getTime()
+      return transactionMethod && transactionMethod.valid_thru
     },
 
     shippingAddress () {
