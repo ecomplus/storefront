@@ -470,7 +470,7 @@ export default {
           return (days > 0 ? `${formatTime(days)} ${i19days} - ` : '') +
             `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`
         }
-        this.currentTimer = setInterval(() => {
+        this.validThruTimer = setInterval(() => {
           this.$refs.timer.innerHTML = getRemainingTime()
         }, 1000)
       }
