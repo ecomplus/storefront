@@ -447,9 +447,7 @@ export default {
   },
 
   mounted () {
-    if (this.isValidThru) {
-      const transactionMethod = this.transaction['banking_billet'] || this.transaction['account_deposit']
-      this.validThru = transactionMethod && transactionMethod.valid_thru
+    if (this.validThru) {
       const validDate = new Date(this.validThru)
       const now = Date.now()
       if (validDate.getTime() > now) {
