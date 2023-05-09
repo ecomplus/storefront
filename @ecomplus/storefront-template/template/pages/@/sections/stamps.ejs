@@ -2,8 +2,8 @@
   <ul class="stamps">
     <% opt.stamps.forEach(({ src, alt, link }) => {
       const { width, height } = _.tryImageSize(src)
-      const imgHtml = `<img data-src="${src}" alt="${alt}" class="lozad fade" data-preload` +
-        (width ? ` width="${width}" height="${height}">` : '>')
+      const imgHtml = `<img data-src="${src}" alt="${alt}" class="lozad fade"` +
+        (width ? ` data-preload width="${width}" height="${height}">` : '>')
       %>
 
       <% if (link) { %>
