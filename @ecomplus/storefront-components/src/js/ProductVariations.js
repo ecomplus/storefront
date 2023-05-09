@@ -51,7 +51,16 @@ export default {
 
     orderedGrids () {
       return Object.keys(this.variationsGrids)
-    }
+    },
+
+    variationFromUrl () {
+      const urlParams = new URLSearchParams(window.location.search)
+      const variationId = urlParams.get('variationId')
+      if (variationId) {
+        return variationId
+      }
+      return false
+    },
   },
 
   methods: {
@@ -131,5 +140,21 @@ export default {
       deep: true,
       immediate: true
     }
-  }
+  },
+
+  mounted () {
+     if (this.variationFromUrl && Array.isArray(this.product.variations) && this.product.variations.length) {
+      const selectedVariation = this.product.variations.find(variation => variation._id === this.variationFromUrl)
+      const { specifications } = selectedVariation
+      for (const spec in specifications) {
+        if (Object.hasOwnProperty.call(specifications, spec)) {
+          const specObject = specifications[spec][0]
+          const index = this.variationsGrids[spec].findIndex(options => options === specObject.text)
+          this.$nextTick(() => {
+            this.selectOption(specObject.text, spec, index)
+          })
+        }
+      }
+     }
+  },
 }
