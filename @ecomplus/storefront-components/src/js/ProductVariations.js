@@ -54,12 +54,14 @@ export default {
     },
 
     variationFromUrl () {
-      const urlParams = new URLSearchParams(window.location.search)
-      const variationId = urlParams.get('variationId')
-      if (variationId) {
-        return variationId
+      if (typeof window === 'object') {
+        const urlParams = new URLSearchParams(window.location.search)
+        const variationId = urlParams.get('variation_id')
+        if (variationId) {
+          return variationId
+        }
       }
-      return false
+      return null
     },
   },
 
