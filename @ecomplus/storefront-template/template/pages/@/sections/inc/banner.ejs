@@ -1,12 +1,15 @@
 <%
 if (opt.img) {
-  const { width, height } = _.tryImageSize(opt.img)
+  const { width, height } = _.tryImageSize(opt.img, opt)
   const sources = [{ src: opt.img }]
   if (opt.mobile_img) {
     sources[0].media = '(min-width: 576px)'
+    const { width, height } = _.tryImageSize(opt.mobile_img)
     sources.push({
       src: opt.mobile_img,
-      media: '(min-width: 100px)'
+      media: '(min-width: 100px)',
+      width,
+      height
     })
   }
   sources.forEach(source => {
@@ -39,12 +42,16 @@ if (opt.img) {
           data-height="<%= height %>"
         <% } %>
       >
-        <% sources.forEach(({ src, media, type }) => { %>
+        <% sources.forEach(({ src, media, type, width, height }) => { %>
           <source
             srcset="<%= src %>"
             media="<%- media %>"
             <% if (type) { %>
               type="<%- type %>"
+            <% } %>
+            <% if (width) { %>
+              width="<%= width %>"
+              height="<%= height %>"
             <% } %>
           >
         <% }) %>

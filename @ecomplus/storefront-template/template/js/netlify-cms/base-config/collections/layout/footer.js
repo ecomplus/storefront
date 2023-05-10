@@ -162,6 +162,16 @@ export default ({ baseDir }) => ({
           required: false,
           name: 'link',
           widget: 'string'
+        },
+        {
+          name: 'width',
+          required: false,
+          widget: 'hidden'
+        },
+        {
+          name: 'height',
+          required: false,
+          widget: 'hidden'
         }
       ]
     },
