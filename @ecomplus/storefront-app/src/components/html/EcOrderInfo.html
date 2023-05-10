@@ -142,16 +142,13 @@
                   </div>
 
                   <div
-                      v-if="isValidThru"
-                      class="order-info__valid-thru mb-3 mt-3"
-                    >
-                      {{ i19expirationDate }}
-                      <div
-                        class="ml-3 mb-0"
-                        ref="timer"
-                      >
-                        00:00:00
-                      </div>
+                    v-if="validThruRemainingTime"
+                    class="order-info__valid-thru mb-3 mt-3"
+                  >
+                    {{ i19expirationDate }}
+                    <div class="ml-3 mb-0">
+                      {{ validThruRemainingTime }}
+                    </div>
                   </div>
                 </template>
 
