@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.228](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.227...@ecomplus/storefront-template@2.0.0-beta.228) (2023-05-10)
+
+### Performance Improvements
+
+- **template/stamps:** preload if image width/height available only (prevent CLS) ([16951de](https://github.com/ecomplus/storefront/commit/16951de11814a266acf6bd64ce3ed5041858ddb7))
+
 # [2.0.0-beta.227](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.226...@ecomplus/storefront-template@2.0.0-beta.227) (2023-05-03)
 
 ### Bug Fixes

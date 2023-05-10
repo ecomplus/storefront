@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.173](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.172...@ecomplus/storefront-app@2.0.0-beta.173) (2023-05-10)
+
+### Features
+
+- **app/order-info:** showing payment valid thru timer ([#900](https://github.com/ecomplus/storefront/issues/900)) ([d1d944c](https://github.com/ecomplus/storefront/commit/d1d944c3d81493541cc26037c7a1caf1c2c6466f))
+
 # [2.0.0-beta.172](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.171...@ecomplus/storefront-app@2.0.0-beta.172) (2023-05-03)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
