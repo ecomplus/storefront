@@ -92,7 +92,8 @@ export default {
       reloadInterval: null,
       orderBody: this.order,
       canReopenOrder: false,
-      validThruTimer: null
+      validThruTimer: null,
+      validThruRemainingTime: null
     }
   },
 
