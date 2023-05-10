@@ -471,7 +471,7 @@ export default {
             `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`
         }
         this.validThruTimer = setInterval(() => {
-          this.$refs.timer.innerHTML = getRemainingTime()
+          this.validThruRemainingTime = getRemainingTime()
         }, 1000)
       }
     }
