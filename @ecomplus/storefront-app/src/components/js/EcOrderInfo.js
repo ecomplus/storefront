@@ -480,7 +480,7 @@ export default {
 
   beforeDestroy () {
     clearInterval(this.reloadInterval)
-    if (this.currentTimer) {
+    if (this.validThruTimer) {
       clearInterval(this.validThruTimer)
     }
   }
