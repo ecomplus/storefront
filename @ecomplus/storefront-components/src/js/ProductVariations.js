@@ -145,7 +145,7 @@ export default {
   },
 
   mounted () {
-     if (this.variationFromUrl && Array.isArray(this.product.variations) && this.product.variations.length) {
+     if (this.variationFromUrl && Array.isArray(this.product.variations)) {
       const selectedVariation = this.product.variations.find(variation => variation._id === this.variationFromUrl)
       const { specifications } = selectedVariation
       for (const spec in specifications) {
