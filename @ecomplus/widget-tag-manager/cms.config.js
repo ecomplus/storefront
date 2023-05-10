@@ -50,7 +50,8 @@ export default () => ({
         {
           label: 'Carregamento otimizado (beta)',
           name: 'partytown',
-          widget: 'boolean',
+          widget: 'hidden',
+          required: false,
           default: false,
           description: 'APENAS PARA GA4: Usar Partytown para melhor performance importando as tags em web worker'
         }

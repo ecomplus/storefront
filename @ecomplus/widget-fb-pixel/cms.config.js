@@ -52,7 +52,8 @@ export default () => ({
         {
           label: 'Carregamento otimizado (beta)',
           name: 'partytown',
-          widget: 'boolean',
+          widget: 'hidden',
+          required: false,
           default: false
         }
       ]
