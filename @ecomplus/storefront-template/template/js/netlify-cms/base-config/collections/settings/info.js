@@ -132,6 +132,33 @@ export default ({ baseDir }) => ({
           required: false
         }
       ]
+    },
+    {
+      label: 'Pop up',
+      name: 'popup',
+      required: false,
+      widget: 'object',
+      fields: [
+        {
+          label: 'Imagem do popup',
+          hint: 'Respeitar largura máxima de 600px',
+          required: false,
+          name: 'img',
+          widget: 'image',
+          media_library: {
+            config: {
+              max_file_size: 300000
+            }
+          }
+        },
+        {
+          label: 'Exibir popup',
+          name: 'show',
+          widget: 'boolean',
+          default: false,
+          required: false
+        }
+      ]
     }
   ]
 })
