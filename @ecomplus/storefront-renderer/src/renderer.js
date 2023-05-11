@@ -110,13 +110,16 @@ cmsCollections.forEach(collection => {
 
 // abstracting comming image size handler for local images
 const tryImageSize = (src, fallbackDimensions = {}) => {
-  let dimensions = fallbackDimensions
+  let dimensions = {}
   if (typeof src === 'string' && src.startsWith('/')) {
     try {
       dimensions = imageSize(`template/public${src}`)
     } catch (e) {
-      dimensions = fallbackDimensions
+      dimensions = {}
     }
+  }
+  if (fallbackDimensions && !dimensions.width && fallbackDimensions.width) {
+    return fallbackDimensions
   }
   return dimensions
 }
