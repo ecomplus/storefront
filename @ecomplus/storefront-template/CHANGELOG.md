@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.229](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.228...@ecomplus/storefront-template@2.0.0-beta.229) (2023-05-11)
+
+### Bug Fixes
+
+- **template/banners:** rendering sizes for mobile version <source> ([c580e67](https://github.com/ecomplus/storefront/commit/c580e67e1a9f64277438e6707b444c725d2f9e17))
+
 # [2.0.0-beta.228](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.227...@ecomplus/storefront-template@2.0.0-beta.228) (2023-05-10)
 
 ### Performance Improvements

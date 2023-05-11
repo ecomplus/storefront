@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.6.0...@ecomplus/widget-fb-pixel@1.6.1) (2023-05-11)
+
+### Reverts
+
+- **cms:** hide partytown option on all widgets for now ([a1fa355](https://github.com/ecomplus/storefront/commit/a1fa355bc29e5cc37b663907f0cfdbc76df472b8))
+
 # [1.6.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-fb-pixel@1.5.4...@ecomplus/widget-fb-pixel@1.6.0) (2023-02-09)
 
 ### Bug Fixes
