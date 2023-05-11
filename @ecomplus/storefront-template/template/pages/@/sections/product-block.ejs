@@ -242,13 +242,18 @@ if (_.state.gtin && _.state.gtin[0]) {
   JSON.stringify(productJsonLd)
 %></script>
 <script type="text/javascript">
-  const urlParams = new URLSearchParams(window.location.search)
-  const variationId = urlParams.get('variation_id')
-  const jsonLd = <%- JSON.stringify(productJsonLd) %>
-  const variations = <%- JSON.stringify(_.state.variations) %>
-  if (variationId && Array.isArray(variations) && variations.length) {
-    const selectedVariation = variations.find(variation => variation._id === variationId)
-    jsonLd.offers.price = selectedVariation.price
-    document.querySelector('#product-block-jsonld').innerHTML = JSON.stringify(jsonLd)
-  }
+  setTimeout(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    const variationId = urlParams.get('variation_id')
+    const variations = window.storefront.context.body && window.storefront.context.body.variations;
+    if (Array.isArray(variations) && variationId) {
+      const selectedVariation = variations.find(variation => variation._id === variationId)
+      if (selectedVariation) {
+        const $jsonLd = document.querySelector('#product-block-jsonld')
+        const jsonLd = JSON.parse($jsonLd.innerText)
+        jsonLd.offers.price = selectedVariation.price
+        document.querySelector('#product-block-jsonld').innerHTML = JSON.stringify(jsonLd)
+      }
+    }
+  }, 500)
 </script>
