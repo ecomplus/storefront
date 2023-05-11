@@ -238,17 +238,17 @@ if (_.state.gtin && _.state.gtin[0]) {
   productJsonLd.gtin = _.state.gtin[0]
 }
 %>
+<script id="product-block-jsonld" type="application/ld+json"><%-
+  JSON.stringify(productJsonLd)
+%></script>
 <script type="text/javascript">
   const urlParams = new URLSearchParams(window.location.search)
-  const variationId = urlParams.get('variationId')
+  const variationId = urlParams.get('variation_id')
   const jsonLd = <%- JSON.stringify(productJsonLd) %>
   const variations = <%- JSON.stringify(_.state.variations) %>
   if (variationId && Array.isArray(variations) && variations.length) {
     const selectedVariation = variations.find(variation => variation._id === variationId)
     jsonLd.offers.price = selectedVariation.price
-    const script = document.createElement('script');
-    script.setAttribute('type', 'application/ld+json');
-    script.textContent = JSON.stringify(jsonLd);
-    document.body.appendChild(script);
+    document.querySelector('#product-block-jsonld').innerHTML = JSON.stringify(jsonLd)
   }
 </script>
