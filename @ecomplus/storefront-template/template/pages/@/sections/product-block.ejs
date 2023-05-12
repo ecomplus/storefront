@@ -5,6 +5,7 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
   stampsList = stamps.stamps_list
 }
 %>
+
 <div id="product-block" class="product-block my-4 mb-lg-5">
   <div class="container">
     <section
@@ -237,6 +238,23 @@ if (_.state.gtin && _.state.gtin[0]) {
   productJsonLd.gtin = _.state.gtin[0]
 }
 %>
-<script type="application/ld+json"><%-
+<script id="product-block-jsonld" type="application/ld+json"><%-
   JSON.stringify(productJsonLd)
 %></script>
+<script type="text/javascript">
+  setTimeout(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    const variationId = urlParams.get('variation_id')
+    const variations = window.storefront.context.body && window.storefront.context.body.variations;
+    if (Array.isArray(variations) && variationId) {
+      const selectedVariation = variations.find(variation => variation._id === variationId)
+      if (selectedVariation) {
+        const $jsonLd = document.querySelector('#product-block-jsonld')
+        const jsonLd = JSON.parse($jsonLd.innerText)
+        jsonLd.sku = selectedVariation.sku
+        jsonLd.offers.price = selectedVariation.price
+        document.querySelector('#product-block-jsonld').innerHTML = JSON.stringify(jsonLd)
+      }
+    }
+  }, 500)
+</script>
