@@ -245,7 +245,7 @@ if (_.state.gtin && _.state.gtin[0]) {
   setTimeout(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const variationId = urlParams.get('variation_id');
-    const variations = window.storefront.context.body && window.storefront.context.body.variations;
+    const variations = window._context.body && window._context.body.variations;
     if (Array.isArray(variations) && variationId) {
       const selectedVariation = variations.find(variation => variation._id === variationId);
       if (selectedVariation) {
@@ -256,5 +256,5 @@ if (_.state.gtin && _.state.gtin[0]) {
         document.querySelector('#product-block-jsonld').innerText = JSON.stringify(jsonLd);
       }
     }
-  }, 100);
+  }, 50);
 </script>
