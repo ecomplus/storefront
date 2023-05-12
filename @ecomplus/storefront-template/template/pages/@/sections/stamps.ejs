@@ -1,9 +1,9 @@
 <% if (Array.isArray(opt.stamps)) { %>
   <ul class="stamps">
-    <% opt.stamps.forEach(({ src, alt, link }) => {
-      const { width, height } = _.tryImageSize(src)
-      const imgHtml = `<img data-src="${src}" alt="${alt}" class="lozad fade" data-preload` +
-        (width ? ` width="${width}" height="${height}">` : '>')
+    <% opt.stamps.forEach(({ src, alt, link, ...dimensions }) => {
+      const { width, height } = _.tryImageSize(src, dimensions)
+      const imgHtml = `<img data-src="${src}" alt="${alt}" class="lozad fade"` +
+        (width ? ` data-preload width="${width}" height="${height}">` : '>')
       %>
 
       <% if (link) { %>

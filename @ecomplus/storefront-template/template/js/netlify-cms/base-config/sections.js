@@ -31,6 +31,16 @@ const bannerFields = [
         max_file_size: Math.max(window.CMS_MAX_FILE_SIZE || 0, 1000000)
       }
     }
+  },
+  {
+    name: 'width',
+    required: false,
+    widget: 'hidden'
+  },
+  {
+    name: 'height',
+    required: false,
+    widget: 'hidden'
   }
 ]
 

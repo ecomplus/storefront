@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.3.1...@ecomplus/widget-gmc-ratings@1.3.2) (2023-05-10)
+
+### Performance Improvements
+
+- **widget-gmc-ratings:** load gooogle scripts on element intersecting (footer) only ([2c24c3c](https://github.com/ecomplus/storefront/commit/2c24c3c75d9f0597cf8653ee99dadfbddace22b8))
+
 ## [1.3.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.3.0...@ecomplus/widget-gmc-ratings@1.3.1) (2023-01-09)
 
 ### Bug Fixes

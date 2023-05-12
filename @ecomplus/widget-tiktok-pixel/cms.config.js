@@ -46,7 +46,8 @@ export default () => ({
         {
           label: 'Carregamento otimizado (beta)',
           name: 'partytown',
-          widget: 'boolean',
+          widget: 'hidden',
+          required: false,
           default: false,
           description: 'Usar Partytown para melhor performance importando o pixel em web worker'
         }

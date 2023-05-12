@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.9.1...@ecomplus/widget-tag-manager@1.9.2) (2023-05-11)
+
+### Reverts
+
+- **cms:** hide partytown option on all widgets for now ([a1fa355](https://github.com/ecomplus/storefront/commit/a1fa355bc29e5cc37b663907f0cfdbc76df472b8))
+
 ## [1.9.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.9.0...@ecomplus/widget-tag-manager@1.9.1) (2023-01-25)
 
 ### Bug Fixes

@@ -2,7 +2,7 @@ import ecomCart from '@ecomplus/shopping-cart'
 import { currencyCode } from './common'
 
 export default dataLayer => {
-  const $products = document.querySelectorAll('[data-sku]')
+  const $products = document.querySelectorAll('.product-card[data-sku]')
   if ($products.length) {
     const skus = []
     const listNameBySku = {}

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.10.4...@ecomplus/storefront-renderer@2.10.5) (2023-05-11)
+
+### Bug Fixes
+
+- **template/banners:** rendering sizes for mobile version <source> ([c580e67](https://github.com/ecomplus/storefront/commit/c580e67e1a9f64277438e6707b444c725d2f9e17))
+
 ## [2.10.4](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.10.3...@ecomplus/storefront-renderer@2.10.4) (2023-04-24)
 
 ### Bug Fixes
