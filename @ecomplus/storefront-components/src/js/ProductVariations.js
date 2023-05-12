@@ -149,14 +149,14 @@ export default {
       const selectedVariation = this.product.variations.find(variation => variation._id === this.variationFromUrl)
       if (selectedVariation) {
         const { specifications } = selectedVariation
-        const secs = Object.keys(specifications)
+        const specs = Object.keys(specifications)
         const nextSpec = (specIndex = 0) => {
           const spec = specs[specIndex]
           if (specs[specIndex] && specifications[spec] && specifications[spec].length === 1) {
-            const specText  = specifications[spec][0].text
+            const specText = specifications[spec][0].text
             if (this.variationsGrids[spec].find(option => option === specText)) {
               this.$nextTick(() => {
-                this.selectOption(specObject.text, spec, this.orderedGrids.indexOf(spec))
+                this.selectOption(specText, spec, this.orderedGrids.indexOf(spec))
                 nextSpec(specIndex + 1)
               })
             }
