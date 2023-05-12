@@ -149,15 +149,20 @@ export default {
       const selectedVariation = this.product.variations.find(variation => variation._id === this.variationFromUrl)
       if (selectedVariation) {
         const { specifications } = selectedVariation
-        for (const spec in specifications) {
-          if (Object.hasOwnProperty.call(specifications, spec)) {
-            const specObject = specifications[spec][0]
-            const index = this.variationsGrids[spec].findIndex(options => options === specObject.text)
-            this.$nextTick(() => {
-              this.selectOption(specObject.text, spec, index)
-            })
+        const secs = Object.keys(specifications)
+        const nextSpec = (specIndex = 0) => {
+          const spec = specs[specIndex]
+          if (specs[specIndex] && specifications[spec] && specifications[spec].length === 1) {
+            const specText  = specifications[spec][0].text
+            if (this.variationsGrids[spec].find(option => option === specText)) {
+              this.$nextTick(() => {
+                this.selectOption(specObject.text, spec, this.orderedGrids.indexOf(spec))
+                nextSpec(specIndex + 1)
+              })
+            }
           }
         }
+        nextSpec()
       }
     }
   }
