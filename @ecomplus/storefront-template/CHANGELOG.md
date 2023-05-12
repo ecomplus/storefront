@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.230](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.229...@ecomplus/storefront-template@2.0.0-beta.230) (2023-05-12)
+
+### Bug Fixes
+
+- **renderer/image-size:** properly handling fallback dimensions ([e5953a1](https://github.com/ecomplus/storefront/commit/e5953a123087237b8407bd9aa4c3a87e46bf63f8))
+
+### Features
+
+- **components/product-variations:** get variation from url `variation_id` and auto select ([#901](https://github.com/ecomplus/storefront/issues/901)) ([e1de62a](https://github.com/ecomplus/storefront/commit/e1de62a71b8b24bdc2e5325167d3c051693810a2))
+
 # [2.0.0-beta.229](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.228...@ecomplus/storefront-template@2.0.0-beta.229) (2023-05-11)
 
 ### Bug Fixes

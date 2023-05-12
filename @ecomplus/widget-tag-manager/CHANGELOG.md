@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.9.2...@ecomplus/widget-tag-manager@1.9.3) (2023-05-12)
+
+### Bug Fixes
+
+- **widget-tag-manager:** fallback try to normalize `item.name` by last space or custom regex ([7e2627b](https://github.com/ecomplus/storefront/commit/7e2627b1bd7d777b13e6e576cfc5a930de2a40d1))
+
 ## [1.9.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.9.1...@ecomplus/widget-tag-manager@1.9.2) (2023-05-11)
 
 ### Reverts

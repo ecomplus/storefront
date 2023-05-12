@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.10.5...@ecomplus/storefront-renderer@2.10.6) (2023-05-12)
+
+### Bug Fixes
+
+- **renderer/image-size:** properly handling fallback dimensions ([e5953a1](https://github.com/ecomplus/storefront/commit/e5953a123087237b8407bd9aa4c3a87e46bf63f8))
+
 ## [2.10.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.10.4...@ecomplus/storefront-renderer@2.10.5) (2023-05-11)
 
 ### Bug Fixes

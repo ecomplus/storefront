@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.153](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.152...@ecomplus/storefront-components@1.0.0-beta.153) (2023-05-12)
+
+### Bug Fixes
+
+- **components/product-variations:** syntax fixes on auto-select by url handler ([9a23ee6](https://github.com/ecomplus/storefront/commit/9a23ee6bd5cd313be8556b21d8f0982725de0f81))
+
+### Features
+
+- **components/product-variations:** get variation from url `variation_id` and auto select ([#901](https://github.com/ecomplus/storefront/issues/901)) ([e1de62a](https://github.com/ecomplus/storefront/commit/e1de62a71b8b24bdc2e5325167d3c051693810a2))
+
 # [1.0.0-beta.152](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.151...@ecomplus/storefront-components@1.0.0-beta.152) (2023-05-03)
 
 ### Bug Fixes

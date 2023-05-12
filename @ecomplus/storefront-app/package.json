@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-app",
-  "version": "2.0.0-beta.173",
+  "version": "2.0.0-beta.174",
   "description": "Vue.js ecommerce app with cart, checkout and account pages",
   "main": "dist/lib/js/app.js",
   "scripts": {
@@ -36,7 +36,7 @@
     "@ecomplus/i18n": "^1.32.2",
     "@ecomplus/passport-client": "^1.1.2",
     "@ecomplus/shopping-cart": "^2.5.9",
-    "@ecomplus/storefront-components": "^1.0.0-beta.152",
+    "@ecomplus/storefront-components": "^1.0.0-beta.153",
     "@ecomplus/storefront-twbs": "^7.3.3",
     "axios": "^0.27.2",
     "card-validator": "^8.1.1",
