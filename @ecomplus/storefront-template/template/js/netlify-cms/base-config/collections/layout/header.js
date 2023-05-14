@@ -140,6 +140,17 @@ export default ({ baseDir, state }) => ({
       name: 'full_width_submenu',
       widget: 'boolean',
       required: false,
+    },
+    {
+      label: 'Imagem do popup',
+      required: false,
+      name: 'popup',
+      widget: 'image',
+      media_library: {
+        config: {
+          max_file_size: 300000
+        }
+      }
     }
   ]
 })
