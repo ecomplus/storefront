@@ -322,3 +322,15 @@ const isCentralizedLogo = header.centralized_logo
     </div>
   </div>
 </header>
+<% if (header.popup) { %>
+  <div class="modal fade" id="popup-modal" tabindex="-1" role="dialog" aria-labelledby="modal-popup" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <button type="button" id="close-modal-popup" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right: 10px; top: 10px">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <img src="<%- header.popup %>" style="max-width: 100%">
+      </div>
+    </div>
+  </div>
+<% } %> 

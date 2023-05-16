@@ -82,3 +82,12 @@ $('#go-to-top').on('click', () => {
     behavior: 'smooth'
   })
 })
+
+if ($('#popup-modal').length) {
+  $(window).one('scroll', () => {
+    $('#close-modal-popup').click(() => sessionStorage.setItem('popup-modal', 'close'))
+    if (!sessionStorage.getItem('popup-modal')) {
+      $('#popup-modal').modal('show')
+    }
+  })
+}

@@ -140,6 +140,18 @@ export default ({ baseDir, state }) => ({
       name: 'full_width_submenu',
       widget: 'boolean',
       required: false,
+    },
+    {
+      label: 'Popup no scroll',
+      hint: 'Imagem exibida em modal na primeira rolagem de página',
+      required: false,
+      name: 'popup',
+      widget: 'image',
+      media_library: {
+        config: {
+          max_file_size: 300000
+        }
+      }
     }
   ]
 })
