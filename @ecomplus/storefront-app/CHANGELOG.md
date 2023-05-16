@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.175](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.174...@ecomplus/storefront-app@2.0.0-beta.175) (2023-05-16)
+
+### Bug Fixes
+
+- **app/order-info:** ensure buyer data shown on summary ([ede66de](https://github.com/ecomplus/storefront/commit/ede66de4b48fa3bbee1d187789875da2ab556df6))
+
 # [2.0.0-beta.174](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.173...@ecomplus/storefront-app@2.0.0-beta.174) (2023-05-12)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

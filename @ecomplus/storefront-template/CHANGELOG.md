@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.231](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.230...@ecomplus/storefront-template@2.0.0-beta.231) (2023-05-16)
+
+### Bug Fixes
+
+- **template/product:** use `window._context` instead to manipulate (faster) JSON+ld ([ddc9717](https://github.com/ecomplus/storefront/commit/ddc9717f746d712f086725401a1927a01d041285))
+- **template/scss:** minor fixing footer stamps aspect ratio on mobile ([8ebd364](https://github.com/ecomplus/storefront/commit/8ebd36441440de9a93bb1fee4bc1a492ee6f8fe5))
+
+### Features
+
+- **template/cms:** option to show modal from header on first scroll ([#902](https://github.com/ecomplus/storefront/issues/902)) ([d21bf2f](https://github.com/ecomplus/storefront/commit/d21bf2f40cf2d534442438aa849797b53415377a))
+
 # [2.0.0-beta.230](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.229...@ecomplus/storefront-template@2.0.0-beta.230) (2023-05-12)
 
 ### Bug Fixes

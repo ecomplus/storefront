@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.154](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.153...@ecomplus/storefront-components@1.0.0-beta.154) (2023-05-16)
+
+### Bug Fixes
+
+- **components/product:** properly add href to sticky buy link (seo) ([7a75041](https://github.com/ecomplus/storefront/commit/7a7504142317435829e0de009cb943bd7a9efc64))
+
 # [1.0.0-beta.153](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.152...@ecomplus/storefront-components@1.0.0-beta.153) (2023-05-12)
 
 ### Bug Fixes
