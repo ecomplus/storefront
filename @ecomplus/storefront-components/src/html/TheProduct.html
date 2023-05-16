@@ -454,8 +454,9 @@
               :can-show-price-options="true"
             />
             <a
-              class="btn btn-lg btn-primary" 
-              @click="buyOrScroll"
+              class="btn btn-lg btn-primary"
+              href="#"
+              @click.prevent="buyOrScroll"
             >
               <i class="i-shopping-bag mr-1"></i>
               {{ strBuy }}
