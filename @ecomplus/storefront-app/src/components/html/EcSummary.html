@@ -137,10 +137,12 @@
         {{ buyerName }}
         <br>
         <small>{{ i19docNumber }}:</small>
-        {{ buyer.doc_number }}
+        <span>{{ buyer.doc_number }}</span>
         <br>
         <small>{{ i19contactPhone }}:</small>
-        {{ buyerPhone }}
+        <span>{{ buyerPhone }}</span>
+        <br>
+        <small>{{ buyer.main_email }}</small>
       </p>
 
       <button

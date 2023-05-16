@@ -419,7 +419,7 @@
                   <ec-summary
                     :amount="localOrder.amount"
                     :items="localOrder.items"
-                    :buyer="localOrder.buyer && localOrder.buyer[0]"
+                    :buyer="(localOrder.buyer && localOrder.buyer[0]) || ecomPassport.getCustomer()"
                     :shippingAddress="shippingAddress"
                   />
                 </div>
