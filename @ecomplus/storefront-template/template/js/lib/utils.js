@@ -83,9 +83,11 @@ $('#go-to-top').on('click', () => {
   })
 })
 
-$(window).one('scroll', () => {
-  $('#close-modal-popup').click(() => sessionStorage.setItem('popup-modal', 'close'))
-  if (!sessionStorage.getItem('popup-modal')) {
-    $('#popup-modal').modal('show')
-  }
-})
+if ($('#popup-modal').length) {
+  $(window).one('scroll', () => {
+    $('#close-modal-popup').click(() => sessionStorage.setItem('popup-modal', 'close'))
+    if (!sessionStorage.getItem('popup-modal')) {
+      $('#popup-modal').modal('show')
+    }
+  })
+}
