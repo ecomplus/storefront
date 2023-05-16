@@ -142,7 +142,8 @@ export default ({ baseDir, state }) => ({
       required: false,
     },
     {
-      label: 'Imagem do popup',
+      label: 'Popup no scroll',
+      hint: 'Imagem exibida em modal na primeira rolagem de página',
       required: false,
       name: 'popup',
       widget: 'image',
