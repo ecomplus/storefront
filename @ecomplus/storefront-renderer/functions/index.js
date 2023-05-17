@@ -28,7 +28,7 @@ exports.ssr = (req, res, getCacheControl) => {
   }
 
   const proxy = url => {
-    const urlInstance = new URL(`http://localhost${url}`)
+    const urlInstance = new URL(url)
     const requestUrl = urlInstance.searchParams.get('url')
     if (requestUrl) {
       return axios.get(requestUrl, {
