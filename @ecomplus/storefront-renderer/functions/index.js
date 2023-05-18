@@ -17,6 +17,7 @@ exports.ssr = (req, res, getCacheControl) => {
 
   const isLongCache = String(STOREFRONT_LONG_CACHE).toLowerCase() === 'true'
   const url = req.url.replace(/\?.*$/, '').replace(/\.html$/, '')
+  const { headers } = req
 
   const setStatusAndCache = (status, defaultCache) => {
     return res.status(status)
@@ -27,11 +28,10 @@ exports.ssr = (req, res, getCacheControl) => {
       )
   }
 
-  const proxy = url => {
-    const urlInstance = new URL(`http://localhost${url}`)
-    const requestUrl = urlInstance.searchParams.get('url')
+  const proxy = requestUrl => {
     if (requestUrl) {
       return axios.get(requestUrl, {
+        headers,
         timeout: 3000,
         validateStatus: (status) => {
           return Boolean(status)
@@ -63,13 +63,10 @@ exports.ssr = (req, res, getCacheControl) => {
 
   const fallback = () => {
     if (url.startsWith('/reverse-proxy/')) {
-      proxy(req.url).then((response) => {
+      proxy(req.query.url).then((response) => {
         if (response) {
           const { status, headers, data } = response
-          return res
-            .set(headers)
-            .status(status)
-            .send(data)
+          return res.writeHead(status, headers).send(data)
         }
         return res.sendStatus(400)
       })
