@@ -28,16 +28,14 @@ exports.ssr = (req, res, getCacheControl) => {
       )
   }
 
-  const proxy = url => {
-    const urlInstance = new URL(url)
-    const requestUrl = urlInstance.searchParam.get('url')
+  const proxy = requestUrl => {
     if (requestUrl) {
-      return axios.get(requestUrl, { 
+      return axios.get(requestUrl, {
         headers,
         timeout: 3000,
         validateStatus: (status) => {
           return Boolean(status)
-        } 
+        }
       })
     }
     return null
@@ -65,7 +63,7 @@ exports.ssr = (req, res, getCacheControl) => {
 
   const fallback = () => {
     if (url.startsWith('/reverse-proxy/')) {
-      proxy(url).then((response) => {
+      proxy(req.query.url).then((response) => {
         if (response) {
           const { status, headers, data } = response
           return res.writeHead(status, headers).send(data)
