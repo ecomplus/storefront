@@ -1,4 +1,9 @@
+import {
+  nickname as getNickname,
+  phone as getPhone
+} from '@ecomplus/utils'
 import ecomCart from '@ecomplus/shopping-cart'
+import ecomPassport from '@ecomplus/passport-client'
 import { currencyCode, getProductData } from './common'
 
 export default dataLayer => {
@@ -95,6 +100,34 @@ export default dataLayer => {
             }
           }
 
+          if (window.__sendGTMExtraPurchaseData) {
+            const customer = ecomPassport.getCustomer()
+            const extraPurchaseData = {}
+            let shippingAddr
+            if (customer) {
+              extraPurchaseData.customerDisplayName = getNickname(customer)
+              extraPurchaseData.customerEmail = customer.main_email
+              extraPurchaseData.customerPhone = getPhone(customer)
+              shippingAddr = customer.addresses && customer.addresses[0]
+            }
+            if (!shippingAddr) {
+              try {
+                shippingAddr = JSON.parse(window.sessionStorage.getItem('ecomCustomerAddress'))
+              } catch {
+              }
+            }
+            if (shippingAddr && shippingAddr.zip) {
+              extraPurchaseData.shippingAddrZip = shippingAddr.zip
+              extraPurchaseData.shippingAddrStreet = shippingAddr.street
+              extraPurchaseData.shippingAddrNumber = shippingAddr.number
+              extraPurchaseData.shippingAddrCity = shippingAddr.city
+              extraPurchaseData.shippingAddrProvinceCode = shippingAddr.province_code
+            }
+            dataLayer.push({
+              event: 'purchaseExtraData',
+              ...extraPurchaseData
+            })
+          }
           dataLayer.push({ ecommerce: null })
           dataLayer.push({
             event: 'eec.purchase',
