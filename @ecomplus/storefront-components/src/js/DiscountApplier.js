@@ -1,6 +1,7 @@
 import {
   i19add,
   i19addDiscountCoupon,
+  // i19add$1ToGetDiscountMsg,
   i19campaignAppliedMsg,
   i19code,
   i19couponAppliedMsg,
@@ -10,7 +11,7 @@ import {
   i19invalidCouponMsg
 } from '@ecomplus/i18n'
 
-import { i18n } from '@ecomplus/utils'
+import { i18n, formatMoney } from '@ecomplus/utils'
 import { store, modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import ecomPassport from '@ecomplus/passport-client'
@@ -93,6 +94,10 @@ export default {
   },
 
   computed: {
+    i19add$1ToGetDiscountMsg: () => i18n({
+      en_us: 'Add more $1 to cart to get the discount.',
+      pt_br: 'Adicione mais $1 ao carrinho para ganhar o desconto.'
+    }),
     i19add: () => i18n(i19add),
     i19addDiscountCoupon: () => i18n(i19addDiscountCoupon),
     i19code: () => i18n(i19code),
@@ -119,7 +124,7 @@ export default {
     parseDiscountOptions (listResult = []) {
       let extraDiscountValue = 0
       if (listResult.length) {
-        let discountRule, invalidCouponMsg
+        let discountRule, invalidCouponMsg, invalidAlertVariant
         listResult.forEach(appResult => {
           const { validated, error, response } = appResult
           if (validated && !error) {
@@ -135,6 +140,10 @@ export default {
               }
             } else if (response.invalid_coupon_message) {
               invalidCouponMsg = response.invalid_coupon_message
+            } else if (response.available_extra_discount && response.available_extra_discount.min_amount) {
+              invalidCouponMsg = this.i19add$1ToGetDiscountMsg
+                .replace('$1', formatMoney(response.available_extra_discount.min_amount - this.amount.subtotal))
+              invalidAlertVariant = 'info'
             }
             if (this.canAddFreebieItems) {
               addFreebieItems(this.ecomCart, response.freebie_product_ids)
@@ -153,7 +162,7 @@ export default {
         } else {
           if (this.localCouponCode) {
             this.alertText = invalidCouponMsg || this.i19invalidCouponMsg
-            this.alertVariant = 'warning'
+            this.alertVariant = invalidAlertVariant || 'warning'
           } else {
             this.alertText = null
           }
