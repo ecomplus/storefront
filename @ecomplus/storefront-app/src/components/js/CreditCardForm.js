@@ -5,7 +5,7 @@ import {
   i19birthdate,
   i19cardNumber,
   i19confirmPurchase,
-  // i19creditCard,
+  i19creditCard,
   i19holderName,
   i19interestFree,
   i19invalidCard,
@@ -128,8 +128,7 @@ export default {
     },
 
     creditCardRegex () {
-      return /cartão de crédito/i
-      // return new RegExp(i18n(i19creditCard), 'i')
+      return new RegExp(i18n(i19creditCard), 'i')
     }
   },
 

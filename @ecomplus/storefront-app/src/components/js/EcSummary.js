@@ -1,5 +1,5 @@
 import {
-  // i19balanceOrPoints,
+  i19balanceOrPoints,
   i19buyer,
   i19contactPhone,
   i19discount,
@@ -53,10 +53,7 @@ export default {
   },
 
   computed: {
-    i19balanceOrPoints: () => i18n({
-      en_us: 'Balance or points',
-      pt_br: 'Saldo ou pontos'
-    }),
+    i19balanceOrPoints: () => i18n(i19balanceOrPoints),
     i19buyer: () => i18n(i19buyer),
     i19contactPhone: () => i18n(i19contactPhone),
     i19discount: () => i18n(i19discount),
