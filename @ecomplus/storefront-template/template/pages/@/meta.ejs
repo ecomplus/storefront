@@ -93,9 +93,13 @@ if (pathname) {
           switch (url.hostname) {
             case 'www.googletagmanager.com':
             case 'www.google-analytics.com':
+            case 'analytics.google.com':
             case 'analytics.tiktok.com':
+            case 'api.hubspot.com':
+            case 'api.hubapi.com':
+            case 'ct.pinterest.com':
             case location.hostname:
-              break;
+              return url;
             default:
               const proxyUrl = new URL(`https://${location.hostname}/reverse-proxy/`);
               proxyUrl.searchParams.append('url', url.href);
