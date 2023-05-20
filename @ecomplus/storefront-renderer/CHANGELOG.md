@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.10.6...@ecomplus/storefront-renderer@2.10.7) (2023-05-20)
+
+### Bug Fixes
+
+- **renderer/proxy:** fix handling url on reverse proxy ([#904](https://github.com/ecomplus/storefront/issues/904)) ([15c4116](https://github.com/ecomplus/storefront/commit/15c411617b427fecaa618532d53cff3c245c4ae2))
+
 ## [2.10.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.10.5...@ecomplus/storefront-renderer@2.10.6) (2023-05-12)
 
 ### Bug Fixes

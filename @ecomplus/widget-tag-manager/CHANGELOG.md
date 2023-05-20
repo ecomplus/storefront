@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.9.3...@ecomplus/widget-tag-manager@1.10.0) (2023-05-20)
+
+### Features
+
+- **widget-tag-manager:** send extra purchase data if `window.__sendGTMExtraPurchaseData` is set ([9e7089f](https://github.com/ecomplus/storefront/commit/9e7089f755e8424e627913ab9c380a226f923300))
+
 ## [1.9.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.9.2...@ecomplus/widget-tag-manager@1.9.3) (2023-05-12)
 
 ### Bug Fixes

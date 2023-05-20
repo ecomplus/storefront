@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.155](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.154...@ecomplus/storefront-components@1.0.0-beta.155) (2023-05-20)
+
+### Features
+
+- **components/discount-applier:** improve message for coupons with min amount ([468d958](https://github.com/ecomplus/storefront/commit/468d95898b5bcc18bdcfaa1794782ad17d2388c7))
+
 # [1.0.0-beta.154](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.153...@ecomplus/storefront-components@1.0.0-beta.154) (2023-05-16)
 
 ### Bug Fixes
