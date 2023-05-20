@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.233](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.232...@ecomplus/storefront-template@2.0.0-beta.233) (2023-05-20)
+
+### Bug Fixes
+
+- **renderer/proxy:** force cors header and properly handle req/res required headers ([072ed51](https://github.com/ecomplus/storefront/commit/072ed51ec5fa31693016e813b252ade2bf89d58c))
+- **template/partytown:** properly return `resolveUrl` on safe hostnames ([56df694](https://github.com/ecomplus/storefront/commit/56df694f25ef4d048c033f5e1f8ae78c302c1607))
+
 # [2.0.0-beta.232](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.231...@ecomplus/storefront-template@2.0.0-beta.232) (2023-05-20)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.8](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.10.7...@ecomplus/storefront-renderer@2.10.8) (2023-05-20)
+
+### Bug Fixes
+
+- **renderer/proxy:** force cors header and properly handle req/res required headers ([072ed51](https://github.com/ecomplus/storefront/commit/072ed51ec5fa31693016e813b252ade2bf89d58c))
+
 ## [2.10.7](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.10.6...@ecomplus/storefront-renderer@2.10.7) (2023-05-20)
 
 ### Bug Fixes
