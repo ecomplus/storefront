@@ -106,6 +106,10 @@ export default dataLayer => {
             let shippingAddr
             if (customer) {
               extraPurchaseData.customerDisplayName = getNickname(customer)
+              if (customer.name) {
+                extraPurchaseData.customerGivenName = customer.name.given_name
+                extraPurchaseData.customerFamilyName = customer.name.family_name
+              }
               extraPurchaseData.customerEmail = customer.main_email
               extraPurchaseData.customerPhone = getPhone(customer)
               shippingAddr = customer.addresses && customer.addresses[0]
