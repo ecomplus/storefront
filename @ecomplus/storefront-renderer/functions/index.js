@@ -62,7 +62,9 @@ exports.ssr = (req, res, getCacheControl) => {
           delete headers[headerName]
         }
       })
-      console.log({ proxy: proxyUrl.href })
+      if (process.env.STOREFRONT_PROXY_DEBUG) {
+        console.log({ proxy: proxyUrl.href })
+      }
       try {
         const response = await axios.get(proxyUrl.href, {
           headers,
