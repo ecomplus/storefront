@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.10.0...@ecomplus/widget-tag-manager@1.11.0) (2023-05-22)
+
+### Features
+
+- **widget-tag-manager:** extending (optional) extra purchase data with customer names ([ea8cb13](https://github.com/ecomplus/storefront/commit/ea8cb1394df8e74c4389a1039e4e301d7ec6c0c5))
+
 # [1.10.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.9.3...@ecomplus/widget-tag-manager@1.10.0) (2023-05-20)
 
 ### Features
