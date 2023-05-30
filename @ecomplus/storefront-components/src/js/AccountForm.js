@@ -82,7 +82,6 @@ export default {
 
   data () {
     return {
-      localCustomer: cloneDeep(this.customer),
       fullName: getFullName(this.customer),
       storageInterval: null,
       btnLabel: this.btnText,
@@ -110,6 +109,10 @@ export default {
     i19emailMarketingOptInMsg: () => i18n(i19emailMarketingOptInMsg),
     i19personalRegistration: () => i18n(i19personalRegistration),
     i19privacyPolicy: () => i18n(i19privacyPolicy),
+
+    localCustomer () {
+      return cloneDeep(this.customer)
+    },
 
     birthdate: {
       get () {
