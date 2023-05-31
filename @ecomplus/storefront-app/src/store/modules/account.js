@@ -107,7 +107,10 @@ const actions = {
     customerFields.forEach(field => {
       if (field !== '_id') {
         const val = customer[field]
-        if (val && (typeof val !== 'object' || Object.keys(val).length)) {
+        if (
+          (val || val === false) &&
+          (typeof val !== 'object' || Object.keys(val).length)
+        ) {
           data[field] = val
         }
       }
