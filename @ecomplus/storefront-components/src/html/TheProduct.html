@@ -389,7 +389,7 @@
               <shipping-calculator
                 :shippedItems="isKit ? kitItems : [{
                   ...body,
-                  ...shippingData || {},
+                  ...selectedVariation,
                   product_id: body._id,
                   quantity: qntToBuy || body.min_quantity || 1
                 }]"

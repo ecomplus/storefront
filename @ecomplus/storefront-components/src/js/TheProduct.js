@@ -36,7 +36,7 @@ import {
   formatMoney,
   $ecomConfig
 } from '@ecomplus/utils'
-import { isEqual } from 'lodash'
+
 import { store, modules } from '@ecomplus/client'
 import EcomSearch from '@ecomplus/search-engine'
 import ecomCart from '@ecomplus/shopping-cart'
@@ -189,30 +189,10 @@ export default {
     i19unitsInStock: () => i18n(i19unitsInStock),
     i19workingDays: () => i18n(i19workingDays),
 
-    selectedVariation: {
-      get () {
-        return this.selectedVariationId
-          ? this.body.variations.find(({ _id }) => _id === this.selectedVariationId)
-          : {}
-      },
-      set (variation) {
-        if (!isEqual(variation, this.selectedVariation)) {
-          this.selectedVariation = variation
-        }
-      }
-    },
-
-    shippingData () {
-      if (this.selectedVariationId) {
-        return {
-          name: this.selectedVariation.name,
-          price: this.selectedVariation.price || this.body.price,
-          dimensions: this.selectedVariation.dimensions || this.body.dimensions,
-          weight: this.selectedVariation.weight || this.body.weight,
-          variation_id: this.selectedVariationId
-        }
-      }
-      return {}
+    selectedVariation () {
+      return this.selectedVariationId
+        ? this.body.variations.find(({ _id }) => _id === this.selectedVariationId)
+        : {}
     },
 
     name () {
@@ -441,10 +421,6 @@ export default {
       if (variationId) {
         if (this.hasClickedBuy) {
           this.hasClickedBuy = false
-        }
-        const variation = this.body.variations.find(variation => variation._id === this.selectedVariationId)
-        if (variation) {
-          this.selectedVariation = variation
         }
         this.showVariationPicture(this.selectedVariation)
       }
