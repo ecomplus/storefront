@@ -181,6 +181,9 @@ export default {
         if (customer.display_name) {
           data.customer.display_name = customer.display_name
         }
+        if (customer.doc_number) {
+          data.customer.doc_number = customer.doc_number
+        }
       }
       modules({
         url: '/apply_discount.json',
