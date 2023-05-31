@@ -71,7 +71,7 @@ export default {
     },
 
     buyerName () {
-      if (!this.buyer) {
+      if (!this.buyer || !this.buyer.name) {
         return ''
       }
       const { name } = this.buyer
