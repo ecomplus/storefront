@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.235](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.234...@ecomplus/storefront-template@2.0.0-beta.235) (2023-05-31)
+
+### Bug Fixes
+
+- **template/partytown:** remove pinterest and add taboola to allowed bypass hostsnames ([e588211](https://github.com/ecomplus/storefront/commit/e58821144b1a4978adafa3e54b0e6bd9e6df025e))
+- **template/partytown:** remove titok from bypassed hostnames (prevent fetch net error) ([89ae5d3](https://github.com/ecomplus/storefront/commit/89ae5d3382938cc2813c8511871a4e2a54d2c9f7))
+
 # [2.0.0-beta.234](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.233...@ecomplus/storefront-template@2.0.0-beta.234) (2023-05-22)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

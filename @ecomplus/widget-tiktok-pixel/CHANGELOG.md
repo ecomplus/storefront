@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tiktok-pixel@1.2.2...@ecomplus/widget-tiktok-pixel@1.2.3) (2023-05-31)
+
+### Bug Fixes
+
+- **widget-tiktok:** try tiktok with partytown loading only dyanmic script with `text/partytown` ([5762f0c](https://github.com/ecomplus/storefront/commit/5762f0ce44dbddbcbf4817427b2440b4698955e4))
+
 ## [1.2.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tiktok-pixel@1.2.1...@ecomplus/widget-tiktok-pixel@1.2.2) (2023-05-11)
 
 ### Reverts

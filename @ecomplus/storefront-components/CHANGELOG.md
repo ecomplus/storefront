@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.156](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.155...@ecomplus/storefront-components@1.0.0-beta.156) (2023-05-31)
+
+### Bug Fixes
+
+- **components/account-form:** properly saving customer fields not edited on this form ([54bdc81](https://github.com/ecomplus/storefront/commit/54bdc81e55ef39dc07ed33baccbf73a32610100f))
+
 # [1.0.0-beta.155](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.154...@ecomplus/storefront-components@1.0.0-beta.155) (2023-05-20)
 
 ### Features

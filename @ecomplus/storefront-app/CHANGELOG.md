@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.177](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.176...@ecomplus/storefront-app@2.0.0-beta.177) (2023-05-31)
+
+### Bug Fixes
+
+- **app/account:** ensure patch customer fields set `false` ([8658a2f](https://github.com/ecomplus/storefront/commit/8658a2f814e474f25071f26b1d058f6be0f0096f))
+- **app/order-info:** fixing payment expiration markup and styles ([e509c08](https://github.com/ecomplus/storefront/commit/e509c087a408de8b36b20fe436a75ccbb676a9d9))
+- **app/summary:** prevent render error with undefined buyer name ([8693ab6](https://github.com/ecomplus/storefront/commit/8693ab6b193c91ea623f4841d65e5fd31afa3e22))
+
 # [2.0.0-beta.176](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.175...@ecomplus/storefront-app@2.0.0-beta.176) (2023-05-20)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
