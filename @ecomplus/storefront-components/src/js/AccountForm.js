@@ -192,7 +192,11 @@ export default {
       for (const field in newCustomer) {
         if (newCustomer[field]) {
           const localValue = this.localCustomer[field]
-          if (!localValue || (typeof localValue === 'object' && !Object.keys(localValue).length)) {
+          if (
+            !localValue ||
+            (typeof localValue === 'object' && !Object.keys(localValue).length) ||
+            ['addresses', 'orders', 'loyalty_points_entries'].includes(field)
+          ) {
             if (field === 'name') {
               this.fullName = getFullName({
                 name: newCustomer[field]
