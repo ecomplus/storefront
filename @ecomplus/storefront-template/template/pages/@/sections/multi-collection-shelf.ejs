@@ -1,0 +1,69 @@
+<%
+let { title, link, shuffle, headless, autoplay } = opt
+let items, collection
+const searchedItems = []
+if (opt.collection_ids) {
+  const collections = opt.collection_ids
+  for (let index = 0; index < collections.length; index++) {
+    const collectionInfo = collections[index];
+    let search, productIds
+    if (collectionInfo) {
+      const [_id, resource, name, path] = collectionInfo.split(':')
+      if (resource === 'categories') {
+        search = new _.EcomSearch().setCategoryIds([_id])
+      } else if (resource === 'brands') {
+        search = new _.EcomSearch().setBrandIds([_id])
+      } else {
+        let res
+        try {
+          res = await _.ecomClient.store({
+            url: `/collections/${_id}.json`
+          })
+        } catch (err) {
+          console.error(err)
+        }
+        if (res) {
+          collection = res.data
+          productIds = collection.products
+          if (Array.isArray(productIds) && productIds.length) {
+            search = new _.EcomSearch().setProductIds(productIds.slice(0, 70))
+          }
+        }
+      }
+    }
+    if (search) {
+      if (opt.sort) {
+        search.setSortOrder(opt.sort)
+      }
+      if (opt.limit > 0) {
+        search.setPageSize(opt.limit)
+      }
+      if (opt.page >= 2) {
+        search.setPageNumber(opt.page)
+      }
+      try {
+        await search.fetch()
+        items = search.getItems()
+      } catch (err) {
+        console.error(err)
+      }
+      if (items && productIds && !opt.sort && !shuffle) {
+        items.sort((a, b) => {
+          return productIds.indexOf(a._id) < productIds.indexOf(b._id) ? -1 : 1
+        })
+      }
+      searchedItems.push({
+        name,
+        link,
+        items
+      })
+    }
+  } 
+}
+%>
+
+<div class="collection-shelf my-lg-5">
+  <%- await include('@/sections/inc/products-carousel', {
+    _, opt: { items, collection, title, link, shuffle, headless, autoplay }
+  }) %>
+</div>
