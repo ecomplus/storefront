@@ -125,8 +125,14 @@ const validateCartItemKit = item => {
 
 const prepareTransaction = ({ customer, transaction }) => {
   const { name } = customer
-  const fullname = `${name.given_name} ` +
-    (name.middle_name ? `${name.middle_name} ${name.family_name}` : name.family_name)
+  let fullname
+  if (customer.registry_type === 'j') {
+    fullname = customer.corporate_name
+  }
+  if (!fullname) {
+    fullname = `${name.given_name} ` +
+      (name.middle_name ? `${name.middle_name} ${name.family_name}` : name.family_name)
+  }
   const fillTransaction = transaction => {
     const buyer = {
       email: customer.main_email,
