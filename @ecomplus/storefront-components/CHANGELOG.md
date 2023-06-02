@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.157](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.156...@ecomplus/storefront-components@1.0.0-beta.157) (2023-06-02)
+
+### Bug Fixes
+
+- **components/discount-applier:** pass customer doc number event when id not set ([217be13](https://github.com/ecomplus/storefront/commit/217be131f35ce0966eda6930857ffe1b4c2f5f4a))
+- **components/product:** pass selected variation data to calculate shipping ([#907](https://github.com/ecomplus/storefront/issues/907)) ([7f37484](https://github.com/ecomplus/storefront/commit/7f3748474777716f23975c9ca8285c704c32f1ef))
+
 # [1.0.0-beta.156](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.155...@ecomplus/storefront-components@1.0.0-beta.156) (2023-05-31)
 
 ### Bug Fixes

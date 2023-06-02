@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.178](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.177...@ecomplus/storefront-app@2.0.0-beta.178) (2023-06-02)
+
+### Bug Fixes
+
+- **app/checkout:** send corporate name as transaction buyer fullname with juridical registry ([ae505b7](https://github.com/ecomplus/storefront/commit/ae505b7f9f186eb247cb2d1e238b6d41f468234a))
+
 # [2.0.0-beta.177](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.176...@ecomplus/storefront-app@2.0.0-beta.177) (2023-05-31)
 
 ### Bug Fixes
