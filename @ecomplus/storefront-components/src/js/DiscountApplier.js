@@ -73,6 +73,7 @@ export default {
         return ecomCart
       }
     },
+    customer: Object,
     ecomPassport: {
       type: Object,
       default () {
@@ -173,10 +174,11 @@ export default {
 
     fetchDiscountOptions (data = {}) {
       this.isLoading = true
-      if (this.ecomPassport.checkLogin()) {
-        const customer = this.ecomPassport.getCustomer()
-        data.customer = {
-          _id: customer._id
+      const customer = this.customer || this.ecomPassport.getCustomer()
+      if (customer && (customer._id || customer.doc_number)) {
+        data.customer = {}
+        if (customer._id) {
+          data.customer._id = customer._id
         }
         if (customer.display_name) {
           data.customer.display_name = customer.display_name

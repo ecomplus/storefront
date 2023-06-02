@@ -167,6 +167,7 @@
             :coupon-code.sync="localDiscountCoupon"
             @set-discount-rule="discountRule => $emit('set-discount-rule', discountRule)"
             :modules-payload="modulesPayload"
+            :customer="customer"
             is-attention-wanted
           />
         </div>
@@ -215,6 +216,7 @@
                   :coupon-code.sync="localDiscountCoupon"
                   @set-discount-rule="discountRule => $emit('set-discount-rule', discountRule)"
                   :modules-payload="modulesPayload"
+                  :customer="customer"
                   is-attention-wanted
                 />
               </template>
