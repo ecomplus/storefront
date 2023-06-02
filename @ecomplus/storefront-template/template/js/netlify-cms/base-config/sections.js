@@ -390,8 +390,8 @@ export default ({ state }) => [
         name: 'limit',
         widget: 'number',
         min: 1,
-        max: 24,
-        default: 12
+        max: 12,
+        default: 8
       },
       {
         label: 'Paginação',
