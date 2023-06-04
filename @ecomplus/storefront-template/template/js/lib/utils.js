@@ -111,12 +111,12 @@ if ($('.multiple-collection-shelf').length) {
                 if (tab.classList) {
                   if (dataTab === titleTab) {
                     tab.classList.add('is-active')
-                    $multipleCollection.find(`#tab-collection-${dataTab}`).toggleClass('d-none')
-                    $multipleCollection.find(`#tab-collection-${dataTab}`).toggleClass('d-block')
+                    $multipleCollection.find(`.tab-collection-${dataTab}`).toggleClass('d-none')
+                    $multipleCollection.find(`.tab-collection-${dataTab}`).toggleClass('d-block')
                   } else {
                     tab.classList.remove('is-active')
-                    $multipleCollection.find(`#tab-collection-${dataTab}`).toggleClass('d-none')
-                    $multipleCollection.find(`#tab-collection-${dataTab}`).toggleClass('d-block')
+                    $multipleCollection.find(`.tab-collection-${dataTab}`).toggleClass('d-none')
+                    $multipleCollection.find(`.tab-collection-${dataTab}`).toggleClass('d-block')
                   }
                 }
               }

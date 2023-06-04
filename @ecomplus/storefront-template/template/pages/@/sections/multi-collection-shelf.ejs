@@ -11,6 +11,7 @@ if (!title) {
 }
 if (opt.collection_ids) {
   const collections = opt.collection_ids
+  const promises = []
   for (let index = 0; index < collections.length; index++) {
     const collectionInfo = collections[index];
     let search, productIds
@@ -49,29 +50,32 @@ if (opt.collection_ids) {
       if (opt.page >= 2) {
         search.setPageNumber(opt.page)
       }
-      try {
-        await search.fetch()
-        items = search.getItems()
-      } catch (err) {
-        console.error(err)
-      }
-      if (items && productIds && !opt.sort && !shuffle) {
-        items.sort((a, b) => {
-          return productIds.indexOf(a._id) < productIds.indexOf(b._id) ? -1 : 1
-        })
-      }
-      if (items && items.length) {
-        titleTabs.push(collectionTitle)
-        searchedItemsTabs.push({
-          items
-        })
-      }
+      promises.push(search.fetch())
+      titleTabs.push(collectionTitle)
     }
+  }
+  try {
+    await Promise.all(promises).then(results => {
+      if (Array.isArray(results) && results.length) {
+        results.forEach(result => {
+          if (result.hits && Array.isArray(result.hits.hits) && result.hits.hits.length) {
+            items = result.hits.hits
+            if (items && items.length) {
+              searchedItemsTabs.push({
+                items
+              })
+            }
+          }
+        })
+      }
+    })
+  } catch (err) {
+    console.error(err)
   } 
 }
 %>
 
-<% if (searchedItemsTabs && searchedItemsTabs.length) { %>
+<% if (searchedItemsTabs && searchedItemsTabs.length && titleTabs && titleTabs.length && titleTabs.length === searchedItemsTabs.length) { %>
   <div class="multiple-collection-shelf collection-shelf my-lg-5" data-id="<%= _.ecomUtils.randomObjectId() %>">
     <h3 class="products-carousel__title">
       <a href="<%= link %>">
@@ -89,7 +93,7 @@ if (opt.collection_ids) {
     </div>
     <div class="collection-shelf-tabs">
       <% for (let index = 0; index < searchedItemsTabs.length; index++) { %>
-        <div class="<%= index === 0 ? 'd-block ' : 'd-none ' %>collection-shelf my-lg-5" id="tab-collection-<%= index %>">
+        <div class="<%= index === 0 ? 'd-block ' : 'd-none ' %>collection-shelf my-lg-5 tab-collection-<%= index %>">
           <%- await include('@/sections/inc/products-carousel', {
             _, opt: { 
               "items": searchedItemsTabs[index].items, 
