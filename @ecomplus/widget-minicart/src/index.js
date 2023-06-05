@@ -10,8 +10,20 @@ import CartQuickview from '#components/CartQuickview.vue'
 export default (options = {}, elId = 'cart-quickview', buttonId = 'cart-button') => {
   const $cartQuickview = document.getElementById(elId)
   const $cartButton = document.getElementById(buttonId)
+  let getScopedSlots, themeConfig
   if ($cartQuickview && $cartButton) {
-    const getScopedSlots = window.storefront && window.storefront.getScopedSlots
+    getScopedSlots = window.storefront && window.storefront.getScopedSlots
+    themeConfig = storefront.theme && storefront.theme.product
+
+    const {
+      strHasShippingCalculator
+    } = options
+
+    const strOptionToBool = (strOption, prop) => {
+      return strOption === '_'
+        ? Boolean(themeConfig && themeConfig[prop])
+        : strOption ? Boolean(strOption.trim()) : false
+    }
 
     new Vue({
       data: {
@@ -32,7 +44,8 @@ export default (options = {}, elId = 'cart-quickview', buttonId = 'cart-button')
           },
           props: {
             ...options.props,
-            isVisible: vm.isVisible
+            isVisible: vm.isVisible,
+            hasShippingCalculator: strOptionToBool(strHasShippingCalculator, 'hasShippingCalculator')
           },
           on: {
             'update:is-visible' (isVisible) {

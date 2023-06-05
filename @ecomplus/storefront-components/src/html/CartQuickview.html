@@ -69,6 +69,20 @@
               </a>
             </slot>
           </div>
+
+          <div
+            class="minicart__shipping"
+            v-if="cart.items.length && hasShippingCalculator"
+            key="shipping"
+          > 
+            <hr>
+            <shipping-calculator
+                class="minicart__shipping-calculator"
+                :can-select-services="true"
+                :shipped-items="cart.items"
+                @select-service="selectShippingService"
+              />
+          </div>
         </transition-group>
       </article>
 
@@ -81,7 +95,7 @@
             <span>{{ i19subtotal }}</span>
             <div class="minicart__subtotal">
               <a-prices
-                :product="{ price: cart.subtotal }"
+                :product="{ price: total || cart.subtotal }"
                 :is-literal="true"
               />
             </div>
