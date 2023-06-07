@@ -253,8 +253,8 @@ if (_.state.gtin && _.state.gtin[0]) {
         const jsonLd = JSON.parse($jsonLd.innerText);
         jsonLd.sku = selectedVariation.sku;
         jsonLd.offers.price = selectedVariation.price;
-        jsonLd.name = selectedVariation.name.replace('"', '') || jsonLd.name
-        jsonLd.offers.url = `${jsonLd.offers.url}?variation_id=${variationId}`
+        jsonLd.name = selectedVariation.name.replace('"', '') || jsonLd.name;
+        jsonLd.offers.url = `${jsonLd.offers.url}?variation_id=${variationId}`;
         document.querySelector('#product-block-jsonld').innerText = JSON.stringify(jsonLd);
       }
     }
