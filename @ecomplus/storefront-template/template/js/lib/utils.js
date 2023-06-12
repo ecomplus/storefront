@@ -101,7 +101,7 @@ if ($('.multiple-collection-shelf').length) {
         const $multipleCollection = $(`.multiple-collection-shelf[data-id="${dataset.id}"]`)
         const $multipleTabList = $multipleCollection.find('.products-carousel-tabs__list')
         $multipleTabList.click((e) => {
-          if (e.target && e.target.dataset && e.target.dataset.tabTitle) {
+          if (e.target && e.target.dataset.tabTitle) {
             const titleTab = e.target.dataset.tabTitle
             const $tabs = $multipleTabList[0].children
             for (const tabCollectionTitle in $tabs) {
