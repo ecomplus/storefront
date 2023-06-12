@@ -107,7 +107,7 @@ if ($('.multiple-collection-shelf').length) {
             for (const tabCollectionTitle in $tabs) {
               const tab = $tabs[tabCollectionTitle]
               if (tab.children) {
-                const dataTab = tab.children[0] && tab.children[0].dataset && tab.children[0].dataset.tabTitle
+                const dataTab = tab.children[0] && tab.children[0].dataset.tabTitle
                 if (tab.classList) {
                   if (dataTab === titleTab) {
                     tab.classList.add('is-active')
