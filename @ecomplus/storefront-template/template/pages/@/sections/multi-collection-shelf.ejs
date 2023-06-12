@@ -75,7 +75,7 @@ if (opt.collection_ids) {
 }
 %>
 
-<% if (searchedItemsTabs && searchedItemsTabs.length && titleTabs && titleTabs.length && titleTabs.length === searchedItemsTabs.length) { %>
+<% if (searchedItemsTabs.length && titleTabs.length === searchedItemsTabs.length) { %>
   <div class="multiple-collection-shelf collection-shelf my-lg-5" data-id="<%= _.ecomUtils.randomObjectId() %>">
     <h3 class="products-carousel__title">
       <a href="<%= link %>">
