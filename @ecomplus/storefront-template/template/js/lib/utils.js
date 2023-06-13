@@ -101,8 +101,8 @@ if ($('.multiple-collection-shelf').length) {
         const titleShelfTab = e.target.dataset.tabTitleShelf
         const $tabs = $multipleTabList[0].children
         for (const tabCollectionTitle in $tabs) {
-          const tab = $tabs[tabCollectionTitle]
-          if (tab && tab.children) {
+          if (Object.hasOwnProperty.call($tabs, tabCollectionTitle)) {
+            const tab = $tabs[tabCollectionTitle]
             const indexTitleShelfTab = tab.children[0].dataset.tabTitleShelf
             if (indexTitleShelfTab === titleShelfTab) {
               tab.classList.add('is-active')
@@ -112,7 +112,7 @@ if ($('.multiple-collection-shelf').length) {
               tab.classList.remove('is-active')
               $multipleCollection.find(`.tab-shelf-${indexTitleShelfTab}`).toggleClass('d-none')
               $multipleCollection.find(`.tab-shelf-${indexTitleShelfTab}`).toggleClass('d-block')
-            }
+            } 
           }
         }
       }
