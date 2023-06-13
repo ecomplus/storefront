@@ -330,9 +330,8 @@ export default ({ state }) => [
     fields: [
       {
         label: 'Coleções de produtos',
-        required: false,
+        required: true,
         name: 'collection_ids',
-        hint: 'Se este campo não for preenchido, serão listados os produtos mais populares da loja',
         widget: 'select',
         multiple: true,
         options: [{

@@ -1,17 +1,13 @@
 <%
-let { shuffle, autoplay } = opt
-let items, collection, collectionTitle
-const searchedItemsTabs = []
-const titleTabs = []
+const { shuffle, autoplay } = opt
+let shelfTabs
 if (opt.collection_ids) {
   const collections = opt.collection_ids
-  const promises = []
-  for (let index = 0; index < collections.length; index++) {
-    const collectionInfo = collections[index];
-    let search, productIds
+  const promises = collections.map((collectionInfo) => new Promise(async (resolve) => {
+    let search, title
     if (collectionInfo) {
       const [_id, resource, name] = collectionInfo.split(':')
-      collectionTitle = name
+      title = name
       if (resource === 'categories') {
         search = new _.EcomSearch().setCategoryIds([_id])
       } else if (resource === 'brands') {
@@ -26,10 +22,13 @@ if (opt.collection_ids) {
           console.error(err)
         }
         if (res) {
-          collection = res.data
-          productIds = collection.products
+          const collection = res.data
+          const productIds = collection.products
           if (Array.isArray(productIds) && productIds.length) {
             search = new _.EcomSearch().setProductIds(productIds.slice(0, 8))
+          }
+          if (!title) {
+            title = collection.name
           }
         }
       }
@@ -44,46 +43,35 @@ if (opt.collection_ids) {
       if (opt.page >= 2) {
         search.setPageNumber(opt.page)
       }
-      promises.push(search.fetch())
-      titleTabs.push(collectionTitle)
-    }
-  }
-  try {
-    await Promise.all(promises).then(results => {
-      if (Array.isArray(results) && results.length) {
-        results.forEach(result => {
-          if (result.hits && Array.isArray(result.hits.hits) && result.hits.hits.length) {
-            items = result.hits.hits
-            if (items && items.length) {
-              searchedItemsTabs.push({
-                items
-              })
-            }
-          }
+      return search.fetch().then(() => {
+        resolve({
+          title,
+          items: search.getItems()
         })
-      }
-    })
-  } catch (err) {
-    console.error(err)
-  } 
+      })
+    }
+    resolve(null)
+  }))
+  shelfTabs = (await Promise.all(promises))
+    .filter((result) => Boolean(result && result.items.length))
 }
 %>
 
-<% if (searchedItemsTabs.length && titleTabs.length === searchedItemsTabs.length) { %>
+<% if (shelfTabs && shelfTabs.length) { %>
   <div class="shelfs-nav my-lg-5">
     <ul class="shelfs-nav__tabs">
-      <% for (let i = 0; i < titleTabs.length; i++) { %>
+      <% for (let i = 0; i < shelfTabs.length; i++) { %>
         <li class="shelfs-nav__tab<%= i === 0 ? ' active' : '' %>" data-tab="<%= i %>">
-          <h4><%= titleTabs[i] %></h4>
+          <h4><%= shelfTabs[i].title %></h4>
         </li>
       <% } %>
     </ul>
-    <% for (let i = 0; i < searchedItemsTabs.length; i++) { %>
+    <% for (let i = 0; i < shelfTabs.length; i++) { %>
       <div class="collection-shelf" data-shelf="<%= i %>"
         style="display: <%= i === 0 ? 'block' : 'none' %>">
         <%- await include('@/sections/inc/products-carousel', {
           _, opt: {
-            items: searchedItemsTabs[i].items,
+            items: shelfTabs[i].items,
             collection: null,
             title: '',
             link: '',
