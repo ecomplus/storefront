@@ -86,14 +86,14 @@ if (opt.collection_ids) {
       <ul class="products-carousel-tabs__list">
         <% for (let i = 0; i < titleTabs.length; i++) { %>
           <li class="<%= i === 0 ? 'is-active ' : '' %>products-carousel-tabs__title">
-            <h4 data-tab-title="<%= i %>"><%= titleTabs[i] %></h4>
+            <h4 data-tab-title-shelf="<%= i %>"><%= titleTabs[i] %></h4>
           </li>
         <% } %>
       </ul>
     </div>
     <div class="collection-shelf-tabs">
       <% for (let index = 0; index < searchedItemsTabs.length; index++) { %>
-        <div class="<%= index === 0 ? 'd-block ' : 'd-none ' %>collection-shelf my-lg-5 tab-collection-<%= index %>">
+        <div class="<%= index === 0 ? 'd-block ' : 'd-none ' %>collection-shelf my-lg-5 tab-shelf-<%= index %>">
           <%- await include('@/sections/inc/products-carousel', {
             _, opt: { 
               "items": searchedItemsTabs[index].items, 

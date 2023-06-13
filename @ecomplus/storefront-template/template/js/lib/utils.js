@@ -93,37 +93,29 @@ if ($('#popup-modal').length) {
 }
 
 if ($('.multiple-collection-shelf').length) {
-  const $multipleCollections = $('.multiple-collection-shelf')
-  for (const key in $multipleCollections) {
-    if (Object.hasOwnProperty.call($multipleCollections, key)) {
-      const { dataset } = $multipleCollections[key]
-      if (dataset && dataset.id) {
-        const $multipleCollection = $(`.multiple-collection-shelf[data-id="${dataset.id}"]`)
-        const $multipleTabList = $multipleCollection.find('.products-carousel-tabs__list')
-        $multipleTabList.click((e) => {
-          if (e.target && e.target.dataset.tabTitle) {
-            const titleTab = e.target.dataset.tabTitle
-            const $tabs = $multipleTabList[0].children
-            for (const tabCollectionTitle in $tabs) {
-              const tab = $tabs[tabCollectionTitle]
-              if (tab.children) {
-                const dataTab = tab.children[0] && tab.children[0].dataset.tabTitle
-                if (tab.classList) {
-                  if (dataTab === titleTab) {
-                    tab.classList.add('is-active')
-                    $multipleCollection.find(`.tab-collection-${dataTab}`).toggleClass('d-none')
-                    $multipleCollection.find(`.tab-collection-${dataTab}`).toggleClass('d-block')
-                  } else {
-                    tab.classList.remove('is-active')
-                    $multipleCollection.find(`.tab-collection-${dataTab}`).toggleClass('d-none')
-                    $multipleCollection.find(`.tab-collection-${dataTab}`).toggleClass('d-block')
-                  }
-                }
-              }
+  $('.multiple-collection-shelf').each(function () {
+    const $multipleCollection = $(this)
+    const $multipleTabList = $multipleCollection.find('.products-carousel-tabs__list')
+    $multipleTabList.click((e) => {
+      if (e.target && e.target.dataset.tabTitleShelf) {
+        const titleShelfTab = e.target.dataset.tabTitleShelf
+        const $tabs = $multipleTabList[0].children
+        for (const tabCollectionTitle in $tabs) {
+          const tab = $tabs[tabCollectionTitle]
+          if (tab && tab.children) {
+            const indexTitleShelfTab = tab.children[0].dataset.tabTitleShelf
+            if (indexTitleShelfTab === titleShelfTab) {
+              tab.classList.add('is-active')
+              $multipleCollection.find(`.tab-shelf-${indexTitleShelfTab}`).toggleClass('d-none')
+              $multipleCollection.find(`.tab-shelf-${indexTitleShelfTab}`).toggleClass('d-block')
+            } else {
+              tab.classList.remove('is-active')
+              $multipleCollection.find(`.tab-shelf-${indexTitleShelfTab}`).toggleClass('d-none')
+              $multipleCollection.find(`.tab-shelf-${indexTitleShelfTab}`).toggleClass('d-block')
             }
           }
-        })
+        }
       }
-    }
-  }
+    })
+  })
 }
