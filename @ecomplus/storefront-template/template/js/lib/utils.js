@@ -85,37 +85,29 @@ $('#go-to-top').on('click', () => {
 
 if ($('#popup-modal').length) {
   $(window).one('scroll', () => {
-    $('#close-modal-popup').click(() => sessionStorage.setItem('popup-modal', 'close'))
-    if (!sessionStorage.getItem('popup-modal')) {
+    $('#close-modal-popup').click(() => window.sessionStorage.setItem('popup-modal', 'close'))
+    if (!window.sessionStorage.getItem('popup-modal')) {
       $('#popup-modal').modal('show')
     }
   })
 }
 
-if ($('.multiple-collection-shelf').length) {
-  $('.multiple-collection-shelf').each(function () {
-    const $multipleCollection = $(this)
-    const $multipleTabList = $multipleCollection.find('.products-carousel-tabs__list')
-    $multipleTabList.click((e) => {
-      if (e.target && e.target.dataset.tabTitleShelf) {
-        const titleShelfTab = e.target.dataset.tabTitleShelf
-        const $tabs = $multipleTabList[0].children
-        for (const tabCollectionTitle in $tabs) {
-          if (Object.hasOwnProperty.call($tabs, tabCollectionTitle)) {
-            const tab = $tabs[tabCollectionTitle]
-            const indexTitleShelfTab = tab.children[0].dataset.tabTitleShelf
-            if (indexTitleShelfTab === titleShelfTab) {
-              tab.classList.add('is-active')
-              $multipleCollection.find(`.tab-shelf-${indexTitleShelfTab}`).toggleClass('d-none')
-              $multipleCollection.find(`.tab-shelf-${indexTitleShelfTab}`).toggleClass('d-block')
-            } else {
-              tab.classList.remove('is-active')
-              $multipleCollection.find(`.tab-shelf-${indexTitleShelfTab}`).toggleClass('d-none')
-              $multipleCollection.find(`.tab-shelf-${indexTitleShelfTab}`).toggleClass('d-block')
-            } 
-          }
-        }
+$('.shelfs-nav').each(function () {
+  const $shelfNav = $(this)
+  const $shelfNavTabs = $shelfNav.find('.shelfs-nav__tab')
+  $shelfNavTabs.click(function () {
+    const clickedTabIndex = $(this).data('tab')
+    $shelfNavTabs.each(function () {
+      const $tab = $(this)
+      const tabIndex = $tab.data('tab')
+      const $shelf = $shelfNav.find(`[data-shelf=${tabIndex}]`)
+      if (clickedTabIndex === tabIndex) {
+        $tab.classList.add('active')
+        $shelf.show(400)
+      } else {
+        $tab.classList.remove('active')
+        $shelf.hide(100)
       }
     })
   })
-}
+})

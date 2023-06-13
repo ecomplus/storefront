@@ -76,37 +76,29 @@ if (opt.collection_ids) {
 %>
 
 <% if (searchedItemsTabs.length && titleTabs.length === searchedItemsTabs.length) { %>
-  <div class="multiple-collection-shelf collection-shelf my-lg-5">
-    <h3 class="products-carousel__title">
-      <a href="<%= link %>">
-        <%= title %>
-      </a>
-    </h3>
-    <div class="products-carousel-tabs">
-      <ul class="products-carousel-tabs__list">
-        <% for (let i = 0; i < titleTabs.length; i++) { %>
-          <li class="<%= i === 0 ? 'is-active ' : '' %>products-carousel-tabs__title">
-            <h4 data-tab-title-shelf="<%= i %>"><%= titleTabs[i] %></h4>
-          </li>
-        <% } %>
-      </ul>
-    </div>
-    <div class="collection-shelf-tabs">
-      <% for (let index = 0; index < searchedItemsTabs.length; index++) { %>
-        <div class="<%= index === 0 ? 'd-block ' : 'd-none ' %>collection-shelf my-lg-5 tab-shelf-<%= index %>">
-          <%- await include('@/sections/inc/products-carousel', {
-            _, opt: { 
-              "items": searchedItemsTabs[index].items, 
-              "collection": undefined , 
-              "title": "", 
-              "link": "", 
-              shuffle, 
-              "headless": true, 
-              autoplay
-            }
-          }) %>
-        </div>
+  <div class="shelfs-nav my-lg-5">
+    <ul class="shelfs-nav__tabs">
+      <% for (let i = 0; i < titleTabs.length; i++) { %>
+        <li class="shelfs-nav__tab<%= i === 0 ? ' active' : '' %>" data-tab="<%= i %>">
+          <h4><%= titleTabs[i] %></h4>
+        </li>
       <% } %>
-    </div>
+    </ul>
+    <% for (let i = 0; i < searchedItemsTabs.length; i++) { %>
+      <div class="collection-shelf" data-shelf="<%= i %>"
+        style="display: <%= i === 0 ? 'block' : 'none' %>">
+        <%- await include('@/sections/inc/products-carousel', {
+          _, opt: {
+            items: searchedItemsTabs[i].items,
+            collection: null,
+            title: '',
+            link: '',
+            shuffle,
+            headless: true,
+            autoplay
+          }
+        }) %>
+      </div>
+    <% } %>
   </div>
 <% } %>
