@@ -323,8 +323,8 @@ export default ({ state }) => [
     ]
   },
   {
-    label: 'Multi Estante de produtos',
-    name: 'multi-collection-shelf',
+    label: 'Multi estante de produtos',
+    name: 'shelfs-nav',
     widget: 'object',
     icon: 'https://api.iconify.design/bi:bag-check.svg',
     fields: [
@@ -362,27 +362,6 @@ export default ({ state }) => [
         name: 'shuffle',
         widget: 'boolean',
         default: false
-      },
-      {
-        label: 'Título da estante',
-        required: false,
-        name: 'title',
-        hint: 'Usará o nome da coleção por padrão',
-        widget: 'string'
-      },
-      {
-        label: 'Link no título',
-        required: false,
-        name: 'link',
-        hint: 'Usará o slug da coleção por padrão',
-        widget: 'string'
-      },
-      {
-        label: 'Sem cabeçalho',
-        required: false,
-        name: 'headless',
-        widget: 'boolean',
-        hint: 'Mostrar apenas a lista de produtos, sem título ou link'
       },
       {
         label: 'Limite de itens',

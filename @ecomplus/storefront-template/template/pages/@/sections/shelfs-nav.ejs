@@ -1,14 +1,8 @@
 <%
-let { title, link, shuffle, headless, autoplay } = opt
+let { shuffle, autoplay } = opt
 let items, collection, collectionTitle
 const searchedItemsTabs = []
 const titleTabs = []
-if (!link) {
-  link = '/search'
-}
-if (!title) {
-  title = 'Escolha por'
-}
 if (opt.collection_ids) {
   const collections = opt.collection_ids
   const promises = []
