@@ -287,17 +287,21 @@ if (hasBrands) {
                 <a
                   href="javascript:;"
                   class="header__brands"
-                  onmouseover="toggleSubmenu('brands', this)"
+                  <%- hasMegamenu
+                    ? `onmouseover="toggleSubmenu('brands', this)"`
+                    : `onclick="toggleSidenav('brands')"` %>
                 >
                   <%= _.dictionary('brands') %>
                 </a>
-                <nav class="header__submenu header__submenu--full" id="s-brands">
-                  <% brands.forEach(brand => { %>
-                    <div>               
-                      <a id="b-<%= brand._id %>" href="/<%= brand.slug %>"><%= brand.name %></a>
-                    </div>
-                  <% }) %>
-                </nav>
+                <% if (hasMegamenu) { %>
+                  <nav class="header__submenu header__submenu--full" id="s-brands">
+                    <% brands.forEach(brand => { %>
+                      <div>               
+                        <a id="b-<%= brand._id %>" href="/<%= brand.slug %>"><%= brand.name %></a>
+                      </div>
+                    <% }) %>
+                  </nav>
+                <% } %>
               </div>
             <% } %>
             <% categories.forEach(({ slug, name, _id}) => { %>
