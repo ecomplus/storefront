@@ -10,7 +10,6 @@ import CartQuickview from '#components/CartQuickview.vue'
 export default (options = {}, elId = 'cart-quickview', buttonId = 'cart-button') => {
   const $cartQuickview = document.getElementById(elId)
   const $cartButton = document.getElementById(buttonId)
-  let getScopedSlots, themeConfig
   if ($cartQuickview && $cartButton) {
     const getScopedSlots = window.storefront && window.storefront.getScopedSlots
     const themeConfig = storefront.theme && storefront.theme.minicart
