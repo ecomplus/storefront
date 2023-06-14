@@ -49,6 +49,20 @@ const hasMegamenu = header.desktop_megamenu
 const isAlphabeticalOrderSubmenu = header.alphabetical_order_submenu
 const fullWidthSubmenu = header.full_width_submenu
 const isCentralizedLogo = header.centralized_logo
+const hasBrands = header.show_brands
+let brands
+if (hasBrands) {
+  try {
+    const { data } = await _.ecomClient.store({
+      url: '/brands'
+    })
+    brands = data.result.sort((a, b)=> {
+      return b.name > a.name ? -1 : 1
+    })
+  } catch (err) {
+    console.error(err)
+  }
+}
 %>
 
 <div id="overlay" class="fade"></div>
@@ -268,6 +282,24 @@ const isCentralizedLogo = header.centralized_logo
       <% if (categories && categories.length) { %>
         <div class="d-none d-lg-block <%= isCategoriesNavFull ? 'col-12 order-lg-last' : 'col' %> header__nav-block">
           <nav class="header__nav<%= isCategoriesNavFull ? ' header__nav--full' : '' %>">
+            <% if (hasBrands && brands && brands.length) { %>
+              <div class="d-inline-block">
+                <a
+                  href="javascript:;"
+                  class="header__brands"
+                  onmouseover="toggleSubmenu('brands', this)"
+                >
+                  <%= _.dictionary('brands') %>
+                </a>
+                <nav class="header__submenu header__submenu--full" id="s-brands">
+                  <% brands.forEach(brand => { %>
+                    <div>               
+                      <a id="b-<%= brand._id %>" href="/<%= brand.slug %>"><%= brand.name %></a>
+                    </div>
+                  <% }) %>
+                </nav>
+              </div>
+            <% } %>
             <% categories.forEach(({ slug, name, _id}) => { %>
               <% let $categoryLink %>
               <div class="d-inline-block">
