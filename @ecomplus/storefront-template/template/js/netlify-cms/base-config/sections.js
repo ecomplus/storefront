@@ -357,6 +357,12 @@ export default ({ state }) => [
       },
       searchOrderField,
       {
+        label: 'Título da multi estante',
+        required: false,
+        name: 'shelfs_title',
+        widget: 'string'
+      },
+      {
         label: 'Embaralhar produtos',
         name: 'shuffle',
         widget: 'boolean',

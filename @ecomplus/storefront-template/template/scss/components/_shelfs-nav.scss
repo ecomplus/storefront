@@ -1,5 +1,24 @@
 .shelfs-nav {
-  &__tab {
+
+  &__title {
+    display: block;
+    text-align: center;
+    position: relative;
+    padding: var(--spacer-3);
+    margin: 0;
+
+    span,
+    a {
+      display: inline-block;
+      color: inherit;
+      background: var(--body-bg);
+      padding-left: var(--spacer-3);
+      padding-right: var(--spacer-3);
+      position: relative;
+    }
+  }
+
+  &__tabs {
     align-items: center;
     display: flex;
     flex-wrap: nowrap;

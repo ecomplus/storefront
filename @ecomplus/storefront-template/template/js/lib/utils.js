@@ -102,10 +102,10 @@ $('.shelfs-nav').each(function () {
       const tabIndex = $tab.data('tab')
       const $shelf = $shelfNav.find(`[data-shelf=${tabIndex}]`)
       if (clickedTabIndex === tabIndex) {
-        $tab.classList.add('active')
+        $tab.addClass('active')
         $shelf.show(400)
       } else {
-        $tab.classList.remove('active')
+        $tab.removeClass('active')
         $shelf.hide(100)
       }
     })
