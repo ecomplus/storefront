@@ -93,8 +93,8 @@ export default {
 
     selectShippingService (service) {
       this.selectedShippingPrice = service.shipping_line
-      ? service.shipping_line.total_price
-      : 0
+        ? service.shipping_line.total_price
+        : 0
     },
   },
 
