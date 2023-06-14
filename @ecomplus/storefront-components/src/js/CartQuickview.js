@@ -36,10 +36,7 @@ export default {
       type: Boolean,
       default: true
     },
-    hasShippingCalculator: {
-      typy: Boolean,
-      default: false
-    },
+    hasShippingCalculator: Boolean,
     checkoutUrl: {
       type: String,
       default: '/app/#/checkout'
