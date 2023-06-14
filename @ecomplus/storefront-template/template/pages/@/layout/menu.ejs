@@ -18,6 +18,28 @@ const allCategories = menu.alphabetical_order
 const categoryParents = _.lodash.groupBy(allCategories, ({ parent }) => {
   return !parent || !parent.slug ? '_' : parent.slug
 })
+const hasBrands = menu.show_brands
+let brands
+if (hasBrands) {
+  try {
+    const { data } = await _.ecomClient.store({
+      url: '/brands'
+    })
+    categoryParents['_'].push({
+      _id: _.ecomUtils.randomObjectId(),
+      name: _.dictionary('brands') || 'Marcas',
+      slug: 'brands'
+    })
+    brands = data.result.sort((a, b)=> {
+      return b.name > a.name ? -1 : 1
+    })
+    categoryParents['brands'] = [
+      ...brands
+    ]
+  } catch (err) {
+    console.error(err)
+  }
+}
 const getSubmenuId = slug => `a-${slug.replace(/\//g, '_')}`
 
 const mainCategories = categoryParents._
