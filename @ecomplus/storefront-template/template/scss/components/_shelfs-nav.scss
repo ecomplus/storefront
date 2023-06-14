@@ -1,0 +1,63 @@
+.shelfs-nav {
+
+  &__title {
+    display: block;
+    text-align: center;
+    position: relative;
+    padding: var(--spacer-3);
+    margin: 0;
+
+    span,
+    a {
+      display: inline-block;
+      color: inherit;
+      background: var(--body-bg);
+      padding-left: var(--spacer-3);
+      padding-right: var(--spacer-3);
+      position: relative;
+    }
+  }
+
+  &__tabs {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+    overflow-x: auto;
+    max-width: var(--content-max-width);
+    margin: var(--spacer-4) auto;
+    padding: 0 var(--spacer-2);
+
+    li {
+      min-width: 40%;
+    }
+      
+    @media (min-width: 768px){
+      padding: 0 3rem;
+      li {
+        min-width: unset;
+      }
+    }
+    @media (min-width: 992px) {
+      padding: 0 4rem;
+      li {
+        min-width: unset;
+      }
+    }
+  }
+
+  &__tab {
+    padding-bottom: 7px;
+    margin-right: 1rem;
+
+    &.active, &:hover {
+      border-bottom: 3px solid var(--primary);
+      opacity: 1 !important;
+      cursor: pointer;
+    }
+
+    &:not(.active) {
+      opacity: .5; 
+    }
+  }
+}

@@ -1,0 +1,91 @@
+<%
+const { shuffle, autoplay } = opt
+let shelfTabs
+if (opt.collection_ids) {
+  const collections = opt.collection_ids
+  const promises = collections.map((collectionInfo) => new Promise(async (resolve) => {
+    let search, title
+    if (collectionInfo) {
+      const [_id, resource, name] = collectionInfo.split(':')
+      title = name
+      if (resource === 'categories') {
+        search = new _.EcomSearch().setCategoryIds([_id])
+      } else if (resource === 'brands') {
+        search = new _.EcomSearch().setBrandIds([_id])
+      } else {
+        let res
+        try {
+          res = await _.ecomClient.store({
+            url: `/collections/${_id}.json`
+          })
+        } catch (err) {
+          console.error(err)
+        }
+        if (res) {
+          const collection = res.data
+          const productIds = collection.products
+          if (Array.isArray(productIds) && productIds.length) {
+            search = new _.EcomSearch().setProductIds(productIds.slice(0, 8))
+          }
+          if (!title) {
+            title = collection.name
+          }
+        }
+      }
+    }
+    if (search) {
+      if (opt.sort) {
+        search.setSortOrder(opt.sort)
+      }
+      if (opt.limit > 0) {
+        search.setPageSize(opt.limit)
+      }
+      if (opt.page >= 2) {
+        search.setPageNumber(opt.page)
+      }
+      return search.fetch().then(() => {
+        resolve({
+          title,
+          items: search.getItems()
+        })
+      })
+    }
+    resolve(null)
+  }))
+  shelfTabs = (await Promise.all(promises))
+    .filter((result) => Boolean(result && result.items.length))
+}
+%>
+
+<% if (shelfTabs && shelfTabs.length) { %>
+  <div class="shelfs-nav my-lg-5">
+    <% if (opt.shelfs_title) { %>
+      <h3 class="shelfs-nav__title">
+        <%= opt.shelfs_title  %>
+      </h3>
+    <% } %>
+    <ul class="shelfs-nav__tabs">
+      <% for (let i = 0; i < shelfTabs.length; i++) { %>
+        <li class="shelfs-nav__tab<%= i === 0 ? ' active' : '' %>" data-tab="<%= i %>">
+          <h4><%= shelfTabs[i].title %></h4>
+        </li>
+      <% } %>
+    </ul>
+    <% for (let i = 0; i < shelfTabs.length; i++) { %>
+      <div class="collection-shelf" data-shelf="<%= i %>"
+        style="display: <%= i === 0 ? 'block' : 'none' %>">
+        <%- await include('@/sections/inc/products-carousel', {
+          _, opt: {
+            items: shelfTabs[i].items,
+            collection: null,
+            title: '',
+            link: '',
+            shuffle,
+            headless: true,
+            autoplay
+          }
+        }) %>
+      </div>
+    <% } %>
+  </div>
+<% } %>

@@ -85,9 +85,29 @@ $('#go-to-top').on('click', () => {
 
 if ($('#popup-modal').length) {
   $(window).one('scroll', () => {
-    $('#close-modal-popup').click(() => sessionStorage.setItem('popup-modal', 'close'))
-    if (!sessionStorage.getItem('popup-modal')) {
+    $('#close-modal-popup').click(() => window.sessionStorage.setItem('popup-modal', 'close'))
+    if (!window.sessionStorage.getItem('popup-modal')) {
       $('#popup-modal').modal('show')
     }
   })
 }
+
+$('.shelfs-nav').each(function () {
+  const $shelfNav = $(this)
+  const $shelfNavTabs = $shelfNav.find('.shelfs-nav__tab')
+  $shelfNavTabs.click(function () {
+    const clickedTabIndex = $(this).data('tab')
+    $shelfNavTabs.each(function () {
+      const $tab = $(this)
+      const tabIndex = $tab.data('tab')
+      const $shelf = $shelfNav.find(`[data-shelf=${tabIndex}]`)
+      if (clickedTabIndex === tabIndex) {
+        $tab.addClass('active')
+        $shelf.show(400)
+      } else {
+        $tab.removeClass('active')
+        $shelf.hide(100)
+      }
+    })
+  })
+})
