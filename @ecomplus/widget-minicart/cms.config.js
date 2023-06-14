@@ -37,11 +37,11 @@ export default () => ({
               value: '_'
             },
             {
-              label: 'Sem cálculo de frete (carrinho lateral)',
+              label: 'Sem cálculo de frete no minicart',
               value: ' '
             },
             {
-              label: 'Cálculo de frete (carrinho lateral)',
+              label: 'Cálculo de frete no minicart',
               value: 'true'
             }
           ]
