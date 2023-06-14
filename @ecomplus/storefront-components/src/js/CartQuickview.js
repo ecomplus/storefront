@@ -18,6 +18,7 @@ import ALink from '../ALink.vue'
 import ABackdrop from '../ABackdrop.vue'
 import APrices from '../APrices.vue'
 import CartItem from '../CartItem.vue'
+import ShippingCalculator from '../ShippingCalculator.vue'
 
 export default {
   name: 'CartQuickview',
@@ -26,7 +27,8 @@ export default {
     ALink,
     ABackdrop,
     APrices,
-    CartItem
+    CartItem,
+    ShippingCalculator
   },
 
   props: {
@@ -34,6 +36,7 @@ export default {
       type: Boolean,
       default: true
     },
+    hasShippingCalculator: Boolean,
     checkoutUrl: {
       type: String,
       default: '/app/#/checkout'
@@ -54,6 +57,12 @@ export default {
     }
   },
 
+  data () {
+    return {
+      selectedShippingPrice: 0
+    }
+  },
+
   computed: {
     i19checkout: () => i18n(i19checkout),
     i19close: () => i18n(i19close),
@@ -65,6 +74,10 @@ export default {
 
     cart () {
       return this.ecomCart.data
+    },
+
+    total () {
+      return this.cart.subtotal + this.selectedShippingPrice
     }
   },
 
@@ -76,7 +89,13 @@ export default {
         'update:is-visible',
         typeof isVisible === 'boolean' ? isVisible : !this.isVisible
       )
-    }
+    },
+
+    selectShippingService (service) {
+      this.selectedShippingPrice = service.shipping_line
+        ? service.shipping_line.total_price
+        : 0
+    },
   },
 
   created () {
