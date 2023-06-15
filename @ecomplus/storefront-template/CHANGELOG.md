@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.237](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.236...@ecomplus/storefront-template@2.0.0-beta.237) (2023-06-15)
+
+### Bug Fixes
+
+- **template/product:** fix json ld name/url with selected variation ([#915](https://github.com/ecomplus/storefront/issues/915)) ([da952b9](https://github.com/ecomplus/storefront/commit/da952b935feb14d76d9e2f2b017bc40b07d1bcba))
+- **template/product:** prevent erro with undefined variation name on jsonld manipulation ([12f3378](https://github.com/ecomplus/storefront/commit/12f3378fcb2f5670358dff8bd584546d3acff094))
+
+### Features
+
+- **components/minicart:** optionally (prop) show shipping calculator ([#914](https://github.com/ecomplus/storefront/issues/914)) ([a799672](https://github.com/ecomplus/storefront/commit/a799672b1502a44a32203666412cfdae90bb1a33))
+- **template/shelfs-nav:** multiple collections shelfs on nav tabs ([#910](https://github.com/ecomplus/storefront/issues/910)) ([22e482a](https://github.com/ecomplus/storefront/commit/22e482a82265069754c9b0d083d400bf06e9fc18))
+
 # [2.0.0-beta.236](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.235...@ecomplus/storefront-template@2.0.0-beta.236) (2023-06-02)
 
 **Note:** Version bump only for package @ecomplus/storefront-template

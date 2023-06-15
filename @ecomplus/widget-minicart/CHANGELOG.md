@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.155](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-minicart@1.0.0-beta.154...@ecomplus/widget-minicart@1.0.0-beta.155) (2023-06-15)
+
+### Features
+
+- **components/minicart:** optionally (prop) show shipping calculator ([#914](https://github.com/ecomplus/storefront/issues/914)) ([a799672](https://github.com/ecomplus/storefront/commit/a799672b1502a44a32203666412cfdae90bb1a33))
+
 # [1.0.0-beta.154](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-minicart@1.0.0-beta.153...@ecomplus/widget-minicart@1.0.0-beta.154) (2023-06-02)
 
 **Note:** Version bump only for package @ecomplus/widget-minicart
