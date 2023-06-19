@@ -34,9 +34,9 @@
   },
   "homepage": "https://github.com/ecomplus/storefront#readme",
   "devDependencies": {
-    "@babel/core": "^7.22.1",
-    "@babel/eslint-parser": "^7.21.8",
-    "@babel/preset-env": "^7.22.4",
+    "@babel/core": "^7.22.5",
+    "@babel/eslint-parser": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",
     "@ecomplus/storefront-snapshot": "^1.2.0",
@@ -48,7 +48,7 @@
     "babel-loader": "^8.3.0",
     "bootstrap": "^4.6.2",
     "browser-sync": "^2.29.3",
-    "caniuse-lite": "^1.0.30001494",
+    "caniuse-lite": "^1.0.30001504",
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^3.6.0",
@@ -71,6 +71,6 @@
     "webpack": "^4.46.0",
     "webpack-bundle-analyzer": "^4.9.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.15.0"
+    "webpack-dev-server": "^4.15.1"
   }
 }
