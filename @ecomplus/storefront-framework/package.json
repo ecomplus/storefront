@@ -42,7 +42,7 @@
     "@builder.io/partytown": "^0.8.0",
     "@ecomplus/storefront-renderer": "^2.10.9",
     "@ecomplus/storefront-router": "^2.2.1",
-    "autoprefixer": "^10.4.7",
+    "autoprefixer": "^10.4.14",
     "babel-loader": "^8.3.0",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^6.4.1",
