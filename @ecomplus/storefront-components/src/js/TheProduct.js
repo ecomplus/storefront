@@ -422,6 +422,10 @@ export default {
         if (this.hasClickedBuy) {
           this.hasClickedBuy = false
         }
+        const searchParams = new URLSearchParams(window.location.search)
+        searchParams.set('variation_id', variationId)
+        const newRelativePathQuery = `${window.location.pathname}?${searchParams.toString()}`
+        history.pushState(null, '', newRelativePathQuery);
         this.showVariationPicture(this.selectedVariation)
       }
     },
