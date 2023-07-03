@@ -76,7 +76,7 @@
     "@glidejs/glide": "^3.6.0",
     "core-js": ">=3.29.0 <3.32",
     "ejs": "^3.1.6",
-    "eventemitter3": "^5.0.0",
+    "eventemitter3": "^5.0.1",
     "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.2",
     "lozad": "^1.16.0",
