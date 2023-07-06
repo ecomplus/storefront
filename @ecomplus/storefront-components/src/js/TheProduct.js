@@ -422,6 +422,13 @@ export default {
         if (this.hasClickedBuy) {
           this.hasClickedBuy = false
         }
+        const { pathname } = window.location
+        const searchParams = new URLSearchParams(window.location.search)
+        searchParams.set('variation_id', variationId)
+        window.history.pushState({
+          pathname,
+          searchParams
+        }, '', `${pathname}?${searchParams.toString()}`)
         this.showVariationPicture(this.selectedVariation)
       }
     },
