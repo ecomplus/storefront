@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.20.20](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.19...@ecomplus/storefront-framework@5.20.20) (2023-07-21)
+
+### Bug Fixes
+
+- **deps:** update dependency autoprefixer to v10 ([#920](https://github.com/ecomplus/storefront/issues/920)) ([bdfd89e](https://github.com/ecomplus/storefront/commit/bdfd89ed90f44d67c6a0b324b5808d745ec359c7))
+
 ## [5.20.19](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.18...@ecomplus/storefront-framework@5.20.19) (2023-06-15)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

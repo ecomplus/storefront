@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.11.0...@ecomplus/widget-tag-manager@1.11.1) (2023-07-21)
+
+### Bug Fixes
+
+- **widget-tag-manager:** properly handling shipping addr to purchase extra data ([24faa5b](https://github.com/ecomplus/storefront/commit/24faa5bbd42c8cf36f469f80735e7306c8eb5566))
+
 # [1.11.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.10.0...@ecomplus/widget-tag-manager@1.11.0) (2023-05-22)
 
 ### Features
