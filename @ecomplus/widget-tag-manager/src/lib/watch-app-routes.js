@@ -100,6 +100,7 @@ export default dataLayer => {
             }
           }
 
+          let purchaseTimeout = 1
           if (window.__sendGTMExtraPurchaseData) {
             const customer = ecomPassport.getCustomer()
             const extraPurchaseData = {}
@@ -114,16 +115,23 @@ export default dataLayer => {
               extraPurchaseData.customerPhone = getPhone(customer)
               shippingAddr = customer.addresses && customer.addresses[0]
             }
-            if (!shippingAddr) {
-              try {
-                shippingAddr = JSON.parse(window.sessionStorage.getItem('ecomCustomerAddress'))
-              } catch {
+            try {
+              const sessionShippingAddr = JSON.parse(window.sessionStorage
+                .getItem('ecomCustomerAddress'))
+              if (typeof shippingAddr === 'object' && shippingAddr) {
+                Object.assign(shippingAddr, sessionShippingAddr)
+              } else {
+                shippingAddr = sessionShippingAddr
               }
+            } catch {
             }
             if (shippingAddr && shippingAddr.zip) {
               extraPurchaseData.shippingAddrZip = shippingAddr.zip
               extraPurchaseData.shippingAddrStreet = shippingAddr.street
               extraPurchaseData.shippingAddrNumber = shippingAddr.number
+              if (shippingAddr.street && shippingAddr.number) {
+                extraPurchaseData.shippingAddrStreet += `, ${shippingAddr.number}`
+              }
               extraPurchaseData.shippingAddrCity = shippingAddr.city
               extraPurchaseData.shippingAddrProvinceCode = shippingAddr.province_code
             }
@@ -131,18 +139,21 @@ export default dataLayer => {
               event: 'purchaseExtraData',
               ...extraPurchaseData
             })
+            purchaseTimeout = 100
           }
-          dataLayer.push({ ecommerce: null })
-          dataLayer.push({
-            event: 'eec.purchase',
-            ecommerce: {
-              currencyCode,
-              purchase: {
-                actionField,
-                products: getCartProductsList()
+          setTimeout(() => {
+            dataLayer.push({ ecommerce: null })
+            dataLayer.push({
+              event: 'eec.purchase',
+              ecommerce: {
+                currencyCode,
+                purchase: {
+                  actionField,
+                  products: getCartProductsList()
+                }
               }
-            }
-          })
+            })
+          }, purchaseTimeout)
           window.localStorage.setItem('gtm.orderIdSent', orderId)
         }
         isPurchaseSent = true
