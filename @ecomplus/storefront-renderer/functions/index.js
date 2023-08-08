@@ -118,7 +118,7 @@ exports.ssr = (req, res, getCacheControl) => {
   }
 
   const fallback = () => {
-    if (url.startsWith('/reverse-proxy/')) {
+    if (url.startsWith('/~reverse-proxy/')) {
       proxy()
     } else if (url.slice(-1) === '/') {
       redirect(url.slice(0, -1))
