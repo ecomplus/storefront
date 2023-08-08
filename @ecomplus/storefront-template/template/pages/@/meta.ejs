@@ -100,7 +100,7 @@ if (pathname) {
             case location.hostname:
               return url;
             default:
-              const proxyUrl = new URL(`https://${location.hostname}/reverse-proxy/`);
+              const proxyUrl = new URL(`https://${location.hostname}/~reverse-proxy/`);
               proxyUrl.searchParams.append('url', url.href);
               return proxyUrl;
           };
