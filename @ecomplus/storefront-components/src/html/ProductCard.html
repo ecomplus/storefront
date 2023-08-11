@@ -143,13 +143,14 @@
           class="btn product-card__favorite fade"
           @click="toggleFavorite"
           :href="isLogged ? null : accountUrl"
+          :aria-label="i19addToFavorites"
         >
           <i 
             class="i-heart mr-1"
             :class="isFavorite ? 'active' : null"
           >
           </i>
-        </a>      
+        </a>
       </slot>
 
       <slot name="footer">
