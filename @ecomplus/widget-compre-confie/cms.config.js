@@ -1,7 +1,7 @@
 import { name } from './package.json'
 
 export default () => ({
-  label: 'Avaliações Compre & Confie',
+  label: 'Avaliações Confi',
   thumbnail: 'https://ecom.nyc3.cdn.digitaloceanspaces.com/storefront/widgets/compre-confie.png',
   fields: [
     {
@@ -11,7 +11,7 @@ export default () => ({
     },
     {
       label: 'Ativar',
-      hint: 'Instalar selo Compre & Confie',
+      hint: 'Instalar selo Confi',
       name: 'active',
       widget: 'boolean'
     },
@@ -38,10 +38,10 @@ export default () => ({
       hint: 'Personalizações do widget',
       fields: [
         {
-          label: 'Store Id Compre & Confie',
+          label: 'Store Id Confi',
           name: 'compreConfieStoreId',
           widget: 'string',
-          hint: 'ID da loja que é informado pelo Compre & Confie'
+          hint: 'ID da loja que é informado pelo Confi'
         }
       ]
     },
