@@ -191,8 +191,8 @@ export default (options = {}) => {
                 const $script = document.createElement('script')
                 $script.id = 'getData'
                 $script.type = 'text/javascript'
-                $script.src = 'https://banner.compreconfie.com.br/scripts/tagBanner.min.js' +
-                  `?${compreConfieStoreId}&lightbox=true`
+                $script.src = 'https://cdn.confi.com.vc/scripts/tagBanner.min.js' +
+                  `?sellerId=${compreConfieStoreId}&lightbox=true`
                 document.body.appendChild($script)
                 clearInterval(tryAppendInterval)
               }
