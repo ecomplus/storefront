@@ -46,9 +46,12 @@ export default (options = {}) => {
                 `&billingCPF=${((payer && payer.doc_number) || customer.doc_number)}`
             }
             if (customer.birth_date) {
+              console.log(customer)
               const { day, month, year } = customer.birth_date
-              ccParam += `&consumerBirthDate=${day.toString().padStart(2, '0')}` +
+              if (day && month && year) {
+                ccParam += `&consumerBirthDate=${day.toString().padStart(2, '0')}` +
                 `/${month.toString().padStart(2, '0')}/${year}`
+              }
             }
             if (navigator && navigator.userAgent.includes('Mobile')) {
               ccParam += '&orderPlatform=1'
