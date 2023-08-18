@@ -83,12 +83,19 @@
             <div
               class="embed-responsive"
               :class="`embed-responsive-${videoAspectRatio}`"
-            >
+            > 
+              <div
+                v-if="activeIndex === localPictures.length"
+                class="spinner-border text-primary" 
+                role="status"
+              >
+                <span class="sr-only">Loading...</span>
+              </div>
               <iframe
                 class="embed-responsive-item"
+                v-if="activeIndex === localPictures.length"
                 :src="videoSrc"
                 allowfullscreen
-                loading="lazy"
               ></iframe>
             </div>
           </li>
