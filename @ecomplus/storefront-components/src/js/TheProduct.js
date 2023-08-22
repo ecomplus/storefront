@@ -427,7 +427,7 @@ export default {
         searchParams.set('variation_id', variationId)
         window.history.pushState({
           pathname,
-          param: searchParams.toString()
+          params: searchParams.toString()
         }, '', `${pathname}?${searchParams.toString()}`)
         this.showVariationPicture(this.selectedVariation)
       }
