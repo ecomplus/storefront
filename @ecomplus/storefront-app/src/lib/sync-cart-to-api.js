@@ -82,6 +82,9 @@ const prepareCart = cart => {
   } else {
     url = '/carts.json'
     method = 'POST'
+    if (window.storefrontApp && window.storefrontApp.router && window.storefrontApp.router.currentRoute && window.storefrontApp.router.currentRoute.name === 'confirmation' && completed === undefined && orders === undefined) {
+      return {}
+    }
   }
   return {
     url,
@@ -111,20 +114,26 @@ const queueUpdateCart = tryRequestApi => new Promise(resolve => {
 const upsertCart = () => {
   if (ecomPassport.checkAuthorization() && ecomCart.data.items.length) {
     const { url, method, cleanedData } = prepareCart(ecomCart.data)
-    const tryRequestApi = () => {
-      return ecomPassport.requestApi(url, method, cleanedData)
-        .catch(console.error)
+    if (url && method && cleanedData) {
+      const tryRequestApi = () => {
+        return ecomPassport.requestApi(url, method, cleanedData)
+          .catch(console.error)
+      }
+      console.log('before create')
+      console.log(url, method, cleanedData)
+      return method === 'POST'
+        ? tryRequestApi().then(({ data }) => {
+            fetchCart(data._id)
+            setTimeout(() => {
+              ecomPassport.requestApi(`/carts/${data._id}.json`, 'PATCH', {
+                permalink: `https://${window.location.host}${window.location.pathname}#/cart/${data._id}`
+              }).catch(console.error)
+            }, 300)
+          })
+        : queueUpdateCart(tryRequestApi)
+    } else {
+      return Promise.resolve()
     }
-    return method === 'POST'
-      ? tryRequestApi().then(({ data }) => {
-          fetchCart(data._id)
-          setTimeout(() => {
-            ecomPassport.requestApi(`/carts/${data._id}.json`, 'PATCH', {
-              permalink: `https://${window.location.host}${window.location.pathname}#/cart/${data._id}`
-            }).catch(console.error)
-          }, 300)
-        })
-      : queueUpdateCart(tryRequestApi)
   } else {
     return Promise.resolve()
   }
