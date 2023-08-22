@@ -119,8 +119,6 @@ const upsertCart = () => {
         return ecomPassport.requestApi(url, method, cleanedData)
           .catch(console.error)
       }
-      console.log('before create')
-      console.log(url, method, cleanedData)
       return method === 'POST'
         ? tryRequestApi().then(({ data }) => {
             fetchCart(data._id)
