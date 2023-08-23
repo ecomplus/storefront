@@ -46,7 +46,6 @@ export default (options = {}) => {
                 `&billingCPF=${((payer && payer.doc_number) || customer.doc_number)}`
             }
             if (customer.birth_date) {
-              console.log(customer)
               const { day, month, year } = customer.birth_date
               if (day && month && year) {
                 ccParam += `&consumerBirthDate=${day.toString().padStart(2, '0')}` +
