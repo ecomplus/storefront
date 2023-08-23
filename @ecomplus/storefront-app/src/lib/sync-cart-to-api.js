@@ -114,23 +114,23 @@ const queueUpdateCart = tryRequestApi => new Promise(resolve => {
 const upsertCart = () => {
   if (ecomPassport.checkAuthorization() && ecomCart.data.items.length) {
     const { url, method, cleanedData } = prepareCart(ecomCart.data)
-    if (url && method && cleanedData) {
-      const tryRequestApi = () => {
-        return ecomPassport.requestApi(url, method, cleanedData)
-          .catch(console.error)
-      }
-      return method === 'POST'
-        ? tryRequestApi().then(({ data }) => {
-            fetchCart(data._id)
-            setTimeout(() => {
-              ecomPassport.requestApi(`/carts/${data._id}.json`, 'PATCH', {
-                permalink: `https://${window.location.host}${window.location.pathname}#/cart/${data._id}`
-              }).catch(console.error)
-            }, 300)
-          })
-        : queueUpdateCart(tryRequestApi)
-    } else {
-      return Promise.resolve()
+    if (!cleanedData) {
+      return Promise.resolve(null)
+    }
+    const tryRequestApi = () => {
+      return ecomPassport.requestApi(url, method, cleanedData)
+        .catch(console.error)
+    }
+    return method === 'POST'
+      ? tryRequestApi().then(({ data }) => {
+          fetchCart(data._id)
+          setTimeout(() => {
+            ecomPassport.requestApi(`/carts/${data._id}.json`, 'PATCH', {
+              permalink: `https://${window.location.host}${window.location.pathname}#/cart/${data._id}`
+            }).catch(console.error)
+          }, 300)
+        })
+      : queueUpdateCart(tryRequestApi)
     }
   } else {
     return Promise.resolve()
