@@ -132,9 +132,9 @@ const upsertCart = () => {
           }, 300)
         })
       : queueUpdateCart(tryRequestApi)
-    } else {
-      return Promise.resolve()
-    }
+  } else {
+    return Promise.resolve()
+  }
 }
 
 export { fetchCart, fetchingCartId, upsertCart }
