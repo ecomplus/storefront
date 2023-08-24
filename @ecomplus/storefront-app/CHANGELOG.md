@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.181](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.180...@ecomplus/storefront-app@2.0.0-beta.181) (2023-08-24)
+
+### Bug Fixes
+
+- **app/checkout:** prevent saving uncompleted on confirmation route ([#943](https://github.com/ecomplus/storefront/issues/943)) ([d88825c](https://github.com/ecomplus/storefront/commit/d88825c921c1e8c97cc3085bb66a28d3c0ffc8c3))
+
 # [2.0.0-beta.180](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.179...@ecomplus/storefront-app@2.0.0-beta.180) (2023-07-21)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

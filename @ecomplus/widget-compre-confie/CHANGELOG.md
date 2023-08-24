@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-compre-confie@1.2.1...@ecomplus/widget-compre-confie@1.2.2) (2023-08-24)
+
+### Bug Fixes
+
+- **widget-compre-confie:** set birthdate params if day & month & year set only ([#938](https://github.com/ecomplus/storefront/issues/938)) ([33a767e](https://github.com/ecomplus/storefront/commit/33a767e1363fc6ff39df53b3cff26438d713f920))
+- **widget-compre-confie:** update to new script for acquired company ([#936](https://github.com/ecomplus/storefront/issues/936)) ([06dcb63](https://github.com/ecomplus/storefront/commit/06dcb63f659ab283e71f0fa3d558a6419de20e99))
+
 ## [1.2.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-compre-confie@1.2.0...@ecomplus/widget-compre-confie@1.2.1) (2023-01-09)
 
 ### Bug Fixes

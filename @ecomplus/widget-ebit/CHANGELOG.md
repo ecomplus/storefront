@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-ebit@1.2.1...@ecomplus/widget-ebit@1.2.2) (2023-08-24)
+
+### Bug Fixes
+
+- **widget-ebit:** set birthdate params if day & month & year set only ([#939](https://github.com/ecomplus/storefront/issues/939)) ([cb10377](https://github.com/ecomplus/storefront/commit/cb1037717d31f4abd21f66fb39f8e08376a04011))
+
 ## [1.2.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-ebit@1.2.0...@ecomplus/widget-ebit@1.2.1) (2023-01-09)
 
 ### Bug Fixes

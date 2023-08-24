@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.160](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.159...@ecomplus/storefront-components@1.0.0-beta.160) (2023-08-24)
+
+### Bug Fixes
+
+- **components/product-card:** minor a11y fix ([4ba68cc](https://github.com/ecomplus/storefront/commit/4ba68cc7326c6c74d3678fd405c6fc69a012be27))
+- **components/product:** parse url params to string on history state ([#942](https://github.com/ecomplus/storefront/issues/942)) ([89a1ece](https://github.com/ecomplus/storefront/commit/89a1ece2ad1ea557ed07fc6b58b9c55fff26f7f7))
+
+### Performance Improvements
+
+- **components/product-gallery:** lazy loading product video iframes ([#937](https://github.com/ecomplus/storefront/issues/937)) ([5226040](https://github.com/ecomplus/storefront/commit/5226040b7616806148c81a45fdfdde89450369da))
+
 # [1.0.0-beta.159](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.158...@ecomplus/storefront-components@1.0.0-beta.159) (2023-07-21)
 
 **Note:** Version bump only for package @ecomplus/storefront-components
