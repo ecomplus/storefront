@@ -83,7 +83,7 @@ const prepareCart = cart => {
   } else {
     url = '/carts.json'
     method = 'POST'
-    if (router && router.currentRoute && router.currentRoute.name === 'confirmation' && completed === undefined) {
+    if (router.currentRoute.name === 'confirmation' && !completed) {
       return {}
     }
   }
