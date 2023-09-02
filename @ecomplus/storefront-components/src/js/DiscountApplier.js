@@ -153,13 +153,19 @@ export default {
         })
         if (extraDiscountValue) {
           if (this.localCouponCode) {
-            this.$emit('update:coupon-code', this.localCouponCode)
-            this.alertText = this.i19couponAppliedMsg
+            if (invalidCouponMsg) {
+              this.alertText = invalidCouponMsg
+              this.alertVariant = invalidAlertVariant || 'warning'
+            } else {
+              this.$emit('update:coupon-code', this.localCouponCode)
+              this.alertText = this.i19couponAppliedMsg
+              this.alertVariant = 'info'
+            }
           } else {
             this.alertText = this.i19campaignAppliedMsg
+            this.alertVariant = 'info'
           }
           this.$emit('set-discount-rule', discountRule)
-          this.alertVariant = 'info'
         } else {
           if (this.localCouponCode) {
             this.alertText = invalidCouponMsg || this.i19invalidCouponMsg
