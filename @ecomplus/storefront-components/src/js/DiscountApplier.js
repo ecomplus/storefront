@@ -139,12 +139,13 @@ export default {
                   ...appDiscountRule
                 }
               }
-            } else if (response.invalid_coupon_message) {
-              invalidCouponMsg = response.invalid_coupon_message
             } else if (response.available_extra_discount && response.available_extra_discount.min_amount) {
               invalidCouponMsg = this.i19add$1ToGetDiscountMsg
                 .replace('$1', formatMoney(response.available_extra_discount.min_amount - this.amount.subtotal))
               invalidAlertVariant = 'info'
+            }
+            if (response.invalid_coupon_message) {
+              invalidCouponMsg = response.invalid_coupon_message
             }
             if (this.canAddFreebieItems) {
               addFreebieItems(this.ecomCart, response.freebie_product_ids)
