@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.161](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.160...@ecomplus/storefront-components@1.0.0-beta.161) (2023-09-06)
+
+### Bug Fixes
+
+- **components/discount-applier:** ensure invalid coupon msg is shown when returned ([3fe2cd6](https://github.com/ecomplus/storefront/commit/3fe2cd648422c0c6757a925294e8bbb0f691f4e6))
+- **components/discount-applier:** handle discount applied by other rule and invalid coupon ([5b4083d](https://github.com/ecomplus/storefront/commit/5b4083d303d05d7d9709ecca852ac39bc1e5b8fc))
+- **components/discount-applier:** remove old freebies previously added and no more valid ([cf5d6fd](https://github.com/ecomplus/storefront/commit/cf5d6fd157b38747f13f2b6c4ce46aee757bc80f))
+
+### Features
+
+- **components/discount-applier:** supporting multiple disount apps ([f7513b7](https://github.com/ecomplus/storefront/commit/f7513b73b7d96655cef1a456331d2be716a50597))
+
 # [1.0.0-beta.160](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.159...@ecomplus/storefront-components@1.0.0-beta.160) (2023-08-24)
 
 ### Bug Fixes

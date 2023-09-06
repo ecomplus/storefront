@@ -7,7 +7,7 @@
   ],
   "private": true,
   "name": "@ecomplus/storefront-starter",
-  "version": "2.0.0-starter.80",
+  "version": "2.0.0-starter.81",
   "description": "PWA and JAMstack based e-commerce template for E-Com Plus stores",
   "main": "template/js/index.js",
   "scripts": {
@@ -37,6 +37,6 @@
     "url": "git+https://github.com/ecomplus/storefront-starter.git"
   },
   "dependencies": {
-    "@ecomplus/storefront-template": "^2.0.0-beta.240"
+    "@ecomplus/storefront-template": "^2.0.0-beta.241"
   }
 }
