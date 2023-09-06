@@ -231,7 +231,7 @@ const getters = {
 
   discountCoupon: ({ discountCoupon }) => discountCoupon,
 
-  discountRule: ({ discountRule }) => discountRule.app_id ? discountRule : undefined,
+  discountRule: ({ discountRule }) => discountRule.extra_discount ? discountRule : undefined,
 
   shippingZipCode: ({ shippingService }) => {
     if (shippingService.shipping_line) {
@@ -258,14 +258,14 @@ const mutations = {
   },
 
   setDiscountCoupon (state, discountCoupon) {
-    if (discountCoupon && state.discountRule.app_id) {
+    if (discountCoupon && state.discountRule.extra_discount) {
       persistDiscountCoupon(discountCoupon)
     }
     state.discountCoupon = discountCoupon || ''
   },
 
   setDiscountRule (state, discountRule) {
-    if (state.discountCoupon && discountRule.app_id) {
+    if (state.discountCoupon && discountRule.extra_discount) {
       persistDiscountCoupon(state.discountCoupon)
     }
     state.discountRule = discountRule || {}
