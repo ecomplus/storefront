@@ -19,6 +19,11 @@ import AAlert from '../AAlert.vue'
 
 const addFreebieItems = (ecomCart, productIds) => {
   if (Array.isArray(productIds)) {
+    ecomCart.data.items.forEach(({ _id, product_id: productId, flags }) => {
+      if (flags && flags.includes('freebie') && !productIds.includes(productId)) {
+        ecomCart.removeItem(_id)
+      }
+    })
     productIds.forEach(productId => {
       const canAddFreebie = !ecomCart.data.items.find(item => {
         return item.product_id === productId && item.flags && item.flags.includes('freebie')
