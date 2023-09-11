@@ -83,6 +83,12 @@ export default () => ({
           required: true
         },
         {
+          label: 'Web ID',
+          name: 'martanWedId',
+          widget: 'string',
+          required: true
+        },
+        {
           label: 'Exibir reviews na página de produtos',
           hint: 'Instalar avaliações de produtos',
           name: 'showWidgetReviews',
