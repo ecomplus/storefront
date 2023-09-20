@@ -79,7 +79,8 @@ export default {
       alert: {
         bin: false,
         date: false,
-        cvv: false
+        cvv: false,
+        doc: false
       },
       isNumberValidated: false,
       isNumberPotentiallyValid: false,
@@ -162,6 +163,10 @@ export default {
     validateCvv () {
       return cardValidator
         .cvv(this.card.cvv, this.activeBrand !== 'american-express' ? 3 : 4).isValid
+    },
+
+    validateDoc () {
+      return this.card.doc.length > 10
     },
 
     updateInstallmentList () {
@@ -270,7 +275,10 @@ export default {
       alert.bin = !this.isNumberPotentiallyValid
       alert.date = !this.validateDate()
       alert.cvv = !this.validateCvv()
-      if (!alert.bin && !alert.date && !alert.cvv) {
+      if (!this.canHideHolderFields) {
+        alert.doc = !this.validateDoc()
+      }
+      if ((this.canHideHolderFields && !alert.bin && !alert.date && !alert.cvv) || (!this.canHideHolderFields && !alert.bin && !alert.date && !alert.cvv && !alert.doc)) {
         const $form = this.$el
         if ($form.checkValidity() && this.validateDate() && this.validateCvv()) {
           if (this.jsClient) {

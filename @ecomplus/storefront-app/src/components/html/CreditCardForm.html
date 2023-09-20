@@ -113,6 +113,7 @@
         <input-date
           id="credit-card-birth"
           v-model="card.birth"
+          required
         />
       </div>
 
@@ -123,7 +124,10 @@
         <input-doc-number
           id="credit-card-doc"
           :is-company="isCompany"
+          :class="alert.doc ? 'is-invalid': null"
+          @blur="() => { alert.doc = card.doc && !validateDoc() }"
           v-model="card.doc"
+          required
         />
       </div>
     </div>
