@@ -52,7 +52,13 @@ export default {
     installmentOptions: Array,
     gatewayOptions: Array,
     jsClient: Object,
-    jsClientLoad: Promise
+    jsClientLoad: Promise,
+    isPayerDocRequired: {
+      type: Boolean,
+      default () {
+        return window.ecomCreditCardDocRequired === true
+      }
+    }
   },
 
   data () {

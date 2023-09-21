@@ -113,6 +113,7 @@
         <input-date
           id="credit-card-birth"
           v-model="card.birth"
+          :required="isPayerDocRequired"
         />
       </div>
 
@@ -124,6 +125,7 @@
           id="credit-card-doc"
           :is-company="isCompany"
           v-model="card.doc"
+          :required="isPayerDocRequired"
         />
       </div>
     </div>
