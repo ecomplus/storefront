@@ -51,6 +51,7 @@ export default {
     isCompany: Boolean,
     installmentOptions: Array,
     gatewayOptions: Array,
+    gatewayOptionsLabel: String,
     jsClient: Object,
     jsClientLoad: Promise,
     isPayerDocRequired: {

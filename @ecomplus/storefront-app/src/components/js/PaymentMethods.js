@@ -2,6 +2,7 @@ import {
   i19anyPaymentMethodMsg,
   i19changePaymentMethod,
   i19checkout,
+  i19chooseSubscriptionPeriod,
   i19generateBillet,
   i19interestFree,
   i19ofDiscount,
@@ -90,6 +91,7 @@ export default {
   computed: {
     i19anyPaymentMethodMsg: () => i18n(i19anyPaymentMethodMsg),
     i19changePaymentMethod: () => i18n(i19changePaymentMethod),
+    i19chooseSubscriptionPeriod: () => i18n(i19chooseSubscriptionPeriod),
     i19checkout: () => i18n(i19checkout),
     i19generateBillet: () => i18n(i19generateBillet),
     i19interestFree: () => i18n(i19interestFree),

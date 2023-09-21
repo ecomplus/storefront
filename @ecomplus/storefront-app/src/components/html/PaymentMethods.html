@@ -138,6 +138,7 @@
             <credit-card-form
               v-if="shouldUseCardForm"
               :gateway-options="cardFormGatewayOptions"
+              :gateway-options-label="i19chooseSubscriptionPeriod"
               @select-gateway="onCardFormSelectGateway"
               :amount="amount"
               :check-holder="customerName"

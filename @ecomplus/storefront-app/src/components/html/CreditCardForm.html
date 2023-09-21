@@ -24,11 +24,22 @@
     v-if="gatewayOptions && gatewayOptions.length"
     class="form-group"
   >
+    <label
+      v-if="gatewayOptionsLabel"
+      for="credit-card-gateway"
+    >
+      {{ gatewayOptionsLabel }}
+    </label>
     <select
       class="custom-select"
       id="credit-card-gateway"
       @change="ev => $emit('select-gateway', gatewayOptions[ev.target.value])"
+      required
     >
+      <option
+        v-if="gatewayOptionsLabel"
+        value=""
+      >--</option>
       <option
         v-for="({ label }, i) in gatewayOptions"
         :value="i"
