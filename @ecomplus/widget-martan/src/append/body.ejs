@@ -1,7 +1,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
     const scriptUrl =
-      "<%- options.widgetSrc || 'https://unpkg.com/@martan-app/widgets-js@1.1.4/dist/martan.umd.js' %>"
+      "<%- options.widgetSrc || 'https://unpkg.com/@martan-app/widgets-js@1.1.5/dist/martan.umd.js' %>"
     const page = "<%- _.route.resource %>"
 
     const startWidget = () => {
@@ -23,7 +23,6 @@
       const martan = new window.Martan({
         storeId: parseInt(storeId, 10),
         widgetKey,
-        sandbox: true,
         webId,
       })
 
