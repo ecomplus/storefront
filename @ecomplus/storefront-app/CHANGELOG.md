@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.183](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.182...@ecomplus/storefront-app@2.0.0-beta.183) (2023-09-21)
+
+### Features
+
+- **app/checkout:** update <CreditCardForm> with new opt prop `isPayerDocRequired` ([f62d234](https://github.com/ecomplus/storefront/commit/f62d234c131566c3467b6bb2f31082d97d302988))
+
 # [2.0.0-beta.182](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.181...@ecomplus/storefront-app@2.0.0-beta.182) (2023-09-06)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
