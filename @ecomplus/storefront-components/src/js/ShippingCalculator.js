@@ -154,7 +154,7 @@ export default {
           if (!validated || error) {
             return
           }
-          if (this.skipAppIds && this.skipAppIds.includes(appResult.app_id)) {
+          if (this.skipAppIds && this.skipAppIds.includes(appResult.app_id) && (shippingResult.length !== 1)) {
             return
           }
           response.shipping_services.forEach(service => {
