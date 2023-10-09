@@ -154,7 +154,11 @@ export default {
           if (!validated || error) {
             return
           }
-          if (this.skipAppIds && this.skipAppIds.includes(appResult.app_id)) {
+          if (
+            this.skipAppIds &&
+            this.skipAppIds.includes(appResult.app_id) &&
+            shippingResult.filter(({ app_id: appId }) => !this.skipAppIds.includes(appId)).length
+          ) {
             return
           }
           response.shipping_services.forEach(service => {
