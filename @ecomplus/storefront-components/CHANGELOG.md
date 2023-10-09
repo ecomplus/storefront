@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.162](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.161...@ecomplus/storefront-components@1.0.0-beta.162) (2023-10-09)
+
+### Bug Fixes
+
+- **components/shipping-calculator:** avoid skipping all shipping methods ([#953](https://github.com/ecomplus/storefront/issues/953)) ([313d121](https://github.com/ecomplus/storefront/commit/313d12102a7843805a5687217cc4b8e9f402289f))
+
 # [1.0.0-beta.161](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.160...@ecomplus/storefront-components@1.0.0-beta.161) (2023-09-06)
 
 ### Bug Fixes

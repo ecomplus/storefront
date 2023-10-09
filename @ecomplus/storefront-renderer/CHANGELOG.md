@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.10.11...@ecomplus/storefront-renderer@2.11.0) (2023-10-09)
+
+### Features
+
+- **renderer/ejs:** add `_.axios` to global EJS data ([4ef96b5](https://github.com/ecomplus/storefront/commit/4ef96b51683e66fea6b4c4460f31f5c66d529e8a))
+
 ## [2.10.11](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.10.10...@ecomplus/storefront-renderer@2.10.11) (2023-09-21)
 
 **Note:** Version bump only for package @ecomplus/storefront-renderer

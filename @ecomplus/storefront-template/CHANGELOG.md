@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.243](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.242...@ecomplus/storefront-template@2.0.0-beta.243) (2023-10-09)
+
+### Bug Fixes
+
+- **template/product:** ensure product image with full width ([#954](https://github.com/ecomplus/storefront/issues/954)) ([7a27436](https://github.com/ecomplus/storefront/commit/7a274366b9fd3a12658c376bec2af51363c2ac91))
+
 # [2.0.0-beta.242](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.241...@ecomplus/storefront-template@2.0.0-beta.242) (2023-09-21)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
