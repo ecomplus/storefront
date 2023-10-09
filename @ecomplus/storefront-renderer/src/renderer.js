@@ -4,6 +4,7 @@ const path = require('path')
 const paths = require('./lib/paths')
 const fs = require('fs')
 const ejs = require('ejs')
+const axios = require('axios')
 const ecomUtils = require('@ecomplus/utils')
 const ecomClient = require('@ecomplus/client')
 const StorefrontRouter = require('@ecomplus/storefront-router')
@@ -127,6 +128,7 @@ const tryImageSize = (src, fallbackDimensions = {}) => {
 // setup initial template data
 const data = {
   ...config,
+  axios,
   lodash,
   ecomUtils,
   ecomClient,
