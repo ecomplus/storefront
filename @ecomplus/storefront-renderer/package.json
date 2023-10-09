@@ -33,6 +33,6 @@
     "html-minifier": "^4.0.0",
     "image-size": "^1.0.2",
     "lodash": "^4.17.21",
-    "markdown-it": "^13.0.1"
+    "markdown-it": "^13.0.2"
   }
 }
