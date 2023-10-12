@@ -316,6 +316,12 @@ export default ({ baseDir }) => ({
       name: 'country_code',
       widget: 'hidden',
       default: 'BR'
+    },
+    {
+      label: 'Assets prefix',
+      name: 'assets_prefix',
+      widget: 'hidden',
+      required: false
     }
   ]
 })
