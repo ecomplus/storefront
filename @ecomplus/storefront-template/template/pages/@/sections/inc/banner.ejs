@@ -34,7 +34,7 @@ if (opt.img) {
           class="img-fluid"
         <% } else { %>
           class="lozad fade img-fluid"
-          data-iesrc="<%= opt.img.replace('.webp', '.png') %>"
+          data-iesrc="<%= _.assetsPrefix || '' %><%= opt.img.replace('.webp', '.png') %>"
           data-alt="<%= opt.alt %>"
         <% } %>
         <% if (!opt.height_auto && width) { %>
@@ -57,7 +57,7 @@ if (opt.img) {
         <% }) %>
         <% if (opt.sync_load) { %>
           <img
-            src="<%= opt.img.replace('.webp', '.png') %>"
+            src="<%= _.assetsPrefix || '' %><%= opt.img.replace('.webp', '.png') %>"
             alt="<%= opt.alt %>"
             <% if (width) { %>
               width="<%= width %>"

@@ -1,7 +1,7 @@
 <%
 // store logo object
 const logo = _.settings.logo
-  ? { url: _.settings.logo, alt: _.settings.name }
+  ? { url: (_.assetsPrefix || '') + _.settings.logo, alt: _.settings.name }
   : _.store.logo
   
 if (logo && logo.url) {
