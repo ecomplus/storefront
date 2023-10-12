@@ -21,7 +21,8 @@ const {
   primaryColor,
   secondaryColor,
   templatePkg,
-  componentsPkg
+  componentsPkg,
+  assetsPrefix
 } = require('./lib/config')
 
 // check for custom service worker file
@@ -143,7 +144,7 @@ let config = {
   entry,
   output: {
     path: paths.output,
-    publicPath: '/',
+    publicPath: `${assetsPrefix}/`,
     filename: devMode ? '[name].js' : `${filenameSchema}.js`,
     chunkFilename: 'chunk.[contenthash].js'
   },
