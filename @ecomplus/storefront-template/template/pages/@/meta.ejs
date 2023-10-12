@@ -125,6 +125,10 @@ if (pathname) {
   }
   %>
 
+  <% if (_.assetsPrefix) { %>
+    <link rel="preconnect" href="<%= _.assetsPrefix || '' %>/" crossorigin>
+    <link rel="dns-prefetch" href="<%= _.assetsPrefix || '' %>/">
+  <% } %>
   <link rel="preconnect" href="https://cdn.jsdelivr.net/" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net/">
   <% if (resource) { %>
