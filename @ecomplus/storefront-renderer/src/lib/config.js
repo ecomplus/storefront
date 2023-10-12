@@ -26,6 +26,11 @@ if (typeof storeId === 'string') {
 const templatePkg = process.env.STOREFRONT_TEMPLATE || '@ecomplus/storefront-template'
 const componentsPkg = process.env.STOREFRONT_COMPONENTS || '@ecomplus/storefront-components'
 
+// https://cdn.example.com
+const assetsPrefix = devMode
+  ? ''
+  : process.env.STOREFRONT_ASSETS || settings.assets_prefix || ''
+
 module.exports = {
   devMode,
   settings,
@@ -34,5 +39,6 @@ module.exports = {
   primaryColor,
   secondaryColor,
   templatePkg,
-  componentsPkg
+  componentsPkg,
+  assetsPrefix
 }
