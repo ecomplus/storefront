@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.245](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.244...@ecomplus/storefront-template@2.0.0-beta.245) (2023-10-12)
+
+### Bug Fixes
+
+- **template/banners:** ensure assets prefix (when set) on banner picture srcset ([3545dff](https://github.com/ecomplus/storefront/commit/3545dff9c02a06c5d31a7838e45693b0f1396064))
+- **template/cms:** add optional hidden field `assets_prefix` to cms settings ([030f1db](https://github.com/ecomplus/storefront/commit/030f1db7cbee0f580e27735eeaf45d19dbc83491))
+- **template/head:** properly add asset prefix (when set) to link preloads and stylesheet ([98f6664](https://github.com/ecomplus/storefront/commit/98f666473706a5aabcc8d9de45ca0e93b5026d9b))
+
+### Performance Improvements
+
+- **template/meta:** link preconnect and dns-prefetch when external cdn used with assets prefix ([d322994](https://github.com/ecomplus/storefront/commit/d3229943c021a138101e0fbbf1988c3537802d0c))
+
 # [2.0.0-beta.244](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.243...@ecomplus/storefront-template@2.0.0-beta.244) (2023-10-12)
 
 ### Features

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.20.27](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.26...@ecomplus/storefront-framework@5.20.27) (2023-10-12)
+
+### Bug Fixes
+
+- **framework/webpack:** set assets prefix on `output.publicPath` config ([a7bc160](https://github.com/ecomplus/storefront/commit/a7bc160a9cd783cc09ae319dbc8fce4630b6a01e))
+
 ## [5.20.26](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.25...@ecomplus/storefront-framework@5.20.26) (2023-10-12)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework
