@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.244](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.243...@ecomplus/storefront-template@2.0.0-beta.244) (2023-10-12)
+
+### Features
+
+- **template/ejs:** supporting external assets cdn handling `_.assetsPrefix` ([fe18f22](https://github.com/ecomplus/storefront/commit/fe18f221e50cd9e469649c5232b71e3f6acbd1fc))
+
 # [2.0.0-beta.243](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.242...@ecomplus/storefront-template@2.0.0-beta.243) (2023-10-09)
 
 ### Bug Fixes
