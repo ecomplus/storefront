@@ -152,6 +152,12 @@ export default ({ baseDir, state }) => ({
           max_file_size: 300000
         }
       }
+    },
+    {
+      label: 'Mostrar marcas',
+      name: 'show_brands',
+      widget: 'boolean',
+      required: false,
     }
   ]
 })

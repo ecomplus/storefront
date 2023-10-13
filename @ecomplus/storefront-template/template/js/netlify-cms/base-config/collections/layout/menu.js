@@ -26,6 +26,12 @@ export default ({ baseDir, state }) => ({
       widget: 'boolean'
     },
     {
+      label: 'Mostrar marcas',
+      name: 'show_brands',
+      widget: 'boolean',
+      required: false,
+    },
+    {
       label: 'Mostrar telefone ou WhatsApp',
       name: 'phone_wpp',
       widget: 'boolean'

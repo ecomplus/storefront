@@ -26,5 +26,6 @@
   "desktop_megamenu": false,
   "search_input": true,
   "alphabetical_order_submenu": false,
-  "full_width_submenu": false
+  "full_width_submenu": false,
+  "show_brands": false
 }

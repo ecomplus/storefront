@@ -1,6 +1,7 @@
 {
   "sort_categories": [],
   "alphabetical_order": false,
+  "show_brands": false,
   "phone_wpp": true,
   "socials": true
 }
