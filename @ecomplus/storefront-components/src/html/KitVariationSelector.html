@@ -1,0 +1,78 @@
+<div class="product-kit-variation">
+  <div
+    class="glide"
+    ref="glide"
+  >
+      <div
+        class="glide__track"
+        data-glide-el="track"
+      >
+        <ul class="glide__slides product-kit-variation__list">
+          <li
+            v-for="(item, i) in localItems"
+            class="glide__slide"
+            :key="'slide-kit' + i"
+          >
+            <button v-if="items.length > min" @click="removeItemFromKit(activeIndex)" type="button" aria-label="Fechar" class="close"><i class="i-times-circle"></i></button>
+            <div class="product-kit-variation__item">
+              <div class="product-kit-variation__item-head">
+                <div class="product-kit-variation__picture">
+                  <a-picture
+                    class="gallery__big-image"
+                    :src="getImg(item, null, 'normal')"
+                  />
+                </div>
+                <div class="product-kit-variation__info">
+                  <h2>{{ getName(item) }}</h2>
+                  <b>Quantidade: 1 </b>
+                </div>
+              </div>
+
+              <slot
+                name="variations"
+              >
+                <product-variations
+                  :product="item"
+                  :selected-id.sync="selectedVariationId"
+                  :max-options-btns="maxOptionsBtns"
+                />
+                
+                <slot name="variations-info"/>
+              </slot>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="glide__pagination">
+        <span class="glide__pagination--current">{{ activeIndex + 1 }}</span>
+        <span class="glide__pagination--total">/ 3</span>
+      </div>
+  </div>
+  <div class="kit-variant-selector__actions">
+    <button @click="activeIndex++" class="btn btn-block btn-primary"><span>IR PARA O PRÓXIMO ITEM</span></button>
+    <button @click="activeIndex--" class="btn btn-block btn-outline-secondary">
+      <span>VOLTAR AO ITEM ANTERIOR</span>
+    </button>
+  </div>
+  <div
+    v-if="true"
+    class="product-kit-variation__buy"
+  >
+    <slot
+      name="buy"
+      v-bind="{ variationKit }"
+    >
+      <button
+        type="button"
+        class="btn btn-lg btn-primary my-3"
+        @click="buy"
+        :disabled="variationKit.length !== min"
+      >
+        <slot name="buy-button-content">
+          <i class="i-shopping-bag mr-1"></i>
+          Comprar
+        </slot>
+      </button>
+    </slot>
+  </div>
+</div>

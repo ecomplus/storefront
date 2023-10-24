@@ -9,7 +9,8 @@
     "https://json.schemastore.org/github-workflow": "/.github/workflows/**/*.yml"
   },
   "files.associations": {
-    "**/html/*.html": "vue-html"
+    "**/html/*.html": "vue-html",
+    "**/components/*.html": "vue-html"
   },
   "css.validate": false,
   "scss.validate": true
