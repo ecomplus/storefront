@@ -7,7 +7,7 @@
   "jsdelivr": "dist/public/storefront-twbs.var.min.js",
   "unpkg": "dist/public/storefront-twbs.var.min.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack",
+    "build": "cross-env NODE_ENV=production webpack && cross-env NODE_ENV=production BUILD_OUTPUT=cdn webpack",
     "serve": "webpack-dev-server"
   },
   "repository": {
