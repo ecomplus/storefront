@@ -1,5 +1,7 @@
 import { name, version } from './../package.json'
-import { i18n } from '@ecomplus/utils'
+import ecomUtils from '@ecomplus/utils'
+import ecomPassport from '@ecomplus/passport-client'
+import ecomCart from '@ecomplus/shopping-cart'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/'
@@ -9,6 +11,7 @@ import './plugins/toast'
 import './lib/credit-card'
 
 const { title } = document
+const { i18n } = ecomUtils
 router.afterEach(to => {
   let subtitle
   switch (to.name) {
@@ -54,6 +57,11 @@ window.storefrontApp = {
     }
   }
 }
+
+if (!window.ecomUtils) window.ecomUtils = ecomUtils
+if (!window.$ecomConfig) window.$ecomConfig = ecomUtils.$ecomConfig
+if (!window.ecomPassport) window.ecomPassport = ecomPassport
+if (!window.ecomCart) window.ecomCart = ecomCart
 
 new Vue({
   router,
