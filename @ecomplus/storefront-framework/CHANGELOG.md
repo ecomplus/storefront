@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.20.28](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.27...@ecomplus/storefront-framework@5.20.28) (2023-11-02)
+
+### Bug Fixes
+
+- **deps:** update dependency vue-loader to ^15.11.1 ([#960](https://github.com/ecomplus/storefront/issues/960)) ([ad641d2](https://github.com/ecomplus/storefront/commit/ad641d2b92306978f577b8341cf615ccd41710bc))
+
 ## [5.20.27](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.26...@ecomplus/storefront-framework@5.20.27) (2023-10-12)
 
 ### Bug Fixes

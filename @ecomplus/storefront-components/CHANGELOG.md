@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.163](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.162...@ecomplus/storefront-components@1.0.0-beta.163) (2023-11-02)
+
+### Bug Fixes
+
+- **components:** fixing generic input components regex patterns ([1ed8278](https://github.com/ecomplus/storefront/commit/1ed8278592cf8ca828d2d3f4ae35b9c02c1d5785))
+
 # [1.0.0-beta.162](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.161...@ecomplus/storefront-components@1.0.0-beta.162) (2023-10-09)
 
 ### Bug Fixes
