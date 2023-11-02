@@ -29,7 +29,8 @@ module.exports = {
     },
     output: {
       library: '__storefront_app',
-      libraryTarget: 'umd'
+      libraryTarget: 'umd',
+      globalObject: 'this'
     },
     resolve: {
       mainFields: ['module', 'browser', 'main'],
