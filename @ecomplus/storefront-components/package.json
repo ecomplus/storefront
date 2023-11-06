@@ -35,7 +35,7 @@
     "@brazilian-utils/brazilian-utils": "^1.0.0-rc.12",
     "@ecomplus/client": "^2.2.1",
     "@ecomplus/i18n": "^1.32.2",
-    "@ecomplus/passport-client": "^1.1.2",
+    "@ecomplus/passport-client": "^1.2.0",
     "@ecomplus/search-engine": "^2.6.1",
     "@ecomplus/shopping-cart": "^2.5.9",
     "@ecomplus/storefront-twbs": "^7.3.6",

@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-compre-confie#readme",
   "peerDependencies": {
-    "@ecomplus/passport-client": "^1.1.2",
+    "@ecomplus/passport-client": "^1.2.0",
     "@ecomplus/utils": "^1.4.1",
     "core-js": "3.x"
   },
