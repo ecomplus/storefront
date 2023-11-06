@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-compre-confie",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Storefront plugin for Compre & Confie",
   "main": "dist/widget-compre-confie.min.js",
   "module": "src/index.js",

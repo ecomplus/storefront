@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.187](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.186...@ecomplus/storefront-app@2.0.0-beta.187) (2023-11-06)
+
+### Bug Fixes
+
+- **app/checkout:** accept lp checkout without forced guest checkout ([75e69ae](https://github.com/ecomplus/storefront/commit/75e69ae0df393f25e5799d8fc09fe2d587965be7))
+- **deps:** update `@ecomplus/passport-client` to v1.2.1 ([23181c8](https://github.com/ecomplus/storefront/commit/23181c85c136e9dd8d54add7cf43186f6811dab2))
+
 # [2.0.0-beta.186](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.185...@ecomplus/storefront-app@2.0.0-beta.186) (2023-11-02)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
