@@ -49,6 +49,7 @@ const hasMegamenu = header.desktop_megamenu
 const isAlphabeticalOrderSubmenu = header.alphabetical_order_submenu
 const fullWidthSubmenu = header.full_width_submenu
 const isCentralizedLogo = header.centralized_logo
+const hasAllDepartments = header.menu_all_departments
 %>
 
 <div id="overlay" class="fade"></div>
@@ -268,6 +269,50 @@ const isCentralizedLogo = header.centralized_logo
       <% if (categories && categories.length) { %>
         <div class="d-none d-lg-block <%= isCategoriesNavFull ? 'col-12 order-lg-last' : 'col' %> header__nav-block">
           <nav class="header__nav<%= isCategoriesNavFull ? ' header__nav--full' : '' %>">
+            <% if (hasAllDepartments) { %>
+              <div class="d-inline-block">
+                <a 
+                  href="javascript:;"
+                  class="header__category"
+                  id="cd-all"
+                  onmouseover="toggleSubmenu('all', this)"
+                  onclick="toggleSubmenu('all', this)"
+                >
+                  <%= header.name_all_departments || _.dictionary('all') %>
+                </a>
+                <nav class="header__submenu header__submenu--full" id="s-all">
+                  <div class="row">
+                    <% _.categories.forEach(({ name, slug, parent, _id }) => { %>
+                      <% if (!parent) { 
+                        %>
+                        <div class="col-12 col-lg-<%- isCategoriesNavFull ? '2' : '4' %>">
+                          <a 
+                            id="sd-all-<%= _id %>" 
+                            href="/<%= slug %>"
+                          >
+                            <%= name %>
+                          </a>
+                        <% const subcategories = _.categories.filter(({ parent }) => parent && parent.slug === slug) %>
+                        <% if (subcategories.length) { %>
+                          <div id="header__submenu-<%= slug %>">
+                            <ul class="header__links">
+                              <% subcategories.forEach(subcategory => { %>
+                                <li>
+                                  <a id="td-all-<%= subcategory._id %>" class="header__submenu-subcategory" href="/<%= subcategory.slug %>">
+                                    <%= subcategory.name %>
+                                  </a>
+                                </li>
+                                <% }) %>
+                              </ul>
+                            </div>
+                          <% } %>
+                          </div>
+                        <% } %>
+                      <% }) %>
+                    </div>
+                  </nav>
+              </div>
+            <% } %>
             <% categories.forEach(({ slug, name, _id}) => { %>
               <% let $categoryLink %>
               <div class="d-inline-block">

@@ -142,6 +142,19 @@ export default ({ baseDir, state }) => ({
       required: false,
     },
     {
+      label: 'Mega menu todos departamentos',
+      name: 'menu_all_departments',
+      widget: 'boolean',
+      required: false,
+    },
+    {
+      label: 'Texto para todos departamentos',
+      name: 'name_all_departments',
+      widget: 'string',
+      required: false,
+      hint: 'Funciona em conjunto com a opção de mega menu para todos departamentos'
+    },
+    {
       label: 'Popup no scroll',
       hint: 'Imagem exibida em modal na primeira rolagem de página',
       required: false,
