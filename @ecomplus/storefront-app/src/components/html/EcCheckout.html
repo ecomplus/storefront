@@ -277,7 +277,7 @@
     </div>
 
     <div
-      v-else-if="!isUserIdentified"
+      v-else-if="!isUserIdentified && !isExternalAuth"
       key="login"
     >
       <slot name="login">
@@ -297,6 +297,10 @@
       <slot name="account">
         <p class="lead">
           {{ i18n('RegisterToBuy') }}:
+          <small v-if="isExternalAuth" class="d-block">
+            Já possui conta?
+            <a href="/app/account">Receber link de acesso por e-mail</a>
+          </small>
         </p>
 
         <account-form

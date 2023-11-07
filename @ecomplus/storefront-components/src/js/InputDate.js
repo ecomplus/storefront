@@ -36,15 +36,15 @@ export default {
     cleaveOptions () {
       return countryCode === 'BR'
         ? {
-          date: true,
-          delimiter: '/',
-          datePattern: ['d', 'm', 'Y']
-        }
+            date: true,
+            delimiter: '/',
+            datePattern: ['d', 'm', 'Y']
+          }
         : {
-          date: true,
-          delimiter: '-',
-          datePattern: ['Y', 'm', 'd']
-        }
+            date: true,
+            delimiter: '-',
+            datePattern: ['Y', 'm', 'd']
+          }
     }
   }
 }
