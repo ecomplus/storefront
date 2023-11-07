@@ -79,6 +79,7 @@ export default {
       }
     },
     customer: Object,
+    canPassManyDiscountApps: Boolean,
     ecomPassport: {
       type: Object,
       default () {
@@ -136,16 +137,27 @@ export default {
           if (validated && !error) {
             const appDiscountRule = response.discount_rule
             if (appDiscountRule) {
-              if (extraDiscountValue) {
-                appDiscountRule.extra_discount.value += extraDiscountValue
-                discountRule = appDiscountRule
-              } else {
-                discountRule = {
-                  app_id: appResult.app_id,
-                  ...appDiscountRule
+              if (!this.canPassManyDiscountApps) {
+                const discountRuleValue = appDiscountRule.extra_discount.value
+                if (!(extraDiscountValue > discountRuleValue)) {
+                  extraDiscountValue = discountRuleValue
+                  discountRule = {
+                    app_id: appResult.app_id,
+                    ...appDiscountRule
+                  }
                 }
+              } else {
+                if (extraDiscountValue) {
+                  appDiscountRule.extra_discount.value += extraDiscountValue
+                  discountRule = appDiscountRule
+                } else {
+                  discountRule = {
+                    app_id: appResult.app_id,
+                    ...appDiscountRule
+                  }
+                }
+                extraDiscountValue = appDiscountRule.extra_discount.value
               }
-              extraDiscountValue = appDiscountRule.extra_discount.value
             } else if (response.available_extra_discount && response.available_extra_discount.min_amount) {
               invalidCouponMsg = this.i19add$1ToGetDiscountMsg
                 .replace('$1', formatMoney(response.available_extra_discount.min_amount - this.amount.subtotal))
