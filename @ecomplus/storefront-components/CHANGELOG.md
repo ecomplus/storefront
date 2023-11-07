@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.166](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.165...@ecomplus/storefront-components@1.0.0-beta.166) (2023-11-07)
+
+### Bug Fixes
+
+- **components/discount-applier:** do not accumulate discount apps by default ([a638149](https://github.com/ecomplus/storefront/commit/a638149bc37f8f88bd6a693bc3745e67c450d5bd))
+
 # [1.0.0-beta.165](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.164...@ecomplus/storefront-components@1.0.0-beta.165) (2023-11-06)
 
 ### Bug Fixes
