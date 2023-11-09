@@ -369,6 +369,9 @@ const actions = {
       customer,
       notes: getters.notes
     }
+    if (customer.referral) {
+      checkoutBody.affiliate_code = customer.referral
+    }
     if (getters.discountRule) {
       checkoutBody.discount = {
         ...getters.discountRule,
