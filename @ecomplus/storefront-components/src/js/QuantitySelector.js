@@ -134,7 +134,6 @@ export default {
             variation_id: item.variation_id,
             quantity: this.selectedQnts[item._id]
           }))
-          console.log(composition)
           this.items.forEach(item => {
             const quantity = this.selectedQnts[item._id]
             if (quantity > 0) {
@@ -152,7 +151,6 @@ export default {
               if (this.slug) {
                 newItem.slug = this.slug
               }
-              console.log(newItem)
               items.push(newItem)
               if (this.canAddToCart) {
                 ecomCart.addItem(newItem)

@@ -52,7 +52,7 @@ import APicture from '../APicture.vue'
 import APrices from '../APrices.vue'
 import AShare from '../AShare.vue'
 import ProductVariations from '../ProductVariations.vue'
-import KitVariationSelector from '../KitVariationSelector.vue'
+import ProductKitVariations from '../ProductKitVariations.vue'
 import ProductGallery from '../ProductGallery.vue'
 import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
@@ -84,7 +84,7 @@ export default {
     APicture,
     APrices,
     AShare,
-    KitVariationSelector,
+    ProductKitVariations,
     ProductVariations,
     ProductGallery,
     QuantitySelector,
@@ -512,6 +512,40 @@ export default {
             })
             .catch(console.error)
         }
+        /* if (isKit && !this.kitItems.length) {
+          const kitComposition = this.body.kit_composition
+          const ecomSearch = new EcomSearch()
+          ecomSearch
+            .setPageSize(kitComposition.length)
+            .setProductIds(kitComposition.map(({ _id }) => _id))
+            .fetch(true)
+            .then(() => {
+              ecomSearch.getItems().forEach(product => {
+                const { quantity } = kitComposition.find(({ _id }) => _id === product._id)
+                const addKitItem = variationId => {
+                  const item = ecomCart.parseProduct(product, variationId, quantity)
+                  if (quantity) {
+                    item.min_quantity = item.max_quantity = quantity
+                  } else {
+                    item.quantity = 0
+                  }
+                  this.kitItems.push({
+                    ...item,
+                    _id: genRandomObjectId()
+                  })
+                }
+                if (product.variations) {
+                  product.variations.forEach(variation => {
+                    variation._id = genRandomObjectId()
+                    addKitItem(variation._id)
+                  })
+                } else {
+                  addKitItem()
+                }
+              })
+            })
+            .catch(console.error)
+        } */
       },
       immediate: true
     }

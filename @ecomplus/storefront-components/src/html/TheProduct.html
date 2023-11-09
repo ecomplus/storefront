@@ -204,7 +204,7 @@
                       <slot name="buy-button-content"/>
                     </template>
                   </quantity-selector>
-                  <kit-variation-selector
+                  <product-kit-variations
                     v-if="kitItems.length && kitHasVariations"
                     :items="kitItems"
                     :min="body.min_quantity"
@@ -218,7 +218,7 @@
                     <template #buy-button-content>
                       <slot name="buy-button-content"/>
                     </template>
-                  </kit-variation-selector>
+                  </product-kit-variations>
 
                 </transition>
 

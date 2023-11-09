@@ -1,13 +1,13 @@
 import {
   i19addToCart,
   i19close,
-  i19fullscreen,
-  i19openGallery,
   i19next,
   i19previous,
-  i19share,
-  i19video,
-  i19selectVariationMsg
+  i19quantity,
+  i19selectVariationMsg,
+  i19item,
+  i19minQuantity,
+  i19maxQuantity
 } from '@ecomplus/i18n'
 
 import {
@@ -25,7 +25,7 @@ import ALink from '../ALink.vue'
 import AAlert from '../AAlert.vue'
 
 export default {
-  name: 'KitVariationSelector',
+  name: 'ProductKitVariations',
 
   components: {
     ALink,
@@ -81,27 +81,30 @@ export default {
       activeIndex: 0,
       selectedVariationId: null,
       variationKit: [],
+      alertVariant: 'warning'
     }
   },
 
   computed: {
     i19addToCart: () => i18n(i19addToCart),
     i19close: () => i18n(i19close),
-    i19fullscreen: () => i18n(i19fullscreen),
     i19next: () => i18n(i19next),
     i19previous: () => i18n(i19previous),
-    i19openGallery: () => i18n(i19openGallery),
-    i19share: () => i18n(i19share),
-    i19video: () => i18n(i19video),
     i19selectVariationMsg: () => i18n(i19selectVariationMsg),
+    i19quantity: () => i18n(i19quantity),
+    i19item: () => i18n(i19item),
+    i19minQuantity: () => i18n(i19minQuantity),
+    i19maxQuantity: () => i18n(i19maxQuantity),
 
     localItems () {
       const products = []
-      for (let index = 0; index < this.min; index++) {
+      for (let index = 0; index < this.items.length; index++) {
         if (this.items && this.items.length === this.min) {
           products.push(this.items[index])
         } else {
-          products.push(this.items[0])
+          for (let i = 0; i < this.min; i++) {
+            products.push(this.items[index])
+          }
         }
       }
       return products
@@ -121,7 +124,8 @@ export default {
     },
 
     removeItemFromKit (index) {
-      delete this.variationKit[index]
+      this.variationKit.splice(index, 1)
+      this.selectedVariationId = null
     },
 
     buy () {
@@ -132,7 +136,16 @@ export default {
           const composition = []
           this.variationKit.forEach(variationId => {
             const product = this.items.find(item => {
-              return item.variations.some(variation => variation._id === variationId)
+              console.log(item)
+              const variation = item.variations.find(variation => variation._id === variationId)
+              if (variation) {
+                items.push({
+                  ...item,
+                  ...variation,
+                  variation_id: variation._id
+                })
+                return item
+              }
             })
             if (product) {
               composition.push({
@@ -143,12 +156,7 @@ export default {
             }
           })
 
-          const itemsToBuy = []
-          this.localItems.forEach(item => {
-            
-          })
-
-          this.localItems.forEach(item => {
+          items.forEach(item => {
             const newItem = { ...item, quantity: 1 }
             delete newItem.customizations
             if (this.kitProductId) {
@@ -163,7 +171,6 @@ export default {
             if (this.slug) {
               newItem.slug = this.slug
             }
-            items.push(newItem)
             if (this.canAddToCart) {
               ecomCart.addItem(newItem)
             }
@@ -176,7 +183,7 @@ export default {
 
   watch: {
     activeIndex (index, oldIndex) {
-      if (index < this.max && index > -1) {
+      if (index < this.localItems.length && index > -1) {
         this.moveSlider(index)
       } else {
         this.moveSlider(oldIndex)
@@ -184,7 +191,7 @@ export default {
     },
 
     selectedVariationId (current) {
-      if (current && this.activeIndex >= 0 && this.variationKit.length <= this.min) {
+      if (current && this.activeIndex >= 0 && this.variationKit.length < this.min) {
         this.variationKit[this.activeIndex] = current
       }
     }
