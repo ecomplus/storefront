@@ -148,7 +148,7 @@ export default ({ baseDir, state }) => ({
       required: false,
     },
     {
-      label: 'Texto para todos departamentos',
+      label: 'Título para todos departamentos',
       name: 'name_all_departments',
       widget: 'string',
       required: false,
