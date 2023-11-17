@@ -141,6 +141,14 @@ export default {
               : srcset.replace(/\.webp$/, ''),
             type: `image/${(srcset.substr(-9, 4) === '.png' ? 'png' : 'jpeg')}`
           })
+        } else if (srcset.endsWith('.avif')) {
+          sources.push({
+            srcset,
+            type: 'image/avif'
+          }, {
+            srcset: srcset.replace('.avif', '.webp'),
+            type: 'image/webp'
+          })
         } else {
           sources.push({ srcset })
         }
