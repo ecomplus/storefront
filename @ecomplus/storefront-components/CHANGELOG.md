@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.167](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.166...@ecomplus/storefront-components@1.0.0-beta.167) (2023-11-17)
+
+### Bug Fixes
+
+- **components/picture:** ensure fallback webp srcset for \*.avif pictures ([fb85283](https://github.com/ecomplus/storefront/commit/fb852835fa519c10439b0b88c43f73121508d7c9))
+
 # [1.0.0-beta.166](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.165...@ecomplus/storefront-components@1.0.0-beta.166) (2023-11-07)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.250](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.249...@ecomplus/storefront-template@2.0.0-beta.250) (2023-11-17)
+
+### Features
+
+- **template/cms:** new option for mega menu with all department on header ([#968](https://github.com/ecomplus/storefront/issues/968)) ([6c71fb6](https://github.com/ecomplus/storefront/commit/6c71fb6646c30e2ac8584d13d247f8569ce02a6b))
+
 # [2.0.0-beta.249](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.248...@ecomplus/storefront-template@2.0.0-beta.249) (2023-11-07)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
