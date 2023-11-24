@@ -136,7 +136,6 @@ export default {
           const composition = []
           this.variationKit.forEach(variationId => {
             const product = this.items.find(item => {
-              console.log(item)
               const variation = item.variations.find(variation => variation._id === variationId)
               if (variation) {
                 items.push({
@@ -188,10 +187,11 @@ export default {
       } else {
         this.moveSlider(oldIndex)
       }
+      this.selectedVariationId = null
     },
 
     selectedVariationId (current) {
-      if (current && this.activeIndex >= 0 && this.variationKit.length < this.min) {
+      if (current && this.activeIndex >= 0 && (this.variationKit.length < this.min || this.variationKit[this.activeIndex])) {
         this.variationKit[this.activeIndex] = current
       }
     }
@@ -209,9 +209,6 @@ export default {
   beforeDestroy () {
     if (this.glide) {
       this.glide.destroy()
-    }
-    if (this.pswp) {
-      this.pswp.destroy()
     }
   }
 }
