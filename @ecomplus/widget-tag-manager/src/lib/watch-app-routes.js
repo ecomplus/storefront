@@ -118,11 +118,25 @@ export default dataLayer => {
             try {
               const sessionShippingAddr = JSON.parse(window.sessionStorage
                 .getItem('ecomCustomerAddress'))
-              if (typeof shippingAddr === 'object' && shippingAddr) {
-                Object.assign(shippingAddr, sessionShippingAddr)
-              } else {
-                shippingAddr = sessionShippingAddr
+              const sessionCustomer = JSON.parse(window.sessionStorage
+                .getItem('ecomCustomerAccount'))
+
+              if (!extraPurchaseData.customerGivenName) {
+                if (sessionCustomer.name) {
+                  extraPurchaseData.customerGivenName = sessionCustomer.name.given_name
+                  extraPurchaseData.customerFamilyName = sessionCustomer.name.family_name
+                }
               }
+              if (!extraPurchaseData.customerEmail) {
+                extraPurchaseData.customerEmail = sessionCustomer.main_email
+              }
+              if (!extraPurchaseData.customerPhone) {
+                extraPurchaseData.customerPhone = getPhone(sessionCustomer)
+              }
+              
+              shippingAddr = typeof shippingAddr === 'object' && shippingAddr
+                ? { ...shippingAddr, ...sessionShippingAddr } 
+                : sessionShippingAddr;
             } catch {
             }
             if (shippingAddr && shippingAddr.zip) {
