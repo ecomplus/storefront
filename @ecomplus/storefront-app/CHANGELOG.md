@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.190](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.189...@ecomplus/storefront-app@2.0.0-beta.190) (2023-11-29)
+
+### Bug Fixes
+
+- **deps:** update all non-major dependencies ([#974](https://github.com/ecomplus/storefront/issues/974)) ([bd92f9e](https://github.com/ecomplus/storefront/commit/bd92f9e9494827dc428d7e86bed2c59614947dab))
+
+### Features
+
+- **app/checkout:** saving order affiliate code from customer referral ([#969](https://github.com/ecomplus/storefront/issues/969)) ([4c35054](https://github.com/ecomplus/storefront/commit/4c350544113405f068d6539d2cdd74fd77eb9e89))
+
 # [2.0.0-beta.189](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.188...@ecomplus/storefront-app@2.0.0-beta.189) (2023-11-17)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

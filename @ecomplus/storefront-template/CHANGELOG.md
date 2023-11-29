@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.251](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.250...@ecomplus/storefront-template@2.0.0-beta.251) (2023-11-29)
+
+### Bug Fixes
+
+- **deps:** update all non-major dependencies ([#974](https://github.com/ecomplus/storefront/issues/974)) ([bd92f9e](https://github.com/ecomplus/storefront/commit/bd92f9e9494827dc428d7e86bed2c59614947dab))
+
 # [2.0.0-beta.250](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.249...@ecomplus/storefront-template@2.0.0-beta.250) (2023-11-17)
 
 ### Features
