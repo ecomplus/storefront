@@ -46,7 +46,13 @@ export default {
     },
 
     isGuestCheckout () {
-      return this.isLpCheckout || this.checkoutMode === 'guest'
+      if (this.isLpCheckout) {
+        if (typeof window !== 'object' || window.ecomGuestCheckout === undefined) {
+          return true
+        }
+        return Boolean(window.ecomGuestCheckout)
+      }
+      return this.checkoutMode === 'guest'
     },
 
     customer: {

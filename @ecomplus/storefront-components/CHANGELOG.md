@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.167](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.166...@ecomplus/storefront-components@1.0.0-beta.167) (2023-11-17)
+
+### Bug Fixes
+
+- **components/picture:** ensure fallback webp srcset for \*.avif pictures ([fb85283](https://github.com/ecomplus/storefront/commit/fb852835fa519c10439b0b88c43f73121508d7c9))
+
+# [1.0.0-beta.166](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.165...@ecomplus/storefront-components@1.0.0-beta.166) (2023-11-07)
+
+### Bug Fixes
+
+- **components/discount-applier:** do not accumulate discount apps by default ([a638149](https://github.com/ecomplus/storefront/commit/a638149bc37f8f88bd6a693bc3745e67c450d5bd))
+
+# [1.0.0-beta.165](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.164...@ecomplus/storefront-components@1.0.0-beta.165) (2023-11-06)
+
+### Bug Fixes
+
+- **deps:** update `@ecomplus/passport-client` to v1.2.1 ([23181c8](https://github.com/ecomplus/storefront/commit/23181c85c136e9dd8d54add7cf43186f6811dab2))
+
+# [1.0.0-beta.164](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.163...@ecomplus/storefront-components@1.0.0-beta.164) (2023-11-02)
+
+**Note:** Version bump only for package @ecomplus/storefront-components
+
+# [1.0.0-beta.163](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.162...@ecomplus/storefront-components@1.0.0-beta.163) (2023-11-02)
+
+### Bug Fixes
+
+- **components:** fixing generic input components regex patterns ([1ed8278](https://github.com/ecomplus/storefront/commit/1ed8278592cf8ca828d2d3f4ae35b9c02c1d5785))
+
 # [1.0.0-beta.162](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.161...@ecomplus/storefront-components@1.0.0-beta.162) (2023-10-09)
 
 ### Bug Fixes

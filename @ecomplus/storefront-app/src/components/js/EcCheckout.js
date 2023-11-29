@@ -97,6 +97,12 @@ export default {
         return window.ecomGuestCheckout === true
       }
     },
+    isExternalAuth: {
+      type: Boolean,
+      default () {
+        return Boolean(window.$firebaseConfig && window.$firebaseConfig.authDomain)
+      }
+    },
     canRecommendItems: {
       type: Boolean,
       default: true
