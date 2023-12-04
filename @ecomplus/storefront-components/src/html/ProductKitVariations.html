@@ -9,11 +9,10 @@
       >
         <ul class="glide__slides product-kit-variation__list">
           <li
-            v-for="(item, i) in localItems"
+            v-for="(item, index) in localItems"
             class="glide__slide"
-            :key="'slide-kit' + i"
           >
-            <button v-if="selectedVariationId" @click="removeItemFromKit(activeIndex)" type="button" aria-label="Fechar" class="close"><i class="i-times-circle"></i></button>
+            <button v-if="variationKit[activeIndex]" @click="removeItemFromKit(activeIndex)" type="button" aria-label="Fechar" class="close"><i class="i-times-circle"></i></button>
             <div class="product-kit-variation__item">
               <div class="product-kit-variation__item-head">
                 <div class="product-kit-variation__picture">
@@ -32,11 +31,20 @@
                 name="variations"
               >
                 <product-variations
-                  disabled="variationKit.length === max"
+                  :key="item.key"
                   :product="item"
                   :selected-id.sync="selectedVariationId"
                   :max-options-btns="maxOptionsBtns"
+                  :class="variationKit[activeIndex] || variationKitReady.length !== max ? 'choose-variation' : 'not-choose-variation'"
                 />
+                <a-alert
+                  v-if="variationKitReady.length === max && !variationKit[activeIndex]"
+                  :can-show="variationKitReady.length === max"
+                  :variant="alertVariant"
+                >
+                  {{ i19maxQuantity }}:
+                  <strong>{{ max }}</strong>
+                </a-alert>
                 
                 <slot name="variations-info"/>
               </slot>
@@ -45,13 +53,6 @@
         </ul>
       </div>
 
-      <a-alert
-        :can-show="variationKit.length === max"
-        :variant="alertVariant"
-      >
-        {{ i19maxQuantity }}:
-        <strong>{{ max }}</strong>
-      </a-alert>
       <div class="glide__pagination">
         <span class="glide__pagination--current">{{ activeIndex + 1 }}</span>
         <span class="glide__pagination--total">/ {{ localItems.length }}</span>
@@ -74,7 +75,7 @@
         type="button"
         class="btn btn-lg btn-primary my-3"
         @click="buy"
-        :disabled="variationKit.length !== min"
+        :disabled="variationKitReady.length !== min"
       >
         <slot name="buy-button-content">
           <i class="i-shopping-bag mr-1"></i>

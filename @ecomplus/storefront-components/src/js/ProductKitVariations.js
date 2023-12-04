@@ -13,7 +13,8 @@ import {
 import {
   i18n,
   name as getName,
-  img as getImg
+  img as getImg,
+  randomObjectId as genRandomObjectId
 } from '@ecomplus/utils'
 
 import ecomCart from '@ecomplus/shopping-cart'
@@ -81,6 +82,7 @@ export default {
       activeIndex: 0,
       selectedVariationId: null,
       variationKit: [],
+      variationKitReady: [],
       alertVariant: 'warning'
     }
   },
@@ -100,10 +102,14 @@ export default {
       const products = []
       for (let index = 0; index < this.items.length; index++) {
         if (this.items && this.items.length === this.min) {
-          products.push(this.items[index])
+          const itemObject = Object.assign({}, this.items[index])
+          itemObject.key = genRandomObjectId()
+          products.push(itemObject)
         } else {
           for (let i = 0; i < this.min; i++) {
-            products.push(this.items[index])
+            const itemObject = Object.assign({}, this.items[index])
+            itemObject.key = genRandomObjectId()
+            products.push(itemObject)
           }
         }
       }
@@ -125,16 +131,18 @@ export default {
 
     removeItemFromKit (index) {
       this.variationKit.splice(index, 1)
+      this.localItems[index].key = genRandomObjectId()
       this.selectedVariationId = null
+      this.variationKitReady = this.variationKit.filter(n => n)
     },
 
     buy () {
       this.alertVariant = 'warning'
-      if (this.variationKit.length === this.min) {
-        if (this.max === undefined || this.variationKit.length <= this.max) {
+      if (this.variationKitReady.length === this.min) {
+        if (this.max === undefined || this.variationKitReady.length <= this.max) {
           const items = []
           const composition = []
-          this.variationKit.forEach(variationId => {
+          this.variationKitReady.forEach(variationId => {
             const product = this.items.find(item => {
               const variation = item.variations.find(variation => variation._id === variationId)
               if (variation) {
@@ -191,8 +199,9 @@ export default {
     },
 
     selectedVariationId (current) {
-      if (current && this.activeIndex >= 0 && (this.variationKit.length < this.min || this.variationKit[this.activeIndex])) {
+      if (current && this.activeIndex >= 0 && (this.variationKitReady.length < this.min || this.variationKit[this.activeIndex])) {
         this.variationKit[this.activeIndex] = current
+        this.variationKitReady = this.variationKit.filter(n => n)
       }
     }
   },
