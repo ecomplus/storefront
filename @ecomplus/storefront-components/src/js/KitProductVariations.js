@@ -26,7 +26,7 @@ import ALink from '../ALink.vue'
 import AAlert from '../AAlert.vue'
 
 export default {
-  name: 'ProductKitVariations',
+  name: 'KitProductVariations',
 
   components: {
     ALink,
@@ -56,10 +56,6 @@ export default {
     kitName: String,
     kitPrice: Number,
     canAddToCart: {
-      type: Boolean,
-      default: true
-    },
-    hasBuyButton: {
       type: Boolean,
       default: true
     },

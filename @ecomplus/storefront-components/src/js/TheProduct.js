@@ -512,40 +512,6 @@ export default {
             })
             .catch(console.error)
         }
-        /* if (isKit && !this.kitItems.length) {
-          const kitComposition = this.body.kit_composition
-          const ecomSearch = new EcomSearch()
-          ecomSearch
-            .setPageSize(kitComposition.length)
-            .setProductIds(kitComposition.map(({ _id }) => _id))
-            .fetch(true)
-            .then(() => {
-              ecomSearch.getItems().forEach(product => {
-                const { quantity } = kitComposition.find(({ _id }) => _id === product._id)
-                const addKitItem = variationId => {
-                  const item = ecomCart.parseProduct(product, variationId, quantity)
-                  if (quantity) {
-                    item.min_quantity = item.max_quantity = quantity
-                  } else {
-                    item.quantity = 0
-                  }
-                  this.kitItems.push({
-                    ...item,
-                    _id: genRandomObjectId()
-                  })
-                }
-                if (product.variations) {
-                  product.variations.forEach(variation => {
-                    variation._id = genRandomObjectId()
-                    addKitItem(variation._id)
-                  })
-                } else {
-                  addKitItem()
-                }
-              })
-            })
-            .catch(console.error)
-        } */
       },
       immediate: true
     }
