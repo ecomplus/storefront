@@ -12,7 +12,15 @@
             v-for="(item, index) in localItems"
             class="glide__slide"
           >
-            <button v-if="variationKit[activeIndex]" @click="removeItemFromKit(activeIndex)" type="button" aria-label="Fechar" class="close"><i class="i-times-circle"></i></button>
+            <button
+              v-if="variationKit[activeIndex]"
+              @click="removeItemFromKit(activeIndex)"
+              type="button"
+              :aria-label="i19close"
+              class="close"
+            >
+              <i class="i-times-circle"></i>
+            </button>
             <div class="product-kit-variation__item">
               <div class="product-kit-variation__item-head">
                 <div class="product-kit-variation__picture">
