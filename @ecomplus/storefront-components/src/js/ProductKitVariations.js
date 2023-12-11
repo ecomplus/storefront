@@ -72,8 +72,7 @@ export default {
           rewind: false
         }
       }
-    },
-    isSSR: Boolean
+    }
   },
 
   data () {
