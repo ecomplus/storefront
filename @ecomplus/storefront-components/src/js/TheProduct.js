@@ -52,7 +52,7 @@ import APicture from '../APicture.vue'
 import APrices from '../APrices.vue'
 import AShare from '../AShare.vue'
 import ProductVariations from '../ProductVariations.vue'
-import ProductKitVariations from '../ProductKitVariations.vue'
+import KitProductVariations from '../KitProductVariations.vue'
 import ProductGallery from '../ProductGallery.vue'
 import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
@@ -84,7 +84,7 @@ export default {
     APicture,
     APrices,
     AShare,
-    ProductKitVariations,
+    KitProductVariations,
     ProductVariations,
     ProductGallery,
     QuantitySelector,

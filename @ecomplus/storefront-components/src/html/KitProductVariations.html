@@ -1,4 +1,4 @@
-<div class="product-kit-variation">
+<div class="kit-product-variations">
   <div
     class="glide"
     ref="glide"
@@ -7,7 +7,7 @@
         class="glide__track"
         data-glide-el="track"
       >
-        <ul class="glide__slides product-kit-variation__list">
+        <ul class="glide__slides kit-product-variations__list">
           <li
             v-for="(item, index) in localItems"
             class="glide__slide"
@@ -21,15 +21,15 @@
             >
               <i class="i-times-circle"></i>
             </button>
-            <div class="product-kit-variation__item">
-              <div class="product-kit-variation__item-head">
-                <div class="product-kit-variation__picture">
+            <div class="kit-product-variations__item">
+              <div class="kit-product-variations__item-head">
+                <div class="kit-product-variations__picture">
                   <a-picture
                     class="gallery__big-image"
                     :src="getImg(item, null, 'normal')"
                   />
                 </div>
-                <div class="product-kit-variation__info">
+                <div class="kit-product-variations__info">
                   <h2>{{ getName(item) }}</h2>
                   <b>{{ i19quantity }}: 1 </b>
                 </div>
@@ -43,7 +43,7 @@
                   :product="item"
                   :selected-id.sync="selectedVariationId"
                   :max-options-btns="maxOptionsBtns"
-                  :class="variationKit[activeIndex] || variationKitReady.length !== max ? 'choose-variation' : 'not-choose-variation'"
+                  :class="variationKit[activeIndex] || variationKitReady.length !== max ? 'kit-product-variations--show' : 'kit-product-variations--hide'"
                 />
                 <a-alert
                   v-if="variationKitReady.length === max && !variationKit[activeIndex]"
@@ -66,14 +66,14 @@
         <span class="glide__pagination--total">/ {{ localItems.length }}</span>
       </div>
   </div>
-  <div class="product-kit-variation__actions">
+  <div class="kit-product-variations__actions">
     <button @click="activeIndex++" class="btn btn-block btn-primary"><span>{{ i19next }} {{ i19item }}</span></button>
     <button @click="activeIndex--" class="btn btn-block btn-outline-secondary">
       <span>{{ i19item }} {{ i19previous }}</span>
     </button>
   </div>
   <div
-    class="product-kit-variation__buy"
+    class="kit-product-variations__buy"
   >
     <slot
       name="buy"
