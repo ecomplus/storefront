@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.190](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.189...@ecomplus/storefront-app@2.0.0-beta.190) (2023-11-29)
+
+### Bug Fixes
+
+- **deps:** update all non-major dependencies ([#974](https://github.com/ecomplus/storefront/issues/974)) ([bd92f9e](https://github.com/ecomplus/storefront/commit/bd92f9e9494827dc428d7e86bed2c59614947dab))
+
+### Features
+
+- **app/checkout:** saving order affiliate code from customer referral ([#969](https://github.com/ecomplus/storefront/issues/969)) ([4c35054](https://github.com/ecomplus/storefront/commit/4c350544113405f068d6539d2cdd74fd77eb9e89))
+
+# [2.0.0-beta.189](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.188...@ecomplus/storefront-app@2.0.0-beta.189) (2023-11-17)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+# [2.0.0-beta.188](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.187...@ecomplus/storefront-app@2.0.0-beta.188) (2023-11-07)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+# [2.0.0-beta.187](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.186...@ecomplus/storefront-app@2.0.0-beta.187) (2023-11-06)
+
+### Bug Fixes
+
+- **app/checkout:** accept lp checkout without forced guest checkout ([75e69ae](https://github.com/ecomplus/storefront/commit/75e69ae0df393f25e5799d8fc09fe2d587965be7))
+- **deps:** update `@ecomplus/passport-client` to v1.2.1 ([23181c8](https://github.com/ecomplus/storefront/commit/23181c85c136e9dd8d54add7cf43186f6811dab2))
+
+# [2.0.0-beta.186](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.185...@ecomplus/storefront-app@2.0.0-beta.186) (2023-11-02)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
+# [2.0.0-beta.185](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.184...@ecomplus/storefront-app@2.0.0-beta.185) (2023-11-02)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
 # [2.0.0-beta.184](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.183...@ecomplus/storefront-app@2.0.0-beta.184) (2023-10-09)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

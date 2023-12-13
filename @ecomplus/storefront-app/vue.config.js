@@ -29,7 +29,8 @@ module.exports = {
     },
     output: {
       library: '__storefront_app',
-      libraryTarget: 'umd'
+      libraryTarget: 'umd',
+      globalObject: 'this'
     },
     resolve: {
       mainFields: ['module', 'browser', 'main'],
@@ -45,17 +46,6 @@ module.exports = {
   filenameHashing: !libMode,
 
   chainWebpack: config => {
-    if (libMode) {
-      // exclude all imported deps on lib mode by default
-      config.externals([{
-        '@ecomplus/utils': {
-          commonjs: '@ecomplus/utils',
-          commonjs2: '@ecomplus/utils',
-          root: 'ecomUtils'
-        }
-      }])
-    }
-
     // HTML file from template to load global vars and styles
     config
       .plugin('html')

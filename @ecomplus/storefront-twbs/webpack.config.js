@@ -1,5 +1,6 @@
 'use strict'
 
+const { version } = require('./package.json')
 const devMode = process.env.NODE_ENV !== 'production'
 const path = require('path')
 
@@ -10,6 +11,10 @@ const output = {
   libraryTarget: 'umd',
   path: path.resolve(__dirname, 'dist'),
   filename: 'storefront-twbs.bundle.min.js'
+}
+if (process.env.BUILD_OUTPUT === 'cdn') {
+  output.path = path.resolve(__dirname, 'dist/cdn')
+  output.publicPath = `https://cdn.jsdelivr.net/npm/@ecomplus/storefront-twbs@${version}/dist/cdn/`
 }
 
 const webpackConfig = {

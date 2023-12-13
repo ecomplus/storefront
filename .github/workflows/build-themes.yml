@@ -25,7 +25,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '14.x'
 
@@ -36,7 +36,7 @@ jobs:
         run: npm run themes:build
 
       - name: Push output CSS to custom branch
-        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           branch: themes-dist
           folder: dist/themes

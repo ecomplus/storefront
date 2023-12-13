@@ -133,6 +133,11 @@
     background: var(--primary-lightest);
   }
 
+  &__links {
+    list-style: none;
+    padding-left: 0;
+  }
+
   &__submenu {
     display: none;
     position: absolute;
