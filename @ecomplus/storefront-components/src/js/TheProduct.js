@@ -52,6 +52,7 @@ import APicture from '../APicture.vue'
 import APrices from '../APrices.vue'
 import AShare from '../AShare.vue'
 import ProductVariations from '../ProductVariations.vue'
+import KitProductVariations from '../KitProductVariations.vue'
 import ProductGallery from '../ProductGallery.vue'
 import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
@@ -83,6 +84,7 @@ export default {
     APicture,
     APrices,
     AShare,
+    KitProductVariations,
     ProductVariations,
     ProductGallery,
     QuantitySelector,
@@ -283,6 +285,10 @@ export default {
 
     isKit () {
       return this.body.kit_composition && this.body.kit_composition.length
+    },
+
+    isKitWithVariations () {
+      return this.kitItems.some(item => item.variations && item.variations.length)
     }
   },
 
@@ -501,14 +507,7 @@ export default {
                     _id: genRandomObjectId()
                   })
                 }
-                if (product.variations) {
-                  product.variations.forEach(variation => {
-                    variation._id = genRandomObjectId()
-                    addKitItem(variation._id)
-                  })
-                } else {
-                  addKitItem()
-                }
+                addKitItem()
               })
             })
             .catch(console.error)

@@ -190,7 +190,7 @@
               >
                 <transition enter-active-class="animated fadeInUp">
                   <quantity-selector
-                    v-if="kitItems.length"
+                    v-if="kitItems.length && !isKitWithVariations"
                     :items="kitItems"
                     :min="body.min_quantity"
                     :max="body.quantity"
@@ -204,6 +204,21 @@
                       <slot name="buy-button-content"/>
                     </template>
                   </quantity-selector>
+                  <kit-product-variations
+                    v-if="kitItems.length && isKitWithVariations"
+                    :items="kitItems"
+                    :min="body.min_quantity"
+                    :max="body.quantity"
+                    :slug="body.slug"
+                    :kit-product-id="body._id"
+                    :kit-name="name"
+                    :kit-price="fixedPrice"
+                    :max-options-btns="maxVariationOptionsBtns"
+                  >
+                    <template #buy-button-content>
+                      <slot name="buy-button-content"/>
+                    </template>
+                  </kit-product-variations>
                 </transition>
 
                 <span
