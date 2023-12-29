@@ -41,7 +41,7 @@
                   :product="item"
                   :selected-id.sync="selectedVariationId"
                   :max-options-btns="maxOptionsBtns"
-                  :class="variationKit[activeIndex] || variationKitReady.length !== max
+                  :class="variationKit[activeIndex] || variationKitReady.length < max
                     ? 'kit-product-variations--show'
                     : 'kit-product-variations--hide'"
                 />

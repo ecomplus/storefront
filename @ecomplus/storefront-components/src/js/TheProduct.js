@@ -287,7 +287,7 @@ export default {
       return this.body.kit_composition && this.body.kit_composition.length
     },
 
-    kitHasVariations () {
+    isKitWithVariations () {
       return this.kitItems.some(item => item.variations && item.variations.length)
     }
   },
