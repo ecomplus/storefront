@@ -2,11 +2,11 @@
   <div
     id="martan-rating__action"
     style="margin-bottom: 1rem"
-    onclick="typeof window.goToReviews === 'function' && window.goToReviews();"
   >
     <a
       class="martan-widget-rating"
       title="Pergunte e veja opiniões de quem já comprou"
+      href="#reviews"
     >
       <div
         data-martan-style="completed"
@@ -15,4 +15,6 @@
       ></div>
     </a>
   </div>
+
+  <div class="d-none" id="snippet_widget" data-sku="<%- _.state.sku %>" style="margin-bottom: 1rem;height:60px;"></div>
 </div>

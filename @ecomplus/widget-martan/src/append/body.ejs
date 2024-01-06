@@ -1,16 +1,18 @@
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
     const scriptUrl =
-      "<%- options.widgetSrc || 'https://unpkg.com/@martan-app/widgets-js@1.1.5/dist/martan.umd.js' %>"
+      "<%- options.widgetSrc || 'https://unpkg.com/@martan-app/widgets-js@1.1.8/dist/martan.umd.js' %>"
     const page = "<%- _.route.resource %>"
 
-    const startWidget = () => {
-      const color = "<%- options.settings.star_color || '#000' %>"
-      const fontSize = "<%- options.settings.font_size || 18 %>"
+    const isEnabled = "<%- options.widget_rating && options.widget_rating.is_enabled %>"
 
-      const storeId = "<%- options.martanStoreId %>"
-      const widgetKey = "<%- options.martanWidgetKey %>"
-      const webId = "<%- options.martanWebId %>"
+    const startWidget = () => {
+      const color = "<%- options.widget_rating && options.widget_rating.star_color || '#000' %>"
+      const fontSize = "<%- options.widget_rating && options.widget_rating.font_size || 14 %>"
+
+      const storeId = "<%- options.store_id %>"
+      const widgetKey = "<%- options.widget_key %>"
+      const webId = "<%- options.web_id %>"
 
       const $reviewsTarget =
         "<%- options.martanReviewsTarget || 'reviews_widget' %>"
@@ -24,52 +26,30 @@
         storeId: parseInt(storeId, 10),
         widgetKey,
         webId,
+        sandbox: true
       })
 
       setTimeout(() => {
         try {
-          martan
-            .average({
-              fontSize,
-              color,
-            })
-            .start()
-        } catch (error) {}
-      }, 500)
-
-      let retrys = 0
-      function loadWidgetForReviews() {
-        if (document.getElementById($reviewsTarget) && martan) {
-          try {
-            martan.reviews($reviewsTarget).start()
-          } catch (error) {
-            console.error("Can't setup review widget: ", error)
+          if (isEnabled) {
+            martan
+              .average({
+                fontSize,
+                color,
+              })
+              .start()
           }
-        } else {
-          if (retrys <= 3) {
-            setTimeout(() => loadWidgetForReviews(), 100)
-          }
-        }
-
-        return
-      }
-
-      if (page === "products") {
-        loadWidgetForReviews()
-        window.goToReviews = function () {
-          const $reviewsDiv = document.getElementById(
-            "<%- options.martanReviewsTarget || 'reviews_widget' %>"
-          ).offsetTop
-          window.scrollTo({ top: $reviewsDiv - 100, behavior: "smooth" })
-        }
-      }
+        } catch (error) { }
+      }, 50)
     }
 
-    const script = document.createElement("script")
-    script.setAttribute("src", scriptUrl)
-    script.setAttribute("id", "martan-scripts")
-    script.async = true
-    document.body.appendChild(script)
-    script.onload = startWidget
+    if (isEnabled) {
+      const script = document.createElement("script")
+      script.setAttribute("src", scriptUrl)
+      script.setAttribute("id", "martan-scripts")
+      script.async = true
+      document.body.appendChild(script)
+      script.onload = startWidget
+    }
   })
 </script>
