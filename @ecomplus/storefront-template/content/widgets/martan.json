@@ -1,14 +1,17 @@
 {
   "active": true,
   "options": {
-    "martanStoreId": 1,
-    "martanWedId": "KNfJQPB6w5lsBXjY6zmb",
-    "martanWidgetKey": "WK_OTQ4ZWY4OTktYjUwZS01ODcwLWE4YzAtMTE4ODFkY2M2NDc0",
-    "widget_rating": {
+    "widget_snippet": {
       "is_enabled": true,
-      "font_size": 12,
-      "star_color": "#ff0069"
+      "background_color": "#ffffff",
+      "text_color": "#000000",
+      "star_color": "#ff0000",
+      "border": true,
+      "border_color": "#004cff"
     },
+    "widget_key": "WK_OTQ4ZWY4OTktYjUwZS01ODcwLWE4YzAtMTE4ODFkY2M2NDc0",
+    "web_id": "KNfJQPB6w5lsBXjY6zmb",
+    "martanWedId": "KNfJQPB6w5lsBXjY6zmb",
     "widget_review": {
       "is_enabled": true,
       "title": "Comentários dos Clientes",
@@ -16,11 +19,13 @@
       "header_layout": "header-minimal",
       "reviews_layout": "list-grid"
     },
-    "widget_snippet": {
+    "martanWidgetKey": "WK_OTQ4ZWY4OTktYjUwZS01ODcwLWE4YzAtMTE4ODFkY2M2NDc0",
+    "widget_rating": {
       "is_enabled": true,
-      "background_color": "#ffffff",
-      "text_color": "#000000",
-      "star_color": "#ff0000"
-    }
+      "font_size": 12,
+      "star_color": "#ff0069"
+    },
+    "store_id": 1,
+    "martanStoreId": 1
   }
 }
