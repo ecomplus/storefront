@@ -62,12 +62,22 @@ const widgetRating = {
       required: false
     },
     {
-      label: 'Exibir apenas se houver avaliações',
-      hint: 'Exibir o widget apenas se o produto tiver pelo menos uma avaliação.',
-      name: 'display_if_has_review',
-      widget: 'boolean',
+      label: 'Quando exibir o widget',
+      hint: 'É possível exibir este widget apenas quando houver avaliações',
+      name: 'display',
+      widget: 'select',
       required: false,
-      default: false
+      default: 'always',
+      options: [
+        {
+          label: 'Sempre',
+          value: 'always'
+        },
+        {
+          label: 'Apenas quando houver avaliações',
+          value: 'gt1'
+        }
+      ]
     }
   ]
 }
