@@ -1,0 +1,16 @@
+{
+  "pkg": "@ecomplus/widget-yourviews",
+  "active": false,
+  "desktopOnly": false,
+  "enableCheckout": false,
+  "disablePages": false,
+  "options": {
+    "yourviewsStoreId": ""
+  },
+  "bodyAppend": "src/append/body",
+  "productDescriptionAppend": "src/append/product-block",
+  "productCardSlots": "src/append/product-card-slots",
+  "productSlots": "src/append/product-slots",
+  "stampsAppend": "src/append/stamps",
+  "useJquery": true
+}

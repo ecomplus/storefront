@@ -4,10 +4,12 @@ import utm from './persist-utm'
 
 window._info = window._info || {}
 const fetchInfoPromises = []
-const modulesToFetch = [
-  { endpoint: 'list_payments' },
-  { endpoint: 'calculate_shipping' }
-]
+const modulesToFetch = Array.isArray(window.modulesToFetch)
+  ? window.modulesToFetch
+  : [
+      { endpoint: 'list_payments' },
+      { endpoint: 'calculate_shipping' }
+    ]
 if (Object.keys(utm).length) {
   modulesToFetch.push({
     endpoint: 'apply_discount',

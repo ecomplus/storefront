@@ -1,6 +1,7 @@
 import {
   i19add,
   i19addDiscountCoupon,
+  // i19add$1ToGetDiscountMsg,
   i19campaignAppliedMsg,
   i19code,
   i19couponAppliedMsg,
@@ -10,7 +11,7 @@ import {
   i19invalidCouponMsg
 } from '@ecomplus/i18n'
 
-import { i18n } from '@ecomplus/utils'
+import { i18n, formatMoney } from '@ecomplus/utils'
 import { store, modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
 import ecomPassport from '@ecomplus/passport-client'
@@ -18,6 +19,11 @@ import AAlert from '../AAlert.vue'
 
 const addFreebieItems = (ecomCart, productIds) => {
   if (Array.isArray(productIds)) {
+    ecomCart.data.items.forEach(({ _id, product_id: productId, flags }) => {
+      if (flags && flags.includes('freebie') && !productIds.includes(productId)) {
+        ecomCart.removeItem(_id)
+      }
+    })
     productIds.forEach(productId => {
       const canAddFreebie = !ecomCart.data.items.find(item => {
         return item.product_id === productId && item.flags && item.flags.includes('freebie')
@@ -72,6 +78,8 @@ export default {
         return ecomCart
       }
     },
+    customer: Object,
+    canPassManyDiscountApps: Boolean,
     ecomPassport: {
       type: Object,
       default () {
@@ -93,6 +101,10 @@ export default {
   },
 
   computed: {
+    i19add$1ToGetDiscountMsg: () => i18n({
+      en_us: 'Add more $1 to cart to get the discount.',
+      pt_br: 'Adicione mais $1 ao carrinho para ganhar o desconto.'
+    }),
     i19add: () => i18n(i19add),
     i19addDiscountCoupon: () => i18n(i19addDiscountCoupon),
     i19code: () => i18n(i19code),
@@ -119,21 +131,39 @@ export default {
     parseDiscountOptions (listResult = []) {
       let extraDiscountValue = 0
       if (listResult.length) {
-        let discountRule, invalidCouponMsg
+        let discountRule, invalidCouponMsg, invalidAlertVariant
         listResult.forEach(appResult => {
           const { validated, error, response } = appResult
           if (validated && !error) {
             const appDiscountRule = response.discount_rule
             if (appDiscountRule) {
-              const discountRuleValue = appDiscountRule.extra_discount.value
-              if (!(extraDiscountValue > discountRuleValue)) {
-                extraDiscountValue = discountRuleValue
-                discountRule = {
-                  app_id: appResult.app_id,
-                  ...appDiscountRule
+              if (!this.canPassManyDiscountApps) {
+                const discountRuleValue = appDiscountRule.extra_discount.value
+                if (!(extraDiscountValue > discountRuleValue)) {
+                  extraDiscountValue = discountRuleValue
+                  discountRule = {
+                    app_id: appResult.app_id,
+                    ...appDiscountRule
+                  }
                 }
+              } else {
+                if (extraDiscountValue) {
+                  appDiscountRule.extra_discount.value += extraDiscountValue
+                  discountRule = appDiscountRule
+                } else {
+                  discountRule = {
+                    app_id: appResult.app_id,
+                    ...appDiscountRule
+                  }
+                }
+                extraDiscountValue = appDiscountRule.extra_discount.value
               }
-            } else if (response.invalid_coupon_message) {
+            } else if (response.available_extra_discount && response.available_extra_discount.min_amount) {
+              invalidCouponMsg = this.i19add$1ToGetDiscountMsg
+                .replace('$1', formatMoney(response.available_extra_discount.min_amount - this.amount.subtotal))
+              invalidAlertVariant = 'info'
+            }
+            if (response.invalid_coupon_message) {
               invalidCouponMsg = response.invalid_coupon_message
             }
             if (this.canAddFreebieItems) {
@@ -143,17 +173,23 @@ export default {
         })
         if (extraDiscountValue) {
           if (this.localCouponCode) {
-            this.$emit('update:coupon-code', this.localCouponCode)
-            this.alertText = this.i19couponAppliedMsg
+            if (invalidCouponMsg) {
+              this.alertText = invalidCouponMsg
+              this.alertVariant = invalidAlertVariant || 'warning'
+            } else {
+              this.$emit('update:coupon-code', this.localCouponCode)
+              this.alertText = this.i19couponAppliedMsg
+              this.alertVariant = 'info'
+            }
           } else {
             this.alertText = this.i19campaignAppliedMsg
+            this.alertVariant = 'info'
           }
           this.$emit('set-discount-rule', discountRule)
-          this.alertVariant = 'info'
         } else {
           if (this.localCouponCode) {
             this.alertText = invalidCouponMsg || this.i19invalidCouponMsg
-            this.alertVariant = 'warning'
+            this.alertVariant = invalidAlertVariant || 'warning'
           } else {
             this.alertText = null
           }
@@ -164,13 +200,17 @@ export default {
 
     fetchDiscountOptions (data = {}) {
       this.isLoading = true
-      if (this.ecomPassport.checkLogin()) {
-        const customer = this.ecomPassport.getCustomer()
-        data.customer = {
-          _id: customer._id
+      const customer = this.customer || this.ecomPassport.getCustomer()
+      if (customer && (customer._id || customer.doc_number)) {
+        data.customer = {}
+        if (customer._id) {
+          data.customer._id = customer._id
         }
         if (customer.display_name) {
           data.customer.display_name = customer.display_name
+        }
+        if (customer.doc_number) {
+          data.customer.doc_number = customer.doc_number
         }
       }
       modules({

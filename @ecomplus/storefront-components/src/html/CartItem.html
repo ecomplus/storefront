@@ -68,7 +68,7 @@
           :title="i19quantity"
           class="cart-item__quantity"
         >
-          <strong v-if="item.kit_product">
+          <strong v-if="item.kit_product || item.keep_item_quantity">
             {{ quantity }}x
           </strong>
 

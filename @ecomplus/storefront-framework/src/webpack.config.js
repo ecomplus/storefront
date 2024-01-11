@@ -12,6 +12,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const partytown = require('@builder.io/partytown/utils')
 
 const {
   devMode,
@@ -20,7 +21,8 @@ const {
   primaryColor,
   secondaryColor,
   templatePkg,
-  componentsPkg
+  componentsPkg,
+  assetsPrefix
 } = require('./lib/config')
 
 // check for custom service worker file
@@ -142,7 +144,7 @@ let config = {
   entry,
   output: {
     path: paths.output,
-    publicPath: '/',
+    publicPath: `${assetsPrefix}/`,
     filename: devMode ? '[name].js' : `${filenameSchema}.js`,
     chunkFilename: 'chunk.[contenthash].js'
   },
@@ -186,7 +188,7 @@ let config = {
             presets: [
               ['@babel/preset-env', {
                 useBuiltIns: 'usage',
-                corejs: '3.23',
+                corejs: '3.29',
                 modules: false
               }]
             ],
@@ -251,7 +253,12 @@ if (!process.env.WEBPACK_BUILD_LIB) {
     // copy files from public folders recursivily
     new CopyPlugin({
       patterns: [
-        { from: paths.pub, to: paths.output }
+        { from: paths.pub, to: paths.output },
+        // https://partytown.builder.io/copy-library-files#webpack
+        {
+          from: partytown.libDirPath(),
+          to: path.join(paths.output, '~partytown')
+        }
       ]
     })
   )

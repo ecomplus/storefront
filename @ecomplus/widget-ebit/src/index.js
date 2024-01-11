@@ -24,8 +24,10 @@ export default (options = {}) => {
               }
               if (customer.birth_date) {
                 const { day, month, year } = customer.birth_date
-                ebitParam += `&birthday=${day.toString().padStart(2, '0')}` +
-                  `-${month.toString().padStart(2, '0')}-${year}`
+                if (day && month && year) {
+                  ebitParam += `&birthday=${day.toString().padStart(2, '0')}` +
+                    `-${month.toString().padStart(2, '0')}-${year}`
+                }
               }
 
               const { items } = order

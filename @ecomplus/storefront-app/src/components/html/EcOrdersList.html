@@ -25,7 +25,15 @@
       <span>{{ formatDate(order.created_at) }}</span>
 
       <span
-        v-if="order.status === 'cancelled' || !order.financial_status"
+        v-if="isSubscriptions"
+        class="orders-list__status"
+        :class="`orders-list__status--${order.status}`"
+      >
+        {{ order.status === 'cancelled' ? i19inactive : i19active }}
+      </span>
+
+      <span
+        v-else-if="order.status === 'cancelled' || !order.financial_status"
         class="orders-list__status"
         :class="`orders-list__status--${order.status}`"
       >

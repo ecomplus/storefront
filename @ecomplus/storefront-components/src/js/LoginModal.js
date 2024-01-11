@@ -127,8 +127,14 @@ export default {
           for (const provider in providers) {
             if (providers[provider]) {
               const { faIcon, providerName } = providers[provider]
+              let link = host + baseUri + provider + oauthPath
+              const referral = typeof window === 'object' &&
+                window.sessionStorage.getItem('ecomReferral')
+              if (referral) {
+                link += `?referral=${referral}`
+              }
               oauthProviders.push({
-                link: host + baseUri + provider + oauthPath,
+                link,
                 faIcon,
                 provider,
                 providerName

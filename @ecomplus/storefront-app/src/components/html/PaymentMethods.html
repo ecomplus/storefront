@@ -23,8 +23,8 @@
       <a
         href="#"
         v-for="(gateway, i) in paymentGateways"
-        v-if="gateway.payment_method.code !== 'loyalty_points'"
-        v-show="selectedGateway === -1 || selectedGateway === i"
+        v-if="checkListedGateway(gateway, i)"
+        v-show="checkShownGateway(gateway, i)"
         :key="gateway.app_id + gateway.payment_method.code + i"
         class="payment__gateway list-group-item list-group-item-action"
         :class="`payment__gateway--${gateway.app_id}`"
@@ -36,21 +36,22 @@
           <span class="payment__title">
             <span
               class="payment__back"
-              v-if="selectedGateway === i"
+              v-if="selectedGateway > -1"
               :aria-label="i19changePaymentMethod"
             >
               <i class="i-chevron-left"></i>
             </span>
-            {{ gateway.label }}
+            {{ gateway.type !== 'recurrence' ? gateway.label : i19subscription }}
           </span>
 
           <span>
             <span class="payment__badges">
               <span
-                class="badge badge-secondary payment__recurrence"
                 v-if="gateway.type === 'recurrence'"
+                class="payment__recurrence mr-1"
+                :title="i19recurrent"
               >
-                {{ i19recurrent }}
+                <i class="i-history"></i>
               </span>
 
               <span
@@ -136,6 +137,9 @@
 
             <credit-card-form
               v-if="shouldUseCardForm"
+              :gateway-options="cardFormGatewayOptions"
+              :gateway-options-label="i19chooseSubscriptionPeriod"
+              @select-gateway="onCardFormSelectGateway"
               :amount="amount"
               :check-holder="customerName"
               :is-company="isCompany"

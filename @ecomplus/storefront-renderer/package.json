@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/storefront-renderer",
-  "version": "2.8.19",
+  "version": "2.11.1",
   "description": "SSR for Storefront EJS views with E-Com Plus APIs",
   "main": "src/index.js",
   "repository": {
@@ -23,15 +23,17 @@
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-renderer#readme",
   "dependencies": {
+    "@builder.io/partytown": "^0.8.1",
     "@ecomplus/client": "^2.2.1",
-    "@ecomplus/i18n": "^1.29.0",
+    "@ecomplus/i18n": "^1.32.2",
     "@ecomplus/search-engine": "^2.6.1",
     "@ecomplus/storefront-router": "^2.2.1",
     "@ecomplus/utils": "^1.4.1",
-    "ejs": "^3.1.6",
+    "axios": "^0.27.2 || ^1.1.2",
+    "ejs": "^3.1.9",
     "html-minifier": "^4.0.0",
-    "image-size": "^1.0.2",
+    "image-size": "^1.1.1",
     "lodash": "^4.17.21",
-    "markdown-it": "^13.0.1"
+    "markdown-it": "^14.0.0"
   }
 }

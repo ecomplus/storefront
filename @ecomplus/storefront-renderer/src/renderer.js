@@ -4,6 +4,7 @@ const path = require('path')
 const paths = require('./lib/paths')
 const fs = require('fs')
 const ejs = require('ejs')
+const axios = require('axios')
 const ecomUtils = require('@ecomplus/utils')
 const ecomClient = require('@ecomplus/client')
 const StorefrontRouter = require('@ecomplus/storefront-router')
@@ -14,6 +15,8 @@ const config = require('./lib/config')
 const lodash = require('lodash')
 const MarkdownIt = require('markdown-it')
 const imageSize = require('image-size')
+const { partytownSnippet } = require('@builder.io/partytown/integration')
+const partytownSnippetText = partytownSnippet()
 
 const { devMode, storeId, lang, settings, templatePkg } = config
 
@@ -107,7 +110,7 @@ cmsCollections.forEach(collection => {
 })
 
 // abstracting comming image size handler for local images
-const tryImageSize = src => {
+const tryImageSize = (src, fallbackDimensions = {}) => {
   let dimensions = {}
   if (typeof src === 'string' && src.startsWith('/')) {
     try {
@@ -116,11 +119,24 @@ const tryImageSize = src => {
       dimensions = {}
     }
   }
+  if (fallbackDimensions && !dimensions.width && fallbackDimensions.width) {
+    return fallbackDimensions
+  }
   return dimensions
 }
 
 // setup initial template data
-const data = { ...config, lodash, ecomUtils, ecomClient, EcomSearch, imageSize, tryImageSize }
+const data = {
+  ...config,
+  axios,
+  lodash,
+  ecomUtils,
+  ecomClient,
+  EcomSearch,
+  imageSize,
+  tryImageSize,
+  partytownSnippetText
+}
 
 const dataPromise = getStoreData().then(storeData => {
   Object.assign(data, storeData)

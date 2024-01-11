@@ -30,7 +30,7 @@
   </script>
 <% } %>
 
-<script src="/<%= _.route.path.startsWith('/app/') ? 'checkout' : 'storefront' %>.js"></script>
+<script src="<%= _.assetsPrefix || '' %>/<%= _.route.path.startsWith('/app/') ? 'checkout' : 'storefront' %>.js"></script>
 
 <%
 if (Array.isArray(_.widgets) && _.widgets.length) {

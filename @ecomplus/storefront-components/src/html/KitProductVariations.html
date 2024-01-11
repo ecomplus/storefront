@@ -1,0 +1,92 @@
+<div class="kit-product-variations">
+  <div
+    class="glide"
+    ref="glide"
+  >
+      <div
+        class="glide__track"
+        data-glide-el="track"
+      >
+        <ul class="glide__slides kit-product-variations__list">
+          <li
+            v-for="(item, index) in localItems"
+            class="glide__slide"
+          >
+            <button
+              v-if="variationKit[activeIndex]"
+              @click="removeItemFromKit(activeIndex)"
+              type="button"
+              :aria-label="i19close"
+              class="close"
+            >
+              <i class="i-times-circle"></i>
+            </button>
+            <div class="kit-product-variations__item">
+              <div class="kit-product-variations__item-head">
+                <div class="kit-product-variations__picture">
+                  <a-picture
+                    class="gallery__big-image"
+                    :src="getImg(item, null, 'normal')"
+                  />
+                </div>
+                <div class="kit-product-variations__info">
+                  <h2>{{ getName(item) }}</h2>
+                  <b>{{ i19quantity }}: 1 </b>
+                </div>
+              </div>
+
+              <slot name="variations">
+                <product-variations
+                  :key="item.key"
+                  :product="item"
+                  :selected-id.sync="selectedVariationId"
+                  :max-options-btns="maxOptionsBtns"
+                  :class="variationKit[activeIndex] || variationKitReady.length < max
+                    ? 'kit-product-variations--show'
+                    : 'kit-product-variations--hide'"
+                />
+                <a-alert
+                  v-if="variationKitReady.length === max && !variationKit[activeIndex]"
+                  :can-show="variationKitReady.length === max"
+                  :variant="alertVariant"
+                >
+                  {{ i19maxQuantity }}:
+                  <strong>{{ max }}</strong>
+                </a-alert>
+                
+                <slot name="variations-info"/>
+              </slot>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="glide__pagination">
+        <span class="glide__pagination--current">{{ activeIndex + 1 }}</span>
+        <span class="glide__pagination--total">/ {{ localItems.length }}</span>
+      </div>
+  </div>
+  <div class="kit-product-variations__actions">
+    <button @click="activeIndex++" class="btn btn-block btn-primary"><span>{{ i19next }} {{ i19item }}</span></button>
+    <button @click="activeIndex--" class="btn btn-block btn-outline-secondary">
+      <span>{{ i19item }} {{ i19previous }}</span>
+    </button>
+  </div>
+  <div class="kit-product-variations__buy">
+    <slot
+      name="buy"
+      v-bind="{ variationKit }"
+    >
+      <button
+        type="button"
+        class="btn btn-lg btn-primary my-3"
+        @click="buy"
+        :disabled="variationKitReady.length !== min"
+      >
+        <slot name="buy-button-content">
+          <i class="i-shopping-bag mr-1"></i>
+        </slot>
+      </button>
+    </slot>
+  </div>
+</div>

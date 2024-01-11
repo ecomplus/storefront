@@ -97,6 +97,12 @@ export default {
         return window.ecomGuestCheckout === true
       }
     },
+    isExternalAuth: {
+      type: Boolean,
+      default () {
+        return Boolean(window.$firebaseConfig && window.$firebaseConfig.authDomain)
+      }
+    },
     canRecommendItems: {
       type: Boolean,
       default: true
@@ -104,6 +110,12 @@ export default {
     canHideSummary: Boolean,
     shippingZipCode: String,
     shippingService: Object,
+    skipShippingApps: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
     paymentGateway: Object,
     discountCoupon: String,
     notes: String,
@@ -306,7 +318,7 @@ export default {
 
     selectPaymentGateway (gateway) {
       this.$emit('update:payment-gateway', gateway)
-      if (this.checkoutStep === 2) {
+      if (this.checkoutStep === 2 && !this.paymentGateway) {
         this.goToTop()
       }
     },
@@ -352,6 +364,10 @@ export default {
 
     localZipCode () {
       this.editShippingService = true
+    },
+
+    skipShippingApps () {
+      this.toCheckoutStep = 1
     },
 
     toCheckoutStep (stepNumber) {

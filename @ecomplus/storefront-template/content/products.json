@@ -17,6 +17,11 @@
       "title": "Produtos relacionados"
     },
     {
+      "type": "buy-together",
+      "title": "",
+      "show_loading": true
+    },
+    {
       "type": "recommended-products",
       "title": "Quem comprou este produto, também comprou:"
     },

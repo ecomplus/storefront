@@ -2,7 +2,7 @@
 const contacts = _.cms('contacts') || {}
 const footer = _.cms('footer') || {}
 const logo = _.settings.logo
-  ? { url: _.settings.logo, alt: _.settings.name }
+  ? { url: (_.assetsPrefix || '') + _.settings.logo, alt: _.settings.name }
   : _.store.logo
 %>
 

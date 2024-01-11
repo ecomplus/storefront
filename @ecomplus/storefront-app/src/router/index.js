@@ -15,7 +15,7 @@ const routes = [
     )
   },
   {
-    path: '/:mode?/:product?/checkout/:id?',
+    path: '/:mode?/:product?/checkout/:id?/:step?',
     name: 'checkout',
     component: () => import(
       /* webpackChunkName: "app-checkout" */
@@ -55,7 +55,7 @@ const routes = [
     ]
   },
   {
-    path: '/lp/:product/:id?',
+    path: '/lp/:product/:id?/:step?',
     redirect: ({ params }) => ({
       name: 'checkout',
       params: {

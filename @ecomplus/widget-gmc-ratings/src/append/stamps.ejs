@@ -18,11 +18,30 @@
           });
       });
     }
-  </script>
-  <script src="https://apis.google.com/js/platform.js?onload=renderGmcBadge" async defer></script>
-  <script>
     window.___gcfg = {
       lang: "<%- lang %>"
     };
+    const appendScript = () => {
+      const script = document.createElement('script');
+      script.setAttribute('src','https://apis.google.com/js/platform.js?onload=renderGmcBadge');
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    }
+    if (location.pathname.startsWith('/app/')) {
+      appendScript();
+    } else {
+      let isLoaded = false;
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !isLoaded) {
+          isLoaded = true;
+          appendScript();
+        }
+      }, {
+        rootMargin: '150px 0px',
+        threshold: 0,
+      });
+      observer.observe(document.getElementById('gmc-ratings-badge'));
+    }
   </script>
 <% } %>

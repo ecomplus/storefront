@@ -78,22 +78,57 @@ if (pathname) {
 <% } %>
 
 <% if (!path.startsWith('/admin/')) { %>
-  <link rel="preload" href="/storefront.css" as="style">
+  <link rel="preload" href="<%= _.assetsPrefix || '' %>/storefront.css" as="style">
   <% if (!path.startsWith('/app/')) { %>
-    <link rel="preload" href="/storefront.js" as="script">
+    <link rel="preload" href="<%= _.assetsPrefix || '' %>/storefront.js" as="script">
   <% } %>
 
   <%
   // setup preloaded widget partials (pixels, tags)
   if (_.widgets.length) {
     %>
+    <script>
+      partytown = {
+        resolveUrl: function (url, location) {
+          switch (url.hostname) {
+            case 'www.googletagmanager.com':
+            case 'www.google-analytics.com':
+            case 'analytics.google.com':
+            case 'api.hubspot.com':
+            case 'api.hubapi.com':
+            case 'trc.taboola.com':
+            case location.hostname:
+              return url;
+            default:
+              const proxyUrl = new URL(`https://${location.hostname}/~reverse-proxy/`);
+              proxyUrl.searchParams.append('url', url.href);
+              return proxyUrl;
+          };
+        },
+        forward: [],
+      };
+    </script>
     <%- await include('@/helpers/widgets-append', {
       _, opt: {}, field: 'headAppend'
     }) %>
+    <% if (
+      Array.isArray(_.widgets) &&
+      _.widgets.find(({ usePartytown, options }) => {
+        return (usePartytown || (options && options.partytown))
+      })
+    ) { %>
+      <script>
+        <%- _.partytownSnippetText %>
+      </script>
+    <% } %>
     <%
   }
   %>
 
+  <% if (_.assetsPrefix) { %>
+    <link rel="preconnect" href="<%= _.assetsPrefix || '' %>/" crossorigin>
+    <link rel="dns-prefetch" href="<%= _.assetsPrefix || '' %>/">
+  <% } %>
   <link rel="preconnect" href="https://cdn.jsdelivr.net/" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net/">
   <% if (resource) { %>

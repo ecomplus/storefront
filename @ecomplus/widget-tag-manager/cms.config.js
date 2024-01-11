@@ -46,6 +46,21 @@ export default () => ({
           name: 'parseDomMsDelay',
           widget: 'hidden',
           default: 300
+        },
+        {
+          label: 'Depurar data layer',
+          name: 'isDebug',
+          widget: 'boolean',
+          default: false,
+          description: 'Registrar eventos EEC no console do navegador'
+        },
+        {
+          label: 'Carregamento otimizado (beta)',
+          name: 'partytown',
+          widget: 'hidden',
+          required: false,
+          default: false,
+          description: 'APENAS PARA GA4: Usar Partytown para melhor performance importando as tags em web worker'
         }
       ]
     },

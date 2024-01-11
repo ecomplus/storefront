@@ -48,6 +48,13 @@ export default () => ({
           name: 'debug',
           widget: 'hidden',
           default: false
+        },
+        {
+          label: 'Carregamento otimizado (beta)',
+          name: 'partytown',
+          widget: 'hidden',
+          required: false,
+          default: false
         }
       ]
     },

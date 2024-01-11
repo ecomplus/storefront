@@ -33,7 +33,8 @@ import {
   variationsGrids as getVariationsGrids,
   specTextValue as getSpecTextValue,
   specValueByText as getSpecValueByText,
-  formatMoney
+  formatMoney,
+  $ecomConfig
 } from '@ecomplus/utils'
 
 import { store, modules } from '@ecomplus/client'
@@ -51,6 +52,7 @@ import APicture from '../APicture.vue'
 import APrices from '../APrices.vue'
 import AShare from '../AShare.vue'
 import ProductVariations from '../ProductVariations.vue'
+import KitProductVariations from '../KitProductVariations.vue'
 import ProductGallery from '../ProductGallery.vue'
 import QuantitySelector from '../QuantitySelector.vue'
 import ShippingCalculator from '../ShippingCalculator.vue'
@@ -82,6 +84,7 @@ export default {
     APicture,
     APrices,
     AShare,
+    KitProductVariations,
     ProductVariations,
     ProductGallery,
     QuantitySelector,
@@ -132,6 +135,7 @@ export default {
         return window.ecomPaymentApps || []
       }
     },
+    quoteLink: String,
     isSSR: Boolean,
     ecomPassport: {
       type: Object,
@@ -182,6 +186,7 @@ export default {
     i19retry: () => i18n(i19retry),
     i19selectVariationMsg: () => i18n(i19selectVariationMsg),
     i19unavailable: () => i18n(i19unavailable),
+    i19quoteProduct: () => 'Cotar produto',
     i19units: () => i18n(i19units).toLowerCase(),
     i19unitsInStock: () => i18n(i19unitsInStock),
     i19workingDays: () => i18n(i19workingDays),
@@ -198,6 +203,10 @@ export default {
 
     isInStock () {
       return checkInStock(this.body)
+    },
+
+    isWithoutPrice () {
+      return !getPrice(this.body)
     },
 
     isVariationInStock () {
@@ -276,6 +285,10 @@ export default {
 
     isKit () {
       return this.body.kit_composition && this.body.kit_composition.length
+    },
+
+    isKitWithVariations () {
+      return this.kitItems.some(item => item.variations && item.variations.length)
     }
   },
 
@@ -415,6 +428,13 @@ export default {
         if (this.hasClickedBuy) {
           this.hasClickedBuy = false
         }
+        const { pathname } = window.location
+        const searchParams = new URLSearchParams(window.location.search)
+        searchParams.set('variation_id', variationId)
+        window.history.pushState({
+          pathname,
+          params: searchParams.toString()
+        }, '', `${pathname}?${searchParams.toString()}`)
         this.showVariationPicture(this.selectedVariation)
       }
     },
@@ -432,7 +452,9 @@ export default {
               items: [{
                 ...sanitizeProductBody(this.body),
                 product_id: this.body._id
-              }]
+              }],
+              currency_id: this.body.currency_id || $ecomConfig.get('currency'),
+              currency_symbol: this.body.currency_symbol || $ecomConfig.get('currency_symbol')
             }
           })
             .then(({ data }) => {
@@ -485,14 +507,7 @@ export default {
                     _id: genRandomObjectId()
                   })
                 }
-                if (product.variations) {
-                  product.variations.forEach(variation => {
-                    variation._id = genRandomObjectId()
-                    addKitItem(variation._id)
-                  })
-                } else {
-                  addKitItem()
-                }
+                addKitItem()
               })
             })
             .catch(console.error)
@@ -520,7 +535,7 @@ export default {
   },
 
   mounted () {
-    if (this.$refs.sticky) {
+    if (this.$refs.sticky && !this.isWithoutPrice) {
       let isBodyPaddingSet = false
       const setStickyBuyObserver = (isToVisible = true) => {
         const $anchor = this.$refs[isToVisible ? 'sticky' : 'buy']

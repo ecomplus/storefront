@@ -1,12 +1,28 @@
 {
   "extends": [
     "config:base",
-    "group:allNonMajor",
     "schedule:earlyMondays"
   ],
   "rangeStrategy": "bump",
   "labels": [
     "dependencies"
   ],
-  "dependencyDashboard": true
+  "dependencyDashboard": true,
+  "packageRules": [
+    {
+      "matchPackagePatterns": [
+        "*"
+      ],
+      "excludePackagePatterns": [
+        "vue",
+        "vue-template-compiler"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch"
+    }
+  ]
 }

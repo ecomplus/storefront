@@ -19,12 +19,54 @@
       </div>
     </div>
   </transition>
+
+  <div
+    v-if="gatewayOptions && gatewayOptions.length"
+    class="form-group"
+  >
+    <label
+      v-if="gatewayOptionsLabel"
+      for="credit-card-gateway"
+    >
+      {{ gatewayOptionsLabel }}
+    </label>
+    <select
+      class="custom-select"
+      id="credit-card-gateway"
+      @change="ev => $emit('select-gateway', gatewayOptions[ev.target.value])"
+      required
+    >
+      <option
+        v-if="gatewayOptionsLabel"
+        value=""
+      >--</option>
+      <option
+        v-for="({ label }, i) in gatewayOptions"
+        :value="i"
+      >
+        {{ label.replace(creditCardRegex, '') }}
+      </option>
+    </select>
+  </div>
+
   <div class="form-group credit-card__bin">
     <label for="credit-card-bin">
       {{ i19cardNumber }}
     </label>
     <div class="input-group">
+      <input
+        v-if="!canFormatBinInput"
+        type="tel"
+        class="form-control"
+        :class="!isNumberPotentiallyValid && alert.bin ? 'is-invalid': null"
+        v-model="formattedCardBin"
+        @blur="alert.bin = card.bin && !isNumberPotentiallyValid"
+        autocomplete="cc-number"
+        required
+      />
       <cleave-input
+        v-else
+        ref="binInput"
         type="tel"
         class="form-control"
         :class="!isNumberPotentiallyValid && alert.bin ? 'is-invalid': null"
@@ -33,7 +75,7 @@
         :raw="false"
         @blur="alert.bin = card.bin && !isNumberPotentiallyValid"
         :options="{ creditCard: true }"
-        x-autocompletetype="cc-number"
+        autocomplete="off"
         required
       />
 
@@ -64,6 +106,7 @@
         :placeholder="i19nameOnCard"
         v-model="card.name"
         @change="checkName"
+        autocomplete="cc-name"
         required
       />
     </div>
@@ -81,6 +124,7 @@
         <input-date
           id="credit-card-birth"
           v-model="card.birth"
+          :required="isPayerDocRequired"
         />
       </div>
 
@@ -92,6 +136,7 @@
           id="credit-card-doc"
           :is-company="isCompany"
           v-model="card.doc"
+          :required="isPayerDocRequired"
         />
       </div>
     </div>
@@ -102,19 +147,32 @@
       <label for="credit-card-validate">
         {{ i19validThru }}
       </label>
+      <input
+        v-if="!canFormatExpInput"
+        type="tel"
+        class="form-control"
+        :class="alert.date ? 'is-invalid': null"
+        :placeholder="`mm/${(lang === 'pt_br' ? 'aa' : 'yy')}`"
+        @blur="() => { alert.date = card.date && !validateDate() }"
+        v-model="rawCardExp"
+        autocomplete="cc-exp"
+        required
+      />
       <cleave-input
+        v-else
+        ref="expInput"
         type="tel"
         class="form-control"
         :class="alert.date ? 'is-invalid': null"
         id="credit-card-validate"
-        pattern="[\d]{2}\/[\d]{2}"
         :placeholder="`mm/${(lang === 'pt_br' ? 'aa' : 'yy')}`"
         @blur="() => { alert.date = card.date && !validateDate() }"
-        v-model="card.date"
+        v-model="rawCardExp"
         :options="{
           date: true,
           datePattern: ['m', 'y']
         }"
+        autocomplete="off"
         required
       />
     </div>
@@ -145,6 +203,7 @@
         placeholder="123"
         v-model="card.cvv"
         @blur="() => { alert.cvv = card.cvv && !validateCvv() }"
+        autocomplete="cc-csc"
         required
       />
     </div>

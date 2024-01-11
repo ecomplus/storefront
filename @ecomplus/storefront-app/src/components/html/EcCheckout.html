@@ -7,6 +7,8 @@
       v-if="shownCheckoutStep"
       :key="`app${checkoutAppId}`"
       class="checkout__app"
+      :data-current-step="shownCheckoutStep"
+      :data-enabled-step="enabledCheckoutStep"
     >
       <div class="row">
         <div :class="canHideSummary ? 'col' : 'col-lg-8'">
@@ -65,7 +67,7 @@
                 >
                   <transition-group enter-active-class="animated fadeInDown">
                     <div
-                      v-if="shippingService && !editShippingService"
+                      v-if="shippingService && !editShippingService && !skipShippingApps.length"
                       key="shipping"
                     >
                       <div class="checkout__shipping-method">
@@ -90,6 +92,7 @@
                       :shipped-items="cart.items"
                       :zip-code="localZipCode"
                       :can-input-zip="false"
+                      :skip-app-ids="skipShippingApps"
                       @select-service="service => $emit('update:shipping-service', service)"
                     />
                   </transition-group>
@@ -164,6 +167,7 @@
             :coupon-code.sync="localDiscountCoupon"
             @set-discount-rule="discountRule => $emit('set-discount-rule', discountRule)"
             :modules-payload="modulesPayload"
+            :customer="customer"
             is-attention-wanted
           />
         </div>
@@ -201,7 +205,7 @@
                   class="checkout__loyalty-points"
                   :points-applied.sync="loyaltyPointsApplied"
                   :points-amount.sync="loyaltyPointsAmount"
-                  :max-points-amount="amount.subtotal - 5"
+                  :max-points-amount="Math.min(amount.subtotal - 5, amount.total / 2)"
                 />
               </template>
 
@@ -212,6 +216,7 @@
                   :coupon-code.sync="localDiscountCoupon"
                   @set-discount-rule="discountRule => $emit('set-discount-rule', discountRule)"
                   :modules-payload="modulesPayload"
+                  :customer="customer"
                   is-attention-wanted
                 />
               </template>
@@ -272,7 +277,7 @@
     </div>
 
     <div
-      v-else-if="!isUserIdentified"
+      v-else-if="!isUserIdentified && !isExternalAuth"
       key="login"
     >
       <slot name="login">
@@ -292,6 +297,10 @@
       <slot name="account">
         <p class="lead">
           {{ i18n('RegisterToBuy') }}:
+          <small v-if="isExternalAuth" class="d-block">
+            Já possui conta?
+            <a href="/app/account">Receber link de acesso por e-mail</a>
+          </small>
         </p>
 
         <account-form

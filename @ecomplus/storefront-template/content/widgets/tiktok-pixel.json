@@ -1,0 +1,12 @@
+{
+  "pkg": "@ecomplus/widget-tiktok-pixel",
+  "active": false,
+  "desktopOnly": false,
+  "enableCheckout": true,
+  "options": {
+    "tiktokPixelId": "",
+    "debug": false,
+    "partytown": false
+  },
+  "headAppend": "src/append/head"
+}

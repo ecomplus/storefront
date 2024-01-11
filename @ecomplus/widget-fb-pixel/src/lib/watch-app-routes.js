@@ -45,38 +45,43 @@ export default (fbq, options) => {
     }
 
     const emitPurchase = (orderId, orderJson) => {
-      if (!isPurchaseSent && options.disablePurchase !== true) {
-        if (window.localStorage.getItem('fbq.orderIdSent') !== orderId) {
-          let order
-          if (orderJson) {
-            try {
-              order = JSON.parse(orderJson)
-            } catch (e) {
-              order = null
-            }
+      if (!isPurchaseSent && window.localStorage.getItem('fbq.orderIdSent') !== orderId) {
+        let order
+        if (orderJson) {
+          try {
+            order = JSON.parse(orderJson)
+          } catch (e) {
+            order = null
           }
-          let eventID
-          if (order && order.number) {
-            eventID = `${order.number}:r${parseInt(Math.random() * 1000, 10)}`
-          } else {
-            eventID = orderId
-          }
+        }
+        let eventID
+        if (order && order.number) {
+          eventID = `${order.number}:r${parseInt(Math.random() * 1000, 10)}`
+        } else {
+          eventID = orderId
+        }
+        let externalId
+        if (Array.isArray(order.buyers) && order.buyers.length) {
+          externalId = order.buyers[0]._id
+        }
+        if (options.disablePurchase !== true) {
           fbq('Purchase', {
             ...getPurchaseData(order),
             order_id: orderId,
-            eventID
+            eventID,
+            external_id: externalId
           })
-          ecomPassport.requestApi(`/orders/${orderId}/metafields.json`, 'POST', {
-            namespace: 'fb',
-            field: 'pixel',
-            value: JSON.stringify({
-              eventID,
-              userAgent: navigator.userAgent
-            })
-          })
-          window.localStorage.setItem('fbq.orderIdSent', orderId)
         }
+        ecomPassport.requestApi(`/orders/${orderId}/metafields.json`, 'POST', {
+          namespace: 'fb',
+          field: 'pixel',
+          value: JSON.stringify({
+            eventID,
+            userAgent: navigator.userAgent
+          })
+        })
         isPurchaseSent = true
+        window.localStorage.setItem('fbq.orderIdSent', orderId)
       }
     }
 
@@ -95,8 +100,12 @@ export default (fbq, options) => {
             emitPurchase(params.id, decodeURIComponent(params.json))
           } else {
             emitPurchaseTimer = setTimeout(() => {
-              emitPurchase(params.id)
-            }, 1500)
+              if (params.json) {
+                emitPurchase(params.id, decodeURIComponent(params.json))
+              } else {
+                emitPurchase(params.id)
+              }
+            }, params.json ? 1 : 1500)
           }
           break
       }

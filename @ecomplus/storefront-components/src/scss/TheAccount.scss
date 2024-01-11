@@ -19,6 +19,10 @@
 
   &__nav {
     margin-top: var(--spacer-5);
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   &__content {

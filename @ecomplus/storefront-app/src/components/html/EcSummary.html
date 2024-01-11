@@ -56,12 +56,18 @@
 
   <slot name="amount">
     <div class="summary__amount">
-      <div class="summary__amount__row">
+      <div
+        class="summary__amount__row"
+        :data-subtotal="amount.subtotal.toFixed(2)"
+      >
         <span>{{ i19subtotal }}</span>
         <div>{{ formatMoney(amount.subtotal) }}</div>
       </div>
 
-      <div class="summary__amount__row">
+      <div
+        class="summary__amount__row"
+        :data-freight="amount.freight.toFixed(2)"
+      >
         <span>
           {{ i19freight }}
           <small v-if="shippingAddress">
@@ -79,6 +85,7 @@
       <div
         v-if="amount.discount"
         class="summary__amount__row"
+        :data-discount="amount.discount.toFixed(2)"
       >
         <span>{{ i19discount }}</span>
         <div>{{ formatMoney(amount.discount) }}</div>
@@ -86,6 +93,7 @@
       <div
         v-if="amount.balance"
         class="summary__amount__row"
+        :data-balance="amount.balance.toFixed(2)"
       >
         <span>{{ i19balanceOrPoints }}</span>
         <div>{{ formatMoney(amount.balance) }}</div>
@@ -101,7 +109,10 @@
 
       <slot name="amount-custom"/>
 
-      <div class="summary__amount__row summary__amount__row--total">
+      <div
+        class="summary__amount__row summary__amount__row--total"
+        :data-total="amountToPay.toFixed(2)"
+      >
         <span>{{ paidInAdvance ? i19toPay : i19total }}</span>
         <a-prices
           :product="{ price: amountToPay }"
@@ -126,10 +137,12 @@
         {{ buyerName }}
         <br>
         <small>{{ i19docNumber }}:</small>
-        {{ buyer.doc_number }}
+        <span>{{ buyer.doc_number }}</span>
         <br>
         <small>{{ i19contactPhone }}:</small>
-        {{ buyerPhone }}
+        <span>{{ buyerPhone }}</span>
+        <br>
+        <small>{{ buyer.main_email }}</small>
       </p>
 
       <button

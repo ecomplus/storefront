@@ -53,27 +53,27 @@ export default {
       const pointsEntries = this.ecomPassport.getCustomer().loyalty_points_entries
       this.availablePoints = pointsEntries
         ? pointsEntries.reduce((availablePoints, pointsEntry) => {
-            const validThru = pointsEntry.valid_thru
-            if (!validThru || new Date(validThru).getTime() >= Date.now()) {
-              const programId = pointsEntry.program_id
-              const points = pointsEntry.active_points
-              if (this.localPointsPrograms[programId]) {
-                if (availablePoints[programId]) {
-                  availablePoints[programId] += points
-                } else {
-                  availablePoints[programId] = points
-                }
-                if (availablePoints[programId] > pointsEntry.max_points) {
-                  availablePoints[programId] = pointsEntry.max_points
-                }
-                const { ratio } = this.localPointsPrograms[programId]
-                if (availablePoints[programId] * ratio > this.maxPointsAmount) {
-                  availablePoints[programId] = this.maxPointsAmount / ratio
-                }
+          const validThru = pointsEntry.valid_thru
+          if (!validThru || new Date(validThru).getTime() >= Date.now()) {
+            const programId = pointsEntry.program_id
+            const points = pointsEntry.active_points
+            if (this.localPointsPrograms[programId]) {
+              if (availablePoints[programId]) {
+                availablePoints[programId] += points
+              } else {
+                availablePoints[programId] = points
+              }
+              if (availablePoints[programId] > pointsEntry.max_points) {
+                availablePoints[programId] = pointsEntry.max_points
+              }
+              const { ratio } = this.localPointsPrograms[programId]
+              if (availablePoints[programId] * ratio > this.maxPointsAmount) {
+                availablePoints[programId] = this.maxPointsAmount / ratio
               }
             }
-            return availablePoints
-          }, {})
+          }
+          return availablePoints
+        }, {})
         : {}
     },
 

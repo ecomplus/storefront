@@ -2,7 +2,12 @@ const bannerFields = [
   {
     label: 'Imagem',
     name: 'img',
-    widget: 'image'
+    widget: 'image',
+    media_library: {
+      config: {
+        max_file_size: Math.max(window.CMS_MAX_FILE_SIZE || 0, 1000000)
+      }
+    }
   },
   {
     label: 'Link',
@@ -20,7 +25,22 @@ const bannerFields = [
     label: 'Imagem para mobile',
     required: false,
     name: 'mobile_img',
-    widget: 'image'
+    widget: 'image',
+    media_library: {
+      config: {
+        max_file_size: Math.max(window.CMS_MAX_FILE_SIZE || 0, 1000000)
+      }
+    }
+  },
+  {
+    name: 'width',
+    required: false,
+    widget: 'hidden'
+  },
+  {
+    name: 'height',
+    required: false,
+    widget: 'hidden'
   }
 ]
 
@@ -290,6 +310,90 @@ export default ({ state }) => [
         widget: 'number',
         min: 1,
         default: 1
+      },
+      {
+        label: 'Carousel autoplay',
+        required: false,
+        name: 'autoplay',
+        hint: 'Exibição de cada página em milisegundos, 0 desativa o autoplay',
+        min: 0,
+        step: 1000,
+        widget: 'number'
+      }
+    ]
+  },
+  {
+    label: 'Multi estante de produtos',
+    name: 'shelfs-nav',
+    widget: 'object',
+    icon: 'https://api.iconify.design/bi:bag-check.svg',
+    fields: [
+      {
+        label: 'Coleções de produtos',
+        required: true,
+        name: 'collection_ids',
+        widget: 'select',
+        multiple: true,
+        options: [{
+          resource: 'collections',
+          label: ''
+        }, {
+          resource: 'categories',
+          label: 'Categoria: '
+        }, {
+          resource: 'brands',
+          label: 'Marca: '
+        }].reduce((options, shelf) => {
+          state.routes.forEach(({ _id, resource, name, path }) => {
+            if (resource === shelf.resource) {
+              options.push({
+                label: shelf.label + name,
+                value: `${_id}:${resource}:${name}:${path}`
+              })
+            }
+          })
+          return options
+        }, [])
+      },
+      searchOrderField,
+      {
+        label: 'Título da multi estante',
+        required: false,
+        name: 'shelfs_title',
+        widget: 'string'
+      },
+      {
+        label: 'Embaralhar produtos',
+        name: 'shuffle',
+        widget: 'boolean',
+        default: false
+      },
+      {
+        label: 'Limite de itens',
+        required: false,
+        name: 'limit',
+        widget: 'number',
+        min: 1,
+        max: 12,
+        default: 8
+      },
+      {
+        label: 'Paginação',
+        required: false,
+        name: 'page',
+        hint: 'Aumente o número da página para pular os itens iniciais e repetir estantes com a mesma coleção',
+        widget: 'number',
+        min: 1,
+        default: 1
+      },
+      {
+        label: 'Carousel autoplay',
+        required: false,
+        name: 'autoplay',
+        hint: 'Exibição de cada página em milisegundos, 0 desativa o autoplay',
+        min: 0,
+        step: 1000,
+        widget: 'number'
       }
     ]
   },

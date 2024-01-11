@@ -17,6 +17,7 @@
           position: absolute;
           top: 0;
           left: 0;
+          width: 100%;
         }
       }
     }
@@ -24,6 +25,19 @@
     img {
       max-width: 100%;
       height: auto;
+      width: 100%;
+    }
+  }
+  &__stamps {
+    position: absolute;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    img {
+      max-width: 70px;
     }
   }
 }

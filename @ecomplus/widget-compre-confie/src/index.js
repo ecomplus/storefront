@@ -47,8 +47,10 @@ export default (options = {}) => {
             }
             if (customer.birth_date) {
               const { day, month, year } = customer.birth_date
-              ccParam += `&consumerBirthDate=${day.toString().padStart(2, '0')}` +
-                `/${month.toString().padStart(2, '0')}/${year}`
+              if (day && month && year) {
+                ccParam += `&consumerBirthDate=${day.toString().padStart(2, '0')}` +
+                  `/${month.toString().padStart(2, '0')}/${year}`
+              }
             }
             if (navigator && navigator.userAgent.includes('Mobile')) {
               ccParam += '&orderPlatform=1'
@@ -191,8 +193,8 @@ export default (options = {}) => {
                 const $script = document.createElement('script')
                 $script.id = 'getData'
                 $script.type = 'text/javascript'
-                $script.src = 'https://banner.compreconfie.com.br/scripts/tagBanner.min.js' +
-                  `?${compreConfieStoreId}&lightbox=true`
+                $script.src = 'https://cdn.confi.com.vc/scripts/tagBanner.min.js' +
+                  `?sellerId=${compreConfieStoreId}&lightbox=true`
                 document.body.appendChild($script)
                 clearInterval(tryAppendInterval)
               }
