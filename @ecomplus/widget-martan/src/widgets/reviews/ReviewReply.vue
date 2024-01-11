@@ -1,5 +1,8 @@
 <template>
-  <div class="mt-reply__wrapper" v-if="reply">
+  <div 
+    v-if="reply"
+    class="mt-reply__wrapper"
+  >
     <div style="margin-right: 10px">
       <svg
         width="24px"
@@ -16,7 +19,7 @@
 
     <div class="mt-reply">
       <span class="mt-reply__body"
-        >Resposta da loja ·
+        >{{ i19storeResponse }} ·
         <span
           class="mt-reply__date"
           :title="'Respondido em ' + formatDate(reply.created_at)"
@@ -33,10 +36,23 @@ import { formatDate } from "@ecomplus/utils";
 import { timeAgo } from "../../utils/time-ago";
 
 export default {
+
   name: "ReviewReply",
+
   props: {
-    reply: Object,
+    reply: {
+      type: Object,
+      required: true
+    }
   },
-  methods: { formatDate, timeAgo },
+
+  computed: {
+    i19storeResponse: () => 'Resposta da loja'
+  },
+
+  methods: { 
+    formatDate, 
+    timeAgo 
+  }
 };
 </script>

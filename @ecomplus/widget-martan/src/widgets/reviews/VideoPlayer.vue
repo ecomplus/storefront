@@ -53,7 +53,10 @@ export default {
   name: "VideoPlayer",
 
   props: {
-    video: String,
+    video: {
+      type: String,
+      required: true
+    },
   },
 
   data() {
@@ -71,10 +74,6 @@ export default {
       }
     },
     updateBtn() {
-      // this.$refs.playButton.innerHTML = this.$refs.videoPlayer.paused
-      //   ? "►"
-      //   : "❚❚";
-
       this.isPlaying = this.$refs.videoPlayer.paused;
     },
   },

@@ -21,37 +21,22 @@
         />
       </svg>
 
-      <span>comprador verificado</span>
+      <span> {{ i19verifiedBuyer }} </span>
     </div>
     <div class="collapse multi-collapse" :id="collapseId">
       <div class="card card-body">
-        <h5>Como verificamos e processamos avaliações</h5>
+        <h5> {{ i19howProcessVerifiedMsg }} </h5>
 
         <p>
-          Utilizamos o Martan, uma aplicação baseada na web que oferece uma
-          solução de avaliações online e marketing, para coletar, originar,
-          processar e exibir avaliações em nosso site.
+          {{ i19useMartanPrivacyMsg }}
         </p>
 
         <p>
-          Enviamos automaticamente solicitações de avaliações por meio do Martan
-          aos clientes para os quais temos registro de que compraram produtos
-          diretamente em nosso site. Isso nos permite verificar a confiabilidade
-          da avaliação por meio de meios técnicos, como o endereço de e-mail do
-          cliente. As avaliações enviadas diretamente por essas solicitações são
-          marcadas como "Compra verificada", e a seguinte declaração será
-          exibida na interface em que a avaliação for publicada: "Esta avaliação
-          foi coletada de um cliente verificado que comprou este item".
+          {{ i19howWeCollectMsg }}
         </p>
 
         <p>
-          Os clientes podem escolher como avaliar os produtos avaliados com uma
-          pontuação entre 1 e 5. A pontuação média das avaliações é calculada
-          usando uma média matemática simples, que é então arredondada para uma
-          meia ou uma avaliação de estrela completa usando regras padrão de
-          arredondamento. A pontuação média das avaliações inclui avaliações
-          para as quais os clientes receberam descontos em compras futuras por
-          adicionar uma foto ou um vídeo à sua avaliação.
+          {{ i19howClientsReviewMsg }}
         </p>
       </div>
     </div>
@@ -59,22 +44,44 @@
 </template>
 
 <script>
+
+import { i18n } from "@ecomplus/utils";
 import $ from "../../../../storefront-twbs/src";
 
 export default {
   name: "VerifiedPurchase",
-
-  data() {
-    return {
-      collapseId: null,
-    };
-  },
 
   props: {
     showVerified: {
       type: Boolean,
       default: false,
     },
+  },
+
+  data () {
+    return {
+      collapseId: null,
+    };
+  },
+
+  computed: {
+    i19verifiedBuyer: () => 'Comprador verificado',
+    i19howProcessVerifiedMsg: () => i18n({
+        en_us: 'How we verify and process reviews',
+        pt_br: 'Como verificamos e processamos avaliações'
+    }),
+    i19useMartanPrivacyMsg: () => i18n({
+      en_us: 'We use Martan, a web-based application that provides an online reviews and marketing solution, to collect, source, process and display reviews on our website.',
+      pt_br: 'Utilizamos o Martan, uma aplicação baseada na web que oferece uma solução de avaliações online e marketing, para coletar, originar, processar e exibir avaliações em nosso site.'
+    }),
+    i19howWeCollectMsg: () => i18n({
+      en_us: 'We automatically send review requests through Martan to customers for whom we have a record of purchasing products directly from our website. This allows us to verify the reliability of the review through technical means such as the customers email address. Reviews submitted directly through these requests are marked as "Verified Purchase", and the following statement will be displayed in the interface where the review is published: "This review was collected from a verified customer who purchased this item."',
+      pt_br: 'Enviamos automaticamente solicitações de avaliações por meio do Martan aos clientes para os quais temos registro de que compraram produtos diretamente em nosso site. Isso nos permite verificar a confiabilidade da avaliação por meio de meios técnicos, como o endereço de e-mail do cliente. As avaliações enviadas diretamente por essas solicitações são marcadas como "Compra verificada", e a seguinte declaração será exibida na interface em que a avaliação for publicada: "Esta avaliação foi coletada de um cliente verificado que comprou este item".'
+    }),
+    i19howClientsReviewMsg: () => i18n({
+      en_us: 'Customers can choose how to rate reviewed products with a score between 1 and 5. The average review score is calculated using a simple mathematical average, which is then rounded to a half or full star rating using standard rounding rules. The average review score includes reviews for which customers received discounts on future purchases for adding a photo or video to their review.',
+      pt_br: 'Os clientes podem escolher como avaliar os produtos avaliados com uma pontuação entre 1 e 5. A pontuação média das avaliações é calculada usando uma média matemática simples, que é então arredondada para uma meia ou uma avaliação de estrela completa usando regras padrão de arredondamento. A pontuação média das avaliações inclui avaliações para as quais os clientes receberam descontos em compras futuras por adicionar uma foto ou um vídeo à sua avaliação.'
+    })
   },
 
   methods: {
@@ -90,6 +97,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 .mt-rating__verified {
   font-size: 12px;
   color: #6b6d76;

@@ -2,7 +2,7 @@
   <div class="body-wrapper">
     <div class="mt-review__body">{{ body }}</div>
     <span class="mt-review__date" :title="formatDate(createdAt)">
-      Publicado
+      {{ i19published }}
       {{ timeAgo(createdAt) }}
     </span>
   </div>
@@ -13,11 +13,27 @@ import { formatDate } from "@ecomplus/utils";
 import { timeAgo } from "../../utils/time-ago";
 
 export default {
+
   name: "ReviewBody",
+
   props: {
-    body: String,
-    createdAt: String,
+    body: {
+      type: String,
+      required: true
+    },
+    createdAt: {
+      type: String,
+      required: true
+    },
   },
-  methods: { formatDate, timeAgo },
+
+  computed: {
+    i19published: () => 'Publicado'
+  },
+
+  methods: { 
+    formatDate, 
+    timeAgo 
+  }
 };
 </script>

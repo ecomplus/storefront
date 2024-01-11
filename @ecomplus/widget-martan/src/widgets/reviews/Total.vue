@@ -4,24 +4,26 @@
     }}
       {{
         Array.isArray(reviews.list) && reviews.list.length > 1 || reviews.list.length === 0
-        ? "avaliações"
-        : "avaliação"
+        ? i19reviews 
+        : i19review
       }}
       <span>{{ reviews.orderRating }} {{
         Array.isArray(reviews.list) && reviews.list.length > 1 || reviews.list.length === 0
-        ? "estrelas"
-        : "estrela"
+        ? i19stars
+        : i19star
       }}</span>
     </span>
 
     <span class="mt-rating__count" v-else>
       {{ reviews.total }}
       {{
-        reviews.total > 1 || reviews.total === 0 ? "avaliações" : "avaliação"
+        reviews.total > 1 || reviews.total === 0 
+        ? i19reviews 
+        : i19review
       }}
     </span>
 
-    <Sort @onSort="onSort"/>
+    <sort @onSort="onSort"/>
   </div>
 </template>
 
@@ -43,7 +45,12 @@ export default {
   },
 
   computed: {
-    orderRating() {
+
+    i19stars: () => 'Estrelas',
+    i19star: () => 'Estrela',
+    i19reviews: () => 'Avaliações',
+    i19review: () => 'Avaliação',
+    orderRating () {
       return reviews.orderRating;
     },
   },

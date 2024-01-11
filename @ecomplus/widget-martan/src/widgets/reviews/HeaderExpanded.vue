@@ -1,7 +1,11 @@
 <template>
   <div class="mt-header--expanded">
-    <AverageTotal :average="reviews.averageTotal" />
-    <Score :reviews="reviews" :starColor="starColor" @updateOrderByAverage="updateOrderBy" />
+    <average-total :average="reviews.averageTotal" />
+    <score 
+      :reviews="reviews" 
+      :starColor="starColor" 
+      @updateOrderByAverage="updateOrderBy" 
+    />
   </div>
 </template>
 

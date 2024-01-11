@@ -2,14 +2,13 @@
   <div class="mt-gridview">
     <div class="mt-gridview__card" v-for="review in reviews.list" :key="review.id" @click="(e) => openQuickview(review)">
       <div class="mt-gridview__thumb" v-if="getPictureURL(review)">
-        <img :src="getPictureURL(review)" :alt="review.title"
-          @click="() => openQuickview(review)" />
+        <img :src="getPictureURL(review)" :alt="review.title" @click="() => openQuickview(review)" />
       </div>
 
       <div class="mt-gridview__detail">
         <span class="mt-gridview__author">{{ review.author.substr(0, 16) }}</span>
         <rating :rating="review.rating" :color="starColor" />
-        <VerifiedPurchase v-if="review.verified_purchase" />
+        <verified-purchase v-if="review.verified_purchase" />
         <span class="mt-gridview__body">{{ review.body.substr(0, 250) }}</span>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <template>
   <ul class="mt-average__options" ref="options">
-    <li class="mt-rating__list" v-for="index in 5" :key="index"
+    <li class="mt-rating__list" v-for="index in maxReviews" :key="index"
       @click="(reviews.total === 0 ? null : setRating($event, index))">
       <div class="mt-rating-star">
         <span>{{ index }}</span>
@@ -68,6 +68,12 @@ export default {
       type: String,
       default: '#212529'
     },
+  },
+
+  data () {
+    return {
+      maxReviews: 5,
+    };
   },
 
   methods: {
