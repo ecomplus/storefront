@@ -1,7 +1,12 @@
 <template>
   <div class="mt-reviews__list">
-    <CardReview v-for="review in reviews.list" :key="review.id" :review="review" :starColor="starColor"
-      @openQuickview="openQuickview" />
+    <card-review 
+      v-for="review in reviews.list" 
+      :key="review.id" 
+      :review="review" 
+      :starColor="starColor"
+      @openQuickview="openQuickview" 
+    />
   </div>
 </template>
 

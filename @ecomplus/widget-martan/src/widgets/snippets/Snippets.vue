@@ -21,7 +21,7 @@
           <div class="martan-snippets__reviews snippet-review">
             <div class="martan-snippets__reviews-info snippet-review__info">
               <span>{{ review.author }}</span>
-              <Rating :rating="review.rating" :color="starColor" />
+              <rating :rating="review.rating" :color="starColor" />
             </div>
 
             <div
@@ -37,23 +37,23 @@
 
     <div class="martan-snippets__controls" data-glide-el="controls">
       <button
+        v-if="glide && glide.index > 0"
         :title="i19previous"
         :aria-label="i19previous"
         class="left"
         data-glide-dir="<"
         v-on:click="glide.go('<')"
-        v-if="glide && glide.index > 0"
       >
         <i class="i-chevron-left"></i>
       </button>
 
       <button
+        v-if="glide && glide.index !== list.length - 1"
         :title="i19next"
         :aria-label="i19next"
         class="right"
         data-glide-dir=">"
         v-on:click="glide.go('>')"
-        v-if="glide && glide.index !== list.length - 1"
         :data-glide="glide.index"
       >
         <i class="i-chevron-right"></i>
@@ -63,6 +63,7 @@
 </template>
 
 <script>
+
 import axios from "axios";
 import Glide from "@glidejs/glide";
 import { i19next, i19previous } from "@ecomplus/i18n";
@@ -75,7 +76,10 @@ import { MARTAN_API } from '../..';
 export default {
   name: "SnippetWidget",
 
-  components: { Rating, Quickview },
+  components: { 
+    Rating, 
+    Quickview 
+  },
 
   data: function () {
     return {
@@ -93,10 +97,22 @@ export default {
   },
 
   props: {
-    storeId: Number,
-    webId: String,
-    product: String,
-    starColor: String,
+    storeId: {
+      type: Number,
+      required: true
+    },
+    webId: {
+      type: String,
+      required: true
+    },
+    product: {
+      type: String,
+      required: true
+    },
+    starColor: {
+      type: String,
+      required: true
+    },
     backgroundColor: {
       type: String,
       default: "#f8f9fa",

@@ -1,31 +1,31 @@
 <template>
   <div class="mt-review">
     <div class="mt-rating__group">
-      <AuthorAndRating
+      <author-and-rating
+        v-if="review"
         :author="review.author"
         :isAnonymous="review.is_anonymous"
         :rating="review.rating"
         :starColor="starColor"
-        v-if="review"
       />
 
-      <isRecommended :recommended="review.is_recommended" v-if="review" />
+      <is-recommended  v-if="review" :recommended="review.is_recommended" />
 
-      <VerifiedPurchase v-if="isVerified" />
+      <verified-purchase v-if="isVerified" />
     </div>
 
-    <ThumbsPictures
+    <thumbs-pictures
       :review="review"
       @onClick="(e) => $emit('openQuickview', e)"
     />
 
-    <ReviewBody
+    <review-body
+      v-if="review"
       :body="review.body"
       :createdAt="review.created_at"
-      v-if="review"
     />
 
-    <ReviewReply :reply="review.reply" />
+    <review-reply :reply="review.reply" />
   </div>
 </template>
 
@@ -42,7 +42,12 @@ export default {
   name: "CardReview",
 
   props: {
-    review: Object,
+    review: {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
 
     starColor: {
       type: String,

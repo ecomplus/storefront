@@ -1,13 +1,11 @@
 <template>
-  <div
-    style="display: flex; align-items: baseline; justify-content: space-between"
-  >
+  <div style="display: flex;align-items: baseline; justify-content: space-between">
     <div style="display: flex; height: 20px; align-items: center; gap: 5px">
       <div class="mt-review__author" style="padding-right: 2px">
         <span>{{ isAnonymous ? "Anônimo" : author }}</span>
       </div>
 
-      <Rating :rating="rating" :color="starColor" />
+      <rating :rating="rating" :color="starColor" />
     </div>
   </div>
 </template>

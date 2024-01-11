@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-header" v-show="false">
-          <h5 class="modal-title" id="quickviewModal">Quickview</h5>
+          <h5 class="modal-title" id="quickviewModal"> {{ i19quickview }} </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -26,12 +26,24 @@
 
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides">
-                <li class="glide__slide" v-for="picture in pictures" :key="picture.id">
-                  <img :alt="`Foto da avaliação do produto feita por ${author}`" :src="picture.big" />
+                <li 
+                  v-for="picture in pictures"
+                  :key="picture.id"
+                  class="glide__slide" 
+                >
+                  <img 
+                    :alt="`Foto da avaliação do produto feita por ${author}`" 
+                    :src="picture.big"
+                  />
+
                 </li>
 
-                <li v-if="video" class="lazy-image" :key="video">
-                  <VideoPlayer :video="video" />
+                <li 
+                  v-if="video"
+                  :key="video"
+                  class="lazy-image" 
+                >
+                  <video-player :video="video" />
                 </li>
               </ul>
             </div>
@@ -39,7 +51,12 @@
             <div class="mt-quickview__controls" data-glide-el="controls"
               :style="`--button--hover-color:${starColor || '#eeeeee'}`">
 
-              <button :title="i19next" :aria-label="i19next" data-glide-dir=">" v-on:click="next">
+              <button 
+                :title="i19next" 
+                :aria-label="i19next" 
+                data-glide-dir=">" 
+                v-on:click="next"
+              >
                 <i class="i-chevron-right"></i>
               </button>
             </div>
@@ -107,68 +124,14 @@ export default {
     starColor: String,
   },
 
-  data() {
+  data () {
     return {
       glide: null,
     };
   },
 
-  watch: {
-    isOpen: function (isOpened) {
-      if (isOpened) {
-        $("#martan-quickview").modal("show");
-      }
-    },
-  },
-
-  mounted() {
-    $("#martan-quickview").on("hidden.bs.modal", this.close);
-    $("#martan-quickview").on("shown.bs.modal", this.mount);
-
-    this.glide = new Glide(".mt-quickview__galery", {
-      keyboard: false,
-      rewind: true,
-      type: "carousel",
-      dragThreshold: false,
-      startAt: 0,
-      perView: 1,
-      perViewLg: 1,
-      perViewSm: 1,
-    });
-  },
-
-  beforeDestroy() {
-    if (this.glide) {
-      this.glide.destroy();
-    }
-  },
-
-  methods: {
-    mount: function () {
-      this.glide.mount();
-      this.glide.update();
-    },
-
-    close: function () {
-      this.$emit("onClose", true);
-      this.glide.destroy();
-    },
-
-    next: function () {
-      this.glide.go(">");
-      this.glide.update();
-    },
-
-    back: function () {
-      this.glide.go("<");
-      this.glide.update();
-    },
-
-    formatDate,
-    timeAgo,
-  },
-
   computed: {
+    i19quickview: () => 'Quickview',
     i19next: () => i18n(i19next),
     i19previous: () => i18n(i19previous),
 
@@ -248,8 +211,63 @@ export default {
         return this.review.body;
       }
       return null;
+    }
+  },
+
+  watch: {
+    isOpen: function (isOpened) {
+      if (isOpened) {
+        $("#martan-quickview").modal("show");
+      }
     },
   },
+
+  mounted() {
+    $("#martan-quickview").on("hidden.bs.modal", this.close);
+    $("#martan-quickview").on("shown.bs.modal", this.mount);
+
+    this.glide = new Glide(".mt-quickview__galery", {
+      keyboard: false,
+      rewind: true,
+      type: "carousel",
+      dragThreshold: false,
+      startAt: 0,
+      perView: 1,
+      perViewLg: 1,
+      perViewSm: 1,
+    });
+  },
+
+  beforeDestroy() {
+    if (this.glide) {
+      this.glide.destroy();
+    }
+  },
+
+  methods: {
+    mount: function () {
+      this.glide.mount();
+      this.glide.update();
+    },
+
+    close: function () {
+      this.$emit("onClose", true);
+      this.glide.destroy();
+    },
+
+    next: function () {
+      this.glide.go(">");
+      this.glide.update();
+    },
+
+    back: function () {
+      this.glide.go("<");
+      this.glide.update();
+    },
+
+    formatDate,
+    timeAgo,
+  }
 };
 </script>
 

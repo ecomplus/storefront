@@ -2,18 +2,18 @@
   <div class="mt-header--minimal">
     <div class="rating">
       <div style="display: flex; align-items: center; gap: 10px">
-        <Rating :color="starColor" :rating="reviews.averageTotal" />
+        <rating :color="starColor" :rating="reviews.averageTotal" />
 
         <span class="average" v-if="reviews.averageTotal > 0">
           {{ reviews.averageTotal }}
           <span class="baseado" style="font-size: 10px; opacity: 0.8"
-            >(Baseado em {{ reviews.total }} reviews)</span
+            >({{ i19basedOn$1Reviews.replace('$1', reviews.total) }})</span
           ></span
         >
         <span class="average" v-else>
             {{ reviews.averageTotal }}
             <span class="baseado" style="font-size: 10px; opacity: 0.8"
-              >(Nenhuma avaliação)</span
+              >({{ i19noReview }})</span
             ></span
           >
       </div>
@@ -59,9 +59,15 @@ export default {
     Sort,
   },
 
+  computed: {
+    i19basedOn$1Reviews: () => 'Baseado em $1 avaliações',
+    i19noReview: () => 'Nenhuma avaliação'
+  },
+
   methods: {
     updateOrderBy: ({ rating }) =>
       this.$emit("updateOrderByAverage", { rating }),
+
     onSort(value) {
       this.$emit("onSort", value);
     },
