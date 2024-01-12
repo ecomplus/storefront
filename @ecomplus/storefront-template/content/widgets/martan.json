@@ -16,7 +16,7 @@
     "widget_review": {
       "is_enabled": true,
       "title": "Comentários dos Clientes",
-      "star_color": "#01c712",
+      "star_color": "#5dc364",
       "header_layout": "header-minimal",
       "reviews_layout": "list-grid"
     },
