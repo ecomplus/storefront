@@ -1,0 +1,29 @@
+{
+  "active": true,
+  "options": {
+    "widget_key": "WK_OTQ4ZWY4OTktYjUwZS01ODcwLWE4YzAtMTE4ODFkY2M2NDc0",
+    "store_id": 1,
+    "web_id": "KNfJQPB6w5lsBXjY6zmb",
+    "widget_rating": {
+      "is_enabled": true,
+      "font_size": 17,
+      "star_color": "#d50000",
+      "display": "gt1"
+    },
+    "widget_review": {
+      "is_enabled": true,
+      "title": "Comentários",
+      "star_color": "#422222",
+      "header_layout": "header-expanded",
+      "reviews_layout": "list-grid"
+    },
+    "widget_snippet": {
+      "is_enabled": true,
+      "background_color": "#ff0000",
+      "text_color": "#f9f4f4",
+      "star_color": "#17603b",
+      "border": true,
+      "border_color": "#ffdd00"
+    }
+  }
+}
