@@ -3,8 +3,8 @@
   "options": {
     "widget_snippet": {
       "is_enabled": true,
-      "background_color": "#ffffff",
-      "text_color": "#000000",
+      "background_color": "#ff009e",
+      "text_color": "#ffffff",
       "star_color": "#ff0000",
       "border": true,
       "border_color": "#004cff"
