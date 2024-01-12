@@ -30,7 +30,7 @@
                   <img :alt="`Foto da avaliação do produto feita por ${author}`" :src="picture.big" />
                 </li>
 
-                <li v-if="video" class="lazy-image" :key="video">
+                <li v-if="video" class="lazy-image video-wrapper" :key="video">
                   <VideoPlayer :video="video" />
                 </li>
               </ul>
@@ -328,6 +328,11 @@ export default {
 
   .mt-review {
     padding: 10px 20px;
+  }
+
+  .video-wrapper {
+    display: flex;
+    align-items: center;
   }
 }
 </style>
