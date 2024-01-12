@@ -11,6 +11,27 @@
     color: var(--gray);
   }
 
+  &__stamps {
+    position: absolute;
+    position: absolute;
+    top: 0px;
+    left: -5px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    img {
+      max-width: 70px;
+    }
+  }
+
+  &:has(.product-card__favorite) {
+    .product-card__stamps {
+      top: 40px;
+      right: 0;
+      left: unset;
+    }
+  }
+
   @media (hover: hover) {
     &:hover {
       .spinner-border {

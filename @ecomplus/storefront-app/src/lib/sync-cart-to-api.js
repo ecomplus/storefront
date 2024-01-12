@@ -1,6 +1,7 @@
 import ecomPassport from '@ecomplus/passport-client'
 import ecomClient from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
+import router from '../router/'
 
 let resolveCartId
 const fetchingCartId = new Promise(resolve => (resolveCartId = resolve))
@@ -82,6 +83,9 @@ const prepareCart = cart => {
   } else {
     url = '/carts.json'
     method = 'POST'
+    if (router.currentRoute.name === 'confirmation' && !completed) {
+      return {}
+    }
   }
   return {
     url,
@@ -111,6 +115,9 @@ const queueUpdateCart = tryRequestApi => new Promise(resolve => {
 const upsertCart = () => {
   if (ecomPassport.checkAuthorization() && ecomCart.data.items.length) {
     const { url, method, cleanedData } = prepareCart(ecomCart.data)
+    if (!cleanedData) {
+      return Promise.resolve(null)
+    }
     const tryRequestApi = () => {
       return ecomPassport.requestApi(url, method, cleanedData)
         .catch(console.error)

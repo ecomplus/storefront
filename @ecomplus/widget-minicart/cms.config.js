@@ -20,6 +20,33 @@ export default () => ({
       name: 'desktopOnly',
       hint: 'Desativa o widget em dispositivos móveis',
       widget: 'boolean'
+    },
+    {
+      label: 'Opções',
+      name: 'options',
+      widget: 'object',
+      hint: 'Personalizações do widget',
+      fields: [
+        {
+          label: 'Cálculo de frete',
+          name: 'strHasShippingCalculator',
+          widget: 'select',
+          options: [
+            {
+              label: 'Padrão do tema',
+              value: '_'
+            },
+            {
+              label: 'Sem cálculo de frete no minicart',
+              value: ' '
+            },
+            {
+              label: 'Cálculo de frete no minicart',
+              value: 'true'
+            }
+          ]
+        }
+      ]
     }
   ]
 })

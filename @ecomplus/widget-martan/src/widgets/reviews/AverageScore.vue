@@ -1,6 +1,6 @@
 <template>
   <ul class="mt-rating__options" ref="options">
-    <li class="mt-rating__list" v-for="index in 5" :key="index"
+    <li class="mt-rating__list" v-for="index in maxReviews" :key="index"
       v-on:click="(e) => (reviews.total === 0 ? null : setRating(e, index))">
       <div class="mt-rating-star">
         <span>{{ index }}</span>
@@ -47,6 +47,7 @@ export default {
 
   data() {
     return {
+      maxReviews: 5
     };
   },
 

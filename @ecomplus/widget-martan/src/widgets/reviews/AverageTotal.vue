@@ -26,7 +26,7 @@ export default {
       </div>
 
       <div style="margin-left: 10px">
-        <p class="mt-rating__average_total">
+        <p class="mt-rating__average--total">
           {{ average }}
         </p>
       </div>

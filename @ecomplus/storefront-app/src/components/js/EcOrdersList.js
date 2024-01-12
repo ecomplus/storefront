@@ -1,4 +1,6 @@
 import {
+  i19active,
+  i19inactive,
   i19FinancialStatus,
   i19FulfillmentStatus,
   i19OrderStatus
@@ -29,7 +31,8 @@ export default {
     ordersListParams: {
       type: String,
       default: ''
-    }
+    },
+    isSubscriptions: Boolean
   },
 
   data () {
@@ -40,6 +43,11 @@ export default {
       currentPage: 1,
       pageSize: 10
     }
+  },
+
+  computed: {
+    i19active: () => i18n(i19active),
+    i19inactive: () => i18n(i19inactive)
   },
 
   methods: {

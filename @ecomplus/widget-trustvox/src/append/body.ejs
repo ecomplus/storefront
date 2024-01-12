@@ -25,6 +25,7 @@
         setTimeout(function () {
           var $trustvoxScript = document.createElement('script');
           $trustvoxScript.src = 'https://rate.trustvox.com.br/widget.js';
+          $trustvoxScript.async = true;
           document.body.appendChild($trustvoxScript);
         }, 800);
       });
@@ -36,7 +37,36 @@
     src="<%- options.widgetSrc || 'https://static.trustvox.com.br/assets/widget.js' %>"
   ></script>
 <% } else { %>
-  <script async src="https://rate.trustvox.com.br/widget.js"></script>
+  <script>
+    (function () {
+      storefront.on('widget:@ecomplus/widget-product-card', function () {
+        const $searchEngine = document.getElementById('search-engine');
+        const addTrustvoxScript = () => {
+          setTimeout(function () {
+            const $trustvoxScript = document.createElement('script');
+            $trustvoxScript.src = 'https://rate.trustvox.com.br/widget.js';
+            $trustvoxScript.async = true;
+            document.body.appendChild($trustvoxScript);
+          }, 800);
+        };
+        if ($searchEngine) {
+          const callback = () => {
+            searchEngineObserver.disconnect();
+            const $retailRow = $searchEngine.querySelectorAll('.search-engine__retail > .row')[0];
+            const rowObserver = new MutationObserver(() => {
+              addTrustvoxScript();
+              rowObserver.disconnect();
+            });
+            rowObserver.observe($retailRow, { childList: true, subtree: true });
+          };
+          const searchEngineObserver = new MutationObserver(callback);
+          searchEngineObserver.observe($searchEngine, { attributes: true, childList: true });
+        } else {
+          addTrustvoxScript();
+        }
+      });
+    }());
+  </script>
 <% } %>
 
 <% if (!options.disable_certificate) { %>

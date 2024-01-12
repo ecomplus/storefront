@@ -1,0 +1,11 @@
+{
+  "pkg": "@ecomplus/widget-addi",
+  "active": false,
+  "desktopOnly": false,
+  "options": {
+    "enableWidgetProduct": true,
+    "allySlug": ""
+  },
+  "productSlots": "src/append/product-slots",
+  "bodyAppend": "src/append/body"
+}

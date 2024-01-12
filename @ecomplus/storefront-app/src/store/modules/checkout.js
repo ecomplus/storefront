@@ -125,8 +125,14 @@ const validateCartItemKit = item => {
 
 const prepareTransaction = ({ customer, transaction }) => {
   const { name } = customer
-  const fullname = `${name.given_name} ` +
-    (name.middle_name ? `${name.middle_name} ${name.family_name}` : name.family_name)
+  let fullname
+  if (customer.registry_type === 'j') {
+    fullname = customer.corporate_name
+  }
+  if (!fullname) {
+    fullname = `${name.given_name} ` +
+      (name.middle_name ? `${name.middle_name} ${name.family_name}` : name.family_name)
+  }
   const fillTransaction = transaction => {
     const buyer = {
       email: customer.main_email,
@@ -225,7 +231,7 @@ const getters = {
 
   discountCoupon: ({ discountCoupon }) => discountCoupon,
 
-  discountRule: ({ discountRule }) => discountRule.app_id ? discountRule : undefined,
+  discountRule: ({ discountRule }) => discountRule.extra_discount ? discountRule : undefined,
 
   shippingZipCode: ({ shippingService }) => {
     if (shippingService.shipping_line) {
@@ -252,14 +258,14 @@ const mutations = {
   },
 
   setDiscountCoupon (state, discountCoupon) {
-    if (discountCoupon && state.discountRule.app_id) {
+    if (discountCoupon && state.discountRule.extra_discount) {
       persistDiscountCoupon(discountCoupon)
     }
     state.discountCoupon = discountCoupon || ''
   },
 
   setDiscountRule (state, discountRule) {
-    if (state.discountCoupon && discountRule.app_id) {
+    if (state.discountCoupon && discountRule.extra_discount) {
       persistDiscountCoupon(state.discountCoupon)
     }
     state.discountRule = discountRule || {}
@@ -337,6 +343,10 @@ const actions = {
         delete customer[prop]
       }
     }
+    const referral = sessionStorage.getItem('ecomReferral')
+    if (typeof referral === 'string' && /^[0-9a-f]{24}$/.test(referral)) {
+      customer.referral = referral
+    }
     const checkoutBody = {
       ...baseModulesRequestData,
       items: ecomCart.data.items.map(item => {
@@ -358,6 +368,9 @@ const actions = {
       transaction: prepareTransaction(payload),
       customer,
       notes: getters.notes
+    }
+    if (customer.referral) {
+      checkoutBody.affiliate_code = customer.referral
     }
     if (getters.discountRule) {
       checkoutBody.discount = {

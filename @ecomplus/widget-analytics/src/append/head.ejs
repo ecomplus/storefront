@@ -8,10 +8,15 @@
   gtag('js', new Date());
   if (location.pathname === '/app/') {
     gtag('config', '<%- options.gaTrackingId %>', {
+      cookie_domain: location.hostname,
+      cookie_flags: 'SameSite=None;Secure',
       send_page_view: location.hash.substr(1, 8) === '/account',
       page_path: location.hash.substr(1)
     });
   } else {
-    gtag('config', '<%- options.gaTrackingId %>');
+    gtag('config', '<%- options.gaTrackingId %>', {
+      cookie_domain: location.hostname,
+      cookie_flags: 'SameSite=None;Secure'
+    });
   }
 </script>

@@ -1,0 +1,11 @@
+<section class="buy-together">
+  <div class="container">
+    <div id="buy-together">
+      <% if (opt.show_loading) { %>
+        <%- await include('@/sections/inc/loading') %>
+      <% } else { %>
+        <div style="width: 20px"></div>
+      <% } %>
+    </div>
+  </div>
+</section>

@@ -1,4 +1,5 @@
 const path = require('path')
+const axios = require('axios')
 
 const {
   getAssetsReferences,
@@ -26,6 +27,76 @@ exports.ssr = (req, res, getCacheControl) => {
       )
   }
 
+  const proxy = async () => {
+    let proxyUrl
+    try {
+      proxyUrl = new URL(req.query.url)
+    } catch {
+    }
+    if (proxyUrl) {
+      const { headers } = req
+      /* eslint-disable dot-notation */
+      headers['origin'] = headers['x-forwarded-host']
+      headers['host'] = proxyUrl.hostname
+      if (!headers['accept']) {
+        headers['accept'] = 'text/plain,text/html,application/javascript,application/x-javascript'
+      }
+      headers['accept-encoding'] = 'gzip'
+      delete headers['forwarded']
+      delete headers['via']
+      delete headers['traceparent']
+      delete headers['upgrade-insecure-requests']
+      delete headers['x-timer']
+      delete headers['x-varnish']
+      delete headers['x-orig-accept-language']
+      Object.keys(headers).forEach((headerName) => {
+        if (
+          headerName.startsWith('x-forwarded-') ||
+          headerName.startsWith('cdn-') ||
+          headerName.startsWith('fastly-') ||
+          headerName.startsWith('x-firebase-') ||
+          headerName.startsWith('x-cloud-') ||
+          headerName.startsWith('x-appengine-') ||
+          headerName.startsWith('function-')
+        ) {
+          delete headers[headerName]
+        }
+      })
+      if (process.env.STOREFRONT_PROXY_DEBUG) {
+        console.log({ proxy: proxyUrl.href })
+      }
+      try {
+        const response = await axios.get(proxyUrl.href, {
+          headers,
+          timeout: 3000,
+          responseType: 'text',
+          validateStatus: (status) => {
+            return Boolean(status)
+          }
+        })
+        res.status(response.status)
+        Object.keys(response.headers).forEach((headerName) => {
+          switch (headerName) {
+            case 'transfer-encoding':
+            case 'connection':
+            case 'strict-transport-security':
+            case 'alt-svc':
+            case 'server':
+              break
+            default:
+              res.set(headerName, response.headers[headerName])
+          }
+        })
+        res.set('access-control-allow-origin', '*')
+        return res.send(response.data)
+      } catch (err) {
+        console.error(err)
+        return res.status(400).send(err.message)
+      }
+    }
+    res.sendStatus(400)
+  }
+
   const redirect = (url, status = 302) => {
     let sMaxAge = status === 301 ? 360 : 12
     if (isLongCache) {
@@ -47,7 +118,9 @@ exports.ssr = (req, res, getCacheControl) => {
   }
 
   const fallback = () => {
-    if (url.slice(-1) === '/') {
+    if (url.startsWith('/~reverse-proxy/')) {
+      proxy()
+    } else if (url.slice(-1) === '/') {
       redirect(url.slice(0, -1))
     } else if (url !== '/404' && (/\/[^/.]+$/.test(url) || /\.x?html$/.test(url))) {
       setStatusAndCache(404, `public, max-age=${(isLongCache ? 120 : 30)}`)

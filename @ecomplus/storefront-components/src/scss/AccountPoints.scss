@@ -3,6 +3,12 @@
     text-transform: lowercase;
   }
 
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &__entry-title {
     display: flex;
     width: 100%;

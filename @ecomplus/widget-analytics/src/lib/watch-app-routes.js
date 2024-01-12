@@ -1,6 +1,6 @@
 import watchAppRoutes from '@ecomplus/widget-tag-manager/src/lib/watch-app-routes'
 
-const { location, $ } = window
+const { location } = window
 
 export default (gtag, gaTrackingId, googleAdsId) => {
   const emitPageView = () => setTimeout(() => {
@@ -11,20 +11,28 @@ export default (gtag, gaTrackingId, googleAdsId) => {
     })
   }, 300)
 
+  let isCheckoutSent = false
   watchAppRoutes({
     push: ({ event, ecommerce }) => {
-      let data
+      if (!event) {
+        return
+      }
+      let data, step
       switch (event) {
         case 'eec.checkout':
         case 'eec.checkout_option':
           data = ecommerce && ecommerce.checkout
           if (data) {
-            gtag('event', 'begin_checkout', {
-              items: data.products
-            })
+            if (!isCheckoutSent) {
+              gtag('event', 'begin_checkout', {
+                items: data.products
+              })
+              isCheckoutSent = true
+            }
+            step = data.actionField && data.actionField.step
           }
           gtag('event', 'set_checkout_option', {
-            checkout_step: location.hash.startsWith('#/cart') ? 1 : 2
+            checkout_step: step || (location.hash.startsWith('#/cart') ? 1 : 2)
           })
           break
 
@@ -34,7 +42,7 @@ export default (gtag, gaTrackingId, googleAdsId) => {
           if (data && data.actionField) {
             gtag('event', 'purchase', {
               transaction_id: data.actionField.id,
-              affiliation: $('meta[name="author"]').attr('content') || 'Shop',
+              affiliation: document.querySelector('meta[name="author"]').getAttribute('content') || 'Shop',
               value: Number(data.actionField.revenue),
               currency: ecommerce.currencyCode,
               tax: data.actionField.tax ? Number(data.actionField.tax) : 0,

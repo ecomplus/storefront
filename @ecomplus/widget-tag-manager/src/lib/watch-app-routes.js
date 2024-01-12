@@ -1,4 +1,9 @@
+import {
+  nickname as getNickname,
+  phone as getPhone
+} from '@ecomplus/utils'
 import ecomCart from '@ecomplus/shopping-cart'
+import ecomPassport from '@ecomplus/passport-client'
 import { currencyCode, getProductData } from './common'
 
 export default dataLayer => {
@@ -16,6 +21,7 @@ export default dataLayer => {
     }
 
     const emitCheckoutOption = actionField => {
+      dataLayer.push({ ecommerce: null })
       dataLayer.push({
         event: 'eec.checkout_option',
         ecommerce: {
@@ -27,22 +33,27 @@ export default dataLayer => {
 
     const emitCheckout = (step, option) => {
       const actionField = { step, option }
-      if (step <= 1 || !isCartSent) {
-        dataLayer.push({
-          event: 'eec.checkout',
-          ecommerce: {
-            currencyCode,
-            checkout: {
-              actionField,
-              products: getCartProductsList()
-            }
+      if (step === 1 && isCartSent) {
+        return
+      }
+      if (step === 2 && isCheckoutSent) {
+        return
+      }
+      dataLayer.push({ ecommerce: null })
+      dataLayer.push({
+        event: 'eec.checkout',
+        ecommerce: {
+          currencyCode,
+          checkout: {
+            actionField,
+            products: getCartProductsList()
           }
-        })
-        dataLayer.push({ event: 'checkout' })
+        }
+      })
+      dataLayer.push({ event: 'checkout' })
+      if (step === 1) {
         isCartSent = true
-      } else if (!isCheckoutSent) {
-        emitCheckoutOption(actionField)
-        dataLayer.push({ event: 'checkoutOption' })
+      } else {
         isCheckoutSent = true
       }
     }
@@ -76,7 +87,7 @@ export default dataLayer => {
           }
 
           if (order) {
-            ;['payment_method_label', 'shipping_method_label'].forEach((field, i) => {
+            ;['shipping_method_label', 'payment_method_label'].forEach((field, i) => {
               if (order[field]) {
                 emitCheckoutOption({
                   step: 3 + i,
@@ -89,16 +100,60 @@ export default dataLayer => {
             }
           }
 
-          dataLayer.push({
-            event: 'eec.purchase',
-            ecommerce: {
-              currencyCode,
-              purchase: {
-                actionField,
-                products: getCartProductsList()
+          let purchaseTimeout = 1
+          if (window.__sendGTMExtraPurchaseData) {
+            const customer = ecomPassport.getCustomer()
+            const extraPurchaseData = {}
+            let shippingAddr
+            if (customer) {
+              extraPurchaseData.customerDisplayName = getNickname(customer)
+              if (customer.name) {
+                extraPurchaseData.customerGivenName = customer.name.given_name
+                extraPurchaseData.customerFamilyName = customer.name.family_name
               }
+              extraPurchaseData.customerEmail = customer.main_email
+              extraPurchaseData.customerPhone = getPhone(customer)
+              shippingAddr = customer.addresses && customer.addresses[0]
             }
-          })
+            try {
+              const sessionShippingAddr = JSON.parse(window.sessionStorage
+                .getItem('ecomCustomerAddress'))
+              if (typeof shippingAddr === 'object' && shippingAddr) {
+                Object.assign(shippingAddr, sessionShippingAddr)
+              } else {
+                shippingAddr = sessionShippingAddr
+              }
+            } catch {
+            }
+            if (shippingAddr && shippingAddr.zip) {
+              extraPurchaseData.shippingAddrZip = shippingAddr.zip
+              extraPurchaseData.shippingAddrStreet = shippingAddr.street
+              extraPurchaseData.shippingAddrNumber = shippingAddr.number
+              if (shippingAddr.street && shippingAddr.number) {
+                extraPurchaseData.shippingAddrStreet += `, ${shippingAddr.number}`
+              }
+              extraPurchaseData.shippingAddrCity = shippingAddr.city
+              extraPurchaseData.shippingAddrProvinceCode = shippingAddr.province_code
+            }
+            dataLayer.push({
+              event: 'purchaseExtraData',
+              ...extraPurchaseData
+            })
+            purchaseTimeout = 100
+          }
+          setTimeout(() => {
+            dataLayer.push({ ecommerce: null })
+            dataLayer.push({
+              event: 'eec.purchase',
+              ecommerce: {
+                currencyCode,
+                purchase: {
+                  actionField,
+                  products: getCartProductsList()
+                }
+              }
+            })
+          }, purchaseTimeout)
           window.localStorage.setItem('gtm.orderIdSent', orderId)
         }
         isPurchaseSent = true
@@ -112,7 +167,14 @@ export default dataLayer => {
           emitCheckout(1, 'Review Cart')
           break
         case 'checkout':
-          emitCheckout(2, 'Confirm Purchase')
+          if (!params.step || !isCheckoutSent) {
+            emitCheckout(2, 'Login / Signup')
+          }
+          if (Number(params.step) === 1) {
+            emitCheckout(3, 'Shipping Method')
+          } else if (Number(params.step) === 2) {
+            emitCheckout(4, 'Payment Method')
+          }
           break
         case 'confirmation':
           clearTimeout(emitPurchaseTimer)

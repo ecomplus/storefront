@@ -140,6 +140,16 @@
                       {{ i19redirectToPayment }}
                     </a>
                   </div>
+
+                  <div
+                    v-if="validThruRemainingTime"
+                    class="order-info__valid-thru mb-3 mt-3"
+                  >
+                    {{ i19expirationDate }}
+                    <div class="ml-3 mb-0">
+                      <strong>{{ validThruRemainingTime }}</strong>
+                    </div>
+                  </div>
                 </template>
 
                 <div class="order-info__details">
@@ -300,6 +310,25 @@
                               </span>
                             </samp>
                           </div>
+
+                          <div
+                            if="shippingLine.invoices"
+                            class="order-info__shipping-nfe"
+                          >
+                            <hr>
+                            <samp
+                              v-for="(invoice, i) in shippingLine.invoices"
+                              :key="`invoice-${i}`"
+                              v-if="invoice.link || invoice.access_key"
+                            >
+                              <a
+                                :href="`${invoice.link || `${(invoiceBaseLink + invoice.access_key)}`}`"
+                                target="_blank"
+                              >
+                                {{ i19invoice }}
+                              </a>
+                            </samp>
+                          </div>
                         </div>
                       </div>
 
@@ -383,39 +412,56 @@
 
             <div
               v-if="localOrder.amount"
-              class="col-lg-6"
+              class="col-lg-6 order-info__right"
             >
               <div class="order-info__summary card">
                 <div class="card-body">
                   <ec-summary
                     :amount="localOrder.amount"
                     :items="localOrder.items"
-                    :buyer="localOrder.buyer && localOrder.buyer[0]"
+                    :buyer="(localOrder.buyer && localOrder.buyer[0]) || ecomPassport.getCustomer()"
                     :shippingAddress="shippingAddress"
                   />
                 </div>
               </div>
 
-              <button
-                v-if="!isUpdating && status === 'open' && !fulfillmentStatus"
-                class="order-info__toggle btn btn-danger"
-                @click="toggle"
+              <slot
+                name="unsubscribe"
+                v-if="isSubscription && status !== 'cancelled'"
               >
-                <i class="i-exclamation-triangle mr-1"></i>
-                {{ i19cancelOrder }}
-              </button>
-
-              <slot name="buy">
                 <button
                   type="button"
-                  class="order-info__buy-again btn"
-                  :class="isNew ? 'btn-outline-secondary' : 'btn-primary'"
-                  @click="buyAgain"
+                  class="order-info__unsubscribe btn btn-outline-danger"
+                  @click="toggle"
                 >
-                  <i class="i-shopping-bag mr-1"></i>
-                  {{ i19buyAgain }}
+                  <i class="i-exclamation-triangle mr-1"></i>
+                  {{ i19unsubscribe }}
                 </button>
               </slot>
+
+              <template v-else>
+                <slot name="buy">
+                  <button
+                    type="button"
+                    class="order-info__buy-again btn"
+                    :class="isNew ? 'btn-outline-secondary' : 'btn-primary'"
+                    @click="buyAgain"
+                  >
+                    <i class="i-shopping-bag mr-1"></i>
+                    {{ i19buyAgain }}
+                  </button>
+                </slot>
+
+                <button
+                  v-if="!isUpdating && status === 'open' && !fulfillmentStatus"
+                  class="order-info__toggle btn btn-sm btn-danger"
+                  :style="isNew ? 'display: none' : null"
+                  @click="toggle"
+                >
+                  <i class="i-exclamation-triangle mr-1"></i>
+                  {{ i19cancelOrder }}
+                </button>
+              </template>
             </div>
           </div>
         </div>

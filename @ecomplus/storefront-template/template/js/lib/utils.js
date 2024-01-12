@@ -1,21 +1,8 @@
 import {
-  isSafari,
-  isSafariNew,
-  isIOS,
-  isIE,
   isMobile,
   isScreenXs,
   $
 } from '@ecomplus/storefront-twbs'
-
-if ((isSafari || isIOS || isIE) && !isSafariNew) {
-  $('img').each(function () {
-    const src = $(this).attr('src')
-    if (src && src.endsWith('.webp')) {
-      $(this).attr('src', src.replace('.webp', '.png'))
-    }
-  })
-}
 
 if (!isScreenXs) {
   $('.footer .collapse').collapse('show')
@@ -93,5 +80,34 @@ $('#go-to-top').on('click', () => {
   window.scroll({
     top: 0,
     behavior: 'smooth'
+  })
+})
+
+if ($('#popup-modal').length) {
+  $(window).one('scroll', () => {
+    $('#close-modal-popup').click(() => window.sessionStorage.setItem('popup-modal', 'close'))
+    if (!window.sessionStorage.getItem('popup-modal')) {
+      $('#popup-modal').modal('show')
+    }
+  })
+}
+
+$('.shelfs-nav').each(function () {
+  const $shelfNav = $(this)
+  const $shelfNavTabs = $shelfNav.find('.shelfs-nav__tab')
+  $shelfNavTabs.click(function () {
+    const clickedTabIndex = $(this).data('tab')
+    $shelfNavTabs.each(function () {
+      const $tab = $(this)
+      const tabIndex = $tab.data('tab')
+      const $shelf = $shelfNav.find(`[data-shelf=${tabIndex}]`)
+      if (clickedTabIndex === tabIndex) {
+        $tab.addClass('active')
+        $shelf.show(400)
+      } else {
+        $tab.removeClass('active')
+        $shelf.hide(100)
+      }
+    })
   })
 })

@@ -80,6 +80,7 @@ export default {
         return {}
       }
     },
+    skipAppIds: Array,
     shippingAppsSort: {
       type: Array,
       default () {
@@ -150,20 +151,28 @@ export default {
       if (shippingResult.length) {
         shippingResult.forEach(appResult => {
           const { validated, error, response } = appResult
-          if (validated && !error) {
-            response.shipping_services.forEach(service => {
-              this.shippingServices.push({
-                app_id: appResult.app_id,
-                ...service
-              })
+          if (!validated || error) {
+            return
+          }
+          if (
+            this.skipAppIds &&
+            this.skipAppIds.includes(appResult.app_id) &&
+            shippingResult.filter(({ app_id: appId }) => !this.skipAppIds.includes(appId)).length
+          ) {
+            return
+          }
+          response.shipping_services.forEach(service => {
+            this.shippingServices.push({
+              app_id: appResult.app_id,
+              ...service
             })
-            const freeShippingFromValue = response.free_shipping_from_value
-            if (
-              freeShippingFromValue &&
-              (!this.freeFromValue || this.freeFromValue > freeShippingFromValue)
-            ) {
-              this.freeFromValue = freeShippingFromValue
-            }
+          })
+          const freeShippingFromValue = response.free_shipping_from_value
+          if (
+            freeShippingFromValue &&
+            (!this.freeFromValue || this.freeFromValue > freeShippingFromValue)
+          ) {
+            this.freeFromValue = freeShippingFromValue
           }
         })
         if (!this.shippingServices.length) {
@@ -210,7 +219,14 @@ export default {
         setTimeout(() => {
           this.isScheduled = false
           const { storeId } = this
-          const url = '/calculate_shipping.json'
+          let url = '/calculate_shipping.json'
+          if (this.skipAppIds && this.skipAppIds.length) {
+            url += '?skip_ids='
+            this.skipAppIds.forEach((appId, i) => {
+              if (i > 0) url += ','
+              url += `${appId}`
+            })
+          }
           const method = 'POST'
           const data = {
             ...this.shippingData,
@@ -291,6 +307,10 @@ export default {
         }
       },
       immediate: true
+    },
+
+    skipAppIds () {
+      this.fetchShippingServices()
     },
 
     shippingResult: {

@@ -1,13 +1,13 @@
 {
   "name": "@ecomplus/storefront-twbs",
-  "version": "7.3.0",
+  "version": "7.3.6",
   "description": "Storefront foundation components built with custom Bootstrap 4 + Animate.css + FontAwesome",
   "browser": "dist/storefront-twbs.min.js",
   "main": "dist/storefront-twbs.min.js",
   "jsdelivr": "dist/public/storefront-twbs.var.min.js",
   "unpkg": "dist/public/storefront-twbs.var.min.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack",
+    "build": "cross-env NODE_ENV=production webpack && cross-env NODE_ENV=production BUILD_OUTPUT=cdn webpack",
     "serve": "webpack-dev-server"
   },
   "repository": {
@@ -32,7 +32,7 @@
     "url": "https://github.com/ecomplus/storefront-twbs/issues"
   },
   "dependencies": {
-    "jquery": "3.6.0",
+    "jquery": "3.7.1",
     "popper.js": "^1.16.1"
   }
 }

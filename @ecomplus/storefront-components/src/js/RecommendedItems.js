@@ -66,6 +66,10 @@ export default {
       default () {
         return []
       }
+    },
+    defaultMatchType: {
+      type: String,
+      default: (typeof window === 'object' && window.ecomRecommendationsType) || 'recommended'
     }
   },
 
@@ -106,16 +110,18 @@ export default {
             totalCount: this.totalCount
           })
         }
+      }).finally(() => {
+        this.$emit('fetched')
       })
     }
   },
 
   created () {
-    const fetchRecommendations = (matchType = 'recommended') => {
+    const fetchRecommendations = (matchType = this.defaultMatchType) => {
       const promises = []
       const items = this.ecomCart.data.items.sort((a, b) => a.quantity > b.quantity ? -1 : 1)
       for (let i = 0; i < items.length && i <= 4; i++) {
-        promises.push(graphs({ url: `/products/${items[i]._id}/${matchType}.json` }))
+        promises.push(graphs({ url: `/products/${items[i].product_id}/${matchType}.json` }))
       }
       Promise.allSettled(promises).then(results => {
         const productIds = []

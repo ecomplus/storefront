@@ -4,12 +4,13 @@
   "files.insertFinalNewline": true,
   "files.autoSave": "off",
   "files.autoSaveDelay": 5000,
-  "standard.run": "onSave",
+  "standard.enable": true,
   "yaml.schemas": {
     "https://json.schemastore.org/github-workflow": "/.github/workflows/**/*.yml"
   },
   "files.associations": {
-    "**/html/*.html": "vue-html"
+    "**/html/*.html": "vue-html",
+    "**/components/*.html": "vue-html"
   },
   "css.validate": false,
   "scss.validate": true

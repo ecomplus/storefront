@@ -92,6 +92,11 @@ export default {
     i19addToFavorites: () => i18n(i19addToFavorites),
     i19outOfStock: () => i18n(i19outOfStock),
     i19unavailable: () => i18n(i19unavailable),
+    i19uponRequest: () => 'Sob consulta',
+
+    isWithoutPrice () {
+      return !getPrice(this.body)
+    },
 
     ratingHtml () {
       return getExternalHtml('Rating', this.body)

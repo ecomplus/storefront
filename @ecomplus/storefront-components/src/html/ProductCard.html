@@ -21,6 +21,7 @@
           <i class="i-arrow-down"></i> <b>{{ discount }}</b>%
         </span>
       </slot>
+      <slot name="stamps" />
 
       <slot name="body">
         <a-link
@@ -85,6 +86,15 @@
         </p>
       </slot>
 
+      <slot
+        name="without-price"
+        v-else-if="isWithoutPrice"
+      >
+        <p class="badge badge-info mt-auto">
+          {{ i19uponRequest }}
+        </p>
+      </slot>
+
       <template v-else>
         <slot name="prices">
           <a-prices
@@ -133,13 +143,14 @@
           class="btn product-card__favorite fade"
           @click="toggleFavorite"
           :href="isLogged ? null : accountUrl"
+          :aria-label="i19addToFavorites"
         >
           <i 
             class="i-heart mr-1"
             :class="isFavorite ? 'active' : null"
           >
           </i>
-        </a>      
+        </a>
       </slot>
 
       <slot name="footer">

@@ -4,6 +4,7 @@ import {
   i19codeCopied,
   i19copyCode,
   i19copyErrorMsg,
+  i19days,
   i19doPaymentMsg,
   i19freight,
   i19login,
@@ -21,6 +22,7 @@ import {
   i19transactionCode,
   i19ticketCode,
   i19trackDelivery,
+  i19unsubscribe,
   i19zipCode,
   i19FinancialStatus,
   i19FulfillmentStatus,
@@ -76,6 +78,10 @@ export default {
       default () {
         return ecomPassport
       }
+    },
+    invoiceBaseLink: {
+      type: String,
+      default: 'https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConteudo=7PhJ+gAVw2g=&tipoConsulta=resumo&nfe='
     }
   },
 
@@ -85,7 +91,9 @@ export default {
       isUpdating: false,
       reloadInterval: null,
       orderBody: this.order,
-      canReopenOrder: false
+      canReopenOrder: false,
+      validThruTimer: null,
+      validThruRemainingTime: null
     }
   },
 
@@ -95,7 +103,9 @@ export default {
     i19codeCopied: () => i18n(i19codeCopied),
     i19copyCode: () => i18n(i19copyCode),
     i19copyErrorMsg: () => i18n(i19copyErrorMsg),
+    i19days: () => i18n(i19days),
     i19doPaymentMsg: () => i18n(i19doPaymentMsg),
+    i19expirationDate: () => 'Prazo de vencimento',
     i19freight: () => i18n(i19freight),
     i19login: () => i18n(i19login),
     i19loginForOrderDetailsMsg: () => i18n(i19loginForOrderDetailsMsg),
@@ -112,7 +122,9 @@ export default {
     i19transactionCode: () => i18n(i19transactionCode),
     i19ticketCode: () => i18n(i19ticketCode),
     i19trackDelivery: () => i18n(i19trackDelivery),
+    i19unsubscribe: () => i18n(i19unsubscribe),
     i19zipCode: () => i18n(i19zipCode),
+    i19invoice: () => 'Nota fiscal',
 
     localOrder: {
       get () {
@@ -135,6 +147,11 @@ export default {
       return transactions && transactions.length
         ? transactions[0]
         : {}
+    },
+
+    validThru () {
+      const transactionMethod = this.transaction['banking_billet'] || this.transaction['account_deposit']
+      return transactionMethod && transactionMethod.valid_thru
     },
 
     shippingAddress () {
@@ -160,9 +177,19 @@ export default {
     financialStatus () {
       const { localOrder, transaction } = this
       if (localOrder.payments_history) {
+        const transaction = localOrder.transactions &&
+          localOrder.transactions.find((transaction) => {
+            return transaction.payment_method.code !== 'loyalty_points'
+          })
         let statusRecord
         localOrder.payments_history.forEach(record => {
-          if (record && (!statusRecord || !record.date_time || record.date_time >= statusRecord.date_time)) {
+          if (
+            record &&
+            (!transaction || !record.transaction_id ||
+              record.transaction_id === transaction._id) &&
+            (!statusRecord || !record.date_time ||
+              new Date(record.date_time).getTime() >= new Date(statusRecord.date_time).getTime())
+          ) {
             statusRecord = record
           }
         })
@@ -206,7 +233,7 @@ export default {
       if (statusRecords.length) {
         statusRecords = statusRecords = statusRecords.sort((a, b) => {
           if (a.date_time && b.date_time) {
-            return a.date_time > b.date_time
+            return new Date(a.date_time).getTime() > new Date(b.date_time).getTime()
               ? -1
               : 1
           }
@@ -224,6 +251,11 @@ export default {
 
     isAuthenticated () {
       return this.ecomPassport.checkAuthorization()
+    },
+
+    isSubscription () {
+      return this.localOrder.transactions &&
+        this.localOrder.transactions.find(({ type }) => type === 'recurrence')
     }
   },
 
@@ -262,6 +294,13 @@ export default {
     saveCustomerOrder () {
       const { localOrder, ecomPassport } = this
       if (!this.skipCustomerUpdate && localOrder.number && ecomPassport.checkAuthorization()) {
+        if (
+          localOrder.transactions && localOrder.transactions.find(transaction => {
+            return transaction.payment_method.code === 'loyalty_points'
+          })
+        ) {
+          ecomPassport.setCustomer({ loyalty_points_entries: [] })
+        }
         ecomPassport.requestApi('/me.json')
           .then(({ data }) => {
             const orders = data.orders
@@ -312,7 +351,7 @@ export default {
 
     toggle () {
       this.isUpdating = true
-      const data = this.localOrder.status === 'open'
+      const data = this.localOrder.status !== 'cancelled'
         ? {
             status: 'cancelled',
             cancel_reason: 'customer'
@@ -408,7 +447,41 @@ export default {
     }
   },
 
+  mounted () {
+    if (this.validThru) {
+      const validDate = new Date(this.validThru)
+      const now = Date.now()
+      if (validDate.getTime() > now) {
+        let targetDate
+        const dayMs = 24 * 60 * 60 * 1000
+        const daysBetween = Math.floor((validDate.getTime() - now) / dayMs)
+        if (daysBetween > 2) {
+          targetDate = new Date()
+          targetDate.setHours(23, 59, 59, 999)
+        } else {
+          targetDate = validDate
+        }
+        const formatTime = (number) => number < 10 ? `0${number}` : number
+        const getRemainingTime = () => {
+          const distance = targetDate.getTime() - Date.now()
+          const days = Math.floor(distance / dayMs)
+          const hours = Math.floor((distance % dayMs) / (1000 * 60 * 60))
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+          return (days > 0 ? `${formatTime(days)} ${i19days} - ` : '') +
+            `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`
+        }
+        this.validThruTimer = setInterval(() => {
+          this.validThruRemainingTime = getRemainingTime()
+        }, 1000)
+      }
+    }
+  },
+
   beforeDestroy () {
     clearInterval(this.reloadInterval)
+    if (this.validThruTimer) {
+      clearInterval(this.validThruTimer)
+    }
   }
 }

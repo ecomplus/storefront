@@ -1,4 +1,4 @@
-import { i19paymentError, i19paymentErrorMsg } from '@ecomplus/i18n'
+import { i19error, i19paymentError, i19paymentErrorMsg } from '@ecomplus/i18n'
 import { i18n } from '@ecomplus/utils'
 import { store } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
@@ -19,7 +19,8 @@ export default {
     return {
       updateInterval: null,
       ecomPassport: null,
-      checkoutStep: 0
+      checkoutStep: 0,
+      skipShippingApps: []
     }
   },
 
@@ -45,7 +46,13 @@ export default {
     },
 
     isGuestCheckout () {
-      return this.isLpCheckout || this.checkoutMode === 'guest'
+      if (this.isLpCheckout) {
+        if (typeof window !== 'object' || window.ecomGuestCheckout === undefined) {
+          return true
+        }
+        return Boolean(window.ecomGuestCheckout)
+      }
+      return this.checkoutMode === 'guest'
     },
 
     customer: {
@@ -142,7 +149,19 @@ export default {
             }
           })
         })
-        .catch(() => {
+        .catch((err) => {
+          if (err.response) {
+            const { data } = err.response
+            if (data && data.error_code === 'CKT901') {
+              this.$toast({
+                title: i18n(i19error),
+                body: i18n(data.user_message),
+                variant: 'warning'
+              })
+              this.skipShippingApps.push(this.shippingService.app_id)
+              return
+            }
+          }
           this.$toast({
             title: i18n(i19paymentError),
             body: i18n(i19paymentErrorMsg),
@@ -155,6 +174,11 @@ export default {
 
   watch: {
     checkoutStep (stepNumber, lastStep) {
+      this.$router.push({
+        params: {
+          step: stepNumber
+        }
+      })
       if (stepNumber && !lastStep) {
         this.setFluidPage(true)
       }

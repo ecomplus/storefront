@@ -1,18 +1,22 @@
 <template>
-  <div :data-header="headerLayout" :data-layout="reviewsLayout">
+  <div 
+    :data-header="headerLayout"
+    :data-layout="reviewsLayout"
+  >
     <div id="reviews" class="mt-reviews container" :class="'mt-theme--' + headerLayout">
       <p class="lead">
         <a href="#reviews" :name="title || 'reviews'">#</a>
         {{ title }}
       </p>
 
-      <Total @onSort="onSort" :reviews="{ list, orderRating, total }" v-if="headerLayout !== 'header-expanded' && headerLayout !== 'header-minimal'
-        " />
+      <total v-if="headerLayout !== 'header-expanded' && headerLayout !== 'header-minimal'" 
+        @onSort="onSort" :reviews="{ list, orderRating, total }"  />
 
       <component @updateOrderByAverage="updateOrderBy" @onSort="onSort" :is="headerLayout"
         :reviews="{ averageTotal, average, total, orderRating }" :starColor="starColor"></component>
 
-      <Total @onSort="onSort" :reviews="{ list, orderRating, total }" v-if="headerLayout === 'header-expanded'" />
+      <total v-if="headerLayout === 'header-expanded'"
+        @onSort="onSort" :reviews="{ list, orderRating, total }" />
 
       <component :reviews="{ list, orderRating, total }" :starColor="starColor" @openQuickview="openQuickview"
         :is="reviewsLayout"></component>
@@ -26,11 +30,13 @@
       </div>
     </div>
 
-    <Quickview @onClose="onCloseQuickview" :isOpen="isOpenQuickView" :review="selectedReview" :starColor="starColor" />
+    <quickview @onClose="onCloseQuickview" :isOpen="isOpenQuickView" 
+      :review="selectedReview" :starColor="starColor" />
   </div>
 </template>
 
 <script>
+
 import ListView from "./ListView.vue";
 import GridView from "./GridView.vue";
 import Total from "./Total.vue";
@@ -40,37 +46,19 @@ import { MARTAN_API } from '../..';
 export default {
   name: "Reviews",
 
-  data() {
-    return {
-      list: [],
-      total: 0,
-      limit: 5,
-      offset: 0,
-      loading: false,
-      orderRating: null,
-      orderReviews: null,
-      averageTotal: 0,
-
-      $isSorting: false,
-      $count: null,
-
-      average: {
-        one: 0,
-        two: 0,
-        three: 0,
-        four: 0,
-        five: 0,
-      },
-
-      isOpenQuickView: false,
-      selectedReview: null,
-    };
-  },
-
   props: {
-    storeId: Number,
-    webId: String,
-    product: String,
+    storeId: {
+      type: Number,
+      required: true
+    },
+    webId: {
+      type: String,
+      required: true
+    },
+    product: {
+      type: String,
+      required: true
+    },
     backgroundColor: {
       type: String,
       default: "#fff",
@@ -98,6 +86,33 @@ export default {
       type: Boolean,
       default: true,
     },
+  },
+
+  data() {
+    return {
+      list: [],
+      total: 0,
+      limit: 5,
+      offset: 0,
+      loading: false,
+      orderRating: null,
+      orderReviews: null,
+      averageTotal: 0,
+
+      $isSorting: false,
+      $count: null,
+
+      average: {
+        one: 0,
+        two: 0,
+        three: 0,
+        four: 0,
+        five: 0,
+      },
+
+      isOpenQuickView: false,
+      selectedReview: null,
+    };
   },
 
   watch: {

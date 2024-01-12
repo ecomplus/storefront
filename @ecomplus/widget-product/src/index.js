@@ -7,6 +7,7 @@
 import Vue from 'vue'
 import { inStock as checkInStock } from '@ecomplus/utils'
 import TheProduct from '#components/TheProduct.vue'
+import { isMobile } from '@ecomplus/storefront-twbs'
 
 export default (options = {}, elId = 'product') => {
   const $productBlock = document.getElementById(elId)
@@ -38,13 +39,22 @@ export default (options = {}, elId = 'product') => {
       strHasQuantitySelector,
       strHasPromotionTimer,
       lowQuantityToWarn,
-      maxVariationOptionsBtns
+      maxVariationOptionsBtns,
+      quoteInfo
     } = options
 
     const strOptionToBool = (strOption, prop) => {
       return strOption === '_'
         ? Boolean(themeConfig && themeConfig[prop])
         : strOption ? Boolean(strOption.trim()) : false
+    }
+
+    const formatLink = (quoteInfo) => {
+      if (quoteInfo && quoteInfo.indexOf('http') === -1) {
+        const cellphone = quoteInfo.replace(/\D/g, '')
+        return 'https://' + (isMobile ? 'api' : 'web') + '.whatsapp.com/send?phone=' + encodeURIComponent('+' + cellphone ? cellphone : `+55${cellphone}`) + `&text=Cotar produto: ${encodeURIComponent(window.location.href)}`
+      }
+      return quoteInfo
     }
 
     new Vue({
@@ -60,6 +70,7 @@ export default (options = {}, elId = 'product') => {
           hasPromotionTimer: strOptionToBool(strHasPromotionTimer, 'hasPromotionTimer'),
           lowQuantityToWarn,
           maxVariationOptionsBtns,
+          quoteLink: formatLink(quoteInfo),
           isSSR
         },
         on: {

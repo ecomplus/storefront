@@ -91,8 +91,8 @@ export default {
       }
       const fixedSrc = typeof src === 'object'
         ? src.zoom
-            ? src.zoom.url
-            : defaultImgObj.url
+          ? src.zoom.url
+          : defaultImgObj.url
         : src
       return fixedSrc ? fixedSrc.replace(/\.webp$/, '') : this.placeholder
     },
@@ -140,6 +140,14 @@ export default {
               ? srcset.replace(/\/imgs\/[0-9]{3}px/, '')
               : srcset.replace(/\.webp$/, ''),
             type: `image/${(srcset.substr(-9, 4) === '.png' ? 'png' : 'jpeg')}`
+          })
+        } else if (srcset.endsWith('.avif')) {
+          sources.push({
+            srcset,
+            type: 'image/avif'
+          }, {
+            srcset: srcset.replace('.avif', '.webp'),
+            type: 'image/webp'
           })
         } else {
           sources.push({ srcset })

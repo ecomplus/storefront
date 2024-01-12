@@ -28,7 +28,8 @@
           <component
             :is="isSSR ? 'portal' : 'div'"
             selector="#product-gallery"
-          >
+          > 
+            <slot name="stamps"/>
             <product-gallery
               :product="body"
               :can-add-to-cart="canAddToCart && body.available && isInStock"
@@ -88,6 +89,22 @@
           >
             <slot name="out-of-stock">
               {{ i19outOfStock }}
+            </slot>
+          </div>
+
+          <div
+            v-else-if="isWithoutPrice"
+            class="product__without-price"
+          >
+            <slot name="without-price">
+              <a 
+                v-if="quoteLink"
+                target="_blank"
+                rel="noopener"
+                :href="quoteLink"
+              >
+                {{ i19quoteProduct }}
+              </a>
             </slot>
           </div>
 
@@ -173,7 +190,7 @@
               >
                 <transition enter-active-class="animated fadeInUp">
                   <quantity-selector
-                    v-if="kitItems.length"
+                    v-if="kitItems.length && !isKitWithVariations"
                     :items="kitItems"
                     :min="body.min_quantity"
                     :max="body.quantity"
@@ -187,6 +204,21 @@
                       <slot name="buy-button-content"/>
                     </template>
                   </quantity-selector>
+                  <kit-product-variations
+                    v-if="kitItems.length && isKitWithVariations"
+                    :items="kitItems"
+                    :min="body.min_quantity"
+                    :max="body.quantity"
+                    :slug="body.slug"
+                    :kit-product-id="body._id"
+                    :kit-name="name"
+                    :kit-price="fixedPrice"
+                    :max-options-btns="maxVariationOptionsBtns"
+                  >
+                    <template #buy-button-content>
+                      <slot name="buy-button-content"/>
+                    </template>
+                  </kit-product-variations>
                 </transition>
 
                 <span
@@ -333,13 +365,15 @@
                           :id="`product-payment-${paymentOption.app_id}`"
                           class="mb-3"
                         >
-                          <payment-option
-                            v-for="(gateway, i) in paymentOption.payment_gateways"
-                            :key="`${paymentOption.app_id}-${i}`"
-                            :payment-gateway="gateway"
-                            :installments-option="paymentOption.installments_option"
-                            :price="fixedPrice"
-                          />
+                          <slot :name="`payment-${paymentOption.app_id}`">
+                            <payment-option
+                              v-for="(gateway, i) in paymentOption.payment_gateways"
+                              :key="`${paymentOption.app_id}-${i}`"
+                              :payment-gateway="gateway"
+                              :installments-option="paymentOption.installments_option"
+                              :price="fixedPrice"
+                            />
+                          </slot>
                         </div>
                       </div>
                     </div>
@@ -370,6 +404,7 @@
               <shipping-calculator
                 :shippedItems="isKit ? kitItems : [{
                   ...body,
+                  ...selectedVariation,
                   product_id: body._id,
                   quantity: qntToBuy || body.min_quantity || 1
                 }]"
@@ -435,8 +470,9 @@
               :can-show-price-options="true"
             />
             <a
-              class="btn btn-lg btn-primary" 
-              @click="buyOrScroll"
+              class="btn btn-lg btn-primary"
+              href="#"
+              @click.prevent="buyOrScroll"
             >
               <i class="i-shopping-bag mr-1"></i>
               {{ strBuy }}

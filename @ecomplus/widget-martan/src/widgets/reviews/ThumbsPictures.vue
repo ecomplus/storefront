@@ -47,7 +47,10 @@ export default {
   name: "ThumbsPictures",
 
   props: {
-    review: Object,
+    review: {
+      type: Object,
+      required: true
+    },
   },
 
   computed: {
