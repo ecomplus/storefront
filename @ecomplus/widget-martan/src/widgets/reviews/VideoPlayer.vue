@@ -91,8 +91,6 @@ export default {
   video {
     display: block;
     width: 100%;
-    height: 100%;
-    max-height: 380px;
   }
 
   .playPauseBtn {
@@ -108,12 +106,9 @@ export default {
   }
 
   &__controls {
-    display: flex;
-    position: absolute;
     width: 100%;
     transform: translateY(0);
     padding: 5px;
-    align-items: baseline;
   }
 
   &__controls > * {
@@ -126,10 +121,8 @@ export default {
     display: flex;
     flex-basis: 100%;
     height: 5px;
-    /* background: rgba(0,0,0,0.5); */
     background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
-    height: 15px;
     max-width: 430px;
     width: 100%;
     &--filled {

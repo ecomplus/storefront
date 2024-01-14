@@ -1,10 +1,16 @@
 <template>
-  <div class="modal fade" id="martan-quickview" tabindex="-1" role="dialog" aria-labelledby="quickviewModal"
-    aria-hidden="true">
+  <div
+    class="modal fade"
+    id="martan-quickview"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="quickviewModal"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-header" v-show="false">
-          <h5 class="modal-title" id="quickviewModal"> {{ i19quickview }} </h5>
+          <h5 class="modal-title" id="quickviewModal">{{ i19quickview }}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -15,27 +21,35 @@
             <span aria-hidden="true">&times;</span>
           </button>
 
-          <div class="glide mt-quickview__galery" v-if="pictures.length">
-            <div class="mt-quickview__controls" data-glide-el="controls"
-              :style="`--button--hover-color:${starColor || '#eeeeee'}`">
-              <button :title="i19previous" :aria-label="i19previous" class="left" data-glide-dir="<" v-on:click="back"
-                v-if="glide && glide.index > 0">
+          <div
+            class="glide mt-quickview__galery"
+            v-if="pictures.length || video"
+            ref="galery"
+          >
+            <div
+              class="mt-quickview__controls"
+              data-glide-el="controls"
+              :style="`--button--hover-color:${starColor || '#eeeeee'}`"
+            >
+              <button
+                :title="i19previous"
+                :aria-label="i19previous"
+                class="left"
+                data-glide-dir="<"
+                v-on:click="back"
+                v-if="glide && glide.index > 0"
+              >
                 <i class="i-chevron-left"></i>
               </button>
             </div>
 
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides">
-                <li
-                  v-for="picture in pictures"
-                  :key="picture.id"
-                  class="glide__slide"
-                >
+                <li v-for="picture in pictures" :key="picture.id" class="glide__slide">
                   <img
                     :alt="`Foto da avaliação do produto feita por ${author}`"
                     :src="picture.big"
                   />
-
                 </li>
 
                 <li v-if="video" class="lazy-image video-wrapper" :key="video">
@@ -44,9 +58,11 @@
               </ul>
             </div>
 
-            <div class="mt-quickview__controls" data-glide-el="controls"
-              :style="`--button--hover-color:${starColor || '#eeeeee'}`">
-
+            <div
+              class="mt-quickview__controls"
+              data-glide-el="controls"
+              :style="`--button--hover-color:${starColor || '#eeeeee'}`"
+            >
               <button
                 :title="i19next"
                 :aria-label="i19next"
@@ -60,15 +76,20 @@
 
           <div class="mt-review">
             <div class="mt-rating__group">
-              <AuthorAndRating :author="author" :isAnonymous="review.is_anonymous" :rating="rating" :starColor="starColor"
-                v-if="review" />
+              <AuthorAndRating
+                :author="author"
+                :isAnonymous="review.is_anonymous"
+                :rating="rating"
+                :starColor="starColor"
+                v-if="review"
+              />
 
               <isRecommended :recommended="recommended" v-if="review" />
 
               <VerifiedPurchase :showVerified="true" v-if="isVerified" />
             </div>
 
-            <ThumbsPictures v-if="review" :review="review" @onClick="({ slide }) => glide.go(`=${slide}`).update()" />
+            <ThumbsPictures v-if="review" :review="review" @onClick="goToSlide" />
 
             <ReviewBody :body="body" :createdAt="review.created_at" v-if="review" />
 
@@ -83,9 +104,8 @@
 <script>
 import Glide from "@glidejs/glide";
 import { i19next, i19previous } from "@ecomplus/i18n";
-import { i18n } from "@ecomplus/utils";
+import { i18n, formatDate } from "@ecomplus/utils";
 import $ from "../../../../storefront-twbs/src";
-import { formatDate } from "@ecomplus/utils";
 import { timeAgo } from "./../../utils/time-ago";
 
 import ThumbsPictures from "./ThumbsPictures.vue";
@@ -120,14 +140,14 @@ export default {
     starColor: String,
   },
 
-  data () {
+  data() {
     return {
       glide: null,
     };
   },
 
   computed: {
-    i19quickview: () => 'Quickview',
+    i19quickview: () => "Quickview",
     i19next: () => i18n(i19next),
     i19previous: () => i18n(i19previous),
 
@@ -207,7 +227,7 @@ export default {
         return this.review.body;
       }
       return null;
-    }
+    },
   },
 
   watch: {
@@ -242,28 +262,49 @@ export default {
 
   methods: {
     mount: function () {
-      this.glide.mount();
-      this.glide.update();
+      if (
+        (this.review && this.review.pictures) ||
+        (this.review && this.review.video_url)
+      ) {
+        setTimeout(() => {
+          try {
+            this.glide.mount();
+            this.glide.update({ perView: 1 });
+          } catch (error) {}
+        }, 5);
+      }
     },
 
     close: function () {
       this.$emit("onClose", true);
-      this.glide.destroy();
+      try {
+        this.glide.destroy();
+      } catch (error) {}
     },
 
     next: function () {
-      this.glide.go(">");
-      this.glide.update();
+      try {
+        this.glide.go(">");
+        this.glide.update({ perView: 1 });
+      } catch (error) {}
     },
 
     back: function () {
-      this.glide.go("<");
-      this.glide.update();
+      try {
+        this.glide.go("<");
+        this.glide.update({ perView: 1 });
+      } catch (error) {}
+    },
+
+    goToSlide: function ({ slide }) {
+      try {
+        if (this.glide) this.glide.go(`=${slide}`).update({ perView: 1 });
+      } catch (error) {}
     },
 
     formatDate,
     timeAgo,
-  }
+  },
 };
 </script>
 
@@ -287,6 +328,7 @@ export default {
 
   &__galery {
     max-width: 500px;
+    min-height: 500px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -297,6 +339,10 @@ export default {
       height: 100%;
       object-fit: contain;
       width: 100%;
+    }
+
+    .glide__slides {
+      align-items: center;
     }
   }
 

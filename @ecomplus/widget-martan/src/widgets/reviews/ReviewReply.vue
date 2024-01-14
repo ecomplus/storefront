@@ -1,5 +1,5 @@
 <template>
-  <div 
+  <div
     v-if="reply"
     class="mt-reply__wrapper"
   >
@@ -42,7 +42,6 @@ export default {
   props: {
     reply: {
       type: Object,
-      required: true
     }
   },
 
@@ -50,9 +49,9 @@ export default {
     i19storeResponse: () => 'Resposta da loja'
   },
 
-  methods: { 
-    formatDate, 
-    timeAgo 
+  methods: {
+    formatDate,
+    timeAgo
   }
 };
 </script>

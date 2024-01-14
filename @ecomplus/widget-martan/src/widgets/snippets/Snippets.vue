@@ -63,7 +63,6 @@
 </template>
 
 <script>
-
 import axios from "axios";
 import Glide from "@glidejs/glide";
 import { i19next, i19previous } from "@ecomplus/i18n";

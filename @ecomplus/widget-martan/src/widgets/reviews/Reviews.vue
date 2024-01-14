@@ -1,15 +1,15 @@
 <template>
-  <div 
+  <div
     :data-header="headerLayout"
     :data-layout="reviewsLayout"
   >
-    <div id="reviews" class="mt-reviews container" :class="'mt-theme--' + headerLayout">
+    <div class="mt-reviews container" :class="'mt-theme--' + headerLayout">
       <p class="lead">
         <a href="#reviews" :name="title || 'reviews'">#</a>
         {{ title }}
       </p>
 
-      <total v-if="headerLayout !== 'header-expanded' && headerLayout !== 'header-minimal'" 
+      <total v-if="headerLayout !== 'header-expanded' && headerLayout !== 'header-minimal'"
         @onSort="onSort" :reviews="{ list, orderRating, total }"  />
 
       <component @updateOrderByAverage="updateOrderBy" @onSort="onSort" :is="headerLayout"
@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <quickview @onClose="onCloseQuickview" :isOpen="isOpenQuickView" 
+    <quickview @onClose="onCloseQuickview" :isOpen="isOpenQuickView"
       :review="selectedReview" :starColor="starColor" />
   </div>
 </template>
