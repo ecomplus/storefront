@@ -7,15 +7,19 @@
         <span class="average" v-if="reviews.averageTotal > 0">
           {{ reviews.averageTotal }}
           <span class="baseado" style="font-size: 10px; opacity: 0.8"
-            >({{ i19basedOn$1Reviews.replace('$1', reviews.total) }})</span
+            >({{
+              reviews.total > 1
+                ? i19basedOn$1Reviews.replace("$1", reviews.total)
+                : i19basedOn$1Review.replace("$1", reviews.total)
+            }})</span
           ></span
         >
         <span class="average" v-else>
-            {{ reviews.averageTotal }}
-            <span class="baseado" style="font-size: 10px; opacity: 0.8"
-              >({{ i19noReview }})</span
-            ></span
-          >
+          {{ reviews.averageTotal }}
+          <span class="baseado" style="font-size: 10px; opacity: 0.8"
+            >({{ i19noReview }})</span
+          ></span
+        >
       </div>
 
       <Sort @onSort="onSort" />
@@ -60,8 +64,9 @@ export default {
   },
 
   computed: {
-    i19basedOn$1Reviews: () => 'Baseado em $1 avaliações',
-    i19noReview: () => 'Nenhuma avaliação'
+    i19basedOn$1Reviews: () => "Baseado em $1 avaliações",
+    i19basedOn$1Review: () => "Baseado em $1 avaliação",
+    i19noReview: () => "Nenhuma avaliação",
   },
 
   methods: {

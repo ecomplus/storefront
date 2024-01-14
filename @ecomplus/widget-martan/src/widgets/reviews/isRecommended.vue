@@ -7,7 +7,7 @@
         : i19customerNoRecommendProduct
     "
   >
-    <span> {{ i19recommendTheProductQn }} </span>
+    <span> {{ i19recommendProductQn }} </span>
     <span>{{ recommended ? i19yes : i19no }}</span>
   </div>
 </template>
