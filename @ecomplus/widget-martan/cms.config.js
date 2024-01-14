@@ -47,6 +47,13 @@ const widgetRating = {
       default: true
     },
     {
+      label: 'Exibir na página de pesquisa?',
+      hint: 'Exibir estrela com classificação média das notas nos cards de resultado de pesquisa',
+      name: 'search_page',
+      widget: 'boolean',
+      default: false
+    },
+    {
       label: 'Tamanho da font (px) da estrela',
       name: 'font_size',
       hint: 'Tamanho do icone da estrela nos cards de produtos',
@@ -198,63 +205,53 @@ const configDefault = {
     {
       name: 'pkg',
       widget: 'hidden',
-      default: name,
-      required: true
+      default: name
     },
     {
       name: 'active',
       label: 'Ativar',
       hint: 'Habilitar Martan',
-      widget: 'boolean',
-      required: true
+      widget: 'boolean'
     },
     {
       name: 'desktopOnly',
       widget: 'hidden',
-      default: false,
-      required: true
+      default: false
     },
     {
       name: 'enableCheckout',
       widget: 'hidden',
-      default: false,
-      required: true
+      default: false
     },
     {
       name: 'disablePages',
       widget: 'hidden',
-      default: true,
-      required: true
+      default: true
     },
     {
       name: 'headAppend',
       widget: 'hidden',
-      default: 'src/append/head',
-      required: true
+      default: 'src/append/head'
     },
     {
       name: 'bodyAppend',
       widget: 'hidden',
-      default: 'src/append/body',
-      required: true
+      default: 'src/append/body'
     },
     {
       name: 'productDescriptionAppend',
       widget: 'hidden',
-      default: 'src/append/product-block',
-      required: true
+      default: 'src/append/product-block'
     },
     {
       name: 'productCardSlots',
       widget: 'hidden',
-      default: 'src/append/product-card-slots',
-      required: true
+      default: 'src/append/product-card-slots'
     },
     {
       name: 'productSlots',
       widget: 'hidden',
-      default: 'src/append/product-slots',
-      required: true
+      default: 'src/append/product-slots'
     }
   ]
 }
@@ -264,4 +261,4 @@ martan.fields.push(widgetReview)
 martan.fields.push(widgetSnippet)
 
 configDefault.fields.push(martan)
-export default () => (configDefault)
+export default () => configDefault
