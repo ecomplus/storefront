@@ -21,7 +21,7 @@ const loadWidget = (pkg, runImport) => {
             if (typeof exp.default === 'function') {
               exp.default({
                 ...widget.options,
-                $emit (ev, payload) {
+                $emit(ev, payload) {
                   emitter.emit(ev, payload)
                 }
               })
@@ -122,6 +122,10 @@ Promise.all(widgetsLoadPromises).then(() => {
       loadWidget(
         '@ecomplus/widget-compre-confie',
         () => import('@ecomplus/widget-compre-confie')
+      )
+      loadWidget(
+        '@ecomplus/widget-martan',
+        () => import('@ecomplus/widget-martan')
       )
     })
   })

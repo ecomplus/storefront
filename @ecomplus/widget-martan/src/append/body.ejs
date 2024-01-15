@@ -1,0 +1,79 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+    const scriptUrl =
+      "<%- options.widgets_src || 'https://unpkg.com/@martan-app/widgets-js@1.1.22/dist/martan.umd.js' %>"
+
+    const startWidget = () => {
+      const color =
+        "<%- options.widget_rating && options.widget_rating.star_color || '#000' %>"
+      const fontSize =
+        "<%- options.widget_rating && options.widget_rating.font_size || 14 %>"
+
+      const storeId = "<%- options.store_id %>"
+      const widgetKey = "<%- options.widget_key %>"
+      const webId = "<%- options.web_id %>"
+
+      setTimeout(() => {
+        try {
+          const martan = new window.Martan({
+            storeId: parseInt(storeId, 10),
+            widgetKey,
+            webId
+          })
+
+          const init = () =>
+            martan
+              .average({
+                fontSize,
+                color,
+                classes: ['.product-card__rating']
+              })
+              .start()
+
+          const $searchEngine = document.getElementById("search-engine")
+          if (!$searchEngine) {
+            init()
+          } else {
+            const displayOnSearchPage =
+              "<%- options.widget_rating && options.widget_rating.search_page %>"
+
+            if (displayOnSearchPage === "true") {
+              const callback = () => {
+                searchEngineObserver.disconnect()
+                const $retailRow = $searchEngine.querySelectorAll(
+                  ".search-engine__retail > .row"
+                )[0]
+
+                const rowObserver = new MutationObserver(() => {
+                  setTimeout(() => init(), 100)
+                  rowObserver.disconnect()
+                })
+                rowObserver.observe($retailRow, {
+                  childList: true,
+                  subtree: true,
+                })
+              }
+              const searchEngineObserver = new MutationObserver(callback)
+              searchEngineObserver.observe($searchEngine, {
+                attributes: true,
+                childList: true,
+              })
+            }
+          }
+        } catch (error) {}
+      }, 50)
+    }
+
+    const isEnabled =
+      "<%- options.widget_rating && options.widget_rating.is_enabled %>"
+
+    if (isEnabled === "true") {
+      const script = document.createElement("script")
+      script.setAttribute("src", scriptUrl)
+      script.setAttribute("id", "martan-scripts")
+      script.async = true
+      document.body.appendChild(script)
+      script.onload = startWidget
+    }
+  })
+</script>

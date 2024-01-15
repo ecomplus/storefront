@@ -1,0 +1,25 @@
+<div data-slot="rating" class="d-none">
+  <div
+    id="martan-rating__action"
+    style="margin-bottom: 1rem; display: <%- options && options.widget_rating && options.widget_rating.is_enabled ? 'initial' : 'none' %>;"
+  >
+    <a
+      class="martan-widget-rating"
+      title="Pergunte e veja opiniões de quem já comprou"
+      href="#reviews"
+    >
+      <div
+        data-martan-style="completed"
+        data-martan-product-id="<%- _.state.sku %>"
+        class="mt-review-average d-inline-block"
+      ></div>
+    </a>
+  </div>
+
+  <div
+    class="d-none"
+    id="snippet_widget"
+    data-sku="<%- _.state.sku %>"
+    style="margin-bottom: 1rem; height: 60px"
+  ></div>
+</div>
