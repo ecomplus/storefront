@@ -167,7 +167,7 @@ export default {
           return data.result;
         })
         .then((data) => {
-          if (data.length) {
+          if (data.length >= 2) {
             this.$refs.wrapper.classList.remove('d-none')
             this.glide.mount();
             this.isVisible = true;
