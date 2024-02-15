@@ -47,6 +47,14 @@ const addFreebieItems = (ecomCart, productIds) => {
           .catch(console.error)
       }
     })
+  } else {
+    if (ecomCart.data && ecomCart.data.items && ecomCart.data.items.length) {
+      ecomCart.data.items.forEach(({ _id, flags }) => {
+        if (flags && flags.includes('freebie')) {
+          ecomCart.removeItem(_id)
+        }
+      })
+    }
   }
 }
 
