@@ -6,7 +6,7 @@
       </div>
 
       <div class="mt-gridview__detail">
-        <span class="mt-gridview__author">{{ review.author.substr(0, 16) }}</span>
+        <span class="mt-gridview__author">{{ review.display_name.substr(0, 16) }}</span>
         <rating :rating="review.rating" :color="starColor" />
         <verified-purchase v-if="review.verified_purchase" />
         <span class="mt-gridview__body">{{ review.body.substr(0, 250) }}</span>
