@@ -3,7 +3,7 @@
     <div class="mt-rating__group">
       <author-and-rating
         v-if="review"
-        :author="review.author"
+        :author="review.display_name"
         :isAnonymous="review.is_anonymous"
         :rating="review.rating"
         :starColor="starColor"
