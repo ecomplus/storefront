@@ -181,8 +181,8 @@ export default {
     },
 
     author: function () {
-      if (this.review && this.review.author) {
-        return this.review.author;
+      if (this.review && this.review.display_name) {
+        return this.review.display_name;
       }
       return null;
     },
