@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-renderer#readme",
   "dependencies": {
-    "@builder.io/partytown": "^0.9.2",
+    "@builder.io/partytown": "^0.10.0",
     "@ecomplus/client": "^2.2.1",
     "@ecomplus/i18n": "^1.32.2",
     "@ecomplus/search-engine": "^2.6.1",
