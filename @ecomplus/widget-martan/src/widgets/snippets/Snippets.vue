@@ -8,19 +8,16 @@
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
         <li class="glide__slide" v-for="review in list" :key="review.id">
-          <div
-            class="martan-snippets__galery"
-            v-if="getImageUrl(review)"
-          >
+          <div class="martan-snippets__galery" v-if="getImageUrl(review)">
             <img
-              :alt="`Foto da avaliação do produto feita por ${review.author}`"
+              :alt="`Foto da avaliação do produto feita por ${review.display_name}`"
               :src="getImageUrl(review)"
             />
           </div>
 
           <div class="martan-snippets__reviews snippet-review">
             <div class="martan-snippets__reviews-info snippet-review__info">
-              <span>{{ review.author }}</span>
+              <span>{{ review.display_name }}</span>
               <rating :rating="review.rating" :color="starColor" />
             </div>
 
@@ -70,14 +67,14 @@ import { i18n } from "@ecomplus/utils";
 
 import Rating from "./Rating.vue";
 import Quickview from "../reviews/Quickview.vue";
-import { MARTAN_API } from '../..';
+import { MARTAN_API } from "../..";
 
 export default {
   name: "SnippetWidget",
 
-  components: { 
-    Rating, 
-    Quickview 
+  components: {
+    Rating,
+    Quickview,
   },
 
   data: function () {
@@ -98,19 +95,19 @@ export default {
   props: {
     storeId: {
       type: Number,
-      required: true
+      required: true,
     },
     webId: {
       type: String,
-      required: true
+      required: true,
     },
     product: {
       type: String,
-      required: true
+      required: true,
     },
     starColor: {
       type: String,
-      required: true
+      required: true,
     },
     backgroundColor: {
       type: String,
@@ -143,19 +140,20 @@ export default {
 
     fetch() {
       axios({
-        url: MARTAN_API + '/reviews.json',
+        url: MARTAN_API + "/reviews.json",
         headers: {
           "X-Store-Id": this.storeId,
           "X-Web-Id": this.webId,
         },
-        params:{
+        params: {
           sku: this.product,
           limit: 10,
-          offset: 0
-        }
+          offset: 0,
+        },
       })
         .then(({ data }) => {
-          this.list = data.result || [];
+          const filted = data.result.filter((r) => r.body);
+          this.list = filted || [];
           this.glide = new Glide("#mt-snippet", {
             keyboard: false,
             rewind: false,
@@ -164,11 +162,12 @@ export default {
             perView: 1,
             touchAngle: 0,
           });
-          return data.result;
+
+          return filted;
         })
         .then((data) => {
           if (data.length >= 2) {
-            this.$refs.wrapper.classList.remove('d-none')
+            this.$refs.wrapper.classList.remove("d-none");
             this.glide.mount();
             this.isVisible = true;
           }
@@ -258,9 +257,9 @@ export default {
       height: 20px;
       width: 20px;
       box-shadow: 0px -2px 12px rgba(0, 0, 0, 0.08);
-      transition: all ease-in-out .3s;
+      transition: all ease-in-out 0.3s;
       &:hover {
-        opacity: .7;
+        opacity: 0.7;
       }
       &.left {
         left: -5px;
