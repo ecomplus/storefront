@@ -61,7 +61,7 @@
 
 <script>
 import axios from "axios";
-import Glide from "@glidejs/glide";
+import Glide, { Breakpoints } from "@glidejs/glide";
 import { i19next, i19previous } from "@ecomplus/i18n";
 import { i18n } from "@ecomplus/utils";
 
@@ -152,24 +152,47 @@ export default {
         },
       })
         .then(({ data }) => {
-          const filted = data.result.filter((r) => r.body);
-          this.list = filted || [];
-          this.glide = new Glide("#mt-snippet", {
-            keyboard: false,
-            rewind: false,
-            type: "carousel",
-            startAt: 0,
-            perView: 1,
-            touchAngle: 0,
-          });
+          if (data && data.result) {
+            const filted = data.result.filter((r) => r.body);
+            this.list = filted || [];
 
-          return filted;
+            this.glide = new Glide("#mt-snippet", {
+              keyboard: false,
+              rewind: false,
+              type: "slider",
+              startAt: 0,
+              perView: 1,
+              touchAngle: 0,
+              breakpoints: {
+                1900: {
+                  perView: 1,
+                },
+                1024: {
+                  perView: 1,
+                },
+                600: {
+                  perView: 1,
+                },
+              },
+            });
+
+            return filted;
+          }
+
+          return []
         })
         .then((data) => {
           if (data.length >= 2) {
             this.$refs.wrapper.classList.remove("d-none");
             this.glide.mount();
             this.isVisible = true;
+          }
+
+          return this;
+        })
+        .then((t) => {
+          if (t.isVisible) {
+            this.glide.update({ perView: 1 });
           }
         });
     },
