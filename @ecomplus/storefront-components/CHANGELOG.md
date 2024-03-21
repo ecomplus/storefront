@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.169](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.168...@ecomplus/storefront-components@1.0.0-beta.169) (2024-03-21)
+
+### Bug Fixes
+
+- **components/account:** addapting account form and addresses list/form for hidden fields (\*\*\*) ([28b361c](https://github.com/ecomplus/storefront/commit/28b361c36bb12dd06f3026f93d62e98afcb60260))
+- **components/discount-applier:** clear previous freebie in cart when no valid freebie option ([#1006](https://github.com/ecomplus/storefront/issues/1006)) ([63e9d64](https://github.com/ecomplus/storefront/commit/63e9d646fc9386216b5cc93f92392684ebc4c43c))
+
+### Features
+
+- **the-product:** set new component to variation kit ([8268a33](https://github.com/ecomplus/storefront/commit/8268a33f9c3a3d8f1ab5653d2c9e83e2924fa138))
+- variation kit component ([53764db](https://github.com/ecomplus/storefront/commit/53764dbfd3ee0bd20cf7889c4aa77281dff96bb6))
+
 # [1.0.0-beta.168](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.167...@ecomplus/storefront-components@1.0.0-beta.168) (2023-11-29)
 
 ### Bug Fixes

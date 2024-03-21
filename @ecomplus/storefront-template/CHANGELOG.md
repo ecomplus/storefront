@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.252](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.251...@ecomplus/storefront-template@2.0.0-beta.252) (2024-03-21)
+
+### Bug Fixes
+
+- **deps:** update all non-major dependencies ([#1007](https://github.com/ecomplus/storefront/issues/1007)) ([eb4a1ad](https://github.com/ecomplus/storefront/commit/eb4a1ad9edafd9d4b02146847ad1764c85ad493a))
+
+### Features
+
+- **widget-martan:** add martan product review widget ([#988](https://github.com/ecomplus/storefront/issues/988)) ([0ab393e](https://github.com/ecomplus/storefront/commit/0ab393eb12a6324b8ce4be3c996ff8c956850657))
+
 # [2.0.0-beta.251](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.250...@ecomplus/storefront-template@2.0.0-beta.251) (2023-11-29)
 
 ### Bug Fixes

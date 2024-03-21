@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.166](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-minicart@1.0.0-beta.165...@ecomplus/widget-minicart@1.0.0-beta.166) (2024-03-21)
+
+**Note:** Version bump only for package @ecomplus/widget-minicart
+
 # [1.0.0-beta.165](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-minicart@1.0.0-beta.164...@ecomplus/widget-minicart@1.0.0-beta.165) (2023-11-29)
 
 **Note:** Version bump only for package @ecomplus/widget-minicart

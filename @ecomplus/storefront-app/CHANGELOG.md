@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.191](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.190...@ecomplus/storefront-app@2.0.0-beta.191) (2024-03-21)
+
+### Bug Fixes
+
+- **app/checkout:** addapting checkout for address/account with hudden fields ([ac4ebcd](https://github.com/ecomplus/storefront/commit/ac4ebcd483b1b1432c2d7b48625e7e62f9e64717))
+- **app/checkout:** better handling external auth login block for level 1 (hidden fields) doc login ([0257206](https://github.com/ecomplus/storefront/commit/0257206eddac547c445c0a7905a6c7bb61bd1b68))
+
 # [2.0.0-beta.190](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.189...@ecomplus/storefront-app@2.0.0-beta.190) (2023-11-29)
 
 ### Bug Fixes
