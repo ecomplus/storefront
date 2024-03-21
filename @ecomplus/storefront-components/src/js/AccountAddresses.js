@@ -182,7 +182,7 @@ export default {
         }
       }
       const address = this.addresses[addressIndex]
-      if (address.name && address.street && address.city) {
+      if (address.name && ((address.street && address.city) || address.name.endsWith('*'))) {
         this.selectAddress(address)
       } else {
         this.editAddressIndex = addressIndex

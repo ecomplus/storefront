@@ -162,9 +162,10 @@ export default {
   methods: {
     getPhoneStr (index = 0) {
       const { phones } = this.localCustomer
-      return phones[index]
-        ? getPhone(this.localCustomer.phones[index])
-        : ''
+      if (phones[index] && phones[index].number.charAt(0) !== '*') {
+        return getPhone(this.localCustomer.phones[index])
+      }
+      return ''
     },
 
     parsePhoneStr (phoneStr) {

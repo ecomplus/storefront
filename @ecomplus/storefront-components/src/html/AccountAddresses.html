@@ -69,7 +69,10 @@
             </button>
           </div>
         </div>
-        <div class="account-addresses__recipient card-footer">
+        <div
+          v-if="address.name && !address.name.endsWith('*')"
+          class="account-addresses__recipient card-footer"
+        >
           {{ address.name }}
         </div>
       </div>

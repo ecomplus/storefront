@@ -49,13 +49,20 @@ export default {
   },
 
   data () {
+    const localAddress = {
+      _id: getRandomObjectId(),
+      zip: '',
+      province_code: '',
+      ...this.address
+    }
+    if (localAddress.name && localAddress.name.endsWith('*')) {
+      delete localAddress.name
+    }
+    if (localAddress.line_address && localAddress.line_address.endsWith('*')) {
+      delete localAddress.line_address
+    }
     return {
-      localAddress: {
-        _id: getRandomObjectId(),
-        zip: '',
-        province_code: '',
-        ...this.address
-      },
+      localAddress,
       isZipReady: countryCode !== 'BR',
       zipLoading: null,
       addressFromZip: {},
