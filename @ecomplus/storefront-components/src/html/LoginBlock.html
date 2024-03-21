@@ -97,32 +97,34 @@
       {{ failAlertText }}
     </a-alert>
 
-    <transition enter-active-class="animated fadeInUp">
-      <div
-        v-if="oauthProviders.length"
-        class="login__oauth"
-      >
-        <p class="lead">
-          {{ i19orProceedWith }}:
-        </p>
-
-        <button
-          v-for="({ link, faIcon, providerName, provider }) in oauthProviders"
-          type="button"
-          class="btn login__btn"
-          :key="provider"
-          :class="`login__btn--${provider}`"
-          @click="() => oauthPopup(link)"
+    <slot name="login-methods" v-bind="{ isWaitingLogin, confirmAccount }">
+      <transition enter-active-class="animated fadeInUp">
+        <div
+          v-if="oauthProviders.length"
+          class="login__oauth"
         >
-          <small>{{ i19signInWith }}</small>
-          <i
-            class="fab mr-2"
-            :class="faIcon"
-          ></i>
-          {{ providerName }}
-        </button>
-      </div>
-    </transition>
+          <p class="lead">
+            {{ i19orProceedWith }}:
+          </p>
+
+          <button
+            v-for="({ link, faIcon, providerName, provider }) in oauthProviders"
+            type="button"
+            class="btn login__btn"
+            :key="provider"
+            :class="`login__btn--${provider}`"
+            @click="() => oauthPopup(link)"
+          >
+            <small>{{ i19signInWith }}</small>
+            <i
+              class="fab mr-2"
+              :class="faIcon"
+            ></i>
+            {{ providerName }}
+          </button>
+        </div>
+      </transition>
+    </slot>
   </form>
 
   <div class="login__info">

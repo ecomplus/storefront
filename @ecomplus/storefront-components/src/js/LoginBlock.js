@@ -33,6 +33,10 @@ export default {
       type: Boolean,
       default: true
     },
+    canFetchOauth: {
+      type: Boolean,
+      default: true
+    },
     ecomPassport: {
       type: Object,
       default () {
@@ -132,6 +136,7 @@ export default {
   },
 
   created () {
+    if (!this.canFetchOauth) return
     this.ecomPassport.fetchOauthProviders()
       .then(({ host, baseUri, oauthPath, providers }) => {
         const oauthProviders = []
