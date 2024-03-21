@@ -277,7 +277,7 @@
     </div>
 
     <div
-      v-else-if="!isUserIdentified && !isExternalAuth"
+      v-else-if="!isUserIdentified"
       key="login"
     >
       <slot name="login">
@@ -285,7 +285,15 @@
           @login="login"
           @update="isUserIdentified = true"
           :customer-email.sync="customerEmail"
-        />
+          :can-fetch-oauth="!isExternalAuth"
+        >
+          <template v-if="isExternalAuth" v-slot:login-methods="{ confirmAccount }">
+            <p v-if="confirmAccount()">
+              Ou entre com
+              <a href="/app/account">link de acesso por e-mail</a>
+            </p>
+          </template>
+        </login-block>
       </slot>
     </div>
 
