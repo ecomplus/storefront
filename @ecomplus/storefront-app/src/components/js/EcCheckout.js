@@ -237,7 +237,8 @@ export default {
       const { addresses } = this.customer
       return addresses && addresses.find(addr => {
         return (this.selectedAddressId === addr._id || addr.default) &&
-          Boolean(addr.street && addr.city && addr.province_code)
+          addr.province_code &&
+          !!((addr.street && addr.city) || (addr.line_address && addr.line_address.endsWith('*')))
       })
     },
 
@@ -296,6 +297,7 @@ export default {
 
     updateZipCode () {
       if (this.shippingAddress) {
+        console.log(this.shippingAddress)
         this.localZipCode = this.shippingAddress.zip
       }
     },
