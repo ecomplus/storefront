@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.170](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.169...@ecomplus/storefront-components@1.0.0-beta.170) (2024-03-22)
+
+### Bug Fixes
+
+- **deps:** update `@ecomplus/client` to v2.3.1 ([97fd92d](https://github.com/ecomplus/storefront/commit/97fd92d466fa380785fb1e78729bb4b4f0734b87))
+
 # [1.0.0-beta.169](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.168...@ecomplus/storefront-components@1.0.0-beta.169) (2024-03-21)
 
 ### Bug Fixes
