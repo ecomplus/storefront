@@ -34,6 +34,7 @@
     "filename": "widget-martan.min.js"
   },
   "dependencies": {
+    "@ecomplus/storefront-components": "^1.0.0-beta.171",
     "@ecomplus/storefront-twbs": "^7.3.6"
   }
 }
