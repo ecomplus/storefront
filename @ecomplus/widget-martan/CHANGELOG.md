@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-martan@1.1.3...@ecomplus/widget-martan@1.1.4) (2024-03-23)
+
+### Bug Fixes
+
+- **widget-martan:** fix package peer dependencies ([f7c6fe1](https://github.com/ecomplus/storefront/commit/f7c6fe1d51e759a76a37c148728950b04ff96afe))
+
 ## [1.1.3](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-martan@1.1.2...@ecomplus/widget-martan@1.1.3) (2024-03-23)
 
 **Note:** Version bump only for package @ecomplus/widget-martan
