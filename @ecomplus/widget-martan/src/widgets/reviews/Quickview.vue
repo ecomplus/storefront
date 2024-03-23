@@ -105,9 +105,8 @@
 import Glide from "@glidejs/glide";
 import { i19next, i19previous } from "@ecomplus/i18n";
 import { i18n, formatDate } from "@ecomplus/utils";
-import $ from "../../../../storefront-twbs/src";
+import { $ } from "@ecomplus/storefront-twbs";
 import { timeAgo } from "./../../utils/time-ago";
-
 import ThumbsPictures from "./ThumbsPictures.vue";
 import VerifiedPurchase from "./VerifiedPurchase.vue";
 import AuthorAndRating from "./AuthorAndRating.vue";

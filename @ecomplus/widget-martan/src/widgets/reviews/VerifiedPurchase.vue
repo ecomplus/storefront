@@ -44,9 +44,8 @@
 </template>
 
 <script>
-
 import { i18n } from "@ecomplus/utils";
-import $ from "../../../../storefront-twbs/src";
+import { $ } from "@ecomplus/storefront-twbs";
 
 export default {
   name: "VerifiedPurchase",

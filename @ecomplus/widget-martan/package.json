@@ -32,5 +32,8 @@
   "webpackOutput": {
     "library": "widgetMartan",
     "filename": "widget-martan.min.js"
+  },
+  "dependencies": {
+    "@ecomplus/storefront-twbs": "^7.3.6"
   }
 }
