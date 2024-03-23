@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.193](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.192...@ecomplus/storefront-app@2.0.0-beta.193) (2024-03-23)
+
+**Note:** Version bump only for package @ecomplus/storefront-app
+
 # [2.0.0-beta.192](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.191...@ecomplus/storefront-app@2.0.0-beta.192) (2024-03-22)
 
 ### Bug Fixes

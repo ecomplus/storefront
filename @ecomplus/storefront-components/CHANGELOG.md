@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.171](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.170...@ecomplus/storefront-components@1.0.0-beta.171) (2024-03-23)
+
+### Bug Fixes
+
+- **components:** fix package dependencies (astro) ([e8988e6](https://github.com/ecomplus/storefront/commit/e8988e62a96032046ce9ebed53f3893f8973ac3d))
+
 # [1.0.0-beta.170](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.169...@ecomplus/storefront-components@1.0.0-beta.170) (2024-03-22)
 
 ### Bug Fixes
