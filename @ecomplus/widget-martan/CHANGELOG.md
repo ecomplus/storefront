@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-martan@1.1.0...@ecomplus/widget-martan@1.1.1) (2024-03-23)
+
+### Bug Fixes
+
+- **widget-martan:** properly importing from `@ecomplus/storefront-twbs` ([c024d83](https://github.com/ecomplus/storefront/commit/c024d83f44adac91b98dd2c3533efe17b0d54758))
+
 # 1.1.0 (2024-03-21)
 
 ### Bug Fixes
