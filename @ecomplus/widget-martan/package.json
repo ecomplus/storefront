@@ -33,8 +33,15 @@
     "library": "widgetMartan",
     "filename": "widget-martan.min.js"
   },
+  "peerDependencies": {
+    "@ecomplus/utils": "^1.4.1",
+    "core-js": "3.x",
+    "vue": ">=2 <4"
+  },
   "dependencies": {
+    "@glidejs/glide": "^3.6.0",
     "@ecomplus/storefront-components": "^1.0.0-beta.173",
-    "@ecomplus/storefront-twbs": "^7.3.6"
+    "@ecomplus/storefront-twbs": "^7.3.6",
+    "axios": "^0.27.2 || ^1.1.2"
   }
 }
