@@ -73,6 +73,14 @@ const mutations = {
 const actions = {
   fetchCustomer ({ commit }, { ecomPassport }) {
     return new Promise((resolve, reject) => {
+      if (!ecomPassport.checkAuthorization()) {
+        const customer = ecomPassport.getCustomer()
+        if (customer.doc_number) {
+          commit('setCustomer', customer)
+          resolve()
+          return
+        }
+      }
       let isRetry = false
       const sendRequest = () => {
         ecomPassport.requestApi('/me.json')
