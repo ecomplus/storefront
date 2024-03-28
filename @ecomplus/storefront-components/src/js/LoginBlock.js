@@ -78,7 +78,9 @@ export default {
         getCustomer().main_email === this.email
       if (isIdentified) {
         this.$nextTick(() => {
-          this.$refs.InputDoc.$el.focus()
+          if (this.$refs.InputDoc) {
+            this.$refs.InputDoc.$el.focus()
+          }
         })
       }
       return isIdentified
@@ -174,6 +176,9 @@ export default {
         const customer = getCustomer()
         this.email = customer.main_email
         this.isCompany = customer.registry_type === 'j'
+        if (customer._id && customer.doc_number) {
+          this.$emit('login', this.ecomPassport)
+        }
       }
     }
     ecomPassport.on('login', () => {
