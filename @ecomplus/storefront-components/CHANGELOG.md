@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.174](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.173...@ecomplus/storefront-components@1.0.0-beta.174) (2024-03-28)
+
+### Bug Fixes
+
+- **components/login-block:** also emit login without edit authorization (level 1 email/doc sign in) ([520b479](https://github.com/ecomplus/storefront/commit/520b47924572d0556ba44be71112fca3322273fc))
+
 # [1.0.0-beta.173](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.172...@ecomplus/storefront-components@1.0.0-beta.173) (2024-03-23)
 
 ### Bug Fixes

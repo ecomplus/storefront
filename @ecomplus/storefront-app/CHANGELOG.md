@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.197](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.196...@ecomplus/storefront-app@2.0.0-beta.197) (2024-03-28)
+
+### Bug Fixes
+
+- **app/summary:** better rendering masked customer phone number (level 1 sign in for v2) ([db66211](https://github.com/ecomplus/storefront/commit/db662110e46e8b128e2ef4663dc48a72da35f10d))
+
 # [2.0.0-beta.196](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.195...@ecomplus/storefront-app@2.0.0-beta.196) (2024-03-27)
 
 ### Bug Fixes
