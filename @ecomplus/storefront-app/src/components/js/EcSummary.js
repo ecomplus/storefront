@@ -79,7 +79,11 @@ export default {
     },
 
     buyerPhone () {
-      return getPhone(this.buyer)
+      const phone = getPhone(this.buyer)
+      if (phone && /000\d{2}/.test(phone)) {
+        return phone.replace('000', '***')
+      }
+      return phone
     }
   },
 
