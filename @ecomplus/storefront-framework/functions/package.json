@@ -15,7 +15,7 @@
   "dependencies": {
     "@ecomplus/storefront-renderer": "^2.11.4",
     "firebase-admin": "^11.11.1",
-    "firebase-functions": "^4.8.2"
+    "firebase-functions": "^4.9.0"
   },
   "devDependencies": {
     "firebase-functions-test": "^2.4.0"
