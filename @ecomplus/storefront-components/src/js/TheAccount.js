@@ -40,6 +40,12 @@ export default {
         return ['orders', 'favorites', 'subscriptions', 'points', 'account'].includes(value)
       }
     },
+    isExternalAuth: {
+      type: Boolean,
+      default () {
+        return Boolean(window.$firebaseConfig && window.$firebaseConfig.authDomain)
+      }
+    },
     ecomPassport: {
       type: Object,
       default () {
@@ -143,6 +149,10 @@ export default {
   },
 
   created () {
+    if (this.isExternalAuth && !this.ecomPassport.checkAuthorization()) {
+      window.location.href = '/app/account'
+      return
+    }
     this.navTabs = [
       {
         label: this.i19registration,
