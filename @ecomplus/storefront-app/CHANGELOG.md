@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.198](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.197...@ecomplus/storefront-app@2.0.0-beta.198) (2024-04-10)
+
+### Bug Fixes
+
+- **app/checkout:** link external login when proper hash to directly return to checkout ([571fef3](https://github.com/ecomplus/storefront/commit/571fef3b62fb09a7a163257a36800cbd233daa15))
+
 # [2.0.0-beta.197](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.196...@ecomplus/storefront-app@2.0.0-beta.197) (2024-03-28)
 
 ### Bug Fixes

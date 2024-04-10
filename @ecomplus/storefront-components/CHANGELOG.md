@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.175](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.174...@ecomplus/storefront-components@1.0.0-beta.175) (2024-04-10)
+
+### Bug Fixes
+
+- **components/account:** automatically redirect to external login when user not authorized ([5e88b20](https://github.com/ecomplus/storefront/commit/5e88b20bf795825771fb0dc09aa9373a49a25d4a))
+- **components/shipping-line:** use default color (not muted) on info for selected (bg colored) line ([280a8bc](https://github.com/ecomplus/storefront/commit/280a8bcf79d69c5a1c83109dd4429276b04bbaeb))
+
 # [1.0.0-beta.174](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.173...@ecomplus/storefront-components@1.0.0-beta.174) (2024-03-28)
 
 ### Bug Fixes
