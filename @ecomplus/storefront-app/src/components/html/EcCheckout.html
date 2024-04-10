@@ -290,7 +290,7 @@
           <template v-if="isExternalAuth" v-slot:login-methods="{ confirmAccount }">
             <p v-if="confirmAccount()">
               Ou entre com
-              <a href="/app/account">link de acesso por e-mail</a>
+              <a href="/app/account#/checkout">link de acesso por e-mail</a>
             </p>
           </template>
         </login-block>
@@ -307,7 +307,7 @@
           {{ i18n('RegisterToBuy') }}:
           <small v-if="isExternalAuth" class="d-block">
             Já possui conta?
-            <a href="/app/account">Receber link de acesso por e-mail</a>
+            <a href="/app/account#/checkout">Receber link de acesso por e-mail</a>
           </small>
         </p>
 
