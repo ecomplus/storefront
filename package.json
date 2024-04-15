@@ -23,7 +23,7 @@
     "themes:build": "node ./scripts/build-themes.js"
   },
   "engines": {
-    "node": "14",
+    "node": "14.21.3",
     "npm": "^6.14.18"
   },
   "repository": {
@@ -49,7 +49,7 @@
     "babel-loader": "^8.3.0",
     "bootstrap": "^4.6.2",
     "browser-sync": "^3.0.2",
-    "caniuse-lite": "^1.0.30001607",
+    "caniuse-lite": "^1.0.30001610",
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^3.6.0",
@@ -70,7 +70,7 @@
     "vue-style-loader": "^4.1.3",
     "vuepress": "^1.9.10",
     "webpack": "^4.47.0",
-    "webpack-bundle-analyzer": "^4.10.1",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.15.2"
   }

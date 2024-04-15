@@ -30,7 +30,7 @@
     "@ecomplus/storefront-router": "^2.2.1",
     "@ecomplus/utils": "^1.4.1",
     "axios": "^0.27.2 || ^1.1.2",
-    "ejs": "^3.1.9",
+    "ejs": "^3.1.10",
     "html-minifier": "^4.0.0",
     "image-size": "^1.1.1",
     "lodash": "^4.17.21",
