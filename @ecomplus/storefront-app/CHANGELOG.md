@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.199](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.198...@ecomplus/storefront-app@2.0.0-beta.199) (2024-04-16)
+
+### Bug Fixes
+
+- **app/account:** early redirect to external auth when unauthorized on account view ([7bae9b4](https://github.com/ecomplus/storefront/commit/7bae9b41b7a376ce7fa9d882fb2fd99a1640e351))
+
 # [2.0.0-beta.198](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.197...@ecomplus/storefront-app@2.0.0-beta.198) (2024-04-10)
 
 ### Bug Fixes

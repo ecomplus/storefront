@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.5](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.3.4...@ecomplus/widget-gmc-ratings@1.3.5) (2024-04-16)
+
+**Note:** Version bump only for package @ecomplus/widget-gmc-ratings
+
 ## [1.3.4](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-gmc-ratings@1.3.3...@ecomplus/widget-gmc-ratings@1.3.4) (2024-03-22)
 
 ### Bug Fixes
