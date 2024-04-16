@@ -193,7 +193,6 @@ export default {
         return this.customer
       },
       set (customer) {
-        console.log(123)
         this.$emit('update:customer', customer)
         this.$nextTick(() => {
           this.editAccount = false
