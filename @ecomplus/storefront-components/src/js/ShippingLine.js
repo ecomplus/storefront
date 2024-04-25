@@ -14,6 +14,8 @@ import {
   formatMoney
 } from '@ecomplus/utils'
 
+const globalOpts = (typeof window === 'object' && window.propsShippingLine) || {}
+
 export default {
   name: 'ShippingLine',
 
@@ -25,6 +27,10 @@ export default {
     productionDeadline: {
       type: Number,
       default: 0
+    },
+    getDeadlineStr: {
+      type: Function,
+      default: globalOpts.getDeadlineStr
     }
   },
 
@@ -38,6 +44,14 @@ export default {
         days += shipping.delivery_time.days
       }
       days += this.productionDeadline
+      if (this.getDeadlineStr) {
+        const str = this.getDeadlineStr({
+          days,
+          isWorkingDays,
+          shippingLine: this.shippingLine
+        })
+        if (str) return str
+      }
       if (days > 1) {
         return `${i18n(i19upTo)} ${days} ` +
           i18n(isWorkingDays ? i19workingDays : i19days).toLowerCase()

@@ -19,6 +19,7 @@ import ShippingLine from '../ShippingLine.vue'
 
 const localStorage = typeof window === 'object' && window.localStorage
 const zipStorageKey = 'shipping-to-zip'
+const globalOpts = (typeof window === 'object' && window.propsShippingCalculator) || {}
 
 const reduceItemBody = itemOrProduct => {
   const shippedItem = {}
@@ -54,9 +55,17 @@ export default {
   props: {
     zipCode: String,
     canSelectServices: Boolean,
+    canAutoSelectService: {
+      type: Boolean,
+      default: typeof globalOpts.canAutoSelectService === 'boolean'
+        ? globalOpts.canAutoSelectService
+        : true
+    },
     canInputZip: {
       type: Boolean,
-      default: true
+      default: typeof globalOpts.canInputZip === 'boolean'
+        ? globalOpts.canInputZip
+        : true
     },
     countryCode: {
       type: String,
@@ -193,7 +202,9 @@ export default {
                   ? -1
                   : 1
           })
-          this.setSelectedService(0)
+          if (this.canAutoSelectService) {
+            this.setSelectedService(0)
+          }
           this.hasPaidOption = Boolean(this.shippingServices.find(service => {
             return service.shipping_line.total_price || service.shipping_line.price
           }))
