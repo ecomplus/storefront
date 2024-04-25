@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.17](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-analytics@1.3.16...@ecomplus/widget-analytics@1.3.17) (2024-04-25)
+
+### Bug Fixes
+
+- **deps:** update all non-major dependencies ([#1035](https://github.com/ecomplus/storefront/issues/1035)) ([18b0e97](https://github.com/ecomplus/storefront/commit/18b0e97b454adc8bcc35bc3cb398900e4cc7ee66))
+
 ## [1.3.16](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-analytics@1.3.15...@ecomplus/widget-analytics@1.3.16) (2024-04-16)
 
 **Note:** Version bump only for package @ecomplus/widget-analytics

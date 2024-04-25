@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.176](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.175...@ecomplus/storefront-components@1.0.0-beta.176) (2024-04-25)
+
+### Features
+
+- **components/shipping:** handle optional prop values from globals ([1b9659b](https://github.com/ecomplus/storefront/commit/1b9659b7bccd71f70cbeef7362fc8a31e4bd741e))
+
 # [1.0.0-beta.175](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.174...@ecomplus/storefront-components@1.0.0-beta.175) (2024-04-10)
 
 ### Bug Fixes
