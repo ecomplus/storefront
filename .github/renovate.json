@@ -18,7 +18,8 @@
         "vue",
         "vue-template-compiler",
         "core-js",
-        "lozad"
+        "lozad",
+        "@builder.io/partytown"
       ],
       "matchUpdateTypes": [
         "minor",
