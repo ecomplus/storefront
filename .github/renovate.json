@@ -14,8 +14,11 @@
         "*"
       ],
       "excludePackagePatterns": [
+        "node",
         "vue",
-        "vue-template-compiler"
+        "vue-template-compiler",
+        "core-js",
+        "lozad"
       ],
       "matchUpdateTypes": [
         "minor",
