@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.265](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.264...@ecomplus/storefront-template@2.0.0-beta.265) (2024-04-26)
+
+### Bug Fixes
+
+- **deps:** reverting core-js and lozad peer semver ([498daaf](https://github.com/ecomplus/storefront/commit/498daaf7a687eb7b51ce40e19633c8349fedafef))
+- **framework/webpack:** fixing corejs version to 3.37 ([6e77c7e](https://github.com/ecomplus/storefront/commit/6e77c7e41d567321b6af7469c3d4d95c6b378af8))
+
 # [2.0.0-beta.264](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.263...@ecomplus/storefront-template@2.0.0-beta.264) (2024-04-25)
 
 ### Bug Fixes

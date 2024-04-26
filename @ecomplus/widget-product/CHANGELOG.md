@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.175](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@1.0.0-beta.174...@ecomplus/widget-product@1.0.0-beta.175) (2024-04-26)
+
+### Bug Fixes
+
+- **deps:** reverting core-js and lozad peer semver ([498daaf](https://github.com/ecomplus/storefront/commit/498daaf7a687eb7b51ce40e19633c8349fedafef))
+
 # [1.0.0-beta.174](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-product@1.0.0-beta.173...@ecomplus/widget-product@1.0.0-beta.174) (2024-04-25)
 
 ### Bug Fixes

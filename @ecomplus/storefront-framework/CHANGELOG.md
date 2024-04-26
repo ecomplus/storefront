@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.20.40](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.39...@ecomplus/storefront-framework@5.20.40) (2024-04-26)
+
+### Bug Fixes
+
+- **deps:** reverting core-js and lozad peer semver ([498daaf](https://github.com/ecomplus/storefront/commit/498daaf7a687eb7b51ce40e19633c8349fedafef))
+- **framework/partytown:** reverting to partytown 0.7 with node 16 support ([23959fa](https://github.com/ecomplus/storefront/commit/23959facdd691fa1a912292c332ab12fbb82d42b))
+- **framework/webpack:** fixing corejs version to 3.37 ([6e77c7e](https://github.com/ecomplus/storefront/commit/6e77c7e41d567321b6af7469c3d4d95c6b378af8))
+
 ## [5.20.39](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.38...@ecomplus/storefront-framework@5.20.39) (2024-04-25)
 
 ### Bug Fixes

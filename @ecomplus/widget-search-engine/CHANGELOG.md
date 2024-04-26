@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.177](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.176...@ecomplus/widget-search-engine@1.0.0-beta.177) (2024-04-26)
+
+### Bug Fixes
+
+- **deps:** reverting core-js and lozad peer semver ([498daaf](https://github.com/ecomplus/storefront/commit/498daaf7a687eb7b51ce40e19633c8349fedafef))
+
 # [1.0.0-beta.176](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-search-engine@1.0.0-beta.175...@ecomplus/widget-search-engine@1.0.0-beta.176) (2024-04-25)
 
 ### Bug Fixes

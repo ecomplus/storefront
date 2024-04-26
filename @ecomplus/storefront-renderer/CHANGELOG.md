@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.6](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.11.5...@ecomplus/storefront-renderer@2.11.6) (2024-04-26)
+
+### Bug Fixes
+
+- **framework/partytown:** reverting to partytown 0.7 with node 16 support ([23959fa](https://github.com/ecomplus/storefront/commit/23959facdd691fa1a912292c332ab12fbb82d42b))
+
 ## [2.11.5](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.11.4...@ecomplus/storefront-renderer@2.11.5) (2024-04-16)
 
 **Note:** Version bump only for package @ecomplus/storefront-renderer

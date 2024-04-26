@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.9](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-martan@1.1.8...@ecomplus/widget-martan@1.1.9) (2024-04-26)
+
+### Bug Fixes
+
+- **deps:** reverting core-js and lozad peer semver ([498daaf](https://github.com/ecomplus/storefront/commit/498daaf7a687eb7b51ce40e19633c8349fedafef))
+
 ## [1.1.8](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-martan@1.1.7...@ecomplus/widget-martan@1.1.8) (2024-04-25)
 
 ### Bug Fixes
