@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.202](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.201...@ecomplus/storefront-app@2.0.0-beta.202) (2024-05-02)
+
+### Bug Fixes
+
+- **app/checkout:** properly handle external auth sign in global functions ([62d2c1d](https://github.com/ecomplus/storefront/commit/62d2c1db81ccf58cda2145236bc715248698f192))
+
 # [2.0.0-beta.201](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.200...@ecomplus/storefront-app@2.0.0-beta.201) (2024-05-02)
 
 ### Bug Fixes
