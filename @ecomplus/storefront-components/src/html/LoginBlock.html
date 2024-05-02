@@ -97,7 +97,7 @@
       {{ failAlertText }}
     </a-alert>
 
-    <slot name="login-methods" v-bind="{ isWaitingLogin, confirmAccount }">
+    <slot name="login-methods" v-bind="{ isWaitingLogin, email, confirmAccount }">
       <transition enter-active-class="animated fadeInUp">
         <div
           v-if="oauthProviders.length"
