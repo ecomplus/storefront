@@ -141,7 +141,8 @@ export default {
       paymentGateways: [],
       loyaltyPointsApplied: {},
       loyaltyPointsAmount: 0,
-      hasMoreOffers: false
+      hasMoreOffers: false,
+      hasCalledExternalSignIn: false
     }
   },
 
@@ -263,14 +264,22 @@ export default {
 
     externalAuthEmailLinkSignIn () {
       if (this.isExternalAuth && window.signInWithEmailLink) {
-        return window.signInWithEmailLink
+        return (email) => {
+          this.hasCalledExternalSignIn = true
+          setTimeout(() => { this.hasCalledExternalSignIn = false }, 4000)
+          window.signInWithEmailLink(email)
+        }
       }
       return null
     },
 
     externalAuthGoogleSignIn () {
       if (this.isExternalAuth && window.signInWithGoogle) {
-        return window.signInWithGoogle
+        return () => {
+          this.hasCalledExternalSignIn = true
+          setTimeout(() => { this.hasCalledExternalSignIn = false }, 2000)
+          window.signInWithGoogle()
+        }
       }
       return null
     }

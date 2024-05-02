@@ -291,7 +291,7 @@
             <p v-if="confirmAccount()">
               Ou entre com
               <template v-if="externalAuthEmailLinkSignIn">
-                <a href="#" @click.prevent="externalAuthEmailLinkSignIn()">
+                <a href="#" @click.prevent="externalAuthEmailLinkSignIn(email)">
                 link de acesso por e-mail</a>
                 <span v-if="externalAuthGoogleSignIn"> /
                   <a href="#" @click.prevent="externalAuthGoogleSignIn()">
@@ -302,6 +302,13 @@
                 <a :href="`/app/account?email=${encodeURIComponent(email)}#/checkout`">
                 link de acesso por e-mail</a>
               </template>
+              <span
+                class="spinner-grow ml-1"
+                :style="{ visibility: hasCalledExternalSignIn ? null : 'hidden' }"
+                role="status"
+              >
+                <span class="sr-only">Loading...</span>
+              </span>
             </p>
           </template>
         </login-block>
