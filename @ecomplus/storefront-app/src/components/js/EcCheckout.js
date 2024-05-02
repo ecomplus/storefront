@@ -259,6 +259,20 @@ export default {
         }
       })
       return key
+    },
+
+    externalAuthEmailLinkSignIn () {
+      if (this.isExternalAuth && window.signInWithEmailLink) {
+        return window.signInWithEmailLink
+      }
+      return null
+    },
+
+    externalAuthGoogleSignIn () {
+      if (this.isExternalAuth && window.signInWithGoogle) {
+        return window.signInWithGoogle
+      }
+      return null
     }
   },
 
