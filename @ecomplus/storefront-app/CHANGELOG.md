@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.201](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.200...@ecomplus/storefront-app@2.0.0-beta.201) (2024-05-02)
+
+### Bug Fixes
+
+- **app/checkout:** improving link to external auth with already set email ([b28fa04](https://github.com/ecomplus/storefront/commit/b28fa04a42d57c3f577c46837119762bae0910e7))
+
 # [2.0.0-beta.200](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.199...@ecomplus/storefront-app@2.0.0-beta.200) (2024-04-25)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
