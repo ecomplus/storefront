@@ -39,7 +39,7 @@
     "@babel/core": "^7.24.4",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.24.4",
-    "@builder.io/partytown": "^0.7.6",
+    "@builder.io/partytown": "^0.10.2",
     "@ecomplus/storefront-renderer": "^2.11.6",
     "@ecomplus/storefront-router": "^2.2.1",
     "autoprefixer": "^10.4.19",
