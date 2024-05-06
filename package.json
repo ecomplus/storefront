@@ -23,7 +23,7 @@
     "themes:build": "node ./scripts/build-themes.js"
   },
   "engines": {
-    "node": "14",
+    "node": "14.21.3",
     "npm": "^6.14.18"
   },
   "repository": {
