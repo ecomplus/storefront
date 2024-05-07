@@ -118,8 +118,12 @@ export default {
       }
     },
 
-    oauthPopup (link) {
-      this.ecomPassport.popupOauthLink(link)
+    oauthPopup (fnOrLink) {
+      if (typeof fnOrLink === 'function') {
+        fnOrLink()
+      } else {
+        this.ecomPassport.popupOauthLink(fnOrLink)
+      }
       this.isWaitingPopup = true
       setTimeout(() => {
         this.isWaitingPopup = false
@@ -138,6 +142,26 @@ export default {
   },
 
   created () {
+    if (Array.isArray(window.OAUTH_PROVIDERS)) {
+      this.oauthProviders = []
+      if (window.OAUTH_PROVIDERS.includes('google') && window.signInWithGoogle) {
+        this.oauthProviders.push({
+          link: window.signInWithGoogle,
+          faIcon: 'fa-google',
+          provider: 'google',
+          providerName: 'Google'
+        })
+      }
+      if (window.OAUTH_PROVIDERS.includes('facebook') && window.signInWithFacebook) {
+        this.oauthProviders.push({
+          link: window.signInWithFacebook,
+          faIcon: 'fa-facebook-f',
+          provider: 'facebook',
+          providerName: 'Facebook'
+        })
+      }
+      if (this.oauthProviders.length) return
+    }
     if (!this.canFetchOauth) return
     this.ecomPassport.fetchOauthProviders()
       .then(({ host, baseUri, oauthPath, providers }) => {
