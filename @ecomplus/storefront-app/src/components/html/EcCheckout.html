@@ -286,32 +286,7 @@
           @update="isUserIdentified = true"
           :customer-email.sync="customerEmail"
           :can-fetch-oauth="!isExternalAuth"
-        >
-          <template v-if="isExternalAuth" v-slot:login-methods="{ email, confirmAccount }">
-            <p v-if="confirmAccount()">
-              Ou entre com
-              <template v-if="externalAuthEmailLinkSignIn">
-                <a href="#" @click.prevent="externalAuthEmailLinkSignIn(email)">
-                link de acesso por e-mail</a>
-                <span v-if="externalAuthGoogleSignIn"> /
-                  <a href="#" @click.prevent="externalAuthGoogleSignIn()">
-                  Login do Google</a>
-                </span>
-              </template>
-              <template v-else>
-                <a :href="`/app/account?email=${encodeURIComponent(email)}#/checkout`">
-                link de acesso por e-mail</a>
-              </template>
-              <span
-                class="spinner-grow ml-1"
-                :style="{ visibility: hasCalledExternalSignIn ? null : 'hidden' }"
-                role="status"
-              >
-                <span class="sr-only">Loading...</span>
-              </span>
-            </p>
-          </template>
-        </login-block>
+        />
       </slot>
     </div>
 
@@ -323,12 +298,7 @@
       <slot name="account">
         <p class="lead">
           {{ i18n('RegisterToBuy') }}:
-          <small v-if="isExternalAuth" class="d-block">
-            Já possui conta?
-            <a href="/app/account#/checkout">Receber link de acesso por e-mail</a>
-          </small>
         </p>
-
         <account-form
           :customer.sync="localCustomer"
           :is-short="true"
