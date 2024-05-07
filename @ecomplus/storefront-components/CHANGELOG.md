@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.178](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.177...@ecomplus/storefront-components@1.0.0-beta.178) (2024-05-07)
+
+### Features
+
+- **components/login-block:** handling custom oauth handlers from globals ([5147a19](https://github.com/ecomplus/storefront/commit/5147a190c5e089ce1702b330b7a4cec788739ff2))
+
 # [1.0.0-beta.177](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.176...@ecomplus/storefront-components@1.0.0-beta.177) (2024-05-02)
 
 **Note:** Version bump only for package @ecomplus/storefront-components
