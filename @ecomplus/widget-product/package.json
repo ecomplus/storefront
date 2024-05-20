@@ -30,7 +30,7 @@
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-product#readme",
   "peerDependencies": {
     "@ecomplus/utils": "^1.4.1",
-    "core-js": "3.x",
+    "core-js": "3.37.1",
     "vue": ">=2 <4"
   },
   "dependencies": {
