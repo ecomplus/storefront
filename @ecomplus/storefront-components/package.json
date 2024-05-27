@@ -39,7 +39,7 @@
     "@ecomplus/search-engine": "^2.6.1",
     "@ecomplus/shopping-cart": "^2.6.0",
     "@ecomplus/storefront-twbs": "^7.3.6",
-    "@glidejs/glide": "^3.6.0",
+    "@glidejs/glide": "^3.6.1",
     "@linusborg/vue-simple-portal": "^0.1.5",
     "axios": "^0.27.2 || ^1.1.2",
     "cleave.js": "^1.6.0",
