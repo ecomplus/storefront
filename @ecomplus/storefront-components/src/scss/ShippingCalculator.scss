@@ -12,6 +12,18 @@
     }
   }
 
+  &__label {
+    padding: var(--spacer-3) var(--spacer-2);
+
+    i {
+      font-size: var(--font-size-lg);
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      margin-right: var(--spacer-2);
+      color: var(--primary-light);
+    }
+  }
+
   &__option {
     display: flex;
     justify-content: space-between;

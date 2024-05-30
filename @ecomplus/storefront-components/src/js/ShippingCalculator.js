@@ -119,6 +119,10 @@ export default {
     i19calculateShipping: () => i18n(i19calculateShipping),
     i19zipCode: () => i18n(i19zipCode),
     i19freeShipping: () => i18n(i19freeShipping).toLowerCase(),
+    i19selectShippingMsg: () => i18n({
+      pt_br: 'Selecione uma forma de envio abaixo',
+      en_us: 'Select a shipping method below'
+    }),
 
     cleaveOptions () {
       return this.countryCode === 'BR'

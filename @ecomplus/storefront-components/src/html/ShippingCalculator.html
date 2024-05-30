@@ -50,6 +50,18 @@
         key="services"
         class="list-group"
       >
+        <transition
+          enter-active-class="animated fadeInUp"
+          leave-active-class="animated fadeOutDown"
+        >
+          <div
+            v-if="canSelectServices && !canAutoSelectService && selectedService === null"
+            class="shipping-calculator__label"
+          >
+            <i class="i-arrow-down animated wobble"></i>
+            {{ i19selectShippingMsg }}
+          </div>
+        </transition>
         <component
           :is="canSelectServices ? 'a' : 'div'"
           :href="canSelectServices && '#'"
@@ -72,7 +84,25 @@
                 :production-deadline="productionDeadline"
                 :data-service-code="service.service_code"
               />
-              <small>{{ service.label }}</small>
+              <div
+                v-if="canSelectServices && !canAutoSelectService"
+                class="custom-control custom-radio"
+              >
+                <input
+                  type="radio"
+                  :id="`shipping-method-${service.service_code}`"
+                  name="shipping-method-select"
+                  class="custom-control-input"
+                  :checked="selectedService === i"
+                />
+                <label 
+                  class="custom-control-label" 
+                  :for="`shipping-method-${service.service_code}`"
+                >
+                  <small>{{ service.label }}</small>
+                </label>
+              </div>
+              <small v-else>{{ service.label }}</small>
             </slot>
           </span>
         </component>
