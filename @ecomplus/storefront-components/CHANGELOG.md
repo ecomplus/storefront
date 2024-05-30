@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.179](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.178...@ecomplus/storefront-components@1.0.0-beta.179) (2024-05-30)
+
+### Bug Fixes
+
+- **components/shipping-calculator:** call attention to method selection when auto select disabled ([581424c](https://github.com/ecomplus/storefront/commit/581424cbf1bc36cac91ea87513d31d73c8741b00))
+
 # [1.0.0-beta.178](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.177...@ecomplus/storefront-components@1.0.0-beta.178) (2024-05-07)
 
 ### Features

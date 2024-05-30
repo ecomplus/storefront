@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.204](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.203...@ecomplus/storefront-app@2.0.0-beta.204) (2024-05-30)
+
+### Bug Fixes
+
+- **app/checkout:** minor improving checkout secondary buttons ([1a55ea8](https://github.com/ecomplus/storefront/commit/1a55ea80ce156a65f0acc0749657137c266fcd1c))
+
 # [2.0.0-beta.203](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.202...@ecomplus/storefront-app@2.0.0-beta.203) (2024-05-07)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.20.43](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.42...@ecomplus/storefront-framework@5.20.43) (2024-05-30)
+
+### Bug Fixes
+
+- **deps:** update dependency firebase-functions to v5 ([#1047](https://github.com/ecomplus/storefront/issues/1047)) ([18ec60d](https://github.com/ecomplus/storefront/commit/18ec60d6abe1b47561635cbb9c72c88648563e2e))
+
 ## [5.20.42](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.41...@ecomplus/storefront-framework@5.20.42) (2024-05-07)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework
