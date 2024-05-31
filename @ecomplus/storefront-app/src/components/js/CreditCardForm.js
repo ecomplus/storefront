@@ -267,7 +267,7 @@ export default {
 
     notifyInvalidCard (customMsg) {
       let body = i18n(i19invalidCardMsg)
-      if (customMsg) {
+      if (typeof customMsg === 'string' && customMsg) {
         body += customMsg
       }
       this.$toast({ title: i18n(i19invalidCard), body })
