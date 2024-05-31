@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.205](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.204...@ecomplus/storefront-app@2.0.0-beta.205) (2024-05-31)
+
+### Bug Fixes
+
+- **app/checkout:** show custom error message on card invalidation if returned by card hash rejection ([60fbe94](https://github.com/ecomplus/storefront/commit/60fbe94326e8fc43531d82c610e3f169bdff171e))
+
 # [2.0.0-beta.204](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.203...@ecomplus/storefront-app@2.0.0-beta.204) (2024-05-30)
 
 ### Bug Fixes
