@@ -265,11 +265,12 @@ export default {
       this.$emit('checkout', transaction)
     },
 
-    notifyInvalidCard () {
-      this.$toast({
-        title: i18n(i19invalidCard),
-        body: i18n(i19invalidCardMsg)
-      })
+    notifyInvalidCard (customMsg) {
+      let body = i18n(i19invalidCardMsg)
+      if (customMsg) {
+        body += customMsg
+      }
+      this.$toast({ title: i18n(i19invalidCard), body })
     },
 
     submit () {
@@ -286,7 +287,7 @@ export default {
               .then(this.emitCardData)
               .catch(err => {
                 console.error(err)
-                this.notifyInvalidCard()
+                this.notifyInvalidCard(err.userMsg)
               })
               .finally(() => {
                 this.isWaitingCardHash = false
