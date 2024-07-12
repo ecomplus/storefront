@@ -25,9 +25,9 @@ import {
 
 import { modules } from '@ecomplus/client'
 import ecomCart from '@ecomplus/shopping-cart'
-import loadPaymentClient from '../../lib/load-payment-client'
-import { sortApps } from '../../lib/utils'
-import CreditCardForm from '../CreditCardForm.vue'
+import loadPaymentClient from '@ecomplus/storefront-app/src/lib/load-payment-client'
+import { sortApps } from '@ecomplus/storefront-app/src/lib/utils'
+import CreditCardForm from '@ecomplus/storefront-app/src/components/CreditCardForm.vue'
 
 export default {
   name: 'PaymentMethods',
@@ -105,6 +105,14 @@ export default {
 
     items () {
       return this.cartItems || this.ecomCart.data.items
+    },
+
+    minToBuy () {
+      window.minToBuy || 1
+    },
+
+    minToBuyMsg () {
+      window.minToBuyMsg || 'Necessário inserir mais itens no carrinho para comprar'
     },
 
     paymentGateway () {
