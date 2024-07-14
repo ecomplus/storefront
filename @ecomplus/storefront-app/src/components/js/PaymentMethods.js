@@ -107,14 +107,6 @@ export default {
       return this.cartItems || this.ecomCart.data.items
     },
 
-    minToBuy () {
-      window.minToBuy || 1
-    },
-
-    minToBuyMsg () {
-      window.minToBuyMsg || 'Necessário inserir mais itens no carrinho para comprar'
-    },
-
     paymentGateway () {
       return this.paymentGateways[this.selectedGateway] || {}
     },

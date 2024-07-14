@@ -1,4 +1,4 @@
-<div class="payment" v-if="minToBuy >= amount.subtotal">
+<div class="payment">
   <transition-group
     enter-active-class="animated fadeIn slow"
   >
@@ -187,7 +187,4 @@
       </button>
     </div>
   </transition-group>
-</div>
-<div v-else>
-  {{ minToBuyMsg }}
 </div>
