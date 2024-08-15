@@ -1,3 +1,7 @@
 <div data-slot="rating">
-  <div class="NETREVIEWS_PRODUCT_STARS" data-product-id="<%= opt.item && opt.item.sku %>"></div>
+  <% if (options.tagJs && options.tagJs.includes('skeepers.io')) { %>
+    <div class="skeepers_product__stars" data-product-id="<%= opt.item && opt.item.sku %>"></div>
+  <% } else { %>
+    <div class="NETREVIEWS_PRODUCT_STARS" data-product-id="<%= opt.item && opt.item.sku %>"></div>
+  <% } %>
 </div>

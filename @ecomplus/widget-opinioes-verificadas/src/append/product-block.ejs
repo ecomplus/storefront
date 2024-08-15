@@ -1,9 +1,24 @@
-<div
-  class="NETREVIEWS_PRODUCT_REVIEWS"
-  data-product-id="<%- _.state.sku %>"
-  data-product-price="<%- _.ecomUtils.price(_.state) %>"
-  data-product-name="<%- _.ecomUtils.name(_.state) %>"
-  data-product-url="<%- `https://${_.settings.domain}/${_.state.slug}` %>"
-  data-product-img-url="<%- _.ecomUtils.img(_.state, null, 'big').url %>"
-  data-product-rs-id="<%- _.state.sku %>"
-></div>
+<% if (options.tagJs && options.tagJs.includes('skeepers.io')) { %>
+  <div class="container">
+    <div
+      class="skeepers_product__reviews"
+      data-product-id="<%- _.state.sku %>"
+      data-locale="pt_BR"
+      data-price="<%- _.ecomUtils.price(_.state) %>"
+      data-currency="<%- _.ecomUtils.$ecomConfig.get('currency') || 'BRL' %>"
+      data-name="<%- _.ecomUtils.name(_.state) %>"
+      data-url="<%- `https://${_.settings.domain}/${_.state.slug}` %>"
+      data-image-url="<%- _.ecomUtils.img(_.state, null, 'big').url %>"
+    ></div>
+  </div>
+<% } else { %>
+  <div
+    class="NETREVIEWS_PRODUCT_REVIEWS"
+    data-product-id="<%- _.state.sku %>"
+    data-product-price="<%- _.ecomUtils.price(_.state) %>"
+    data-product-name="<%- _.ecomUtils.name(_.state) %>"
+    data-product-url="<%- `https://${_.settings.domain}/${_.state.slug}` %>"
+    data-product-img-url="<%- _.ecomUtils.img(_.state, null, 'big').url %>"
+    data-product-rs-id="<%- _.state.sku %>"
+  ></div>
+<% } %>
