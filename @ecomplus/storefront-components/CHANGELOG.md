@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.180](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.179...@ecomplus/storefront-components@1.0.0-beta.180) (2024-08-15)
+
+### Bug Fixes
+
+- **deps:** update all non-major dependencies ([#1060](https://github.com/ecomplus/storefront/issues/1060)) ([7dd278a](https://github.com/ecomplus/storefront/commit/7dd278adf2808f5a3059f113d8152276c0eb443b))
+
 # [1.0.0-beta.179](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.178...@ecomplus/storefront-components@1.0.0-beta.179) (2024-05-30)
 
 ### Bug Fixes
