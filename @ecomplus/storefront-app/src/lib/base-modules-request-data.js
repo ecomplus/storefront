@@ -12,8 +12,16 @@ if (!utm) {
   })
 }
 
+let domain = window.location.hostname
+if (domain === 'localhost' && window.storefront) {
+  const { settings } = window.storefront
+  if (settings) {
+    domain = settings.domain || domain
+  }
+}
+
 export default {
-  domain: window.location.hostname,
+  domain,
   lang: $ecomConfig.get('lang'),
   utm
 }

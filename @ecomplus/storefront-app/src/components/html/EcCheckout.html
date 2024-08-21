@@ -167,6 +167,7 @@
             :coupon-code.sync="localDiscountCoupon"
             @set-discount-rule="discountRule => $emit('set-discount-rule', discountRule)"
             :modules-payload="modulesPayload"
+            :payment-gateway="paymentGateway"
             :customer="customer"
             is-attention-wanted
           />
@@ -216,6 +217,7 @@
                   :coupon-code.sync="localDiscountCoupon"
                   @set-discount-rule="discountRule => $emit('set-discount-rule', discountRule)"
                   :modules-payload="modulesPayload"
+                  :payment-gateway="paymentGateway"
                   :customer="customer"
                   is-attention-wanted
                 />
