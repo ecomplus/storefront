@@ -55,7 +55,8 @@
           leave-active-class="animated fadeOutDown"
         >
           <div
-            v-if="canSelectServices && !canAutoSelectService && selectedService === null"
+            v-if="canSelectServices && !canAutoSelectService &&
+              selectedService === null && shippingServices.length"
             class="shipping-calculator__label"
           >
             <i class="i-arrow-down animated wobble"></i>

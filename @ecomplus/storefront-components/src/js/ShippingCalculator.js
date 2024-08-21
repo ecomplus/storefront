@@ -208,6 +208,8 @@ export default {
           })
           if (this.canAutoSelectService) {
             this.setSelectedService(0)
+          } else {
+            this.selectedService = null
           }
           this.hasPaidOption = Boolean(this.shippingServices.find(service => {
             return service.shipping_line.total_price || service.shipping_line.price
