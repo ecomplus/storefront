@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.181](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.180...@ecomplus/storefront-components@1.0.0-beta.181) (2024-08-22)
+
+### Bug Fixes
+
+- **components/discount-applier:** properly handle non-cumulative discounts with gateway discounts ([3ad97a7](https://github.com/ecomplus/storefront/commit/3ad97a702a41962e0b5258489af16389e274851b))
+- **components/shipping-calculator:** minor fixes for disabled service auto select ([311f41b](https://github.com/ecomplus/storefront/commit/311f41b973084cff719e620f2f36098fd0d7116a))
+
 # [1.0.0-beta.180](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.179...@ecomplus/storefront-components@1.0.0-beta.180) (2024-08-15)
 
 ### Bug Fixes

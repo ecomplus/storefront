@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.207](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.206...@ecomplus/storefront-app@2.0.0-beta.207) (2024-08-22)
+
+### Bug Fixes
+
+- **app/checkout:** passing selected payment gateway to discount applier on checkout ([8a00c11](https://github.com/ecomplus/storefront/commit/8a00c117c7f322d9c8ad308b573351568bd466f6))
+
 # [2.0.0-beta.206](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.205...@ecomplus/storefront-app@2.0.0-beta.206) (2024-08-15)
 
 ### Reverts
