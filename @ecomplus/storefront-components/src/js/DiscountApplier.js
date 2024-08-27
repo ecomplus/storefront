@@ -302,11 +302,17 @@ export default {
 
   watch: {
     couponCode (couponCode) {
-      if (couponCode !== this.couponCode) {
+      if (couponCode !== this.localCouponCode) {
         this.localCouponCode = couponCode
         if (couponCode && !this.isFormVisible) {
           this.isFormVisible = true
         }
+      }
+    },
+
+    localCouponCode () {
+      if (this.alertVariant === 'info') {
+        this.alertText = null
       }
     },
 

@@ -87,7 +87,7 @@
   </template>
 
   <a-alert
-    :key="`alert-${alertVariant}`"
+    :key="`alert-${alertVariant}-${localCouponCode}`"
     :can-show="!isLoading && Boolean(alertText)"
     :variant="alertVariant"
     @dismiss="alertText = null"
