@@ -47,7 +47,7 @@
     "@vue/cli-service": "^4.5.19",
     "animate.css": "^3.7.2",
     "babel-loader": "^8.3.0",
-    "bootstrap": "^4.6.2",
+    "bootstrap": "^5.0.0",
     "browser-sync": "^3.0.2",
     "caniuse-lite": "^1.0.30001655",
     "clean-webpack-plugin": "^4.0.0",
