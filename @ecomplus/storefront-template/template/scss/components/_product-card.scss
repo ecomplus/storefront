@@ -2,6 +2,10 @@
 @import "@ecomplus/storefront-components/src/scss/APrices";
 @import "@ecomplus/storefront-components/src/scss/ProductCard";
 
+.product-item {
+  height: 100%;
+}
+
 .product-card {
   .spinner-border {
     position: absolute;
