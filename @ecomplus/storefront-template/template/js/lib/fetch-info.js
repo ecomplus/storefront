@@ -1,4 +1,5 @@
 import { modules } from '@ecomplus/client'
+import { price as getPrice } from '@ecomplus/utils'
 import emitter from './emitter'
 import utm from './persist-utm'
 
@@ -11,11 +12,31 @@ const modulesToFetch = Array.isArray(window.modulesToFetch)
       { endpoint: 'calculate_shipping' }
     ]
 if (Object.keys(utm).length) {
+  const {
+    resource,
+    body: contextBody
+  } = (window.storefront && window.storefront.context) || {}
+  const applyDiscountData = { utm }
+  if (contextBody && contextBody._id) {
+    if (resource === 'products') {
+      applyDiscountData.items = [{
+        product_id: contextBody._id,
+        categories: contextBody.categories,
+        quantity: 1,
+        price: getPrice(contextBody)
+      }]
+    }
+  }
+  const urlParams = new URLSearchParams(window.location.search)
+  const discountCoupon = urlParams.get('coupon')
+  if (discountCoupon) {
+    applyDiscountData.discount_coupon = discountCoupon
+  }
   modulesToFetch.push({
     endpoint: 'apply_discount',
     reqOptions: {
       method: 'post',
-      data: { utm }
+      data: applyDiscountData
     }
   })
 }
