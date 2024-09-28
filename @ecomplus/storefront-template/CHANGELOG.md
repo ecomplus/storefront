@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.274](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.273...@ecomplus/storefront-template@2.0.0-beta.274) (2024-09-28)
+
+### Bug Fixes
+
+- **template/fetch-info:** properly fetch apply discount when coupon from url param is persisted ([48cff23](https://github.com/ecomplus/storefront/commit/48cff237295f2206fd719064cc1759836f217686))
+
+### Features
+
+- **template/fetch-info:** preview discount by url counpon and categories product id on pdp ([9c328c2](https://github.com/ecomplus/storefront/commit/9c328c249d328ce2fbd96d87a626b29902c54bee))
+
 # [2.0.0-beta.273](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.272...@ecomplus/storefront-template@2.0.0-beta.273) (2024-09-06)
 
 ### Bug Fixes
