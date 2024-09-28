@@ -1,26 +1,26 @@
 .btn-primary {
-  background: #222222 linear-gradient(180deg, #434343, #222222) repeat-x;
+  background: #222222 linear-gradient(180deg, rgb(67.15, 67.15, 67.15), #222222) repeat-x;
 }
 .btn-secondary {
   background: #fff linear-gradient(180deg, white, #fff) repeat-x;
 }
 .btn-success {
-  background: #2aa198 linear-gradient(180deg, #4aafa7, #2aa198) repeat-x;
+  background: #2aa198 linear-gradient(180deg, rgb(73.95, 175.1, 167.45), #2aa198) repeat-x;
 }
 .btn-info {
-  background: #268bd2 linear-gradient(180deg, #479cd9, #268bd2) repeat-x;
+  background: #268bd2 linear-gradient(180deg, rgb(70.55, 156.4, 216.75), #268bd2) repeat-x;
 }
 .btn-warning {
-  background: #cb4b16 linear-gradient(180deg, #d36639, #cb4b16) repeat-x;
+  background: #cb4b16 linear-gradient(180deg, rgb(210.8, 102, 56.95), #cb4b16) repeat-x;
 }
 .btn-danger {
-  background: #d33682 linear-gradient(180deg, #da5495, #d33682) repeat-x;
+  background: #d33682 linear-gradient(180deg, rgb(217.6, 84.15, 148.75), #d33682) repeat-x;
 }
 .btn-light {
-  background: #495057 linear-gradient(180deg, #646a70, #495057) repeat-x;
+  background: #495057 linear-gradient(180deg, rgb(100.3, 106.25, 112.2), #495057) repeat-x;
 }
 .btn-dark {
-  background: #073642 linear-gradient(180deg, #2c545e, #073642) repeat-x;
+  background: #073642 linear-gradient(180deg, rgb(44.2, 84.15, 94.35), #073642) repeat-x;
 }
 
 .table-primary, .table-secondary, .table-dark, .table-success, .table-info, .table-warning, .table-danger {
@@ -74,42 +74,42 @@
 .table-hover .table-primary:hover,
 .table-hover .table-primary:hover > th,
 .table-hover .table-primary:hover > td {
-  background-color: #151515;
+  background-color: rgb(21.25, 21.25, 21.25);
 }
 .table-hover .table-secondary:hover,
 .table-hover .table-secondary:hover > th,
 .table-hover .table-secondary:hover > td {
-  background-color: #f2f2f2;
+  background-color: rgb(242.25, 242.25, 242.25);
 }
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
 .table-hover .table-light:hover > td {
-  background-color: #3d4349;
+  background-color: rgb(61.365625, 67.25, 73.134375);
 }
 .table-hover .table-dark:hover,
 .table-hover .table-dark:hover > th,
 .table-hover .table-dark:hover > td {
-  background-color: #05232b;
+  background-color: rgb(4.5547945205, 35.1369863014, 42.9452054795);
 }
 .table-hover .table-success:hover,
 .table-hover .table-success:hover > th,
 .table-hover .table-success:hover > td {
-  background-color: #258d85;
+  background-color: rgb(36.724137931, 140.775862069, 132.9064039409);
 }
 .table-hover .table-info:hover,
 .table-hover .table-info:hover > th,
 .table-hover .table-info:hover > td {
-  background-color: #227dbc;
+  background-color: rgb(34.0927419355, 124.7076612903, 188.4072580645);
 }
 .table-hover .table-danger:hover,
 .table-hover .table-danger:hover > th,
 .table-hover .table-danger:hover > td {
-  background-color: #c42b75;
+  background-color: rgb(196.487755102, 43.012244898, 117.306122449);
 }
 .table-hover .table-warning:hover,
 .table-hover .table-warning:hover > th,
 .table-hover .table-warning:hover > td {
-  background-color: #b44314;
+  background-color: rgb(179.9933333333, 66.5, 19.5066666667);
 }
 .table-hover .table-active:hover,
 .table-hover .table-active:hover > th,
@@ -149,28 +149,28 @@
   text-decoration: underline;
 }
 .alert-primary {
-  background: #222222 linear-gradient(180deg, #434343, #222222) repeat-x;
+  background: #222222 linear-gradient(180deg, rgb(67.15, 67.15, 67.15), #222222) repeat-x;
 }
 .alert-secondary {
   background: #fff linear-gradient(180deg, white, #fff) repeat-x;
 }
 .alert-success {
-  background: #2aa198 linear-gradient(180deg, #4aafa7, #2aa198) repeat-x;
+  background: #2aa198 linear-gradient(180deg, rgb(73.95, 175.1, 167.45), #2aa198) repeat-x;
 }
 .alert-info {
-  background: #268bd2 linear-gradient(180deg, #479cd9, #268bd2) repeat-x;
+  background: #268bd2 linear-gradient(180deg, rgb(70.55, 156.4, 216.75), #268bd2) repeat-x;
 }
 .alert-warning {
-  background: #cb4b16 linear-gradient(180deg, #d36639, #cb4b16) repeat-x;
+  background: #cb4b16 linear-gradient(180deg, rgb(210.8, 102, 56.95), #cb4b16) repeat-x;
 }
 .alert-danger {
-  background: #d33682 linear-gradient(180deg, #da5495, #d33682) repeat-x;
+  background: #d33682 linear-gradient(180deg, rgb(217.6, 84.15, 148.75), #d33682) repeat-x;
 }
 .alert-light {
-  background: #495057 linear-gradient(180deg, #646a70, #495057) repeat-x;
+  background: #495057 linear-gradient(180deg, rgb(100.3, 106.25, 112.2), #495057) repeat-x;
 }
 .alert-dark {
-  background: #073642 linear-gradient(180deg, #2c545e, #073642) repeat-x;
+  background: #073642 linear-gradient(180deg, rgb(44.2, 84.15, 94.35), #073642) repeat-x;
 }
 .alert-light,
 .alert-light a:not(.btn),

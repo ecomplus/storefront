@@ -19,29 +19,29 @@
 }
 .btn-secondary.disabled {
   background-color: #fff;
-  border-color: #d9d9d9;
-  color: #231e2f;
+  border-color: rgb(216.75, 216.75, 216.75);
+  color: rgb(34.5, 30, 46.5);
 }
 .btn-warning {
   color: #fff;
 }
 .btn-primary:focus {
-  box-shadow: 0 0 5px #3c3c3c;
+  box-shadow: 0 0 5px rgb(59.5, 59.5, 59.5);
 }
 .btn-secondary:focus {
   box-shadow: 0 0 5px #cbc8d0;
 }
 .btn-success:focus {
-  box-shadow: 0 0 5px #18e76a;
+  box-shadow: 0 0 5px rgb(23.75, 231.25, 106.25);
 }
 .btn-info:focus {
-  box-shadow: 0 0 5px #10b9ff;
+  box-shadow: 0 0 5px rgb(16, 185.4727272727, 255);
 }
 .btn-warning:focus {
-  box-shadow: 0 0 5px #f2b64d;
+  box-shadow: 0 0 5px rgb(242.3719008264, 182.3884297521, 76.6280991736);
 }
 .btn-danger:focus {
-  box-shadow: 0 0 5px #fd6b6b;
+  box-shadow: 0 0 5px rgb(252.7611940299, 107.2388059701, 107.2388059701);
 }
 .btn.disabled:focus {
   box-shadow: none;

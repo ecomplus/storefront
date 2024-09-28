@@ -1,15 +1,15 @@
 .bg-primary {
-  background-image: linear-gradient(#363636, #222222 60%, #181818);
+  background-image: linear-gradient(rgb(54.4, 54.4, 54.4), #222222 60%, rgb(23.8, 23.8, 23.8));
   background-repeat: no-repeat;
 }
 
 .bg-dark {
-  background-image: linear-gradient(#04519b, #033c73 60%, #02325f);
+  background-image: linear-gradient(rgb(4.0372881356, 80.7457627119, 154.7627118644), #033c73 60%, rgb(2.4813559322, 49.6271186441, 95.1186440678));
   background-repeat: no-repeat;
 }
 
 .bg-light {
-  background-image: linear-gradient(white, #e9ecef 60%, #e3e7eb);
+  background-image: linear-gradient(white, #e9ecef 60%, rgb(227.0947368421, 230.9, 234.7052631579));
   background-repeat: no-repeat;
 }
 
@@ -23,43 +23,43 @@
 }
 
 .btn-primary {
-  background-image: linear-gradient(#363636, #222222 60%, #181818);
+  background-image: linear-gradient(rgb(54.4, 54.4, 54.4), #222222 60%, rgb(23.8, 23.8, 23.8));
   background-repeat: no-repeat;
 }
 
 .btn-secondary {
-  background-image: linear-gradient(#8b8b8b, #777777 60%, #6d6d6d);
+  background-image: linear-gradient(rgb(139.4, 139.4, 139.4), #777777 60%, rgb(108.8, 108.8, 108.8));
   background-repeat: no-repeat;
   color: #495057;
 }
 
 .btn-success {
-  background-image: linear-gradient(#88c149, #73a839 60%, #699934);
+  background-image: linear-gradient(rgb(135.6133333333, 193.136, 72.664), #73a839 60%, rgb(104.5733333333, 152.768, 51.832));
   background-repeat: no-repeat;
 }
 
 .btn-info {
-  background-image: linear-gradient(#04519b, #033c73 60%, #02325f);
+  background-image: linear-gradient(rgb(4.0372881356, 80.7457627119, 154.7627118644), #033c73 60%, rgb(2.4813559322, 49.6271186441, 95.1186440678));
   background-repeat: no-repeat;
 }
 
 .btn-warning {
-  background-image: linear-gradient(#ff6707, #dd5600 60%, #c94e00);
+  background-image: linear-gradient(rgb(255, 103.3846153846, 6.8), #dd5600 60%, rgb(200.6, 78.0615384615, 0));
   background-repeat: no-repeat;
 }
 
 .btn-danger {
-  background-image: linear-gradient(#e12b31, #c71c22 60%, #b5191f);
+  background-image: linear-gradient(rgb(225.1251101322, 42.6748898678, 49.0766519824), #c71c22 60%, rgb(181.1162995595, 25.4837004405, 30.9444933921));
   background-repeat: no-repeat;
 }
 
 .btn-light {
-  background-image: linear-gradient(white, #f8f9fa 60%, #eceff2);
+  background-image: linear-gradient(white, #f8f9fa 60%, rgb(236.1, 238.8, 241.5));
   background-repeat: no-repeat;
 }
 
 .btn-dark {
-  background-image: linear-gradient(#464e57, #343a40 60%, #2b3035);
+  background-image: linear-gradient(rgb(70.2896551724, 78.4, 86.5103448276), #343a40 60%, rgb(42.8551724138, 47.8, 52.7448275862));
   background-repeat: no-repeat;
 }
 

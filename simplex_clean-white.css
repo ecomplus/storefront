@@ -12,31 +12,31 @@
 
 .bg-primary {
   background-color: #222222 !important;
-  border-color: #111111 !important;
+  border-color: rgb(17.425, 17.425, 17.425) !important;
 }
 
 .bg-dark {
-  border-color: #27292b !important;
+  border-color: rgb(39.1456521739, 41.2808695652, 42.7043478261) !important;
 }
 
 .bg-light {
-  border-color: #eeeeee;
+  border-color: rgb(238.425, 238.425, 238.425);
 }
 
 .btn-primary,
 .btn-primary:hover {
-  background-image: linear-gradient(#2a2a2a, #222222 6%, #1a1a1a);
+  background-image: linear-gradient(rgb(41.65, 41.65, 41.65), #222222 6%, rgb(26.35, 26.35, 26.35));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #111111;
+  border: 1px solid rgb(17.425, 17.425, 17.425);
 }
 
 .btn-secondary,
 .btn-secondary:hover {
-  background-image: linear-gradient(#3f454c, #383d44 6%, #31353c);
+  background-image: linear-gradient(rgb(62.9096774194, 68.5266129032, 76.3903225806), #383d44 6%, rgb(49.0903225806, 53.4733870968, 59.6096774194));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #292d32;
+  border: 1px solid rgb(41.0290322581, 44.6923387097, 49.8209677419);
 }
 
 .btn-secondary:focus,
@@ -47,50 +47,50 @@
 
 .btn-success,
 .btn-success:hover {
-  background-image: linear-gradient(#4da309, #469408 6%, #3f8507);
+  background-image: linear-gradient(rgb(76.8653846154, 162.5153846154, 8.7846153846), #469408 6%, rgb(63.1346153846, 133.4846153846, 7.2153846154));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #377506;
+  border: 1px solid rgb(55.125, 116.55, 6.3);
 }
 
 .btn-info,
 .btn-info:hover {
-  background-image: linear-gradient(#02a5de, #029acf 6%, #028fc0);
+  background-image: linear-gradient(rgb(2.1464114833, 165.2736842105, 222.1535885167), #029acf 6%, rgb(1.8535885167, 142.7263157895, 191.8464114833));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #0282ae;
+  border: 1px solid rgb(1.6827751196, 129.5736842105, 174.1672248804);
 }
 
 .btn-warning,
 .btn-warning:hover {
-  background-image: linear-gradient(#e08b27, #d9831f 6%, #cc7b1d);
+  background-image: linear-gradient(rgb(224.1625, 138.6133064516, 39.1375), #d9831f 6%, rgb(203.6125, 122.9181451613, 29.0875));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #bc711b;
+  border: 1px solid rgb(187.99375, 113.4893145161, 26.85625);
 }
 
 .btn-danger,
 .btn-danger:hover {
-  background-image: linear-gradient(#a54caa, #9b479f 6%, #914294);
+  background-image: linear-gradient(rgb(165.3108695652, 75.7230434783, 169.5769565217), #9b479f 6%, rgb(144.6891304348, 66.2769565217, 148.4230434783));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #853d88;
+  border: 1px solid rgb(132.6597826087, 60.7667391304, 136.0832608696);
 }
 
 .btn-dark,
 .btn-dark:hover {
-  background-image: linear-gradient(#3e4244, #373a3c 6%, #303234);
+  background-image: linear-gradient(rgb(62.3173913043, 65.7165217391, 67.9826086957), #373a3c 6%, rgb(47.6826086957, 50.2834782609, 52.0173913043));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #27292b;
+  border: 1px solid rgb(39.1456521739, 41.2808695652, 42.7043478261);
 }
 
 .btn-light,
 .btn-light:hover {
-  background-image: linear-gradient(white, #fff 6%, #f7f7f7);
+  background-image: linear-gradient(white, #fff 6%, rgb(247.35, 247.35, 247.35));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid #eeeeee;
+  border: 1px solid rgb(238.425, 238.425, 238.425);
 }
 
 .btn-outline-secondary {
@@ -107,7 +107,7 @@
 }
 
 .breadcrumb {
-  border: 1px solid #eeeeee;
+  border: 1px solid rgb(238.425, 238.425, 238.425);
 }
 
 .pagination .page-link:hover {
