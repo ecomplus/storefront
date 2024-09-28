@@ -19,8 +19,11 @@ if (isCurrentUtm) {
 if (urlParams.get('referral') && !sessionStorage.getItem('ecomReferral')) {
   sessionStorage.setItem('ecomReferral', urlParams.get('referral'))
 }
-if (urlParams.get('coupon') && !sessionStorage.getItem('st_discount_coupon')) {
-  sessionStorage.setItem('st_discount_coupon', urlParams.get('coupon'))
+const sessionCoupon = urlParams.get('coupon') || sessionStorage.getItem('st_discount_coupon')
+if (sessionCoupon && !sessionStorage.getItem('st_discount_coupon')) {
+  sessionStorage.setItem('st_discount_coupon', sessionCoupon)
 }
 
 export default utm
+
+export { utm, sessionCoupon }

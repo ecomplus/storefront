@@ -1,7 +1,7 @@
 import { modules } from '@ecomplus/client'
 import { price as getPrice } from '@ecomplus/utils'
 import emitter from './emitter'
-import utm from './persist-utm'
+import { utm, sessionCoupon } from './persist-utm'
 
 window._info = window._info || {}
 const fetchInfoPromises = []
@@ -11,7 +11,7 @@ const modulesToFetch = Array.isArray(window.modulesToFetch)
       { endpoint: 'list_payments' },
       { endpoint: 'calculate_shipping' }
     ]
-if (Object.keys(utm).length) {
+if (Object.keys(utm).length || sessionCoupon) {
   const {
     resource,
     body: contextBody
@@ -27,10 +27,8 @@ if (Object.keys(utm).length) {
       }]
     }
   }
-  const urlParams = new URLSearchParams(window.location.search)
-  const discountCoupon = urlParams.get('coupon')
-  if (discountCoupon) {
-    applyDiscountData.discount_coupon = discountCoupon
+  if (sessionCoupon) {
+    applyDiscountData.discount_coupon = sessionCoupon
   }
   modulesToFetch.push({
     endpoint: 'apply_discount',
