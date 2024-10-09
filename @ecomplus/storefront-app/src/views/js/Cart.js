@@ -54,6 +54,9 @@ export default {
       try {
         const items = JSON.parse(urlItems)
         if (Array.isArray(items)) {
+          if (urlParams.get('cart_reset')) {
+            ecomCart.reset()
+          }
           items.forEach(item => {
             if (item) {
               ecomCart.addItem({
@@ -69,6 +72,7 @@ export default {
       }
       if (window.history) {
         urlParams.delete('cart_items')
+        urlParams.delete('cart_reset')
         const query = urlParams.toString()
         const { pathname } = window.location
         window.history.pushState({
