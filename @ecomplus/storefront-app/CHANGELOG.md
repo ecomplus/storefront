@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.209](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.208...@ecomplus/storefront-app@2.0.0-beta.209) (2024-10-09)
+
+### Bug Fixes
+
+- **deps:** update `@ecomplus/client` to v2.4.0 ([55a6573](https://github.com/ecomplus/storefront/commit/55a657367540a2ae1c5867fd21d77fef0a097709))
+
+### Features
+
+- **app/cart:** handle optional url param `?cart_reset` together with `&cart_items` to replace cart ([f619947](https://github.com/ecomplus/storefront/commit/f619947520e186ff76ff556ef353482b436cb7c5))
+
 # [2.0.0-beta.208](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.207...@ecomplus/storefront-app@2.0.0-beta.208) (2024-09-06)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

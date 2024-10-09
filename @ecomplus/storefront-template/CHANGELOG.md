@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.275](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.274...@ecomplus/storefront-template@2.0.0-beta.275) (2024-10-09)
+
+### Bug Fixes
+
+- **deps:** update `@ecomplus/client` to v2.4.0 ([55a6573](https://github.com/ecomplus/storefront/commit/55a657367540a2ae1c5867fd21d77fef0a097709))
+
 # [2.0.0-beta.274](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.273...@ecomplus/storefront-template@2.0.0-beta.274) (2024-09-28)
 
 ### Bug Fixes
