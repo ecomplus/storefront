@@ -32,7 +32,7 @@
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-search#readme",
   "peerDependencies": {
     "@ecomplus/utils": "^1.4.1",
-    "core-js": "3.x",
+    "core-js": "3.39.0",
     "vue": ">=2 <4"
   },
   "dependencies": {
