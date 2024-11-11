@@ -36,7 +36,7 @@ jobs:
         run: npm run themes:build
 
       - name: Push output CSS to custom branch
-        uses: JamesIves/github-pages-deploy-action@v4.6.8
+        uses: JamesIves/github-pages-deploy-action@v4.6.9
         with:
           branch: themes-dist
           folder: dist/themes
