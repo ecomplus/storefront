@@ -1,5 +1,6 @@
 <%
 const { slug, content } = await _.resolveRoute()
+const isNotFound = !Object.keys(content).length
 _.breadcrumbs = [{
   name: content.title,
   link: `/pages/${slug}`
@@ -15,4 +16,35 @@ if (!content.sections || !content.sections.length) {
 }
 %>
 
-<%- await include('@/view') %>
+<% if (!isNotFound) { %>
+  <%- await include('@/view') %>
+<% } else { %>
+  <!doctype html>
+  <html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+  <head>
+    <%- await include('@/head') %>
+  </head>
+  <body id="page-404">
+    <%- await include('@/layout/menu') %>
+    <main role="main" id="main">
+      <%- await include('@/layout/header') %>
+      <div class="container py-5">
+        <article id="fallback-404">
+          <p class="display-1">
+            <b>404</b>
+          </p>
+          <p class="display-4 text-muted">
+            Página não encontrada.
+          </p>
+          <p class="display-4">
+            <a href="/">Ir para a home</a>
+          </p>
+        </article>
+      </div>
+      <%- await include('@/layout/footer') %>
+    </main>
+    <%- await include('@/json') %>
+    <%- await include('@/scripts') %>
+  </body>
+  </html>
+<% } %>
