@@ -22,5 +22,12 @@ export const getProductData = item => {
   if (item.quantity) {
     productData.quantity = item.quantity
   }
+  const { categories, brands } = item
+  if (categories && categories.length) {
+    productData.category = categories[categories.length - 1]
+  }
+  if (brands && brands.length) {
+    productData.brand = brands[brands.length - 1]
+  }
   return productData
 }
