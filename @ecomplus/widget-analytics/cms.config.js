@@ -11,7 +11,7 @@ export default () => ({
     },
     {
       label: 'Ativar',
-      hint: 'Instalar o acompanhamento to GA',
+      hint: 'Instalar o acompanhamento to GA4',
       name: 'active',
       widget: 'boolean'
     },

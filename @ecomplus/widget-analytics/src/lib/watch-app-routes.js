@@ -1,4 +1,5 @@
 import watchAppRoutes from '@ecomplus/widget-tag-manager/src/lib/watch-app-routes'
+import { parseUaProduct } from './common'
 
 const { location } = window
 
@@ -25,7 +26,7 @@ export default (gtag, gaTrackingId, googleAdsId) => {
           if (data) {
             if (!isCheckoutSent) {
               gtag('event', 'begin_checkout', {
-                items: data.products
+                items: data.products.map(parseUaProduct)
               })
               isCheckoutSent = true
             }
@@ -47,7 +48,7 @@ export default (gtag, gaTrackingId, googleAdsId) => {
               currency: ecommerce.currencyCode,
               tax: data.actionField.tax ? Number(data.actionField.tax) : 0,
               shipping: data.actionField.shipping ? Number(data.actionField.shipping) : 0,
-              items: data.products
+              items: data.products.map(parseUaProduct)
             })
             if (googleAdsId) {
               gtag('event', 'conversion', {
