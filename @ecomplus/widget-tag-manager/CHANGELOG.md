@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.5](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.11.4...@ecomplus/widget-tag-manager@1.11.5) (2024-11-18)
+
+### Bug Fixes
+
+- **widget-tag-manager:** add category/brand to product data when available ([b8523e7](https://github.com/ecomplus/storefront/commit/b8523e7ec6bb4be71d5edd7642fa1523e51ff366))
+
 ## [1.11.4](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.11.3...@ecomplus/widget-tag-manager@1.11.4) (2024-04-26)
 
 ### Bug Fixes

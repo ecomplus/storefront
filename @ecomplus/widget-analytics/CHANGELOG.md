@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.19](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-analytics@1.3.18...@ecomplus/widget-analytics@1.3.19) (2024-11-18)
+
+### Bug Fixes
+
+- **widget-analytics:** properly emiting all gtag events with ga4 format ([ece42a8](https://github.com/ecomplus/storefront/commit/ece42a8933e3d76002be5f07c218f4ddd32fabe1))
+
 ## [1.3.18](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-analytics@1.3.17...@ecomplus/widget-analytics@1.3.18) (2024-04-26)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.276](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.275...@ecomplus/storefront-template@2.0.0-beta.276) (2024-11-18)
+
+### Bug Fixes
+
+- **template/pages:** properly dealing with not found blog posts and extra pages ([eaa851d](https://github.com/ecomplus/storefront/commit/eaa851d4273e3f101510785a8da89daf7b465e9a))
+
 # [2.0.0-beta.275](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.274...@ecomplus/storefront-template@2.0.0-beta.275) (2024-10-09)
 
 ### Bug Fixes
