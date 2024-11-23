@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.6](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.11.5...@ecomplus/widget-tag-manager@1.11.6) (2024-11-23)
+
+### Bug Fixes
+
+- **widget-tag-manager:** set up to 5 additional categories to product data as custom `dimensionN` ([cbcf3cb](https://github.com/ecomplus/storefront/commit/cbcf3cb65b7dd23f8f904dc7e3e5b9ac3e626e0e))
+
 ## [1.11.5](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.11.4...@ecomplus/widget-tag-manager@1.11.5) (2024-11-18)
 
 ### Bug Fixes

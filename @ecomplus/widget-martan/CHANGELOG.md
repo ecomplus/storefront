@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.17](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-martan@1.1.16...@ecomplus/widget-martan@1.1.17) (2024-11-23)
+
+**Note:** Version bump only for package @ecomplus/widget-martan
+
 ## [1.1.16](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-martan@1.1.15...@ecomplus/widget-martan@1.1.16) (2024-10-09)
 
 **Note:** Version bump only for package @ecomplus/widget-martan

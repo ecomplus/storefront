@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.184](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.183...@ecomplus/storefront-components@1.0.0-beta.184) (2024-11-23)
+
+### Bug Fixes
+
+- **components/discount-applier:** keeping discount coupon when freebie product ids is returned ([547a2f9](https://github.com/ecomplus/storefront/commit/547a2f98a255729277bd415053c1170d89d99f0a))
+
 # [1.0.0-beta.183](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.182...@ecomplus/storefront-components@1.0.0-beta.183) (2024-10-09)
 
 ### Bug Fixes
