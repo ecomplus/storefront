@@ -25,6 +25,10 @@ export const getProductData = item => {
   const { categories, brands } = item
   if (categories && categories.length) {
     productData.category = categories[categories.length - 1]
+    for (let i = 0; i < categories.length - 1; i++) {
+      productData[`dimension${(i + 1)}`] = categories[i]
+      if (i === 4) break
+    }
   }
   if (brands && brands.length) {
     productData.brand = brands[brands.length - 1]
