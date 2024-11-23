@@ -197,8 +197,6 @@ export default {
               const freebieProductIds = response.freebie_product_ids
               if (Array.isArray(freebieProductIds) && freebieProductIds.length) {
                 hasFreebies = true
-              }
-              if (hasFreebies) {
                 addFreebieItems(this.ecomCart, freebieProductIds)
                 if (this.localCouponCode) {
                   this.$emit('update:coupon-code', this.localCouponCode)
