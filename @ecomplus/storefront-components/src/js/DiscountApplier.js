@@ -156,6 +156,7 @@ export default {
 
     parseDiscountOptions (listResult = []) {
       let extraDiscountValue = 0
+      let hasFreebies = false
       if (listResult.length) {
         let discountRule, invalidCouponMsg, invalidAlertVariant
         listResult.forEach(appResult => {
@@ -193,7 +194,16 @@ export default {
               invalidCouponMsg = response.invalid_coupon_message
             }
             if (this.canAddFreebieItems) {
-              addFreebieItems(this.ecomCart, response.freebie_product_ids)
+              const freebieProductIds = response.freebie_product_ids
+              if (Array.isArray(freebieProductIds) && freebieProductIds.length) {
+                hasFreebies = true
+              }
+              if (hasFreebies) {
+                addFreebieItems(this.ecomCart, freebieProductIds)
+                if (this.localCouponCode) {
+                  this.$emit('update:coupon-code', this.localCouponCode)
+                }
+              }
             }
           }
         })
@@ -213,7 +223,7 @@ export default {
           }
           this.$emit('set-discount-rule', discountRule)
         } else {
-          if (this.localCouponCode) {
+          if (this.localCouponCode && !hasFreebies) {
             this.alertText = invalidCouponMsg || this.i19invalidCouponMsg
             this.alertVariant = invalidAlertVariant || 'warning'
           } else {
