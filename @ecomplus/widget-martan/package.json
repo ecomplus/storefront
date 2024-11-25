@@ -41,7 +41,7 @@
   "dependencies": {
     "@ecomplus/storefront-components": "^1.0.0-beta.184",
     "@ecomplus/storefront-twbs": "^7.3.6",
-    "@glidejs/glide": "^3.6.2",
+    "@glidejs/glide": "^3.7.1",
     "axios": "^0.27.2 || ^1.1.2"
   }
 }

@@ -74,7 +74,7 @@
     "@ecomplus/widget-trustvox": "^2.3.1",
     "@ecomplus/widget-user": "^1.0.0-beta.183",
     "@ecomplus/widget-yourviews": "^1.1.0",
-    "@glidejs/glide": "^3.6.2",
+    "@glidejs/glide": "^3.7.1",
     "axios": "^0.27.2 || ^1.1.2",
     "core-js": ">=3.37.0 <3.38",
     "ejs": "^3.1.10",
