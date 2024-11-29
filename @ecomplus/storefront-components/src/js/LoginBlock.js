@@ -167,7 +167,7 @@ export default {
       .then(({ host, baseUri, oauthPath, providers }) => {
         const oauthProviders = []
         for (const provider in providers) {
-          if (providers[provider]) {
+          if (providers[provider] && provider !== 'facebook') {
             const { faIcon, providerName } = providers[provider]
             let link = host + baseUri + provider + oauthPath
             const referral = typeof window === 'object' &&
