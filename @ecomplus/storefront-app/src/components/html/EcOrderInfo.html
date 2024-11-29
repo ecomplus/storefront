@@ -421,6 +421,7 @@
                     :items="localOrder.items"
                     :buyer="(localOrder.buyer && localOrder.buyer[0]) || ecomPassport.getCustomer()"
                     :shippingAddress="shippingAddress"
+                    @click:account="goToAccount"
                   />
                 </div>
               </div>

@@ -59,6 +59,10 @@ export default {
     skipDataLoad: Boolean,
     skipFirstDataLoad: Boolean,
     skipCustomerUpdate: Boolean,
+    accountUrl: {
+      type: String,
+      default: '/app/#/account/'
+    },
     accountOrdersUrl: {
       type: String,
       default: '/app/#/account/orders'
@@ -150,7 +154,7 @@ export default {
     },
 
     validThru () {
-      const transactionMethod = this.transaction['banking_billet'] || this.transaction['account_deposit']
+      const transactionMethod = this.transaction.banking_billet || this.transaction.account_deposit
       return transactionMethod && transactionMethod.valid_thru
     },
 
@@ -369,6 +373,10 @@ export default {
         .finally(() => {
           this.isUpdating = false
         })
+    },
+
+    goToAccount () {
+      window.location.href = this.accountUrl
     }
   },
 
