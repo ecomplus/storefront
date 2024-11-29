@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.185](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.184...@ecomplus/storefront-components@1.0.0-beta.185) (2024-11-29)
+
+### Bug Fixes
+
+- **components/login:** dropping facebook from default oauth providers ([1620816](https://github.com/ecomplus/storefront/commit/16208164a14fc7252cdf67ba3174839480e6bd07))
+- **deps:** update all non-major dependencies ([#1109](https://github.com/ecomplus/storefront/issues/1109)) ([15e6903](https://github.com/ecomplus/storefront/commit/15e6903544eb45ab0119dcff3896268a635552c7))
+
 # [1.0.0-beta.184](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.183...@ecomplus/storefront-components@1.0.0-beta.184) (2024-11-23)
 
 ### Bug Fixes

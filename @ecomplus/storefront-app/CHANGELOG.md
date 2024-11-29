@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.211](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.210...@ecomplus/storefront-app@2.0.0-beta.211) (2024-11-29)
+
+### Bug Fixes
+
+- **app/order-info:** properly redirect to account page on "my account" summary button click ([176ba53](https://github.com/ecomplus/storefront/commit/176ba532e05905626e7aee318d64d05a18afd363))
+
 # [2.0.0-beta.210](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.209...@ecomplus/storefront-app@2.0.0-beta.210) (2024-11-23)
 
 **Note:** Version bump only for package @ecomplus/storefront-app

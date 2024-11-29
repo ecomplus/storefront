@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/widget-martan",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "description": "Storefront plugin for martan product reviews, product q&a",
   "main": "dist/widget-martan.min.js",
   "module": "src/index.js",
@@ -39,7 +39,7 @@
     "vue": ">=2 <4"
   },
   "dependencies": {
-    "@ecomplus/storefront-components": "^1.0.0-beta.184",
+    "@ecomplus/storefront-components": "^1.0.0-beta.185",
     "@ecomplus/storefront-twbs": "^7.3.6",
     "@glidejs/glide": "^3.7.1",
     "axios": "^0.27.2 || ^1.1.2"
