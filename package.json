@@ -52,7 +52,7 @@
     "caniuse-lite": "^1.0.30001688",
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
-    "css-loader": "^3.6.0",
+    "css-loader": "^7.1.2",
     "eslint": "^7.32.0",
     "eslint-import-resolver-node": "^0.3.9",
     "file-loader": "^6.2.0",

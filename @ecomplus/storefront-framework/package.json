@@ -47,7 +47,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^6.4.1",
     "core-js": ">=3.37.0 <3.38",
-    "css-loader": "^3.6.0",
+    "css-loader": "^7.1.2",
     "cssnano": "^5.1.15",
     "ejs": "^3.1.10",
     "file-loader": "^6.2.0",
