@@ -46,7 +46,7 @@
     "@vue/cli-plugin-vuex": "^4.5.19",
     "@vue/cli-service": "^4.5.19",
     "animate.css": "^3.7.2",
-    "babel-loader": "^8.4.1",
+    "babel-loader": "^9.2.1",
     "bootstrap": "^4.6.2",
     "browser-sync": "^3.0.3",
     "caniuse-lite": "^1.0.30001688",
