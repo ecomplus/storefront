@@ -4,7 +4,6 @@
     "standard.vscode-standard",
     "xabikos.javascriptsnippets",
     "digitalbrainstem.javascript-ejs-support",
-    "octref.vetur",
-    "abumalick.vscode-nvm"
+    "octref.vetur"
   ]
 }
