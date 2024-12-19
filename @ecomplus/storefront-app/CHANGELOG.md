@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.212](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.211...@ecomplus/storefront-app@2.0.0-beta.212) (2024-12-19)
+
+### Bug Fixes
+
+- **app/account:** delay 1s to redirect to external auth when unauthorizated ([bb3525a](https://github.com/ecomplus/storefront/commit/bb3525a5da5a6f276becb41dd4723a8005421284))
+- **app/credit-card:** accept card holder name with frist word less than 3 chars ([c7f1db6](https://github.com/ecomplus/storefront/commit/c7f1db62a33c6dd47614bcf51d508e026e68cce1))
+
 # [2.0.0-beta.211](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.210...@ecomplus/storefront-app@2.0.0-beta.211) (2024-11-29)
 
 ### Bug Fixes
