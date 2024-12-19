@@ -89,7 +89,10 @@ export default {
   created () {
     const isExternalAuth = Boolean(window.$firebaseConfig && window.$firebaseConfig.authDomain)
     if (isExternalAuth && !this.ecomPassport.checkAuthorization()) {
-      window.location.href = '/app/account'
+      setTimeout(() => {
+        if (this.ecomPassport.checkAuthorization()) return
+        window.location.href = '/app/account'
+      }, 1000)
     }
   },
 
