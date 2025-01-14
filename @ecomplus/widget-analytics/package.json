@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/ecomplus/storefront/tree/master/@ecomplus/widget-analytics#readme",
   "peerDependencies": {
-    "core-js": "3.x"
+    "core-js": "3.40.0"
   },
   "dependencies": {
     "@ecomplus/widget-tag-manager": "^1.11.6"
