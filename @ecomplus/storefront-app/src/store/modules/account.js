@@ -18,7 +18,8 @@ const getDefaultState = () => {
       inscription_number: '',
       corporate_name: '',
       addresses: [],
-      loyalty_points_entries: []
+      loyalty_points_entries: [],
+      group: ''
     },
     orders: []
   }
