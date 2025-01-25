@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.213](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.212...@ecomplus/storefront-app@2.0.0-beta.213) (2025-01-25)
+
+### Bug Fixes
+
+- **app/credit-card:** minor fix limiting holder name maxlength ([1d103cb](https://github.com/ecomplus/storefront/commit/1d103cb1165228e01b538a4860599e75f7d0a55b))
+
+### Features
+
+- **app/account:** start saving customer `group` and sending to checkout ([8fd21b4](https://github.com/ecomplus/storefront/commit/8fd21b4dbe4f021b2f0b8603461d703a357401cb))
+
 # [2.0.0-beta.212](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.211...@ecomplus/storefront-app@2.0.0-beta.212) (2024-12-19)
 
 ### Bug Fixes
