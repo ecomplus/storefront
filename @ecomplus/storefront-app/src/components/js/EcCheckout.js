@@ -48,6 +48,8 @@ import {
   Summary
 } from './../../lib/i18n'
 
+const globalOpts = (typeof window === 'object' && window.propsEcCheckout) || {}
+
 export default {
   name: 'EcCheckout',
 
@@ -105,9 +107,22 @@ export default {
     },
     canRecommendItems: {
       type: Boolean,
-      default: true
+      default: typeof globalOpts.canRecommendItems === 'boolean'
+        ? globalOpts.canRecommendItems
+        : true
     },
-    canHideSummary: Boolean,
+    canHideSummary: {
+      type: Boolean,
+      default: typeof globalOpts.canHideSummary === 'boolean'
+        ? globalOpts.canHideSummary
+        : false
+    },
+    canPayAllInPoints: {
+      type: Boolean,
+      default: typeof globalOpts.canPayAllInPoints === 'boolean'
+        ? globalOpts.canPayAllInPoints
+        : false
+    },
     shippingZipCode: String,
     shippingService: Object,
     skipShippingApps: {
@@ -259,6 +274,12 @@ export default {
         }
       })
       return key
+    },
+
+    maxPointsAmount () {
+      return this.canPayAllInPoints
+        ? this.amount.total - 5
+        : Math.min(this.amount.subtotal - 5, this.amount.total / 2)
     }
   },
 
