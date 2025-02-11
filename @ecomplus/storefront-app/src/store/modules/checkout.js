@@ -219,6 +219,7 @@ const getters = {
         let discountValue
         if (type === 'percentage') {
           discountValue = maxDiscount * value / 100
+          discountValue = Math.round(discountValue * 100) / 100
         } else {
           discountValue = value <= maxDiscount ? value : maxDiscount
         }
