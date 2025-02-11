@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.214](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.213...@ecomplus/storefront-app@2.0.0-beta.214) (2025-02-11)
+
+### Bug Fixes
+
+- **app/checkout:** round discount by payment gateway before applying ([00798a4](https://github.com/ecomplus/storefront/commit/00798a4e8ddfc73927f5ec38601cdac315e1e0e6))
+
+### Features
+
+- **app/checkout:** handling new prop `canPayAllInPoints` on checkout component ([2bbaf5b](https://github.com/ecomplus/storefront/commit/2bbaf5bf176232e36eb9ecb154c04a6edd2f6ba1))
+
 # [2.0.0-beta.213](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.212...@ecomplus/storefront-app@2.0.0-beta.213) (2025-01-25)
 
 ### Bug Fixes
