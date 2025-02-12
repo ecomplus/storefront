@@ -203,6 +203,7 @@
               <template #amount-custom>
                 <points-applier
                   v-if="enabledCheckoutStep > 1"
+                  :key="maxPointsAmount"
                   class="checkout__loyalty-points"
                   :points-applied.sync="loyaltyPointsApplied"
                   :points-amount.sync="loyaltyPointsAmount"
