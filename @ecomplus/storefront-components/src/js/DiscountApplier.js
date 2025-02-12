@@ -339,7 +339,7 @@ export default {
     },
 
     localAmountTotal (total, oldTotal) {
-      if (oldTotal !== null && Math.abs(total - oldTotal) > 0.01) {
+      if (oldTotal !== null && Math.abs(total - oldTotal) > 0.02) {
         this.scheduleUpdateDiscount()
       }
     },
