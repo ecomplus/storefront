@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.187](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.186...@ecomplus/storefront-components@1.0.0-beta.187) (2025-02-12)
+
+### Bug Fixes
+
+- **components/discount-applier:** set amout total gap to trigger new discount calculation to 0.02 ([b25eb7a](https://github.com/ecomplus/storefront/commit/b25eb7af3f556edfc603cdc1ef07d99e97c6effe))
+
 # [1.0.0-beta.186](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.185...@ecomplus/storefront-components@1.0.0-beta.186) (2025-02-12)
 
 ### Bug Fixes

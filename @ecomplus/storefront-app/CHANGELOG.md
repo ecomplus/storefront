@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.216](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.215...@ecomplus/storefront-app@2.0.0-beta.216) (2025-02-12)
+
+### Bug Fixes
+
+- **app/checkout:** updating points applier max on checkout with discounts ([3c36e1b](https://github.com/ecomplus/storefront/commit/3c36e1b339a334a64abb3ba09d289ebb87176c7e))
+
 # [2.0.0-beta.215](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.214...@ecomplus/storefront-app@2.0.0-beta.215) (2025-02-12)
 
 ### Bug Fixes
