@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.215](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.214...@ecomplus/storefront-app@2.0.0-beta.215) (2025-02-12)
+
+### Bug Fixes
+
+- **components/discount-applier:** rounding amount values on apply discount request ([146c19f](https://github.com/ecomplus/storefront/commit/146c19f25c319806da77a3245baa365cc52ed65c))
+
 # [2.0.0-beta.214](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.213...@ecomplus/storefront-app@2.0.0-beta.214) (2025-02-11)
 
 ### Bug Fixes
