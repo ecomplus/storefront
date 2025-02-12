@@ -150,8 +150,8 @@ export default {
       const amount = this.amount || {
         subtotal: this.ecomCart.data.subtotal
       }
-      this.localAmountTotal = (amount.subtotal || 0) +
-        (amount.freight || 0) - this.paymentGatewayDiscount
+      this.localAmountTotal = Math.round(((amount.subtotal || 0) +
+        (amount.freight || 0) - this.paymentGatewayDiscount) * 100) / 100
     },
 
     parseDiscountOptions (listResult = []) {
@@ -256,7 +256,7 @@ export default {
             subtotal: this.localAmountTotal,
             ...this.amount,
             total: this.localAmountTotal,
-            discount: this.paymentGatewayDiscount
+            discount: Math.round(this.paymentGatewayDiscount * 100) / 100
           },
           items: this.ecomCart.data.items,
           ...data
