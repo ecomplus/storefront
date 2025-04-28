@@ -60,6 +60,9 @@ const mutations = {
 
   addOrder (state, order) {
     state.orders.push(order)
+    if (window.storefrontApp) {
+      window.storefrontApp.order = order
+    }
   },
 
   setOrders (state, orders) {
