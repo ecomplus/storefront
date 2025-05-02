@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.188](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.187...@ecomplus/storefront-components@1.0.0-beta.188) (2025-05-02)
+
+### Bug Fixes
+
+- **components/search-engine:** add `[data-opt]` on each filter option for customizations ([ce16f24](https://github.com/ecomplus/storefront/commit/ce16f24dbcbe11988a5433e6ec29fab4d22a3426))
+
 # [1.0.0-beta.187](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.186...@ecomplus/storefront-components@1.0.0-beta.187) (2025-02-12)
 
 ### Bug Fixes
