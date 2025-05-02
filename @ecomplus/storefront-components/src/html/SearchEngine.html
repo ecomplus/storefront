@@ -124,6 +124,7 @@
                   class="search-engine__option custom-control custom-checkbox"
                   v-for="(opt, index) in options"
                   :key="`${filter}-${index}`"
+                  :data-opt="opt.key"
                 >
                   <input
                     type="checkbox"
