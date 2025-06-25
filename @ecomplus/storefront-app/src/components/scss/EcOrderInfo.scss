@@ -150,6 +150,10 @@
     color: var(--danger);
   }
 
+  &__transaction-code {
+    margin-bottom: var(--spacer-2);
+  }
+
   &__valid-thru {
     width: 100%;
     max-width: 310px;

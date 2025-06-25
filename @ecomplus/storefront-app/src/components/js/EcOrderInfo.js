@@ -153,6 +153,12 @@ export default {
         : {}
     },
 
+    isPix () {
+      return this.transaction.payment_method &&
+        this.transaction.payment_method.code === 'account_deposit' &&
+        this.transaction.notes
+    },
+
     validThru () {
       const transactionMethod = this.transaction.banking_billet || this.transaction.account_deposit
       return transactionMethod && transactionMethod.valid_thru

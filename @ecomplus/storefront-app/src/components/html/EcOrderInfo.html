@@ -223,13 +223,21 @@
                           <div
                             v-if="transaction.intermediator.transaction_code"
                             class="order-info__transaction-code"
+                            :class="isPix && 'order-info__transaction-code--pix'"
                           >
-                            <small>{{ i19transactionCode }}</small>
+                            <small v-if="!isPix">
+                              {{ i19transactionCode }}
+                            </small>
+                            <span v-else>
+                              Pix copia e cola
+                            </span>
                             <br>
                             <code>{{ transaction.intermediator.transaction_code }}</code>
                             <br>
                             <button
-                              class="btn btn-sm btn-light"
+                              :class="!isPix
+                                ? 'btn btn-sm btn-light'
+                                : 'btn btn-primary my-2'"
                               @click="() => toClipboard(transaction.intermediator.transaction_code)"
                             >
                               <i class="i-copy mr-1"></i>
