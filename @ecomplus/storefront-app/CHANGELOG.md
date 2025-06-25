@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.219](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.218...@ecomplus/storefront-app@2.0.0-beta.219) (2025-06-25)
+
+### Bug Fixes
+
+- **app/order:** improving default ui for pix payment code ([91bc65e](https://github.com/ecomplus/storefront/commit/91bc65e0829a3a1ddd4d338dfb4be255829ed654))
+
 # [2.0.0-beta.218](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.217...@ecomplus/storefront-app@2.0.0-beta.218) (2025-05-02)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
