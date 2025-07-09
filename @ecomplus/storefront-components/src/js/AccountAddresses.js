@@ -7,7 +7,8 @@ import {
 
 import {
   i18n,
-  fullName as getFullName
+  fullName as getFullName,
+  randomObjectId
 } from '@ecomplus/utils'
 
 import AddressForm from './../AddressForm.vue'
@@ -52,7 +53,15 @@ export default {
     i19noNumber: () => i18n(i19noNumber),
 
     addresses () {
-      return this.customer.addresses || []
+      if (this.customer.addresses) {
+        return this.customer.addresses.map((addr) => {
+          if (!addr._id) {
+            addr._id = randomObjectId()
+          }
+          return addr
+        })
+      }
+      return []
     },
 
     localAddress: {

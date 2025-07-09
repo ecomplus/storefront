@@ -13,7 +13,8 @@ import {
   name,
   formatMoney,
   price,
-  img
+  img,
+  randomObjectId
 } from '@ecomplus/utils'
 
 import ecomCart from '@ecomplus/shopping-cart'
@@ -205,6 +206,13 @@ export default {
 
     localCustomer: {
       get () {
+        if (this.customer.addresses) {
+          this.customer.addresses.forEach((addr) => {
+            if (!addr._id) {
+              addr._id = randomObjectId()
+            }
+          })
+        }
         return this.customer
       },
       set (customer) {
@@ -249,7 +257,7 @@ export default {
     },
 
     shippingAddress () {
-      const { addresses } = this.customer
+      const { addresses } = this.localCustomer
       return addresses && addresses.find(addr => {
         return (this.selectedAddressId === addr._id || addr.default) &&
           addr.province_code &&
