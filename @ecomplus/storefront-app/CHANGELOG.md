@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.220](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.219...@ecomplus/storefront-app@2.0.0-beta.220) (2025-07-10)
+
+### Bug Fixes
+
+- **components/account-addresses:** set random `addr._id` when undefined ([3a23134](https://github.com/ecomplus/storefront/commit/3a23134891c59e051de2c1b9f752059342941655))
+
 # [2.0.0-beta.219](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.218...@ecomplus/storefront-app@2.0.0-beta.219) (2025-06-25)
 
 ### Bug Fixes
