@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.20.56](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.55...@ecomplus/storefront-framework@5.20.56) (2025-07-11)
+
+### Bug Fixes
+
+- **framework/deps:** revert `@babel/plugin-syntax-dynamic-import` dependency ([6478cbf](https://github.com/ecomplus/storefront/commit/6478cbfb9bef95ed2006f412e4c630e102435b4f))
+
 ## [5.20.55](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.54...@ecomplus/storefront-framework@5.20.55) (2025-07-10)
 
 **Note:** Version bump only for package @ecomplus/storefront-framework

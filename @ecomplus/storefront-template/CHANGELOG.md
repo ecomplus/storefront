@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.288](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.287...@ecomplus/storefront-template@2.0.0-beta.288) (2025-07-11)
+
+**Note:** Version bump only for package @ecomplus/storefront-template
+
 # [2.0.0-beta.287](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.286...@ecomplus/storefront-template@2.0.0-beta.287) (2025-07-10)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
