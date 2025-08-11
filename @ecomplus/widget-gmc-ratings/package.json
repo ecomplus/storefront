@@ -34,7 +34,7 @@
     "@ecomplus/client": "^2.4.0",
     "@ecomplus/passport-client": "^1.2.1",
     "@ecomplus/utils": "^1.4.1",
-    "core-js": "3.x"
+    "core-js": "3.45.0"
   },
   "webpackOutput": {
     "library": "widgetGmcRatings",
