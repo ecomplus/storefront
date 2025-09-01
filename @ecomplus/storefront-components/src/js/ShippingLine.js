@@ -35,6 +35,11 @@ export default {
   },
 
   computed: {
+    i19workingDay: () => i18n({
+      en_us: 'Working day',
+      pt_br: 'Dia útil'
+    }),
+
     deadlineStr () {
       const shipping = this.shippingLine
       const isWorkingDays = (shipping.posting_deadline && shipping.posting_deadline.working_days) ||
@@ -56,9 +61,13 @@ export default {
         return `${i18n(i19upTo)} ${days} ` +
           i18n(isWorkingDays ? i19workingDays : i19days).toLowerCase()
       }
-      return i18n(days === 1
-        ? i19untilTomorrow
-        : shipping.pick_up ? i19pickUpToday : i19receiveToday)
+      if (days === 1) {
+        if (isWorkingDays) {
+          return `${i18n(i19upTo)} 1 ` + i18n(this.i19workingDay).toLowerCase()
+        }
+        return i19untilTomorrow
+      }
+      return shipping.pick_up ? i19pickUpToday : i19receiveToday
     },
 
     freightValueStr () {
