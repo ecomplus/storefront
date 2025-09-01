@@ -22,7 +22,6 @@ import APicture from '../APicture.vue'
 import APrices from '../APrices.vue'
 import ecomPassport from '@ecomplus/passport-client'
 import { toggleFavorite, checkFavorite } from './helpers/favorite-products'
-import stamps from '../../../storefront-template/template/js/netlify-cms/base-config/collections/settings/stamps'
 
 const getExternalHtml = (varName, product) => {
   if (typeof window === 'object') {
