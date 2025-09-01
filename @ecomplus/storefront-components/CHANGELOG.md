@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.190](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.189...@ecomplus/storefront-components@1.0.0-beta.190) (2025-09-01)
+
+### Bug Fixes
+
+- **components/shipping-line:** properly showing "1 working day" deadline message ([b80e5ab](https://github.com/ecomplus/storefront/commit/b80e5ab5e0c5daeb5af9b009982ddecc5fd259c8))
+- removing miss typed import ([d05dcdb](https://github.com/ecomplus/storefront/commit/d05dcdb877463463d7c3d8250c1be7a26d344f49))
+
+### Features
+
+- **components/product-card:** supporting stamp images from new prop and global `productCardStamps` ([cfdb2a3](https://github.com/ecomplus/storefront/commit/cfdb2a3a48a0582c7455f051e2347f55600a2f5b))
+
 # [1.0.0-beta.189](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.188...@ecomplus/storefront-components@1.0.0-beta.189) (2025-07-10)
 
 ### Bug Fixes

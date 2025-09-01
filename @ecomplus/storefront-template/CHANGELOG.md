@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.289](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.288...@ecomplus/storefront-template@2.0.0-beta.289) (2025-09-01)
+
+### Features
+
+- **components/product-card:** supporting stamp images from new prop and global `productCardStamps` ([cfdb2a3](https://github.com/ecomplus/storefront/commit/cfdb2a3a48a0582c7455f051e2347f55600a2f5b))
+
 # [2.0.0-beta.288](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.287...@ecomplus/storefront-template@2.0.0-beta.288) (2025-07-11)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
