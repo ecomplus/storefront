@@ -56,6 +56,8 @@ if (Array.isArray(_.widgets)) {
     return obj
   }, {})
 }
+
+const productCardStamps = (_.cms('stamps') || {}).stamps_list || []
 %>
 
 <script>/*<!--*/<%-
@@ -63,7 +65,8 @@ if (Array.isArray(_.widgets)) {
   `window._info=${JSON.stringify(_.cms('info'))};` +
   `window._widgets=${JSON.stringify(echoWidgets)};` +
   `window._context=${JSON.stringify(echoContext)};` +
-  `window._data=${JSON.stringify(echoData)};`
+  `window._data=${JSON.stringify(echoData)};` +
+  `window.productCardStamps=${JSON.stringify(productCardStamps)};`
 %>/*-->*/</script>
 
 <script type="application/ld+json"><%-

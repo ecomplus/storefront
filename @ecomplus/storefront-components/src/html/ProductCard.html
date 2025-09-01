@@ -21,7 +21,19 @@
           <i class="i-arrow-down"></i> <b>{{ discount }}</b>%
         </span>
       </slot>
-      <slot name="stamps" />
+
+      <slot name="stamps">
+        <div v-if="validStamps.length" class="product-card__stamps">
+          <span
+            v-for="(stamp, i) in validStamps"
+            :key="`s-${i}`"
+            :class="'product-card__stamps-' +
+              + `${(stamp.id || '').toLowerCase().replace(/\s/g, '-')}`"
+          >
+            <img :src="stamp.img" :alt="stamp.id">
+          </span>
+        </div>
+      </slot>
 
       <slot name="body">
         <a-link

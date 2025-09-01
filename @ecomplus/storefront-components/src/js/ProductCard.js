@@ -22,6 +22,7 @@ import APicture from '../APicture.vue'
 import APrices from '../APrices.vue'
 import ecomPassport from '@ecomplus/passport-client'
 import { toggleFavorite, checkFavorite } from './helpers/favorite-products'
+import stamps from '../../../storefront-template/template/js/netlify-cms/base-config/collections/settings/stamps'
 
 const getExternalHtml = (varName, product) => {
   if (typeof window === 'object') {
@@ -74,7 +75,13 @@ export default {
     },
     isLoaded: Boolean,
     installmentsOption: Object,
-    discountOption: Object
+    discountOption: Object,
+    stamps: {
+      type: Array,
+      default () {
+        return window.productCardStamps || []
+      }
+    }
   },
 
   data () {
@@ -137,6 +144,18 @@ export default {
       return checkOnPromotion(body)
         ? Math.round(((body.base_price - getPrice(body)) * 100) / body.base_price)
         : 0
+    },
+
+    validStamps () {
+      if (!Array.isArray(this.stamps)) return []
+      return this.stamps.filter((stamp) => {
+        if (stamp && stamp.img) {
+          if (Array.isArray(stamp.skus) && stamp.skus.length) {
+            return stamp.skus.includes(this.body.sku)
+          }
+        }
+        return false
+      })
     }
   },
 
