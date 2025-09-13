@@ -75,7 +75,7 @@
     "@ecomplus/widget-user": "^1.0.0-beta.190",
     "@ecomplus/widget-yourviews": "^1.1.0",
     "@glidejs/glide": "^3.7.1",
-    "axios": "^0.27.2 || ^1.1.2",
+    "axios": "^1.12.0 ^1.12.0",
     "core-js": ">=3.37.0 <3.38",
     "ejs": "^3.1.10",
     "eventemitter3": "^5.0.1",
