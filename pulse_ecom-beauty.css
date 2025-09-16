@@ -625,18 +625,18 @@ main .info-bar__item {
 main .info-bar__item:hover {
   color: #5F506B;
 }
-main .info-bar__item div {
-  margin-left: 0;
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: none;
-}
 main .info-bar__item div .info-bar__title {
   margin-left: 0;
   font-family: "Playfair Display";
   font-size: 18px;
   font-weight: bold;
   font-style: italic;
+}
+main .info-bar__item div {
+  margin-left: 0;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: none;
 }
 main .info-bar__item::after {
   background-color: #5F506B;
