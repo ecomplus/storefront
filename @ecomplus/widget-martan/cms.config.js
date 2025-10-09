@@ -119,15 +119,27 @@ const widgetReview = {
       name: 'header_layout',
       widget: 'select',
       required: false,
-      default: 'header-minimal',
+      default: 'Padrao',
       options: [
         {
-          label: 'Minimal',
-          value: 'header-minimal'
+          label: 'Padrão',
+          value: 'Padrao'
         },
         {
-          label: 'Expandido',
-          value: 'header-expanded'
+          label: 'Compacto',
+          value: 'compact'
+        },
+        {
+          label: 'Centralizado',
+          value: 'Center'
+        },
+        {
+          label: 'Resumo',
+          value: 'Summary'
+        },
+        {
+          label: 'Histograma',
+          value: 'Histogram'
         }
       ]
     },
@@ -147,53 +159,6 @@ const widgetReview = {
           value: 'list-grid'
         }
       ]
-    }
-  ]
-}
-
-const widgetSnippet = {
-  label: 'Snippet de Reviews',
-  name: 'widget_snippet',
-  widget: 'object',
-  hint: 'Este widget será exibido na página de produtos acima do preço do produto.',
-  fields: [
-    {
-      label: 'Habilitar Widget',
-      name: 'is_enabled',
-      widget: 'boolean',
-      default: true
-    },
-    {
-      label: 'Cor de fundo',
-      name: 'background_color',
-      widget: 'color',
-      required: false
-    },
-    {
-      label: 'Cor do Texto',
-      name: 'text_color',
-      widget: 'color',
-      required: false
-    },
-    {
-      label: 'Cor do icone de estrela',
-      name: 'star_color',
-      widget: 'color',
-      required: false
-    },
-    {
-      label: 'Bordas',
-      name: 'border',
-      widget: 'boolean',
-      default: false,
-      required: false
-    },
-    {
-      label: 'Cor da borda',
-      name: 'border_color',
-      hint: 'Borda será aplicada apenas se opção acima estiver habilitada',
-      widget: 'color',
-      required: false
     }
   ]
 }
@@ -258,7 +223,6 @@ const configDefault = {
 
 martan.fields.push(widgetRating)
 martan.fields.push(widgetReview)
-martan.fields.push(widgetSnippet)
 
 configDefault.fields.push(martan)
 export default () => configDefault
