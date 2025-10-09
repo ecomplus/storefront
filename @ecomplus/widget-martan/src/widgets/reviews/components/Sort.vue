@@ -66,7 +66,7 @@ export default {
 .mt-select {
   height: 30px;
   border: none;
-  background: #fff;
+  background: transparent;
   line-height: 1.14;
   font-weight: 400;
   letter-spacing: normal;

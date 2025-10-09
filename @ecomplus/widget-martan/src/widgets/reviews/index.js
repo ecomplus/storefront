@@ -1,4 +1,5 @@
 import Vue from 'vue'
+
 import Reviews from './Reviews.vue'
 
 export default (options = {}, elId = 'reviews_widget') => {
@@ -9,44 +10,49 @@ export default (options = {}, elId = 'reviews_widget') => {
 
   const { product } = $el.dataset
 
-  const storeId = options.store_id
+  const storeId = parseInt(options.store_id, 10)
   const webId = options.web_id
-  const widgetOptions = options.widget_review || {}
 
-  const starColor = widgetOptions.star_color || null
-  const title = widgetOptions.title || null
-  const headerLayout = widgetOptions.header_layout || null
-  const reviewsLayout = widgetOptions.reviews_layout || null
+  const config = {
+    store_id: null,
+    web_id: null,
+    widget_key: null,
+    widget_rating: null,
+    widget_review: null,
+    ...options
+  }
 
-  const obs = new IntersectionObserver(
-    (entries, observe) => {
-      entries.forEach(function (entry) {
-        const { isIntersecting, intersectionRatio } = entry
-        if (isIntersecting === true || intersectionRatio > 0) {
-          new Vue({
-            render(h) {
-              return h(Reviews, {
-                props: {
-                  product,
-                  storeId,
-                  webId,
-                  title,
-                  starColor,
-                  headerLayout,
-                  reviewsLayout
-                }
-              })
-            }
-          }).$mount($el)
+  const init = () => {
+    new Vue({
+      render (h) {
+        return h(Reviews, {
+          props: {
+            config,
+            product,
+            storeId,
+            webId
+          }
+        })
+      }
+    }).$mount($el)
+  }
 
-          observe.disconnect()
-        }
-      })
-    },
-    {
-      rootMargin: '250px'
-    }
-  )
+  if (typeof window.IntersectionObserver === 'function') {
+    const obs = new window.IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(function (entry) {
+          const { isIntersecting, intersectionRatio } = entry
+          if (isIntersecting === true || intersectionRatio > 0) {
+            init()
+            observer.disconnect()
+          }
+        })
+      },
+      {
+        rootMargin: '250px'
+      }
+    )
 
-  obs.observe($el)
+    obs.observe($el)
+  }
 }
