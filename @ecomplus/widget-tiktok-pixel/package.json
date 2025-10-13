@@ -32,7 +32,7 @@
   "peerDependencies": {
     "@ecomplus/shopping-cart": ">=1 <3",
     "@ecomplus/utils": "^1.4.1",
-    "core-js": "3.x"
+    "core-js": "3.46.0"
   },
   "webpackOutput": {
     "library": "widgetTiktokPixel",
