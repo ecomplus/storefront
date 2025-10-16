@@ -19,11 +19,24 @@ if (isCurrentUtm) {
 if (urlParams.get('referral') && !sessionStorage.getItem('ecomReferral')) {
   sessionStorage.setItem('ecomReferral', urlParams.get('referral'))
 }
-const sessionCoupon = urlParams.get('coupon') || sessionStorage.getItem('st_discount_coupon')
-if (sessionCoupon && !sessionStorage.getItem('st_discount_coupon')) {
-  sessionStorage.setItem('st_discount_coupon', sessionCoupon)
+
+const couponStorageKey = 'ecomUrlCoupon'
+const couponCheckoutStorageKey = 'st_discount_coupon'
+const checkoutSessionCoupon = sessionStorage.getItem(couponCheckoutStorageKey)
+let urlCoupon = urlParams.get('coupon')
+if (urlCoupon) {
+  sessionStorage.setItem(couponStorageKey, urlCoupon)
+} else {
+  urlCoupon = sessionStorage.getItem(couponStorageKey)
+  if (checkoutSessionCoupon && urlCoupon && checkoutSessionCoupon !== urlCoupon) {
+    urlCoupon = null
+  }
+}
+const sessionCoupon = urlCoupon || checkoutSessionCoupon
+if (sessionCoupon && !checkoutSessionCoupon) {
+  sessionStorage.setItem(couponCheckoutStorageKey, sessionCoupon)
 }
 
 export default utm
 
-export { utm, sessionCoupon }
+export { utm, sessionCoupon, urlCoupon }
