@@ -5,7 +5,7 @@
     "store_id": "",
     "web_id": "",
     "widget_rating": {
-      "is_enabled": true,
+      "is_enabled": false,
       "font_size": 15,
       "star_color": "#ffc107",
       "display": "gt1",
@@ -13,14 +13,14 @@
       "search_page": false
     },
     "widget_review": {
-      "is_enabled": true,
+      "is_enabled": false,
       "title": "Opiniões dos Clientes",
       "star_color": "#ffc107",
       "header_layout": "Histogram",
       "reviews_layout": "list-grid"
     },
     "widget_questions": {
-      "is_enabled": true,
+      "is_enabled": false,
       "title": "Perguntas e respostas",
       "enable_new_questions": true
     }
