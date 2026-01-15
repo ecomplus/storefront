@@ -5,7 +5,7 @@
       <div class="mrtn-summary-title">
         <div class="mrtn-total-responses">{{ formatReviewsCount }} Avaliações</div>
         <div v-if="recommended > 0" class="mrtn-recommendation">
-          {{ Math.round(recommended) }}% clientes recomendam esse produto
+          {{ Math.round(recommended) }}% dos clientes recomendam esse produto
         </div>
       </div>
 
@@ -21,14 +21,14 @@
       </div>
     </div>
 
-    <RatingHistogram :config="config" :rating="rating" :total-rating="totalRating" :average="averageTotal" @rating-selected="onRatingSelected" />
+    <RatingHistogram :config="config" :rating="rating" :total-rating="totalRating" :average="average" @rating-selected="onRatingSelected" />
   </div>
 </template>
 
 <script>
 import Rating from '../components/Rating.vue'
 import RatingHistogram from '../components/RatingHistogram.vue'
-import { configProp } from "../configProps";
+import { configProp } from "../../../utils/configProps";
 
 export default {
   name: 'Histogram',

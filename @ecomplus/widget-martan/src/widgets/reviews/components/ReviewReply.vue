@@ -60,7 +60,7 @@ export default {
   margin: 10px 0 0;
   display: flex;
   flex-direction: column;
-  background: rgb(241, 241, 241);
+  background: var(--white);
   padding: 20px;
   border-radius: 12px;
   font-size: 15px;
@@ -68,6 +68,7 @@ export default {
   gap: 10px;
   border-right: 1px solid #1717171a;
   border-left: 3px solid rgb(230, 230, 230);
+  width: 100%;
 }
 
 @media (max-width: 580px) {
@@ -88,5 +89,10 @@ export default {
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
+}
+
+.mt-reply__wrapper {
+  display: flex;
+  align-items: center;
 }
 </style>

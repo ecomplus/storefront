@@ -49,7 +49,7 @@
 <script>
 import RatingBreakdown from '../components/RatingBreakdown.vue'
 import SortDropdown from '../components/SortDropdown.vue'
-import { configProp } from "../configProps";
+import { configProp } from "../../../utils/configProps";
 import { lightenColor } from "../../../utils/lighten-color";
 
 export default {
@@ -101,7 +101,6 @@ export default {
 
   computed: {
     formatReviewsCount() {
-      console.log(this)
       if (this.totalRating >= 1000) {
         return (this.totalRating / 1000).toFixed(1).replace('.0', '') + 'k'
       }

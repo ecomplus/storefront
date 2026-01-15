@@ -9,26 +9,28 @@
       :recommended="totalRecommended" :average="averageTotal" :total-rating="total" @rating-selected="updateOrderBy"
       :list="list" :order-rating="orderRating" :offset="offset" />
 
-    <div class="list-grid">
-      <review-card
-        v-for="review in list"
-        :key="review.id"
-        :review="review"
-        :star-color="starColor"
-        class="masonry-item"
-        @openQuickview="openQuickview"
-      />
+    <div :class="config.widget_review.reviews_layout">
+      <transition-group name="review-list" tag="div" :class="config.widget_review.reviews_layout">
+        <review-card
+          v-for="review in list"
+          :key="review.id"
+          :review="review"
+          :star-color="config.widget_review.star_color"
+          class="masonry-item"
+          @openQuickview="openQuickview"
+        />
+      </transition-group>
     </div>
 
     <div class="actions" v-if="showLoadMore()">
       <div class="pagination">
         <button class="btn btn-primary" @click="loadMore" :disabled="loading">
-          {{ loading ? "Carregando.." : "Mostrar mais comentários" }}
+          {{ loading ? "Carregando.." : "Mostrar mais avaliações" }}
         </button>
       </div>
     </div>
 
-    <Quickview @onClose="onCloseQuickview" :isOpen="isOpenQuickView" :review="selectedReview" :starColor="starColor" />
+    <Quickview @onClose="onCloseQuickview" :isOpen="isOpenQuickView" :review="selectedReview" :starColor="config.widget_review.star_color" />
 
     <div class="credit">
       Avaliações reais, auditadas por
@@ -39,7 +41,10 @@
 
 <script>
 import { MARTAN_API } from "../..";
-import { configProp } from "./configProps";
+
+import Ratings from "../ratings";
+
+import { configProp } from "../../utils/configProps";
 
 export default {
   name: "Reviews",
@@ -49,26 +54,6 @@ export default {
     product: {
       type: String,
       required: true,
-    },
-    backgroundColor: {
-      type: String,
-      default: "#fff",
-    },
-    starColor: {
-      type: String,
-      default: "#212529",
-    },
-    primaryColor: {
-      type: String,
-      default: "#212529",
-    },
-    headerLayout: {
-      type: String,
-      default: "header-minimal",
-    },
-    reviewsLayout: {
-      type: String,
-      default: "list-grid",
     }
   },
 
@@ -86,6 +71,7 @@ export default {
 
       $isSorting: false,
       $count: null,
+      hasMore: false,
 
       averageTotal: 0,
       totalRecommended: null,
@@ -178,16 +164,19 @@ export default {
       this.loading = true;
 
       axios({
-        url: MARTAN_API + "/reviews.json",
+        url: MARTAN_API + "/api/v1/reviews.json",
         headers: {
           "X-Store-Id": this.config.store_id,
-          "X-Web-Id": this.config.web_id,
+          "X-Api-Key": this.config.web_id,
         },
         params,
       })
         .then(({ data }) => {
           const { result, count } = data;
           let list = [];
+
+          this.hasMore = result.length >= this.limit;
+          
           if (
             (Array.isArray(this.list) && !this.orderReviews) ||
             (this.orderReviews && this.$isSorting)
@@ -200,7 +189,7 @@ export default {
               }
             }
 
-            list = [...this.list, ...list];
+            list = [...this.list];
           } else if (
             (Array.isArray(this.list) && this.orderReviews) ||
             this.orderRating
@@ -218,7 +207,6 @@ export default {
           } else {
             this.total = count;
           }
-          console.log(this.total)
           this.list = list;
 
           return list;
@@ -233,29 +221,23 @@ export default {
         });
     },
 
-    fetchAverage() {
-      axios({
-        url: MARTAN_API + "/average.json",
-        headers: {
-          "X-Store-Id": this.config.store_id,
-          "X-Web-Id": this.config.web_id,
-        },
-        params: {
-          sku: this.product,
-        },
-      })
-        .then(({ data }) => {
-          if (data.length) {
-            const { average, rating, recommended } = data[0];
-            Object.assign(this.average, rating);
-            this.averageTotal = average;
-            this.totalRecommended = recommended;
-          }
+    async fetchAverage() {
+      try {
+        const rating = new Ratings({
+          store_id: this.config.store_id,
+          web_id: this.config.web_id,
         })
-
-        .finally(() => {
-          this.loading = false;
-        });
+        await rating.fetchRatings()
+        const data = rating.getProductRatingFromList(this.product);
+        if (data) {
+          const { average, rate, recommended_percentage } = data;
+          Object.assign(this.average, rate);
+          this.averageTotal = average;
+          this.totalRecommended = recommended_percentage;
+        }
+      } catch (error) {
+        console.error('Failed to load average from Martan', error);
+      }
     },
 
     loadMore() {
@@ -267,41 +249,34 @@ export default {
     },
 
     showLoadMore() {
-      if (
-        !this.orderRating &&
-        this.total > 0 &&
-        this.list.length < this.total
-      ) {
-        return true;
+      if (this.loading) {
+        return false;
       }
 
-      if (
-        this.orderRating &&
-        this.$count > 0 &&
-        this.list.length < this.$count
-      ) {
-        return true;
+      if (!this.hasMore) {
+        return false;
       }
 
-      if (this.offset < this.total) {
-        return true;
+      if (this.orderRating) {
+        return this.$count > 0 && this.list.length < this.$count;
+      } else {
+        return this.total > 0 && this.list.length < this.total;
       }
-
-      return false;
     },
 
     updateOrderBy(rating) {
-      console.log('updateOrderBy', rating)
       if (rating === this.orderRating) {
         this.orderRating = null;
       } else {
         this.offset = 0;
         this.orderRating = rating;
       }
+      this.hasMore = true;
     },
 
     onSort({ order }) {
       this.orderReviews = order;
+      this.hasMore = true;
     },
 
     openQuickview: function ({ review }) {
@@ -334,23 +309,19 @@ export default {
     },
 
     initMasonry() {
-      // Verifica se o navegador suporta masonry nativo
       const supportsMasonry = CSS.supports('grid-template-rows', 'masonry');
 
       if (!supportsMasonry) {
-        // Aplica fallback masonry usando CSS columns
         const gridContainer = this.$el.querySelector('.list-grid');
         if (gridContainer) {
           gridContainer.classList.add('list-grid--masonry-fallback');
 
-          // Adiciona classe masonry-item aos cards
           const cards = gridContainer.querySelectorAll('review-card');
           cards.forEach(card => {
             card.classList.add('masonry-item');
           });
         }
       } else {
-        // Remove fallback se masonry nativo estiver disponível
         const gridContainer = this.$el.querySelector('.list-grid');
         if (gridContainer) {
           gridContainer.classList.remove('list-grid--masonry-fallback');
@@ -360,7 +331,6 @@ export default {
   },
 
   mounted() {
-    console.log('config', this.config)
     Promise.all([this.fetchAverage(), this.fetchReviews()]).then(() => {
       this.checkScrollability();
       this.initMasonry();
@@ -390,8 +360,6 @@ export default {
 <style lang="scss" scoped>
 .martan-reviews {
   color: #444;
-
-  /* Cor neutra, boa para temas claros e escuros */
   .widget-header {
     display: flex;
     justify-content: space-between;
@@ -405,9 +373,7 @@ export default {
 
     &__score-average {
       font-size: 1.25rem;
-      // font-weight: 600;
       color: #444;
-      /* Cor neutra, boa para temas claros e escuros */
     }
   }
 
@@ -420,13 +386,12 @@ export default {
   .list-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: masonry; // Efeito masonry nativo (quando suportado)
+    grid-template-rows: masonry;
     gap: 1rem;
-    max-width: 1200px; // 2 cards de 580px + gap
+    max-width: 1200px;
     margin: 0 auto;
-    align-items: start; // Alinha cards ao topo
+    align-items: start;
 
-    // Mobile: full width, 1 coluna
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
       grid-template-rows: masonry;
@@ -434,21 +399,18 @@ export default {
       gap: 0.75rem;
     }
 
-    // Tablet: 2 colunas com largura máxima
     @media (min-width: 769px) and (max-width: 1200px) {
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: masonry;
       max-width: 100%;
     }
 
-    // Desktop: 2 colunas com largura máxima de 580px cada
     @media (min-width: 1201px) {
       grid-template-columns: repeat(2, minmax(0, 580px));
       grid-template-rows: masonry;
       justify-content: center;
     }
 
-    // Fallback para navegadores que não suportam masonry
     @supports not (grid-template-rows: masonry) {
       display: flex;
       flex-direction: column;
@@ -463,7 +425,6 @@ export default {
     }
   }
 
-  // Fallback masonry com JavaScript para navegadores sem suporte
   .list-grid--masonry-fallback {
     display: block;
     column-count: 1;
@@ -507,13 +468,10 @@ export default {
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-      /* Oculta a barra de rolagem */
       scrollbar-width: none;
 
-      /* Firefox */
       &::-webkit-scrollbar {
         display: none;
-        /* Chrome, Safari e Edge */
       }
 
       img {
@@ -543,6 +501,25 @@ export default {
     justify-content: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
+  }
+
+  .review-list-enter-active,
+  .review-list-leave-active {
+    transition: all 0.3s ease;
+  }
+
+  .review-list-enter-from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .review-list-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  .review-list-move {
+    transition: transform 0.3s ease;
   }
 }
 </style>

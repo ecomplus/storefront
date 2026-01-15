@@ -25,7 +25,7 @@
 
 <script>
 import RatingBreakdown from './RatingBreakdown.vue'
-import { configProp } from "../configProps";
+import { configProp } from "../../../utils/configProps";
 
 export default {
   name: 'RatingSummary',
@@ -83,7 +83,6 @@ export default {
   },
 
   mounted() {
-    console.log('config', this)
     this.addClickOutsideListener()
   },
 

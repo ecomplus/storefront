@@ -23,7 +23,7 @@
           :fill="`url(#starGradient${average})`" />
       </svg>
 
-      <strong>{{ average }}</strong> / 5
+      <strong>{{ average.toFixed(1) }}</strong> / 5
 
       <span class="baseado" style="font-size: 10px; opacity: 0.8">
         ({{
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { configProp } from "../configProps";
+import { configProp } from "../../../utils/configProps";
 import Sort from "../components/Sort.vue";
 
 export default {

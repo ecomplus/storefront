@@ -125,7 +125,7 @@ export default {
 .review-card {
   background-color: #F3F3F3;
   border-radius: 8px;
-  padding: 8px 16px;
+  padding: 16px;
   width: 100%;
   height: max-content;
 

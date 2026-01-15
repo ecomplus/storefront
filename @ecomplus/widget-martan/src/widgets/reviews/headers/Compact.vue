@@ -41,7 +41,7 @@ import RatingSummary from '../components/RatingSummary.vue'
 import SortDropdown from '../components/SortDropdown.vue'
 import Rating from '../components/Rating.vue';
 
-import { configProp } from "../configProps";
+import { configProp } from "../../../utils/configProps";
 
 export default {
   name: 'Compact',
@@ -109,7 +109,6 @@ export default {
     },
 
     onRatingSelected(rating) {
-      console.log('Nota selecionada:', rating)
       this.$emit('rating-selected', rating)
     },
 

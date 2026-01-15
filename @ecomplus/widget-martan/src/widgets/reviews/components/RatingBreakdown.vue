@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { configProp } from "../configProps";
+import { configProp } from "../../../utils/configProps";
 import Rating from "./Rating.vue";
 import { lightenColor } from "../../../utils/lighten-color";
 
