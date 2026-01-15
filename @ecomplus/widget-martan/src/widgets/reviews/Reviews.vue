@@ -1,107 +1,80 @@
 <template>
-  <div
-    :data-header="headerLayout"
-    :data-layout="reviewsLayout"
-  >
-    <div class="mt-reviews container" :class="'mt-theme--' + headerLayout">
-      <p class="lead">
-        <a href="#reviews" :name="title || 'reviews'">#</a>
-        {{ title }}
-      </p>
+  <div v-show="total > 0" class="martan-reviews container">
+    <p class="lead" v-if="title">
+      <a href="#reviews" :name="title || 'reviews'">#</a>
+      {{ title }}
+    </p>
 
-      <total v-if="headerLayout !== 'header-expanded' && headerLayout !== 'header-minimal'"
-        @onSort="onSort" :reviews="{ list, orderRating, total }"  />
+    <component :is="config.widget_review.header_layout" :config="config" :rating="average"
+      :recommended="totalRecommended" :average="averageTotal" :total-rating="total" @rating-selected="updateOrderBy"
+      :list="list" :order-rating="orderRating" :offset="offset" />
 
-      <component @updateOrderByAverage="updateOrderBy" @onSort="onSort" :is="headerLayout"
-        :reviews="{ averageTotal, average, total, orderRating }" :starColor="starColor"></component>
+    <div :class="config.widget_review.reviews_layout">
+      <transition-group name="review-list" tag="div" :class="config.widget_review.reviews_layout">
+        <review-card
+          v-for="review in list"
+          :key="review.id"
+          :review="review"
+          :star-color="config.widget_review.star_color"
+          class="masonry-item"
+          @openQuickview="openQuickview"
+        />
+      </transition-group>
+    </div>
 
-      <total v-if="headerLayout === 'header-expanded'"
-        @onSort="onSort" :reviews="{ list, orderRating, total }" />
-
-      <component :reviews="{ list, orderRating, total }" :starColor="starColor" @openQuickview="openQuickview"
-        :is="reviewsLayout"></component>
-
-      <div class="mt-questions__actions" v-if="showLoadMore()">
-        <div class="mt-questions__pagination" id="mt-more-questions">
-          <button class="btn btn-primary" @click="loadMore" :disabled="loading">
-            {{ loading ? "Carregando.." : "Carregar mais" }}
-          </button>
-        </div>
+    <div class="actions" v-if="showLoadMore()">
+      <div class="pagination">
+        <button class="btn btn-primary" @click="loadMore" :disabled="loading">
+          {{ loading ? "Carregando.." : "Mostrar mais avaliações" }}
+        </button>
       </div>
     </div>
 
-    <quickview @onClose="onCloseQuickview" :isOpen="isOpenQuickView"
-      :review="selectedReview" :starColor="starColor" />
+    <Quickview @onClose="onCloseQuickview" :isOpen="isOpenQuickView" :review="selectedReview" :starColor="config.widget_review.star_color" />
+
+    <div class="credit">
+      Avaliações reais, auditadas por
+      <a :href="getUrl" target="_blank" rel="noopener">MARTAN.app</a>
+    </div>
   </div>
 </template>
 
 <script>
+import { MARTAN_API } from "../..";
 
-import ListView from "./ListView.vue";
-import GridView from "./GridView.vue";
-import Total from "./Total.vue";
-import Quickview from "./Quickview.vue";
-import { MARTAN_API } from '../..';
+import Ratings from "../ratings";
+
+import { configProp } from "../../utils/configProps";
 
 export default {
   name: "Reviews",
 
   props: {
-    storeId: {
-      type: Number,
-      required: true
-    },
-    webId: {
-      type: String,
-      required: true
-    },
+    ...configProp,
     product: {
       type: String,
-      required: true
-    },
-    backgroundColor: {
-      type: String,
-      default: "#fff",
-    },
-    starColor: {
-      type: String,
-      default: "#212529",
-    },
-    primaryColor: {
-      type: String,
-      default: "#212529",
-    },
-    headerLayout: {
-      type: String,
-      default: "header-minimal",
-    },
-    reviewsLayout: {
-      type: String,
-      default: "list-grid",
-    },
-    title: {
-      type: String,
-    },
-    showTitle: {
-      type: Boolean,
-      default: true,
-    },
+      required: true,
+    }
   },
 
   data() {
     return {
       list: [],
       total: 0,
-      limit: 5,
+      limit: 4,
       offset: 0,
+
       loading: false,
+
       orderRating: null,
       orderReviews: null,
-      averageTotal: 0,
 
       $isSorting: false,
       $count: null,
+      hasMore: false,
 
+      averageTotal: 0,
+      totalRecommended: null,
       average: {
         one: 0,
         two: 0,
@@ -112,10 +85,18 @@ export default {
 
       isOpenQuickView: false,
       selectedReview: null,
+      isScrollable: false,
+
+      $listEl: null,
     };
   },
 
   watch: {
+    onlyWithPictures: function (newVal) {
+      if (!this.$listEl && newVal.length > 0) {
+        this.$listEl = document.querySelector(".reviews-with-pictures");
+      }
+    },
     orderRating: function (oldOrder, newOrder) {
       if (oldOrder !== newOrder) {
         this.list = [];
@@ -137,6 +118,28 @@ export default {
     offset: function () {
       this.fetchReviews();
     },
+  },
+
+  computed: {
+    i19basedOn$1Reviews: () => "Baseado em $1 avaliações",
+    i19basedOn$1Review: () => "Baseado em $1 avaliação",
+    i19noReview: () => "Nenhuma avaliação",
+    onlyWithPictures() {
+      return this.list.filter(
+        (review) => review.pictures && review.pictures.length > 0
+      );
+    },
+    getUrl() {
+      const url = new URL(window.location.href);
+      const ref = url.origin;
+      return `https://www.martan.app/?ref=${ref}`;
+    },
+    title() {
+      if (this.config.widget_review.title) {
+        return this.config.widget_review.title;
+      }
+      return null;
+    }
   },
 
   methods: {
@@ -161,16 +164,19 @@ export default {
       this.loading = true;
 
       axios({
-        url: MARTAN_API + '/reviews.json',
+        url: MARTAN_API + "/api/v1/reviews.json",
         headers: {
-          "X-Store-Id": this.storeId,
-          "X-Web-Id": this.webId,
+          "X-Store-Id": this.config.store_id,
+          "X-Api-Key": this.config.web_id,
         },
         params,
       })
         .then(({ data }) => {
           const { result, count } = data;
           let list = [];
+
+          this.hasMore = result.length >= this.limit;
+          
           if (
             (Array.isArray(this.list) && !this.orderReviews) ||
             (this.orderReviews && this.$isSorting)
@@ -183,7 +189,7 @@ export default {
               }
             }
 
-            list = [...this.list, ...list];
+            list = [...this.list];
           } else if (
             (Array.isArray(this.list) && this.orderReviews) ||
             this.orderRating
@@ -201,7 +207,6 @@ export default {
           } else {
             this.total = count;
           }
-
           this.list = list;
 
           return list;
@@ -216,28 +221,23 @@ export default {
         });
     },
 
-    fetchAverage() {
-      axios({
-        url: MARTAN_API + '/average.json',
-        headers: {
-          "X-Store-Id": this.storeId,
-          "X-Web-Id": this.webId,
-        },
-        params: {
-          sku: this.product,
-        },
-      })
-        .then(({ data }) => {
-          if (data.length) {
-            const { average, rating } = data[0];
-            Object.assign(this.average, rating);
-            this.averageTotal = average;
-          }
+    async fetchAverage() {
+      try {
+        const rating = new Ratings({
+          store_id: this.config.store_id,
+          web_id: this.config.web_id,
         })
-
-        .finally(() => {
-          this.loading = false;
-        });
+        await rating.fetchRatings()
+        const data = rating.getProductRatingFromList(this.product);
+        if (data) {
+          const { average, rate, recommended_percentage } = data;
+          Object.assign(this.average, rate);
+          this.averageTotal = average;
+          this.totalRecommended = recommended_percentage;
+        }
+      } catch (error) {
+        console.error('Failed to load average from Martan', error);
+      }
     },
 
     loadMore() {
@@ -249,34 +249,34 @@ export default {
     },
 
     showLoadMore() {
-      if (
-        !this.orderRating &&
-        this.total > 0 &&
-        this.list.length < this.total
-      ) {
-        return true;
+      if (this.loading) {
+        return false;
       }
 
-      if (
-        this.orderRating &&
-        this.$count > 0 &&
-        this.list.length < this.$count
-      ) {
-        return true;
+      if (!this.hasMore) {
+        return false;
+      }
+
+      if (this.orderRating) {
+        return this.$count > 0 && this.list.length < this.$count;
+      } else {
+        return this.total > 0 && this.list.length < this.total;
       }
     },
 
-    updateOrderBy({ rating }) {
+    updateOrderBy(rating) {
       if (rating === this.orderRating) {
         this.orderRating = null;
       } else {
         this.offset = 0;
         this.orderRating = rating;
       }
+      this.hasMore = true;
     },
 
     onSort({ order }) {
       this.orderReviews = order;
+      this.hasMore = true;
     },
 
     openQuickview: function ({ review }) {
@@ -288,209 +288,238 @@ export default {
       this.isOpenQuickView = false;
       this.selectedReview = null;
     },
+
+    checkScrollability() {
+      const list = this.$listEl;
+      if (!list) return;
+
+      this.isScrollable = list.scrollWidth > list.clientWidth;
+    },
+    scrollLeft() {
+      const list = this.$listEl;
+      if (!list) return;
+
+      list.scrollBy({ left: -1500, behavior: "smooth" });
+    },
+    scrollRight() {
+      const list = this.$listEl;
+      if (!list) return;
+
+      list.scrollBy({ left: 1500, behavior: "smooth" });
+    },
+
+    initMasonry() {
+      const supportsMasonry = CSS.supports('grid-template-rows', 'masonry');
+
+      if (!supportsMasonry) {
+        const gridContainer = this.$el.querySelector('.list-grid');
+        if (gridContainer) {
+          gridContainer.classList.add('list-grid--masonry-fallback');
+
+          const cards = gridContainer.querySelectorAll('review-card');
+          cards.forEach(card => {
+            card.classList.add('masonry-item');
+          });
+        }
+      } else {
+        const gridContainer = this.$el.querySelector('.list-grid');
+        if (gridContainer) {
+          gridContainer.classList.remove('list-grid--masonry-fallback');
+        }
+      }
+    },
   },
 
   mounted() {
-    Promise.all([this.fetchAverage(), this.fetchReviews()]);
+    Promise.all([this.fetchAverage(), this.fetchReviews()]).then(() => {
+      this.checkScrollability();
+      this.initMasonry();
+      window.addEventListener("resize", () => {
+        this.checkScrollability();
+        this.initMasonry();
+      });
+    });
+  },
+
+  beforeDestroy() {
+    window.removeEventListener("resize", this.checkScrollability);
   },
 
   components: {
-    "list-grid": () => import("./GridView.vue"),
-    "list-expanded": () => import("./ListView.vue"),
-    "header-expanded": () => import("./HeaderExpanded.vue"),
-    "header-minimal": () => import("./HeaderMinimal.vue"),
-    Total,
-    ListView,
-    GridView,
-    Quickview
+    ReviewCard: () => import("./components/ReviewCard.vue"),
+    Quickview: () => import("./components/Quickview.vue"),
+    Compact: () => import("./headers/Compact.vue"),
+    Center: () => import("./headers/Center.vue"),
+    Summary: () => import("./headers/Summary.vue"),
+    Padrao: () => import("./headers/Padrao.vue"),
+    Histogram: () => import("./headers/Histogram.vue"),
   },
 };
 </script>
 
-<style lang="scss">
-.mt-review {
-  padding: 25px 0 22px;
+<style lang="scss" scoped>
+.martan-reviews {
+  color: #444;
+  .widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
 
-  &:first-child {
-    padding-top: 0;
-  }
-}
+    &__score {
+      max-width: 500px;
+      width: 100%;
+    }
 
-.mt-review__title {
-  color: #6b6d76;
-  font-size: 16px;
-}
-
-.mt-review__date {
-  font-size: 10px;
-  color: #475569;
-  color: #777;
-}
-
-.mt-review__body {
-  opacity: 0.9;
-  margin-top: 10px;
-  font-size: 16px;
-  line-height: 1.6;
-  text-align: justify;
-}
-
-.mt-rating__group {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.mt-review__author {
-  font-size: 14px;
-  color: #333;
-  font-weight: bolder;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-
-.mt-review__reactions svg {
-  width: 18px;
-  cursor: pointer;
-}
-
-.mt-review__reactions {
-  display: flex;
-  align-items: center;
-  font-size: 11px;
-  margin-top: 0.75rem;
-  color: #777;
-  border: 1px solid #777;
-  border-radius: 50px;
-  max-width: 100px;
-  justify-content: space-evenly;
-  height: 30px;
-}
-
-.mt-reviews__list {
-  padding: 5px 0;
-}
-
-.mt-reviews__votesdown,
-.mt-reviews__votesup {
-  display: flex;
-  align-items: center;
-}
-
-.mt-reviews__votesup {
-  margin-right: 10px;
-}
-
-.mt-reply {
-  margin: 10px 0 0;
-  display: flex;
-  flex-direction: column;
-  background: rgb(241, 241, 241);
-  padding: 20px;
-  border-radius: 12px;
-  font-size: 15px;
-  line-height: 1.6;
-  gap: 10px;
-  border-right: 1px solid #1717171a;
-  border-left: 3px solid rgb(230, 230, 230);
-}
-
-@media (max-width: 580px) {
-  .mt-reply {
-    margin: 10px 0;
-  }
-}
-
-.mt-reply__date {
-  font-weight: normal;
-  font-size: 14px;
-  text-decoration: none;
-  color: #475569;
-  color: #777;
-}
-
-.mt-reply__body {
-  font-weight: 600;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.mt-is__recomended {
-  font-size: 12px;
-  font-weight: 600;
-  color: #6b6d76;
-}
-
-.mt-questions__actions {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.mt-rating__option {
-  background-color: #fff;
-  height: 35px;
-  width: 140px;
-  border-radius: 20px;
-  color: #777;
-  border: 1px solid #777;
-  cursor: pointer;
-  transition: all 0.5s ease;
-}
-
-.mt-rating__option:hover {
-  background-color: #777;
-  color: #fff;
-}
-
-.mt-reviews.mt-theme--vertical .mt-header--vertical {
-  width: 30%;
-}
-
-.mt-reviews.mt-theme--vertical .mt-reviews__list {
-  width: 70%;
-}
-
-@media (max-width: 580px) {
-  .mt-reviews.mt-theme--vertical .mt-reviews__list {
-    width: 100%;
+    &__score-average {
+      font-size: 1.25rem;
+      color: #444;
+    }
   }
 
-  .mt-reviews.mt-theme--vertical .mt-header--vertical {
-    width: 100%;
-    border-right: none;
-  }
-
-  .mt-reviews.mt-theme--vertical .mt-reviews__rating {
+  .list-expanded {
+    display: flex;
     flex-direction: column;
+    gap: 1rem;
   }
 
-  .mt-reviews.mt-theme--vertical .mt-header--vertical .mt-rating__options {
-    max-width: inherit;
+  .list-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: masonry;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: masonry;
+      max-width: 100%;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 769px) and (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: masonry;
+      max-width: 100%;
+    }
+
+    @media (min-width: 1201px) {
+      grid-template-columns: repeat(2, minmax(0, 580px));
+      grid-template-rows: masonry;
+      justify-content: center;
+    }
+
+    @supports not (grid-template-rows: masonry) {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      max-height: none;
+      align-content: flex-start;
+
+      @media (min-width: 769px) {
+        flex-direction: row;
+        align-content: flex-start;
+      }
+    }
   }
-}
 
-.mt-rating__user {
-  position: relative;
-  max-width: 40px;
-  height: fit-content;
-  width: 100%;
-  margin-right: 8px;
-  border-radius: 50%;
-  background: #858585;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 25px;
-  font-weight: 500;
-}
+  .list-grid--masonry-fallback {
+    display: block;
+    column-count: 1;
+    column-gap: 1rem;
 
-.mt-reviews.mt-theme--vertical .mt-rating__average__sort {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 1rem;
+    @media (min-width: 769px) {
+      column-count: 2;
+    }
+
+    @media (min-width: 1201px) {
+      column-count: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      display: inline-block;
+      width: 100%;
+    }
+  }
+
+  .reviews-with-pictures {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    background-color: rgba(255, 236, 219, 0.102);
+    border: 1px solid rgba(255, 236, 219, 0.102);
+    border-radius: 0.25rem;
+    display: flex;
+    font-size: 80%;
+    margin-top: 1rem;
+    padding: 2rem;
+    width: 100%;
+
+    .list {
+      display: flex;
+      gap: 1rem;
+      flex-direction: row;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 0.25rem;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .credit {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    text-align: right;
+    color: rgb(161 161 170 / 1);
+
+    a {
+      color: rgb(15 23 42 / 1) !important;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .review-list-enter-active,
+  .review-list-leave-active {
+    transition: all 0.3s ease;
+  }
+
+  .review-list-enter-from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .review-list-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  .review-list-move {
+    transition: transform 0.3s ease;
+  }
 }
 </style>

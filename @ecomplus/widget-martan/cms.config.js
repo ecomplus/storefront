@@ -1,7 +1,7 @@
 import { name } from './package.json'
 
 const label = 'Martan'
-const thumbnail = 'https://ik.imagekit.io/2wovc1fdm/storefront-widget.png'
+const thumbnail = 'https://ik.imagekit.io/2wovc1fdm/review-6ee734d1-0d51-4b83-8911-5bd8e74fd18f-1767972806198-logo-nbg_R-cm00EY6.png'
 
 const martan = {
   label: 'Configuração dos Widgets',
@@ -10,31 +10,24 @@ const martan = {
   hint: 'Para ajuda com a configuração use nossa documentação.(https://docs.martan.app/integracoes/ecomplus)',
   fields: [
     {
-      label: 'ID da loja',
-      hint: 'Obtenha aqui https://app.martan.app/settings',
+      label: 'ID da loja (Store ID)',
+      hint: 'Obtenha aqui https://dash.martan.app/stores',
       name: 'store_id',
       widget: 'number',
       required: true
     },
     {
-      label: 'Widget Key',
-      name: 'widget_key',
-      widget: 'string',
-      required: true,
-      hint: 'Obtenha aqui https://app.martan.app/settings'
-    },
-    {
-      label: 'Web ID',
+      label: 'Web ID (API-Key)',
       name: 'web_id',
       widget: 'string',
       required: true,
-      hint: 'Obtenha aqui https://app.martan.app/settings'
+      hint: 'Obtenha aqui https://dash.martan.app/stores'
     }
   ]
 }
 
 const widgetRating = {
-  label: 'Média de avaliações',
+  label: 'Widget de Avaliações Card de Produtos (Rating)',
   name: 'widget_rating',
   widget: 'object',
   hint: 'Este widget é exibido no card dos produtos exibindo a média das avaliações através de estrelas.',
@@ -51,14 +44,14 @@ const widgetRating = {
       hint: 'Exibir estrela com classificação média das notas nos cards de resultado de pesquisa',
       name: 'search_page',
       widget: 'boolean',
-      default: false
+      default: true
     },
     {
       label: 'Tamanho da font (px) da estrela',
       name: 'font_size',
       hint: 'Tamanho do icone da estrela nos cards de produtos',
       widget: 'number',
-      default: 12,
+      default: 15,
       required: false
     },
     {
@@ -66,7 +59,25 @@ const widgetRating = {
       hint: 'Cor do incone de estrela que será exibido no widget de reviews',
       name: 'star_color',
       widget: 'color',
-      required: false
+      required: false,
+      default: '#ffc107'
+    },
+    {
+      label: 'Estilo do widget',
+      name: 'theme',
+      widget: 'select',
+      required: false,
+      default: 'normal',
+      options: [
+        {
+          label: 'Compacto',
+          value: 'compact'
+        },
+        {
+          label: 'Nota Completa',
+          value: 'normal'
+        }
+      ]
     },
     {
       label: 'Quando exibir o widget',
@@ -74,14 +85,14 @@ const widgetRating = {
       name: 'display',
       widget: 'select',
       required: false,
-      default: 'always',
+      default: 'gt1',
       options: [
         {
           label: 'Sempre',
           value: 'always'
         },
         {
-          label: 'Apenas quando houver avaliações',
+          label: 'Apenas quando houver +1 avaliação',
           value: 'gt1'
         }
       ]
@@ -112,22 +123,35 @@ const widgetReview = {
       label: 'Cor do icone de estrela',
       name: 'star_color',
       widget: 'color',
-      required: false
+      required: false,
+      default: '#ffc107'
     },
     {
       label: 'Estilo do Cabeçalho',
       name: 'header_layout',
       widget: 'select',
       required: false,
-      default: 'header-minimal',
+      default: 'Histogram',
       options: [
         {
-          label: 'Minimal',
-          value: 'header-minimal'
+          label: 'Padrão',
+          value: 'Padrao'
         },
         {
-          label: 'Expandido',
-          value: 'header-expanded'
+          label: 'Compacto',
+          value: 'compact'
+        },
+        {
+          label: 'Centralizado',
+          value: 'Center'
+        },
+        {
+          label: 'Resumo',
+          value: 'Summary'
+        },
+        {
+          label: 'Histograma',
+          value: 'Histogram'
         }
       ]
     },
@@ -136,7 +160,7 @@ const widgetReview = {
       name: 'reviews_layout',
       widget: 'select',
       required: false,
-      default: 'list-expanded',
+      default: 'list-grid',
       options: [
         {
           label: 'Lista',
@@ -147,53 +171,6 @@ const widgetReview = {
           value: 'list-grid'
         }
       ]
-    }
-  ]
-}
-
-const widgetSnippet = {
-  label: 'Snippet de Reviews',
-  name: 'widget_snippet',
-  widget: 'object',
-  hint: 'Este widget será exibido na página de produtos acima do preço do produto.',
-  fields: [
-    {
-      label: 'Habilitar Widget',
-      name: 'is_enabled',
-      widget: 'boolean',
-      default: true
-    },
-    {
-      label: 'Cor de fundo',
-      name: 'background_color',
-      widget: 'color',
-      required: false
-    },
-    {
-      label: 'Cor do Texto',
-      name: 'text_color',
-      widget: 'color',
-      required: false
-    },
-    {
-      label: 'Cor do icone de estrela',
-      name: 'star_color',
-      widget: 'color',
-      required: false
-    },
-    {
-      label: 'Bordas',
-      name: 'border',
-      widget: 'boolean',
-      default: false,
-      required: false
-    },
-    {
-      label: 'Cor da borda',
-      name: 'border_color',
-      hint: 'Borda será aplicada apenas se opção acima estiver habilitada',
-      widget: 'color',
-      required: false
     }
   ]
 }
@@ -229,16 +206,6 @@ const configDefault = {
       default: true
     },
     {
-      name: 'headAppend',
-      widget: 'hidden',
-      default: 'src/append/head'
-    },
-    {
-      name: 'bodyAppend',
-      widget: 'hidden',
-      default: 'src/append/body'
-    },
-    {
       name: 'productDescriptionAppend',
       widget: 'hidden',
       default: 'src/append/product-block'
@@ -256,9 +223,37 @@ const configDefault = {
   ]
 }
 
+const widgetQuestions = {
+  label: 'Perguntas e Respostas',
+  name: 'widget_questions',
+  widget: 'object',
+  hint: 'Este widget é exibido apenas na página de produtos, exibindo uma listagem com as perguntas e respostas dos compradores.',
+  fields: [
+    {
+      label: 'Habilitar Widget',
+      name: 'is_enabled',
+      widget: 'boolean',
+      default: true
+    },
+    {
+      label: 'Título',
+      name: 'title',
+      widget: 'string',
+      default: 'Perguntas e respostas',
+      required: false
+    },
+    {
+      label: 'Habilitar novas pergunta',
+      name: 'enable_new_questions',
+      widget: 'boolean',
+      default: true
+    }
+  ]
+}
+
 martan.fields.push(widgetRating)
 martan.fields.push(widgetReview)
-martan.fields.push(widgetSnippet)
+martan.fields.push(widgetQuestions)
 
 configDefault.fields.push(martan)
 export default () => configDefault

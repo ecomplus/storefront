@@ -4,34 +4,28 @@
   "options": {
     "store_id": "",
     "web_id": "",
-    "widget_key": "",
     "widget_rating": {
       "is_enabled": false,
       "font_size": 15,
-      "star_color": "#ff00bc",
-      "display": "always",
+      "star_color": "#ffc107",
+      "display": "gt1",
+      "theme": "normal",
       "search_page": false
     },
     "widget_review": {
       "is_enabled": false,
-      "title": "Avaliações dos Clientes",
-      "star_color": "#ff00bc",
-      "header_layout": "header-minimal",
-      "reviews_layout": "list-expanded"
+      "title": "Opiniões dos Clientes",
+      "star_color": "#ffc107",
+      "header_layout": "Histogram",
+      "reviews_layout": "list-grid"
     },
-    "widget_snippet": {
-      "border": true,
-      "border_color": "#eee",
+    "widget_questions": {
       "is_enabled": false,
-      "background_color": "#fff",
-      "text_color": "#0e0e0e",
-      "star_color": "#ff00bc"
+      "title": "Perguntas e respostas",
+      "enable_new_questions": true
     }
   },
-  "headAppend": "src/append/head",
-  "bodyAppend": "src/append/body",
   "productDescriptionAppend": "src/append/product-block",
   "productCardSlots": "src/append/product-card-slots",
-  "productSlots": "src/append/product-slots",
-  "stampsAppend": "src/append/stamps"
+  "productSlots": "src/append/product-slots"
 }
