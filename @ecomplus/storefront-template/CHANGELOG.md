@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.291](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.290...@ecomplus/storefront-template@2.0.0-beta.291) (2025-10-16)
+
+### Bug Fixes
+
+- **template/fetch-info:** apply discount coupons in storefronts only from URL ([e070d3c](https://github.com/ecomplus/storefront/commit/e070d3cef4ea37423ee9396d1734e816f0484144))
+
 # [2.0.0-beta.290](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-template@2.0.0-beta.289...@ecomplus/storefront-template@2.0.0-beta.290) (2025-09-02)
 
 **Note:** Version bump only for package @ecomplus/storefront-template
