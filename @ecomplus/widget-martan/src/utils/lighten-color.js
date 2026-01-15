@@ -1,5 +1,4 @@
 export function lightenColor (hex, amount = 0.2) {
-  // amount: 0.1 = 10%, 0.5 = 50%, etc.
   hex = hex.replace(/^#/, '')
   if (hex.length === 3) {
     hex = hex
