@@ -33,7 +33,7 @@
 
 <script>
 import { formatDate } from "@ecomplus/utils";
-import { timeAgo } from "../../utils/time-ago";
+import { timeAgo } from "../../../utils/time-ago";
 
 export default {
 
@@ -55,3 +55,44 @@ export default {
   }
 };
 </script>
+<style lang="css" scoped>
+.mt-reply {
+  margin: 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  gap: 10px;
+  border-right: 1px solid #1717171a;
+  border-left: 3px solid rgb(230, 230, 230);
+  width: 100%;
+}
+
+@media (max-width: 580px) {
+  .mt-reply {
+    margin: 10px 0;
+  }
+}
+
+.mt-reply__date {
+  font-weight: normal;
+  font-size: 14px;
+  text-decoration: none;
+  color: #475569;
+  color: #777;
+}
+
+.mt-reply__body {
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.mt-reply__wrapper {
+  display: flex;
+  align-items: center;
+}
+</style>

@@ -1,4 +1,8 @@
-<section id="reviews">
+<section id="martan-widgets">
+  <div class="container" id="<%- options.martanQuestionsTarget || 'questions_widget' %>" data-product="<%- _.state.sku %>" style="min-height: 230px; margin-bottom: 1rem; display: <%- options && options.widget_questions && options.widget_questions.is_enabled
+    ? 'initial' : 'none' %>;">
+  </div>
+
   <div class="container" id="<%- options.martanReviewsTarget || 'reviews_widget' %>" data-product="<%- _.state.sku %>" style="margin-bottom: 1rem; display: <%- options && options.widget_rating && options.widget_rating.is_enabled
     ? 'initial' : 'none' %>;">
   </div>

@@ -39,8 +39,8 @@
 </template>
 
 <script>
-import { getWidth } from './../../utils/get-width'
-import { numberToText } from './../../utils/textToNumber'
+import { getWidth } from './../../../utils/get-width'
+import { numberToText } from './../../../utils/textToNumber'
 
 export default {
   name: 'Score',
@@ -106,7 +106,7 @@ export default {
           }
         });
       }
-
+      this.$emit('updateOrderByAverage', { rating })
       this.$parent.$emit('updateOrderByAverage', { rating })
     },
   },
@@ -160,7 +160,6 @@ export default {
   margin: 0;
   list-style: none;
   padding: 0;
-  max-width: 800px;
   width: 100%;
 }
 
