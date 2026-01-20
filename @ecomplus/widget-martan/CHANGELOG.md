@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-martan@1.1.24...@ecomplus/widget-martan@1.2.0) (2026-01-20)
+
+### Features
+
+- **widget-martan:** add new widget configuration to CMS settings ([35c5b1c](https://github.com/ecomplus/storefront/commit/35c5b1cc77e9908d7168a28847872cfe1e776ae4))
+
 ## [1.1.24](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-martan@1.1.23...@ecomplus/widget-martan@1.1.24) (2025-09-02)
 
 **Note:** Version bump only for package @ecomplus/widget-martan

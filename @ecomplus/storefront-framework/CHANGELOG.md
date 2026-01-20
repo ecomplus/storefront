@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.20.60](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.59...@ecomplus/storefront-framework@5.20.60) (2026-01-20)
+
+### Bug Fixes
+
+- **deps:** update all non-major dependencies ([#1191](https://github.com/ecomplus/storefront/issues/1191)) ([16ce03b](https://github.com/ecomplus/storefront/commit/16ce03b9a452861099eeb61954e5d22145985627))
+- **deps:** update all non-major dependencies ([#1194](https://github.com/ecomplus/storefront/issues/1194)) ([ace49ae](https://github.com/ecomplus/storefront/commit/ace49aedaff5be03d0500c467872581d580a71be))
+- **deps:** update all non-major dependencies ([#1197](https://github.com/ecomplus/storefront/issues/1197)) ([94ebb9b](https://github.com/ecomplus/storefront/commit/94ebb9b1c0dac0832ecb28f758f01d3d1e72bcfa))
+- **deps:** update all non-major dependencies ([#1204](https://github.com/ecomplus/storefront/issues/1204)) ([9096374](https://github.com/ecomplus/storefront/commit/9096374b535a07086b0f6a7553636decb6e735d2))
+- **deps:** update all non-major dependencies ([#1206](https://github.com/ecomplus/storefront/issues/1206)) ([08bbe19](https://github.com/ecomplus/storefront/commit/08bbe19c5057a442ad6553b86976c0586a44ad56))
+- **deps:** update all non-major dependencies ([#1211](https://github.com/ecomplus/storefront/issues/1211)) ([69ec07f](https://github.com/ecomplus/storefront/commit/69ec07fcb4aaa538782df67ac665d43fc8a9e090))
+- **deps:** update all non-major dependencies ([#1213](https://github.com/ecomplus/storefront/issues/1213)) ([ae20182](https://github.com/ecomplus/storefront/commit/ae201821f68c4e8b658f0a890ad589c6a1bdd319))
+- **deps:** update all non-major dependencies to ^7.28.5 ([#1189](https://github.com/ecomplus/storefront/issues/1189)) ([dd19187](https://github.com/ecomplus/storefront/commit/dd191872518d248c816f4c0b51eaa51d1fba14dd))
+
 ## [5.20.59](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.58...@ecomplus/storefront-framework@5.20.59) (2025-10-16)
 
 ### Bug Fixes
