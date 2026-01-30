@@ -19,6 +19,8 @@
 
 __*__/tmp
 
+.clauderc
+
 # Yarn lockfile (in favor of npm)
 yarn.lock
 
