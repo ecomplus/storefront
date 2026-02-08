@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.193](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.192...@ecomplus/storefront-components@1.0.0-beta.193) (2026-02-08)
+
+### Bug Fixes
+
+- **components/discount-applier:** update alert key to react on coupon applied state ([ae9a958](https://github.com/ecomplus/storefront/commit/ae9a95857ce352af6a650a8d4ea47710c72a1441))
+
 # [1.0.0-beta.192](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.191...@ecomplus/storefront-components@1.0.0-beta.192) (2026-01-20)
 
 ### Bug Fixes
