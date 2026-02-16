@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.194](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.193...@ecomplus/storefront-components@1.0.0-beta.194) (2026-02-16)
+
+### Bug Fixes
+
+- **components/address-form:** switch CEP API to BrasilAPI with viaCEP fallback ([6d2a356](https://github.com/ecomplus/storefront/commit/6d2a356f47c3486925e637c491a968f212e371e9))
+
 # [1.0.0-beta.193](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-components@1.0.0-beta.192...@ecomplus/storefront-components@1.0.0-beta.193) (2026-02-08)
 
 ### Bug Fixes
