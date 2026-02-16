@@ -113,37 +113,55 @@ export default {
       }
     },
 
-    fetchAddressInfo (zipCode, isRetry = false) {
+    setAddressFields (zipCode, fields) {
+      if (zipCode === this.localAddress.zip) {
+        fields.forEach(([field, value]) => {
+          this.$set(this.localAddress, field, value || '')
+          this.$set(this.addressFromZip, field, Boolean(value))
+        })
+        this.$nextTick(() => {
+          setTimeout(() => {
+            if (this.$refs.inputNumber) {
+              this.$refs.inputNumber.select()
+            }
+          }, 300)
+        })
+      }
+    },
+
+    fetchAddressInfo (zipCode) {
       if (zipCode === this.localAddress.zip) {
         this.zipLoading = zipCode
-        axios.get(`https://viacep.com.br/ws/${zipCode}/json/`, { timeout: 4000 })
+        axios.get(`https://brasilapi.com.br/api/cep/v2/${zipCode}`, { timeout: 4000 })
           .then(({ data }) => {
-            if (!data.erro && zipCode === this.localAddress.zip) {
-              ;[
-                ['province_code', data.uf],
-                ['city', data.localidade],
-                ['borough', data.bairro],
-                ['street', data.logradouro]
-              ].forEach(([field, value]) => {
-                this.$set(this.localAddress, field, value || '')
-                this.$set(this.addressFromZip, field, Boolean(value))
-              })
-              this.$nextTick(() => {
-                setTimeout(() => {
-                  if (this.$refs.inputNumber) {
-                    this.$refs.inputNumber.select()
-                  }
-                }, 300)
-              })
-            }
+            this.setAddressFields(zipCode, [
+              ['province_code', data.state],
+              ['city', data.city],
+              ['borough', data.neighborhood],
+              ['street', data.street]
+            ])
           })
           .catch(err => {
             console.error(err)
-            if (!isRetry) {
-              setTimeout(() => {
-                this.fetchAddressInfo(zipCode, true)
-              }, 300)
-            }
+            setTimeout(() => {
+              axios.get(`https://viacep.com.br/ws/${zipCode}/json/`, { timeout: 4000 })
+                .then(({ data }) => {
+                  if (!data.erro) {
+                    this.setAddressFields(zipCode, [
+                      ['province_code', data.uf],
+                      ['city', data.localidade],
+                      ['borough', data.bairro],
+                      ['street', data.logradouro]
+                    ])
+                  }
+                })
+                .catch(e => console.error(e))
+                .finally(() => {
+                  if (zipCode === this.zipLoading) {
+                    this.zipLoading = null
+                  }
+                })
+            }, 300)
           })
           .finally(() => {
             if (zipCode === this.zipLoading) {
