@@ -11,7 +11,7 @@ export const getProductData = item => {
   const productData = {
     name,
     id: item.sku,
-    price: getPrice(item).toFixed(2)
+    price: parseFloat(getPrice(item).toFixed(2))
   }
   if (variants && variants.length) {
     productData.variant = variants.join(' / ')

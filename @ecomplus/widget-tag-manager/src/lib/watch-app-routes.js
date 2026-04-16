@@ -71,18 +71,18 @@ export default dataLayer => {
           const { amount } = order || window.storefrontApp
           const actionField = {
             id: orderId,
-            revenue: (
+            revenue: parseFloat((
               (amount && amount.total) ||
               (ecomCart.data && ecomCart.data.subtotal) ||
               0
-            ).toFixed(2)
+            ).toFixed(2))
           }
           if (amount) {
             if (amount.freight !== undefined) {
-              actionField.shipping = amount.freight.toFixed(2)
+              actionField.shipping = parseFloat(amount.freight.toFixed(2))
             }
             if (amount.tax !== undefined) {
-              actionField.tax = amount.tax.toFixed(2)
+              actionField.tax = parseFloat(amount.tax.toFixed(2))
             }
           }
 
