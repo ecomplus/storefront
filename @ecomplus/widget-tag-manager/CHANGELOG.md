@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.7](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.11.6...@ecomplus/widget-tag-manager@1.11.7) (2026-04-17)
+
+### Bug Fixes
+
+- **widget-tag-manager:** send price fields as float to GTM dataLayer ([#1255](https://github.com/ecomplus/storefront/issues/1255)) ([12a65a2](https://github.com/ecomplus/storefront/commit/12a65a2c337df54f09f566964779a9ce66fa25d7))
+
 ## [1.11.6](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-tag-manager@1.11.5...@ecomplus/widget-tag-manager@1.11.6) (2024-11-23)
 
 ### Bug Fixes
