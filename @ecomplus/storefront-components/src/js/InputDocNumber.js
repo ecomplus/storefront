@@ -22,37 +22,40 @@ export default {
       type: [String, Number],
       required: true
     },
-    isCompany: Boolean
+    isCompany: Boolean,
+    allowBoth: Boolean
   },
 
   computed: {
     placeholder () {
-      return countryCode === 'BR'
-        ? this.isCompany
-          ? 'CNPJ'
-          : 'CPF'
-        : i18n(i19docNumber)
+      if (countryCode === 'BR') {
+        if (this.allowBoth) return 'CPF / CNPJ'
+        return this.isCompany ? 'CNPJ' : 'CPF'
+      }
+      return i18n(i19docNumber)
     },
 
     pattern () {
       if (countryCode === 'BR') {
-        if (this.isCompany) {
-          return '[\\d]{2}\\..{15}'
-        } else {
-          return '[\\d]{3}\\..{10}'
-        }
+        if (this.allowBoth) return '[\\d]{11}|[\\d]{14}'
+        if (this.isCompany) return '[\\d]{2}\\..{15}'
+        return '[\\d]{3}\\..{10}'
       }
       return '[\\d]+{9,19}'
     },
 
     isInvalid () {
       if (countryCode === 'BR') {
-        const docNumber = this.localValue.toString().replace(/D/g, '')
+        const docNumber = this.localValue.toString().replace(/\D/g, '')
+        if (this.allowBoth) {
+          if (docNumber.length === 11) return !validateCPF(this.localValue)
+          if (docNumber.length === 14) return !validateCNPJ(this.localValue)
+          return false
+        }
+        const docNumberLegacy = this.localValue.toString().replace(/D/g, '')
         if (this.isCompany) {
-          if (docNumber.length === 14) {
-            return !validateCNPJ(this.localValue)
-          }
-        } else if (docNumber.length === 11) {
+          if (docNumberLegacy.length === 14) return !validateCNPJ(this.localValue)
+        } else if (docNumberLegacy.length === 11) {
           return !validateCPF(this.localValue)
         }
       }
@@ -69,6 +72,7 @@ export default {
     },
 
     cleaveOptions () {
+      if (this.allowBoth) return { blocks: [30] }
       return countryCode === 'BR'
         ? this.isCompany
           ? { blocks: [2, 3, 3, 4, 2], delimiters: ['.', '.', '/', '-'] }
