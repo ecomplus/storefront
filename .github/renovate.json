@@ -10,9 +10,6 @@
   "dependencyDashboard": true,
   "packageRules": [
     {
-      "matchPackagePatterns": [
-        "*"
-      ],
       "excludePackagePatterns": [
         "node",
         "vue",
