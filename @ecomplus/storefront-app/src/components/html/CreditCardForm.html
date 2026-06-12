@@ -135,7 +135,7 @@
         </label>
         <input-doc-number
           id="credit-card-doc"
-          :is-company="isCompany"
+          :allow-both="true"
           v-model="card.doc"
           :required="isPayerDocRequired"
         />
