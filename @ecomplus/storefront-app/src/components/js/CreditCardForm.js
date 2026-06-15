@@ -59,6 +59,12 @@ export default {
       default () {
         return window.ecomCreditCardDocRequired === true
       }
+    },
+    cardDocAllowBoth: {
+      type: Boolean,
+      default () {
+        return window.ecomCreditCardDocAllowBoth === true
+      }
     }
   },
 
