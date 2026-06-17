@@ -16,7 +16,7 @@
       "message": "chore(release): publish :tada: [skip ci]"
     },
     "publish": {
-      "registry": "https://registry.npmjs.org"
+      "registry": "https://npm.pkg.github.com"
     }
   },
   "ignoreChanges": [
