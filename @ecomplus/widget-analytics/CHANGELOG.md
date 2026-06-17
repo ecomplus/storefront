@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.21](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-analytics@1.3.20...@ecomplus/widget-analytics@1.3.21) (2026-04-17)
+
+**Note:** Version bump only for package @ecomplus/widget-analytics
+
 ## [1.3.20](https://github.com/ecomplus/storefront/compare/@ecomplus/widget-analytics@1.3.19...@ecomplus/widget-analytics@1.3.20) (2024-11-23)
 
 **Note:** Version bump only for package @ecomplus/widget-analytics
