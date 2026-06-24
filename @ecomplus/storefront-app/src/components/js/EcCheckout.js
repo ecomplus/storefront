@@ -18,6 +18,7 @@ import {
 } from '@ecomplus/utils'
 
 import ecomCart from '@ecomplus/shopping-cart'
+import ecomPassport from '@ecomplus/passport-client'
 import scrollToElement from '#components/js/helpers/scroll-to-element'
 import baseModulesRequestData from '../../lib/base-modules-request-data'
 import DiscountApplier from '#components/DiscountApplier.vue'
@@ -148,7 +149,7 @@ export default {
       checkoutAppId: 1,
       toCheckoutStep: this.checkoutStep,
       customerEmail: this.customer.main_email,
-      isUserIdentified: Boolean(this.customer.main_email),
+      isUserIdentified: Boolean(this.customer.main_email) && ecomPassport.checkLogin(),
       editAccount: false,
       editShippingService: !this.shippingService,
       localZipCode: this.shippingZipCode,
@@ -389,6 +390,9 @@ export default {
     'customer.main_email' (email) {
       if (email) {
         this.customerEmail = email
+      } else {
+        this.customerEmail = ''
+        this.isUserIdentified = false
       }
     },
 
