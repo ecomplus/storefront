@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.227](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.226...@ecomplus/storefront-app@2.0.0-beta.227) (2026-07-03)
+
+### Bug Fixes
+
+- **checkout:** skip AccountForm when passport session is invalid ([#1290](https://github.com/ecomplus/storefront/issues/1290)) ([572873b](https://github.com/ecomplus/storefront/commit/572873b000156a68ad108b81c7cf9586ea281d6d))
+
 # [2.0.0-beta.226](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.225...@ecomplus/storefront-app@2.0.0-beta.226) (2026-06-17)
 
 **Note:** Version bump only for package @ecomplus/storefront-app
