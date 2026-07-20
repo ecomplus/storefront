@@ -461,6 +461,66 @@ export default ({ state }) => [
     ]
   },
   {
+    label: 'Grid de avaliações',
+    name: 'review-carousel',
+    widget: 'object',
+    icon: 'https://api.iconify.design/bi:grid.svg',
+    fields: [
+      {
+        label: 'Avaliações',
+        name: 'reviews',
+        widget: 'list',
+        fields: [
+          {
+            label: 'Imagem',
+            name: 'img',
+            required: false,
+            widget: 'image',
+            media_library: {
+              config: {
+                max_file_size: Math.max(window.CMS_MAX_FILE_SIZE || 0, 1000000)
+              }
+            }
+          },
+          {
+            label: 'Nome',
+            required: false,
+            name: 'nome',
+            widget: 'string'
+          },
+          {
+            label: 'Cidade',
+            required: false,
+            name: 'cidade',
+            widget: 'string'
+          },
+          {
+            label: 'Texto da avaliação',
+            required: false,
+            name: 'texto',
+            widget: 'text'
+          }
+        ]
+      },
+      {
+        label: 'Título da seção',
+        required: false,
+        name: 'title',
+        widget: 'string'
+      },
+      {
+        label: 'Carousel autoplay',
+        required: false,
+        name: 'autoplay',
+        hint: 'Troca automática das avaliações em milisegundos, defina 0 para desabilitar autoplay',
+        min: 0,
+        step: 1000,
+        default: 9000,
+        widget: 'number'
+      }
+    ]
+  },
+  {
     label: 'Breadcrumbs',
     name: 'breadcrumbs',
     widget: 'object',
