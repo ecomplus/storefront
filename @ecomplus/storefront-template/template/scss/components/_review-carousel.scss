@@ -1,0 +1,57 @@
+.reviews {
+  height: unset;
+
+  .products-carousel__title::before {
+    height: 0 !important;
+  }
+
+  .depoimento-box {
+    margin: 0 auto;
+    min-height: 300px;
+    padding: 20px;
+    text-align: center;
+    background: var(--light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 9px -5px rgba(0, 0, 0, .2);
+  }
+
+  .title-client-avk {
+    text-align: center;
+
+    img {
+      max-height: 70px;
+      margin: 0 auto;
+      border: 1px solid var(--secondary);
+      border-radius: 200px;
+    }
+
+    p {
+      width: 100%;
+      margin-top: .5rem;
+      margin-bottom: .25rem;
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+    }
+
+    small {
+      color: var(--secondary);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .depoimento-box {
+      text-align: left;
+    }
+
+    .title-client-avk {
+      position: relative;
+      text-align: left;
+
+      img {
+        display: block;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

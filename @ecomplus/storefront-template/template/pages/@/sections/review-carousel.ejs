@@ -1,0 +1,71 @@
+<%
+const { reviews, title, autoplay } = opt
+
+if (reviews && reviews.length) {
+  %>
+
+  <section class="brands-carousel container reviews">
+    <% if (title) { %>
+      <h4 class="products-carousel__title"><%= title %></h4>
+    <% } %>
+
+    <div
+      class="glide"
+      data-autoplay="<%= autoplay %>"
+      data-per-view="4"
+      data-per-view-md="4"
+      data-per-view-sm="3"
+      data-per-view-xs="1"
+    >
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides brands-carousel__list">
+          <% reviews.forEach(({ nome, cidade, img, texto }) => { %>
+            <li class="glide__slide brands-carousel__item">
+              <div class="depoimento-box">
+                <div class="title-client-avk">
+                  <% if (img) { %>
+                    <img src="<%= img %>" alt="<%= nome %>" loading="lazy" width="50" height="50">
+                  <% } %>
+                  <% if (nome) { %>
+                    <p><%= nome %></p>
+                  <% } %>
+                  <% if (cidade) { %>
+                    <small><%= cidade %></small>
+                  <% } %>
+                </div>
+                <% if (texto) { %>
+                  <h5><%= texto %></h5>
+                <% } %>
+              </div>
+            </li>
+          <% }) %>
+        </ul>
+
+        <% if (reviews.length > 3) { %>
+          <div
+            class="glide__arrows glide__arrows--outer"
+            data-glide-el="controls"
+          >
+            <button
+              class="btn glide__arrow glide__arrow--left"
+              data-glide-dir="<"
+              aria-label="<%= _.dictionary('previous') %>"
+            >
+              <i class="i-arrow-left"></i>
+            </button>
+            <button
+              class="btn glide__arrow glide__arrow--right"
+              data-glide-dir=">"
+              aria-label="<%= _.dictionary('next') %>"
+            >
+              <i class="i-arrow-right"></i>
+            </button>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </section>
+
+  <%
+}
+%>
