@@ -1,15 +1,15 @@
 .bg-primary {
-  background-image: linear-gradient(rgb(54.4, 54.4, 54.4), #222222 60%, rgb(23.8, 23.8, 23.8));
+  background-image: linear-gradient(rgb(21.3333333333%, 21.3333333333%, 21.3333333333%), #222222 60%, rgb(9.3333333333%, 9.3333333333%, 9.3333333333%));
   background-repeat: no-repeat;
 }
 
 .bg-dark {
-  background-image: linear-gradient(rgb(4.0372881356, 80.7457627119, 154.7627118644), #033c73 60%, rgb(2.4813559322, 49.6271186441, 95.1186440678));
+  background-image: linear-gradient(rgb(1.5832502493%, 31.665004985%, 60.6912595547%), #033c73 60%, rgb(0.9730807577%, 19.4616151545%, 37.3014290462%));
   background-repeat: no-repeat;
 }
 
 .bg-light {
-  background-image: linear-gradient(white, #e9ecef 60%, rgb(227.0947368421, 230.9, 234.7052631579));
+  background-image: linear-gradient(white, #e9ecef 60%, rgb(89.0567595459%, 90.5490196078%, 92.0412796698%));
   background-repeat: no-repeat;
 }
 
@@ -23,43 +23,43 @@
 }
 
 .btn-primary {
-  background-image: linear-gradient(rgb(54.4, 54.4, 54.4), #222222 60%, rgb(23.8, 23.8, 23.8));
+  background-image: linear-gradient(rgb(21.3333333333%, 21.3333333333%, 21.3333333333%), #222222 60%, rgb(9.3333333333%, 9.3333333333%, 9.3333333333%));
   background-repeat: no-repeat;
 }
 
 .btn-secondary {
-  background-image: linear-gradient(white, #fff 60%, rgb(244.8, 244.8, 244.8));
+  background-image: linear-gradient(white, #fff 60%, rgb(96%, 96%, 96%));
   background-repeat: no-repeat;
   color: #495057;
 }
 
 .btn-success {
-  background-image: linear-gradient(rgb(135.6133333333, 193.136, 72.664), #73a839 60%, rgb(104.5733333333, 152.768, 51.832));
+  background-image: linear-gradient(rgb(53.1816993464%, 75.7396078431%, 28.4956862745%), #73a839 60%, rgb(41.0091503268%, 59.9090196078%, 20.3262745098%));
   background-repeat: no-repeat;
 }
 
 .btn-info {
-  background-image: linear-gradient(rgb(4.0372881356, 80.7457627119, 154.7627118644), #033c73 60%, rgb(2.4813559322, 49.6271186441, 95.1186440678));
+  background-image: linear-gradient(rgb(1.5832502493%, 31.665004985%, 60.6912595547%), #033c73 60%, rgb(0.9730807577%, 19.4616151545%, 37.3014290462%));
   background-repeat: no-repeat;
 }
 
 .btn-warning {
-  background-image: linear-gradient(rgb(255, 103.3846153846, 6.8), #dd5600 60%, rgb(200.6, 78.0615384615, 0));
+  background-image: linear-gradient(rgb(100%, 40.5429864253%, 2.6666666667%), #dd5600 60%, rgb(78.6666666667%, 30.6123680241%, 0%));
   background-repeat: no-repeat;
 }
 
 .btn-danger {
-  background-image: linear-gradient(rgb(225.1251101322, 42.6748898678, 49.0766519824), #c71c22 60%, rgb(181.1162995595, 25.4837004405, 30.9444933921));
+  background-image: linear-gradient(rgb(88.2843569146%, 16.7352509286%, 19.2457458754%), #c71c22 60%, rgb(71.0259998272%, 9.9936080159%, 12.1350954479%));
   background-repeat: no-repeat;
 }
 
 .btn-light {
-  background-image: linear-gradient(rgb(91.615, 100.4, 109.185), #495057 60%, rgb(63.6925, 69.8, 75.9075));
+  background-image: linear-gradient(rgb(35.9274509804%, 39.3725490196%, 42.8176470588%), #495057 60%, rgb(24.9774509804%, 27.3725490196%, 29.7676470588%));
   background-repeat: no-repeat;
 }
 
 .btn-dark {
-  background-image: linear-gradient(rgb(70.2896551724, 78.4, 86.5103448276), #343a40 60%, rgb(42.8551724138, 47.8, 52.7448275862));
+  background-image: linear-gradient(rgb(27.5645706558%, 30.7450980392%, 33.9256254226%), #343a40 60%, rgb(16.8059499662%, 18.7450980392%, 20.6842461122%));
   background-repeat: no-repeat;
 }
 

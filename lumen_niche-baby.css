@@ -4,16 +4,16 @@
 }
 
 .bg-primary {
-  border-color: rgb(21.25, 21.25, 21.25);
+  border-color: rgb(8.3333333333%, 8.3333333333%, 8.3333333333%);
 }
 
 .bg-dark {
-  border-color: rgb(72.25, 72.25, 72.25);
+  border-color: rgb(28.3333333333%, 28.3333333333%, 28.3333333333%);
 }
 
 .bg-light {
   background-color: #fff !important;
-  border-color: rgb(242.25, 242.25, 242.25);
+  border-color: rgb(95%, 95%, 95%);
 }
 
 .btn {
@@ -30,28 +30,28 @@
   border-bottom-width: 2px;
 }
 .btn-primary {
-  border-color: rgb(21.25, 21.25, 21.25);
+  border-color: rgb(8.3333333333%, 8.3333333333%, 8.3333333333%);
 }
 .btn-secondary {
-  border-color: rgb(106.25, 106.25, 106.25);
+  border-color: rgb(41.6666666667%, 41.6666666667%, 41.6666666667%);
 }
 .btn-success {
-  border-color: rgb(35.4054054054, 161.0945945946, 38.9459459459);
+  border-color: rgb(13.884472708%, 63.1743508214%, 15.2729199788%);
 }
 .btn-info {
-  border-color: rgb(94.7278481013, 193.4462025316, 231.7721518987);
+  border-color: rgb(37.148175726%, 75.8612558948%, 90.8910399603%);
 }
 .btn-danger {
-  border-color: rgb(255, 40.8955223881, 28.5);
+  border-color: rgb(100%, 16.03745976%, 11.1764705882%);
 }
 .btn-warning {
-  border-color: rgb(255, 119.3552631579, 1.5);
+  border-color: rgb(100%, 46.8059855521%, 0.5882352941%);
 }
 .btn-light {
-  border-color: rgb(233.25, 233.25, 233.25);
+  border-color: rgb(91.4705882353%, 91.4705882353%, 91.4705882353%);
 }
 .btn-dark {
-  border-color: rgb(72.25, 72.25, 72.25);
+  border-color: rgb(28.3333333333%, 28.3333333333%, 28.3333333333%);
 }
 
 [class*=btn-outline] {
@@ -134,42 +134,42 @@
 .table-hover .table-primary:hover,
 .table-hover .table-primary:hover > th,
 .table-hover .table-primary:hover > td {
-  background-color: rgb(21.25, 21.25, 21.25);
+  background-color: rgb(8.3333333333%, 8.3333333333%, 8.3333333333%);
 }
 .table-hover .table-secondary:hover,
 .table-hover .table-secondary:hover > th,
 .table-hover .table-secondary:hover > td {
-  background-color: rgb(106.25, 106.25, 106.25);
+  background-color: rgb(41.6666666667%, 41.6666666667%, 41.6666666667%);
 }
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
 .table-hover .table-light:hover > td {
-  background-color: rgb(233.25, 233.25, 233.25);
+  background-color: rgb(91.4705882353%, 91.4705882353%, 91.4705882353%);
 }
 .table-hover .table-dark:hover,
 .table-hover .table-dark:hover > th,
 .table-hover .table-dark:hover > td {
-  background-color: rgb(72.25, 72.25, 72.25);
+  background-color: rgb(28.3333333333%, 28.3333333333%, 28.3333333333%);
 }
 .table-hover .table-success:hover,
 .table-hover .table-success:hover > th,
 .table-hover .table-success:hover > td {
-  background-color: rgb(35.4054054054, 161.0945945946, 38.9459459459);
+  background-color: rgb(13.884472708%, 63.1743508214%, 15.2729199788%);
 }
 .table-hover .table-info:hover,
 .table-hover .table-info:hover > th,
 .table-hover .table-info:hover > td {
-  background-color: rgb(94.7278481013, 193.4462025316, 231.7721518987);
+  background-color: rgb(37.148175726%, 75.8612558948%, 90.8910399603%);
 }
 .table-hover .table-danger:hover,
 .table-hover .table-danger:hover > th,
 .table-hover .table-danger:hover > td {
-  background-color: rgb(255, 40.8955223881, 28.5);
+  background-color: rgb(100%, 16.03745976%, 11.1764705882%);
 }
 .table-hover .table-warning:hover,
 .table-hover .table-warning:hover > th,
 .table-hover .table-warning:hover > td {
-  background-color: rgb(255, 119.3552631579, 1.5);
+  background-color: rgb(100%, 46.8059855521%, 0.5882352941%);
 }
 .table-hover .table-active:hover,
 .table-hover .table-active:hover > th,
@@ -287,35 +287,35 @@
 }
 .alert-primary {
   background-color: #222222;
-  border-color: rgb(21.25, 21.25, 21.25);
+  border-color: rgb(8.3333333333%, 8.3333333333%, 8.3333333333%);
 }
 .alert-secondary {
   background-color: #777777;
-  border-color: rgb(106.25, 106.25, 106.25);
+  border-color: rgb(41.6666666667%, 41.6666666667%, 41.6666666667%);
 }
 .alert-success {
   background-color: #28b62c;
-  border-color: rgb(35.4054054054, 161.0945945946, 38.9459459459);
+  border-color: rgb(13.884472708%, 63.1743508214%, 15.2729199788%);
 }
 .alert-info {
   background-color: #75caeb;
-  border-color: rgb(94.7278481013, 193.4462025316, 231.7721518987);
+  border-color: rgb(37.148175726%, 75.8612558948%, 90.8910399603%);
 }
 .alert-danger {
   background-color: #ff4136;
-  border-color: rgb(255, 40.8955223881, 28.5);
+  border-color: rgb(100%, 16.03745976%, 11.1764705882%);
 }
 .alert-warning {
   background-color: #ff851b;
-  border-color: rgb(255, 119.3552631579, 1.5);
+  border-color: rgb(100%, 46.8059855521%, 0.5882352941%);
 }
 .alert-dark {
   background-color: #555;
-  border-color: rgb(72.25, 72.25, 72.25);
+  border-color: rgb(28.3333333333%, 28.3333333333%, 28.3333333333%);
 }
 .alert-light {
   background-color: #f6f6f6;
-  border-color: rgb(233.25, 233.25, 233.25);
+  border-color: rgb(91.4705882353%, 91.4705882353%, 91.4705882353%);
 }
 .alert .alert-link {
   font-weight: 400;
@@ -338,19 +338,19 @@ a.list-group-item-success.active {
   background-color: #28b62c;
 }
 a.list-group-item-success.active:hover, a.list-group-item-success.active:focus {
-  background-color: rgb(35.4054054054, 161.0945945946, 38.9459459459);
+  background-color: rgb(13.884472708%, 63.1743508214%, 15.2729199788%);
 }
 a.list-group-item-warning.active {
   background-color: #ff851b;
 }
 a.list-group-item-warning.active:hover, a.list-group-item-warning.active:focus {
-  background-color: rgb(255, 119.3552631579, 1.5);
+  background-color: rgb(100%, 46.8059855521%, 0.5882352941%);
 }
 a.list-group-item-danger.active {
   background-color: #ff4136;
 }
 a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
-  background-color: rgb(255, 40.8955223881, 28.5);
+  background-color: rgb(100%, 16.03745976%, 11.1764705882%);
 }
 
 .jumbotron {

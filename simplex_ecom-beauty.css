@@ -18,31 +18,31 @@
 
 .bg-primary {
   background-color: #222222 !important;
-  border-color: rgb(17.425, 17.425, 17.425) !important;
+  border-color: rgb(6.8333333333%, 6.8333333333%, 6.8333333333%) !important;
 }
 
 .bg-dark {
-  border-color: rgb(39.1456521739, 41.2808695652, 42.7043478261) !important;
+  border-color: rgb(15.3512361466%, 16.1885763001%, 16.7468030691%) !important;
 }
 
 .bg-light {
-  border-color: rgb(238.425, 238.425, 238.425);
+  border-color: rgb(93.5%, 93.5%, 93.5%);
 }
 
 .btn-primary,
 .btn-primary:hover {
-  background-image: linear-gradient(rgb(41.65, 41.65, 41.65), #222222 6%, rgb(26.35, 26.35, 26.35));
+  background-image: linear-gradient(rgb(16.3333333333%, 16.3333333333%, 16.3333333333%), #222222 6%, rgb(10.3333333333%, 10.3333333333%, 10.3333333333%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(17.425, 17.425, 17.425);
+  border: 1px solid rgb(6.8333333333%, 6.8333333333%, 6.8333333333%);
 }
 
 .btn-secondary,
 .btn-secondary:hover {
-  background-image: linear-gradient(rgb(126.65, 126.65, 126.65), #777777 6%, rgb(111.35, 111.35, 111.35));
+  background-image: linear-gradient(rgb(49.6666666667%, 49.6666666667%, 49.6666666667%), #777777 6%, rgb(43.6666666667%, 43.6666666667%, 43.6666666667%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(102.425, 102.425, 102.425);
+  border: 1px solid rgb(40.1666666667%, 40.1666666667%, 40.1666666667%);
 }
 
 .btn-secondary:focus,
@@ -53,50 +53,50 @@
 
 .btn-success,
 .btn-success:hover {
-  background-image: linear-gradient(rgb(76.8653846154, 162.5153846154, 8.7846153846), #469408 6%, rgb(63.1346153846, 133.4846153846, 7.2153846154));
+  background-image: linear-gradient(rgb(30.1432880845%, 63.7315233786%, 3.4449472097%), #469408 6%, rgb(24.7586726998%, 52.346907994%, 2.8295625943%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(55.125, 116.55, 6.3);
+  border: 1px solid rgb(21.6176470588%, 45.7058823529%, 2.4705882353%);
 }
 
 .btn-info,
 .btn-info:hover {
-  background-image: linear-gradient(rgb(2.1464114833, 165.2736842105, 222.1535885167), #029acf 6%, rgb(1.8535885167, 142.7263157895, 191.8464114833));
+  background-image: linear-gradient(rgb(0.8417299934%, 64.8132094943%, 87.1190543203%), #029acf 6%, rgb(0.7268974575%, 55.9711042312%, 75.2338868562%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(1.6827751196, 129.5736842105, 174.1672248804);
+  border: 1px solid rgb(0.6599118116%, 50.8132094943%, 68.3008725021%);
 }
 
 .btn-warning,
 .btn-warning:hover {
-  background-image: linear-gradient(rgb(224.1625, 138.6133064516, 39.1375), #d9831f 6%, rgb(203.6125, 122.9181451613, 29.0875));
+  background-image: linear-gradient(rgb(87.9068627451%, 54.3581593928%, 15.3480392157%), #d9831f 6%, rgb(79.8480392157%, 48.2031941809%, 11.4068627451%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(187.99375, 113.4893145161, 26.85625);
+  border: 1px solid rgb(73.7230392157%, 44.5056135357%, 10.5318627451%);
 }
 
 .btn-danger,
 .btn-danger:hover {
-  background-image: linear-gradient(rgb(165.3108695652, 75.7230434783, 169.5769565217), #9b479f 6%, rgb(144.6891304348, 66.2769565217, 148.4230434783));
+  background-image: linear-gradient(rgb(64.8277919864%, 29.6953111679%, 66.5007672634%), #9b479f 6%, rgb(56.7408354646%, 25.9909633419%, 58.2051150895%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(132.6597826087, 60.7667391304, 136.0832608696);
+  border: 1px solid rgb(52.0234441603%, 23.8300937766%, 53.3659846547%);
 }
 
 .btn-dark,
 .btn-dark:hover {
-  background-image: linear-gradient(rgb(62.3173913043, 65.7165217391, 67.9826086957), #373a3c 6%, rgb(47.6826086957, 50.2834782609, 52.0173913043));
+  background-image: linear-gradient(rgb(24.4381926684%, 25.7711849957%, 26.6598465473%), #373a3c 6%, rgb(18.6990622336%, 19.7190110827%, 20.3989769821%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(39.1456521739, 41.2808695652, 42.7043478261);
+  border: 1px solid rgb(15.3512361466%, 16.1885763001%, 16.7468030691%);
 }
 
 .btn-light,
 .btn-light:hover {
-  background-image: linear-gradient(white, #fff 6%, rgb(247.35, 247.35, 247.35));
+  background-image: linear-gradient(white, #fff 6%, rgb(97%, 97%, 97%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(238.425, 238.425, 238.425);
+  border: 1px solid rgb(93.5%, 93.5%, 93.5%);
 }
 
 .btn-outline-secondary {
@@ -113,7 +113,7 @@
 }
 
 .breadcrumb {
-  border: 1px solid rgb(238.425, 238.425, 238.425);
+  border: 1px solid rgb(93.5%, 93.5%, 93.5%);
 }
 
 .pagination .page-link:hover {

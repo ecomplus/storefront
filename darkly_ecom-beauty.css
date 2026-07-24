@@ -56,42 +56,42 @@
 .table-hover .table-primary:hover,
 .table-hover .table-primary:hover > th,
 .table-hover .table-primary:hover > td {
-  background-color: rgb(21.25, 21.25, 21.25);
+  background-color: rgb(8.3333333333%, 8.3333333333%, 8.3333333333%);
 }
 .table-hover .table-secondary:hover,
 .table-hover .table-secondary:hover > th,
 .table-hover .table-secondary:hover > td {
-  background-color: rgb(106.25, 106.25, 106.25);
+  background-color: rgb(41.6666666667%, 41.6666666667%, 41.6666666667%);
 }
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
 .table-hover .table-light:hover > td {
-  background-color: rgb(225.25, 225.25, 225.25);
+  background-color: rgb(88.3333333333%, 88.3333333333%, 88.3333333333%);
 }
 .table-hover .table-dark:hover,
 .table-hover .table-dark:hover > th,
 .table-hover .table-dark:hover > td {
-  background-color: rgb(35.25, 35.25, 35.25);
+  background-color: rgb(13.8235294118%, 13.8235294118%, 13.8235294118%);
 }
 .table-hover .table-success:hover,
 .table-hover .table-success:hover > th,
 .table-hover .table-success:hover > td {
-  background-color: rgb(0, 162.5, 121.0106382979);
+  background-color: rgb(0%, 63.7254901961%, 47.4551522737%);
 }
 .table-hover .table-info:hover,
 .table-hover .table-info:hover > th,
 .table-hover .table-info:hover > td {
-  background-color: rgb(36.9790794979, 139.6987447699, 208.5209205021);
+  background-color: rgb(14.5015998031%, 54.7838214784%, 81.7729100008%);
 }
 .table-hover .table-danger:hover,
 .table-hover .table-danger:hover > th,
 .table-hover .table-danger:hover > td {
-  background-color: rgb(228.2054794521, 55.1575342466, 37.2945205479);
+  background-color: rgb(89.4923448832%, 21.6304055869%, 14.6253021757%);
 }
 .table-hover .table-warning:hover,
 .table-hover .table-warning:hover > th,
 .table-hover .table-warning:hover > td {
-  background-color: rgb(224.1506024096, 141.8674698795, 11.3493975904);
+  background-color: rgb(87.9021970234%, 55.6343019135%, 4.4507441531%);
 }
 .table-hover .table-active:hover,
 .table-hover .table-active:hover > th,

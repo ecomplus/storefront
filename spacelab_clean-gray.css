@@ -4,22 +4,22 @@
   transition: color ease-in-out 0.2s;
 }
 .navbar.bg-primary {
-  background-image: linear-gradient(rgb(72.25, 72.25, 72.25), #222222 50%, rgb(23.8, 23.8, 23.8));
+  background-image: linear-gradient(rgb(28.3333333333%, 28.3333333333%, 28.3333333333%), #222222 50%, rgb(9.3333333333%, 9.3333333333%, 9.3333333333%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(8.5, 8.5, 8.5);
+  border: 1px solid rgb(3.3333333333%, 3.3333333333%, 3.3333333333%);
 }
 .navbar.bg-dark {
-  background-image: linear-gradient(rgb(86.2931034483, 96.25, 106.2068965517), #343a40 50%, rgb(42.8551724138, 47.8, 52.7448275862));
+  background-image: linear-gradient(rgb(33.8404327248%, 37.7450980392%, 41.6497633536%), #343a40 50%, rgb(16.8059499662%, 18.7450980392%, 20.6842461122%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(29.1379310345, 32.5, 35.8620689655);
+  border: 1px solid rgb(11.4266396214%, 12.7450980392%, 14.0635564571%);
 }
 .navbar.bg-light {
-  background-image: linear-gradient(white, #eee 50%, rgb(227.8, 227.8, 227.8));
+  background-image: linear-gradient(white, #eee 50%, rgb(89.3333333333%, 89.3333333333%, 89.3333333333%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(212.5, 212.5, 212.5);
+  border: 1px solid rgb(83.3333333333%, 83.3333333333%, 83.3333333333%);
 }
 .navbar.bg-light .nav-link,
 .navbar.bg-light .navbar-brand {
@@ -40,115 +40,115 @@
 }
 
 .btn-primary {
-  background-image: linear-gradient(rgb(72.25, 72.25, 72.25), #222222 50%, rgb(23.8, 23.8, 23.8));
+  background-image: linear-gradient(rgb(28.3333333333%, 28.3333333333%, 28.3333333333%), #222222 50%, rgb(9.3333333333%, 9.3333333333%, 9.3333333333%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(8.5, 8.5, 8.5);
+  border: 1px solid rgb(3.3333333333%, 3.3333333333%, 3.3333333333%);
 }
 
 .btn-primary:not(.disabled):hover {
-  background-image: linear-gradient(rgb(62.05, 62.05, 62.05), rgb(23.8, 23.8, 23.8) 50%, rgb(13.6, 13.6, 13.6));
+  background-image: linear-gradient(rgb(24.3333333333%, 24.3333333333%, 24.3333333333%), rgb(9.3333333333%, 9.3333333333%, 9.3333333333%) 50%, rgb(5.3333333333%, 5.3333333333%, 5.3333333333%));
   background-repeat: no-repeat;
   filter: none;
   border: 1px solid black;
 }
 
 .btn-secondary {
-  background-image: linear-gradient(rgb(86.2931034483, 96.25, 106.2068965517), #343a40 50%, rgb(42.8551724138, 47.8, 52.7448275862));
+  background-image: linear-gradient(rgb(33.8404327248%, 37.7450980392%, 41.6497633536%), #343a40 50%, rgb(16.8059499662%, 18.7450980392%, 20.6842461122%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(29.1379310345, 32.5, 35.8620689655);
+  border: 1px solid rgb(11.4266396214%, 12.7450980392%, 14.0635564571%);
 }
 
 .btn-secondary:not(.disabled):hover {
-  background-image: linear-gradient(rgb(77.1482758621, 86.05, 94.9517241379), rgb(42.8551724138, 47.8, 52.7448275862) 50%, rgb(33.7103448276, 37.6, 41.4896551724));
+  background-image: linear-gradient(rgb(30.2542258283%, 33.7450980392%, 37.2359702502%), rgb(16.8059499662%, 18.7450980392%, 20.6842461122%) 50%, rgb(13.2197430696%, 14.7450980392%, 16.2704530088%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(19.9931034483, 22.3, 24.6068965517);
+  border: 1px solid rgb(7.8404327248%, 8.7450980392%, 9.6497633536%);
 }
 
 .btn-success {
-  background-image: linear-gradient(rgb(97.0420560748, 221.1518691589, 69.3481308411), #3cb521 50%, rgb(54.2803738318, 163.7457943925, 29.8542056075));
+  background-image: linear-gradient(rgb(38.0557082646%, 86.7262231996%, 27.1953454279%), #3cb521 50%, rgb(21.2864211105%, 64.2140370167%, 11.7075316108%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(45.7009345794, 137.8644859813, 25.1355140187);
+  border: 1px solid rgb(17.9219351292%, 54.0645043064%, 9.8570643211%);
 }
 
 .btn-success:not(.disabled):hover {
-  background-image: linear-gradient(rgb(82.361682243, 218.0060747664, 52.0939252336), rgb(54.2803738318, 163.7457943925, 29.8542056075) 50%, rgb(48.5607476636, 146.491588785, 26.708411215));
+  background-image: linear-gradient(rgb(32.2986989188%, 85.4925783397%, 20.4289902877%), rgb(21.2864211105%, 64.2140370167%, 11.7075316108%) 50%, rgb(19.0434304563%, 57.4476818765%, 10.473886751%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(39.9813084112, 120.6102803738, 21.9897196262);
+  border: 1px solid rgb(15.678944475%, 47.2981491662%, 8.6234194612%);
 }
 
 .btn-info {
-  background-image: linear-gradient(white, #dee2e6 50%, rgb(210.3931034483, 215.8, 221.2068965517));
+  background-image: linear-gradient(white, #dee2e6 50%, rgb(82.5070993915%, 84.6274509804%, 86.7478025693%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(192.9827586207, 200.5, 208.0172413793);
+  border: 1px solid rgb(75.6795131846%, 78.6274509804%, 81.5753887762%);
 }
 
 .btn-info:not(.disabled):hover {
-  background-image: linear-gradient(rgb(253.9189655172, 254.05, 254.1810344828), rgb(210.3931034483, 215.8, 221.2068965517) 50%, rgb(198.7862068966, 205.6, 212.4137931034));
+  background-image: linear-gradient(rgb(99.5760649087%, 99.6274509804%, 99.6788370521%), rgb(82.5070993915%, 84.6274509804%, 86.7478025693%) 50%, rgb(77.9553752535%, 80.6274509804%, 83.2995267072%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(181.375862069, 190.3, 199.224137931);
+  border: 1px solid rgb(71.1277890467%, 74.6274509804%, 78.1271129141%);
 }
 
 .btn-warning {
-  background-image: linear-gradient(rgb(255, 155.7429245283, 33.5), #d47500 50%, rgb(191.6, 105.741509434, 0));
+  background-image: linear-gradient(rgb(100%, 61.0756566778%, 13.137254902%), #d47500 50%, rgb(75.137254902%, 41.4672586016%, 0%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(161, 88.8537735849, 0);
+  border: 1px solid rgb(63.137254902%, 34.8446170921%, 0%);
 }
 
 .btn-warning:not(.disabled):hover {
-  background-image: linear-gradient(rgb(255, 146.6014150943, 13.1), rgb(191.6, 105.741509434, 0) 50%, rgb(171.2, 94.4830188679, 0));
+  background-image: linear-gradient(rgb(100%, 57.4907510174%, 5.137254902%), rgb(75.137254902%, 41.4672586016%, 0%) 50%, rgb(67.137254902%, 37.0521642619%, 0%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(140.6, 77.5952830189, 0);
+  border: 1px solid rgb(55.137254902%, 30.4295227525%, 0%);
 }
 
 .btn-danger {
-  background-image: linear-gradient(rgb(255, 28.7292682927, 26.5), #cd0200 50%, rgb(184.6, 1.8009756098, 0));
+  background-image: linear-gradient(rgb(100%, 11.2663797226%, 10.3921568627%), #cd0200 50%, rgb(72.3921568627%, 0.706264945%, 0%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(154, 1.5024390244, 0);
+  border: 1px solid rgb(60.3921568627%, 0.5891917743%, 0%);
 }
 
 .btn-danger:not(.disabled):hover {
-  background-image: linear-gradient(rgb(255, 8.5282926829, 6.1), rgb(184.6, 1.8009756098, 0) 50%, rgb(164.2, 1.6019512195, 0));
+  background-image: linear-gradient(rgb(100%, 3.3444285031%, 2.3921568627%), rgb(72.3921568627%, 0.706264945%, 0%) 50%, rgb(64.3921568627%, 0.6282161645%, 0%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(133.6, 1.3034146341, 0);
+  border: 1px solid rgb(52.3921568627%, 0.5111429938%, 0%);
 }
 
 .btn-light {
-  background-image: linear-gradient(white, #eee 50%, rgb(227.8, 227.8, 227.8));
+  background-image: linear-gradient(white, #eee 50%, rgb(89.3333333333%, 89.3333333333%, 89.3333333333%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(212.5, 212.5, 212.5);
+  border: 1px solid rgb(83.3333333333%, 83.3333333333%, 83.3333333333%);
 }
 
 .btn-light:not(.disabled):hover {
-  background-image: linear-gradient(white, rgb(227.8, 227.8, 227.8) 50%, rgb(217.6, 217.6, 217.6));
+  background-image: linear-gradient(white, rgb(89.3333333333%, 89.3333333333%, 89.3333333333%) 50%, rgb(85.3333333333%, 85.3333333333%, 85.3333333333%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(202.3, 202.3, 202.3);
+  border: 1px solid rgb(79.3333333333%, 79.3333333333%, 79.3333333333%);
 }
 
 .btn-dark {
-  background-image: linear-gradient(rgb(89.25, 89.25, 89.25), #333 50%, rgb(40.8, 40.8, 40.8));
+  background-image: linear-gradient(rgb(35%, 35%, 35%), #333 50%, rgb(16%, 16%, 16%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(25.5, 25.5, 25.5);
+  border: 1px solid rgb(10%, 10%, 10%);
 }
 
 .btn-dark:not(.disabled):hover {
-  background-image: linear-gradient(rgb(79.05, 79.05, 79.05), rgb(40.8, 40.8, 40.8) 50%, rgb(30.6, 30.6, 30.6));
+  background-image: linear-gradient(rgb(31%, 31%, 31%), rgb(16%, 16%, 16%) 50%, rgb(12%, 12%, 12%));
   background-repeat: no-repeat;
   filter: none;
-  border: 1px solid rgb(15.3, 15.3, 15.3);
+  border: 1px solid rgb(6%, 6%, 6%);
 }
 
 [class*=btn-outline-] {

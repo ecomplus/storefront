@@ -101,42 +101,42 @@
 .table-hover .table-primary:hover,
 .table-hover .table-primary:hover > th,
 .table-hover .table-primary:hover > td {
-  background-color: rgb(21.25, 21.25, 21.25);
+  background-color: rgb(8.3333333333%, 8.3333333333%, 8.3333333333%);
 }
 .table-hover .table-secondary:hover,
 .table-hover .table-secondary:hover > th,
 .table-hover .table-secondary:hover > td {
-  background-color: rgb(242.25, 242.25, 242.25);
+  background-color: rgb(95%, 95%, 95%);
 }
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
 .table-hover .table-light:hover > td {
-  background-color: rgb(61.365625, 67.25, 73.134375);
+  background-color: rgb(24.0649509804%, 26.3725490196%, 28.6801470588%);
 }
 .table-hover .table-dark:hover,
 .table-hover .table-dark:hover > th,
 .table-hover .table-dark:hover > td {
-  background-color: rgb(40.5689655172, 45.25, 49.9310344828);
+  background-color: rgb(15.9093982421%, 17.7450980392%, 19.5807978364%);
 }
 .table-hover .table-success:hover,
 .table-hover .table-success:hover > th,
 .table-hover .table-success:hover > td {
-  background-color: rgb(66.4113636364, 198.0886363636, 145.6409090909);
+  background-color: rgb(26.0436720143%, 77.6818181818%, 57.1140819964%);
 }
 .table-hover .table-info:hover,
 .table-hover .table-info:hover > th,
 .table-hover .table-info:hover > td {
-  background-color: rgb(88.1666666667, 186.9047619048, 207.3333333333);
+  background-color: rgb(34.5751633987%, 73.2959850607%, 81.3071895425%);
 }
 .table-hover .table-danger:hover,
 .table-hover .table-danger:hover > th,
 .table-hover .table-danger:hover > td {
-  background-color: rgb(255, 100.2155172414, 55.5);
+  background-color: rgb(100%, 39.3002028398%, 21.7647058824%);
 }
 .table-hover .table-warning:hover,
 .table-hover .table-warning:hover > th,
 .table-hover .table-warning:hover > td {
-  background-color: rgb(255, 197.7796052632, 77.5);
+  background-color: rgb(100%, 77.560629515%, 30.3921568627%);
 }
 .table-hover .table-active:hover,
 .table-hover .table-active:hover > th,

@@ -62,42 +62,42 @@
 .table-hover .table-primary:hover,
 .table-hover .table-primary:hover > th,
 .table-hover .table-primary:hover > td {
-  background-color: rgb(21.25, 21.25, 21.25);
+  background-color: rgb(8.3333333333%, 8.3333333333%, 8.3333333333%);
 }
 .table-hover .table-secondary:hover,
 .table-hover .table-secondary:hover > th,
 .table-hover .table-secondary:hover > td {
-  background-color: rgb(40.5689655172, 45.25, 49.9310344828);
+  background-color: rgb(15.9093982421%, 17.7450980392%, 19.5807978364%);
 }
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > th,
 .table-hover .table-light:hover > td {
-  background-color: rgb(221.3181818182, 228.4090909091, 230.1818181818);
+  background-color: rgb(86.7914438503%, 89.5721925134%, 90.2673796791%);
 }
 .table-hover .table-dark:hover,
 .table-hover .table-dark:hover > th,
 .table-hover .table-dark:hover > td {
-  background-color: rgb(110.6209677419, 124.9254032258, 125.8790322581);
+  background-color: rgb(43.3807716635%, 48.9903542062%, 49.3643263757%);
 }
 .table-hover .table-success:hover,
 .table-hover .table-success:hover > th,
 .table-hover .table-success:hover > td {
-  background-color: rgb(21.1132075472, 165.3867924528, 137.2358490566);
+  background-color: rgb(8.2796892342%, 64.8575656678%, 53.8179800222%);
 }
 .table-hover .table-info:hover,
 .table-hover .table-info:hover > th,
 .table-hover .table-info:hover > td {
-  background-color: rgb(207.4913793103, 213.25, 219.0086206897);
+  background-color: rgb(81.369168357%, 83.6274509804%, 85.8857336038%);
 }
 .table-hover .table-danger:hover,
 .table-hover .table-danger:hover > th,
 .table-hover .table-danger:hover > td {
-  background-color: rgb(228.2054794521, 55.1575342466, 37.2945205479);
+  background-color: rgb(89.4923448832%, 21.6304055869%, 14.6253021757%);
 }
 .table-hover .table-warning:hover,
 .table-hover .table-warning:hover > th,
 .table-hover .table-warning:hover > td {
-  background-color: rgb(224.1506024096, 141.8674698795, 11.3493975904);
+  background-color: rgb(87.9021970234%, 55.6343019135%, 4.4507441531%);
 }
 .table-hover .table-active:hover,
 .table-hover .table-active:hover > th,
