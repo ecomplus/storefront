@@ -96,7 +96,16 @@ const actions = {
           .catch(err => {
             if (!isRetry && ecomPassport.checkAuthorization()) {
               isRetry = true
-              return setTimeout(sendRequest, 1500)
+              let retried = false
+              const doRetry = () => {
+                if (retried) return
+                retried = true
+                ecomPassport.off('login', doRetry)
+                sendRequest()
+              }
+              ecomPassport.on('login', doRetry)
+              setTimeout(doRetry, 5000)
+              return
             } else if (err.response && err.response.status === 401) {
               ecomPassport.logout()
             } else {
