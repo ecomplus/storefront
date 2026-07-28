@@ -24,6 +24,12 @@
       ],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch"
+    },
+    {
+      "matchPackageNames": [
+        "@ecomplus/storefront-template"
+      ],
+      "allowedVersions": "/-beta\\./"
     }
   ]
 }
