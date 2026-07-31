@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.228](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.227...@ecomplus/storefront-app@2.0.0-beta.228) (2026-07-31)
+
+### Bug Fixes
+
+- **app/account:** retry `fetchCustomer` on passport `login` event ([96b9b0b](https://github.com/ecomplus/storefront/commit/96b9b0bf6c5bbe7fe3c1ae7b267e3fdc8dc85d30))
+
 # [2.0.0-beta.227](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.226...@ecomplus/storefront-app@2.0.0-beta.227) (2026-07-03)
 
 ### Bug Fixes
