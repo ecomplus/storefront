@@ -85,8 +85,13 @@ const actions = {
           return
         }
       }
+      const getAccessToken = () => {
+        const { auth } = ecomPassport.session
+        return auth && auth.token && auth.token.access_token
+      }
       let isRetry = false
       const sendRequest = () => {
+        const accessToken = getAccessToken()
         ecomPassport.requestApi('/me.json')
           .then(({ data }) => {
             commit('setCustomer', data)
@@ -94,24 +99,34 @@ const actions = {
             resolve()
           })
           .catch(err => {
+            const isUnauthorized = Boolean(err.response && err.response.status === 401)
             if (!isRetry && ecomPassport.checkAuthorization()) {
               isRetry = true
-              if (err.response && err.response.status === 401) {
-                let retried = false
-                const doRetry = () => {
-                  if (retried) return
-                  retried = true
+              if (isUnauthorized) {
+                // retry once the passport session is renewed, `login` is also
+                // emitted for unauthorized sessions, so check the auth level
+                // and keep waiting when it can't request the API yet
+                const doRetry = isFallback => {
+                  if (!isFallback && !ecomPassport.checkAuthorization()) {
+                    return
+                  }
                   clearTimeout(retryTimer)
                   ecomPassport.off('login', doRetry)
                   sendRequest()
                 }
-                const retryTimer = setTimeout(doRetry, 3000)
-                ecomPassport.on('login', doRetry)
+                const retryTimer = setTimeout(() => doRetry(true), 3000)
+                if (getAccessToken() !== accessToken) {
+                  // session was renewed while the request was in flight,
+                  // the `login` event is already gone
+                  doRetry()
+                } else {
+                  ecomPassport.on('login', doRetry)
+                }
               } else {
                 setTimeout(sendRequest, 1500)
               }
               return
-            } else if (err.response && err.response.status === 401) {
+            } else if (isUnauthorized) {
               ecomPassport.logout()
             } else {
               console.error(err)
