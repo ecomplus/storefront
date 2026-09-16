@@ -307,7 +307,10 @@ export default {
 
     login (ecomPassport) {
       if (ecomPassport.checkLogin()) {
-        this.customerEmail = ecomPassport.getCustomer().main_email
+        // Buyer is identified only after the account is fetched: the
+        // `customer.main_email` watcher sets `customerEmail` then. Setting it
+        // here would keep the buyer identified with e-mail only when the fetch
+        // fails (expired token, 401) and show the account form as new customer.
         this.$emit('login', ecomPassport)
       }
     },
