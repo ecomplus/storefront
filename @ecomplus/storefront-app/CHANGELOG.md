@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.229](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.228...@ecomplus/storefront-app@2.0.0-beta.229) (2026-09-21)
+
+### Bug Fixes
+
+- **checkout:** return to identification when the session token is rejected ([#1314](https://github.com/ecomplus/storefront/issues/1314)) ([4740687](https://github.com/ecomplus/storefront/commit/47406872e811a54fc853c74e1a83a86db1d6ec6b))
+
 # [2.0.0-beta.228](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.227...@ecomplus/storefront-app@2.0.0-beta.228) (2026-07-31)
 
 ### Bug Fixes

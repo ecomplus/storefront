@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.14](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.11.13...@ecomplus/storefront-renderer@2.11.14) (2026-09-21)
+
+### Bug Fixes
+
+- **deps:** update all non-major dependencies ([#1307](https://github.com/ecomplus/storefront/issues/1307)) ([6b7622b](https://github.com/ecomplus/storefront/commit/6b7622b13a908aa56986e969c4ee15a2acf50cc2))
+- **deps:** update all non-major dependencies ([#1312](https://github.com/ecomplus/storefront/issues/1312)) ([f5974cc](https://github.com/ecomplus/storefront/commit/f5974cc749bbbf65dfdf7aed039a6d4f508d7a9d))
+
 ## [2.11.13](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-renderer@2.11.12...@ecomplus/storefront-renderer@2.11.13) (2026-07-31)
 
 ### Bug Fixes

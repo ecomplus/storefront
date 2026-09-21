@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.20.67](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.66...@ecomplus/storefront-framework@5.20.67) (2026-09-21)
+
+### Bug Fixes
+
+- **deps:** update all non-major dependencies ([#1299](https://github.com/ecomplus/storefront/issues/1299)) ([a328481](https://github.com/ecomplus/storefront/commit/a3284814844ec22b3f20de2fcc7e54ba53005e24))
+- **deps:** update all non-major dependencies ([#1302](https://github.com/ecomplus/storefront/issues/1302)) ([0e45d69](https://github.com/ecomplus/storefront/commit/0e45d6979bdd0d4c7a488b0d24baf9bf583a5ef9))
+- **deps:** update all non-major dependencies ([#1307](https://github.com/ecomplus/storefront/issues/1307)) ([6b7622b](https://github.com/ecomplus/storefront/commit/6b7622b13a908aa56986e969c4ee15a2acf50cc2))
+- **deps:** update all non-major dependencies ([#1310](https://github.com/ecomplus/storefront/issues/1310)) ([d7a3ff6](https://github.com/ecomplus/storefront/commit/d7a3ff670e5ff7c4d35e9b81374636f5e277e5d9))
+- **deps:** update all non-major dependencies ([#1312](https://github.com/ecomplus/storefront/issues/1312)) ([f5974cc](https://github.com/ecomplus/storefront/commit/f5974cc749bbbf65dfdf7aed039a6d4f508d7a9d))
+- **deps:** update all non-major dependencies ([#1315](https://github.com/ecomplus/storefront/issues/1315)) ([6223740](https://github.com/ecomplus/storefront/commit/62237408db307dc7ec91677a3ca316af11302ac2))
+
 ## [5.20.66](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-framework@5.20.65...@ecomplus/storefront-framework@5.20.66) (2026-07-31)
 
 ### Bug Fixes
