@@ -118,7 +118,8 @@ export default {
       'selectPaymentGateway',
       'setCustomer',
       'selectAddress',
-      'addOrder'
+      'addOrder',
+      'resetAccount'
     ]),
 
     ...mapActions([
@@ -132,6 +133,12 @@ export default {
       this.ecomPassport = ecomPassport
       this.triggerLoading(true)
       this.fetchCustomer({ ecomPassport })
+        .catch(() => {
+          if (!ecomPassport.checkLogin()) {
+            // `fetchCustomer` logs out on 401 (stale token)
+            this.resetAccount()
+          }
+        })
         .finally(() => this.triggerLoading(false))
     },
 

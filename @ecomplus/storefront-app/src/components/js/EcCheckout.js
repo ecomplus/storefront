@@ -307,7 +307,8 @@ export default {
 
     login (ecomPassport) {
       if (ecomPassport.checkLogin()) {
-        this.customerEmail = ecomPassport.getCustomer().main_email
+        // don't set `customerEmail` here, the fetch may fail (401) and leave
+        // the buyer identified with e-mail only, as a new customer
         this.$emit('login', ecomPassport)
       }
     },
