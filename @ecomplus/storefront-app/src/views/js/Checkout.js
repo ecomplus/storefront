@@ -135,7 +135,7 @@ export default {
       this.fetchCustomer({ ecomPassport })
         .catch(() => {
           if (!ecomPassport.checkLogin()) {
-            // session dropped (401 with stale token), back to identification
+            // `fetchCustomer` logs out on 401 (stale token)
             this.resetAccount()
           }
         })
