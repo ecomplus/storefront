@@ -1,14 +1,21 @@
 name: Publish
 
-on: registry_package
+on:
+  registry_package:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Package name without scope (e.g. storefront-app)'
+        required: true
 
 jobs:
   publish:
     name: Publish to npm
     runs-on: ubuntu-latest
     env:
-      PKG_OWNER: ${{ github.event.registry_package.owner.login }}
-      PKG_NAME: ${{ github.event.registry_package.name }}
+      PKG_OWNER: ${{ github.event.registry_package.owner.login || 'ecomplus' }}
+      PKG_NAME: ${{ github.event.registry_package.name || inputs.package }}
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
       - name: Checkout
@@ -27,8 +34,6 @@ jobs:
         run: npx lerna run --scope=@$PKG_OWNER/$PKG_NAME build
 
       - name: Edit package.json and publish to npm registry
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           cd ./@$PKG_OWNER/$PKG_NAME && \
           node -p "const pkg = require('./package.json'); \
@@ -37,7 +42,7 @@ jobs:
           npm publish --access public
 
       - name: Trigger Netlify deploy
-        if: github.event.registry_package.name == 'storefront-template'
+        if: env.PKG_NAME == 'storefront-template'
         env:
           NETLIFY_HOOK_ENDPOINT: ${{ secrets.NETLIFY_HOOK_ENDPOINT }}
         run: |
