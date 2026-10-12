@@ -159,7 +159,13 @@ export default {
         .catch((err) => {
           if (err.response) {
             const { data } = err.response
-            if (data && data.user_message) {
+            if (data && (data.error_code === 'CKT901' || (data.user_message && [
+              'CKT802',
+              'CKT804',
+              'CKT805',
+              'CKT806',
+              'CKT503'
+            ].includes(data.error_code)))) {
               this.$toast({
                 title: i18n(i19error),
                 body: i18n(data.user_message),
