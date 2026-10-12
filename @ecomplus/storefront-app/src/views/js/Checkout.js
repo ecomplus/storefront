@@ -159,13 +159,15 @@ export default {
         .catch((err) => {
           if (err.response) {
             const { data } = err.response
-            if (data && data.error_code === 'CKT901') {
+            if (data && data.user_message) {
               this.$toast({
                 title: i18n(i19error),
                 body: i18n(data.user_message),
                 variant: 'warning'
               })
-              this.skipShippingApps.push(this.shippingService.app_id)
+              if (data.error_code === 'CKT901') {
+                this.skipShippingApps.push(this.shippingService.app_id)
+              }
               return
             }
           }
