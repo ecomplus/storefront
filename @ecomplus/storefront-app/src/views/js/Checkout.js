@@ -8,6 +8,9 @@ import { mapGetters, mapMutations, mapActions } from 'vuex'
 import { upsertCart } from './../../lib/sync-cart-to-api'
 import EcCheckout from './../../components/EcCheckout.vue'
 
+// backend errors whose `user_message` is shown to the customer
+const userMessageErrorCodes = ['CKT503', 'CKT802', 'CKT804', 'CKT805', 'CKT806']
+
 export default {
   name: 'checkout',
 
@@ -159,19 +162,17 @@ export default {
         .catch((err) => {
           if (err.response) {
             const { data } = err.response
-            if (data && (data.error_code === 'CKT901' || (data.user_message && [
-              'CKT802',
-              'CKT804',
-              'CKT805',
-              'CKT806',
-              'CKT503'
-            ].includes(data.error_code)))) {
+            const isShippingError = data && data.error_code === 'CKT901'
+            if (
+              isShippingError ||
+              (data && data.user_message && userMessageErrorCodes.includes(data.error_code))
+            ) {
               this.$toast({
                 title: i18n(i19error),
                 body: i18n(data.user_message),
                 variant: 'warning'
               })
-              if (data.error_code === 'CKT901') {
+              if (isShippingError) {
                 this.skipShippingApps.push(this.shippingService.app_id)
               }
               return
