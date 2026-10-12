@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.230](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.229...@ecomplus/storefront-app@2.0.0-beta.230) (2026-10-12)
+
+### Bug Fixes
+
+- **storefront-app:** show backend `user_message` on any checkout error, not only CKT901 ([#1324](https://github.com/ecomplus/storefront/issues/1324)) ([144464b](https://github.com/ecomplus/storefront/commit/144464b063712eb979dd3356e74b004fe4011a20))
+
 # [2.0.0-beta.229](https://github.com/ecomplus/storefront/compare/@ecomplus/storefront-app@2.0.0-beta.228...@ecomplus/storefront-app@2.0.0-beta.229) (2026-09-21)
 
 ### Bug Fixes
